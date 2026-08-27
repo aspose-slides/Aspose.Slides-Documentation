@@ -1,6 +1,6 @@
 ---
-title: Csatlakozók kezelése prezentációkban Androidon
-linktitle: Csatlakozó
+title: "Csatlakozók kezelése Android prezentációkban"
+linktitle: "Csatlakozó"
 type: docs
 weight: 10
 url: /hu/androidjava/connector/
@@ -10,397 +10,496 @@ keywords:
 - csatlakozó pont
 - csatlakozó vonal
 - csatlakozó szög
-- alakzatok összekapcsolása
+- csatlakozási hely
+- igazítási pont
+- alakzatok csatlakoztatása
 - PowerPoint
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Adjon lehetőséget a Java alkalmazásoknak, hogy vonalakat rajzoljanak, összekapcsoljanak és automatikusan útvonalat számítsanak a PowerPoint diáknál Androidon—teljes irányítást kapjon az egyenes, könyök és ívelt csatlakozók felett."
+description: "Ismerje meg, hogyan lehet hozzáadni, csatlakoztatni, újraírni, igazítani és ellenőrizni egyenes, hajlított és ívelt PowerPoint csatlakozókat az Aspose.Slides for Android segítségével Java nyelven."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A PowerPoint csatlakozó egy speciális vonal, amely összekapcsol vagy összeköt két alakzatot, és a alakzatokhoz rögzítve marad még akkor is, ha azok egy adott dián mozognak vagy áthelyeződnek.  
+A csatlakozó egy vonal, amely a két alakzat egyikének mozgatásakor is csatlakoztatva maradhat. Végpontjai csatlakozási helyekhez (connection sites) kapcsolódnak, amelyeket a PowerPoint zöld pontok ábrázolnak. Néhány hajlított és ívelt csatlakozó továbbá orange pontokkal jelölt igazítási pontokat (adjustment points) is tartalmaz, amelyek az egyes csatlakozó szegmensek pozícióját szabályozzák.
 
-A csatlakozók általában *kapcsolási pontokhoz* (zöld pontok) csatlakoznak, amelyek alapértelmezés szerint minden alakzaton léteznek. A kapcsolási pontok megjelennek, amikor a kurzor közel kerül hozzájuk.  
+Az Aspose.Slides a csatlakozókat az [IConnector](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iconnector/) interfésszel reprezentálja. Létrehozhatja őket, csatlakoztathatja a végpontjaikat alakzatokhoz, kiválaszthatja a csatlakozási helyeket, újrairányíthatja őket, és módosíthatja azok geometriáját, ha igazítási pontokkal rendelkeznek.
 
-*Igazítási pontok* (narancssárga pontok), amelyek csak bizonyos csatlakozókon léteznek, a csatlakozók pozíciójának és alakjának módosítására szolgálnak.  
+## **Csatlakozótípusok**
 
-## **Kapcsolók típusai**
+A [ShapeType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapetype/) osztály tartalmaz egyenes, hajlított és ívelt csatlakozó előbeállításokat. Az alábbi táblázat mutatja a rendelkezésre álló csatlakozó geometriákat és az egyes előbeállítások által definiált igazítási pontok számát.
 
-PowerPointban használhatunk egyenes, könyök (szögelt) és ívelt csatlakozókat.  
-
-Aspose.Slides ezeket a csatlakozókat kínálja:
-
-| Csatlakozó | Kép | Igazítási pontok száma |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0 |
+| Csatlakozó | Kép | Az igazítási pontok száma |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0 |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1 |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2 |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3 |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Alakzatok összekapcsolása csatlakozókkal**
+Az igazítási pontok száma és jelentése a kiválasztott csatlakozó előbeállítás részét képezi. Ne feltételezze, hogy két különböző csatlakozótípus ugyanazt a gyűjteményelrendezést használja.
 
-1. Hozzon létre egy példányt a [Presentation](https://apireference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-1. Szerezze meg egy dia hivatkozását annak indexén keresztül.  
-1. Adjon hozzá két [AutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AutoShape) alakzatot a diához a `Shapes` objektum által biztosított `addAutoShape` metódus használatával.  
-1. Adjon hozzá egy csatlakozót a `addConnector` metódus használatával, amelyet a `Shapes` objektum biztosít, a csatlakozó típusának megadásával.  
-1. Csatlakoztassa az alakzatokat a csatlakozóval.  
-1. Hívja meg a `reroute` metódust a legrövidebb összekötési útvonal alkalmazásához.  
-1. Mentse el a prezentációt.  
+## **Két alakzat összekapcsolása**
 
-Ez a Java kód bemutatja, hogyan adhat hozzá egy csatlakozót (egy hajlított csatlakozót) két alakzat között (egy ellipszist és egy téglalapot):
+Használja az [IShapeCollection.addConnector](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) metódust a csatlakozó hozzáadásához, majd a [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) és [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) metódusokat a végpontok csatlakoztatásához. Miután mindkét végpont csatlakoztatva van, az [IConnector.reroute](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iconnector/#reroute--) rövid útvonalat választ a két alakzat között.
 
-```Java
-// Példányosít egy prezentáció osztályt, amely a PPTX fájlt képviseli
-Presentation pres = new Presentation();
-try {
-    // Eléri egy adott dia alakzatgyűjteményét
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // Ellipszis autoalakzatot ad hozzá
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // Téglalap autoalakzatot ad hozzá
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // Csatlakozó alakzatot ad a dia alakzatgyűjteményéhez
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // Az alakzatokat a csatlakozóval összeköti
-    connector.setStartShapeConnectedTo(ellipse);
-    connector.setEndShapeConnectedTo(rectangle);
-    
-    // Meghívja a reroute metódust, amely beállítja az alakzatok közötti automatikus legrövidebb útvonalat
-    connector.reroute();
-    
-    // Elmenti a prezentációt
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-`Connector.reroute` metódus átirányít egy csatlakozót, és arra kényszeríti, hogy a lehető legrövidebb útvonalat vegye az alakzatok között. A cél elérése érdekében a metódus módosíthatja a `setStartShapeConnectionSiteIndex` és a `setEndShapeConnectionSiteIndex` pontokat. 
-
-{{% /alert %}} 
-
-## **Kapcsolási pont megadása**
-
-Ha azt szeretné, hogy egy csatlakozó a két alakzatot a alakzatokon lévő meghatározott pontok használatával kössön össze, akkor a kívánt kapcsolási pontokat a következő módon kell megadni:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-1. Szerezze meg egy dia hivatkozását annak indexén keresztül.  
-1. Adjon hozzá két [AutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AutoShape) alakzatot a diához a `Shapes` objektum által biztosított `addAutoShape` metódus használatával.  
-1. Adjon hozzá egy csatlakozót a `addConnector` metódus használatával, amelyet a `Shapes` objektum biztosít, a csatlakozó típusának megadásával.  
-1. Csatlakoztassa az alakzatokat a csatlakozóval.  
-1. Állítsa be a kívánt kapcsolási pontokat az alakzatokon.  
-1. Mentse el a prezentációt.  
-
-Ez a Java kód bemutat egy olyan műveletet, ahol egy kívánt kapcsolási pont van megadva:
+Az alábbi példa egy ellipszist és egy téglalapot köt össze egy hajlított csatlakozóval:
 
 ```java
-// Példányosít egy prezentáció osztályt, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Eléri egy adott dia alakzatgyűjteményét
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ellipszis autoalakzatot ad hozzá
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Téglalap autoalakzatot ad hozzá
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // Csatlakozó alakzatot ad a dia alakzatgyűjteményéhez
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Az alakzatokat a csatlakozóval összeköti
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
+    connector.reroute();
 
-    // Beállítja a kívánt kapcsolási pont indexét az Ellipszis alakzaton
-    int wantedIndex = 6;
-
-    // Ellenőrzi, hogy a kívánt index kisebb-e a maximális hely index számlálónál
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // Beállítja a kívánt kapcsolási pontot az Ellipszis autoalakzaton
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
-    }
-
-    // Elmenti a prezentációt
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Csatlakozó pont módosítása**
+{{% alert color="warning" title="Figyelmeztetés" %}}
+A `reroute` hívás megváltoztathatja a [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) és [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) értékeket. Az újrairányítás után állítson be konkrét csatlakozási helyeket, ha azoknak rögzítve kell maradniuk.
+{{% /alert %}}
 
-Egy meglévő csatlakozót az igazítási pontjain keresztül módosíthat. Csak azok a csatlakozók módosíthatók így, amelyek rendelkeznek igazítási pontokkal. Lásd a táblázatot a **[Kapcsolók típusai.](/slides/hu/androidjava/connector/#types-of-connectors)** alatt  
+## **Csatlakozási hely kiválasztása**
 
-### **Egyszerű eset**
+Minden kapcsolódó alakzat a [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--) metódussal adja vissza a helyek számát. Ellenőrizze a kívánt, nullától indexelt helyet, mielőtt a csatlakozó végéhez rendeli; a helyek száma alakzat geometriától függ.
 
-Tekintsünk egy esetet, ahol egy csatlakozó két alakzat (A és B) között áthalad egy harmadik alakzaton (C):
+Ez a példa egy adott helyhez csatlakoztatja a csatlakozót az ellipszisön, ha az a hely létezik:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
+    }
+
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Csatlakozó pont igazítása**
+
+Az igazítási pontokkal rendelkező csatlakozók ezeket a [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) metóduson keresztül teszik elérhetővé. Minden [IAdjustValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/) vizsgálata előtt ellenőrizze annak [getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#getType--) értékét, majd módosítsa a [setRawValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) metódussal. Az előre beállított alakzat igazítások azonosításának általános szabályait a [Shape Manipulation](/slides/hu/androidjava/shape-manipulations/) leírása tartalmazza.
+
+Az igazítási pontok száma, sorrendje, jelentése és érvényes értéktartománya a csatlakozó előbeállításától függ. Az igazítás típusa csak olvasható, míg az értéke írásra is alkalmas. A csak olvasható [getName](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#getName--) metódus további azonosítást nyújt, ha a csatlakozó több azonos szemantikai típusú igazítást tartalmaz.
+
+### **Útvonal akadály körül**
+
+Az alábbi elrendezésben egy `BentConnector5` csatlakozó két alakzat között egy harmadik alakzaton keresztül halad:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Ez a kód hozza létre az akadályoztatott csatlakozót:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-A harmadik alakzat elkerüléséhez vagy megkerüléséhez a csatlakozót úgy módosíthatjuk, hogy a függőleges vonalát balra mozgatjuk:
+A függőleges hajlítás mozgatása megváltoztatja az útvonalat, így a csatlakozó megkerüli az akadályt:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
-```
-
-### **Összetett esetek** 
-
-Összetettebb módosítások végrehajtásához figyelembe kell venni a következőket:
-
-* Egy csatlakozó állítható pontja szorosan egy olyan képlethez kapcsolódik, amely kiszámítja és meghatározza a pozícióját. Így a pont helyzetének módosítása megváltoztathatja a csatlakozó alakját.  
-* A csatlakozó igazítási pontjait egy tömbben szigorú sorrendben definiálják. Az igazítási pontok számozása a csatlakozó kezdőpontjától a végpontig terjed.  
-* Az igazítási pont értékek a csatlakozó alakzat szélességének/magasságának százalékát tükrözik.  
-  * Az alakzat a csatlakozó kezdő- és végpontját 1000‑szörösével határolja.  
-  * Az első pont, a második pont és a harmadik pont a szélességből, a magasságból és ismét a szélességből származó százalékot határozza meg.  
-* Azoknak a számításoknak, amelyek a csatlakozó igazítási pontjainak koordinátáit határozzák meg, figyelembe kell venni a csatlakozó forgatását és tükröződését. **Megjegyzés**: a **[Kapcsolók típusai](/slides/hu/androidjava/connector/#types-of-connectors)** alatt látható összes csatlakozó forgatási szöge 0.  
-
-#### **1. eset**
-
-Tekintsünk egy esetet, ahol két szövegkeret objektumot egy csatlakozóval kapcsolnak össze:
+Ahelyett, hogy azt feltételezné, hogy a `1` indexű elem mindig a függőleges hajlítás, ez a példa a `ConnectorBendPositionY` elemet keresi, és csak akkor módosítja, ha a várt szemantikai típus jelen van:
 
 ```java
-// Példányosít egy prezentáció osztályt, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Lekéri az első diát a prezentációból
-    ISlide sld = pres.getSlides().get_Item(0);
-    // Hozzáadja az alakzatokat, amelyeket egy csatlakozóval kapcsolunk össze
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Hozzáad egy csatlakozót
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Megadja a csatlakozó irányát
-    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Megadja a csatlakozó színét
-    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Megadja a csatlakozó vonalának vastagságát
-    connector.getLineFormat().setWidth(3);
-    
-    // Összekapcsolja az alakzatokat a csatlakozóval
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
-    connector.setEndShapeConnectionSiteIndex(2);
-    
-    // Lekéri a csatlakozó igazítási pontjait
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**Igazítás**
+Egy `BentConnector5` két `ConnectorBendPositionX` és egy `ConnectorBendPositionY` igazítással rendelkezik. Ha a szükséges típust többször találja, ellenőrizze a `getName` értékét és az adott előbeállítás ismert geometriáját, mielőtt kiválasztaná. Ha egy igazítás `ShapeAdjustmentType.Custom` értéket ad vissza, tekintse jelentését és tartományát az előre beállított specifikusnak, és ne változtassa meg, amíg a szerződés nem ismert.
 
-Módosíthatjuk a csatlakozó igazítási pontjainak értékeit, ha a megfelelő szélesség- és magasság-százalékot rendre 20%-kal és 200%-kal növeljük:
+## **Igazítási értékek kapcsolása a csatlakozó geometriához**
+
+A hajlított csatlakozók esetén az igazítási értékek felhasználhatók az egyes szegmensek pozíciójának becslésére. Ezek a számítások a csatlakozó előbeállításához kötöttek:
+
+- A `BentConnector4` általában egy `ConnectorBendPositionX` és egy `ConnectorBendPositionY` igazítást tesz láthatóvá.
+- Ezekhez a hajlítási pozíciókhoz az `getRawValue` által visszaadott értéket `100000f`‑el elosztva kapjuk meg a csatlakozó keret szélességének vagy magasságának tört részét, ahogyan az alábbi példákban látható.
+- A csatlakozó kerete elforgatható vagy tükrözhető, ezért a keret koordinátákat át kell alakítani, mielőtt a diakordinátákkal összehasonlítanánk őket.
+
+Az alábbi példák először a `getType` segítségével azonosítják az igazításokat. Nem tekintik a gyűjtemény indexeket hordozható azonosítóknak.
+
+### **Nem forgatott csatlakozó**
+
+A kezdeti elrendezés két szöveges alakzatot kapcsol össze egy `BentConnector4`‑el:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Ez a példa megvizsgálja a csatlakozót, és lekéri a vízszintes és függőleges hajlítási igazításokat:
 
 ```java
-// Módosítja az igazítási pontok értékeit
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Az eredmény:
+A két hajlítás módosításához keresse meg a várt típust, majd csak akkor módosítsa az értékeket, ha mindkettőt megtalálta:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredmény egy olyan csatlakozó, amelynek vízszintes és függőleges szegmensei elmozdultak:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Egy modell meghatározásához, amely lehetővé teszi a csatlakozó egyes részeinek koordinátáinak és alakjának meghatározását, hozzunk létre egy alakzatot, amely a csatlakozó vízszintes komponensének felel meg a connector.getAdjustments().get_Item(0) pontnál:
+Miután a szemantikai típusok ismertté váltak, az értékek átalakíthatók csatlakozó‑keret koordinátákká. Ez a példa egy vékony téglalapot rajzol a két hajlítás által vezérelt függőleges szegmens fölé:
 
 ```java
-// Rajzolja a csatlakozó függőleges komponensét
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Az eredmény:
+A segédalakzat az számított szegmenst jelöli:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **2. eset**
+### **Forgatott vagy tükrözött csatlakozó**
 
-Az **1. esetben** egyszerű csatlakozó-igazítási műveletet mutattunk be alapelvek használatával. Normál helyzetekben figyelembe kell venni a csatlakozó forgatásait és megjelenítését (amelyeket a connector.getRotation(), a connector.getFrame().getFlipH() és a connector.getFrame().getFlipV() állít be). Most bemutatjuk a folyamatot.
+Ha ugyanez a csatlakozó geometriája függőlegesen van orientálva, az [IShape.getFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getFrame--), a [ShapeFrame.getFlipH](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapeframe/#getFlipH--) és a [ShapeFrame.getFlipV](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapeframe/#getFlipV--) értékek befolyásolják a csatlakozó‑keret koordináták diakordinátákká történő átalakítását.
 
-Először adjunk egy új szövegkeret objektumot (**To 1**) a diához (kapcsolási célból), és hozzunk létre egy új (zöld) csatlakozót, amely összeköti a már létrehozott objektumokkal.
+Ez a példa létrehozza és módosítja a függőlegesen orientált csatlakozót:
 
 ```java
-// Létrehoz egy új kötési objektumot
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Létrehoz egy új csatlakozót
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// Összekapcsolja az objektumokat az újonnan létrehozott csatlakozóval
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Lekéri a csatlakozó igazítási pontjait
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Módosítja az igazítási pontok értékeit
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    int connectorColor = Color.rgb(102, 205, 170);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Az eredmény:
+Az igazított csatlakozó függőlegesen jelenik meg az alakzatok között:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Másodszor hozzunk létre egy alakzatot, amely a csatlakozó vízszintes komponensének felel meg, amely áthalad az új csatlakozó igazítási pontján, a connector.getAdjustments().get_Item(0)-n. A connector.getRotation(), a connector.getFrame().getFlipH() és a connector.getFrame().getFlipV() értékeit fogjuk felhasználni, és alkalmazzuk a gyakori koordináta-transzformációs képletet egy adott x0 pont körüli forgatáshoz:
+Tetszőleges `alpha` fordulatszög esetén egy csatlakozó‑keret pontot `(x, y)` a keret középpontja `(x0, y0)` körül a következőképpen forgatjuk:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Mi esetünkben az objektum forgatási szöge 90 fok, és a csatlakozó függőlegesen jelenik meg, ezért ez a megfelelő kód:
+Az alábbi kód kezeli a példában használt 90‑fokos orientációt, és egy piros segédvonalat rajzol a megfelelő csatlakozó szegmens fölé:
 
 ```java
-// Elmenti a csatlakozó koordinátákat
-x = connector.getX();
-y = connector.getY();
-// Korrigálja a csatlakozó koordinátákat, ha szükséges
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// Az igazítási pont értékét koordinátaként használja
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Átalakítja a koordinátákat, mivel Sin(90) = 1 és Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// Meghatározza a vízszintes komponens szélességét a második igazítási pont értékével
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-Az eredmény:
+A piros segédvonal a koordináta-átalakítás után számított szegmenst jelöli:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Bemutattuk az egyszerű igazításokat és a bonyolultabb, forgatási szögekkel rendelkező igazítási pontokat érintő számításokat. A megszerzett tudással saját modellt fejleszthet (vagy kódot írhat), amely segítségével `GraphicsPath` objektumot kap, vagy akár a csatlakozó igazítási pontjainak értékeit meghatározott dia-koordináták alapján is beállíthatja.
+Ezek a képletek a példákban használt előbeállításokat írják le, nem egy általános csatlakozó modellt. Mielőtt ugyanazt a számítást más előbeállításra alkalmazná, ellenőrizze az igazítási típusokat, a keret orientációját és az értéktartományokat.
 
-## **A csatlakozó vonalak szögének meghatározása**
+## **Csatlakozó irányszög meghatározása**
 
-1. Hozzon létre egy példányt az osztályból.  
-1. Szerezze meg egy dia hivatkozását annak indexén keresztül.  
-1. Hozzáférés a csatlakozó vonal alakzathoz.  
-1. A vonal szélességének, magasságának, az alakzat keretmagasságának és keretszélességének felhasználásával számítsa ki a szöget.  
-
-Ez a Java kód egy olyan műveletet mutat be, amelyben egy csatlakozó vonal alakzat szögét számoltuk ki:
+Egy egyenes csatlakozó irányát a szélesség és magasság alapján lehet kiszámítani, figyelembe véve a vízszintes és függőleges tükrözéseket. Az alábbi példa a percenkénti óramutató járásával megegyező szöget adja meg a diakordináták pozitív vízszintes tengelyétől:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
 
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **GYIK**
 
-**Hogyan tudom megállapítani, hogy egy csatlakozó „ragasztható”-e egy adott alakzatra?**
+**Hogyan tudom megállapítani, hogy egy csatlakozó csatlakoztatható-e egy alakzathoz?**
 
-Ellenőrizze, hogy az alakzat rendelkezik-e [kapcsolási pontokkal](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shape/#getConnectionSiteCount--). Ha nincs, vagy a számláló nulla, a ragasztás nem lehetséges; ebben az esetben használjon szabad végeket és helyezze el őket manuálisan. Érdemes a csatlakozási pontok számát ellenőrizni a csatolás előtt.
+Ellenőrizze az alakzat [getConnectionSiteCount](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--) értékét. A pozitív szám azt jelzi, hogy az alakzat rendelkezik csatlakozási helyekkel. A kiválasztott hely indexét ellenőrizze, mielőtt bármelyik csatlakozó végéhez rendeli.
 
-**Mi történik a csatlakozóval, ha törlök egy csatlakoztatott alakzatot?**
+**Azonosíthatom-e a csatlakozó igazítását a gyűjtemény indexe alapján?**
 
-A végei leválnak; a csatlakozó a dián egy szokásos vonalként marad, szabad kezdő/feje véggel. Törölheti, vagy újra hozzárendelheti a kapcsolódásokat, és szükség esetén [reroute](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/connector/#reroute--).
+Az index csak egy ismert csatlakozó előbeállítás és gyűjteményelrendezés esetén értelmezhető. Módosítás előtt ellenőrizze a [IAdjustValue.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#getType--) értékét, és ha ugyanaz a szemantikai típus többször is előfordul, használja a [IAdjustValue.getName](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iadjustvalue/#getName--) információt.
 
-**Megmaradnak a csatlakozók kötései, ha egy diát egy másik prezentációba másolunk?**
+**Mi történik, ha egy csatlakoztatott alakzatot törölnek?**
 
-Általában igen, amennyiben a célalakzatok is másolásra kerülnek. Ha a dia egy másik fájlba kerül a kapcsolódó alakzatok nélkül, a végek szabadon maradnak, és újra kell csatolni őket.
+Az érintett csatlakozó végpontja leválik. A csatlakozó a dián marad, és törölhető, szabad vonalként pozicionálható, illetve másik alakzathoz csatolható.
+
+**Megmaradnak a csatlakozások, ha egy diát másolnak?**
+
+A csatlakozások általában megmaradnak, ha a kapcsolódó alakzatokkal együtt másolják a diát. Ha egy csatlakozót másolnak anélkül, hogy a célalakzat egyike meg lenne, a érintett végpontot újra csatlakoztatni kell.

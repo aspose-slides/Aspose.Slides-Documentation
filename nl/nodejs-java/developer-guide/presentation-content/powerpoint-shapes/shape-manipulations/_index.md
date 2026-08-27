@@ -1,401 +1,491 @@
 ---
 title: Beheer presentatievormen in JavaScript
-linktitle: Vormenmanipulatie
+linktitle: Vormmanipulatie
 type: docs
 weight: 40
 url: /nl/nodejs-java/shape-manipulations/
 keywords:
 - PowerPoint-vorm
-- presentatievorm
+- presentatie-vorm
 - vorm op dia
-- vorm vinden
+- vorm zoeken
 - vorm klonen
 - vorm verwijderen
 - vorm verbergen
 - volgorde van vorm wijzigen
-- interop vorm-ID
+- interop-vorm-ID ophalen
 - alternatieve tekst van vorm
-- lay-outformaten van vorm
+- aanpassingspunt van vorm
+- vooraf ingestelde vormaanpassing
+- vormgeometrie
+- vorm-lay-outformaten
 - vorm als SVG
 - vorm naar SVG
 - vorm uitlijnen
+- vorm spiegelen
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Leer vormen maken, bewerken en optimaliseren met JavaScript en Aspose.Slides voor Node.js via Java en lever hoogpresterende PowerPoint-presentaties."
+description: "Leer hoe u presentatievormen kunt identificeren, aanpassen, klonen, verwijderen, verbergen, opnieuw ordenen, exporteren, uitlijnen en spiegelen met Aspose.Slides voor Node.js via Java."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je met vormen in presentaties kunt werken met Aspose.Slides. Het toont hoe je een vorm op een dia kunt vinden, klonen, verwijderen, verbergen, de volgorde kunt wijzigen, de Interop‑vorm‑ID kunt ophalen en alternatieve tekst kunt instellen voor identificatie en verdere verwerking.
+Aspose.Slides for Node.js via Java stelt de vormen op een dia voor als een geordende [ShapeCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/). De collectie is zowel de plaats waar u vormen vindt en bewerkt als de bron van hun stapelvolgorde: index `0` is de achterste vorm, terwijl de laatste index de voorste vorm is.
 
-Het behandelt ook hoe je lay-outformaten voor vormen kunt benaderen, een vorm als SVG kunt renderen, vormen op een dia kunt uitlijnen en spiegel‑eigenschappen voor horizontale en verticale reflectie kunt gebruiken. Bovendien bevat het een korte FAQ over het combineren van vormen, stapelvolgorde en het vergrendelen van vormen.
+Dit artikel volgt dat model. Het legt eerst uit hoe u een vorm betrouwbaar kunt identificeren en vooraf ingestelde aanpassingspunten kunt wijzigen, en toont vervolgens hoe u vormen kunt klonen, verwijderen, verbergen en opnieuw ordenen. De laatste secties behandelen opmaak op lay-outniveau, SVG-export, uitlijning en spiegelinstellingen. Elk voorbeeld staat op zichzelf, zodat u alleen de bewerkingen kunt gebruiken die uw workflow vereist.
 
-## **Vorm vinden in dia**
-Dit onderwerp beschrijft een eenvoudige techniek die het voor ontwikkelaars makkelijker maakt om een specifieke vorm op een dia te vinden zonder de interne Id te gebruiken. Het is belangrijk te weten dat PowerPoint‑presentatiebestanden geen andere manier hebben om vormen op een dia te identificeren dan een interne unieke Id. Het blijkt moeilijk voor ontwikkelaars om een vorm via die interne unieke Id te vinden. Alle toegevoegde vormen hebben enige Alt‑tekst. Wij raden ontwikkelaars aan alternatieve tekst te gebruiken om een specifieke vorm te vinden. Je kunt in MS PowerPoint de alternatieve tekst definiëren voor objecten die je later wilt wijzigen.
+## **Identificeren en Vinden van Vormen**
 
-Nadat je de alternatieve tekst van een gewenste vorm hebt ingesteld, kun je die presentatie openen met Aspose.Slides voor Node.js via Java en door alle vormen op een dia itereren. Tijdens elke iteratie kun je de alternatieve tekst van de vorm controleren; de vorm met de overeenkomende alternatieve tekst is de door jou gewenste vorm. Om deze techniek beter te demonstreren, hebben we een methode, [findShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) gemaakt die het vinden van een specifieke vorm in een dia afhandelt en vervolgens die vorm retourneert.
+Collectie‑indexen zijn praktisch bij het verwerken van een bekend bestand, maar ze zijn geen stabiele identificatoren. Het toevoegen, verwijderen of opnieuw ordenen van een vorm kan de index wijzigen. Kies een identificator op basis van hoe de presentatie is gemaakt en onderhouden:
 
-```javascript
-// Maak een instantie van de Presentation‑klasse die het presentatiebestand vertegenwoordigt
-var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    // Alternatieve tekst van de te vinden vorm
-    var shape = findShape(slide, "Shape1");
-    if (shape != null) {
-        console.log("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function findShape(slide, altText) {
-    let shapes = slide.getShapes();
-    
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i);
-        
-        if (shape.getAlternativeText() === altText) {
-            return shape;
-        }
-    }
+- [Name](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/getname/) is handig voor door ontwikkelaars beheerde sjablonen en is eenvoudig te inspecteren in het Selectiepaneel van PowerPoint. Namen kunnen worden bewerkt en zijn niet gegarandeerd uniek, dus stel een naamgevingsconventie vast als code ervan afhankelijk is.
+- [AlternativeText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/getalternativetext/) is nuttig wanneer een toegankelijkheidsbeschrijving of een door de auteur toegevoegde tag de vorm al identificeert. Het is zichtbaar voor gebruikers, kan gelokaliseerd of herschreven worden voor toegankelijkheid, en is niet gegarandeerd uniek. Gebruik geen betekenisvolle toegankelijkheidstekst stilletjes als een databasesleutel.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) is een alleen‑lezen‑identificator die uniek is binnen een dia en overeenkomt met de vorm‑ID die PowerPoint‑interop gebruikt. Gebruik deze wanneer u integreert met PowerPoint of wanneer u een ondubbelzinnige referentie nodig heeft gedurende de levensduur van een vorm. Een gekloonde of opnieuw gemaakte vorm is een andere vorm en krijgt een eigen ID.
 
-    return null;
-}
-```
+De verwante [getUniqueId](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/getuniqueid/)‑methode geeft een identificator met presentatiescope terug, maar die identificator is bedoeld voor add‑ins en kan opnieuw toegewezen worden. Hij mag niet behandeld worden als een permanente externe sleutel. Als langdurige identiteit essentieel is, bewaar dan de mapping in toepassingsdata en controleer dat de verwachte vorm nog bestaat.
 
-## **Vorm klonen**
-Om een vorm naar een dia te klonen met Aspose.Slides voor Node.js via Java:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation)‑klasse.
-1. Verkrijg de referentie van een dia door de index te gebruiken.
-1. Benader de vormverzameling van de bron‑dia.
-1. Voeg een nieuwe dia toe aan de presentatie.
-1. Kloon vormen van de bron‑dia‑verzameling naar de nieuwe dia.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-Het voorbeeld hieronder voegt een groepvorm toe aan een dia.
+Het volgende voorbeeld zoekt op naam met een exacte vergelijking en rapporteert de interop‑ID met diascoping. Wanneer de sjabloon de verwachte vorm niet bevat, meldt de code dat resultaat in plaats van door te gaan met het verkeerde object.
 
 ```javascript
-// Instantieer Presentation-klasse
-var pres = new aspose.slides.Presentation("Source Frame.pptx");
-try {
-    var sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
-    var destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    var destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // Schrijf het PPTX-bestand naar schijf
-    pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const asposeSlides = require("aspose.slides.via.java");
 
-## **Vorm verwijderen**
-Aspose.Slides voor Node.js via Java stelt ontwikkelaars in staat elke vorm te verwijderen. Volg onderstaande stappen om de vorm van een dia te verwijderen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation)‑klasse.
-1. Benader de eerste dia.
-1. Zoek de vorm met een specifieke AlternativeText.
-1. Verwijder de vorm.
-1. Sla het bestand op schijf.
-
-```javascript
-// Maak Presentation-object
-var pres = new aspose.slides.Presentation();
-try {
-    // Haal de eerste dia op
-    var sld = pres.getSlides().get_Item(0);
-    // Voeg een autovorm van het type rechthoek toe
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var altText = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(0);
-        if (alttext === ashp.getAlternativeText()) {
-            sld.getShapes().remove(ashp);
-        }
-    }
-    // Sla de presentatie op schijf
-    pres.save("RemoveShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Vorm verbergen**
-Aspose.Slides voor Node.js via Java stelt ontwikkelaars in staat elke vorm te verbergen. Volg onderstaande stappen om de vorm van een dia te verbergen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation)‑klasse.
-1. Benader de eerste dia.
-1. Zoek de vorm met een specifieke AlternativeText.
-1. Verberg de vorm.
-1. Sla het bestand op schijf.
-
-```javascript
-// Instantieer Presentation-klasse die de PPTX voorstelt
-var pres = new aspose.slides.Presentation();
-try {
-    // Haal de eerste dia op
-    var sld = pres.getSlides().get_Item(0);
-    // Voeg een autovorm van het type rechthoek toe
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var alttext = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(i);
-        if (alttext === ashp.getAlternativeText()) {
-            ashp.setHidden(true);
-        }
-    }
-    // Sla de presentatie op schijf
-    pres.save("Hiding_Shapes_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Volgorde van vormen wijzigen**
-Aspose.Slides voor Node.js via Java laat ontwikkelaars de volgorde van vormen herschikken. Het herschikken van vormen bepaalt welke vorm zich voor of achter een andere bevindt. Volg onderstaande stappen om de volgorde van vormen op een dia aan te passen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation)‑klasse.
-1. Benader de eerste dia.
-1. Voeg een vorm toe.
-1. Voeg tekst toe in het tekstkader van de vorm.
-1. Voeg een andere vorm toe met dezelfde coördinaten.
-1. Herschik de vormen.
-1. Sla het bestand op schijf.
-
-```javascript
-var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shp3.addTextFrame(" ");
-    var para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-    shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 200, 365, 400, 150);
-    slide.getShapes().reorder(2, shp3);
-    pres.save("Reshape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Interop‑vorm‑ID ophalen**
-Aspose.Slides voor Node.js via Java stelt ontwikkelaars in staat een unieke vorm‑identificatie binnen de dia‑scope te verkrijgen, in tegenstelling tot de [getUniqueId](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape#getUniqueId--)‑methode die een unieke identifier in presentatie‑scope oplevert. De methode [getOfficeInteropShapeId](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) is toegevoegd aan de [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape)‑klasse. De waarde die door [getOfficeInteropShapeId](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) wordt geretourneerd, komt overeen met de Id‑waarde van het Microsoft.Office.Interop.PowerPoint.Shape‑object. Hieronder staat een voorbeeldcode.
-
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
-try {
-    // Unieke vormidentificatie ophalen binnen de dia-scope
-    var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Alternatieve tekst voor vorm instellen**
-Aspose.Slides voor Node.js via Java stelt ontwikkelaars in staat de AlternateText van elke vorm in te stellen.
-Vormen in een presentatie kunnen worden onderscheiden via de [AlternativeText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) of [Shape Name](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape#setName-java.lang.String-)‑methode.
-De methoden [setAlternativeText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) en [getAlternativeText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape#getAlternativeText--) kunnen zowel met Aspose.Slides als met Microsoft PowerPoint gelezen of ingesteld worden.
-Met deze methode kun je een vorm taggen en verschillende bewerkingen uitvoeren zoals het verwijderen, verbergen of herschikken van vormen op een dia.
-Om de AlternateText van een vorm in te stellen, volg je de onderstaande stappen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation)‑klasse.
-1. Benader de eerste dia.
-1. Voeg een willekeurige vorm toe aan de dia.
-1. Werk met de nieuw toegevoegde vorm.
-1. Doorloop de vormen om een specifieke vorm te vinden.
-1. Stel de AlternativeText in.
-1. Sla het bestand op schijf.
-
-```javascript
-// Instantieer Presentation-klasse die de PPTX voorstelt
-var pres = new aspose.slides.Presentation();
-try {
-    // Haal de eerste dia op
-    var sld = pres.getSlides().get_Item(0);
-    // Voeg een autovorm van het type rechthoek toe
-    var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    for (var i = 0; i < sld.getShapes().size(); i++) {
-        var shape = sld.getShapes().get_Item(i);
-        if (shape != null) {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-    // Sla de presentatie op schijf
-    pres.save("Set_AlternativeText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Lay‑outformaten voor vorm benaderen**
-Aspose.Slides voor Node.js via Java biedt een eenvoudige API om lay‑outformaten voor een vorm te benaderen. Dit artikel demonstreert hoe je lay‑outformaten kunt benaderen.
-
-Hieronder staat voorbeeldcode.
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    for (let i = 0; i < pres.getLayoutSlides().size(); i++) {
-        let layoutSlide = pres.getLayoutSlides().get_Item(i);
-        for (let j = 0; j < layoutSlide.getShapes().size(); j++) {
-            let shape = layoutSlide.getShapes().get_Item(j);
-            var fillFormats = shape.getFillFormat();
-            var lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Vorm renderen als SVG**
-Nu ondersteunt Aspose.Slides voor Node.js via Java het renderen van een vorm als SVG. De methode [writeAsSvg](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (en de overload) is toegevoegd aan de [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape)‑klasse. Deze methode maakt het mogelijk de inhoud van de vorm op te slaan als een SVG‑bestand. De onderstaande codefragment laat zien hoe je de vorm van een dia exporteert naar een SVG‑bestand.
-
-```javascript
-var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
-try {
-    var stream = java.newInstanceSync("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) {
-            stream.close();
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Vormuitlijning**
-Aspose.Slides maakt het mogelijk vormen uit te lijnen ten opzichte van de dia‑marges of ten opzichte van elkaar. Hiervoor is de overladen methode [SlidesUtil.alignShape()](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-) toegevoegd. De enumeratie [ShapesAlignmentType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ShapesAlignmentType) definieert de mogelijke uitlijningsopties.
-
-**Voorbeeld 1**
-
-De onderstaande broncode lijnt vormen met indices 1, 2 en 4 uit langs de bovenrand van de dia.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shape1 = slide.getShapes().get_Item(1);
-    var shape2 = slide.getShapes().get_Item(2);
-    var shape3 = slide.getShapes().get_Item(4);
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), java.newArray("int", [slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3)]));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-**Voorbeeld 2**
-
-Het volgende voorbeeld toont hoe je de volledige collectie van vormen uitlijnt ten opzichte van de onderste vorm in de collectie.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Flip‑eigenschappen**
-
-In Aspose.Slides biedt de [ShapeFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapeframe/)‑klasse controle over horizontale en verticale spiegeling van vormen via de eigenschappen `flipH` en `flipV`. Beide eigenschappen hebben het type `byte` en kunnen de waarden `1` (spiegel), `0` (geen spiegel) of `-1` (standaardgedrag) aannemen. Deze waarden zijn toegankelijk via het [Frame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getFrame) van een vorm.
-
-Om de flip‑instellingen te wijzigen, wordt een nieuw [ShapeFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapeframe/)‑object gecreëerd met de huidige positie en grootte van de vorm, de gewenste waarden voor `flipH` en `flipV` en de rotatiehoek. Het toewijzen van dit object aan het [Frame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getFrame) van de vorm en het opslaan van de presentatie past de spiegeltransformaties toe en schrijft ze naar het uitvoerbestand.
-
-Stel dat we een bestand sample.pptx hebben waarin de eerste dia één vorm bevat met standaard flip‑instellingen, zoals hieronder weergegeven.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Het volgende code‑voorbeeld haalt de huidige flip‑eigenschappen van de vorm op en spiegelt deze zowel horizontaal als verticaal.
-
-```js
-var presentation = new asposeSlides.Presentation("sample.pptx");
+var presentation = new asposeSlides.Presentation("input.pptx");
 try {
     var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
 
-    // Haalt de horizontale flip‑eigenschap van de vorm op.
-    var horizontalFlip = shape.getFrame().getFlipH();
-    console.log("Horizontal flip:", horizontalFlip);
+    var targetShape = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "RevenueChart") {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Haalt de verticale flip‑eigenschap van de vorm op.
-    var verticalFlip = shape.getFrame().getFlipV();
-    console.log("Vertical flip:", verticalFlip);
-
-    var x = java.newFloat(shape.getFrame().getX());
-    var y = java.newFloat(shape.getFrame().getY());
-    var width = java.newFloat(shape.getFrame().getWidth());
-    var height = java.newFloat(shape.getFrame().getHeight());
-    var flipH = java.newByte(asposeSlides.NullableBool.True); // Horizontaal spiegelen.
-    var flipV = java.newByte(asposeSlides.NullableBool.True); // Verticaal spiegelen.
-    var rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new asposeSlides.ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+    if (targetShape === null) {
+        console.log("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        console.log("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Het resultaat:
+Wanneer een bewerking specifiek is voor een type vorm, controleer dan de runtime‑klasse voordat u type‑specifieke leden gebruikt. Dit voorbeeld werkt tekst en alternatieve tekst bij alleen als het genoemde object een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/) is.
 
-![The flipped shape](flipped_shape.png)
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var candidate = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "StatusLabel") {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate !== null && java.instanceOf(candidate, "com.aspose.slides.AutoShape")) {
+        candidate.getTextFrame().setText("Approved");
+        candidate.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", asposeSlides.SaveFormat.Pptx);
+    } else {
+        console.log("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Identificeren en Wijzigen van Vooraf Ingestelde Vormenaanpassingen**
+
+Vooraf ingestelde geometrievormen kunnen aanpassingspunten blootleggen die kenmerken zoals hoekgrootte, pijlpuntverhoudingen of booghoeken regelen. Benader ze via de alleen‑lezen‑[GeometryShape.getAdjustments](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/geometryshape/)‑collectie. De collectie zelf wordt door de vorm geleverd, maar elke [AdjustValue](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/adjustvalue/) bevat een waarde die kan worden gewijzigd.
+
+Betrouw niet uitsluitend op een vaste collectie‑index. Doorloop de aanpassingen en inspecteer de alleen‑lezen‑[getType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/adjustvalue/)‑methode, waarvan de [ShapeAdjustmentType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapeadjustmenttype/)‑waarde beschrijft wat de aanpassing regelt. De alleen‑lezen‑[getName](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/adjustvalue/getname/)‑methode geeft extra identificatie‑informatie en is vooral handig wanneer een preset meer dan één aanpassing met hetzelfde semantische type bevat.
+
+Gebruik de waardemethode die bij de betekenis van de aanpassing past:
+
+| Aanpassingstype | Doel | Waarde om te wijzigen |
+|---|---|---|
+| `CornerSize` | Grootte van afgeronde hoeken | [setRawValue](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Dikte van een pijpstaart | `setRawValue` |
+| `ArrowheadLength` | Lengte van een pijpkop | `setRawValue` |
+| `ArrowheadWidth` | Breedte van een pijpkop | `setRawValue` |
+| `StartAngle` | Starthoek van een taart of boog | [setAngleValue](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Eindhoek van een taart of boog | `setAngleValue` |
+
+`getType` en `getName` geven alleen‑lezen‑informatie terug. `getRawValue` en `setRawValue` werken met een geheel getal in de native eenheden van de preset‑geometrie, terwijl `getAngleValue` en `setAngleValue` werken met een hoek in graden. Het aantal, de volgorde, betekenis en geldige bereik van aanpassingen hangen af van de preset‑[GeometryShape.getShapeType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/geometryshape/). Een waarde die geldig is voor de ene preset kan ongeldig of met een ander effect zijn voor een andere.
+
+Wanneer `getType` `ShapeAdjustmentType.Custom` retourneert, herkent de API geen standaard semantische betekenis. Inspecteer `getName`, het preset‑type en de bestaande waarde, en laat de aanpassing ongewijzigd tenzij de verwachte betekenis en het bereik bekend zijn. Zelfs voor herkende types, controleer of hetzelfde type meer dan één keer voorkomt voordat u een waarde selecteert. Het artikel [Connector](/slides/nl/nodejs-java/connector/) toont deze situatie met buig‑aanpassingen van connectoren.
+
+Het volgende volledige voorbeeld maakt standaard‑ en gewijzigde versies van drie preset‑vormen. Het doorloopt elke aanpassing, rapporteert de naam en het type, wijzigt grootte‑gerelateerde waarden via `setRawValue`, wijzigt hoeken via `setAngleValue` en slaat het resultaat op. De linkerkolom behoudt de standaardgeometrie; de rechterkolom toont het aangepaste afgeronde rechthoek, de vierweg‑pijl en de taart.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    // Voegt kopteksten toe voor de standaard- en aangepaste vormkolommen.
+    var defaultColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    var adjustedColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    var modifiedRoundedRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 80, 180, 160, 110);
+    var modifiedArrow = slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 95, 330, 130, 130);
+    var modifiedPie = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    var shapesToAdjust = [modifiedRoundedRectangle, modifiedArrow, modifiedPie];
+
+    for (var shapeIndex = 0; shapeIndex < shapesToAdjust.length; shapeIndex++) {
+        var shape = shapesToAdjust[shapeIndex];
+        for (var adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            var adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            console.log(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case asposeSlides.ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.Custom:
+                    console.log("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Door het semantische type te controleren vóór het wijzigen van een waarde, maakt de code haar intentie expliciet en voorkomt men te veronderstellen dat een bepaalde collectie‑index dezelfde betekenis heeft bij verschillende preset‑vormen.
+
+## **Wijzigen van de Vormcollectie**
+
+De add‑, clone‑, remove‑ en reorder‑methoden werken onmiddellijk op de collectie. Als een bewerking het aantal of de volgorde van vormen wijzigt, vertrouw dan niet meer op indexen die vóór die bewerking zijn vastgelegd.
+
+### **Klonen van een Vorm**
+
+[addClone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/addclone/) maakt een onafhankelijke kopie en voegt deze toe aan de doelcollectie. [insertClone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/insertclone/) maakt ook een kopie maar plaatst deze op een opgegeven z‑order‑index. De overloads die coördinaten accepteren verplaatsen de kloon zonder de grootte te wijzigen; overloads met breedte en hoogte kunnen deze ook aanpassen.
+
+Het voorbeeld maakt een doeldia, kloont een gelabelde rechthoek naar voren, en voegt een tweede kloon toe aan de achterkant. Wijzigingen aan één van de klonen wijzigen de brond vorm niet.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var sourceSlide = presentation.getSlides().get_Item(0);
+    var sourceShape = sourceSlide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    var blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(java.newByte(asposeSlides.SlideLayoutType.Blank));
+    var destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    var frontClone = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontClone.setName("FrontClone");
+    if (java.instanceOf(frontClone, "com.aspose.slides.AutoShape")) {
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        console.log("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    var backClone = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backClone.setName("BackClone");
+    if (java.instanceOf(backClone, "com.aspose.slides.AutoShape")) {
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        console.log("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Klonen kopieert de inhoud en opmaak van de vorm, inclusief de naam en alternatieve tekst. Ken nieuwe logische identificatoren toe aan de kloon wanneer die waarden uniek moeten zijn. Resources die door complexe vormen worden gebruikt, worden door de presentatie afgehandeld, maar een kloon blijft een nieuw collectie‑item met een nieuwe vorm‑identiteit.
+
+### **Verwijderen van Vormen**
+
+[remove](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/remove/) verwijdert een specifiek vormobject uit zijn collectie. Wanneer u meerdere overeenkomsten tijdens een geordende iteratie wilt verwijderen, doorloop de collectie dan van achteren zodat elke resterende index geldig blijft.
+
+Dit voorbeeld verwijdert elke vorm met een aangewezen naam. Het leest de vorm op de huidige index en gaat niet uit van een specifiek type vorm.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var keepShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    var firstTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    var secondTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (var i = slide.getShapes().size() - 1; i >= 0; i--) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "Temporary") {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Na verwijdering veranderen het aantal vormen en de indexen van latere vormen. Verwijzingen naar ongewijzigde vormen blijven betrouwbaarder dan opgeslagen indexen. Houd ook connectoren, animaties en andere presentatiefuncties in gedachten die naar het verwijderde object kunnen verwijzen; het verwijderen van een zichtbare vorm kan meer veranderen dan alleen het uiterlijk van de dia.
+
+### **Verbergen van een Vorm**
+
+Het instellen van [Hidden](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/sethidden/) op `true` houdt de vorm in de collectie maar voorkomt dat deze verschijnt in de normale diavoorstelling. De index, opmaak en inhoud blijven beschikbaar voor code, dus verbergen is geschikt voor optionele elementen die later eventueel hersteld kunnen worden.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var visibleShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    var optionalShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "OptionalDecoration") {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Verbergen is geen verwijdering of beveiliging. Het object kan nog steeds worden gevonden en zichtbaar gemaakt door een gebruiker of door code, en blijft deel uitmaken van het presentatie‑bestand.
+
+### **Wijzigen van de Z‑order**
+
+Overschikkende vormen worden getekend in de volgorde van de collectie. [reorder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/reorder/) verplaatst een bestaande vorm naar een doelindex zonder deze te klonen. Index `0` is de achterkant; `size() - 1` is de voorkant.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var blueRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+
+    var orangeEllipse = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+De rechthoek wordt eerst gemaakt en staat aanvankelijk achter de ellips. Door deze naar de laatste index te verplaatsen komt hij naar voren. Finaliseer de z‑order nadat u alle gerelateerde vormen heeft toegevoegd of gekloond, want die bewerkingen voegen nieuwe collectie‑items toe of wijzigen de stapelvolgorde.
+
+## **Inspecteren van Vormen op Lay‑outdia’s**
+
+Normale dia’s, lay‑outdia’s en masterdia’s hebben afzonderlijke vormcollecties. Een vorm in een lay‑outcollectie is niet hetzelfde object als een vergelijkbaar gepositioneerde vorm op een normale dia. Inspecteer lay‑outvormen wanneer u de opmaak die door een lay‑out wordt geleverd wilt begrijpen of wijzigen.
+
+Het volgende voorbeeld leest elk lay‑outvorm‑[FillFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/getfillformat/) en [LineFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/getlineformat/) zonder ervan uit te gaan dat elke vorm een `AutoShape` is.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    for (var i = 0; i < presentation.getLayoutSlides().size(); i++) {
+        var layoutSlide = presentation.getLayoutSlides().get_Item(i);
+        for (var j = 0; j < layoutSlide.getShapes().size(); j++) {
+            var shape = layoutSlide.getShapes().get_Item(j);
+            var fillType = shape.getFillFormat().getFillType();
+            var lineWidth = shape.getLineFormat().getWidth();
+            console.log(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Het bewerken van een lay‑out kan invloed hebben op meerdere dia’s die deze gebruiken. Bepaal voordat u een lay‑outvorm wijzigt of een normale dia het object erft of een lokale overschrijving bevat, en test elke dia die die lay‑out gebruikt.
+
+## **Exporteren van een Vorm naar SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/writeassvg/) schrijft de gerenderde inhoud van één vorm naar een stream. Het resultaat bevat alleen de vorm, niet de volledige dia‑achtergrond of naburige vormen.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() === 0) {
+        console.log("Slide 1 does not contain a shape to export.");
+    } else {
+        var shape = slide.getShapes().get_Item(0);
+        var svgStream = null;
+        try {
+            svgStream = java.newInstanceSync("java.io.FileOutputStream", "shape.svg");
+            shape.writeAsSvg(svgStream);
+        } catch (error) {
+            console.log("The SVG file could not be written: " + error.message);
+        } finally {
+            if (svgStream !== null) {
+                svgStream.close();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Houd de presentatie open tijdens het renderen. De output hangt af van de opmaak van de vorm en van resources zoals lettertypen en afbeeldingen. Als u de volledige compositie nodig heeft, exporteer dan de dia in plaats van een individuele vorm. De aanroeper bezit de stream en moet deze sluiten.
+
+## **Uitlijnen van Vormen**
+
+De overloads van [SlideUtil.alignShapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slideutil/alignshapes/) kunnen ofwel alle vormen of geselecteerde collectie‑indexen uitlijnen. [ShapesAlignmentType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapesalignmenttype/) specificeert de rand, middellijn of distributiemodus. Zet `alignToSlide` op `true` om de dia‑randen te gebruiken; zet op `false` om de geselecteerde vormen ten opzichte van elkaar uit te lijnen.
+
+Dit voorbeeld lijnt drie vormen uit op de bovenrand van de dia. De teruggegeven vormreferenties worden direct vóór het uitlijnen omgezet naar hun huidige indexen.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var firstShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 60, 80, 120, 50);
+    var secondShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 240, 160, 120, 50);
+    var thirdShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    var shapeIndexes = java.newArray("int", [slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)]);
+
+    asposeSlides.SlideUtil.alignShapes(asposeSlides.ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Uitlijning wijzigt posities, niet de z‑order. Relatieve uitlijning vereist doorgaans minimaal twee vormen, terwijl horizontale of verticale distributie voldoende vormen nodig heeft om de tussenruimte te definiëren. Herbereken indexen als u de collectie wijzigt vóór het aanroepen van de methode.
+
+## **Spiegelen van een Vorm**
+
+De klasse [ShapeFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapeframe/) slaat positie, grootte, horizontale en verticale spiegelinstellingen en rotatie op. De waarden `getFlipH` en `getFlipV` gebruiken [NullableBool](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/nullablebool/): `True` schakelt de spiegel in, `False` schakelt deze uit, en `NotDefined` behoudt de ongedefinieerde/standaardstatus.
+
+De invoerpresentatie hieronder bevat één niet‑gespiegelde vorm.
+
+![De vorm vóór het spiegelen](shape_to_be_flipped.png)
+
+Het voorbeeld behoudt elke andere frame‑waarde en vervangt alleen de twee spiegelinstellingen. Dit is belangrijk omdat het toewijzen van een nieuw [Frame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/setframe/) het volledige frame vervangt.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var frame = shape.getFrame();
+
+    console.log("Horizontal flip before change: " + frame.getFlipH());
+    console.log("Vertical flip before change: " + frame.getFlipV());
+
+    var changedFrame = new asposeSlides.ShapeFrame(java.newFloat(frame.getX()), java.newFloat(frame.getY()), java.newFloat(frame.getWidth()), java.newFloat(frame.getHeight()), java.newByte(asposeSlides.NullableBool.True), java.newByte(asposeSlides.NullableBool.True), java.newFloat(frame.getRotation()));
+    shape.setFrame(changedFrame);
+
+    presentation.save("flipped-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+De opgeslagen vorm is horizontaal en verticaal gespiegeld, terwijl positie, grootte en rotatie behouden blijven.
+
+![De vorm na het spiegelen](flipped_shape.png)
 
 ## **FAQ**
 
-**Kan ik vormen (union/intersect/subtract) op een dia combineren zoals in een desktop‑editor?**
+**Moet ik een collectie‑index gebruiken als vorm‑identificator?**
 
-Er is geen ingebouwde Boolean‑operatie‑API. Je kunt een benadering maken door zelf de gewenste omtrek te construeren — bijvoorbeeld door de resulterende geometrie (via [GeometryPath](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/geometrypath/)) te berekenen en een nieuwe vorm met dat contour te maken, eventueel de originelen te verwijderen.
+Alleen voor kortstondige verwerking wanneer de collectie niet zal veranderen vóórdat de index wordt gebruikt. Geef de voorkeur aan een gevalideerde `Name`‑ of `AlternativeText`‑conventie voor aangemaakte sjablonen, of `OfficeInteropShapeId` voor interop‑werk op diascoping.
 
-**Hoe kan ik de stapelvolgorde (z‑order) bepalen zodat een vorm altijd “bovenop” blijft?**
+**Verwijdert het verbergen van een vorm deze uit de z‑order?**
 
-Wijzig de invoeg‑/verplaatsvolgorde binnen de [shapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslide/#getShapes)‑collectie van de dia. Voor voorspelbare resultaten, finaliseer de z‑order nadat alle andere dia‑aanpassingen zijn uitgevoerd.
+Nee. Een verborgen vorm blijft in de collectie op dezelfde index. Ze kan worden gevonden, opnieuw geordend, bewerkt of weer zichtbaar gemaakt.
 
-**Kan ik een vorm “vergrendelen” zodat gebruikers deze niet kunnen bewerken in PowerPoint?**
+**Waarom verscheen een gekloonde vorm voor een andere vorm?**
 
-Ja. Stel vorm‑specifieke beschermingsvlaggen in (bijv. selectie, verplaatsing, grootte wijzigen, tekstbewerking blokkeren). Indien nodig, kun je vergelijkbare beperkingen op het master‑ of lay‑out‑niveau toepassen. Let op: dit is bescherming op UI‑niveau, geen veiligheidsfunctie; voor sterkere bescherming combineer je dit met bestands‑niveau restricties zoals [read‑only aanbevelingen of wachtwoorden](/slides/nl/nodejs-java/password-protected-presentation/).
+`addClone` voegt de kloon toe aan het einde van de collectie, wat de voorkant van de z‑order is. Gebruik `insertClone` om de initiële index te kiezen of `reorder` nadat alle vormen zijn toegevoegd.
+
+**Kan ik een vaste index gebruiken om een preset‑vormaanpassing te identificeren?**
+
+Alleen na het valideren van de exacte preset en de collectie‑lay‑out. Geef de voorkeur aan itereren door `GeometryShape.getAdjustments` en controleer `AdjustValue.getType`; gebruik `AdjustValue.getName` als extra informatie wanneer hetzelfde semantische type meer dan één keer voorkomt.

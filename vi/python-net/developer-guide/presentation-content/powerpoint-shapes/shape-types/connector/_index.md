@@ -1,5 +1,5 @@
 ---
-title: Quản lý các kết nối trong bài thuyết trình bằng Python
+title: Quản lý các connector trong bài thuyết trình bằng Python
 linktitle: Kết nối
 type: docs
 weight: 10
@@ -10,140 +10,108 @@ keywords:
 - điểm kết nối
 - đường kết nối
 - góc kết nối
+- vị trí kết nối
+- điểm điều chỉnh
 - kết nối các hình
 - PowerPoint
 - bài thuyết trình
 - Python
 - Aspose.Slides
-description: "Cho phép các ứng dụng Python vẽ, nối và tự động định tuyến các đường trong slide PowerPoint & OpenDocument — kiểm soát hoàn toàn các kết nối thẳng, góc khuỷu và cong."
+description: "Tìm hiểu cách thêm, gắn, định tuyến lại, điều chỉnh và kiểm tra các connector thẳng, uốn và cong trong PowerPoint bằng Aspose.Slides cho Python qua .NET."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Kết nối PowerPoint là một đường chuyên dụng nối hai hình và vẫn giữ nguyên khi các hình được di chuyển hoặc thay đổi vị trí trên slide. Các kết nối gắn vào **điểm kết nối** (điểm màu xanh lục) trên các hình. Điểm kết nối xuất hiện khi con trỏ tiến gần tới chúng. **Nút điều chỉnh** (điểm màu vàng), có sẵn trên một số kết nối, cho bạn chỉnh sửa vị trí và hình dạng của kết nối.
+Connector là một đường có thể gắn vào hai hình dạng và vẫn giữ nguyên khi một trong hai hình dạng di chuyển. Các đầu của nó gắn vào các vị trí kết nối, được biểu thị bằng các chấm màu xanh lá trong PowerPoint. Một số connector uốn cong và cong cũng hiển thị các điểm điều chỉnh, được biểu thị bằng các chấm màu cam, điều khiển vị trí của các đoạn connector riêng lẻ.
 
-## **Các loại kết nối**
+Aspose.Slides đại diện cho các connector thông qua giao diện [IConnector](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iconnector/). Bạn có thể tạo chúng, gắn các đầu vào hình dạng, chọn vị trí kết nối, định tuyến lại và sửa đổi hình học của các connector có điểm điều chỉnh.
 
-Trong PowerPoint, bạn có thể sử dụng ba loại kết nối: thẳng, khuỷu (có góc), và cong.
+## **Các loại connector**
 
-Aspose.Slides hỗ trợ các loại kết nối sau:
+[ShapeType](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapetype/) liệt kê các mẫu connector thẳng, uốn và cong. Bảng dưới đây hiển thị các hình học connector khả dụng và số điểm điều chỉnh được định nghĩa cho mỗi mẫu.
 
-| Loại kết nối | Hình ảnh | Số điểm điều chỉnh |
-| ------------ | -------- | ------------------- |
-| `ShapeType.LINE` | ![Kết nối thẳng](shapetype-lineconnector.png) | 0 |
-| `ShapeType.STRAIGHT_CONNECTOR1` | ![Kết nối thẳng 1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BENT_CONNECTOR2` | ![Kết nối cong 2](shapetype-bent-connector2.png) | 0 |
-| `ShapeType.BENT_CONNECTOR3` | ![Kết nối cong 3](shapetype-bentconnector3.png) | 1 |
-| `ShapeType.BENT_CONNECTOR4` | ![Kết nối cong 4](shapetype-bentconnector4.png) | 2 |
-| `ShapeType.BENT_CONNECTOR5` | ![Kết nối cong 5](shapetype-bentconnector5.png) | 3 |
-| `ShapeType.CURVED_CONNECTOR2` | ![Kết nối cong 2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CURVED_CONNECTOR3` | ![Kết nối cong 3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CURVED_CONNECTOR4` | ![Kết nối cong 4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CURVED_CONNECTOR5` | ![Kết nối cong 5](shapetype.curvedconnector5.png) | 3 |
+| Kết nối | Hình ảnh | Số điểm điều chỉnh |
+|---|---|---|
+| `ShapeType.LINE` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.STRAIGHT_CONNECTOR1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BENT_CONNECTOR2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BENT_CONNECTOR3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BENT_CONNECTOR4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BENT_CONNECTOR5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CURVED_CONNECTOR2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CURVED_CONNECTOR3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CURVED_CONNECTOR4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CURVED_CONNECTOR5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Kết nối các hình bằng các kết nối**
+Số lượng và ý nghĩa của các điểm điều chỉnh là một phần của mẫu connector đã chọn. Đừng cho rằng hai loại connector khác nhau sẽ hiển thị cùng một bố cục bộ sưu tập.
 
-Phần này trình bày cách nối các hình bằng các kết nối trong Aspose.Slides. Bạn sẽ thêm một kết nối vào slide, gắn đầu và cuối của nó vào các hình mục tiêu. Sử dụng các vị trí kết nối đảm bảo kết nối luôn “dính” vào các hình ngay cả khi chúng di chuyển hoặc thay đổi kích thước.
+## **Kết nối hai hình**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
-1. Lấy tham chiếu đến slide bằng chỉ mục của nó.
-1. Thêm hai đối tượng [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) vào slide bằng phương thức `add_auto_shape` được cung cấp bởi đối tượng [ShapeCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/).
-1. Thêm một kết nối bằng phương thức `add_connector` được cung cấp bởi đối tượng [ShapeCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/) và chỉ định loại kết nối.
-1. Kết nối các hình bằng kết nối.
-1. Gọi phương thức `reroute` để áp dụng đường kết nối ngắn nhất.
-1. Lưu bản trình chiếu.
+Sử dụng [IShapeCollection.add_connector](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ishapecollection/add_connector/) để thêm một connector, và gán các thuộc tính [start_shape_connected_to](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iconnector/start_shape_connected_to/) và [end_shape_connected_to](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iconnector/end_shape_connected_to/). Sau khi cả hai đầu đã được gắn, [IConnector.reroute](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iconnector/reroute/) sẽ chọn một tuyến ngắn giữa các hình.
 
-Mã Python dưới đây cho thấy cách thêm một kết nối cong giữa hai hình (một hình ellipse và một hình chữ nhật):
+Ví dụ sau kết nối một ellipse và một rectangle bằng một connector uốn:
 
 ```python
 import aspose.slides as slides
 
-# Tạo một thể hiện của lớp Presentation để tạo tệp PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Truy cập bộ sưu tập các hình trên slide đầu tiên.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-    # Thêm một AutoShape dạng ellipse.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Thêm một AutoShape dạng rectangle.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Thêm một connector vào slide.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
-
-    # Kết nối các hình bằng connector.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
-
-    # Gọi reroute để đặt đường ngắn nhất.
     connector.reroute()
 
-    # Lưu bản trình chiếu.
-    presentation.save("connected_shapes.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("connected-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Phương thức `connector.reroute` sẽ định tuyến lại một kết nối, buộc nó lấy đường ngắn nhất có thể giữa các hình. Để làm vậy, phương thức có thể thay đổi các giá trị `start_shape_connection_site_index` và `end_shape_connection_site_index`.
+{{% alert color="warning" title="Warning" %}}
+Gọi `reroute` có thể thay đổi các giá trị [start_shape_connection_site_index](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iconnector/start_shape_connection_site_index/) và [end_shape_connection_site_index](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iconnector/end_shape_connection_site_index/). Gán các vị trí kết nối cụ thể sau khi định tuyến lại nếu các vị trí đó phải cố định.
 {{% /alert %}}
 
-## **Xác định các điểm kết nối**
+## **Chọn vị trí kết nối**
 
-Phần này giải thích cách gắn một kết nối vào một điểm kết nối cụ thể trên một hình trong Aspose.Slides. Bằng cách nhắm vào các vị trí kết nối chính xác, bạn có thể kiểm soát việc định tuyến và bố cục của kết nối, tạo ra các sơ đồ sạch sẽ và dự đoán được trong các bản trình chiếu.
+Mỗi hình dạng có thể kết nối đều báo cáo số lượng vị trí thông qua [connection_site_count](https://reference.aspose.com/slides/vi/python-net/aspose.slides/igeometryshape/connection_site_count/). Hãy xác thực chỉ mục vị trí dựa trên chỉ số bắt đầu từ 0 trước khi gán cho đầu connector; số lượng vị trí thay đổi tùy theo hình học của hình.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
-1. Lấy tham chiếu đến slide bằng chỉ mục của nó.
-1. Thêm hai đối tượng [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) vào slide bằng phương thức `add_auto_shape` được cung cấp bởi đối tượng [ShapeCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/).
-1. Thêm một kết nối bằng phương thức `add_connector` trên đối tượng [ShapeCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapecollection/) và chỉ định loại kết nối.
-1. Kết nối các hình bằng kết nối.
-1. Đặt các điểm kết nối ưa thích của bạn trên các hình.
-1. Lưu bản trình chiếu.
-
-Mã Python dưới đây minh họa cách chỉ định một điểm kết nối ưa thích:
+Ví dụ này gắn connector vào một vị trí cụ thể trên ellipse khi vị trí đó tồn tại:
 
 ```python
 import aspose.slides as slides
 
-# Tạo một thể hiện của lớp Presentation để tạo tệp PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Truy cập bộ sưu tập các hình trên slide đầu tiên.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
 
-    # Thêm một AutoShape dạng ellipse.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Thêm một AutoShape dạng rectangle.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Thêm một connector vào bộ sưu tập hình của slide.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
-
-    # Kết nối các hình bằng connector.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
 
-    # Đặt chỉ mục vị trí kết nối ưa thích trên ellipse.
-    site_index = 6
+    preferred_site_index = 2
+    if preferred_site_index < ellipse.connection_site_count:
+        connector.start_shape_connection_site_index = preferred_site_index
+    else:
+        print(f"The ellipse has only {ellipse.connection_site_count} connection sites.")
 
-    # Kiểm tra xem chỉ mục ưa thích có nằm trong số lượng vị trí có sẵn hay không.
-    if  ellipse.connection_site_count > site_index:
-        # Gán vị trí kết nối ưa thích trên AutoShape ellipse.
-        connector.start_shape_connection_site_index = site_index
-
-    # Lưu bản trình chiếu.
-    presentation.save("connection_points.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("specific-connection-site.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Điều chỉnh các điểm kết nối**
+## **Điều chỉnh một điểm connector**
 
-Bạn có thể chỉnh sửa các kết nối bằng các điểm điều chỉnh của chúng. Chỉ những kết nối có điểm điều chỉnh mới có thể được chỉnh sửa theo cách này. Để biết chi tiết các kết nối hỗ trợ điều chỉnh, xem bảng trong mục [Connector Types](/slides/vi/python-net/connector/#connector-types).
+Các connector có điểm điều chỉnh sẽ mở ra chúng thông qua [IGeometryShape.adjustments](https://reference.aspose.com/slides/vi/python-net/aspose.slides/igeometryshape/adjustments/). Kiểm tra từng [IAdjustValue](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iadjustvalue/) và xác thực [type](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iadjustvalue/type/) trước khi thay đổi [raw_value](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iadjustvalue/raw_value/). Đối với thao tác hình dạng chung, xem [Shape Manipulation](/slides/vi/python-net/shape-manipulations/).
 
-### **Trường hợp đơn giản**
+Số lượng, thứ tự, ý nghĩa và phạm vi giá trị hợp lệ của các điểm điều chỉnh connector phụ thuộc vào mẫu connector. Thuộc tính `type` chỉ đọc, trong khi giá trị điều chỉnh có thể ghi. Thuộc tính chỉ đọc [name](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iadjustvalue/name/) cung cấp thông tin xác định bổ sung khi một connector chứa nhiều hơn một điểm điều chỉnh có cùng kiểu ngữ nghĩa.
 
-Xem xét một trường hợp mà một kết nối giữa hai hình (A và B) cắt qua một hình thứ ba (C):
+### **Định tuyến quanh một chướng ngại vật**
 
-![Sự cản trở của kết nối](connector-obstruction.png)
+Trong bố cục dưới đây, một connector `ShapeType.BENT_CONNECTOR5` giữa hai hình dạng đi qua một hình dạng thứ ba:
+
+![connector-obstruction](connector-obstruction.png)
+
+Mã này tạo connector bị cản trở:
 
 ```python
 import aspose.slides as slides
@@ -152,233 +120,326 @@ import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
-    
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
     connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
-    
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
-    
-    connector.start_shape_connected_to = shape_from
-    connector.end_shape_connected_to = shape_to
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
     connector.start_shape_connection_site_index = 2
+
+    presentation.save("connector-obstruction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Để tránh hình thứ ba, điều chỉnh kết nối bằng cách di chuyển đoạn thẳng đứng của nó sang trái:
+Di chuyển khúc uốn dọc thay đổi tuyến sao cho connector đi vòng qua chướng ngại vật:
 
-![Sự cản trở kết nối đã sửa](connector-obstruction-fixed.png)
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```python
-    adjustment2 = connector.adjustments[1]
-    adjustment2.raw_value += 10000
-```
-
-### **Trường hợp phức tạp**
-
-Đối với các điều chỉnh nâng cao hơn, hãy xem các nội dung sau:
-
-- Một điểm điều chỉnh của kết nối được điều khiển bởi một công thức xác định vị trí của nó. Thay đổi điểm này có thể làm thay đổi hình dạng tổng thể của kết nối.
-- Các điểm điều chỉnh của một kết nối được lưu trong một mảng có thứ tự nghiêm ngặt, đánh số từ đầu đến cuối của kết nối.
-- Giá trị của các điểm điều chỉnh đại diện cho phần trăm chiều rộng/chiều cao của hình dạng kết nối.
-  - Hình được giới hạn bởi các điểm đầu và cuối của kết nối và được tỷ lệ hóa bởi 1000.
-  - Điểm điều chỉnh thứ nhất, thứ hai và thứ ba tương ứng đại diện: phần trăm chiều rộng, phần trăm chiều cao và lại phần trăm chiều rộng.
-- Khi tính toán tọa độ của các điểm điều chỉnh, cần tính đến việc quay và phản chiếu của kết nối. **Lưu ý:** Đối với tất cả các kết nối được liệt kê trong mục [Connector Types](/slides/vi/python-net/connector/#connector-types), góc quay là 0.
-
-#### **Trường hợp 1**
-
-Xem xét một trường hợp mà hai đối tượng khung văn bản được liên kết bằng một kết nối:
-
-![Các hình đã liên kết](connector-shape-complex.png)
+Thay vì giả định chỉ mục bộ sưu tập `1` luôn đại diện cho khúc uốn dọc, ví dụ này tìm kiếm `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` và thay đổi nó chỉ khi kiểu ngữ nghĩa mong đợi có mặt:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Tạo một thể hiện của lớp Presentation để tạo tệp PPTX.
 with slides.Presentation() as presentation:
-
-    # Lấy slide đầu tiên.
     slide = presentation.slides[0]
 
-    # Lấy slide đầu tiên.
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
-    shape_from.text_frame.text = "From"
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
-    shape_to.text_frame.text = "To"
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
 
-    # Thêm một connector.
-    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
-    # Đặt hướng của connector.
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
-    # Đặt màu của connector.
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
+    connector.start_shape_connection_site_index = 2
+
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+            break
+
+    if vertical_bend is None:
+        print("The connector does not expose a vertical bend adjustment.")
+    else:
+        vertical_bend.raw_value = 60000
+        presentation.save("connector-obstruction-fixed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+`ShapeType.BENT_CONNECTOR5` có hai điểm điều chỉnh `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` và một điểm `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`. Nếu kiểu bạn cần xuất hiện nhiều lần, hãy kiểm tra `name` và hình học đã biết của mẫu đó trước khi chọn. Nếu một điểm điều chỉnh trả về [ShapeAdjustmentType.CUSTOM](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapeadjustmenttype/), coi ý nghĩa và phạm vi của nó là đặc thù cho mẫu và không thay đổi cho đến khi hợp đồng được xác định.
+
+## **Liên kết giá trị điều chỉnh với hình học connector**
+
+Đối với các connector uốn, giá trị điều chỉnh có thể được dùng để ước tính vị trí của các đoạn riêng lẻ. Các phép tính này chỉ áp dụng cho mẫu connector cụ thể:
+
+- `ShapeType.BENT_CONNECTOR4` thường hiển thị một điểm `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` và một điểm `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`.
+- Đối với các vị trí uốn này, `raw_value / 100000` tạo ra phần tỷ lệ của chiều rộng hoặc chiều cao khung connector được sử dụng trong các ví dụ bên dưới.
+- Khung connector có thể được quay hoặc lật, do đó tọa độ khung phải được chuyển đổi trước khi so sánh với tọa độ slide.
+
+Các ví dụ sau sử dụng `type` để xác định các điểm điều chỉnh trước. Chúng không coi chỉ mục bộ sưu tập là định danh di động.
+
+### **Connector không xoay**
+
+Bố cục ban đầu chứa hai hình dạng văn bản được nối bằng một `ShapeType.BENT_CONNECTOR4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Ví dụ này kiểm tra connector và lấy các điểm uốn ngang và dọc:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    target_shape.text_frame.text = "To"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.crimson
-    # Đặt độ dày đường của connector.
     connector.line_format.width = 3
-
-    # Liên kết các hình bằng connector.
-    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 3
-    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 2
 
-    # Lấy các điểm điều chỉnh của connector.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
 ```
 
-**Điều chỉnh**
-
-Thay đổi giá trị điểm điều chỉnh của kết nối bằng cách tăng phần trăm chiều rộng lên 20% và phần trăm chiều cao lên 200%, tương ứng:
+Để thay đổi cả hai khúc uốn, xác định mỗi kiểu mong đợi và chỉnh sửa giá trị chỉ sau khi đã tìm thấy cả hai:
 
 ```python
-    # Thay đổi giá trị của các điểm điều chỉnh.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+        presentation.save("connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kết quả:
+Kết quả là một connector mà các đoạn ngang và dọc đã di chuyển:
 
-![Điều chỉnh kết nối 1](connector-adjusted-1.png)
+![connector-adjusted-1](connector-adjusted-1.png)
 
-Để định nghĩa một mô hình cho phép chúng ta xác định tọa độ và hình dạng của các đoạn của kết nối, tạo một hình tương ứng với thành phần dọc của kết nối tại `connector.adjustments[0]`:
+Khi các kiểu ngữ nghĩa đã được biết, giá trị của chúng có thể chuyển đổi thành tọa độ khung connector. Ví dụ này vẽ một hình chữ nhật mỏng lên đoạn dọc được điều khiển bởi hai điểm uốn:
 
 ```python
-    # Vẽ thành phần dọc của connector.
-    x = connector.x + connector.width * adjustment_0.raw_value / 100000
-    y = connector.y
-    height = connector.height * adjustment_1.raw_value / 100000
+import aspose.slides as slides
 
-    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        x = connector.x + connector.width * horizontal_bend.raw_value / 100000
+        y = connector.y
+        height = connector.height * vertical_bend.raw_value / 100000
+        slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 1, height)
+        presentation.save("connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kết quả:
+Hình dạng hướng dẫn đánh dấu đoạn đã tính toán:
 
-![Điều chỉnh kết nối 2](connector-adjusted-2.png)
+![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Trường hợp 2**
+### **Connector xoay hoặc lật**
 
-Trong **Trường hợp 1**, chúng tôi đã minh họa một điều chỉnh kết nối đơn giản bằng các nguyên tắc cơ bản. Trong các tình huống thường gặp, bạn phải tính đến việc quay của kết nối và các cài đặt hiển thị của nó (được điều khiển bởi `connector.rotation`, `connector.frame.flip_h` và `connector.frame.flip_v`). Dưới đây là cách quy trình hoạt động.
+Khi cùng một hình học connector được đặt theo chiều dọc, các giá trị [frame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iconnector/frame/), [flip_h](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ishapeframe/flip_h/), và [flip_v](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ishapeframe/flip_v/) ảnh hưởng đến quá trình chuyển đổi tọa độ khung connector sang tọa độ slide.
 
-Đầu tiên, thêm một đối tượng khung văn bản mới (**To 1**) vào slide (để kết nối), và tạo một kết nối màu xanh lá mới liên kết nó với các đối tượng hiện có.
+Ví dụ này tạo và điều chỉnh connector được định hướng dọc:
 
 ```python
-    # Tạo một đối tượng đích mới.
-    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
-    shape_to_1.text_frame.text = "To 1"
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    # Tạo một connector mới.
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    target_shape.text_frame.text = "To 1"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
-
-    # Kết nối các đối tượng bằng connector mới tạo.
-    connector.start_shape_connected_to = shapeFrom
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 2
-    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 3
 
-    # Lấy các điểm điều chỉnh của connector.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
-    
-    # Thay đổi giá trị của các điểm điều chỉnh.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            adjustment.raw_value += 20000
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            adjustment.raw_value += 200000
+
+    presentation.save("vertical-connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kết quả:
+Connector đã điều chỉnh xuất hiện dọc giữa các hình dạng:
 
-![Điều chỉnh kết nối 3](connector-adjusted-3.png)
+![connector-adjusted-3](connector-adjusted-3.png)
 
-Thứ hai, tạo một hình tương ứng với đoạn **ngang** của kết nối đi qua điểm điều chỉnh mới của kết nối, `connector.adjustments[0]`. Sử dụng các giá trị từ `connector.rotation`, `connector.frame.flip_h` và `connector.frame.flip_v`, và áp dụng công thức chuyển đổi tọa độ tiêu chuẩn cho việc quay quanh một điểm đã cho `x0`:
+Đối với một góc quay tùy ý `alpha`, quay một điểm khung connector `(x, y)` quanh trung tâm khung `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Trong trường hợp của chúng tôi, góc quay của đối tượng là 90 độ và kết nối được hiển thị theo chiều dọc, vì vậy đoạn mã tương ứng là:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```python
-    # Lưu tọa độ của connector.
-    x = connector.x
-    y = connector.y
-    
-    # Sửa tọa độ của connector nếu nó bị lật.
-    if connector.frame.flip_h == 1:
-        x += connector.width
-    if connector.frame.flip_v == 1:
-        y += connector.height
-
-    # Sử dụng giá trị điểm điều chỉnh làm tọa độ.
-    x += connector.width * adjValue_0.raw_value / 100000
-    
-    # Chuyển đổi tọa độ vì sin(90°) = 1 và cos(90°) = 0.
-    xx = connector.frame.center_x - y + connector.frame.center_y
-    yy = x - connector.frame.center_x + connector.frame.center_y
-
-    # Xác định độ rộng của đoạn ngang bằng giá trị điểm điều chỉnh thứ hai.
-    width = connector.height * adjValue_1.raw_value / 100000
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-```
-
-Kết quả:
-
-![Điều chỉnh kết nối 4](connector-adjusted-4.png)
-
-Chúng tôi đã trình bày các phép tính liên quan đến việc điều chỉnh đơn giản và các điểm điều chỉnh phức tạp hơn (những điểm tính đến việc quay). Sử dụng kiến thức này, bạn có thể phát triển mô hình của riêng mình—hoặc viết mã—để lấy đối tượng `GraphicsPath` hoặc thậm chí đặt giá trị điểm điều chỉnh của kết nối dựa trên các tọa độ slide cụ thể.
-
-## **Tìm góc của đường kết nối**
-
-Sử dụng ví dụ dưới đây để xác định góc của các đường kết nối trên một slide bằng Aspose.Slides. Bạn sẽ học cách đọc các điểm đầu cuối của kết nối và tính toán hướng của nó để có thể căn chỉnh chính xác các mũi tên, nhãn và các hình khác.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/).
-1. Lấy tham chiếu đến slide bằng chỉ mục.
-1. Truy cập hình dạng đường kết nối.
-1. Sử dụng chiều rộng và chiều cao của đường, và chiều rộng và chiều cao của khung hình dạng, để tính góc.
+Mã dưới đây xử lý hướng 90 độ được dùng trong ví dụ này và vẽ một hướng dẫn màu đỏ lên đoạn connector tương ứng:
 
 ```python
 import aspose.slides as slides
-import math
+import aspose.pydrawing as draw
 
-def get_direction(w, h, flip_h, flip_v):
-    end_line_x = w * (-1 if flip_h else 1)
-    end_line_y = h * (-1 if flip_v else 1)
-    end_y_axis_x = 0
-    end_y_axis_y = h
-    angle = math.atan2(end_y_axis_y, end_y_axis_x) - math.atan2(end_line_y, end_line_x)
-    if (angle < 0):
-         angle += 2 * math.pi
-    return angle * 180.0 / math.pi
-
-with slides.Presentation("connector_line_angle.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    for shape_index in range(len(slide.shapes)):
-        direction = 0.0
-        shape = slide.shapes[shape_index]
-        if type(shape) is slides.AutoShape and shape.shape_type == slides.ShapeType.LINE:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        elif type(shape) is slides.Connector:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        print(direction)
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 2
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 3
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+
+        x = connector.x
+        y = connector.y
+        if connector.frame.flip_h == slides.NullableBool.TRUE:
+            x += connector.width
+        if connector.frame.flip_v == slides.NullableBool.TRUE:
+            y += connector.height
+
+        x += connector.width * horizontal_bend.raw_value / 100000
+        rotated_x = connector.frame.center_x - y + connector.frame.center_y
+        rotated_y = x - connector.frame.center_x + connector.frame.center_y
+        segment_width = connector.height * vertical_bend.raw_value / 100000
+        guide = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, rotated_x, rotated_y, segment_width, 1)
+        guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+        guide.line_format.fill_format.solid_fill_color.color = draw.Color.red
+
+        presentation.save("rotated-connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Hướng dẫn màu đỏ đánh dấu đoạn đã tính sau khi chuyển đổi tọa độ:
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+Các công thức này mô tả các mẫu được dùng trong các ví dụ, không phải một mô hình connector chung. Hãy xác thực các kiểu điều chỉnh, hướng khung và phạm vi giá trị trước khi áp dụng cùng một phép tính cho một mẫu khác.
+
+## **Tìm góc hướng của connector**
+
+Hướng của một connector thẳng có thể tính từ chiều rộng và chiều cao, áp dụng các lật ngang và dọc. Ví dụ sau báo cáo góc quay theo chiều kim đồng hồ từ trục ngang dương trong tọa độ slide:
+
+```python
+import math
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 100, 100, 200, 100)
+
+    flip_h = connector.frame.flip_h == slides.NullableBool.TRUE
+    flip_v = connector.frame.flip_v == slides.NullableBool.TRUE
+    delta_x = connector.width * (-1 if flip_h else 1)
+    delta_y = connector.height * (-1 if flip_v else 1)
+    angle = math.atan2(delta_y, delta_x) * 180.0 / math.pi
+
+    if angle < 0:
+        angle += 360
+
+    print(f"Connector direction: {angle:.2f} degrees")
 ```
 
 ## **Câu hỏi thường gặp**
 
-**Làm sao để tôi biết một kết nối có thể “dính” vào một hình cụ thể không?**
+**Làm sao tôi biết một connector có thể gắn vào một hình dạng không?**
 
-Kiểm tra xem hình có cung cấp [các vị trí kết nối](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/connection_site_count/) hay không. Nếu không có hoặc số lượng bằng không, việc dính không khả dụng; trong trường hợp đó, sử dụng các đầu nối tự do và định vị chúng một cách thủ công. Nên kiểm tra số lượng vị trí trước khi gắn.
+Kiểm tra [connection_site_count](https://reference.aspose.com/slides/vi/python-net/aspose.slides/igeometryshape/connection_site_count/) của hình dạng. Giá trị dương nghĩa là hình dạng có các vị trí kết nối. Xác thực chỉ mục vị trí đã chọn trước khi gán cho bất kỳ đầu connector nào.
 
-**Điều gì xảy ra với một kết nối nếu tôi xóa một trong các hình đã kết nối?**
+**Tôi có thể xác định một điểm điều chỉnh connector bằng chỉ mục bộ sưu tập không?**
 
-Các đầu của nó sẽ bị tách ra; kết nối vẫn còn trên slide như một đường thường với đầu/bết tự do. Bạn có thể xóa nó hoặc gán lại các kết nối và, nếu cần, [reroute](https://reference.aspose.com/slides/vi/python-net/aspose.slides/connector/reroute/).
+Chỉ mục chỉ có ý nghĩa đối với một mẫu connector và bố cục bộ sưu tập đã biết. Kiểm tra [IAdjustValue.type](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iadjustvalue/type/) trước khi thay đổi giá trị, và sử dụng [IAdjustValue.name](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iadjustvalue/name/) như thông tin bổ sung khi cùng một kiểu ngữ nghĩa xuất hiện nhiều lần.
 
-**Liên kết của kết nối có được giữ lại khi sao chép một slide sang bản trình chiếu khác không?**
+**Điều gì xảy ra khi một hình dạng được kết nối bị xóa?**
 
-Thông thường có, với điều kiện các hình mục tiêu cũng được sao chép. Nếu slide được chèn vào một tệp khác mà không có các hình đã kết nối, các đầu sẽ trở thành tự do và bạn sẽ cần gắn lại chúng.
+Đầu connector tương ứng sẽ bị tách rời. Connector vẫn còn trên slide và có thể bị xóa, chuyển thành một đường tự do, hoặc gắn lại vào một hình dạng khác.
+
+**Các ràng buộc connector có được giữ nguyên khi sao chép slide không?**
+
+Các ràng buộc thường được giữ khi các hình dạng được sao chép cùng slide. Nếu một connector được sao chép mà không có một trong các hình dạng mục tiêu, đầu bị ảnh hưởng phải được gắn lại.

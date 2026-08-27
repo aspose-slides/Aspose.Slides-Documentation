@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση συνδέσμων σε παρουσιάσεις με JavaScript
+title: Διαχείριση Συνδέσμων σε Παρουσιάσεις χρησιμοποιώντας JavaScript
 linktitle: Σύνδεσμος
 type: docs
 weight: 10
@@ -10,381 +10,518 @@ keywords:
 - σημείο συνδέσμου
 - γραμμή συνδέσμου
 - γωνία συνδέσμου
+- σημείο σύνδεσης
+- σημείο ρύθμισης
 - σύνδεση σχημάτων
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ενδυναμώστε τις εφαρμογές JavaScript να σχεδιάζουν, συνδέουν και αυτοπροσανατολίζουν γραμμές σε διαφάνειες PowerPoint — αποκτήστε πλήρη έλεγχο πάνω σε ευθείες, γωνιακές και καμπυλωτές συνδέσεις."
+description: "Μάθετε πώς να προσθέτετε, συνδέετε, επαναδρομολογείτε, ρυθμίζετε και ελέγχετε ευθείς, λυγμένους και καμπυλωτούς συνδέσμους PowerPoint με το Aspose.Slides για Node.js μέσω Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Ένας σύνδεσμος PowerPoint είναι μια ειδική γραμμή που συνδέει ή ενώνει δύο σχήματα μεταξύ τους και παραμένει προσαρτημένος στα σχήματα ακόμη και όταν αυτά μετακινούνται ή επανατοποθετούνται σε μια συγκεκριμένη διαφάνεια. 
+Ένας σύνδεσμος είναι μια γραμμή που μπορεί να παραμένει συνδεδεμένη σε δύο σχήματα όταν το ένα από τα σχήματα κινείται. Τα άκρα του συνδέονται σε σημεία σύνδεσης, που αναπαρίστανται από πράσινα σημεία στο PowerPoint. Ορισμένοι λυγμένοι και καμπυλωτοί σύνδεσμοι εκθέτουν επίσης σημεία ρύθμισης, που αναπαρίστανται από πορτοκαλί σημεία, τα οποία ελέγχουν τη θέση των μεμονωμένων τμημάτων του συνδέσμου.
 
-Οι σύνδεσμοι συνήθως συνδέονται με *σημεία σύνδεσης* (πράσινα σημεία), τα οποία υπάρχουν σε όλα τα σχήματα από προεπιλογή. Τα σημεία σύνδεσης εμφανίζονται όταν ο δείκτης πλησιάζει σε αυτά.
-
-*Σημεία προσαρμογής* (πορτοκαλί σημεία), τα οποία υπάρχουν μόνο σε ορισμένους συνδέσμους, χρησιμοποιούνται για την τροποποίηση της θέσης και του σχήματος των συνδέσμων.
+Το Aspose.Slides αντιπροσωπεύει τους συνδέσμους μέσω της κλάσης [Connector](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/connector/). Μπορείτε να τους δημιουργήσετε, να συνδέσετε τα άκρα τους σε σχήματα, να επιλέξετε σημεία σύνδεσης, να τα επαναδρομολογήσετε και να τροποποιήσετε τη γεωμετρία των συνδέσμων που διαθέτουν σημεία ρύθμισης.
 
 ## **Τύποι Συνδέσμων**
 
-Στο PowerPoint, μπορείτε να χρησιμοποιήσετε ευθείες, αγκώνι (γωνιακές) και καμπυλωτές συνδέσεις. 
+Η κλάση [ShapeType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapetype/) περιλαμβάνει προεπιλεγμένα ευθείς, λυγμένους και καμπυλωτούς συνδέσμους. Ο παρακάτω πίνακας δείχνει τις διαθέσιμες γεωμετρίες συνδέσμων και τον αριθμό των σημείων ρύθμισης που ορίζονται από κάθε προεπιλογή.
 
-Το Aspose.Slides παρέχει αυτούς τους συνδέσμους:
+| Σύνδεσμος | Εικόνα | Αριθμός σημείων ρύθμισης |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Σύνδεσμος                      | Εικόνα                                                        | Αριθμός σημείων προσαρμογής |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+Ο αριθμός και η σημασία των σημείων ρύθμισης αποτελούν μέρος της επιλεγμένης προεπιλογής του συνδέσμου. Μην υποθέτετε ότι δύο διαφορετικοί τύποι συνδέσμων εκθέτουν την ίδια διάταξη συλλογής.
 
-## **Σύνδεση Σχημάτων με Χρήση Συνδέσμων**
+## **Σύνδεση Δύο Σχημάτων**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://apireference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-1. Αποκτήστε μια αναφορά σε μία διαφάνεια μέσω του δείκτη της.
-1. Προσθέστε δύο [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/AutoShape) στη διαφάνεια χρησιμοποιώντας τη μέθοδο `addAutoShape` που εκτίθεται από το αντικείμενο `Shapes`.
-1. Προσθέστε έναν σύνδεσμο χρησιμοποιώντας τη μέθοδο `addConnector` που εκτίθεται από το αντικείμενο `Shapes`, ορίζοντας τον τύπο του συνδέσμου.
-1. Συνδέστε τα σχήματα χρησιμοποιώντας τον σύνδεσμο.
-1. Καλέστε τη μέθοδο `reroute` για να εφαρμόσετε τη συντομότερη διαδρομή σύνδεσης.
-1. Αποθηκεύστε την παρουσίαση. 
+Χρησιμοποιήστε το [ShapeCollection.addConnector](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/addconnector/) για να προσθέσετε έναν σύνδεσμο και τα [Connector.setStartShapeConnectedTo](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/connector/setstartshapeconnectedto/) και [Connector.setEndShapeConnectedTo](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/connector/setendshapeconnectedto/) για να συνδέσετε τα άκρα του. Αφού συνδεθούν και τα δύο άκρα, το [Connector.reroute](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/connector/reroute/) επιλέγει μια σύντομη διαδρομή μεταξύ των σχημάτων.
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να προσθέσετε έναν σύνδεσμο (έναν λυγό σύνδεσμο) μεταξύ δύο σχημάτων (μιας έλλειψης και ενός ορθογωνίου):
+Το παρακάτω παράδειγμα συνδέει μια έλλειψη και ένα ορθογώνιο με έναν λυγμένο σύνδεσμο:
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει το αρχείο PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Προσπελαύνει τη συλλογή σχημάτων για μια συγκεκριμένη διαφάνεια
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // Προσθέτει ένα σχήμα αυτόματης δημιουργίας Έλλειψης
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // Προσθέτει ένα σχήμα αυτόματης δημιουργίας Ορθογωνίου
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // Προσθέτει ένα σχήμα σύνδεσμου στη συλλογή σχημάτων της διαφάνειας
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // Συνδέει τα σχήματα χρησιμοποιώντας τον σύνδεσμο
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // Καλεί τη μέθοδο reroute που ορίζει τη συντομότερη αυτόματη διαδρομή μεταξύ των σχημάτων
     connector.reroute();
-    // Αποθηκεύει την παρουσίαση
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Προειδοποίηση" %}}
+Η κλήση του `reroute` μπορεί να αλλάξει τις τιμές των [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) και [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/connector/setendshapeconnectionsiteindex/). Αναθέστε συγκεκριμένα σημεία σύνδεσης μετά την επαναδρομολόγηση εάν αυτά τα σημεία πρέπει να παραμείνουν σταθερά.
+{{% /alert %}}
 
-`Η μέθοδος Connector.reroute` επαναδρομολογεί έναν σύνδεσμο και τον αναγκάζει να ακολουθήσει τη συντομότερη δυνατή διαδρομή μεταξύ των σχημάτων. Για να επιτύχει τον στόχο του, η μέθοδος μπορεί να τροποποιήσει τα σημεία `setStartShapeConnectionSiteIndex` και `setEndShapeConnectionSiteIndex`. 
+## **Επιλογή Σημείου Σύνδεσης**
 
-{{% /alert %}} 
+Κάθε σχήμα που μπορεί να συνδεθεί αναφέρει τον αριθμό των σημείων του μέσω του [Shape.getConnectionSiteCount](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getconnectionsitecount/). Επικυρώστε έναν προτιμώμενο δείκτη μηδενικής βάσης πριν τον αναθέσετε σε άκρο συνδέσμου· οι μετρήσεις των σημείων διαφέρουν ανάλογα με τη γεωμετρία του σχήματος.
 
-## **Καθορισμός Σημείου Σύνδεσης**
-
-Εάν θέλετε ένας σύνδεσμος να συνδέει δύο σχήματα χρησιμοποιώντας συγκεκριμένα σημεία στα σχήματα, πρέπει να καθορίσετε τα προτιμώμενα σημεία σύνδεσης ως εξής:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-1. Αποκτήστε μια αναφορά σε μία διαφάνεια μέσω του δείκτη της.
-1. Προσθέστε δύο [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/AutoShape) στη διαφάνεια χρησιμοποιώντας τη μέθοδο `addAutoShape` που εκτίθεται από το αντικείμενο `Shapes`.
-1. Προσθέστε έναν σύνδεσμο χρησιμοποιώντας τη μέθοδο `addConnector` που εκτίθεται από το αντικείμενο `Shapes`, ορίζοντας τον τύπο του συνδέσμου.
-1. Συνδέστε τα σχήματα χρησιμοποιώντας τον σύνδεσμο. 
-1. Ορίστε τα προτιμώμενα σημεία σύνδεσης στα σχήματα. 
-1. Αποθηκεύστε την παρουσίαση.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να προσθέσετε έναν σύνδεσμο (έναν λυγό σύνδεσμο) μεταξύ δύο σχημάτων (μιας έλλειψης και ενός ορθογωνίου):
+Αυτό το παράδειγμα συνδέει τον σύνδεσμο με ένα συγκεκριμένο σημείο στην έλλειψη όταν αυτό το σημείο υπάρχει:
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Προσπελαύνει τη συλλογή σχημάτων για μια συγκεκριμένη διαφάνεια
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // Προσθέτει ένα σχήμα αυτόματης δημιουργίας Έλλειψης
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // Προσθέτει ένα σχήμα αυτόματικής δημιουργίας Ορθογωνίου
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // Προσθέτει ένα σχήμα σύνδεσμου στη συλλογή σχημάτων της διαφάνειας
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // Συνδέει τα σχήματα χρησιμοποιώντας τον σύνδεσμο
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector3, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // Ορίζει τον προτιμώμενο δείκτη σημείου σύνδεσης στο σχήμα Έλλειψης
-    var wantedIndex = 6;
-    // Ελέγχει αν ο προτιμώμενος δείκτης είναι μικρότερος από το μέγιστο πλήθος σημείων σύνδεσης
-    if (ellipse.getConnectionSiteCount() > wantedIndex) {
-        // Ορίζει το προτιμώμενο σημείο σύνδεσης στο σχήμα αυτόματης δημιουργίας Έλλειψης
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+
+    const preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        console.log(`The ellipse has only ${ellipse.getConnectionSiteCount()} connection sites.`);
     }
-    // Αποθηκεύει την παρουσίαση
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("specific-connection-site.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Προσαρμογή Σημείου Συνδέσμου**
+## **Ρύθμιση Σημείου Συνδέσμου**
 
-Μπορείτε να προσαρμόσετε έναν υπάρχοντα σύνδεσμο μέσω των σημείων προσαρμογής του. Μόνο οι σύνδεσμοι με σημεία προσαρμογής μπορούν να τροποποιηθούν με αυτόν τον τρόπο. Δείτε τον πίνακα κάτω από **[Τύποι συνδέσμων.](/slides/el/nodejs-java/connector/#types-of-connectors)**
+Οι σύνδεσμοι που διαθέτουν σημεία ρύθμισης τα εκθέτουν μέσω του [GeometryShape.getAdjustments](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/geometryshape/). Εξετάστε κάθε [AdjustValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/) και ελέγξτε την τιμή του [getType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/) πριν την αλλάξετε με το [setRawValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/setrawvalue/). Οι γενικοί κανόνες για την αναγνώριση προεπιλεγμένων ρυθμίσεων σχήματος περιγράφονται στην ενότητα [Shape Manipulation](/slides/el/nodejs-java/shape-manipulations/).
 
-### **Απλή Περίπτωση**
+Ο αριθμός, η σειρά, η σημασία και το έγκυρο εύρος τιμών των ρυθμίσεων συνδέσμου εξαρτώνται από την προεπιλογή του συνδέσμου. Ο τύπος της ρύθμισης είναι μόνο για ανάγνωση, ενώ η τιμή της ρύθμισης είναι εγγράψιμη. Η μέθοδος μόνο για ανάγνωση [getName](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/getname/) παρέχει πρόσθετη ταυτοποίηση όταν ένας σύνδεσμος περιέχει περισσότερα από ένα σημεία ίδιας σημασιολογικής κατηγορίας.
 
-Σκεφτείτε μια περίπτωση όπου ένας σύνδεσμος μεταξύ δύο σχημάτων (A και B) περνάει από ένα τρίτο σχήμα (C):
+### **Δρομολόγηση γύρω από Εμπόδιο**
+
+Στην παρακάτω διάταξη, ένας σύνδεσμος `BentConnector5` μεταξύ δύο σχημάτων περνά μέσα από τρίτο σχήμα:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Αυτός ο κώδικας δημιουργεί τον εμποδισμένο σύνδεσμο:
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Για να αποφύγετε ή να παρακάμψετε το τρίτο σχήμα, μπορούμε να προσαρμόσουμε τον σύνδεσμο μετακινώντας την κάθετη γραμμή του προς τα αριστερά ως εξής:
+Η μετακίνηση του κάθετου λυγμού αλλάζει τη διαδρομή ώστε ο σύνδεσμος να παρακάμπτει το εμπόδιο:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+Αντί να υποθέτετε ότι ο δείκτης συλλογής `1` αντιπροσωπεύει πάντα τον κάθετο λυγμό, αυτό το παράδειγμα ψάχνει για `ConnectorBendPositionY` και το αλλάζει μόνο όταν υπάρχει ο αναμενόμενος σημασιολογικός τύπος:
+
 ```javascript
-var adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend === null) {
+        console.log("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Προηγμένες Περιπτώσεις** 
+Ένας `BentConnector5` έχει δύο ρυθμίσεις `ConnectorBendPositionX` και μία ρύθμιση `ConnectorBendPositionY`. Εάν ο τύπος που χρειάζεστε εμφανίζεται περισσότερες από μία φορές, ελέγξτε το `getName` και τη γνωστή γεωμετρία της προεπιλογής πριν επιλέξετε μία. Εάν μια ρύθμιση επιστρέφει `ShapeAdjustmentType.Custom`, αντιμετωπίστε τη σημασία και το εύρος της ως προεπιλογή‑συγκεκριμένα και μην την αλλάξετε μέχρι να γνωρίζετε τη σύμβαση.
 
-Για να εκτελέσετε πιο σύνθετες προσαρμογές, πρέπει να λάβετε υπόψη τα εξής:
+## **Συσχέτιση Τιμών Ρύθμισης με Γεωμετρία Συνδέσμου**
 
-* Το προσαρμόσιμο σημείο ενός συνδέσμου συνδέεται στενά με έναν τύπο που υπολογίζει και καθορίζει τη θέση του. Επομένως, αλλαγές στη θέση του σημείου μπορεί να τροποποιήσουν το σχήμα του συνδέσμου.
-* Τα σημεία προσαρμογής ενός συνδέσμου ορίζονται με αυστηρή σειρά σε έναν πίνακα. Τα σημεία προσαρμογής αριθμούνται από το αρχικό σημείο του συνδέσμου μέχρι το τελικό.
-* Οι τιμές των σημείων προσαρμογής αντικατοπτρίζουν το ποσοστό του πλάτους/ύψους του σχήματος του συνδέσμου. 
-  * Το σχήμα περιορίζεται από τα αρχικό και τελικό σημείο του συνδέσμου πολλαπλασιασμένα με 1000. 
-  * Το πρώτο σημείο, το δεύτερο σημείο και το τρίτο σημείο καθορίζουν αντίστοιχα το ποσοστό από το πλάτος, το ποσοστό από το ύψος και το ποσοστό από το πλάτος (ξανά) respectively.
-* Για τους υπολογισμούς που καθορίζουν τις συντεταγμένες των σημείων προσαρμογής ενός συνδέσμου, πρέπει να λάβετε υπόψη την περιστροφή του συνδέσμου και την αντανάκλασή του. **Σημείωση** ότι η γωνία περιστροφής για όλους τους συνδέσμους που εμφανίζονται κάτω από **[Τύποι συνδέσμων](/slides/el/nodejs-java/connector/#types-of-connectors)** είναι 0.
+Για λυγμένους συνδέσμους, οι τιμές ρύθμισης μπορούν να χρησιμοποιηθούν για την εκτίμηση των θέσεων των μεμονωμένων τμημάτων. Αυτοί οι υπολογισμοί είναι ειδικοί για την προεπιλογή του συνδέσμου:
 
-#### **Περίπτωση 1**
+- Το `BentConnector4` συνήθως εκθέτει μία ρύθμιση `ConnectorBendPositionX` και μία `ConnectorBendPositionY`.
+- Για αυτές τις θέσεις λυγμού, η διαίρεση της τιμής που επιστρέφει το `getRawValue` με `100000` παράγει το κλάσμα του πλάτους ή του ύψους του πλαισίου του συνδέσμου που χρησιμοποιείται στα παραδείγματα παρακάτω.
+- Ένα πλαίσιο συνδέσμου μπορεί να περιστραφεί ή να αναστραφεί, επομένως οι συντεταγμένες του πλαισίου πρέπει να μετασχηματιστούν πριν συγκριθούν με τις συντεταγμένες της διαφάνειας.
 
-Σκεφτείτε μια περίπτωση όπου δύο αντικείμενα πλαισίου κειμένου συνδέονται μεταξύ τους μέσω ενός συνδέσμου:
+Τα παρακάτω παραδείγματα χρησιμοποιούν το `getType` για την αρχική ταυτοποίηση των ρυθμίσεων. Δεν θεωρούν τους δείκτες συλλογής ως φορητούς αναγνωριστικούς.
+
+### **Απροστροφικός Σύνδεσμος**
+
+Η αρχική διάταξη περιέχει δύο σχήματα κειμένου συνδεδεμένα με έναν `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Αυτό το παράδειγμα εξετάζει τον σύνδεσμο και λαμβάνει τις οριζόντιες και κάθετες ρυθμίσεις λυγμού:
+
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Αποκτά την πρώτη διαφάνεια στην παρουσίαση
-    var sld = pres.getSlides().get_Item(0);
-    // Προσθέτει σχήματα που θα ενωθούν μέσω ενός συνδέσμου
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Προσθέτει ένα σύνδεσμο
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Καθορίζει την κατεύθυνση του συνδέσμου
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    // Καθορίζει το χρώμα του συνδέσμου
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Καθορίζει το πάχος της γραμμής του συνδέσμου
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const red = java.getStaticFieldValue("java.awt.Color", "RED");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
     connector.getLineFormat().setWidth(3);
-    // Συνδέει τα σχήματα μεταξύ τους με τον σύνδεσμο
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    // Αποκτά τα σημεία προσαρμογής για το σύνδεσμο
-    var adjValue_0 = connector.getAdjustments().get_Item(0);
-    var adjValue_1 = connector.getAdjustments().get_Item(1);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-**Προσαρμογή**
-
-Μπορούμε να αλλάξουμε τις τιμές των σημείων προσαρμογής του συνδέσμου αυξάνοντας το αντίστοιχο ποσοστό πλάτους και ύψους κατά 20% και 200% αντίστοιχα:
+Για να αλλάξετε και τους δύο λυγμούς, εντοπίστε κάθε αναμενόμενο τύπο και τροποποιήστε τις τιμές μόνο αφού βρεθούν και οι δύο:
 
 ```javascript
-// Αλλάζει τις τιμές των σημείων προσαρμογής
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Το αποτέλεσμα είναι ένας σύνδεσμος του οποίου τα οριζόντια και κάθετα τμήματα έχουν μετακινηθεί:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Για να ορίσουμε ένα μοντέλο που να μας επιτρέπει να καθορίσουμε τις συντεταγμένες και το σχήμα των μεμονωμένων τμημάτων του συνδέσμου, ας δημιουργήσουμε ένα σχήμα που αντιστοιχεί στο οριζόντιο στοιχείο του συνδέσμου στο σημείο connector.getAdjustments().get_Item(0):
+Μόλις γνωστοποιηθούν οι σημασιολογικοί τύποι, οι τιμές τους μπορούν να μετατραπούν σε συντεταγμένες πλαισίου συνδέσμου. Αυτό το παράδειγμα σχεδιάζει ένα λεπτό ορθογώνιο πάνω από το κάθετο τμήμα που ελέγχεται από τις δύο ρυθμίσεις λυγμού:
 
 ```javascript
-// Σχεδιάζει το κάθετο στοιχείο του συνδέσμου
-var x = connector.getX() + ((connector.getWidth() * adjValue_0.getRawValue()) / 100000);
-var y = connector.getY();
-var height = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 0, height);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        const x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const y = connector.getY();
+        const height = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(x);
+        const guideY = java.newFloat(y);
+        const guideWidth = java.newFloat(1);
+        const guideHeight = java.newFloat(height);
+        slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        presentation.save("connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Το σχήμα οδηγού σημειώνει το υπολογισμένο τμήμα:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Περίπτωση 2**
+### **Περιστρεφόμενος ή Αντιστραμμένος Σύνδεσμος**
 
-Στην **Περίπτωση 1**, παρουσιάσαμε μια απλή λειτουργία προσαρμογής συνδέσμου χρησιμοποιώντας βασικές αρχές. Σε κανονικές συνθήκες, πρέπει να λάβετε υπόψη την περιστροφή του συνδέσμου και την απεικόνισή του (που ορίζονται από τις μεθόδους connector.getRotation(), connector.getFrame().getFlipH() και connector.getFrame().getFlipV()). Θα δείξουμε τώρα τη διαδικασία.
+Όταν η ίδια γεωμετρία συνδέσμου είναι προσανατολισμένη κάθετα, οι τιμές [Shape.getFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getframe/), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapeframe/getfliph/) και [ShapeFrame.getFlipV](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapeframe/getflipv/) επηρεάζουν τη μετατροπή από τις συντεταγμένες πλαισίου συνδέσμου σε συντεταγμένες διαφάνειας.
 
-Πρώτα, ας προσθέσουμε ένα νέο αντικείμενο πλαισίου κειμένου (**To 1**) στη διαφάνεια (για σκοπούς σύνδεσης) και να δημιουργήσουμε έναν νέο (πράσινο) σύνδεσμο που θα το συνδέει με τα αντικείμενα που έχουμε ήδη δημιουργήσει.
+Αυτό το παράδειγμα δημιουργεί και ρυθμίζει τον κάθετα προσανατολισμένο σύνδεσμο:
 
 ```javascript
-// Δημιουργεί ένα νέο αντικείμενο δέσμευσης
-var shapeTo_1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Δημιουργεί ένα νέο σύνδεσμο
-connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-connector.getLineFormat().setWidth(3);
-// Συνδέει αντικείμενα χρησιμοποιώντας το νεοδημιουργημένο σύνδεσμο
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Λαμβάνει τα σημεία προσαρμογής του συνδέσμου
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Αλλάζει τις τιμές των σημείων προσαρμογής
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const connectorColor = java.newInstanceSync("java.awt.Color", 102, 205, 170);
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Ο ρυθμισμένος σύνδεσμος εμφανίζεται κάθετα μεταξύ των σχημάτων:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Δεύτερον, ας δημιουργήσουμε ένα σχήμα που θα αντιστοιχεί στο οριζόντιο στοιχείο του συνδέσμου που περνά από το νέο σημείο προσαρμογής του συνδέσμου connector.getAdjustments().get_Item(0). Θα χρησιμοποιήσουμε τις τιμές από τα δεδομένα του συνδέσμου για connector.getRotation(), connector.getFrame().getFlipH() και connector.getFrame().getFlipV() και θα εφαρμόσουμε τον δημοφιλή τύπο μετασχηματισμού συντεταγμένων για περιστροφή γύρω από ένα δεδομένο σημείο x0:
+Για οποιαδήποτε γωνία περιστροφής `alpha`, περιστρέψτε ένα σημείο πλαισίου‑συνδέσμου `(x, y)` γύρω από το κέντρο του πλαισίου `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Στην περίπτωσή μας, η γωνία περιστροφής του αντικειμένου είναι 90 μοίρες και ο σύνδεσμος εμφανίζεται κάθετα, επομένως αυτός είναι ο αντίστοιχος κώδικας:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+Ο παρακάτω κώδικας χειρίζεται τον προσανατολισμό 90 μοιρών που χρησιμοποιείται σε αυτό το παράδειγμα και σχεδιάζει έναν κόκκινο οδηγό πάνω από το αντίστοιχο τμήμα του συνδέσμου:
 
 ```javascript
-// Αποθηκεύει τις συντεταγμένες του συνδέσμου
-x = connector.getX();
-y = connector.getY();
-// Διορθώνει τις συντεταγμένες του συνδέσμου σε περίπτωση που εμφανίζεται
-if (connector.getFrame().getFlipH() == aspose.slides.NullableBool.True) {
-    x += connector.getWidth();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        let x = connector.getX();
+        let y = connector.getY();
+        if (connector.getFrame().getFlipH() === aspose.slides.NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() === aspose.slides.NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        const rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        const segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(rotatedX);
+        const guideY = java.newFloat(rotatedY);
+        const guideWidth = java.newFloat(segmentWidth);
+        const guideHeight = java.newFloat(1);
+        const guide = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        const red = java.getStaticFieldValue("java.awt.Color", "RED");
+        const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+        guide.getLineFormat().getFillFormat().setFillType(solidFillType);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+        presentation.save("rotated-connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == aspose.slides.NullableBool.True) {
-    y += connector.getHeight();
-}
-// Παίρνει την τιμή του σημείου προσαρμογής ως συντεταγμένη
-x += (connector.getWidth() * adjValue_0.getRawValue()) / 100000;
-// Μετατρέπει τις συντεταγμένες επειδή το Sin(90) = 1 και το Cos(90) = 0
-var xx = (connector.getFrame().getCenterX() - y) + connector.getFrame().getCenterY();
-var yy = (x - connector.getFrame().getCenterX()) + connector.getFrame().getCenterY();
-// Καθορίζει το πλάτος του οριζόντιου στοιχείου χρησιμοποιώντας τη δεύτερη τιμή σημείου προσαρμογής
-var width = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
 
-Το αποτέλεσμα:
+Ο κόκκινος οδηγός σημειώνει το υπολογισμένο τμήμα μετά τον μετασχηματισμό των συντεταγμένων:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Δείξαμε υπολογισμούς που αφορούν απλές προσαρμογές και σύνθετα σημεία προσαρμογής (σημεία προσαρμογής με γωνίες περιστροφής). Χρησιμοποιώντας τις αποκτηθείσες γνώσεις, μπορείτε να αναπτύξετε το δικό σας μοντέλο (ή να γράψετε κώδικα) για να αποκτήσετε ένα αντικείμενο `GraphicsPath` ή ακόμη και να ορίσετε τις τιμές των σημείων προσαρμογής ενός συνδέσμου βάσει συγκεκριμένων συντεταγμένων διαφάνειας.
+Αυτοί οι τύποι περιγράφουν τις προεπιλογές που χρησιμοποιούνται στα παραδείγματα, όχι ένα καθολικό μοντέλο συνδέσμου. Επικυρώστε τους τύπους ρύθμισης, τον προσανατολισμό του πλαισίου και τα εύρη τιμών πριν εφαρμόσετε τον ίδιο υπολογισμό σε διαφορετική προεπιλογή.
 
-## **Εύρεση Γωνίας Γραμμών Συνδέσμου**
+## **Εύρεση Γωνίας Κατεύθυνσης Συνδέσμου**
 
-1. Δημιουργήστε μια παρουσία της κλάσης.
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-1. Προσπελάστε το σχήμα γραμμής του συνδέσμου.
-1. Χρησιμοποιήστε το πλάτος, το ύψος, το ύψος του πλαισίου του σχήματος και το πλάτος του πλαισίου του σχήματος για να υπολογίσετε τη γωνία.
-
-Αυτός ο κώδικας JavaScript δείχνει μια λειτουργία στην οποία υπολογίσαμε τη γωνία για ένα σχήμα γραμμής σύνδεσμου:
+Η κατεύθυνση ενός ευθύ συνδέσμου μπορεί να υπολογιστεί από το πλάτος και το ύψος του, με τις οριζόντιες και κάθετες αντιστροφές να έχουν εφαρμοστεί. Το παρακάτω παράδειγμα αναφέρει τη δεξιόστροφη γωνία από τον θετικό οριζόντιο άξονα σε συντεταγμένες διαφάνειας:
 
 ```javascript
-var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    for (var i = 0; i < slide.getShapes().size(); i++) {
-        var dir = 0.0;
-        var shape = slide.getShapes().get_Item(i);
-        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-            var ashp = shape;
-            if (ashp.getShapeType() == aspose.slides.ShapeType.Line) {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        } else if (java.instanceOf(shape, "com.aspose.slides.Connector")) {
-            var ashp = shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
-        console.log(dir);
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const slide = presentation.getSlides().get_Item(0);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-```javascript
-function getDirection(w, h, flipH, flipV) {
-    let endLineX = w * (flipH ? -1 : 1);
-    let endLineY = h * (flipV ? -1 : 1);
-    
-    let endYAxisX = 0;
-    let endYAxisY = h;
-
-    let angle = Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX);
+    const flipH = connector.getFrame().getFlipH() === aspose.slides.NullableBool.True;
+    const flipV = connector.getFrame().getFlipV() === aspose.slides.NullableBool.True;
+    const deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    const deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    let angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
 
     if (angle < 0) {
-        angle += 2 * Math.PI;
+        angle += 360;
     }
 
-    return angle * 180.0 / Math.PI;
+    console.log(`Connector direction: ${angle.toFixed(2)} degrees`);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να καταλάβω αν ένας σύνδεσμος μπορεί να «κολλήσει» σε ένα συγκεκριμένο σχήμα;**
+**Πώς μπορώ να καταλάβω αν ένας σύνδεσμος μπορεί να συνδεθεί σε ένα σχήμα;**
 
-Ελέγξτε ότι το σχήμα εκθέτει [σημεία σύνδεσης](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getconnectionsitecount/). Εάν δεν υπάρχουν ή ο αριθμός είναι μηδέν, η πρόσδεση δεν είναι διαθέσιμη· σε αυτήν την περίπτωση, χρησιμοποιήστε ελεύθερα άκρα και τοποθετήστε τα χειροκίνητα. Είναι λογικό να ελέγχετε τον αριθμό των σημείων πριν την προσκόλληση.
+Ελέγξτε την τιμή [getConnectionSiteCount](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getconnectionsitecount/) του σχήματος. Ένας θετικός αριθμός σημαίνει ότι το σχήμα εκθέτει σημεία σύνδεσης. Επικυρώστε τον επιλεγμένο δείκτη σημείου πριν τον αναθέσετε σε κάποιο άκρο του συνδέσμου.
 
-**Τι συμβαίνει με έναν σύνδεσμο αν διαγράψω ένα από τα συνδεδεμένα σχήματα;**
+**Μπορώ να προσδιορίσω μια ρύθμιση συνδέσμου με τον δείκτη της συλλογής;**
 
-Τα άκρα του θα αποσυνδεθούν· ο σύνδεσμος παραμένει στη διαφάνεια ως απλή γραμμή με ελεύθερο αρχικό/τελικό σημείο. Μπορείτε είτε να τον διαγράψετε είτε να επαναπεριγράψετε τις συνδέσεις και, εάν χρειάζεται, να κάνετε [reroute](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/connector/reroute/).
+Ένας δείκτης είναι σημαντικός μόνο για μια γνωστή προεπιλογή συνδέσμου και διάταξη συλλογής. Ελέγξτε το [AdjustValue.getType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/) πριν τροποποιήσετε μια τιμή και χρησιμοποιήστε το [AdjustValue.getName](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/getname/) ως πρόσθετη πληροφορία όταν ο ίδιος σημασιολογικός τύπος εμφανίζεται περισσότερες από μία φορές.
 
-**Διατηρούνται οι συνδέσεις του συνδέσμου όταν αντιγράφουμε μια διαφάνεια σε άλλη παρουσίαση;**
+**Τι συμβαίνει όταν το σχήμα που είναι συνδεδεμένο διαγράψεται;**
 
-Γενικά ναι, εφόσον αντιγραφούν και τα αντίστοιχα σχήματα-στόχοι. Εάν η διαφάνεια εισαχθεί σε άλλο αρχείο χωρίς τα συνδεδεμένα σχήματα, τα άκρα γίνονται ελεύθερα και θα χρειαστεί να τα επανασυνδέσετε.
+Το αντίστοιχο άκρο του συνδέσμου αποσυνδέεται. Ο σύνδεσμος παραμένει στη διαφάνεια και μπορεί να διαγραφεί, να τοποθετηθεί ως ελεύθερη γραμμή ή να συνδεθεί ξανά σε άλλο σχήμα.
+
+**Διατηρούνται οι συνδέσεις του συνδέσμου όταν αντιγράψουμε μια διαφάνεια;**
+
+Οι συνδέσεις διατηρούνται κατά κανόνα όταν τα συνδεδεμένα σχήματα αντιγράφονται μαζί με τη διαφάνεια. Εάν ένας σύνδεσμος αντιγραφεί χωρίς κάποιο από τα σχήματα-στόχους, το επηρεασμένο άκρο πρέπει να συνδεθεί ξανά.

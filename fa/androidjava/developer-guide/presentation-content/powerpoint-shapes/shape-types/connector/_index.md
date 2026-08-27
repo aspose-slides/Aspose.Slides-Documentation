@@ -1,39 +1,37 @@
 ---
-title: "مدیریت اتصال‌گرها در ارائه‌ها بر روی اندروید"
-linktitle: "اتصال‌گر"
+title: مدیریت اتصال‌گرها در ارائه‌ها بر روی اندروید
+linktitle: اتصال‌گر
 type: docs
 weight: 10
 url: /fa/androidjava/connector/
 keywords:
-- "اتصال‌گر"
-- "نوع اتصال‌گر"
-- "نقطه اتصال‌گر"
-- "خط اتصال‌گر"
-- "زاویه اتصال‌گر"
-- "اتصال اشکال"
-- "PowerPoint"
-- "ارائه"
-- "Android"
-- "Java"
-- "Aspose.Slides"
-description: "به برنامه‌های Java قدرت بدهید تا خطوط را در اسلایدهای PowerPoint بر روی Android رسم، اتصال و مسیردهی خودکار کنند—کنترل کامل بر اتصال‌گرهای مستقیم، زانو (زاویه‌دار) و منحنی را به دست آورید."
+- اتصال‌گر
+- نوع اتصال‌گر
+- نقطه اتصال‌گر
+- خط اتصال‌گر
+- زاویه اتصال‌گر
+- نقطه اتصال
+- نقطه تنظیم
+- متصل‌کردن اشکال
+- PowerPoint
+- ارائه
+- Android
+- Java
+- Aspose.Slides
+description: "یاد بگیرید چگونه با Aspose.Slides برای اندروید از طریق Java، اتصال‌گرهای مستقیم، خمیده و منحنی PowerPoint را اضافه، متصل، مسیردهی مجدد، تنظیم و بررسی کنید."
 ---
-## **مقدمه**
+## **بررسی کلی**
 
-یک اتصال‌گر PowerPoint یک خط ویژه است که دو شکل را به هم متصل یا لینک می‌کند و حتی هنگام جابجا یا تغییر موقعیت آن‌ها در یک اسلاید، به شکل‌ها متصل می‌ماند. 
+یک اتصال‌گر خطی است که می‌تواند به دو شکل متصل بماند وقتی که هر یک از شکل‌ها حرکت می‌کنند. سرهای آن به نقاط اتصال که با نقاط سبز در پاورپوینت نشان داده می‌شوند، متصل می‌شوند. برخی از اتصال‌گرهای خمیده و منحنی همچنین نقاط تنظیمی را که با نقاط نارنجی نشان داده می‌شوند، افشا می‌کنند که موقعیت بخش‌های جداگانه اتصال‌گر را کنترل می‌کنند.
 
-اتصال‌گرها معمولاً به *نقاط اتصال* (نقطه‌های سبز) متصل می‌شوند که به‌صورت پیش‌فرض بر روی همه شکل‌ها وجود دارند. نقاط اتصال زمانی ظاهر می‌شوند که مکان‌نمای ماوس به آن‌ها نزدیک شود.
+Aspose.Slides اتصال‌گرها را از طریق رابط [IConnector](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iconnector/) نشان می‌دهد. شما می‌توانید آنها را ایجاد کنید، سرهایشان را به اشکال متصل کنید، نقاط اتصال را انتخاب کنید، مسیر آن‌ها را دوباره تعیین کنید، و هندسه اتصال‌گرهایی که نقاط تنظیمی دارند را تغییر دهید.
 
-*نقاط تنظیم* (نقطه‌های نارنجی) که فقط در برخی اتصال‌گرها وجود دارند، برای تغییر موقعیت و شکل اتصال‌گرها استفاده می‌شوند.
+## **انواع اتصال‌گر**
 
-## **انواع اتصال‌گرها**
+کلاس [ShapeType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapetype/) شامل پیش‌ تنظیمات اتصال‌گرهای مستقیم، خمیده و منحنی است. جدول زیر هندسه‌های موجود اتصال‌گر و تعداد نقاط تنظیمی تعریف‌شده توسط هر پیش‌ تنظیم را نشان می‌دهد.
 
-در PowerPoint می‌توانید از اتصال‌گرهای مستقیم، زانو (زاویه‌دار) و منحنی استفاده کنید. 
-
-Aspose.Slides این اتصال‌گرها را فراهم می‌کند:
-
-| اتصال‌گر | تصویر | تعداد نقاط تنظیم |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| اتصال‌گر | تصویر | تعداد نقاط تنظیمی |
+|---|---|---|
 | `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -45,363 +43,463 @@ Aspose.Slides این اتصال‌گرها را فراهم می‌کند:
 | `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **اتصال اشکال با استفاده از اتصال‌گرها**
+تعداد و معنای نقاط تنظیمی بخشی از پیش‌ تنظیمات اتصال‌گر انتخاب‌شده است. فرض نکنید که دو نوع اتصال‌گر متفاوت همان طرح‌بندی مجموعه را افشا می‌کنند.
 
-1. یک نمونه از کلاس [Presentation](https://apireference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس ایندکس آن دریافت کنید.
-1. دو [AutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AutoShape) به اسلاید اضافه کنید با استفاده از متد `addAutoShape` که توسط شیء `Shapes` در دسترس است.
-1. یک اتصال‌گر با استفاده از متد `addConnector` که توسط شیء `Shapes` در دسترس است و نوع اتصال‌گر را تعریف می‌کند، اضافه کنید.
-1. با استفاده از اتصال‌گر، اشکال را متصل کنید.
-1. متد `reroute` را فراخوانی کنید تا کوتاه‌ترین مسیر اتصال اعمال شود.
-1. ارائه (Presentation) را ذخیره کنید. 
+## **اتصال دو شکل**
 
-این کد Java نشان می‌دهد چطور یک اتصال‌گر (یک اتصال‌گر خمیده) بین دو شکل (یک بیضی و یک مستطیل) اضافه کنید:
+از [IShapeCollection.addConnector](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) برای افزودن یک اتصال‌گر استفاده کنید، و از [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) و [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) برای متصل کردن سرهای آن به اشکال استفاده کنید. پس از متصل شدن هر دو سر، [IConnector.reroute](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iconnector/#reroute--) مسیر کوتاهی بین اشکال انتخاب می‌کند.
 
-```Java
-// یک شیء presentation ایجاد می‌کند که فایل PPTX را نمایندگی می‌کند
-Presentation pres = new Presentation();
-try {
-    // دسترسی به مجموعه shapes برای یک اسلاید خاص
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // یک شکل خودکار بیضی اضافه می‌کند
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // یک شکل خودکار مستطیل اضافه می‌کند
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // یک شکل اتصال‌گر به مجموعه اشکال اسلاید اضافه می‌کند
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // اشکال را با استفاده از اتصال‌گر متصل می‌کند
-    connector.setStartShapeConnectedTo(ellipse);
-    connector.setEndShapeConnectedTo(rectangle);
-    
-    // متد reroute را فراخوانی می‌کند که مسیر کوتاه‌ترین مسیر خودکار بین اشکال را تنظیم می‌کند
-    connector.reroute();
-    
-    // ارائه را ذخیره می‌کند
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-متد `Connector.reroute` یک اتصال‌گر را مجدداً مسیر می‌دهد و آن را مجبور می‌کند کوتاه‌ترین مسیر ممکن بین اشکال را بپیماید. برای رسیدن به این هدف، این متد ممکن است نقاط `setStartShapeConnectionSiteIndex` و `setEndShapeConnectionSiteIndex` را تغییر دهد. 
-
-{{% /alert %}} 
-
-## **مشخص کردن نقطه اتصال**
-
-اگر می‌خواهید یک اتصال‌گر دو شکل را با استفاده از نقاط خاصی روی شکل‌ها لینک کند، باید نقاط اتصال مورد نظر خود را به این شکل مشخص کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس ایندکس آن دریافت کنید.
-1. دو [AutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AutoShape) به اسلاید اضافه کنید با استفاده از متد `addAutoShape` که توسط شیء `Shapes` در دسترس است.
-1. یک اتصال‌گر با استفاده از متد `addConnector` که توسط شیء `Shapes` در دسترس است و نوع اتصال‌گر را تعریف می‌کند، اضافه کنید.
-1. با استفاده از اتصال‌گر، اشکال را متصل کنید.
-1. نقاط اتصال مورد نظر خود را بر روی اشکال تنظیم کنید. 
-1. ارائه (Presentation) را ذخیره کنید.
-
-این کد Java یک عملیات را نشان می‌دهد که در آن یک نقطه اتصال مورد نظر مشخص می‌شود:
+مثال زیر یک بیضی و یک مستطیل را با یک اتصال‌گر خمیده متصل می‌کند:
 
 ```java
-// یک شیء presentation می‌سازد که نمایانگر یک فایل PPTX است
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // دسترسی به مجموعه shapes برای یک اسلاید خاص
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل خودکار بیضی اضافه می‌کند
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // یک شکل خودکار مستطیل اضافه می‌کند
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // یک شکل اتصال‌گر به مجموعه اشکال اسلاید اضافه می‌کند
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // اشکال را با استفاده از اتصال‌گر متصل می‌کند
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
+    connector.reroute();
 
-    // اندیس نقطه اتصال مورد نظر را روی شکل بیضی تنظیم می‌کند
-    int wantedIndex = 6;
-
-    // بررسی می‌کند که آیا اندیس مورد نظر کمتر از حداکثر شمارش سایت‌ها است یا نه
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // نقطه اتصال مورد نظر را روی شکل خودکار بیضی تنظیم می‌کند
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
-    }
-
-    // ارائه را ذخیره می‌کند
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم نقطه یک اتصال‌گر**
+{{% alert color="warning" title="Warning" %}}
+فراخوانی `reroute` می‌تواند مقادیر [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) و [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) را تغییر دهد. پس از تغییر مسیر، در صورت نیاز به ثابت ماندن آن نقاط، سایت‌های خاص را دوباره اختصاص دهید.
+{{% /alert %}}
 
-می‌توانید یک اتصال‌گر موجود را از طریق نقاط تنظیم آن تنظیم کنید. تنها اتصال‌گرهایی که نقاط تنظیم دارند می‌توانند به این روش تغییر کنند. جدول زیر را در بخش **[انواع اتصال‌گرها](/slides/fa/androidjava/connector/#types-of-connectors)** ببینید.
+## **انتخاب نقطه اتصال**
 
-### **مورد ساده**
+هر شکلی که قابلیت اتصال دارد تعداد سایت‌های خود را از طریق [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--) گزارش می‌کند. قبل از اختصاص یک ایندکس سایت صفر مبنا به سر اتصال‌گر، مقدار آن را اعتبارسنجی کنید؛ تعداد سایت‌ها بسته به هندسه شکل متفاوت است.
 
-به مانده‌ای فکر کنید که یک اتصال‌گر بین دو شکل (A و B) از یک شکل سوم (C) عبور می‌کند:
+این مثال اتصال‌گر را زمانی که سایت خاصی بر روی بیضی وجود داشته باشد، به آن سایت متصل می‌کند:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
+    }
+
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تنظیم نقطه اتصال‌گر**
+
+اتصال‌گرهایی که نقاط تنظیمی دارند این نقاط را از طریق [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) افشا می‌کنند. قبل از تغییر مقدار هر [IAdjustValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/)، نوع آن را با فراخوانی [getType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#getType--) بررسی کنید و سپس با [setRawValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) مقدار را تغییر دهید. قوانین کلی شناسایی تنظیمات پیش‌ تنظیم شده شکل در بخش [Shape Manipulation](/slides/fa/androidjava/shape-manipulations/) توضیح داده شده است.
+
+تعداد، ترتیب، معنی و دامنه مقدار معتبر تنظیمات اتصال‌گر بسته به پیش‌ تنظیم اتصال‌گر متفاوت است. نوع تنظیم فقط‑خواندنی است، در حالی که مقدار تنظیم قابل نوشتن است. متد فقط‑خواندنی [getName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#getName--) اطلاعات شناسایی بیشتری فراهم می‌کند وقتی یک اتصال‌گر بیش از یک تنظیم از همان نوع معنایی داشته باشد.
+
+### **مسیر دور موانع**
+
+در طرح زیر، یک اتصال‌گر `BentConnector5` بین دو شکل از شکل سوم عبور می‌کند:
 
 ![connector-obstruction](connector-obstruction.png)
 
+این کد اتصال‌گر مسدود شده را ایجاد می‌کند:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-برای دوری یا عبور از شکل سوم، می‌توانیم اتصال‌گر را با جابجایی خط عمودی آن به سمت چپ به این شکل تنظیم کنیم:
+جابه‌جایی خم عمودی مسیر را تغییر می‌دهد به‌طوری‌که اتصال‌گر مانع را دور می‌زند:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+به‌جای فرض اینکه ایندکس مجموعه `1` همیشه نشانگر خم عمودی باشد، این مثال به‌دنبال `ConnectorBendPositionY` می‌گردد و فقط زمانی که نوع معنایی مورد انتظار موجود باشد، آن را تغییر می‌دهد:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **موارد پیچیده** 
+یک `BentConnector5` دو تنظیم `ConnectorBendPositionX` و یک تنظیم `ConnectorBendPositionY` دارد. اگر نوع مورد نیاز شما بیش از یک بار ظاهر شود، قبل از انتخاب یکی، `getName` و هندسه شناخته‑شدهٔ آن پیش‌ تنظیم را بررسی کنید. اگر یک تنظیم `ShapeAdjustmentType.Custom` گزارش شود، معنی و دامنهٔ آن را مخصوص پیش‌ تنظیم در نظر بگیرید و تا زمان آگاهی از قرارداد آن، تغییر ندهید.
 
-برای انجام تنظیمات پیچیده‌تر، باید موارد زیر را در نظر بگیرید:
+## **ارتباط مقادیر تنظیمی با هندسه اتصال‌گر**
 
-* نقطه قابل تنظیم یک اتصال‌گر به‌طور قوی به فرمولی که موقعیت آن را محاسبه و تعیین می‌کند مرتبط است. بنابراین تغییر مکان نقطه ممکن است شکل اتصال‌گر را تغییر دهد.
-* نقاط تنظیم یک اتصال‌گر به‌صورت یک ترتیب سفت و سخت در یک آرایه تعریف شده‌اند. نقاط تنظیم از نقطه شروع اتصال‌گر تا نقطه انتهای آن شماره‌گذاری می‌شوند.
-* مقدارهای نقاط تنظیم درصدی از عرض/ارتفاع شکل اتصال‌گر را نشان می‌دهند. 
-  * شکل توسط نقاط شروع و پایان اتصال‌گر ضرب در 1000 محدود می‌شود. 
-  * نقطه اول، نقطه دوم و نقطه سوم به ترتیب درصدی از عرض، درصدی از ارتفاع و دوباره درصدی از عرض را تعریف می‌کنند.
-* برای محاسباتی که مختصات نقاط تنظیم یک اتصال‌گر را تعیین می‌کند، باید چرخش اتصال‌گر و بازتاب آن را در نظر بگیرید. **توجه** داشته باشید که زاویه چرخش تمام اتصال‌گرهای نشان‌داده‌شده در بخش **[انواع اتصال‌گرها](/slides/fa/androidjava/connector/#types-of-connectors)** برابر 0 است.
+برای اتصال‌گرهای خمیده، مقادیر تنظیمی می‌توانند برای برآورد موقعیت بخش‌های جداگانه استفاده شوند. این محاسبات مخصوص پیش‌ تنظیم اتصال‌گر هستند:
 
-#### **مورد 1**
+- `BentConnector4` معمولاً یک تنظیم `ConnectorBendPositionX` و یک تنظیم `ConnectorBendPositionY` را در اختیار می‌گذارد.
+- برای این موقعیت‌های خم، تقسیم مقدار بازگشتی از `getRawValue` بر `100000f` کسر عرض یا ارتفاع قاب اتصال‌گر را برای مثال‌های زیر تولید می‌کند.
+- قاب اتصال‌گر می‌تواند چرخیده یا معکوس شود، بنابراین مختصات قاب باید قبل از مقایسه با مختصات اسلاید تبدیل شوند.
 
-به موردی فکر کنید که دو شیء قاب متن از طریق یک اتصال‌گر به هم متصل هستند:
+مثال‌های زیر ابتدا با استفاده از `getType` تنظیمات را شناسایی می‌کنند. آنها ایندکس‌های مجموعه را به‌عنوان شناسه‌های قابل‌انتقال در نظر نمی‌گیرند.
+
+### **اتصال‌گر بدون چرخش**
+
+طرح اولیه شامل دو شکل متنی است که توسط یک `BentConnector4` به هم متصل شده‌اند:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+این مثال اتصال‌گر را بررسی می‌کند و تنظیمات خم افقی و عمودی آن را به‌دست می‌آورد:
+
 ```java
-// یک شیء presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // اسلاید اول در ارائه را دریافت می‌کند
-    ISlide sld = pres.getSlides().get_Item(0);
-    // اشکالی را اضافه می‌کند که از طریق یک اتصال‌گر به هم پیوسته خواهند شد
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // یک اتصال‌گر اضافه می‌کند
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // جهت اتصال‌گر را مشخص می‌کند
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // رنگ اتصال‌گر را مشخص می‌کند
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // ضخامت خط اتصال‌گر را مشخص می‌کند
     connector.getLineFormat().setWidth(3);
-    
-    // اشکال را با استفاده از اتصال‌گر به هم متصل می‌کند
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // نقاط تنظیم اتصال‌گر را دریافت می‌کند
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**تنظیم**
-
-می‌توانیم مقادیر نقاط تنظیم اتصال‌گر را با افزایش درصد عرض و ارتفاع مربوطه به ترتیب 20٪ و 200٪ تغییر دهیم:
+برای تغییر هر دو خم، هر نوع مورد انتظار را پیدا کنید و مقادیر را فقط پس از یافتن هر دو تغییر دهید:
 
 ```java
-// مقادیر نقاط تنظیم را تغییر می‌دهد
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-نتیجه:
+نتیجه یک اتصال‌گر است که بخش‌های افقی و عمودی آن جابه‌جا شده‌اند:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-برای تعریف مدلی که بتواند مختصات و شکل بخش‌های منفرد اتصال‌گر را تعیین کند، بیایید یک شکل ایجاد کنیم که به مؤلفه افقی اتصال‌گر در نقطه connector.getAdjustments().get_Item(0) متناظر باشد:
+پس از شناخته شدن انواع معنایی، می‌توان مقادیر را به مختصات قاب اتصال‌گر تبدیل کرد. این مثال یک مستطیل نازک بر روی بخش عمودی که توسط دو تنظیم خم کنترل می‌شود می‌کشد:
 
 ```java
-// رسم مؤلفه عمودی اتصال‌گر
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-نتیجه:
+شکل راهنما بخش محاسبه‌شده را نشان می‌دهد:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **مورد 2**
+### **اتصال‌گر چرخیده یا معکوس شده**
 
-در **مورد 1**، عملیات ساده تنظیم اتصال‌گر را با استفاده از اصول پایه نشان دادیم. در شرایط عادی، باید چرخش اتصال‌گر و نمایش آن (که توسط connector.getRotation()، connector.getFrame().getFlipH() و connector.getFrame().getFlipV() تنظیم می‌شود) را در نظر بگیرید. اکنون فرآیند را نشان می‌دهیم.
+زمانی که همان هندسه اتصال‌گر به صورت عمودی جهت‌دار شود، مقادیر [IShape.getFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getFrame--)، [ShapeFrame.getFlipH](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapeframe/#getFlipH--) و [ShapeFrame.getFlipV](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapeframe/#getFlipV--) بر تبدیل از مختصات قاب اتصال‌گر به مختصات اسلاید تأثیر می‌گذارند.
 
-اولاً، بیایید یک شیء قاب متن جدید (**To 1**) به اسلاید اضافه کنیم (برای اهداف اتصال) و یک اتصال‌گر جدید (سبز) ایجاد کنیم که آن را به اشیائی که قبلاً ساخته‌ایم متصل کند.
+این مثال اتصال‌گر عمودی‌جهت‌دار را ایجاد و تنظیم می‌کند:
 
 ```java
-// یک شیء بایندینگ جدید ایجاد می‌کند
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// یک اتصال‌گر جدید ایجاد می‌کند
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// اشیا را با استفاده از اتصال‌گر جدید ایجاد‌شده متصل می‌کند
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// نقاط تنظیم اتصال‌گر را دریافت می‌کند
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// مقادیر نقاط تنظیم را تغییر می‌دهد
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    int connectorColor = Color.rgb(102, 205, 170);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-نتیجه:
+اتصال‌گر تنظیم‌شده به‌صورت عمودی بین اشکال ظاهر می‌شود:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-دوماً، بیایید یک شکل ایجاد کنیم که به مؤلفه افقی اتصال‌گر که از نقطه تنظیم جدید connector.getAdjustments().get_Item(0) می‌گذرد، متناظر باشد. ما از مقادیر داده‌های اتصال‌گر برای connector.getRotation()، connector.getFrame().getFlipH() و connector.getFrame().getFlipV() استفاده می‌کنیم و فرمول تبدیل مختصات مشهور برای چرخش حول یک نقطه x0 را اعمال می‌کنیم:
+برای یک زاویهٔ چرخش دلخواه `alpha`، نقطهٔ `(x, y)` در قاب اتصال‌گر را به دور مرکز قاب `(x0, y0)` می‌چرخانیم:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-در مورد ما، زاویه چرخش شیء 90 درجه است و اتصال‌گر به صورت عمودی نمایش داده می‌شود، بنابراین کد متناظر به این شکل است:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+کد زیر جهت ۹۰ درجه استفاده‌شده در این مثال را مدیریت می‌کند و یک راهنمای قرمز بر روی بخش مربوط به اتصال‌گر می‌کشد:
 
 ```java
-// ذخیره مختصات اتصال‌گر
-x = connector.getX();
-y = connector.getY();
-// اصلاح مختصات اتصال‌گر در صورت نیاز
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// استفاده از مقدار نقطه تنظیم به عنوان مختصات
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-// تبدیل مختصات چرا که Sin(90) = 1 و Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// تعیین عرض مؤلفه افقی با استفاده از مقدار نقطه تنظیم دوم
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-نتیجه:
+راهنمای قرمز پس از تبدیل مختصات، بخش محاسبه‌شده را نشان می‌دهد:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-ما محاسباتی را که شامل تنظیمات ساده و نقاط تنظیم پیچیده (نقاط تنظیم با زاویه چرخش) بود نشان دادیم. با استفاده از دانش به دست آمده می‌توانید مدل خود را توسعه دهید (یا کدی بنویسید) تا یک شیء `GraphicsPath` به‌دست آورید یا حتی مقادیر نقاط تنظیم اتصال‌گر را بر اساس مختصات خاص اسلاید تنظیم کنید.
+این فرمول‌ها پیش‌ تنظیمات استفاده‌شده در مثال‌ها را توصیف می‌کنند، نه یک مدل کلی برای تمام اتصال‌گرها. پیش‌ تنظیمات نوع، جهت قاب و دامنه مقادیر را قبل از اعمال همان محاسبه به پیش‌ تنظیم دیگر اعتبارسنجی کنید.
 
-## **یافتن زاویه خطوط اتصال‌گر**
+## **یافتن زاویه جهت اتصال‌گر**
 
-1. یک نمونه از کلاس ایجاد کنید.
-1. مرجع یک اسلاید را بر اساس ایندکس آن دریافت کنید.
-1. به شکل خط اتصال‌گر دسترسی پیدا کنید.
-1. از عرض خط، ارتفاع، ارتفاع چهارچوب شکل و عرض چهارچوب شکل برای محاسبه زاویه استفاده کنید.
-
-این کد Java عملیاتی را نشان می‌دهد که در آن زاویه یک شکل خط اتصال‌گر را محاسبه کردیم:
+جهت یک اتصال‌گر مستقیم می‌تواند از عرض و ارتفاع آن، به‌همراه اعمال چرخش‌های افقی و عمودی، محاسبه شود. مثال زیر زاویه ساعت‌گرد نسبت به محور افقی مثبت در مختصات اسلاید را گزارش می‌کند:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
-```
+## **پرسش‌های متداول**
 
-## **سؤالات متداول**
+**چگونه می‌توانم تشخیص دهم یک اتصال‌گر می‌تواند به یک شکل متصل شود؟**
 
-**چگونه می‌توانم تشخیص دهم که یک اتصال‌گر می‌تواند به شکل خاصی «چسبانده» شود؟**
+مقدار [getConnectionSiteCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--) شکل را بررسی کنید. مقدار مثبت به این معنی است که شکل نقاط اتصال را افشا می‌کند. قبل از اختصاص ایندکس سایت منتخب به هر سر اتصال‌گر، آن را اعتبارسنجی کنید.
 
-بررسی کنید که شکل [نقاط اتصال](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shape/#getConnectionSiteCount--) را در دسترس قرار می‌دهد. اگر هیچکدام وجود نداشته باشد یا تعداد صفر باشد، قابلیت “چسباندن” موجود نیست؛ در این صورت، از نقاط انتهایی آزاد استفاده کنید و آنها را به‌صورت دستی موقعیت‌دهی کنید. منطقی است قبل از متصل کردن تعداد نقاط را بررسی کنید.
+**آیا می‌توانم تنظیمات یک اتصال‌گر را با ایندکس مجموعه‌اش شناسایی کنم؟**
 
-**اگر یکی از اشکال متصل‌شده را حذف کنم، چه اتفاقی برای اتصال‌گر می‌افتد؟**
+یک ایندکس تنها برای پیش‌ تنظیم شناخته‌شدهٔ اتصال‌گر و طرح‌بندی مجموعه معنی دارد. قبل از تغییر مقدار، [IAdjustValue.getType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#getType--) را بررسی کنید و در صورتی که یک نوع معنایی بیش از یک بار ظاهر می‌شود، از [IAdjustValue.getName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#getName--) به‌عنوان اطلاعات تکمیلی استفاده کنید.
 
-پایان‌های آن جدا می‌شوند؛ اتصال‌گر به‌عنوان یک خط عادی با نقطه شروع/پایان آزاد بر روی اسلاید باقی می‌ماند. می‌توانید آن را حذف کنید یا اتصالات را مجدداً اختصاص دهید و در صورت نیاز، [reroute](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/connector/#reroute--) را فراخوانی کنید.
+**وقتی شکل متصل حذف شود چه اتفاقی می‌افتد؟**
 
-**آیا اتصال‌گرها هنگام کپی یک اسلاید به ارائهٔ دیگری حفظ می‌شوند؟**
+سر مربوط به آن شکل منفصل می‌شود. اتصال‌گر در اسلاید باقی می‌ماند و می‌تواند حذف شود، به صورت خط آزاد موقعیت یابد یا به شکل دیگری متصل شود.
 
-عموماً بله، به‌شرط اینکه اشکال هدف نیز کپی شوند. اگر اسلاید بدون اشکال متصل‌شده به فایل دیگری وارد شود، انتهاها آزاد می‌شوند و شما باید آنها را دوباره متصل کنید.
+**آیا اتصال‌گرها هنگام کپی اسلاید حفظ می‌شوند؟**
+
+به‌طور کلی، وقتی اشکال متصل همراه با اسلاید کپی شوند، ارتباطات حفظ می‌شوند. اگر یک اتصال‌گر بدون یکی از اشکال هدف کپی شود، سر تحت‌اثر باید دوباره متصل شود.

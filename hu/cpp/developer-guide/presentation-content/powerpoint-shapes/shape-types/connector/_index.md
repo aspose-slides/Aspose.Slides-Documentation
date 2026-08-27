@@ -1,415 +1,681 @@
 ---
-title: "Csatlakozók kezelése bemutatókban C++ használatával"
-linktitle: "Csatlakozó"
+title: "Kötők kezelése prezentációkban C++-ban"
+linktitle: "Kötő"
 type: docs
 weight: 10
 url: /hu/cpp/connector/
 keywords:
-- "csatlakozó"
-- "csatlakozó típus"
-- "csatlakozó pont"
-- "csatlakozó vonal"
-- "csatlakozó szög"
+- "kötő"
+- "kötő típus"
+- "kötő pont"
+- "kötő vonal"
+- "kötő szög"
+- "csatlakozási hely"
+- "beállítási pont"
 - "alakzatok összekapcsolása"
 - "PowerPoint"
-- "bemutató"
+- "prezentáció"
 - "C++"
 - "Aspose.Slides"
-description: "Lehetővé teszi C++ alkalmazások számára, hogy vonalakat rajzoljanak, összekapcsoljanak és automatikusan útvonalat tervezzenek a PowerPoint diákon – teljes irányítást biztosít a egyenes, könyök és íves csatlakozók felett."
+description: "Tanulja meg, hogyan lehet hozzáadni, csatlakoztatni, újratervezni, módosítani és vizsgálni egyenes, hajlított és ívelt PowerPoint kötőket az Aspose.Slides for C++ segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A PowerPoint csatlakozó egy speciális vonal, amely két alakzatot kapcsol össze, és a alakzatokhoz kapcsolva marad akkor is, ha azok elmozdulnak vagy újra pozícionálásra kerülnek egy adott dián. 
+Egy kapcsoló egy vonal, amely a két alakzat mozgatása esetén is a két alakzathoz csatlakozott marad. Végpontjai csatlakozási pontokhoz kapcsolódnak, amelyek a PowerPointban zöld pontokként jelennek meg. Egyes hajlított és ívelt kapcsolók narancssárga pontokként jelölt beállítási pontokkal rendelkeznek, amelyek az egyes kapcsoló szegmensek helyzetét szabályozzák.
 
-A csatlakozók általában *kapcsolódási pontokhoz* (zöld pontok) csatlakoznak, amelyek alapértelmezés szerint minden alakzaton jelen vannak. A kapcsolódási pontok megjelennek, amikor a kurzor közel kerül hozzájuk.
+Az Aspose.Slides a kapcsolókat a [IConnector](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iconnector/) felületen keresztül képviseli. Létrehozhatja őket, csatlakoztathatja a végpontjaikat alakzatokhoz, kiválaszthatja a csatlakozási pontokat, átirányíthatja őket, valamint módosíthatja a beállítási pontokkal rendelkező kapcsolók geometriáját.
 
-*Állítópontok* (narancssárga pontok), amelyek csak bizonyos csatlakozókon léteznek, a csatlakozók pozíciójának és alakjának módosítására szolgálnak.
+## **Kapcsoló típusok**
 
-## **A Csatlakozók Típusai**
+A [ShapeType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shapetype/) felsorolás tartalmazza a egyenes, hajlított és ívelt kapcsoló előbeállításait. Az alábbi táblázat mutatja a rendelkezésre álló kapcsoló geometriákat és az egyes előbeállítások által definiált beállítási pontok számát.
 
-A PowerPointban egyenes, könyök (szögelt) és íves csatlakozókat használhat. 
+| Kapcsoló | Kép | Beállítási pontok száma |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Az Aspose.Slides a következő csatlakozókat biztosítja:
+A beállítási pontok száma és jelentése az adott kapcsoló előbeállítástól függ. Ne feltételezze, hogy két különböző kapcsoló típus ugyanazzal a gyűjtemény elrendezéssel rendelkezik.
 
-| Csatlakozó                      | Kép                                                        | Állítópontok száma |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **Két alakzat összekapcsolása**
 
-## **Alakzatok Kapcsolása Csatlakozókkal**
+Használja a [IShapeCollection::AddConnector](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/addconnector/) metódust egy kapcsoló hozzáadásához, és hívja meg a [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) és [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) metódusokat a végpontok csatlakoztatásához. Miután mindkét végpont csatlakoztatva van, az [IConnector::Reroute](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iconnector/reroute/) egy rövid útvonalat választ a két alakzat között.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation/) osztályból.  
-1. Szerezze meg egy dia hivatkozását az indexe alapján.  
-1. Adjon hozzá két [AutoShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.auto_shape) objektumot a diára a `Shapes` objektum által biztosított `AddAutoShape` metódussal.  
-1. Adjon hozzá egy csatlakozót a `Shapes` objektum `AddConnector` metódusával, meghatározva a csatlakozó típusát.  
-1. Kösse össze az alakzatokat a csatlakozóval.  
-1. Hívja meg a `Reroute` metódust a legrövidebb kapcsolat útvonal alkalmazásához.  
-1. Mentse a bemutatót.  
+Az alábbi példa egy ellipszis és egy téglalap összekapcsolását mutatja hajlított kapcsolóval:
 
-Ez a C++ kód bemutatja, hogyan adhat hozzá egy csatlakozót (egy hajlított csatlakozót) két alakzat (egy ellipszis és egy téglalap) között:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-```c++
-// A dokumentumok könyvtárának útvonala.
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// Betölti a kívánt bemutatót
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// Eléri az első diát
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// Hozzáfér egy adott dia alakzatgyűjteményéhez
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// Hozzáad egy Ellipse automatikus alakzatot
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// Hozzáad egy Rectangle automatikus alakzatot
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-
-	// Hozzáad egy csatlakozó alakzatot a dia alakzatgyűjteményéhez
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// Összekapcsolja az alakzatokat a csatlakozóval
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// Meghívja a reroute-ot, amely beállítja az automatikus legrövidebb útvonalat az alakzatok között
-	connector->Reroute();
-	
-	// Elmenti a bemutatót
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`connector->Reroute` metódus újraútvonalazza a csatlakozót, és a két alakzat közötti legrövidebb lehetséges útvonalat kényszeríti. Ennek eléréséhez a metódus módosíthatja a `StartShapeConnectionSiteIndex` és `EndShapeConnectionSiteIndex` pontokat. 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
 
-## **Kapcsolódási Pont Megadása**
+Az `IConnector::Reroute` meghívása megváltoztathatja a [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) és [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/) értékeket. Ha a csatlakozási pontoknak rögzítve kell maradniuk, rendelje hozzá őket a újrairányítás után.
 
-Ha azt szeretné, hogy egy csatlakozó két alakzatot összekapcsoljon a alakzatokon lévő konkrét pontok használatával, a kívánt kapcsolódási pontokat a következő módon kell megadni:
+{{% /alert %}}
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation/) osztályból.  
-1. Szerezze meg egy dia hivatkozását az indexe alapján.  
-1. Adjon hozzá két [AutoShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.auto_shape) objektumot a diára a `Shapes` objektum által biztosított `AddAutoShape` metódussal.  
-1. Adjon hozzá egy csatlakozót a `Shapes` objektum `AddConnector` metódusával, meghatározva a csatlakozó típusát.  
-1. Kösse össze az alakzatokat a csatlakozóval.  
-1. Állítsa be a kívánt kapcsolódási pontokat az alakzatokon.  
-1. Mentse a bemutatót.  
+## **Csatlakozási pont kiválasztása**
 
-Ez a C++ kód egy műveletet mutat be, ahol egy előnyben részesített kapcsolódási pont van megadva:
+Minden csatlakoztatható alakzat a [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_connectionsitecount/) metódussal adja meg a rendelkezésre álló pontok számát. Érvényesítse a kívánt, nullához képest indexelt pontot, mielőtt a kapcsoló végpontjához rendeli; a pontok száma alakzat geometriától függ.
 
-```c++
-	// A dokumentumok könyvtárának útvonala.
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+Ez a példa egy adott ponton csatlakoztatja a kapcsolót az ellipszishez, ha az a pont létezik:
 
-	// Betölti a kívánt bemutatót
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-	// Eléri az első diát
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// Hozzáfér egy adott dia alakzatgyűjteményéhez
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// Hozzáad egy Ellipse automatikus alakzatot
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// Hozzáad egy Rectangle automatikus alakzatot
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// Hozzáad egy csatlakozó alakzatot a dia alakzatgyűjteményéhez
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// Összekapcsolja az alakzatokat a csatlakozóval
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// Beállítja a kívánt kapcsolódási pont indexet az Ellipse alakzaton
-	int wantedIndex = 6;
-
-	// Ellenőrzi, hogy a kívánt index kisebb-e a maximális helyindex számnál
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// Beállítja a kívánt kapcsolódási pontot az Ellipse automatikus alakzaton
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// Elmenti a bemutatót
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
-## **Csatlakozó Pontjának Módosítása**
+## **Kapcsoló pont módosítása**
 
-Meglévő csatlakozót a hozzá tartozó állítópontok segítségével módosíthat. Csak azok a csatlakozók módosíthatók így, amelyek rendelkeznek állítópontokkal. Lásd a táblázatot a **[A Csatlakozók Típusai](/slides/hu/cpp/connector/#types-of-connectors)** alatt. 
+A beállítási pontokkal rendelkező kapcsolók ezeket a pontokat a [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igeometryshape/get_adjustments/) metóduson keresztül teszik elérhetővé. Minden [IAdjustValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/) elemet vizsgáljon meg, és ellenőrizze a [IAdjustValue::get_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/get_type/) típusát, mielőtt a [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/set_rawvalue/) értékét módosítaná. Az előre beállított alakzatbeállítások azonosításának általános szabályait a [Shape Manipulation](/slides/hu/cpp/shape-manipulations/) fejezetben találja.
 
-### **Egyszerű Eset**
+A kapcsoló beállításainak száma, sorrendje, jelentése és érvényes értéktartománya a kapcsoló előbeállításától függ. A `IAdjustValue::get_Type` által visszaadott típus csak olvasható, míg a nyers beállítási érték írható. A csak olvasható [IAdjustValue::get_Name](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iadjustvalue/get_name/) metódus további azonosítást nyújt, ha a kapcsoló több azonos szemantikai típusú beállítással is rendelkezik.
 
-Tekintsünk egy esetet, ahol egy csatlakozó két alakzat (A és B) között áthalad egy harmadik alakzaton (C):
+### **Útvonal akadály körül**
+
+Az alábbi elrendezésben egy `ShapeType::BentConnector5` kapcsoló két alakzat között egy harmadik alakzaton halad át:
 
 ![connector-obstruction](connector-obstruction.png)
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
+Ez a kód hozza létre a blokkolt kapcsolót:
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-A harmadik alakzat elkerülése vagy megkerülése érdekében a csatlakozót úgy állíthatjuk, hogy a függőleges vonalát balra mozdítjuk:
+A függőleges hajlítás elmozdítása megváltoztatja az útvonalat, így a kapcsoló megkerüli az akadályt:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+Ahelyett, hogy feltételezné, hogy az `1` indexű elem mindig a függőleges hajlítást jelenti, ez a példa a `ShapeAdjustmentType::ConnectorBendPositionY` típusra keres, és csak akkor módosítja, ha a várt szemantikai típus jelen van:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
-### **Összetett Esetek** 
+Egy `ShapeType::BentConnector5` két `ShapeAdjustmentType::ConnectorBendPositionX` és egy `ShapeAdjustmentType::ConnectorBendPositionY` beállítással rendelkezik. Ha a szükséges típus többször is előfordul, vizsgálja meg az `IAdjustValue::get_Name` értékét és az előbeállítás ismert geometriáját, mielőtt kiválasztana egyet. Ha egy beállítás `ShapeAdjustmentType::Custom` típust jelöl, tekintse jelentését és tartományát az adott előbeállításra jellemzőnek, és csak a szerződés tisztázása után módosítsa.
 
-Összetettebb módosítások elvégzéséhez az alábbiakat kell figyelembe venni:
+## **A beállítási értékek kapcsoló geometriához való viszonya**
 
-* Egy csatlakozó állítható pontja szorosan összefügg egy olyan képlettel, amely kiszámítja és meghatározza a pozícióját. Így a pont helyzetének megváltoztatása a csatlakozó alakját is módosíthatja.  
-* A csatlakozó állítópontjai szigorú sorrendben vannak definiálva egy tömbben. Az állítópontok számozása a csatlakozó kezdőpontjától a végéig tart.  
-* Az állítópont értékek a csatlakozó alakzat szélességének/magasságának százalékát tükrözik.  
-  * Az alakzat a csatlakozó kezdő- és végpontjainak 1000-szeresével határolt.  
-  * Az első pont, a második pont és a harmadik pont sorban a szélesség, a magasság és újra a szélesség százalékát határozza meg.  
-* A csatlakozó állítópontjainak koordinátáit meghatározó számításoknál figyelembe kell venni a csatlakozó forgatását és tükrözését. **Megjegyzés**: a **[A Csatlakozók Típusai](/slides/hu/cpp/connector/#types-of-connectors)** alatt látható összes csatlakozó forgatási szöge 0.  
+A hajlított kapcsolók esetén a beállítási értékek felhasználhatók az egyes szegmensek pozíciójának becslésére. Ezek a számítások a konkrét kapcsoló előbeállítástól függenek:
 
-#### **Eset 1**
+- `ShapeType::BentConnector4` általában egy `ShapeAdjustmentType::ConnectorBendPositionX` és egy `ShapeAdjustmentType::ConnectorBendPositionY` beállítást tesz elérhetővé.
+- Ezekhez a hajlítási pozíciókhoz a `RawValue / 100000.0f` a kapcsoló keret szélességének vagy magasságának arányát adja meg az alábbi példákban.
+- A kapcsoló keret elforgatható vagy tükrözhető, ezért a keret koordinátáit a dia koordinátáival összehasonlítás előtt át kell alakítani.
 
-Tekintsünk egy esetet, ahol két szövegkeret objektumot egy csatlakozó köt össze:
+Az alábbi példák először a `IAdjustValue::get_Type` használatával határozzák meg a beállításokat, és nem tekintik a gyűjtemény indexeit hordozható azonosítóknak.
+
+### **Nem forgatott kapcsoló**
+
+A kiinduló elrendezés két szöveges alakzatot kapcsol össze egy `ShapeType::BentConnector4` segítségével:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-```c++
-// PPTX fájlt képviselő bemutatóosztályt példányosít
-auto pres = System::MakeObject<Presentation>();
-// A bemutató első diáját lekéri
-auto slide = pres->get_Slides()->idx_get(0);
-// Alakzatokat kap az első diáról
-auto shapes = slide->get_Shapes();
-// Alakzatokat ad hozzá, amelyeket egy csatlakozóval fog összekapcsolni
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// Hozzáad egy csatlakozót
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// Megadja a csatlakozó irányát
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// Megadja a csatlakozó vonalának vastagságát
-lineFormat->set_Width(3);
-// Megadja a csatlakozó színét
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
+Ez a példa megvizsgálja a kapcsolót, és lekéri a vízszintes és függőleges hajlítási beállításokat:
 
-// Kapcsolja össze az alakzatokat a csatlakozóval
-connector->set_StartShapeConnectedTo(shapeFrom);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// Lekéri a csatlakozó állítópontjait
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
-**Adjustment**
+A mindkét hajlítás módosításához keresse meg a várt típusokat, és csak mindkettő megtalálása után módosítsa az értékeket:
 
-Megváltoztathatjuk a csatlakozó állítópont értékeit, ha a megfelelő szélesség- és magasság százalékát rendre 20%-kal és 200%-kal növeljük:
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-```c++
-// Módosítja az állítópontok értékeit
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-Az eredmény:
+Az eredmény egy olyan kapcsoló, amelynek a vízszintes és függőleges szegmensei elmozdultak:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Annak a modellnek a meghatározásához, amely lehetővé teszi a csatlakozó egyes részeinek koordinátáinak és alakjának meghatározását, hozzunk létre egy alakzatot, amely a csatlakozó vízszintes komponensének felel meg a connector.Adjustments[0] pontnál:
+Miután a szemantikai típusok ismertté váltak, azok értékei átalakíthatók a kapcsoló-keret koordinátákká. Ez a példa egy vékony téglalapot rajzol a két hajlítási beállítás által vezérelt függőleges szegmens fölé:
 
-```c++
-// Kirajzolja a csatlakozó függőleges komponensét
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Az eredmény:
+A segéd alakzat a kiszámított szegmenst jelöli:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Eset 2**
+### **Forgatott vagy tükrözött kapcsoló**
 
-**Eset 1**-ben egyszerű csatlakozóállítási műveletet mutattunk be alapelvek segítségével. Normál helyzetekben figyelembe kell venni a csatlakozó forgatását és megjelenítését (amelyeket a connector.Rotation, connector.Frame.FlipH és connector.Frame.FlipV állít be). Most bemutatjuk a folyamatot.
+Ha ugyanaz a kapcsoló geometria függőlegesen van elrendezve, akkor az [IShape::get_Frame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_frame/), [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapeframe/get_fliph/) és [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapeframe/get_flipv/) értékek befolyásolják a kapcsoló-keret koordináták dia koordinátákká konvertálását.
 
-Először adjunk egy új szövegkeret objektumot (**To 1**) a diához (kapcsolódási célból), és hozzunk létre egy új (zöld) csatlakozót, amely összeköti azt a már létrehozott objektumokkal.
+Ez a példa létrehozza és módosítja a függőlegesen orientált kapcsolót:
 
-```c++
-// Új kötési objektumot hoz létre
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// Új csatlakozót hoz létre
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// Az újonnan létrehozott csatlakozóval összekapcsolja az objektumokat
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// Lekéri a csatlakozó állítópontjait
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// Módosítja az állítópontok értékeit
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-Az eredmény:
+A módosított kapcsoló függőlegesen jelenik meg az alakzatok között:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Másodszor hozzunk létre egy alakzatot, amely a csatlakozó vízszintes komponensének felel meg, amely áthalad az új csatlakozó connector.Adjustments[0] állítópontján. Felhasználjuk a connector.Rotation, connector.Frame.FlipH és connector.Frame.FlipV értékeket, és alkalmazzuk a népszerű koordináta‑konverziós képletet egy adott x0 pont körüli forgatáshoz:
+Tetszőleges forgatási szög `alpha` esetén egy kapcsoló-keret pont `(x, y)` forgatása a keret középpontja `(x0, y0)` körül:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Mi esetünkben az objektum forgatási szöge 90 fok, és a csatlakozó függőlegesen jelenik meg, ezért ez a megfelelő kód:
+Az alábbi kód kezeli a példában használt 90‑fokos orientációt, és piros segédvonallal jelöli a megfelelő kapcsoló szegmenst:
 
-```c++
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Az eredmény:
+A piros segédvonal a koordinátatranszformáció után kiszámított szegmenst jelöli:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Bemutattuk a egyszerű módosításokat és az összetett állítópontokat (forgatási szögekkel rendelkező állítópontok) érintő számításokat. A megszerzett tudás segítségével saját modellt fejleszthet (vagy kódot írhat), amely `GraphicsPath` objektumot ad, vagy akár a csatlakozó állítópont értékeit konkrét dia‑koordináták alapján állítja be.
+Ezek a képletek a példákban használt előbeállításokra vonatkoznak, nem egy általános kapcsoló modellre. Minden alkalommal ellenőrizze a beállítási típusokat, a keret orientációt és az értéktartományokat, mielőtt ugyanazt a számítást más előbeállításra alkalmazná.
 
-## **A Csatlakozó Vonalak Szögének Meghatározása**
+## **Kapcsoló irányszöggének meghatározása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation/) osztályból.  
-1. Szerezze meg egy dia hivatkozását az indexe alapján.  
-1. Hozzáférés a csatlakozó vonal alakzathoz.  
-1. A vonal szélességét, magasságát, az alakzat keret magasságát és szélességét használja a szög kiszámításához.  
+Egy egyenes kapcsoló irányát a szélesség és magasság arányából, valamint a vízszintes és függőleges tükrözés alkalmazásával számíthatja ki. Az alábbi példa a dián lévő koordinátarendszerben a pozitív vízszintes tengelyhez viszonyított óramutató járásával megegyező szöget adja meg:
 
-Ez a C++ kód egy olyan műveletet mutat be, ahol a csatlakozó vonal alakzat szögét számoltuk ki:
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
 
-```c++
-void ConnectorLineAngle()
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// A dokumentumok könyvtárának útvonala.
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Betölti a kívánt bemutatót
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// Eléri az első diát
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// Eléri a diák alakzatgyűjteményét
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-				//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-				//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
 
 ## **GYIK**
 
-**Hogyan tudom megállapítani, hogy egy csatlakozó „ragasztható‑e” egy adott alakzatra?**
+**Hogyan tudhatom meg, hogy egy kapcsoló csatlakozhat‑e egy alakzathoz?**
 
-Ellenőrizze, hogy az alakzat rendelkezik-e [kapcsolódási pontokkal](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/get_connectionsitecount/). Ha nincsenek, vagy a számuk nulla, a ragasztás nem lehetséges; ilyen esetben használjon szabad végpontokat, és helyezze el őket kézzel. Érdemes a pontok számát ellenőrizni a csatlakoztatás előtt.
+Ellenőrizze az alakzat `IShape::get_ConnectionSiteCount` értékét. A pozitív szám azt jelzi, hogy az alakzat rendelkezik csatlakozási pontokkal. Az indexet a csatlakoztatás előtt mindig ellenőrizze.
 
-**Mi történik egy csatlakozóval, ha törlöm a csatlakoztatott alakzatok egyikét?**
+**Azonosíthatom‑e a kapcsoló beállítását a gyűjtemény indexe alapján?**
 
-A végei leválnak; a csatlakozó a dián egy szabad kezdő‑ és végpontú vonalként marad. Törölheti, vagy újra hozzárendelheti a kapcsolatokat, és szükség esetén [újratervezi](https://reference.aspose.com/slides/hu/cpp/aspose.slides/connector/reroute/).
+Az index csak egy ismert kapcsoló előbeállítás és gyűjtemény elrendezés esetén értelmezhető. Módosítás előtt ellenőrizze a `IAdjustValue::get_Type` értékét, és ha ugyanaz a szemantikai típus többször is előfordul, használja az `IAdjustValue::get_Name` metódust további információként.
 
-**Megmaradnak a csatlakozó kötődések, ha egy diát átmásolok egy másik bemutatóba?**
+**Mi történik, ha a kapcsolt alakzatot törlik?**
 
-Általában igen, amennyiben a célalakzatok is másolásra kerülnek. Ha a dia egy másik fájlba kerül beillesztésre a csatlakoztatott alakzatok nélkül, a végek szabadok lesznek, és újra kell csatlakoztatni őket.
+A megfelelő kapcsoló végpont leválik. A kapcsoló továbbra is a dián marad, és törölhető, szabad vonalként pozicionálható vagy egy másik alakzathoz csatlakoztatható.
+
+**A kapcsolók kötései megmaradnak, ha a diát másoljuk?**
+
+Általában megmaradnak, ha a kapcsolt alakzatokkal együtt másolják a diát. Ha egy kapcsolót anélkül másolnak, hogy a célalakzata megtartódna, az érintett végpontot újra csatlakoztatni kell.

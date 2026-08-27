@@ -1,5 +1,5 @@
 ---
-title: จัดการรูปร่างในการนำเสนอด้วย .NET
+title: จัดการรูปร่างการนำเสนอใน .NET
 linktitle: การจัดการรูปร่าง
 type: docs
 weight: 40
@@ -9,372 +9,478 @@ keywords:
 - รูปร่างการนำเสนอ
 - รูปร่างบนสไลด์
 - ค้นหารูปร่าง
-- คัดลอกรูปร่าง
+- ทำสำเนารูปร่าง
 - ลบรูปร่าง
 - ซ่อนรูปร่าง
 - เปลี่ยนลำดับรูปร่าง
-- รับ Interop Shape ID
-- ข้อความแทนของรูปร่าง
-- รูปแบบการจัดวางของรูปร่าง
+- รับ ID รูปร่าง Interop
+- ข้อความแทนที่ของรูปร่าง
+- จุดปรับรูปทรง
+- การปรับรูปทรงที่กำหนดไว้ล่วงหน้า
+- เรขาคณิตของรูปร่าง
+- รูปแบบเลย์เอาต์ของรูปร่าง
 - รูปร่างเป็น SVG
 - แปลงรูปร่างเป็น SVG
 - จัดแนวรูปร่าง
+- พลิกรูปร่าง
 - PowerPoint
 - การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้การสร้าง, แก้ไขและเพิ่มประสิทธิภาพของรูปร่างใน Aspose.Slides สำหรับ .NET และส่งมอบการนำเสนอ PowerPoint ที่มีประสิทธิภาพสูง"
+description: "เรียนรู้วิธีการระบุ, ปรับ, ทำสำเนา, ลบ, ซ่อน, เรียงลำดับใหม่, ส่งออก, จัดแนว, และพลิกรูปร่างการนำเสนอด้วย Aspose.Slides for .NET."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีทำงานกับรูปร่างในงานนำเสนอโดยใช้ Aspose.Slides ซึ่งแสดงวิธีค้นหารูปร่างบนสไลด์, คัดลอก, ลบ, ซ่อน, เปลี่ยนลำดับ, รับ Interop shape ID, และตั้งค่าข้อความแทนเพื่อการระบุและการประมวลผลต่อไป  
+Aspose.Slides for .NET แสดงรูปทรงต่าง ๆ บนสไลด์เป็น [IShapeCollection](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/) ที่เรียงลำดับเป็นแบบมีลำดับ. คอลเลกชันนี้เป็นทั้งที่คุณค้นหาและแก้ไขรูปทรงและเป็นแหล่งกำหนดลำดับการซ้อนกันของรูปทรง: ดัชนี `0` คือรูปทรงที่อยู่ด้านหลังสุด, ส่วนดัชนีสุดท้ายคือรูปทรงที่อยู่ด้านหน้าสุด.
 
-นอกจากนี้ยังครอบคลุมวิธีเข้าถึงรูปแบบการจัดวางสำหรับรูปร่าง, เรนเดอร์รูปร่างเป็น SVG, จัดแนวรูปร่างบนสไลด์, และใช้คุณสมบัติการพลิกเพื่อสร้างกระจกส่องในแนวนอนและแนวตั้ง อีกทั้งบทความยังมีส่วน FAQ สั้น ๆ เกี่ยวกับการรวมรูปร่าง, ลำดับการซ้อนกัน, และการล็อครูปร่าง
+บทความนี้อธิบายตามโมเดลนั้น. มันอธิบายวิธีการระบุรูปทรงอย่างเชื่อถือได้และแก้ไขจุดปรับรูปทรงที่กำหนดไว้ล่วงหน้า, แล้วแสดงวิธีการทำสำเนา, ลบ, ซ่อน, และเรียงลำดับรูปทรงใหม่. ส่วนสุดท้ายครอบคลุมการจัดรูปแบบระดับเลย์เอาต์, การส่งออกเป็น SVG, การจัดแนว, และการตั้งค่าการพลิก. ตัวอย่างแต่ละตัวเป็นอิสระ, ดังนั้นคุณสามารถใช้เพียงการดำเนินการที่ workflow ของคุณต้องการได้.
 
-## **ค้นหารูปร่างบนสไลด์**
-หัวข้อนี้จะอธิบายเทคนิคง่าย ๆ เพื่อช่วยให้นักพัฒนาค้นหารูปร่างที่ต้องการบนสไลด์โดยไม่ต้องใช้ Id ภายใน ซึ่งไฟล์ PowerPoint ไม่มีวิธีระบุรูปร่างบนสไลด์นอกจาก Id ที่เป็นค่าเอกลักษณ์ภายใน การค้นหารูปร่างโดยใช้ Id ภายในอาจทำได้ยาก ทุกรูปร่างที่เพิ่มลงในสไลด์จะมีข้อความแทนบางส่วน เราแนะนำให้นักพัฒนาใช้ข้อความแทนเพื่อค้นหารูปร่างที่ต้องการ คุณสามารถใช้ Microsoft PowerPoint กำหนดข้อความแทนสำหรับวัตถุที่คุณวางแผนจะเปลี่ยนในอนาคต  
+## **ระบุและค้นหารูปทรง**
 
-หลังจากตั้งค่าข้อความแทนของรูปร่างใดรูปร่างหนึ่งแล้ว คุณสามารถเปิดงานนำเสนอนั้นด้วย Aspose.Slides for .NET และวนลูปตรวจสอบข้อความแทนของแต่ละรูปร่าง รูปร่างที่มีข้อความแทนตรงกันจะเป็นรูปร่างที่คุณต้องการ เพื่อแสดงเทคนิคนี้อย่างชัดเจนเราจึงสร้างเมธอด [FindShape](https://reference.aspose.com/slides/th/net/aspose.slides.util/slideutil/findshape/#findshape_1) เพื่อค้นหารูปร่างเฉพาะในสไลด์และส่งกลับรูปร่างนั้น
+ดัชนีของคอลเลกชันสะดวกขณะประมวลผลไฟล์ที่ทราบ, แต่ไม่ได้เป็นตัวระบุที่คงที่. การเพิ่ม, ลบ, หรือเรียงลำดับรูปทรงใหม่อาจทำให้ดัชนีเปลี่ยน. เลือกตัวระบุตามวิธีการสร้างและการบำรุงรักษา presentation:
 
-```c#
-public static void Run()
+- [Name](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/name/) มีประโยชน์สำหรับเทมเพลตที่ควบคุมโดยนักพัฒนาและง่ายต่อการตรวจสอบใน Selection Pane ของ PowerPoint. ชื่อสามารถแก้ไขได้และไม่ได้รับประกันว่าจะเป็นค่าเฉพาะ, ดังนั้นควรกำหนดกติกาการตั้งชื่อหากโค้ดพึ่งพา.
+- [AlternativeText](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/alternativetext/) มีประโยชน์เมื่อคำอธิบายการเข้าถึงหรือแท็กที่ผู้เขียนกำหนดไว้แล้วระบุรูปทรง. มันมองเห็นได้โดยผู้ใช้, อาจแปลเป็นภาษาท้องถิ่นหรือเขียนใหม่เพื่อการเข้าถึง, และไม่ได้รับประกันว่าจะเป็นค่าเฉพาะ. อย่าแปลงข้อความการเข้าถึงที่มีความหมายให้เป็นคีย์ฐานข้อมูลโดยไม่ได้แจ้งให้ผู้ใช้ทราบ.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/officeinteropshapeid/) เป็นตัวระบุแบบอ่านอย่างเดียวที่มีค่าเฉพาะภายในสไลด์และสอดคล้องกับ Shape ID ที่ PowerPoint interop ใช้. ใช้มันเมื่อทำการบูรณาการกับ PowerPoint หรือเมื่อคุณต้องการอ้างอิงที่ไม่คลุมเครือในช่วงอายุการใช้งานของรูปทรง. รูปทรงที่ทำสำเนาหรือสร้างใหม่ถือเป็นรูปทรงที่แตกต่างและจะได้รับ ID ของตนเอง.
+
+คุณสมบัติ [UniqueId](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/uniqueid/) ที่เกี่ยวข้องมีขอบเขตระดับ presentation, แต่ตั้งใจไว้สำหรับแอดอินและสามารถกำหนดใหม่ได้. ไม่ควรถือว่าเป็นคีย์ภายนอกถาวร. หากต้องการอัตลักษณ์ระยะยาว, ให้เก็บการแมปในข้อมูลแอปพลิเคชันและตรวจสอบว่ารูปทรงที่คาดหวังยังคงมีอยู่หรือไม่.
+
+ตัวอย่างต่อไปนี้ค้นหาโดย `Name` ด้วยการเปรียบเทียบแบบออร์ดินัลและรายงาน interop ID ที่มีขอบเขตสไลด์. เมื่อเทมเพลตไม่มีรูปทรงที่คาดหวัง, โค้ดจะรายงานผลนั้นแทนที่จะทำต่อด้วยอ็อบเจ็กต์ที่ผิด.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
+        targetShape = shape;
+        break;
+    }
+}
 
-        ISlide slide = p.Slides[0];
-        // ข้อความแทนของรูปร่างที่ต้องการค้นหา
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
+if (targetShape is null)
+{
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
+}
+else
+{
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
+}
+```
+
+เมื่อปฏิบัติการเฉพาะรูปทรงชนิดหนึ่ง, ให้ตรวจสอบอินเทอร์เฟซก่อนใช้สมาชิกเฉพาะชนิด. ตัวอย่างนี้อัปเดตข้อความและข้อความแทนที่เฉพาะเมื่ออ็อบเจ็กต์ที่มีชื่อเป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
+    {
+        candidate = shape;
+        break;
+    }
+}
+
+if (candidate is IAutoShape autoShape)
+{
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
+}
+```
+
+## **ระบุและแก้ไขการปรับรูปทรงที่กำหนดไว้ล่วงหน้า**
+
+รูปทรงเรขาคณิตที่กำหนดไว้ล่วงหน้าสามารถเปิดเผยจุดปรับที่ควบคุมคุณสมบัติเช่น ขนาดมุม, อัตราส่วนของลูกศร, หรือมุมของส่วนโค้ง. เข้าถึงได้ผ่านคอลเลกชันอ่านอย่างเดียว [IGeometryShape.Adjustments](https://reference.aspose.com/slides/th/net/aspose.slides/igeometryshape/adjustments/). คอลเลกชันนั้นจัดเตรียมโดยรูปทรง, แต่ละ [IAdjustValue](https://reference.aspose.com/slides/th/net/aspose.slides/iadjustvalue/) จะมีค่าที่สามารถเปลี่ยนแปลงได้.
+
+อย่าพึ่งพาดัชนีคอลเลกชันคงที่เท่านั้น. วนผ่านการปรับและตรวจสอบคุณสมบัติอ่านอย่างเดียว [Type](https://reference.aspose.com/slides/th/net/aspose.slides/adjustvalue/type/) ซึ่งค่าของ [ShapeAdjustmentType](https://reference.aspose.com/slides/th/net/aspose.slides/shapeadjustmenttype/) บรรยายว่าการปรับนั้นควบคุมอะไร. คุณสมบัติอ่านอย่างเดียว [Name](https://reference.aspose.com/slides/th/net/aspose.slides/adjustvalue/name/) ให้ข้อมูลการระบุตัวตนเพิ่มเติมและเป็นประโยชน์โดยเฉพาะเมื่อชุดพรีเซ็ตมีการปรับมากกว่าหนึ่งรายการที่มีชนิดความหมายเดียวกัน.
+
+ใช้คุณสมบัติค่า (value) ที่ตรงกับความหมายของการปรับ:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | ขนาดของมุมโค้ง | [RawValue](https://reference.aspose.com/slides/th/net/aspose.slides/adjustvalue/rawvalue/) |
+| `ArrowTailThickness` | ความหนาของหางลูกศร | `RawValue` |
+| `ArrowheadLength` | ความยาวของหัวลูกศร | `RawValue` |
+| `ArrowheadWidth` | ความกว้างของหัวลูกศร | `RawValue` |
+| `StartAngle` | มุมเริ่มต้นของพายหรือส่วนโค้ง | [AngleValue](https://reference.aspose.com/slides/th/net/aspose.slides/adjustvalue/anglevalue/) |
+| `EndAngle` | มุมสิ้นสุดของพายหรือส่วนโค้ง | `AngleValue` |
+
+`Type` และ `Name` ไม่สามารถกำหนดค่าได้. `RawValue` เป็นจำนวนเต็มแบบอ่าน/เขียนในหน่วยเรกโซโลยีของพรีเซ็ต, ส่วน `AngleValue` เป็นมุมในหน่วยองศาแบบอ่าน/เขียน. จำนวน, ลำดับ, ความหมาย, และช่วงค่าที่ถูกต้องของการปรับขึ้นอยู่กับ [ShapeType](https://reference.aspose.com/slides/th/net/aspose.slides/igeometryshape/shapetype/) ของพรีเซ็ต. ค่าที่ใช้ได้สำหรับพรีเซ็ตหนึ่งอาจไม่ใช้ได้หรือให้ผลที่แตกต่างสำหรับพรีเซ็ตอื่น.
+
+เมื่อ `Type` เป็น `ShapeAdjustmentType.Custom` API จะไม่รู้ความหมายเชิงมาตรฐาน. ตรวจสอบ `Name`, ประเภทพรีเซ็ต, และค่าที่มีอยู่, และปล่อยให้การปรับคงเดิมเว้นแต่คุณรู้ความหมายและช่วงค่าที่คาดหวัง. แม้สำหรับชนิดที่รู้จัก, ควรตรวจสอบว่าชนิดเดียวกันปรากฏมากกว่าหนึ่งครั้งหรือไม่ก่อนเลือกค่า. บทความ [Connector](/slides/th/net/connector/) แสดงสถานการณ์ที่มีการปรับโค้งของคอนเนคเตอร์.
+
+ตัวอย่างเต็มด้านล่างสร้างเวอร์ชันเริ่มต้นและเวอร์ชันแก้ไขของรูปทรงพรีเซ็ตสามแบบ. มันวนผ่านการปรับทุกรายการ, รายงาน `Name` และ `Type`, เปลี่ยนค่าที่เกี่ยวกับขนาดผ่าน `RawValue`, เปลี่ยนมุมผ่าน `AngleValue`, และบันทึกผลลัพธ์. คอลัมน์ซ้ายคงเรขาคณิตเริ่มต้น; คอลัมน์ขวาแสดงสี่เหลี่ยมมุมโค้ง, ลูกศรสี่ทิศ, และพายที่ปรับแล้ว.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+// เพิ่มหัวข้อสำหรับคอลัมน์รูปทรงเริ่มต้นและรูปทรงที่ปรับค่า.
+var defaultColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+defaultColumnLabel.TextFrame.Text = "Default preset geometry";
+var adjustedColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel.TextFrame.Text = "Modified adjustment values";
+
+slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+var modifiedRoundedRectangle = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle.Name = "ModifiedRoundedRectangle";
+
+slide.Shapes.AddAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+var modifiedArrow = slide.Shapes.AddAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+modifiedArrow.Name = "ModifiedQuadArrow";
+
+slide.Shapes.AddAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+var modifiedPie = slide.Shapes.AddAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+modifiedPie.Name = "ModifiedPie";
+
+var shapesToAdjust = new IGeometryShape[]
+{
+    modifiedRoundedRectangle,
+    modifiedArrow,
+    modifiedPie
+};
+
+foreach (var shape in shapesToAdjust)
+{
+    for (var adjustmentIndex = 0; adjustmentIndex < shape.Adjustments.Count; adjustmentIndex++)
+    {
+        var adjustment = shape.Adjustments[adjustmentIndex];
+        Console.WriteLine($"{shape.Name} / {adjustment.Name}: {adjustment.Type}");
+
+        switch (adjustment.Type)
         {
-            Console.WriteLine("Shape Name: " + shape.Name);
+            case ShapeAdjustmentType.CornerSize:
+                adjustment.RawValue = 5000;
+                break;
+            case ShapeAdjustmentType.ArrowTailThickness:
+                adjustment.RawValue = 25000;
+                break;
+            case ShapeAdjustmentType.ArrowheadLength:
+                adjustment.RawValue = 30000;
+                break;
+            case ShapeAdjustmentType.ArrowheadWidth:
+                adjustment.RawValue = 40000;
+                break;
+            case ShapeAdjustmentType.StartAngle:
+                adjustment.AngleValue = 30;
+                break;
+            case ShapeAdjustmentType.EndAngle:
+                adjustment.AngleValue = 300;
+                break;
+            case ShapeAdjustmentType.Custom:
+                Console.WriteLine($"Custom adjustment '{adjustment.Name}' was not changed.");
+                break;
         }
     }
 }
-        
-// การนำไปใช้ของเมธอดเพื่อค้นหารูปร่างในสไลด์โดยใช้ข้อความแทนของมัน
-public static IShape FindShape(ISlide slide, string alttext)
+
+presentation.Save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+```
+
+การตรวจสอบประเภทเชิงความหมายก่อนเปลี่ยนค่าทำให้โค้ดชัดเจนเกี่ยวกับเจตนาและหลีกเลี่ยงการสันนิษฐานว่าดัชนีคอลเลกชันเดียวกันมีความหมายเดียวกันในรูปทรงพรีเซ็ตต่าง ๆ.
+
+## **แก้ไขคอลเลกชันรูปทรง**
+
+วิธีการเพิ่ม, ทำสำเนา, ลบ, และเรียงลำดับทำงานบนคอลเลกชันโดยทันที. หากการดำเนินการทำให้จำนวนหรือลำดับของรูปทรงเปลี่ยน, อย่าอ้างอิงดัชนีที่จับไว้ก่อนการดำเนินการนั้นต่อไป.
+
+### **ทำสำเนารูปทรง**
+
+[AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addclone/) สร้างสำเนาอิสระและใส่ต่อท้ายคอลเลกชันเป้าหมาย. [InsertClone](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/insertclone/) ก็สร้างสำเนาแต่ใส่ที่ดัชนี z-order ที่ระบุ. การ overload ที่รับพิกัดจะย้ายสำเนาโดยไม่เปลี่ยนขนาด; overload ที่รับความกว้างและความสูงสามารถปรับขนาดได้เช่นกัน.
+
+ตัวอย่างสร้างสไลด์ปลายทาง, ทำสำเนาสี่เหลี่ยมที่มีป้ายกำกับไปด้านหน้า, และใส่สำเนาที่สองที่ด้านหลัง. การเปลี่ยนแปลงใด ๆ กับสำเนาใดสำเนาหนึ่งจะไม่กระทบรูปทรงต้นฉบับ.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-    // วนลูปผ่านรูปร่างทั้งหมดภายในสไลด์
-    for (int i = 0; i < slide.Shapes.Count; i++)
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+การทำสำเนาคัดลอกเนื้อหาและการจัดรูปแบบของรูปทรง, รวมถึงชื่อและข้อความแทนที่. กำหนดตัวระบุตรรกะใหม่ให้กับสำเนาเมื่อค่าดังกล่าวต้องเป็นค่าเฉพาะ. ทรัพยากรที่ใช้โดยรูปทรงซับซ้อนถูกจัดการโดย presentation, แต่สำเนายังคงเป็นรายการคอลเลกชันใหม่ที่มีอัตลักษณ์รูปทรงใหม่.
+
+### **ลบรูปทรง**
+
+[Remove](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/remove/) ลบอ็อบเจ็กต์รูปทรงเฉพาะจากคอลเลกชันของมัน. เมื่อทำการลบหลายรายการในระหว่างการวนดัชนี, ให้เดินจากท้ายเพื่อให้ดัชนีที่เหลืออยู่ยังคงถูกต้อง.
+
+ตัวอย่างนี้ลบรูปทรงทุกรูปที่มีชื่อที่กำหนด. มันอ่าน `slide.Shapes[i]` แทนการอ้างอิงรายการคอลเลกชันคงที่, และไม่ทำการแคสรูปทรงโดยไม่มีเหตุผล.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
     {
-        // หากข้อความแทนของสไลด์ตรงกับที่ต้องการ
-        // คืนค่ารูปร่าง
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-## **คัดลอกรูปร่าง**
-เพื่อคัดลอกรูปร่างไปยังสไลด์โดยใช้ Aspose.Slides for .NET:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
-1. รับอ้างอิงของสไลด์โดยใช้ดัชนีของมัน
-1. เข้าถึงคอลเลกชันรูปร่างของสไลด์ต้นทาง
-1. เพิ่มสไลด์ใหม่ลงในงานนำเสนอ
-1. คัดลอกรูปร่างจากคอลเลกชันรูปร่างของสไลด์ต้นทางไปยังสไลด์ใหม่
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-ตัวอย่างด้านล่างเพิ่มกลุ่มรูปร่างไปยังสไลด์
-
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// บันทึกไฟล์ PPTX ลงดิสก์
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **ลบรูปร่าง**
-Aspose.Slides for .NET อนุญาตให้ผู้พัฒนาลบรูปร่างใดก็ได้ เพื่อลบรูปร่างจากสไลด์ใดสไลด์หนึ่ง ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส `Presentation`
-1. เข้าถึงสไลด์แรก
-1. ค้นหารูปร่างที่มี AlternativeText เฉพาะ
-1. ลบรูปร่าง
-1. บันทึกไฟล์ลงดิสก์
-
-```c#
-// สร้างอ็อบเจ็กต์ Presentation
-Presentation pres = new Presentation();
-
-// ดึงสไลด์แรก
-ISlide sld = pres.Slides[0];
-
-// เพิ่ม AutoShape ชนิดสี่เหลี่ยม
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
-    }
-}
-
-// บันทึกการนำเสนอลงดิสก์
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-## **ซ่อนรูปร่าง**
-Aspose.Slides for .NET อนุญาตให้ผู้พัฒนาซ่อนรูปร่างใดก็ได้ เพื่อต้องการซ่อนรูปร่างจากสไลด์ใดสไลด์หนึ่ง ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส `Presentation`
-1. เข้าถึงสไลด์แรก
-1. ค้นหารูปร่างที่มี AlternativeText เฉพาะ
-1. ซ่อนรูปร่าง
-1. บันทึกไฟล์ลงดิสก์
-
-```c#
- // สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
- Presentation pres = new Presentation();
-
- // ดึงสไลด์แรก
- ISlide sld = pres.Slides[0];
-
- // เพิ่ม AutoShape ชนิดสี่เหลี่ยม
- IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
- IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
- String alttext = "User Defined";
- int iCount = sld.Shapes.Count;
- for (int i = 0; i < iCount; i++)
- {
-     AutoShape ashp = (AutoShape)sld.Shapes[i];
-     if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-     {
-         ashp.Hidden = true;
-     }
- }
-
- // บันทึกการนำเสนอลงดิสก์
- pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-## **เปลี่ยนลำดับรูปร่าง**
-Aspose.Slides for .NET อนุญาตให้ผู้พัฒนาจัดลำดับรูปร่างใหม่ การจัดลำดับกำหนดว่ารูปร่างใดอยู่ด้านหน้า หรือด้านหลัง เพื่อจัดลำดับรูปร่างจากสไลด์ใดสไลด์หนึ่ง ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส `Presentation`
-1. เข้าถึงสไลด์แรก
-1. เพิ่มรูปร่างหนึ่ง
-1. เพิ่มข้อความบางส่วนในกรอบข้อความของรูปร่าง
-1. เพิ่มรูปร่างอีกหนึ่งอันโดยใช้พิกัดเดียวกัน
-1. จัดลำดับรูปร่างใหม่
-1. บันทึกไฟล์ลงดิสก์
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-## **รับ Interop Shape ID**
-Aspose.Slides for .NET อนุญาตให้ผู้พัฒนารับตัวระบุรูปร่างเฉพาะในระดับสไลด์ ซึ่งแตกต่างจากคุณสมบัติ UniqueId ที่ให้ตัวระบุระดับงานนำเสนอ  Property OfficeInteropShapeId ถูกเพิ่มในอินเทอร์เฟซ IShape และคลาส Shape ตามลำดับ  ค่า ที่ได้จาก OfficeInteropShapeId จะสอดคล้องกับค่า Id ของอ็อบเจ็กต์ Microsoft.Office.Interop.PowerPoint.Shape ด้านล่างเป็นตัวอย่างโค้ด
-
-```c#
-public static void Run()
-{
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// รับตัวระบุรูปร่างที่เป็นเอกลักษณ์ในระดับสไลด์
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
-}
-```
-
-## **ตั้งค่าข้อความแทนสำหรับรูปร่าง**
-Aspose.Slides for .NET อนุญาตให้ผู้พัฒนาตั้งค่า AlternateText ของรูปร่างใดก็ได้  
-รูปร่างในงานนำเสนอสามารถระบุแยกจากกันด้วยคุณสมบัติ AlternativeText หรือ Shape Name  
-คุณสมบัติ AlternativeText สามารถอ่านหรือกำหนดได้โดยใช้ Aspose.Slides เช่นเดียวกับ Microsoft PowerPoint  
-โดยใช้คุณสมบัตินี้ คุณสามารถแท็กรูปร่างและดำเนินการต่าง ๆ เช่น การลบ, การซ่อน หรือการจัดลำดับรูปร่างบนสไลด์  
-เพื่อกำหนด AlternateText ของรูปร่าง ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส `Presentation`
-1. เข้าถึงสไลด์แรก
-1. เพิ่มรูปร่างใดก็ได้ลงในสไลด์
-1. ดำเนินการบางอย่างกับรูปร่างที่เพิ่งเพิ่ม
-1. วนลูปตรวจสอบรูปร่างเพื่อค้นหารูปร่างที่ต้องการ
-1. ตั้งค่า AlternativeText
-1. บันทึกไฟล์ลงดิสก์
-
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
-
-// ดึงสไลด์แรก
-ISlide sld = pres.Slides[0];
-
-// เพิ่ม AutoShape ชนิดสี่เหลี่ยม
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
-{
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
-    {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        slide.Shapes.Remove(shape);
     }
 }
 
-// บันทึกการนำเสนอลงดิสก์
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **เข้าถึงรูปแบบการจัดวางสำหรับรูปร่าง**
-Aspose.Slides for .NET ให้ API ที่ง่ายสำหรับเข้าถึงรูปแบบการจัดวางของรูปร่าง บทความนี้แสดงวิธีเข้าถึงรูปแบบการจัดวาง  
+หลังการลบ จำนวนรูปทรงและดัชนีของรูปทรงต่อมาจะเปลี่ยน. การอ้างอิงรูปทรงที่ไม่ได้รับผลกระทบยังคงเชื่อถือได้กว่าการบันทึกดัชนีไว้ล่วงหน้า. ควรพิจารณาคอนเนคเตอร์, แอนิเมชัน, และคุณลักษณะ presentation อื่น ๆ ที่อาจอ้างอิงอ็อบเจ็กต์ที่ถูกลบ; การลบรูปทรงที่มองเห็นได้อาจเปลี่ยนมากกว่าลักษณะการแสดงของสไลด์.
 
-ด้านล่างเป็นตัวอย่างโค้ด
+### **ซ่อนรูปทรง**
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+การตั้งค่า [Hidden](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/hidden/) เป็น `true` ทำให้รูปทรงยังคงอยู่ในคอลเลกชันแต่ไม่ปรากฏในการแสดงสไลด์ปกติ. ดัชนี, การจัดรูปแบบ, และเนื้อหายังคงสามารถเข้าถึงได้จากโค้ด, ดังนั้นการซ่อนเหมาะสำหรับองค์ประกอบทางเลือกที่อาจต้องการคืนค่าในภายหลัง.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+การซ่อนไม่ใช่การลบหรือความปลอดภัย. อ็อบเจ็กต์ยังคงสามารถค้นพบและยกเลิกการซ่อนโดยผู้ใช้หรือโดยโค้ด, และยังคงเป็นส่วนหนึ่งของไฟล์ presentation.
+
+### **เปลี่ยน Z-Order**
+
+รูปทรงที่ทับซ้อนกันจะถูกวาดตามลำดับคอลเลกชัน. [Reorder](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/reorder/) ย้ายรูปทรงที่มีอยู่ไปยังดัชนีเป้าหมายโดยไม่ต้องทำสำเนา. ดัชนี `0` คือด้านหลัง; `Count - 1` คือด้านหน้า.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+สี่เหลี่ยมถูกสร้างก่อนและเริ่มต้นอยู่ด้านหลังวงรี. การย้ายไปยังดัชนีสุดท้ายทำให้มันอยู่ด้านหน้า. ควรสรุป Z-Order หลังจากเพิ่มหรือทำสำเนารูปทรงที่เกี่ยวข้องทั้งหมด, เพราะการดำเนินการเหล่านั้นจะเพิ่มหรือแทรกรายการคอลเลกชันใหม่และอาจเปลี่ยนลำดับที่ตั้งใจ.
+
+## **ตรวจสอบรูปทรงบนสไลด์เลย์เอาต์**
+
+สไลด์ปกติ, สไลด์เลย์เอาต์, และสไลด์มาสเตอร์มีคอลเลกชันรูปทรงแยกกัน. รูปทรงในคอลเลกชันเลย์เอาต์ไม่ใช่อ็อบเจ็กต์เดียวกับรูปทรงที่มีตำแหน่งคล้ายกันบนสไลด์ปกติ. ตรวจสอบรูปทรงเลย์เอาต์เมื่อคุณต้องการเข้าใจหรือเปลี่ยนการจัดรูปแบบที่เลย์เอาต์จัดหาให้.
+
+ตัวอย่างต่อไปนี้อ่าน [FillFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/fillformat/) และ [LineFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/lineformat/) ของแต่ละรูปทรงเลย์เอาต์โดยไม่สันนิษฐานว่าทุกรูปทรงเป็น `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
-## **เรนเดอร์รูปร่างเป็น SVG**
-ตอนนี้ Aspose.Slides for .NET รองรับการเรนเดอร์รูปร่างเป็น SVG  เมธอด WriteAsSvg (และโอเวอร์โหลด) ถูกเพิ่มในคลาส Shape และอินเทอร์เฟซ IShape  เมธอดนี้ช่วยให้บันทึกเนื้อหาของรูปร่างเป็นไฟล์ SVG  ตัวอย่างโค้ดด้านล่างแสดงวิธีส่งออกรูปร่างของสไลด์เป็นไฟล์ SVG
+การแก้ไขเลย์เอาต์อาจกระทบหลายสไลด์ที่ใช้เลย์เอาต์นั้น. ก่อนเปลี่ยนรูปทรงเลย์เอาต์, ให้กำหนดว่าสไลด์ปกติสืบทอดอ็อบเจ็กต์นั้นหรือมีการแทนที่ในระดับท้องถิ่น, และทดสอบทุกสไลด์ที่ใช้เลย์เอาต์นั้น.
 
-```c#
-public static void Run()
+## **ส่งออกรูปทรงเป็น SVG**
+
+[WriteAsSvg](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/writeassvg/) เขียนเนื้อหาที่เรนเดอร์ของรูปทรงหนึ่งไปยังสตรีม. ผลลัพธ์จะมีเพียงรูปทรงนั้น, ไม่รวมพื้นหลังสไลด์ทั้งหมดหรือรูปทรงที่อยู่ใกล้เคียง.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+if (slide.Shapes.Count == 0)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-## **จัดแนวรูปร่าง**
+ให้เปิด presentation อยู่ขณะเรนเดอร์. ผลลัพธ์ขึ้นอยู่กับการจัดรูปแบบของรูปทรงและทรัพยากรเช่น ฟอนต์และรูปภาพ. หากต้องการส่วนประกอบทั้งหมด, ควรส่งออกสไลด์ทั้งหมดแทนการส่งออกรูปทรงแต่ละอัน. ผู้เรียกต้องเป็นเจ้าของสตรีมและต้องทำการ dispose เมื่อเสร็จ.
 
-ผ่านเมธอด [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/th/net/aspose.slides.util/slideutil/methods/alignshapes/index) ที่มีการโอเวอร์โหลด คุณสามารถ  
+## **จัดแนวรูปทรง**
 
-* จัดแนวรูปร่างตามระยะขอบของสไลด์ ดูตัวอย่างที่ 1  
-* จัดแนวรูปร่างตามกันและกัน ดูตัวอย่างที่ 2  
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/th/net/aspose.slides.util/slideutil/alignshapes/) มี overload ที่จัดแนวทั้งหมดหรือดัชนีคอลเลกชันที่เลือก. [ShapesAlignmentType](https://reference.aspose.com/slides/th/net/aspose.slides/shapesalignmenttype/) ระบุขอบ, เส้นศูนย์กลาง, หรือโหมดการกระจาย. ตั้งค่า `alignToSlide` เป็น `true` เพื่อใช้ขอบสไลด์; ตั้งค่าเป็น `false` เพื่อจัดแนวรูปทรงที่เลือกสัมพันธ์กัน.
 
-Enumeration [ShapesAlignmentType](https://reference.aspose.com/slides/th/net/aspose.slides/shapesalignmenttype) กำหนดตัวเลือกการจัดแนวที่มีให้
+ตัวอย่างนี้จัดแนวสามรูปทรงไปยังขอบบนของสไลด์. การอ้างอิงรูปทรงที่คืนค่าจะถูกแปลงเป็นดัชนีปัจจุบันทันทีก่อนทำการจัดแนว.
 
-**Example 1**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
 
-โค้ด C# นี้แสดงวิธีจัดแนวรูปร่างที่มีดัชนี 1,2 และ 4 ให้เรียงตามขอบด้านบนของสไลด์: โค้ดต้นฉบับด้านล่างจัดแนวรูปร่างที่มีดัชนี 1,2 และ 4 ตามขอบบนของสไลด์
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-**Example 2**
+การจัดแนวเปลี่ยนตำแหน่ง, ไม่ใช่ Z-Order. การจัดแนวสัมพันธ์มักต้องมีอย่างน้อยสองรูปทรง, ส่วนการกระจายแนวนอนหรือแนวตั้งต้องมีรูปทรงเพียงพอเพื่อกำหนดระยะห่าง. ควรคำนวณดัชนีใหม่หากคุณแก้ไขคอลเลกชันก่อนเรียกใช้เมธอด.
 
-โค้ด C# นี้แสดงวิธีจัดแนวชุดรูปร่างทั้งหมดโดยอิงจากรูปร่างที่อยู่ด้านล่างสุดในชุด
+## **พลิกรูปทรง**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
-{
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+คลาส [ShapeFrame](https://reference.aspose.com/slides/th/net/aspose.slides/shapeframe/) เก็บตำแหน่ง, ขนาด, การตั้งค่าพลิกแนวนอนและแนวตั้ง, และการหมุน. ค่า `FlipH` และ `FlipV` ใช้ [NullableBool](https://reference.aspose.com/slides/th/net/aspose.slides/nullablebool/): `True` เปิดการพลิก, `False` ปิดการพลิก, และ `NotDefined` รักษาสถานะที่ไม่ได้ระบุ/ค่าเริ่มต้น.
+
+presentation อินพุตด้านล่างมีรูปทรงหนึ่งที่ไม่ได้พลิก.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+ตัวอย่างนี้เก็บค่ากรอบอื่นทั้งหมดไว้และแทนที่เฉพาะการตั้งค่าพลิกสองค่า. นี่สำคัญเพราะการกำหนด [Frame](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/frame/) ใหม่จะเปลี่ยนกรอบทั้งหมด.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
+
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
+
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
+
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-## **คุณสมบัติการพลิก**
+รูปทรงที่บันทึกจะถูกกระจกสะท้อนแนวนอนและแนวตั้งขณะรักษาตำแหน่ง, ขนาด, และการหมุนไว้เหมือนเดิม.
 
-ใน Aspose.Slides คลาส [ShapeFrame](https://reference.aspose.com/slides/th/net/aspose.slides/shapeframe/) ให้การควบคุมการทำกระจกส่องในแนวนอนและแนวตั้งของรูปร่างผ่านคุณสมบัติ `FlipH` และ `FlipV` ทั้งสองเป็นประเภท [NullableBool](https://reference.aspose.com/slides/th/net/aspose.slides/nullablebool/) ซึ่งรับค่า `True` เพื่อระบุการพลิก, `False` แสดงว่าไม่พลิก, หรือ `NotDefined` เพื่อใช้พฤติกรรมเริ่มต้น ค่าดังกล่าวสามารถเข้าถึงได้จาก [Frame](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/frame/) ของรูปร่าง  
-
-เพื่อปรับตั้งค่าการพลิก เราสร้างอินสแตนซ์ใหม่ของ [ShapeFrame](https://reference.aspose.com/slides/th/net/aspose.slides/shapeframe/) ด้วยตำแหน่งและขนาดปัจจุบันของรูปร่าง, ค่าที่ต้องการสำหรับ `FlipH` และ `FlipV`, รวมถึงมุมการหมุน แล้วกำหนดอินสแตนซ์นี้ให้กับ [Frame](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/frame/) ของรูปร่างและบันทึกงานนำเสนอ การทำเช่นนี้จะใช้การเปลี่ยนแปลงกระจกส่องและบันทึกผลลงไฟล์เอาต์พุต  
-
-สมมติว่าเรามีไฟล์ sample.pptx ที่สไลด์แรกมีรูปร่างเดียวกับการตั้งค่าการพลิกเริ่มต้นตามด้านล่าง  
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-โค้ดต่อไปนี้เรียกคืนคุณสมบัติการพลิกปัจจุบันของรูปร่างและพลิกทั้งแนวนอนและแนวตั้ง
-
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
-
-    // ดึงค่าคุณสมบัติการพลิกแนวนอนของรูปร่าง.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
-
-    // ดึงค่าคุณสมบัติการพลิกแนวตั้งของรูปร่าง.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
-
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // พลิกแนวนอน.
-    NullableBool flipV = NullableBool.True; // พลิกแนวตั้ง.
-    float rotation = shape.Frame.Rotation;
-
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-ผลลัพธ์:
-
-![The flipped shape](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**ฉันสามารถรวมรูปร่าง (union/intersect/subtract) บนสไลด์เหมือนในโปรแกรมแก้ไขเดสก์ท็อปได้หรือไม่?**
+**ควรใช้ดัชนีคอลเลกชันเป็นตัวระบุรูปทรงหรือไม่?**
 
-ไม่มี API สำหรับการดำเนินการบูลีนในตัว คุณสามารถประมาณได้โดยสร้างรูปร่างขอบเขตที่ต้องการด้วยตนเอง เช่น คำนวณเรขาคณิตผลลัพธ์ (โดยใช้ [GeometryPath](https://reference.aspose.com/slides/th/net/aspose.slides/geometrypath/)) และสร้างรูปร่างใหม่ด้วยคอนทัวร์นั้น พร้อมกับอาจลบรูปแบบเดิมออก
+ใช้ได้เฉพาะสำหรับการประมวลผลระยะสั้นที่คอลเลกชันจะไม่เปลี่ยนแปลงก่อนใช้ดัชนี. ควรใช้ `Name` หรือ `AlternativeText` ที่ผ่านการตรวจสอบสำหรับเทมเพลตที่สร้างโดยผู้เขียน, หรือ `OfficeInteropShapeId` สำหรับงาน interop ระดับสไลด์.
 
-**ฉันจะควบคุมลำดับการซ้อนกัน (z-order) เพื่อให้รูปร่างคงอยู่บนสุดได้อย่างไร?**
+**การซ่อนรูปทรงทำให้มันออกจาก Z-Order หรือไม่?**
 
-เปลี่ยนลำดับการแทรก/ย้ายภายในคอลเลกชัน [shapes](https://reference.aspose.com/slides/th/net/aspose.slides/baseslide/shapes/) ของสไลด์ เพื่อผลลัพธ์ที่คาดเดาได้ ควรสรุปลำดับ z-order หลังจากทำการแก้ไขสไลด์ทั้งหมดเสร็จแล้ว
+ไม่. รูปทรงที่ซ่อนยังคงอยู่ในคอลเลกชันที่ดัชนีเดียวกัน. สามารถค้นหา, เรียงลำดับใหม่, แก้ไข, หรือทำให้มองเห็นได้อีกครั้ง.
 
-**ฉันสามารถ “ล็อค” รูปร่างเพื่อป้องกันผู้ใช้จากการแก้ไขใน PowerPoint ได้หรือไม่?**
+**ทำไมรูปทรงที่ทำสำเนาจึงปรากฏด้านหน้าของรูปทรงอื่น?**
 
-ได้ สามารถตั้งค่า [shape-level protection flags](/slides/th/net/applying-protection-to-presentation/) (เช่น ล็อคการเลือก, การย้าย, การปรับขนาด, การแก้ไขข้อความ) หากต้องการอาจกำหนดข้อจำกัดบนมาสเตอร์หรือเลย์เอาต์ โปรดทราบว่าเป็นการป้องกันระดับ UI ไม่ใช่คุณลักษณะความปลอดภัย; หากต้องการความคุ้มครองที่แข็งแรงขึ้นควรผสานกับข้อจำกัดระดับไฟล์ เช่น คำแนะนำให้อ่านอย่างเดียวหรือรหัสผ่าน [read-only recommendations or passwords](/slides/th/net/password-protected-presentation/)
+`AddClone` ใส่สำเนาที่ท้ายคอลเลกชัน, ซึ่งเป็นด้านหน้าของ Z-Order. ใช้ `InsertClone` เพื่อเลือกดัชนีเริ่มต้นหรือใช้ `Reorder` หลังจากเพิ่มรูปทรงทั้งหมดแล้ว.
+
+**ฉันสามารถใช้ดัชนีคงที่เพื่อระบุการปรับพรีเซ็ตของรูปทรงได้หรือไม่?**
+
+ได้เฉพาะเมื่อยืนยันพรีเซ็ตและโครงสร้างคอลเลกชันอย่างแน่นอน. ควรวนผ่าน `IGeometryShape.Adjustments` และตรวจสอบ `IAdjustValue.Type`; ใช้ `IAdjustValue.Name` เป็นข้อมูลเพิ่มเติมเมื่อประเภทเชิงความหมายเดียวกันปรากฏหลายครั้ง.

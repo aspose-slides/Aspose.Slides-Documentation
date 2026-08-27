@@ -1,391 +1,486 @@
 ---
 title: إدارة أشكال العروض التقديمية في .NET
-linktitle: معالجة الأشكال
+linktitle: معالجة الشكل
 type: docs
 weight: 40
 url: /ar/net/shape-manipulations/
 keywords:
 - شكل PowerPoint
-- شكل العرض
+- شكل العرض التقديمي
 - شكل على الشريحة
-- العثور على الشكل
+- العثور على شكل
 - استنساخ الشكل
 - إزالة الشكل
 - إخفاء الشكل
 - تغيير ترتيب الشكل
-- الحصول على معرف الشكل Interop
-- نص بديل للشكل
+- الحصول على معرف الشكل التفاعلي
+- النص البديل للشكل
+- نقطة تعديل الشكل
+- تعديل الشكل المسبق
+- هندسة الشكل
 - تنسيقات تخطيط الشكل
-- شكل كـ SVG
+- الشكل كـ SVG
 - تحويل الشكل إلى SVG
 - محاذاة الشكل
+- قلب الشكل
 - PowerPoint
-- العرض
+- عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم إنشاء وتحرير وتحسين الأشكال في Aspose.Slides لـ .NET وتقديم عروض PowerPoint ذات أداء عالي."
+description: "تعلم كيفية تحديد، تعديل، استنساخ، إزالة، إخفاء، إعادة ترتيب، تصدير، محاذاة، وقلب أشكال العروض التقديمية باستخدام Aspose.Slides for .NET."
 ---
+## **نظرة عامة**
 
-## **العثور على شكل في شريحة**
-سيتناول هذا الموضوع تقنية بسيطة لتسهيل عملية إيجاد شكل معين في شريحة للمطورين دون الحاجة إلى استخدام المعرّف الداخلي له. من المهم معرفة أن ملفات عرض PowerPoint لا توفر أي طريقة لتحديد الأشكال في الشريحة إلا باستخدام معرّف فريد داخلي. يبدو أن العثور على شكل باستخدام المعرّف الفريد الداخلي صعب على المطورين. جميع الأشكال المضافة إلى الشرائح تحتوي على نص بديل (Alt Text). نوصي المطورين باستخدام النص البديل للعثور على شكل معين. يمكنك استخدام MS PowerPoint لتحديد النص البديل للكائنات التي تخطط لتغييرها في المستقبل.
+يمثل Aspose.Slides for .NET الأشكال على الشريحة كـ[IShapeCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/). المجموعة هي المكان الذي تجد فيه وتعدل الأشكال وكذلك مصدر ترتيب تكدسها: الفهرس `0` هو الشكل الخلفي، بينما الفهرس الأخير هو الشكل الأمامي.
 
-بعد تعيين النص البديل لأي شكل مطلوب، يمكنك فتح ذلك العرض باستخدام Aspose.Slides for .NET والمرور عبر جميع الأشكال المضافة إلى الشريحة. خلال كل تكرار، يمكنك فحص النص البديل للشكل، وسيكون الشكل الذي يمتلك النص البديل المطابق هو الشكل الذي تحتاجه. لتوضيح هذه التقنية بشكل أفضل، أنشأنا طريقة [FindShape](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/findshape/#findshape_1) التي تقوم بالعثور على شكل معين في شريحة وتعيده ببساطة.
-```c#
-public static void Run()
+يتبع هذا المقال النموذج المذكور. يشرح أولاً كيفية تحديد شكل بشكل موثوق وتعديل نقاط تعديل الشكل المسبق، ثم يوضح كيفية استنساخ، إزالة، إخفاء، وإعادة ترتيب الأشكال. تغطي الأقسام النهائية تنسيقات مستوى التخطيط، تصدير SVG، المحاذاة، وإعدادات القلابة. كل مثال مستقل، بحيث يمكنك استخدام العمليات التي يحتاجها سير العمل الخاص بك فقط.
+
+## **تحديد وإيجاد الأشكال**
+
+مؤشرات المجموعة مفيدة أثناء معالجة ملف معروف، لكنها ليست معرفات ثابتة. يمكن أن يغير إضافة أو إزالة أو إعادة ترتيب شكل فهرسه. اختر معرفًا وفقًا لكيفية إنشاء العرض التقديمي وصيانته:
+
+- [Name](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/name/) مفيدة للقوالب التي يتحكم فيها المطور وسهلة الفحص في لوحة اختيار PowerPoint. يمكن تعديل الأسماء ولا يُضمن تفردها، لذا ضع convention لتسمية إذا كان الكود يعتمد عليها.
+- [AlternativeText](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/alternativetext/) مفيدة عندما يكون وصف إمكانية الوصول أو وسمة مقدمة من المؤلف تحدد الشكل بالفعل. إنها مرئية للمستخدمين، قد تُترجم أو تُعاد صياغتها لإمكانية الوصول، ولا يُضمن تفردها. لا تعيد توجيه نص إمكانية وصول ذي معنى كمفتاح قاعدة بيانات.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/officeinteropshapeid/) هو معرف للقراءة فقط فريد داخل الشريحة ويتطابق مع معرف الشكل المستخدم في تفاعل PowerPoint. استخدمه عند التكامل مع PowerPoint أو عندما تحتاج إلى إشارة لا لبس فيها طوال عمر الشكل. الشكل المستنسخ أو المُعاد إنشاؤه هو شكل مختلف ويتلقى معرفًا خاصًا به.
+
+خاصية [UniqueId](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/uniqueid/) ذات نطاق العرض التقديمي، لكنها مخصصة للإضافات ويمكن إعادة تعيينها. لا ينبغي معاملتها كمفتاح خارجي دائم. إذا كانت الهوية طويلة الأمد ضرورية، احتفظ بالتطابق في بيانات التطبيق وتحقق من أن الشكل المتوقع لا يزال موجودًا.
+
+المثال التالي يبحث عن `Name` بمقارنة ترتيبيّة ويُبلغ عن معرف الـ interop على مستوى الشريحة. عندما لا يحتوي القالب على الشكل المتوقع، يُبلغ الكود عن تلك النتيجة بدلًا من الاستمرار مع الكائن الخطأ.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // إنشاء كائن من فئة Presentation يمثل ملف العرض
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
+        targetShape = shape;
+        break;
+    }
+}
 
-        ISlide slide = p.Slides[0];
-        // النص البديل للشكل المراد العثور عليه
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
+if (targetShape is null)
+{
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
+}
+else
+{
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
+}
+```
+
+عندما تكون العملية خاصة بنوع شكل ما، تحقق من الواجهة قبل استخدام الأعضاء الخاصة بالنوع. هذا المثال يحدّث النص والنص البديل فقط إذا كان الكائن المسمّى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
+    {
+        candidate = shape;
+        break;
+    }
+}
+
+if (candidate is IAutoShape autoShape)
+{
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
+}
+```
+
+## **تحديد وتعديل تعديلات الشكل المسبق**
+
+يمكن للأشكال الهندسية المسبقة أن تُظهر نقاط تعديل تتحكم في ميزات مثل حجم الزاوية، نسب السهم، أو زوايا القوس. وصل إليها عبر مجموعة [IGeometryShape.Adjustments](https://reference.aspose.com/slides/ar/net/aspose.slides/igeometryshape/adjustments/) للقراءة فقط. المجموعة نفسها تُقدَّم من قبل الشكل، لكن كل [IAdjustValue](https://reference.aspose.com/slides/ar/net/aspose.slides/iadjustvalue/) يحتوي على قيمة يمكن تغييرها.
+
+لا تعتمد فقط على فهرس ثابت للمجموعة. كرّر عبر التعديلات وتفحص خاصية [Type](https://reference.aspose.com/slides/ar/net/aspose.slides/adjustvalue/type/) للقراءة فقط، التي تصف قيمة [ShapeAdjustmentType](https://reference.aspose.com/slides/ar/net/aspose.slides/shapeadjustmenttype/) ما يتحكم به التعديل. خاصية [Name](https://reference.aspose.com/slides/ar/net/aspose.slides/adjustvalue/name/) للقراءة فقط توفر معلومات تعريف إضافية وتكون مفيدة خاصةً عندما يحتوي المسبق على أكثر من تعديل من نفس النوع الدلالي.
+
+استخدم خاصية القيمة التي تتطابق مع معنى التعديل:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | حجم الزوايا المستديرة | [RawValue](https://reference.aspose.com/slides/ar/net/aspose.slides/adjustvalue/rawvalue/) |
+| `ArrowTailThickness` | سمك ذيل السهم | `RawValue` |
+| `ArrowheadLength` | طول رأس السهم | `RawValue` |
+| `ArrowheadWidth` | عرض رأس السهم | `RawValue` |
+| `StartAngle` | زاوية البداية لفطيرة أو قوس | [AngleValue](https://reference.aspose.com/slides/ar/net/aspose.slides/adjustvalue/anglevalue/) |
+| `EndAngle` | زاوية النهاية لفطيرة أو قوس | `AngleValue` |
+
+`Type` و `Name` لا يمكن تعيينهما. `RawValue` هو عدد صحيح للقراءة/الكتابة بوحدات الهندسة الأصلية للمسبق، بينما `AngleValue` هو زاوية للقراءة/الكتابة بالدرجات. عدد، ترتيب، معنى، والنطاق الصالح للتعديلات يعتمد على [ShapeType](https://reference.aspose.com/slides/ar/net/aspose.slides/igeometryshape/shapetype/) للمسبق. القيمة الصالحة لمسبق قد تكون غير صالحة أو لها تأثير مختلف في آخر.
+
+عندما يكون `Type` هو `ShapeAdjustmentType.Custom`، لا يتعرف API على معنى دلالي قياسي. فحص `Name`، نوع المسبق، والقيمة الحالية، واترك التعديل دون تغيير ما لم تكن المعنى والنطاق معروفين. حتى للأنواع المعترف بها، تحقق مما إذا كان نفس النوع يظهر أكثر من مرة قبل اختيار قيمة. توضح مقالة [Connector](/slides/ar/net/connector/) هذا الوضع مع تعديلات انحناء الموصل.
+
+المثال الكامل التالي ينشئ إصدارات افتراضية ومعدلة لثلاثة أشكال مسبقة. يكرر عبر كل تعديل، يُبلغ عن `Name` و `Type`، يغيّر القيم المتعلقة بالحجم عبر `RawValue`، ويغيّر الزوايا عبر `AngleValue`، ثم يحفظ النتيجة. العمود الأيسر يحتفظ بالهندسة الافتراضية؛ العمود الأيمن يُظهر المستطيل المستدير المعدل، والسهم رباعي الاتجاهات، والفطيرة.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+// يضيف رؤوسًا لأعمدة الشكل الافتراضي والمعدل.
+var defaultColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+defaultColumnLabel.TextFrame.Text = "Default preset geometry";
+var adjustedColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel.TextFrame.Text = "Modified adjustment values";
+
+slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+var modifiedRoundedRectangle = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle.Name = "ModifiedRoundedRectangle";
+
+slide.Shapes.AddAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+var modifiedArrow = slide.Shapes.AddAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+modifiedArrow.Name = "ModifiedQuadArrow";
+
+slide.Shapes.AddAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+var modifiedPie = slide.Shapes.AddAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+modifiedPie.Name = "ModifiedPie";
+
+var shapesToAdjust = new IGeometryShape[]
+{
+    modifiedRoundedRectangle,
+    modifiedArrow,
+    modifiedPie
+};
+
+foreach (var shape in shapesToAdjust)
+{
+    for (var adjustmentIndex = 0; adjustmentIndex < shape.Adjustments.Count; adjustmentIndex++)
+    {
+        var adjustment = shape.Adjustments[adjustmentIndex];
+        Console.WriteLine($"{shape.Name} / {adjustment.Name}: {adjustment.Type}");
+
+        switch (adjustment.Type)
         {
-            Console.WriteLine("Shape Name: " + shape.Name);
+            case ShapeAdjustmentType.CornerSize:
+                adjustment.RawValue = 5000;
+                break;
+            case ShapeAdjustmentType.ArrowTailThickness:
+                adjustment.RawValue = 25000;
+                break;
+            case ShapeAdjustmentType.ArrowheadLength:
+                adjustment.RawValue = 30000;
+                break;
+            case ShapeAdjustmentType.ArrowheadWidth:
+                adjustment.RawValue = 40000;
+                break;
+            case ShapeAdjustmentType.StartAngle:
+                adjustment.AngleValue = 30;
+                break;
+            case ShapeAdjustmentType.EndAngle:
+                adjustment.AngleValue = 300;
+                break;
+            case ShapeAdjustmentType.Custom:
+                Console.WriteLine($"Custom adjustment '{adjustment.Name}' was not changed.");
+                break;
         }
     }
 }
-        
-// تنفيذ الطريقة للعثور على شكل في شريحة باستخدام النص البديل الخاص به
-public static IShape FindShape(ISlide slide, string alttext)
+
+presentation.Save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+```
+
+التحقق من النوع الدلالي قبل تغيير قيمة يجعل الكود صريحًا بشأن هدفه ويتجنب الافتراض بأن فهرس مجموعة معين له نفس المعنى عبر أشكال مسبقة مختلفة.
+
+## **تعديل مجموعة الأشكال**
+
+تعمل طرق الإضافة، الاستنساخ، الإزالة، وإعادة الترتيب على المجموعة مباشرة. إذا غيَّرت عملية ما عدد الأشكال أو ترتيبها، لا تستمر في الاعتماد على الفهارس التي تم التقاطها قبل تلك العملية.
+
+### **استنساخ شكل**
+
+[AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addclone/) ينشئ نسخة مستقلة ويضيفها إلى نهاية المجموعة المستهدفة. [InsertClone](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/insertclone/) يخلق نسخة أيضًا لكنه يضعها عند فهرس z-order محدد. التحميلات التي تقبل إحداثيات تنقل النسخة دون تغيير حجمها؛ التحميلات مع العرض والارتفاع يمكنها تغيير حجمه أيضًا.
+
+المثال ينشئ شريحة مقصد، يستنسخ مستطيل معنّى إلى الأمام، ويُدخل نسخة ثانية في الخلف. التغييرات على أي نسخة لا تُعدّل الشكل الأصلي.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-    // التكرار عبر جميع الأشكال داخل الشريحة
-    for (int i = 0; i < slide.Shapes.Count; i++)
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+الاستنساخ ينسخ محتوى الشكل وتنسيقه، بما في ذلك اسمه والنص البديل. عيّن معرفات منطقية جديدة للنسخة عندما يجب أن تكون تلك القيم فريدة. الموارد المستخدمة من قبل الأشكال المعقدة تُديرها العرض التقديمي، لكن النسخة تظل عنصرًا جديدًا في المجموعة بهوية شكل جديدة.
+
+### **إزالة الأشكال**
+
+[Remove](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/remove/) يحذف كائن شكل محدد من مجموعته. عند إزالة عدة تطابقات أثناء التكرار المفهرس، تجول من النهاية بحيث يظل كل فهرس متبقٍ صالحًا.
+
+هذا المثال يزيل كل شكل يحمل اسمًا معينًا. يقرأ `slide.Shapes[i]`، ليس عنصر مجموعة ثابت، ولا يقوم بتحويل الشكل دون ضرورة.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
     {
-        // إذا كان النص البديل للشريحة يطابق المطلوب ثم
-        // إرجاع الشكل
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-
-
-
-## **استنساخ شكل**
-To clone a shape to a slide using Aspose.Slides for .NET:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع شريحة باستخدام فهرسها.
-1. الوصول إلى مجموعة الأشكال في الشريحة الأصلية.
-1. إضافة شريحة جديدة إلى العرض.
-1. استنساخ الأشكال من مجموعة الأشكال في الشريحة الأصلية إلى الشريحة الجديدة.
-1. حفظ العرض المعدل كملف PPTX.
-
-المثال أدناه يضيف شكل مجموعة إلى شريحة.
-```c#
-// إنشاء كائن من فئة Presentation
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// كتابة ملف PPTX إلى القرص
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-
-
-## **إزالة شكل**
-تمكن Aspose.Slides for .NET المطورين من إزالة أي شكل. لإزالة الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
-
-1. إنشاء كائن من الفئة `Presentation`.
-1. الوصول إلى الشريحة الأولى.
-1. العثور على الشكل الذي لديه نص بديل محدد.
-1. إزالة الشكل.
-1. حفظ الملف على القرص.
-```c#
- // إنشاء كائن عرض تقديمي
- Presentation pres = new Presentation();
-
- // الحصول على الشريحة الأولى
- ISlide sld = pres.Slides[0];
-
- // إضافة شكل أوتوماتيكي من نوع مستطيل
- IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
- IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
- String alttext = "User Defined";
- int iCount = sld.Shapes.Count;
- for (int i = 0; i < iCount; i++)
- {
-	AutoShape ashp = (AutoShape)sld.Shapes[0];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		sld.Shapes.Remove(ashp);
-	}
- }
-
- // حفظ العرض التقديمي إلى القرص
- pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-
-## **إخفاء شكل**
-تمكن Aspose.Slides for .NET المطورين من إخفاء أي شكل. لإخفاء الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
-
-1. إنشاء كائن من الفئة `Presentation`.
-1. الوصول إلى الشريحة الأولى.
-1. العثور على الشكل الذي لديه نص بديل محدد.
-1. إخفاء الشكل.
-1. حفظ الملف على القرص.
-```c#
-// إنشاء كائن من فئة Presentation تمثل ملف PPTX
-Presentation pres = new Presentation();
-
-// الحصول على الشريحة الأولى
-ISlide sld = pres.Slides[0];
-
-// إضافة شكل أوتوماتيكي من نوع مستطيل
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
-}
-
-// حفظ العرض التقديمي إلى القرص
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-
-## **تغيير ترتيب الشكل**
-تمكن Aspose.Slides for .NET المطورين من إعادة ترتيب الأشكال. يحدد إعادة ترتيب الشكل أي شكل يكون في المقدمة أو في الخلف. لإعادة ترتيب الشكل من أي شريحة، يرجى اتباع الخطوات أدناه:
-
-1. إنشاء كائن من الفئة `Presentation`.
-1. الوصول إلى الشريحة الأولى.
-1. إضافة شكل.
-1. إضافة بعض النص داخل إطار النص الخاص بالشكل.
-1. إضافة شكل آخر بنفس الإحداثيات.
-1. إعادة ترتيب الأشكال.
-1. حفظ الملف على القرص.
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **الحصول على معرف الشكل Interop**
-تمكن Aspose.Slides for .NET المطورين من الحصول على معرف فريد للشكل ضمن نطاق الشريحة بالمقارنة مع الخاصية UniqueId التي تسمح بالحصول على معرف فريد ضمن نطاق العرض. تمت إضافة الخاصية OfficeInteropShapeId إلى واجهات IShape وفئة Shape على التوالي. القيمة التي تُرجعها الخاصية OfficeInteropShapeId تتطابق مع قيمة المعرف Id لكائن Microsoft.Office.Interop.PowerPoint.Shape. فيما يلي مثال على الشفرة.
-```c#
-public static void Run()
-{
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// الحصول على معرّف الشكل الفريد في نطاق الشريحة
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
-}
-```
-
-
-
-
-## **تعيين نص بديل لشكل**
-تمكن Aspose.Slides for .NET المطورين من تعيين AlternateText لأي شكل.
-يمكن تمييز الأشكال في العرض باستخدام الخاصية AlternativeText أو خاصية اسم الشكل (Shape Name).
-يمكن قراءة أو تعيين الخاصية AlternativeText باستخدام Aspose.Slides وكذلك Microsoft PowerPoint.
-باستخدام هذه الخاصية، يمكنك وضع علامة على شكل وإجراء عمليات مختلفة مثل إزالة الشكل،
-إخفاء الشكل أو إعادة ترتيب الأشكال في شريحة.
-لتعيين AlternateText لشكل، يرجى اتباع الخطوات أدناه:
-
-1. إنشاء كائن من الفئة `Presentation`.
-1. الوصول إلى الشريحة الأولى.
-1. إضافة أي شكل إلى الشريحة.
-1. إجراء بعض العمليات على الشكل المضاف حديثًا.
-1. المرور عبر الأشكال للعثور على شكل معين.
-1. تعيين AlternativeText.
-1. حفظ الملف على القرص.
-```c#
-// إنشاء كائن من فئة Presentation يمثل ملف PPTX
-Presentation pres = new Presentation();
-
-// الحصول على أول شريحة
-ISlide sld = pres.Slides[0];
-
-// إضافة شكل أوتوماتيكي من نوع مستطيل
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
-{
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
-    {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        slide.Shapes.Remove(shape);
     }
 }
 
-// حفظ العرض التقديمي إلى القرص
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
 ```
 
+بعد الإزالة، يتغير عدد الأشكال وفهارس الأشكال اللاحقة. المراجع إلى الأشكال غير المتأثرة تظل أكثر موثوقية من الفهارس المحفوظة. اعتبر أيضًا الموصلات، الرسوم المتحركة، وميزات العرض التقديمي الأخرى التي قد تشير إلى الكائن المُزال؛ إزالة شكل مرئي قد تغير أكثر من مظهر الشريحة.
 
+### **إخفاء شكل**
 
+تعيين [Hidden](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/hidden/) إلى `true` يبقي الشكل في المجموعة لكن يمنعه من الظهور في العرض العادي. يظل فهرسه وتنسيقه ومحتواه متاحًا للكود، لذا الإخفاء مناسب للعناصر الاختيارية التي قد تُستعاد لاحقًا.
 
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **الوصول إلى تنسيقات التخطيط لشكل**
-توفر Aspose.Slides for .NET واجهة برمجة تطبيقات بسيطة للوصول إلى تنسيقات التخطيط لشكل. توضح هذه المقالة كيفية الوصول إلى تنسيقات التخطيط.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-فيما يلي مثال على الشفرة.
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
-}
-```
-
-
-## **عرض شكل كـ SVG**
-الآن تدعم Aspose.Slides for .NET تصيير شكل كملف SVG. تمت إضافة طريقة WriteAsSvg (وتحميلاتها) إلى فئة Shape وواجهة IShape. تسمح هذه الطريقة بحفظ محتوى الشكل كملف SVG. يظهر المقتطف البرمجي أدناه كيفية تصدير شكل الشريحة إلى ملف SVG.
-```c#
-public static void Run()
-{
-    string outSvgFileName = "SingleShape.svg";
-    using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
     {
-        using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-        {
-            pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-        }
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+الإخفاء ليس حذفًا nor أمانًا. لا يزال بالإمكان اكتشاف الكائن وإظهارُه مرة أخرى من قبل المستخدم أو الكود، وهو يظل جزءًا من ملف العرض التقديمي.
+
+### **تغيير ترتيب Z**
+
+الأشكال المتداخلة تُرسم وفقًا لترتيب المجموعة. [Reorder](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/reorder/) يحرك شكلًا موجودًا إلى فهرس هدف دون استنساخه. الفهرس `0` هو الخلف؛ `Count - 1` هو الأمام.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+يتم إنشاء المستطيل أولاً ويقع في البداية خلف الإهليلج. نقله إلى الفهرس النهائي يجعله في المقدمة. أكّد ترتيب Z بعد إضافة أو استنساخ جميع الأشكال المرتبطة، لأن تلك العمليات تُضيف أو تُدرج عناصر مجموعة جديدة ويمكن أن تغير التكدس المقصود.
+
+## **فحص الأشكال على شرائح التخطيط**
+
+الشرائح العادية، شرائح التخطيط، وشرائح الرئيس لها مجموعات أشكال منفصلة. الشكل الموجود في مجموعة تخطيط ليس هو نفسه الشكل الموجود في شريحة عادية بنفس الموقع. فحص أشكال التخطيط ضروري عندما تحتاج إلى فهم أو تغيير التنسيق الذي توفره التخطيط.
+
+المثال التالي يقرأ كل [FillFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/fillformat/) و [LineFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/lineformat/) لشكل التخطيط دون افتراض أن كل شكل هو `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
     }
 }
 ```
 
+تحرير تخطيط قد يؤثر على عدة شرائح تستخدمه. قبل تغيير شكل تخطيط، حدّد ما إذا كانت شريحة عادية ترث الكائن أو تحتوي على تجاوز محلي، واختبر كل شريحة تستخدم ذلك التخطيط.
 
-## **محاذاة شكل**
+## **تصدير شكل إلى SVG**
 
-من خلال الطريقة المحملة [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/alignshapes/index)، يمكنك
+[WriteAsSvg](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/writeassvg/) يكتب محتوى شكل واحد مُصوَّر إلى تدفق. النتيجة تحتوي على الشكل فقط، لا خلفية الشريحة كاملة ولا الأشكال المجاورة.
 
-* محاذاة الأشكال بالنسبة لهوامش الشريحة. انظر المثال 1.
-* محاذاة الأشكال بالنسبة لبعضها البعض. انظر المثال 2.
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-تحدد تعداد [ShapesAlignmentType](https://reference.aspose.com/slides/net/aspose.slides/shapesalignmenttype) خيارات المحاذاة المتاحة.
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-**المثال 1**
-
-يظهر هذا الكود C# كيفية محاذاة الأشكال ذات الفهارس 1 و2 و4 على الحدود العليا للشريحة:
-الكود المصدر أدناه يقوم بمحاذاة الأشكال ذات الفهارس 1 و2 و4 على الحد العلوي للشريحة.
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
+احتفظ بالعرض التقديمي مفتوحًا أثناء التصدير. الناتج يعتمد على تنسيق الشكل وعلى موارد مثل الخطوط والصور. إذا كنت بحاجة إلى التكوين الكامل، صدِّر الشريحة بدلاً من شكل فردي. المتصل يملك التدفق ويجب أن يُحرره.
 
-**المثال 2**
+## **محاذاة الأشكال**
 
-يوضح هذا الكود C# كيفية محاذاة مجموعة كاملة من الأشكال بالنسبة إلى الشكل السفلي في المجموعة:
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/ar/net/aspose.slides.util/slideutil/alignshapes/) لديها تحميلات تُحاذِي إما جميع الأشكال أو فهارس مجموعة مختارة. [ShapesAlignmentType](https://reference.aspose.com/slides/ar/net/aspose.slides/shapesalignmenttype/) يحدد الحافة، الخط المركزي، أو وضع التوزيع. اضبط `alignToSlide` إلى `true` لاستخدام حواف الشريحة؛ اضبطه إلى `false` لمحاذاة الأشكال المحددة بالنسبة لبعضها.
+
+هذا المثال يحاذِي ثلاثة أشكال إلى الحافة العليا للشفرة. مراجع الأشكال المرتجعة تُحوَّل إلى فهارسها الحالية مباشرةً قبل المحاذاة.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
+المحاذاة تغيّر المواقع، لا ترتيب Z. المحاذاة النسبية عادةً تحتاج إلى شكلين على الأقل، بينما التوزيع الأفقي أو العمودي يحتاج إلى عدد كافٍ من الأشكال لتحديد المسافات. أعِد حساب الفهارس إذا عدّلت المجموعة قبل استدعاء الطريقة.
 
-## **خصائص الانعكاس**
+## **قلب شكل**
 
-في Aspose.Slides، توفر فئة [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) التحكم في انعكاس الأشكال أفقياً وعمودياً عبر خصائص `FlipH` و`FlipV`. كلا الخصائص من نوع [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/)، وتسمح بالقيم `True` للإشارة إلى انعكاس، `False` لعدم وجود انعكاس، أو `NotDefined` لاستخدام السلوك الافتراضي. هذه القيم يمكن الوصول إليها من خلال [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) الخاص بالشكل.
+فئة [ShapeFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/shapeframe/) تخزن الموقع، الحجم، إعدادات القلابة الأفقية والرأسية، والدوران. قيمتي `FlipH` و `FlipV` تستخدمان [NullableBool](https://reference.aspose.com/slides/ar/net/aspose.slides/nullablebool/): `True` تفعّل القلابة، `False` تعطلها، و `NotDefined` تحافظ على الحالة غير المحددة/الافتراضية.
 
-لتعديل إعدادات الانعكاس، يتم إنشاء كائن جديد من فئة [ShapeFrame](https://reference.aspose.com/slides/net/aspose.slides/shapeframe/) باستخدام الموقع والحجم الحاليين للشكل، والقيم المطلوبة لـ`FlipH` و`FlipV`، وزاوية الدوران. يُعيّن هذا الكائن إلى [Frame](https://reference.aspose.com/slides/net/aspose.slides/ishape/frame/) الخاص بالشكل، وحفظ العرض يطبق التحولات العكسية ويثبتها في ملف الإخراج.
+العرض التقديمي المدخل أدناه يحتوي على شكل غير مقلوب.
 
-لنفترض أن لدينا ملف sample.pptx يحتوي على شريحة أولى بها شكل واحد بإعدادات انعكاس افتراضية، كما هو موضح أدناه.
+![الشكل قبل القلابة](shape_to_be_flipped.png)
 
-![The shape to be flipped](shape_to_be_flipped.png)
+المثال يحافظ على كل قيمة إطار أخرى ويستبدل فقط إعدادات القلابة الاثنين. هذا مهم لأن تعيين [Frame](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/frame/) جديد يستبدل الإطار بالكامل.
 
-يعرض مثال الشيفرة التالي الخصائص الحالية للانعكاس للشكل ويقوم بعكسه أفقياً وعامودياً.
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // استرجاع خاصية الانعكاس الأفقي للشكل.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // استرجاع خاصية الانعكاس العمودي للشكل.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // انعكاس أفقي.
-    NullableBool flipV = NullableBool.True; // انعكاس عمودي.
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
+الشكل المحفوظ يُظهر انعكاسًا أفقيًا ورأسيًا مع الحفاظ على موقعه، حجمه، ودورانه.
 
-النتيجة:
+![الشكل بعد القلابة](flipped_shape.png)
 
-![The flipped shape](flipped_shape.png)
+## **الأسئلة الشائعة**
 
-## **FAQ**
+**هل يجب علي استخدام فهرس مجموعة كمعرف للشكل؟**
 
-**هل يمكنني دمج الأشكال (union/intersect/subtract) في شريحة كما في محرر سطح المكتب؟**
+فقط للمعالجة القصيرة الأمد عندما لا تتغير المجموعة قبل استخدام الفهرس. يفضَّل الاعتماد على `Name` أو `AlternativeText` في القوالب المُصمَّمة، أو `OfficeInteropShapeId` للأعمال التي تتطلب تفاعلًا مع PowerPoint.
 
-لا توجد واجهة برمجة تطبيقات مدمجة للعمليات البوليانية. يمكنك تقريب ذلك بإنشاء المخطط المطلوب بنفسك—مثلاً حساب الهندسة الناتجة (باستخدام [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)) وإنشاء شكل جديد بهذا المخطط، مع إمكانية إزالة الأصليين.
+**هل إخفاء الشكل يزيله من ترتيب Z؟**
 
-**كيف يمكنني التحكم في ترتيب التراص (z-order) بحيث يبقى الشكل دائمًا "في الأعلى"?**
+لا. يبقى الشكل المخفي في المجموعة في نفس الفهرس. يمكن العثور عليه، إعادة ترتيبه، تحريره، أو إظهارُه مرة أخرى.
 
-غيّر ترتيب الإدراج/النقل داخل مجموعة [shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) الخاصة بالشريحة. للحصول على نتائج متوقعة، أكمل ترتيب z بعد جميع التعديلات الأخرى على الشريحة.
+**لماذا ظهر شكل مستنسخ أمام شكل آخر؟**
 
-**هل يمكنني "قفل" شكل لمنع المستخدمين من تعديلها في PowerPoint؟**
+`AddClone` يضيف النسخة إلى نهاية المجموعة، وهي أمامية في ترتيب Z. استخدم `InsertClone` لاختيار الفهرس الأولي أو `Reorder` بعد إضافة جميع الأشكال.
 
-نعم. قم بتعيين [shape-level protection flags](/slides/ar/net/applying-protection-to-presentation/) (مثل قفل الاختيار، الحركة، تغيير الحجم، تحرير النص). إذا لزم الأمر، انقل القيود إلى القالب الرئيس أو التخطيط. لاحظ أن هذا الحماية على مستوى واجهة المستخدم، وليست ميزة أمان؛ للحصول على حماية أقوى، اجمعها مع قيود على مستوى الملف مثل [توصيات القراءة فقط أو كلمات المرور](/slides/ar/net/password-protected-presentation/).
+**هل يمكنني استخدام فهرس ثابت لتحديد تعديل شكل مسبق؟**
+
+فقط بعد التحقق من المسبق المحدد وتخطيط المجموعة بدقة. يفضَّل التكرار عبر `IGeometryShape.Adjustments` وفحص `IAdjustValue.Type`؛ استخدم `IAdjustValue.Name` كمعلومات إضافية عندما يظهر نفس النوع الدلالي أكثر من مرة.

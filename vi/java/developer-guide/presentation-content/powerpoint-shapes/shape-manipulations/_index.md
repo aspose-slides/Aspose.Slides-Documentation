@@ -1,5 +1,5 @@
 ---
-title: Quản lý các Hình dạng trong Bài thuyết trình bằng Java
+title: Quản lý các hình dạng trong bài thuyết trình bằng Java
 linktitle: Thao tác Hình dạng
 type: docs
 weight: 40
@@ -13,385 +13,469 @@ keywords:
 - Xóa hình dạng
 - Ẩn hình dạng
 - Thay đổi thứ tự hình dạng
-- Lấy ID hình dạng Interop
+- Lấy ID hình dạng interop
 - Văn bản thay thế cho hình dạng
+- Điểm điều chỉnh hình dạng
+- Điều chỉnh hình dạng preset
+- Hình học hình dạng
 - Định dạng bố cục hình dạng
 - Hình dạng dưới dạng SVG
 - Chuyển hình dạng sang SVG
-- Cân chỉnh hình dạng
+- Căn chỉnh hình dạng
+- Lật hình dạng
 - PowerPoint
 - Bài thuyết trình
 - Java
 - Aspose.Slides
-description: "Học cách tạo, chỉnh sửa và tối ưu hóa các hình dạng trong Aspose.Slides cho Java và cung cấp các bài thuyết trình PowerPoint hiệu suất cao."
+description: "Tìm hiểu cách xác định, điều chỉnh, sao chép, xóa, ẩn, sắp xếp lại, xuất, căn chỉnh và lật các hình dạng trong bài thuyết trình bằng Aspose.Slides cho Java."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với các hình dạng trong bản trình chiếu bằng Aspose.Slides. Nó cho thấy cách tìm một hình dạng trên một slide, sao chép nó, xoá nó, ẩn nó, thay đổi thứ tự, lấy ID hình dạng Interop, và đặt văn bản thay thế để nhận dạng và xử lý tiếp.
+Aspose.Slides for Java biểu diễn các hình dạng trên một slide như một [IShapeCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/) có thứ tự. Bộ sưu tập vừa là nơi bạn tìm và sửa đổi các hình dạng vừa là nguồn của thứ tự xếp chồng: chỉ mục `0` là hình dạng ở phía sau nhất, trong khi chỉ mục cuối cùng là hình dạng ở phía trước nhất.
 
-Cũng bao gồm cách truy cập định dạng bố cục cho các hình dạng, xuất hình dạng dưới dạng SVG, căn chỉnh các hình trên slide, và sử dụng các thuộc tính lật để phản chiếu ngang và dọc. Thêm vào đó, bài viết có một phần FAQ ngắn về việc kết hợp hình, thứ tự xếp chồng và khóa hình.
+Bài viết này tuân theo mô hình đó. Đầu tiên nó giải thích cách xác định một hình dạng một cách đáng tin cậy và sửa đổi các điểm điều chỉnh hình dạng đã được xác định trước, sau đó cho thấy cách sao chép, xóa, ẩn và sắp xếp lại các hình dạng. Các phần cuối cùng bao gồm định dạng cấp bố cục, xuất SVG, căn chỉnh và cài đặt lật. Mỗi ví dụ độc lập, vì vậy bạn có thể chỉ sử dụng các thao tác mà quy trình công việc của bạn yêu cầu.
 
-## **Tìm một Hình dạng trên Slide**
-Chủ đề này sẽ mô tả một kỹ thuật đơn giản giúp các nhà phát triển dễ dàng tìm một hình dạng cụ thể trên slide mà không cần sử dụng Id nội bộ của nó. Cần lưu ý rằng các tệp PowerPoint Presentation không có cách nào để xác định các hình trên slide ngoại trừ Id duy nhất nội bộ. Thực tế, việc tìm một hình dựa trên Id duy nhất nội bộ là khó khăn cho các nhà phát triển. Tất cả các hình được thêm vào slide đều có một đoạn Văn bản thay thế (Alt Text). Chúng tôi đề xuất các nhà phát triển sử dụng văn bản thay thế để tìm một hình cụ thể. Bạn có thể dùng MS PowerPoint để đặt văn bản thay thế cho các đối tượng mà bạn dự định sẽ thay đổi trong tương lai.
+## **Xác định và Tìm Kiếm Hình Dạng**
 
-Sau khi đặt văn bản thay thế cho bất kỳ hình nào mong muốn, bạn có thể mở bản trình chiếu đó bằng Aspose.Slides for Java và duyệt qua tất cả các hình được thêm vào một slide. Trong mỗi vòng lặp, bạn có thể kiểm tra văn bản thay thế của hình và hình có văn bản thay thế trùng khớp sẽ là hình bạn cần. Để minh họa kỹ thuật này một cách tốt hơn, chúng tôi đã tạo một phương pháp, [findShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) để tìm một hình cụ thể trong slide và trả về hình đó.
+Các chỉ mục trong bộ sưu tập tiện lợi khi xử lý một tệp đã biết, nhưng chúng không phải là định danh ổn định. Thêm, xóa hoặc sắp xếp lại một hình dạng có thể làm thay đổi chỉ mục của nó. Chọn một định danh dựa trên cách bản trình chiếu được tạo và duy trì:
 
-```java
-// Khởi tạo lớp Presentation đại diện cho tệp bài thuyết trình
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getName--) hữu ích cho các mẫu do nhà phát triển kiểm soát và dễ kiểm tra trong Bảng Chọn của PowerPoint. Tên có thể được chỉnh sửa và không được đảm bảo là duy nhất, vì vậy hãy thiết lập quy ước đặt tên nếu mã phụ thuộc vào chúng.
+- [AlternativeText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getAlternativeText--) hữu ích khi mô tả khả năng tiếp cận hoặc thẻ do tác giả cung cấp đã xác định hình dạng. Nó hiển thị cho người dùng, có thể được địa phương hoá hoặc viết lại cho khả năng tiếp cận, và cũng không được đảm bảo là duy nhất. Đừng tự động chuyển đổi văn bản khả năng tiếp cận có ý nghĩa thành khóa cơ sở dữ liệu.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) là một định danh chỉ đọc, duy nhất trong một slide và tương ứng với ID hình dạng được PowerPoint interop sử dụng. Sử dụng nó khi tích hợp với PowerPoint hoặc khi bạn cần một tham chiếu không mơ hồ trong suốt vòng đời của một hình dạng. Một hình dạng được sao chép hoặc tạo lại là một hình dạng khác và nhận ID riêng.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Văn bản thay thế của hình cần tìm
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Triển khai phương thức để tìm một hình trong slide bằng văn bản thay thế của nó
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Duyệt qua tất cả các hình trong slide
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Nếu văn bản thay thế của hình trùng khớp với yêu cầu thì
-        // Trả về hình
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+Phương thức [getUniqueId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getUniqueId--) liên quan trả về một định danh có phạm vi toàn bộ bản trình chiếu, nhưng định danh này dành cho add‑in và có thể được gán lại. Không nên coi nó là khóa ngoại việt vĩnh viễn. Nếu tính nhận dạng lâu dài là quan trọng, hãy giữ ánh xạ trong dữ liệu ứng dụng và xác thực rằng hình dạng mong đợi vẫn còn tồn tại.
 
-## **Sao chép một Hình dạng**
-Để sao chép một hình vào slide bằng Aspose.Slides for Java:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Lấy tham chiếu của một slide bằng cách sử dụng chỉ mục của nó.
-1. Truy cập bộ sưu tập hình của slide nguồn.
-1. Thêm slide mới vào bản trình chiếu.
-1. Sao chép các hình từ bộ sưu tập hình của slide nguồn sang slide mới.
-1. Lưu bản trình chiếu đã sửa đổi dưới dạng tệp PPTX.
-
-Ví dụ dưới đây thêm một nhóm hình vào slide.
+Ví dụ dưới đây tìm kiếm theo tên với so sánh chính xác và báo cáo ID interop trong phạm vi slide. Khi mẫu không chứa hình dạng mong đợi, mã sẽ báo kết quả đó thay vì tiếp tục với đối tượng sai.
 
 ```java
-// Khởi tạo lớp Presentation
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // Ghi tệp PPTX vào đĩa
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Xóa một Hình dạng**
-Aspose.Slides for Java cho phép các nhà phát triển xóa bất kỳ hình nào. Để xóa hình khỏi bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Tìm hình có AlternativeText cụ thể.
-1. Xóa hình.
-1. Lưu tệp vào đĩa.
-
-```java
-// Tạo đối tượng Presentation
-Presentation pres = new Presentation();
-try {
-    // Lấy slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Thêm autoshape loại hình chữ nhật
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ẩn một Hình dạng**
-Aspose.Slides for Java cho phép các nhà phát triển ẩn bất kỳ hình nào. Để ẩn hình khỏi bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Tìm hình có AlternativeText cụ thể.
-1. Ẩn hình.
-1. Lưu tệp vào đĩa.
-
-```java
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX
-Presentation pres = new Presentation();
-try {
-    // Lấy slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Thêm autoshape loại hình chữ nhật
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Thay đổi Thứ tự Hình dạng**
-Aspose.Slides for Java cho phép các nhà phát triển sắp xếp lại thứ tự các hình. Việc sắp xếp lại xác định hình nào ở phía trước và hình nào ở phía sau. Để sắp xếp lại hình trên bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Thêm một hình.
-1. Thêm một số văn bản vào khung văn bản của hình.
-1. Thêm một hình khác với cùng tọa độ.
-1. Sắp xếp lại các hình.
-1. Lưu tệp vào đĩa.
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Lấy ID Hình dạng Interop**
-Aspose.Slides for Java cho phép các nhà phát triển lấy một định danh duy nhất cho hình trong phạm vi slide, khác với phương thức [getUniqueId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape#getUniqueId--) cho phép lấy định danh duy nhất trong phạm vi bản trình chiếu. Phương thức [getOfficeInteropShapeId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) đã được thêm vào giao diện [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape) và lớp [Shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Shape). Giá trị trả về bởi phương thức [getOfficeInteropShapeId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) tương ứng với giá trị Id của đối tượng Microsoft.Office.Interop.PowerPoint.Shape. Dưới đây là một đoạn mã mẫu.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Lấy định danh hình duy nhất trong phạm vi slide
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Đặt Văn bản Thay thế cho một Hình dạng**
-Aspose.Slides for Java cho phép các nhà phát triển đặt AlternateText cho bất kỳ hình nào. Các hình trong một bản trình chiếu có thể được phân biệt bằng phương thức [AlternativeText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) hoặc [Shape Name](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape#setName-java.lang.String-). Các phương thức [setAlternativeText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) và [getAlternativeText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape#getAlternativeText--) có thể được đọc hoặc đặt bằng Aspose.Slides cũng như Microsoft PowerPoint. Khi sử dụng phương thức này, bạn có thể gắn thẻ cho một hình và thực hiện các thao tác khác nhau như Xóa một hình, Ẩn một hình hoặc Sắp xếp lại các hình trên slide. Để đặt AlternateText cho một hình, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Thêm bất kỳ hình nào vào slide.
-1. Thực hiện một số công việc với hình vừa thêm.
-1. Duyệt qua các hình để tìm một hình.
-1. Đặt AlternativeText.
-1. Lưu tệp vào đĩa.
-
-```java
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX
-Presentation pres = new Presentation();
-try {
-    // Lấy slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Thêm autoshape loại hình chữ nhật
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Truy cập Định dạng Bố cục cho một Hình dạng**
-Aspose.Slides for Java cung cấp một API đơn giản để truy cập định dạng bố cục cho một hình. Bài viết này trình bày cách bạn có thể truy cập các định dạng bố cục. Dưới đây là đoạn mã mẫu.
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Xuất Hình dạng dưới dạng SVG**
-Hiện tại Aspose.Slides for Java hỗ trợ việc xuất một hình dạng dưới dạng SVG. Phương thức [writeAsSvg](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (và các overload của nó) đã được thêm vào lớp [Shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Shape) và giao diện [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape). Phương thức này cho phép lưu nội dung của hình dưới dạng tệp SVG. Đoạn mã dưới đây cho thấy cách xuất một hình trên slide thành tệp SVG.
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Căn chỉnh một Hình dạng**
-Aspose.Slides cho phép căn chỉnh các hình, hoặc tương đối với lề slide, hoặc tương đối với nhau. Để mục đích này, phương thức overload [SlidesUtil.alignShape()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) đã được thêm. Enum [ShapesAlignmentType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ShapesAlignmentType) định nghĩa các tùy chọn căn chỉnh khả dụng.
-
-**Ví dụ 1**
-
-Mã nguồn dưới đây căn chỉnh các hình có chỉ số 1,2 và 4 dọc theo cạnh trên của slide.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**Ví dụ 2**
-
-Ví dụ dưới đây cho thấy cách căn chỉnh toàn bộ bộ sưu tập các hình so với hình ở dưới cùng trong bộ sưu tập.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Thuộc tính Lật**
-
-Trong Aspose.Slides, lớp [ShapeFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapeframe/) cung cấp khả năng điều khiển việc phản chiếu ngang và dọc của các hình thông qua các thuộc tính `flipH` và `flipV`. Cả hai thuộc tính đều có kiểu `byte`, cho phép giá trị `1` để chỉ lật, `0` để không lật, hoặc `-1` để sử dụng hành vi mặc định. Các giá trị này có thể truy cập từ [Frame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getFrame--) của hình.
-
-Để thay đổi cài đặt lật, một thể hiện mới của [ShapeFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapeframe/) được tạo với vị trí và kích thước hiện tại của hình, các giá trị mong muốn cho `flipH` và `flipV`, và góc quay. Gán thể hiện này cho [Frame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getFrame--) của hình và lưu bản trình chiếu sẽ áp dụng các biến đổi phản chiếu và ghi chúng vào tệp đầu ra.
-
-Giả sử chúng ta có tệp sample.pptx trong đó slide đầu tiên chứa một hình duy nhất với cài đặt lật mặc định, như dưới đây.
-
-![Hình cần được lật](shape_to_be_flipped.png)
-
-Đoạn mã sau lấy các thuộc tính lật hiện tại của hình và lật nó cả ngang lẫn dọc.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Lấy thuộc tính lật ngang của hình.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Lấy thuộc tính lật dọc của hình.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Lật ngang.
-    byte flipV = NullableBool.True; // Lật ngang.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-![Hình đã được lật](flipped_shape.png)
+Khi một thao tác cụ thể cho một loại hình dạng, kiểm tra giao diện trước khi sử dụng các thành viên riêng loại. Ví dụ này cập nhật văn bản và văn bản thay thế chỉ khi đối tượng được đặt tên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Xác định và Sửa Đổi Các Điều Chỉnh Hình Dạng Được Định Nghĩa Trước**
+
+Các hình dạng hình học đã được xác định trước có thể mở ra các điểm điều chỉnh kiểm soát các tính năng như kích thước góc, tỷ lệ mũi tên hoặc góc cung. Truy cập chúng thông qua bộ sưu tập chỉ đọc [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igeometryshape/#getAdjustments--) . Bộ sưu tập này do hình dạng cung cấp, nhưng mỗi [IAdjustValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/) chứa một giá trị có thể thay đổi.
+
+Đừng chỉ dựa vào một chỉ mục cố định trong bộ sưu tập. Duyệt qua các điều chỉnh và kiểm tra phương thức chỉ đọc [getType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#getType--) , giá trị [ShapeAdjustmentType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapeadjustmenttype/) của nó mô tả điều chỉnh điều khiển gì. Phương thức chỉ đọc [getName](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#getName--) cung cấp thông tin nhận dạng bổ sung và đặc biệt hữu ích khi một preset chứa hơn một điều chỉnh có cùng kiểu ngữ nghĩa.
+
+Sử dụng phương thức giá trị phù hợp với ý nghĩa của điều chỉnh:
+
+| Loại điều chỉnh | Mục đích | Giá trị cần thay đổi |
+|---|---|---|
+| `CornerSize` | Kích thước góc bo tròn | [setRawValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | Độ dày đuôi mũi tên | `setRawValue` |
+| `ArrowheadLength` | Độ dài đầu mũi tên | `setRawValue` |
+| `ArrowheadWidth` | Độ rộng đầu mũi tên | `setRawValue` |
+| `StartAngle` | Góc bắt đầu của một phần tròn hoặc cung | [setAngleValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | Góc kết thúc của một phần tròn hoặc cung | `setAngleValue` |
+
+`getType` và `getName` trả về thông tin chỉ đọc. `getRawValue` và `setRawValue` làm việc với một số nguyên theo đơn vị hình học gốc của preset, trong khi `getAngleValue` và `setAngleValue` làm việc với góc tính bằng độ. Số lượng, thứ tự, ý nghĩa và phạm vi hợp lệ của các điều chỉnh phụ thuộc vào preset [ShapeType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igeometryshape/#getShapeType--). Một giá trị hợp lệ cho một preset có thể không hợp lệ hoặc có hiệu ứng khác cho preset khác.
+
+Khi `getType` trả về `ShapeAdjustmentType.Custom`, API không nhận ra ý nghĩa ngữ nghĩa tiêu chuẩn. Kiểm tra `getName`, loại preset và giá trị hiện tại, và để nguyên điều chỉnh nếu không biết rõ ý nghĩa và phạm vi mong muốn. Ngay cả với các kiểu đã được công nhận, cũng cần kiểm tra xem cùng một kiểu có xuất hiện nhiều lần không trước khi chọn giá trị. Bài viết [Connector](/slides/vi/java/connector/) minh họa trường hợp này với các điều chỉnh độ cong của connector.
+
+Ví dụ hoàn chỉnh dưới đây tạo các phiên bản mặc định và đã chỉnh sửa của ba hình dạng preset. Nó duyệt qua mọi điều chỉnh, báo cáo tên và kiểu, thay đổi các giá trị liên quan đến kích thước qua `setRawValue`, thay đổi góc qua `setAngleValue`, và lưu kết quả. Cột trái giữ hình học mặc định; cột phải hiển thị hình chữ nhật bo tròn đã chỉnh, mũi tên bốn chiều và phần tròn.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // Thêm tiêu đề cho các cột hình dạng mặc định và đã điều chỉnh.
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kiểm tra kiểu ngữ nghĩa trước khi thay đổi giá trị giúp mã rõ ràng về mục đích và tránh giả định rằng một chỉ mục bộ sưu tập nhất định có cùng ý nghĩa trên các preset hình dạng khác nhau.
+
+## **Sửa Đổi Bộ Sưu Tập Hình Dạng**
+
+Các phương thức thêm, sao chép, xóa và sắp xếp lại hoạt động ngay trên bộ sưu tập. Nếu một thao tác thay đổi số lượng hoặc thứ tự của các hình dạng, đừng tiếp tục dựa vào các chỉ mục đã được lấy trước khi thực hiện thao tác đó.
+
+### **Sao Chép Một Hình Dạng**
+
+[addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) tạo một bản sao độc lập và thêm nó vào cuối bộ sưu tập đích. [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) cũng tạo bản sao nhưng đặt nó ở chỉ mục z‑order được chỉ định. Các overload chấp nhận tọa độ di chuyển bản sao mà không thay đổi kích thước; các overload có chiều rộng và chiều cao có thể thay đổi kích thước nó.
+
+Ví dụ tạo một slide đích, sao chép một hình chữ nhật có nhãn lên phía trước, và chèn một bản sao thứ hai ở phía sau. Thay đổi bất kỳ bản sao nào cũng không làm thay đổi hình dạng nguồn.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sao chép bao gồm nội dung và định dạng của hình dạng, bao gồm cả tên và văn bản thay thế. Gán các định danh logic mới cho bản sao khi các giá trị này phải là duy nhất. Các tài nguyên được hình dạng phức tạp sử dụng được xử lý bởi bản trình chiếu, nhưng bản sao vẫn là một mục bộ sưu tập mới với danh tính hình dạng mới.
+
+### **Xóa Các Hình Dạng**
+
+[remove](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) xóa một đối tượng hình dạng cụ thể khỏi bộ sưu tập của nó. Khi xóa nhiều mục khớp trong quá trình lặp có chỉ mục, hãy duyệt từ cuối để mỗi chỉ mục còn lại vẫn hợp lệ.
+
+Ví dụ này xóa mọi hình dạng có tên được chỉ định. Nó đọc hình dạng tại chỉ mục hiện tại, không phải một mục cố định trong bộ sưu tập, và không ép kiểu hình dạng không cần thiết.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sau khi xóa, số lượng hình dạng và các chỉ mục của các hình dạng sau thay đổi. Tham chiếu đến các hình dạng không bị ảnh hưởng vẫn đáng tin cậy hơn so với các chỉ mục đã lưu. Cũng hãy xem xét các connector, hoạt ảnh và các tính năng khác của bản trình chiếu có thể tham chiếu tới đối tượng đã xóa; việc xóa một hình dạng hiển thị có thể thay đổi hơn cả vẻ ngoài của slide.
+
+### **Ẩn Một Hình Dạng**
+
+Đặt [Hidden](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#setHidden-boolean-) thành `true` giữ hình dạng trong bộ sưu tập nhưng ngăn nó xuất hiện trong buổi chiếu slide bình thường. Chỉ mục, định dạng và nội dung của nó vẫn khả dụng cho mã, vì vậy việc ẩn thích hợp cho các thành phần tùy chọn có thể được khôi phục sau.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ẩn không phải là xóa hay bảo mật. Đối tượng vẫn có thể được người dùng hoặc mã phát hiện và hiển thị lại, và nó vẫn là một phần của tệp bản trình chiếu.
+
+### **Thay Đổi Z‑Order**
+
+Các hình dạng chồng lên nhau được vẽ theo thứ tự bộ sưu tập. [reorder](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) di chuyển một hình dạng hiện có tới một chỉ mục đích mà không sao chép nó. Chỉ mục `0` là phía sau; `size() - 1` là phía trước.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Hình chữ nhật được tạo trước và ban đầu nằm phía sau hình ellipse. Di chuyển nó tới chỉ mục cuối cùng sẽ đưa nó lên phía trước. Hoàn thiện z‑order sau khi thêm hoặc sao chép tất cả các hình dạng liên quan, vì các thao tác đó sẽ chèn hoặc thêm mục mới vào bộ sưu tập và có thể làm thay đổi thứ tự dự định.
+
+## **Kiểm Tra Các Hình Dạng Trên Slide Bố Cục**
+
+Slide bình thường, slide bố cục và slide chủ đề có các bộ sưu tập hình dạng riêng. Một hình dạng trong bộ sưu tập bố cục không phải là cùng một đối tượng với một hình dạng tương tự trên slide bình thường. Kiểm tra các hình dạng bố cục khi bạn cần hiểu hoặc thay đổi định dạng do một bố cục cung cấp.
+
+Ví dụ dưới đây đọc [FillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getFillFormat--) và [LineFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getLineFormat--) của mỗi hình dạng bố cục mà không giả định rằng mọi hình dạng đều là `AutoShape`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Chỉnh sửa một bố cục có thể ảnh hưởng đến nhiều slide sử dụng nó. Trước khi thay đổi một hình dạng bố cục, xác định xem một slide bình thường có kế thừa đối tượng đó hay chứa một ghi đè cục bộ, và kiểm tra mọi slide sử dụng bố cục đó.
+
+## **Xuất Một Hình Dạng Ra SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) ghi nội dung đã render của một hình dạng vào một luồng. Kết quả chỉ chứa hình dạng, không phải toàn bộ nền slide hay các hình dạng lân cận.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Giữ bản trình chiếu mở trong khi render. Đầu ra phụ thuộc vào định dạng của hình dạng và các tài nguyên như phông chữ và hình ảnh. Nếu bạn cần toàn bộ bố cục, hãy xuất slide thay vì một hình dạng riêng lẻ. Người gọi sở hữu luồng và phải đóng nó.
+
+## **Căn Chỉnh Các Hình Dạng**
+
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) có các overload cho phép căn chỉnh tất cả các hình dạng hoặc các chỉ mục bộ sưu tập đã chọn. [ShapesAlignmentType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapesalignmenttype/) chỉ ra cạnh, đường trung tâm hoặc chế độ phân phối. Đặt `alignToSlide` thành `true` để sử dụng các cạnh slide; đặt `false` để căn chỉnh các hình dạng đã chọn tương quan với nhau.
+
+Ví dụ này căn chỉnh ba hình dạng đến cạnh trên của slide. Các tham chiếu hình dạng trả về được chuyển sang chỉ mục hiện tại ngay trước khi căn chỉnh.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Căn chỉnh thay đổi vị trí, không thay đổi z‑order. Căn chỉnh tương đối thường cần ít nhất hai hình dạng, trong khi phân phối ngang hoặc dọc cần đủ hình dạng để xác định khoảng cách. Tính lại chỉ mục nếu bạn sửa đổi bộ sưu tập trước khi gọi phương thức.
+
+## **Lật Một Hình Dạng**
+
+Lớp [ShapeFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapeframe/) lưu trữ vị trí, kích thước, cài đặt lật ngang và dọc, và quay. Các giá trị `getFlipH` và `getFlipV` sử dụng [NullableBool](https://reference.aspose.com/slides/vi/java/com.aspose.slides/nullablebool/): `True` bật lật, `False` tắt lật, và `NotDefined` giữ trạng thái chưa xác định/mặc định.
+
+Bản trình chiếu đầu vào dưới đây chứa một hình dạng chưa được lật.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+Ví dụ này giữ nguyên mọi giá trị khung khác và chỉ thay thế hai cài đặt lật. Điều này quan trọng vì gán một [Frame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) mới sẽ thay thế toàn bộ khung.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Hình dạng đã lưu được lật ngang và dọc trong khi vẫn giữ vị trí, kích thước và góc quay.
+
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Tôi có thể kết hợp các hình (union/intersect/subtract) trên slide giống như trong trình chỉnh sửa desktop không?**
+**Có nên sử dụng chỉ mục bộ sưu tập làm định danh cho hình dạng không?**
 
-Không có API toán tử Boolean tích hợp. Bạn có thể gần đúng bằng cách tự xây dựng đường viền mong muốn—ví dụ, tính toán hình học kết quả (qua [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/geometrypath/)) và tạo một hình mới với đường viền đó, tùy chọn là xóa các hình gốc.
+Chỉ đối với quá trình ngắn hạn khi bộ sưu tập không thay đổi trước khi chỉ mục được sử dụng. Ưu tiên quy ước `Name` hoặc `AlternativeText` đã được xác thực cho các mẫu do người tạo, hoặc `OfficeInteropShapeId` cho công việc interop trong phạm vi slide.
 
-**Làm sao tôi có thể kiểm soát thứ tự xếp chồng (z-order) để một hình luôn ở trên cùng?**
+**Ẩn một hình dạng có làm nó bị loại bỏ khỏi z‑order không?**
 
-Thay đổi thứ tự chèn/di chuyển trong bộ sưu tập [shapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslide/#getShapes--) của slide. Để có kết quả dự đoán được, hãy hoàn thiện z-order sau khi thực hiện tất cả các thay đổi khác trên slide.
+Không. Một hình dạng ẩn vẫn còn trong bộ sưu tập tại cùng một chỉ mục. Nó có thể được tìm, sắp xếp lại, chỉnh sửa hoặc hiển thị lại.
 
-**Tôi có thể "khóa" một hình để ngăn người dùng chỉnh sửa trong PowerPoint không?**
+**Tại sao một hình dạng sao chép lại xuất hiện phía trước một hình dạng khác?**
 
-Có. Thiết lập [các cờ bảo vệ cấp hình](/slides/vi/java/applying-protection-to-presentation/) (ví dụ, khóa lựa chọn, di chuyển, thay đổi kích thước, chỉnh sửa văn bản). Nếu cần, áp dụng các hạn chế tương tự trên master hoặc layout. Lưu ý đây là bảo vệ mức giao diện người dùng, không phải tính năng bảo mật; để bảo vệ mạnh hơn, kết hợp với các hạn chế cấp tệp như [đề xuất chỉ đọc hoặc mật khẩu](/slides/vi/java/password-protected-presentation/).
+`addClone` thêm bản sao vào cuối bộ sưu tập, tức là phía trước của z‑order. Sử dụng `insertClone` để chọn chỉ mục khởi đầu hoặc `reorder` sau khi đã thêm tất cả các hình dạng.
+
+**Có thể dùng chỉ mục cố định để xác định một điều chỉnh hình dạng preset không?**
+
+Chỉ sau khi xác thực preset và bố cục bộ sưu tập một cách chính xác. Ưu tiên duyệt `IGeometryShape.getAdjustments` và kiểm tra `IAdjustValue.getType`; sử dụng `IAdjustValue.getName` làm thông tin bổ sung khi cùng một kiểu ngữ nghĩa xuất hiện nhiều lần.

@@ -1,6 +1,6 @@
 ---
-title: Kelola Konektor dalam Presentasi Menggunakan C++
-linktitle: Konektor
+title: "Kelola Konektor dalam Presentasi Menggunakan C++"
+linktitle: "Konektor"
 type: docs
 weight: 10
 url: /id/cpp/connector/
@@ -10,408 +10,666 @@ keywords:
 - titik konektor
 - garis konektor
 - sudut konektor
+- situs koneksi
+- titik penyesuaian
 - hubungkan bentuk
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Memberdayakan aplikasi C++ untuk menggambar, menghubungkan, dan mengarahkan otomatis garis pada slide PowerPoint—dapatkan kontrol penuh atas konektor lurus, siku, dan melengkung."
+description: "Pelajari cara menambahkan, melampirkan, merutekan ulang, menyesuaikan, dan memeriksa konektor PowerPoint lurus, bengkok, dan melengkung dengan Aspose.Slides untuk C++."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Konektor PowerPoint adalah garis khusus yang menghubungkan atau menautkan dua bentuk bersama-sama dan tetap terpasang pada bentuk meskipun dipindahkan atau diposisikan kembali pada slide tertentu. 
+Sebuah konektor adalah garis yang dapat tetap terhubung ke dua bentuk saat salah satu bentuk bergerak. Ujung‑ujungnya terhubung ke situs koneksi, yang direpresentasikan oleh titik hijau di PowerPoint. Beberapa konektor bengkok dan melengkung juga menampilkan titik penyesuaian, yang direpresentasikan oleh titik oranye, yang mengontrol posisi segmen‑segmen konektor secara individual.
 
-Konektor biasanya terhubung ke *titik koneksi* (titik hijau), yang secara default ada pada semua bentuk. Titik koneksi muncul ketika kursor mendekatinya.
-
-*Titik penyesuaian* (titik oranye), yang hanya ada pada beberapa konektor, digunakan untuk mengubah posisi dan bentuk konektor.
+Aspose.Slides merepresentasikan konektor melalui antarmuka [IConnector](https://reference.aspose.com/slides/id/cpp/aspose.slides/iconnector/). Anda dapat membuatnya, menghubungkan ujung‑ujungnya ke bentuk, memilih situs koneksi, merutekan ulang, dan memodifikasi geometri konektor yang memiliki titik penyesuaian.
 
 ## **Jenis Konektor**
 
-Di PowerPoint, Anda dapat menggunakan konektor lurus, siku (ber sudut), dan melengkung. 
-
-Aspose.Slides menyediakan konektor berikut:
+Enumerasi [ShapeType](https://reference.aspose.com/slides/id/cpp/aspose.slides/shapetype/) mencakup preset konektor lurus, bengkok, dan melengkung. Tabel berikut menunjukkan geometri konektor yang tersedia dan jumlah titik penyesuaian yang didefinisikan oleh masing‑masing preset.
 
 | Konektor | Gambar | Jumlah titik penyesuaian |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Hubungkan Bentuk Menggunakan Konektor**
+Jumlah dan arti titik penyesuaian merupakan bagian dari preset konektor yang dipilih. Jangan mengasumsikan bahwa dua tipe konektor yang berbeda menampilkan tata letak koleksi yang sama.
 
-1. Buat sebuah instance dari kelas [Presentasi](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan dua [AutoShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.auto_shape) ke slide menggunakan metode `AddAutoShape` yang disediakan oleh objek `Shapes`.
-1. Tambahkan sebuah konektor menggunakan metode `AddConnector` yang disediakan oleh objek `Shapes` dengan menentukan tipe konektor.
-1. Hubungkan bentuk-bentuk tersebut menggunakan konektor. 
-1. Panggil metode `Reroute` untuk menerapkan jalur koneksi terpendek.
-1. Simpan presentasi. 
+## **Hubungkan Dua Bentuk**
 
-Kode C++ berikut menunjukkan cara menambahkan sebuah konektor (konektor bengkok) antara dua bentuk (sebuah elips dan persegi panjang):
+Gunakan [IShapeCollection::AddConnector](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addconnector/) untuk menambahkan sebuah konektor, dan panggil [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/id/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) serta [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/id/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) untuk menghubungkan ujung‑ujungnya. Setelah kedua ujung terhubung, [IConnector::Reroute](https://reference.aspose.com/slides/id/cpp/aspose.slides/iconnector/reroute/) memilih rute pendek di antara bentuk‑bentuk tersebut.
 
-```c++
-// Jalur ke direktori dokumen.
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+Contoh berikut menghubungkan sebuah elips dan persegi panjang dengan konektor bengkok:
 
-	// Memuat presentasi yang diinginkan
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-	// Mengakses slide pertama
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// Mengakses koleksi bentuk untuk slide tertentu
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// Menambahkan autoshape Ellipse
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// Menambahkan autoshape Persegi Empat
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// Menambahkan bentuk konektor ke koleksi bentuk slide
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// Menghubungkan bentuk menggunakan konektor
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// Memanggil reroute yang mengatur jalur terpendek otomatis antara bentuk
-	connector->Reroute();
-	
-	// Menyimpan presentasi
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
+Memanggil `IConnector::Reroute` dapat mengubah nilai [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/id/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) dan [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/id/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/). Tetapkan situs koneksi tertentu setelah perutean ulang jika situs‑situs tersebut harus tetap tetap.
+{{% /alert %}}
 
-`Metode connector->Reroute` mengarahkan ulang sebuah konektor dan memaksa ia mengambil jalur terpendek yang memungkinkan antara bentuk-bentuk. Untuk mencapai tujuan tersebut, metode ini dapat mengubah titik `StartShapeConnectionSiteIndex` dan `EndShapeConnectionSiteIndex`. 
+## **Pilih Situs Koneksi**
 
-{{% /alert %}} 
+Setiap bentuk yang dapat dihubungkan melaporkan jumlah situs melalui [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_connectionsitecount/). Validasi indeks situs berbasis nol yang diinginkan sebelum menetapkannya ke ujung konektor; jumlah situs bervariasi menurut geometri bentuk.
 
-## **Tentukan Titik Koneksi**
+Contoh ini menghubungkan konektor ke situs tertentu pada elips ketika situs tersebut ada:
 
-Jika Anda ingin sebuah konektor menautkan dua bentuk menggunakan titik tertentu pada bentuk-bentuk tersebut, Anda harus menentukan titik koneksi yang diinginkan dengan cara berikut:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-1. Buat sebuah instance dari kelas [Presentasi](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan dua [AutoShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.auto_shape) ke slide menggunakan metode `AddAutoShape` yang disediakan oleh objek `Shapes`.
-1. Tambahkan sebuah konektor menggunakan metode `AddConnector` yang disediakan oleh objek `Shapes` dengan menentukan tipe konektor.
-1. Hubungkan bentuk-bentuk tersebut menggunakan konektor. 
-1. Tetapkan titik koneksi yang diinginkan pada bentuk-bentuk. 
-1. Simpan presentasi.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-Kode C++ berikut mendemonstrasikan operasi dimana titik koneksi yang diinginkan ditentukan:
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-```c++
-	// Jalur ke direktori dokumen.
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// Memuat presentasi yang diinginkan
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// Mengakses slide pertama
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// Mengakses koleksi bentuk untuk slide tertentu
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Menambahkan autoshape Ellipse
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// Menambahkan autoshape Persegi Empat
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// Menambahkan bentuk konektor ke koleksi bentuk slide
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// Menghubungkan bentuk menggunakan konektor
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// Menetapkan indeks titik koneksi yang diinginkan pada bentuk Ellipse
-	int wantedIndex = 6;
-
-	// Memeriksa apakah indeks yang diinginkan kurang dari jumlah maksimum situs indeks
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// Menetapkan titik koneksi yang diinginkan pada autoshape Ellipse
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// Menyimpan presentasi
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
 ## **Sesuaikan Titik Konektor**
 
-Anda dapat menyesuaikan sebuah konektor yang sudah ada melalui titik penyesuaian nya. Hanya konektor dengan titik penyesuaian yang dapat diubah dengan cara ini. Lihat tabel di bawah **[Jenis Konektor.](/slides/id/cpp/connector/#types-of-connectors)** 
+Konektor dengan titik penyesuaian menampilkan titik‑titik tersebut melalui [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/id/cpp/aspose.slides/igeometryshape/get_adjustments/). Periksa setiap [IAdjustValue](https://reference.aspose.com/slides/id/cpp/aspose.slides/iadjustvalue/) dan periksa [IAdjustValue::get_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/iadjustvalue/get_type/) sebelum mengubah [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/id/cpp/aspose.slides/iadjustvalue/set_rawvalue/). Aturan umum untuk mengidentifikasi penyesuaian bentuk preset dijelaskan dalam [Shape Manipulation](/slides/id/cpp/shape-manipulations/).
 
-### **Kasus Sederhana**
+Jumlah, urutan, arti, dan rentang nilai yang valid untuk penyesuaian konektor bergantung pada preset konektor. Tipe yang dikembalikan oleh `IAdjustValue::get_Type` bersifat read‑only, sedangkan nilai penyesuaian mentah dapat ditulis. Metode read‑only [IAdjustValue::get_Name](https://reference.aspose.com/slides/id/cpp/aspose.slides/iadjustvalue/get_name/) memberikan identifikasi tambahan ketika sebuah konektor berisi lebih dari satu penyesuaian dengan tipe semantik yang sama.
 
-Pertimbangkan sebuah kasus dimana sebuah konektor antara dua bentuk (A dan B) melewati bentuk ketiga (C):
+### **Rute Mengelilingi Rintangan**
+
+Pada tata letak berikut, sebuah konektor `ShapeType::BentConnector5` di antara dua bentuk melewati bentuk ketiga:
 
 ![connector-obstruction](connector-obstruction.png)
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
+Kode berikut membuat konektor yang terhalang:
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-Untuk menghindari atau melewati bentuk ketiga, kita dapat menyesuaikan konektor dengan memindahkan garis vertikalnya ke kiri seperti ini:
+Memindahkan bengkok vertikal mengubah rute sehingga konektor melewati rintangan:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+Alih‑alih mengasumsikan bahwa indeks koleksi `1` selalu mewakili bengkok vertikal, contoh ini mencari `ShapeAdjustmentType::ConnectorBendPositionY` dan mengubahnya hanya ketika tipe semantik yang diharapkan ada:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
-### **Kasus Kompleks** 
+Sebuah `ShapeType::BentConnector5` memiliki dua penyesuaian `ShapeAdjustmentType::ConnectorBendPositionX` dan satu penyesuaian `ShapeAdjustmentType::ConnectorBendPositionY`. Jika tipe yang Anda butuhkan muncul lebih dari sekali, periksa `IAdjustValue::get_Name` dan geometri preset yang diketahui sebelum memilih salah satunya. Jika sebuah penyesuaian melaporkan `ShapeAdjustmentType::Custom`, perlakukan makna dan rentangnya sebagai spesifik preset dan jangan ubah sampai kontrak tersebut diketahui.
 
-Untuk melakukan penyesuaian yang lebih rumit, Anda harus mempertimbangkan hal-hal berikut:
+## **Hubungkan Nilai Penyesuaian dengan Geometri Konektor**
 
-* Sebuah titik penyesuaian pada konektor sangat terkait dengan formula yang menghitung dan menentukan posisinya. Jadi perubahan lokasi titik dapat mengubah bentuk konektor.
-* Titik penyesuaian pada konektor didefinisikan dalam urutan yang ketat dalam sebuah array. Titik-titik penyesuaian diberi nomor mulai dari titik awal konektor hingga titik akhirnya.
-* Nilai titik penyesuaian mencerminkan persentase lebar/tinggi bentuk konektor. 
-  * Bentuk dibatasi oleh titik awal dan akhir konektor yang dikalikan dengan 1000. 
-  * Titik pertama, titik kedua, dan titik ketiga masing-masing mendefinisikan persentase dari lebar, persentase dari tinggi, dan persentase dari lebar (lagi) secara berurutan.
-* Untuk perhitungan yang menentukan koordinat titik penyesuaian konektor, Anda harus memperhitungkan rotasi konektor dan refleksinya. **Catatan** bahwa sudut rotasi untuk semua konektor yang ditampilkan di bawah **[Jenis Konektor](/slides/id/cpp/connector/#types-of-connectors)** adalah 0.
+Untuk konektor bengkok, nilai penyesuaian dapat digunakan untuk memperkirakan posisi segmen‑segmen individual. Perhitungan ini spesifik untuk preset konektor:
 
-#### **Kasus 1**
+- `ShapeType::BentConnector4` biasanya menampilkan satu penyesuaian `ShapeAdjustmentType::ConnectorBendPositionX` dan satu `ShapeAdjustmentType::ConnectorBendPositionY`.
+- Untuk posisi bengkok tersebut, `RawValue / 100000.0f` menghasilkan fraksi lebar atau tinggi kerangka konektor yang dipakai oleh contoh‑contoh di bawah.
+- Kerangka konektor dapat diputar atau dibalik, sehingga koordinat kerangka harus ditransformasi sebelum dibandingkan dengan koordinat slide.
 
-Pertimbangkan sebuah kasus dimana dua objek bingkai teks ditautkan bersama melalui sebuah konektor:
+Contoh berikut menggunakan `IAdjustValue::get_Type` untuk mengidentifikasi penyesuaian terlebih dahulu. Mereka tidak memperlakukan indeks koleksi sebagai pengenal portabel.
+
+### **Konektor Tanpa Rotasi**
+
+Tata letak awal berisi dua bentuk teks yang terhubung oleh sebuah `ShapeType::BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-```c++
-// Membuat instance kelas presentasi yang mewakili file PPTX
-auto pres = System::MakeObject<Presentation>();
-// Mengambil slide pertama dalam presentasi
-auto slide = pres->get_Slides()->idx_get(0);
-// Mengambil bentuk dari slide pertama
-auto shapes = slide->get_Shapes();
-// Menambahkan bentuk yang akan digabungkan bersama melalui sebuah konektor
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// Menambahkan sebuah konektor
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// Menentukan arah konektor
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// Menentukan ketebalan garis konektor
-lineFormat->set_Width(3);
-// Menentukan warna konektor
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
+Contoh ini memeriksa konektor dan memperoleh penyesuaian bengkok horizontal serta vertikal:
 
-// Menghubungkan bentuk-bentuk bersama dengan konektor
-connector->set_StartShapeConnectedTo(shapeFrom);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// Mengambil titik penyesuaian untuk konektor
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
-**Penyesuaian**
+Untuk mengubah kedua bengkok, temukan setiap tipe yang diharapkan dan modifikasi nilai hanya setelah keduanya ditemukan:
 
-Kita dapat mengubah nilai titik penyesuaian konektor dengan meningkatkan persentase lebar dan tinggi yang bersangkutan masing-masing sebesar 20% dan 200%:
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-```c++
-// Mengubah nilai titik penyesuaian
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-Hasilnya:
+Hasilnya adalah sebuah konektor yang segmen horizontal dan vertikalnya telah bergeser:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Untuk mendefinisikan model yang memungkinkan kita menentukan koordinat dan bentuk bagian-bagian individu dari konektor, mari buat sebuah bentuk yang sesuai dengan komponen horizontal konektor pada titik connector.Adjustments[0]:
+Setelah tipe semantik diketahui, nilainya dapat dikonversi ke koordinat kerangka konektor. Contoh ini menggambar sebuah persegi panjang tipis di atas segmen vertikal yang dikendalikan oleh dua penyesuaian bengkok:
 
-```c++
-// Gambar komponen vertikal dari konektor
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Hasilnya:
+Bentuk panduan menandai segmen yang dihitung:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Kasus 2**
+### **Konektor Diputar atau Dibalik**
 
-Di **Kasus 1**, kami mendemonstrasikan operasi penyesuaian konektor sederhana menggunakan prinsip dasar. Dalam situasi normal, Anda harus mempertimbangkan rotasi konektor dan tampilan nya (yang diatur oleh connector.Rotation, connector.Frame.FlipH, dan connector.Frame.FlipV). Kami sekarang akan mendemonstrasikan prosesnya.
+Ketika geometri konektor yang sama diarahkan secara vertikal, nilai [IShape::get_Frame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_frame/), [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapeframe/get_fliph/), dan [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapeframe/get_flipv/) memengaruhi konversi dari koordinat kerangka konektor ke koordinat slide.
 
-Pertama, mari tambahkan sebuah objek bingkai teks baru (**To 1**) ke slide (untuk tujuan koneksi) dan buat sebuah konektor (hijau) baru yang menghubungkannya ke objek-objek yang sudah kami buat.
+Contoh ini membuat dan menyesuaikan konektor yang berorientasi vertikal:
 
-```c++
-// Membuat objek binding baru
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// Membuat konektor baru
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// Menghubungkan objek menggunakan konektor yang baru dibuat
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// Mengambil titik penyesuaian konektor
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// Mengubah nilai titik penyesuaian
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-Hasilnya:
+Konektor yang disesuaikan muncul secara vertikal di antara bentuk‑bentuk tersebut:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Kedua, mari buat sebuah bentuk yang akan sesuai dengan komponen horizontal konektor yang melewati titik penyesuaian baru connector.Adjustments[0]. Kami akan menggunakan nilai-nilai dari data konektor untuk connector.Rotation, connector.Frame.FlipH, dan connector.Frame.FlipV serta menerapkan formula konversi koordinat populer untuk rotasi sekitar titik x0:
+Untuk sudut rotasi sewenang‑wenang `alpha`, putar titik kerangka konektor `(x, y)` di sekitar pusat kerangka `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Dalam kasus kami, sudut rotasi objek adalah 90 derajat dan konektor ditampilkan secara vertikal, sehingga inilah kode yang sesuai:
+Kode berikut menangani orientasi 90 derajat yang digunakan dalam contoh ini dan menggambar panduan merah di atas segmen konektor yang bersesuaian:
 
-```c++
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Hasilnya:
+Panduan merah menandai segmen yang dihitung setelah transformasi koordinat:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Kami telah mendemonstrasikan perhitungan yang melibatkan penyesuaian sederhana dan titik penyesuaian yang rumit (titik penyesuaian dengan sudut rotasi). Dengan pengetahuan yang diperoleh, Anda dapat mengembangkan model Anda sendiri (atau menulis kode) untuk mendapatkan objek `GraphicsPath` atau bahkan mengatur nilai titik penyesuaian konektor berdasarkan koordinat slide tertentu.
+Rumus‑rumus ini menggambarkan preset yang dipakai dalam contoh, bukan model konektor universal. Validasi tipe penyesuaian, orientasi kerangka, dan rentang nilai sebelum menerapkan perhitungan yang sama pada preset lain.
 
-## **Temukan Sudut Garis Konektor**
+## **Temukan Sudut Arah Konektor**
 
-1. Buat sebuah instance dari kelas [Presentasi](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Akses bentuk garis konektor.
-1. Gunakan lebar garis, tinggi, tinggi bingkai bentuk, dan lebar bingkai bentuk untuk menghitung sudut.
+Arah sebuah konektor lurus dapat dihitung dari lebar dan tinggi, dengan pembalikan horizontal dan vertikal diterapkan. Contoh berikut melaporkan sudut searah jarum jam dari sumbu horizontal positif dalam koordinat slide:
 
-Kode C++ berikut mendemonstrasikan operasi dimana kami menghitung sudut untuk sebuah bentuk garis konektor:
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
 
-```c++
-void ConnectorLineAngle()
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// Jalur ke direktori dokumen.
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Memuat presentasi yang diinginkan
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// Mengakses slide pertama
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// Mengakses koleksi bentuk slide
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
 
 ## **FAQ**
 
-**Bagaimana saya dapat mengetahui apakah sebuah konektor dapat "menempel" pada bentuk tertentu?**
+**Bagaimana cara mengetahui apakah sebuah konektor dapat dipasang ke sebuah bentuk?**  
+Periksa nilai `IShape::get_ConnectionSiteCount` pada bentuk. Jumlah positif berarti bentuk tersebut memiliki situs koneksi. Validasi indeks situs yang dipilih sebelum menetapkannya ke ujung konektor mana pun.
 
-Periksa apakah bentuk tersebut menyediakan [situs koneksi](https://reference.aspose.com/slides/id/cpp/aspose.slides/shape/get_connectionsitecount/). Jika tidak ada atau jumlahnya nol, penempelan tidak tersedia; dalam hal ini, gunakan titik akhir bebas dan posisikan secara manual. Sebaiknya periksa jumlah situs sebelum menempelkan.
+**Apakah saya dapat mengidentifikasi penyesuaian konektor melalui indeks koleksinya?**  
+Indeks hanya bermakna untuk preset konektor dan tata letak koleksi yang diketahui. Periksa `IAdjustValue::get_Type` sebelum mengubah nilai, dan gunakan `IAdjustValue::get_Name` sebagai informasi tambahan bila tipe semantik yang sama muncul lebih dari sekali.
 
-**Apa yang terjadi pada sebuah konektor jika saya menghapus salah satu bentuk yang terhubung?**
+**Apa yang terjadi ketika sebuah bentuk yang terhubung dihapus?**  
+Ujung konektor yang bersangkutan menjadi terlepas. Konektor tetap berada di slide dan dapat dihapus, diposisikan sebagai garis bebas, atau dipasang kembali ke bentuk lain.
 
-Ujung-ujungnya akan terlepas; konektor tetap berada di slide sebagai garis biasa dengan awal/akhir bebas. Anda dapat menghapusnya atau menetapkan kembali koneksi, dan bila diperlukan, [reroute](https://reference.aspose.com/slides/id/cpp/aspose.slides/connector/reroute/).
-
-**Apakah ikatan konektor dipertahankan saat menyalin slide ke presentasi lain?**
-
-Secara umum ya, dengan asumsi bentuk target juga disalin. Jika slide dimasukkan ke file lain tanpa bentuk yang terhubung, ujung-ujungnya menjadi bebas dan Anda perlu menempelkannya kembali.
+**Apakah ikatan konektor dipertahankan saat slide disalin?**  
+Ikatan umumnya dipertahankan ketika bentuk‑bentuk yang terhubung disalin bersama slide. Jika sebuah konektor disalin tanpa salah satu bentuk targetnya, ujung yang terpengaruh harus dipasang kembali.

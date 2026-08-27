@@ -1,11 +1,11 @@
 ---
-title: Správa tvarů prezentace na Androidu
+title: Spravovat tvary prezentace na Androidu
 linktitle: Manipulace s tvary
 type: docs
 weight: 40
 url: /cs/androidjava/shape-manipulations/
 keywords:
-- PowerPoint tvar
+- tvar PowerPoint
 - tvar prezentace
 - tvar na snímku
 - najít tvar
@@ -13,394 +13,470 @@ keywords:
 - odstranit tvar
 - skrýt tvar
 - změnit pořadí tvaru
-- získat Interop Shape ID
+- získat interop ID tvaru
 - alternativní text tvaru
+- bod úpravy tvaru
+- přednastavená úprava tvaru
+- geometrie tvaru
 - formáty rozvržení tvaru
 - tvar jako SVG
 - tvar do SVG
 - zarovnat tvar
+- převrátit tvar
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se vytvářet, upravovat a optimalizovat tvary v Aspose.Slides pro Android pomocí Javy a dodávejte vysoce výkonné PowerPoint prezentace."
+description: "Naučte se, jak identifikovat, upravovat, klonovat, odstraňovat, skrývat, měnit pořadí, exportovat, zarovnávat a převracet tvary prezentace pomocí Aspose.Slides pro Android prostřednictvím Javy."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s tvary v prezentacích pomocí Aspose.Slides. Ukazuje, jak najít tvar na snímku, klonovat jej, odstranit jej, skrýt jej, změnit jeho pořadí, získat jeho Interop Shape ID a nastavit alternativní text pro identifikaci a další zpracování.
+Aspose.Slides pro Android prostřednictvím Java představuje tvary na snímku jako uspořádanou [IShapeCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/). Kolekce je zároveň místem, kde najdete a upravujete tvary, a zdrojem jejich pořadí překrývání: index `0` je nejzadnější tvar, zatímco poslední index je nejpřednější tvar.
 
-Popisuje také, jak získat přístup k formátům rozvržení pro tvary, renderovat tvar jako SVG, zarovnat tvary na snímku a použít vlastnosti překlápění pro horizontální a vertikální zrcadlení. Navíc článek obsahuje krátkou sekci FAQ o kombinování tvarů, pořadí vrstev a zamykání tvarů.
+Tento článek následuje tento model. Nejprve vysvětluje, jak spolehlivě identifikovat tvar a upravit přednastavené body úpravy tvaru, poté ukazuje, jak klonovat, odstraňovat, skrývat a měnit pořadí tvarů. Poslední sekce pokrývají formátování na úrovni rozvržení, export do SVG, zarovnání a nastavení převrácení. Každý příklad je nezávislý, takže můžete použít jen operace, které vaše pracovní postup vyžaduje.
 
-## **Najít tvar na snímku**
-Toto téma popisuje jednoduchou techniku, která vývojářům usnadní nalezení konkrétního tvaru na snímku bez použití jeho vnitřního Id. Je důležité vědět, že soubory PowerPoint prezentací nemají žádný způsob, jak identifikovat tvary na snímku kromě vnitřního unikátního Id. Pro vývojáře může být obtížné najít tvar pomocí tohoto interního unikátního Id. Všechny tvary přidané do snímků mají nějaký alternativní text. Doporučujeme vývojářům používat alternativní text pro vyhledávání konkrétního tvaru. Můžete v MS PowerPoint definovat alternativní text pro objekty, které plánujete v budoucnu měnit.
+## **Identifikace a vyhledávání tvarů**
 
-Po nastavení alternativního textu požadovaného tvaru můžete otevřít tuto prezentaci pomocí Aspose.Slides pro Android via Java a iterovat přes všechny tvary přidané na snímek. Během každé iterace můžete zkontrolovat alternativní text tvaru a tvar s odpovídajícím alternativním textem bude ten, který potřebujete. Pro lepší demonstraci této techniky jsme vytvořili metodu [findShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) , která provede vyhledání konkrétního tvaru na snímku a jednoduše vrátí tento tvar.
+Indexy v kolekci jsou pohodlné při zpracování známého souboru, ale nejsou stabilními identifikátory. Přidání, odstranění nebo změna pořadí tvaru může změnit jeho index. Zvolte identifikátor podle toho, jak je prezentace vytvořena a udržována:
 
-```java
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getName--) je užitečný pro šablony řízené vývojářem a snadno se kontroluje v panelu výběru PowerPointu. Jména lze upravovat a nejsou garantována jako jedinečná, takže pokud kód na nich závisí, zaveďte pojmenovací konvenci.
+- [AlternativeText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getAlternativeText--) je užitečný, když již popis přístupnosti nebo značka dodaná autorem identifikuje tvar. Je viditelný uživatelům, může být lokalizován nebo přepsán pro přístupnost a také není garantován jako jedinečný. Nepřevádějte tiše smysluplný text přístupnosti na klíč databáze.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) je jen pro čtení a je jedinečný v rámci snímku a odpovídá ID tvaru používanému v interop PowerPointu. Použijte jej při integraci s PowerPointem nebo když potřebujete jednoznačný odkaz během životnosti tvaru. Klonovaný nebo znovu vytvořený tvar je jiný tvar a získá své vlastní ID.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Alternativní text tvaru, který se má najít
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Implementace metody pro nalezení tvaru ve snímku pomocí jeho alternativního textu
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Procházení všech tvarů uvnitř snímku
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Pokud se alternativní text snímku shoduje s požadovaným, pak
-        // Vraťte tvar
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+Související metoda [getUniqueId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getUniqueId--) vrací identifikátor s rozsahem prezentace, ale tento identifikátor je určen pro doplňky a může být přeřazen. Neměl by být považován za trvalý externí klíč. Pokud je dlouhodobá identita podstatná, uložte mapování v aplikačních datech a ověřte, že očekávaný tvar stále existuje.
 
-## **Klonovat tvar**
-Jak klonovat tvar na snímek pomocí Aspose.Slides pro Android via Java:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Získejte referenci na snímek pomocí jeho indexu.
-1. Přistupte ke kolekci tvarů zdrojového snímku.
-1. Přidejte nový snímek do prezentace.
-1. Klonujte tvary z kolekce tvarů zdrojového snímku do nového snímku.
-1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Níže uvedený příklad přidává skupinový tvar na snímek.
+Následující příklad vyhledává podle názvu s přesnou shodou a reportuje ID interopu v rámci snímku. Když šablona neobsahuje očekávaný tvar, kód vypíše tento výsledek místo toho, aby pokračoval se špatným objektem.
 
 ```java
-// Vytvořte instanci třídy Presentation
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // Uložte soubor PPTX na disk
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Odstranit tvar**
-Aspose.Slides pro Android via Java umožňuje vývojářům odstranit libovolný tvar. Chcete-li odstranit tvar z libovolného snímku, postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Přistupte k prvnímu snímku.
-1. Najděte tvar s konkrétním AlternativeText.
-1. Odstraňte tvar.
-1. Uložte soubor na disk.
-
-```java
-// Vytvořte objekt Presentation
-Presentation pres = new Presentation();
-try {
-    // Získejte první snímek
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Přidejte autoshape typu obdélník
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Uložte prezentaci na disk
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Skrýt tvar**
-Aspose.Slides pro Android via Java umožňuje vývojářům skrýt libovolný tvar. Chcete-li skrýt tvar na libovolném snímku, postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Přistupte k prvnímu snímku.
-1. Najděte tvar s konkrétním AlternativeText.
-1. Skrývejte tvar.
-1. Uložte soubor na disk.
-
-```java
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-try {
-    // Získejte první snímek
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Přidejte autoshape typu obdélník
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Uložte prezentaci na disk
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Změnit pořadí tvaru**
-Aspose.Slides pro Android via Java umožňuje vývojářům změnit pořadí tvarů. Změna pořadí určuje, který tvar je vpředu a který v pozadí. Pro změnu pořadí tvaru na libovolném snímku postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Přistupte k prvnímu snímku.
-1. Přidejte tvar.
-1. Přidejte text do textového rámce tvaru.
-1. Přidejte další tvar se stejnými souřadnicemi.
-1. Změňte pořadí tvarů.
-1. Uložte soubor na disk.
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Získat Interop Shape ID**
-Aspose.Slides pro Android via Java umožňuje vývojářům získat unikátní identifikátor tvaru v rozsahu snímku na rozdíl od metody [getUniqueId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape#getUniqueId--) , která umožňuje získat unikátní identifikátor v rozsahu celé prezentace. Metoda [getOfficeInteropShapeId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) byla přidána do rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape) a třídy [Shape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Shape). Hodnota vrácená metodou [getOfficeInteropShapeId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) odpovídá hodnotě Id objektu Microsoft.Office.Interop.PowerPoint.Shape. Níže je uveden ukázkový kód.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Získání unikátního identifikátoru tvaru v rozsahu snímku
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Nastavit alternativní text pro tvar**
-Aspose.Slides pro Android via Java umožňuje vývojářům nastavit AlternateText libovolného tvaru.
-Tvary v prezentaci lze rozlišovat pomocí metody [AlternativeText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) nebo [Shape Name](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape#setName-java.lang.String-).
-Metody [setAlternativeText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) a [getAlternativeText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape#getAlternativeText--) lze číst i nastavovat pomocí Aspose.Slides i Microsoft PowerPoint.
-Pomocí této metody můžete označit tvar a provádět různé operace, jako je odstranění tvaru, skrytí tvaru nebo změna pořadí tvarů na snímku.
-Pro nastavení AlternateText tvaru postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Přistupte k prvnímu snímku.
-1. Přidejte libovolný tvar na snímek.
-1. Proveďte požadované operace s nově přidaným tvarem.
-1. Procházejte tvary a najděte požadovaný tvar.
-1. Nastavte AlternativeText.
-1. Uložte soubor na disk.
-
-```java
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-try {
-    // Získejte první snímek
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Přidejte autoshape typu obdélník
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Uložte prezentaci na disk
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Přístup k formátům rozvržení pro tvar**
-Aspose.Slides pro Android via Java poskytuje jednoduché API pro přístup k formátům rozvržení pro tvar. Tento článek ukazuje, jak můžete přistupovat k formátům rozvržení.
-
-Níže je uveden ukázkový kód.
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Renderovat tvar jako SVG**
-Aspose.Slides pro Android via Java nyní podporuje renderování tvaru jako SVG. Metoda [writeAsSvg](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (a její přetížení) byla přidána do třídy [Shape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Shape) a rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape). Tato metoda umožňuje uložit obsah tvaru jako soubor SVG. Níže uvedený úryvek kódu ukazuje, jak exportovat tvar snímku do SVG souboru.
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Zarovnat tvar**
-Aspose.Slides umožňuje zarovnávat tvary buď vzhledem k okrajům snímku, nebo vzhledem k sobě navzájem. Pro tento účel byla přidána přetížená metoda [SlidesUtil.alignShape()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-). Výčtový typ [ShapesAlignmentType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ShapesAlignmentType) definuje možné možnosti zarovnání.
-
-**Příklad 1**
-
-Zdrojový kód níže zarovnává tvary s indexy 1, 2 a 4 podél horního okraje snímku.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**Příklad 2**
-
-Následující příklad ukazuje, jak zarovnat celou kolekci tvarů vzhledem k nejspodnějšímu tvaru v kolekci.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Vlastnosti překlápění**
-
-V Aspose.Slides třída [ShapeFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeframe/) poskytuje řízení horizontálního a vertikálního zrcadlení tvarů pomocí vlastností `flipH` a `flipV`. Obě vlastnosti jsou typu `byte` a mohou nabývat hodnot `1` (překlopit), `0` (nepřeklopit) nebo `-1` (výchozí chování). Tyto hodnoty jsou přístupné z [Frame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getFrame--) tvaru.
-
-Pro úpravu nastavení překlápění se vytvoří nová instance [ShapeFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeframe/) s aktuální pozicí a velikostí tvaru, požadovanými hodnotami pro `flipH` a `flipV` a úhlem otáčení. Přidělením této instance k [Frame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getFrame--) tvaru a uložením prezentace se aplikují zrcadlové transformace a zapíšou do výstupního souboru.
-
-Předpokládejme, že máme soubor sample.pptx, ve kterém první snímek obsahuje jediný tvar s výchozím nastavením překlápění, jak je znázorněno níže.
-
-![Tvar, který má být přeložen](shape_to_be_flipped.png)
-
-Následující ukázka kódu získá aktuální vlastnosti překlápění tvaru a přeloží jej jak horizontálně, tak vertikálně.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Získat horizontální vlastnost překlápění tvaru.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Získat vertikální vlastnost překlápění tvaru.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Překlopit horizontálně.
-    byte flipV = NullableBool.True; // Překlopit horizontálně.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Výsledek:
+Když je operace specifická pro typ tvaru, zkontrolujte rozhraní před použitím typových členů. Tento příklad aktualizuje text a alternativní text pouze pokud je pojmenovaný objekt [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
 
-![Přeložený tvar](flipped_shape.png)
+```java
+import com.aspose.slides.*;
 
-## **FAQ**
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**Mohu kombinovat tvary (union/intersect/subtract) na snímku jako v desktopovém editoru?**
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
 
-Neexistuje vestavěné API pro Boolovské operace. Můžete si je napodobit vytvořením požadovaného obrysu sami – např. vypočítat výslednou geometrii (pomocí [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/geometrypath/)) a vytvořit nový tvar s tímto konturem, volitelně odstranit původní tvary.
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-**Jak mohu řídit pořadí vrstev (z‑order), aby tvar vždy zůstával „navrchu“?**
+## **Identifikace a úprava přednastavených úprav tvaru**
 
-Změňte pořadí vložení/přesunu v kolekci [shapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseslide/#getShapes--) snímku. Pro předvídatelné výsledky dokončete z‑order po všech ostatních úpravách snímku.
+Přednastavené geometrické tvary mohou mít body úpravy, které řídí např. velikost rohu, poměr šípů nebo úhly oblouku. Přistupujte k nim přes jen pro čtení [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) kolekci. Kolekce je poskytována tvarem, ale každý [IAdjustValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/) obsahuje hodnotu, kterou lze změnit.
 
-**Mohu „uzamknout“ tvar, aby uživatelé v PowerPointu nemohli upravovat?**
+Nespoléhejte se jen na pevný index kolekce. Projděte úpravy a zkontrolujte jen pro čtení metodu [getType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getType--) , jejíž hodnota [ShapeAdjustmentType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeadjustmenttype/) popisuje, co úprava ovládá. Metoda jen pro čtení [getName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getName--) poskytuje doplňující identifikační informace a je zvláště užitečná, když přednastavení obsahuje více úprav se stejným sémantickým typem.
 
-Ano. Nastavte ochranné příznaky na úrovni tvaru (např. zamknout výběr, přesun, změnu velikosti, úpravy textu). V případě potřeby aplikujte omezení i na master nebo rozvržení. Upozorňujeme, že se jedná o ochranu na úrovni UI, nikoli o bezpečnostní funkci; pro silnější ochranu kombinujte s omezeními na úrovni souboru, jako jsou [doporučení pro pouze čtení nebo hesla](/slides/cs/androidjava/password-protected-presentation/).
+Použijte metodu hodnoty, která odpovídá významu úpravy:
+
+| Typ úpravy | Účel | Hodnota ke změně |
+|---|---|---|
+| `CornerSize` | Velikost zaoblených rohů | [setRawValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | Tloušťka ocasu šípu | `setRawValue` |
+| `ArrowheadLength` | Délka hrotu šípu | `setRawValue` |
+| `ArrowheadWidth` | Šířka hrotu šípu | `setRawValue` |
+| `StartAngle` | Počáteční úhel výseče nebo oblouku | [setAngleValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | Konečný úhel výseče nebo oblouku | `setAngleValue` |
+
+`getType` a `getName` vrací jen pro čtení informace. `getRawValue` a `setRawValue` pracují s celým číslem v nativních jednotkách geometrie přednastavení, zatímco `getAngleValue` a `setAngleValue` pracují s úhlem ve stupních. Počet, pořadí, význam a platný rozsah úprav závisí na přednastaveném [ShapeType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igeometryshape/#getShapeType--). Hodnota platná pro jedno přednastavení může být neplatná nebo mít jiný efekt pro jiné.
+
+Když `getType` vrátí `ShapeAdjustmentType.Custom`, API nerozpozná standardní sémantický význam. Prozkoumejte `getName`, typ přednastavení a existující hodnotu a nechte úpravu beze změny, pokud neznáte očekávaný význam a rozsah. I pro rozpoznané typy zkontrolujte, zda se stejný typ nevyskytuje vícekrát, než vyberete hodnotu. Článek [Connector](/slides/cs/androidjava/connector/) ukazuje tuto situaci u úprav ohýbání konektorů.
+
+Následující kompletní příklad vytváří výchozí a upravené verze tří přednastavených tvarů. Prochází každou úpravu, vypisuje její název a typ, mění hodnoty související s velikostí pomocí `setRawValue`, mění úhly pomocí `setAngleValue` a ukládá výsledek. Levý sloupec zachovává výchozí geometrii; pravý sloupec ukazuje upravený zaoblený obdélník, čtyřcestný šíp a výseč.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // Přidá záhlaví pro sloupce výchozího a upraveného tvaru.
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kontrola sémantického typu před změnou hodnoty dělá kód explicitním ohledně záměru a zabraňuje předpokladu, že konkrétní index kolekce má stejný význam napříč různými přednastavenými tvary.
+
+## **Úprava kolekce tvarů**
+
+Metody přidání, klonování, odstranění a změny pořadí fungují na kolekci okamžitě. Pokud operace změní počet nebo pořadí tvarů, nepokračujte v používání indexů zachycených před touto operací.
+
+### **Klonování tvaru**
+
+[addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) vytvoří nezávislou kopii a připojí ji k cílové kolekci. [insertClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) také vytvoří kopii, ale umístí ji na zadaný index z‑řádu. Přetížení, která přijímají souřadnice, přesunou klon bez změny velikosti; přetížení s šířkou a výškou jej mohou také změnit velikost.
+
+Příklad vytváří cílový snímek, klonuje označený obdélník do popředí a vloží druhý klon do pozadí. Změny v kterémkoli klonu neovlivňují zdrojový tvar.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Klonování kopíruje obsah a formátování tvaru, včetně jeho názvu a alternativního textu. Při klonování přiřaďte nové logické identifikátory, pokud musí být tyto hodnoty jedinečné. Prostředky používané složitými tvary spravuje prezentace, ale klon zůstává novou položkou v kolekci s novou identitou tvaru.
+
+### **Odstranění tvarů**
+
+[remove](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) smaže konkrétní objekt tvaru z jeho kolekce. Při odstraňování více shod během indexované iterace procházejte od konce, aby každý zbývající index zůstal platný.
+
+Tento příklad odstraňuje každý tvar s určeným názvem. Čte tvar na aktuálním indexu, ne pevnou položku kolekce, a nepřetypovává tvar zbytečně.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Po odstranění se počet tvarů a indexy dalších tvarů změní. Odkazy na nepodřízené tvary zůstávají spolehlivější než uložené indexy. Zvažte také konektory, animace a další prvky prezentace, které mohou odkazovat na odstraněný objekt; odstranění viditelného tvaru může změnit více než jen vzhled snímku.
+
+### **Skrytí tvaru**
+
+Nastavením [Hidden](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) na `true` ponecháte tvar v kolekci, ale zabráníte jeho zobrazování v normální prezentaci. Jeho index, formátování a obsah zůstávají k dispozici kódu, takže skrytí je vhodné pro volitelné prvky, které mohou být později obnoveny.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Skrytí není smazání ani zabezpečení. Objekt může stále být objeven a znovu odhalen uživatelem nebo kódem a zůstává součástí souboru prezentace.
+
+### **Změna Z‑řádu**
+
+Překrývající se tvary jsou kresleny v pořadí kolekce. [reorder](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) přesune existující tvar na cílový index bez jeho klonování. Index `0` je zadní; `size() - 1` je přední.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Obdélník je vytvořen nejprve a zpočátku leží za elipsou. Přesunutí na poslední index jej umístí do popředí. Dokončete nastavení Z‑řádu po přidání nebo klonování všech souvisejících tvarů, protože tyto operace přidávají nebo vkládají nové položky do kolekce a mohou změnit zamýšlený zásobník.
+
+## **Prohlížení tvarů na rozvržení snímků**
+
+Normální snímky, rozvržení snímků a hlavní snímky mají samostatné kolekce tvarů. Tvar v kolekci rozvržení není stejný objekt jako podobně umístěný tvar na normálním snímku. Prohlédněte si tvary rozvržení, když potřebujete pochopit nebo změnit formátování dodané rozvržením.
+
+Následující příklad čte každé [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getFillFormat--) a [LineFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getLineFormat--) rozvržových tvarů, aniž by předpokládal, že každý tvar je `AutoShape`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Úprava rozvržení může ovlivnit více snímků, které jej používají. Před změnou tvaru rozvržení zjistěte, zda normální snímek dědí objekt nebo obsahuje lokální přepsání, a otestujte každý snímek, který toto rozvržení používá.
+
+## **Export tvaru do SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) zapíše vykreslený obsah jednoho tvaru do proudu. Výsledek obsahuje jen tvar, ne celé pozadí snímku ani sousední tvary.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Udržujte prezentaci otevřenou během renderování. Výstup závisí na formátování tvaru a na prostředcích, jako jsou písma a obrázky. Pokud potřebujete celou kompozici, exportujte snímek místo jednotlivého tvaru. Volající vlastní proud a musí jej zavřít.
+
+## **Zarovnání tvarů**
+
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) má přetížení, která zarovnávají buď všechny tvary, nebo vybrané indexy v kolekci. [ShapesAlignmentType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapesalignmenttype/) specifikuje hranu, středovou čáru nebo režim distribuce. Nastavte `alignToSlide` na `true`, chcete-li použít hrany snímku; nastavte na `false`, chcete-li zarovnat vybrané tvary vůči sobě navzájem.
+
+Tento příklad zarovnává tři tvary k horní hraně snímku. Vrácené reference tvarů jsou okamžitě převedeny na jejich aktuální indexy před zarovnáním.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Zarovnání mění pozice, ne Z‑řád. Relativní zarovnání obvykle vyžaduje alespoň dva tvary, zatímco horizontální nebo vertikální distribuce potřebuje dostatek tvarů k definování rozestupů. Přepočítejte indexy, pokud před voláním metody upravujete kolekci.
+
+## **Převrácení tvaru**
+
+Třída [ShapeFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeframe/) ukládá pozici, velikost, nastavení horizontálního a vertikálního převrácení a rotaci. Její hodnoty `getFlipH` a `getFlipV` používají [NullableBool](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/nullablebool/): `True` zapíná převrácení, `False` jej vypíná a `NotDefined` zachovává neurčený/defaultní stav.
+
+Vstupní prezentace níže obsahuje jeden neotočený tvar.
+
+![Tvar před otočením](shape_to_be_flipped.png)
+
+Příklad zachovává všechny ostatní hodnoty rámce a nahrazuje jen dvě nastavení převrácení. To je důležité, protože přiřazení nového [Frame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) nahrazuje celý rámec.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Uložený tvar je zrcadlen horizontálně i vertikálně při zachování své pozice, velikosti a rotace.
+
+![Tvar po otočení](flipped_shape.png)
+
+## **Často kladené dotazy**
+
+**Mám používat index kolekce jako identifikátor tvaru?**
+
+Jen pro krátkodobé zpracování, kdy se kolekce před použitím indexu nezmění. Upřednostněte ověřenou konvenci `Name` nebo `AlternativeText` pro šablony vytvářené autory, nebo `OfficeInteropShapeId` pro práci s interopem na úrovni snímku.
+
+**Odstraňuje skrytí tvaru jeho z‑řád?**
+
+Ne. Skrytý tvar zůstává v kolekci na stejném indexu. Lze jej najít, změnit pořadí, upravit nebo opět zobrazit.
+
+**Proč se klonovaný tvar objevil před jiným tvarem?**
+
+`addClone` přidá klon na konec kolekce, což je přední část z‑řádu. Použijte `insertClone` pro volbu počátečního indexu nebo `reorder` po přidání všech tvarů.
+
+**Mohu použít pevný index pro identifikaci přednastavené úpravy tvaru?**
+
+Jen po ověření přesného přednastavení a rozložení kolekce. Upřednostněte iteraci přes `IGeometryShape.getAdjustments` a kontrolu `IAdjustValue.getType`; použijte `IAdjustValue.getName` jako doplňující informaci, když se stejný sémantický typ objeví vícekrát.

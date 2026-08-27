@@ -1,394 +1,513 @@
 ---
-title: Quản lý các connector trong bản trình chiếu bằng .NET
-linktitle: Connector
+title: Quản lý các đầu nối trong bản trình chiếu bằng .NET
+linktitle: Đầu nối
 type: docs
 weight: 10
 url: /vi/net/connector/
 keywords:
-- connector
-- loại connector
-- điểm connector
-- đường connector
-- góc connector
+- đầu nối
+- loại đầu nối
+- điểm đầu nối
+- đường đầu nối
+- góc đầu nối
+- địa điểm kết nối
+- điểm điều chỉnh
 - kết nối các hình
 - PowerPoint
 - bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Cho phép các ứng dụng .NET vẽ, kết nối và tự động định tuyến các đường trong slide PowerPoint—đạt được kiểm soát toàn diện đối với các connector thẳng, góc khuỷu và cong."
+description: "Tìm hiểu cách thêm, gắn, định tuyến lại, điều chỉnh và kiểm tra các đầu nối PowerPoint thẳng, uốn và cong bằng Aspose.Slides cho .NET."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Một connector trong PowerPoint là một đường đặc biệt kết nối hoặc liên kết hai hình lại với nhau và vẫn gắn vào các hình ngay cả khi chúng được di chuyển hoặc thay đổi vị trí trên một slide nhất định. 
+Một connector là một đường có thể gắn giữ hai hình khi một trong hai hình di chuyển. Các đầu của nó gắn vào các site kết nối, được biểu thị bằng các chấm xanh lá trong PowerPoint. Một số connector cong và uốn cũng hiển thị các điểm điều chỉnh, được biểu thị bằng các chấm cam, để kiểm soát vị trí của các đoạn connector riêng lẻ.
 
-Các connector thường được gắn vào *điểm kết nối* (điểm màu xanh lục), các điểm này có sẵn trên mọi hình theo mặc định. Điểm kết nối xuất hiện khi con trỏ di chuột đến gần chúng.
-
-*Điểm điều chỉnh* (điểm màu cam), chỉ tồn tại trên một số connector, được sử dụng để thay đổi vị trí và hình dạng của connector.
+Aspose.Slides biểu diễn các connector thông qua giao diện [IConnector](https://reference.aspose.com/slides/vi/net/aspose.slides/iconnector/). Bạn có thể tạo chúng, gắn các đầu vào các hình, chọn site kết nối, reroute chúng và sửa đổi hình học của các connector có điểm điều chỉnh.
 
 ## **Các loại connector**
 
-Trong PowerPoint, bạn có thể sử dụng các connector thẳng, góc khuỷu (có góc) và cong. 
+Phân枚列 [ShapeType](https://reference.aspose.com/slides/vi/net/aspose.slides/shapetype/) bao gồm các preset connector thẳng, uốn và cong. Bảng sau hiển thị các hình học connector có sẵn và số điểm điều chỉnh được định nghĩa cho mỗi preset.
 
-Aspose.Slides cung cấp các connector sau:
+| Connector | Image | Number of adjustment points |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Connector                      | Image                                                        | Number of adjustment points |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+Số lượng và ý nghĩa của các điểm điều chỉnh là một phần của preset connector được chọn. Đừng giả định rằng hai loại connector khác nhau sẽ hiển thị cùng một bố cục collection.
 
-## **Kết nối các hình bằng connector**
+## **Kết nối hai hình**
 
-1. Tạo một thể hiện của lớp [Bản trình chiếu](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu của slide bằng chỉ số của nó.
-1. Thêm hai [AutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/autoshape/) vào slide bằng phương thức `AddAutoShape` được cung cấp bởi đối tượng `Shapes`.
-1. Thêm một connector bằng phương thức `AddConnector` được cung cấp bởi đối tượng `Shapes` và xác định loại connector.
-1. Kết nối các hình bằng connector.
-1. Gọi phương thức `Reroute` để áp dụng đường kết nối ngắn nhất.
-1. Lưu bản trình chiếu.
+Sử dụng [IShapeCollection.AddConnector](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addconnector/) để thêm một connector, và gán các thuộc tính [StartShapeConnectedTo](https://reference.aspose.com/slides/vi/net/aspose.slides/connector/startshapeconnectedto/) và [EndShapeConnectedTo](https://reference.aspose.com/slides/vi/net/aspose.slides/connector/endshapeconnectedto/). Sau khi cả hai đầu được gắn, [IConnector.Reroute](https://reference.aspose.com/slides/vi/net/aspose.slides/iconnector/reroute/) sẽ chọn một đường ngắn giữa các hình.
 
-Mã C# dưới đây cho thấy cách thêm một connector (connector gập) giữa hai hình (một hình ellipse và một hình chữ nhật):
+Ví dụ sau kết nối một ellipse và một rectangle bằng một bent connector:
 
-```c#
-// Tạo một lớp Presentation đại diện cho tệp PPTX
-using (Presentation input = new Presentation())
-{                
-    // Truy cập bộ sưu tập shapes cho một slide cụ thể
-    IShapeCollection shapes = input.Slides[0].Shapes;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Thêm một autoshape Ellipse
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Thêm một autoshape Rectangle
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Thêm một shape connector vào bộ sưu tập shapes của slide
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // Kết nối các shape bằng connector
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Gọi reroute để đặt đường ngắn nhất tự động giữa các shape
-    connector.Reroute();
-
-    // Lưu bản trình chiếu
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Cảnh báo" %}}
+Gọi `Reroute` có thể thay đổi các giá trị [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/vi/net/aspose.slides/connector/startshapeconnectionsiteindex/) và [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/vi/net/aspose.slides/connector/endshapeconnectionsiteindex/). Gán các site kết nối cụ thể sau khi reroute nếu các site đó phải cố định.
+{{% /alert %}}
 
-Phương thức `Connector.Reroute` định tuyến lại một connector và buộc nó đi theo đường ngắn nhất có thể giữa các hình. Để đạt được mục tiêu này, phương thức có thể thay đổi các điểm `StartShapeConnectionSiteIndex` và `EndShapeConnectionSiteIndex`. 
+## **Chọn vị trí kết nối**
 
-{{% /alert %}} 
+Mỗi hình có thể kết nối sẽ báo cáo số lượng site của nó qua [ConnectionSiteCount](https://reference.aspose.com/slides/vi/net/aspose.slides/shape/connectionsitecount/). Kiểm tra một chỉ số site dựa trên zero trước khi gán nó cho đầu connector; số lượng site thay đổi tùy theo hình học của hình.
 
-## **Xác định điểm kết nối**
-Nếu bạn muốn một connector liên kết hai hình bằng các điểm cụ thể trên các hình, bạn phải chỉ định các điểm kết nối ưa thích của mình theo cách sau:
+Ví dụ này gắn connector vào một site cụ thể trên ellipse khi site đó tồn tại:
 
-1. Tạo một thể hiện của lớp [Bản trình chiếu](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu của slide bằng chỉ số của nó.
-1. Thêm hai [AutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/autoshape/) vào slide bằng phương thức `AddAutoShape` được cung cấp bởi đối tượng `Shapes`.
-1. Thêm một connector bằng phương thức `AddConnector` được cung cấp bởi đối tượng `Shapes` và xác định loại connector.
-1. Kết nối các hình bằng connector. 
-1. Đặt các điểm kết nối ưa thích trên các hình. 
-1. Lưu bản trình chiếu.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Mã C# dưới đây minh họa một thao tác trong đó một điểm kết nối ưa thích được chỉ định:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-// Tạo một lớp Presentation đại diện cho tệp PPTX
-using (Presentation presentation = new Presentation())
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // Truy cập bộ sưu tập shapes cho một slide cụ thể
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // Thêm một shape connector vào bộ sưu tập shapes của slide
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // Thêm một autoshape Ellipse
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // Thêm một autoshape Rectangle
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // Kết nối các shape bằng connector
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Đặt chỉ số điểm kết nối ưa thích trên shape Ellipse
-    uint wantedIndex = 6;
-
-    // Kiểm tra xem chỉ số ưa thích có nhỏ hơn số lượng site tối đa không
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // Đặt điểm kết nối ưa thích trên autoshape Ellipse
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // Lưu bản trình chiếu
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
 ## **Điều chỉnh điểm connector**
 
-Bạn có thể điều chỉnh một connector hiện có thông qua các điểm điều chỉnh của nó. Chỉ các connector có điểm điều chỉnh mới có thể được thay đổi theo cách này. Xem bảng trong **[Các loại connector.](/slides/vi/net/connector/#types-of-connectors)** 
+Các connector có điểm điều chỉnh sẽ hiển thị chúng qua [IGeometryShape.Adjustments](https://reference.aspose.com/slides/vi/net/aspose.slides/igeometryshape/adjustments/). Kiểm tra mỗi [IAdjustValue](https://reference.aspose.com/slides/vi/net/aspose.slides/iadjustvalue/) và kiểm tra [Type](https://reference.aspose.com/slides/vi/net/aspose.slides/adjustvalue/type/) trước khi thay đổi [RawValue](https://reference.aspose.com/slides/vi/net/aspose.slides/adjustvalue/rawvalue/). Các quy tắc chung để nhận dạng các adjustment shape preset được mô tả trong [Shape Manipulation](/slides/vi/net/shape-manipulations/).
 
-### **Trường hợp đơn giản**
+Số lượng, thứ tự, ý nghĩa và phạm vi giá trị hợp lệ của các adjustment connector phụ thuộc vào preset connector. Thuộc tính `Type` chỉ đọc, trong khi giá trị adjustment có thể ghi. Thuộc tính chỉ đọc [Name](https://reference.aspose.com/slides/vi/net/aspose.slides/adjustvalue/name/) cung cấp thông tin nhận dạng bổ sung khi một connector chứa hơn một adjustment có cùng kiểu ngữ nghĩa.
 
-Xem xét một trường hợp trong đó một connector giữa hai hình (A và B) đi qua một hình thứ ba (C):
+### **Định hướng quanh chướng ngại vật**
+
+Trong bố cục dưới đây, một connector `BentConnector5` giữa hai hình đi qua một hình thứ ba:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Mã:
+Mã sau tạo connector bị cản trở:
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-Để tránh hoặc vượt qua hình thứ ba, chúng ta có thể điều chỉnh connector bằng cách di chuyển đường thẳng đứng sang trái như sau:
+Di chuyển độ uốn dọc thay đổi đường đi sao cho connector tránh chướng ngại vật:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+Thay vì giả định rằng chỉ số collection `1` luôn đại diện cho độ uốn dọc, ví dụ này tìm `ConnectorBendPositionY` và chỉ thay đổi nó khi kiểu ngữ nghĩa mong đợi có mặt:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Các trường hợp phức tạp** 
+Một `BentConnector5` có hai adjustment `ConnectorBendPositionX` và một adjustment `ConnectorBendPositionY`. Nếu kiểu bạn cần xuất hiện hơn một lần, hãy kiểm tra `Name` và hình học đã biết của preset trước khi chọn. Nếu một adjustment báo cáo `ShapeAdjustmentType.Custom`, coi ý nghĩa và phạm vi của nó là đặc thù cho preset và không thay đổi cho đến khi hợp đồng này được xác định.
 
-Để thực hiện các điều chỉnh phức tạp hơn, bạn phải lưu ý các yếu tố sau:
+## **Liên hệ giá trị điều chỉnh với hình học connector**
 
-* Một điểm điều chỉnh của connector liên kết chặt chẽ với một công thức tính toán và xác định vị trí của nó. Do đó, việc thay đổi vị trí của điểm có thể thay đổi hình dạng của connector.
-* Các điểm điều chỉnh của connector được định nghĩa theo một thứ tự nghiêm ngặt trong một mảng. Các điểm điều chỉnh được đánh số từ điểm bắt đầu của connector đến điểm cuối.
-* Giá trị điểm điều chỉnh phản ánh phần trăm chiều rộng/chiều cao của hình connector. 
-  * Hình được giới hạn bởi các điểm bắt đầu và kết thúc của connector nhân với 1000. 
-  * Điểm thứ nhất, điểm thứ hai và điểm thứ ba lần lượt định nghĩa phần trăm từ chiều rộng, phần trăm từ chiều cao và phần trăm từ chiều rộng (lại một lần nữa).
-* Đối với các phép tính xác định tọa độ của các điểm điều chỉnh của connector, bạn phải tính đến góc quay và việc phản chiếu của connector. **Lưu ý** rằng góc quay cho tất cả các connector được hiển thị trong **[Các loại connector](/slides/vi/net/connector/#types-of-connectors)** là 0.
+Đối với các bent connector, giá trị điều chỉnh có thể dùng để ước tính vị trí của các đoạn riêng lẻ. Các phép tính này chỉ áp dụng cho preset connector cụ thể:
 
-#### **Trường hợp 1**
+- `BentConnector4` thường hiển thị một adjustment `ConnectorBendPositionX` và một `ConnectorBendPositionY`.
+- Đối với các vị trí uốn này, `RawValue / 100000f` tạo ra phần tỷ lệ của chiều rộng hoặc chiều cao khung connector được sử dụng trong các ví dụ dưới.
+- Khung connector có thể được quay hoặc lật, vì vậy tọa độ khung phải được chuyển đổi trước khi so sánh với tọa độ slide.
 
-Xem xét một trường hợp trong đó hai đối tượng khung văn bản được liên kết với nhau bằng một connector:
+Các ví dụ sau dùng `Type` để xác định các adjustment trước. Chúng không coi chỉ số collection là định danh di động.
+
+### **Connector chưa quay**
+
+Bố cục ban đầu chứa hai hình text được kết nối bằng một `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Mã:
+Ví dụ này kiểm tra connector và lấy các adjustment uốn ngang và dọc:
 
-```c#
-// Tạo một lớp Presentation đại diện cho tệp PPTX
-Presentation pres = new Presentation();
-// Lấy slide đầu tiên trong bản trình chiếu
-ISlide sld = pres.Slides[0];
-// Thêm các hình sẽ được nối với nhau bằng một connector
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// Thêm một connector
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Xác định hướng của connector
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Xác định màu sắc của connector
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Xác định độ dày của đường connector
 connector.LineFormat.Width = 3;
-
-// Nối các hình lại với nhau bằng connector
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Lấy các điểm điều chỉnh cho connector
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**Điều chỉnh**
+Để thay đổi cả hai uốn, tìm mỗi kiểu mong đợi và chỉ sửa giá trị sau khi cả hai đã được tìm:
 
-Chúng ta có thể thay đổi giá trị điểm điều chỉnh của connector bằng cách tăng phần trăm chiều rộng và chiều cao tương ứng lên 20 % và 200 %, tương ứng:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Thay đổi giá trị của các điểm điều chỉnh
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-Kết quả:
+Kết quả là một connector mà các đoạn ngang và dọc đã di chuyển:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Để xác định một mô hình cho phép chúng ta tính toán tọa độ và hình dạng của các phần riêng lẻ của connector, hãy tạo một hình tương ứng với thành phần ngang của connector tại điểm connector.Adjustments[0]:
+Khi đã biết các kiểu ngữ nghĩa, giá trị của chúng có thể chuyển sang tọa độ khung connector. Ví dụ này vẽ một hình chữ nhật mỏng trên đoạn dọc được điều khiển bởi hai adjustment uốn:
 
-```c#
-// Vẽ thành phần dọc của connector
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Kết quả:
+Hình guide đánh dấu đoạn đã tính:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Trường hợp 2**
+### **Connector quay hoặc lật**
 
-Trong **Trường hợp 1**, chúng tôi đã minh họa một thao tác điều chỉnh connector đơn giản bằng các nguyên tắc cơ bản. Trong các tình huống bình thường, bạn phải tính đến góc quay của connector và cách hiển thị nó (được đặt bởi connector.Rotation, connector.Frame.FlipH và connector.Frame.FlipV). Bây giờ chúng tôi sẽ trình bày quy trình.
+Khi cùng một hình học connector được định hướng dọc, các giá trị [Frame](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/vi/net/aspose.slides/shapeframe/fliph/), và [FlipV](https://reference.aspose.com/slides/vi/net/aspose.slides/shapeframe/flipv/) ảnh hưởng tới việc chuyển đổi từ tọa độ khung connector sang tọa độ slide.
 
-Đầu tiên, hãy thêm một đối tượng khung văn bản mới (**To 1**) vào slide (để kết nối) và tạo một connector (màu xanh lá) mới nối nó với các đối tượng đã tạo trước đó.
+Ví dụ này tạo và điều chỉnh connector được định hướng dọc:
 
-```c#
-// Tạo một đối tượng binding mới
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// Tạo một connector mới
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Kết nối các đối tượng bằng connector vừa tạo
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// Lấy các điểm điều chỉnh của connector
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Thay đổi giá trị của các điểm điều chỉnh
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-Kết quả:
+Connector đã điều chỉnh xuất hiện dọc giữa các hình:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Thứ hai, hãy tạo một hình sẽ tương ứng với thành phần ngang của connector đi qua điểm điều chỉnh mới connector.Adjustments[0]. Chúng tôi sẽ sử dụng các giá trị từ dữ liệu connector cho connector.Rotation, connector.Frame.FlipH và connector.Frame.FlipV và áp dụng công thức chuyển đổi tọa độ phổ biến để quay quanh một điểm x0:
+Với một góc quay tùy ý `alpha`, quay một điểm khung connector `(x, y)` quanh trung tâm khung `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Trong trường hợp của chúng tôi, góc quay của đối tượng là 90 độ và connector được hiển thị theo chiều dọc, vì vậy đây là mã tương ứng:
+Mã sau xử lý định hướng 90 độ được dùng trong ví dụ này và vẽ một guide màu đỏ lên đoạn connector tương ứng:
 
-```c#
-// Lưu tọa độ của connector
-x = connector.X;
-y = connector.Y;
-// Sửa tọa độ của connector nếu nó xuất hiện
-if (connector.Frame.FlipH == NullableBool.True)
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
-{
-    y += connector.Height;
-}
-// Lấy giá trị điểm điều chỉnh làm tọa độ
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  Chuyển đổi tọa độ vì Sin(90) = 1 và Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// Xác định chiều rộng của thành phần ngang bằng cách sử dụng giá trị điểm điều chỉnh thứ hai
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Kết quả:
+Guide màu đỏ đánh dấu đoạn đã tính sau khi chuyển đổi tọa độ:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Chúng tôi đã minh họa các phép tính liên quan đến điều chỉnh đơn giản và các điểm điều chỉnh phức tạp (có góc quay). Với kiến thức này, bạn có thể phát triển mô hình riêng (hoặc viết mã) để nhận đối tượng `GraphicsPath` hoặc thậm chí đặt giá trị điểm điều chỉnh của connector dựa trên các tọa độ slide cụ thể.
+Các công thức này mô tả các preset được dùng trong các ví dụ, không phải mô hình connector chung. Kiểm tra kiểu adjustment, hướng khung và phạm vi giá trị trước khi áp dụng cùng một phép tính cho một preset khác.
 
-## **Tìm góc của các đường connector**
+## **Tìm góc hướng của connector**
 
-1. Tạo một thể hiện của lớp [Bản trình chiếu](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
-1. Lấy tham chiếu của slide bằng chỉ số của nó.
-1. Truy cập hình dạng đường connector. 
-1. Sử dụng chiều rộng, chiều cao, chiều cao khung hình và chiều rộng khung hình để tính góc.
+Hướng của một straight connector có thể tính từ chiều rộng và chiều cao của nó, kèm theo các phép lật ngang và dọc. Ví dụ sau báo cáo góc thuận kim đồng hồ từ trục ngang dương trong tọa độ slide:
 
-Mã C# dưới đây minh họa một thao tác trong đó chúng tôi tính toán góc cho một hình dạng đường connector:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-public static void Run()
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Làm sao tôi biết một connector có thể “dán” vào một hình cụ thể không?**
+**Làm sao tôi biết một connector có thể gắn vào một shape hay không?**  
+Kiểm tra `ConnectionSiteCount` của shape. Giá trị dương có nghĩa shape cung cấp các site kết nối. Xác thực chỉ số site được chọn trước khi gán cho bất kỳ đầu connector nào.
 
-Kiểm tra xem hình có cung cấp [các site kết nối](https://reference.aspose.com/slides/vi/net/aspose.slides/shape/connectionsitecount/) hay không. Nếu không có hoặc số lượng bằng 0, việc dán không khả dụng; trong trường hợp đó, hãy sử dụng các đầu nối tự do và định vị chúng thủ công. Thông thường nên kiểm tra số lượng site trước khi gắn.
+**Tôi có thể nhận dạng một adjustment connector bằng chỉ số collection của nó không?**  
+Chỉ số chỉ có ý nghĩa đối với một preset connector và bố cục collection đã biết. Kiểm tra `IAdjustValue.Type` trước khi thay đổi giá trị, và dùng `IAdjustValue.Name` làm thông tin bổ sung khi cùng một kiểu ngữ nghĩa xuất hiện nhiều lần.
 
-**Điều gì sẽ xảy ra với một connector nếu tôi xóa một trong các hình đã kết nối?**
+**Điều gì xảy ra khi một shape đã được kết nối bị xóa?**  
+Đầu connector tương ứng sẽ bị tách rời. Connector vẫn còn trên slide và có thể bị xóa, chuyển thành một đường tự do, hoặc gắn lại vào một shape khác.
 
-Các đầu của nó sẽ bị tách rời; connector sẽ còn lại trên slide như một đường thẳng thông thường với đầu/bắt đầu tự do. Bạn có thể xóa nó hoặc gán lại các kết nối và, nếu cần, [reroute](https://reference.aspose.com/slides/vi/net/aspose.slides/connector/reroute/).
-
-**Các ràng buộc của connector có được giữ lại khi sao chép slide sang bản trình chiếu khác không?**
-
-Thông thường có, với điều kiện các hình mục tiêu cũng được sao chép. Nếu slide được chèn vào một tệp khác mà không có các hình đã kết nối, các đầu sẽ trở thành tự do và bạn sẽ cần gắn lại chúng.
+**Các ràng buộc connector có được giữ khi sao chép một slide không?**  
+Thông thường ràng buộc được giữ khi các shape được kết nối cùng với slide được sao chép. Nếu một connector được sao chép mà không có một trong các shape mục tiêu, đầu bị ảnh hưởng phải được gắn lại nữa.

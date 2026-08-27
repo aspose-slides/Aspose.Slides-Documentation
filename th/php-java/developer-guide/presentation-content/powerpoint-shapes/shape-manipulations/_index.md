@@ -1,382 +1,540 @@
 ---
-title: จัดการรูปร่างการนำเสนอใน PHP
-linktitle: การจัดการรูปร่าง
+title: จัดการรูปทรงการพรีเซนเทชันใน PHP
+linktitle: การจัดการรูปทรง
 type: docs
 weight: 40
 url: /th/php-java/shape-manipulations/
 keywords:
-- รูปร่าง PowerPoint
-- รูปร่างการนำเสนอ
-- รูปร่างบนสไลด์
-- ค้นหารูปร่าง
-- คัดลอกรูปร่าง
-- ลบรูปร่าง
-- ซ่อนรูปร่าง
-- เปลี่ยนลำดับรูปร่าง
-- รับ Interop Shape ID
-- ข้อความแทนรูปร่าง
-- รูปแบบเลย์เอาต์ของรูปร่าง
-- รูปร่างเป็น SVG
-- แปลงรูปร่างเป็น SVG
-- จัดตำแหน่งรูปร่าง
+- รูปทรง PowerPoint
+- รูปทรงการนำเสนอ
+- รูปทรงบนสไลด์
+- ค้นหารูปทรง
+- ทำสำเนารูปทรง
+- ลบรูปทรง
+- ซ่อนรูปทรง
+- เปลี่ยนลำดับรูปทรง
+- รับ ID รูปทรง Interop
+- ข้อความแทนรูปทรง
+- จุดปรับรูปทรง
+- การปรับรูปทรงที่กำหนดล่วงหน้า
+- เรขาคณิตรูปทรง
+- รูปแบบการจัดวางรูปทรง
+- รูปทรงเป็น SVG
+- แปลงรูปทรงเป็น SVG
+- จัดแนวรูปทรง
+- กลับรูปทรง
 - PowerPoint
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้การสร้าง, แก้ไขและเพิ่มประสิทธิภาพรูปร่างใน Aspose.Slides for PHP via Java และส่งมอบการนำเสนอ PowerPoint ที่มีประสิทธิภาพสูง"
+description: "เรียนรู้วิธีระบุ, ปรับ, ทำสำเนา, ลบ, ซ่อน, จัดลำดับใหม่, ส่งออก, จัดแนว, และกลับรูปทรงการนำเสนอด้วย Aspose.Slides for PHP via Java."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีทำงานกับรูปร่างในงานนำเสนอด้วย Aspose.Slides แสดงวิธีค้นหารูปร่างบนสไลด์, คัดลอก, ลบ, ซ่อน, เปลี่ยนลำดับ, รับ Interop shape ID, และตั้งค่า Alternative Text เพื่อระบุและประมวลผลต่อไป
+Aspose.Slides for PHP via Java แสดงรูปทรงบนสไลด์เป็น [ShapeCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/) ที่เรียงลำดับ คอลเลกชันเป็นทั้งที่คุณค้นหาและแก้ไขรูปทรงและเป็นแหล่งของลำดับการซ้อน: ดัชนี `0` คือรูปทรงที่อยู่ด้านหลังสุด, ส่วนดัชนีสุดท้ายคือรูปทรงที่อยู่ด้านหน้าสุด
 
-นอกจากนี้ยังครอบคลุมการเข้าถึง Layout Formats ของรูปร่าง, การเรนเดอร์รูปร่างเป็น SVG, การจัดตำแหน่งรูปร่างบนสไลด์, และการใช้คุณสมบัติ Flip สำหรับการสะท้อนแนวนอนและแนวตั้ง อีกทั้งบทความยังมีคำถามที่พบบ่อยสั้น ๆ เกี่ยวกับการรวมรูปร่าง, ลำดับการซ้อน, และการล็อครูปร่าง
+บทความนี้ทำตามแบบนั้น อธิบายวิธีระบุรูปทรงอย่างแม่นยำและแก้ไขจุดปรับตั้งค่ารูปทรงที่กำหนดไว้ล่วงหน้า, จากนั้นแสดงวิธีทำสำเนา, ลบ, ซ่อน และจัดเรียงรูปทรงใหม่ ส่วนสุดท้ายครอบคลุมการจัดรูปแบบระดับเลย์เอาต์, การส่งออกเป็น SVG, การจัดแนว, และการตั้งค่าการกลับรูปทรง ตัวอย่างแต่ละอันเป็นอิสระ ดังนั้นคุณสามารถใช้เพียงการดำเนินการที่จำเป็นสำหรับ workflow ของคุณ
 
-## **ค้นหารูปร่างบนสไลด์**
-หัวข้อนี้จะอธิบายเทคนิคง่าย ๆ เพื่อช่วยนักพัฒนาให้ค้นหารูปร่างเฉพาะบนสไลด์ได้โดยไม่ต้องใช้ Id ภายในของมัน การรู้ว่ไฟล์ PowerPoint Presentation ไม่ได้มีวิธีระบุรูปร่างบนสไลด์นอกจาก Id ภายในที่เป็นเอกลักษณ์นั้นสำคัญมาก เนื่องจากนักพัฒนามักพบความยากลำบากในการหรูปร่างโดยใช้ Id ภายในที่เป็นเอกลักษณ์ ทุกรูปร่างที่เพิ่มเข้ามาในสไลด์จะมี Alt Text เราแนะนำให้นักพัฒนาใช้ Alternative Text เพื่อค้นหารูปร่างเฉพาะ คุณสามารถใช้ MS PowerPoint กำหนด Alternative Text ให้กับออบเจกต์ที่คุณอาจเปลี่ยนแปลงในอนาคตได้
+## **ระบุและค้นหารูปทรง**
 
-หลังจากตั้งค่า Alternative Text ให้กับรูปร่างที่ต้องการแล้ว คุณสามารถเปิดงานนำเสนอด้วย Aspose.Slides for PHP via Java และวนผ่านรูปร่างทั้งหมดที่เพิ่มเข้ามาในสไลด์ ในแต่ละรอบคุณสามารถตรวจสอบ Alternative Text ของรูปร่าง และรูปร่างที่มี Alternative Text ตรงกันจะเป็นรูปร่างที่คุณต้องการ เพื่อสาธิตเทคนิคนี้อย่างชัดเจน เราได้สร้างเมธอด [findShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) ที่ทำหน้าที่ค้นหารูปร่างเฉพาะในสไลด์และคืนค่ารูปร่างนั้นโดยตรง
+ดัชนีของคอลเลกชันสะดวกเมื่อประมวลผลไฟล์ที่รู้จัก, แต่ไม่ได้เป็นตัวระบุตัวตนที่คงที่ การเพิ่ม, ลบ, หรือจัดเรียงรูปทรงใหม่อาจทำให้ดัชนีเปลี่ยน เลือกตัวระบุตามวิธีที่นำเสนอถูกสร้างและดูแล:
 
-```php
-  # สร้างอ็อบเจกต์ Presentation ที่เป็นตัวแทนไฟล์การนำเสนอ
-  $pres = new Presentation("FindingShapeInSlide.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    # ข้อความแทนของรูปร่างที่ต้องการค้นหา
-    $shape = findShape($slide, "Shape1");
-    if (!java_is_null($shape)) {
-      echo("Shape Name: " . $shape->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+- [Name](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getname/) มีประโยชน์สำหรับเทมเพลตที่ควบคุมโดยนักพัฒนา และตรวจสอบได้ง่ายในแผงการเลือกของ PowerPoint ชื่อสามารถแก้ไขได้และไม่ได้รับประกันว่าจะไม่ซ้ำกัน ดังนั้นควรกำหนดมาตรฐานการตั้งชื่อหากโค้ดพึ่งพา
+- [AlternativeText](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getalternativetext/) มีประโยชน์เมื่อคำอธิบายการเข้าถึงหรือแท็กที่ผู้เขียนกำหนดไว้แล้วระบุรูปทรง มันมองเห็นได้โดยผู้ใช้, อาจแปลหรือเขียนใหม่เพื่อการเข้าถึง, และไม่ได้รับประกันว่าจะไม่ซ้ำกัน อย่าแปลงข้อความการเข้าถึงที่มีความหมายเป็นคีย์ฐานข้อมูลอย่างเงียบ ๆ
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getofficeinteropshapeid/) เป็นตัวระบุแบบอ่านอย่างเดียวที่ไม่ซ้ำกันภายในสไลด์และสอดคล้องกับ Shape ID ที่ PowerPoint interop ใช้ ใช้เมื่อทำการเชื่อมต่อกับ PowerPoint หรือเมื่อคุณต้องการอ้างอิงที่ชัดเจนตลอดอายุของรูปทรง รูปทรงที่ทำสำเนาหรือสร้างใหม่เป็นรูปทรงที่แตกต่างและจะได้รับ ID ของตนเอง
 
-```
+เมธอดที่เกี่ยวข้อง [Shape::getUniqueId](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getuniqueid/) คืนตัวระบุในระดับพรีเซนเทชัน, แต่ตัวระบุนี้มุ่งหมายสำหรับแอดอินและอาจถูกกำหนดใหม่ ไม่ควรถือว่าเป็นคีย์ภายนอกถาวร หากต้องการอัตลักษณ์ระยะยาว ควรเก็บการแมพในข้อมูลแอปพลิเคชันและตรวจสอบว่ารูปทรงที่คาดหวังยังคงมีอยู่
 
-## **คัดลอกรูปร่าง**
-เพื่อคัดลอกรูปร่างไปยังสไลด์โดยใช้ Aspose.Slides for PHP via Java:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)
-1. รับอ้างอิงของสไลด์โดยใช้ดัชนีของมัน
-1. เข้าถึงคอลเลกชันรูปร่างของสไลด์ต้นฉบับ
-1. เพิ่มสไลด์ใหม่ไปยังงานนำเสนอ
-1. คัดลอกรูปร่างจากคอลเลกชันรูปร่างของสไลด์ต้นฉบับไปยังสไลด์ใหม่
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-ตัวอย่างด้านล่างเพิ่ม Group Shape ไปยังสไลด์
+ตัวอย่างต่อไปนี้ค้นหาตามชื่อด้วยการเปรียบเทียบที่ตรงกันและรายงาน interop ID ที่มีขอบเขตสไลด์ เมื่อเทมเพลตไม่มีรูปทรงที่คาดหวัง โค้ดจะรายงานผลนั้นแทนที่จะดำเนินต่อด้วยอ็อบเจ็กต์ที่ผิด
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation("Source Frame.pptx");
-  try {
-    $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
-    $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
-    $destShapes = $destSlide->getShapes();
-    $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
-    $destShapes->addClone($sourceShapes->get_Item(2));
-    $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # บันทึกไฟล์ PPTX ไปยังดิสก์
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
 
-## **ลบรูปร่าง**
-Aspose.Slides for PHP via Java อนุญาตให้นักพัฒนาลบรูปร่างใด ๆ เพื่อทำการลบรูปร่างจากสไลด์ใดสไลด์หนึ่ง ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)
-1. เข้าถึงสไลด์แรก
-1. ค้นหารูปร่างที่มี AlternativeText ที่ต้องการ
-1. ลบรูปร่าง
-1. บันทึกไฟล์ลงดิสก์
-
-```php
-  # สร้างอ็อบเจกต์ Presentation
-  $pres = new Presentation();
-  try {
-    # ดึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # เพิ่ม AutoShape ประเภทสี่เหลี่ยม
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $sld->getShapes()->remove($ashp);
-      }
-    }
-    # บันทึกงานนำเสนอไปยังดิสก์
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **ซ่อนรูปร่าง**
-Aspose.Slides for PHP via Java อนุญาตให้นักพัฒนาซ่อนรูปร่างใด ๆ เพื่อทำการซ่อนรูปร่างจากสไลด์ใดสไลด์หนึ่ง ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)
-1. เข้าถึงสไลด์แรก
-1. ค้นหารูปร่างที่มี AlternativeText ที่ต้องการ
-1. ซ่อนรูปร่าง
-1. บันทึกไฟล์ลงดิสก์
-
-```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # ดึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # เพิ่ม AutoShape ประเภทสี่เหลี่ยม
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item($i);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $ashp->setHidden(true);
-      }
-    }
-    # บันทึกงานนำเสนอไปยังดิสก์
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **เปลี่ยนลำดับรูปร่าง**
-Aspose.Slides for PHP via Java อนุญาตให้นักพัฒนาเรียงลำดับรูปร่างใหม่ การเรียงลำดับรูปร่างบ่งบอกว่ารูปร่างใดอยู่ด้านหน้า หรือด้านหลัง เพื่อเปลี่ยนลำดับรูปร่างจากสไลด์ใดสไลด์หนึ่ง ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)
-1. เข้าถึงสไลด์แรก
-1. เพิ่มรูปร่าง
-1. เพิ่มข้อความบางอย่างใน Text Frame ของรูปร่าง
-1. เพิ่มรูปร่างอีกอันโดยใช้พิกัดเดียวกัน
-1. เรียงลำดับรูปร่างใหม่
-1. บันทึกไฟล์ลงดิสก์
-
-```php
-  $pres = new Presentation("ChangeShapeOrder.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
-    $shp3->addTextFrame(" ");
-    $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
-    $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
-    $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **รับ Interop Shape ID**
-Aspose.Slides for PHP via Java อนุญาตให้นักพัฒนาได้รับตัวระบุรูปร่างที่เป็นเอกลักษณ์ในระดับสไลด์ ซึ่งต่างจากเมธอด [getUniqueId](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getuniqueid/) ที่ให้ค่าตัวระบุเอกลักษณ์ระดับงานนำเสนอ เมธอด [getOfficeInteropShapeId](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getofficeinteropshapeid/) ถูกเพิ่มเข้าไปในคลาส [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) ค่าที่ส่งกลับจากเมธอดนี้สอดคล้องกับ Id ของออบเจกต์ Microsoft.Office.Interop.PowerPoint.Shape ด้านล่างเป็นตัวอย่างโค้ด
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # การรับตัวระบุรูปร่างที่เป็นเอกลักษณ์ในระดับสไลด์
-    $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **ตั้งค่า Alternative Text ให้กับรูปร่าง**
-Aspose.Slides for PHP via Java อนุญาตให้นักพัฒนาตั้งค่า AlternateText ของรูปร่างใด ๆ รูปร่างในงานนำเสนอสามารถระบุได้ด้วย `Alternative Text` หรือเมธอด [Shape Name](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/setname/) เมธอด [setAlternativeText](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/setalternativetext/) และ [getAlternativeText](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getalternativetext/) สามารถอ่านหรือกำหนดค่าได้ด้วย Aspose.Slides รวมถึง Microsoft PowerPoint โดยใช้เมธอดนี้คุณสามารถแท็กรูปร่างและทำการดำเนินการต่าง ๆ เช่น การลบรูปร่าง, การซ่อนรูปร่าง หรือการเรียงลำดับรูปร่างบนสไลด์ เพื่อกำหนด AlternateText ของรูปร่าง ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)
-1. เข้าถึงสไลด์แรก
-1. เพิ่มรูปร่างใด ๆ ลงสไลด์
-1. ทำงานบางอย่างกับรูปร่างที่เพิ่มใหม่
-1. วนผ่านรูปร่างเพื่อค้นหารูปร่างที่ต้องการ
-1. ตั้งค่า AlternativeText
-1. บันทึกไฟล์ลงดิสก์
-
-```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # ดึงสไลด์แรก
-    $sld = $pres->getSlides()->get_Item(0);
-    # เพิ่ม AutoShape ประเภทสี่เหลี่ยม
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
-    $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      $shape = $sld->getShapes()->get_Item($i);
-      if (!java_is_null($shape)) {
-        $shape->setAlternativeText("User Defined");
-      }
-    }
-    # บันทึกงานนำเสนอไปยังดิสก์
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **เข้าถึง Layout Formats ของรูปร่าง**
-Aspose.Slides for PHP via Java มี API ง่าย ๆ สำหรับเข้าถึง Layout Formats ของรูปร่าง บทความนี้สาธิตวิธีเข้าถึง Layout Formats
-
-ตัวอย่างโค้ดด้านล่าง
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
-        $fillFormats = $shape->getFillFormat();
-        $lineFormats = $shape->getLineFormat();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **เรนเดอร์รูปร่างเป็น SVG**
-ตอนนี้ Aspose.Slides for PHP via Java รองรับการเรนเดอร์รูปร่างเป็น SVG เมธอด [writeAsSvg](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/writeassvg/) (และ overload ของมัน) ถูกเพิ่มเข้าไปในคลาส [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) เมธอดนี้อนุญาตให้บันทึกเนื้อหาของรูปร่างเป็นไฟล์ SVG ตัวอย่างโค้ดต่อไปนี้แสดงวิธีส่งออกรูปร่างของสไลด์เป็นไฟล์ SVG
-
-```php
-  $pres = new Presentation("TestExportShapeToSvg.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-      $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **จัดตำแหน่งรูปร่าง**
-Aspose.Slides อนุญาตให้จัดตำแหน่งรูปร่างได้ทั้งอิงตามขอบสไลด์หรืออิงตามรูปร่างอื่น ๆ สำหรับจุดนี้ได้มีการเพิ่มเมธอด overload [SlidesUtil::alignShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideutil/alignshapes/) ส่วน enumeration [ShapesAlignmentType](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapesalignmenttype/) กำหนดตัวเลือกการจัดตำแหน่งที่เป็นไปได้
-
-**ตัวอย่างที่ 1**
-
-โค้ดต้นฉบับด้านล่างจัดตำแหน่งรูปร่างที่มีดัชนี 1,2 และ 4 ไว้ที่ขอบบนของสไลด์
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shape1 = $slide->getShapes()->get_Item(1);
-    $shape2 = $slide->getShapes()->get_Item(2);
-    $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-**ตัวอย่างที่ 2**
-
-ตัวอย่างด้านล่างแสดงวิธีจัดตำแหน่งคอลเลกชันของรูปร่างทั้งหมดอิงตามรูปร่างที่อยู่ด้านล่างสุดของคอลเลกชัน
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **คุณสมบัติ Flip**
-
-ใน Aspose.Slides คลาส [ShapeFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapeframe/) ให้การควบคุมการสะท้อนแนวนอนและแนวตั้งของรูปร่างผ่านคุณสมบัติ `flipH` และ `flipV` ทั้งสองเป็นชนิด [NullableBool](https://reference.aspose.com/slides/th/php-java/aspose.slides/nullablebool/) ซึ่งรับค่า `True` เพื่อทำการพลิก, `False` เพื่อไม่พลิก, หรือ `NotDefined` เพื่อใช้ค่าพื้นฐาน ค่าเหล่านี้เข้าถึงได้จาก [Frame](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/#getFrame) ของรูปร่าง
-
-เพื่อแก้ไขการตั้งค่า flip เราจะสร้างอินสแตนซ์ใหม่ของ [ShapeFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapeframe/) ด้วยตำแหน่งและขนาดปัจจุบันของรูปร่าง, ค่าที่ต้องการสำหรับ `flipH` และ `flipV`, รวมถึงมุมหมุน การกำหนดอินสแตนซ์นี้ให้กับ [Frame](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/#getFrame) ของรูปร่างและบันทึกงานนำเสนอจะทำให้การสะท้อนถูกนำไปใช้และบันทึกลงไฟล์ผลลัพธ์
-
-สมมติว่าเรามีไฟล์ sample.pptx ที่สไลด์แรกมีรูปร่างเดียวที่มีการตั้งค่า flip ปกติ ตามตัวอย่างด้านล่าง
-
-![รูปร่างที่ต้องการพลิก](shape_to_be_flipped.png)
-
-โค้ดตัวอย่างต่อไปนี้จะดึงคุณสมบัติ flip ปัจจุบันของรูปร่างและพลิกทั้งแนวนอนและแนวตั้ง
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $targetShape = null;
 
-    // ดึงคุณสมบัติการพลิกแนวนอนของรูปร่าง.
-    $horizontalFlip = $shape->getFrame()->getFlipH();
-    echo "Horizontal flip: ", $horizontalFlip, "\n";
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "RevenueChart") {
+            $targetShape = $shape;
+            break;
+        }
+    }
 
-    // ดึงคุณสมบัติการพลิกแนวตั้งของรูปร่าง.
-    $verticalFlip = $shape->getFrame()->getFlipV();
-    echo "Vertical flip: ", $verticalFlip, "\n";
-
-    $x = $shape->getFrame()->getX();
-    $y = $shape->getFrame()->getY();
-    $width = $shape->getFrame()->getWidth();
-    $height = $shape->getFrame()->getHeight();
-    $flipH = NullableBool::True; // พลิกรูปแนวนอน.
-    $flipV = NullableBool::True; // พลิกรูปแนวนอน.
-    $rotation = $shape->getFrame()->getRotation();
-
-    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
-
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    if ($targetShape === null) {
+        echo "The shape 'RevenueChart' was not found on slide 1." . PHP_EOL;
+    } else {
+        $shapeName = java_values($targetShape->getName());
+        $interopId = java_values($targetShape->getOfficeInteropShapeId());
+        echo "Found " . $shapeName . "; interop ID: " . $interopId . PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-ผลลัพธ์:
+เมื่อการดำเนินการเฉพาะกับชนิดรูปทรง, ตรวจสอบคลาส runtime ก่อนใช้สมาชิกที่เจาะจงตามชนิด ตัวอย่างนี้อัปเดตข้อความและข้อความแทนตามเฉพาะเมื่ออ็อบเจ็กต์ที่ชื่อเป็น [AutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/autoshape/)
 
-![รูปร่างที่พลิกแล้ว](flipped_shape.png)
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $candidate = null;
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "StatusLabel") {
+            $candidate = $shape;
+            break;
+        }
+    }
+
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if ($candidate !== null && java_instanceof($candidate, $autoShapeClass)) {
+        $candidate->getTextFrame()->setText("Approved");
+        $candidate->setAlternativeText("Approval status: approved");
+        $presentation->save("identified-shape.pptx", SaveFormat::Pptx);
+    } else {
+        echo "'StatusLabel' is missing or is not an AutoShape." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **ระบุและแก้ไขการปรับตั้งค่ารูปทรงที่กำหนดไว้ล่วงหน้า**
+
+รูปทรงเรขาคณิตที่กำหนดล่วงหน้าสามารถเปิดเผยจุดปรับที่ควบคุมคุณลักษณะเช่น ขนาดมุม, สัดส่วนลูกศร, หรือมุมโค้ง เข้าถึงได้ผ่านคอลเลกชันอ่านอย่างเดียว [GeometryShape::getAdjustments](https://reference.aspose.com/slides/th/php-java/aspose.slides/geometryshape/#getAdjustments) คอลเลกชันเองจัดให้โดยรูปทรง, แต่ละ [AdjustValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/) มีค่าที่สามารถเปลี่ยนได้
+
+ห้ามพึ่งพาเพียงดัชนีคอลเลกชันคงที่ ให้วนลูปผ่านการปรับและตรวจสอบเมธอดอ่านอย่างเดียว [AdjustValue::getType](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/#getType) ที่คืนค่า [ShapeAdjustmentType](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapeadjustmenttype/) เพื่อระบุว่าการปรับควบคุมอะไร เมธอดอ่านอย่างเดียว [AdjustValue::getName](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/getname/) ให้ข้อมูลระบุตัวเพิ่มและมีประโยชน์เมื่อพรีเซ็ตมีการปรับมากกว่าหนึ่งรายการที่มีชนิดเชิงปริมาณเดียวกัน
+
+ใช้เมธอดค่าที่ตรงกับความหมายของการปรับ:
+
+| ประเภทการปรับ | วัตถุประสงค์ | ค่าเพื่อเปลี่ยน |
+|---|---|---|
+| `CornerSize` | ขนาดของมุมที่ปัด | [setRawValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | ความหนาของหางลูกศร | `setRawValue` |
+| `ArrowheadLength` | ความยาวของหัวลูกศร | `setRawValue` |
+| `ArrowheadWidth` | ความกว้างของหัวลูกศร | `setRawValue` |
+| `StartAngle` | มุมเริ่มต้นของพายหรือโค้ง | [setAngleValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | มุมสุดท้ายของพายหรือโค้ง | `setAngleValue` |
+
+`getType` และ `getName` คืนข้อมูลอ่านอย่างเดียว `getRawValue` และ `setRawValue` ทำงานกับจำนวนเต็มในหน่วยเรขาคณิตของพรีเซ็ต, ส่วน `getAngleValue` และ `setAngleValue` ทำงานกับมุมเป็นองศา จำนวน, ลำดับ, ความหมาย, และช่วงค่าอนุญาตของการปรับขึ้นอยู่กับพรีเซ็ตที่คืนค่าจาก [GeometryShape::getShapeType](https://reference.aspose.com/slides/th/php-java/aspose.slides/geometryshape/#getShapeType) ค่าที่ใช้ได้กับพรีเซ็ตหนึ่งอาจไม่ถูกต้องหรือให้ผลแตกต่างกับพรีเซ็ตอื่น
+
+เมื่อ `getType` คืนค่า `ShapeAdjustmentType::Custom` API จะไม่รู้จักความหมายเชิงมาตรฐาน ตรวจสอบ `getName`, ชนิดพรีเซ็ต, และค่าปัจจุบัน, และอย่าเปลี่ยนการปรับหากไม่ได้รู้ความหมายและช่วงที่คาดหวัง แม้กับชนิดที่รับรู้แล้ว ก็ควรตรวจสอบว่าชนิดเดียวปรากฏมากกว่าหนึ่งครั้งหรือไม่ก่อนเลือกค่า บทความ [Connector](/slides/th/php-java/connector/) แสดงสถานการณ์นี้กับการปรับการโค้งของคอนเนคเตอร์
+
+ตัวอย่างเต็มต่อไปนี้สร้างเวอร์ชันเริ่มต้นและเวอร์ชันที่แก้ไขของรูปทรงพรีเซ็ตสามแบบ วนลูปผ่านการปรับทุกรายการ, รายงานชื่อและประเภท, เปลี่ยนค่าที่เกี่ยวกับขนาดผ่าน `setRawValue`, เปลี่ยนมุมผ่าน `setAngleValue`, และบันทึกผล คอลัมน์ซ้ายเก็บเรขาคณิตเริ่มต้น; คอลัมน์ขวาแสดงสี่เหลี่ยมมุมมนที่ปรับ, ลูกศรสี่ทาง, และพาย
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // เพิ่มหัวเรื่องสำหรับคอลัมน์รูปทรงเริ่มต้นและรูปทรงที่ปรับค่า
+    $defaultColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+    $defaultColumnLabel->getTextFrame()->setText("Default preset geometry");
+    $adjustedColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+    $adjustedColumnLabel->getTextFrame()->setText("Modified adjustment values");
+
+    $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+    $modifiedRoundedRectangle = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+    $modifiedRoundedRectangle->setName("ModifiedRoundedRectangle");
+
+    $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+    $modifiedArrow = $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+    $modifiedArrow->setName("ModifiedQuadArrow");
+
+    $slide->getShapes()->addAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+    $modifiedPie = $slide->getShapes()->addAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+    $modifiedPie->setName("ModifiedPie");
+
+    $shapesToAdjust = [
+        $modifiedRoundedRectangle,
+        $modifiedArrow,
+        $modifiedPie
+    ];
+
+    foreach ($shapesToAdjust as $shape) {
+        $adjustmentCount = java_values($shape->getAdjustments()->size());
+        for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+            $adjustment = $shape->getAdjustments()->get_Item($adjustmentIndex);
+            $shapeName = java_values($shape->getName());
+            $adjustmentName = java_values($adjustment->getName());
+            $adjustmentType = java_values($adjustment->getType());
+            echo $shapeName . " / " . $adjustmentName . ": " . $adjustmentType . PHP_EOL;
+
+            switch ($adjustmentType) {
+                case ShapeAdjustmentType::CornerSize:
+                    $adjustment->setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType::ArrowTailThickness:
+                    $adjustment->setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadLength:
+                    $adjustment->setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadWidth:
+                    $adjustment->setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType::StartAngle:
+                    $adjustment->setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType::EndAngle:
+                    $adjustment->setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType::Custom:
+                    echo "Custom adjustment '" . $adjustmentName . "' was not changed." . PHP_EOL;
+                    break;
+            }
+        }
+    }
+
+    $presentation->save("preset-shape-adjustments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+การตรวจสอบชนิดเชิงปริมาณก่อนเปลี่ยนค่าทำให้โค้ดชัดเจนเกี่ยวกับเจตนาและหลีกเลี่ยงการสันนิษฐานว่าดัชนีคอลเลกชันเดียวมีความหมายเดียวกันในพรีเซ็ตต่าง ๆ
+
+## **แก้ไขคอลเลกชันรูปทรง**
+
+เมธอดเพิ่ม, ทำสำเนา, ลบ, และจัดเรียงทำงานกับคอลเลกชันโดยทันที หากการดำเนินการทำให้จำนวนหรือลำดับของรูปทรงเปลี่ยน, อย่าอ้างอิงดัชนีที่จับก่อนการดำเนินการนั้นต่อไป
+
+### **ทำสำเนารูปทรง**
+
+[ShapeCollection::addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addclone/) สร้างสำเนาอิสระและต่อท้ายคอลเลกชันเป้าหมาย [ShapeCollection::insertClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/insertclone/) ก็สร้างสำเนาเช่นกันแต่วางที่ดัชนี z‑order ที่ระบุ การโอเวอร์โหลดที่รับพิกัดจะย้ายสำเนาโดยไม่เปลี่ยนขนาด; การโอเวอร์โหลดที่รับความกว้างและความสูงสามารถปรับขนาดได้ด้วย
+
+ตัวอย่างสร้างสไลด์ปลายทาง, ทำสำเนาสี่เหลี่ยมที่มีป้ายกำกับไปด้านหน้า, และแทรกสำเนาที่สองไปด้านหลัง การเปลี่ยนแปลงใด ๆ กับสำเนาใดสำเนาหนึ่งจะไม่กระทบรูปทรงต้นฉบับ
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $sourceSlide = $presentation->getSlides()->get_Item(0);
+    $sourceShape = $sourceSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+    $sourceShape->setName("SourceLabel");
+    $sourceShape->getTextFrame()->setText("Source");
+
+    $blankLayout = $presentation->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $destinationSlide = $presentation->getSlides()->addEmptySlide($blankLayout);
+
+    $frontCloneShape = $destinationSlide->getShapes()->addClone($sourceShape, 80, 80);
+    $frontCloneShape->setName("FrontClone");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if (java_instanceof($frontCloneShape, $autoShapeClass)) {
+        $frontCloneShape->getTextFrame()->setText("Front clone");
+    } else {
+        echo "The front clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $backCloneShape = $destinationSlide->getShapes()->insertClone(0, $sourceShape, 80, 180);
+    $backCloneShape->setName("BackClone");
+    if (java_instanceof($backCloneShape, $autoShapeClass)) {
+        $backCloneShape->getTextFrame()->setText("Back clone");
+    } else {
+        echo "The back clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $presentation->save("cloned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+การทำสำเนาคัดลอกเนื้อหาและการจัดรูปแบบของรูปทรง รวมถึงชื่อและข้อความแทนตาม มอบหมายตัวระบุตรรกะใหม่ให้กับสำเนาหากค่าดังกล่าวต้องไม่ซ้ำกัน ทรัพยากรที่ใช้โดยรูปทรงซับซ้อนจัดการโดยพรีเซนเทชัน, แต่สำเนายังคงเป็นรายการคอลเลกชันใหม่พร้อมอัตลักษณ์รูปทรงใหม่
+
+### **ลบรูปทรง**
+
+[ShapeCollection::remove](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/remove/) ลบอ็อบเจ็กต์รูปทรงเฉพาะจากคอลเลกชันของมัน เมื่อทำการลบหลายรายการในระหว่างการวนลูปที่อ้างอิงดัชนี, ควรเดินจากจุดท้ายเพื่อให้ดัชนีที่เหลือยังคงถูกต้อง
+
+ตัวอย่างนี้ลบรูปทรงทุกอันที่มีชื่อที่กำหนดไว้ มันอ่านรูปทรงที่ดัชนีปัจจุบัน, ไม่ใช่รายการคอลเลกชันคงที่, และไม่ได้ทำการคาสต์รูปทรงโดยไม่จำเป็น
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $keepShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+    $keepShape->setName("Keep");
+
+    $firstTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+    $firstTemporaryShape->setName("Temporary");
+
+    $secondTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+    $secondTemporaryShape->setName("Temporary");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = $shapeCount - 1; $shapeIndex >= 0; $shapeIndex--) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "Temporary") {
+            $slide->getShapes()->remove($shape);
+        }
+    }
+
+    $presentation->save("removed-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+หลังการลบ จำนวนรูปทรงและดัชนีของรูปทรงต่อมาจะเปลี่ยน การอ้างอิงรูปทรงที่ไม่ได้รับผลกระทบยังคงเชื่อถือได้มากกว่าการบันทึกดัชนี นอกจากนี้ควรพิจารณาคอนเนคเตอร์, แอนิเมชัน, และคุณลักษณะพรีเซนเทชันอื่น ๆ ที่อาจอ้างอิงอ็อบเจ็กต์ที่ลบ; การลบรูปทรงที่มองเห็นได้อาจเปลี่ยนมากกว่าลักษณะการแสดงของสไลด์
+
+### **ซ่อนรูปทรง**
+
+ตั้งค่า [Shape::setHidden](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/sethidden/) เป็น `true` จะทำให้รูปทรงคงอยู่ในคอลเลกชันแต่ไม่ปรากฏในการแสดงสไลด์ปกติ ดัชนี, การจัดรูปแบบ, และเนื้อหายังคงสามารถเข้าถึงได้โดยโค้ด ดังนั้นการซ่อนเหมาะสำหรับองค์ประกอบเลือกที่อาจคืนค่าได้ภายหลัง
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $visibleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+    $visibleShape->setName("VisibleLabel");
+
+    $optionalShape = $slide->getShapes()->addAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+    $optionalShape->setName("OptionalDecoration");
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "OptionalDecoration") {
+            $shape->setHidden(true);
+        }
+    }
+
+    $presentation->save("hidden-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+การซ่อนไม่ใช่การลบหรือความปลอดภัย อ็อบเจ็กต์ยังคงถูกค้นพบและเปิดเผยโดยผู้ใช้หรือโดยโค้ด, และยังคงเป็นส่วนหนึ่งของไฟล์พรีเซนเทชัน
+
+### **เปลี่ยนลำดับ Z‑Order**
+
+รูปทรงที่ทับซ้อนกันจะถูกวาดตามลำดับคอลเลกชัน [ShapeCollection::reorder](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/reorder/) ย้ายรูปทรงที่มีอยู่ไปยังดัชนีเป้าหมายโดยไม่ทำสำเนา ดัชนี `0` คือด้านหลัง; `size() - 1` คือด้านหน้า
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $blueRectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+    $blueRectangle->setName("BlueRectangle");
+    $blueRectangle->getFillFormat()->setFillType(FillType::Solid);
+    $blueRectangle->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 255));
+
+    $orangeEllipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+    $orangeEllipse->setName("OrangeEllipse");
+    $orangeEllipse->getFillFormat()->setFillType(FillType::Solid);
+    $orangeEllipse->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
+    $frontIndex = java_values($slide->getShapes()->size()) - 1;
+    $slide->getShapes()->reorder($frontIndex, $blueRectangle);
+    $presentation->save("reordered-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+สี่เหลี่ยมถูกสร้างก่อนและเริ่มต้นอยู่หลังวงรี การย้ายไปยังดัชนีสุดท้ายทำให้มันอยู่ด้านหน้า ควรสรุปลำดับ Z‑order หลังจากเพิ่มหรือทำสำเนารูปทรงที่เกี่ยวข้องทั้งหมด เพราะการดำเนินการเหล่านั้นจะต่อท้ายหรือแทรกรายการคอลเลกชันใหม่และอาจเปลี่ยนสแตกที่ตั้งใจไว้
+
+## **ตรวจสอบรูปทรงบนสไลด์เลย์เอาต์**
+
+สไลด์ปกติ, สไลด์เลย์เอาต์, และสไลด์มาสเตอร์มีคอลเลกชันรูปทรงแยกกัน รูปทรงในคอลเลกชันเลย์เอาต์ไม่ใช่อ็อบเจ็กต์เดียวกับรูปทรงที่วางตำแหน่งคล้ายกันบนสไลด์ปกติ ตรวจสอบรูปทรงเลย์เอาต์เมื่อคุณต้องการเข้าใจหรือเปลี่ยนการจัดรูปแบบที่เลย์เอาต์กำหนด
+
+ตัวอย่างต่อไปนี้อ่าน [FillFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getfillformat/) และ [LineFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getlineformat/) ของแต่ละรูปทรงเลย์เอาต์โดยไม่สมมติว่าทุกรูปทรงเป็น `AutoShape`
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlides = $presentation->getLayoutSlides();
+    $layoutSlideCount = java_values($layoutSlides->size());
+    for ($layoutIndex = 0; $layoutIndex < $layoutSlideCount; $layoutIndex++) {
+        $layoutSlide = $layoutSlides->get_Item($layoutIndex);
+        $layoutShapes = $layoutSlide->getShapes();
+        $layoutShapeCount = java_values($layoutShapes->size());
+        for ($shapeIndex = 0; $shapeIndex < $layoutShapeCount; $shapeIndex++) {
+            $shape = $layoutShapes->get_Item($shapeIndex);
+            $fillType = java_values($shape->getFillFormat()->getFillType());
+            $lineWidth = java_values($shape->getLineFormat()->getWidth());
+            $layoutName = java_values($layoutSlide->getName());
+            $shapeName = java_values($shape->getName());
+            echo $layoutName . " / " . $shapeName . ": fill=" . $fillType . ", line width=" . $lineWidth . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+การแก้ไขเลย์เอาต์อาจส่งผลต่อสไลด์หลายสไลด์ที่ใช้เลย์เอาต์นั้น ก่อนเปลี่ยนรูปทรงเลย์เอาต์ให้ตรวจสอบว่ามีสไลด์ปกติสืบทอดอ็อบเจ็กต์หรือมีการเขียนทับแบบโลคัลหรือไม่, และทดสอบสไลด์ทุกสไลด์ที่ใช้เลย์เอาต์นั้น
+
+## **ส่งออกรูปทรงเป็น SVG**
+
+[Shape::writeAsSvg](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/writeassvg/) เขียนเนื้อหาที่เรนเดอร์ของรูปทรงหนึ่งไปยังสตรีม ผลลัพธ์จะมีเพียงรูปทรง ไม่ได้รวมพื้นหลังสไลด์ทั้งหมดหรือรูปทรงใกล้เคียง
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    if ($shapeCount === 0) {
+        echo "Slide 1 does not contain a shape to export." . PHP_EOL;
+    } else {
+        $shape = $slide->getShapes()->get_Item(0);
+        $svgStream = null;
+        try {
+            $svgStream = new Java("java.io.FileOutputStream", "shape.svg");
+            $shape->writeAsSvg($svgStream);
+        } catch (JavaException $exception) {
+            echo "The SVG file could not be written: " . $exception->getMessage() . PHP_EOL;
+        } finally {
+            if ($svgStream !== null && !java_is_null($svgStream)) {
+                $svgStream->close();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+ให้เปิดพรีเซนเทชันขณะทำการเรนเดอร์ เอาต์พุตขึ้นอยู่กับการจัดรูปแบบของรูปทรงและทรัพยากรเช่นฟอนต์และรูปภาพ หากต้องการองค์ประกอบทั้งหมดให้ส่งออกรายการสไลด์แทนการส่งออกรูปทรงเดี่ยว ผู้เรียกต้องเป็นเจ้าของสตรีมและต้องปิดสตรีมนั้นเอง
+
+## **จัดแนวรูปทรง**
+
+เมธอด [SlideUtil::alignShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideutil/alignshapes/) มีหลายเวอร์ชันที่จัดแนวทั้งชุดรูปทรงหรือดัชนีคอลเลกชันที่เลือก [ShapesAlignmentType](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapesalignmenttype/) ระบุขอบ, เส้นศูนย์กลาง, หรือโหมดการกระจาย ตั้งค่า `alignToSlide` เป็น `true` เพื่อใช้ขอบสไลด์; ตั้งเป็น `false` เพื่อจัดแนวรูปทรงที่เลือกสัมพันธ์กัน
+
+ตัวอย่างนี้จัดแนวสามรูปทรงให้ตรงกับขอบบนของสไลด์ การอ้างอิงรูปทรงที่คืนค่าจะถูกแปลงเป็นดัชนีปัจจุบันก่อนการจัดแนว
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\ShapesAlignmentType;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+    $thirdShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+    $firstShape->setName("FirstAlignedShape");
+    $secondShape->setName("SecondAlignedShape");
+    $thirdShape->setName("ThirdAlignedShape");
+
+    $shapeIndexes = [
+        java_values($slide->getShapes()->indexOf($firstShape)),
+        java_values($slide->getShapes()->indexOf($secondShape)),
+        java_values($slide->getShapes()->indexOf($thirdShape))
+    ];
+
+    SlideUtil::alignShapes(ShapesAlignmentType::AlignTop, true, $slide, $shapeIndexes);
+    $presentation->save("aligned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+การจัดแนวเปลี่ยนตำแหน่ง ไม่ใช่ลำดับ z‑order การจัดแนวเชิงสัมพันธ์ทั่วไปต้องมีอย่างน้อยสองรูปทรง, ส่วนการกระจายแนวนอนหรือแนวตั้งต้องมีรูปทรงเพียงพอเพื่อกำหนดระยะห่าง หากคุณแก้ไขคอลเลกชันก่อนเรียกเมธอดให้คำนวณดัชนีใหม่
+
+## **กลับรูปทรง**
+
+คลาส [ShapeFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapeframe/) เก็บตำแหน่ง, ขนาด, การกลับแนวนอนและแนวตั้ง, และการหมุน ค่า `getFlipH` และ `getFlipV` ใช้ [NullableBool](https://reference.aspose.com/slides/th/php-java/aspose.slides/nullablebool/): `True` เปิดการกลับ, `False` ปิด, และ `NotDefined` คงสถานะที่ไม่ได้กำหนด/ค่าเริ่มต้น
+
+พรีเซนเทชันอินพุตด้านล่างมีรูปทรงหนึ่งที่ไม่ได้ถูกกลับ
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+ตัวอย่างนี้คงค่ากรอบอื่นทั้งหมดและแทนที่เฉพาะการตั้งค่าการกลับสองค่าเท่านั้น สิ่งนี้สำคัญเพราะการกำหนดค่าใหม่ให้กับ [Frame](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/setframe/) จะเปลี่ยนกรอบทั้งหมด
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $frame = $shape->getFrame();
+
+    $horizontalFlip = java_values($frame->getFlipH());
+    $verticalFlip = java_values($frame->getFlipV());
+    echo "Horizontal flip before change: " . $horizontalFlip . PHP_EOL;
+    echo "Vertical flip before change: " . $verticalFlip . PHP_EOL;
+
+    $shape->setFrame(new ShapeFrame($frame->getX(), $frame->getY(), $frame->getWidth(), $frame->getHeight(), NullableBool::True, NullableBool::True, $frame->getRotation()));
+
+    $presentation->save("flipped-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+รูปทรงที่บันทึกจะถูกสะท้อนแนวนอนและแนวตั้งในขณะที่คงตำแหน่ง, ขนาด, และการหมุนไว้
+
+![The shape after flipping](flipped_shape.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถรวมรูปร่าง (union/intersect/subtract) บนสไลด์เหมือนในโปรแกรมแก้ไขเดสก์ท็อปได้หรือไม่?**
+**ควรใช้ดัชนีคอลเลกชันเป็นตัวระบุรูปทรงหรือไม่?**
 
-ไม่มี API ทำงาน Boolean ในตัว คุณสามารถประมาณผลได้โดยสร้างรูปร่างใหม่ตามโครงร่างที่ต้องการเอง เช่น คำนวณเรขาคณิตที่ได้ (ผ่าน [GeometryPath](https://reference.aspose.com/slides/th/php-java/aspose.slides/geometrypath/)) แล้วสร้างรูปร่างใหม่ด้วยคอนทัวร์นั้น พร้อมกับลบรูปร่างเดิมหากต้องการ
+ใช้ได้เฉพาะการประมวลผลระยะสั้นเมื่อคอลเลกชันจะไม่เปลี่ยนก่อนใช้ดัชนีนั้น แนะนำให้ใช้ `Name` หรือ `AlternativeText` ที่ผ่านการตรวจสอบสำหรับเทมเพลตที่สร้างโดยผู้เขียน, หรือ `OfficeInteropShapeId` สำหรับงาน interop ระดับสไลด์
 
-**ฉันจะควบคุมลำดับการซ้อน (z-order) เพื่อให้รูปร่างคงอยู่ด้านบนเสมอได้อย่างไรว์?**
+**การซ่อนรูปทรงทำให้มันหายจาก z‑order หรือไม่?**
 
-เปลี่ยนลำดับการแทรกหรือย้ายภายในคอลเลกชัน [shapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/#getShapes) ของสไลด์ สำหรับผลลัพธ์ที่คาดเดาได้ ให้สรุป z-order หลังจากทำการแก้ไขสไลด์ทั้งหมดเสร็จแล้ว
+ไม่ รูปทรงที่ซ่อนคงอยู่ในคอลเลกชันที่ดัชนีเดียวกัน สามารถค้นหา, จัดเรียงใหม่, แก้ไข, หรือทำให้มองเห็นได้อีกครั้ง
 
-**ฉันสามารถ "ล็อค" รูปร่างเพื่อป้องกันไม่ให้ผู้ใช้แก้ไขใน PowerPoint ได้หรือไม่?**
+**ทำไมรูปทรงที่ทำสำเนาจึงปรากฏอยู่หน้ารูปทรางอื่น?**
 
-ได้ คุณสามารถตั้งค่าธงการปกป้องระดับรูปร่าง (เช่น การล็อคการเลือก, การย้าย, การปรับขนาด, การแก้ไขข้อความ) หากจำเป็นยังสามารถตั้งข้อจำกัดบนมาสเตอร์หรือเลเอาต์ได้ โปรดทราบว่าเป็นการปกป้องระดับ UI ไม่ใช่ฟังก์ชันความปลอดภัย หากต้องการการปกป้องที่แข็งแรงขึ้น ควรใช้ข้อจำกัดระดับไฟล์เช่น [คำแนะนำอ่านอย่างเดียวหรือรหัสผ่าน](/slides/th/php-java/password-protected-presentation/)
+`addClone` ต่อท้ายสำเนาที่ตำแหน่งสุดท้ายของคอลเลกชัน ซึ่งเป็นด้านหน้าของ z‑order ใช้ `insertClone` เพื่อเลือกดัชนีเริ่มต้นหรือใช้ `reorder` หลังจากเพิ่มรูปทรงทั้งหมดแล้ว
+
+**สามารถใช้ดัชนีคงที่เพื่อระบุการปรับของพรีเซ็ตรูปทรงได้หรือไม่?**
+
+ได้เฉพาะหลังจากตรวจสอบพรีเซ็ตและโครงสร้างคอลเลกชันอย่างแม่นยำ แนะนำให้วนลูปผ่าน `GeometryShape::getAdjustments` และตรวจสอบ `AdjustValue::getType`; ใช้ `AdjustValue::getName` เป็นข้อมูลเพิ่มเติมเมื่อชนิดเชิงปริมาณเดียวปรากฏหลายครั้ง

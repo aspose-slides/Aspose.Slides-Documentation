@@ -10,354 +10,571 @@ keywords:
 - कनेक्टर बिंदु
 - कनेक्टर रेखा
 - कनेक्टर कोण
-- आकार जोड़ें
+- कनेक्शन साइट
+- समायोजन बिंदु
+- आकारों को जोड़ें
 - PowerPoint
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "PHP एप्लिकेशन को PowerPoint स्लाइड में रेखाओं को बनाना, जोड़ना और स्वचालित रूप से मार्ग निर्धारित करने में सक्षम बनाएँ — सीधी, कोहनी और वक्र कनेक्टरों पर पूर्ण नियंत्रण हासिल करें।"
+description: "Aspose.Slides for PHP via Java के साथ सीधे, बेंडेड और कर्व्ड PowerPoint कनेक्टर को जोड़ना, संलग्न करना, रीरूट करना, समायोजित करना और निरीक्षण करना सीखें।"
 ---
 ## **परिचय**
 
-PowerPoint कनेक्टर एक विशेष रेखा है जो दो आकारों को आपस में जोड़ती या लिंक करती है और स्लाइड पर मूव या पुनःस्थापित किए जाने पर भी आकारों से जुड़ी रहती है। 
+एक कनेक्टर एक लाइन है जो किसी एक आकार के हिलने पर भी दोनों आकारों से जुड़ा रहता है। इसके अंत कनेक्शन साइट से जुड़े हैं, जो PowerPoint में हरे बिंदुओं से दिखाए जाते हैं। कुछ बेंडेड और कर्व्ड कनेक्टर ओरेंज डॉट्स से दिखाए गए समायोजन बिंदु भी प्रकट करते हैं, जो व्यक्तिगत कनेक्टर सेगमेंट की स्थिति को नियंत्रित करते हैं।
 
-कनेक्टर आमतौर पर *कनेक्शन डॉट्स* (हरी बिंदु) से जुड़े होते हैं, जो डिफ़ॉल्ट रूप से सभी आकारों पर होते हैं। कनेक्शन डॉट्स तभी दिखाई देते हैं जब कर्सर उनके पास आता है।
+Aspose.Slides कनेक्टर्स को [Connector](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/) क्लास के जरीए दिखाता है। आप उन्हें बना सकते हैं, उनके अंत को आकार से जुड़ा सकते हैं, कनेक्शन साइट चुने सकते हैं, रूट बदल सकते हैं, और समायोजन बिंदु वाले कनेक्टर की ज्यामिति को बदल सकते हैं।
 
-*एडजस्टमेंट पॉइंट्स* (संतरीय बिंदु), जो केवल कुछ कनेक्टरों पर होते हैं, कनेक्टर की स्थितियों और आकारों को बदलने के लिए उपयोग किए जाते हैं।
+## **कनेक्टर प्रकार**
 
-## **कनेक्टर के प्रकार**
+[ShapeType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapetype/) क्लास में सीधे, बेंडेड और कर्व्ड कनेक्टर के प्रीसेट शामिल हैं। नीचे टेबल में उपलब्ध कनेक्टर ज्यामिति और प्रत्येक प्रीसेट द्वारा परिभाषित समायोजन बिंदुओं की संख्या दिखायी गई है।
 
-PowerPoint में, आप सीधें, कोहनी (कोणीय) और वक्र कनेक्टर का उपयोग कर सकते हैं। 
+| कनेक्टर | Image | समायोजन बिंदुओं की संख्या |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides ये कनेक्टर प्रदान करता है:
+समायोजन बिंदुओं की संख्या और अर्थ चयनित कनेक्टर प्रीसेट का हिस्सा हैं। यह मान नहीं लें कि दो विभिन्न कनेक्टर प्रकार एक ही कलेक्शन लेआउट को प्रकट करते हैं।
 
-| कनेक्टर | छवि | एडजस्टमेंट पॉइंट्स की संख्या |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **दो आकारों को जोड़ें**
 
-## **कनेक्टर के उपयोग से आकार जोड़ें**
+कनेक्टर जोड़ने के लिए [ShapeCollection::addConnector](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/addconnector/) का उपयोग करें, और उसके अंत को जोड़ने के लिए [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/setstartshapeconnectedto/) और [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/setendshapeconnectedto/) का उपयोग करें। दोनों अंत जुड़ने के बाद, [Connector::reroute](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/reroute/) शेप्स के बीच एक छोटी रूट का चयन करता है।
 
-1. एक [Presentation](https://apireference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।  
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।  
-3. `Shapes` ऑब्जेक्ट की `addAutoShape` मेथड का उपयोग करके स्लाइड में दो [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/AutoShape) जोड़ें।  
-4. `Shapes` ऑब्जेक्ट की `addConnector` मेथड का उपयोग करके कनेक्टर टाइप को परिभाषित करते हुए एक कनेक्टर जोड़ें।  
-5. कनेक्टर का उपयोग करके आकारों को जोड़ें।  
-6. सबसे छोटे कनेक्शन पाथ को लागू करने के लिए `reroute` मेथड को कॉल करें।  
-7. प्रेजेंटेशन को सेव करें।  
-
-यह PHP कोड दिखाता है कि दो आकारों (एक दीर्घवृत्त और एक आयत) के बीच एक कनेक्टर (एक बेंट कनेक्टर) कैसे जोड़ें:
+नीचे उदाहरण एक ellipse और एक rectangle को bent कनेक्टर से जोड़ता है:
 
 ```php
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का इंस्टेंस बनाता है
-  $pres = new Presentation();
-  try {
-    # किसी विशिष्ट स्लाइड के लिए शैप्स संग्रह तक पहुंचता है
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # एक दीर्घवृत्त ऑटोशेप जोड़ता है
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # एक आयत ऑटोशेप जोड़ता है
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # स्लाइड के शैप्स संग्रह में एक कनेक्टर आकार जोड़ता है
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # कनेक्टर का उपयोग करके आकारों को जोड़ता है
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # reroute को कॉल करता है जो आकारों के बीच स्वचालित सबसे छोटा रास्ता निर्धारित करता है
     $connector->reroute();
-    # प्रस्तुति को सेव करता है
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Connector.reroute` मेथड एक कनेक्टर को पुनः रूट करता है और उसे आकारों के बीच सबसे छोटा संभावित पाथ लेने के लिए मजबूर करता है। इस लक्ष्य को पाने के लिए, मेथड `setStartShapeConnectionSiteIndex` और `setEndShapeConnectionSiteIndex` पॉइंट्स को बदल सकता है। 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
+`reroute` को कॉल करने से [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) और [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/) के मान बदल सकते हैं। राउटिंग के बाद विशिष्ट कनेक्शन साइट को फिर से असाइन करें यदि उन साइट्स को स्थिर रहना है।
+{{% /alert %}}
 
-## **कनेक्शन डॉट निर्दिष्ट करें**
+## **एक कनेक्शन साइट चुनें**
 
-यदि आप चाहते हैं कि कनेक्टर दो आकारों को विशिष्ट डॉट्स का उपयोग करके जोड़े, तो आपको अपनी पसंदीदा कनेक्शन डॉट्स इस प्रकार निर्दिष्ट करने होंगे:
+प्रत्येक कनेक्ट होने योग्य आकार [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getconnectionsitecount/) के जरीए अपनी साइट संख्या बताता है। कनेक्टर के अंत को असाइन करने से पहले एक जिरो‑बेस्ड साइट इंडेक्स को वैध करें; साइट की संख्या आकार ज्यामिति पर निर्भर करती है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास का इंस्टेंस बनाएँ।  
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।  
-3. `Shapes` ऑब्जेक्ट की `addAutoShape` मेथड का उपयोग करके स्लाइड में दो [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/AutoShape) जोड़ें।  
-4. `Shapes` ऑब्जेक्ट की `addConnector` मेथड का उपयोग करके कनेक्टर टाइप को परिभाषित करते हुए एक कनेक्टर जोड़ें।  
-5. कनेक्टर का उपयोग करके आकारों को जोड़ें।  
-6. आकारों पर अपनी पसंदीदा कनेक्शन डॉट्स सेट करें।  
-7. प्रेजेंटेशन को सेव करें।  
+यह उदाहरण ellipse पर किसी विशिष्ट साइट पर कनेक्टर को जोड़ता है यदि वह साइट मौजूद हो:
 
 ```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का इंस्टेंस बनाता है
-  $pres = new Presentation();
-  try {
-    # किसी विशिष्ट स्लाइड के लिए शैप्स संग्रह तक पहुंचता है
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # एक दीर्घवृत्त ऑटोशेप जोड़ता है
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # एक आयत ऑटोशेप जोड़ता है
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # स्लाइड के शैप्स संग्रह में एक कनेक्टर आकार जोड़ता है
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # कनेक्टर का उपयोग करके आकारों को जोड़ता है
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # दीर्घवृत्त आकार पर पसंदीदा कनेक्शन डॉट इंडेक्स सेट करता है
-    $wantedIndex = 6;
-    # जांचता है कि पसंदीदा इंडेक्स अधिकतम साइट इंडेक्स गिनती से कम है या नहीं
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # दीर्घवृत्त ऑटोशेप पर पसंदीदा कनेक्शन डॉट सेट करता है
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # प्रस्तुति को सहेजता है
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **कनेक्टर पॉइंट समायोजित करें**
+## **कनेक्टर बिंदु को समायोजित करें**
 
-आप मौजूदा कनेक्टर को इसके एडजस्टमेंट पॉइंट्स के माध्यम से समायोजित कर सकते हैं। केवल उन कनेक्टरों को जिनमें एडजस्टमेंट पॉइंट्स हैं, इस तरह बदला जा सकता है। देखें तालिका **[कनेक्टर के प्रकार](/slides/hi/php-java/connector/#types-of-connectors)**
+समायोजन बिंदु वाले कनेक्टर [GeometryShape::getAdjustments](https://reference.aspose.com/slides/hi/php-java/aspose.slides/geometryshape/#getadjustments) के जरीए इनके तक पहुँच प्रदान करते हैं। किसी भी [AdjustValue](https://reference.aspose.com/slides/hi/php-java/aspose.slides/adjustvalue/) को बदलने से पहले उसके [AdjustValue::getType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/adjustvalue/#gettype) मान को जांचें और [AdjustValue::setRawValue](https://reference.aspose.com/slides/hi/php-java/aspose.slides/adjustvalue/setrawvalue/) से बदलें। प्रीसेट शेप समायोजनों की सामान्य नियम [Shape Manipulation](/slides/hi/php-java/shape-manipulations/) में वर्णित हैं।
 
-### **सरल मामला**
+कनेक्टर समायोजन की संख्या, क्रम, अर्थ और वैध मान सेट प्रीसेट पर निर्भर करते हैं। समायोजन का टाइप केवल‑पढ़ने योग्य है, जबकि समायोजन का मान लिखा जा सकता है। [AdjustValue::getName](https://reference.aspose.com/slides/hi/php-java/aspose.slides/adjustvalue/getname/) विधि उन प्रकरणों में अतिरिक्त पहचान प्रदान करती है जब कनेक्टर में एक से अधिक एक‑जैसे सेमांटिक टाइप के समायोजन होते हैं।
 
-एक स्थिति पर विचार करें जहाँ दो आकारों (A और B) के बीच कनेक्टर तीसरे आकार (C) के भीतर से गुजरता है:
+### **रुकावट के चारों ओर मार्ग**
+
+निम्न लेआउट में `BentConnector5` कनेक्टर दो आकारों के बीच तीसरे आकार से गुज़रता है:
 
 ![connector-obstruction](connector-obstruction.png)
 
+यह कोड रुकावट वाले कनेक्टर को बनाता है:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-तीसरे आकार से बचने या उसे बायपास करने के लिए, हम कनेक्टर को उसकी लंबवत रेखा को बाएं तरफ ले जाकर इस तरह समायोजित कर सकते हैं:
+वर्टिकल बेंड को हिलाने से रूट बदल जाता है और कनेक्टर रुकावट को बायपास करता है:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
+इंडेक्स `1` हमेशा वर्टिकल बेंड को दर्शाता यह मान नही लें; यह उदाहरण `ConnectorBendPositionY` को ढूंढकर केवल उस सेमांटिक टाइप के मौजूद होने पर बदलता है:
 
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **जटिल मामलों** 
+`BentConnector5` में दो `ConnectorBendPositionX` और एक `ConnectorBendPositionY` समायोजन हैं। यदि आपको ज़रूरी टाइप एक से अधिक बार मिलता है, तो `getName` और उस प्रीसेट की जानी‑पहचानी ज्यामिति को जांचें पहले। यदि कोई समायोजन `ShapeAdjustmentType::Custom` बताता है, तो उसका अर्थ और रेंज प्रीसेट‑विशिष्ट है और सहमति ज्ञात होने तक न बदलें।
 
-और अधिक जटिल समायोजन करने के लिए, आपको निम्नलिखित बातों का ध्यान रखना होगा:
+## **समायोजन मानों को कनेक्टर ज्यामिति से जोड़ें**
 
-* एक कनेक्टर के एडजस्टेबल पॉइंट का घनिष्ठ संबंध एक सूत्र से है जो उसकी स्थिति की गणना करता और निर्धारित करता है। इसलिए पॉइंट के स्थान में बदलाव कनेक्टर के आकार को बदल सकता है।  
-* एक कनेक्टर के एडजस्टमेंट पॉइंट्स को एक एरे में एक कड़े क्रम में परिभाषित किया जाता है। एडजस्टमेंट पॉइंट्स को कनेक्टर के प्रारंभ बिंदु से अंत तक क्रमांकित किया जाता है।  
-* एडजस्टमेंट पॉइंट मान कनेक्टर आकार की चौड़ाई/ऊँचाई के प्रतिशत को दर्शाते हैं।  
-  * आकार कनेक्टर के प्रारंभ और अंत बिंदुओं को 1000 से गुणा करके सीमित किया जाता है।  
-  * पहला पॉइंट, दूसरा पॉइंट, और तीसरा पॉइंट क्रमशः चौड़ाई से प्रतिशत, ऊँचाई से प्रतिशत, और फिर से चौड़ाई से प्रतिशत को परिभाषित करते हैं।  
-* कनेक्टर के एडजस्टमेंट पॉइंट्स के निर्देशांक निर्धारित करने वाली गणनाओं के लिए, आपको कनेक्टर के रोटेशन और उसके प्रतिबिंब को ध्यान में रखना होगा। **ध्यान दें** कि **[कनेक्टर के प्रकार](/slides/hi/php-java/connector/#types-of-connectors)** में दिखाए गए सभी कनेक्टरों का रोटेशन एंगल 0 है।  
+बेंडेड कनेक्टर में समायोजन मानों से व्यक्तिगत सेगमेंट की स्थिति अनुमानित की जा सकती है। ये गणना कनेक्टर प्रीसेट पर निर्भर करती है:
 
-#### **मामला 1**
+- `BentConnector4` आमतौर पर एक `ConnectorBendPositionX` और एक `ConnectorBendPositionY` समायोजन प्रकट करता है।
+- इन बेंड पोज़िशन के लिए, `getRawValue` से प्राप्त मान को `100000` से भागने पर फ़्रैक्शन मिलता है, जैसा कि नीचे उदाहरण में दिया गया है।
+- कनेक्टर फ़्रेम को घुमाया या उलटा भी जाया सकता है, इसलिए फ़्रेम कोऑर्डिनेट को स्लाइड कोऑर्डिनेट से तुलना से पहले परिवर्तित करना पड़ेगा।
 
-एक स्थिति पर विचार करें जहाँ दो टेक्स्ट फ्रेम ऑब्जेक्ट्स को एक कनेक्टर के माध्यम से जोड़ा गया है:
+नीचे उदाहरण पहले समायोजन के टाइप की पहचान करते हुए समायोजन को पाते हैं। इनमें कलेक्शन इंडेक्स को पोर्टेबल आईडेंटिफ़ायर के रूप में नहीं गिना जाता।
+
+### **अविकृत कनेक्टर**
+
+प्रारंभिक लेआउट में दो टेक्स्ट शेप `BentConnector4` से जुड़े हैं:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+यह उदाहरण कनेक्टर को इंस्पेक्ट करता है और उसके हॉरिज़ॉन्टल और वर्टिकल बेंड समायोजन को प्राप्त करता है:
+
 ```php
-  # PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का इंस्टेंस बनाता है
-  $pres = new Presentation();
-  try {
-    # प्रस्तुति में पहली स्लाइड प्राप्त करता है
-    $sld = $pres->getSlides()->get_Item(0);
-    # कनेक्टर के माध्यम से एक साथ जोड़े जाने वाले आकार जोड़ता है
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # एक कनेक्टर जोड़ता है
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # कनेक्टर की दिशा निर्दिष्ट करता है
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # कनेक्टर का रंग निर्दिष्ट करता है
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # कनेक्टर की लाइन की मोटाई निर्दिष्ट करता है
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # कनेक्टर के साथ आकारों को एक साथ जोड़ता है
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # कनेक्टर के एडजस्टमेंट पॉइंट्स प्राप्त करता है
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**समायोजन**  
-हम कनेक्टर के एडजस्टमेंट पॉइंट मानों को संबंधित चौड़ाई और ऊँचाई प्रतिशत को क्रमशः 20% और 200% बढ़ाकर बदल सकते हैं:
+दोनों बेंड को बदलने के लिए, प्रत्येक अपेक्षित टाइप को डूँढ़ें और दोनों मिलने के बाद मानों को बदलें:
 
 ```php
-  # समायोजन बिंदुओं के मान बदलता है
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-परिणाम:
+परिणाम स्वरूप एक ऐसा कनेक्टर मिलता है जिसके हॉरिज़ॉन्टल और वर्टिकल सेगमेंट हिल गए हैं:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-एक मॉडल परिभाषित करने के लिए जो हमें कनेक्टर के व्यक्तिगत भागों के निर्देशांक और आकार निर्धारित करने की अनुमति देता है, चलिए एक ऐसा आकार बनाते हैं जो कनेक्टर के क्षैतिज घटक के अनुरूप हो, connector.getAdjustments().get_Item(0) पॉइंट पर:
+सेमांटिक टाइप पहचान लेने के बाद, इन मानों को कनेक्टर‑फ़्रेम कोऑर्डिनेट में बदल सकते हैं। यह उदाहरण दो बेंड समायोजन से नियंत्रित वर्टिकल सेगमेंट पर एक पतली आयत ड्रॉ करता है:
 
 ```php
-  # कनेक्टर का लंबवत घटक बनाएँ
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-परिणाम:
+गाइड शेप गणित सेगमेंट को दर्शाता है:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **मामला 2**
+### **घूर्णित या उलटा कनेक्टर**
 
-**मामला 1** में, हमने बुनियादी सिद्धांतों का उपयोग करके एक सरल कनेक्टर समायोजन ऑपरेशन दिखाया था। सामान्य परिस्थितियों में, आपको कनेक्टर के रोटेशन और उसके डिस्प्ले (जो connector.getRotation(), connector.getFrame().getFlipH(), और connector.getFrame().getFlipV() द्वारा सेट होते हैं) को ध्यान में रखना होगा। अब हम प्रक्रिया दिखाएंगे।
+जब उसी ज्यामिति का कनेक्टर वर्टिकली ओरिएंटेड होता है, तो [Shape::getFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getframe/), [ShapeFrame::getFlipH](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapeframe/getfliph/), और [ShapeFrame::getFlipV](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapeframe/getflipv/) मान कनेक्टर‑फ़्रेम कोऑर्डिनेट को स्लाइड कोऑर्डिनेट से बदलने पर प्रभाव डालते हैं।
 
-पहले, स्लाइड में एक नया टेक्स्ट फ्रेम ऑब्जेक्ट (**To 1**) जोड़ें (कनेक्शन हेतु) और एक नया (हरा) कनेक्टर बनाएं जो इसे पहले से बने ऑब्जेक्ट्स से जोड़ता है।
+यह उदाहरण वर्टिकली ओरिएंटेड कनेक्टर को बनाता और समायोजित करता है:
 
 ```php
-  # एक नया बाइंडिंग ऑब्जेक्ट बनाता है
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # एक नया कनेक्टर बनाता है
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # नए बनाए गए कनेक्टर का उपयोग करके ऑब्जेक्ट्स को जोड़ता है
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # कनेक्टर के एडजस्टमेंट पॉइंट्स प्राप्त करता है
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # एडजस्टमेंट पॉइंट्स के मान बदलता है
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-परिणाम:
+समायोजित कनेक्टर आकारों के बीच वर्टिकली दिखाई देता है:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-दूसरा, एक ऐसा आकार बनाएं जो नए कनेक्टर के एडजस्टमेंट पॉइंट connector.getAdjustments().get_Item(0) से गुजरते हुए कनेक्टर के क्षैतिज घटक के अनुरूप हो। हम कनेक्टर डेटा से connector.getRotation(), connector.getFrame().getFlipH(), और connector.getFrame().getFlipV() के मानों को उपयोग करेंगे और दिए गए बिंदु x0 के आसपास रोटेशन के लिए लोकप्रिय कोऑर्डिनेट परिवर्तन सूत्र लागू करेंगे।
+किसी मनचाहे रोटेशन कोण `alpha` के लिए, कनेक्टर‑फ़्रेम पॉइंट `(x, y)` को फ़्रेम सेंटर `(x0, y0)` के आसपास घुमाएँ:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-हमारे मामले में, ऑब्जेक्ट का रोटेशन कोण 90 डिग्री है और कनेक्टर के रूप में वह लंबवत प्रदर्शित है, इसलिए यह संबंधित कोड है:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+नीचे कोड 90‑डिग्री ओरिएंटेशन को हैंडल करता है और संबंधित कनेक्टर सेगमेंट पर एक लाल गाइड ड्रॉ करता है:
 
 ```php
-  # कनेक्टर के निर्देशांक को सहेजता है
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # यदि यह दिखाई देता है तो कनेक्टर के निर्देशांक को सही करता है
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # समायोजन बिंदु मान को निर्देशांक के रूप में लेता है
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # निर्देशांकों को बदलता है क्योंकि Sin(90) = 1 और Cos(90) = 0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # दूसरे समायोजन बिंदु मान का उपयोग करके क्षैतिज घटक की चौड़ाई निर्धारित करता है
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-परिणाम:
+लाल गाइड कोऑर्डिनेट परिवर्तन के बाद गणित सेगमेंट को दर्शाता है:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-हमने सरल समायोजन और जटिल एडजस्टमेंट पॉइंट्स (रोटेशन एंगल वाले एडजस्टमेंट पॉइंट्स) से जुड़े गणनाएँ प्रदर्शित कीं। प्राप्त ज्ञान का उपयोग करके, आप अपना खुद का मॉडल विकसित कर सकते हैं (या कोड लिख सकते हैं) जिससे आप `GraphicsPath` ऑब्जेक्ट प्राप्त कर सकते हैं या विशेष स्लाइड निर्देशांक के आधार पर कनेक्टर के एडजस्टमेंट पॉइंट मान सेट कर सकते हैं।
+ये फ़ॉर्मूले उदाहरण में उपयोग की गई प्रीसेट ज्यामिति के लिए हैं, सभी कनेक्टर मॉडलों के लिए सर्वत्र नहीं। समायोजन टाइप, फ़्रेम ओरिएंटेशन और मान रेंज को पहले साथ लेकर समान गणना को दूसरे प्रीसेट पर लगाने से पहले पुष्टिकरण करें।
 
-## **कनेक्टर लाइनों के कोण खोजें**
+## **कनेक्टर दिशा कोण खोजें**
 
-1. क्लास का एक इंस्टेंस बनाएँ।  
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।  
-3. कनेक्टर लाइन आकार तक पहुँचें।  
-4. लाइन की चौड़ाई, ऊँचाई, आकार फ़्रेम की ऊँचाई और फ़्रेम की चौड़ाई का उपयोग करके कोण की गणना करें।  
+सीधे कनेक्टर की दिशा को उसकी चौड़ाई और ऊँचाई से गणना की जा सकती है, हॉरिज़ॉन्टल और वर्टिकल फ़्लिप को ध्यान में रखते हुए। नीचे उदाहरण स्लाइड कोऑर्डिनेट में पॉज़िटिव हॉरिज़ॉन्टल एक्सिस से घड़ी दिशा कोण को रिपोर्ट करता है:
 
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे पता कर सकता हूँ कि कोई कनेक्टर किसी विशेष आकार पर "चिपकाया" जा सकता है या नहीं?**
+**क्या मैं पहचान सकता हूँ कि कोई कनेक्टर आकार से जुड़ सकता है?**
 
-जाँचें कि आकार [connection sites](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getconnectionsitecount/) प्रदान करता है या नहीं। यदि कोई नहीं है या गिनती शून्य है, तो चिपकाना उपलब्ध नहीं है; ऐसी स्थिति में, मुक्त एंडपॉइंट्स का उपयोग करें और उन्हें मैन्युअल रूप से स्थित करें। संलग्न करने से पहले साइट की गिनती जाँचना समझदारी है।
+आकार की [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getconnectionsitecount/) मान को जांचें। एक सकारात्मक गणना बताती है कि आकार कनेक्शन साइट प्रकट करता है। किसी भी कनेक्टर अंत को असाइन करने से पहले साइट इंडेक्स को मान्य करें।
 
-**यदि मैं जुड़े हुए आकारों में से एक को हटाऊँ तो कनेक्टर के साथ क्या होता है?**
+**क्या मैं कलेक्शन इंडेक्स से कनेक्टर समायोजन की पहचान कर सकता हूँ?**
 
-इसके सिरों का जुड़ाव टूट जाएगा; कनेक्टर स्लाइड पर एक साधारण रेखा के रूप में रह जाता है जिसके प्रारम्भ/अंत मुक्त होते हैं। आप इसे हटाना या कनेक्शन पुनः असाइन करना चुन सकते हैं और आवश्यक होने पर [reroute](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/reroute/) कर सकते हैं।
+इंडेक्स सिर्फ़ एक ज्ञात कनेक्टर प्रीसेट और कलेक्शन लेआउट के लिए अर्थ रखा है। मान बदलने से पहले [AdjustValue::getType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/adjustvalue/#gettype) को जांचें, और यदि एक से अधिक एक‑जैसे सेमांटिक टाइप हैं तो अतिरिक्त जानकारी के लिए [AdjustValue::getName](https://reference.aspose.com/slides/hi/php-java/aspose.slides/adjustvalue/getname/) का उपयोग करें।
 
-**क्या स्लाइड को दूसरे प्रेजेंटेशन में कॉपी करने पर कनेक्टर बाइंडिंग्स संरक्षित रहती हैं?**
+**जब जुड़ा हुआ आकार हटा दिया जाता है तो क्या होता है?**
 
-सामान्यतः हाँ, बशर्ते लक्ष्य आकार भी कॉपी किए जाएँ। यदि स्लाइड को किसी अन्य फ़ाइल में डाला जाता है बिना जुड़े हुए आकारों के, तो सिरें मुक्त हो जाती हैं और आपको उन्हें फिर से संलग्न करना पड़ेगा।
+संबंधित कनेक्टर अंत डिटैच हो जाता है। कनेक्टर स्लाइड पर रहता है और इसे हटा सकते हैं, फ़्री लाइन के रूप में पोज़िशन कर सकते हैं, या दूसरे आकार से जुड़ा सकते हैं।
+
+**क्या स्लाइड कॉपी करने पर कनेक्टर बाइंडिंग संरक्षित रहती है?**
+
+आमतौर पर बाइंडिंग संरक्षित रहती है जब कनेक्टेड आकारों को स्लाइड के साथ कॉपी किया जाता है। यदि कनेक्टर को उसके लक्ष्य आकार बिना कॉपी किया जा ता है, तो प्रभावित अंत को फिर से जोड़ना पड़ेगा।

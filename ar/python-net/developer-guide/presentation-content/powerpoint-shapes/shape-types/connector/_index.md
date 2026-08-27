@@ -10,139 +10,108 @@ keywords:
 - نقطة الموصل
 - خط الموصل
 - زاوية الموصل
+- موقع الاتصال
+- نقطة تعديل
 - ربط الأشكال
 - PowerPoint
 - عرض تقديمي
-- Python
+- بايثون
 - Aspose.Slides
-description: "مكّن تطبيقات بايثون من رسم وربط وتوجيه الخطوط تلقائيًا في شرائح PowerPoint وOpenDocument — احصل على تحكم كامل في الموصلات المستقيمة، الزاوية والمنحنية."
+description: "تعلم كيفية إضافة، ربط، إعادة توجيه، تعديل، وفحص الموصلات المستقيمة، المنحنية، والمقوسة في PowerPoint باستخدام Aspose.Slides للبايثون عبر .NET."
 ---
+## **نظرة عامة**
 
-## **المقدمة**
+الموصل هو خط يمكن أن يظل مرتبطًا بشكليّن عندما يتحرك أحدهما. نهايته تتصل بمواقع الاتصال، التي تمثَّل بنقاط خضراء في PowerPoint. بعض الموصلات المنحنية والمنحرفة تُظهر أيضًا نقاط تعديل، تمثَّل بنقاط برتقالية، تتحكم في موضع أقسام الموصل الفردية.
 
-موصل PowerPoint هو خط متخصص يربط شكلين ويبقى ملتصقًا عندما يتم تحريك الأشكال أو إعادة وضعها على الشريحة. يلتصق الموصلون بـ **نقاط الاتصال** (النقاط الخضراء) على الأشكال. تظهر نقاط الاتصال عندما يقترب المؤشر منها. **مقابض الضبط** (النقاط الصفراء)، المتوفرة على بعض الموصلات، تتيح لك تعديل موضع وشكل الموصل.
+Aspose.Slides تمثّل الموصلات من خلال واجهة [IConnector](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iconnector/) . يمكنك إنشاءها، ربط نهاياتها بالأشكال، اختيار مواقع الاتصال، إعادة توجيهها، وتعديل هندسة الموصلات التي تحتوي على نقاط تعديل.
 
-## **أنواع الموصلات**
+## **أنواع الموصل**
 
-في PowerPoint، يمكنك استخدام ثلاثة أنواع من الموصلات: مستقيم، كوع (زاوي)، ومنحني.
+التعداد [ShapeType](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapetype/) يتضمن إعدادات موصل مستقيم، منحني، ومنحني. يوضح الجدول التالي هندسات الموصل المتاحة وعدد نقاط التعديل التي يُحدِّدها كل إعداد.
 
-يدعم Aspose.Slides الأنواع التالية من الموصلات:
+| الموصل | الصورة | عدد نقاط التعديل |
+|---|---|---|
+| `ShapeType.LINE` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.STRAIGHT_CONNECTOR1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BENT_CONNECTOR2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BENT_CONNECTOR3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BENT_CONNECTOR4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BENT_CONNECTOR5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CURVED_CONNECTOR2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CURVED_CONNECTOR3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CURVED_CONNECTOR4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CURVED_CONNECTOR5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| نوع الموصل | صورة | عدد نقاط الضبط |
-| ------------------------------- | --------------------------------------------------------- | --------------------------- |
-| `ShapeType.LINE` | ![موصل خط](shapetype-lineconnector.png) | 0 |
-| `ShapeType.STRAIGHT_CONNECTOR1` | ![موصل مستقيم 1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BENT_CONNECTOR2` | ![موصل منحني 2](shapetype-bent-connector2.png) | 0 |
-| `ShapeType.BENT_CONNECTOR3` | ![موصل منحني 3](shapetype-bentconnector3.png) | 1 |
-| `ShapeType.BENT_CONNECTOR4` | ![موصل منحني 4](shapetype-bentconnector4.png) | 2 |
-| `ShapeType.BENT_CONNECTOR5` | ![موصل منحني 5](shapetype-bentconnector5.png) | 3 |
-| `ShapeType.CURVED_CONNECTOR2` | ![موصل مقوس 2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CURVED_CONNECTOR3` | ![موصل مقوس 3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CURVED_CONNECTOR4` | ![موصل مقوس 4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CURVED_CONNECTOR5` | ![موصل مقوس 5](shapetype.curvedconnector5.png) | 3 |
+عدد ومعنى نقاط التعديل جزء من إعداد الموصل المحدد. لا تفترض أن نوعي موصل مختلفين يكشفان عن نفس تخطيط المجموعة.
 
-## **ربط الأشكال بالموصلات**
+## **ربط شكلين**
 
-يوضح هذا القسم كيفية ربط الأشكال بالموصلات في Aspose.Slides. ستضيف موصلاً إلى شريحة، وتلصق بدايته ونهايته بالأشكال المستهدفة. يضمن استخدام مواقع الاتصال أن يبقى الموصل "ملتصقًا" بالأشكال حتى عندما تتحرك أو يتغير حجمها.
+استخدم [IShapeCollection.add_connector](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishapecollection/add_connector/) لإضافة موصل، وعيّن خصائص [start_shape_connected_to](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iconnector/start_shape_connected_to/) و [end_shape_connected_to](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iconnector/end_shape_connected_to/). بعد ربط الطرفين، [IConnector.reroute](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iconnector/reroute/) يختار مسارًا قصيرًا بين الشكلين.
 
-1. إنشاء مثال من الفئة [العرض](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى الشريحة عبر فهرسها.
-1. إضافة كائنين من النوع [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة باستخدام طريقة `add_auto_shape` التي يوفرها كائن [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/).
-1. إضافة موصل باستخدام طريقة `add_connector` التي يوفرها كائن [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) وتحديد نوع الموصل.
-1. ربط الأشكال بالموصل.
-1. استدعاء طريقة `reroute` لتطبيق أقصر مسار اتصال.
-1. حفظ العرض.
+المثال التالي يربط إهليلجًا ومستطيلًا بموصل منحني:
 
 ```python
 import aspose.slides as slides
 
-# إنشاء كائن من فئة Presentation لإنشاء ملف PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # الوصول إلى مجموعة الأشكال للشريحة الأولى.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-    # إضافة شكل AutoShape إهليلجي.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # إضافة شكل AutoShape مستطيل.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # إضافة موصل إلى الشريحة.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
-
-    # ربط الأشكال بالموصل.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
-
-    # استدعاء reroute لتعيين أقصر مسار.
     connector.reroute()
 
-    # حفظ العرض.
-    presentation.save("connected_shapes.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("connected-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-{{% alert title="NOTE" color="warning" %}}
-`طريقة connector.reroute` تعيد توجيه الموصل، مما يجبره على اتخاذ أقصر مسار ممكن بين الأشكال. للقيام بذلك، قد تقوم الطريقة بتغيير قيم `start_shape_connection_site_index` و `end_shape_connection_site_index`.
+{{% alert color="warning" title="تحذير" %}}
+استدعاء `reroute` يمكن أن يغيّر قيمتي [start_shape_connection_site_index](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iconnector/start_shape_connection_site_index/) و [end_shape_connection_site_index](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iconnector/end_shape_connection_site_index/). عيّن مواقع اتصال محددة بعد إعادة التوجيه إذا كان يجب أن تظل تلك المواقع ثابتة.
 {{% /alert %}}
 
-## **تحديد نقاط الاتصال**
+## **اختيار موقع الاتصال**
 
-يوضح هذا القسم كيفية إرفاق موصل بنقطة اتصال محددة على شكل في Aspose.Slides. من خلال استهداف مواقع الاتصال الدقيقة، يمكنك التحكم في توجيه الموصل وتخطيطه، مما ينتج مخططات نظيفة ومتوقعة في عروضك.
+كل شكل قابل للاتصال يبلغ عن عدد المواقع عبر [connection_site_count](https://reference.aspose.com/slides/ar/python-net/aspose.slides/igeometryshape/connection_site_count/). تحقق من فهرس موقع صفري أساسي مفضَّل قبل تعيينه إلى طرف موصل؛ عدد المواقع يختلف حسب هندسة الشكل.
 
-1. إنشاء مثال من الفئة [العرض](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى الشريحة عبر فهرسها.
-1. إضافة كائنين من النوع [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) إلى الشريحة باستخدام طريقة `add_auto_shape` التي يوفرها كائن [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/).
-1. إضافة موصل باستخدام طريقة `add_connector` على كائن [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) وتحديد نوع الموصل.
-1. ربط الأشكال بالموصل.
-1. ضبط نقاط الاتصال المفضلة على الأشكال.
-1. حفظ العرض.
+هذا المثال يربط الموصل بموقع معين على الإهليلج عندما يكون ذلك الموقع موجودًا:
 
 ```python
 import aspose.slides as slides
 
-# إنشاء كائن من فئة Presentation لإنشاء ملف PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # الوصول إلى مجموعة الأشكال للشريحة الأولى.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
 
-    # إضافة شكل AutoShape إهليلجي.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # إضافة شكل AutoShape مستطيل.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # إضافة موصل إلى مجموعة أشكال الشريحة.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
-
-    # ربط الأشكال بالموصل.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
 
-    # تعيين فهرس موقع الاتصال المفضَّل على الشكل الإهليلجي.
-    site_index = 6
+    preferred_site_index = 2
+    if preferred_site_index < ellipse.connection_site_count:
+        connector.start_shape_connection_site_index = preferred_site_index
+    else:
+        print(f"The ellipse has only {ellipse.connection_site_count} connection sites.")
 
-    # التحقق من أن الفهرس المفضَّل ضمن عدد مواقع الاتصال المتاحة.
-    if  ellipse.connection_site_count > site_index:
-        # تعيين موقع الاتصال المفضَّل على شكل AutoShape الإهليلجي.
-        connector.start_shape_connection_site_index = site_index
-
-    # حفظ العرض.
-    presentation.save("connection_points.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("specific-connection-site.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **ضبط نقطة الموصل**
 
-## **ضبط نقاط الموصل**
+الموصلات التي تحتوي على نقاط تعديل تكشف عنها عبر [IGeometryShape.adjustments](https://reference.aspose.com/slides/ar/python-net/aspose.slides/igeometryshape/adjustments/). افحص كل [IAdjustValue](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iadjustvalue/) وتحقق من [type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iadjustvalue/type/) قبل تغيير [raw_value](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iadjustvalue/raw_value/). للتعامل العام مع الأشكال، راجع [Shape Manipulation](/slides/ar/python-net/shape-manipulations/).
 
-يمكنك تعديل الموصلات باستخدام نقاط الضبط الخاصة بها. فقط الموصلات التي تُظهر نقاط الضبط يمكن تحريرها بهذه الطريقة. للحصول على تفاصيل حول أي الموصلات تدعم الضبط، راجع الجدول تحت [أنواع الموصلات](/slides/ar/python-net/connector/#connector-types).
+عدد وترتيب ومعنى ونطاق القيم الصالحة لتعديلات الموصل يعتمد على إعداد الموصل. خاصية `type` للقراءة فقط، بينما قيمة التعديل قابلة للكتابة. خاصية [name](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iadjustvalue/name/) للقراءة فقط توفر تعريفًا إضافيًا عندما يحتوي الموصل على أكثر من تعديل لنفس النوع الدلالي.
 
-### **حالة بسيطة**
+### **التحرك حول عائق**
 
-اعتبر حالة يكون فيها موصل بين شكلين (A و B) يتقاطع مع شكل ثالث (C):
+في التخطيط التالي، موصل `ShapeType.BENT_CONNECTOR5` بين شكلين يمر عبر شكل ثالث:
 
-![عائق الموصل](connector-obstruction.png)
+![connector-obstruction](connector-obstruction.png)
+
+هذا الكود ينشئ الموصل المتعطّل:
 
 ```python
 import aspose.slides as slides
@@ -151,239 +120,322 @@ import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
-    
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
     connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
-    
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
-    
-    connector.start_shape_connected_to = shape_from
-    connector.end_shape_connected_to = shape_to
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
     connector.start_shape_connection_site_index = 2
+
+    presentation.save("connector-obstruction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+تحريك الانحناء العمودي يغيّر المسار بحيث يتجاوز الموصل العائق:
 
-لتجنب الشكل الثالث، اضبط الموصل بنقل جزئه الرأسي إلى اليسار:
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-![عائق الموصل المُثبت](connector-obstruction-fixed.png)
-```python
-    adjustment2 = connector.adjustments[1]
-    adjustment2.raw_value += 10000
-```
+بدلاً من افتراض أن فهرس المجموعة `1` يمثل دائمًا الانحناء العمودي، يبحث هذا المثال عن `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` ويغيّره فقط عندما يكون النوع الدلالي المتوقع موجودًا:
 
-
-### **حالات معقدة**
-
-للمزيد من الضبط المتقدم، ضع في الاعتبار ما يلي:
-
-- نقطة الضبط للموصل تخضع لصيغة تحدد موضعها. تغيير هذه النقطة يمكن أن يغير الشكل الكلي للموصل.
-- نقاط ضبط الموصل مخزنة في مصفوفة مرتبة بشكل صارم، مرقمة من بداية الموصل إلى نهايته.
-- قيم نقاط الضبط تمثل نسبًا مئوية لعرض/ارتفاع شكل الموصل.
-  - الشكل محاط بنقطة بداية ونهاية الموصل ويتم تحجيمه بـ 1000.
-  - تمثل النقطة الأولى والثانية والثالثة على التوالي: نسبة العرض، نسبة الارتفاع، ونسبة العرض مرة أخرى.
-- عند حساب إحداثيات نقاط الضبط، يجب أخذ دوران وانعكاس الموصل في الاعتبار. **ملاحظة:** لجميع الموصلات المذكورة تحت [أنواع الموصلات](/slides/ar/python-net/connector/#connector-types)، زاوية الدوران هي 0.
-
-#### **الحالة 1**
-
-اعتبر حالة يكون فيها كائنان من نوع إطار نص مرتبطين بموصل:
-
-![الأشكال المرتبطة](connector-shape-complex.png)
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# إنشاء كائن من فئة Presentation لإنشاء ملف PPTX.
 with slides.Presentation() as presentation:
-
-    # الحصول على الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # الحصول على الشريحة الأولى.
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
-    shape_from.text_frame.text = "From"
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
-    shape_to.text_frame.text = "To"
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
 
-    # إضافة موصل.
-    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
-    # تحديد اتجاه الموصل.
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
-    # تحديد لون الموصل.
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
+    connector.start_shape_connection_site_index = 2
+
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+            break
+
+    if vertical_bend is None:
+        print("The connector does not expose a vertical bend adjustment.")
+    else:
+        vertical_bend.raw_value = 60000
+        presentation.save("connector-obstruction-fixed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+موصل `ShapeType.BENT_CONNECTOR5` يحتوي على تعديلين لـ `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` وتعديل واحد لـ `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`. إذا ظهر النوع الذي تحتاجه أكثر من مرة، افحص `name` والهندسة المعروفة لهذا الإعداد قبل اختيار أحدهما. إذا أبلغ تعديل عن [ShapeAdjustmentType.CUSTOM](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapeadjustmenttype/)، فاعتبر معناه ونطاقه خاصًا بالإعداد ولا تغيّره حتى يعرف العقد.
+
+## **ربط قيم التعديل بهندسة الموصل**
+
+للموصلات المنحنية، يمكن استخدام قيم التعديل لتقدير مواضع الأقسام الفردية. هذه الحسابات خاصة بإعداد الموصل:
+
+- `ShapeType.BENT_CONNECTOR4` عادةً يكشف عن تعديل واحد لـ `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` وتعديل واحد لـ `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`.
+- لهذه المواضع، `raw_value / 100000` ينتج الجزء من عرض أو ارتفاع إطار الموصل المستخدم في الأمثلة أدناه.
+- يمكن تدوير أو عكس إطار الموصل، لذلك يجب تحويل إحداثيات الإطار قبل مقارنتها بإحداثيات الشريحة.
+
+الأمثلة التالية تستخدم `type` لتحديد التعديلات أولًا. لا تتعامل مع فهارس المجموعة كمُعرّفات محمولة.
+
+### **موصل غير مدور**
+
+التخطيط الأولي يحتوي على شكلين نصيين متصلين بموصل `ShapeType.BENT_CONNECTOR4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+هذا المثال يفحص الموصل ويحصل على تعديلات الانحناء الأفقية والعمودية:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    target_shape.text_frame.text = "To"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.crimson
-    # تحديد سمك خط الموصل.
     connector.line_format.width = 3
-
-    # ربط الأشكال بالموصل.
-    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 3
-    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 2
 
-    # الحصول على نقاط ضبط الموصل.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
 ```
 
-
-**الضبط**
-
-قم بتغيير قيم نقاط ضبط الموصل بزيادة نسبة العرض بنسبة 20% ونسبة الارتفاع بنسبة 200% على التوالي:
+لتغيير الانحنائين، حدّد كل نوع متوقع وعدّل القيم فقط بعد العثور على الاثنين:
 
 ```python
-    # تغيير قيم نقاط الضبط.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+        presentation.save("connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+النتيجة موصل تحركت أقسامه الأفقية والعمودية:
 
-النتيجة:
+![connector-adjusted-1](connector-adjusted-1.png)
 
-![ضبط الموصل 1](connector-adjusted-1.png)
-
-لتعريف نموذج يسمح لنا بتحديد إحداثيات وشكل أقسام الموصل، أنشئ شكلاً يتطابق مع المكوّن العمودي للموصل عند `connector.adjustments[0]`:
+بمجرد معرفة الأنواع الدلالية، يمكن تحويل قيمها إلى إحداثيات إطار الموصل. هذا المثال يرسم مستطيلًا رفيعًا على القسم العمودي الذي يتحكم به تعديلّا الانحناء:
 
 ```python
-    # ارسم المكوّن العمودي للموصل.
-    x = connector.x + connector.width * adjustment_0.raw_value / 100000
-    y = connector.y
-    height = connector.height * adjustment_1.raw_value / 100000
+import aspose.slides as slides
 
-    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        x = connector.x + connector.width * horizontal_bend.raw_value / 100000
+        y = connector.y
+        height = connector.height * vertical_bend.raw_value / 100000
+        slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 1, height)
+        presentation.save("connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الشكل الدليلي يوضح الجزء المحسوب:
 
-النتيجة:
+![connector-adjusted-2](connector-adjusted-2.png)
 
-![ضبط الموصل 2](connector-adjusted-2.png)
+### **موصل مدور أو مقلوب**
 
-#### **الحالة 2**
+عندما تكون هندسة الموصل نفسها موجهة عموديًا، تؤثر قيم [frame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iconnector/frame/)، [flip_h](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishapeframe/flip_h/)، و[flip_v](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishapeframe/flip_v/) على التحويل من إحداثيات إطار الموصل إلى إحداثيات الشريحة.
 
-في **الحالة 1**، أظهرنا ضبط موصل بسيط باستخدام المبادئ الأساسية. في السيناريوهات المعتادة، يجب مراعاة دوران الموصل وإعدادات عرضه (المتحكم بها بواسطة `connector.rotation`، `connector.frame.flip_h`، و `connector.frame.flip_v`). إليك كيفية سير العملية.
-
-أولاً، أضف كائن إطار نص جديد (**To 1**) إلى الشريحة (للاتصال)، وأنشئ موصلاً أخضرًا جديدًا يربطه بالكائنات الموجودة.
+هذا المثال ينشئ ويضبط الموصل الموجه عموديًا:
 
 ```python
-    # إنشاء كائن هدف جديد.
-    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
-    shape_to_1.text_frame.text = "To 1"
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    # إنشاء موصل جديد.
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    target_shape.text_frame.text = "To 1"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
-
-    # ربط الكائنات باستخدام الموصل الذي تم إنشاؤه حديثًا.
-    connector.start_shape_connected_to = shapeFrom
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 2
-    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 3
 
-    # الحصول على نقاط ضبط الموصل.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
-    
-    # تغيير قيم نقاط الضبط.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            adjustment.raw_value += 20000
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            adjustment.raw_value += 200000
+
+    presentation.save("vertical-connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الموصل المُعدَل يظهر عموديًا بين الشكلين:
 
-النتيجة:
+![connector-adjusted-3](connector-adjusted-3.png)
 
-![ضبط الموصل 3](connector-adjusted-3.png)
+لزاوية دوران عشوائية `alpha`، دوّر نقطة إطار الموصل `(x, y)` حول مركز الإطار `(x0, y0)`:
 
-ثانيًا، أنشئ شكلاً يتطابق مع الجزء **الأفقي** من الموصل الذي يمر عبر نقطة الضبط الجديدة للموصل، `connector.adjustments[0]`. استخدم القيم من `connector.rotation`، `connector.frame.flip_h`، و `connector.frame.flip_v`، وطبق صيغة تحويل الإحداثيات القياسية للدوران حول نقطة معينة `x0`:
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-في حالتنا، زاوية دوران الكائن هي 90 درجة والموصل يُعرض رأسيًا، لذا يكون الكود المقابل:
-
-```python
-    # احفظ إحداثيات الموصل.
-    x = connector.x
-    y = connector.y
-    
-    # صحح إحداثيات الموصل إذا كان مقلوبًا.
-    if connector.frame.flip_h == 1:
-        x += connector.width
-    if connector.frame.flip_v == 1:
-        y += connector.height
-
-    # استخدم قيمة نقطة الضبط كإحداثي.
-    x += connector.width * adjValue_0.raw_value / 100000
-    
-    # حوّل الإحداثيات لأن sin(90°) = 1 و cos(90°) = 0.
-    xx = connector.frame.center_x - y + connector.frame.center_y
-    yy = x - connector.frame.center_x + connector.frame.center_y
-
-    # حدد عرض الجزء الأفقي باستخدام قيمة نقطة الضبط الثانية.
-    width = connector.height * adjValue_1.raw_value / 100000
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-```
-
-
-النتيجة:
-
-![ضبط الموصل 4](connector-adjusted-4.png)
-
-لقد أظهرنا حسابات تتضمن ضبطًا بسيطًا ونقاط ضبط أكثر تعقيدًا (تلك التي تأخذ الدوران في الاعتبار). باستخدام هذه المعرفة، يمكنك تطوير نموذجك الخاص—أو كتابة كود—للحصول على كائن `GraphicsPath` أو حتى ضبط قيم نقاط ضبط الموصل بناءً على إحداثيات شريحة معينة.
-
-## **إيجاد زوايا خط الموصل**
-
-استخدم المثال أدناه لتحديد زاوية خطوط الموصل على شريحة باستخدام Aspose.Slides. ستتعلم كيفية قراءة نقاط نهاية الموصل وحساب اتجاهه لتتمكن من محاذاة الأسهم، التسميات، وغيرها من الأشكال بدقة.
-
-1. إنشاء مثال من الفئة [العرض](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى الشريحة عبر الفهرس.
-1. الوصول إلى شكل خط الموصل.
-1. استخدم عرض وارتفاع الخط، وعرض وارتفاع إطار الشكل، لحساب الزاوية.
+الكود التالي يتعامل مع التوجيه بزاوية 90 درجة المستخدم في هذا المثال ويرسم دليلًا أحمرًا على القسم المقابل من الموصل:
 
 ```python
 import aspose.slides as slides
-import math
+import aspose.pydrawing as draw
 
-def get_direction(w, h, flip_h, flip_v):
-    end_line_x = w * (-1 if flip_h else 1)
-    end_line_y = h * (-1 if flip_v else 1)
-    end_y_axis_x = 0
-    end_y_axis_y = h
-    angle = math.atan2(end_y_axis_y, end_y_axis_x) - math.atan2(end_line_y, end_line_x)
-    if (angle < 0):
-         angle += 2 * math.pi
-    return angle * 180.0 / math.pi
-
-with slides.Presentation("connector_line_angle.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    for shape_index in range(len(slide.shapes)):
-        direction = 0.0
-        shape = slide.shapes[shape_index]
-        if type(shape) is slides.AutoShape and shape.shape_type == slides.ShapeType.LINE:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        elif type(shape) is slides.Connector:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        print(direction)
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 2
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 3
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+
+        x = connector.x
+        y = connector.y
+        if connector.frame.flip_h == slides.NullableBool.TRUE:
+            x += connector.width
+        if connector.frame.flip_v == slides.NullableBool.TRUE:
+            y += connector.height
+
+        x += connector.width * horizontal_bend.raw_value / 100000
+        rotated_x = connector.frame.center_x - y + connector.frame.center_y
+        rotated_y = x - connector.frame.center_x + connector.frame.center_y
+        segment_width = connector.height * vertical_bend.raw_value / 100000
+        guide = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, rotated_x, rotated_y, segment_width, 1)
+        guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+        guide.line_format.fill_format.solid_fill_color.color = draw.Color.red
+
+        presentation.save("rotated-connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الدليل الأحمر يوضح الجزء المحسوب بعد تحويل الإحداثيات:
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+هذه الصيغ تصف الإعدادات المستخدمة في الأمثلة، ليست نموذجًا عالميًا للموصل. تحقّق من أنواع التعديل، توجيه الإطار، ونطاقات القيم قبل تطبيق نفس الحساب على إعداد مختلف.
+
+## **إيجاد زاوية اتجاه الموصل**
+
+يمكن حساب اتجاه الموصل المستقيم من عرضه وارتفاعه، مع تطبيق الانعكاسات الأفقية والعمودية. المثال التالي يُظهر الزاوية في اتجاه عقارب الساعة من المحور الأفقي الموجب في إحداثيات الشريحة:
+
+```python
+import math
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 100, 100, 200, 100)
+
+    flip_h = connector.frame.flip_h == slides.NullableBool.TRUE
+    flip_v = connector.frame.flip_v == slides.NullableBool.TRUE
+    delta_x = connector.width * (-1 if flip_h else 1)
+    delta_y = connector.height * (-1 if flip_v else 1)
+    angle = math.atan2(delta_y, delta_x) * 180.0 / math.pi
+
+    if angle < 0:
+        angle += 360
+
+    print(f"Connector direction: {angle:.2f} degrees")
+```
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني معرفة ما إذا كان يمكن "لصق" موصل إلى شكل محدد؟**
+**كيف يمكنني معرفة ما إذا كان الموصل يمكن أن يرتبط بشكل؟**  
+تحقق من [connection_site_count](https://reference.aspose.com/slides/ar/python-net/aspose.slides/igeometryshape/connection_site_count/) للشكل. عدد إيجابي يعني أن الشكل يكشف عن مواقع اتصال. تحقّق من فهرس الموقع المحدد قبل تعيينه إلى أي طرف من الموصل.
 
-تحقق من أن الشكل يوفر [مواقع الاتصال](https://reference.aspose.com/slides/python-net/aspose.slides/shape/connection_site_count/). إذا لم تكن هناك أي موقع أو كان العدد صفرًا، فإن اللصق غير متاح؛ في هذه الحالة استخدم نقاط النهاية الحرة وضعها يدويًا. من المنطقي التحقق من عدد المواقع قبل الإرفاق.
+**هل يمكنني تحديد تعديل موصل عبر فهرسه في المجموعة؟**  
+الفهرس ذو معنى فقط بالنسبة لإعداد موصل معروف وتخطيط مجموعة معروف. افحص [IAdjustValue.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iadjustvalue/type/) قبل تعديل قيمة، واستخدم [IAdjustValue.name](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iadjustvalue/name/) كمعلومات إضافية عندما يتكرر نفس النوع الدلالي أكثر من مرة.
 
-**ماذا يحدث للموصل إذا حذفت أحد الأشكال المتصلة؟**
+**ماذا يحدث عندما يُحذف الشكل المتصل؟**  
+ينفصل الطرف المقابل من الموصل. يظل الموصل على الشريحة ويمكن حذفه أو وضعه كخط حر أو ربطه بشكل آخر.
 
-ستنفصل نهاياته؛ يبقى الموصل على الشريحة كخط عادي بنقطة بداية/نهاية حرة. يمكنك إما حذفه أو إعادة تعيين الوصلات، وإذا لزم الأمر، [إعادة توجيه](https://reference.aspose.com/slides/python-net/aspose.slides/connector/reroute/).
-
-**هل يتم الحفاظ على ربط الموصلات عند نسخ شريحة إلى عرض آخر؟**
-
-عادةً نعم، بشرط نسخ الأشكال المستهدفة أيضًا. إذا تم إدراج الشريحة في ملف آخر بدون الأشكال المتصلة، تصبح النهايات حرة وستحتاج إلى إرفاقها مرة أخرى.
+**هل يتم الحفاظ على ربط الموصلات عندما تُنسخ الشريحة؟**  
+تُحفظ الروابط عادةً عندما تُنسخ الأشكال المتصلة مع الشريحة. إذا نُسخ موصل دون أحد الأشكال المستهدفة، يجب ربط الطرف المتأثر مرة أخرى.

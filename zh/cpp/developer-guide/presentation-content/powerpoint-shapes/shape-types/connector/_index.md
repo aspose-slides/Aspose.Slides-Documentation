@@ -1,421 +1,681 @@
 ---
-title: 使用 C++ 在演示文稿中管理连接线
-linktitle: 连接线
+title: 使用 C++ 管理演示文稿中的连接器
+linktitle: 连接器
 type: docs
 weight: 10
 url: /zh/cpp/connector/
 keywords:
-- 连接线
-- 连接线类型
+- 连接器
+- 连接器类型
 - 连接点
 - 连接线
 - 连接角度
+- 连接站点
+- 调整点
 - 连接形状
 - PowerPoint
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "让 C++ 应用程序能够在 PowerPoint 幻灯片中绘制、连接和自动路由线条——全面控制直线、折线和曲线连接线。"
+description: "了解如何使用 Aspose.Slides for C++ 添加、附加、重新路由、调整和检查 PowerPoint 中的直线、弯折和曲线连接器。"
 ---
+## **概述**
 
-PowerPoint 连接线是一种特殊的线，连接或链接两个形状，并在形状移动或重新定位时保持附着在形状上。
+连接器是一条在任一形状移动时仍能保持连接到两个形状的线。它的两端会连接到连接点，PowerPoint 中用绿色点表示。一些弯曲或曲线形的连接器还会显示调整点，用橙色点表示，用于控制各连接段的位置。
 
-连接线通常连接到*连接点*（绿色点），这些点默认存在于所有形状上。当光标靠近时会显示连接点。
+Aspose.Slides 通过 [IConnector](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iconnector/) 接口表示连接器。您可以创建它们、将两端连接到形状、选择连接点、重新路由，以及修改具有调整点的连接器的几何形状。
 
-*调整点*（橙色点）仅在某些连接线上存在，用于修改连接线的位置和形状。
+## **连接器类型**
 
-## **连接线类型**
+[ShapeType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/shapetype/) 枚举包含直线、弯折和曲线连接器预设。下表显示了可用的连接器几何形状以及每种预设定义的调整点数量。
 
-在 PowerPoint 中，您可以使用直线、折线（有角度）和曲线连接线。
+| 连接器 | 图片 | 调整点数量 |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides 提供以下连接线：
+调整点的数量和含义是所选连接器预设的一部分。不要假设两种不同的连接器类型会暴露相同的集合布局。
 
-| 连接线 | Image | 调整点数量 |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0 |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0 |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1 |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2 |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3 |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
+## **连接两个形状**
 
-## **使用连接线连接形状**
+使用 [IShapeCollection::AddConnector](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapecollection/addconnector/) 添加连接器，并调用 [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) 与 [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) 将两端连接到形状。两个端点都连接后，调用 [IConnector::Reroute](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iconnector/reroute/) 会在形状之间选择一条最短路径。
 
-1. 创建一个 [演示](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 使用 `Shapes` 对象的 `AddAutoShape` 方法向幻灯片添加两个 [自动形状](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape)。  
-4. 通过 `Shapes` 对象的 `AddConnector` 方法并指定连接线类型来添加连接线。  
-5. 使用该连接线连接形状。  
-6. 调用 `Reroute` 方法以应用最短的连接路径。  
-7. 保存演示文稿。  
+下面的示例使用弯折连接器将椭圆和矩形连接起来：
 
-下面的 C++ 代码演示了如何在两个形状（椭圆和矩形）之间添加一个弯曲连接线：
-```c++
-// 文档目录的路径。
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-	// 加载所需的演示文稿
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// 访问第一张幻灯片
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// 访问特定幻灯片的形状集合
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// 添加椭圆自动形状
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// 添加矩形自动形状
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-
-	// 向幻灯片形状集合添加连接线形状
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// 使用连接线连接形状
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// 调用 Reroute 方法以在形状之间设置自动最短路径
-	connector->Reroute();
-	
-	// 保存演示文稿
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
+{{% alert color="warning" title="警告" %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+调用 `IConnector::Reroute` 可能会更改 [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) 和 [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/) 的值。如果这些连接点必须保持固定，请在重新路由后再次指定具体的连接点。
 
-`connector->Reroute` 方法会重新路由连接线，并强制其在形状之间走最短路径。为实现此目的，方法可能会更改 `StartShapeConnectionSiteIndex` 和 `EndShapeConnectionSiteIndex` 点。 
+{{% /alert %}}
 
-{{% /alert %}} 
+## **选择连接点**
 
-## **指定连接点**
+每个可连接的形状会通过 [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/get_connectionsitecount/) 报告其连接点数量。在将首选的零基索引分配给连接器端点之前，请先验证该索引；不同形状的几何形状会导致连接点数量不同。
 
-如果希望连接线使用形状上的特定点进行链接，需要按如下方式指定首选连接点：
+下面的示例在椭圆上存在特定连接点时，将连接器附加到该点：
 
-1. 创建一个 [演示](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 使用 `Shapes` 对象的 `AddAutoShape` 方法向幻灯片添加两个 [自动形状](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape)。  
-4. 通过 `Shapes` 对象的 `AddConnector` 方法并指定连接线类型来添加连接线。  
-5. 使用该连接线连接形状。  
-6. 在形状上设置首选的连接点。  
-7. 保存演示文稿。  
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-下面的 C++ 代码演示了指定首选连接点的操作：
-```c++
-	// 文档目录的路径。
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// 加载所需的演示文稿
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// 访问第一张幻灯片
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// 访问特定幻灯片的形状集合
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// 添加椭圆自动形状
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// 添加矩形自动形状
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// 向幻灯片的形状集合添加连接线形状
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// 使用连接线连接形状
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// 设置椭圆形状的首选连接点索引
-	int wantedIndex = 6;
-
-	// 检查首选索引是否小于最大站点索引计数
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// 在椭圆自动形状上设置首选连接点
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// 保存演示文稿
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
+## **调整连接器点**
 
-## **调整连接点**
+具有调整点的连接器通过 [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/zh/cpp/aspose.slides/igeometryshape/get_adjustments/) 暴露这些点。检查每个 [IAdjustValue](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iadjustvalue/) 并在更改其 [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iadjustvalue/set_rawvalue/) 之前，先查看其 [IAdjustValue::get_Type](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iadjustvalue/get_type/)。有关识别预设形状调整的通用规则，请参阅 [Shape Manipulation](/slides/zh/cpp/shape-manipulations/)。
 
-您可以通过调整点来修改现有连接线。只有带有调整点的连接线才能以此方式进行更改。请参见 **[连接线类型](/slides/zh/cpp/connector/#types-of-connectors)** 表格。
+调整点的数量、顺序、含义以及有效值范围取决于连接器预设。`IAdjustValue::get_Type` 返回的类型是只读的，而原始调整值是可写的。只读的 [IAdjustValue::get_Name](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iadjustvalue/get_name/) 方法在连接器包含多个相同语义类型的调整时，可提供额外的标识信息。
 
-### **简单案例**
+### **绕过障碍物的路径**
 
-考虑一种情况：两形状（A 和 B）之间的连接线穿过第三个形状（C）：
+在下图布局中，一个 `ShapeType::BentConnector5` 连接器在两形状之间穿过第三个形状：
 
 ![connector-obstruction](connector-obstruction.png)
 
-代码：
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
+以下代码创建了受阻的连接器：
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-
-为避免或绕过第三个形状，我们可以将连接线的垂直线向左移动进行调整：
+移动垂直弯折会改变路径，使连接器避开障碍物：
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+
+本例并未假设集合索引 `1` 始终表示垂直弯折，而是搜索 `ShapeAdjustmentType::ConnectorBendPositionY`，仅在存在预期的语义类型时才进行修改：
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
+`ShapeType::BentConnector5` 包含两个 `ShapeAdjustmentType::ConnectorBendPositionX` 调整和一个 `ShapeAdjustmentType::ConnectorBendPositionY` 调整。如果所需的类型出现多次，请检查 `IAdjustValue::get_Name` 并结合该预设已知的几何形状再做选择。如果某个调整报告为 `ShapeAdjustmentType::Custom`，则其含义和范围仅针对该预设，除非明确了解其合约，否则不要更改。
 
-### **复杂案例**
+## **将调整值关联到连接器几何形状**
 
-进行更复杂的调整时，需要考虑以下因素：
+对于弯折连接器，调整值可用于估算各段的定位。以下计算均针对特定的连接器预设：
 
-* 连接线的可调点与计算其位置的公式紧密相关。因此，更改点的位置可能会改变连接线的形状。  
-* 连接线的调整点在数组中按严格顺序定义，编号从连接线的起点到终点。  
-* 调整点的值反映连接线形状宽度/高度的百分比。  
-  * 形状由连接线的起点和终点乘以 1000 所限定。  
-  * 第一点、第二点和第三点分别表示宽度百分比、高度百分比和再次的宽度百分比。  
-* 在计算连接线调整点坐标时，需要考虑连接线的旋转和镜像。**注意**，在 **[连接线类型](/slides/zh/cpp/connector/#types-of-connectors)** 中显示的所有连接线的旋转角度均为 0。
+- `ShapeType::BentConnector4` 通常暴露一个 `ShapeAdjustmentType::ConnectorBendPositionX` 与一个 `ShapeAdjustmentType::ConnectorBendPositionY` 调整。
+- 对于这些弯折位置，`RawValue / 100000.0f` 会得到相对于连接器框宽度或高度的比例，如下例所示。
+- 连接器框可能被旋转或翻转，因此在与幻灯片坐标比较之前，必须先对框坐标进行转换。
 
-#### **案例 1**
+下面的示例首先使用 `IAdjustValue::get_Type` 识别调整点，而不是依赖集合索引：
 
-考虑两个文本框对象通过连接线链接的情况：
+### **未旋转的连接器**
+
+初始布局中有两个文本形状通过 `ShapeType::BentConnector4` 连接：
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-代码：
-```c++
-// 实例化一个表示 PPTX 文件的演示文稿类
-auto pres = System::MakeObject<Presentation>();
-// 获取演示文稿中的第一张幻灯片
-auto slide = pres->get_Slides()->idx_get(0);
-// 从第一张幻灯片获取形状集合
-auto shapes = slide->get_Shapes();
-// 添加将通过连接线连接在一起的形状
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// 添加一个连接线
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// 指定连接线的方向
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// 指定连接线的线宽
-lineFormat->set_Width(3);
-// 指定连接线的颜色
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
+本例检查连接器并获取其水平和垂直弯折的调整值：
 
-// 使用连接线将形状链接在一起
-connector->set_StartShapeConnectedTo(shapeFrom);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// 获取连接线的调整点
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
+要同时修改两个弯折，需要先定位每个预期的类型，且仅在两者都找到后才修改其值：
 
-**调整**
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-我们可以将连接线的调整点值对应的宽度和高度百分比分别增加 20% 和 200%：
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-```c++
-// 更改调整点的值
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-结果：
+结果是水平段和垂直段都已移动的连接器：
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-为了构建一个模型以确定连接线各部分的坐标和形状，我们创建一个对应于 connector.Adjustments[0] 点的水平分量的形状：
+确定语义类型后，可将其值转换为连接器框坐标。本例在由两个弯折调整控制的垂直段上绘制一个细矩形：
 
-```c++
-// 绘制连接线的垂直分量
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-结果：
+参考形状标记出计算得到的段落：
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **案例 2**
+### **旋转或翻转的连接器**
 
-在 **案例 1** 中，我们演示了使用基本原理的简单连接线调整操作。实际情况下，需要考虑连接线的旋转以及其显示方式（由 connector.Rotation、connector.Frame.FlipH 和 connector.Frame.FlipV 设置）。下面演示整个过程。
+当相同的连接器几何形状垂直放置时，其 [IShape::get_Frame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/get_frame/)、[IShapeFrame::get_FlipH](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapeframe/get_fliph/) 与 [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapeframe/get_flipv/) 会影响从连接器框坐标到幻灯片坐标的转换。
 
-首先，向幻灯片添加一个新的文本框对象（**To 1**）用于连接，并创建一个新的（绿色）连接线，将其连接到已创建的对象上。
-```c++
-// 创建新的绑定对象
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// 创建新的连接线
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+本例创建并调整了垂直方向的连接器：
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// 使用新创建的连接线连接对象
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// 获取连接线的调整点
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// 更改调整点的值
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-
-结果：
+调整后的连接器在形状之间垂直显示：
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-其次，创建一个形状对应于通过新连接线的调整点 connector.Adjustments[0] 的水平分量。我们将使用 connector.Rotation、connector.Frame.FlipH 和 connector.Frame.FlipV 的值，并应用围绕给定点 x0 的坐标旋转公式：
+对于任意旋转角度 `alpha`，将连接器框点 `(x, y)` 绕框中心 `(x0, y0)` 旋转得到：
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-在本例中，对象的旋转角度为 90 度，且连接线垂直显示，对应的代码如下：
-```c++
+以下代码处理本例中使用的 90 度方向，并在相应的连接器段上绘制红色指示线：
 
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-结果：
+红色指示线标记出坐标转换后的计算段落：
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-我们演示了涉及简单调整和带旋转角度的复杂调整点的计算。利用这些知识，您可以构建自己的模型（或编写代码）以获取 `GraphicsPath` 对象，甚至根据特定幻灯片坐标设置连接线的调整点值。
+这些公式描述的是示例中使用的预设，而非通用的连接器模型。在将相同计算应用于其他预设之前，请先验证调整类型、框方向以及数值范围。
 
-## **获取连接线的角度**
+## **查找连接器方向角度**
 
-1. 创建一个 [演示](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 访问连接线形状。  
-4. 使用线的宽度、高度、形状框高度和形状框宽度计算角度。  
+直线连接器的方向可以通过其宽度与高度计算，并考虑水平和垂直翻转。下面的示例在幻灯片坐标系中报告相对于正水平轴的顺时针角度：
 
-下面的 C++ 代码演示了计算连接线形状角度的操作：
-```c++
-void ConnectorLineAngle()
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// 文档目录的路径。
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// 加载所需的演示文稿
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// 访问第一张幻灯片
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// 访问幻灯片的形状集合
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-				//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-				//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//	float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
-
 
 ## **常见问题解答**
 
-**如何判断连接线是否可以“粘贴”到特定形状上？**
+**如何判断一个连接器是否可以附着到形状上？**
 
-检查形状是否公开了[连接站点](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_connectionsitecount/)。如果没有或计数为零，则不支持粘贴，此时请使用自由端点并手动定位。建议在附加之前检查站点计数。
+检查形状的 `IShape::get_ConnectionSiteCount` 值。正数表示该形状暴露连接点。在将该索引分配给任一连接器端点之前，请先验证所选的点索引。
 
-**如果删除了已连接的形状之一，连接线会怎样？**
+**我能否仅通过集合索引识别连接器的调整点？**
 
-其两端会被分离；连接线将在幻灯片上保留为普通线条，拥有自由的起点/终点。您可以删除它，或重新分配连接并在需要时使用 [重新路由](https://reference.aspose.com/slides/cpp/aspose.slides/connector/reroute/)。
+索引仅在已知的连接器预设及其集合布局下才有意义。修改值之前，请先检查 `IAdjustValue::get_Type`，如果同一语义类型出现多次，可使用 `IAdjustValue::get_Name` 作为补充信息。
 
-**复制幻灯片到另一演示文稿时，连接线的绑定会保留吗？**
+**当连接的形状被删除会怎样？**
 
-通常会保留，前提是目标形状也被一并复制。如果将幻灯片插入到没有连接形状的文件中，连接线的两端会变为自由，需要重新附加。
+对应的连接器端会被分离。连接器仍保留在幻灯片上，您可以删除它、将其作为自由线定位，或重新附着到其他形状。
+
+**复制幻灯片时，连接器的绑定是否会被保留？**
+
+在复制幻灯片时，若连同目标形状一起复制，绑定通常会被保留。如果仅复制了连接器而未复制其目标形状，则需要再次为受影响的端点进行连接。

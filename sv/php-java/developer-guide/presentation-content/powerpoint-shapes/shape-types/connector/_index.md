@@ -1,371 +1,582 @@
 ---
-title: Hantera anslutare i presentationer med PHP
-linktitle: Anslutare
+title: Hantera kopplingar i presentationer med PHP
+linktitle: Koppling
 type: docs
 weight: 10
 url: /sv/php-java/connector/
 keywords:
-- anslutare
-- anslutartyp
-- anslutningspunkt
-- anslutningslinje
-- anslutningsvinkel
-- anslut former
+- koppling
+- kopplingstyp
+- kopplingspunkt
+- kopplingslinje
+- kopplingsvinkel
+- anslutningsställe
+- justeringspunkt
+- koppla former
 - PowerPoint
 - presentation
 - PHP
 - Aspose.Slides
-description: "Ge PHP-appar möjlighet att rita, ansluta och automatiskt leda linjer i PowerPoint-bilder - få full kontroll över raka, armbag- och böjda anslutare."
+description: "Lär dig hur du lägger till, fäster, omdirigerar, justerar och granskar raka, böjda och kurvade PowerPoint-kopplingar med Aspose.Slides för PHP via Java."
 ---
-## **Introduktion**
+## **Översikt**
 
-En PowerPoint‑anslutare är en speciell linje som kopplar två former tillsammans och förblir fäst vid formerna även när de flyttas eller omplaceras på en given bild. 
+En koppling är en linje som kan förbli fäst vid två former när någon av formerna flyttas. Dess ändar fästs vid anslutningsställen, som visas som gröna prickar i PowerPoint. Vissa böjda och kurvade kopplingar visar även justeringspunkter, representerade av orange prickar, som styr positionen för enskilda segment av kopplingen.
 
-Anslutare är vanligtvis kopplade till *connection dots* (gröna prickar), som finns på alla former som standard. Anslutningsprickar visas när en markör närmar sig dem.
+Aspose.Slides representerar kopplingar genom klassen [Connector](https://reference.aspose.com/slides/sv/php-java/aspose.slides/connector/). Du kan skapa dem, fästa deras ändar på former, välja anslutningsställen, omdirigera dem och ändra geometrin för kopplingar som har justeringspunkter.
 
-*Adjustment points* (orange prickar), som bara finns på vissa anslutare, används för att ändra anslutarnas positioner och former.
+## **Kopplingstyper**
 
-## **Typer av anslutare**
+Klassen [ShapeType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapetype/) innehåller förinställningar för raka, böjda och kurvade kopplingar. Tabellen nedan visar tillgängliga kopplingsgeometrier och antalet justeringspunkter som definieras av varje förinställning.
 
-I PowerPoint kan du använda raka, armbågs‑ (vinklade) och böjda anslutare. 
+| Koppling | Bild | Antal justeringspunkter |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides tillhandahåller dessa anslutare:
+Antalet och innebörden av justeringspunkterna är en del av den valda kopplingsförinställningen. Anta inte att två olika kopplingstyper exponerar samma samlingslayout.
 
-| Anslutare                      | Bild                                                        | Antal justeringspunkter |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **Koppla två former**
 
-## **Anslut former med anslutare**
+Använd [ShapeCollection::addConnector](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addconnector/) för att lägga till en koppling, och använd [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/connector/setstartshapeconnectedto/) samt [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/connector/setendshapeconnectedto/) för att fästa dess ändar. När båda ändarna är fästa väljer [Connector::reroute](https://reference.aspose.com/slides/sv/php-java/aspose.slides/connector/reroute/) en kort ruta mellan formerna.
 
-1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-1. Hämta en bilds referens via dess index.
-1. Lägg till två [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/AutoShape) på bilden med metoden `addAutoShape` som exponeras av `Shapes`‑objektet.
-1. Lägg till en anslutare med metoden `addConnector` som exponeras av `Shapes`‑objektet genom att ange anslutartypen.
-1. Anslut formerna med anslutaren. 
-1. Anropa metoden `reroute` för att tillämpa den kortaste anslutningsvägen.
-1. Spara presentationen. 
-
-Denna PHP‑kod visar hur du lägger till en anslutare (en böjd anslutare) mellan två former (en ellips och en rektangel):
+Följande exempel kopplar en ellips och en rektangel med en böjd koppling:
 
 ```php
-// Instansierar en presentationsklass som representerar PPTX-filen
-  $pres = new Presentation();
-  try {
-    # Hämtar formsamlingen för en specifik bild
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Lägger till en Ellipse-autoshape
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Lägger till en Rectangle-autoshape
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Lägger till en anslutningsform i bildens formsamling
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Ansluter formerna med anslutaren
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Anropar reroute som sätter den automatiska kortaste vägen mellan formerna
     $connector->reroute();
-    # Sparar presentationen
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Varning" %}}
 
-Metoden `Connector.reroute` omdirigerar en anslutare och tvingar den att ta den kortaste möjliga vägen mellan formerna. För att uppnå detta kan metoden ändra punkterna `setStartShapeConnectionSiteIndex` och `setEndShapeConnectionSiteIndex`. 
+Att anropa `reroute` kan ändra värdena för [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) och [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/). Tilldela specifika anslutningsställen efter omdirigering om dessa ställen måste förbli fasta.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **Specificera en anslutningspunkt**
+## **Välj ett anslutningsställe**
 
-Om du vill att en anslutare ska länka två former med specifika punkter på formerna måste du ange dina föredragna anslutningspunkter på följande sätt:
+Varje form som kan anslutas rapporterar sitt antal ställen via [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getconnectionsitecount/). Validera ett föredraget nollbaserat ställeindex innan du tilldelar det till en kopplingsände; antalet ställen varierar beroende på formens geometri.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/Presentation).
-1. Hämta en bilds referens via dess index.
-1. Lägg till två [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/AutoShape) på bilden med metoden `addAutoShape` som exponeras av `Shapes`‑objektet.
-1. Lägg till en anslutare med metoden `addConnector` som exponeras av `Shapes`‑objektet genom att ange anslutartypen.
-1. Anslut formerna med anslutaren. 
-1. Ställ in dina föredragna anslutningspunkter på formerna. 
-1. Spara presentationen.
-
-Denna PHP‑kod demonstrerar en operation där en föredragen anslutningspunkt specificeras:
+Detta exempel fäster kopplingen på ett specifikt ställe på ellipsen när det stället finns:
 
 ```php
-  # Instansierar en presentationsklass som representerar en PPTX-fil
-  $pres = new Presentation();
-  try {
-    # Hämtar formsamlingen för en specifik bild
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Lägg till en Ellipse-autoshape
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Lägg till en Rectangle-autoshape
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Lägger till en anslutningsform i bildens formsamling
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Ansluter formerna med anslutaren
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Ställer in föredraget anslutningspunktindex på Ellipseformen
-    $wantedIndex = 6;
-    # Kontrollerar om det föredragna indexet är mindre än det maximala antalet anslutningspunkter
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # Ställer in den föredragna anslutningspunkten på Ellipse-autoshapen
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # Sparar presentationen
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Justera en anslutarpunkt**
+## **Justera en kopplingspunkt**
 
-Du kan justera en befintlig anslutare via dess justeringspunkter. Endast anslutare med justeringspunkter kan förändras på detta sätt. Se tabellen under **[Typer av anslutare](/slides/sv/php-java/connector/#types-of-connectors)**
+Kopplingar med justeringspunkter exponerar dem via [GeometryShape::getAdjustments](https://reference.aspose.com/slides/sv/php-java/aspose.slides/geometryshape/#getadjustments). Inspektera varje [AdjustValue](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/) och kontrollera dess [AdjustValue::getType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/#gettype)-värde innan du ändrar det med [AdjustValue::setRawValue](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/setrawvalue/). De allmänna reglerna för att identifiera förinställda formjusteringar beskrivs i [Shape Manipulation](/slides/sv/php-java/shape-manipulations/).
 
-### **Enkel fall**
+Antalet, ordningen, innebörden och det giltiga värdeintervallet för kopplingsjusteringar beror på kopplingsförinställningen. Justeringstypen är skrivskyddad, medan justeringsvärdet är skrivbart. Den skrivskyddade metoden [AdjustValue::getName](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/getname/) ger ytterligare identifiering när en koppling innehåller mer än en justering av samma semantiska typ.
 
-Tänk dig ett scenario där en anslutare mellan två former (A och B) passerar genom en tredje form (C):
+### **Rutt runt ett hinder**
+
+I layouten nedan passerar en `BentConnector5` mellan två former genom en tredje form:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Denna kod skapar den hindrade kopplingen:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-För att undvika eller kringgå den tredje formen kan vi justera anslutaren genom att flytta dess vertikala linje åt vänster på följande sätt:
+Att flytta den vertikala böjen ändrar rutten så att kopplingen går förbi hindret:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
+Istället för att anta att samlingsindex `1` alltid representerar den vertikala böjen, söker detta exempel efter `ConnectorBendPositionY` och ändrar den endast när den förväntade semantiska typen finns:
 
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Komplexa fall** 
+En `BentConnector5` har två `ConnectorBendPositionX`-justeringar och en `ConnectorBendPositionY`-justering. Om den typ du behöver förekommer flera gånger, inspektera `getName` och den kända geometrin för den förinställningen innan du väljer en. Om en justering rapporterar `ShapeAdjustmentType::Custom`, behandla dess innebörd och intervall som förinställningsspecifika och ändra den inte förrän kontraktet är känt.
 
-För att utföra mer avancerade justeringar måste du ta hänsyn till följande:
+## **Koppla justeringsvärden till kopplingsgeometri**
 
-* En anslutares justerbara punkt är starkt kopplad till en formel som beräknar och bestämmer dess position. Så förändringar av punktens placering kan ändra anslutarens form.
-* En anslutares justeringspunkter definieras i en strikt ordning i en array. Justeringspunkterna är numrerade från anslutarens startpunkt till dess slutpunkt.
-* Värdena för justeringspunkterna speglar procentandelen av anslutningsformens bredd/höjd. 
-  * Formen begränsas av anslutarens start‑ och slutpunkter multiplicerat med 1000. 
-  * Den första, andra och tredje punkten definierar procentandelen av bredden, procentandelen av höjden respektive procentandelen av bredden (igen).
-* För beräkningar som bestämmer koordinaterna för en anslutares justeringspunkter måste du ta hänsyn till anslutarens rotation och dess spegling. **Obs** att rotationsvinkeln för alla anslutare som visas under **[Typer av anslutare](/slides/sv/php-java/connector/#types-of-connectors)** är 0.
+För böjda kopplingar kan justeringsvärden användas för att uppskatta positionerna för individuella segment. Dessa beräkningar är specifika för kopplingsförinställningen:
 
-#### **Fall 1**
+- `BentConnector4` exponerar normalt en `ConnectorBendPositionX` och en `ConnectorBendPositionY`-justering.
+- För dessa böjpositioner ger division av värdet som returneras av `getRawValue` med `100000` bråkdelen av kopplingsramens bredd eller höjd som används i exemplen nedan.
+- En kopplingsram kan roteras eller vändas, så ramkoordinater måste transformeras innan de jämförs med bildens koordinater.
 
-Tänk dig ett scenario där två textramar är länkade genom en anslutare:
+Följande exempel använder `getType` för att först identifiera justeringarna. De behandlar inte samlingsindex som portabla identifierare.
+
+### **Icke roterad koppling**
+
+Den ursprungliga layouten innehåller två textformer som är förenade med en `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Detta exempel inspekterar kopplingen och hämtar dess horisontella och vertikala böjningsjusteringar:
+
 ```php
-  # Instansierar en presentationsklass som representerar en PPTX-fil
-  $pres = new Presentation();
-  try {
-    # Hämtar den första bilden i presentationen
-    $sld = $pres->getSlides()->get_Item(0);
-    # Lägger till former som kommer att slås ihop via en anslutare
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # Lägger till en anslutare
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # Anger anslutarens riktning
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # Anger anslutarens färg
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Anger tjockleken på anslutarens linje
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # Länkar formerna tillsammans med anslutaren
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # Hämtar justeringspunkter för anslutaren
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Justering**
-
-Vi kan ändra anslutarens justeringspunktvärden genom att öka respektive bredd‑ och höjdp procentandel med 20 % respektive 200 %:
+För att ändra båda böjarna, lokalisera varje förväntad typ och modifiera värdena först när båda har hittats:
 
 ```php
-  # Ändrar värdena för justeringspunkterna
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Resultatet:
+Resultatet blir en koppling vars horisontella och vertikala segment har flyttats:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-För att definiera en modell som låter oss bestämma koordinaterna och formen för enskilda delar av anslutaren, skapa en form som motsvarar den horisontella komponenten av anslutaren vid punkten `connector.getAdjustments().get_Item(0)`:
+När de semantiska typerna är kända kan deras värden konverteras till kopplingsramens koordinater. Detta exempel ritar en tunn rektangel över det vertikala segmentet som styrs av de två böjningsjusteringarna:
 
 ```php
-  # Rita den vertikala komponenten av anslutaren
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Resultatet:
+Guideformen markerar det beräknade segmentet:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Fall 2**
+### **Roterad eller vänd koppling**
 
-I **Fall 1** demonstrerade vi en enkel justeringsoperation med grundprinciper. I normala situationer måste du ta hänsyn till anslutarens rotation och dess visning (som sätts av `connector.getRotation()`, `connector.getFrame().getFlipH()` och `connector.getFrame().getFlipV()`). Vi visar nu processen.
+När samma kopplingsgeometri är orienterad vertikalt påverkar värdena från [Shape::getFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getframe/), [ShapeFrame::getFlipH](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapeframe/getfliph/) och [ShapeFrame::getFlipV](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapeframe/getflipv/) konverteringen från kopplingsramens koordinater till bildkoordinater.
 
-Först lägger vi till ett nytt textramelement (**To 1**) på bilden (för anslutningssyfte) och skapar en ny (grön) anslutare som kopplar det till de objekt vi redan har skapat.
+Detta exempel skapar och justerar den vertikalt orienterade kopplingen:
 
 ```php
-  # Skapar ett nytt bindningsobjekt
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # Skapar en ny anslutare
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # Kopplar objekt med den nyss skapade anslutaren
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # Hämtar anslutarnas justeringspunkter
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # Ändrar värdena för justeringspunkterna
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Resultatet:
+Den justerade kopplingen visas vertikalt mellan formerna:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Sedan skapar vi en form som motsvarar den horisontella komponenten av anslutaren som passerar genom den nya anslutarens justeringspunkt `connector.getAdjustments().get_Item(0)`. Vi använder värdena från anslutardatan för `connector.getRotation()`, `connector.getFrame().getFlipH()` och `connector.getFrame().getFlipV()` och tillämpar den vanliga koordinatkonverteringsformeln för rotation runt en given punkt x0:
+För en godtycklig rotationsvinkel `alpha` roteras en punkt i kopplingsramen `(x, y)` kring ramens centrum `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-I vårt fall är objektets rotationsvinkel 90 grad och anslutaren visas vertikalt, så detta är den motsvarande koden:
+Följande kod hanterar den 90‑graders orientering som används i detta exempel och ritar en röd guide över motsvarande kopplingssegment:
 
 ```php
-  # Sparar anslutarnas koordinater
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # Korrigerar anslutarnas koordinater om den visas
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # Tar justeringspunktens värde som koordinat
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # Konverterar koordinaterna då Sin(90) = 1 och Cos(90) = 0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # Bestämmer bredden på den horisontella komponenten med hjälp av värdet för den andra justeringspunkten
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Resultatet:
+Den röda guiden markerar det beräknade segmentet efter koordinattransformationen:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Vi har demonstrerat beräkningar som involverar både enkla justeringar och komplexa justeringspunkter (justeringspunkter med rotationsvinklar). Med den kunskap du nu har kan du utveckla din egen modell (eller skriva kod) för att erhålla ett `GraphicsPath`‑objekt eller till och med ställa in en anslutares justeringspunktvärden baserat på specifika bildkoordinater.
+Dessa formler beskriver förinställningarna som används i exemplen, inte en universell kopplingsmodell. Validera justeringstyper, ramorientering och värdeintervall innan du tillämpar samma beräkning på en annan förinställning.
 
-## **Hitta vinkeln på anslutningslinjer**
+## **Hitta en kopplingsriktningens vinkel**
 
-1. Skapa en instans av klassen.
-1. Hämta en bilds referens via dess index.
-1. Åtkomst till anslutningslinjeformen.
-1. Använd linjens bredd, höjd, formramens höjd och formramens bredd för att beräkna vinkeln.
-
-Denna PHP‑kod demonstrerar en operation där vi beräknade vinkeln för en anslutningslinjeform:
+Riktningen för en rak koppling kan beräknas från dess bredd och höjd, med horisontella och vertikala vändningar tillämpade. Följande exempel rapporterar den medurs vinkel från den positiva horisontella axeln i bildkoordinater:
 
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Hur kan jag avgöra om en anslutare kan "limmas" på en specifik form?**
+**Hur kan jag avgöra om en koppling kan fästas vid en form?**
 
-Kontrollera att formen exponerar [connection sites](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getconnectionsitecount/). Om det inte finns några eller antalet är noll, är limning inte tillgänglig; i så fall använder du fria ändpunkter och placerar dem manuellt. Det är klokt att kontrollera antalet platser innan du fäster.
+Kontrollera formens [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getconnectionsitecount/)-värde. Ett positivt antal innebär att formen exponerar anslutningsställen. Validera det valda ställeindexet innan du tilldelar det till någon av kopplingsändarna.
 
-**Vad händer med en anslutare om jag tar bort en av de anslutna formerna?**
+**Kan jag identifiera en kopplingsjustering via dess samlingsindex?**
 
-Dess ändar blir frikopplade; anslutaren kvarstår på bilden som en vanlig linje med fria start‑/slutpunkter. Du kan antingen ta bort den eller återansluta, och vid behov [reroute](https://reference.aspose.com/slides/sv/php-java/aspose.slides/connector/reroute/).
+Ett index är meningsfullt bara för en känd kopplingsförinställning och samlingslayout. Kontrollera [AdjustValue::getType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/#gettype) innan du modifierar ett värde, och använd [AdjustValue::getName](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/getname/) som ytterligare information när samma semantiska typ förekommer mer än en gång.
 
-**Bevaras anslutningsbindningarna när en bild kopieras till en annan presentation?**
+**Vad händer när en ansluten form tas bort?**
 
-Generellt ja, förutsatt att målsformerna också kopieras. Om bilden infogas i en annan fil utan de anslutna formerna blir ändarna fria och du måste fästa dem igen.
+Den motsvarande kopplingsänden blir frånkopplad. Kopplingen har kvar på bilden och kan tas bort, placeras som en fri linje eller fästas på en annan form.
+
+**Bevaras kopplingsbindningar när en bild kopieras?**
+
+Bindningar bevaras i allmänhet när de anslutna formerna kopieras med bilden. Om en koppling kopieras utan någon av sina målformer måste den drabbade änden fästas igen.

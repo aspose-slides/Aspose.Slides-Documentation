@@ -1,6 +1,6 @@
 ---
-title: PHP-ben prezentációs alakzatok kezelése
-linktitle: Alakzat manipuláció
+title: Prezentációs alakzatok kezelése PHP-ben
+linktitle: Alakzatkezelés
 type: docs
 weight: 40
 url: /hu/php-java/shape-manipulations/
@@ -13,374 +13,528 @@ keywords:
 - alakzat eltávolítása
 - alakzat elrejtése
 - alakzat sorrendjének módosítása
-- interop alakzat ID lekérdezése
+- interop alakzat ID lekérése
 - alakzat alternatív szöveg
+- alakzat igazítási pont
+- előre definiált alakzat igazítás
+- alakzat geometria
 - alakzat elrendezési formátumok
 - alakzat SVG-ként
 - alakzat SVG-re
 - alakzat igazítása
+- alakzat tükrözése
 - PowerPoint
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre, szerkeszthet és optimalizálhat alakzatokat az Aspose.Slides for PHP via Java segítségével, és teljesítmény-orientált PowerPoint-prezentációkat szállíthat."
+description: "Ismerje meg, hogyan azonosíthat, módosíthat, klónozhat, eltávolíthat, elrejthet, átrendezhet, exportálhat, igazíthat és tükrözhet prezentációs alakzatokat az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan dolgozhatunk alakzatokkal a prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan találhatunk meg egy alakzatot egy dián, másolhatjuk azt, eltávolíthatjuk, elrejthetjük, módosíthatjuk a sorrendjét, lekérhetjük az Interop alakzatazonosítót, és beállíthatjuk az alternatív szöveget az azonosításhoz és a további feldolgozáshoz.
+Az Aspose.Slides for PHP via Java a dia alakjait egy rendezett [ShapeCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/)ként ábrázolja. A gyűjtemény egyaránt a hely, ahol alakzatokat kereshet és módosíthat, valamint az azok rétegezési sorrendjének forrása: a `0` index a leghátsó alakzat, míg az utolsó index a legelöl lévő alakzat.
 
-Emellett lefedi, hogyan érhetők el az alakzatok elrendezési formátumai, hogyan renderelhetünk egy alakzatot SVG-ként, hogyan igazíthatók az alakzatok egy dián, és hogyan használhatók a flip (tükrözés) tulajdonságok vízszintes és függőleges tükrözéshez. Továbbá a cikk egy rövid GYIK-ot tartalmaz az alakzatok kombinálásáról, a rétegezési sorrendről és az alakzatok zárolásáról.
+Ez a cikk ebben a modellben dolgozik. Először bemutatja, hogyan azonosítsunk megbízhatóan egy alakzatot és módosítsuk az előre beállított alakzatigazítási pontokat, majd megmutatja, hogyan klónozzunk, távolítsunk el, rejtsünk el és rendezzünk át alakzatokat. Az utolsó szakaszok a diaterv szintű formázást, SVG exportot, igazítást és tükrözési beállításokat fedik le. Minden példa önálló, így csak a munkafolyamatának megfelelő műveleteket használhatja.
 
-## **Alakzat keresése egy dián**
-Ez a téma egy egyszerű technikát ismertet, amely megkönnyíti a fejlesztők számára egy adott alakzat megtalálását egy dián anélkül, hogy a belső azonosítóját használnák. Fontos tudni, hogy a PowerPoint prezentációfájloknak nincs módja az alakzatok azonosítására egy dián, kivéve a belső egyedi azonosítót. Nehézséget jelent a fejlesztőknek egy alakzat megtalálása a belső egyedi azonosítóval. Az összes diára hozzáadott alakzat rendelkezik valamilyen alternatív szöveggel. Javasoljuk, hogy a fejlesztők az alternatív szöveget használják egy adott alakzat megtalálásához. Az MS PowerPoint segítségével definiálhatja az alternatív szöveget azokhoz az objektumokhoz, amelyeket a jövőben módosítani kíván.
+## **Az alakzatok azonosítása és keresése**
 
-Az alternatív szöveg beállítása után a kívánt alakzatra megnyithatja a prezentációt az Aspose.Slides for PHP via Java segítségével, és végigiterálhat az egy diára hozzáadott összes alakzaton. Minden iteráció során ellenőrizheti az alakzat alternatív szövegét, és a megfelelő alternatív szöveggel rendelkező alakzat lesz a keresett alakzat. Ennek a technikának a jobb bemutatására létrehoztunk egy [findShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) metódust, amely megtalálja a specifikus alakzatot egy dián, és egyszerűen visszaadja azt.
+A gyűjtemény indexei kényelmesek egy ismert fájl feldolgozásakor, de nem stabil azonosítók. Egy alakzat hozzáadása, eltávolítása vagy átrendezése megváltoztathatja az indexét. Válasszon azonosítót a bemutató szerkesztési és karbantartási módja alapján:
 
-```php
-  # Hozzon létre egy Presentation osztályt, amely a prezentáció fájlt képviseli
-  $pres = new Presentation("FindingShapeInSlide.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    # A megtalálandó alakzat alternatív szövege
-    $shape = findShape($slide, "Shape1");
-    if (!java_is_null($shape)) {
-      echo("Shape Name: " . $shape->getName());
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+- [Name](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getname/) hasznos fejlesztő által vezérelt sablonoknál, és könnyen megtekinthető a PowerPoint Kijelölés paneljén. A neveket módosíthatja, de nem garantált, hogy egyediek, ezért alakíts ki nevesítési konvenciót, ha a kód rájuk támaszkodik.
+- [AlternativeText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getalternativetext/) akkor hasznos, ha egy hozzáférhetőségi leírás vagy szerző által megadott címke már azonosítja az alakzatot. Látható a felhasználók számára, lokalizálható vagy átírható a hozzáférhetőség érdekében, és nem garantált, hogy egyedi. Ne használja csendben a jelentős hozzáférhetőségi szöveget adatbáziskulcsként.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getofficeinteropshapeid/) egy csak olvasható azonosító, amely egy dián belül egyedi, és a PowerPoint interop által használt alakzat-azonosítónak felel meg. Használja, ha PowerPointtal integrál, vagy ha egyértelmű hivatkozásra van szükség egy alakzat teljes élettartama alatt. Egy klónozott vagy újból létrehozott alakzat másik alakzat, és saját ID-t kap.
 
-```
+A kapcsolódó [Shape::getUniqueId](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getuniqueid/) metódus prezentációs hatókörű azonosítót ad vissza, de ez az azonosító kiegészítőknek szól, és újra hozzárendelhető. Nem szabad állandó külső kulcsként kezelni. Ha hosszú távú identitásra van szükség, tárolja a leképezést az alkalmazás adataiban, és ellenőrizze, hogy a várt alakzat továbbra is létezik‑e.
 
-## **Alakzat klónozása**
-Alakzat klónozásához egy diára az Aspose.Slides for PHP via Java használatával:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.
-1. Szerezze meg egy dia referenciaját az indexének használatával.
-1. Hozzáférés a forrásdia alakzatgyűjteményéhez.
-1. Új dia hozzáadása a prezentációhoz.
-1. Alakzatok klónozása a forrásdia alakzatgyűjteményéből az új diába.
-1. A módosított prezentáció mentése PPTX fájlként.
-
-Az alábbi példa egy csoportos alakzatot ad hozzá egy diához.
+Az alábbi példa nevével pontos összehasonlítás alapján keres, és a diára vonatkozó interop ID‑t jelenti. Ha a sablon nem tartalmazza a várt alakzatot, a kód ezt az eredményt jelzi a további helytelen objektum használata helyett.
 
 ```php
-  # Presentation osztály példányosítása
-  $pres = new Presentation("Source Frame.pptx");
-  try {
-    $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
-    $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
-    $destShapes = $destSlide->getShapes();
-    $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
-    $destShapes->addClone($sourceShapes->get_Item(2));
-    $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    # PPTX fájl mentése a lemezre
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
 
-## **Alakzat eltávolítása**
-Az Aspose.Slides for PHP via Java lehetővé teszi a fejlesztők számára bármely alakzat eltávolítását. Egy alakzat eltávolításához egy diáról kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.
-1. Érje el az első diát.
-1. Keresse meg a megadott AlternativeText tulajdonságú alakzatot.
-1. Távolítsa el az alakzatot.
-1. Mentse a fájlt a lemezre.
-
-```php
-  # Presentation objektum létrehozása
-  $pres = new Presentation();
-  try {
-    # Az első dia lekérése
-    $sld = $pres->getSlides()->get_Item(0);
-    # Négyszög típusú autoshape hozzáadása
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $altText = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item(0);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $sld->getShapes()->remove($ashp);
-      }
-    }
-    # Prezentáció mentése a lemezre
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Alakzat elrejtése**
-Az Aspose.Slides for PHP via Java lehetővé teszi a fejlesztők számára bármely alakzat elrejtését. Egy alakzat elrejtéséhez egy dián kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.
-1. Érje el az első diát.
-1. Keresse meg a megadott AlternativeText tulajdonságú alakzatot.
-1. Rejtse el az alakzatot.
-1. Mentse a fájlt a lemezre.
-
-```php
-  # Presentation osztály példányosítása, amely a PPTX-et képviseli
-  $pres = new Presentation();
-  try {
-    # Az első dia lekérése
-    $sld = $pres->getSlides()->get_Item(0);
-    # Négyszög típusú autoshape hozzáadása
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $alttext = "User Defined";
-    $iCount = $sld->getShapes()->size();
-    for($i = 0; $i < java_values($iCount) ; $i++) {
-      $ashp = $sld->getShapes()->get_Item($i);
-      if ($alttext->equals($ashp->getAlternativeText())) {
-        $ashp->setHidden(true);
-      }
-    }
-    # Prezentáció mentése a lemezre
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Alakzat sorrendjének módosítása**
-Az Aspose.Slides for PHP via Java lehetővé teszi a fejlesztők számára az alakzatok újrarendezését. Az újrarendezés meghatározza, melyik alakzat van elöl, és melyik hátul. Egy alakzat újrarendezéséhez egy dián kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.
-1. Érje el az első diát.
-1. Adjon hozzá egy alakzatot.
-1. Adjon szöveget az alakzat szövegdobozához.
-1. Adjon hozzá egy másik alakzatot ugyanazzal a koordinátával.
-1. Rendezze át az alakzatokat.
-1. Mentse a fájlt a lemezre.
-
-```php
-  $pres = new Presentation("ChangeShapeOrder.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
-    $shp3->addTextFrame(" ");
-    $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
-    $portion = $para->getPortions()->get_Item(0);
-    $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
-    $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Interop alakzatazonosító lekérése**
-Az Aspose.Slides for PHP via Java lehetővé teszi a fejlesztők számára egy egyedi alakzatazonosító lekérését diára vonatkozóan, szemben a [getUniqueId](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getuniqueid/) metódussal, amely a prezentáció szintjén ad egyedi azonosítót. A [getOfficeInteropShapeId](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getofficeinteropshapeid/) metódust hozzáadták a [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) osztályhoz. A [getOfficeInteropShapeId](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getofficeinteropshapeid/) metódus által visszaadott érték megfelel a Microsoft.Office.Interop.PowerPoint.Shape objektum Id értékének. Az alább egy példakód található.
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Dia szintjén egyedi alakzatazonosító lekérése
-    $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Alternatív szöveg beállítása egy alakzathoz**
-Az Aspose.Slides for PHP via Java lehetővé teszi a fejlesztők számára bármely alakzat AlternateText (alternatív szöveg) beállítását.
-A prezentációban lévő alakzatokat megkülönböztethetjük a `Alternative Text` vagy a [Shape Name](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/setname/) metódus segítségével.
-A [setAlternativeText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/setalternativetext/) és a [getAlternativeText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getalternativetext/) metódusok olvashatók és beállíthatók az Aspose.Slides, valamint a Microsoft PowerPoint használatával.
-Ezzel a módszerrel címkézhetünk egy alakzatot, és különböző műveleteket hajthatunk végre, például alakzat eltávolítása,
-alakzat elrejtése vagy alakzatok átrendezése egy dián.
-Egy alakzat AlternateText beállításához kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.
-1. Érje el az első diát.
-1. Adjon hozzá egy alakzatot a diához.
-1. Végezzen el némi munkát az újonnan hozzáadott alakzattal.
-1. Járja be az alakzatokat egy alakzat megtalálásához.
-1. Állítsa be az AlternativeText-et.
-1. Mentse a fájlt a lemezre.
-
-```php
-  # Presentation osztály példányosítása, amely a PPTX-et képviseli
-  $pres = new Presentation();
-  try {
-    # Az első dia lekérése
-    $sld = $pres->getSlides()->get_Item(0);
-    # Négyszög típusú autoshape hozzáadása
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
-    $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      $shape = $sld->getShapes()->get_Item($i);
-      if (!java_is_null($shape)) {
-        $shape->setAlternativeText("User Defined");
-      }
-    }
-    # Prezentáció mentése a lemezre
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Elrendezési formátumok elérése egy alakzathoz**
-Az Aspose.Slides for PHP via Java egyszerű API-t biztosít az alakzatok elrendezési formátumainak eléréséhez. Ez a cikk bemutatja, hogyan érheti el az elrendezési formátumokat.
-
-Az alábbi példakód található.
-
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    foreach($pres->getLayoutSlides() as $layoutSlide) {
-      foreach($layoutSlide->getShapes() as $shape) {
-        $fillFormats = $shape->getFillFormat();
-        $lineFormats = $shape->getLineFormat();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Alakzat renderelése SVG-ként**
-Az Aspose.Slides for PHP via Java most már támogatja egy alakzat SVG-ként történő renderelését. A [writeAsSvg](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/writeassvg/) (és annak túlterhelése) metódus hozzá lett adva a [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) osztályhoz. Ez a metódus lehetővé teszi az alakzat tartalmának SVG fájlként történő mentését. Az alábbi kódrészlet megmutatja, hogyan exportálhatjuk egy dia alakzatát SVG fájlba.
-
-```php
-  $pres = new Presentation("TestExportShapeToSvg.pptx");
-  try {
-    $stream = new Java("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-      $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->writeAsSvg($stream);
-    } finally {
-      if (!java_is_null($stream)) {
-        $stream->close();
-      }
-    }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Alakzat igazítása**
-Az Aspose.Slides lehetővé teszi az alakzatok igazítását a dia margóihoz vagy egymáshoz viszonyítva. Ehhez hozzá lett adva a túlterhelt [SlidesUtil::alignShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slideutil/alignshapes/) metódus. A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapesalignmenttype/) felsorolás meghatározza a lehetséges igazítási lehetőségeket.
-
-**Példa 1**
-
-Az alábbi forráskód a 1., 2. és 4. indexű alakzatokat a dia felső szélén igazítja.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $shape1 = $slide->getShapes()->get_Item(1);
-    $shape2 = $slide->getShapes()->get_Item(2);
-    $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-**Példa 2**
-
-Az alábbi példa azt mutatja, hogyan igazítható a teljes alakzatgyűjtemény a gyűjtemény legalsó alakzatához viszonyítva.
-
-```php
-  $pres = new Presentation("example.pptx");
-  try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Tükrözés (Flip) tulajdonságok**
-Az Aspose.Slides [ShapeFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapeframe/) osztálya lehetővé teszi a alakzatok vízszintes és függőleges tükrözésének vezérlését a `flipH` és `flipV` tulajdonságokon keresztül. Mindkét tulajdonság [NullableBool](https://reference.aspose.com/slides/hu/php-java/aspose.slides/nullablebool/) típusú, amely a `True` értékkel tükrözést, a `False` értékkel nincs tükrözést, vagy a `NotDefined` értékkel az alapértelmezett viselkedést jelenti. Ezek az értékek a alakzat [Frame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/#getFrame) tulajdonságán keresztül érhetők el.
-
-A tükrözési beállítások módosításához egy új [ShapeFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapeframe/) példányt hozunk létre az alakzat aktuális pozíciója és mérete, a kívánt `flipH` és `flipV` értékek, valamint a forgási szög megadásával. Ennek a példánynak a shape [Frame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/#getFrame) tulajdonságához való hozzárendelése és a prezentáció mentése alkalmazza a tükrözési transzformációkat és elmenti azokat a kimeneti fájlba.
-
-Tegyük fel, hogy van egy sample.pptx fájlunk, amelynek első diája egyetlen, alapértelmezett tükrözési beállításokkal rendelkező alakzatot tartalmaz, ahogy az alább látható.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Az alábbi kódrészlet lekéri az alakzat aktuális flip tulajdonságait, és vízszintesen illetve függőlegesen is tükrözi azt.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $targetShape = null;
 
-    // Az alakzat vízszintes tükrözés tulajdonságának lekérdezése.
-    $horizontalFlip = $shape->getFrame()->getFlipH();
-    echo "Horizontal flip: ", $horizontalFlip, "\n";
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "RevenueChart") {
+            $targetShape = $shape;
+            break;
+        }
+    }
 
-    // Az alakzat függőleges tükrözés tulajdonságának lekérdezése.
-    $verticalFlip = $shape->getFrame()->getFlipV();
-    echo "Vertical flip: ", $verticalFlip, "\n";
-
-    $x = $shape->getFrame()->getX();
-    $y = $shape->getFrame()->getY();
-    $width = $shape->getFrame()->getWidth();
-    $height = $shape->getFrame()->getHeight();
-    $flipH = NullableBool::True; // Vízszintesen tükröz.
-    $flipV = NullableBool::True; // Vízszintesen tükröz.
-    $rotation = $shape->getFrame()->getRotation();
-
-    $shape->setFrame(new ShapeFrame($x, $y, $width, $height, $flipH, $flipV, $rotation));
-
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    if ($targetShape === null) {
+        echo "The shape 'RevenueChart' was not found on slide 1." . PHP_EOL;
+    } else {
+        $shapeName = java_values($targetShape->getName());
+        $interopId = java_values($targetShape->getOfficeInteropShapeId());
+        echo "Found " . $shapeName . "; interop ID: " . $interopId . PHP_EOL;
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Az eredmény:
+Amikor egy művelet alakzat‑típusra specifikus, ellenőrizze a futási osztályt, mielőtt típus‑specifikus tagokat használna. Ez a példa csak akkor frissíti a szöveget és az alternatív szöveget, ha a megnevezett objektum egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/).
 
-![The flipped shape](flipped_shape.png)
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $candidate = null;
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "StatusLabel") {
+            $candidate = $shape;
+            break;
+        }
+    }
+
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if ($candidate !== null && java_instanceof($candidate, $autoShapeClass)) {
+        $candidate->getTextFrame()->setText("Approved");
+        $candidate->setAlternativeText("Approval status: approved");
+        $presentation->save("identified-shape.pptx", SaveFormat::Pptx);
+    } else {
+        echo "'StatusLabel' is missing or is not an AutoShape." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Az előre definiált alakzatigazítások azonosítása és módosítása**
+
+Az előre definiált geometriai alakzatok olyan igazítási pontokat fedhetnek fel, amelyek a sarokméretet, nyíl arányokat vagy ívhözszögeket vezérlik. Ezek elérhetők a csak‑olvasható [GeometryShape::getAdjustments](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometryshape/#getAdjustments) gyűjteményen keresztül. Maga a gyűjtemény az alakzattól származik, de minden [AdjustValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/) tartalmaz egy módosítható értéket.
+
+Ne csak a fix gyűjtemény‑indexre támaszkodjon. Iteráljon a igazításokon, és vizsgálja meg a csak‑olvasható [AdjustValue::getType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/#getType) metódust, amelynek a [ShapeAdjustmentType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapeadjustmenttype/) értéke leírja, mit szabályoz az igazítás. A csak‑olvasható [AdjustValue::getName](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/getname/) metódus további azonosító információt ad, és különösen hasznos, ha egy előre definiált több azonos szemantikai típusú igazítást tartalmaz.
+
+Használja a megfelelő érték‑metódust az igazítás jelentésének megfelelően:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | A lekerekített sarkok mérete | [setRawValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | A nyíl farok vastagsága | `setRawValue` |
+| `ArrowheadLength` | A nyílcsúcs hossza | `setRawValue` |
+| `ArrowheadWidth` | A nyílcsúcs szélessége | `setRawValue` |
+| `StartAngle` | A kördiagram vagy ív kezdő szöge | [setAngleValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | A kördiagram vagy ív záró szöge | `setAngleValue` |
+
+A `getType` és a `getName` csak‑olvasható információt ad. A `getRawValue` és a `setRawValue` egy egész számot használ a preset natív geometriai egységeiben, míg a `getAngleValue` és a `setAngleValue` fokban megadott szöget kezel. A szám, sorrend, jelentés és az igazítások érvényes tartománya a [GeometryShape::getShapeType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometryshape/#getShapeType) által meghatározott preset‑től függ. Egy presethez érvényes érték egy másik presetnél érvénytelen vagy más hatást eredményezhet.
+
+Amikor a `getType` `ShapeAdjustmentType::Custom` értéket ad, az API nem ismeri fel a szabványos szemantikai jelentést. Vizsgálja meg a `getName`‑et, a preset típusát és a meglévő értéket, és csak akkor változtassa meg az igazítást, ha a várt jelentés és tartomány ismert. Még a felismert típusok esetén is ellenőrizze, hogy ugyanaz a típus többször előfordul‑e, mielőtt értéket választana. A [Connector](/slides/hu/php-java/connector/) cikk mutatja ezt a helyzetet a csatlakozó görbületi igazításoknál.
+
+Az alábbi teljes példa alap és módosított változatokat hoz létre három preset alakzatról. Iterál minden igazításon, jelenti a nevét és típusát, a `setRawValue`‑val méret‑kapcsolt értékeket változtat, a `setAngleValue`‑val szögeket módosít, és elmenti az eredményt. A bal oszlop az alap geometriai adatokat tartja; a jobb oszlop a módosított lekerekített téglalapot, a négyszögű nyilat és a kördiagramot mutatja.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Adjunk fejléceket az alapértelmezett és a módosított alakzatoszlopokhoz.
+    $defaultColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+    $defaultColumnLabel->getTextFrame()->setText("Default preset geometry");
+    $adjustedColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+    $adjustedColumnLabel->getTextFrame()->setText("Modified adjustment values");
+
+    $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+    $modifiedRoundedRectangle = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+    $modifiedRoundedRectangle->setName("ModifiedRoundedRectangle");
+
+    $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+    $modifiedArrow = $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+    $modifiedArrow->setName("ModifiedQuadArrow");
+
+    $slide->getShapes()->addAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+    $modifiedPie = $slide->getShapes()->addAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+    $modifiedPie->setName("ModifiedPie");
+
+    $shapesToAdjust = [
+        $modifiedRoundedRectangle,
+        $modifiedArrow,
+        $modifiedPie
+    ];
+
+    foreach ($shapesToAdjust as $shape) {
+        $adjustmentCount = java_values($shape->getAdjustments()->size());
+        for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+            $adjustment = $shape->getAdjustments()->get_Item($adjustmentIndex);
+            $shapeName = java_values($shape->getName());
+            $adjustmentName = java_values($adjustment->getName());
+            $adjustmentType = java_values($adjustment->getType());
+            echo $shapeName . " / " . $adjustmentName . ": " . $adjustmentType . PHP_EOL;
+
+            switch ($adjustmentType) {
+                case ShapeAdjustmentType::CornerSize:
+                    $adjustment->setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType::ArrowTailThickness:
+                    $adjustment->setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadLength:
+                    $adjustment->setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadWidth:
+                    $adjustment->setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType::StartAngle:
+                    $adjustment->setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType::EndAngle:
+                    $adjustment->setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType::Custom:
+                    echo "Custom adjustment '" . $adjustmentName . "' was not changed." . PHP_EOL;
+                    break;
+            }
+        }
+    }
+
+    $presentation->save("preset-shape-adjustments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A szemantikai típus ellenőrzése a változtatás előtt egyértelművé teszi a kód szándékát, és megakadályozza, hogy egy adott gyűjtemény‑indexnek különböző jelentése legyen különböző preset alakzatoknál.
+
+## **Az alakzatgyűjtemény módosítása**
+
+A hozzáadás, klónozás, eltávolítás és átrendezés metódusai azonnal a gyűjteményen dolgoznak. Ha egy művelet megváltoztatja az alakzatok számát vagy sorrendjét, ne támaszkodjon a művelet előtt rögzített indexekre.
+
+### **Alakzat klónozása**
+
+[ShapeCollection::addClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addclone/) egy független másolatot hoz létre, és a célgyűjtemény végére fűzi. [ShapeCollection::insertClone](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/insertclone/) szintén másolatot készít, de egy megadott z‑rendi indexnél helyezi el. A koordinátákat elfogadó túlterhelések a klónt áthelyezik méretváltoztatás nélkül; a szélességet és magasságot megadók átméretezhetik is.
+
+A példa egy cél‑diát hoz létre, egy címkézett téglalapot klónoz elölre, és egy második klónt szúr be hátulra. Bármely klón módosítása nem érinti a forrás‑alakzatot.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation();
+try {
+    $sourceSlide = $presentation->getSlides()->get_Item(0);
+    $sourceShape = $sourceSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+    $sourceShape->setName("SourceLabel");
+    $sourceShape->getTextFrame()->setText("Source");
+
+    $blankLayout = $presentation->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $destinationSlide = $presentation->getSlides()->addEmptySlide($blankLayout);
+
+    $frontCloneShape = $destinationSlide->getShapes()->addClone($sourceShape, 80, 80);
+    $frontCloneShape->setName("FrontClone");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    if (java_instanceof($frontCloneShape, $autoShapeClass)) {
+        $frontCloneShape->getTextFrame()->setText("Front clone");
+    } else {
+        echo "The front clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $backCloneShape = $destinationSlide->getShapes()->insertClone(0, $sourceShape, 80, 180);
+    $backCloneShape->setName("BackClone");
+    if (java_instanceof($backCloneShape, $autoShapeClass)) {
+        $backCloneShape->getTextFrame()->setText("Back clone");
+    } else {
+        echo "The back clone is not an AutoShape; its text was not changed." . PHP_EOL;
+    }
+
+    $presentation->save("cloned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A klónozás másolja az alakzat tartalmát és formázását, beleértve a nevét és az alternatív szövegét is. Adjunk új logikai azonosítókat a klónnak, ha ezeknek az értékeknek egyedinek kell lenniük. A komplex alakzatok által használt erőforrásokat a bemutató kezeli, de a klón egy új gyűjtemény‑elem, új alakzat‑identitással.
+
+### **Alakzatok eltávolítása**
+
+[ShapeCollection::remove](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/remove/) egy adott alakzat‑objektumot töröl a gyűjteményéből. Több egyező elem eltávolításakor, indexelt iteráció közben, haladjon a vég felől, hogy minden maradt index érvényes maradjon.
+
+Ez a példa minden megnevezett nevű alakzatot eltávolít. Az aktuális indexen lévő alakzatot olvassa, nem egy rögzített gyűjtemény‑elemet, és nem kényszeríti feleslegesen az alakzat típusát.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $keepShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+    $keepShape->setName("Keep");
+
+    $firstTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+    $firstTemporaryShape->setName("Temporary");
+
+    $secondTemporaryShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+    $secondTemporaryShape->setName("Temporary");
+
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = $shapeCount - 1; $shapeIndex >= 0; $shapeIndex--) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "Temporary") {
+            $slide->getShapes()->remove($shape);
+        }
+    }
+
+    $presentation->save("removed-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Eltávolítás után az alakzatszám és a későbbi alakzatok indexei megváltoznak. A nem érintett alakzatokra mutató hivatkozások megbízhatóbbak, mint a mentett indexek. Figyelembe kell venni a csatlakozókat, animációkat és egyéb bemutató‑elemeket, amelyek a eltávolított objektumra hivatkozhatnak; egy látható alakzat eltávolítása több mint csak a dia kinézetét változtathatja meg.
+
+### **Alakzat elrejtése**
+
+A [Shape::setHidden](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/sethidden/) `true`‑ra állítása megtartja az alakzatot a gyűjteményben, de megakadályozza, hogy a normál diavetítésben megjelenjen. Indexe, formázása és tartalma továbbra is elérhető a kódban, így a rejtés alkalmas opcionális elemekre, amelyeket később vissza lehet állítani.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $visibleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+    $visibleShape->setName("VisibleLabel");
+
+    $optionalShape = $slide->getShapes()->addAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+    $optionalShape->setName("OptionalDecoration");
+
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $shapeName = java_values($shape->getName());
+        if ($shapeName === "OptionalDecoration") {
+            $shape->setHidden(true);
+        }
+    }
+
+    $presentation->save("hidden-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A rejtés nem törlés vagy biztonság. Az objektum továbbra is felfedezhető és feloldható felhasználó vagy kód által, és része marad a bemutató fájlnak.
+
+### **Z‑rend módosítása**
+
+Átfedő alakzatok a gyűjtemény sorrendjében kerülnek festésre. [ShapeCollection::reorder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/reorder/) egy már meglévő alakzatot egy cél‑indexre helyez anélkül, hogy klónozná. A `0` index a hátul, a `size() - 1` az elöl.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $blueRectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+    $blueRectangle->setName("BlueRectangle");
+    $blueRectangle->getFillFormat()->setFillType(FillType::Solid);
+    $blueRectangle->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 255));
+
+    $orangeEllipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+    $orangeEllipse->setName("OrangeEllipse");
+    $orangeEllipse->getFillFormat()->setFillType(FillType::Solid);
+    $orangeEllipse->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
+    $frontIndex = java_values($slide->getShapes()->size()) - 1;
+    $slide->getShapes()->reorder($frontIndex, $blueRectangle);
+    $presentation->save("reordered-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A téglalap először jön létre, és kezdetben az ellipsz mögött van. A végső indexre mozgatása előre helyezi. Z‑rendet a kapcsolódó alakzatok hozzáadása vagy klónozása után véglegesítse, mivel ezek a műveletek új gyűjtemény‑elemeket illesztenek be és módosíthatják a kívánt rétegsorrendet.
+
+## **Az elrendezési diákon lévő alakzatok vizsgálata**
+
+A normál diák, elrendezési diák és mester‑diák külön alakzatgyűjteménnyel rendelkeznek. Egy elrendezési gyűjteményben lévő alakzat nem ugyanaz az objektum, mint egy hasonlóan elhelyezett alakzat egy normál dián. Vizsgálja meg az elrendezési alakzatokat, ha a formázást kell megértenie vagy módosítania, amelyet egy elrendezés biztosít.
+
+Az alábbi példa minden elrendezési alakzat [FillFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getfillformat/) és [LineFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getlineformat/) tulajdonságát olvassa, anélkül, hogy azt feltételezné, hogy minden alakzat egy `AutoShape`.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlides = $presentation->getLayoutSlides();
+    $layoutSlideCount = java_values($layoutSlides->size());
+    for ($layoutIndex = 0; $layoutIndex < $layoutSlideCount; $layoutIndex++) {
+        $layoutSlide = $layoutSlides->get_Item($layoutIndex);
+        $layoutShapes = $layoutSlide->getShapes();
+        $layoutShapeCount = java_values($layoutShapes->size());
+        for ($shapeIndex = 0; $shapeIndex < $layoutShapeCount; $shapeIndex++) {
+            $shape = $layoutShapes->get_Item($shapeIndex);
+            $fillType = java_values($shape->getFillFormat()->getFillType());
+            $lineWidth = java_values($shape->getLineFormat()->getWidth());
+            $layoutName = java_values($layoutSlide->getName());
+            $shapeName = java_values($shape->getName());
+            echo $layoutName . " / " . $shapeName . ": fill=" . $fillType . ", line width=" . $lineWidth . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Egy elrendezés szerkesztése több, azt használó diára hatással lehet. Mielőtt elrendezési alakzatot módosítana, határozza meg, hogy egy normál dia örökli‑e az objektumot vagy helyi felülírást tartalmaz‑e, és tesztelje az összes diát, amely ezt az elrendezést használja.
+
+## **Alakzat exportálása SVG‑be**
+
+[Shape::writeAsSvg](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/writeassvg/) egy alakzat renderelt tartalmát írja egy stream‑be. Az eredmény csak az alakzatot tartalmazza, nem a teljes dia háttér vagy a szomszédos alakzatok.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    if ($shapeCount === 0) {
+        echo "Slide 1 does not contain a shape to export." . PHP_EOL;
+    } else {
+        $shape = $slide->getShapes()->get_Item(0);
+        $svgStream = null;
+        try {
+            $svgStream = new Java("java.io.FileOutputStream", "shape.svg");
+            $shape->writeAsSvg($svgStream);
+        } catch (JavaException $exception) {
+            echo "The SVG file could not be written: " . $exception->getMessage() . PHP_EOL;
+        } finally {
+            if ($svgStream !== null && !java_is_null($svgStream)) {
+                $svgStream->close();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Tartsa nyitva a bemutatót a renderelés közben. A kimenet az alakzat formázásától, valamint a betűtípusok és képek stb. erőforrásoktól függ. Ha az egész kompozícióra van szükség, exportálja a diát, ne csak egyetlen alakzatot. A hívó birtokolja a stream‑et, és köteles azt lezárni.
+
+## **Alakzatok igazítása**
+
+A [SlideUtil::alignShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slideutil/alignshapes/) túlterhelései vagy az összes alakzatot, vagy a kiválasztott gyűjtemény‑indexeket igazítják. A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapesalignmenttype/) meghatározza a szélt, középső vonalat vagy elosztási módot. Az `alignToSlide` értéke `true` esetén a dia széleihez igazít, `false` esetén a kiválasztott alakzatok egymáshoz viszonyított igazítására használja.
+
+Ez a példa három alakzatot a dia felső széléhez igazít. A visszatérő alakzat‑referenciákat az igazítás előtt az aktuális indexeikre konvertálja.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\ShapesAlignmentType;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+    $thirdShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+    $firstShape->setName("FirstAlignedShape");
+    $secondShape->setName("SecondAlignedShape");
+    $thirdShape->setName("ThirdAlignedShape");
+
+    $shapeIndexes = [
+        java_values($slide->getShapes()->indexOf($firstShape)),
+        java_values($slide->getShapes()->indexOf($secondShape)),
+        java_values($slide->getShapes()->indexOf($thirdShape))
+    ];
+
+    SlideUtil::alignShapes(ShapesAlignmentType::AlignTop, true, $slide, $shapeIndexes);
+    $presentation->save("aligned-shapes.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Az igazítás a pozíciót, nem a z‑rendet változtatja. Relatív igazításhoz általában legalább két alakzat szükséges, míg a vízszintes vagy függőleges elosztáshoz elegendő alakzat kell, hogy meghatározza a távolságot. Ha a metódus hívása előtt módosítja a gyűjteményt, számolja újra az indexeket.
+
+## **Alakzat tükrözése**
+
+A [ShapeFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapeframe/) osztály tárolja a pozíciót, méretet, vízszintes és függőleges tükrözési beállításokat, valamint a forgatást. A `getFlipH` és `getFlipV` értékek a [NullableBool](https://reference.aspose.com/slides/hu/php-java/aspose.slides/nullablebool/) típusúak: `True` engedélyezi a tükrözést, `False` letiltja, a `NotDefined` pedig megőrzi a nem meghatározott/alapértelmezett állapotot.
+
+Az alábbi bemutató bemenet egy nem tükrözött alakzatot tartalmaz.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+A példa minden egyéb keretértéket változatlanul hagy, és csak a két tükrözési beállítást cseréli le. Ez fontos, mert egy új [Frame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/setframe/) hozzárendelése a teljes keretet felülírja.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $frame = $shape->getFrame();
+
+    $horizontalFlip = java_values($frame->getFlipH());
+    $verticalFlip = java_values($frame->getFlipV());
+    echo "Horizontal flip before change: " . $horizontalFlip . PHP_EOL;
+    echo "Vertical flip before change: " . $verticalFlip . PHP_EOL;
+
+    $shape->setFrame(new ShapeFrame($frame->getX(), $frame->getY(), $frame->getWidth(), $frame->getHeight(), NullableBool::True, NullableBool::True, $frame->getRotation()));
+
+    $presentation->save("flipped-shape.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A mentett alakzat vízszintesen és függőlegesen tükröződik, miközben megtartja a pozícióját, méretét és forgását.
+
+![The shape after flipping](flipped_shape.png)
 
 ## **GYIK**
 
-**Kombinálhatok-e alakzatokat (unió/kereszteződés/kivonás) egy dián, mint egy asztali szerkesztőben?**
+**Használjak gyűjtemény‑indexet alakzat‑azonosítóként?**
 
-Nincs beépített Boolean művelet API. A kívánt körvonalat saját maga építheti meg – például a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometrypath/) segítségével kiszámíthatja az eredményes geometriát, és létrehozhat egy új alakzatot ezzel a körvonallal, opcionálisan eltávolítva az eredetieket.
+Csak rövid élettartamú feldolgozásnál, amikor a gyűjtemény nem változik az index használata előtt. A szerkesztett sablonoknál részesítse előnyben a `Name` vagy `AlternativeText` konvenciót, a diára vonatkozó interop munkához pedig az `OfficeInteropShapeId`‑t.
 
-**Hogyan szabályozhatom a rétegsorrendet (z-sorrendet), hogy egy alakzat mindig „felül” maradjon?**
+**Eltávolítja-e a rejtett alakzat a z‑rendet?**
 
-Módosítsa a beszúrási/áthelyezési sorrendet a dia [shapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/#getShapes) gyűjteményében. A kiszámítható eredmény érdekében a z-sorrendet a többi dia módosítása után állítsa be véglegesnek.
+Nem. A rejtett alakzat a gyűjteményben marad ugyanazzal az indexszel. Megtalálható, átrendezhető, szerkeszthető vagy újra láthatóvá tehető.
 
-**„Zárolhat”‑e egy alakzatot, hogy a felhasználók ne szerkesszék PowerPointban?**
+**Miért jelent meg egy klónozott alakzat egy másik alakzat előtt?**
 
-Igen. Állítson be alakzatszintű védelmi jelzőket (például kiválasztás, mozgatás, átméretezés, szövegszerkesztés zárolása). Szükség esetén korlátozza a mestert vagy az elrendezést. Vegye figyelembe, hogy ez UI‑szintű védelem, nem biztonsági funkció; erősebb védelemhez kombinálja fájlszintű korlátozásokkal, például [csak‑olvasásra vonatkozó javaslatok vagy jelszavak](/slides/hu/php-java/password-protected-presentation/).
+Az `addClone` a klónt a gyűjtemény végére fűzi, ami a z‑rend eleje. Használja az `insertClone`‑t a kezdeti index megadásához, vagy a `reorder`‑t minden alakzat hozzáadása után.
+
+**Használhatok fix indexet egy preset alakzatigazítás azonosításához?**
+
+Csak akkor, ha a pontos presetet és a gyűjtemény‑elrendezést előzetesen ellenőrizte. Inkább iteráljon a `GeometryShape::getAdjustments`‑en, és ellenőrizze az `AdjustValue::getType`‑ot; ha ugyanaz a szemantikai típus többször jelenik meg, használja az `AdjustValue::getName`‑t további információként.

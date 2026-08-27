@@ -1,5 +1,5 @@
 ---
-title: Spravování konektorů v prezentacích na Androidu
+title: Správa konektorů v prezentacích na Androidu
 linktitle: Konektor
 type: docs
 weight: 10
@@ -10,396 +10,496 @@ keywords:
 - bod konektoru
 - čára konektoru
 - úhel konektoru
-- propojit tvary
+- místo připojení
+- bod úpravy
+- spojit tvary
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Umožněte aplikacím v Javě kreslit, propojovat a automaticky směrovat čáry v PowerPoint slidech na Androidu — získejte plnou kontrolu nad přímými, loketními a zakřivenými konektory."
+description: "Zjistěte, jak pomocí Aspose.Slides pro Android a Java přidávat, připojovat, přesměrovávat, upravovat a kontrolovat přímé, ohnuté a zakřivené konektory PowerPointu."
 ---
-## **Úvod**
+## **Přehled**
 
-Konektor PowerPoint je speciální čára, která spojuje dva tvary a zůstává k tvarům připojená i při jejich přesunu nebo přemístění na konkrétním snímku.  
+Konektor je čára, která může zůstat připojena ke dvěma objekty, i když se kterýkoli z objektů pohybuje. Jeho konce se připojují k místům připojení, která jsou v PowerPointu zobrazena zelenými tečkami. Některé ohnuté a zakřivené konektory také nabízejí úpravové body, zobrazované oranžovými tečkami, které řídí polohu jednotlivých segmentů konektoru.
 
-Konektory jsou obvykle připojeny k *bodům připojení* (zelené tečky), které jsou ve výchozím nastavení na všech tvarech. Body připojení se zobrazí, když se k nim kurzor přiblíží.  
-
-*Úpravné body* (oranžové tečky), které existují jen u některých konektorů, slouží k úpravě polohy a tvaru konektorů.  
+Aspose.Slides představuje konektory prostřednictvím rozhraní [IConnector](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iconnector/) . Můžete je vytvářet, připojovat jejich konce k objektům, vybírat místa připojení, přeplánovat je a upravovat geometrii konektorů, které mají úpravové body.
 
 ## **Typy konektorů**
 
-V PowerPointu můžete použít přímé, loketní (úhlové) a zakřivené konektory.  
+Třída [ShapeType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapetype/) obsahuje předvolby přímých, ohnutých a zakřivených konektorů. Následující tabulka zobrazuje dostupné geometrie konektorů a počet úpravových bodů definovaných každou předvolbou.
 
-Aspose.Slides poskytuje následující konektory:
+| Konektor | Obrázek | Počet úpravových bodů |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Konektor                      | Obrázek                                                        | Počet úpravných bodů |
-| ------------------------------ | ------------------------------------------------------------ | -------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                    |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                    |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                    |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                    |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                    |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                    |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                    |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                    |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                    |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                    |
+Počet a význam úpravových bodů jsou součástí vybrané předvolby konektoru. Nepředpokládejte, že dva různé typy konektorů mají stejnou strukturu kolekce.
 
-## **Propojte tvary pomocí konektorů**
+## **Připojení dvou objektů**
 
-1. Vytvořte instanci třídy [Presentation](https://apireference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Získejte referenci na snímek pomocí jeho indexu.
-1. Přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/AutoShape) pomocí metody `addAutoShape`, kterou poskytuje objekt `Shapes`.
-1. Přidejte konektor pomocí metody `addConnector`, kterou poskytuje objekt `Shapes`, a tím definujte typ konektoru.
-1. Propojte tvary pomocí konektoru. 
-1. Zavolejte metodu `reroute` pro použití nejkratší cesty připojení.
-1. Uložte prezentaci. 
+Pro přidání konektoru použijte [IShapeCollection.addConnector](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-), a pro připojení jeho konců použijte [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) a [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-). Po připojení obou konců se pomocí [IConnector.reroute](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iconnector/#reroute--) vybere krátká trasa mezi objekty.
 
-Tento Java kód ukazuje, jak přidat konektor (zakřivený konektor) mezi dva tvary (elipsu a obdélník):
+Následující příklad spojuje elipsu a obdélník pomocí ohnutého konektoru:
 
-```Java
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Přistupuje ke kolekci tvarů pro konkrétní snímek
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // Přidá autoshape elipsu
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // Přidá autoshape obdélník
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // Přidá tvar konektoru do kolekce tvarů snímku
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // Propojí tvary pomocí konektoru
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    
-    // Zavolá reroute, který nastaví automatickou nejkratší cestu mezi tvary
     connector.reroute();
-    
-    // Uloží prezentaci
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Metoda `Connector.reroute` přesměruje konektor a donutí jej zvolit nejkratší možnou cestu mezi tvary. Pro dosažení tohoto cíle může metoda změnit body `setStartShapeConnectionSiteIndex` a `setEndShapeConnectionSiteIndex`. 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
+Volání `reroute` může změnit hodnoty [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) a [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-). Přiřaďte specifická místa připojení po přepočtu, pokud musí tato místa zůstat pevná.
+{{% /alert %}}
 
-## **Určení bodu připojení**
+## **Výběr místa připojení**
 
-Pokud chcete, aby konektor spojil dva tvary pomocí konkrétních bodů na tvarech, musíte zadat preferované body připojení tímto způsobem:
+Každý připojitelný objekt udává svůj počet míst přes [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--). Ověřte preferovaný nulový index místa před jeho přiřazením ke konektoru; počet míst se liší podle geometrie objektu.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Získejte referenci na snímek pomocí jeho indexu.
-1. Přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/AutoShape) pomocí metody `addAutoShape`, kterou poskytuje objekt `Shapes`.
-1. Přidejte konektor pomocí metody `addConnector`, kterou poskytuje objekt `Shapes`, a tím definujte typ konektoru.
-1. Propojte tvary pomocí konektoru. 
-1. Nastavte své preferované body připojení na tvarech. 
-1. Uložte prezentaci.
-
-Tento Java kód demonstruje operaci, kde je specifikován preferovaný bod připojení:
+Tento příklad připojuje konektor k určitému místu na elipse, pokud toto místo existuje:
 
 ```java
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Přistupuje ke kolekci tvarů pro konkrétní snímek
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Přidá autoshape elipsu
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // Přidá autoshape obdélník
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // Přidá tvar konektoru do kolekce tvarů snímku
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Propojí tvary pomocí konektoru
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // Nastaví preferovaný index bodu připojení na tvaru elipsy
-    int wantedIndex = 6;
-
-    // Zkontroluje, zda je preferovaný index menší než maximální počet míst připojení
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // Nastaví preferovaný bod připojení na autoshape elipsy
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
     }
 
-    // Uloží prezentaci
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Úprava bodu konektoru**
 
-Můžete upravit existující konektor pomocí jeho úpravných bodů. Pouze konektory s úpravným body lze tímto způsobem měnit. Viz tabulka pod **[Typy konektorů.](/slides/cs/androidjava/connector/#types-of-connectors)**
+Konektory s úpravovými body je zpřístupňuje [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--). Prohlédněte každý [IAdjustValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/) a před změnou zkontrolujte jeho hodnotu [getType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getType--) pomocí [setRawValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-). Obecná pravidla pro identifikaci úprav předdefinovaných tvarů jsou popsána v [Shape Manipulation](/slides/cs/androidjava/shape-manipulations/).
 
-### **Jednoduchý případ**
+Počet, pořadí, význam a platný rozsah hodnot úprav konektoru závisí na předvolbě konektoru. Typ úpravy je pouze pro čtení, zatímco hodnota úpravy je zapisovatelná. Metoda pouze pro čtení [getName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getName--) poskytuje další identifikaci, když konektor obsahuje více úprav stejného sémantického typu.
 
-Zvažte případ, kdy konektor mezi dvěma tvary (A a B) prochází třetím tvarem (C):
+### **Obejít překážku**
+
+V následujícím uspořádání prochází konektor `BentConnector5` mezi dvěma objekty třetím objektem:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Tento kód vytvoří překážkou blokovaný konektor:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Abychom třetí tvar obešli nebo obcházeli, můžeme konektor upravit tak, že posuneme jeho vertikální čáru doleva:
+Posunutím svislého ohybu se změní trasa tak, že konektor obehne překážku:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+Místo předpokladu, že index kolekce `1` vždy představuje svislý ohyb, tento příklad hledá `ConnectorBendPositionY` a mění jej pouze tehdy, když je přítomen očekávaný sémantický typ:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Složitější případy** 
+`BentConnector5` má dvě úpravy `ConnectorBendPositionX` a jednu úpravu `ConnectorBendPositionY`. Pokud potřebný typ výskytuje vícekrát, prozkoumejte `getName` a známou geometrii předvolby, než vyberete konkrétní výskyt. Pokud úprava vrací `ShapeAdjustmentType.Custom`, považujte její význam a rozsah za specifické pro předvolbu a neměňte ji, dokud nebudete znát příslušnou smlouvu.
 
-Pro provedení složitějších úprav musíte brát v úvahu následující:
+## **Vztah hodnot úprav k geometrii konektoru**
 
-* Nastavitelný bod konektoru je úzce spojen s formulí, která vypočítává a určuje jeho polohu. Změna umístění bodu může změnit tvar konektoru.
-* Úpravné body konektoru jsou v poli definovány v přísném pořadí. Úpravné body jsou číslovány od počátečního bodu konektoru po koncový.
-* Hodnoty úpravných bodů vyjadřují procenta šířky/výšky tvaru konektoru. 
-  * Tvar je omezený startovním a koncovým bodem konektoru vynásobeným 1000. 
-  * První bod, druhý bod a třetí bod definují procento ze šířky, procento z výšky a opět procento ze šířky.
-* Pro výpočty, které určují souřadnice úpravných bodů konektoru, musíte vzít v úvahu rotaci konektoru a jeho odražení. **Poznámka**, že úhel rotace všech konektorů uvedených pod **[Typy konektorů](/slides/cs/androidjava/connector/#types-of-connectors)** je 0.
+U ohnutých konektorů lze hodnoty úprav použít k odhadu polohy jednotlivých segmentů. Výpočty jsou specifické pro konkrétní předvolbu konektoru:
 
-#### **Případ 1**
+- `BentConnector4` běžně zpřístupňuje jednu úpravu `ConnectorBendPositionX` a jednu úpravu `ConnectorBendPositionY`.
+- Pro tyto pozice ohybu vydělením hodnoty vrácené metodou `getRawValue` číslem `100000f` získáte zlomek šířky nebo výšky rámce konektoru, který se používá v následujících příkladech.
+- Rámec konektoru může být otočen nebo převrácen, takže souřadnice rámce je třeba transformovat před jejich porovnáním se souřadnicemi snímku.
 
-Zvažte případ, kdy jsou dva objekty textového rámce propojeny konektorem:
+Následující příklady nejprve používají `getType` k identifikaci úprav. Nepoužívají indexy kolekce jako přenosné identifikátory.
+
+### **Nepootočený konektor**
+
+Počáteční uspořádání obsahuje dva textové objekty spojené `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Tento příklad prozkoumá konektor a získá jeho horizontální a vertikální úpravy ohybu:
+
 ```java
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Získá první snímek v prezentaci
-    ISlide sld = pres.getSlides().get_Item(0);
-    // Přidá tvary, které budou propojeny pomocí konektoru
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Přidá konektor
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Určuje směr konektoru
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Určuje barvu konektoru
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Určuje tloušťku čáry konektoru
     connector.getLineFormat().setWidth(3);
-    
-    // Propojí tvary pomocí konektoru
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // Získá úpravné body konektoru
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**Úprava**
-
-Můžeme změnit hodnoty úpravných bodů konektoru zvýšením odpovídajících procent ze šířky a výšky o 20 % a 200 % respektive:
+Pro změnu obou ohybů najděte každý očekávaný typ a upravte hodnoty až po nalezení obou:
 
 ```java
-// Změní hodnoty úpravných bodů
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Výsledek:
+Výsledkem je konektor, jehož horizontální a vertikální segmenty se posunuly:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Abychom definovali model, který nám umožní určit souřadnice a tvar jednotlivých částí konektoru, vytvořme tvar, který odpovídá horizontální složce konektoru v bodě connector.getAdjustments().get_Item(0):
+Jakmile jsou sémantické typy známy, lze jejich hodnoty převést na souřadnice rámce konektoru. Tento příklad nakreslí tenký obdélník přes vertikální segment řízený oběma úpravami ohybu:
 
 ```java
-// Vykreslí svislou komponentu konektoru
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Výsledek:
+Vodící tvar označuje vypočítaný segment:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Případ 2**
+### **Otočený nebo převrácený konektor**
 
-V **případě 1** jsme demonstrovali jednoduchou operaci úpravy konektoru pomocí základních principů. V běžných situacích musíte vzít v úvahu rotaci konektoru a jeho zobrazení (které jsou nastaveny pomocí connector.getRotation(), connector.getFrame().getFlipH() a connector.getFrame().getFlipV()). Nyní ukážeme celý postup.
+Když je stejná geometrii konektoru orientována svisle, hodnoty [IShape.getFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getFrame--), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeframe/#getFlipH--) a [ShapeFrame.getFlipV](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shapeframe/#getFlipV--) ovlivňují převod ze souřadnic rámce konektoru na souřadnice snímku.
 
-Nejprve přidejme nový objekt textového rámce (**To 1**) na snímek (pro účely připojení) a vytvořme nový (zelený) konektor, který ho spojí s již vytvořenými objekty.
+Tento příklad vytvoří a upraví svisle orientovaný konektor:
 
 ```java
-// Vytvoří nový objekt vazby
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Vytvoří nový konektor
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// Propojí objekty pomocí nově vytvořeného konektoru
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Získá úpravné body konektoru
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Změní hodnoty úpravných bodů
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    int connectorColor = Color.rgb(102, 205, 170);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Výsledek:
+Upravený konektor se zobrazí svisle mezi objekty:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Druhá část: vytvořme tvar, který bude odpovídat horizontální složce konektoru procházející úpravným bodem nového konektoru connector.getAdjustments().get_Item(0). Použijeme hodnoty z dat konektoru pro connector.getRotation(), connector.getFrame().getFlipH() a connector.getFrame().getFlipV() a aplikujeme běžný převodový vzorec pro rotaci kolem daného bodu x0:
+Pro libovolný úhel otáčení `alpha` otáčejte bod rámce konektoru `(x, y)` kolem středu rámce `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-V našem případě je úhel rotace objektu 90 stupňů a konektor je zobrazen vertikálně, takže zde je odpovídající kód:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+Následující kód zpracuje orientaci o 90 stupňů použitou v tomto příkladu a nakreslí červenou vodítko přes odpovídající segment konektoru:
 
 ```java
-// Uloží souřadnice konektoru
-x = connector.getX();
-y = connector.getY();
-// Opraví souřadnice konektoru v případě, že se objeví
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// Přijme hodnotu úpravného bodu jako souřadnici
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Převádí souřadnice, protože Sin(90) = 1 a Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// Určuje šířku horizontální komponenty pomocí hodnoty druhého úpravného bodu
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-Výsledek:
+Červená vodítko označuje vypočítaný segment po transformaci souřadnic:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Ukázali jsme výpočty zahrnující jednoduché úpravy i složité úpravy (úpravy s úhly rotace). S využitím získaných znalostí můžete vytvořit vlastní model (nebo napsat kód) pro získání objektu `GraphicsPath` nebo dokonce nastavit hodnoty úpravných bodů konektoru na základě konkrétních souřadnic snímku.
+Tyto vzorce popisují předvolby použité v příkladech, ne univerzální model konektoru. Před použitím stejného výpočtu pro jinou předvolbu ověřte typy úprav, orientaci rámce a rozsahy hodnot.
 
-## **Zjištění úhlu čar konektoru**
+## **Najděte úhel směru konektoru**
 
-1. Vytvořte instanci třídy.
-1. Získejte referenci na snímek pomocí jeho indexu.
-1. Získejte přístup k tvaru čáry konektoru.
-1. Použijte šířku a výšku čáry, výšku a šířku rámce tvaru k výpočtu úhlu.
-
-Tento Java kód demonstruje operaci, při které jsme vypočítali úhel pro tvar čáry konektoru:
+Směr přímého konektoru lze vypočítat z jeho šířky a výšky s ohledem na horizontální a vertikální převrácení. Následující příklad uvádí úhel ve směru hodinových ručiček od kladné vodorovné osy ve souřadnicích snímku:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
 
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Jak zjistit, zda lze konektor „přilepit“ k určitému tvaru?**
+**Jak zjistím, zda se konektor může připojit k objektu?**
 
-Zkontrolujte, že tvar poskytuje [connection sites](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#getConnectionSiteCount--). Pokud žádné nejsou nebo je jejich počet nula, přilepení není k dispozici; v tom případě použijte volné koncové body a umístěte je ručně. Je rozumné před připojením zkontrolovat počet míst.
+Zkontrolujte hodnotu [getConnectionSiteCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--) u objektu. Kladný počet znamená, že objekt nabízí místa připojení. Ověřte vybraný index místa před jeho přiřazením ke konci konektoru.
 
-**Co se stane s konektorem, pokud smažu jeden z propojených tvarů?**
+**Mohu identifikovat úpravu konektoru podle jejího indexu v kolekci?**
 
-Jeho konce se odpojí; konektor zůstane na snímku jako běžná čára s volnými začátkem/koncem. Můžete jej buď smazat, nebo znovu přiřadit spojení a případně [reroute](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/connector/#reroute--).
+Index má smysl pouze pro známou předvolbu konektoru a uspořádání kolekce. Před úpravou hodnoty zkontrolujte [IAdjustValue.getType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getType--), a použijte [IAdjustValue.getName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iadjustvalue/#getName--) jako doplňující informaci, když se stejný sémantický typ vyskytuje vícekrát.
 
-**Zůstávají vazby konektoru zachovány při kopírování snímku do jiné prezentace?**
+**Co se stane, když je připojený objekt smazán?**
 
-Obecně ano, pokud jsou také zkopírovány cílové tvary. Pokud je snímek vložen do jiného souboru bez propojených tvarů, konce se stanou volnými a budete je muset znovu připojit.
+Příslušný konec konektoru se odpojí. Konektor zůstane na snímku a může být smazán, umístěn jako volná čára nebo připojen k jinému objektu.
+
+**Zůstávají vazby konektoru zachovány při kopírování snímku?**
+
+Vazby jsou obecně zachovány, pokud jsou připojené objekty kopírovány spolu se snímkem. Pokud je konektor zkopírován bez jednoho ze svých cílových objektů, musíte dotýkaný konec připojit znovu.

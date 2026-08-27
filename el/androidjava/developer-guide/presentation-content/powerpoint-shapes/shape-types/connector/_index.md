@@ -10,397 +10,496 @@ keywords:
 - σημείο συνδέσμου
 - γραμμή συνδέσμου
 - γωνία συνδέσμου
+- σημείο σύνδεσης
+- σημείο ρύθμισης
 - σύνδεση σχημάτων
 - PowerPoint
 - παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Ενδυναμώστε τις εφαρμογές Java να σχεδιάζουν, να συνδέουν και να αυτοκατευθύνουν γραμμές σε διαφάνειες PowerPoint στο Android - αποκτήστε πλήρη έλεγχο πάνω σε ευθείες, αγκάλια και καμπυλωτούς συνδέσμους."
+description: "Μάθετε πώς να προσθέτετε, συνδέετε, επαναδρομολογείτε, ρυθμίζετε και επιθεωρείτε απλούς, λυγόμενους και καμπυλωτούς συνδέσμους PowerPoint με το Aspose.Slides για Android μέσω Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Ένας σύνδεσμος PowerPoint είναι μια ειδική γραμμή που συνδέει ή συνάπτει δύο σχήματα μαζί και παραμένει προσαρτημένος στα σχήματα ακόμη και όταν μετακινούνται ή αλλάζουν θέση σε μια δεδομένη διαφάνεια. 
+Ένας σύνδεσμος είναι μια γραμμή που μπορεί να παραμένει συνδεδεμένη σε δύο σχήματα όταν μετακινείται οποιοδήποτε από αυτά. Τα άκρα του συνδέονται σε σημεία σύνδεσης, που απεικονίζονται με πράσινα κουκκίδες στο PowerPoint. Ορισμένοι λυγόμενοι και καμπυλωτοί σύνδεσμοι εκθέτουν επίσης σημεία ρύθμισης, που απεικονίζονται με πορτοκαλί κουκκίδες, και ελέγχουν τη θέση των μεμονωμένων τμημάτων του συνδέσμου.
 
-Οι σύνδεσμοι συνήθως συνδέονται σε *σημεία σύνδεσης* (πράσινα σημεία), τα οποία υπάρχουν εξ ορισμού σε όλα τα σχήματα. Τα σημεία σύνδεσης εμφανίζονται όταν ο δείκτης πλησιάζει σε αυτά.
-
-*Σημεία προσαρμογής* (πορτοκαλί σημεία), που υπάρχουν μόνο σε ορισμένους συνδέσμους, χρησιμοποιούνται για την τροποποίηση της θέσης και του σχήματος των συνδέσμων.
+Aspose.Slides αντιπροσωπεύει τους συνδέσμους μέσω της διεπαφής [IConnector](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iconnector/) . Μπορείτε να τους δημιουργήσετε, να συνδέσετε τα άκρα τους σε σχήματα, να επιλέξετε σημεία σύνδεσης, να τα επαναδρομολογήσετε και να τροποποιήσετε τη γεωμετρία των συνδέσμων που έχουν σημεία ρύθμισης.
 
 ## **Τύποι Συνδέσμων**
 
-Στο PowerPoint, μπορείτε να χρησιμοποιήσετε ευθείες, αγκάλια (γωνιακές) και καμπυλωτές συνδέσεις. 
+Η κλάση [ShapeType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/shapetype/) περιλαμβάνει προρυθμισμένα απλά, λυγόμενα και καμπυλωτά σύνδεσμο. Ο παρακάτω πίνακας δείχνει τις διαθέσιμες γεωμετρίες συνδέσμων και τον αριθμό των σημείων ρύθμισης που ορίζονται από κάθε προρύθμιση.
 
-Η Aspose.Slides παρέχει αυτούς τους συνδέσμους:
+| Σύνδεσμος | Εικόνα | Αριθμός σημείων ρύθμισης |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Σύνδεσμος | Εικόνα | Αριθμός σημείων προσαρμογής |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+Ο αριθμός και το νόημα των σημείων ρύθμισης αποτελούν μέρος της επιλεγμένης προρύθμισης σύνδεσμου. Μην υποθέτετε ότι δύο διαφορετικοί τύποι συνδέσμου εκθέτουν την ίδια διάταξη συλλογής.
 
-## **Σύνδεση Σχημάτων Χρησιμοποιώντας Συνδέσμους**
+## **Σύνδεση Δύο Σχημάτων**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://apireference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Αποκτήστε μια αναφορά στη διαφάνεια μέσω του δείκτη της.
-1. Προσθέστε δύο [AutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/AutoShape) στη διαφάνεια χρησιμοποιώντας τη μέθοδο `addAutoShape` που παρέχεται από το αντικείμενο `Shapes`.
-1. Προσθέστε έναν σύνδεσμο χρησιμοποιώντας τη μέθοδο `addConnector` που παρέχεται από το αντικείμενο `Shapes`, ορίζοντας τον τύπο του συνδέσμου.
-1. Συνδέστε τα σχήματα χρησιμοποιώντας τον σύνδεσμο. 
-1. Καλέστε τη μέθοδο `reroute` για να εφαρμόσετε τη συντομότερη διαδρομή σύνδεσης.
-1. Αποθηκεύστε την παρουσίαση. 
+Χρησιμοποιήστε το [IShapeCollection.addConnector](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) για να προσθέσετε έναν σύνδεσμο και τα [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) και [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) για να συνδέσετε τα άκρα του. Αφού συνδεθούν και τα δύο άκρα, το [IConnector.reroute](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iconnector/#reroute--) επιλέγει μια σύντομη διαδρομή μεταξύ των σχημάτων.
 
-Αυτός ο κώδικας Java σας δείχνει πώς να προσθέσετε έναν σύνδεσμο (καμπυλωτό σύνδεσμο) μεταξύ δύο σχημάτων (ellipse και rectangle):
-
-```Java
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει το αρχείο PPTX
-Presentation pres = new Presentation();
-try {
-    // Πρόσβαση στη συλλογή σχήματος για μια συγκεκριμένη διαφάνεια
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // Προσθέτει ένα αυτοσχήμα Έλλειψη
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // Προσθέτει ένα αυτοσχήμα Ορθογώνιο
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // Προσθέτει ένα σχήμα συνδέσμου στη συλλογή σχημάτων της διαφάνειας
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // Συνδέει τα σχήματα χρησιμοποιώντας τον σύνδεσμο
-    connector.setStartShapeConnectedTo(ellipse);
-    connector.setEndShapeConnectedTo(rectangle);
-    
-    // Καλεί τη μέθοδο reroute που ορίζει την αυτόματη συντομότερη διαδρομή μεταξύ των σχημάτων
-    connector.reroute();
-    
-    // Αποθηκεύει την παρουσίαση
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-Η μέθοδος `Connector.reroute` επαναδρομολογεί έναν σύνδεσμο και τον αναγκάζει να ακολουθεί τη συντομότερη δυνατή διαδρομή μεταξύ των σχημάτων. Για να επιτύχει αυτό, η μέθοδος μπορεί να αλλάξει τα σημεία `setStartShapeConnectionSiteIndex` και `setEndShapeConnectionSiteIndex`. 
-
-{{% /alert %}} 
-
-## **Καθορισμός Σημείου Σύνδεσης**
-
-Αν θέλετε ένας σύνδεσμος να συνδέει δύο σχήματα χρησιμοποιώντας συγκεκριμένα σημεία στα σχήματα, πρέπει να καθορίσετε τα προτιμώμενα σημεία σύνδεσης με τον εξής τρόπο:
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-1. Αποκτήστε μια αναφορά στη διαφάνεια μέσω του δείκτη της.
-1. Προσθέστε δύο [AutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/AutoShape) στη διαφάνεια χρησιμοποιώντας τη μέθοδο `addAutoShape` που παρέχεται από το αντικείμενο `Shapes`.
-1. Προσθέστε έναν σύνδεσμο χρησιμοποιώντας τη μέθοδο `addConnector` που παρέχεται από το αντικείμενο `Shapes`, ορίζοντας τον τύπο του συνδέσμου.
-1. Συνδέστε τα σχήματα χρησιμοποιώντας τον σύνδεσμο. 
-1. Καθορίστε τα προτιμώμενα σημεία σύνδεσης στα σχήματα. 
-1. Αποθηκεύστε την παρουσίαση.
-
-Αυτός ο κώδικας Java δείχνει πώς να καθορίσετε ένα προτιμώμενο σημείο σύνδεσης:
+Το παρακάτω παράδειγμα συνδέει μια έλλειψη και ένα ορθογώνιο με έναν λυγό σύνδεσμο:
 
 ```java
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Πρόσβαση στη συλλογή σχημάτων για μια συγκεκριμένη διαφάνεια
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέτει ένα αυτοσχήμα Έλλειψη
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Προσθέτει ένα αυτοσχήμα Ορθογώνιο
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // Προσθέτει ένα σχήμα συνδέσμου στη συλλογή σχημάτων της διαφάνειας
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Συνδέει τα σχήματα χρησιμοποιώντας τον σύνδεσμο
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
+    connector.reroute();
 
-    // Ορίζει το προτιμώμενο δείκτη σημείου σύνδεσης στο σχήμα Έλλειψη
-    int wantedIndex = 6;
-
-    // Ελέγχει αν ο προτιμώμενος δείκτης είναι μικρότερος από το μέγιστο αριθμό θέσεων
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // Ορίζει το προτιμώμενο σημείο σύνδεσης στο αυτοσχήμα Έλλειψη
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
-    }
-
-    // Αποθηκεύει την παρουσίαση
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Προσαρμογή Σημείου Συνδέσμου**
+{{% alert color="warning" title="Προειδοποίηση" %}}
+Η κλήση του `reroute` μπορεί να αλλάξει τις τιμές των [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) και [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-). Αναθέστε συγκεκριμένα σημεία σύνδεσης μετά την επαναδρομολόγηση εάν αυτά πρέπει να παραμείνουν σταθερά.
+{{% /alert %}}
 
-Μπορείτε να προσαρμόσετε έναν υπάρχοντα σύνδεσμο μέσω των σημείων προσαρμογής του. Μόνο οι σύνδεσμοι με σημεία προσαρμογής μπορούν να τροποποιηθούν με αυτόν τον τρόπο. Δείτε τον πίνακα κάτω από **[Τύποι συνδέσμων.](/slides/el/androidjava/connector/#types-of-connectors)**
+## **Επιλογή Σημείου Σύνδεσης**
 
-### **Απλή Περίπτωση**
+Κάθε συνδεδεμένο σχήμα αναφέρει τον αριθμό των σημείων του μέσω του [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--). Επικυρώστε έναν προτιμώμενο δεικτικό σημείο μηδενικής βάσης πριν το αναθέσετε σε άκρο συνδέσμου· οι αριθμοί των σημείων διαφέρουν ανά γεωμετρία σχήματος.
 
-Σκεφτείτε μια περίπτωση όπου ένας σύνδεσμος μεταξύ δύο σχημάτων (A και B) περνά από ένα τρίτο σχήμα (C):
+Το παρακάτω παράδειγμα συνδέει τον σύνδεσμο με ένα συγκεκριμένο σημείο στην έλλειψη όταν αυτό το σημείο υπάρχει:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
+    }
+
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ρύθμιση Σημείου Συνδέσμου**
+
+Οι σύνδεσμοι με σημεία ρύθμισης τα εκθέτουν μέσω του [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--). Εξετάστε κάθε [IAdjustValue](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iadjustvalue/) και ελέγξτε την τιμή του [getType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iadjustvalue/#getType--) πριν το αλλάξετε με το [setRawValue](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-). Οι γενικοί κανόνες για την αναγνώριση προρυθμισμένων ρυθμίσεων σχήματος περιγράφονται στην ενότητα [Shape Manipulation](/slides/el/androidjava/shape-manipulations/).
+
+Ο αριθμός, η σειρά, το νόημα και το έγκυρο εύρος τιμών των ρυθμίσεων εξαρτώνται από την προρύθμιση του συνδέσμου. Ο τύπος της ρύθμισης είναι μόνο για ανάγνωση, ενώ η τιμή είναι εγγράψιμη. Η μέθοδος μόνο για ανάγνωση [getName](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iadjustvalue/#getName--) προσφέρει πρόσθετη ταυτοποίηση όταν ένας σύνδεσμος περιέχει περισσότερες από μία ρυθμίσεις του ίδιου σημασιολογικού τύπου.
+
+### **Δρομολόγηση Περιμέσου Εμπόδου**
+
+Στη παρακάτω διάταξη, ένας σύνδεσμος `BentConnector5` μεταξύ δύο σχημάτων περνά μέσω τρίτου σχήματος:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Αυτός ο κώδικας δημιουργεί τον εμποδισμένο σύνδεσμο:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Για να αποφύγουμε ή να παρακάμψουμε το τρίτο σχήμα, μπορούμε να προσαρμόσουμε τον σύνδεσμο μετακινώντας την κατακόρυφη γραμμή του προς τα αριστερά ως εξής:
+Η μετακίνηση του κάθετου λυγμού αλλάζει τη διαδρομή ώστε ο σύνδεσμος να παρακάμπτει το εμπόδιο:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+Αντί να υποθέτετε ότι ο δείκτης συλλογής `1` αντιπροσωπεύει πάντα τον κάθετο λυγμό, αυτό το παράδειγμα αναζητά το `ConnectorBendPositionY` και το αλλάζει μόνο όταν είναι παρούσα η αναμενόμενη σημασιολογική κατηγορία:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Σύνθετες Περιπτώσεις** 
+Ένας σύνδεσμος `BentConnector5` έχει δύο ρυθμίσεις `ConnectorBendPositionX` και μία ρύθμιση `ConnectorBendPositionY`. Εάν ο τύπος που χρειάζεστε εμφανίζεται περισσότερες από μία φορές, ελέγξτε το `getName` και τη γνωστή γεωμετρία της προρύθμισης πριν επιλέξετε μία. Εάν μια ρύθμιση επιστρέφει `ShapeAdjustmentType.Custom`, θεωρήστε το νόημα και το εύρος της ως προρύθμιση‑συγκεκριμένα και μην το αλλάξετε μέχρι να είναι γνωστή η συμφωνία.
 
-* Το προσαρμόσιμο σημείο ενός συνδέσμου είναι στενά συνδεδεμένο με έναν τύπο που υπολογίζει και καθορίζει τη θέση του. Έτσι, αλλαγές στη θέση του σημείου μπορούν να αλλάξουν το σχήμα του συνδέσμου.
-* Τα σημεία προσαρμογής ενός συνδέσμου ορίζονται με αυστηρή σειρά σε έναν πίνακα. Τα σημεία προσαρμογής αριθμούνται από το σημείο εκκίνησης του συνδέσμου έως το τέλος του.
-* Οι τιμές των σημείων προσαρμογής αντικατοπτρίζουν το ποσοστό του πλάτους/υψους του σχήματος του συνδέσμου. 
-  * Το σχήμα περιορίζεται από τα σημεία εκκίνησης και λήξης του συνδέσμου πολλαπλασιασμένα με 1000. 
-  * Το πρώτο σημείο, το δεύτερο σημείο και το τρίτο σημείο ορίζουν το ποσοστό από το πλάτος, το ποσοστό από το ύψος και ξανά το ποσοστό από το πλάτος, αντίστοιχα.
-* Για τους υπολογισμούς που καθορίζουν τις συντεταγμένες των σημείων προσαρμογής ενός συνδέσμου, πρέπει να ληφθεί υπόψη η περιστροφή του συνδέσμου και η αντανάκλασή του. **Σημείωση** ότι η γωνία περιστροφής για όλους τους συνδέσμους που φαίνονται στην ενότητα **[Τύποι συνδέσμων](/slides/el/androidjava/connector/#types-of-connectors)** είναι 0.
+## **Συσχέτιση Τιμών Ρύθμισης με Γεωμετρία Συνδέσμου**
 
-#### **Περίπτωση 1**
+Για λυγόμενους συνδέσμους, οι τιμές ρύθμισης μπορούν να χρησιμοποιηθούν για εκτίμηση των θέσεων των επιμέρους τμημάτων. Οι υπολογισμοί αυτοί είναι ειδικοί για την προρύθμιση του συνδέσμου:
 
-Σκεφτείτε μια περίπτωση όπου δύο αντικείμενα πλαισίου κειμένου συνδέονται μεταξύ τους μέσω ενός συνδέσμου:
+- Το `BentConnector4` συνήθως εκθέτει μία ρύθμιση `ConnectorBendPositionX` και μία `ConnectorBendPositionY`.
+- Για αυτές τις ρυθμίσεις λυγμού, η διαίρεση της τιμής που επιστρέφει το `getRawValue` με `100000f` παράγει το κλάσμα του πλάτους ή του ύψους του πλαισίου του συνδέσμου που χρησιμοποιείται στα παραδείγματα παρακάτω.
+- Ένα πλαίσιο συνδέσμου μπορεί να περιστραφεί ή να αντιστραφεί, οπότε οι συντεταγμένες του πλαισίου πρέπει να μετατραπούν πριν συγκριθούν με τις συντεταγμένες της διαφάνειας.
+
+Τα παρακάτω παραδείγματα χρησιμοποιούν το `getType` για πρώτα να εντοπίσουν τις ρυθμίσεις. Δεν αντιμετωπίζουν τους δείκτες συλλογής ως φορητά αναγνωριστικά.
+
+### **Μη Περιστρεφόμενος Σύνδεσμος**
+
+Η αρχική διάταξη περιέχει δύο σχήματα κειμένου συνδεδεμένα με έναν `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Αυτό το παράδειγμα ελέγχει τον σύνδεσμο και λαμβάνει τις οριζόντιες και κάθετες ρυθμίσεις λυγμού:
+
 ```java
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Παίρνει την πρώτη διαφάνεια στην παρουσίαση
-    ISlide sld = pres.getSlides().get_Item(0);
-    // Προσθέτει σχήματα που θα συνδεθούν μαζί μέσω ενός συνδέσμου
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Προσθέτει έναν σύνδεσμο
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Καθορίζει την κατεύθυνση του συνδέσμου
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Καθορίζει το χρώμα του συνδέσμου
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Καθορίζει το πάχος της γραμμής του συνδέσμου
     connector.getLineFormat().setWidth(3);
-    
-    // Συνδέει τα σχήματα μεταξύ τους με το σύνδεσμο
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // Παίρνει τα σημεία προσαρμογής για το σύνδεσμο
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**Ρύθμιση**
-
-Μπορούμε να αλλάξουμε τις τιμές των σημείων προσαρμογής του συνδέσμου αυξάνοντας το αντίστοιχο ποσοστό πλάτους και ύψους κατά 20% και 200%, αντίστοιχα:
+Για να αλλάξετε και τα δύο λυγμούς, εντοπίστε κάθε αναμενόμενο τύπο και τροποποιήστε τις τιμές μόνο αφού βρεθούν και οι δύο:
 
 ```java
-// Αλλάζει τις τιμές των σημείων προσαρμογής
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Το αποτέλεσμα είναι ένας σύνδεσμος των οποίων τα οριζόντια και κάθετα τμήματα έχουν μετακινηθεί:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Για να ορίσουμε ένα μοντέλο που να μας επιτρέπει να προσδιορίσουμε τις συντεταγμένες και το σχήμα των μεμονωμένων τμημάτων του συνδέσμου, ας δημιουργήσουμε ένα σχήμα που αντιστοιχεί στο οριζόντιο συστατικό του συνδέσμου στο σημείο `connector.getAdjustments().get_Item(0)`:
+Μόλις γνωστοποιηθούν οι σημασιολογικοί τύποι, οι τιμές τους μπορούν να μετατραπούν σε συντεταγμένες πλαισίου συνδέσμου. Αυτό το παράδειγμα σχεδιάζει ένα λεπτό ορθογώνιο πάνω από το κάθετο τμήμα που ελέγχεται από τις δύο ρυθμίσεις λυγμού:
 
 ```java
-// Σχεδίαση του κάθετου συστατικού του συνδέσμου
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Το σχήμα οδηγού δείχνει το υπολογισμένο τμήμα:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Περίπτωση 2**
+### **Περιστρεφόμενος ή Ανεστραμμένος Σύνδεσμος**
 
-Στην **Περίπτωση 1**, δείξαμε μια απλή λειτουργία προσαρμογής συνδέσμου χρησιμοποιώντας βασικές αρχές. Σε κανονικές καταστάσεις, πρέπει να ληφθεί υπόψη η περιστροφή του συνδέσμου και η προβολή του (που ορίζονται από τα `connector.getRotation()`, `connector.getFrame().getFlipH()` και `connector.getFrame().getFlipV()`). Τώρα θα δείξουμε τη διαδικασία.
+Όταν η ίδια γεωμετρία συνδέσμου είναι προσανατολισμένη κάθετα, οι τιμές του [IShape.getFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#getFrame--), του [ShapeFrame.getFlipH](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/shapeframe/#getFlipH--) και του [ShapeFrame.getFlipV](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/shapeframe/#getFlipV--) επηρεάζουν τη μετατροπή από συντεταγμένες πλαισίου συνδέσμου σε συντεταγμένες διαφάνειας.
 
-Πρώτα, ας προσθέσουμε ένα νέο αντικείμενο πλαισίου κειμένου (**To 1**) στη διαφάνεια (για σκοπούς σύνδεσης) και ας δημιουργήσουμε έναν νέο (πράσινο) σύνδεσμο που τον συνδέει με τα αντικείμενα που έχουμε ήδη δημιουργήσει.
+Αυτό το παράδειγμα δημιουργεί και ρυθμίζει τον κάθετα προσανατολισμένο σύνδεσμο:
 
 ```java
-// Δημιουργεί ένα νέο αντικείμενο δέσμευσης
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Δημιουργεί ένα νέο σύνδεσμο
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// Συνδέει τα αντικείμενα χρησιμοποιώντας το νέο σύνδεσμο
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Λαμβάνει τα σημεία προσαρμογής του συνδέσμου
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Αλλάζει τις τιμές των σημείων προσαρμογής
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    int connectorColor = Color.rgb(102, 205, 170);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Ο ρυθμισμένος σύνδεσμος εμφανίζεται κάθετα μεταξύ των σχημάτων:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Δεύτερον, ας δημιουργήσουμε ένα σχήμα που θα αντιστοιχεί στο οριζόντιο συστατικό του συνδέσμου που περνά από το νέο σημείο προσαρμογής `connector.getAdjustments().get_Item(0)`. Θα χρησιμοποιήσουμε τις τιμές από τα δεδομένα του συνδέσμου για `connector.getRotation()`, `connector.getFrame().getFlipH()` και `connector.getFrame().getFlipV()` και θα εφαρμόσουμε τον γνωστό τύπο μετασχηματισμού συντεταγμένων για περιστροφή γύρω από σημείο x0:
+Για μια αυθαίρετη γωνία περιστροφής `alpha`, περιστρέψτε ένα σημείο πλαισίου συνδέσμου `(x, y)` γύρω από το κέντρο του πλαισίου `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Στην περίπτωσή μας, η γωνία περιστροφής του αντικειμένου είναι 90 μοίρες και ο σύνδεσμος εμφανίζεται κάθετα, οπότε ο αντίστοιχος κώδικας είναι:
+Ο παρακάτω κώδικας χειρίζεται τον προσανατολισμό 90 μοιρών που χρησιμοποιείται σε αυτό το παράδειγμα και σχεδιάζει έναν κόκκινο οδηγό πάνω από το αντίστοιχο τμήμα του συνδέσμου:
 
 ```java
-// Αποθηκεύει τις συντεταγμένες του συνδέσμου
-x = connector.getX();
-y = connector.getY();
-// Διορθώνει τις συντεταγμένες του συνδέσμου σε περίπτωση που εμφανίζεται
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// Χρησιμοποιεί την τιμή του σημείου προσαρμογής ως συντεταγμένη
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Μετατρέπει τις συντεταγμένες επειδή Sin(90) = 1 και Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// Καθορίζει το πλάτος του οριζόντιου συστατικού χρησιμοποιώντας τη δεύτερη τιμή σημείου προσαρμογής
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-Το αποτέλεσμα:
+Ο κόκκινος οδηγός σημαδεύει το υπολογισμένο τμήμα μετά τη μετατροπή συντεταγμένων:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Δείξαμε υπολογισμούς που αφορούν τόσο απλές όσο και σύνθετες προσαρμογές σημείων (σημεία προσαρμογής με γωνίες περιστροφής). Χρησιμοποιώντας τις γνώσεις που αποκτήσατε, μπορείτε να δημιουργήσετε το δικό σας μοντέλο (ή να γράψετε κώδικα) για να λάβετε ένα αντικείμενο `GraphicsPath` ή ακόμη και να ορίσετε τις τιμές των σημείων προσαρμογής ενός συνδέσμου βάσει συγκεκριμένων συντεταγμένων διαφάνειας.
+Αυτοί οι τύποι περιγράφουν τις προρυθμίσεις που χρησιμοποιούνται στα παραδείγματα, όχι ένα καθολικό μοντέλο συνδέσμου. Επικυρώστε τους τύπους ρύθμισης, τον προσανατολισμό του πλαισίου και τα εύρη τιμών πριν εφαρμόσετε τον ίδιο υπολογισμό σε διαφορετική προρύθμιση.
 
-## **Εύρεση Γωνίας Γραμμών Συνδέσμου**
+## **Εύρεση Γωνίας Κατεύθυνσης Συνδέσμου**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης.
-1. Αποκτήστε μια αναφορά στη διαφάνεια μέσω του δείκτη της.
-1. Προσεγγίστε το σχήμα της γραμμής συνδέσμου.
-1. Χρησιμοποιήστε το πλάτος, το ύψος, το ύψος πλαισίου σχήματος και το πλάτος πλαισίου σχήματος για να υπολογίσετε τη γωνία.
-
-Αυτός ο κώδικας Java δείχνει μια λειτουργία στην οποία υπολογίσαμε τη γωνία για ένα σχήμα γραμμής συνδέσμου:
+Η κατεύθυνση ενός απλού συνδέσμου μπορεί να υπολογιστεί από το πλάτος και το ύψος του, λαμβάνοντας υπόψη τις οριζόντιες και κάθετες αντιστροφές. Το παρακάτω παράδειγμα αναφέρει τη φορά της ώρας από τον θετικό οριζόντιο άξονα στις συντεταγμένες της διαφάνειας:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
-```
+## **ΣΥΝΗΘΕΣΜΕΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-## **FAQ**
+**Πώς μπορώ να διαπιστώ αν ένας σύνδεσμος μπορεί να συνδεθεί με ένα σχήμα;**
 
-**Πώς μπορώ να καταλάβω αν ένας σύνδεσμος μπορεί να «κολληθεί» σε ένα συγκεκριμένο σχήμα;**
+Ελέγξτε την τιμή του [getConnectionSiteCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--) του σχήματος. Ένας θετικός αριθμός σημαίνει ότι το σχήμα εκθέτει σημεία σύνδεσης. Επικυρώστε τον επιλεγμένο δείκτη σημείου πριν το αναθέσετε σε κάποιο άκρο του συνδέσμου.
 
-Ελέγξτε αν το σχήμα εκθέτει [connection sites](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/shape/#getConnectionSiteCount--). Αν δεν υπάρχουν ή ο αριθμός είναι μηδέν, η προσκόλληση δεν είναι διαθέσιμη· σε αυτήν την περίπτωση, χρησιμοποιήστε ελεύθερα άκρα και τοποθετήστε τα χειροκίνητα. Είναι λογικό να ελέγχετε τον αριθμό των θέσεων πριν το συνδέσετε.
+**Μπορώ να προσδιορίσω μια ρύθμιση συνδέσμου από τον δείκτη της συλλογής;**
 
-**Τι συμβαίνει με έναν σύνδεσμο αν διαγράψω ένα από τα συνδεδεμένα σχήματα;**
+Ένας δείκτης έχει νόημα μόνο για μια γνωστή προρύθμιση συνδέσμου και διάταξη συλλογής. Ελέγξτε το [IAdjustValue.getType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iadjustvalue/#getType--) πριν τροποποιήσετε μια τιμή και χρησιμοποιήστε το [IAdjustValue.getName](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iadjustvalue/#getName--) ως πρόσθετη πληροφορία όταν ο ίδιος σημασιολογικός τύπος εμφανίζεται περισσότερες από μία φορές.
 
-Τα άκρα του θα αποσυνδεθούν· ο σύνδεσμος παραμένει στη διαφάνεια ως κανονική γραμμή με ελεύθερο αρχικό/τελικό άκρο. Μπορείτε είτε να τον διαγράψετε είτε να επαναναθέσετε τις συνδέσεις και, αν χρειαστεί, να το [reroute](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/connector/#reroute--).
+**Τι συμβαίνει όταν ένα συνδεδεμένο σχήμα διαγραφεί;**
 
-**Διατηρούνται οι δεσμεύσεις των συνδέσμων όταν αντιγράφεται μια διαφάνεια σε άλλη παρουσίαση;**
+Το αντίστοιχο άκρο του συνδέσμου αποσυνδέεται. Ο σύνδεσμος παραμένει στη διαφάνεια και μπορεί να διαγραφεί, να τοποθετηθεί ως ελεύθερη γραμμή ή να συνδεθεί με άλλο σχήμα.
 
-Γενικά ναι, εφόσον τα αντίστοιχα σχήματα αντιγραφούν επίσης. Αν η διαφάνεια εισαχθεί σε άλλο αρχείο χωρίς τα συνδεδεμένα σχήματα, τα άκρα γίνονται ελεύθερα και θα χρειαστεί να τα επανασυνδέσετε.
+**Διατηρούνται οι συνδέσεις συνδέσμων όταν αντιγραφεί μια διαφάνεια;**
+
+Οι συνδέσεις συνήθως διατηρούνται όταν τα συνδεδεμένα σχήματα αντιγράφονται μαζί με τη διαφάνεια. Εάν ένας σύνδεσμος αντιγραφεί χωρίς ένα από τα σχήματα στόχους, το αντίστοιχο άκρο πρέπει να συνδεθεί ξανά.

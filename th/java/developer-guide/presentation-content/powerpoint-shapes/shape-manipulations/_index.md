@@ -1,405 +1,481 @@
 ---
-title: จัดการรูปทรงในการนำเสนอด้วย Java
-linktitle: การจัดการรูปทรง
+title: จัดการรูปร่างการนำเสนอใน Java
+linktitle: การจัดการรูปร่าง
 type: docs
 weight: 40
 url: /th/java/shape-manipulations/
 keywords:
-- รูปทรง PowerPoint
-- รูปทรงการนำเสนอ
-- รูปทรงบนสไลด์
-- ค้นหารรูปทรง
-- คัดลอกรูปทรง
-- ลบรูปทรง
-- ซ่อนรูปทรง
-- เปลี่ยนลำดับรูปทรง
-- รับ Interop shape ID
-- ข้อความทางเลือกของรูปทรง
-- รูปแบบการจัดวางรูปทรง
-- รูปทรงเป็น SVG
-- แปลงรูปทรงเป็น SVG
-- จัดแนวรูปทรง
+- รูปร่าง PowerPoint
+- รูปร่างการนำเสนอ
+- รูปร่างบนสไลด์
+- ค้นหารูปร่าง
+- คัดลอกรูปร่าง
+- ลบรูปร่าง
+- ซ่อนรูปร่าง
+- เปลี่ยนลำดับรูปร่าง
+- รับ ID รูปร่าง interop
+- ข้อความทางเลือกของรูปร่าง
+- จุดปรับรูปร่าง
+- การปรับรูปร่างที่ตั้งไว้
+- เรขาคณิตของรูปร่าง
+- รูปแบบเลย์เอาต์ของรูปร่าง
+- รูปร่างเป็น SVG
+- แปลงรูปร่างเป็น SVG
+- จัดแนวรูปร่าง
+- พลิกรูปร่าง
 - PowerPoint
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้การสร้าง, แก้ไขและเพิ่มประสิทธิภาพรูปทรงใน Aspose.Slides สำหรับ Java และส่งมอบงานนำเสนอ PowerPoint ที่มีประสิทธิภาพสูง"
+description: "เรียนรู้วิธีระบุ, ปรับ, คัดลอก, ลบ, ซ่อน, จัดลำดับใหม่, ส่งออก, จัดแนว, และพลิกรูปร่างการนำเสนอด้วย Aspose.Slides สำหรับ Java."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับรูปทรงในงานนำเสนอโดยใช้ Aspose.Slides แสดงวิธีการค้นหารูปทรงบนสไลด์, คัดลอก, ลบ, ซ่อน, เปลี่ยนลำดับ, รับ Interop shape ID, และตั้งค่าข้อความทางเลือกสำหรับการระบุตัวและการประมวลผลต่อไป
+Aspose.Slides for Java แสดงรูปร่างบนสไลด์เป็น [IShapeCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/) ที่จัดลำดับตามลำดับ ซึ่งคอลเลคชันนี้เป็นทั้งที่คุณค้นหาและแก้ไขรูปร่างและเป็นแหล่งของลำดับการจัดซ้อน: ดัชนี `0` คือรูปร่างที่อยู่ท้ายนที่สุด ส่วนดัชนีสุดท้ายคือรูปร่างที่อยู่หน้าที่สุด
 
-นอกจากนี้ยังครอบคลุมวิธีการเข้าถึงรูปแบบการจัดวางสำหรับรูปทรง, เรนเดอร์รูปทรงเป็น SVG, จัดแนวรูปทรงบนสไลด์, และใช้คุณสมบัติการพลิกเพื่อการสะท้อนแนวนอนและแนวตั้ง อีกทั้งบทความยังมีส่วน FAQ สั้น ๆ เกี่ยวกับการรวมรูปทรง, ลำดับการซ้อน, และการล็อกรูปทรง
+บทความนี้ทำตามโมเดลนั้น โดยอธิบายวิธีระบุรูปร่างอย่างมั่นคงและแก้ไขจุดปรับรูปแบบที่ตั้งไว้ จากนั้นแสดงวิธีคัดลอก ลบ ซ่อน และจัดลำดับใหม่ของรูปร่าง ส่วนสุดท้ายจะครอบคลุมการจัดรูปแบบระดับเลย์เอาต์ การส่งออกเป็น SVG การจัดแนว และการตั้งค่าการพลิกภาพ ตัวอย่างแต่ละอันเป็นอิสระ ดังนั้นคุณสามารถใช้เฉพาะการดำเนินการที่ workflow ของคุณต้องการได้
 
-## **ค้นหารูปทรงบนสไลด์**
-หัวข้อนี้จะอธิบายเทคนิคง่าย ๆ เพื่อทำให้นักพัฒนาค้นหารูปทรงเฉพาะบนสไลด์ได้ง่ายขึ้นโดยไม่ต้องใช้ Id ภายในของมัน สำคัญที่ต้องรู้คือไฟล์ PowerPoint Presentation ไม่มีวิธีใด ๆ ที่จะระบุรูปทรงบนสไลด์ยกเว้น Id ภายในที่เป็นเอกลักษณ์ การค้นหารูปทรงโดยใช้ Id ภายในอาจเป็นเรื่องยากสำหรับนักพัฒนา รูปทรงทั้งหมดที่เพิ่มลงในสไลด์จะมี Alt Text เราแนะนำให้นักพัฒนาใช้ข้อความทางเลือกเพื่อค้นหารูปทรงเฉพาะ คุณสามารถใช้ MS PowerPoint เพื่อกำหนดข้อความทางเลือกสำหรับวัตถุที่คุณวางแผนจะเปลี่ยนในอนาคต
+## **ระบุและค้นหารูปร่าง**
 
-หลังจากตั้งค่าข้อความทางเลือกของรูปทรงใด ๆ ที่ต้องการแล้ว คุณสามารถเปิดงานนำเสนอนั้นด้วย Aspose.Slides for Java และวนลูปผ่านรูปทรงทั้งหมดที่เพิ่มลงในสไลด์ ในแต่ละรอบคุณสามารถตรวจสอบข้อความทางเลือกของรูปทรงและรูปทรงที่มีข้อความตรงจะเป็นรูปทรงที่คุณต้องการ เพื่อแสดงเทคนิคนี้อย่างชัดเจน เราได้สร้างเมธอด [findShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) ที่ทำหน้าที่ค้นหารูปทรงเฉพาะในสไลด์และคืนค่ารูปทรงนั้น
+ดัชนีของคอลเลคชันสะดวกเมื่อประมวลผลไฟล์ที่รู้จัก แต่ไม่ใช่ตัวระบุที่คงที่ การเพิ่ม ลบ หรือจัดลำดับใหม่ของรูปร่างสามารถเปลี่ยนดัชนีของมันได้ เลือกตัวระบุตามวิธีที่การนำเสนอถูกสร้างและดูแลรักษา:
 
-```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getName--) มีประโยชน์สำหรับเทมเพลตที่ควบคุมโดยนักพัฒนาและตรวจสอบได้ง่ายในแถบ Selection ของ PowerPoint ชื่อสามารถแก้ไขได้และไม่ได้รับการรับประกันว่าจะแม่นเอกลักษณ์ ดังนั้นจึงควรกำหนดแนวปฏิบัติการตั้งชื่อหากโค้ดพึ่งพา
+- [AlternativeText](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getAlternativeText--) มีประโยชน์เมื่อคำอธิบายการเข้าถึงหรือแท็กที่ผู้สร้างกำหนดไว้แล้วระบุรูปร่างนั้น มันมองเห็นได้โดยผู้ใช้ อาจแปลเป็นภาษาต่าง ๆ หรือเขียนใหม่เพื่อการเข้าถึง และไม่ได้รับการรับประกันว่าเป็นเอกลักษณ์ อย่าเปลี่ยนข้อความการเข้าถึงที่มีความหมายให้กลายเป็นคีย์ฐานข้อมูลอย่างเงียบ ๆ
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) เป็นตัวระบุแบบอ่านอย่างเดียวที่มีเอกลักษณ์ภายในสไลด์และสอดคล้องกับ Shape ID ที่ PowerPoint interop ใช้ ใช้เมื่อทำการเชื่อมต่อกับ PowerPoint หรือเมื่อคุณต้องการอ้างอิงที่ไม่คลุมเครือตลอดช่วงชีวิตของรูปร่าง รูปร่างที่คัดลอกหรือสร้างใหม่จะเป็นรูปร่างที่ต่างออกไปและจะได้รับ ID ของตนเอง
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // ข้อความทางเลือกของรูปทรงที่ต้องการค้นหา
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// การทำงานของเมธอดเพื่อค้นหารูปทรงในสไลด์โดยใช้ข้อความทางเลือกของมัน
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // วนลูปผ่านรูปทรงทั้งหมดภายในสไลด์
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // หากข้อความทางเลือกของสไลด์ตรงกับที่ต้องการแล้ว
-        // คืนค่ารูปทรงนั้น
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+เมธอด [getUniqueId](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getUniqueId--) ที่เกี่ยวข้องส่งคืนตัวระบุที่มีขอบเขตระดับการนำเสนอ แต่ตัวระบนั้นออกแบบมาสำหรับแอด‑อินและอาจถูกกำหนดใหม่ ไม่ควรถือว่าเป็นคีย์ภายนอกถาวร หากต้องการอัตลักษณ์ระยะยาว ควรเก็บการแมปในข้อมูลแอปพลิเคชันและตรวจสอบว่ารูปร่างที่คาดหวังยังคงมีอยู่
 
-## **คัดลอกรูปทรง**
-เพื่อคัดลอกรูปทรงไปยังสไลด์โดยใช้ Aspose.Slides for Java:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation) 
-1. รับอ็อบเจกต์อ้างอิงของสไลด์โดยใช้ดัชนีของมัน 
-1. เข้าถึงคอลเล็กชันรูปทรงของสไลด์ต้นทาง 
-1. เพิ่มสไลด์ใหม่ลงในงานนำเสนอ 
-1. คัดลอกรูปทรงจากคอลเล็กชันของสไลด์ต้นทางไปยังสไลด์ใหม่ 
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX 
-
-ตัวอย่างด้านล่างเพิ่มกลุ่มรูปทรงลงในสไลด์
+ตัวอย่างต่อไปนี้ค้นหาด้วยชื่อโดยเปรียบเทียบแบบตรงและรายงาน Interop ID ระดับสไลด์ เมื่อเทมเพลตไม่มีรูปร่างที่คาดหวัง โค้ดจะแสดงผลนั้นแทนที่จะดำเนินต่อด้วยอ็อบเจกต์ที่ผิด
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // บันทึกไฟล์ PPTX ลงดิสก์
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **ลบรูปทรง**
-Aspose.Slides for Java อนุญาตให้ผู้พัฒนาลบรูปทรงใด ๆ ได้ เพื่อลบรูปทรงจากสไลด์ใดสไลด์หนึ่ง โปรดทำตามขั้นตอนด้านล่าง:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation) 
-1. เข้าถึงสไลด์แรก 
-1. ค้นหารูปทรงที่มี AlternativeText เฉพาะ 
-1. ลบรูปทรง 
-1. บันทึกไฟล์ลงดิสก์ 
-
-```java
-// สร้างออบเจกต์ Presentation
-Presentation pres = new Presentation();
-try {
-    // ดึงสไลด์แรก
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // เพิ่ม AutoShape ประเภทสี่เหลี่ยม
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // บันทึกงานนำเสนอลงดิสก์
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **ซ่อนรูปทรง**
-Aspose.Slides for Java อนุญาตให้ผู้พัฒนาซ่อนรูปทรงใด ๆ ได้ เพื่ซ่อนรูปทรงจากสไลด์ใดสไลด์หนึ่ง โปรดทำตามขั้นตอนด้านล่าง:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation) 
-1. เข้าถึงสไลด์แรก 
-1. ค้นหารูปทรงที่มี AlternativeText เฉพาะ 
-1. ซ่อนรูปทรง 
-1. บันทึกไฟล์ลงดิสก์ 
-
-```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // ดึงสไลด์แรก
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // เพิ่ม autoshape ประเภทสี่เหลี่ยม
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // บันทึกงานนำเสนอลงดิสก์
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **เปลี่ยนลำดับรูปทรง**
-Aspose.Slides for Java อนุญาตให้ผู้พัฒนาจัดลำดับรูปทรงใหม่ การจัดลำดับรูปทรงระบุว่ารูปทรงใดอยู่หน้า หรือใดอยู่หลัง เพื่อจัดลำดับรูปทรงจากสไลด์ใดสไลด์หนึ่ง โปรดทำตามขั้นตอนด้านล่าง:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation) 
-1. เข้าถึงสไลด์แรก 
-1. เพิ่มรูปทรง 
-1. เพิ่มข้อความบางส่วนใน Text Frame ของรูปทรง 
-1. เพิ่มรูปทรงอีกอันหนึ่งด้วยพิกัดเดียวกัน 
-1. จัดลำดับรูปทรงใหม่ 
-1. บันทึกไฟล์ลงดิสก์ 
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **รับ Interop Shape ID**
-Aspose.Slides for Java อนุญาตให้ผู้พัฒนารับตัวระบุรูปทรงที่เป็นเอกลักษณ์ในระดับสไลด์ ซึ่งต่างจากเมธอด [getUniqueId](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape#getUniqueId--) ที่ให้ตัวระบุระดับงานนำเสนอ เมธอด [getOfficeInteropShapeId](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) ได้ถูกเพิ่มเข้าไปในอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape) และคลาส [Shape](https://reference.aspose.com/slides/th/java/com.aspose.slides/Shape) ค่าที่คืนจากเมธอดนี้สอดคล้องกับ Id ของวัตถุ Microsoft.Office.Interop.PowerPoint.Shape ตัวอย่างโค้ดด้านล่างแสดงการใช้งาน
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // รับตัวระบุรูปทรงที่ไม่ซ้ำในระดับสไลด์
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **ตั้งค่าข้อความทางเลือกสำหรับรูปทรง**
-Aspose.Slides for Java อนุญาตให้ผู้พัฒนาตั้งค่า AlternateText ของรูปทรงใด ๆ
-รูปทรงในงานนำเสนอสามารถระบุได้โดยเมธอด [AlternativeText](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) หรือ [Shape Name](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape#setName-java.lang.String-)
-เมธอด [setAlternativeText](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) และ [getAlternativeText](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape#getAlternativeText--) สามารถอ่านหรือกำหนดได้โดยใช้ Aspose.Slides รวมถึง Microsoft PowerPoint
-ด้วยเมธอดนี้คุณสามารถทำเครื่องหมายรูปทรงและทำการดำเนินการต่าง ๆ เช่น การลบรูปทรง, การซ่อนรูปทรง หรือการจัดลำดับรูปทรงบนสไลด์
-เพื่อกำหนด AlternateText ของรูปทรง โปรดทำตามขั้นตอนด้านล่าง:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation) 
-1. เข้าถึงสไลด์แรก 
-1. เพิ่มรูปทรงใด ๆ ลงในสไลด์ 
-1. ทำงานบางอย่างกับรูปทรงที่เพิ่งเพิ่ม 
-1. วนลูปผ่านรูปทรงเพื่อค้นหารูปทรง 
-1. ตั้งค่า AlternativeText 
-1. บันทึกไฟล์ลงดิสก์ 
-
-```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // ดึงสไลด์แรก
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // เพิ่ม autoshape ประเภทสี่เหลี่ยม
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // บันทึกงานนำเสนอลงดิสก์
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **เข้าถึงรูปแบบการจัดวางสำหรับรูปทรง**
-Aspose.Slides for Java มี API ง่าย ๆ เพื่อเข้าถึงรูปแบบการจัดวางสำหรับรูปทรง บทความนี้แสดงตัวอย่างวิธีการเข้าถึงรูปแบบการจัดวาง
-
-ตัวอย่างโค้ดด้านล่าง
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **เรนเดอร์รูปทรงเป็น SVG**
-ขณะนี้ Aspose.Slides for Java รองรับการเรนเดอร์รูปทรงเป็น SVG เมธอด [writeAsSvg](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (และโอเวอร์โหลด) ถูกเพิ่มในคลาส [Shape](https://reference.aspose.com/slides/th/java/com.aspose.slides/Shape) และอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape) เมธอดนี้ช่วยบันทึกเนื้อหาของรูปทรงเป็นไฟล์ SVG ตัวอย่างโค้ดด้านล่างแสดงวิธีการส่งออกรูปทรงของสไลด์เป็นไฟล์ SVG
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **จัดแนวรูปทรง**
-Aspose.Slides อนุญาตให้จัดแนวรูปทรงได้ทั้งสัมพันธ์กับขอบสไลด์หรือสัมพันธ์กันเอง เพื่อวัตถุประสงค์นี้ได้เพิ่มเมธอดโอเวอร์โหลด [SlidesUtil.alignShape()](https://reference.aspose.com/slides/th/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) โดย enumeration [ShapesAlignmentType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ShapesAlignmentType) กำหนดตัวเลือกรูปแบบการจัดแนวที่เป็นไปได้
-
-**Example 1**
-
-โค้ดต้นฉบับด้านล่างจัดแนวรูปทรงที่มีดัชนี 1,2 และ 4 ตามขอบด้านบนของสไลด์
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**Example 2**
-
-ตัวอย่างด้านล่างแสดงวิธีจัดแนวคอลเล็กชันทั้งหมดของรูปทรงสัมพันธ์กับรูปทรงที่อยู่ด้านล่างสุดในคอลเล็กชัน
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **คุณสมบัติการพลิก**
-
-ใน Aspose.Slides คลาส [ShapeFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/shapeframe/) ให้การควบคุมการสะท้อนแนวนอนและแนวตั้งของรูปทรงผ่านคุณสมบัติ `flipH` และ `flipV` ทั้งสองเป็นประเภท `byte` โดยค่าที่เป็น `1` หมายถึงพลิก, `0` ไม่พลิก, หรือ `-1` ใช้ค่าดีฟอลต์ ค่าดังกล่าวเข้าถึงได้จาก [Frame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getFrame--) ของรูปทรง
-
-เพื่อปรับการตั้งค่าการพลิก จะสร้างอินสแตนซ์ใหม่ของ [ShapeFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/shapeframe/) ด้วยตำแหน่งและขนาดปัจจุบันของรูปทรง, ค่าที่ต้องการสำหรับ `flipH` และ `flipV`, และมุมการหมุน การกำหนดอินสแตนซ์นี้ให้กับ [Frame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getFrame--) ของรูปทรงและบันทึกงานนำเสนอจะทำให้การสะท้อนถูกนำไปใช้และบันทึกลงไฟล์ผลลัพธ์
-
-สมมติว่ามีไฟล์ sample.pptx ที่สไลด์แรกมีรูปทรงเดียวที่ตั้งค่า flip เริ่มต้นตามด้านล่าง
-
-![รูปทรงที่ต้องการพลิก](shape_to_be_flipped.png)
-
-โค้ดตัวอย่างต่อไปนี้ดึงคุณสมบัติ flip ปัจจุบันของรูปทรงและพลิกทั้งแนวนอนและแนวตั้ง
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // ดึงคุณสมบัติการพลิกแนวนอนของรูปทรง
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // ดึงคุณสมบัติการพลิกแนวตั้งของรูปทรง
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // พลิกแนวนอน.
-    byte flipV = NullableBool.True; // พลิกแนวนอน.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
+เมื่อการดำเนินการเฉพาะกับประเภทของรูปร่าง ให้ตรวจสอบอินเทอร์เฟซก่อนใช้สมาชิกที่เฉพาะเจาะจง ประโยคตัวอย่างนี้อัปเดตข้อความและข้อความทางเลือกเฉพาะเมื่ออ็อบเจกต์ที่ตั้งชื่อเป็น [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/)
 
-![รูปทรงที่พลิกแล้ว](flipped_shape.png)
+```java
+import com.aspose.slides.*;
 
-## **ถามตอบ**
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**ฉันสามารถรวมรูปทรง (union/intersect/subtract) บนสไลด์เหมือนในโปรแกรมเดสก์ท็อปได้หรือไม่?**
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
 
-ไม่มี API การดำเนินการบูลีนในตัว คุณสามารถทำโดยประมาณโดยสร้างรูปร่างสรุปที่ต้องการเอง เช่น คำนวณเรขาคณิตผลลัพธ์ (ผ่าน [GeometryPath](https://reference.aspose.com/slides/th/java/com.aspose.slides/geometrypath/)) แล้วสร้างรูปทรงใหม่ด้วยโครงร่างนั้น พร้อมกับลบรูปทรงต้นฉบับถ้าต้องการ
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-**ฉันจะควบคุมลำดับการซ้อน (z-order) เพื่อให้รูปทรงอยู่ด้านบนเสมอได้อย่างไร?**
+## **ระบุและแก้ไขการปรับรูปที่ตั้งไว้**
 
-เปลี่ยนลำดับการแทรก/ย้ายภายในคอลเล็กชัน [shapes](https://reference.aspose.com/slides/th/java/com.aspose.slides/baseslide/#getShapes--) ของสไลด์ เพื่อให้ได้ผลลัพธ์คาดเดาได้ ให้สรุปลำดับ z-order หลังจากทำการแก้ไขสไลด์อื่น ๆ เสร็จแล้ว
+รูปร่างเรขาคณิตที่ตั้งไว้สามารถเปิดเผยจุดปรับที่ควบคุมฟีเจอร์เช่น ขนาดมุม อัตราส่วนลูกศร หรือมุมโค้งได้ เข้าถึงผ่านคอลเลคชันอ่าน‑อย่างเดียว [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/th/java/com.aspose.slides/igeometryshape/#getAdjustments--) คอลเลคชันนี้มาจากรูปร่างเอง แต่ละ [IAdjustValue](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/) มีค่าที่สามารถเปลี่ยนได้
 
-**ฉันสามารถ 'ล็อค' รูปทรงเพื่อป้องกันไม่ให้ผู้ใช้แก้ไขใน PowerPoint ได้หรือไม่?**
+อย่าพึ่งพาเฉพาะดัชนีคอลเลคชันที่คงที่ ให้วนลูปผ่านการปรับและตรวจสอบเมธอดอ่าน‑อย่างเดียว [getType](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/#getType--) ซึ่งค่าประเภท [ShapeAdjustmentType](https://reference.aspose.com/slides/th/java/com.aspose.slides/shapeadjustmenttype/) บรรยายว่าการปรับนั้นควบคุมอะไร เมธอดอ่าน‑อย่างเดียว [getName](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/#getName--) ให้ข้อมูลการระบุเพิ่มเติมและมีประโยชน์อย่างยิ่งเมื่อพรีเซ็ตมีการปรับมากกว่าหนึ่งรายการที่มีประเภทเชิงความหมายเดียวกัน
 
-ได้ โดยตั้งค่าธงป้องกันระดับรูปทรง (เช่น lock selection, movement, resizing, text edits) ดูเอกสารที่เกี่ยวกับการป้องกันระดับพรีเซนเทชัน หากต้องการความปลอดภัยที่สูงขึ้น สามารถผสานกับการจำกัดระดับไฟล์เช่นคำแนะนำให้เป็นแบบอ่านอย่างเดียวหรือการตั้งรหัสผ่าน [/slides/th/java/password-protected-presentation/](​/slides/th/java/password-protected-presentation/)
+ใช้เมธอดค่าที่ตรงกับความหมายของการปรับ:
+
+| ประเภทการปรับ | วัตถุประสงค์ | ค่าที่จะเปลี่ยน |
+|---|---|---|
+| `CornerSize` | ขนาดของมุมโค้ง | [setRawValue](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | ความหนาของหางลูกศร | `setRawValue` |
+| `ArrowheadLength` | ความยาวของหัวศร | `setRawValue` |
+| `ArrowheadWidth` | ความกว้างของหัวศร | `setRawValue` |
+| `StartAngle` | มุมเริ่มต้นของพายหรือโค้ง | [setAngleValue](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | มุมสิ้นสุดของพายหรือโค้ง | `setAngleValue` |
+
+`getType` และ `getName` คืนข้อมูลแบบอ่าน‑อย่างเดียว `getRawValue` และ `setRawValue` ทำงานกับจำนวนเต็มในหน่วยเรขาคณิตดั้งเดิมของพรีเซ็ต ส่วน `getAngleValue` และ `setAngleValue` ทำงานกับมุมเป็นองศา จำนวน, ลำดับ, ความหมายและช่วงค่าที่ถูกต้องของการปรับขึ้นอยู่กับพรีเซ็ต [ShapeType](https://reference.aspose.com/slides/th/java/com.aspose.slides/igeometryshape/#getShapeType--) ค่าที่ใช้ได้กับพรีเซ็ตหนึ่งอาจไม่ถูกต้องหรือให้ผลต่างกันกับพรีเซ็ตอื่น
+
+เมื่อ `getType` คืนค่า `ShapeAdjustmentType.Custom` API จะไม่รู้ความหมายเชิงมาตรฐาน ตรวจสอบ `getName` ประเภทพรีเซ็ตและค่าที่มีอยู่ และอย่าเปลี่ยนการปรับเว้นแต่คุณรู้ความหมายและช่วงค่าที่คาดหวัง แม้สำหรับประเภทที่รู้จักแล้ว อย่าลืมตรวจสอบว่าชนิดเดียวกันปรากฏมากกว่าหนึ่งครั้งหรือไม่ก่อนเลือกค่า บทความ [Connector](/slides/th/java/connector/) แสดงสถานการณ์นี้กับการปรับการโค้งของคอนเน็กเตอร์
+
+ตัวอย่างเต็มต่อไปนี้สร้างเวอร์ชันเริ่มต้นและเวอร์ชันที่แก้ไขของสามรูปร่างที่ตั้งไว้ โดยวนลูปผ่านการปรับทุกอย่าง รายงานชื่อและประเภทของมัน เปลี่ยนค่าที่เกี่ยวข้องกับขนาดผ่าน `setRawValue` เปลี่ยนมุมผ่าน `setAngleValue` แล้วบันทึกผล คอลัมน์ซ้ายคงเรขาคณิตเริ่มต้น; คอลัมน์ขวาแสดงสี่เหลี่ยมมุมโค้ง, ลูกศรสี่ทาง, และพายที่ถูกปรับ
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // เพิ่มหัวข้อสำหรับคอลัมน์รูปทรงเริ่มต้นและรูปทรงที่ปรับค่า
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การตรวจสอบประเภทเชิงความหมายก่อนเปลี่ยนค่าทำให้โค้ดชัดเจนเกี่ยวกับเจตนาและหลีกเลี่ยงการสันนิษฐานว่าดัชนีคอลเลคชันเดียวกันมีความหมายเดียวกันในพรีเซ็ตต่าง ๆ
+
+## **แก้ไขคอลเลคชันของรูปร่าง**
+
+เมธอดเพิ่ม, คัดลอก, ลบ, และจัดลำดับใหม่ทำงานบนคอลเลคชันโดยทันที หากการดำเนินการเปลี่ยนจำนวนหรือลำดับของรูปร่าง อย่าอ้างอิงดัชนีที่เก็บไว้ก่อนการดำเนินการนั้นต่อไป
+
+### **คัดลอกรูปร่าง**
+
+[addClone](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) สร้างสำเนาอิสระและต่อท้ายลงในคอลเลคชันเป้าหมาย [insertClone](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) ก็สร้างสำเนาเช่นกัน แต่วางไว้ที่ดัชนี z‑order ที่ระบุ การ overload ที่รับพิกัดจะย้ายสำเนาโดยไม่เปลี่ยนขนาด; overload ที่รับความกว้างและความสูงสามารถปรับขนาดได้ด้วย
+
+ตัวอย่างสร้างสไลด์ปลายทาง คัดลอกสี่เหลี่ยมที่มีป้ายกำกับไปด้านหน้า และแทรกสำเนาที่สองไว้ด้านหลัง การเปลี่ยนแปลงใด ๆ กับสำเนาใดสำเนาหนึ่งก็ไม่กระทบรูปร่างต้นฉบับ
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การคัดลอกจะคัดลอกเนื้อหาและการจัดรูปแบบของรูปร่างรวมถึงชื่อและข้อความทางเลือก กำหนดตัวระบุตรรกะใหม่ให้กับสำเนาหากค่าดังกล่าวต้องเป็นเอกลักษณ์ ทรัพยากรที่ใช้โดยรูปร่างเชิงซับซ้อนจะจัดการโดยการนำเสนอ แต่สำเนายังคงเป็นรายการคอลเลคชันใหม่พร้อมอัตลักษณ์รูปร่างใหม่
+
+### **ลบรูปร่าง**
+
+[remove](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) ลบอ็อบเจกต์รูปร่างเฉพาะจากคอลเลคชันของมัน เมื่อทำการลบหลายรายการระหว่างการวนลูปโดยอ้างอิงดัชนี ให้เดินจากท้ายสุดเพื่อให้ดัชนีที่เหลือยังคงถูกต้อง
+
+ตัวอย่างลบรูปร่างทุกอันที่มีชื่อที่กำหนดไว้ มันอ่านรูปร่างที่ดัชนีปัจจุบัน ไม่ใช่รายการคอลเลคชันคงที่ และไม่ได้ทำการคาสท์รูปร่างโดยไม่จำเป็น
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+หลังการลบ จำนวนรูปร่างและดัชนีของรูปร่างต่อมาจะเปลี่ยน การอ้างอิงรูปร่างที่ไม่ได้รับผลกระทบยังคงน่าเชื่อถือกว่าการบันทึกดัชนี ควรพิจารณาคอนเน็กเตอร์, แอนิเมชัน, และฟีเจอร์การนำเสนออื่น ๆ ที่อาจอ้างอิงอ็อบเจกต์ที่ถูกลบ; การลบรูปร่างที่มองเห็นได้อาจเปลี่ยนมากกว่าลักษณะของสไลด์เท่านั้น
+
+### **ซ่อนรูปร่าง**
+
+การตั้งค่า [Hidden](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#setHidden-boolean-) เป็น `true` จะทำให้รูปร่างยังคงอยู่ในคอลเลคชันแต่ไม่ปรากฏในสไลด์โชว์ปกติ ดัชนี, การจัดรูปแบบและเนื้อหายังคงพร้อมให้โค้ดใช้ ดังนั้นการซ่อนจึงเหมาะกับองค์ประกอบทางเลือกที่อาจต้องการเรียกคืนในภายหลัง
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การซ่อนไม่ใช่การลบหรือการรักษาความปลอดภัย อ็อบเจกต์ยังคงถูกค้นพบและสามารถทำให้มองเห็นได้อีกครั้งโดยผู้ใช้หรือโดยโค้ด และยังคงเป็นส่วนหนึ่งของไฟล์การนำเสนอ
+
+### **เปลี่ยน Z‑Order**
+
+รูปร่างที่ซ้อนทับกันจะถูกวาดตามลำดับคอลเลคชัน [reorder](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) ย้ายรูปร่างที่มีอยู่ไปยังดัชนีเป้าหมายโดยไม่ต้องคัดลอก ดัชนี `0` คือด้านหลัง; `size() - 1` คือด้านหน้า
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+สี่เหลี่ยมถูกสร้างก่อนและเริ่มต้นอยู่ด้านหลังวงรี การย้ายมันไปยังดัชนีสุดท้ายจะทำให้มันอยู่ด้านหน้า ให้ทำการสรุป Z‑Order หลังจากเพิ่มหรือคัดลอกรูปร่างที่เกี่ยวข้องทั้งหมด เพราะการดำเนินการเหล่านั้นจะเพิ่มหรือแทรกรายการคอลเลคชันใหม่และอาจเปลี่ยนสแต็กที่ตั้งใจไว้
+
+## **ตรวจสอบรูปร่างบนสไลด์เลย์เอาต์**
+
+สไลด์ปกติ, สไลด์เลย์เอาต์, และสไลด์มาสเตอร์มีคอลเลคชันรูปร่างแยกกัน รูปร่างในคอลเลคชันเลย์เอาต์ไม่ใช่อ็อบเจกต์เดียวกับรูปร่างที่อยู่ในตำแหน่งคล้ายกันบนสไลด์ปกติ ตรวจสอบรูปร่างเลย์เอาต์เมื่อคุณต้องการทำความเข้าใจหรือเปลี่ยนรูปแบบที่เลย์เอาต์จัดให้
+
+ตัวอย่างต่อไปนี้อ่าน [FillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getFillFormat--) และ [LineFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getLineFormat--) ของแต่ละรูปร่างในเลย์เอาต์โดยไม่สมมติว่าทุกรูปร่างเป็น `AutoShape`
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+การแก้ไขเลย์เอาต์อาจมีผลต่อหลายสไลด์ที่ใช้เลย์เอาต์นั้น ก่อนเปลี่ยนรูปร่างในเลย์เอาต์ให้ตรวจสอบว่าสไลด์ปกติสืบทอดอ็อบเจกต์นั้นหรือมีการเขียนทับในระดับท้องถิ่น และทดสอบทุกสไลด์ที่ใช้เลย์เอาต์นั้น
+
+## **ส่งออกรูปร่างเป็น SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) เขียนเนื้อหาที่เรนเดอร์ของรูปร่างหนึ่งลงสตรีม ผลลัพธ์จะมีเฉพาะรูปร่างนั้น ไม่รวมพื้นหลังสไลด์ทั้งหมดหรือรูปร่างข้างเคียง
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+ให้เปิดการนำเสนอไว้ขณะเรนเดอร์ ผลลัพธ์ขึ้นกับการจัดรูปแบบของรูปร่างและทรัพยากรเช่น ฟอนต์และรูปภาพ หากต้องการภาพรวมทั้งหมด ให้ส่งออกสไลด์แทนการส่งออกรูปร่างเดี่ยว ตัวเรียกต้องเป็นเจ้าของสตรีมและต้องปิดสตรีมเอง
+
+## **จัดแนวรูปร่าง**
+
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/th/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) overloads ให้จัดแนวได้ทั้งทั้งหมดหรือเฉพาะดัชนีคอลเลคชันที่เลือก [ShapesAlignmentType](https://reference.aspose.com/slides/th/java/com.aspose.slides/shapesalignmenttype/) กำหนดขอบ, เส้นศูนย์กลาง หรือโหมดการกระจาย ตั้งค่า `alignToSlide` เป็น `true` เพื่อใช้ขอบสไลด์; ตั้งเป็น `false` เพื่อจัดแนวรูปร่างที่เลือกสัมพันธ์กัน
+
+ตัวอย่างนี้จัดแนวสามรูปร่างให้ชิดขอบบนของสไลด์ การอ้างอิงรูปร่างที่คืนค่าจะถูกแปลงเป็นดัชนีปัจจุบันของมันก่อนทำการจัดแนว
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การจัดแนวเปลี่ยนตำแหน่ง ไม่ใช่ Z‑Order การจัดแนวเชิงสัมพันธ์โดยปกติจำเป็นต้องมีอย่างน้อยสองรูปร่าง ส่วนการกระจายแนวนอนหรือแนวตั้งต้องมีรูปร่างจำนวนพอที่จะกำหนดระยะห่าง หากคุณแก้ไขคอลเลคชันก่อนเรียกเมธอด ให้คำนวณดัชนีใหม่
+
+## **พลิกรูปร่าง**
+
+คลาส [ShapeFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/shapeframe/) เก็บตำแหน่ง, ขนาด, การพลิกแนวนอนและแนวตั้ง, และการหมุน ค่า `getFlipH` และ `getFlipV` ใช้ [NullableBool](https://reference.aspose.com/slides/th/java/com.aspose.slides/nullablebool/): `True` เปิดการพลิก, `False` ปิด, `NotDefined` คงสถานะที่ไม่ได้กำหนด/ค่าเริ่มต้น
+
+การนำเสนออินพุตด้านล่างมีรูปร่างหนึ่งที่ไม่ได้พลิก
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+ตัวอย่างนี้คงค่ากรอบอื่นทั้งหมดไว้และแทนที่เฉพาะการตั้งค่าพลิกสองค่าเท่านั้น ซึ่งสำคัญเพราะการกำหนด [Frame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) ใหม่จะทับกรอบทั้งหมด
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+รูปร่างที่บันทึกจะถูกสะท้อนแนวนอนและแนวตั้งในขณะที่คงตำแหน่ง, ขนาดและการหมุนเดิม
+
+![The shape after flipping](flipped_shape.png)
+
+## **FAQ**
+
+**ควรใช้ดัชนีคอลเลคชันเป็นตัวระบุรูปร่างหรือไม่?**
+
+ใช้เฉพาะสำหรับการประมวลผลสั้น ๆ ที่คอลเลคชันจะไม่เปลี่ยนแปลงก่อนใช้ดัชนี แนะนำให้ใช้ `Name` หรือ `AlternativeText` ที่ผ่านการตรวจสอบสำหรับเทมเพลตที่สร้างโดยคน หรือ `OfficeInteropShapeId` สำหรับงาน interop ระดับสไลด์
+
+**การซ่อนรูปร่างทำให้มันออกจาก Z‑Order หรือไม่?**
+
+ไม่ การซ่อนจะทำให้รูปร่างยังคงอยู่ในคอลเลคชันที่ดัชนีเดียวกัน สามารถค้นหา, จัดลำดับใหม่, แก้ไข หรือทำให้มองเห็นได้อีกครั้ง
+
+**ทำไมรูปร่างที่คัดลอกจึงปรากฏอยู่หน้ารูปร่างอื่น?**
+
+`addClone` จะต่อท้ายสำเนาที่ส่วนสุดของคอลเลคชัน ซึ่งเป็นหน้าที่ Z‑Order ใช้ `insertClone` เพื่อระบุดัชนีเริ่มต้น หรือใช้ `reorder` หลังจากเพิ่มรูปร่างทั้งหมด
+
+**สามารถใช้ดัชนีคงที่เพื่อระบุการปรับรูปร่างพรีเซ็ตได้หรือไม่?**
+
+ได้เฉพาะหลังจากยืนยันพรีเซ็ตและรูปแบบคอลเลคชันที่ตรงครบ แนะนำให้วนลูปผ่าน `IGeometryShape.getAdjustments` และตรวจสอบ `IAdjustValue.getType`; ใช้ `IAdjustValue.getName` เป็นข้อมูลเพิ่มเติมเมื่อประเภทเชิงความหมายเดียวกันปรากฏมากกว่าหนึ่งครั้ง.

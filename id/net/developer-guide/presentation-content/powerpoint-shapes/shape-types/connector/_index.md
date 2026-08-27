@@ -1,39 +1,37 @@
 ---
-title: Kelola Konektor dalam Presentasi di .NET
-linktitle: Konektor
+title: Mengelola Penghubung dalam Presentasi di .NET
+linktitle: Penghubung
 type: docs
 weight: 10
 url: /id/net/connector/
 keywords:
-- konektor
-- jenis konektor
-- titik konektor
-- garis konektor
-- sudut konektor
+- penghubung
+- tipe penghubung
+- titik penghubung
+- garis penghubung
+- sudut penghubung
+- situs koneksi
+- titik penyesuaian
 - hubungkan bentuk
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Memberdayakan aplikasi .NET untuk menggambar, menghubungkan, dan mengatur otomatis garis di slide PowerPoint—dapatkan kontrol penuh atas konektor lurus, siku, dan melengkung."
+description: "Pelajari cara menambahkan, melampirkan, mengubah rute, menyesuaikan, dan memeriksa penghubung PowerPoint lurus, bengkok, dan melengkung dengan Aspose.Slides untuk .NET."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Connector PowerPoint adalah garis khusus yang menghubungkan atau menautkan dua bentuk bersama dan tetap melekat pada bentuk meskipun bentuk tersebut dipindahkan atau diposisikan kembali pada slide tertentu.
+Penghubung adalah garis yang dapat tetap terpasang pada dua bentuk ketika salah satu bentuk bergerak. Ujungnya terhubung ke situs koneksi, yang ditampilkan sebagai titik hijau di PowerPoint. Beberapa penghubung bengkok dan melengkung juga menampilkan titik penyesuaian, yang ditampilkan sebagai titik oranye, yang mengontrol posisi segmen penghubung individu.
 
-Connector biasanya terhubung ke *titik koneksi* (titik hijau), yang secara default ada pada semua bentuk. Titik koneksi muncul ketika kursor mendekatinya.
+Aspose.Slides merepresentasikan penghubung melalui antarmuka [IConnector](https://reference.aspose.com/slides/id/net/aspose.slides/iconnector/) . Anda dapat membuatnya, mengaitkan ujungnya ke bentuk, memilih situs koneksi, mengubah rute mereka, dan memodifikasi geometri penghubung yang memiliki titik penyesuaian.
 
-*Titik penyesuaian* (titik oranye), yang hanya ada pada beberapa connector, digunakan untuk mengubah posisi dan bentuk connector.
+## **Jenis Penghubung**
 
-## **Jenis Konektor**
+Enum [ShapeType](https://reference.aspose.com/slides/id/net/aspose.slides/shapetype/) mencakup preset penghubung lurus, bengkok, dan melengkung. Tabel berikut menunjukkan geometri penghubung yang tersedia dan jumlah titik penyesuaian yang didefinisikan oleh setiap preset.
 
-Di PowerPoint, Anda dapat menggunakan connector lurus, siku (ber sudut), dan melengkung.
-
-Aspose.Slides menyediakan connector berikut:
-
-| Konektor | Gambar | Jumlah titik penyesuaian |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| Penghubung | Gambar | Jumlah titik penyesuaian |
+|---|---|---|
 | `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -45,348 +43,475 @@ Aspose.Slides menyediakan connector berikut:
 | `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Hubungkan Bentuk Menggunakan Konektor**
+Jumlah dan makna titik penyesuaian merupakan bagian dari preset penghubung yang dipilih. Jangan berasumsi bahwa dua tipe penghubung berbeda menampilkan tata letak koleksi yang sama.
 
-1. Buat instance kelas [Presentasi](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan dua [AutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/) ke slide menggunakan metode `AddAutoShape` yang disediakan oleh objek `Shapes`.
-1. Tambahkan sebuah konektor menggunakan metode `AddConnector` yang disediakan oleh objek `Shapes` dengan mendefinisikan tipe konektor.
-1. Hubungkan bentuk‑bentuk menggunakan konektor.
-1. Panggil metode `Reroute` untuk menerapkan jalur koneksi terpendek.
-1. Simpan presentasi.
+## **Hubungkan Dua Bentuk**
 
-Kode C# berikut menunjukkan cara menambahkan sebuah konektor (konektor bengkok) antara dua bentuk (sebuah elips dan persegi panjang):
+Gunakan [IShapeCollection.AddConnector](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addconnector/) untuk menambahkan penghubung, dan tetapkan properti [StartShapeConnectedTo](https://reference.aspose.com/slides/id/net/aspose.slides/connector/startshapeconnectedto/) serta [EndShapeConnectedTo](https://reference.aspose.com/slides/id/net/aspose.slides/connector/endshapeconnectedto/) . Setelah kedua ujung terpasang, [IConnector.Reroute](https://reference.aspose.com/slides/id/net/aspose.slides/iconnector/reroute/) memilih rute singkat antara bentuk-bentuk tersebut.
 
-```c#
-// Membuat instance kelas presentasi yang mewakili file PPTX
-using (Presentation input = new Presentation())
-{                
-    // Mengakses koleksi shape untuk slide tertentu
-    IShapeCollection shapes = input.Slides[0].Shapes;
+Contoh berikut menghubungkan sebuah elips dan persegi panjang dengan penghubung bengkok:
 
-    // Menambahkan autoshape Ellipse
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Menambahkan autoshape Rectangle
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Menambahkan shape konektor ke koleksi shape slide
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Menghubungkan shape menggunakan konektor
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // Memanggil reroute yang menetapkan jalur terpendek otomatis antara shape
-    connector.Reroute();
-
-    // Menyimpan presentasi
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
+Memanggil `Reroute` dapat mengubah nilai [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/id/net/aspose.slides/connector/startshapeconnectionsiteindex/) dan [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/id/net/aspose.slides/connector/endshapeconnectionsiteindex/) . Tetapkan situs koneksi spesifik setelah melakukan reroute jika situs tersebut harus tetap tetap.
+{{% /alert %}}
 
-Metode `Connector.Reroute` mengarahkan ulang sebuah konektor dan memaksa ia mengambil jalur terpendek yang mungkin antara bentuk‑bentuk. Untuk mencapai tujuan tersebut, metode ini dapat mengubah titik `StartShapeConnectionSiteIndex` dan `EndShapeConnectionSiteIndex`. 
+## **Pilih Situs Koneksi**
 
-{{% /alert %}} 
+Setiap bentuk yang dapat dihubungkan melaporkan jumlah situsnya melalui [ConnectionSiteCount](https://reference.aspose.com/slides/id/net/aspose.slides/shape/connectionsitecount/). Validasikan indeks situs berbasis nol yang diinginkan sebelum menetapkannya ke ujung penghubung; jumlah situs bervariasi tergantung pada geometri bentuk.
 
-## **Tentukan Titik Koneksi**
-Jika Anda ingin sebuah konektor menautkan dua bentuk menggunakan titik‑titik spesifik pada bentuk, Anda harus menentukan titik koneksi pilihan Anda sebagai berikut:
+Contoh ini mengaitkan penghubung ke situs tertentu pada elips ketika situs tersebut ada:
 
-1. Buat instance kelas [Presentasi](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan dua [AutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/) ke slide menggunakan metode `AddAutoShape` yang disediakan oleh objek `Shapes`.
-1. Tambahkan sebuah konektor menggunakan metode `AddConnector` yang disediakan oleh objek `Shapes` dengan mendefinisikan tipe konektor.
-1. Hubungkan bentuk‑bentuk menggunakan konektor.
-1. Atur titik‑titik koneksi pilihan Anda pada bentuk.
-1. Simpan presentasi.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Kode C# berikut mendemonstrasikan operasi di mana sebuah titik koneksi pilihan ditentukan:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-// Membuat instance kelas presentasi yang mewakili file PPTX
-using (Presentation presentation = new Presentation())
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // Mengakses koleksi shape untuk slide tertentu
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // Menambahkan shape konektor ke koleksi shape slide
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // Menambahkan autoshape Ellipse
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // Menambahkan autoshape Rectangle
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // Menghubungkan shape menggunakan konektor
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Menetapkan indeks titik koneksi yang diinginkan pada shape Ellipse
-    uint wantedIndex = 6;
-
-    // Memeriksa apakah indeks yang diinginkan lebih kecil dari jumlah maksimum situs koneksi
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // Menetapkan titik koneksi yang diinginkan pada autoshape Ellipse
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // Menyimpan presentasi
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
-## **Sesuaikan Titik Konektor**
+## **Sesuaikan Titik Penghubung**
 
-Anda dapat menyesuaikan sebuah konektor yang ada melalui titik penyesuaian nya. Hanya konektor dengan titik penyesuaian yang dapat diubah dengan cara ini. Lihat tabel di bawah **[Jenis Konektor](/slides/id/net/connector/#types-of-connectors)** 
+Penghubung dengan titik penyesuaian menampilkannya melalui [IGeometryShape.Adjustments](https://reference.aspose.com/slides/id/net/aspose.slides/igeometryshape/adjustments/). Periksa setiap [IAdjustValue](https://reference.aspose.com/slides/id/net/aspose.slides/iadjustvalue/) dan periksa [Type](https://reference.aspose.com/slides/id/net/aspose.slides/adjustvalue/type/) sebelum mengubah [RawValue](https://reference.aspose.com/slides/id/net/aspose.slides/adjustvalue/rawvalue/). Aturan umum untuk mengidentifikasi penyesuaian bentuk preset dijelaskan dalam [Shape Manipulation](/slides/id/net/shape-manipulations/).
 
-### **Kasus Sederhana**
+Jumlah, urutan, makna, dan rentang nilai yang valid dari penyesuaian penghubung bergantung pada preset penghubung. Properti `Type` bersifat read‑only, sementara nilai penyesuaian dapat ditulis. Properti read‑only [Name](https://reference.aspose.com/slides/id/net/aspose.slides/adjustvalue/name/) memberikan identifikasi tambahan ketika sebuah penghubung berisi lebih dari satu penyesuaian dengan tipe semantik yang sama.
 
-Pertimbangkan sebuah kasus di mana sebuah konektor antara dua bentuk (A dan B) melewati bentuk ketiga (C):
+### **Rute Mengelilingi Rintangan**
+
+Pada tata letak berikut, sebuah penghubung `BentConnector5` antara dua bentuk melewati bentuk ketiga:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Kode:
+Kode berikut membuat penghubung yang terhalang:
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-Untuk menghindari atau melewati bentuk ketiga, kita dapat menyesuaikan konektor dengan memindahkan garis vertikalnya ke kiri seperti berikut:
+Menggerakkan bengkok vertikal mengubah rute sehingga penghubung melewati rintangan:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+Alih‑alih mengasumsikan bahwa indeks koleksi `1` selalu mewakili bengkok vertikal, contoh ini mencari `ConnectorBendPositionY` dan mengubahnya hanya ketika tipe semantik yang diharapkan ada:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Kasus Kompleks** 
+Sebuah `BentConnector5` memiliki dua penyesuaian `ConnectorBendPositionX` dan satu penyesuaian `ConnectorBendPositionY`. Jika tipe yang Anda butuhkan muncul lebih dari satu kali, periksa `Name` dan geometri preset yang diketahui sebelum memilih salah satu. Jika sebuah penyesuaian melaporkan `ShapeAdjustmentType.Custom`, perlakukan makna dan rentangnya sebagai spesifik preset dan jangan ubah sampai kontrak tersebut diketahui.
 
-Untuk melakukan penyesuaian yang lebih rumit, Anda harus memperhatikan hal‑hal berikut:
+## **Hubungkan Nilai Penyesuaian dengan Geometri Penghubung**
 
-* Titik yang dapat disesuaikan pada konektor sangat terkait dengan formula yang menghitung dan menentukan posisinya. Jadi perubahan lokasi titik dapat mengubah bentuk konektor.
-* Titik penyesuaian konektor didefinisikan dalam urutan yang ketat dalam sebuah array. Titik‑titik tersebut diberi nomor dari titik awal konektor hingga titik akhirnya.
-* Nilai titik penyesuaian mencerminkan persentase lebar/tinggi bentuk konektor. 
-  * Bentuk dibatasi oleh titik awal dan akhir konektor yang dikalikan dengan 1000. 
-  * Titik pertama, kedua, dan ketiga masing‑masing mendefinisikan persentase dari lebar, persentase dari tinggi, dan persentase dari lebar (lagi).
-* Untuk perhitungan yang menentukan koordinat titik penyesuaian konektor, Anda harus memperhitungkan rotasi konektor dan refleksinya. **Catatan** bahwa sudut rotasi untuk semua konektor yang ditampilkan di bawah **[Jenis Konektor](/slides/id/net/connector/#types-of-connectors)** adalah 0.
+Untuk penghubung bengkok, nilai penyesuaian dapat digunakan untuk memperkirakan posisi segmen individu. Perhitungan ini spesifik untuk preset penghubung:
 
-#### **Kasus 1**
+- `BentConnector4` biasanya menampilkan satu penyesuaian `ConnectorBendPositionX` dan satu `ConnectorBendPositionY` .
+- Untuk posisi bengkok ini, `RawValue / 100000f` menghasilkan fraksi lebar atau tinggi kerangka penghubung yang digunakan oleh contoh di bawah.
+- Kerangka penghubung dapat diputar atau dibalik, sehingga koordinat kerangka harus ditransformasi sebelum dibandingkan dengan koordinat slide.
 
-Pertimbangkan sebuah kasus di mana dua objek bingkai teks ditautkan bersama melalui sebuah konektor:
+Contoh berikut menggunakan `Type` untuk mengidentifikasi penyesuaian terlebih dahulu. Mereka tidak memperlakukan indeks koleksi sebagai pengenal yang dapat dipindahkan.
+
+### **Penghubung Tanpa Rotasi**
+
+Tata letak awal berisi dua bentuk teks yang terhubung oleh sebuah `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Kode:
+Contoh ini memeriksa penghubung dan memperoleh penyesuaian bengkok horizontal serta vertikal:
 
-```c#
-// Membuat instance kelas presentasi yang mewakili file PPTX
-Presentation pres = new Presentation();
-// Mengambil slide pertama dalam presentasi
-ISlide sld = pres.Slides[0];
-// Menambahkan bentuk yang akan digabungkan melalui sebuah konektor
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// Menambahkan konektor
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Menentukan arah konektor
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Menentukan warna konektor
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Menentukan ketebalan garis konektor
 connector.LineFormat.Width = 3;
-
-// Menautkan bentuk-bentuk bersama dengan konektor
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Mengambil titik penyesuaian untuk konektor
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**Penyesuaian**
+Untuk mengubah kedua bengkok, temukan setiap tipe yang diharapkan dan ubah nilainya hanya setelah keduanya ditemukan:
 
-Kita dapat mengubah nilai titik penyesuaian konektor dengan meningkatkan persentase lebar dan tinggi yang bersangkutan masing‑masing sebesar 20% dan 200%:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Mengubah nilai titik penyesuaian
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-Hasilnya:
+Hasilnya adalah penghubung yang segmen horizontal dan vertikalnya telah berpindah:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Untuk mendefinisikan sebuah model yang memungkinkan kita menentukan koordinat dan bentuk bagian‑bagian individual konektor, mari buat sebuah bentuk yang sesuai dengan komponen horizontal konektor pada titik `connector.Adjustments[0]`:
+Setelah tipe semantik diketahui, nilainya dapat dikonversi ke koordinat kerangka penghubung. Contoh ini menggambar persegi panjang tipis di atas segmen vertikal yang dikendalikan oleh dua penyesuaian bengkok:
 
-```c#
- // Gambar komponen vertikal dari konektor
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
- float y = connector.Y;
- float height = connector.Height * adjValue_1.RawValue / 100000;
- sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Hasilnya:
+Bentuk panduan menandai segmen yang dihitung:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Kasus 2**
+### **Penghubung yang Diputar atau Dibalik**
 
-Dalam **Kasus 1**, kami mendemonstrasikan operasi penyesuaian konektor sederhana menggunakan prinsip dasar. Dalam situasi normal, Anda harus memperhitungkan rotasi konektor dan tampilanannya (yang diatur oleh `connector.Rotation`, `connector.Frame.FlipH`, dan `connector.Frame.FlipV`). Kami akan mendemonstrasikan prosesnya sekarang.
+Ketika geometri penghubung yang sama diarahkan secara vertikal, nilai [Frame](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/id/net/aspose.slides/shapeframe/fliph/), dan [FlipV](https://reference.aspose.com/slides/id/net/aspose.slides/shapeframe/flipv/) memengaruhi konversi dari koordinat kerangka penghubung ke koordinat slide.
 
-Pertama, tambahkan sebuah objek bingkai teks baru (**To 1**) ke slide (untuk tujuan koneksi) dan buat sebuah konektor (hijau) yang menghubungkannya dengan objek‑objek yang telah kami buat.
+Contoh ini membuat dan menyesuaikan penghubung yang berorientasi vertikal:
 
-```c#
-// Membuat objek binding baru
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// Membuat konektor baru
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Menghubungkan objek menggunakan konektor yang baru dibuat
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// Mengambil titik penyesuaian konektor
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Mengubah nilai titik penyesuaian 
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-Hasilnya:
+Penghubung yang disesuaikan muncul secara vertikal di antara bentuk-bentuk:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Kedua, buat sebuah bentuk yang akan sesuai dengan komponen horizontal konektor yang melewati titik penyesuaian baru `connector.Adjustments[0]`. Kami akan menggunakan nilai‑nilai dari data konektor untuk `connector.Rotation`, `connector.Frame.FlipH`, dan `connector.Frame.FlipV` serta menerapkan formula konversi koordinat populer untuk rotasi mengelilingi titik tertentu x0:
+Untuk sudut rotasi sewenang‑wenang `alpha`, putar titik kerangka penghubung `(x, y)` mengelilingi pusat kerangka `(x0, y0)` :
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Dalam kasus kami, sudut rotasi objek adalah 90 derajat dan konektor ditampilkan secara vertikal, sehingga kode yang bersangkutan adalah:
+Kode berikut menangani orientasi 90 derajat yang digunakan dalam contoh ini dan menggambar panduan merah di atas segmen penghubung yang bersesuaian:
 
-```c#
- // Menyimpan koordinat konektor
- x = connector.X;
- y = connector.Y;
- // Memperbaiki koordinat konektor jika muncul
- if (connector.Frame.FlipH == NullableBool.True)
- {
-     x += connector.Width;
- }
- if (connector.Frame.FlipV == NullableBool.True)
- {
-     y += connector.Height;
- }
- // Menggunakan nilai titik penyesuaian sebagai koordinat
- x += connector.Width * adjValue_0.RawValue / 100000;
- //  Mengonversi koordinat karena Sin(90) = 1 dan Cos(90) = 0
- float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
- float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
- // Menentukan lebar komponen horizontal menggunakan nilai titik penyesuaian kedua
- float width = connector.Height * adjValue_1.RawValue / 100000;
- IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
- shape.LineFormat.FillFormat.FillType = FillType.Solid;
- shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Hasilnya:
+Panduan merah menandai segmen yang dihitung setelah transformasi koordinat:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Kami telah mendemonstrasikan perhitungan yang melibatkan penyesuaian sederhana dan titik penyesuaian rumit (titik penyesuaian dengan sudut rotasi). Dengan pengetahuan yang diperoleh, Anda dapat mengembangkan model Anda sendiri (atau menulis kode) untuk mendapatkan objek `GraphicsPath` atau bahkan mengatur nilai‑nilai titik penyesuaian konektor berdasarkan koordinat slide tertentu.
+Rumus‑rumus ini menggambarkan preset yang digunakan dalam contoh, bukan model penghubung universal. Validasikan tipe penyesuaian, orientasi kerangka, dan rentang nilai sebelum menerapkan perhitungan yang sama pada preset lain.
 
-## **Temukan Sudut Garis Konektor**
-1. Buat instance kelas [Presentasi](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Akses bentuk garis konektor. 
-1. Gunakan lebar, tinggi, tinggi bingkai bentuk, dan lebar bingkai bentuk untuk menghitung sudutnya.
+## **Temukan Sudut Arah Penghubung**
 
-Kode C# berikut mendemonstrasikan operasi di mana kami menghitung sudut untuk sebuah bentuk garis konektor:
+Arah penghubung lurus dapat dihitung dari lebar dan tinggi, dengan flip horizontal serta vertikal diterapkan. Contoh berikut melaporkan sudut searah jarum jam dari sumbu horizontal positif dalam koordinat slide:
 
-```c#
-public static void Run()
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
 ## **FAQ**
 
-**Bagaimana saya dapat mengetahui apakah sebuah konektor dapat “dilekatkan” pada bentuk tertentu?**
+**Bagaimana saya dapat mengetahui apakah sebuah penghubung dapat dipasang ke sebuah bentuk?**
 
-Periksa bahwa bentuk tersebut mengekspos [situs koneksi](https://reference.aspose.com/slides/id/net/aspose.slides/shape/connectionsitecount/). Jika tidak ada atau jumlahnya nol, pelekatan tidak tersedia; dalam hal itu, gunakan titik akhir bebas dan posisikan secara manual. Disarankan untuk memeriksa jumlah situs sebelum menempelkan.
+Periksa `ConnectionSiteCount` pada bentuk. Jumlah positif berarti bentuk tersebut menyediakan situs koneksi. Validasikan indeks situs yang dipilih sebelum menetapkannya ke ujung penghubung mana pun.
 
-**Apa yang terjadi pada sebuah konektor jika saya menghapus salah satu bentuk yang terhubung?**
+**Apakah saya dapat mengidentifikasi penyesuaian penghubung berdasarkan indeks koleksinya?**
 
-Ujung‑ujungnya akan terlepas; konektor tetap berada di slide sebagai garis biasa dengan titik awal/akhir bebas. Anda dapat menghapusnya atau menetapkan kembali koneksi dan, jika diperlukan, [mengarahkan ulang](https://reference.aspose.com/slides/id/net/aspose.slides/connector/reroute/).
+Indeks hanya bermakna untuk preset penghubung dan tata letak koleksi yang diketahui. Periksa `IAdjustValue.Type` sebelum mengubah nilai, dan gunakan `IAdjustValue.Name` sebagai informasi tambahan ketika tipe semantik yang sama muncul lebih dari satu kali.
 
-**Apakah ikatan konektor dipertahankan ketika menyalin slide ke presentasi lain?**
+**Apa yang terjadi ketika sebuah bentuk yang terhubung dihapus?**
 
-Secara umum ya, asalkan bentuk‑bentuk target juga disalin. Jika slide dimasukkan ke file lain tanpa bentuk‑bentuk yang terhubung, ujung‑ujungnya menjadi bebas dan Anda perlu menempelkan kembali.
+Ujung penghubung yang bersangkutan menjadi terlepas. Penghubung tetap ada pada slide dan dapat dihapus, diposisikan sebagai garis bebas, atau dipasang ke bentuk lain.
+
+**Apakah pengikatan penghubung dipertahankan ketika slide disalin?**
+
+Pengikatan biasanya dipertahankan ketika bentuk‑bentuk yang terhubung disalin bersama slide. Jika sebuah penghubung disalin tanpa salah satu bentuk targetnya, ujung yang terpengaruh harus dipasang kembali.

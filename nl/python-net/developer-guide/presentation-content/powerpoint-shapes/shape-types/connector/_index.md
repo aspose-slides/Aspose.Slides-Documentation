@@ -1,151 +1,117 @@
 ---
-title: Beheer connectoren in presentaties met Python
+title: Beheer connectors in presentaties met Python
 linktitle: Connector
 type: docs
 weight: 10
 url: /nl/python-net/connector/
 keywords:
 - connector
-- connector‑type
-- verbindingspunt
+- connector type
+- connectorpunt
 - connectorlijn
 - connectorhoek
+- verbindingpunt
+- aanpassingspunt
 - vormen verbinden
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Geef Python‑apps de mogelijkheid om lijnen te tekenen, verbinden en automatisch te routeren in PowerPoint‑ en OpenDocument‑dia’s—krijg volledige controle over rechte, elleboog‑ en gebogen connectoren."
+description: "Leer hoe u rechte, gebogen en kromme PowerPoint-connectors kunt toevoegen, koppelen, opnieuw routeren, aanpassen en inspecteren met Aspose.Slides voor Python via .NET."
 ---
-## **Introductie**
+## **Overzicht**
 
-Een PowerPoint-connector is een speciale lijn die twee vormen met elkaar verbindt en bevestigd blijft wanneer de vormen worden verplaatst of herpositioneerd op een dia. Connectoren bevestigen zich aan **verbindingpunten** (groene punten) op vormen. Verbindingpunten verschijnen wanneer de cursor er dichtbij komt. **Aanpassingshandvatten** (gele punten), beschikbaar op bepaalde connectoren, stellen je in staat de positie en vorm van een connector aan te passen.
+Een connector is een lijn die aan twee vormen gekoppeld kan blijven wanneer een van de vormen wordt verplaatst. De uiteinden worden gekoppeld aan verbindingspunten, weergegeven door groene stippen in PowerPoint. Sommige gebogen en kromme connectors tonen ook aanpassingspunten, weergegeven door oranje stippen, die de positie van individuele connectorsegmenten regelen.
+
+Aspose.Slides vertegenwoordigt connectors via de [IConnector](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iconnector/) interface. Je kunt ze maken, de uiteinden aan vormen koppelen, verbindingspunten kiezen, ze opnieuw routeren en de geometrie van connectors met aanpassingspunten aanpassen.
 
 ## **Connector‑typen**
 
-In PowerPoint kun je drie soorten connectoren gebruiken: recht, elleboog (hoekig) en gebogen.
+De [ShapeType](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapetype/) enumeratie bevat rechte, gebogen en kromme connector‑presets. De onderstaande tabel toont de beschikbare connector‑geometrieën en het aantal aanpassingspunten dat door elk preset wordt gedefinieerd.
 
-Aspose.Slides ondersteunt de volgende connector‑typen:
+| Connector | Afbeelding | Aantal aanpassingspunten |
+|---|---|---|
+| `ShapeType.LINE` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.STRAIGHT_CONNECTOR1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BENT_CONNECTOR2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BENT_CONNECTOR3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BENT_CONNECTOR4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BENT_CONNECTOR5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CURVED_CONNECTOR2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CURVED_CONNECTOR3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CURVED_CONNECTOR4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CURVED_CONNECTOR5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Connector‑type                  | Afbeelding                                                   | Aantal aanpassingspunten |
-| ------------------------------- | ------------------------------------------------------------ | ------------------------ |
-| `ShapeType.LINE`                | ![Lijnconnector](shapetype-lineconnector.png)               | 0                        |
-| `ShapeType.STRAIGHT_CONNECTOR1` | ![Rechte connector 1](shapetype-straightconnector1.png)     | 0                        |
-| `ShapeType.BENT_CONNECTOR2`     | ![Gebogen connector 2](shapetype-bent-connector2.png)       | 0                        |
-| `ShapeType.BENT_CONNECTOR3`     | ![Gebogen connector 3](shapetype-bentconnector3.png)        | 1                        |
-| `ShapeType.BENT_CONNECTOR4`     | ![Gebogen connector 4](shapetype-bentconnector4.png)        | 2                        |
-| `ShapeType.BENT_CONNECTOR5`     | ![Gebogen connector 5](shapetype-bentconnector5.png)        | 3                        |
-| `ShapeType.CURVED_CONNECTOR2`   | ![Gebogen connector 2](shapetype-curvedconnector2.png)      | 0                        |
-| `ShapeType.CURVED_CONNECTOR3`   | ![Gebogen connector 3](shapetype-curvedconnector3.png)      | 1                        |
-| `ShapeType.CURVED_CONNECTOR4`   | ![Gebogen connector 4](shapetype-curvedconnector4.png)      | 2                        |
-| `ShapeType.CURVED_CONNECTOR5`   | ![Gebogen connector 5](shapetype.curvedconnector5.png)      | 3                        |
+Het aantal en de betekenis van aanpassingspunten maken deel uit van het geselecteerde connector‑preset. Ga er niet van uit dat twee verschillende connector‑typen dezelfde collectie‑lay‑out tonen.
 
-## **Vormen verbinden met connectoren**
+## **Verbind twee vormen**
 
-Deze sectie laat zien hoe je vormen met connectoren verbindt in Aspose.Slides. Je voegt een connector toe aan een dia, en bevestigt het begin en einde aan doelvormen. Het gebruik van verbindingpunten zorgt ervoor dat de connector “gelijmd” blijft aan de vormen, zelfs wanneer ze worden verplaatst of van formaat veranderen.
+Gebruik [IShapeCollection.add_connector](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ishapecollection/add_connector/) om een connector toe te voegen, en wijs de eigenschappen [start_shape_connected_to](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iconnector/start_shape_connected_to/) en [end_shape_connected_to](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iconnector/end_shape_connected_to/) toe. Nadat beide uiteinden zijn gekoppeld, kiest [IConnector.reroute](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iconnector/reroute/) een korte route tussen de vormen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie op naar de dia op basis van de index.
-1. Voeg twee [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/)‑objecten toe aan de dia met behulp van de `add_auto_shape`‑methode die wordt blootgesteld door het [ShapeCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/)‑object.
-1. Voeg een connector toe met de `add_connector`‑methode die wordt blootgesteld door het [ShapeCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/)‑object en specificeer het connector‑type.
-1. Verbind de vormen met de connector.
-1. Roep de `reroute`‑methode aan om het kortste verbindingspad toe te passen.
-1. Sla de presentatie op.
-
-De volgende Python‑code toont hoe je een gebogen connector toevoegt tussen twee vormen (een ellips en een rechthoek):
+Het volgende voorbeeld verbindt een ellips en een rechthoek met een gebogen connector:
 
 ```python
 import aspose.slides as slides
 
-# Maak een instantie van de Presentation‑klasse om een PPTX‑bestand te maken.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Toegang tot de shapes‑collectie voor de eerste dia.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-    # Voeg een ellips‑AutoShape toe.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Voeg een rechthoek‑AutoShape toe.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Voeg een connector toe aan de dia.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
-
-    # Verbind de vormen met de connector.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
-
-    # Roep reroute aan om het kortste pad in te stellen.
     connector.reroute()
 
-    # Sla de presentatie op.
-    presentation.save("connected_shapes.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("connected-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-`connector.reroute`‑methode herrouteert een connector, waardoor deze de kortst mogelijke route tussen vormen neemt. Hiervoor kan de methode de waarden van `start_shape_connection_site_index` en `end_shape_connection_site_index` wijzigen.
+{{% alert color="warning" title="Waarschuwing" %}}
+Het aanroepen van `reroute` kan de waarden van [start_shape_connection_site_index](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iconnector/start_shape_connection_site_index/) en [end_shape_connection_site_index](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iconnector/end_shape_connection_site_index/) wijzigen. Wijs specifieke verbindingspunten toe na het opnieuw routeren als die punten vast moeten blijven staan.
 {{% /alert %}}
 
-## **Specificeer verbindingpunten**
+## **Kies een verbindingspunt**
 
-Deze sectie legt uit hoe je een connector aan een specifiek verbindingpunt op een vorm in Aspose.Slides bevestigt. Door gerichte verbindingpunten te gebruiken, kun je de routering en lay-out van de connector beheersen, waardoor je schone, voorspelbare diagrammen in je presentaties produceert.
+Elke verbindbare vorm rapporteert zijn aantal punten via [connection_site_count](https://reference.aspose.com/slides/nl/python-net/aspose.slides/igeometryshape/connection_site_count/). Valideer een voorkeurs‑index (nulgebaseerd) voordat je deze toewijst aan een connector‑uiteinde; het aantal punten varieert per vormgeometrie.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie op naar de dia op basis van de index.
-1. Voeg twee [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/)‑objecten toe aan de dia met behulp van de `add_auto_shape`‑methode die wordt blootgesteld door het [ShapeCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/)‑object.
-1. Voeg een connector toe met de `add_connector`‑methode op het [ShapeCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/)‑object en specificeer het connector‑type.
-1. Verbind de vormen met de connector.
-1. Stel je gewenste verbindingpunten op de vormen in.
-1. Sla de presentatie op.
-
-De volgende Python‑code demonstreert hoe je een voorkeurs‑verbindingpunt specificeert:
+Dit voorbeeld koppelt de connector aan een specifiek punt op de ellips wanneer dat punt bestaat:
 
 ```python
 import aspose.slides as slides
 
-# Maak een instantie van de Presentation-klasse om een PPTX-bestand te maken.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Toegang tot de shapes-collectie van de eerste dia.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
 
-    # Voeg een ellips-AutoShape toe.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Voeg een rechthoek-AutoShape toe.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Voeg een connector toe aan de shape-collectie van de dia.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
-
-    # Verbind de vormen met de connector.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
 
-    # Stel de voorkeurs-verbinding-site-index in op de ellips.
-    site_index = 6
+    preferred_site_index = 2
+    if preferred_site_index < ellipse.connection_site_count:
+        connector.start_shape_connection_site_index = preferred_site_index
+    else:
+        print(f"The ellipse has only {ellipse.connection_site_count} connection sites.")
 
-    # Controleer of de voorkeurs-index binnen het beschikbare aantal sites ligt.
-    if  ellipse.connection_site_count > site_index:
-        # Wijs de voorkeurs-verbinding-site toe op de ellips-AutoShape.
-        connector.start_shape_connection_site_index = site_index
-
-    # Sla de presentatie op.
-    presentation.save("connection_points.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("specific-connection-site.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Aanpassen connectorpunten**
+## **Pas een connectorpunt aan**
 
-Je kunt connectoren aanpassen via hun aanpassingspunten. Alleen connectoren die aanpassingspunten exposeren, kunnen op deze manier worden bewerkt. Voor details over welke connectoren aanpassingen ondersteunen, zie de tabel onder [Connector‑typen](/slides/nl/python-net/connector/#connector-types).
+Connectors met aanpassingspunten maken ze toegankelijk via [IGeometryShape.adjustments](https://reference.aspose.com/slides/nl/python-net/aspose.slides/igeometryshape/adjustments/). Inspecteer elke [IAdjustValue](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iadjustvalue/) en controleer zijn [type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iadjustvalue/type/) voordat je de [raw_value](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iadjustvalue/raw_value/) wijzigt. Voor algemene vormmanipulatie, zie [Shape Manipulation](/slides/nl/python-net/shape-manipulations/).
 
-### **Eenvoudig geval**
+Het aantal, de volgorde, de betekenis en het geldige bereik van connector‑aanpassingen hangen af van het connector‑preset. De eigenschap `type` is alleen‑lezen, terwijl de aanpassingswaarde beschrijfbaar is. De alleen‑lees [name](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iadjustvalue/name/) eigenschap biedt extra identificatie wanneer een connector meer dan één aanpassing van hetzelfde semantische type bevat.
 
-Beschouw een geval waarbij een connector tussen twee vormen (A en B) een derde vorm (C) kruist:
+### **Omzeil een obstakel**
 
-![Connector obstructie](connector-obstruction.png)
+In de volgende opzet gaat een `ShapeType.BENT_CONNECTOR5` connector tussen twee vormen door een derde vorm:
 
-Code‑voorbeeld:
+![connector-obstruction](connector-obstruction.png)
+
+Deze code maakt de geblokkeerde connector:
 
 ```python
 import aspose.slides as slides
@@ -154,238 +120,322 @@ import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
-    
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
     connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
-    
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
-    
-    connector.start_shape_connected_to = shape_from
-    connector.end_shape_connected_to = shape_to
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
     connector.start_shape_connection_site_index = 2
+
+    presentation.save("connector-obstruction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Om de derde vorm te vermijden, pas je de connector aan door het verticale segment naar links te verplaatsen:
+Het verplaatsen van de verticale bocht wijzigt de route zodat de connector het obstakel omzeilt:
 
-![Opgeloste connectorobstructie](connector-obstruction-fixed.png)
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```python
-    adjustment2 = connector.adjustments[1]
-    adjustment2.raw_value += 10000
-```
-
-### **Complexe gevallen**
-
-Voor meer geavanceerde aanpassingen, overweeg het volgende:
-
-- Het aanpasbare punt van een connector wordt bepaald door een formule die de positie berekent. Het wijzigen van dit punt kan de algehele vorm van de connector wijzigen.
-- De aanpassingspunten van een connector worden opgeslagen in een strikt geordende array, genummerd vanaf het begin tot het einde van de connector.
-- De waarden van aanpassingspunten vertegenwoordigen percentages van de breedte/hoogte van de connectorvorm.  
-  - De vorm wordt begrensd door de start‑ en eindpunten van de connector en geschaald met 1000.  
-  - Het eerste, tweede en derde aanpassingspunt stellen respectievelijk een percentage van de breedte, een percentage van de hoogte en opnieuw een percentage van de breedte voor.
-- Bij het berekenen van de coördinaten van aanpassingspunten moet rekening worden gehouden met de rotatie en spiegeling van de connector. **Opmerking:** Voor alle connectoren die onder [Connector‑typen](/slides/nl/python-net/connector/#connector-types) worden vermeld, is de rotatiehoek 0.
-
-#### **Geval 1**
-
-Beschouw een geval waarbij twee tekstkader‑objecten met een connector worden gekoppeld:
-
-![Gekoppelde vormen](connector-shape-complex.png)
-
-Code‑voorbeeld:
+In plaats van ervan uit te gaan dat collectie‑index `1` altijd de verticale bocht vertegenwoordigt, zoekt dit voorbeeld naar `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` en wijzigt het alleen wanneer het verwachte semantische type aanwezig is:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Maak een instantie van de Presentation-klasse om een PPTX-bestand te maken.
 with slides.Presentation() as presentation:
-
-    # Haal de eerste dia op.
     slide = presentation.slides[0]
 
-    # Haal de eerste dia op.
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
-    shape_from.text_frame.text = "From"
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
-    shape_to.text_frame.text = "To"
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
 
-    # Voeg een connector toe.
-    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
-    # Stel de richting van de connector in.
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
-    # Stel de kleur van de connector in.
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
+    connector.start_shape_connection_site_index = 2
+
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+            break
+
+    if vertical_bend is None:
+        print("The connector does not expose a vertical bend adjustment.")
+    else:
+        vertical_bend.raw_value = 60000
+        presentation.save("connector-obstruction-fixed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Een `ShapeType.BENT_CONNECTOR5` heeft twee `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X`‑aanpassingen en één `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`‑aanpassing. Als het type dat je nodig hebt meer dan eens voorkomt, inspecteer dan `name` en de bekende geometrie van dat preset voordat je er één selecteert. Als een aanpassing [ShapeAdjustmentType.CUSTOM](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapeadjustmenttype/) rapporteert, behandel de betekenis en het bereik als preset‑specifiek en wijzig het niet totdat die contractueel is vastgesteld.
+
+## **Relateer aanpassingswaarden aan connector‑geometrie**
+
+Voor gebogen connectors kunnen aanpassingswaarden worden gebruikt om de posities van individuele segmenten in te schatten. Deze berekeningen zijn specifiek voor het connector‑preset:
+
+- `ShapeType.BENT_CONNECTOR4` toont normaal één `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` en één `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` aanpassing.
+- Voor deze bochtposities levert `raw_value / 100000` de fractie van de connector‑frame breedte of hoogte op die in de onderstaande voorbeelden wordt gebruikt.
+- Een connector‑frame kan gedraaid of gespiegeld worden, zodat frame‑coördinaten moeten worden getransformeerd voordat ze vergeleken worden met slide‑coördinaten.
+
+De volgende voorbeelden gebruiken eerst `type` om de aanpassingen te identificeren. Ze behandelen collectie‑indexen niet als draagbare identifiers.
+
+### **Niet‑gedraaid connector**
+
+De beginsituatie bevat twee tekstvormen die verbonden zijn door een `ShapeType.BENT_CONNECTOR4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Dit voorbeeld inspecteert de connector en haalt de horizontale en verticale bocht‑aanpassingen op:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    target_shape.text_frame.text = "To"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.crimson
-    # Stel de lijndikte van de connector in.
     connector.line_format.width = 3
-
-    # Koppel de vormen met de connector.
-    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 3
-    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 2
 
-    # Haal de aanpassingspunten van de connector op.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
 ```
 
-**Aanpassing**
-
-Verhoog de waarden van de aanpassingspunten van de connector door respectievelijk 20 % van de breedte en 200 % van de hoogte toe te voegen:
+Om beide bochten te wijzigen, zoek je elk verwacht type en wijzig je de waarden pas nadat beide gevonden zijn:
 
 ```python
-    # Wijzig de waarden van de aanpassingspunten.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+        presentation.save("connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+Het resultaat is een connector waarvan de horizontale en verticale segmenten zijn verplaatst:
 
-![Connectoraanpassing 1](connector-adjusted-1.png)
+![connector-adjusted-1](connector-adjusted-1.png)
 
-Om een model te definiëren dat ons in staat stelt de coördinaten en vorm van de connectorsegmenten te bepalen, maak je een vorm die overeenkomt met het verticale onderdeel van de connector op `connector.adjustments[0]`:
+Zodra de semantische types bekend zijn, kunnen hun waarden omgezet worden naar connector‑frame coördinaten. Dit voorbeeld tekent een dunne rechthoek over het verticale segment dat wordt bestuurd door de twee bocht‑aanpassingen:
 
 ```python
-    # Teken het verticale component van de connector.
-    x = connector.x + connector.width * adjustment_0.raw_value / 100000
-    y = connector.y
-    height = connector.height * adjustment_1.raw_value / 100000
+import aspose.slides as slides
 
-    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        x = connector.x + connector.width * horizontal_bend.raw_value / 100000
+        y = connector.y
+        height = connector.height * vertical_bend.raw_value / 100000
+        slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 1, height)
+        presentation.save("connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+De hulpflichaam markeert het berekende segment:
 
-![Connectoraanpassing 2](connector-adjusted-2.png)
+![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Geval 2**
+### **Gedraaid of gespiegeld connector**
 
-In **Geval 1** hebben we een eenvoudige connectoraanpassing laten zien met basisprincipes. In typische scenario's moet je rekening houden met de rotatie van de connector en de weergave‑instellingen (beheerst door `connector.rotation`, `connector.frame.flip_h` en `connector.frame.flip_v`). Zo werkt het proces.
+Wanneer dezelfde connector‑geometrie verticaal georiënteerd is, beïnvloeden de waarden van [frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iconnector/frame/), [flip_h](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ishapeframe/flip_h/) en [flip_v](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ishapeframe/flip_v/) de conversie van connector‑frame coördinaten naar slide‑coördinaten.
 
-Eerst voeg je een nieuw tekstkader‑object (**To 1**) toe aan de dia (voor verbinding) en maak je een nieuwe groene connector die deze verbindt met de bestaande objecten.
+Dit voorbeeld maakt en past de verticaal georiënteerde connector aan:
 
 ```python
-    # Maak een nieuw doelobject.
-    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
-    shape_to_1.text_frame.text = "To 1"
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    # Maak een nieuwe connector.
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    target_shape.text_frame.text = "To 1"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
-
-    # Verbind de objecten met de nieuw aangemaakte connector.
-    connector.start_shape_connected_to = shapeFrom
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 2
-    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 3
 
-    # Haal de aanpassingspunten van de connector op.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
-    
-    # Wijzig de waarden van de aanpassingspunten.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            adjustment.raw_value += 20000
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            adjustment.raw_value += 200000
+
+    presentation.save("vertical-connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resultaat:
+De aangepaste connector verschijnt verticaal tussen de vormen:
 
-![Connectoraanpassing 3](connector-adjusted-3.png)
+![connector-adjusted-3](connector-adjusted-3.png)
 
-Vervolgens maak je een vorm die overeenkomt met het **horizontale** segment van de connector dat door het nieuwe aanpassingspunt van de connector loopt, `connector.adjustments[0]`. Gebruik de waarden van `connector.rotation`, `connector.frame.flip_h` en `connector.frame.flip_v`, en pas de standaard coördinaten‑conversieformule toe voor rotatie rond een gegeven punt `x0`:
+Voor een willekeurige rotatiehoek `alpha` rotatie je een connector‑frame punt `(x, y)` rond het frame‑centrum `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-In ons geval is de rotatiehoek van het object 90 graden en wordt de connector verticaal weergegeven, dus de bijbehorende code is:
-
-```python
-    # Sla de coördinaten van de connector op.
-    x = connector.x
-    y = connector.y
-    
-    # Corrigeer de coördinaten van de connector als deze is omgekeerd.
-    if connector.frame.flip_h == 1:
-        x += connector.width
-    if connector.frame.flip_v == 1:
-        y += connector.height
-
-    # Gebruik de waarde van het aanpassingspunt als coördinaat.
-    x += connector.width * adjValue_0.raw_value / 100000
-    
-    # Converteer de coördinaten omdat sin(90°) = 1 en cos(90°) = 0.
-    xx = connector.frame.center_x - y + connector.frame.center_y
-    yy = x - connector.frame.center_x + connector.frame.center_y
-
-    # Bepaal de breedte van het horizontale segment met behulp van de waarde van het tweede aanpassingspunt.
-    width = connector.height * adjValue_1.raw_value / 100000
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-```
-
-Resultaat:
-
-![Connectoraanpassing 4](connector-adjusted-4.png)
-
-We hebben berekeningen getoond die zowel eenvoudige als complexere aanpassingspunten betreffen (die rekening houden met rotatie). Met deze kennis kun je je eigen model ontwikkelen — of code schrijven — om een `GraphicsPath`‑object te verkrijgen of zelfs de aanpassingspunten van een connector in te stellen op basis van specifieke dia‑coördinaten.
-
-## **Connector‑lijnhoeken vinden**
-
-Gebruik het onderstaande voorbeeld om de hoek van connector‑lijnen op een dia te bepalen met Aspose.Slides. Je leert hoe je de eindpunten van een connector leest en de oriëntatie berekent zodat je pijlen, labels en andere vormen nauwkeurig kunt uitlijnen.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie op naar de dia op basis van de index.
-1. Toegang tot de connector‑lijnvorm.
-1. Gebruik de breedte en hoogte van de lijn en de breedte en hoogte van het vormkader om de hoek te berekenen.
-
-De volgende Python‑code toont hoe je de hoek van een connector‑lijnvorm berekent:
+De volgende code behandelt de 90‑graden oriëntatie die in dit voorbeeld wordt gebruikt en tekent een rode gids over het overeenkomstige connector‑segment:
 
 ```python
 import aspose.slides as slides
-import math
+import aspose.pydrawing as draw
 
-def get_direction(w, h, flip_h, flip_v):
-    end_line_x = w * (-1 if flip_h else 1)
-    end_line_y = h * (-1 if flip_v else 1)
-    end_y_axis_x = 0
-    end_y_axis_y = h
-    angle = math.atan2(end_y_axis_y, end_y_axis_x) - math.atan2(end_line_y, end_line_x)
-    if (angle < 0):
-         angle += 2 * math.pi
-    return angle * 180.0 / math.pi
-
-with slides.Presentation("connector_line_angle.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    for shape_index in range(len(slide.shapes)):
-        direction = 0.0
-        shape = slide.shapes[shape_index]
-        if type(shape) is slides.AutoShape and shape.shape_type == slides.ShapeType.LINE:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        elif type(shape) is slides.Connector:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        print(direction)
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 2
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 3
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+
+        x = connector.x
+        y = connector.y
+        if connector.frame.flip_h == slides.NullableBool.TRUE:
+            x += connector.width
+        if connector.frame.flip_v == slides.NullableBool.TRUE:
+            y += connector.height
+
+        x += connector.width * horizontal_bend.raw_value / 100000
+        rotated_x = connector.frame.center_x - y + connector.frame.center_y
+        rotated_y = x - connector.frame.center_x + connector.frame.center_y
+        segment_width = connector.height * vertical_bend.raw_value / 100000
+        guide = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, rotated_x, rotated_y, segment_width, 1)
+        guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+        guide.line_format.fill_format.solid_fill_color.color = draw.Color.red
+
+        presentation.save("rotated-connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
+```
+
+De rode gids markeert het berekende segment na de coördinatentransformatie:
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+Deze formules beschrijven de presets die in de voorbeelden worden gebruikt, niet een universeel connector‑model. Valideer de aanpassingstypen, frame‑oriëntatie en waardebereiken voordat je dezelfde berekening toepast op een ander preset.
+
+## **Bepaal de richtingshoek van een connector**
+
+De richting van een rechte connector kan worden berekend uit zijn breedte en hoogte, met horizontale en verticale spiegels toegepast. Het volgende voorbeeld geeft de klokwijzerige hoek ten opzichte van de positieve horizontale as in slide‑coördinaten weer:
+
+```python
+import math
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 100, 100, 200, 100)
+
+    flip_h = connector.frame.flip_h == slides.NullableBool.TRUE
+    flip_v = connector.frame.flip_v == slides.NullableBool.TRUE
+    delta_x = connector.width * (-1 if flip_h else 1)
+    delta_y = connector.height * (-1 if flip_v else 1)
+    angle = math.atan2(delta_y, delta_x) * 180.0 / math.pi
+
+    if angle < 0:
+        angle += 360
+
+    print(f"Connector direction: {angle:.2f} degrees")
 ```
 
 ## **FAQ**
 
-**Hoe kan ik bepalen of een connector aan een specifieke vorm kan worden "gelijmd"?**
+**Hoe kan ik zien of een connector aan een vorm kan worden gekoppeld?**  
+Controleer de [connection_site_count](https://reference.aspose.com/slides/nl/python-net/aspose.slides/igeometryshape/connection_site_count/) van de vorm. Een positieve telling betekent dat de vorm verbindingspunten exposeert. Valideer de gekozen punt‑index vóór toewijzing aan een connector‑uiteinde.
 
-Controleer of de vorm [verbindingpunten](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/connection_site_count/) exposeert. Als er geen zijn of het aantal nul is, is lijmen niet beschikbaar; gebruik in dat geval vrije eindpunten en positioneer ze handmatig. Het is verstandig het aantal sites te controleren voordat je koppelt.
+**Kan ik een connector‑aanpassing identificeren via zijn collectie‑index?**  
+Een index is alleen betekenisvol voor een bekend connector‑preset en collectie‑lay‑out. Controleer [IAdjustValue.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iadjustvalue/type/) vóór het wijzigen van een waarde, en gebruik [IAdjustValue.name](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iadjustvalue/name/) als extra informatie wanneer hetzelfde semantische type meer dan eens voorkomt.
 
-**Wat gebeurt er met een connector als ik een van de gekoppelde vormen verwijder?**
+**Wat gebeurt er wanneer een gekoppelde vorm wordt verwijderd?**  
+Het overeenkomstige connector‑uiteinde wordt losgekoppeld. De connector blijft op de slide staan en kan worden verwijderd, als vrije lijn gepositioneerd of aan een andere vorm gekoppeld worden.
 
-De uiteinden worden losgekoppeld; de connector blijft op de dia staan als een gewone lijn met vrije start/eind. Je kunt deze verwijderen of de verbindingen opnieuw toewijzen en, indien nodig, [reroute](https://reference.aspose.com/slides/nl/python-net/aspose.slides/connector/reroute/) toepassen.
-
-**Worden connector‑bindingen behouden bij het kopiëren van een dia naar een andere presentatie?**
-
-Over het algemeen ja, op voorwaarde dat de doel‑vormen ook worden gekopieerd. Als de dia in een ander bestand wordt ingevoegd zonder de gekoppelde vormen, worden de uiteinden vrij en moet je ze opnieuw koppelen.
+**Worden connector‑bindingen behouden wanneer een slide wordt gekopieerd?**  
+Bindingen blijven doorgaans behouden wanneer de gekoppelde vormen samen met de slide worden gekopieerd. Als een connector wordt gekopieerd zonder één van zijn doel­vormen, moet het betreffende uiteinde opnieuw worden gekoppeld.

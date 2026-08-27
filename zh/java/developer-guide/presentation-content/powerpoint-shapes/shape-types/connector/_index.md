@@ -1,37 +1,36 @@
 ---
-title: 使用 Java 管理演示文稿中的连接线
-linktitle: 连接线
+title: 在 Java 中管理演示文稿中的连接器
+linktitle: 连接器
 type: docs
 weight: 10
 url: /zh/java/connector/
 keywords:
-- 连接线
-- 连接线类型
+- 连接器
+- 连接器类型
 - 连接点
 - 连接线
 - 连接角度
+- 连接站点
+- 调整点
 - 连接形状
 - PowerPoint
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "赋能 Java 应用在 PowerPoint 幻灯片中绘制、连接和自动路由线条——全面掌控直线、拐角线和曲线连接线。"
+description: "了解如何使用 Aspose.Slides for Java 添加、附着、重新路由、调整和检查直线、折线和曲线 PowerPoint 连接器。"
 ---
+## **概述**
 
-PowerPoint 连接线是一种特殊的线段，用于将两个形状连接或链接在一起，即使在幻灯片上移动或重新定位形状时，它也会保持附着。
+连接线是一种线段，当任一形状移动时仍可保持与两个形状连接。它的两端附着在连接点上，在 PowerPoint 中以绿色点表示。某些折线和曲线连接线还会暴露调整点，以橙色点表示，用于控制各个连接线段的位置。
 
-连接线通常连接到*连接点*（绿色点），所有形状默认都具有这些连接点。当光标靠近时会显示连接点。
+Aspose.Slides 通过 [IConnector](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iconnector/) 接口表示连接线。您可以创建它们、将端点附着到形状、选择连接点、重新路由，以及修改具有调整点的连接线的几何形状。
 
-*调整点*（橙色点）仅存在于某些连接线中，用于修改连接线的位置和形状。
+## **连接器类型**
 
-## **连接线的类型**
+[ShapeType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shapetype/) 类包含直线、折线和曲线连接器预设。下表显示了可用的连接器几何形状以及每个预设定义的调整点数量。
 
-在 PowerPoint 中，您可以使用直线、肘部（有角度）和曲线连接线。
-
-Aspose.Slides 提供以下连接线：
-
-| 连接线类型 | 图片 | 调整点数量 |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| 连接器 | 图像 | 调整点数量 |
+|---|---|---|
 | `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -43,363 +42,463 @@ Aspose.Slides 提供以下连接线：
 | `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **使用连接线连接形状**
+调整点的数量和含义是所选连接器预设的一部分。不要假设不同的连接器类型会暴露相同的集合布局。
 
-1. 创建一个 [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 使用 `Shapes` 对象的 `addAutoShape` 方法向幻灯片添加两个 [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape)。  
-4. 通过 `Shapes` 对象的 `addConnector` 方法并指定连接线类型来添加连接线。  
-5. 使用该连接线将形状连接起来。  
-6. 调用 `reroute` 方法以应用最短的连接路径。  
-7. 保存演示文稿。
+## **连接两个形状**
 
-下面的 Java 代码演示了如何在两个形状（椭圆和矩形）之间添加一个弯曲连接线：
-```Java
-// 实例化一个表示 PPTX 文件的演示文稿类
-Presentation pres = new Presentation();
+使用 [IShapeCollection.addConnector](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) 添加连接器，并使用 [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) 和 [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) 将其两端附着。两端都附着后， [IConnector.reroute](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iconnector/#reroute--) 将在形状之间选择一条短路径。
+
+以下示例使用折线连接器连接椭圆和矩形：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // 访问特定幻灯片的形状集合
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // 添加一个椭圆自动形状
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // 添加一个矩形自动形状
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // 向幻灯片形状集合添加一个连接器形状
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // 使用连接器连接形状
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    
-    // 调用 reroute 方法，以在形状之间设置自动最短路径
     connector.reroute();
-    
-    // 保存演示文稿
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="warning" title="警告" %}}
+调用 `reroute` 可能会更改 [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) 和 [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) 的值。如果这些连接点必须保持固定，请在重新路由后再次指定具体的连接点。
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% /alert %}}
 
-`Connector.reroute` 方法会重新路由连接线，并强制其在形状之间走最短可能路径。为实现此目的，方法可能会更改 `setStartShapeConnectionSiteIndex` 和 `setEndShapeConnectionSiteIndex` 点。 
+## **选择连接点**
 
-{{% /alert %}} 
+每个可连接的形状通过 [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getConnectionSiteCount--) 报告其连接点数量。在将首选的零基索引分配给连接器端点之前，请先验证该索引；不同形状的几何形状会导致连接点数量不同。
 
-## **指定连接点**
+以下示例在椭圆上存在特定连接点时将连接器附着到该点：
 
-如果希望连接线使用形状上的特定点进行链接，需要按以下方式指定首选连接点：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 使用 `Shapes` 对象的 `addAutoShape` 方法向幻灯片添加两个 [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape)。  
-4. 通过 `Shapes` 对象的 `addConnector` 方法并指定连接线类型来添加连接线。  
-5. 使用该连接线将形状连接起来。  
-6. 在形状上设置首选的连接点。  
-7. 保存演示文稿。
-
-下面的 Java 代码演示了如何指定首选连接点的操作：
 ```java
-// 实例化一个表示 PPTX 文件的演示文稿类
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // 访问特定幻灯片的形状集合
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 添加一个椭圆自动形状
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // 添加一个矩形自动形状
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // 向幻灯片的形状集合添加一个连接器形状
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // 使用连接器连接形状
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // 在椭圆形状上设置首选连接点索引
-    int wantedIndex = 6;
-
-    // 检查首选索引是否小于最大站点索引计数
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // 在椭圆自动形状上设置首选连接点
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
     }
 
-    // 保存演示文稿
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **调整连接点**
 
-您可以通过调整点来修改已有的连接线。仅带有调整点的连接线可以以此方式进行更改。请参见 **[连接线的类型](/slides/zh/java/connector/#types-of-connectors)** 下的表格。
+具有调整点的连接器通过 [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/zh/java/com.aspose.slides/igeometryshape/#getAdjustments--) 暴露这些点。检查每个 [IAdjustValue](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/) 并在使用 [setRawValue](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) 改变其值之前，先查看其 [getType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/#getType--)。有关识别预设形状调整的通用规则，请参阅 [Shape Manipulation](/slides/zh/java/shape-manipulations/)。
 
-### **简单案例**
+调整点的数量、顺序、含义和有效值范围取决于连接器预设。调整类型为只读，而调整值可写。只读的 [getName](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/#getName--) 方法在连接器包含多个相同语义类型的调整时提供额外的标识信息。
 
-考虑一种情况：两形状（A 和 B）之间的连接线经过第三个形状（C）：
+### **绕过障碍物**
+
+在下面的布局中，`BentConnector5` 连接器在两个形状之间穿过第三个形状：
 
 ![connector-obstruction](connector-obstruction.png)
+
+此代码创建了受阻的连接器：
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
-为避免或绕过第三个形状，我们可以将连接线的垂直线向左移动，如下所示：
+移动垂直弯曲点会改变路径，使连接器绕过障碍物：
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
+
+不要假设集合索引 `1` 总是代表垂直弯曲点，此示例会搜索 `ConnectorBendPositionY` 并仅在出现预期语义类型时进行更改：
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
-```
+import com.aspose.slides.*;
+import java.awt.Color;
 
-
-### **复杂案例** 
-
-进行更复杂的调整时，需要考虑以下因素：
-
-* 连接线的可调点与计算其位置的公式紧密关联。因此，点位置的更改可能会改变连接线的形状。  
-* 连接线的调整点在数组中按严格顺序定义，编号从连接线的起点到终点。  
-* 调整点的值反映连接线形状宽度/高度的百分比。  
-  * 形状的边界由连接线的起点和终点乘以 1000 确定。  
-  * 第一点、第二点和第三点分别定义宽度百分比、高度百分比和再次的宽度百分比。  
-* 在计算连接线调整点坐标时，需要考虑连接线的旋转和镜像。**注意**，在 **[连接线的类型](/slides/zh/java/connector/#types-of-connectors)** 中显示的所有连接线的旋转角度均为 0。
-
-#### **案例 1**
-
-考虑一种情况：两个文本框对象通过连接线相连：
-
-![connector-shape-complex](connector-shape-complex.png)
-```java
-// 实例化一个表示 PPTX 文件的演示文稿类
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 获取演示文稿中的第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
-    // 添加将通过连接器连接在一起的形状
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // 添加一个连接器
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // 指定连接器的方向
-    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // 指定连接器的颜色
-    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // 指定连接器线条的粗细
-    connector.getLineFormat().setWidth(3);
-    
-    // 使用连接器将形状链接在一起
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
-    connector.setEndShapeConnectionSiteIndex(2);
-    
-    // 获取连接器的调整点
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+`BentConnector5` 具有两个 `ConnectorBendPositionX` 调整和一个 `ConnectorBendPositionY` 调整。如果所需类型出现多次，请在选择之前检查 `getName` 并结合预设的已知几何形状。如果某个调整报告为 `ShapeAdjustmentType.Custom`，请将其含义和范围视为特定于预设，并在了解其约定之前不要更改它。
 
-**调整**
+## **将调整值与连接器几何关联**
 
-我们可以通过将对应的宽度和高度百分比分别增加 20% 和 200% 来更改连接线的调整点值：
+对于折线连接器，调整值可用于估算各段的位置。这些计算特定于连接器预设：
+
+- `BentConnector4` 通常暴露一个 `ConnectorBendPositionX` 和一个 `ConnectorBendPositionY` 调整。
+- 对于这些弯曲位置，将 `getRawValue` 返回的值除以 `100000f` 可得到连接器框宽度或高度的比例，如下例所示。
+- 连接器框可以旋转或翻转，因此在与幻灯片坐标比较之前必须对框坐标进行转换。
+
+以下示例首先使用 `getType` 标识调整，然后进行处理。它们不把集合索引当作可移植的标识符。
+
+### **未旋转的连接器**
+
+初始布局包含两个通过 `BentConnector4` 连接的文本形状：
+
+![connector-shape-complex](connector-shape-complex.png)
+
+此示例检查连接器并获取其水平和垂直弯曲调整：
+
 ```java
-// 更改调整点的值
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+要更改两个弯曲点，先定位每种预期类型，并在找到两者后再修改值：
 
-结果：
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+结果是水平和垂直段已移动的连接器：
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-为了定义一个模型，以便确定连接线各部分的坐标和形状，我们创建一个对应于连接线 `connector.getAdjustments().get_Item(0)` 点的水平分量的形状：
+确定语义类型后，可将其值转换为连接器框坐标。此示例在由两个弯曲调整控制的垂直段上绘制一个细长矩形：
+
 ```java
-// 绘制连接器的垂直分量
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-
-结果：
+指南形状标记了计算得到的段落：
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **案例 2**
+### **旋转或翻转的连接器**
 
-在 **案例 1** 中，我们演示了使用基本原理进行的简单连接线调整操作。在正常情况下，需要考虑连接线的旋转及其显示方式（由 `connector.getRotation()`、`connector.getFrame().getFlipH()` 和 `connector.getFrame().getFlipV()` 设置）。下面演示该过程。
+当相同的连接器几何垂直放置时，其 [IShape.getFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getFrame--)、[ShapeFrame.getFlipH](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shapeframe/#getFlipH--) 和 [ShapeFrame.getFlipV](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shapeframe/#getFlipV--) 值会影响从连接器框坐标到幻灯片坐标的转换。
 
-首先，向幻灯片添加一个新的文本框对象（**To 1**）用于连接，并创建一个新的（绿色）连接线，将其连接到已创建的对象：
+此示例创建并调整垂直方向的连接器：
+
 ```java
-// 创建一个新的绑定对象
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// 创建一个新的连接器
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// 使用新创建的连接器连接对象
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// 获取连接器的调整点
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// 更改调整点的值
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-
-结果：
+调整后的连接器在形状之间垂直显示：
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-其次，创建一个形状对应于通过新连接线的调整点 `connector.getAdjustments().get_Item(0)` 的水平分量。我们将使用连接线数据中的 `connector.getRotation()`、`connector.getFrame().getFlipH()` 和 `connector.getFrame().getFlipV()` 值，并应用围绕给定点 x0 的常用坐标转换公式：
+对于任意旋转角度 `alpha`，将连接器框点 `(x, y)` 绕框中心 `(x0, y0)` 旋转：
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-在本例中，对象的旋转角度为 90 度，且连接线垂直显示，因此对应代码如下：
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+以下代码处理本示例使用的 90 度方向，并在相应的连接器段上绘制红色指南：
+
 ```java
-// 保存连接器坐标
-x = connector.getX();
-y = connector.getY();
-// 校正连接器坐标以防出现
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// 将调整点的值作为坐标
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  转换坐标，因为 Sin(90) = 1 且 Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// 使用第二个调整点的值确定水平分量的宽度
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-
-结果：
+红色指南在坐标转换后标记了计算得到的段落：
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-我们演示了涉及简单调整和带有旋转角度的复杂调整点的计算。凭借这些知识，您可以开发自己的模型（或编写代码）以获取 `GraphicsPath` 对象，甚至根据特定幻灯片坐标设置连接线的调整点值。
+这些公式描述了示例中使用的预设，而非通用的连接器模型。在将相同计算应用于其他预设之前，请验证调整类型、框方向以及数值范围。
 
-## **求取连接线的角度**
+## **查找连接器方向角度**
 
-1. 创建类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 访问连接线形状。  
-4. 使用线的宽度、高度、形状框的宽度和高度计算角度。
+可以根据直线连接器的宽度和高度（并考虑水平和垂直翻转）计算其方向。以下示例报告了相对于幻灯片坐标正水平轴的顺时针角度：
 
-下面的 Java 代码演示了如何计算连接线形状的角度：
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
-```
-
 
 ## **常见问题**
 
-**如何判断连接线是否可以“粘贴”到特定形状上？**
+**如何判断连接器是否可以附着到形状上？**
 
-检查形状是否公开了[connection sites](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getConnectionSiteCount--)。如果没有或计数为零，则无法粘贴；此时请使用自由端点并手动定位。在附加之前检查站点计数是明智的。
+检查形状的 [getConnectionSiteCount](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getConnectionSiteCount--) 值。正数表示该形状公开连接点。在将其分配给任一连接器端之前，请验证所选的点索引。
 
-**如果删除了已连接的形状之一，连接线会怎么样？**
+**我可以通过集合索引识别连接器调整吗？**
 
-其两端会被分离；连接线会以普通线的形式保留在幻灯片上，具备自由的起点/终点。您可以删除它，或重新分配连接，并在需要时使用 [reroute](https://reference.aspose.com/slides/java/com.aspose.slides/connector/#reroute--)。
+索引仅在已知的连接器预设和集合布局下有意义。修改值之前，请先检查 [IAdjustValue.getType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/#getType--)，当同一语义类型出现多次时，可使用 [IAdjustValue.getName](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/#getName--) 作为补充信息。
 
-**复制幻灯片到另一演示文稿时，连接线的绑定是否会保留？**
+**删除已连接的形状会怎样？**
 
-通常会保留，只要目标形状也被复制。如果在未复制连接形状的情况下将幻灯片插入另一个文件，则两端会变为自由状态，需要重新附加。
+相应的连接器端点会被分离。连接器仍保留在幻灯片上，可被删除、作为自由线定位或重新附着到其他形状。
+
+**复制幻灯片时会保留连接器绑定吗？**
+
+在复制包含连接器的幻灯片时，通常会保留绑定。如果仅复制了连接器而未复制其目标形状，则需要再次附着受影响的端点。

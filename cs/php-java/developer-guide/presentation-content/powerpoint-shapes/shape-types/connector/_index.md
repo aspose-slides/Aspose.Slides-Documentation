@@ -1,371 +1,582 @@
 ---
-title: Spravovat konektory v prezentacích pomocí PHP
-linktitle: Konektor
+title: Správa spojníků v prezentacích pomocí PHP
+linktitle: Spojník
 type: docs
 weight: 10
 url: /cs/php-java/connector/
 keywords:
-- konektor
-- typ konektoru
-- bod konektoru
-- čára konektoru
-- úhel konektoru
+- spojník
+- typ spojníku
+- bod spojníku
+- čára spojníku
+- úhel spojníku
+- připojovací bod
+- bod úpravy
 - propojit tvary
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Umožněte PHP aplikacím kreslit, spojovat a automaticky trasovat čáry v PowerPoint snímcích — získejte plnou kontrolu nad přímými, loketními a zakřivenými konektory."
+description: "Naučte se, jak pomocí Aspose.Slides pro PHP (prostřednictvím Javy) přidávat, přichytávat, přepočítávat, upravovat a kontrolovat rovné, ohnuté a zakřivené spojníky PowerPointu."
 ---
-## **Úvod**
+## **Přehled**
 
-Konektor PowerPointu je speciální čára, která spojuje nebo propojuje dva tvary a zůstává k tvarům připojena i po jejich přesunutí nebo pře‑umístění na snímku.
+Spojník je čára, která může zůstat připojena ke dvěma tvarem, i když se některý z nich pohybuje. Jeho konce se přichytí k připojovacím bodům, které jsou v PowerPointu znázorněny zelenými tečkami. Některé ohnuté a zakřivené spojníky také nabízejí úpravy bodů, znázorněné oranžovými tečkami, které řídí polohu jednotlivých segmentů spojníku.
 
-Konektory jsou typicky připojeny k *připojovacím bodům* (zelené tečky), které jsou ve výchozím stavu k dispozici u všech tvarů. Připojovací body se zobrazí, když se kurzor přiblíží k nim.
+Aspose.Slides reprezentuje spojníky pomocí třídy [Connector](https://reference.aspose.com/slides/cs/php-java/aspose.slides/connector/). Můžete je vytvářet, přichytit jejich konce k tvarům, vybrat připojovací body, přepočítat je a upravit geometrii spojníků, které mají úpravy bodů.
 
-*Adjustment points* (oranžové tečky), které existují jen u některých konektorů, slouží k úpravě polohy a tvaru konektorů.
+## **Typy spojníků**
 
-## **Typy konektorů**
+Třída [ShapeType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapetype/) obsahuje předvolby pro rovné, ohnuté i zakřivené spojníky. Následující tabulka uvádí dostupné geometrie spojníků a počet úpravných bodů definovaných pro každou předvolbu.
 
-V PowerPointu můžete použít přímé, loketní (úhlové) a zakřivené konektory.
+| Spojník | Obrázek | Počet úpravných bodů |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides poskytuje následující konektory:
+Počet a význam úpravných bodů jsou součástí vybrané předvolby spojníku. Neočekávejte, že dva různé typy spojníků budou mít stejný uspořádání kolekce.
 
-| Konektor                      | Obrázek                                                       | Počet bodů přizpůsobení |
-| ------------------------------ | ------------------------------------------------------------ | ------------------------ |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                        |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                        |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                        |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                        |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                        |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                        |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                        |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                        |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                        |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                        |
+## **Propojení dvou tvarů**
 
-## **Propojení tvarů pomocí konektorů**
+Použijte [ShapeCollection::addConnector](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addconnector/) pro přidání spojníku a použijte [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/connector/setstartshapeconnectedto/) a [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/connector/setendshapeconnectedto/) k přichytání jeho konců. Po přichytění obou konců [Connector::reroute](https://reference.aspose.com/slides/cs/php-java/aspose.slides/connector/reroute/) zvolí krátkou cestu mezi tvary.
 
-1. Vytvořte instanci třídy [Presentation](https://apireference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/AutoShape) pomocí metody `addAutoShape` objektu `Shapes`.
-1. Přidejte konektor pomocí metody `addConnector` objektu `Shapes` a určete typ konektoru.
-1. Propojte tvary pomocí konektoru. 
-1. Zavolejte metodu `reroute`, aby se použila nejkratší cesta propojení.
-1. Uložte prezentaci. 
-
-Tento PHP kód ukazuje, jak přidat konektor (ohnutý konektor) mezi dva tvary (elipsu a obdélník):
+Následující ukázka propojí elipsu a obdélník pomocí ohnutého spojníku:
 
 ```php
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-  $pres = new Presentation();
-  try {
-    # Přistupuje ke kolekci tvarů pro konkrétní snímek
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Přidá eliptický autoshape
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Přidá obdélníkový autoshape
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Přidá tvar konektoru do kolekce tvarů snímku
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Propojí tvary pomocí konektoru
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Zavolá reroute, který nastavení automatické nejkratší cesty mezi tvary
     $connector->reroute();
-    # Uloží prezentaci
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
 
-Metoda `Connector.reroute` přepočítá cestu konektoru a vynutí, aby zvolila co nejkratší možnou trajektorii mezi tvary. K dosažení tohoto cíle může metoda změnit body `setStartShapeConnectionSiteIndex` a `setEndShapeConnectionSiteIndex`. 
+Volání `reroute` může změnit hodnoty [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) a [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/). Po přepočítání přiřaďte konkrétní připojovací body, pokud mají zůstat pevné.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **Určení připojovacího bodu**
+## **Výběr připojovacího bodu**
 
-Pokud chcete, aby konektor spojoval dva tvary pomocí konkrétních bodů na tvarech, musíte specifikovat požadované připojovací body následovně:
+Každý připojitelný tvar udává svůj počet bodů pomocí [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getconnectionsitecount/). Před přiřazením ke konecům spojníku ověřte preferovaný nulový index; počet bodů se liší podle geometrie tvaru.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/AutoShape) pomocí metody `addAutoShape` objektu `Shapes`.
-1. Přidejte konektor pomocí metody `addConnector` objektu `Shapes` a určete typ konektoru.
-1. Propojte tvary pomocí konektoru. 
-1. Nastavte požadované připojovací body na tvarech. 
-1. Uložte prezentaci.
-
-Tento PHP kód demonstruje operaci, při které je specifikován preferovaný připojovací bod:
+Tento příklad přichytí spojník k určitému bodu na elipse, pokud tento bod existuje:
 
 ```php
-  # Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-  $pres = new Presentation();
-  try {
-    # Přistupuje ke kolekci tvarů pro konkrétní snímek
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Přidá eliptický autoshape
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Přidá obdélníkový autoshape
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Přidá tvar konektoru do kolekce tvarů snímku
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Propojí tvary pomocí konektoru
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Nastaví preferovaný index připojovacího bodu na tvaru Elipsa
-    $wantedIndex = 6;
-    # Ověří, zda je preferovaný index menší než maximální počet míst připojení
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # Nastaví preferovaný připojovací bod na eliptickém autoshapu
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # Uloží prezentaci
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Úprava bodu konektoru**
+## **Úprava bodu spojníku**
 
-Existující konektor můžete upravit pomocí jeho bodů úpravy. Pouze konektory s body úpravy lze tímto způsobem měnit. Viz tabulka pod **[Types of connectors.](/slides/cs/php-java/connector/#types-of-connectors)**
+Spojníky s úpravným bodem je lze získat pomocí [GeometryShape::getAdjustments](https://reference.aspose.com/slides/cs/php-java/aspose.slides/geometryshape/#getadjustments). Prohlédněte každý [AdjustValue](https://reference.aspose.com/slides/cs/php-java/aspose.slides/adjustvalue/) a před změnou zkontrolujte jeho hodnotu [AdjustValue::getType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/adjustvalue/#gettype/) pomocí [AdjustValue::setRawValue](https://reference.aspose.com/slides/cs/php-java/aspose.slides/adjustvalue/setrawvalue/). Obecná pravidla pro identifikaci předvoleb úprav tvarů jsou popsána v [Shape Manipulation](/slides/cs/php-java/shape-manipulations/).
 
-### **Jednoduchý případ**
+Počet, pořadí, význam a platný rozsah úpravy spojníku závisí na předvolbě spojníku. Typ úpravy je jen pro čtení, zatímco hodnota je zapisovatelná. Metoda jen pro čtení [AdjustValue::getName](https://reference.aspose.com/slides/cs/php-java/aspose.slides/adjustvalue/getname/) poskytuje další identifikaci, když spojník obsahuje více úprav stejného sémantického typu.
 
-Uvažujme případ, kdy konektor mezi dvěma tvary (A a B) prochází třetím tvarem (C):
+### **Obejití překážky**
+
+V následujícím uspořádání prochází `BentConnector5` mezi dvěma tvary třetím tvarem:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Tento kód vytvoří blokovaný spojník:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Abychom třetí tvar obešli nebo přeskočili, můžeme konektor upravit tak, že jeho svislou čáru posuneme doleva:
+Posunutí vertikálního ohybu změní trasu tak, aby spojník obcházel překážku:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
+Místo předpokladu, že index kolekce `1` vždy představuje vertikální ohyb, tento příklad hledá `ConnectorBendPositionY` a mění jej jen tehdy, když je přítomen očekávaný sémantický typ:
 
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Komplexní případy** 
+`BentConnector5` má dvě úpravy `ConnectorBendPositionX` a jednu úpravu `ConnectorBendPositionY`. Pokud potřebný typ výskyt vícekrát, prozkoumejte `getName` a známou geometrii předvolby před výběrem. Pokud úprava vrací `ShapeAdjustmentType::Custom`, považujte její význam a rozsah za specifické pro předvolbu a neměňte ji, dokud nebudete mít odpovídající smlouvu.
 
-Pro složitější úpravy je třeba zohlednit následující aspekty:
+## **Vztah hodnot úprav ke geometrii spojníku**
 
-* Bod úpravy konektoru je úzce spjatý s formulí, která vypočítává a určuje jeho polohu. Změna polohy bodu tak může změnit tvar konektoru.
-* Body úpravy konektoru jsou definovány v přísném pořadí v poli. Číslování začíná od počátečního bodu konektoru až po koncový.
-* Hodnoty bodů úpravy vyjadřují procenta šířky/výšky tvaru konektoru.  
-  * Tvar je omezen počátečním a koncovým bodem konektoru vynásobeným 1000.  
-  * První bod, druhý bod a třetí bod definují procento ze šířky, procento ze výšky a opět procento ze šířky.
-* Pro výpočty souřadnic bodů úpravy konektoru je nutné zohlednit rotaci konektoru a jeho zrcadlení. **Poznámka**: úhel rotace všech konektorů uvedených pod **[Types of connectors](/slides/cs/php-java/connector/#types-of-connectors)** je 0.
+U ohnutých spojníků lze hodnoty úprav použít k odhadu polohy jednotlivých segmentů. Výpočty jsou specifické pro předvolbu spojníku:
 
-#### **Případ 1**
+- `BentConnector4` obvykle poskytuje jednu úpravu `ConnectorBendPositionX` a jednu `ConnectorBendPositionY`.
+- Pro tyto ohybové pozice dělením hodnoty vrácené `getRawValue` číslem `100000` získáte zlomek šířky nebo výšky rámce spojníku, jak je použito v níže uvedených příkladech.
+- Rámec spojníku může být otočen nebo převrácen, takže souřadnice rámce je třeba transformovat před porovnáním se souřadnicemi snímku.
 
-Uvažujme případ, kdy jsou dva objektu textového rámce propojeny pomocí konektoru:
+Následující příklady nejprve pomocí `getType` identifikují úpravy. Nepoužívají indexy kolekce jako přenositelné identifikátory.
+
+### **Neotočený spojník**
+
+Počáteční uspořádání obsahuje dva textové tvary spojené `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Tento příklad prozkoumá spojník a získá jeho vodorovné a svislé ohybové úpravy:
+
 ```php
-  # Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-  $pres = new Presentation();
-  try {
-    # Získá první snímek v prezentaci
-    $sld = $pres->getSlides()->get_Item(0);
-    # Přidá tvary, které budou spojeny pomocí konektoru
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # Přidá konektor
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # Určuje směr konektoru
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # Určuje barvu konektoru
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Určuje tloušťku čáry konektoru
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # Propojí tvary pomocí konektoru
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # Získá body úpravy pro konektor
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Úprava**
-
-Můžeme změnit hodnoty bodů úpravy konektoru zvýšením odpovídajících procent šířky a výšky o 20 % a 200 %:
+Pro změnu obou ohybů najděte každý očekávaný typ a upravte hodnoty až po jejich nalezení:
 
 ```php
-  # Změní hodnoty bodů úpravy
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Výsledek:
+Výsledkem je spojník, jehož vodorovné i svislé segmenty se posunuly:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Pro definici modelu, který nám umožní určit souřadnice a tvar jednotlivých částí konektoru, vytvoříme tvar, který odpovídá horizontální složce konektoru v bodě `connector.getAdjustments().get_Item(0)`:
+Jakmile jsou sémantické typy známy, jejich hodnoty lze převést na souřadnice rámce spojníku. Tento příklad nakreslí tenký obdélník přes svislý segment ovládaný dvěma ohybovými úpravami:
 
 ```php
-  # Nakreslí vertikální komponentu konektoru
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Výsledek:
+Pomocný tvar označuje vypočtený segment:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Případ 2**
+### **Otočený nebo převrácený spojník**
 
-V **Případě 1** jsme ukázali jednoduchou operaci úpravy konektoru za použití základních principů. V běžných situacích musíte zohlednit rotaci konektoru a jeho zobrazení (nastavené metodami `connector.getRotation()`, `connector.getFrame().getFlipH()` a `connector.getFrame().getFlipV()`). Nyní tento proces demonstrujeme.
+Když je stejná geometrii spojníku orientována svisle, hodnoty [Shape::getFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getframe/), [ShapeFrame::getFlipH](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapeframe/getfliph/) a [ShapeFrame::getFlipV](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapeframe/getflipv/) ovlivňují převod ze souřadnic rámce spojníku na souřadnice snímku.
 
-Nejprve přidáme na snímek nový objekt textového rámce (**To 1**) pro účely připojení a vytvoříme nový (zelený) konektor, který jej spojuje s již vytvořenými objekty.
+Tento příklad vytvoří a upraví svisle orientovaný spojník:
 
 ```php
-  # Vytvoří nový objekt vazby
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # Vytvoří nový konektor
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # Propojí objekty pomocí nově vytvořeného konektoru
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # Získá body úpravy konektoru
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # Změní hodnoty bodů úpravy
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Výsledek:
+Upravený spojník se objeví svisle mezi tvary:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Druhé, vytvoříme tvar, který bude odpovídat horizontální složce konektoru procházejícího novým bodem úpravy `connector.getAdjustments().get_Item(0)`. Použijeme hodnoty z dat konektoru pro `connector.getRotation()`, `connector.getFrame().getFlipH()` a `connector.getFrame().getFlipV()` a aplikujeme běžný vzorec převodu souřadnic pro rotaci kolem bodu x₀:
+Pro libovolný úhel rotace `alpha` rotujte bod rámce spojníku `(x, y)` kolem středu rámce `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-V našem případě je úhel rotace objektu 90 ° a konektor je zobrazen vertikálně, takže odpovídající kód je:
+Následující kód řeší 90‑stupňovou orientaci použitou v tomto příkladu a nakreslí červený vodítko přes odpovídající segment spojníku:
 
 ```php
-  # Uloží souřadnice konektoru
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # Opraví souřadnice konektoru v případě, že se objeví
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # Použije hodnotu bodu úpravy jako souřadnici
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # Převede souřadnice, protože Sin(90) = 1 a Cos(90) = 0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # Určí šířku horizontální komponenty pomocí druhé hodnoty bodu úpravy
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Výsledek:
+Červené vodítko označuje vypočtený segment po transformaci souřadnic:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Ukázali jsme výpočty zahrnující jednoduché úpravy i složité body úpravy (body úpravy s úhly rotace). S tímto vědomím můžete vytvořit vlastní model (nebo napsat kód), který získá objekt `GraphicsPath` nebo dokonce nastaví hodnoty bodů úpravy konektoru na základě konkrétních souřadnic snímku.
+Tyto vzorce popisují předvolby použité v příkladech, nikoli univerzální model spojníku. Před použitím stejných výpočtů na jiné předvolby ověřte typy úprav, orientaci rámce a rozsahy hodnot.
 
-## **Zjištění úhlu linií konektoru**
+## **Zjištění úhlu směru spojníku**
 
-1. Vytvořte instanci třídy.
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přistupte k tvaru linií konektoru.
-1. Pomocí šířky, výšky, výšky rámce tvaru a šířky rámce tvaru vypočítejte úhel.
-
-Tento PHP kód demonstruje operaci, při které jsme vypočítali úhel pro tvar linie konektoru:
+Směr rovného spojníku lze spočítat z jeho šířky a výšky, s uplatněním vodorovných a svislých převrácení. Následující příklad vypíše úhel po směru hodinových ručiček od kladné vodorovné osy ve souřadnicích snímku:
 
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Často kladené otázky**
 
-**Jak zjistit, zda lze konektor „přilepit“ k určitému tvaru?**
+**Jak zjistím, zda se spojník může připojit k tvaru?**
 
-Zkontrolujte, zda tvar poskytuje [connection sites](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getconnectionsitecount/). Pokud žádné neexistují nebo je jejich počet nula, lepení není dostupné; v takovém případě použijte volné koncové body a umístěte je ručně. Doporučuje se před připojením zkontrolovat počet míst.
+Zkontrolujte hodnotu [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getconnectionsitecount/). Kladný počet znamená, že tvar poskytuje připojovací body. Před přiřazením ověřte vybraný index bodu.
 
-**Co se stane s konektorem, když smažu jeden ze spojených tvarů?**
+**Mohu identifikovat úpravu spojníku podle indexu kolekce?**
 
-Jeho konce se odpojí; konektor zůstane na snímku jako obyčejná čára s volným začátkem/konce. Můžete jej smazat nebo připojit znovu a případně [reroute](https://reference.aspose.com/slides/cs/php-java/aspose.slides/connector/reroute/).
+Index má smysl jen pro známou předvolbu spojníku a rozložení kolekce. Před úpravou hodnoty zkontrolujte [AdjustValue::getType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/adjustvalue/#gettype) a použijte [AdjustValue::getName](https://reference.aspose.com/slides/cs/php-java/aspose.slides/adjustvalue/getname/) jako doplňující informaci, když se stejný sémantický typ vyskytuje vícekrát.
 
-**Zůstávají vazby konektoru zachovány při kopírování snímku do jiné prezentace?**
+**Co se stane, když je připojený tvar smazán?**
 
-Obecně ano, pokud jsou zároveň zkopírovány i cílové tvary. Pokud je snímek vložen do jiného souboru bez připojených tvarů, konce se uvolní a budete je muset znovu připojit.
+Odpovídající konec spojníku se odpojí. Spojník zůstane na snímku a lze jej smazat, umístit jako volnou čáru nebo připojit k jinému tvaru.
+
+**Zůstávají vazby spojníků zachovány při kopírování snímku?**
+
+Vazby jsou obecně zachovány, pokud jsou při kopírování snímku zkopírovány i připojené tvary. Pokud je spojník zkopírován bez jednoho ze svých cílových tvarů, je třeba postižený konec znovu připojit.

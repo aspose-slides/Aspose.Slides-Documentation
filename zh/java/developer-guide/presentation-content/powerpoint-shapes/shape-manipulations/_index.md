@@ -13,386 +13,469 @@ keywords:
 - 删除形状
 - 隐藏形状
 - 更改形状顺序
-- 获取 Interop 形状 ID
+- 获取互操作形状 ID
 - 形状替代文本
+- 形状调整点
+- 预设形状调整
+- 形状几何
 - 形状布局格式
 - 形状为 SVG
 - 形状转 SVG
 - 对齐形状
+- 翻转形状
 - PowerPoint
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "了解如何在 Aspose.Slides for Java 中创建、编辑和优化形状，并交付高性能的 PowerPoint 演示文稿。"
+description: "了解如何使用 Aspose.Slides for Java 识别、调整、克隆、删除、隐藏、重新排序、导出、对齐和翻转演示文稿中的形状。"
 ---
+## **概述**
 
-## **在幻灯片上查找形状**
-本主题将描述一种简便技术，帮助开发人员在不使用内部 Id 的情况下查找幻灯片上的特定形状。需要了解的是，PowerPoint 演示文稿文件除内部唯一 Id 外，无法以其他方式标识幻灯片上的形状。开发人员使用内部唯一 Id 查找形状往往比较困难。所有添加到幻灯片的形状都有一些替代文本。我们建议开发人员使用替代文本来查找特定形状。您可以使用 MS PowerPoint 为以后可能更改的对象定义替代文本。
+Aspose.Slides for Java 将幻灯片上的形状表示为有序的 [IShapeCollection](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishapecollection/)。该集合既是查找和修改形状的地点，也是它们堆叠顺序的来源：索引 `0` 为最底层形状，最后一个索引为最前层形状。
 
-在为任意所需形状设置了替代文本后，您可以使用 Aspose.Slides for Java 打开该演示文稿，并遍历幻灯片中添加的所有形状。在每次遍历时，检查形状的替代文本，匹配的替代文本对应的形状即为您需要的形状。为了更好地演示此技术，我们创建了一个方法，[findShape](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-)，它可以在幻灯片中查找特定形状并返回该形状。
-```java
-// 实例化一个表示演示文稿文件的 Presentation 类
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+本文遵循该模型。首先解释如何可靠地识别形状并修改预设的形状调整点，然后展示如何克隆、删除、隐藏和重新排序形状。最后的章节涉及布局级别的格式化、SVG 导出、对齐以及翻转设置。每个示例都是独立的，您可以仅使用工作流所需的操作。
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // 要查找的形状的替代文本
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+## **识别并查找形状**
+
+在处理已知文件时，集合索引很方便，但它们不是稳定的标识符。添加、删除或重新排序形状都会改变其索引。请根据演示文稿的创建和维护方式选择标识符：
+
+- [Name](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getName--) 对于受开发者控制的模板有用，并且可以在 PowerPoint 的“选择窗格”中轻松检查。名称可以编辑，但不保证唯一，因此如果代码依赖名称，请制定命名约定。
+- [AlternativeText](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getAlternativeText--) 在已有可访问性描述或作者提供的标签已经标识形状时有用。该文本对用户可见，可能会本地化或为可访问性重写，且不保证唯一。不要在不知情的情况下将有意义的可访问性文本用作数据库键。
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) 是只读标识符，在同一幻灯片内唯一，对应 PowerPoint 互操作使用的形状 ID。将其用于与 PowerPoint 集成或在形状生命周期内需要明确引用的场景。克隆或重新创建的形状是不同的形状，会获得自己的 ID。
+
+相关的 [getUniqueId](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getUniqueId--) 方法返回演示文稿范围的标识符，但该标识符面向插件，可能会被重新分配，不应视为永久的外部键。如果长期身份至关重要，请在应用程序数据中保持映射并验证预期形状仍然存在。
+
+下面的示例使用精确比较按名称搜索，并报告幻灯片范围的互操作 ID。当模板不包含预期形状时，代码会报告该结果而不是继续使用错误对象。
 
 ```java
-// 方法实现：使用替代文本在幻灯片中查找形状
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // 遍历幻灯片内的所有形状
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // 如果幻灯片的替代文本与所需的匹配则
-        // 返回该形状
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+import com.aspose.slides.*;
 
-
-## **克隆形状**
-要使用 Aspose.Slides for Java 将形状克隆到幻灯片：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 通过索引获取幻灯片的引用。
-1. 访问源幻灯片的形状集合。
-1. 向演示文稿中添加新幻灯片。
-1. 将形状从源幻灯片的形状集合克隆到新幻灯片。
-1. 将修改后的演示文稿保存为 PPTX 文件。
-
-下面的示例向幻灯片添加了一个组合形状。
-```java
-// 实例化 Presentation 类
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-
-    // 将 PPTX 文件写入磁盘
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **移除形状**
-Aspose.Slides for Java 允许开发人员移除任何形状。要从任意幻灯片中移除形状，请按以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 访问第一张幻灯片。
-1. 查找具有特定 AlternativeText 的形状。
-1. 移除该形状。
-1. 将文件保存到磁盘。
-```java
-// 创建 Presentation 对象
-Presentation pres = new Presentation();
-try {
-    // 获取第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // 添加矩形类型的自动形状
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // 将演示文稿保存到磁盘
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **隐藏形状**
-Aspose.Slides for Java 允许开发人员隐藏任何形状。要从任意幻灯片中隐藏形状，请按以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 访问第一张幻灯片。
-1. 查找具有特定 AlternativeText 的形状。
-1. 隐藏该形状。
-1. 将文件保存到磁盘。
-```java
-// 实例化表示 PPTX 的 Presentation 类
-Presentation pres = new Presentation();
-try {
-    // 获取第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // 添加矩形类型的自动形状
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // 保存演示文稿到磁盘
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **更改形状顺序**
-Aspose.Slides for Java 允许开发人员重新排序形状。重新排序可决定哪个形状位于前面或后面。要对任意幻灯片的形状进行重新排序，请按以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 访问第一张幻灯片。
-1. 添加一个形状。
-1. 在形状的文本框中添加一些文本。
-1. 添加另一个具有相同坐标的形状。
-1. 重新排序这些形状。
-1. 将文件保存到磁盘。
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **获取 Interop Shape ID**
-Aspose.Slides for Java 允许开发人员获取幻灯片范围内的唯一形状标识符，与 [getUniqueId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getUniqueId--) 方法在演示文稿范围内获取唯一标识符不同。方法 [getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) 已被添加到 [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) 接口和 [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) 类中。该方法返回的值对应 Microsoft.Office.Interop.PowerPoint.Shape 对象的 Id 值。下面给出示例代码。
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // 获取幻灯片范围内唯一的形状标识符
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **为形状设置替代文本**
-Aspose.Slides for Java 允许开发人员设置任意形状的 AlternateText。演示文稿中的形状可以通过 [AlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) 或 [Shape Name](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setName-java.lang.String-) 方法进行区分。使用 Aspose.Slides 以及 Microsoft PowerPoint，都可以读取或设置 [setAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) 和 [getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getAlternativeText--) 方法。通过此方法，您可以标记形状并执行诸如移除形状、隐藏形状或重新排序形状等操作。
-
-请按以下步骤为形状设置 AlternateText：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 访问第一张幻灯片。
-1. 向幻灯片添加任意形状。
-1. 对新添加的形状进行一些操作。
-1. 遍历形状以查找目标形状。
-1. 设置 AlternativeText。
-1. 将文件保存到磁盘。
-```java
-// 实例化表示 PPTX 的 Presentation 类
-Presentation pres = new Presentation();
-try {
-    // 获取第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // 添加矩形类型的自动形状
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // 将演示文稿保存到磁盘
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **访问形状的布局格式**
-Aspose.Slides for Java 提供了简洁的 API 来访问形状的布局格式。本文演示了如何访问这些布局格式。
-
-下面给出示例代码。
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **将形状渲染为 SVG**
-现在 Aspose.Slides for Java 支持将形状渲染为 SVG。方法 [writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-)（及其重载）已添加到 [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) 类和 [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) 接口中。该方法允许将形状内容保存为 SVG 文件。下面的代码片段演示了如何将幻灯片中的形状导出为 SVG 文件。
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **对齐形状**
-Aspose.Slides 允许将形状相对于幻灯片边距或相互之间对齐。为此，已添加重载方法 [SlidesUtil.alignShape()](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)。[ShapesAlignmentType](https://reference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType) 枚举定义了可能的对齐选项。
-
-**示例 1**
-
-以下源代码将索引为 1、2 和 4 的形状沿幻灯片顶部边缘对齐。
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-
-**示例 2**
-
-下面的示例展示了如何将整个形状集合相对于集合中最底部的形状进行对齐。
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **翻转属性**
-在 Aspose.Slides 中，[ShapeFrame](https://reference.aspose.com/slides/java/com.aspose.slides/shapeframe/) 类通过 `flipH` 和 `flipV` 属性提供对形状水平和垂直镜像的控制。这两个属性的类型为 `byte`，取值为 `1` 表示翻转，`0` 表示不翻转，`-1` 表示使用默认行为。可以通过形状的 [Frame](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getFrame--) 访问这些值。
-
-要修改翻转设置，需要使用形状当前的位置、大小、期望的 `flipH`、`flipV` 值以及旋转角度构造一个新的 [ShapeFrame](https://reference.aspose.com/slides/java/com.aspose.slides/shapeframe/) 实例。将该实例分配给形状的 [Frame](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getFrame--) 并保存演示文稿后，即可将镜像变换写入输出文件。
-
-假设我们有一个 sample.pptx 文件，其中第一张幻灯片包含一个默认翻转设置的单一形状，如下所示。
-
-![要翻转的形状](shape_to_be_flipped.png)
-
-下面的代码示例获取形状当前的翻转属性并同时在水平和垂直方向上进行翻转。
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // 检索形状的水平翻转属性。
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // 检索形状的垂直翻转属性。
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // 水平翻转。
-    byte flipV = NullableBool.True; // 水平翻转。
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
+当操作特定于形状类型时，请在使用类型特定成员前检查接口。此示例仅在命名对象是 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/) 时更新文本和替代文本。
 
-效果如下：
+```java
+import com.aspose.slides.*;
 
-![已翻转的形状](flipped_shape.png)
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **识别并修改预设形状调整**
+
+预设几何形状可以公开用于控制角大小、箭头比例或弧度等特性的调整点。通过只读的 [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/zh/java/com.aspose.slides/igeometryshape/#getAdjustments--) 集合访问它们。集合本身由形状提供，但每个 [IAdjustValue](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/) 包含可更改的值。
+
+不要仅依赖固定的集合索引。遍历所有调整并检查只读的 [getType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/#getType--) 方法，其返回的 [ShapeAdjustmentType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shapeadjustmenttype/) 值描述该调整控制的内容。只读的 [getName](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/#getName--) 方法提供额外的识别信息，尤其在同一预设包含多个相同语义类型的调整时非常有用。
+
+使用与调整含义匹配的值方法：
+
+| 调整类型 | 用途 | 要更改的值 |
+|---|---|---|
+| `CornerSize` | 圆角的大小 | [setRawValue](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | 箭尾的厚度 | `setRawValue` |
+| `ArrowheadLength` | 箭头的长度 | `setRawValue` |
+| `ArrowheadWidth` | 箭头的宽度 | `setRawValue` |
+| `StartAngle` | 饼图或弧线的起始角度 | [setAngleValue](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | 饼图或弧线的结束角度 | `setAngleValue` |
+
+`getType` 和 `getName` 返回只读信息。`getRawValue` 和 `setRawValue` 使用预设本身的几何单位的整数，而 `getAngleValue` 与 `setAngleValue` 使用度数。调整的数量、顺序、含义以及有效范围取决于预设的 [ShapeType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/igeometryshape/#getShapeType--)。对一种预设有效的值在另一种预设中可能无效或产生不同效果。
+
+当 `getType` 返回 `ShapeAdjustmentType.Custom` 时，API 未识别标准语义含义。检查 `getName`、预设类型以及现有值，除非已知预期含义和范围，否则不要更改该调整。即使是已识别的类型，也要检查同类型是否出现多次后再选择值。[Connector](/slides/zh/java/connector/) 文章展示了连接器弯曲调整的情况。
+
+下面的完整示例创建了三个预设形状的默认和修改版本。它遍历每个调整，报告其名称和类型，通过 `setRawValue` 更改尺寸相关值，通过 `setAngleValue` 更改角度，并保存结果。左列保留默认几何；右列显示调整后的圆角矩形、四向箭头和饼图。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // 为默认和调整后的形状列添加标题。
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+在更改值之前检查语义类型，使代码对意图明确，并避免假设相同集合索引在不同预设形状中具有相同含义。
+
+## **修改形状集合**
+
+add、clone、remove 和 reorder 方法会立即作用于集合。如果操作改变了形状数量或顺序，请不要继续依赖操作前捕获的索引。
+
+### **克隆形状**
+
+[addClone](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) 创建一个独立副本并将其追加到目标集合。[insertClone](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) 也会创建副本，但将其放置在指定的 z 顺序索引处。接受坐标的重载会在不改变大小的情况下移动克隆；接受宽度和高度的重载则可以同时调整大小。
+
+示例创建目标幻灯片，将标记矩形克隆到前面，并在后面插入第二个克隆。对任一克隆的更改不会影响源形状。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+克隆会复制形状的内容和格式，包括名称和替代文本。当这些值必须唯一时，请为克隆分配新的逻辑标识符。复杂形状使用的资源由演示文稿处理，但克隆仍是具有新形状标识的新集合项。
+
+### **删除形状**
+
+[remove](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) 从其集合中删除指定的形状对象。在索引迭代期间删除多个匹配项时，请从末尾向前遍历，以保持剩余索引有效。
+
+此示例删除所有具有指定名称的形状。它读取当前索引处的形状，而不是固定的集合项，且没有不必要的类型转换。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+删除后，形状计数以及后续形状的索引会改变。对未受影响形状的引用比保存的索引更可靠。同时考虑连接器、动画及其他可能引用已删除对象的演示文稿特性；删除可见形状可能会影响幻灯片的外观以外的内容。
+
+### **隐藏形状**
+
+将 [Hidden](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#setHidden-boolean-) 设置为 `true` 会保留形状在集合中，但阻止其在普通幻灯片放映中出现。其索引、格式和内容仍可供代码使用，因此隐藏适用于以后可能恢复的可选元素。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+隐藏并非删除或安全措施。对象仍可被用户或代码发现并取消隐藏，并且仍是演示文稿文件的一部分。
+
+### **更改 Z 顺序**
+
+重叠的形状按照集合顺序绘制。[reorder](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) 将已有形状移动到目标索引而不进行克隆。索引 `0` 为最底层，`size() - 1` 为最前层。
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+矩形最初创建后位于椭圆之后。将其移动到最后索引后会出现在前面。添加或克隆所有相关形状后再完成 z 顺序的最终确定，因为这些操作会追加或插入新集合项并可能改变预期的堆叠顺序。
+
+## **检查布局幻灯片上的形状**
+
+普通幻灯片、布局幻灯片和母版幻灯片各自拥有独立的形状集合。布局集合中的形状并非普通幻灯片中相同位置形状的同一对象。需要了解或更改布局提供的格式时，请检查布局形状。
+
+下面的示例读取每个布局形状的 [FillFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getFillFormat--) 和 [LineFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getLineFormat--)，不假设每个形状都是 `AutoShape`。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+编辑布局可能影响使用该布局的多个幻灯片。在更改布局形状之前，确定普通幻灯片是继承该对象还是包含本地覆盖，并测试所有使用该布局的幻灯片。
+
+## **将形状导出为 SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) 将单个形状的渲染内容写入流。结果仅包含该形状，而不包括整个幻灯片背景或相邻形状。
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+渲染期间请保持演示文稿打开。输出取决于形状的格式以及字体、图像等资源。如果需要完整的合成，请导出幻灯片而非单个形状。调用方拥有流的所有权并必须关闭它。
+
+## **对齐形状**
+
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/zh/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) 的重载可以对全部形状或选定的集合索引进行对齐。[ShapesAlignmentType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shapesalignmenttype/) 指定边缘、中心线或分布模式。将 `alignToSlide` 设置为 `true` 使用幻灯片边缘；设为 `false` 则相对选定形状进行对齐。
+
+此示例将三个形状对齐到幻灯片的顶部边缘。返回的形状引用在对齐前立即转换为当前索引。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+对齐会改变位置，而非 Z 顺序。相对对齐通常至少需要两个形状，水平或垂直分布则需要足够的形状来定义间距。如果在调用方法前修改了集合，请重新计算索引。
+
+## **翻转形状**
+
+[ShapeFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shapeframe/) 类存储位置、大小、水平和垂直翻转设置以及旋转。其 `getFlipH` 和 `getFlipV` 值使用 [NullableBool](https://reference.aspose.com/slides/zh/java/com.aspose.slides/nullablebool/)：`True` 启用翻转，`False` 禁用，`NotDefined` 保持未指定/默认状态。
+
+下面的输入演示文稿仅包含一个未翻转的形状。
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+示例保留其他所有框架值，仅替换两个翻转设置。这一点很重要，因为为 [Frame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) 赋新值会替换完整的框架。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+保存后的形状在水平和垂直方向上均为镜像，位置、大小和旋转保持不变。
+
+![The shape after flipping](flipped_shape.png)
 
 ## **常见问题**
 
-**我能像桌面编辑器那样在幻灯片上对形状进行合并（联合/交集/相减）吗？**
+**我应该使用集合索引作为形状标识符吗？**
 
-目前没有内置的布尔运算 API。您可以自行构造所需轮廓，例如使用 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) 计算结果几何并创建具有该轮廓的新形状，同时可选择删除原始形状。
+仅在短期处理且在使用索引之前集合不会改变的情况下使用。对于受控模板，请优先使用经过验证的 `Name` 或 `AlternativeText` 约定；对于幻灯片范围的互操作工作，请使用 `OfficeInteropShapeId`。
 
-**如何控制堆叠顺序（z‑order），使某个形状始终位于“最上层”？**
+**隐藏形状会将其从 Z 顺序中移除吗？**
 
-在幻灯片的 [shapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) 集合中更改插入/移动顺序即可。为获得可预测的结果，建议在完成所有其他幻灯片修改后最后确定 z‑order。
+不会。隐藏的形状仍保留在集合的相同索引处。它仍可被查找、重新排序、编辑或再次显示。
 
-**我能“锁定”形状，防止用户在 PowerPoint 中编辑它吗？**
+**为什么克隆的形状会出现在另一形状前面？**
 
-可以。设置 [形状级别保护标志](/slides/zh/java/applying-protection-to-presentation/)（例如锁定选择、移动、大小调整、文本编辑）。如有需要，也可以在母版或布局上镜像相同限制。请注意，这属于 UI 级别的保护，而非安全特性；若需更强的保护，可结合文件级别的只读建议或密码等措施 [/slides/java/password-protected-presentation/]。
+`addClone` 将克隆追加到集合的末尾，也就是 Z 顺序的前面。使用 `insertClone` 可选择初始索引，或在全部形状添加完后使用 `reorder` 调整顺序。
+
+**我可以使用固定索引来标识预设形状调整吗？**
+
+仅在已验证确切预设和集合布局后才可以。更推荐遍历 `IGeometryShape.getAdjustments` 并检查 `IAdjustValue.getType`；当同一语义类型出现多次时，可使用 `IAdjustValue.getName` 作为补充信息。

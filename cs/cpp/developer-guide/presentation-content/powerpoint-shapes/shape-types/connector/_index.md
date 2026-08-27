@@ -10,411 +10,670 @@ keywords:
 - bod konektoru
 - čára konektoru
 - úhel konektoru
+- místo připojení
+- úpravový bod
 - propojit tvary
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Umožněte aplikacím v C++ kreslit, propojit a automaticky směrovat čáry v snímcích PowerPointu – získejte plnou kontrolu nad přímými, loketními a zakřivenými konektory."
+description: "Naučte se, jak pomocí Aspose.Slides pro C++ přidávat, připojovat, přesměrovávat, upravovat a zkoumat přímé, ohnuté a zakřivené konektory v PowerPointu."
 ---
-## **Úvod**
+## **Přehled**
 
-Konektor PowerPoint je speciální čára, která spojuje dva tvary a zůstává k tvarům připojen i při jejich přesunu nebo převedení na daném snímku.  
+Konektor je čára, která může zůstat připojena ke dvěma tvarem, i když se kterýkoli z tvarů pohybuje. Jeho konce se připojují k místům připojení, která jsou v PowerPointu zobrazena zelenými tečkami. Některé ohnuté a zakřivené konektory také nabízejí úpravové body, zobrazené oranžovými tečkami, které řídí polohu jednotlivých segmentů konektoru.
 
-Konektory jsou typicky připojeny k *připojovacím bodům* (zelené body), které jsou ve výchozím nastavení k dispozici na všech tvarech. Připojovací body se zobrazí, když se k nim kurzor přiblíží.  
-
-*Úpravné body* (oranžové body), které existují pouze u některých konektorů, slouží k úpravě pozic a tvarů konektorů.  
+Aspose.Slides představuje konektory prostřednictvím rozhraní [IConnector](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iconnector/). Můžete je vytvářet, připojovat jejich konce k tvarům, vybírat místa připojení, přesměrovávat je a měnit geometrii konektorů, které mají úpravové body.
 
 ## **Typy konektorů**
 
-V PowerPointu můžete použít rovné, loketní (úhlové) a zakřivené konektory.  
+Výčtový typ [ShapeType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/shapetype/) zahrnuje předvolby pro přímé, ohnuté a zakřivené konektory. Následující tabulka ukazuje dostupné geometrie konektorů a počet úpravových bodů definovaných každou předvolbou.
 
-Aspose.Slides poskytuje tyto konektory:
+| Konektor | Obrázek | Počet úpravových bodů |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Konektor                      | Obrázek                                                        | Počet úpravných bodů |
-| ------------------------------ | ------------------------------------------------------------ | -------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                    |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                    |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                    |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                    |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                    |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                    |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                    |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                    |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                    |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                    |
+Počet a význam úpravných bodů jsou součástí vybrané předvolby konektoru. Nepředpokládejte, že dva různé typy konektorů mají stejné rozložení kolekce.
 
-## **Propojení tvarů pomocí konektorů**
+## **Propojit dva tvary**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation/) .
-1. Získejte referenci na snímek podle jeho indexu.
-1. Přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.auto_shape) pomocí metody `AddAutoShape`, kterou poskytuje objekt `Shapes`.
-1. Přidejte konektor pomocí metody `AddConnector`, kterou poskytuje objekt `Shapes`, a definujte typ konektoru.
-1. Propojte tvary pomocí konektoru. 
-1. Zavolejte metodu `Reroute` pro použití nejkratší cesty spojení.
-1. Uložte prezentaci. 
+K přidání konektoru použijte [IShapeCollection::AddConnector](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/addconnector/) a zavolejte [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) a [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) k připojení jeho konců. Po připojení obou konců [IConnector::Reroute](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iconnector/reroute/) vybere krátkou cestu mezi tvary.
 
-This C++ code shows you how to add a connector (a bent connector) between two shapes (an ellipse and rectangle):
+Následující příklad spojuje elipsu a obdélník pomocí ohnutého konektoru:
 
-```c++
-// Cesta k adresáři dokumentů.
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-	// Načte požadovanou prezentaci
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// Přistupuje k prvnímu snímku
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// Přistupuje ke kolekci tvarů pro konkrétní snímek
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// Přidá eliptický autoshape
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// Přidá obdélníkový autoshape
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-
-	// Přidá tvar konektoru do kolekce tvarů snímku
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// Propojí tvary pomocí konektoru
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// Zavolá Reroute, který nastaví automatickou nejkratší cestu mezi tvary
-	connector->Reroute();
-	
-	// Uloží prezentaci
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
+Volání `IConnector::Reroute` může změnit hodnoty [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) a [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/). Po přesměrování přiřaďte konkrétní místa připojení, pokud musí zůstat pevná.
+{{% /alert %}}
 
-`connector->Reroute` metoda přesměruje konektor a přinutí jej zvolit nejkratší možnou cestu mezi tvary. Aby dosáhla svého cíle, může metoda změnit body `StartShapeConnectionSiteIndex` a `EndShapeConnectionSiteIndex`. 
+## **Vybrat připojovací místo**
 
-{{% /alert %}} 
+Každý tvářitelné tvar uvádí počet svých míst pomocí [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/get_connectionsitecount/). Ověřte preferovaný nulový index místa, než jej přiřadíte ke konci konektoru; počet míst se liší podle geometrie tvaru.
 
-## **Určení připojovacího bodu**
+Tento příklad připojuje konektor k určitému místu na elipse, pokud toto místo existuje:
 
-Pokud chcete, aby konektor propojil dva tvary pomocí konkrétních bodů na tvarech, musíte specifikovat požadované připojovací body tímto způsobem:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation/) .
-1. Získejte referenci na snímek podle jeho indexu.
-1. Přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.auto_shape) pomocí metody `AddAutoShape`, kterou poskytuje objekt `Shapes`.
-1. Přidejte konektor pomocí metody `AddConnector`, kterou poskytuje objekt `Shapes`, a definujte typ konektoru.
-1. Propojte tvary pomocí konektoru. 
-1. Nastavte požadované připojovací body na tvarech. 
-1. Uložte prezentaci.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-This C++ code demonstrates an operation where a preferred connection dot is specified:
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-```c++
-	// Cesta k adresáři dokumentů.
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// Načte požadovanou prezentaci
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// Přistupuje k prvnímu snímku
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// Přistupuje ke kolekci tvarů pro konkrétní snímek
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Přidá eliptický autoshape
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// Přidá obdélníkový autoshape
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// Přidá tvar konektoru do kolekce tvarů snímku
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// Propojí tvary pomocí konektoru
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// Nastaví preferovaný index připojovacího bodu na tvaru Elipsy
-	int wantedIndex = 6;
-
-	// Kontroluje, zda je preferovaný index menší než maximální počet míst
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// Nastaví preferovaný připojovací bod na eliptickém autoshape
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// Uloží prezentaci
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
-## **Úprava bodu konektoru**
+## **Upravit bod konektoru**
 
-Můžete upravit existující konektor pomocí jeho úpravných bodů. Pouze konektory s úpravnými body mohou být tímto způsobem měněny. Viz tabulka pod **[Typy konektorů.](/slides/cs/cpp/connector/#types-of-connectors)** 
+Konektory s úpravnými body je vystavují skrze [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/cs/cpp/aspose.slides/igeometryshape/get_adjustments/). Prohlédněte každou [IAdjustValue](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iadjustvalue/) a zkontrolujte její [IAdjustValue::get_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iadjustvalue/get_type/) před změnou jejího [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iadjustvalue/set_rawvalue/). Obecná pravidla pro identifikaci úprav předdefinovaných tvarů jsou popsána v dokumentaci [Shape Manipulation](/slides/cs/cpp/shape-manipulations/).
 
-### **Jednoduchý případ**
+Počet, pořadí, význam a platný rozsah hodnot úprav konektoru závisejí na předvolbě konektoru. Typ vrácený metodou `IAdjustValue::get_Type` je pouze pro čtení, zatímco surová hodnota úpravy je zapisovatelná. Metoda pouze pro čtení [IAdjustValue::get_Name](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iadjustvalue/get_name/) poskytuje další identifikaci, když konektor obsahuje více úprav se stejným sémantickým typem.
 
-Zvažte případ, kdy konektor mezi dvěma tvary (A a B) prochází třetím tvarem (C):
+### **Obejít překážku**
+
+V následujícím uspořádání prochází konektor `ShapeType::BentConnector5` mezi dvěma tvary třetím tvarem:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Code:
+Tento kód vytváří blokovaný konektor:
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-Abychom třetí tvar obešli nebo obešli, můžeme konektor upravit tak, že jeho svislou čáru posuneme doleva tímto způsobem:
+Posunutí svislého ohybu mění cestu tak, že konektor obchází překážku:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+Místo předpokladu, že index kolekce `1` vždy představuje svislý ohyb, tento příklad hledá `ShapeAdjustmentType::ConnectorBendPositionY` a mění jej jen tehdy, když je přítomen očekávaný sémantický typ:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
-### **Komplexní případy** 
+`ShapeType::BentConnector5` má dva úpravy typu `ShapeAdjustmentType::ConnectorBendPositionX` a jednu úpravu typu `ShapeAdjustmentType::ConnectorBendPositionY`. Pokud se požadovaný typ vyskytuje vícekrát, prozkoumejte `IAdjustValue::get_Name` a známou geometrii dané předvolby, než si vyberete konkrétní položku. Pokud úprava vrací `ShapeAdjustmentType::Custom`, považujte její význam a rozsah za specifické pro předvolbu a neměňte ji, dokud není smlouva známá.
 
-Pro provedení složitějších úprav musíte vzít v úvahu následující:
+## **Vztah hodnot úprav k geometrii konektoru**
 
-* Úprava bodu konektoru je úzce spojena s vzorcem, který vypočítává a určuje jeho polohu. Změny umístění bodu tak mohou změnit tvar konektoru.  
-* Úpravné body konektoru jsou definovány v přísném pořadí v poli. Úpravné body jsou číslovány od počátečního bodu konektoru po koncový bod.  
-* Hodnoty úpravných bodů vyjadřují procento šířky/výšky tvaru konektoru.  
-  * Tvar je omezen počátečními a koncovými body konektoru vynásobenými 1000.  
-  * První bod, druhý bod a třetí bod definují procento ze šířky, procento z výšky a opět procento ze šířky.  
-* Pro výpočty určující souřadnice úpravných bodů konektoru musíte brát v úvahu rotaci konektoru a jeho odraz. **Poznámka**: úhel rotace všech konektorů zobrazených pod **[Typy konektorů](/slides/cs/cpp/connector/#types-of-connectors)** je 0.
+U ohnutých konektorů lze hodnoty úprav použít k odhadu poloh jednotlivých segmentů. Tyto výpočty jsou specifické pro předvolbu konektoru:
 
-#### **Případ 1**
+- `ShapeType::BentConnector4` obvykle vystavuje jednu úpravu `ShapeAdjustmentType::ConnectorBendPositionX` a jednu `ShapeAdjustmentType::ConnectorBendPositionY`.
+- Pro tyto pozice ohybu výpočet `RawValue / 100000.0f` dává zlomkovou část šířky nebo výšky rámce konektoru, jak je použito v níže uvedených příkladech.
+- Rámec konektoru může být otočen nebo převrácen, takže souřadnice rámce musí být transformovány před porovnáním se souřadnicemi snímku.
 
-Zvažte případ, kdy dva objekty textového rámečku jsou propojeny konektorem:
+Následující příklady nejprve identifikují úpravy pomocí `IAdjustValue::get_Type`. Nepoužívají indexy kolekce jako přenosné identifikátory.
+
+### **Neotočený konektor**
+
+Počáteční uspořádání obsahuje dva textové tvary spojené `ShapeType::BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Code:
+Tento příklad prozkoumává konektor a získává jeho horizontální a vertikální úpravy ohybu:
 
-```c++
-// Vytvoří instanci třídy prezentace, která reprezentuje soubor PPTX
-auto pres = System::MakeObject<Presentation>();
-// Získá první snímek v prezentaci
-auto slide = pres->get_Slides()->idx_get(0);
-// Získá tvary z prvního snímku
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-// Přidá tvary, které budou propojeny pomocí konektoru
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// Přidá konektor
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// Určuje směr konektoru
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// Určuje tloušťku čáry konektoru
-lineFormat->set_Width(3);
-// Určuje barvu konektoru
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
 
-// Propojí tvary pomocí konektoru
-connector->set_StartShapeConnectedTo(shapeFrom);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// Získá úpravy bodů pro konektor
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
-**Úprava**
+Pro změnu obou ohybů najděte každý očekávaný typ a upravte hodnoty až po nalezení obou:
 
-Můžeme změnit hodnoty úpravných bodů konektoru zvýšením odpovídajících procent šířky a výšky o 20 % a 200 %:
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-```c++
-// Mění hodnoty úpravných bodů
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-Výsledek:
+Výsledkem je konektor, jehož horizontální a vertikální segmenty se posunuly:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Pro definování modelu, který nám umožní určit souřadnice a tvar jednotlivých částí konektoru, vytvořme tvar, který odpovídá horizontální složce konektoru v bodě connector.Adjustments[0]:
+Jakmile jsou sémantické typy známy, lze jejich hodnoty převést na souřadnice rámce konektoru. Tento příklad nakreslí tenký obdélník přes vertikální segment řízený dvěma ohyby:
 
-```c++
-// Nakreslete svislou komponentu konektoru
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Výsledek:
+Vodicí tvar označuje vypočítaný segment:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Případ 2**
+### **Otočený nebo převrácený konektor**
 
-V **Případě 1** jsme ukázali jednoduchou operaci úpravy konektoru pomocí základních principů. V běžných situacích je nutné zohlednit rotaci konektoru a jeho zobrazení (které jsou nastaveny pomocí connector.Rotation, connector.Frame.FlipH a connector.Frame.FlipV). Nyní předvedeme postup.
+Když je stejná geometrie konektoru orientována svisle, ovlivňují převod souřadnic hodnoty [IShape::get_Frame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/get_frame/), [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapeframe/get_fliph/) a [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapeframe/get_flipv/).
 
-Nejprve přidejme na snímek nový objekt textového rámečku (**To 1**) (pro potřeby spojení) a vytvořme nový (zelený) konektor, který jej propojí s již vytvořenými objekty.
+Tento příklad vytváří a upravuje svisle orientovaný konektor:
 
-```c++
-// Vytvoří nový objekt vazby
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// Vytvoří nový konektor
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// Propojí objekty pomocí nově vytvořeného konektoru
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// Získá úpravy bodů konektoru
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// Mění hodnoty úpravných bodů
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-Výsledek:
+Upravený konektor se objeví svisle mezi tvary:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Druhou částí vytvoříme tvar, který bude odpovídat horizontální součásti konektoru procházející novým úpravným bodem connector.Adjustments[0]. Použijeme hodnoty z dat konektoru pro connector.Rotation, connector.Frame.FlipH a connector.Frame.FlipV a aplikujeme běžný vzorec pro převod souřadnic při rotaci kolem daného bodu x0:
+Pro libovolný úhel otočení `alpha` rotujte bod rámce konektoru `(x, y)` kolem středu rámce `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-V našem případě je úhel rotace objektu 90 stupňů a konektor je zobrazen vertikálně, takže odpovídající kód je:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```c++
+Následující kód řeší 90‑stupňovou orientaci použitou v tomto příkladu a vykresluje červenou vodítko přes odpovídající segment konektoru:
 
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Výsledek:
+Červená vodítko označuje vypočítaný segment po transformaci souřadnic:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Ukázali jsme výpočty zahrnující jednoduché úpravy i složité úpravy bodů (úpravy bodů s úhly rotace). S využitím získaných znalostí můžete vytvořit vlastní model (nebo napsat kód) pro získání objektu `GraphicsPath` nebo dokonce nastavit hodnoty úpravných bodů konektoru na základě konkrétních souřadnic snímku.
+Tyto vzorce popisují předvolby použitých v příkladech, nikoli univerzální model konektoru. Ověřte typy úprav, orientaci rámce a rozsahy hodnot před aplikací stejného výpočtu na jinou předvolbu.
 
-## **Zjištění úhlu čar konektoru**
+## **Najít úhel směru konektoru**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation/) .
-1. Získejte referenci na snímek podle jeho indexu.
-1. Získejte přístup k tvaru čáry konektoru.
-1. Použijte šířku a výšku čáry, výšku a šířku rámce tvaru k výpočtu úhlu.
+Směr přímého konektoru lze vypočítat ze šířky a výšky s aplikovanými horizontálními a vertikálními převráceními. Následující příklad uvádí úhel ve směru hodinových ručiček od kladné horizontální osy ve souřadnicích snímku:
 
-This C++ code demonstrates an operation in which we calculated the angle for a connector line shape:
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
 
-```c++
-void ConnectorLineAngle()
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// Cesta k adresáři dokumentů.
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Načte požadovanou prezentaci
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// Přistupuje k prvnímu snímku
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// Přistupuje ke kolekci tvarů snímků
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Jak zjistit, zda lze konektor „přilepit“ k určitému tvaru?**
+**Jak zjistit, zda se může konektor připojit k tvaru?**
 
-Zkontrolujte, zda tvar poskytuje [připojovací místa](https://reference.aspose.com/slides/cs/cpp/aspose.slides/shape/get_connectionsitecount/). Pokud žádná nejsou nebo je jejich počet nulový, přilepení není možné; v takovém případě použijte volné koncové body a umístěte je ručně. Je rozumné zkontrolovat počet míst před připojením.
+Zkontrolujte hodnotu `IShape::get_ConnectionSiteCount` tvaru. Kladný počet znamená, že tvar má místa připojení. Ověřte vybraný index místa před jeho přiřazením ke kterémukoli konci konektoru.
 
-**Co se stane s konektorem, pokud smažu jeden ze spojených tvarů?**
+**Mohu identifikovat úpravu konektoru podle indexu v kolekci?**
 
-Jeho konce se odpojí; konektor zůstane na snímku jako obyčejná čára s volnými počátečními/koncovými body. Můžete jej buď smazat, nebo přepojit spojení a v případě potřeby [přesměrovat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/connector/reroute/).
+Index má smysl pouze pro známou předvolbu konektoru a uspořádání kolekce. Před úpravou hodnoty zkontrolujte `IAdjustValue::get_Type` a použijte `IAdjustValue::get_Name` jako doplňující informaci, když se stejný sémantický typ vyskytuje vícekrát.
 
-**Zůstávají vazby konektoru zachovány při kopírování snímku do jiné prezentace?**
+**Co se stane, když je spojený tvar smazán?**
 
-Obecně ano, pokud jsou kopírovány i cílové tvary. Pokud je snímek vložen do jiného souboru bez připojených tvarů, konce se stanou volnými a budete je muset znovu připojit.
+Příslušný konec konektoru se odpojí. Konektor zůstane na snímku a může být smazán, umístěn jako volná čára nebo připojen k jinému tvaru.
+
+**Zachovají se vazby konektorů při kopírování snímku?**
+
+Vazby jsou obecně zachovány, když jsou spojené tvary kopírovány spolu se snímkem. Pokud je konektor zkopírován bez jednoho ze svých cílových tvarů, je třeba postižený konec připojit znovu.

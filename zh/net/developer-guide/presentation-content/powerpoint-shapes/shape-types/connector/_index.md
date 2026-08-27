@@ -1,392 +1,517 @@
 ---
-title: 在 .NET 中管理演示文稿的连接线
-linktitle: 连接线
+title: 在 .NET 中管理演示文稿中的连接器
+linktitle: 连接器
 type: docs
 weight: 10
 url: /zh/net/connector/
 keywords:
-- 连接线
-- 连接线类型
+- 连接器
+- 连接器类型
+- 连接器点
+- 连接器线
+- 连接器角度
 - 连接点
-- 连接线
-- 连接角度
+- 调整点
 - 连接形状
 - PowerPoint
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "让 .NET 应用程序能够在 PowerPoint 幻灯片中绘制、连接并自动路由线条——全面控制直线、折线和曲线连接线。"
+description: "了解如何使用 Aspose.Slides for .NET 添加、附加、重新路由、调整和检查 PowerPoint 中的直线、弯折和曲线连接器。"
 ---
+## **概述**
 
-PowerPoint 连接线是一种特殊的线段，用于将两个形状连接或链接在一起，并在形状移动或重新定位时仍保持附着在形状上。
+连接器是一条线，当任一形状移动时仍可保持连接到两个形状。它的两端连接到连接点，在 PowerPoint 中表现为绿色点。某些弯曲和曲线连接器还会暴露调节点，表现为橙色点，用于控制各个连接器段的位置。
 
-连接线通常连接到 *连接点*（绿色点），这些点默认存在于所有形状上。当光标靠近时会显示连接点。
+Aspose.Slides 通过 [IConnector](https://reference.aspose.com/slides/zh/net/aspose.slides/iconnector/) 接口表示连接器。您可以创建它们、将两端连接到形状、选择连接点、重新路由，并修改具有调节点的连接器几何形状。
 
-*调整点*（橙色点）仅在某些连接线上存在，用于修改连接线的位置和形状。
+## **连接器类型**
 
-## **连接线的类型**
+[ShapeType](https://reference.aspose.com/slides/zh/net/aspose.slides/shapetype/) 枚举包含直线、弯折和曲线连接器预设。下表显示了可用的连接器几何形状以及每个预设定义的调节点数量。
 
-在 PowerPoint 中，您可以使用直线、折线（有角度）和曲线连接线。
+| 连接器 | 图片 | 调节点数量 |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides 提供以下连接线：
+调节点的数量和含义是所选连接器预设的一部分。不要假设两种不同的连接器类型会暴露相同的集合布局。
 
-| Connector                      | Image                                                        | Number of adjustment points |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **连接两个形状**
 
-## **使用连接线连接形状**
+使用 [IShapeCollection.AddConnector](https://reference.aspose.com/slides/zh/net/aspose.slides/ishapecollection/addconnector/) 添加连接器，并为其分配 [StartShapeConnectedTo](https://reference.aspose.com/slides/zh/net/aspose.slides/connector/startshapeconnectedto/) 和 [EndShapeConnectedTo](https://reference.aspose.com/slides/zh/net/aspose.slides/connector/endshapeconnectedto/) 属性。两端都连接后，[IConnector.Reroute](https://reference.aspose.com/slides/zh/net/aspose.slides/iconnector/reroute/) 会在形状之间选择一条短路径。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 使用 `Shapes` 对象公开的 `AddAutoShape` 方法向幻灯片添加两个 [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)。  
-1. 使用 `Shapes` 对象公开的 `AddConnector` 方法并指定连接线类型来添加连接线。  
-1. 使用该连接线将形状连接起来。  
-1. 调用 `Reroute` 方法以应用最短的连接路径。  
-1. 保存演示文稿。  
+以下示例使用弯折连接器将椭圆和矩形相连：
 
-下面的 C# 代码演示了如何在两个形状（椭圆和矩形）之间添加一条弯曲连接线：
-```c#
-// 实例化表示 PPTX 文件的演示文稿类
-using (Presentation input = new Presentation())
-{                
-    // 访问特定幻灯片的形状集合
-    IShapeCollection shapes = input.Slides[0].Shapes;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 添加椭圆自动形状
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // 添加矩形自动形状
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // 向幻灯片形状集合添加连接线形状
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // 使用连接线连接形状
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // 调用 reroute 方法在形状之间设置自动最短路径
-    connector.Reroute();
-
-    // 保存演示文稿
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
+{{% alert color="warning" title="警告" %}}
+调用 `Reroute` 可能会更改 [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh/net/aspose.slides/connector/startshapeconnectionsiteindex/) 和 [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh/net/aspose.slides/connector/endshapeconnectionsiteindex/) 的值。若这些连接点必须保持固定，请在重新路由后再次指定具体的连接点。
+{{% /alert %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **选择连接点**
 
-`Connector.Reroute` 方法会重新路由连接线，使其在形状之间走最短路径。为实现此目的，方法可能会更改 `StartShapeConnectionSiteIndex` 和 `EndShapeConnectionSiteIndex` 点。 
+每个可连接的形状通过 [ConnectionSiteCount](https://reference.aspose.com/slides/zh/net/aspose.slides/shape/connectionsitecount/) 报告其连接点数量。在将其分配给连接器端点之前，请先验证所选的零基索引；不同形状的几何形状会导致连接点数量不同。
 
-{{% /alert %}} 
+下面的示例在椭圆上存在该连接点时，将连接器附加到该特定连接点：
 
-## **指定连接点**
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-如果希望连接线使用形状上的特定点进行链接，需要按如下方式指定首选连接点：
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 使用 `Shapes` 对象公开的 `AddAutoShape` 方法向幻灯片添加两个 [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/)。  
-1. 使用 `Shapes` 对象公开的 `AddConnector` 方法并指定连接线类型来添加连接线。  
-1. 使用该连接线将形状连接起来。  
-1. 在形状上设置首选的连接点。  
-1. 保存演示文稿。  
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-下面的 C# 代码演示了如何指定首选连接点的操作：
-```c#
-// 实例化表示 PPTX 文件的演示文稿类
-using (Presentation presentation = new Presentation())
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // 访问特定幻灯片的形状集合
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // 向幻灯片的形状集合添加连接线形状
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // 添加椭圆自动形状
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // 添加矩形自动形状
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // 使用连接线连接形状
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // 设置椭圆形状的首选连接点索引
-    uint wantedIndex = 6;
-
-    // 检查首选索引是否小于最大站点索引计数
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // 为椭圆自动形状设置首选连接点
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // 保存演示文稿
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
-```
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
 
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
+```
 
 ## **调整连接点**
 
-您可以通过调整点来修改已有的连接线。仅带有调整点的连接线才能以此方式进行更改。请参阅 **[连接线的类型](/slides/zh/net/connector/#types-of-connectors)** 表格。
+具有调节点的连接器通过 [IGeometryShape.Adjustments](https://reference.aspose.com/slides/zh/net/aspose.slides/igeometryshape/adjustments/) 暴露这些点。检查每个 [IAdjustValue](https://reference.aspose.com/slides/zh/net/aspose.slides/iadjustvalue/) 并在更改其 [RawValue](https://reference.aspose.com/slides/zh/net/aspose.slides/adjustvalue/rawvalue/) 之前先检查其 [Type](https://reference.aspose.com/slides/zh/net/aspose.slides/adjustvalue/type/)。有关识别预设形状调节的通用规则，请参阅 [Shape Manipulation](/slides/zh/net/shape-manipulations/)。
 
-### **简单案例**
+调节的数量、顺序、含义以及有效值范围取决于连接器预设。`Type` 属性为只读，而调节值是可写的。只读的 [Name](https://reference.aspose.com/slides/zh/net/aspose.slides/adjustvalue/name/) 属性在连接器包含多个相同语义类型的调节时提供额外的标识。
 
-考虑一种情况：两形状（A 和 B）之间的连接线穿过第三个形状（C）：
+### **绕过障碍物的路径**
+
+在下图布局中，`BentConnector5` 连接器在两形状之间经过第三个形状：
 
 ![connector-obstruction](connector-obstruction.png)
 
-代码：
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+以下代码创建了受阻的连接器：
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-
-为避免或绕过第三个形状，我们可以将连接线的垂直线向左移动，如下所示：
+移动垂直弯折会改变路径，使连接器绕过障碍物：
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+
+本示例不假设集合索引 `1` 始终表示垂直弯折，而是搜索 `ConnectorBendPositionY`，仅在存在预期的语义类型时才进行更改：
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
+`BentConnector5` 拥有两个 `ConnectorBendPositionX` 调节和一个 `ConnectorBendPositionY` 调节。如果所需的类型出现多次，请在选择之前检查 `Name` 并参考该预设的已知几何形状。如果某个调节报告 `ShapeAdjustmentType.Custom`，则其含义和范围应视为特定预设，且在未明确合同前不要更改。
 
-### **复杂案例** 
+## **将调整值关联到连接器几何形状**
 
-进行更复杂的调整时，需要考虑以下因素：
+对于弯折连接器，调节值可用于估算各段位置。这些计算特定于连接器预设：
 
-* 连接线的可调点与计算其位置的公式紧密关联。因此，点的位置变化可能会改变连接线的形状。  
-* 连接线的调整点在数组中按严格顺序定义，编号从连接线的起点到终点。  
-* 调整点的数值表示连接线形状宽度/高度的百分比。  
-  * 形状的边界由连接线的起点和终点乘以 1000 确定。  
-  * 第一点、第二点、第三点分别对应宽度的百分比、高度的百分比以及再次对应宽度的百分比。  
-* 在计算连接线调整点坐标时，需要考虑连接线的旋转角度和镜像。**注意**，在 **[连接线的类型](/slides/zh/net/connector/#types-of-connectors)** 中显示的所有连接线的旋转角度均为 0。
+- `BentConnector4` 通常暴露一个 `ConnectorBendPositionX` 和一个 `ConnectorBendPositionY` 调节。
+- 对于这些弯折位置，`RawValue / 100000f` 生成示例中使用的连接器框宽度或高度的比例。
+- 连接器框可能被旋转或翻转，因而在与幻灯片坐标比较之前必须先转换框坐标。
 
-#### **案例 1**
+以下示例首先使用 `Type` 来识别调节，而不是把集合索引当作通用标识符。
 
-考虑两段文本框对象通过连接线相连的情况：
+### **未旋转的连接器**
+
+初始布局包含两个通过 `BentConnector4` 连接的文本形状：
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-代码：
-```c#
-// 实例化表示 PPTX 文件的演示文稿类
-Presentation pres = new Presentation();
-// 获取演示文稿中的第一张幻灯片
-ISlide sld = pres.Slides[0];
-// 添加将通过连接线连接在一起的形状
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// 添加连接线
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// 指定连接线的方向
+本示例检查连接器并获取其水平和垂直弯折调节：
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// 指定连接线的颜色
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// 指定连接线的线宽
 connector.LineFormat.Width = 3;
-
-// 将形状通过连接线链接在一起
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// 获取连接线的调整点
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
+要更改两个弯折，先定位每个预期的类型，待两者均找到后再修改其值：
 
-**调整**
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-我们可以通过将对应的宽度和高度百分比分别增加 20% 和 200% 来更改连接线的调整点数值：
-```c#
- // 更改调整点的值
- adjValue_0.RawValue += 20000;
- adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-
-结果：
+结果是水平和垂直段均已移动的连接器：
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-为了定义一个模型，以便确定连接线各部分的坐标和形状，我们创建一个对应于连接线水平分量的形状，位于 `connector.Adjustments[0]` 点：
-```c#
-// 绘制连接线的垂直组件
+一旦确认语义类型，可将其值转换为连接器框坐标。本示例在由两个弯折调节控制的垂直段上绘制一个细矩形：
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-
-结果：
+导向形状标记出计算得到的段落：
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **案例 2**
+### **旋转或翻转的连接器**
 
-在 **案例 1** 中，我们演示了使用基本原理进行简单连接线调整的操作。在实际情况下，需要考虑连接线的旋转以及其显示方式（由 `connector.Rotation`、`connector.Frame.FlipH` 和 `connector.Frame.FlipV` 设置）。下面演示整个过程。
+当相同的连接器几何形状以垂直方向呈现时，其 [Frame](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/frame/)、[FlipH](https://reference.aspose.com/slides/zh/net/aspose.slides/shapeframe/fliph/)、[FlipV](https://reference.aspose.com/slides/zh/net/aspose.slides/shapeframe/flipv/) 值会影响从连接器框坐标到幻灯片坐标的转换。
 
-首先，向幻灯片添加一个新的文本框对象（**To 1**），用于连接，然后创建一条新的（绿色）连接线，将其连接到已有对象上。
-```c#
-// 创建一个新的绑定对象
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// 创建一个新的连接线
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+本示例创建并调整了垂直方向的连接器：
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// 使用新创建的连接线连接对象
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// 获取连接线的调整点
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// 更改调整点的值
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-
-结果：
+调整后的连接器在形状之间垂直显示：
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-其次，创建一个形状对应于通过新连接线的调整点 `connector.Adjustments[0]` 的水平分量。我们将使用连接线数据中的 `connector.Rotation`、`connector.Frame.FlipH`、`connector.Frame.FlipV` 值，并套用围绕给定点 x0 的坐标旋转公式：
+对于任意旋转角度 `alpha`，将连接器框点 `(x, y)` 绕框中心 `(x0, y0)` 旋转：
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-在本例中，对象的旋转角度为 90 度，且连接线垂直显示，代码如下：
-```c#
-// 保存连接线坐标
-x = connector.X;
-y = connector.Y;
-// 在出现时修正连接线坐标
-if (connector.Frame.FlipH == NullableBool.True)
+以下代码处理本示例中使用的 90 度方向，并在相应的连接器段上绘制红色导向：
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
+
+if (horizontalBend is null || verticalBend is null)
 {
-    y += connector.Height;
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
 }
-// 将调整点的值作为坐标使用
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  将坐标转换，因为 Sin(90) = 1 且 Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// 使用第二个调整点的值确定水平分量的宽度
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-
-结果：
+红色导向标记出坐标转换后的计算段：
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-我们已经演示了涉及简单调整以及带旋转角度的复杂调整点的计算。利用这些知识，您可以构建自己的模型（或编写代码）以获取 `GraphicsPath` 对象，甚至根据特定幻灯片坐标设置连接线的调整点数值。
+这些公式描述的是示例中使用的预设，而非通用的连接器模型。请在将相同计算应用于不同预设之前，验证调节类型、框方向以及数值范围。
 
-## **获取连接线的角度**
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 访问连接线形状。  
-1. 使用线宽、线高、形状框高度和形状框宽度计算角度。  
+## **查找连接器方向角度**
 
-下面的 C# 代码演示了如何计算连接线形状的角度：
-```c#
-public static void Run()
+直线连接器的方向可以根据其宽高并结合水平/垂直翻转进行计算。下面的示例报告了相对于幻灯片坐标中正水平轴的顺时针角度：
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
+## **常见问题**
 
-## **常见问题解答**
+**如何判断连接器是否可以附着到某个形状？**
 
-**如何判断某个连接线是否可以“粘贴”到特定形状上？**
+检查形状的 `ConnectionSiteCount`。正数表示该形状公开连接点。在将站点索引分配给任一连接器端之前，请先验证所选索引。
 
-检查该形状是否公开了 [connection sites](https://reference.aspose.com/slides/net/aspose.slides/shape/connectionsitecount/)。如果没有或计数为零，则无法粘贴；此时应使用自由端点并手动定位。建议在附加前检查站点计数。
+**我能通过集合索引识别连接器调节吗？**
 
-**如果删除了已连接的形状之一，连接线会怎样？**
+索引仅在已知的连接器预设和集合布局下有意义。修改值前请先检查 `IAdjustValue.Type`，当同一语义类型出现多次时，可使用 `IAdjustValue.Name` 作为补充信息。
 
-其两端会被分离，连接线会以普通线的形式留在幻灯片上，拥有自由的起点/终点。您可以删除它，或者重新分配连接并在需要时使用 [reroute](https://reference.aspose.com/slides/net/aspose.slides/connector/reroute/)。  
+**当已连接的形状被删除会发生什么？**
 
-**在将幻灯片复制到另一个演示文稿时，连接线的绑定会被保留吗？**
+相应的连接器端点会被分离。连接器仍保留在幻灯片上，可删除、作为自由线移动，或重新附加到其他形状。
 
-通常会保留，前提是同时复制了目标形状。如果幻灯片插入到另一个文件中而未包含已连接的形状，则两端会变为自由状态，需要重新附加。
+**复制幻灯片时连接器的绑定会保留吗？**
+
+当与幻灯片一起复制了已连接的形状时，绑定通常会保留。如果只复制了连接器而未复制其目标形状，则必须再次将受影响的端点附加到相应形状。

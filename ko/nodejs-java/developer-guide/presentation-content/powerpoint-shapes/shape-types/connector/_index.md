@@ -1,383 +1,529 @@
 ---
-title: JavaScript를 사용한 프레젠테이션 연결선 관리
-linktitle: 연결선
+title: JavaScript를 사용하여 프레젠테이션에서 커넥터 관리
+linktitle: 커넥터
 type: docs
 weight: 10
 url: /ko/nodejs-java/connector/
 keywords:
-- 연결선
-- 연결선 유형
-- 연결점
-- 연결선 라인
-- 연결선 각도
+- 커넥터
+- 커넥터 유형
+- 커넥터 포인트
+- 커넥터 라인
+- 커넥터 각도
+- 연결 지점
+- 조정점
 - 도형 연결
 - PowerPoint
 - 프레젠테이션
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript 애플리케이션이 PowerPoint 슬라이드에서 선을 그리며 연결하고 자동 라우팅하도록 지원하여 직선, 팔꿈치형 및 곡선 연결선을 완벽하게 제어할 수 있습니다."
+description: "Java를 통해 Node.js용 Aspose.Slides로 직선, 굽힌 및 곡선 PowerPoint 커넥터를 추가, 연결, 재경로 지정, 조정 및 검사하는 방법을 배웁니다."
 ---
-## **소개**
+## **개요**
 
-PowerPoint 연결선은 두 개의 도형을 연결하거나 연결하는 특수한 선으로, 슬라이드에서 도형이 이동하거나 위치가 바뀌어도 도형에 부착된 상태로 유지됩니다. 
+커넥터는 두 개의 도형이 움직여도 두 도형에 연결된 상태를 유지할 수 있는 선입니다. 양쪽 끝은 PowerPoint에서 초록색 점으로 표시되는 연결 지점에 연결됩니다. 구부러지거나 곡선 형태의 커넥터 중 일부는 오렌지색 점으로 표시되는 조정점을 노출하여 각 커넥터 세그먼트의 위치를 제어할 수 있습니다.
 
-연결선은 일반적으로 *연결 점* (녹색 점)에 연결되며, 이는 기본적으로 모든 도형에 존재합니다. 커서가 근접하면 연결 점이 표시됩니다.
+Aspose.Slides는 커넥터를 [Connector](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/connector/) 클래스로 나타냅니다. 커넥터를 생성하고, 끝을 도형에 연결하고, 연결 지점을 선택하고, 재경로 지정하고, 조정점을 가진 커넥터의 기하학을 수정할 수 있습니다.
 
-*조정점* (주황색 점)은 특정 연결선에만 존재하며, 연결선의 위치와 모양을 수정하는 데 사용됩니다.
+## **커넥터 유형**
 
-## **연결선 유형**
+[ShapeType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shapetype/) 클래스에는 직선, 굽힘, 곡선 커넥터 프리셋이 포함됩니다. 아래 표는 사용 가능한 커넥터 기하학과 각 프리셋에 정의된 조정점 수를 보여줍니다.
 
-PowerPoint에서는 직선, 팔꿈치(각도) 및 곡선 연결선을 사용할 수 있습니다.  
-Aspose.Slides는 다음과 같은 연결선을 제공합니다:
+| 커넥터 | Image | 조정점 수 |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| 연​결​선 | 이미지 | 조정점 수 |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+조정점의 수와 의미는 선택된 커넥터 프리셋의 일부입니다. 두 가지 다른 커넥터 유형이 동일한 컬렉션 레이아웃을 제공한다고 가정하지 마십시오.
 
-## **연결선을 사용하여 도형 연결하기**
+## **두 도형 연결하기**
 
-1. [Presentation](https://apireference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 만듭니다.  
-1. 인덱스를 사용하여 슬라이드 참조를 가져옵니다.  
-1. `Shapes` 객체가 제공하는 `addAutoShape` 메서드를 사용하여 슬라이드에 두 개의 [AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/AutoShape)를 추가합니다.  
-1. `Shapes` 객체가 제공하는 `addConnector` 메서드로 연결선 유형을 정의하여 연결선을 추가합니다.  
-1. 연결선을 사용하여 도형을 연결합니다.  
-1. 가장 짧은 연결 경로를 적용하기 위해 `reroute` 메서드를 호출합니다.  
-1. 프레젠테이션을 저장합니다.  
+[ShapeCollection.addConnector](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shapecollection/addconnector/)을 사용해 커넥터를 추가하고, [Connector.setStartShapeConnectedTo](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/connector/setstartshapeconnectedto/)와 [Connector.setEndShapeConnectedTo](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/connector/setendshapeconnectedto/)를 사용해 양쪽 끝을 연결합니다. 양쪽 끝이 연결된 후에는 [Connector.reroute](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/connector/reroute/)가 도형 사이의 짧은 경로를 선택합니다.
 
-다음 JavaScript 코드는 두 도형(타원과 사각형) 사이에 연결선(굽은 연결선)을 추가하는 방법을 보여줍니다:
+다음 예제는 타원과 사각형을 굽힌 커넥터로 연결합니다.
 
 ```javascript
-// PPTX 파일을 나타내는 프레젠테이션 클래스를 인스턴스화합니다
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 특정 슬라이드의 도형 컬렉션에 접근합니다
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // 타원 자동 도형을 추가합니다
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // 사각형 자동 도형을 추가합니다
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // 슬라이드 도형 컬렉션에 연결선 도형을 추가합니다
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // 연결선을 사용하여 도형을 연결합니다
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // 도형 간 자동 최단 경로를 설정하는 reroute 메서드를 호출합니다
     connector.reroute();
-    // 프레젠테이션을 저장합니다
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Connector.reroute` 메서드는 연결선을 재경로 지정하여 도형 간 최단 경로를 강제로 따르게 합니다. 이를 달성하기 위해 메서드는 `setStartShapeConnectionSiteIndex` 및 `setEndShapeConnectionSiteIndex` 지점을 변경할 수 있습니다. 
-{{% /alert %}} 
+{{% alert color="warning" title="경고" %}}
 
-## **연결점 지정**
+`reroute`를 호출하면 [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/connector/setstartshapeconnectionsiteindex/)와 [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/connector/setendshapeconnectionsiteindex/) 값이 변경될 수 있습니다. 해당 사이트를 고정해야 한다면 재경로 지정 후에 특정 연결 지점을 지정하십시오.
 
-연결선이 도형의 특정 점을 사용하여 두 도형을 연결하도록 하려면 다음과 같이 원하는 연결점을 지정해야 합니다:
+{{% /alert %}}
 
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 만듭니다.  
-1. 인덱스를 사용하여 슬라이드 참조를 가져옵니다.  
-1. `Shapes` 객체가 제공하는 `addAutoShape` 메서드를 사용하여 슬라이드에 두 개의 [AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/AutoShape)를 추가합니다.  
-1. `Shapes` 객체가 제공하는 `addConnector` 메서드로 연결선 유형을 정의하여 연결선을 추가합니다.  
-1. 연결선을 사용하여 도형을 연결합니다.  
-1. 도형에 원하는 연결점을 설정합니다.  
-1. 프레젠테이션을 저장합니다.  
+## **연결 지점 선택하기**
 
-다음 JavaScript 코드는 선호하는 연결점을 지정하는 작업을 보여줍니다:
+연결 가능한 각 도형은 [Shape.getConnectionSiteCount](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shape/getconnectionsitecount/)를 통해 사이트 수를 보고합니다. 도형에 따라 사이트 수가 다르므로, 커넥터 끝에 할당하기 전에 선호하는 0 기반 사이트 인덱스를 검증하십시오.
+
+다음 예제는 해당 사이트가 존재할 경우 타원의 특정 사이트에 커넥터를 연결합니다.
 
 ```javascript
-// PPTX 파일을 나타내는 프레젠테이션 클래스를 인스턴스화합니다
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 특정 슬라이드의 도형 컬렉션에 접근합니다
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // 타원 자동 도형을 추가합니다
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // 사각형 자동 도형을 추가합니다
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // 슬라이드의 도형 컬렉션에 연결선 도형을 추가합니다
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // 연결선을 사용하여 도형을 연결합니다
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector3, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // 타원 도형에 선호하는 연결점 인덱스를 설정합니다
-    var wantedIndex = 6;
-    // 선호하는 인덱스가 최대 사이트 인덱스 수보다 작은지 확인합니다
-    if (ellipse.getConnectionSiteCount() > wantedIndex) {
-        // 타원 자동 도형에 선호하는 연결점을 설정합니다
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+
+    const preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        console.log(`The ellipse has only ${ellipse.getConnectionSiteCount()} connection sites.`);
     }
-    // 프레젠테이션을 저장합니다
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("specific-connection-site.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **연결선 점 조정**
+## **커넥터 포인트 조정하기**
 
-기존 연결선을 조정점을 통해 조정할 수 있습니다. 조정점이 있는 연결선만 이러한 방식으로 변경할 수 있습니다. **[연결선 유형](/slides/ko/nodejs-java/connector/#types-of-connectors)** 아래 표를 참고하세요.
+조정점을 가진 커넥터는 [GeometryShape.getAdjustments](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/geometryshape/)를 통해 노출됩니다. 각 [AdjustValue](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/adjustvalue/)를 검사하고, [setRawValue](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/adjustvalue/setrawvalue/)로 변경하기 전에 [getType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/adjustvalue/) 값을 확인하십시오. 프리셋 형태 조정 식별에 관한 일반 규칙은 [Shape Manipulation](/slides/ko/nodejs-java/shape-manipulations/)에 설명되어 있습니다.
 
-### **단순 사례**
+커넥터 조정의 개수, 순서, 의미 및 허용 값 범위는 커넥터 프리셋에 따라 다릅니다. 조정 유형은 읽기 전용이며, 조정 값은 쓰기 가능합니다. 동일한 의미 유형이 여러 개 존재할 때는 읽기 전용 [getName](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/adjustvalue/getname/) 메서드가 추가 식별 정보를 제공합니다.
 
-두 도형(A와 B) 사이의 연결선이 세 번째 도형(C)을 통과하는 경우를 고려해 보세요:
+### **장애물 회피 경로**
+
+다음 레이아웃에서 `BentConnector5` 커넥터가 두 도형 사이에 세 번째 도형을 통과합니다.
 
 ![connector-obstruction](connector-obstruction.png)
 
+이 코드는 방해받는 커넥터를 생성합니다.
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-세 번째 도형을 피하거나 우회하려면 연결선의 수직선을 왼쪽으로 이동하여 조정할 수 있습니다:
+수직 굽힘을 이동하면 경로가 변경되어 커넥터가 장애물을 우회합니다.
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+컬렉션 인덱스 `1`이 항상 수직 굽힘을 의미한다고 가정하지 말고, 이 예제는 `ConnectorBendPositionY`를 검색한 뒤 예상 의미 유형이 존재할 때만 변경합니다.
+
 ```javascript
-var adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend === null) {
+        console.log("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **복잡한 사례들** 
+`BentConnector5`에는 `ConnectorBendPositionX` 조정이 두 개, `ConnectorBendPositionY` 조정이 하나 있습니다. 필요한 유형이 여러 번 나타나는 경우, `getName`과 해당 프리셋의 알려진 기하학을 검사한 후 선택하십시오. 조정이 `ShapeAdjustmentType.Custom`을 반환하면 의미와 범위는 프리셋 전용이며, 계약이 명확해질 때까지 변경하지 마십시오.
 
-보다 복잡한 조정을 수행하려면 다음 사항을 고려해야 합니다:
+## **조정 값을 커넥터 기하와 연결하기**
 
-* 연결선의 조정 가능한 점은 그 위치를 계산하고 결정하는 공식과 강하게 연결되어 있습니다. 따라서 점 위치를 변경하면 연결선의 모양이 바뀔 수 있습니다.  
-* 연결선의 조정점은 배열에 엄격한 순서대로 정의됩니다. 조정점은 연결선의 시작점부터 끝점까지 번호가 매겨집니다.  
-* 조정점 값은 연결선 도형의 폭/높이 비율을 나타냅니다.  
-  * 도형은 연결선의 시작점과 끝점을 1000배한 범위 내에 제한됩니다.  
-  * 첫 번째 점은 폭 비율을, 두 번째 점은 높이 비율을, 세 번째 점은 다시 폭 비율을 각각 정의합니다.  
-* 연결선 조정점 좌표를 계산할 때는 연결선의 회전 및 반사를 고려해야 합니다. **참고** **[연결선 유형](/slides/ko/nodejs-java/connector/#types-of-connectors)** 에 표시된 모든 연결선의 회전 각도는 0입니다.
+굽힌 커넥터의 경우, 조정 값을 사용해 개별 세그먼트 위치를 추정할 수 있습니다. 이러한 계산은 커넥터 프리셋에 특화됩니다.
 
-#### **사례 1**
+- `BentConnector4`는 일반적으로 `ConnectorBendPositionX`와 `ConnectorBendPositionY` 조정을 각각 하나씩 노출합니다.
+- 이러한 굽힘 위치에 대해 `getRawValue`가 반환하는 값을 `100000`으로 나누면 아래 예제에서 사용되는 커넥터 프레임 너비 또는 높이의 비율이 됩니다.
+- 커넥터 프레임은 회전하거나 뒤집힐 수 있으므로, 프레임 좌표를 슬라이드 좌표와 비교하기 전에 변환해야 합니다.
 
-두 개의 텍스트 프레임 객체가 연결선을 통해 연결된 경우를 고려해 보세요:
+다음 예제는 먼저 `getType`으로 조정을 식별하고, 컬렉션 인덱스를 휴대용 식별자로 사용하지 않습니다.
+
+### **회전되지 않은 커넥터**
+
+초기 레이아웃에는 `BentConnector4`로 연결된 두 텍스트 도형이 있습니다.
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+이 예제는 커넥터를 검사하고 가로 및 세로 굽힘 조정을 가져옵니다.
+
 ```javascript
-// PPTX 파일을 나타내는 프레젠테이션 클래스를 인스턴스화합니다
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션에서 첫 번째 슬라이드를 가져옵니다
-    var sld = pres.getSlides().get_Item(0);
-    // 연결선을 통해 함께 연결될 도형들을 추가합니다
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // 연결선을 추가합니다
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-    // 연결선의 방향을 지정합니다
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    // 연결선의 색상을 지정합니다
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // 연결선 선의 두께를 지정합니다
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const red = java.getStaticFieldValue("java.awt.Color", "RED");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
     connector.getLineFormat().setWidth(3);
-    // 도형들을 연결선으로 연결합니다
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    // 연결선의 조정점을 가져옵니다
-    var adjValue_0 = connector.getAdjustments().get_Item(0);
-    var adjValue_1 = connector.getAdjustments().get_Item(1);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-**조정**
-
-연결선의 조정점 값을 해당 폭 비율을 20% 증가시키고 높이 비율을 200% 증가시켜 변경할 수 있습니다:
+두 굽힘을 모두 변경하려면 각 예상 유형을 찾은 후 값을 수정하십시오.
 
 ```javascript
-// 조정점의 값을 변경합니다
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-결과:
+그 결과 가로와 세로 세그먼트가 이동한 커넥터가 나타납니다.
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-연결선의 개별 부분의 좌표와 형태를 결정할 수 있는 모델을 정의하기 위해, `connector.getAdjustments().get_Item(0)` 지점에서 연결선의 수평 구성 요소에 해당하는 도형을 만들어 보겠습니다:
+의미 유형을 알게 되면 해당 값을 커넥터 프레임 좌표로 변환할 수 있습니다. 이 예제는 두 굽힘 조정이 제어하는 세로 세그먼트 위에 얇은 사각형을 그립니다.
 
 ```javascript
-// 연결선의 수직 구성 요소를 그립니다
-var x = connector.getX() + ((connector.getWidth() * adjValue_0.getRawValue()) / 100000);
-var y = connector.getY();
-var height = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 0, height);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        const x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const y = connector.getY();
+        const height = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(x);
+        const guideY = java.newFloat(y);
+        const guideWidth = java.newFloat(1);
+        const guideHeight = java.newFloat(height);
+        slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        presentation.save("connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-결과:
+가이드 도형이 계산된 세그먼트를 표시합니다.
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **사례 2**
+### **회전 또는 뒤집힌 커넥터**
 
-**사례 1**에서는 기본 원리를 이용한 간단한 연결선 조정 작업을 보여주었습니다. 일반 상황에서는 연결선 회전 및 표시(이는 `connector.getRotation()`, `connector.getFrame().getFlipH()`, `connector.getFrame().getFlipV()` 로 설정됨)를 고려해야 합니다. 이제 그 과정을 보여드리겠습니다.
+같은 커넥터 기하학이 세로로 배치될 경우, [Shape.getFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shape/getframe/), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shapeframe/getfliph/), [ShapeFrame.getFlipV](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shapeframe/getflipv/) 값이 커넥터 프레임 좌표를 슬라이드 좌표로 변환하는 데 영향을 줍니다.
 
-먼저, 슬라이드에 새로운 텍스트 프레임 객체(**To 1**)를 추가하고(연결을 위해) 기존에 만든 객체와 연결하는 새로운(녹색) 연결선을 만들겠습니다.
+이 예제는 세로 방향 커넥터를 만들고 조정합니다.
 
 ```javascript
-// 새 바인딩 객체를 생성합니다
-var shapeTo_1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// 새 연결선을 생성합니다
-connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-connector.getLineFormat().setWidth(3);
-// 새로 만든 연결선을 사용해 객체를 연결합니다
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// 연결선의 조정점을 가져옵니다
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// 조정점의 값을 변경합니다
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const connectorColor = java.newInstanceSync("java.awt.Color", 102, 205, 170);
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-결과:
+조정된 커넥터가 도형 사이에 세로로 표시됩니다.
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-둘째, 새 연결선의 조정점 `connector.getAdjustments().get_Item(0)` 를 통과하는 수평 구성 요소에 해당하는 도형을 생성합니다. 우리는 `connector.getRotation()`, `connector.getFrame().getFlipH()`, `connector.getFrame().getFlipV()` 값들을 사용하고 주어진 점 x0를 중심으로 회전하는 좌표 변환 공식을 적용합니다:
+임의의 회전 각도 `alpha`에 대해 커넥터 프레임 점 `(x, y)`를 프레임 중심 `(x0, y0)`을 기준으로 회전하면:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-우리의 경우 객체 회전 각도는 90도이며 연결선이 수직으로 표시되므로 아래와 같은 코드가 해당됩니다:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+다음 코드는 이 예제에서 사용된 90도 방향을 처리하고 해당 커넥터 세그먼트 위에 빨간 가이드를 그립니다.
 
 ```javascript
-// 연결선 좌표를 저장합니다
-x = connector.getX();
-y = connector.getY();
-// 연결선 좌표가 나타나는 경우 보정합니다
-if (connector.getFrame().getFlipH() == aspose.slides.NullableBool.True) {
-    x += connector.getWidth();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        let x = connector.getX();
+        let y = connector.getY();
+        if (connector.getFrame().getFlipH() === aspose.slides.NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() === aspose.slides.NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        const rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        const segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(rotatedX);
+        const guideY = java.newFloat(rotatedY);
+        const guideWidth = java.newFloat(segmentWidth);
+        const guideHeight = java.newFloat(1);
+        const guide = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        const red = java.getStaticFieldValue("java.awt.Color", "RED");
+        const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+        guide.getLineFormat().getFillFormat().setFillType(solidFillType);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+        presentation.save("rotated-connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == aspose.slides.NullableBool.True) {
-    y += connector.getHeight();
-}
-// 조정점 값을 좌표로 사용합니다
-x += (connector.getWidth() * adjValue_0.getRawValue()) / 100000;
-// Sin(90)=1이고 Cos(90)=0이므로 좌표를 변환합니다
-var xx = (connector.getFrame().getCenterX() - y) + connector.getFrame().getCenterY();
-var yy = (x - connector.getFrame().getCenterX()) + connector.getFrame().getCenterY();
-// 두 번째 조정점 값을 사용하여 수평 구성 요소의 너비를 결정합니다
-var width = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
 
-결과:
+좌표 변환 후 빨간 가이드가 계산된 세그먼트를 표시합니다.
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-우리는 간단한 조정 및 회전 각도가 포함된 복잡한 조정점에 대한 계산을 시연했습니다. 습득한 지식을 활용해 `GraphicsPath` 객체를 얻거나 특정 슬라이드 좌표에 따라 연결선의 조정점 값을 설정하는 모델(또는 코드를) 개발할 수 있습니다.
+이 공식은 예제에 사용된 프리셋을 설명할 뿐이며, 보편적인 커넥터 모델을 정의하지 않습니다. 다른 프리셋에 동일한 계산을 적용하기 전에 조정 유형, 프레임 방향 및 값 범위를 검증하십시오.
 
-## **연결선 각도 찾기**
+## **커넥터 방향 각도 찾기**
 
-1. 클래​스​의 인스턴스를 생성합니다.  
-1. 인덱스를 사용하여 슬라이드 참조를 가져옵니다.  
-1. 연결선 도형에 접근합니다.  
-1. 선의 너비, 높이, 도형 프레임 높이 및 도형 프레임 너비를 사용하여 각도를 계산합니다.  
-
-다음 JavaScript 코드는 연결선 도형의 각도를 계산하는 작업을 보여줍니다:
+직선 커넥터의 방향은 가로·세로 길이와 가로·세로 뒤집기를 적용해 계산할 수 있습니다. 다음 예제는 슬라이드 좌표계에서 양의 가로 축을 기준으로 시계 방향 각도를 보고합니다.
 
 ```javascript
-var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    for (var i = 0; i < slide.getShapes().size(); i++) {
-        var dir = 0.0;
-        var shape = slide.getShapes().get_Item(i);
-        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-            var ashp = shape;
-            if (ashp.getShapeType() == aspose.slides.ShapeType.Line) {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        } else if (java.instanceOf(shape, "com.aspose.slides.Connector")) {
-            var ashp = shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
-        console.log(dir);
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function getDirection(w, h, flipH, flipV) {
-    let endLineX = w * (flipH ? -1 : 1);
-    let endLineY = h * (flipV ? -1 : 1);
-    
-    let endYAxisX = 0;
-    let endYAxisY = h;
+    const slide = presentation.getSlides().get_Item(0);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-    let angle = Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX);
+    const flipH = connector.getFrame().getFlipH() === aspose.slides.NullableBool.True;
+    const flipV = connector.getFrame().getFlipV() === aspose.slides.NullableBool.True;
+    const deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    const deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    let angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
 
     if (angle < 0) {
-        angle += 2 * Math.PI;
+        angle += 360;
     }
 
-    return angle * 180.0 / Math.PI;
+    console.log(`Connector direction: ${angle.toFixed(2)} degrees`);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**연결선을 특정 도형에 "붙일" 수 있는지 어떻게 확인할 수 있나요?**  
-도형이 [connection sites](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shape/getconnectionsitecount/) 를 제공하는지 확인하세요. 없거나 개수가 0이면 붙이기가 불가능하므로 자유로운 끝점을 사용하고 수동으로 위치를 지정해야 합니다. 연결하기 전에 사이트 개수를 확인하는 것이 현명합니다.
+**커넥터가 도형에 연결될 수 있는지 어떻게 확인합니까?**
 
-**연결된 도형 중 하나를 삭제하면 연결선은 어떻게 되나요?**  
-끝이 분리되며 연결선은 자유 시작/끝을 가진 일반 선으로 슬라이드에 남습니다. 삭제하거나 연결을 다시 지정할 수 있으며 필요시 [reroute](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/connector/reroute/) 를 사용할 수 있습니다.
+도형의 [getConnectionSiteCount](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shape/getconnectionsitecount/) 값을 확인하십시오. 양수이면 도형이 연결 지점을 노출한다는 의미입니다. 선택한 사이트 인덱스를 커넥터 양쪽 끝에 할당하기 전에 반드시 검증하십시오.
 
-**슬라이드를 다른 프레젠테이션에 복사할 때 연결선 바인딩이 유지되나요?**  
-일반적으로 대상 도형도 함께 복사되는 경우 유지됩니다. 연결된 도형 없이 슬라이드를 다른 파일에 삽입하면 끝이 자유롭게 변하고 다시 연결해야 합니다.
+**컬렉션 인덱스로 커넥터 조정을 식별할 수 있나요?**
+
+인덱스는 알려진 커넥터 프리셋과 컬렉션 레이아웃에서만 의미가 있습니다. 값을 수정하기 전에 [AdjustValue.getType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/adjustvalue/)을 확인하고, 동일한 의미 유형이 여러 번 나타날 경우 [AdjustValue.getName](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/adjustvalue/getname/)을 추가 정보로 활용하십시오.
+
+**연결된 도형이 삭제되면 어떻게 됩니까?**
+
+해당 커넥터 끝이 분리됩니다. 커넥터는 슬라이드에 남아 자유 선으로 위치를 조정하거나 다른 도형에 다시 연결하거나 삭제할 수 있습니다.
+
+**슬라이드 복사 시 커넥터 바인딩이 유지되나요?**
+
+연결된 도형이 슬라이드와 함께 복사되면 바인딩이 일반적으로 유지됩니다. 커넥터만 복사되고 대상 도형 중 하나가 없을 경우, 영향을 받은 끝을 다시 연결해야 합니다.

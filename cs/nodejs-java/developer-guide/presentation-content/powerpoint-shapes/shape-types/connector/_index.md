@@ -1,391 +1,529 @@
 ---
-title: Správa spojek v prezentacích pomocí JavaScriptu
-linktitle: Spojka
+title: Správa konektorů v prezentacích pomocí JavaScriptu
+linktitle: Konektor
 type: docs
 weight: 10
 url: /cs/nodejs-java/connector/
 keywords:
-- spojka
-- typ spojky
-- bod spojky
-- čára spojky
-- úhel spojky
+- konektor
+- typ konektoru
+- bod konektoru
+- čára konektoru
+- úhel konektoru
+- místo připojení
+- bod úpravy
 - propojit tvary
 - PowerPoint
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Umožněte aplikacím JavaScript kreslit, propojit a automaticky trasovat čáry v PowerPoint snímcích—získejte plnou kontrolu nad rovnými, ohnutými a zakřivenými spojkami."
+description: "Naučte se, jak pomocí Aspose.Slides pro Node.js a Java přidávat, připojovat, přepočítávat, upravovat a zkoumat rovné, ohnuté a zakřivené konektory v PowerPointu."
 ---
-## **Úvod**
+## **Přehled**
 
-Spojka PowerPointu je speciální čára, která spojuje nebo propojuje dva tvary a zůstává připojena k tvarům i po jejich přesunutí nebo přeúspořádání na snímku.  
+Konektor je čára, která může zůstat připojena ke dvěma tvarem, když se kterýkoli z tvarů pohybuje. Jeho konce jsou připojeny k místům připojení, která jsou v PowerPointu zobrazena zelenými tečkami. Některé ohnuté a zakřivené konektory také zobrazují body úpravy, které jsou reprezentovány oranžovými tečkami a řídí polohu jednotlivých úseků konektoru.
 
-Spojky jsou typicky připojeny k *připojovacím bodům* (zelené body), které jsou ve výchozím nastavení na všech tvarech. Připojovací body se zobrazí, když se kurzor přiblíží k nim.
+Aspose.Slides představuje konektory pomocí třídy [Connector](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/connector/). Můžete je vytvářet, připojovat jejich konce k tvarům, vybírat místa připojení, přepočítávat je a upravovat geometrii konektorů, které mají body úpravy.
 
-*Úpravové body* (oranžové body), které existují jen u některých spojek, slouží k úpravě polohy a tvaru spojek.
+## **Typy konektorů**
 
-## **Typy spojek**
+Třída [ShapeType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapetype/) obsahuje předvolby pro rovné, ohnuté a zakřivené konektory. Následující tabulka ukazuje dostupné geometrie konektorů a počet bodů úpravy definovaných pro každou předvolbu.
 
-V PowerPointu můžete používat rovné, ohnuté (úhlové) a zakřivené spojky.  
+| Konektor | Obrázek | Počet bodů úpravy |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides poskytuje následující spojky:
+Počet a význam bodů úpravy jsou součástí vybrané předvolby konektoru. Nepředpokládejte, že dva různé typy konektorů zobrazují stejnou strukturu kolekce.
 
-| Spojka                         | Obrázek                                                       | Počet úpravových bodů |
-| ------------------------------ | ------------------------------------------------------------ | ---------------------- |
-| `ShapeType.Line`               | ![typ-čáry-spojky](shapetype-lineconnector.png)            | 0 |
-| `ShapeType.StraightConnector1` | ![typ-rovné-spojky1](shapetype-straightconnector1.png)      | 0 |
-| `ShapeType.BentConnector2`     | ![typ-ohnuté-spojky2](shapetype-bent-connector2.png)        | 0 |
-| `ShapeType.BentConnector3`     | ![typ-ohnuté-spojky3](shapetype-bentconnector3.png)         | 1 |
-| `ShapeType.BentConnector4`     | ![typ-ohnuté-spojky4](shapetype-bentconnector4.png)         | 2 |
-| `ShapeType.BentConnector5`     | ![typ-ohnuté-spojky5](shapetype-bentconnector5.png)         | 3 |
-| `ShapeType.CurvedConnector2`   | ![typ-křivé-spojky2](shapetype-curvedconnector2.png)        | 0 |
-| `ShapeType.CurvedConnector3`   | ![typ-křivé-spojky3](shapetype-curvedconnector3.png)        | 1 |
-| `ShapeType.CurvedConnector4`   | ![typ-křivé-spojky4](shapetype-curvedconnector4.png)        | 2 |
-| `ShapeType.CurvedConnector5`   | ![typ-křivé-spojky5](shapetype.curvedconnector5.png)        | 3 |
+## **Propojení dvou tvarů**
 
-## **Propojení tvarů pomocí spojek**
+Pro přidání konektoru použijte [ShapeCollection.addConnector](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/addconnector/) a pro připojení jeho konců použijte [Connector.setStartShapeConnectedTo](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/connector/setstartshapeconnectedto/) a [Connector.setEndShapeConnectedTo](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/connector/setendshapeconnectedto/). Po připojení obou konců [Connector.reroute](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/connector/reroute/) vybere nejkratší trasu mezi tvary.
 
-1. Vytvořte instanci třídy [Prezentace](https://apireference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Pomocí metody `addAutoShape` objektu `Shapes` přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/AutoShape).
-4. Pomocí metody `addConnector` objektu `Shapes` přidejte spojku definováním typu spojky.
-5. Spojte tvary pomocí spojky.
-6. Zavolejte metodu `reroute`, aby se použila nejkratší cesta spojení.
-7. Uložte prezentaci.
-
-Tento JavaScriptový kód ukazuje, jak přidat spojku (ohnutou spojku) mezi dva tvary (elipsu a obdélník):
+Následující příklad spojuje elipsu a obdélník pomocí ohnutého konektoru:
 
 ```javascript
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Přistupuje ke kolekci tvarů pro konkrétní snímek
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // Přidá elipsu jako autoshape
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // Přidá obdélník jako autoshape
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // Přidá tvar spojky do kolekce tvarů snímku
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // Propojí tvary pomocí spojky
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // Zavolá reroute, který nastaví automatickou nejkratší cestu mezi tvary
     connector.reroute();
-    // Uloží prezentaci
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
 
-Metoda `Connector.reroute` přepočítá spojku a vynutí, aby zvolila nejkratší možnou cestu mezi tvary. K dosažení tohoto cíle může metoda změnit body `setStartShapeConnectionSiteIndex` a `setEndShapeConnectionSiteIndex`. 
+Volání `reroute` může změnit hodnoty [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) a [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/connector/setendshapeconnectionsiteindex/). Po přepočítání přiřaďte konkrétní místa připojení, pokud mají zůstat pevná.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **Zadání připojovacího bodu**
+## **Výběr místa připojení**
 
-Pokud chcete, aby spojka propojila dva tvary pomocí konkrétních bodů na tvarech, musíte zadat preferované připojovací body následovně:
+Každý propojitelný tvar uvádí svůj počet míst pomocí [Shape.getConnectionSiteCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/getconnectionsitecount/). Ověřte preferovaný index místa (nula‑založený) před jeho přiřazením ke konci konektoru; počet míst se liší podle geometrie tvaru.
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Pomocí metody `addAutoShape` objektu `Shapes` přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/AutoShape).
-4. Pomocí metody `addConnector` objektu `Shapes` přidejte spojku definováním typu spojky.
-5. Spojte tvary pomocí spojky.
-6. Nastavte své preferované připojovací body na tvarech.
-7. Uložte prezentaci.
-
-Tento JavaScriptový kód demonstruje operaci, kde je zadán preferovaný připojovací bod:
+Tento příklad připojuje konektor k určitému místu na elipse, pokud toto místo existuje:
 
 ```javascript
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Přistupuje ke kolekci tvarů pro konkrétní snímek
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // Přidá elipsu jako autoshape
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // Přidá obdélník jako autoshape
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // Přidá tvar spojky do kolekce tvarů snímku
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // Propojí tvary pomocí spojky
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector3, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // Nastaví preferovaný index připojovacího bodu na elipsovém tvaru
-    var wantedIndex = 6;
-    // Kontroluje, zda je preferovaný index menší než maximální počet připojovacích míst
-    if (ellipse.getConnectionSiteCount() > wantedIndex) {
-        // Nastaví preferovaný připojovací bod na elipsovém autoshape
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+
+    const preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        console.log(`The ellipse has only ${ellipse.getConnectionSiteCount()} connection sites.`);
     }
-    // Uloží prezentaci
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("specific-connection-site.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Úprava bodu spojky**
+## **Úprava bodu konektoru**
 
-Existující spojku můžete upravit pomocí jejích úpravových bodů. Pouze spojky s úpravovými body lze takto měnit. Viz tabulka pod **[Typy spojek](/slides/cs/nodejs-java/connector/#types-of-connectors)**.
+Konektory s body úpravy je odhalují pomocí [GeometryShape.getAdjustments](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/geometryshape/). Prohlédněte si každou [AdjustValue](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/adjustvalue/) a před změnou zkontrolujte její hodnotu [getType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/adjustvalue/). Obecná pravidla pro rozpoznání předvoleb úprav tvarů jsou popsána v článku [Shape Manipulation](/slides/cs/nodejs-java/shape-manipulations/).
 
-### **Jednoduchý případ**
+Počet, pořadí, význam a platný rozsah hodnot úprav konektoru závisí na předvolbě konektoru. Typ úpravy je jen pro čtení, zatímco hodnota úpravy je zapisovatelná. Metoda jen pro čtení [getName](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/adjustvalue/getname/) poskytuje dodatečnou identifikaci, když konektor obsahuje více úprav stejného sémantického typu.
 
-Uvažujme případ, kdy spojka mezi dvěma tvary (A a B) prochází třetím tvarem (C):
+### **Obcházení překážky**
 
-![blokace-spojky](connector-obstruction.png)
+V následujícím uspořádání prochází konektor `BentConnector5` mezi dvěma tvary třetím tvarem:
+
+![connector-obstruction](connector-obstruction.png)
+
+Tento kód vytvoří omezený konektor:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Abychom třetí tvar obejděli, můžeme spojku upravit posunutím její vertikální linie doleva:
+Posunutí svislého ohybu změní trasu tak, že konektor obejde překážku:
 
-![blokace-spojky-opraveno](connector-obstruction-fixed.png)
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```javascript
-var adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
-```
-
-### **Komplexní případy** 
-
-Pro provedení složitějších úprav musíte vzít v úvahu následující:
-
-* Úpravový bod spojky je úzce spojen s formulí, která vypočítává a určuje jeho polohu. Změna polohy bodu může změnit tvar spojky.
-* Úpravové body jsou definovány v přísném pořadí v poli. Číslování probíhá od počátečního bodu spojky po koncový.
-* Hodnoty úpravových bodů vyjadřují procento šířky/výšky tvaru spojky.  
-  * Tvar je omezen počátečním a koncovým bodem spojky vynásobeným 1000.  
-  * První bod, druhý bod a třetí bod definují procento ze šířky, procento z výšky a opět procento ze šířky.
-* Pro výpočty souřadnic úpravových bodů spojky musíte zohlednit rotaci spojky a její odraz. **Poznámka**: úhel rotace všech spojek zobrazených pod **[Typy spojek](/slides/cs/nodejs-java/connector/#types-of-connectors)** je 0.
-
-#### **Případ 1**
-
-Uvažujme případ, kdy jsou dva textové rámečky propojeny spojkou:
-
-![komplexní-spojka-tvar](connector-shape-complex.png)
+Místo předpokládání, že index kolekce `1` vždy představuje svislý ohyb, tento příklad hledá `ConnectorBendPositionY` a mění jej jen tehdy, když je přítomen očekávaný sémantický typ:
 
 ```javascript
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Získá první snímek v prezentaci
-    var sld = pres.getSlides().get_Item(0);
-    // Přidá tvary, které budou propojeny pomocí spojky
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Přidá spojku
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Určuje směr spojky
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    // Určuje barvu spojky
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Určuje tloušťku čáry spojky
-    connector.getLineFormat().setWidth(3);
-    // Propojí tvary pomocí spojky
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
-    connector.setEndShapeConnectionSiteIndex(2);
-    // Získá úpravové body spojky
-    var adjValue_0 = connector.getAdjustments().get_Item(0);
-    var adjValue_1 = connector.getAdjustments().get_Item(1);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const slide = presentation.getSlides().get_Item(0);
 
-**Úprava**
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
 
-Můžeme změnit hodnoty úpravových bodů spojky zvýšením odpovídajících procent šířky a výšky o 20 % a 200 %:
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
 
-```javascript
-// Mění hodnoty úpravových bodů
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
-```
-
-Výsledek:
-
-![spojka-úprava-1](connector-adjusted-1.png)
-
-Pro definování modelu, který nám umožní určit souřadnice a tvar jednotlivých částí spojky, vytvoříme tvar odpovídající horizontální komponentě spojky v bodě `connector.getAdjustments().get_Item(0)`:
-
-```javascript
-// Vykreslí vertikální komponentu spojky
-var x = connector.getX() + ((connector.getWidth() * adjValue_0.getRawValue()) / 100000);
-var y = connector.getY();
-var height = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 0, height);
-```
-
-Výsledek:
-
-![spojka-úprava-2](connector-adjusted-2.png)
-
-#### **Případ 2**
-
-V **případě 1** jsme ukázali jednoduchou operaci úpravy spojky pomocí základních principů. V běžných situacích musíte zohlednit rotaci spojky a její zobrazení (nastavené pomocí `connector.getRotation()`, `connector.getFrame().getFlipH()` a `connector.getFrame().getFlipV()`). Nyní tento proces demonstrujeme.
-
-Nejprve přidejte na snímek nový objekt textového rámečku (**To 1**) (pro účely propojení) a vytvořte novou (zelenou) spojku, která jej propojí s již vytvořenými objekty.
-
-```javascript
-// Vytvoří nový objekt vazby
-var shapeTo_1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Vytvoří novou spojku
-connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-connector.getLineFormat().setWidth(3);
-// Propojí objekty pomocí nově vytvořené spojky
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Získá úpravové body spojky
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Mění hodnoty úpravových bodů
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
-```
-
-Výsledek:
-
-![spojka-úprava-3](connector-adjusted-3.png)
-
-Druhá část: vytvořte tvar, který bude odpovídat horizontální komponentě spojky procházející úpravovým bodem `connector.getAdjustments().get_Item(0)`. Použijte hodnoty z dat spojky pro `connector.getRotation()`, `connector.getFrame().getFlipH()` a `connector.getFrame().getFlipV()` a aplikujte obvyklý převodní vzorec pro rotaci kolem bodu x₀:
-
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
-
-V našem případě je úhel rotace objektu 90 ° a spojka je zobrazena vertikálně, takže odpovídající kód je:
-
-```javascript
-// Uloží souřadnice spojky
-x = connector.getX();
-y = connector.getY();
-// Opraví souřadnice spojky v případě, že se objeví
-if (connector.getFrame().getFlipH() == aspose.slides.NullableBool.True) {
-    x += connector.getWidth();
-}
-if (connector.getFrame().getFlipV() == aspose.slides.NullableBool.True) {
-    y += connector.getHeight();
-}
-// Použije hodnotu úpravového bodu jako souřadnici
-x += (connector.getWidth() * adjValue_0.getRawValue()) / 100000;
-// Převede souřadnice, protože Sin(90) = 1 a Cos(90) = 0
-var xx = (connector.getFrame().getCenterX() - y) + connector.getFrame().getCenterY();
-var yy = (x - connector.getFrame().getCenterX()) + connector.getFrame().getCenterY();
-// Určí šířku horizontální komponenty pomocí hodnoty druhého úpravového bodu
-var width = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-```
-
-Výsledek:
-
-![spojka-úprava-4](connector-adjusted-4.png)
-
-Ukázali jsme výpočty zahrnující jednoduché úpravy i komplikované úpravové body (úpravy s úhly rotace). Pomocí získaných znalostí můžete vytvořit vlastní model (nebo napsat kód), který získá objekt `GraphicsPath` nebo dokonce nastaví hodnoty úpravových bodů spojky na základě konkrétních souřadnic snímku.
-
-## **Zjištění úhlu spojkových čar**
-
-1. Vytvořte instanci třídy.
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přistupte k tvaru spojkové čáry.
-4. Pomocí šířky, výšky, výšky rámce tvaru a šířky rámce tvaru vypočítejte úhel.
-
-Tento JavaScriptový kód ukazuje operaci, při které vypočítáme úhel spojkové čáry:
-
-```javascript
-var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    for (var i = 0; i < slide.getShapes().size(); i++) {
-        var dir = 0.0;
-        var shape = slide.getShapes().get_Item(i);
-        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-            var ashp = shape;
-            if (ashp.getShapeType() == aspose.slides.ShapeType.Line) {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        } else if (java.instanceOf(shape, "com.aspose.slides.Connector")) {
-            var ashp = shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
         }
-        console.log(dir);
+    }
+
+    if (verticalBend === null) {
+        console.log("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", aspose.slides.SaveFormat.Pptx);
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-```javascript
-function getDirection(w, h, flipH, flipV) {
-    let endLineX = w * (flipH ? -1 : 1);
-    let endLineY = h * (flipV ? -1 : 1);
-    
-    let endYAxisX = 0;
-    let endYAxisY = h;
+Konektor `BentConnector5` má dva nastavení `ConnectorBendPositionX` a jedno nastavení `ConnectorBendPositionY`. Pokud typ, který potřebujete, se vyskytuje vícekrát, prozkoumejte `getName` a známou geometrii této předvolby, než jeden vyberete. Pokud úprava hlásí `ShapeAdjustmentType.Custom`, považujte její význam a rozsah za specifické pro předvolbu a neměňte ji, dokud není tento kontrakt znám.
 
-    let angle = Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX);
+## **Vztah hodnot úprav k geometrii konektoru**
+
+U ohnutých konektorů lze hodnoty úprav použít k odhadu polohy jednotlivých úseků. Tyto výpočty jsou specifické pro konkrétní předvolbu konektoru:
+
+- `BentConnector4` normálně odhaluje jednu úpravu `ConnectorBendPositionX` a jednu `ConnectorBendPositionY`.
+- Pro tyto pozice ohybu vydělením hodnoty vrácené metodou `getRawValue` číslem `100000` získáte zlomek šířky nebo výšky rámce konektoru, jak ukazují níže uvedené příklady.
+- Rámec konektoru může být otočen nebo převrácen, takže souřadnice rámce je třeba transformovat před porovnáním se souřadnicemi snímku.
+
+Následující příklady nejprve používají `getType` k identifikaci úprav. Nepoužívají indexy kolekce jako přenositelné identifikátory.
+
+### **Neotočený konektor**
+
+Úvodní uspořádání obsahuje dva textové tvary spojené `BentConnector4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Tento příklad prozkoumává konektor a získává jeho horizontální a vertikální úpravy ohybu:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const red = java.getStaticFieldValue("java.awt.Color", "RED");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Pro změnu obou ohybů najděte každý očekávaný typ a upravte hodnoty až po jejich nalezení:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Výsledkem je konektor, jehož horizontální a vertikální úseky se posunuly:
+
+![connector-adjusted-1](connector-adjusted-1.png)
+
+Jakmile jsou známé sémantické typy, lze jejich hodnoty převést na souřadnice rámce konektoru. Tento příklad nakreslí úzký obdélník přes vertikální úsek řízený dvěma ohyby:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        const x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const y = connector.getY();
+        const height = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(x);
+        const guideY = java.newFloat(y);
+        const guideWidth = java.newFloat(1);
+        const guideHeight = java.newFloat(height);
+        slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        presentation.save("connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Pomocný tvar označuje vypočítaný úsek:
+
+![connector-adjusted-2](connector-adjusted-2.png)
+
+### **Otočený nebo převrácený konektor**
+
+Když je stejná geometrie konektoru orientována svisle, její hodnoty [Shape.getFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/getframe/), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapeframe/getfliph/), a [ShapeFrame.getFlipV](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapeframe/getflipv/) ovlivňují převod ze souřadnic rámce konektoru na souřadnice snímku.
+
+Tento příklad vytváří a upravuje svisle orientovaný konektor:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const connectorColor = java.newInstanceSync("java.awt.Color", 102, 205, 170);
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Upravený konektor se zobrazí svisle mezi tvary:
+
+![connector-adjusted-3](connector-adjusted-3.png)
+
+Pro libovolný úhel otočení `alpha` otočte bod rámce konektoru `(x, y)` kolem středu rámce `(x0, y0)`:
+
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
+
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+Následující kód řeší orientaci o 90 stupňů použité v tomto příkladu a nakreslí červenou vodítko přes odpovídající úsek konektoru:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        let x = connector.getX();
+        let y = connector.getY();
+        if (connector.getFrame().getFlipH() === aspose.slides.NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() === aspose.slides.NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        const rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        const segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(rotatedX);
+        const guideY = java.newFloat(rotatedY);
+        const guideWidth = java.newFloat(segmentWidth);
+        const guideHeight = java.newFloat(1);
+        const guide = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        const red = java.getStaticFieldValue("java.awt.Color", "RED");
+        const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+        guide.getLineFormat().getFillFormat().setFillType(solidFillType);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+        presentation.save("rotated-connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Červená vodítko označuje vypočítaný úsek po transformaci souřadnic:
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+Tyto vzorce popisují předvolby použité v příkladech, ne univerzální model konektoru. Ověřte typy úprav, orientaci rámce a rozsahy hodnot před aplikací stejných výpočtů na jinou předvolbu.
+
+## **Nalezení úhlu směru konektoru**
+
+Směr rovného konektoru lze vypočítat ze šířky a výšky s aplikovanými horizontálními a vertikálními převráceními. Následující příklad uvádí úhel po směru hodinových ručiček od kladné vodorovné osy ve snímkových souřadnicích:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+    const flipH = connector.getFrame().getFlipH() === aspose.slides.NullableBool.True;
+    const flipV = connector.getFrame().getFlipV() === aspose.slides.NullableBool.True;
+    const deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    const deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    let angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
 
     if (angle < 0) {
-        angle += 2 * Math.PI;
+        angle += 360;
     }
 
-    return angle * 180.0 / Math.PI;
+    console.log(`Connector direction: ${angle.toFixed(2)} degrees`);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Často kladené otázky**
 
-**Jak zjistit, zda lze spojku „přilepit“ k určitému tvaru?**
+**Jak zjistit, zda se konektor může připojit k tvaru?**
 
-Zkontrolujte, zda tvar poskytuje [připojovací místa](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/getconnectionsitecount/). Pokud žádná nejsou nebo je jejich počet nula, lepení není k dispozici; v takovém případě použijte volné koncové body a umístěte je ručně. Je rozumné zkontrolovat počet míst před připojením.
+Zkontrolujte hodnotu [getConnectionSiteCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/getconnectionsitecount/) tvaru. Kladný počet znamená, že tvar vystavuje místa připojení. Ověřte vybraný index místa před jeho přiřazením ke kterémukoli konci konektoru.
 
-**Co se stane se spojkou, pokud smažu jeden ze spojených tvarů?**
+**Mohu identifikovat úpravu konektoru podle jejího indexu v kolekci?**
 
-Její konce se odpojí; spojka zůstane na snímku jako obyčejná čára s volnými počátečním/koncovým bodem. Můžete ji buď smazat, nebo znovu přiřadit spojení a podle potřeby [přepočítat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/connector/reroute/).
+Index má smysl pouze pro známou předvolbu konektoru a uspořádání kolekce. Před modifikací hodnoty zkontrolujte [AdjustValue.getType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/adjustvalue/) a použijte [AdjustValue.getName](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/adjustvalue/getname/) jako doplňující informaci, když se stejný sémantický typ vyskytuje vícekrát.
 
-**Zůstávají vazby spojek zachovány při kopírování snímku do jiné prezentace?**
+**Co se stane, když je připojený tvar smazán?**
 
-Obecně ano, pokud jsou kopírovány i cílové tvary. Pokud je snímek vložen do jiného souboru bez spojených tvarů, konce se stanou volnými a budete je muset znovu připojit.
+Příslušný konec konektoru se odpojí. Konektor zůstane na snímku a může být smazán, umístěn jako volná čára nebo připojen k jinému tvaru.
+
+**Zůstávají vazby konektorů zachovány při kopírování snímku?**
+
+Vazby jsou obecně zachovány, když jsou připojené tvary kopírovány spolu se snímkem. Pokud je konektor zkopírován bez jednoho ze svých cílových tvarů, je třeba postižený konec znovu připojit.

@@ -1,5 +1,5 @@
 ---
-title: Spravovat konektory v prezentacích pomocí Pythonu
+title: Správa konektorů v prezentacích pomocí Pythonu
 linktitle: Konektor
 type: docs
 weight: 10
@@ -10,142 +10,110 @@ keywords:
 - bod konektoru
 - čára konektoru
 - úhel konektoru
+- místo připojení
+- bod úpravy
 - propojit tvary
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Umožněte aplikacím v Pythonu kreslit, propojit a automaticky směrovat čáry v PowerPoint & OpenDocument snímcích—získejte plnou kontrolu nad přímými, loketními a zakřivenými konektory."
+description: "Naučte se, jak pomocí Aspose.Slides pro Python přes .NET přidávat, připojovat, přepočítávat, upravovat a kontrolovat rovné, ohnuté a zakřivené konektory PowerPointu."
 ---
-## **Úvod**
+## **Přehled**
 
-Konektor PowerPointu je specializovaná čára, která spojuje dva tvary a zůstává připojena, když jsou tvary posouvány nebo přemístěny na snímku. Konektory se připojují k **bodům připojení** (zelené body) na tvarech. Body připojení se zobrazí, když k nim přistoupí ukazatel. **Úchyty úpravy** (žluté body), dostupné u některých konektorů, vám umožňují upravit polohu a tvar konektoru.
+Konektor je čára, která může zůstat připojena ke dvěma tvary, i když se kterýkoli z tvarů pohybuje. Jeho konce se přichycují k místům připojení, která jsou v PowerPointu zobrazena zelenými tečkami. Některé ohnuté a zakřivené konektory také nabízejí body úprav, zobrazené oranžovými tečkami, které řídí polohu jednotlivých segmentů konektoru.
+
+Aspose.Slides představuje konektory prostřednictvím rozhraní [IConnector](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iconnector/). Můžete je vytvářet, přichycovat jejich konce k tvarům, vybírat místa připojení, přepočítávat je a upravovat geometrii konektorů, které mají body úprav.
 
 ## **Typy konektorů**
 
-V PowerPointu můžete použít tři typy konektorů: přímý, loketní (úhlový) a zakřivený.
+Výčtový typ [ShapeType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapetype/) obsahuje předvolby pro rovné, ohnuté a zakřivené konektory. Následující tabulka uvádí dostupné geometrie konektorů a počet bodů úprav definovaných každou předvolbou.
 
-Aspose.Slides podporuje následující typy konektorů:
+| Konektor | Obrázek | Počet bodů úprav |
+|---|---|---|
+| `ShapeType.LINE` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.STRAIGHT_CONNECTOR1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BENT_CONNECTOR2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BENT_CONNECTOR3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BENT_CONNECTOR4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BENT_CONNECTOR5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CURVED_CONNECTOR2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CURVED_CONNECTOR3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CURVED_CONNECTOR4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CURVED_CONNECTOR5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Typ konektoru                  | Obrázek                                                     | Počet bodů úpravy |
-| ------------------------------ | ----------------------------------------------------------- | ----------------- |
-| `ShapeType.LINE`                | ![Čárový konektor](shapetype-lineconnector.png)            | 0                 |
-| `ShapeType.STRAIGHT_CONNECTOR1` | ![Přímý konektor 1](shapetype-straightconnector1.png)      | 0                 |
-| `ShapeType.BENT_CONNECTOR2`     | ![Ohýbaný konektor 2](shapetype-bent-connector2.png)        | 0                 |
-| `ShapeType.BENT_CONNECTOR3`     | ![Ohýbaný konektor 3](shapetype-bentconnector3.png)         | 1                 |
-| `ShapeType.BENT_CONNECTOR4`     | ![Ohýbaný konektor 4](shapetype-bentconnector4.png)         | 2                 |
-| `ShapeType.BENT_CONNECTOR5`     | ![Ohýbaný konektor 5](shapetype-bentconnector5.png)         | 3                 |
-| `ShapeType.CURVED_CONNECTOR2`   | ![Zakřivený konektor 2](shapetype-curvedconnector2.png)     | 0                 |
-| `ShapeType.CURVED_CONNECTOR3`   | ![Zakřivený konektor 3](shapetype-curvedconnector3.png)     | 1                 |
-| `ShapeType.CURVED_CONNECTOR4`   | ![Zakřivený konektor 4](shapetype-curvedconnector4.png)     | 2                 |
-| `ShapeType.CURVED_CONNECTOR5`   | ![Zakřivený konektor 5](shapetype.curvedconnector5.png)     | 3                 |
+Počet a význam bodů úprav jsou součástí vybrané předvolby konektoru. Nepředpokládejte, že dva různé typy konektorů mají stejnou strukturu kolekce.
 
-## **Propojení tvarů pomocí konektorů**
+## **Propojení dvou tvarů**
 
-Tato část ukazuje, jak v Aspose.Slides propojit tvary pomocí konektorů. Přidáte konektor na snímek, připojíte jeho začátek a konec k cílovým tvarům. Použití míst připojení zajišťuje, že konektor zůstane „přilepen“ k tvarům i při jejich přesunu nebo změně velikosti.
+Použijte [IShapeCollection.add_connector](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ishapecollection/add_connector/) k přidání konektoru a přiřaďte jeho vlastnosti [start_shape_connected_to](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iconnector/start_shape_connected_to/) a [end_shape_connected_to](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iconnector/end_shape_connected_to/). Jakmile jsou oba konce přichyceny, metoda [IConnector.reroute](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iconnector/reroute/) zvolí nejkratší cestu mezi tvary.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte dva objekty [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/) na snímek pomocí metody `add_auto_shape`, kterou poskytuje objekt [ShapeCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/).
-1. Přidejte konektor pomocí metody `add_connector`, kterou poskytuje objekt [ShapeCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/), a určete typ konektoru.
-1. Propojte tvary pomocí konektoru.
-1. Zavolejte metodu `reroute` pro použití nejkratší cesty spojení.
-1. Uložte prezentaci.
-
-Následující Python kód ukazuje, jak přidat ohýbaný konektor mezi dva tvary (elipsu a obdélník):
+Následující příklad spojuje elipsu a obdélník pomocí ohnutého konektoru:
 
 ```python
 import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation pro vytvoření souboru PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Získejte kolekci tvarů pro první snímek.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-    # Přidejte AutoShape elipsy.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Přidejte AutoShape obdélníku.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Přidejte konektor na snímek.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
-
-    # Propojte tvary pomocí konektoru.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
-
-    # Zavolejte reroute pro nastavení nejkratší cesty.
     connector.reroute()
 
-    # Uložte prezentaci.
-    presentation.save("connected_shapes.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("connected-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-`connector.reroute` metoda přesměruje konektor a vynutí, aby zvolil nejkratší možnou cestu mezi tvary. K tomu může metoda změnit hodnoty `start_shape_connection_site_index` a `end_shape_connection_site_index`.
+{{% alert color="warning" title="Varování" %}}
+
+Volání `reroute` může změnit hodnoty [start_shape_connection_site_index](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iconnector/start_shape_connection_site_index/) a [end_shape_connection_site_index](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iconnector/end_shape_connection_site_index/). Po přepočítání přiřaďte konkrétní místa připojení, pokud mají zůstat pevně daná.
+
 {{% /alert %}}
 
-## **Určení bodů připojení**
+## **Výběr místa připojení**
 
-Tato část vysvětluje, jak připojit konektor k určitému bodu připojení na tvaru v Aspose.Slides. Cílením na konkrétní místa připojení můžete řídit trasování a rozvržení konektoru a vytvářet tak čisté, předvídatelné diagramy ve vašich prezentacích.
+Každý propojitelný tvar udává počet svých míst připojení pomocí vlastnosti [connection_site_count](https://reference.aspose.com/slides/cs/python-net/aspose.slides/igeometryshape/connection_site_count/). Před přiřazením konci konektoru ověřte preferovaný nulový index místa; počet míst se liší podle geometrie tvaru.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte dva objekty [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/) na snímek pomocí metody `add_auto_shape`, kterou poskytuje objekt [ShapeCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/).
-1. Přidejte konektor pomocí metody `add_connector` na objektu [ShapeCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/) a určete typ konektoru.
-1. Propojte tvary pomocí konektoru.
-1. Nastavte požadované body připojení na tvarech.
-1. Uložte prezentaci.
-
-Následující Python kód ukazuje, jak specifikovat požadovaný bod připojení:
+Tento příklad připojuje konektor k určitému místu na elipse, pokud takové místo existuje:
 
 ```python
 import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation pro vytvoření souboru PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Získejte kolekci tvarů pro první snímek.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
 
-    # Přidejte AutoShape elipsy.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Přidejte AutoShape obdélníku.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Přidejte konektor do kolekce tvarů na snímku.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
-
-    # Propojte tvary pomocí konektoru.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
 
-    # Nastavte preferovaný index místa připojení na elipse.
-    site_index = 6
+    preferred_site_index = 2
+    if preferred_site_index < ellipse.connection_site_count:
+        connector.start_shape_connection_site_index = preferred_site_index
+    else:
+        print(f"The ellipse has only {ellipse.connection_site_count} connection sites.")
 
-    # Zkontrolujte, že preferovaný index je v rámci dostupného počtu míst.
-    if  ellipse.connection_site_count > site_index:
-        # Přiřaďte preferované místo připojení na AutoShape elipsy.
-        connector.start_shape_connection_site_index = site_index
-
-    # Uložte prezentaci.
-    presentation.save("connection_points.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("specific-connection-site.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Úprava bodů konektoru**
+## **Úprava bodu konektoru**
 
-Můžete upravovat konektory pomocí jejich bodů úpravy. Pouze konektory, které poskytují body úpravy, lze tímto způsobem upravovat. Podrobnosti o tom, které konektory podporují úpravy, najdete v tabulce pod [Connector Types](/slides/cs/python-net/connector/#connector-types).
+Konektory s body úprav je vystavují pomocí [IGeometryShape.adjustments](https://reference.aspose.com/slides/cs/python-net/aspose.slides/igeometryshape/adjustments/). Prozkoumejte každý [IAdjustValue](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iadjustvalue/) a před změnou jeho [type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iadjustvalue/type/) zkontrolujte jeho [raw_value](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iadjustvalue/raw_value/). Pro obecnou manipulaci s tvary viz [Shape Manipulation](/slides/cs/python-net/shape-manipulations/).
 
-### **Jednoduchý případ**
+Počet, pořadí, význam a platný rozsah hodnot úprav konektoru závisí na předvolbě konektoru. Vlastnost `type` je jen ke čtení, zatímco hodnota úpravy je zapisovatelná. Vlastnost jen ke čtení [name](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iadjustvalue/name/) poskytuje další identifikaci, pokud konektor obsahuje více úprav se stejným sémantickým typem.
 
-Zvažte případ, kdy konektor mezi dvěma tvary (A a B) protíná třetí tvar (C):
+### **Obejití překážky**
 
-![Obstrukce konektoru](connector-obstruction.png)
+V následujícím rozvržení prochází konektor `ShapeType.BENT_CONNECTOR5` mezi dvěma tvary třetím tvarem:
 
-Příklad kódu:
+![connector-obstruction](connector-obstruction.png)
+
+Tento kód vytvoří blokovaný konektor:
 
 ```python
 import aspose.slides as slides
@@ -154,237 +122,326 @@ import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
-    
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
     connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
-    
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
-    
-    connector.start_shape_connected_to = shape_from
-    connector.end_shape_connected_to = shape_to
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
     connector.start_shape_connection_site_index = 2
+
+    presentation.save("connector-obstruction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aby se vyhnul třetímu tvaru, upravte konektor posunutím jeho svislého segmentu doleva:
+Posunutí vertikálního ohybu změní trasu tak, aby konektor obešel překážku:
 
-![Opravená obstrukce konektoru](connector-obstruction-fixed.png)
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```python
-    adjustment2 = connector.adjustments[1]
-    adjustment2.raw_value += 10000
-```
-
-### **Komplexní případy**
-
-Pro pokročilejší úpravy zvažte následující:
-
-- Bod úpravy konektoru je řízen vzorcem, který určuje jeho polohu. Změna tohoto bodu může změnit celkový tvar konektoru.
-- Body úpravy konektoru jsou uloženy v přísně uspořádaném poli, očíslovaném od začátku konektoru po jeho konec.
-- Hodnoty bodů úpravy představují procenta šířky/výšky tvaru konektoru.
-  - Tvar je omezen počátečním a koncovým bodem konektoru a škálován pomocí 1000.
-  - První, druhý a třetí bod úpravy představují: procento šířky, procento výšky a opět procento šířky.
-- Při výpočtu souřadnic bodů úpravy zohledněte rotaci a odraz konektoru. **Poznámka:** U všech konektorů uvedených v [Connector Types](/slides/cs/python-net/connector/#connector-types) je úhel rotace 0.
-
-#### **Případ 1**
-
-Zvažte případ, kdy jsou dva objekty textového rámce propojeny konektorem:
-
-![Propojené tvary](connector-shape-complex.png)
-
-Příklad kódu:
+Místo předpokladu, že index kolekce `1` vždy představuje vertikální ohyb, tento příklad hledá `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` a mění jej jen tehdy, když je přítomen očekávaný sémantický typ:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Vytvořte instanci třídy Presentation pro vytvoření souboru PPTX.
 with slides.Presentation() as presentation:
-
-    # Získejte první snímek.
     slide = presentation.slides[0]
 
-    # Získejte první snímek.
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
-    shape_from.text_frame.text = "From"
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
-    shape_to.text_frame.text = "To"
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
 
-    # Přidejte konektor.
-    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
-    # Nastavte směr konektoru.
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
-    # Nastavte barvu konektoru.
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
+    connector.start_shape_connection_site_index = 2
+
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+            break
+
+    if vertical_bend is None:
+        print("The connector does not expose a vertical bend adjustment.")
+    else:
+        vertical_bend.raw_value = 60000
+        presentation.save("connector-obstruction-fixed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+`ShapeType.BENT_CONNECTOR5` má dva úpravy typu `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` a jednu úpravu typu `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`. Pokud se požadovaný typ vyskytuje vícekrát, před výběrem si prohlédněte `name` a známou geometriku předvolby. Pokud úprava vrací [ShapeAdjustmentType.CUSTOM](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapeadjustmenttype/), považujte její význam a rozsah za specifické pro předvolbu a neměňte ji, dokud neznáte smlouvu.
+
+## **Vztah hodnot úprav k geometrii konektoru**
+
+U ohnutých konektorů lze hodnoty úprav použít k odhadu poloh jednotlivých segmentů. Výpočty jsou specifické pro předvolbu konektoru:
+
+- `ShapeType.BENT_CONNECTOR4` typicky vystavuje jednu úpravu `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` a jednu úpravu `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`.
+- Pro tyto pozice ohybu se `raw_value / 100000` používá k získání zlomku šířky nebo výšky rámce konektoru, jak je použito v níže uvedených příkladech.
+- Rámec konektoru může být otočen nebo převrácen, takže souřadnice rámce je třeba převést před porovnáním se souřadnicemi snímku.
+
+Následující příklady nejprve identifikují úpravy pomocí `type`. Nepředpokládají, že indexy kolekce jsou přenositelné identifikátory.
+
+### **Neotočený konektor**
+
+Úvodní rozvržení obsahuje dva textové tvary propojené `ShapeType.BENT_CONNECTOR4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Tento příklad prozkoumá konektor a získá jeho horizontální a vertikální úpravy ohybu:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    target_shape.text_frame.text = "To"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.crimson
-    # Nastavte tloušťku čáry konektoru.
     connector.line_format.width = 3
-
-    # Propojte tvary pomocí konektoru.
-    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 3
-    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 2
 
-    # Získejte body úpravy konektoru.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
 ```
 
-**Úprava**
-
-Změňte hodnoty bodů úpravy konektoru zvýšením procenta šířky o 20 % a procenta výšky o 200 %:
+Pro změnu obou ohybů najděte každý očekávaný typ a upravte hodnoty až po nalezení obou:
 
 ```python
-    # Změňte hodnoty bodů úpravy.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+        presentation.save("connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Výsledek:
+Výsledkem je konektor, jehož horizontální a vertikální segmenty se posunuly:
 
-![Úprava konektoru 1](connector-adjusted-1.png)
+![connector-adjusted-1](connector-adjusted-1.png)
 
-Pro definování modelu, který umožňuje určit souřadnice a tvar segmentů konektoru, vytvořte tvar, který odpovídá svislé komponentě konektoru na `connector.adjustments[0]`:
+Jakmile jsou sémantické typy známy, lze jejich hodnoty převést na souřadnice rámce konektoru. Tento příklad nakreslí tenký obdélník přes vertikální segment řízený dvěma ohyby:
 
 ```python
-    # Nakreslete svislou komponentu konektoru.
-    x = connector.x + connector.width * adjustment_0.raw_value / 100000
-    y = connector.y
-    height = connector.height * adjustment_1.raw_value / 100000
+import aspose.slides as slides
 
-    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        x = connector.x + connector.width * horizontal_bend.raw_value / 100000
+        y = connector.y
+        height = connector.height * vertical_bend.raw_value / 100000
+        slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 1, height)
+        presentation.save("connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Výsledek:
+Vodicí tvar označuje vypočtený segment:
 
-![Úprava konektoru 2](connector-adjusted-2.png)
+![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Případ 2**
+### **Otočený nebo převrácený konektor**
 
-V **Případě 1** jsme demonstrovali jednoduchou úpravu konektoru pomocí základních principů. V typických scénářích musíte zohlednit rotaci konektoru a jeho nastavení zobrazení (řízené pomocí `connector.rotation`, `connector.frame.flip_h` a `connector.frame.flip_v`). Zde je postup.
+Když je stejná geometrie konektoru orientována svisle, její hodnoty [frame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iconnector/frame/), [flip_h](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ishapeframe/flip_h/) a [flip_v](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ishapeframe/flip_v/) ovlivňují převod souřadnic z rámce konektoru na souřadnice snímku.
 
-Nejprve přidejte nový objekt textového rámce (**To 1**) na snímek (pro připojení) a vytvořte nový zelený konektor, který ho propojí s existujícími objekty.
+Tento příklad vytvoří a upraví svisle orientovaný konektor:
 
 ```python
-    # Vytvořte nový cílový objekt.
-    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
-    shape_to_1.text_frame.text = "To 1"
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    # Vytvořte nový konektor.
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    target_shape.text_frame.text = "To 1"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
-
-    # Propojte objekty pomocí nově vytvořeného konektoru.
-    connector.start_shape_connected_to = shapeFrom
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 2
-    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 3
 
-    # Získejte body úpravy konektoru.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
-    
-    # Změňte hodnoty bodů úpravy.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            adjustment.raw_value += 20000
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            adjustment.raw_value += 200000
+
+    presentation.save("vertical-connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Výsledek:
+Upravený konektor se zobrazí svisle mezi tvary:
 
-![Úprava konektoru 3](connector-adjusted-3.png)
+![connector-adjusted-3](connector-adjusted-3.png)
 
-Druhé, vytvořte tvar, který odpovídá **horizontálnímu** segmentu konektoru procházejícímu novým bodem úpravy konektoru `connector.adjustments[0]`. Použijte hodnoty z `connector.rotation`, `connector.frame.flip_h` a `connector.frame.flip_v` a aplikujte standardní převodovou rovnici souřadnic pro rotaci kolem daného bodu `x0`:
+Pro libovolný úhel otáčení `alpha` otočte bod rámce konektoru `(x, y)` kolem středu rámce `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-V našem případě je úhel rotace objektu 90 stupňů a konektor je zobrazen vertikálně, takže odpovídající kód je:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```python
-    # Uložte souřadnice konektoru.
-    x = connector.x
-    y = connector.y
-    
-    # Opravte souřadnice konektoru, pokud je převrácen.
-    if connector.frame.flip_h == 1:
-        x += connector.width
-    if connector.frame.flip_v == 1:
-        y += connector.height
-
-    # Použijte hodnotu bodu úpravy jako souřadnici.
-    x += connector.width * adjValue_0.raw_value / 100000
-    
-    # Převěďte souřadnice, protože sin(90°) = 1 a cos(90°) = 0.
-    xx = connector.frame.center_x - y + connector.frame.center_y
-    yy = x - connector.frame.center_x + connector.frame.center_y
-
-    # Určete šířku vodorovného segmentu pomocí hodnoty druhého bodu úpravy.
-    width = connector.height * adjValue_1.raw_value / 100000
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-```
-
-Výsledek:
-
-![Úprava konektoru 4](connector-adjusted-4.png)
-
-Ukázali jsme výpočty zahrnující jednoduché úpravy i složitější body úpravy (ty, které zohledňují rotaci). S touto znalostí můžete vytvořit vlastní model – nebo napsat kód – pro získání objektu `GraphicsPath` nebo dokonce nastavit hodnoty bodů úpravy konektoru na základě konkrétních souřadnic snímku.
-
-## **Zjištění úhlů čar konektoru**
-
-Použijte níže uvedený příklad k určení úhlu čar konektoru na snímku pomocí Aspose.Slides. Naučíte se číst koncové body konektoru a vypočítat jeho orientaci, abyste mohli přesně zarovnat šipky, popisky a další tvary.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle indexu.
-1. Získejte přístup k tvaru čáry konektoru.
-1. Použijte šířku a výšku čáry a šířku a výšku rámce tvaru k výpočtu úhlu.
-
-Následující Python kód ukazuje, jak vypočítat úhel pro tvar čáry konektoru:
+Následující kód řeší 90‑stupňovou orientaci použitou v tomto příkladu a vykreslí červenou vodítko přes odpovídající segment konektoru:
 
 ```python
 import aspose.slides as slides
-import math
+import aspose.pydrawing as draw
 
-def get_direction(w, h, flip_h, flip_v):
-    end_line_x = w * (-1 if flip_h else 1)
-    end_line_y = h * (-1 if flip_v else 1)
-    end_y_axis_x = 0
-    end_y_axis_y = h
-    angle = math.atan2(end_y_axis_y, end_y_axis_x) - math.atan2(end_line_y, end_line_x)
-    if (angle < 0):
-         angle += 2 * math.pi
-    return angle * 180.0 / math.pi
-
-with slides.Presentation("connector_line_angle.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    for shape_index in range(len(slide.shapes)):
-        direction = 0.0
-        shape = slide.shapes[shape_index]
-        if type(shape) is slides.AutoShape and shape.shape_type == slides.ShapeType.LINE:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        elif type(shape) is slides.Connector:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        print(direction)
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 2
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 3
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+
+        x = connector.x
+        y = connector.y
+        if connector.frame.flip_h == slides.NullableBool.TRUE:
+            x += connector.width
+        if connector.frame.flip_v == slides.NullableBool.TRUE:
+            y += connector.height
+
+        x += connector.width * horizontal_bend.raw_value / 100000
+        rotated_x = connector.frame.center_x - y + connector.frame.center_y
+        rotated_y = x - connector.frame.center_x + connector.frame.center_y
+        segment_width = connector.height * vertical_bend.raw_value / 100000
+        guide = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, rotated_x, rotated_y, segment_width, 1)
+        guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+        guide.line_format.fill_format.solid_fill_color.color = draw.Color.red
+
+        presentation.save("rotated-connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Červené vodítko označuje vypočtený segment po transformaci souřadnic:
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+Tyto vzorce popisují předvolby použité v příkladech, nikoli univerzální model konektoru. Před použitím stejných výpočtů na jinou předvolbu ověřte typy úprav, orientaci rámce a rozsahy hodnot.
+
+## **Zjištění úhlu směru konektoru**
+
+Směr rovného konektoru lze vypočítat z jeho šířky a výšky s ohledem na horizontální a vertikální převrácení. Následující příklad vrací úhel ve směru hodinových ručiček od kladné horizontální osy v souřadnicích snímku:
+
+```python
+import math
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 100, 100, 200, 100)
+
+    flip_h = connector.frame.flip_h == slides.NullableBool.TRUE
+    flip_v = connector.frame.flip_v == slides.NullableBool.TRUE
+    delta_x = connector.width * (-1 if flip_h else 1)
+    delta_y = connector.height * (-1 if flip_v else 1)
+    angle = math.atan2(delta_y, delta_x) * 180.0 / math.pi
+
+    if angle < 0:
+        angle += 360
+
+    print(f"Connector direction: {angle:.2f} degrees")
 ```
 
 ## **Často kladené otázky**
 
-**Jak zjistím, zda lze konektor „přilepit“ k danému tvaru?**
+**Jak zjistím, zda se konektor může připojit k tvaru?**
 
-Zkontrolujte, zda tvar poskytuje [místa připojení](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/connection_site_count/). Pokud žádná nejsou nebo je jejich počet nula, přilepení není k dispozici; v takovém případě použijte volné koncové body a umístěte je ručně. Je rozumné před připojením zkontrolovat počet míst.
+Zkontrolujte [connection_site_count](https://reference.aspose.com/slides/cs/python-net/aspose.slides/igeometryshape/connection_site_count/) tvaru. Kladný počet značí, že tvar poskytuje místa připojení. Před přiřazením ověřte vybraný index místa.
 
-**Co se stane s konektorem, pokud smažu jeden z propojených tvarů?**
+**Mohu identifikovat úpravu konektoru podle indexu kolekce?**
 
-Jeho konce se odpojí; konektor zůstane na snímku jako obyčejná čára s volným začátkem/konec. Můžete jej buď smazat, nebo přiřadit spojení znovu a v případě potřeby [přesměrovat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/connector/reroute/).
+Index má smysl jen pro známou předvolbu konektoru a uspořádání kolekce. Před úpravou hodnoty zkontrolujte [IAdjustValue.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iadjustvalue/type/) a použijte [IAdjustValue.name](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iadjustvalue/name/) jako doplňující informaci, pokud se stejný sémantický typ vyskytuje vícekrát.
 
-**Zůstávají vazby konektoru zachovány při kopírování snímku do jiné prezentace?**
+**Co se stane, když je připojený tvar smazán?**
 
-Obecně ano, pokud jsou zkopírovány i cílové tvary. Pokud je snímek vložen do jiného souboru bez připojených tvarů, konce se stanou volnými a budete je muset znovu připojit.
+Příslušný konec konektoru se odpojí. Konektor zůstane na snímku a lze jej smazat, umístit jako volnou čáru nebo připojit k jinému tvaru.
+
+**Zůstávají vazby konektoru zachovány při kopírování snímku?**
+
+Vazby jsou obecně zachovány, pokud jsou kopírovány i připojené tvary se snímkem. Pokud je konektor zkopírován bez některého ze svých cílových tvarů, je třeba postižený konec znovu připojit.

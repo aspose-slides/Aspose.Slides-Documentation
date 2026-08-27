@@ -1,5 +1,5 @@
 ---
-title: JavaScript का उपयोग करके प्रस्तुतियों में कनेक्टर प्रबंधित करें
+title: जावास्क्रिप्ट का उपयोग करके प्रस्तुतियों में कनेक्टर्स का प्रबंधन
 linktitle: कनेक्टर
 type: docs
 weight: 10
@@ -10,376 +10,518 @@ keywords:
 - कनेक्टर बिंदु
 - कनेक्टर रेखा
 - कनेक्टर कोण
-- आकार जोड़ें
+- कनेक्शन साइट
+- समायोजन बिंदु
+- आकृतियों को जोड़ें
 - PowerPoint
 - प्रस्तुति
 - Node.js
-- JavaScript
+- जावास्क्रिप्ट
 - Aspose.Slides
-description: "JavaScript ऐप्स को PowerPoint स्लाइड्स में रेखाएँ बनाना, जोड़ना और स्वतः‑रूट करने में सक्षम बनाएँ—सीधे, एलबो और घुमावदार कनेक्टरों पर पूरी नियंत्रण प्राप्त करें।"
+description: "Aspose.Slides for Node.js के साथ जावास्क्रिप्ट में सीधे, मुड़े और घुमावदार PowerPoint कनेक्टर को जोड़ना, संलग्न करना, पुनः‑रूट करना, समायोजित करना और निरीक्षण करना सीखें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-PowerPoint कनेक्टर एक विशेष रेखा है जो दो आकारों को साथ जोड़ती या लिंक करती है और जब भी उन्हें किसी स्लाइड पर स्थानांतरित या पुनः स्थित किया जाता है, तब भी आकारों से जुड़ी रहती है।  
+कनेक्टर एक रेखा है जो दो आकृतियों से जुड़ी रह सकती है जब भी किसी भी आकृति को स्थानांतरित किया जाए। इसके सिरे कनेक्शन साइट्स पर जुड़ते हैं, जिन्हें PowerPoint में हरे बिंदुओं द्वारा दर्शाया गया है। कुछ मुड़े और घुमावदार कनेक्टर भी समायोजन बिंदु प्रदर्शित करते हैं, जिन्हें नारंगी बिंदुओं द्वारा दर्शाया जाता है, जो व्यक्तिगत कनेक्टर सेगमेंट की स्थिति को नियंत्रित करते हैं।
 
-कनेक्टर सामान्यतः *कनेक्शन डॉट्स* (हरा बिंदु) से जुड़े होते हैं, जो डिफ़ॉल्ट रूप से सभी आकारों पर मौजूद होते हैं। कनेक्शन डॉट्स तभी दिखाई देते हैं जब कर्सर उनके पास आता है।  
-
-*समायोजन बिंदु* (नारंगी बिंदु), जो केवल कुछ कनेक्टरों पर मौजूद होते हैं, कनेक्टरों की स्थिति और आकार को संशोधित करने के लिए उपयोग किए जाते हैं।  
+Aspose.Slides कनेक्टर्स को [Connector](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/connector/) क्लास के माध्यम से प्रस्तुत करता है। आप इन्हें बना सकते हैं, उनके सिरों को आकृतियों से जोड़ सकते हैं, कनेक्शन साइट चुन सकते हैं, उन्हें पुनः‑रूट कर सकते हैं, और उन कनेक्टर्स की ज्योमेट्री को संशोधित कर सकते हैं जिनमें समायोजन बिंदु होते हैं।
 
 ## **कनेक्टर प्रकार**
 
-PowerPoint में, आप सीधे, एलबो (कोणीय) और घुमावदार कनेक्टरों का उपयोग कर सकते हैं।  
-
-Aspose.Slides इन कनेक्टरों को प्रदान करता है:
+[ShapeType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapetype/) क्लास में सीधा, मुड़ा और घुमावदार कनेक्टर प्रीसेट शामिल हैं। निम्न तालिका उपलब्ध कनेक्टर ज्योमेट्री और प्रत्येक प्रीसेट द्वारा परिभाषित समायोजन बिंदुओं की संख्या को दर्शाती है।
 
 | कनेक्टर | छवि | समायोजन बिंदुओं की संख्या |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **कनेक्टरों का उपयोग करके आकार जोड़ें**
+समायोजन बिंदुओं की संख्या और उनका अर्थ चयनित कनेक्टर प्रीसेट का हिस्सा होता है। यह मानकर न चलें कि दो अलग-अलग कनेक्टर प्रकार समान संग्रह लेआउट प्रदान करते हैं।
 
-1. एक [प्रस्तुति](https://apireference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) क्लास का उदाहरण बनाएं।  
-1. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-1. स्लाइड पर दो [ऑटोशेप](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/AutoShape) जोड़ें, `Shapes` ऑब्जेक्ट द्वारा प्रदर्शित `addAutoShape` मेथड का उपयोग करके।  
-1. `Shapes` ऑब्जेक्ट द्वारा प्रदर्शित `addConnector` मेथड का उपयोग करके कनेक्टर प्रकार को परिभाषित करके एक कनेक्टर जोड़ें।  
-1. कनेक्टर का उपयोग करके आकारों को जोड़ें।  
-1. सबसे छोटा कनेक्शन पथ लागू करने के लिए `reroute` मेथड को कॉल करें।  
-1. प्रस्तुति को सहेजें।  
+## **दो आकृतियों को जोड़ें**
 
-यह JavaScript कोड आपको दिखाता है कि दो आकारों (एक अंडाकार और एक आयत) के बीच एक कनेक्टर (एक बेंट कनेक्टर) कैसे जोड़ें:
+[ShapeCollection.addConnector](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapecollection/addconnector/) का उपयोग करके एक कनेक्टर जोड़ें, और [Connector.setStartShapeConnectedTo](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/connector/setstartshapeconnectedto/) तथा [Connector.setEndShapeConnectedTo](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/connector/setendshapeconnectedto/) का उपयोग करके उसके सिरों को संलग्न करें। दोनों सिरों के जुड़ जाने के बाद, [Connector.reroute](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/connector/reroute/) आकृतियों के बीच छोटा मार्ग चुनता है।
+
+निम्न उदाहरण एक दीर्घवृत्त और एक आयत को मुड़े हुए कनेक्टर से जोड़ता है:
 
 ```javascript
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // एक विशिष्ट स्लाइड के लिए आकार संग्रह तक पहुँचता है
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // एक अंडाकार ऑटोशेप जोड़ता है
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // एक आयत ऑटोशेप जोड़ता है
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // स्लाइड आकार संग्रह में एक कनेक्टर आकार जोड़ता है
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // कनेक्टर का उपयोग करके आकारों को जोड़ता है
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // reroute को कॉल करता है जो आकारों के बीच स्वचालित सबसे छोटा पथ निर्धारित करता है
     connector.reroute();
-    // प्रस्तुति सहेजता है
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Connector.reroute` मेथड एक कनेक्टर को पुनः मार्गित करता है और उसे आकारों के बीच सबसे छोटा संभव पथ लेने के लिए बाध्य करता है। इस लक्ष्य को प्राप्त करने के लिए, मेथड `setStartShapeConnectionSiteIndex` और `setEndShapeConnectionSiteIndex` बिंदुओं को बदल सकता है।  
-{{% /alert %}} 
+{{% alert color="warning" title="चेतावनी" %}}
+`reroute` कॉल करने से [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) और [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/connector/setendshapeconnectionsiteindex/) मान बदल सकते हैं। यदि उन साइटों को स्थिर रहने की आवश्यकता है तो पुनः‑रूट करने के बाद विशिष्ट कनेक्शन साइटें असाइन करें।
+{{% /alert %}}
 
-## **कनेक्शन डॉट निर्दिष्ट करें**
+## **कनेक्शन साइट चुनें**
 
-यदि आप चाहते हैं कि कनेक्टर आकारों पर विशिष्ट डॉट्स का उपयोग करके दो आकारों को जोड़ै, तो आपको अपने पसंदीदा कनेक्शन डॉट्स इस प्रकार निर्दिष्ट करने होंगे:
+प्रत्येक कनेक्टेबल आकृति अपने साइटों की संख्या [Shape.getConnectionSiteCount](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/getconnectionsitecount/) के माध्यम से रिपोर्ट करती है। कनेक्टर के अंत को असाइन करने से पहले zero‑based साइट इंडेक्स को वैधता जाँचें; साइट गिनती आकृति ज्योमेट्री के अनुसार बदलती है।
 
-1. एक [प्रस्तुति](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) क्लास का उदाहरण बनाएं।  
-1. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-1. स्लाइड पर दो [ऑटोशेप](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/AutoShape) जोड़ें, `Shapes` ऑब्जेक्ट द्वारा प्रदर्शित `addAutoShape` मेथड का उपयोग करके।  
-1. `Shapes` ऑब्जेक्ट द्वारा प्रदर्शित `addConnector` मेथड का उपयोग करके कनेक्टर प्रकार को परिभाषित करके एक कनेक्टर जोड़ें।  
-1. कनेक्टर का उपयोग करके आकारों को जोड़ें।  
-1. आकारों पर अपने पसंदीदा कनेक्शन डॉट्स सेट करें।  
-1. प्रस्तुति को सहेजें।  
-
-यह JavaScript कोड एक ऑपरेशन दर्शाता है जहाँ एक पसंदीदा कनेक्शन डॉट निर्दिष्ट किया गया है:
+यह उदाहरण दीर्घवृत्त पर किसी विशेष साइट पर कनेक्टर को संलग्न करता है, बशर्ते वह साइट मौजूद हो:
 
 ```javascript
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // एक विशिष्ट स्लाइड के लिए आकार संग्रह तक पहुँचता है
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // एक अंडाकार ऑटोशेप जोड़ता है
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // एक आयत ऑटोशेप जोड़ता है
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // स्लाइड के आकार संग्रह में एक कनेक्टर आकार जोड़ता है
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // कनेक्टर का उपयोग करके आकारों को जोड़ता है
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector3, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // अंडाकार आकार पर पसंदीदा कनेक्शन डॉट इंडेक्स सेट करता है
-    var wantedIndex = 6;
-    // जांचता है कि क्या पसंदीदा इंडेक्स अधिकतम साइट इंडेक्स गणना से कम है
-    if (ellipse.getConnectionSiteCount() > wantedIndex) {
-        // अंडाकार ऑटोशेप पर पसंदीदा कनेक्शन डॉट सेट करता है
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+
+    const preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        console.log(`The ellipse has only ${ellipse.getConnectionSiteCount()} connection sites.`);
     }
-    // प्रस्तुति सहेजता है
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("specific-connection-site.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **कनेक्टर बिंदु समायोजित करें**
+## **कनेक्टर बिंदु को समायोजित करें**
 
-आप किसी मौजूदा कनेक्टर को उसके समायोजन बिंदुओं के माध्यम से समायोजित कर सकते हैं। केवल समायोजन बिंदुओं वाले कनेक्टरों को इस तरह बदला जा सकता है। **[कनेक्टर प्रकार.](/slides/hi/nodejs-java/connector/#types-of-connectors)** के तहत तालिका देखें।  
+समायोजन बिंदु वाले कनेक्टर [GeometryShape.getAdjustments](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/geometryshape/) के माध्यम से उन्हें उजागर करते हैं। प्रत्येक [AdjustValue](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/adjustvalue/) का निरीक्षण करें और उसके [getType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/adjustvalue/) मान को देखें, फिर [setRawValue](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) से बदलें। प्रीसेट आकार समायोजनों की पहचान के सामान्य नियम [Shape Manipulation](/slides/hi/nodejs-java/shape-manipulations/) में वर्णित हैं।
 
-### **सरल मामला**
+समायोजन की संख्या, क्रम, अर्थ और मान मान्य रेंज कनेक्टर प्रीसेट पर निर्भर करती है। समायोजन प्रकार केवल‑पढ़ने योग्य होता है, जबकि समायोजन मान लिखने योग्य होता है। यदि कनेक्टर में समान अर्थ वाले एक से अधिक समायोजन होते हैं तो पढ़ने‑के‑लिए केवल‑पढ़ने योग्य [getName](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/adjustvalue/getname/) अतिरिक्त पहचान जानकारी देता है।
 
-एक केस पर विचार करें जहाँ दो आकारों (A और B) के बीच का कनेक्टर तीसरे आकार (C) के माध्यम से गुजरता है:
+### **एक बाधा के चारों ओर रास्ता बनाएं**
+
+निम्न लेआउट में, दो आकृतियों के बीच का `BentConnector5` तीसरी आकृति से होकर गुजरता है:
 
 ![connector-obstruction](connector-obstruction.png)
 
+यह कोड बाधित कनेक्टर बनाता है:
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-तीसरे आकार से बचने या उसे बायपास करने के लिए, हम कनेक्टर को इस तरह उसकी लंबवत रेखा को बाएँ ले जाकर समायोजित कर सकते हैं:
+ऊर्ध्वाधर मोड़ को बदलने से मार्ग बदलता है और कनेक्टर बाधा को बायपास करता है:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+यह उदाहरण `ConnectorBendPositionY` को खोजता है और केवल तभी बदलता है जब अपेक्षित अर्थ वाला प्रकार मौजूद हो:
+
 ```javascript
-var adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend === null) {
+        console.log("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **जटिल मामलों**
+`BentConnector5` में दो `ConnectorBendPositionX` समायोजन और एक `ConnectorBendPositionY` समायोजन होते हैं। यदि आवश्यक प्रकार एक से अधिक बार आता है, तो चयन करने से पहले `getName` और प्रीसेट की ज्ञात ज्योमेट्री को निरीक्षण करें। यदि कोई समायोजन `ShapeAdjustmentType.Custom` रिपोर्ट करता है, तो उसके अर्थ और रेंज को प्रीसेट‑विशिष्ट मानें और जब तक अनुबंध ज्ञात न हो तब तक परिवर्तन न करें।
 
-अधिक जटिल समायोजन करने के लिए, आपको इन बातों को ध्यान में रखना होगा:
+## **समायोजन मानों को कनेक्टर ज्योमेट्री से जोड़ें**
 
-* कनेक्टर का समायोज्य बिंदु उस सूत्र से दृढ़ता से जुड़ा होता है जो उसकी स्थिति की गणना और निर्धारण करता है। इसलिए बिंदु के स्थान में परिवर्तन कनेक्टर के आकार को बदल सकता है।  
-* कनेक्टर के समायोजन बिंदुओं को एक एरे में कड़ी क्रम में परिभाषित किया गया है। समायोजन बिंदुओं को कनेक्टर के प्रारंभ बिंदु से अंत तक क्रमांकित किया गया है।  
-* समायोजन बिंदु मान कनेक्टर आकार की चौड़ाई/ऊँचाई के प्रतिशत को दर्शाते हैं।  
-  * आकार को कनेक्टर के प्रारंभ और अंत बिंदुओं को 1000 से गुणा करके सीमित किया गया है।  
-  * पहला बिंदु, दूसरा बिंदु, और तीसरा बिंदु क्रमशः चौड़ाई से प्रतिशत, ऊँचाई से प्रतिशत, और फिर से चौड़ाई से प्रतिशत को निर्धारित करता है।  
-* एक कनेक्टर के समायोजन बिंदुओं के निर्देशांक निर्धारित करने वाली गणनाओं के लिए, आपको कनेक्टर के घूर्णन और उसके प्रतिबिंब को ध्यान में करना होगा। **ध्यान दें** कि **[कनेक्टर प्रकार](/slides/hi/nodejs-java/connector/#types-of-connectors)** के तहत दिखाए गए सभी कनेक्टरों का घूर्णन कोण 0 है।  
+मुड़े हुए कनेक्टर के लिए, समायोजन मानों का उपयोग व्यक्तिगत सेगमेंट की स्थितियों के अनुमान में किया जा सकता है। ये गणनाएँ कनेक्टर प्रीसेट के अनुसार विशिष्ट हैं:
 
-#### **मामला 1**
+- `BentConnector4` सामान्यतः एक `ConnectorBendPositionX` और एक `ConnectorBendPositionY` समायोजन उजागर करता है।
+- इन मोड़ स्थितियों के लिए, `getRawValue` द्वारा लौटाए गए मान को `100000` से विभाजित करने पर नीचे दिए गए उदाहरणों में उपयोग किए गए कनेक्टर फ्रेम की चौड़ाई या ऊँचाई का अंश प्राप्त होता है।
+- कनेक्टर फ्रेम को घुमा या उल्टा किया जा सकता है, इसलिए फ्रेम निर्देशांक को स्लाइड निर्देशांक के साथ तुलना करने से पहले परिवर्तित करना आवश्यक है।
 
-एक केस पर विचार करें जहाँ दो टेक्स्ट फ्रेम ऑब्जेक्ट कनेक्टर के माध्यम से जुड़े हुए हैं:
+निम्न उदाहरण पहले `getType` से समायोजन की पहचान करते हैं। वे संग्रह सूचकांकों को पोर्टेबल पहचानकर्ता के रूप में नहीं मानते।
+
+### **बिना घुमाए कनेक्टर**
+
+प्रारम्भिक लेआउट में दो टेक्स्ट आकृतियों को `BentConnector4` द्वारा जोड़ा गया है:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+यह उदाहरण कनेक्टर का निरीक्षण करता है और उसकी क्षैतिज तथा लम्बवत मोड़ समायोजन प्राप्त करता है:
+
 ```javascript
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // प्रस्तुति में पहली स्लाइड प्राप्त करता है
-    var sld = pres.getSlides().get_Item(0);
-    // आकार जोड़ता है जो कनेक्टर के माध्यम से जुड़े होंगे
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // कनेक्टर जोड़ता है
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-    // कनेक्टर की दिशा निर्दिष्ट करता है
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    // कनेक्टर का रंग निर्दिष्ट करता है
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // कनेक्टर की रेखा की मोटाई निर्दिष्ट करता है
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const red = java.getStaticFieldValue("java.awt.Color", "RED");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
     connector.getLineFormat().setWidth(3);
-    // कनेक्टर के साथ आकारों को जोड़ता है
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    // कनेक्टर के समायोजन बिंदु प्राप्त करता है
-    var adjValue_0 = connector.getAdjustments().get_Item(0);
-    var adjValue_1 = connector.getAdjustments().get_Item(1);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-**समायोजन**
-
-हम कनेक्टर के समायोजन बिंदु मानों को क्रमशः संबंधित चौड़ाई और ऊँचाई के प्रतिशत को 20% और 200% बढ़ाकर बदल सकते हैं:
+दोनों मोड़ों को बदलने के लिए, प्रत्येक अपेक्षित प्रकार को खोजें और दोनों मिलने के बाद ही मान बदलें:
 
 ```javascript
-// समायोजन बिंदुओं के मान बदलता है
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-परिणाम:
+परिणामस्वरूप कनेक्टर के क्षैतिज और लम्बवत सेगमेंट स्थानांतरित हो जाते हैं:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-एक मॉडल परिभाषित करने के लिए जो हमें कनेक्टर के व्यक्तिगत भागों के निर्देशांक और आकार निर्धारित करने में सक्षम बनाता है, चलिए एक आकार बनाते हैं जो कनेक्टर के क्षैतिज घटक से मेल खाता है, जो connector.getAdjustments().get_Item(0) बिंदु पर है:
+एक बार अर्थपूर्ण प्रकार ज्ञात हो जाएँ, तो उनके मानों को कनेक्टर‑फ़्रेम निर्देशांक में परिवर्तित किया जा सकता है। यह उदाहरण दो मोड़ समायोजन द्वारा नियंत्रित लम्बवत सेगमेंट के ऊपर एक पतली आयत बनाता है:
 
 ```javascript
-// कनेक्टर का लंबवत घटक बनाता है
-var x = connector.getX() + ((connector.getWidth() * adjValue_0.getRawValue()) / 100000);
-var y = connector.getY();
-var height = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 0, height);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        const x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const y = connector.getY();
+        const height = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(x);
+        const guideY = java.newFloat(y);
+        const guideWidth = java.newFloat(1);
+        const guideHeight = java.newFloat(height);
+        slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        presentation.save("connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-परिणाम:
+मार्गदर्शक आकृति गणना किए गए सेगमेंट को चिह्नित करती है:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **मामला 2**
+### **घुमाया या उलटा कनेक्टर**
 
-**मामला 1** में, हमने बुनियादी सिद्धांतों का उपयोग करके एक सरल कनेक्टर समायोजन ऑपरेशन दिखाया। सामान्य स्थितियों में, आपको कनेक्टर के घूर्णन और उसकी डिस्प्ले (जो connector.getRotation(), connector.getFrame().getFlipH(), और connector.getFrame().getFlipV() द्वारा सेट होते हैं) को ध्यान में रखना होगा। अब हम प्रक्रिया दर्शाएंगे।
+जब समान कनेक्टर ज्योमेट्री लंबवत अभिविन्यास में होती है, तो उसके [Shape.getFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/getframe/), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapeframe/getfliph/), और [ShapeFrame.getFlipV](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapeframe/getflipv/) मान कनेक्टर‑फ़्रेम निर्देशांक को स्लाइड निर्देशांक में बदलने को प्रभावित करते हैं।
 
-पहले, स्लाइड में एक नया टेक्स्ट फ्रेम ऑब्जेक्ट (**To 1**) जोड़ें (कनेक्शन के उद्देश्य से) और एक नया (हरा) कनेक्टर बनाएं जो इसे पहले से बनाए गए ऑब्जेक्ट्स से जोड़ता है।
+यह उदाहरण लंबवत अभिविन्यास वाला कनेक्टर बनाता और समायोजित करता है:
 
 ```javascript
-// एक नया बाइंडिंग ऑब्जेक्ट बनाता है
-var shapeTo_1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// एक नया कनेक्टर बनाता है
-connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-connector.getLineFormat().setWidth(3);
-// नए बनाये गये कनेक्टर का उपयोग करके वस्तुओं को जोड़ता है
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// कनेक्टर के समायोजन बिंदु प्राप्त करता है
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// समायोजन बिंदुओं के मान बदलता है
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const connectorColor = java.newInstanceSync("java.awt.Color", 102, 205, 170);
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-परिणाम:
+समायोजित कनेक्टर आकृतियों के बीच लंबवत दिखता है:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-दूसरे, चलिए एक आकार बनाते हैं जो कनेक्टर के क्षैतिज घटक से मेल खाएगा जो नए कनेक्टर के समायोजन बिंदु connector.getAdjustments().get_Item(0) से गुजरता है। हम कनेक्टर डेटा से connector.getRotation(), connector.getFrame().getFlipH(), और connector.getFrame().getFlipV() के मान उपयोग करेंगे और दिए गए बिंदु x0 के चारों ओर घूर्णन के लिए लोकप्रिय निर्देशांक परिवर्तन सूत्र लागू करेंगे:
+किसी भी घूर्णन कोण `alpha` के लिए, फ्रेम के केंद्र `(x0, y0)` के चारों ओर बिंदु `(x, y)` को इस प्रकार घुमाएँ:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-हमारे मामले में, ऑब्जेक्ट का घूर्णन कोण 90 डिग्री है और कनेक्टर वर्टिकली प्रदर्शित होता है, इसलिए यह संबंधित कोड है:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+निम्न कोड इस उदाहरण में प्रयुक्त 90‑डिग्री अभिविन्यास को संभालता है और संबंधित कनेक्टर सेगमेंट के ऊपर लाल मार्गदर्शक रेखा बनाता है:
 
 ```javascript
-// कनेक्टर के निर्देशांक सहेजता है
-x = connector.getX();
-y = connector.getY();
-// यदि आवश्यक हो तो कनेक्टर के निर्देशांक सुधारता है
-if (connector.getFrame().getFlipH() == aspose.slides.NullableBool.True) {
-    x += connector.getWidth();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        let x = connector.getX();
+        let y = connector.getY();
+        if (connector.getFrame().getFlipH() === aspose.slides.NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() === aspose.slides.NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        const rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        const segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(rotatedX);
+        const guideY = java.newFloat(rotatedY);
+        const guideWidth = java.newFloat(segmentWidth);
+        const guideHeight = java.newFloat(1);
+        const guide = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        const red = java.getStaticFieldValue("java.awt.Color", "RED");
+        const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+        guide.getLineFormat().getFillFormat().setFillType(solidFillType);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+        presentation.save("rotated-connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == aspose.slides.NullableBool.True) {
-    y += connector.getHeight();
-}
-// समायोजन बिंदु मान को निर्देशांक के रूप में लेता है
-x += (connector.getWidth() * adjValue_0.getRawValue()) / 100000;
-// निर्देशांक परिवर्तित करता है क्योंकि Sin(90) = 1 और Cos(90) = 0
-var xx = (connector.getFrame().getCenterX() - y) + connector.getFrame().getCenterY();
-var yy = (x - connector.getFrame().getCenterX()) + connector.getFrame().getCenterY();
-// दूसरे समायोजन बिंदु मान का उपयोग करके क्षैतिज घटक की चौड़ाई निर्धारित करता है
-var width = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
 
-परिणाम:
+समन्वय परिवर्तन के बाद लाल मार्गदर्शक गणना किए गए सेगमेंट को चिह्नित करता है:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-हमने सरल समायोजन और जटिल समायोजन बिंदुओं (घूर्णन कोण वाले समायोजन बिंदु) से संबंधित गणनाओं को दर्शाया। प्राप्त ज्ञान का उपयोग करके, आप अपना स्वयं का मॉडल विकसित कर सकते हैं (या कोड लिख सकते हैं) ताकि `GraphicsPath` ऑब्जेक्ट प्राप्त किया जा सके या विशिष्ट स्लाइड निर्देशांक के आधार पर कनेक्टर के समायोजन बिंदु मान सेट किए जा सकें।  
+ये सूत्र उदाहरणों में प्रयुक्त प्रीसेट का वर्णन करते हैं, सार्वभौमिक कनेक्टर मॉडल नहीं। समान गणना को किसी अन्य प्रीसेट पर लागू करने से पहले समायोजन प्रकार, फ्रेम अभिविन्यास और मान रेंज की जाँच करें।
 
-## **कनेक्टर लाइनों का कोण खोजें**
+## **कनेक्टर दिशा कोण खोजें**
 
-1. क्लास का एक उदाहरण बनाएं।  
-1. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-1. कनेक्टर लाइन आकार तक पहुंचें।  
-1. लाइन की चौड़ाई, ऊँचाई, आकार फ्रेम की ऊँचाई और फ्रेम की चौड़ाई का उपयोग करके कोण की गणना करें।  
-
-यह JavaScript कोड एक ऑपरेशन दर्शाता है जिसमें हमने कनेक्टर लाइन आकार के लिए कोण की गणना की:
+सीधे कनेक्टर की दिशा उसकी चौड़ाई और ऊँचाई से गणना की जा सकती है, जिसमें क्षैतिज और लम्बवत फ्लिप लागू होते हैं। निम्न उदाहरण स्लाइड निर्देशांक में सकारात्मक क्षैतिज अक्ष से घड़ी की दिशा में कोण रिपोर्ट करता है:
 
 ```javascript
-var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    for (var i = 0; i < slide.getShapes().size(); i++) {
-        var dir = 0.0;
-        var shape = slide.getShapes().get_Item(i);
-        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-            var ashp = shape;
-            if (ashp.getShapeType() == aspose.slides.ShapeType.Line) {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        } else if (java.instanceOf(shape, "com.aspose.slides.Connector")) {
-            var ashp = shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
-        console.log(dir);
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const slide = presentation.getSlides().get_Item(0);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-```javascript
-function getDirection(w, h, flipH, flipV) {
-    let endLineX = w * (flipH ? -1 : 1);
-    let endLineY = h * (flipV ? -1 : 1);
-    
-    let endYAxisX = 0;
-    let endYAxisY = h;
-
-    let angle = Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX);
+    const flipH = connector.getFrame().getFlipH() === aspose.slides.NullableBool.True;
+    const flipV = connector.getFrame().getFlipV() === aspose.slides.NullableBool.True;
+    const deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    const deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    let angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
 
     if (angle < 0) {
-        angle += 2 * Math.PI;
+        angle += 360;
     }
 
-    return angle * 180.0 / Math.PI;
+    console.log(`Connector direction: ${angle.toFixed(2)} degrees`);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे जान सकता हूँ कि कोई कनेक्टर किसी विशेष आकार से "चिपका" जा सकता है या नहीं?**  
-जांचें कि क्या आकार [कनेक्शन साइट्स](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/getconnectionsitecount/) को उजागर करता है। यदि कोई नहीं है या गणना शून्य है, तो चिपकाना उपलब्ध नहीं है; ऐसे में, मुक्त अंत बिंदुओं का उपयोग करें और उन्हें मैन्युअली स्थित करें। संलग्न करने से पहले साइट गणना को जांचना समझदारी है।  
+**मैं कैसे पता करूँ कि कनेक्टर किसी आकृति से जुड़ सकता है या नहीं?**
 
-**यदि मैं जुड़े हुए आकारों में से एक को हटाता हूँ तो कनेक्टर के साथ क्या होता है?**  
-उसके अंत अलग हो जाएंगे; कनेक्टर स्लाइड पर एक सामान्य रेखा के रूप में रह जाएगा जिसमें मुक्त शुरू/अंत हो। आप इसे हटा सकते हैं या कनेक्शन को पुनः असाइन कर सकते हैं और यदि आवश्यक हो तो [reroute](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/connector/reroute/) करें।  
+आकृति के [getConnectionSiteCount](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/getconnectionsitecount/) मान को जाँचें। सकारात्मक मान का अर्थ है कि आकृति कनेक्शन साइट्स उजागर करती है। कनेक्टर के किसी भी सिरे को असाइन करने से पहले चयनित साइट इंडेक्स को वैधता जाँचें।
 
-**क्या एक स्लाइड को दूसरी प्रस्तुति में कॉपी करने पर कनेक्टर बाइंडिंग्स बरकरार रहती हैं?**  
-आमतौर पर हाँ, बशर्ते लक्ष्य आकार भी कॉपी किए जाएँ। यदि स्लाइड को दूसरी फ़ाइल में जोड़े जाने पर जुड़े हुए आकार नहीं होते हैं, तो अंत मुक्त हो जाते हैं और आपको उन्हें पुनः संलग्न करना पड़ेगा।
+**क्या मैं कनेक्टर समायोजन को उसके संग्रह सूचकांक से पहचान सकता हूँ?**
+
+एक सूचकांक केवल ज्ञात कनेक्टर प्रीसेट और संग्रह लेआउट के लिए ही अर्थपूर्ण होता है। मान बदलने से पहले [AdjustValue.getType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/adjustvalue/) जाँचें, और जब समान अर्थ वाले कई समायोजन हों तो अतिरिक्त जानकारी के लिए [AdjustValue.getName](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/adjustvalue/getname/) का उपयोग करें।
+
+**जब जुड़ी हुई आकृति हटाई जाती है तो क्या होता है?**
+
+संबंधित कनेक्टर का सिरा अलग हो जाता है। कनेक्टर स्लाइड पर बना रहता है और उसे हटाया, स्वतंत्र रेखा के रूप में स्थित या किसी अन्य आकृति से फिर से जोड़ा जा सकता है।
+
+**क्या स्लाइड कॉपी करने पर कनेक्टर बाइंडिंग्स बनी रहती हैं?**
+
+आमतौर पर बाइंडिंग्स बनी रहती हैं जब जुड़ी आकृतियों को स्लाइड के साथ कॉपी किया जाता है। यदि कनेक्टर को उसके लक्ष्य आकृतियों में से किसी एक के बिना कॉपी किया जाता है, तो प्रभावित सिरे को पुनः‑असाइन करना पड़ता है।

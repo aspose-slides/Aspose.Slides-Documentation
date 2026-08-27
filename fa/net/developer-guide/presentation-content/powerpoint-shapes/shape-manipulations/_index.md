@@ -1,392 +1,486 @@
 ---
 title: مدیریت اشکال ارائه در .NET
-linktitle: دست‌کاری اشکال
+linktitle: دستکاری اشکال
 type: docs
 weight: 40
 url: /fa/net/shape-manipulations/
 keywords:
-- شکل پاورپوینت
-- شکل ارائه
-- شکل در اسلاید
-- پیدا کردن شکل
-- کلون کردن شکل
-- حذف شکل
-- مخفی کردن شکل
-- تغییر ترتیب شکل
-- دریافت شناسه Interop شکل
-- متن جایگزین شکل
-- قالب‌های چیدمان شکل
-- شکل به‌صورت SVG
-- شکل به SVG
-- هم‌راستایی شکل
-- پاورپوینت
+- اشکال PowerPoint
+- اشکال ارائه
+- اشکال در اسلاید
+- یافتن اشکال
+- کلون کردن اشکال
+- حذف اشکال
+- مخفی کردن اشکال
+- تغییر ترتیب اشکال
+- دریافت شناسه interop اشکال
+- متن جایگزین اشکال
+- نقطه تنظیم اشکال
+- تنظیم پیش‌تنظیم اشکال
+- هندسهٔ اشکال
+- قالب‌بندی‌های لایهٔ اشکال
+- اشکال به صورت SVG
+- تبدیل اشکال به SVG
+- تراز کردن اشکال
+- چرخاندن اشکال
+- PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال را در Aspose.Slides برای .NET ایجاد، ویرایش و بهینه‌سازی کنید و ارائه‌های پاورپوینت با عملکرد بالا را ارائه دهید."
+description: "آموزش شناسایی، تنظیم، کلون، حذف، مخفی‌سازی، بازترتیب، خروجی، تراز و چرخاندن اشکال ارائه با Aspose.Slides برای .NET."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه در ارائه‌ها با Aspose.Slides با اشکال کار کنیم. نشان می‌دهد چگونه یک شکل را در یک اسلاید پیدا کنید، آن را کلون کنید، حذف کنید، مخفی کنید، ترتیب آن را تغییر دهید، شناسه Interop شکل را دریافت کنید و متن جایگزین برای شناسایی و پردازش‌های بعدی تنظیم کنید.
+Aspose.Slides for .NET اشکال موجود در یک اسلاید را به عنوان یک ‎[IShapeCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/)‎ مرتب شده نشان می‌دهد. این مجموعه هم محلی است که می‌توانید اشکال را پیدا و اصلاح کنید و هم منبع ترتیب لایهٔ آن‌ها: اندیس ‎0‎ پشت‌ترین شکل است، در حالی که آخرین اندیس، شکل جلویی‌ترین است.
 
-همچنین نحوه دسترسی به قالب‌های چیدمان برای اشکال، رندر کردن یک شکل به‌صورت SVG، هم‌راستایی اشکال در یک اسلاید و استفاده از ویژگی‌های چرخش برای آیینه‌سازی افقی و عمودی را پوشش می‌دهد. علاوه بر این، مقاله شامل سؤالات متداول کوتاهی درباره ترکیب اشکال، ترتیب لایه‌ها و قفل‌گذاری شکل‌ها است.
+این مقاله همین مدل را دنبال می‌کند. ابتدا توضیح می‌دهد چگونه می‌توان یک شکل را به‌طور قابل اطمینان شناسایی و نقاط تنظیم از پیش تعریف‌شدهٔ آن را اصلاح کرد، سپس نشان می‌دهد چگونه می‌توان اشکال را کلون، حذف، مخفی و بازترتیب کرد. بخش‌های نهایی به قالب‌بندی سطح طرح، خروجی SVG، تراز و تنظیمات چرخش می‌پردازند. هر مثال مستقل است، بنابراین می‌توانید تنها عملیات مورد نیاز جریان کاری خود را استفاده کنید.
 
-## **پیدا کردن یک شکل در اسلاید**
-این موضوع تکنیک ساده‌ای را برای راحت‌تر کردن پیدا کردن یک شکل خاص در اسلاید بدون استفاده از شناسه داخلی آن توصیف می‌کند. مهم است بدانید فایل‌های ارائه PowerPoint هیچ راهی برای شناسایی اشکال در اسلاید به‌جز یک شناسه یکتا داخلی ندارند. پیدا کردن یک شکل بر پایه شناسه یکتا داخلی برای توسعه‌دهندگان می‌تواند دشوار باشد. تمام اشکالی که به اسلایدها اضافه می‌شوند دارای متن جایگزین (Alt Text) هستند. ما به توسعه‌دهندگان پیشنهاد می‌کنیم برای یافتن یک شکل خاص از متن جایگزین استفاده کنند. می‌توانید با استفاده از MS PowerPoint متن جایگزین برای اشیائی که قصد تغییر آن‌ها را در آینده دارید، تعریف کنید.
+## **شناسایی و یافتن اشکال**
 
-پس از تنظیم متن جایگزین برای هر شکل دلخواه، می‌توانید آن ارائه را با Aspose.Slides for .NET باز کنید و از طریق تمام اشکال اضافه‌شده به یک اسلاید پیمایش کنید. در هر بار پیمایش می‌توانید متن جایگزین شکل را بررسی کنید و شکلی که متن جایگزین آن تطابق داشته باشد، همان شکل موردنظر شما خواهد بود. برای نشان‌دادن این تکنیک به‌صورت بهتر، ما روشی به نام [FindShape](https://reference.aspose.com/slides/fa/net/aspose.slides.util/slideutil/findshape/#findshape_1) ایجاد کرده‌ایم که این کار را برای پیدا کردن یک شکل خاص در اسلاید انجام می‌دهد و سپس آن شکل را برمی‌گرداند.
+اندیس‌های مجموعه هنگام پردازش یک فایل شناخته‌شده مفید هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا بازترتیب یک شکل می‌تواند اندیس آن را تغییر دهد. یک شناسه مناسب بر اساس نحوهٔ ایجاد و نگهداری ارائه انتخاب کنید:
 
-```c#
-public static void Run()
+- ‎[Name](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/name/)‎ برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در پنل انتخاب PowerPoint به‌راحتی قابل بررسی است. نام‌ها قابل ویرایش‌اند اما تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است یک قرارداد نام‌گذاری تعریف کنید.
+- ‎[AlternativeText](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/alternativetext/)‎ زمانی مفید است که یک توضیح دسترس‌پذیری یا برچسبی که توسط نویسنده ارائه شده است، پیشاپیش شکل را شناسایی می‌کند. این متن برای کاربران قابل دیدن است، ممکن است بومی‌سازی یا برای دسترس‌پذیری بازنویسی شود و تضمین یکتایی ندارند. متن دسترس‌پذیری معنادار را به‌صورت ساکت به‌عنوان کلید پایگاه داده استفاده نکنید.
+- ‎[OfficeInteropShapeId](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/officeinteropshapeid/)‎ یک شناسهٔ فقط‑خواندنی است که درون یک اسلاید یکتا است و به شناسهٔ شکل استفاده‌شده توسط PowerPoint interop مربوط می‌شود. هنگام یکپارچه‌سازی با PowerPoint یا زمانی که به یک مرجع واضح در طول عمر یک شکل نیاز دارید از آن استفاده کنید. یک شکل کلون‌شده یا بازساخته، شکل متفاوتی است و شناسهٔ خاص خود را دریافت می‌کند.
+
+ویژگی مرتبط ‎[UniqueId](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/uniqueid/)‎ دارای دامنهٔ ارائه است، اما برای افزونه‌ها منظور شده و می‌تواند مجدداً اختصاص یابد. نباید به‌عنوان کلید خارجی دائمی در نظر گرفته شود. اگر هویت طولانی‌مدت ضروری است، نگاشت را در داده‌های برنامه نگه دارید و اطمینان حاصل کنید که شکل مورد انتظار هنوز وجود دارد.
+
+مثال زیر با استفاده از ‎Name‎ و مقایسهٔ ترتیبی جستجو می‌کند و شناسهٔ interop scoped به اسلاید را گزارش می‌دهد. وقتی قالب شامل شکل مورد انتظار نباشد، کد همان نتیجه را گزارش می‌کند به‌جای این‌که با شیء اشتباه ادامه دهد.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // یک نمونه از کلاس Presentation که نمایانگر فایل ارائه است
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
+        targetShape = shape;
+        break;
+    }
+}
 
-        ISlide slide = p.Slides[0];
-        // متن جایگزین شکل موردجستجو
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
+if (targetShape is null)
+{
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
+}
+else
+{
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
+}
+```
+
+زمانی که یک عملیات به نوع خاصی از شکل مربوط می‌شود، پیش از استفاده از اعضای نوع‑خاص، اینترفیس را بررسی کنید. این مثال متن و متن جایگزین را فقط در صورتی به‌روز می‌کند که شیء نام‌دار یک ‎[IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/)‎ باشد.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
+    {
+        candidate = shape;
+        break;
+    }
+}
+
+if (candidate is IAutoShape autoShape)
+{
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
+}
+```
+
+## **شناسایی و تغییر تنظیمات پیش‌فرض شکل**
+
+اشکال هندسی پیش‌فرض می‌توانند نقاط تنظیمی داشته باشند که ویژگی‌هایی مانند اندازهٔ گوشه، نسبت تیر یا زاویهٔ قوس را کنترل می‌کنند. با استفاده از مجموعهٔ فقط‑خواندنی ‎[IGeometryShape.Adjustments](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometryshape/adjustments/)‎ به آن‌ها دسترسی پیدا کنید. خود مجموعه توسط شکل فراهم می‌شود، اما هر ‎[IAdjustValue](https://reference.aspose.com/slides/fa/net/aspose.slides/iadjustvalue/)‎ شامل مقدار قابل تغییر است.
+
+فقط به اندیس ثابت مجموعه اکتفا نکنید. از طریق تنظیمات پیمایش کنید و ویژگی فقط‑خواندنی ‎[Type](https://reference.aspose.com/slides/fa/net/aspose.slides/adjustvalue/type/)‎ را بررسی کنید؛ مقدار ‎ShapeAdjustmentType‎ توضیح می‌دهد که تنظیم چه چیزی را کنترل می‌کند. ویژگی فقط‑خواندنی ‎[Name](https://reference.aspose.com/slides/fa/net/aspose.slides/adjustvalue/name/)‎ اطلاعات شناسایی اضافی می‌دهد و به‌ویژه وقتی یک پیش‌تنظیم بیش از یک تنظیم با همان نوع معنایی دارد، مفید است.
+
+از ویژگی مقدار متناسب با معنای تنظیم استفاده کنید:
+
+| نوع تنظیم | هدف | مقدار برای تغییر |
+|---|---|---|
+| `CornerSize` | اندازهٔ گوشه‌های گرد | [RawValue](https://reference.aspose.com/slides/fa/net/aspose.slides/adjustvalue/rawvalue/) |
+| `ArrowTailThickness` | ضخامت دم تیر | `RawValue` |
+| `ArrowheadLength` | طول سر تیر | `RawValue` |
+| `ArrowheadWidth` | عرض سر تیر | `RawValue` |
+| `StartAngle` | زاویهٔ شروع پای یا قوس | [AngleValue](https://reference.aspose.com/slides/fa/net/aspose.slides/adjustvalue/anglevalue/) |
+| `EndAngle` | زاویهٔ پایان پای یا قوس | `AngleValue` |
+
+`Type` و `Name` قابل تخصیص نیستند. `RawValue` یک عدد صحیح خواندنی/قابل‑نوشتن در واحدهای هندسی بومی پیش‌تنظیم است، در حالی که `AngleValue` یک زاویهٔ خواندنی/قابل‑نوشتن به درجه است. تعداد، ترتیب، معنی و بازهٔ معتبر تنظیمات به ‎[ShapeType](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometryshape/shapetype/)‎ پیش‌تنظیم وابسته است. مقداری که برای یک پیش‌تنظیم معتبر است، ممکن است برای پیش‌تنظیم دیگری نامعتبر یا اثر متفاوتی داشته باشد.
+
+وقتی `Type` برابر ‎ShapeAdjustmentType.Custom‎ باشد، API معنای معنایی استانداردی را شناسایی نمی‌کند. `Name`، نوع پیش‌تنظیم و مقدار موجود را بررسی کنید و تنظیم را دست‌نخورده بگذارید مگر اینکه معنا و بازهٔ مورد انتظار شناخته شده باشد. حتی برای انواع شناخته‌شده، قبل از انتخاب مقدار بررسی کنید که آیا همان نوع بیش از یک بار رخ می‌دهد یا نه. مقاله ‎[Connector](/slides/fa/net/connector/)‎ این وضعیت را با تنظیمات خم اتصال نشان می‌دهد.
+
+مثال کامل زیر نسخه‌های پیش‌فرض و تغییر یافتهٔ سه شکل پیش‌تنظیم‌شده را می‌سازد. تمام تنظیمات را پیمایش می‌کند، `Name` و `Type` آن‌ها را گزارش می‌دهد، مقادیر مرتبط با اندازه را از طریق `RawValue`، زاویه‌ها را از طریق `AngleValue` تغییر می‌دهد و نتیجه را ذخیره می‌کند. ستون چپ هندسهٔ پیش‌فرض را حفظ می‌کند؛ ستون راست مستطیل گرد تنظیم‌شده، تیر چهار طرفه و پای را نشان می‌دهد.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+// سرصفحه‌ها را برای ستون‌های شکل پیش‌فرض و تنظیم‌شده اضافه می‌کند.
+var defaultColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+defaultColumnLabel.TextFrame.Text = "Default preset geometry";
+var adjustedColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel.TextFrame.Text = "Modified adjustment values";
+
+slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+var modifiedRoundedRectangle = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle.Name = "ModifiedRoundedRectangle";
+
+slide.Shapes.AddAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+var modifiedArrow = slide.Shapes.AddAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+modifiedArrow.Name = "ModifiedQuadArrow";
+
+slide.Shapes.AddAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+var modifiedPie = slide.Shapes.AddAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+modifiedPie.Name = "ModifiedPie";
+
+var shapesToAdjust = new IGeometryShape[]
+{
+    modifiedRoundedRectangle,
+    modifiedArrow,
+    modifiedPie
+};
+
+foreach (var shape in shapesToAdjust)
+{
+    for (var adjustmentIndex = 0; adjustmentIndex < shape.Adjustments.Count; adjustmentIndex++)
+    {
+        var adjustment = shape.Adjustments[adjustmentIndex];
+        Console.WriteLine($"{shape.Name} / {adjustment.Name}: {adjustment.Type}");
+
+        switch (adjustment.Type)
         {
-            Console.WriteLine("Shape Name: " + shape.Name);
+            case ShapeAdjustmentType.CornerSize:
+                adjustment.RawValue = 5000;
+                break;
+            case ShapeAdjustmentType.ArrowTailThickness:
+                adjustment.RawValue = 25000;
+                break;
+            case ShapeAdjustmentType.ArrowheadLength:
+                adjustment.RawValue = 30000;
+                break;
+            case ShapeAdjustmentType.ArrowheadWidth:
+                adjustment.RawValue = 40000;
+                break;
+            case ShapeAdjustmentType.StartAngle:
+                adjustment.AngleValue = 30;
+                break;
+            case ShapeAdjustmentType.EndAngle:
+                adjustment.AngleValue = 300;
+                break;
+            case ShapeAdjustmentType.Custom:
+                Console.WriteLine($"Custom adjustment '{adjustment.Name}' was not changed.");
+                break;
         }
     }
 }
-        
-// پیاده‌سازی متد برای پیدا کردن یک شکل در اسلاید با استفاده از متن جایگزین آن
-public static IShape FindShape(ISlide slide, string alttext)
+
+presentation.Save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+```
+
+بررسی نوع معنایی قبل از تغییر مقدار باعث می‌شود کد هدف خود را صریحاً بیان کند و از فرض اینکه یک اندیس خاص در پیش‌تنظیم‌های مختلف همان معنا را دارد، جلوگیری شود.
+
+## **تغییر مجموعهٔ اشکال**
+
+متدهای افزودن، کلون، حذف و بازترتیب بلافاصله بر روی مجموعه اعمال می‌شوند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، پس از آن دیگر به اندیس‌های گرفته‌شده قبل از آن عملیات تکیه نکنید.
+
+### **کلون کردن یک شکل**
+
+‎[AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addclone/)‎ یک کپی مستقل می‌سازد و آن را به انتهای مجموعه هدف می‌افزاید. ‎[InsertClone](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/insertclone/)‎ نیز یک کپی می‌سازد اما آن را در یک اندیس z‑order مشخص قرار می‌دهد. overloadهایی که مختصات می‌پذیرند، کلون را بدون تغییر اندازه حرکت می‌دهند؛ overloadهایی با عرض و ارتفاع می‌توانند اندازه را نیز تغییر دهند.
+
+مثال یک اسلاید مقصد می‌سازد، مستطیل برچسب‌دار را به جلو کلون می‌کند و کلون دوم را در عقب 삽입 می‌کند. تغییرات در هر یک از کلون‌ها شکل منبع را تحت تأثیر قرار نمی‌دهد.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-    // مرور تمام اشکال داخل اسلاید
-    for (int i = 0; i < slide.Shapes.Count; i++)
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+کلون کردن محتوای شکل و قالب‌بندی آن را شامل نام و متن جایگزین کپی می‌کند. وقتی این مقادیر باید یکتا باشند، شناسه‌های منطقی جدیدی به کلون اختصاص دهید. منابع مورد استفادهٔ اشکال پیچیده توسط ارائه‌نامه مدیریت می‌شوند، اما یک کلون یک مورد جدید در مجموعه با شناسهٔ شکل جدید است.
+
+### **حذف اشکال**
+
+‎[Remove](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/remove/)‎ یک شیء شکل خاص را از مجموعه‌اش حذف می‌کند. هنگام حذف چندین تطبیق در طول یک حلقهٔ اندیس‌دار، از انتها به جلو پیش بروید تا هر اندیس باقی‌مانده معتبر بماند.
+
+این مثال هر شکلی که نام تعیین‌شده دارد را حذف می‌کند. آن ‎slide.Shapes[i]‎ را می‌خواند، نه یک آیتم ثابت مجموعه، و شکل را به‌صورت غیرضروری کست نمی‌کند.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
     {
-        // اگر متن جایگزین اسلاید با متن موردنظر مطابقت داشته باشد سپس
-        // شکل را برگردان
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-
-
-## **کلون کردن یک شکل**
-برای کلون کردن یک شکل به یک اسلاید با Aspose.Slides for .NET:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.
-1. با استفاده از ایندکس، مرجع یک اسلاید را به‌دست آورید.
-1. به مجموعه اشکال اسلاید مبدا دسترسی پیدا کنید.
-1. اسلاید جدیدی به ارائه اضافه کنید.
-1. اشکال را از مجموعه اشکال اسلاید مبدا به اسلاید جدید کلون کنید.
-1. ارائه تغییر یافته را به‌صورت فایل PPTX ذخیره کنید.
-
-مثال زیر یک شکل گروهی را به یک اسلاید اضافه می‌کند.
-
-```c#
-// ایجاد یک نمونه از کلاس Presentation
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// نوشتن فایل PPTX به دیسک
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-
-## **حذف یک شکل**
-Aspose.Slides for .NET به توسعه‌دهندگان اجازه می‌دهد هر شکلی را حذف کنند. برای حذف شکل از هر اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس `Presentation` ایجاد کنید.
-1. به اولین اسلاید دسترسی پیدا کنید.
-1. شکلی با متن جایگزین خاص پیدا کنید.
-1. شکل را حذف کنید.
-1. فایل را بر روی دیسک ذخیره کنید.
-
-```c#
-// ایجاد شیء Presentation
-Presentation pres = new Presentation();
-
-// دریافت اولین اسلاید
-ISlide sld = pres.Slides[0];
-
-// اضافه کردن AutoShape از نوع مستطیل
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
-    }
-}
-
-// ذخیره ارائه در دیسک
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **مخفی کردن یک شکل**
-Aspose.Slides for .NET به توسعه‌دهندگان اجازه می‌دهد هر شکلی را مخفی کنند. برای مخفی کردن شکل از هر اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس `Presentation` ایجاد کنید.
-1. به اولین اسلاید دسترسی پیدا کنید.
-1. شکلی با متن جایگزین خاص پیدا کنید.
-1. شکل را مخفی کنید.
-1. فایل را بر روی دیسک ذخیره کنید.
-
-```c#
- // ایجاد یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است
- Presentation pres = new Presentation();
-
- // دریافت اولین اسلاید
- ISlide sld = pres.Slides[0];
-
- // اضافه کردن AutoShape از نوع مستطیل
- IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
- IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
- String alttext = "User Defined";
- int iCount = sld.Shapes.Count;
- for (int i = 0; i < iCount; i++)
- {
-     AutoShape ashp = (AutoShape)sld.Shapes[i];
-     if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-     {
-         ashp.Hidden = true;
-     }
- }
-
- // ذخیره ارائه در دیسک
- pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-
-
-## **تغییر ترتیب شکل**
-Aspose.Slides for .NET به توسعه‌دهندگان اجازه می‌دهد ترتیب اشکال را تغییر دهند. تغییر ترتیب مشخص می‌کند کدام شکل در جلو قرار گیرد و کدام در پس‌زمینه. برای تغییر ترتیب شکل از هر اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس `Presentation` ایجاد کنید.
-1. به اولین اسلاید دسترسی پیدا کنید.
-1. یک شکل اضافه کنید.
-1. متنی را در فریم متن شکل اضافه کنید.
-1. شکل دیگری با همان مختصات اضافه کنید.
-1. اشکال را دوباره ترتیب دهید.
-1. فایل را بر روی دیسک ذخیره کنید.
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-
-## **دریافت شناسه Interop Shape**
-Aspose.Slides for .NET به توسعه‌دهندگان امکان دریافت یک شناسه یکتا برای شکل در محدوده اسلاید را می‌دهد، در مقابل ویژگی UniqueId که شناسه یکتا در سطح ارائه را فراهم می‌کند. ویژگی OfficeInteropShapeId به رابط IShape و کلاس Shape اضافه شده است. مقدار بازگردانده‌شده توسط ویژگی OfficeInteropShapeId معادل مقدار Id شیء Microsoft.Office.Interop.PowerPoint.Shape است. نمونه کد زیر ارائه شده است.
-
-```c#
-public static void Run()
-{
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// دریافت شناسه یکتا برای شکل در محدوده اسلاید
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
-}
-```
-
-
-
-## **تنظیم متن جایگزین برای یک شکل**
-Aspose.Slides for .NET به توسعه‌دهندگان اجازه می‌دهد AlternateText هر شکل را تنظیم کنند. اشکال در یک ارائه می‌توانند با ویژگی AlternativeText یا نام Shape متمایز شوند. ویژگی AlternativeText می‌تواند توسط Aspose.Slides و همچنین Microsoft PowerPoint خوانده یا تنظیم شود. با استفاده از این ویژگی می‌توانید یک شکل را برچسب‌گذاری کنید و عملیات‌های مختلفی مانند حذف، مخفی‌سازی یا تغییر ترتیب اشکال در اسلاید را انجام دهید.
-برای تنظیم AlternateText یک شکل، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس `Presentation` ایجاد کنید.
-1. به اولین اسلاید دسترسی پیدا کنید.
-1. هر شکلی را به اسلاید اضافه کنید.
-1. کاری با شکل تازه اضافه‌شده انجام دهید.
-1. از طریق اشکال پیمایش کنید تا شکل موردنظر را پیدا کنید.
-1. مقدار AlternativeText را تنظیم کنید.
-1. فایل را بر روی دیسک ذخیره کنید.
-
-```c#
-// ایجاد یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است
-Presentation pres = new Presentation();
-
-// دریافت اولین اسلاید
-ISlide sld = pres.Slides[0];
-
-// اضافه کردن AutoShape از نوع مستطیل
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
-{
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
-    {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        slide.Shapes.Remove(shape);
     }
 }
 
-// ذخیره ارائه در دیسک
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
 ```
 
+پس از حذف، تعداد اشکال و اندیس‌های اشکال بعدی تغییر می‌کند. ارجاعات به اشکال غیرمُتأثر نسبت به اندیس‌های ذخیره‌شده قابل اطمینان‌تر هستند. همچنین به اتصال‌ها، انیمیشن‌ها و سایر ویژگی‌های ارائه که ممکن است به شیء حذف‌شده اشاره داشته باشند، توجه کنید؛ حذف یک شکل قابل مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
 
+### **مخفی کردن یک شکل**
 
+تنظیم ‎[Hidden](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/hidden/)‎ روی ‎true‎ شکل را در مجموعه نگه می‌دارد اما از ظاهر شدن آن در نمایش معمولی اسلاید جلوگیری می‌کند. اندیس، قالب‌بندی و محتویات آن برای کد در دسترس می‌مانند، بنابراین مخفی‌سازی برای عناصری که ممکن است بعداً بازگردانده شوند مناسب است.
 
-## **دسترسی به قالب‌های چیدمان برای یک شکل**
-Aspose.Slides for .NET یک API ساده برای دسترسی به قالب‌های چیدمان یک شکل فراهم می‌کند. این مقاله نشان می‌دهد چگونه می‌توانید به قالب‌های چیدمان دسترسی پیدا کنید.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-کد نمونه زیر ارائه شده است.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+مخفی‌سازی حذف یا امنیت نیست. شیء همچنان می‌تواند توسط کاربر یا کد کشف و آشکار شود و بخشی از فایل ارائه باقی می‌ماند.
+
+### **تغییر Z‑Order**
+
+اشکال هم‑پوشانی‌شده به ترتیب مجموعه رنگ می‌شوند. ‎[Reorder](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/reorder/)‎ یک شکل موجود را به یک اندیس هدف منتقل می‌کند بدون این که آن را کلون کند. اندیس ‎0‎ پشت است؛ ‎Count - 1‎ جلو.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+مستطیل ابتدا ساخته می‌شود و در ابتدا پشت بیضی قرار دارد. جابه‌جا کردن آن به اندیس نهایی، آن را به جلو می‌برد. پس از افزودن یا کلون کردن تمام اشکال مرتبط، Z‑Order را نهایی کنید، چون این عملیات موارد جدیدی به مجموعه اضافه یا درج می‌کنند و می‌توانند ترتیب دلخواه را تغییر دهند.
+
+## **بازرسی اشکال در اسلایدهای Layout**
+
+اسلایدهای عادی، اسلایدهای layout و اسلایدهای master مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ layout با یک شکل مشابه در اسلاید عادی یک شیء یکسان نیست. هنگام نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک layout، اشکال layout را بررسی کنید.
+
+مثال زیر ‎FillFormat‎ و ‎LineFormat‎ هر شکل layout را می‌خواند بدون اینکه فرض کند هر شکل یک ‎AutoShape‎ است.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
-## **رندر یک شکل به‌صورت SVG**
-اکنون Aspose.Slides for .NET از رندر کردن یک شکل به‌صورت SVG پشتیبانی می‌کند. متد WriteAsSvg (و overload آن) به کلاس Shape و رابط IShape اضافه شده است. این متد امکان ذخیره محتویات شکل به‌صورت یک فایل SVG را می‌دهد. اسنیپت کد زیر نشان می‌دهد چگونه شکل اسلاید را به یک فایل SVG صادر کنید.
+ویرایش یک layout می‌تواند بر چندین اسلایدی که از آن استفاده می‌کنند اثر بگذارد. پیش از تغییر یک شکل layout، تعیین کنید آیا اسلاید عادی شی را به ارث می‌برد یا دارای بازنویسی محلی است و هر اسلایدی که از آن layout استفاده می‌کند را تست کنید.
 
-```c#
-public static void Run()
+## **صدور یک شکل به SVG**
+
+‎[WriteAsSvg](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/writeassvg/)‎ محتوای رندر شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه شامل همان شکل است، نه پس‌زمینه کل اسلاید یا اشکال همسایه.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+if (slide.Shapes.Count == 0)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-## **هم‌راستایی یک شکل**
+در حین رندر، ارائه را باز نگه دارید. خروجی به قالب‌بندی شکل و به منابعی مانند فونت‌ها و تصویرها وابسته است. اگر به ترکیب کامل نیاز دارید، اسلاید را به‌جای یک شکل منفرد صادر کنید. فراخواننده مالک جریان است و باید آن را تخلیه کند.
 
-از طریق متد [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/fa/net/aspose.slides.util/slideutil/methods/alignshapes/index) می‌توانید
+## **تراز اشکال**
 
-* اشکال را نسبت به حاشیه‌های اسلاید هم‌راستا کنید. مثال 1 را ببینید.
-* اشکال را نسبت به یکدیگر هم‌راستا کنید. مثال 2 را ببینید.
+متدهای ‎[SlideUtil.AlignShapes](https://reference.aspose.com/slides/fa/net/aspose.slides.util/slideutil/alignshapes/)‎ می‌توانند همهٔ اشکال یا اندیس‌های انتخابی مجموعه را تراز کنند. ‎[ShapesAlignmentType](https://reference.aspose.com/slides/fa/net/aspose.slides/shapesalignmenttype/)‎ لبه، خط مرکز یا حالت توزیع را مشخص می‌کند. مقدار ‎alignToSlide‎ را روی ‎true‎ بگذارید تا از لبه‌های اسلاید استفاده شود؛ روی ‎false‎ بگذارید تا اشکال انتخابی نسبت به یکدیگر تراز شوند.
 
-enum [ShapesAlignmentType](https://reference.aspose.com/slides/fa/net/aspose.slides/shapesalignmenttype) گزینه‌های هم‌راستایی موجود را تعریف می‌کند.
+این مثال سه شکل را به لبهٔ بالای اسلاید تراز می‌کند. مراجع شکل‌های برگشتی بلافاصله قبل از تراز به اندیس‌های فعلیشان تبدیل می‌شوند.
 
-**مثال 1**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
 
-این کد C# نشان می‌دهد چگونه اشکالی با ایندکس 1، 2 و 4 را در مرز بالایی اسلاید هم‌راستا کنید:
-کد زیر اشکالی با ایندکس 1، 2 و 4 را در مرز بالایی اسلاید هم‌راستا می‌کند.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-**مثال 2**
+تراز موقعیت‌ها را تغییر می‌دهد، نه Z‑Order. تراز نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی به تعداد کافی شکلی برای تعریف فواصل نیاز دارد. اگر قبل از فراخوانی متد مجموعه را تغییر دادید، اندیس‌ها را دوباره محاسبه کنید.
 
-این کد C# نشان می‌دهد چگونه یک مجموعه کامل از اشکال را نسبت به شکل پایین‌دست در مجموعه هم‌راستا کنید:
+## **چرخاندن (Flip) یک شکل**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
-{
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+کلاس ‎[ShapeFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/shapeframe/)‎ موقعیت، اندازه، تنظیمات چرخش افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر ‎FlipH‎ و ‎FlipV‎ از ‎[NullableBool](https://reference.aspose.com/slides/fa/net/aspose.slides/nullablebool/)‎ استفاده می‌کنند: ‎True‎ چرخش را فعال می‌کند، ‎False‎ غیرفعال می‌کند و ‎NotDefined‎ حالت پیش‌فرض/نامشخص را حفظ می‌کند.
+
+ارائهٔ زیر یک شکل بدون چرخش دارد.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+مثال فقط مقادیر دو تنظیم چرخش را تغییر می‌دهد و سایر مقادیر فریم را همان‌طور نگه می‌دارد. این مهم است زیرا تخصیص یک ‎[Frame](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/frame/)‎ جدید تمام فریم را جایگزین می‌کند.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
+
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
+
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
+
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-## **ویژگی‌های Flip**
+شکل ذخیره‌شده به صورت افقی و عمودی معکوس می‌شود در حالی که موقعیت، اندازه و چرخش آن حفظ می‌شود.
 
-در Aspose.Slides، کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/shapeframe/) کنترل آیینه‌سازی افقی و عمودی اشکال را از طریق ویژگی‌های `FlipH` و `FlipV` فراهم می‌کند. هر دو ویژگی از نوع [NullableBool](https://reference.aspose.com/slides/fa/net/aspose.slides/nullablebool/) هستند و می‌توانند مقادیر `True` برای چرخش، `False` برای عدم چرخش یا `NotDefined` برای رفتار پیش‌فرض را داشته باشند. این مقادیر از طریق [Frame](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/frame/) شکل در دسترس‌اند.
+![The shape after flipping](flipped_shape.png)
 
-برای تغییر تنظیمات flip، یک نمونه جدید از [ShapeFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/shapeframe/) با موقعیت و اندازه فعلی شکل، مقادیر دلخواه برای `FlipH` و `FlipV` و زاویه چرخش ساخته می‌شود. اختصاص این نمونه به [Frame](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/frame/) شکل و ذخیره ارائه، تبدیل‌های آیینه را اعمال و در فایل خروجی ذخیره می‌کند.
+## **سؤالات متداول**
 
-فرض کنید فایلی به نام sample.pptx داریم که اسلاید اول آن حاوی یک شکل واحد با تنظیمات پیش‌فرض flip است، همان‌طور که در زیر نشان داده شده است.
+**آیا باید از اندیس مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
 
-![The shape to be flipped](shape_to_be_flipped.png)
+فقط برای پردازش کوتاه‌مدتی که مجموعه قبل از استفاده از اندیس تغییر نمی‌کند. برای قالب‌های نوشته‌شده، ترجیحاً از یک قرارداد معتبر ‎Name‎ یا ‎AlternativeText‎ استفاده کنید؛ یا برای کارهای interop scoped به اسلاید، ‎OfficeInteropShapeId‎ را به کار ببرید.
 
-کد زیر ویژگی‌های flip فعلی شکل را دریافت می‌کند و آن را به‌صورت افقی و عمودی معکوس می‌کند.
+**آیا مخفی‌سازی یک شکل آن را از Z‑Order حذف می‌کند؟**
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+خیر. یک شکل مخفی در همان اندیس مجموعه می‌ماند. می‌تواند پیدا شود، بازترتیب شود، ویرایش یا دوباره قابل رؤیت شود.
 
-    // دریافت ویژگی معکوس افقی شکل.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+**چرا یک شکل کلون‌شده جلوی شکل دیگری ظاهر شد؟**
 
-    // دریافت ویژگی معکوس عمودی شکل.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+‎AddClone‎ کلون را به انتهای مجموعه می‌افزاید که جلو Z‑Order است. برای انتخاب اندیس اولیه از ‎InsertClone‎ استفاده کنید یا پس از افزودن تمام اشکال از ‎Reorder‎ بهره ببرید.
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // معکوس افقی.
-    NullableBool flipV = NullableBool.True; // معکوس عمودی.
-    float rotation = shape.Frame.Rotation;
+**آیا می‌توانم از یک اندیس ثابت برای شناسایی تنظیم پیش‌تنظیم شکل استفاده کنم؟**
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-نتیجه:
-
-![The flipped shape](flipped_shape.png)
-
-## **سوالات متداول**
-
-**آیا می‌توانم اشکال (اتحاد/تقاطع/تفریق) را در اسلاید ترکیب کنم همانند یک ویرایشگر دسکتاپ؟**
-
-API داخلی برای عملیات‌های بولی وجود ندارد. می‌توانید با ساخت نمودار دلخواه خود—مثلاً با استفاده از [GeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath/)—هندسهٔ نتیجه را محاسبه کنید و یک شکل جدید با آن کانتور بسازید و در صورت نیاز اشکال اصلی را حذف کنید.
-
-**چگونه می‌توانم ترتیب لایه‌ها (z-order) را کنترل کنم تا یک شکل همیشه «در‑بالا» بماند؟**
-
-ترتیب درج/جابه‌جایی را در مجموعه [shapes](https://reference.aspose.com/slides/fa/net/aspose.slides/baseslide/shapes/) اسلاید تغییر دهید. برای نتایج قابل پیش‌بینی، پس از تمام تغییرات اسلاید، ترتیب z را نهایی کنید.
-
-**آیا می‌توانم یک شکل را «قفل» کنم تا کاربران در PowerPoint نتوانند آن را ویرایش کنند؟**
-
-بله. پرچم‌های حفاظت سطح‑شکل را تنظیم کنید (مثلاً قفل انتخاب، حرکت، تغییر اندازه، ویرایش متن). در صورت نیاز، محدودیت‌ها را بر روی مستر یا لایه اعمال کنید. توجه داشته باشید این محافظت در سطح UI است و نه یک ویژگی امنیتی؛ برای حفاظت قوی‌تر می‌توانید آن را با محدودیت‌های سطح‑فایل مانند توصیه‌‏های فقط‑خواندنی یا رمز عبور ترکیب کنید.
+تنها پس از اعتبارسنجی دقیق پیش‌تنظیم و چیدمان مجموعه. ترجیحاً ‎IGeometryShape.Adjustments‎ را پیمایش کنید و ‎IAdjustValue.Type‎ را بررسی کنید؛ وقتی همان نوع معنایی بیش از یک بار ظاهر می‌شود، ‎IAdjustValue.Name‎ را به عنوان اطلاعات تکمیلی به کار ببرید.

@@ -1,5 +1,5 @@
 ---
-title: Gestire le forme delle presentazioni in JavaScript
+title: Gestire le forme della presentazione in JavaScript
 linktitle: Manipolazione delle forme
 type: docs
 weight: 40
@@ -12,390 +12,480 @@ keywords:
 - Clona forma
 - Rimuovi forma
 - Nascondi forma
-- Cambia ordine della forma
-- Ottieni ID forma Interop
+- Modifica ordine forma
+- Ottieni ID forma interop
 - Testo alternativo della forma
-- Formati di layout della forma
+- Punto di regolazione della forma
+- Regolazione forma predefinita
+- Geometria della forma
+- Formati layout della forma
 - Forma come SVG
 - Forma in SVG
 - Allinea forma
+- Ribalta forma
 - PowerPoint
 - presentazione
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Impara a creare, modificare e ottimizzare le forme usando JavaScript e Aspose.Slides per Node.js via Java e a fornire presentazioni PowerPoint ad alte prestazioni."
+description: "Scopri come identificare, regolare, clonare, rimuovere, nascondere, riordinare, esportare, allineare e ribaltare le forme della presentazione con Aspose.Slides per Node.js via Java."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con le forme nelle presentazioni utilizzando Aspose.Slides. Mostra come trovare una forma in una diapositiva, clonarla, rimuoverla, nasconderla, cambiarne l'ordine, ottenere il suo ID forma Interop e impostare il testo alternativo per l'identificazione e ulteriori elaborazioni.
+Aspose.Slides for Node.js tramite Java rappresenta le forme su una diapositiva come una collezione ordinata [ShapeCollection](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/). La collezione è sia il luogo in cui si trovano e modificano le forme sia la fonte del loro ordine di sovrapposizione: l’indice `0` è la forma più arretrata, mentre l’ultimo indice è la forma più anteriore.
 
-Copre inoltre come accedere ai formati di layout per le forme, rendere una forma come SVG, allineare le forme su una diapositiva e utilizzare le proprietà di flip per la riflessione orizzontale e verticale. Inoltre, l'articolo include una breve FAQ su combinazione di forme, ordine di sovrapposizione e blocco delle forme.
+Questo articolo segue quel modello. Prima spiega come identificare in modo affidabile una forma e modificare i punti di regolazione predefiniti, poi mostra come clonare, rimuovere, nascondere e riordinare le forme. Le sezioni finali trattano la formattazione a livello di layout, l’esportazione SVG, l’allineamento e le impostazioni di ribaltamento. Ogni esempio è indipendente, così è possibile utilizzare solo le operazioni di cui il proprio flusso di lavoro ha bisogno.
 
-## **Trova Forma nella Diapositiva**
-Questo argomento descriverà una tecnica semplice per facilitare gli sviluppatori nel trovare una forma specifica in una diapositiva senza usare il suo Id interno. È importante sapere che i file PowerPoint Presentation non hanno alcun modo per identificare le forme in una diapositiva se non tramite un Id interno univoco. Risulta difficile per gli sviluppatori trovare una forma usando il suo Id interno univoco. Tutte le forme aggiunte alle diapositive hanno un certo Alt Text. Suggeriamo agli sviluppatori di utilizzare il testo alternativo per trovare una forma specifica. È possibile utilizzare MS PowerPoint per definire il testo alternativo per gli oggetti che si prevede di modificare in futuro.
+## **Identifica e trova le forme**
 
-Dopo aver impostato il testo alternativo di qualsiasi forma desiderata, è possibile aprire la presentazione con Aspose.Slides per Node.js via Java e iterare su tutte le forme aggiunte a una diapositiva. Durante ogni iterazione, è possibile controllare il testo alternativo della forma e la forma con il testo alternativo corrispondente sarà quella richiesta. Per dimostrare meglio questa tecnica, abbiamo creato un metodo, [findShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) che esegue il trucco per trovare una forma specifica in una diapositiva e restituisce semplicemente quella forma.
+Gli indici della collezione sono comodi durante l’elaborazione di un file noto, ma non sono identificatori stabili. L’aggiunta, la rimozione o il riordino di una forma può modificarne l’indice. Scegli un identificatore in base a come la presentazione è stata creata e mantenuta:
 
-```javascript
-// Istanziare una classe Presentation che rappresenta il file di presentazione
-var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    // Testo alternativo della forma da trovare
-    var shape = findShape(slide, "Shape1");
-    if (shape != null) {
-        console.log("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function findShape(slide, altText) {
-    let shapes = slide.getShapes();
-    
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i);
-        
-        if (shape.getAlternativeText() === altText) {
-            return shape;
-        }
-    }
+- [Name](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/getname/) è utile per modelli controllati dallo sviluppatore ed è facile da ispezionare nel riquadro di selezione di PowerPoint. I nomi possono essere modificati e non sono garantiti univoci, quindi stabilisci una convenzione di denominazione se il codice dipende da essi.
+- [AlternativeText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/getalternativetext/) è utile quando una descrizione di accessibilità o un tag fornito dall’autore identifica già la forma. È visibile agli utenti, può essere localizzato o riscritto per l’accessibilità e non è garantito univoco. Non riutilizzare silenziosamente testo di accessibilità significativo come chiave di database.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) è un identificatore di sola lettura univoco all’interno di una diapositiva e corrisponde all’ID forma usato dall’interoperabilità di PowerPoint. Usalo quando integri con PowerPoint o quando ti serve un riferimento inequivocabile per la durata di una forma. Una forma clonata o ricreata è una forma diversa e riceve un proprio ID.
 
-    return null;
-}
-```
+Il metodo correlato [getUniqueId](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/getuniqueid/) restituisce un identificatore con ambito di presentazione, ma quell’identificatore è pensato per componenti aggiuntivi e può essere riassegnato. Non dovrebbe essere trattato come una chiave esterna permanente. Se l’identità a lungo termine è essenziale, conserva la mappatura nei dati dell’applicazione e verifica che la forma prevista esista ancora.
 
-## **Clona Forma**
-Per clonare una forma in una diapositiva usando Aspose.Slides per Node.js via Java:
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-1. Ottieni il riferimento di una diapositiva usando il suo indice.
-1. Accedi alla raccolta di forme della diapositiva sorgente.
-1. Aggiungi una nuova diapositiva alla presentazione.
-1. Clona le forme dalla raccolta di forme della diapositiva sorgente alla nuova diapositiva.
-1. Salva la presentazione modificata come file PPTX.
-
-L'esempio seguente aggiunge una forma di gruppo a una diapositiva.
+L’esempio seguente cerca per nome con confronto esatto e restituisce l’ID interop a livello di diapositiva. Quando il modello non contiene la forma attesa, il codice segnala quel risultato invece di continuare con l’oggetto errato.
 
 ```javascript
-// Istanziare la classe Presentation
-var pres = new aspose.slides.Presentation("Source Frame.pptx");
-try {
-    var sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
-    var destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    var destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // Scrivere il file PPTX su disco
-    pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const asposeSlides = require("aspose.slides.via.java");
 
-## **Rimuovi Forma**
-Aspose.Slides per Node.js via Java consente agli sviluppatori di rimuovere qualsiasi forma. Per rimuovere la forma da una diapositiva, segui i passaggi seguenti:
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-1. Accedi alla prima diapositiva.
-1. Trova la forma con un determinato AlternativeText.
-1. Rimuovi la forma.
-1. Salva il file su disco.
-
-```javascript
-// Crea l'oggetto Presentation
-var pres = new aspose.slides.Presentation();
-try {
-    // Ottieni la prima diapositiva
-    var sld = pres.getSlides().get_Item(0);
-    // Aggiungi una forma autogenerata di tipo rettangolo
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var altText = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(0);
-        if (alttext === ashp.getAlternativeText()) {
-            sld.getShapes().remove(ashp);
-        }
-    }
-    // Salva la presentazione su disco
-    pres.save("RemoveShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Nascondi Forma**
-Aspose.Slides per Node.js via Java consente agli sviluppatori di nascondere qualsiasi forma. Per nascondere la forma da una diapositiva, segui i passaggi seguenti:
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-1. Accedi alla prima diapositiva.
-1. Trova la forma con un determinato AlternativeText.
-1. Nascondi la forma.
-1. Salva il file su disco.
-
-```javascript
-// Istanziare la classe Presentation che rappresenta il PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Ottieni la prima diapositiva
-    var sld = pres.getSlides().get_Item(0);
-    // Aggiungi autoshape di tipo rettangolo
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var alttext = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(i);
-        if (alttext === ashp.getAlternativeText()) {
-            ashp.setHidden(true);
-        }
-    }
-    // Salva la presentazione su disco
-    pres.save("Hiding_Shapes_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Modifica Ordine delle Forme**
-Aspose.Slides per Node.js via Java consente agli sviluppatori di riordinare le forme. Riordinare le forme specifica quale forma è in primo piano o quale è sullo sfondo. Per riordinare le forme in una diapositiva, segui i passaggi seguenti:
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-1. Accedi alla prima diapositiva.
-1. Aggiungi una forma.
-1. Aggiungi del testo nel riquadro di testo della forma.
-1. Aggiungi un'altra forma con le stesse coordinate.
-1. Riordina le forme.
-1. Salva il file su disco.
-
-```javascript
-var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shp3.addTextFrame(" ");
-    var para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-    shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 200, 365, 400, 150);
-    slide.getShapes().reorder(2, shp3);
-    pres.save("Reshape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Ottieni ID Forma Interop**
-Aspose.Slides per Node.js via Java consente agli sviluppatori di ottenere un identificatore univoco della forma nell'ambito della diapositiva, a differenza del metodo [getUniqueId](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#getUniqueId--) che restituisce un identificatore univoco nell'ambito della presentazione. Il metodo [getOfficeInteropShapeId](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) è stato aggiunto alla classe [Shape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape) e alla classe [Shape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape). Il valore restituito dal metodo [getOfficeInteropShapeId](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) corrisponde al valore dell'Id dell'oggetto Microsoft.Office.Interop.PowerPoint.Shape. Di seguito è riportato un esempio di codice.
-
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
-try {
-    // Ottenere l'identificatore univoco della forma nell'ambito della diapositiva
-    var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Imposta Testo Alternativo per la Forma**
-Aspose.Slides per Node.js via Java consente agli sviluppatori di impostare l'AlternateText di qualsiasi forma.
-Le forme in una presentazione possono essere distinte tramite il metodo [AlternativeText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) o [Shape Name](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#setName-java.lang.String-).
-I metodi [setAlternativeText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) e [getAlternativeText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#getAlternativeText--) possono essere letti o impostati utilizzando Aspose.Slides così come Microsoft PowerPoint.
-Usando questo metodo, è possibile etichettare una forma e svolgere diverse operazioni come rimuovere una forma, nascondere una forma o riordinare le forme in una diapositiva.
-Per impostare l'AlternateText di una forma, segui i passaggi seguenti:
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-1. Accedi alla prima diapositiva.
-1. Aggiungi qualsiasi forma alla diapositiva.
-1. Esegui alcune operazioni con la forma appena aggiunta.
-1. Scorri le forme per trovare una forma.
-1. Imposta l'AlternativeText.
-1. Salva il file su disco.
-
-```javascript
-// Istanziare la classe Presentation che rappresenta il PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Ottieni la prima diapositiva
-    var sld = pres.getSlides().get_Item(0);
-    // Aggiungi autoshape di tipo rettangolo
-    var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    for (var i = 0; i < sld.getShapes().size(); i++) {
-        var shape = sld.getShapes().get_Item(i);
-        if (shape != null) {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-    // Salva la presentazione su disco
-    pres.save("Set_AlternativeText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Accedi ai Formati di Layout per la Forma**
-Aspose.Slides per Node.js via Java fornisce un'API semplice per accedere ai formati di layout per una forma. Questo articolo dimostra come è possibile accedere ai formati di layout.
-
-Di seguito è riportato un esempio di codice.
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    for (let i = 0; i < pres.getLayoutSlides().size(); i++) {
-        let layoutSlide = pres.getLayoutSlides().get_Item(i);
-        for (let j = 0; j < layoutSlide.getShapes().size(); j++) {
-            let shape = layoutSlide.getShapes().get_Item(j);
-            var fillFormats = shape.getFillFormat();
-            var lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Rendi Forma come SVG**
-Ora Aspose.Slides per Node.js via Java supporta la resa di una forma come SVG. Il metodo [writeAsSvg](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (e le sue sovraccariche) è stato aggiunto alla classe [Shape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape). Questo metodo permette di salvare il contenuto della forma come file SVG. Lo snippet di codice qui sotto mostra come esportare la forma di una diapositiva in un file SVG.
-
-```javascript
-var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
-try {
-    var stream = java.newInstanceSync("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) {
-            stream.close();
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Allineamento delle Forme**
-Aspose.Slides consente di allineare le forme sia rispetto ai margini della diapositiva sia rispetto l'una all'altra. A tal fine, è stato aggiunto il metodo sovraccaricato [SlidesUtil.alignShape()](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-). L'enumerazione [ShapesAlignmentType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ShapesAlignmentType) definisce le possibili opzioni di allineamento.
-
-**Example 1**
-
-Il codice sorgente qui sotto allinea le forme con indici 1,2 e 4 lungo il bordo superiore della diapositiva.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shape1 = slide.getShapes().get_Item(1);
-    var shape2 = slide.getShapes().get_Item(2);
-    var shape3 = slide.getShapes().get_Item(4);
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), java.newArray("int", [slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3)]));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-**Example 2**
-
-L'esempio qui sotto mostra come allineare l'intera raccolta di forme rispetto alla forma più bassa nella raccolta.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Proprietà di Flip**
-
-In Aspose.Slides, la classe [ShapeFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapeframe/) offre controllo sul ribaltamento orizzontale e verticale delle forme tramite le proprietà `flipH` e `flipV`. Entrambe le proprietà sono di tipo `byte`, consentendo valori `1` per indicare un ribaltamento, `0` per nessun ribaltamento o `-1` per utilizzare il comportamento predefinito. Questi valori sono accessibili dal [Frame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/#getFrame) di una forma.
-
-Per modificare le impostazioni di flip, viene costruita una nuova istanza di [ShapeFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapeframe/) con la posizione e le dimensioni attuali della forma, i valori desiderati per `flipH` e `flipV` e l'angolo di rotazione. Assegnando questa istanza al [Frame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/#getFrame) della forma e salvando la presentazione, si applicano le trasformazioni di mirror e vengono incorporate nel file di output.
-
-Supponiamo di avere un file sample.pptx in cui la prima diapositiva contiene una singola forma con impostazioni di flip predefinite, come mostrato di seguito.
-
-![La forma da ribaltare](shape_to_be_flipped.png)
-
-Il seguente esempio di codice recupera le proprietà di flip attuali della forma e le ribalta sia orizzontalmente sia verticalmente.
-
-```js
-var presentation = new asposeSlides.Presentation("sample.pptx");
+var presentation = new asposeSlides.Presentation("input.pptx");
 try {
     var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
 
-    // Recupera la proprietà di ribaltamento orizzontale della forma.
-    var horizontalFlip = shape.getFrame().getFlipH();
-    console.log("Horizontal flip:", horizontalFlip);
+    var targetShape = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "RevenueChart") {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Recupera la proprietà di ribaltamento verticale della forma.
-    var verticalFlip = shape.getFrame().getFlipV();
-    console.log("Vertical flip:", verticalFlip);
-
-    var x = java.newFloat(shape.getFrame().getX());
-    var y = java.newFloat(shape.getFrame().getY());
-    var width = java.newFloat(shape.getFrame().getWidth());
-    var height = java.newFloat(shape.getFrame().getHeight());
-    var flipH = java.newByte(asposeSlides.NullableBool.True); // Ribaltamento orizzontale.
-    var flipV = java.newByte(asposeSlides.NullableBool.True); // Ribaltamento verticale.
-    var rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new asposeSlides.ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+    if (targetShape === null) {
+        console.log("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        console.log("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Il risultato:
+Quando un’operazione è specifica a un tipo di forma, controlla la classe a runtime prima di usare membri specifici del tipo. Questo esempio aggiorna il testo e il testo alternativo solo se l’oggetto denominato è un [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/).
 
-![La forma ribaltata](flipped_shape.png)
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var candidate = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "StatusLabel") {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate !== null && java.instanceOf(candidate, "com.aspose.slides.AutoShape")) {
+        candidate.getTextFrame().setText("Approved");
+        candidate.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", asposeSlides.SaveFormat.Pptx);
+    } else {
+        console.log("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Identifica e modifica le regolazioni predefinite delle forme**
+
+Le forme di geometria predefinita possono esporre punti di regolazione che controllano caratteristiche come la dimensione degli angoli, le proporzioni della freccia o gli angoli dell’arco. Accedili tramite la collezione di sola lettura [GeometryShape.getAdjustments](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/geometryshape/). La collezione stessa è fornita dalla forma, ma ogni [AdjustValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/adjustvalue/) contiene un valore modificabile.
+
+Non fare affidamento solo su un indice fisso della collezione. Itera tra le regolazioni e ispeziona il metodo di sola lettura [getType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/adjustvalue/) il cui valore [ShapeAdjustmentType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapeadjustmenttype/) descrive cosa controlla la regolazione. Il metodo di sola lettura [getName](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/adjustvalue/getname/) fornisce informazioni di identificazione aggiuntive ed è particolarmente utile quando una preimpostazione contiene più di una regolazione con lo stesso tipo semantico.
+
+Usa il metodo valore che corrisponde al significato della regolazione:
+
+| Tipo di aggiustamento | Scopo | Valore da modificare |
+|---|---|---|
+| `CornerSize` | Dimensione degli angoli arrotondati | [setRawValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Spessore della coda di una freccia | `setRawValue` |
+| `ArrowheadLength` | Lunghezza della punta della freccia | `setRawValue` |
+| `ArrowheadWidth` | Larghezza della punta della freccia | `setRawValue` |
+| `StartAngle` | Angolo iniziale di una torta o arco | [setAngleValue](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Angolo finale di una torta o arco | `setAngleValue` |
+
+`getType` e `getName` restituiscono informazioni di sola lettura. `getRawValue` e `setRawValue` lavorano con un intero nelle unità di geometria native della preimpostazione, mentre `getAngleValue` e `setAngleValue` lavorano con un angolo in gradi. Il numero, l’ordine, il significato e l’intervallo valido delle regolazioni dipendono dalla preimpostazione [GeometryShape.getShapeType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/geometryshape/). Un valore valido per una preimpostazione può essere non valido o avere un effetto diverso per un’altra.
+
+Quando `getType` restituisce `ShapeAdjustmentType.Custom`, l’API non riconosce un significato semantico standard. Ispeziona `getName`, il tipo di preimpostazione e il valore esistente, e mantieni la regolazione invariata a meno che non si conosca il significato e l’intervallo attesi. Anche per i tipi riconosciuti, verifica se lo stesso tipo appare più volte prima di selezionare un valore. L’articolo [Connector](/slides/it/nodejs-java/connector/) mostra questa situazione con le regolazioni di piegatura del connettore.
+
+L’esempio completo seguente crea versioni predefinite e modificate di tre forme preimpostate. Itera su ogni regolazione, segnala il suo nome e tipo, modifica i valori relativi alle dimensioni tramite `setRawValue`, le angolazioni tramite `setAngleValue` e salva il risultato. La colonna sinistra mantiene la geometria predefinita; la colonna destra mostra il rettangolo arrotondato, la freccia a quattro punte e la fetta di torta regolati.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    // Aggiunge le intestazioni per le colonne di forma predefinita e regolata.
+    var defaultColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    var adjustedColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    var modifiedRoundedRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 80, 180, 160, 110);
+    var modifiedArrow = slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 95, 330, 130, 130);
+    var modifiedPie = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    var shapesToAdjust = [modifiedRoundedRectangle, modifiedArrow, modifiedPie];
+
+    for (var shapeIndex = 0; shapeIndex < shapesToAdjust.length; shapeIndex++) {
+        var shape = shapesToAdjust[shapeIndex];
+        for (var adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            var adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            console.log(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case asposeSlides.ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.Custom:
+                    console.log("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Controllare il tipo semantico prima di cambiare un valore rende il codice esplicito riguardo all’intento ed evita di presumere che un indice di collezione specifico abbia lo stesso significato su forme preimpostate diverse.
+
+## **Modifica la collezione di forme**
+
+I metodi di aggiunta, clonazione, rimozione e riordino operano immediatamente sulla collezione. Se un’operazione cambia il numero o l’ordine delle forme, non continuare a fare affidamento sugli indici catturati prima di quell’operazione.
+
+### **Clona una forma**
+
+[addClone](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/addclone/) crea una copia indipendente e la aggiunge alla collezione di destinazione. [insertClone](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/insertclone/) crea anch’essa una copia ma la posiziona a un indice di z‑order specificato. Le overload che accettano coordinate spostano il clone senza cambiarne le dimensioni; le overload con larghezza e altezza possono ridimensionarlo.
+
+L’esempio crea una diapositiva di destinazione, clona un rettangolo con etichetta in primo piano e inserisce un secondo clone in fondo. Le modifiche a ciascun clone non alterano la forma sorgente.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var sourceSlide = presentation.getSlides().get_Item(0);
+    var sourceShape = sourceSlide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    var blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(java.newByte(asposeSlides.SlideLayoutType.Blank));
+    var destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    var frontClone = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontClone.setName("FrontClone");
+    if (java.instanceOf(frontClone, "com.aspose.slides.AutoShape")) {
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        console.log("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    var backClone = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backClone.setName("BackClone");
+    if (java.instanceOf(backClone, "com.aspose.slides.AutoShape")) {
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        console.log("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Clonare copia il contenuto e la formattazione della forma, incluso nome e testo alternativo. Assegna nuovi identificatori logici al clone quando tali valori devono essere univoci. Le risorse usate da forme complesse sono gestite dalla presentazione, ma il clone rimane un nuovo elemento della collezione con una nuova identità di forma.
+
+### **Rimuovi le forme**
+
+[remove](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/remove/) elimina un oggetto forma specifico dalla sua collezione. Quando rimuovi più corrispondenze durante un’iterazione indicizzata, percorri la collezione dal fondo così che ogni indice rimanente rimanga valido.
+
+Questo esempio rimuove ogni forma con un nome designato. Legge la forma all’indice corrente e non presume un tipo di forma specifico.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var keepShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    var firstTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    var secondTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (var i = slide.getShapes().size() - 1; i >= 0; i--) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "Temporary") {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dopo la rimozione, il conteggio delle forme e gli indici delle forme successive cambiano. I riferimenti a forme non interessate rimangono più affidabili di indici salvati. Considera anche connettori, animazioni e altre funzionalità della presentazione che potrebbero fare riferimento all’oggetto rimosso; rimuovere una forma visibile può modificare più del semplice aspetto della diapositiva.
+
+### **Nascondi una forma**
+
+Impostare [Hidden](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/sethidden/) su `true` mantiene la forma nella collezione ma ne impedisce la visualizzazione nella presentazione normale. Il suo indice, la formattazione e il contenuto restano disponibili al codice, quindi nascondere è appropriato per elementi opzionali che potrebbero essere ripristinati in seguito.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var visibleShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    var optionalShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "OptionalDecoration") {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Nascondere non è cancellazione né sicurezza. L’oggetto può ancora essere scoperto e reso nuovamente visibile da un utente o da codice, e rimane parte del file della presentazione.
+
+### **Modifica l'ordine Z**
+
+Le forme sovrapposte sono dipinte secondo l’ordine della collezione. [reorder](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/reorder/) sposta una forma esistente a un indice di destinazione senza clonarla. L’indice `0` è il retro, `size() - 1` è il fronte.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var blueRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+
+    var orangeEllipse = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Il rettangolo è creato per primo e inizialmente si trova dietro l’ellisse. Spostandolo all’indice finale lo porta in primo piano. Finalizza l’ordine Z dopo aver aggiunto o clonato tutte le forme correlate, perché tali operazioni aggiungono o inseriscono nuovi elementi nella collezione e possono alterare la pila prevista.
+
+## **Ispeziona le forme nei layout diapositive**
+
+Le diapositive normali, i layout e i master hanno collezioni di forme separate. Una forma in una collezione di layout non è lo stesso oggetto di una forma posizionata in modo simile su una diapositiva normale. Ispeziona le forme del layout quando devi comprendere o modificare la formattazione fornita da un layout.
+
+L’esempio seguente legge il [FillFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/getfillformat/) e il [LineFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/getlineformat/) di ciascuna forma del layout senza presumere che ogni forma sia una `AutoShape`.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    for (var i = 0; i < presentation.getLayoutSlides().size(); i++) {
+        var layoutSlide = presentation.getLayoutSlides().get_Item(i);
+        for (var j = 0; j < layoutSlide.getShapes().size(); j++) {
+            var shape = layoutSlide.getShapes().get_Item(j);
+            var fillType = shape.getFillFormat().getFillType();
+            var lineWidth = shape.getLineFormat().getWidth();
+            console.log(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Modificare un layout può influire su più diapositive che lo utilizzano. Prima di cambiare una forma di layout, determina se una diapositiva normale eredita l’oggetto o contiene una sovrascrittura locale, e testa ogni diapositiva che usa quel layout.
+
+## **Esporta una forma in SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/writeassvg/) scrive il contenuto renderizzato di una singola forma in uno stream. Il risultato contiene solo la forma, non lo sfondo dell’intera diapositiva né le forme vicine.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() === 0) {
+        console.log("Slide 1 does not contain a shape to export.");
+    } else {
+        var shape = slide.getShapes().get_Item(0);
+        var svgStream = null;
+        try {
+            svgStream = java.newInstanceSync("java.io.FileOutputStream", "shape.svg");
+            shape.writeAsSvg(svgStream);
+        } catch (error) {
+            console.log("The SVG file could not be written: " + error.message);
+        } finally {
+            if (svgStream !== null) {
+                svgStream.close();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Mantieni la presentazione aperta durante il rendering. L’output dipende dalla formattazione della forma e dalle risorse quali font e immagini. Se ti serve l’intera composizione, esporta la diapositiva anziché una singola forma. Il chiamante possiede lo stream e deve chiuderlo.
+
+## **Allinea le forme**
+
+Le overload di [SlideUtil.alignShapes](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/slideutil/alignshapes/) allineano tutte le forme o gli indici di collezione selezionati. [ShapesAlignmentType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapesalignmenttype/) specifica il bordo, la linea centrale o la modalità di distribuzione. Imposta `alignToSlide` su `true` per usare i bordi della diapositiva; impostalo su `false` per allineare le forme selezionate tra loro.
+
+Questo esempio allinea tre forme al bordo superiore della diapositiva. I riferimenti alle forme restituiti vengono convertiti nei loro indici correnti subito prima dell’allineamento.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var firstShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 60, 80, 120, 50);
+    var secondShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 240, 160, 120, 50);
+    var thirdShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    var shapeIndexes = java.newArray("int", [slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)]);
+
+    asposeSlides.SlideUtil.alignShapes(asposeSlides.ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+L’allineamento modifica le posizioni, non l’ordine Z. L’allineamento relativo normalmente richiede almeno due forme, mentre la distribuzione orizzontale o verticale necessita di un numero sufficiente di forme per definire la spaziatura. Ricalcola gli indici se modifichi la collezione prima di chiamare il metodo.
+
+## **Ribalta una forma**
+
+La classe [ShapeFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapeframe/) memorizza posizione, dimensione, impostazioni di ribaltamento orizzontale e verticale e rotazione. I valori di `getFlipH` e `getFlipV` usano [NullableBool](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/nullablebool/): `True` abilita il ribaltamento, `False` lo disabilita e `NotDefined` conserva lo stato non specificato/predefinito.
+
+La presentazione di input sottostante contiene una forma non ribaltata.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+L’esempio mantiene tutti gli altri valori del frame e sostituisce solo le due impostazioni di ribaltamento. Ciò è importante perché assegnare un nuovo [Frame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/setframe/) sostituisce l’intero frame.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var frame = shape.getFrame();
+
+    console.log("Horizontal flip before change: " + frame.getFlipH());
+    console.log("Vertical flip before change: " + frame.getFlipV());
+
+    var changedFrame = new asposeSlides.ShapeFrame(java.newFloat(frame.getX()), java.newFloat(frame.getY()), java.newFloat(frame.getWidth()), java.newFloat(frame.getHeight()), java.newByte(asposeSlides.NullableBool.True), java.newByte(asposeSlides.NullableBool.True), java.newFloat(frame.getRotation()));
+    shape.setFrame(changedFrame);
+
+    presentation.save("flipped-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+La forma salvata è riflessa orizzontalmente e verticalmente mantenendo posizione, dimensione e rotazione.
+
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Posso combinare forme (unione/intersezione/sottrazione) in una diapositiva come in un editor desktop?**
+**Devo usare un indice di collezione come identificatore di una forma?**
 
-Non esiste un'API di operazioni booleane incorporata. È possibile approssimarla costruendo manualmente il contorno desiderato, ad esempio calcolando la geometria risultante (tramite [GeometryPath](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/geometrypath/)) e creando una nuova forma con quel contorno, eventualmente rimuovendo le originali.
+Solo per elaborazioni di breve durata quando la collezione non cambierà prima dell’utilizzo dell’indice. Preferisci una convenzione validata di `Name` o `AlternativeText` per i modelli creati, oppure `OfficeInteropShapeId` per lavori di interop a livello di diapositiva.
 
-**Come posso controllare l'ordine di sovrapposizione (z-order) affinché una forma rimanga sempre in "primo piano"?**
+**Nascondere una forma la rimuove dall’ordine Z?**
 
-Modifica l'ordine di inserimento/spostamento nella collezione di [shapes](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/baseslide/#getShapes) della diapositiva. Per risultati prevedibili, finalizza lo z-order dopo tutte le altre modifiche alla diapositiva.
+No. Una forma nascosta rimane nella collezione allo stesso indice. Può essere trovata, riordinata, modificata o resa nuovamente visibile.
 
-**Posso "bloccare" una forma per impedire agli utenti di modificarla in PowerPoint?**
+**Perché una forma clonata è apparsa davanti a un’altra forma?**
 
-Sì. Imposta i flag di protezione a livello di forma (ad esempio blocco selezione, movimento, ridimensionamento, modifica del testo). Se necessario, applica restrizioni analoghe al master o al layout. Nota che si tratta di protezione a livello UI, non di una funzionalità di sicurezza; per una protezione più forte, combina con restrizioni a livello di file come [raccomandazioni di sola lettura o password](/slides/it/nodejs-java/password-protected-presentation/).
+`addClone` aggiunge il clone alla fine della collezione, che è il fronte dell’ordine Z. Usa `insertClone` per scegliere l’indice iniziale o `reorder` dopo aver aggiunto tutte le forme.
+
+**Posso usare un indice fisso per identificare una regolazione predefinita di una forma?**
+
+Solo dopo aver convalidato la preimpostazione esatta e la disposizione della collezione. Preferisci iterare su `GeometryShape.getAdjustments` e controllare `AdjustValue.getType`; usa `AdjustValue.getName` come informazione aggiuntiva quando lo stesso tipo semantico appare più di una volta.

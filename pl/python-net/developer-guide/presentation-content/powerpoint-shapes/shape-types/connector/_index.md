@@ -1,151 +1,117 @@
 ---
-title: "Zarządzaj łącznikami w prezentacjach za pomocą Pythona"
-linktitle: "Łącznik"
+title: Zarządzanie łącznikami w prezentacjach przy użyciu Pythona
+linktitle: Łącznik
 type: docs
 weight: 10
 url: /pl/python-net/connector/
 keywords:
-- "łącznik"
-- "typ łącznika"
-- "punkt łącznika"
-- "linia łącznika"
-- "kąt łącznika"
-- "łączenie kształtów"
-- "PowerPoint"
-- "prezentacja"
-- "Python"
-- "Aspose.Slides"
-description: "Umożliw aplikacjom Python rysowanie, łączenie i automatyczne wyznaczanie tras linii w slajdach PowerPoint i OpenDocument — uzyskaj pełną kontrolę nad prostymi, łokciowymi i zakrzywionymi łącznikami."
+- łącznik
+- typ łącznika
+- punkt łącznika
+- linia łącznika
+- kąt łącznika
+- miejsce połączenia
+- punkt regulacji
+- łączenie kształtów
+- PowerPoint
+- prezentacja
+- Python
+- Aspose.Slides
+description: "Poznaj sposób dodawania, dołączania, zmiany trasy, regulacji i przeglądania prostych, zgiętych oraz krzywych łączników PowerPoint przy użyciu Aspose.Slides dla Pythona w środowisku .NET."
 ---
-## **Wstęp**
+## **Przegląd**
 
-Łącznik PowerPoint to specjalna linia, która łączy dwa kształty i pozostaje przyczepiona, gdy kształty są przemieszczane lub zmieniane na slajdzie. Łączniki przyczepiają się do **punktów połączenia** (zielonych punktów) na kształtach. Punkty połączenia pojawiają się, gdy wskaźnik zbliża się do nich. **Uchwyty regulacji** (żółte punkty), dostępne w niektórych łącznikach, pozwalają modyfikować pozycję i kształt łącznika.
+Łącznik to linia, która może pozostać przyłączona do dwóch kształtów, gdy którykolwiek z nich się przemieszcza. Jego końce przyczepiają się do miejsc połączenia, reprezentowanych przez zielone kropki w programie PowerPoint. Niektóre łączniki zgięte i krzywe udostępniają również punkty regulacji, przedstawione jako pomarańczowe kropki, które kontrolują położenie poszczególnych segmentów łącznika.
 
-## **Typy Łączników**
+Aspose.Slides reprezentuje łączniki za pomocą interfejsu [IConnector](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iconnector/). Można je tworzyć, przyłączać ich końce do kształtów, wybierać miejsca połączenia, zmieniać ich trasę oraz modyfikować geometrię łączników posiadających punkty regulacji.
 
-W programie PowerPoint można używać trzech typów łączników: prostego, łokciowego (z kątem) i zakrzywionego.
+## **Typy łączników**
 
-Aspose.Slides obsługuje następujące typy łączników:
+Wyliczenie [ShapeType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapetype/) zawiera zestawy łączników prostych, zgiętych i krzywych. Poniższa tabela przedstawia dostępne geometrie łączników oraz liczbę punktów regulacji zdefiniowaną dla każdego zestawu.
 
-| Typ łącznika | Obraz | Liczba punktów regulacji |
-| ------------ | ----- | ------------------------ |
-| `ShapeType.LINE` | ![Łącznik prosty](shapetype-lineconnector.png) | 0 |
-| `ShapeType.STRAIGHT_CONNECTOR1` | ![Łącznik prosty 1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BENT_CONNECTOR2` | ![Łącznik łamany 2](shapetype-bent-connector2.png) | 0 |
-| `ShapeType.BENT_CONNECTOR3` | ![Łącznik łamany 3](shapetype-bentconnector3.png) | 1 |
-| `ShapeType.BENT_CONNECTOR4` | ![Łącznik łamany 4](shapetype-bentconnector4.png) | 2 |
-| `ShapeType.BENT_CONNECTOR5` | ![Łącznik łamany 5](shapetype-bentconnector5.png) | 3 |
-| `ShapeType.CURVED_CONNECTOR2` | ![Łącznik zakrzywiony 2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CURVED_CONNECTOR3` | ![Łącznik zakrzywiony 3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CURVED_CONNECTOR4` | ![Łącznik zakrzywiony 4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CURVED_CONNECTOR5` | ![Łącznik zakrzywiony 5](shapetype.curvedconnector5.png) | 3 |
+| Łącznik | Obraz | Liczba punktów regulacji |
+|---|---|---|
+| `ShapeType.LINE` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.STRAIGHT_CONNECTOR1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BENT_CONNECTOR2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BENT_CONNECTOR3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BENT_CONNECTOR4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BENT_CONNECTOR5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CURVED_CONNECTOR2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CURVED_CONNECTOR3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CURVED_CONNECTOR4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CURVED_CONNECTOR5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Łączenie Kształtów za pomocą Łączników**
+Liczba i znaczenie punktów regulacji są częścią wybranego zestawu łącznika. Nie zakładaj, że dwa różne typy łączników udostępniają tę samą strukturę kolekcji.
 
-Ta sekcja pokazuje, jak łączyć kształty za pomocą łączników w Aspose.Slides. Dodasz łącznik do slajdu, przyczepisz jego początek i koniec do docelowych kształtów. Użycie punktów połączenia zapewnia, że łącznik pozostaje „przyklejony” do kształtów, nawet gdy są one przemieszczane lub zmieniane.
+## **Połącz dwa kształty**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za jego indeksem.
-1. Dodaj dwa obiekty [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu, używając metody `add_auto_shape` udostępnionej przez obiekt [ShapeCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/).
-1. Dodaj łącznik przy użyciu metody `add_connector` udostępnionej przez obiekt [ShapeCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/), określając typ łącznika.
-1. Połącz kształty za pomocą łącznika.
-1. Wywołaj metodę `reroute`, aby zastosować najkrótszą ścieżkę połączenia.
-1. Zapisz prezentację.
+Użyj [IShapeCollection.add_connector](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ishapecollection/add_connector/) aby dodać łącznik i przypisz jego właściwości [start_shape_connected_to](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iconnector/start_shape_connected_to/) oraz [end_shape_connected_to](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iconnector/end_shape_connected_to/). Po podłączeniu obu końców, [IConnector.reroute](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iconnector/reroute/) wybiera krótką trasę pomiędzy kształtami.
 
-Poniższy kod w Pythonie pokazuje, jak dodać łamany łącznik między dwoma kształtami (elipsą i prostokątem):
+Poniższy przykład łączy elipsę i prostokąt łącznikiem zgiętym:
 
 ```python
 import aspose.slides as slides
 
-# Utwórz obiekt klasy Presentation, aby stworzyć plik PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Uzyskaj dostęp do kolekcji kształtów pierwszego slajdu.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-    # Dodaj AutoShape w kształcie elipsy.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Dodaj AutoShape w kształcie prostokąta.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Dodaj łącznik do slajdu.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
-
-    # Połącz kształty przy użyciu łącznika.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
-
-    # Wywołaj reroute, aby ustawić najkrótszą ścieżkę.
     connector.reroute()
 
-    # Zapisz prezentację.
-    presentation.save("connected_shapes.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("connected-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Metoda `connector.reroute` przerysowuje łącznik, zmuszając go do przyjęcia najkrótszej możliwej ścieżki między kształtami. W tym celu metoda może zmienić wartości `start_shape_connection_site_index` i `end_shape_connection_site_index`.
+{{% alert color="warning" title="Warning" %}}
+Wywołanie `reroute` może zmienić wartości [start_shape_connection_site_index](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iconnector/start_shape_connection_site_index/) i [end_shape_connection_site_index](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iconnector/end_shape_connection_site_index/). Przypisz konkretne miejsca połączenia po zmianie trasy, jeśli mają one pozostać stałe.
 {{% /alert %}}
 
-## **Określanie Punktów Połączenia**
+## **Wybierz miejsce połączenia**
 
-Ta sekcja wyjaśnia, jak przyczepić łącznik do konkretnego punktu połączenia na kształcie w Aspose.Slides. Kierując się precyzyjnie wybranymi punktami połączenia, możesz kontrolować trasę i układ łącznika, uzyskując czyste, przewidywalne diagramy w prezentacjach.
+Każdy kształt, z którym można się połączyć, zgłasza liczbę swoich miejsc połączenia poprzez [connection_site_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides/igeometryshape/connection_site_count/). Sprawdź wybrany indeks miejsca (zerowy) przed przypisaniem go do końca łącznika; liczba miejsc zależy od geometrii kształtu.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za jego indeksem.
-1. Dodaj dwa obiekty [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) do slajdu, używając metody `add_auto_shape` udostępnionej przez obiekt [ShapeCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/).
-1. Dodaj łącznik przy użyciu metody `add_connector` na obiekcie [ShapeCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/) i określ typ łącznika.
-1. Połącz kształty za pomocą łącznika.
-1. Ustaw preferowane punkty połączenia na kształtach.
-1. Zapisz prezentację.
-
-Poniższy kod w Pythonie demonstruje, jak określić preferowany punkt połączenia:
+Ten przykład przyczepia łącznik do konkretnego miejsca na elipsie, jeśli to miejsce istnieje:
 
 ```python
 import aspose.slides as slides
 
-# Utwórz obiekt klasy Presentation, aby stworzyć plik PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Uzyskaj dostęp do kolekcji kształtów pierwszego slajdu.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
 
-    # Dodaj AutoShape w kształcie elipsy.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Dodaj AutoShape w kształcie prostokąta.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Dodaj łącznik do kolekcji kształtów slajdu.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
-
-    # Połącz kształty przy użyciu łącznika.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
 
-    # Ustaw preferowany indeks punktu połączenia na elipsie.
-    site_index = 6
+    preferred_site_index = 2
+    if preferred_site_index < ellipse.connection_site_count:
+        connector.start_shape_connection_site_index = preferred_site_index
+    else:
+        print(f"The ellipse has only {ellipse.connection_site_count} connection sites.")
 
-    # Sprawdź, czy preferowany indeks mieści się w dostępnej liczbie punktów połączenia.
-    if  ellipse.connection_site_count > site_index:
-        # Przypisz preferowany punkt połączenia do AutoShape elipsy.
-        connector.start_shape_connection_site_index = site_index
-
-    # Zapisz prezentację.
-    presentation.save("connection_points.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("specific-connection-site.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Regulacja Punktów Łącznika**
+## **Regulacja punktu łącznika**
 
-Możesz modyfikować łączniki przy użyciu ich punktów regulacji. Tylko łączniki, które udostępniają punkty regulacji, mogą być w ten sposób edytowane. Szczegóły, które łączniki obsługują regulacje, znajdziesz w tabeli pod [Typy Łączników](/slides/pl/python-net/connector/#connector-types).
+Łączniki posiadające punkty regulacji udostępniają je przez [IGeometryShape.adjustments](https://reference.aspose.com/slides/pl/python-net/aspose.slides/igeometryshape/adjustments/). Przed zmianą ich [raw_value](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iadjustvalue/raw_value/) sprawdź ich [type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iadjustvalue/type/). Ogólne manipulacje kształtami znajdziesz w [Shape Manipulation](/slides/pl/python-net/shape-manipulations/).
 
-### **Prosty Przypadek**
+Liczba, kolejność, znaczenie i prawidłowy zakres wartości punktów regulacji łącznika zależą od zestawu łącznika. Właściwość `type` jest tylko do odczytu, natomiast wartość regulacji jest zapisywalna. Właściwość tylko do odczytu [name](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iadjustvalue/name/) zapewnia dodatkową identyfikację, gdy łącznik zawiera więcej niż jedną regulację tego samego typu semantycznego.
 
-Rozważmy przypadek, w którym łącznik między dwoma kształtami (A i B) przecina trzeci kształt (C):
+### **Omijanie przeszkody**
 
-![Przeszkoda łącznika](connector-obstruction.png)
+W poniższym układzie łącznik `ShapeType.BENT_CONNECTOR5` pomiędzy dwoma kształtami przechodzi przez trzeci kształt:
 
-Przykład kodu:
+![connector-obstruction](connector-obstruction.png)
+
+Ten kod tworzy łącznik z przeszkodą:
 
 ```python
 import aspose.slides as slides
@@ -154,233 +120,326 @@ import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
-    
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
     connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
-    
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
-    
-    connector.start_shape_connected_to = shape_from
-    connector.end_shape_connected_to = shape_to
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
     connector.start_shape_connection_site_index = 2
+
+    presentation.save("connector-obstruction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aby ominąć trzeci kształt, wyreguluj łącznik, przesuwając jego pionowy odcinek w lewo:
+Przemieszczenie pionowego zgięcia zmienia trasę tak, aby łącznik omijał przeszkodę:
 
-![Naprawiona przeszkoda łącznika](connector-obstruction-fixed.png)
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```python
-    adjustment2 = connector.adjustments[1]
-    adjustment2.raw_value += 10000
-```
-
-### **Złożone Przypadki**
-
-- Reguluowany punkt łącznika jest określany przez formułę wyznaczającą jego położenie. Zmiana tego punktu może zmienić ogólny kształt łącznika.
-- Punkty regulacji łącznika są przechowywane w ściśle uporządkowanej tablicy, numerowanej od początku łącznika do jego końca.
-- Wartości punktów regulacji reprezentują procenty szerokości/wysokości kształtu łącznika.
-  - Kształt jest ograniczony przez punkty początkowy i końcowy łącznika i skalowany przez 1000.
-  - Pierwszy, drugi i trzeci punkt regulacji oznaczają kolejno: procent szerokości, procent wysokości oraz ponownie procent szerokości.
-- Przy obliczaniu współrzędnych punktów regulacji uwzględnij rotację i odbicie łącznika. **Uwaga:** dla wszystkich łączników wymienionych w [Typy Łączników](/slides/pl/python-net/connector/#connector-types) kąt rotacji wynosi 0.
-
-#### **Przypadek 1**
-
-Rozważmy przypadek, w którym dwa obiekty ramki tekstowej są połączone łącznikiem:
-
-![Połączone kształty](connector-shape-complex.png)
+Zamiast zakładać, że indeks kolekcji `1` zawsze reprezentuje pionowe zgięcie, ten przykład wyszukuje `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` i zmienia go tylko wtedy, gdy oczekiwany typ semantyczny jest obecny:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Utwórz obiekt klasy Presentation, aby stworzyć plik PPTX.
 with slides.Presentation() as presentation:
-
-    # Uzyskaj pierwszy slajd.
     slide = presentation.slides[0]
 
-    # Uzyskaj pierwszy slajd.
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
-    shape_from.text_frame.text = "From"
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
-    shape_to.text_frame.text = "To"
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
 
-    # Dodaj łącznik.
-    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
-    # Ustaw kierunek łącznika.
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
-    # Ustaw kolor łącznika.
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
+    connector.start_shape_connection_site_index = 2
+
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+            break
+
+    if vertical_bend is None:
+        print("The connector does not expose a vertical bend adjustment.")
+    else:
+        vertical_bend.raw_value = 60000
+        presentation.save("connector-obstruction-fixed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Łącznik `ShapeType.BENT_CONNECTOR5` posiada dwa punkty regulacji `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` i jeden punkt `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`. Jeśli potrzebny typ pojawia się więcej niż raz, sprawdź `name` oraz znaną geometrię tego zestawu przed dokonaniem wyboru. Jeśli regulacja zgłasza [ShapeAdjustmentType.CUSTOM](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapeadjustmenttype/), traktuj jej znaczenie i zakres jako specyficzne dla zestawu i nie zmieniaj jej, dopóki nie będzie znany odpowiedni kontrakt.
+
+## **Powiązanie wartości regulacji z geometrią łącznika**
+
+W przypadku łączników zgiętych wartości regulacji można wykorzystać do oszacowania położeń poszczególnych segmentów. Obliczenia te są specyficzne dla zestawu łącznika:
+
+- `ShapeType.BENT_CONNECTOR4` zazwyczaj udostępnia jedną regulację `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` oraz jedną `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`.
+- Dla tych pozycji zgięcia `raw_value / 100000` daje ułamek szerokości lub wysokości ramki łącznika używany w poniższych przykładach.
+- Ramka łącznika może być obrócona lub odbita, więc współrzędne ramki muszą zostać przekształcone przed porównaniem z współrzędnymi slajdu.
+
+Poniższe przykłady najpierw używają `type` do identyfikacji regulacji. Nie traktują indeksów kolekcji jako przenośnych identyfikatorów.
+
+### **Łącznik nieobrócony**
+
+Początkowy układ zawiera dwa kształty tekstowe połączone łącznikiem `ShapeType.BENT_CONNECTOR4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Ten przykład inspekcuje łącznik i pobiera jego regulacje poziomego i pionowego zgięcia:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    target_shape.text_frame.text = "To"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.crimson
-    # Ustaw grubość linii łącznika.
     connector.line_format.width = 3
-
-    # Połącz kształty przy użyciu łącznika.
-    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 3
-    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 2
 
-    # Pobierz punkty regulacji łącznika.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
 ```
 
-**Regulacja**
-
-Zmień wartości punktów regulacji łącznika, zwiększając procent szerokości o 20 % oraz procent wysokości o 200 %:
+Aby zmienić oba zgięcia, zlokalizuj każdy oczekiwany typ i zmodyfikuj wartości dopiero po znalezieniu obu:
 
 ```python
-    # Zmień wartości punktów regulacji.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+        presentation.save("connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
+Wynikiem jest łącznik, którego segmenty poziomy i pionowy zostały przesunięte:
 
-![Regulacja łącznika 1](connector-adjusted-1.png)
+![connector-adjusted-1](connector-adjusted-1.png)
 
-Aby zdefiniować model umożliwiający wyznaczenie współrzędnych i kształtu odcinków łącznika, utwórz kształt odpowiadający pionowej części łącznika przy `connector.adjustments[0]`:
+Gdy typy semantyczne są znane, ich wartości można przeliczyć na współrzędne ramki łącznika. Ten przykład rysuje cienki prostokąt nad pionowym segmentem kontrolowanym przez dwie regulacje zgięcia:
 
 ```python
-    # Narysuj pionowy składnik łącznika.
-    x = connector.x + connector.width * adjustment_0.raw_value / 100000
-    y = connector.y
-    height = connector.height * adjustment_1.raw_value / 100000
+import aspose.slides as slides
 
-    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        x = connector.x + connector.width * horizontal_bend.raw_value / 100000
+        y = connector.y
+        height = connector.height * vertical_bend.raw_value / 100000
+        slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 1, height)
+        presentation.save("connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
+Kształt prowadzący oznacza obliczony segment:
 
-![Regulacja łącznika 2](connector-adjusted-2.png)
+![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Przypadek 2**
+### **Obrócony lub odbity łącznik**
 
-W **Przypadku 1** przedstawiliśmy prostą regulację łącznika, wykorzystując podstawowe zasady. W typowych scenariuszach musisz uwzględnić rotację łącznika oraz jego ustawienia wyświetlania (kontrolowane przez `connector.rotation`, `connector.frame.flip_h` i `connector.frame.flip_v`). Oto jak przebiega proces.
+Gdy ta sama geometria łącznika jest ustawiona pionowo, jej wartości [frame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iconnector/frame/), [flip_h](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ishapeframe/flip_h/), oraz [flip_v](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ishapeframe/flip_v/) wpływają na konwersję współrzędnych ramki łącznika na współrzędne slajdu.
 
-Najpierw dodaj nowy obiekt ramki tekstowej (**To 1**) do slajdu (w celu połączenia) i utwórz nowy zielony łącznik, który łączy go z istniejącymi obiektami.
+Ten przykład tworzy i reguluje pionowo ustawiony łącznik:
 
 ```python
-    # Utwórz nowy obiekt docelowy.
-    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
-    shape_to_1.text_frame.text = "To 1"
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    # Utwórz nowy łącznik.
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    target_shape.text_frame.text = "To 1"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
-
-    # Połącz obiekty używając nowo utworzonego łącznika.
-    connector.start_shape_connected_to = shapeFrom
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 2
-    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 3
 
-    # Pobierz punkty regulacji łącznika.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
-    
-    # Zmień wartości punktów regulacji.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            adjustment.raw_value += 20000
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            adjustment.raw_value += 200000
+
+    presentation.save("vertical-connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
+Regulowany łącznik pojawia się pionowo pomiędzy kształtami:
 
-![Regulacja łącznika 3](connector-adjusted-3.png)
+![connector-adjusted-3](connector-adjusted-3.png)
 
-Następnie utwórz kształt odpowiadający **poziomemu** odcinkowi łącznika, który przechodzi przez nowy punkt regulacji łącznika `connector.adjustments[0]`. Skorzystaj z wartości `connector.rotation`, `connector.frame.flip_h` i `connector.frame.flip_v` oraz zastosuj standardową formułę przekształcenia współrzędnych dla obrotu wokół punktu `x0`:
+Dla dowolnego kąta obrotu `alpha` obróć punkt ramki łącznika `(x, y)` wokół środka ramki `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-W naszym przypadku kąt obrotu obiektu wynosi 90 stopni, a łącznik wyświetlany jest pionowo, więc odpowiedni kod to:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```python
-    # Zapisz współrzędne łącznika.
-    x = connector.x
-    y = connector.y
-    
-    # Skoryguj współrzędne łącznika, jeśli jest odwrócony.
-    if connector.frame.flip_h == 1:
-        x += connector.width
-    if connector.frame.flip_v == 1:
-        y += connector.height
-
-    # Użyj wartości punktu regulacji jako współrzędnej.
-    x += connector.width * adjValue_0.raw_value / 100000
-    
-    # Przekształć współrzędne, ponieważ sin(90°) = 1 i cos(90°) = 0.
-    xx = connector.frame.center_x - y + connector.frame.center_y
-    yy = x - connector.frame.center_x + connector.frame.center_y
-
-    # Określ szerokość poziomego odcinka przy użyciu wartości drugiego punktu regulacji.
-    width = connector.height * adjValue_1.raw_value / 100000
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-```
-
-Wynik:
-
-![Regulacja łącznika 4](connector-adjusted-4.png)
-
-Zademonstrowaliśmy obliczenia obejmujące zarówno proste regulacje, jak i bardziej złożone punkty regulacji (uwzględniające rotację). Korzystając z tej wiedzy, możesz opracować własny model — lub napisać kod — aby uzyskać obiekt `GraphicsPath` albo nawet ustawić wartości punktów regulacji łącznika na podstawie konkretnych współrzędnych slajdu.
-
-## **Znajdowanie Kątów Linii Łącznika**
-
-Użyj poniższego przykładu, aby określić kąt linii łącznika na slajdzie w Aspose.Slides. Dowiesz się, jak odczytać końcowe punkty łącznika i obliczyć jego orientację, aby precyzyjnie wyrównać strzałki, etykiety i inne kształty.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu według indeksu.
-1. Uzyskaj dostęp do kształtu linii łącznika.
-1. Skorzystaj z szerokości i wysokości linii oraz szerokości i wysokości ramki kształtu, aby obliczyć kąt.
-
-Poniższy kod w Pythonie pokazuje, jak obliczyć kąt dla kształtu linii łącznika:
+Poniższy kod obsługuje 90‑stopniową orientację używaną w tym przykładzie i rysuje czerwoną linię prowadzącą nad odpowiadającym segmentem łącznika:
 
 ```python
 import aspose.slides as slides
-import math
+import aspose.pydrawing as draw
 
-def get_direction(w, h, flip_h, flip_v):
-    end_line_x = w * (-1 if flip_h else 1)
-    end_line_y = h * (-1 if flip_v else 1)
-    end_y_axis_x = 0
-    end_y_axis_y = h
-    angle = math.atan2(end_y_axis_y, end_y_axis_x) - math.atan2(end_line_y, end_line_x)
-    if (angle < 0):
-         angle += 2 * math.pi
-    return angle * 180.0 / math.pi
-
-with slides.Presentation("connector_line_angle.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    for shape_index in range(len(slide.shapes)):
-        direction = 0.0
-        shape = slide.shapes[shape_index]
-        if type(shape) is slides.AutoShape and shape.shape_type == slides.ShapeType.LINE:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        elif type(shape) is slides.Connector:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        print(direction)
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 2
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 3
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+
+        x = connector.x
+        y = connector.y
+        if connector.frame.flip_h == slides.NullableBool.TRUE:
+            x += connector.width
+        if connector.frame.flip_v == slides.NullableBool.TRUE:
+            y += connector.height
+
+        x += connector.width * horizontal_bend.raw_value / 100000
+        rotated_x = connector.frame.center_x - y + connector.frame.center_y
+        rotated_y = x - connector.frame.center_x + connector.frame.center_y
+        segment_width = connector.height * vertical_bend.raw_value / 100000
+        guide = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, rotated_x, rotated_y, segment_width, 1)
+        guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+        guide.line_format.fill_format.solid_fill_color.color = draw.Color.red
+
+        presentation.save("rotated-connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Czerwona linia prowadząca oznacza obliczony segment po przekształceniu współrzędnych:
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+Formuły opisują zestawy użyte w przykładach, a nie uniwersalny model łącznika. Zweryfikuj typy regulacji, orientację ramki oraz zakresy wartości przed zastosowaniem tych samych obliczeń do innego zestawu.
+
+## **Znajdź kąt kierunku łącznika**
+
+Kierunek prostego łącznika można obliczyć z jego szerokości i wysokości, uwzględniając odbicia poziome i pionowe. Poniższy przykład podaje kąt w stopniach liczony zgodnie z ruchem wskazówek zegara od dodatniej osi poziomej w współrzędnych slajdu:
+
+```python
+import math
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 100, 100, 200, 100)
+
+    flip_h = connector.frame.flip_h == slides.NullableBool.TRUE
+    flip_v = connector.frame.flip_v == slides.NullableBool.TRUE
+    delta_x = connector.width * (-1 if flip_h else 1)
+    delta_y = connector.height * (-1 if flip_v else 1)
+    angle = math.atan2(delta_y, delta_x) * 180.0 / math.pi
+
+    if angle < 0:
+        angle += 360
+
+    print(f"Connector direction: {angle:.2f} degrees")
 ```
 
 ## **FAQ**
 
-**Jak mogę sprawdzić, czy łącznik może być „przyklejony” do konkretnego kształtu?**
+**Jak mogę sprawdzić, czy łącznik może być przyłączony do kształtu?**
 
-Sprawdź, czy kształt udostępnia [punkty połączenia](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/connection_site_count/). Jeśli ich nie ma lub liczba wynosi zero, przyklejenie nie jest dostępne; w takim wypadku użyj wolnych końcówek i ręcznie je pozycjonuj. Warto sprawdzić liczbę punktów przed przyczepieniem.
+Sprawdź [connection_site_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides/igeometryshape/connection_site_count/) kształtu. Dodatnia liczba oznacza, że kształt udostępnia miejsca połączenia. Zweryfikuj wybrany indeks miejsca przed przypisaniem go do któregoś końca łącznika.
 
-**Co się stanie z łącznikiem, jeśli usunę jeden z połączonych kształtów?**
+**Czy mogę zidentyfikować regulację łącznika po jej indeksie w kolekcji?**
 
-Jego końce zostaną odłączone; łącznik pozostaje na slajdzie jako zwykła linia z wolnym początkiem i końcem. Możesz go usunąć lub ponownie przypisać połączenia i, w razie potrzeby, [przeroutować](https://reference.aspose.com/slides/pl/python-net/aspose.slides/connector/reroute/).
+Indeks ma sens tylko dla znanego zestawu łącznika i układu kolekcji. Sprawdź [IAdjustValue.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iadjustvalue/type/) przed modyfikacją wartości i użyj [IAdjustValue.name](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iadjustvalue/name/) jako dodatkowej informacji, gdy ten sam typ semantyczny występuje wielokrotnie.
 
-**Czy powiązania łączników są zachowywane przy kopiowaniu slajdu do innej prezentacji?**
+**Co się dzieje, gdy połączony kształt zostanie usunięty?**
 
-Zazwyczaj tak, pod warunkiem że skopiowane zostaną również docelowe kształty. Jeśli slajd zostanie wstawiony do innego pliku bez połączonych kształtów, końce staną się wolne i będzie trzeba je ponownie przyczepić.
+Odpowiedni koniec łącznika zostaje odłączony. Łącznik pozostaje na slajdzie i może być usunięty, przekształcony w wolną linię lub przyłączony do innego kształtu.
+
+**Czy powiązania łączników są zachowywane przy kopiowaniu slajdu?**
+
+Powiązania zazwyczaj są zachowywane, gdy połączone kształty są kopiowane razem ze slajdem. Jeśli łącznik zostanie skopiowany bez jednego z docelowych kształtów, odpowiedni koniec musi zostać ponownie przyłączony.

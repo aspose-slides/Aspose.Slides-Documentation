@@ -1,39 +1,37 @@
 ---
-title: ".NET에서 프레젠테이션의 연결선 관리"
-linktitle: "연결선"
+title: .NET에서 프레젠테이션의 연결선 관리
+linktitle: 연결선
 type: docs
 weight: 10
 url: /ko/net/connector/
 keywords:
-- "연결선"
-- "연결선 유형"
-- "연결선 점"
-- "연결선 라인"
-- "연결선 각도"
-- "도형 연결"
-- "PowerPoint"
-- "프레젠테이션"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: ".NET 애플리케이션이 PowerPoint 슬라이드에서 선을 그리기, 연결하기 및 자동 라우팅하도록 지원합니다—직선, 팔꿈치 및 곡선 연결선을 완벽하게 제어할 수 있습니다."
+- 연결선
+- 연결선 유형
+- 연결점
+- 연결선 라인
+- 연결선 각도
+- 연결 지점
+- 조정점
+- 도형 연결
+- PowerPoint
+- 프레젠테이션
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET를 사용하여 직선, 굽은 및 곡선 PowerPoint 연결선을 추가, 연결, 다시 라우팅, 조정 및 검사하는 방법을 배웁니다."
 ---
-## **소개**
+## **Overview**
 
-PowerPoint 연결선은 두 개의 도형을 연결하거나 연결하는 특별한 선이며, 슬라이드에서 도형이 이동하거나 재배치될 때에도 도형에 부착된 상태를 유지합니다.  
+연결선은 두 도형이 움직이더라도 두 도형에 부착된 상태를 유지할 수 있는 선입니다. 끝부분은 PowerPoint에서 녹색 점으로 표시되는 연결 지점에 연결됩니다. 일부 굽은 연결선 및 곡선 연결선은 주황색 점으로 표시되는 조정점을 제공하여 개별 연결선 세그먼트의 위치를 제어합니다.
 
-연결선은 일반적으로 *연결점*(녹색 점)에 연결되며, 모든 도형에 기본적으로 존재합니다. 커서가 연결점에 가까워지면 연결점이 표시됩니다.
+Aspose.Slides는 연결선을 [IConnector](https://reference.aspose.com/slides/ko/net/aspose.slides/iconnector/) 인터페이스를 통해 나타냅니다. 연결선을 만들고, 끝을 도형에 연결하고, 연결 지점을 선택하고, 경로를 다시 잡으며, 조정점이 있는 연결선의 기하학을 수정할 수 있습니다.
 
-*조정점*(주황색 점)은 특정 연결선에만 존재하며, 연결선의 위치와 모양을 수정하는 데 사용됩니다.
+## **Connector Types**
 
-## **연결선 종류**
+[ShapeType](https://reference.aspose.com/slides/ko/net/aspose.slides/shapetype/) 열거형에는 직선, 굽은 및 곡선 연결선 프리셋이 포함됩니다. 다음 표는 사용 가능한 연결선 기하학과 각 프리셋이 정의하는 조정점 수를 보여 줍니다.
 
-PowerPoint에서는 직선, 팔꿈치(각진) 및 곡선 연결선을 사용할 수 있습니다.  
-
-Aspose.Slides는 다음과 같은 연결선을 제공합니다:
-
-| 연결선 | 이미지 | 조정점 수 |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| Connector | Image | Number of adjustment points |
+|---|---|---|
 | `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -45,348 +43,475 @@ Aspose.Slides는 다음과 같은 연결선을 제공합니다:
 | `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **연결선을 사용하여 도형 연결하기**
+조정점의 수와 의미는 선택한 연결선 프리셋에 따라 달라집니다. 두 가지 다른 연결선 유형이 동일한 컬렉션 레이아웃을 제공한다고 가정하지 마세요.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 슬라이드 인덱스를 통해 슬라이드에 대한 참조를 가져옵니다.
-1. `Shapes` 객체가 제공하는 `AddAutoShape` 메서드를 사용하여 슬라이드에 두 개의 [AutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/autoshape/)을 추가합니다.
-1. `Shapes` 객체가 제공하는 `AddConnector` 메서드를 사용하여 연결선 유형을 정의하고 연결선을 추가합니다.
-1. 연결선을 사용하여 도형을 연결합니다.
-1. `Reroute` 메서드를 호출하여 최단 연결 경로를 적용합니다.
-1. 프레젠테이션을 저장합니다.
+## **Connect Two Shapes**
 
-다음 C# 코드는 두 도형(타원과 사각형) 사이에 굽은 연결선(굽은 연결선)을 추가하는 방법을 보여줍니다:
+[IShapeCollection.AddConnector](https://reference.aspose.com/slides/ko/net/aspose.slides/ishapecollection/addconnector/)를 사용하여 연결선을 추가하고, 해당 연결선의 [StartShapeConnectedTo](https://reference.aspose.com/slides/ko/net/aspose.slides/connector/startshapeconnectedto/) 및 [EndShapeConnectedTo](https://reference.aspose.com/slides/ko/net/aspose.slides/connector/endshapeconnectedto/) 속성을 지정합니다. 두 끝이 모두 연결된 후, [IConnector.Reroute](https://reference.aspose.com/slides/ko/net/aspose.slides/iconnector/reroute/)를 호출하면 도형 사이의 짧은 경로가 선택됩니다.
 
-```c#
-// PPTX 파일을 나타내는 프레젠테이션 클래스를 인스턴스화합니다
-using (Presentation input = new Presentation())
-{                
-    // 특정 슬라이드의 도형 컬렉션에 접근합니다
-    IShapeCollection shapes = input.Slides[0].Shapes;
+다음 예시는 타원과 사각형을 굽은 연결선으로 연결합니다.
 
-    // 타원 자동 도형을 추가합니다
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 사각형 자동 도형을 추가합니다
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // 슬라이드 도형 컬렉션에 연결선 도형을 추가합니다
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // 연결선을 사용하여 도형을 연결합니다
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // 도형 간 자동 최단 경로를 설정하는 reroute를 호출합니다
-    connector.Reroute();
-
-    // 프레젠테이션을 저장합니다
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
+`Reroute`를 호출하면 [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/ko/net/aspose.slides/connector/startshapeconnectionsiteindex/) 및 [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/ko/net/aspose.slides/connector/endshapeconnectionsiteindex/) 값이 변경될 수 있습니다. 해당 사이트를 고정해야 하는 경우, 경로를 다시 잡은 후에 특정 연결 지점을 다시 할당하세요.
+{{% /alert %}}
 
-`Connector.Reroute` 메서드는 연결선을 재배선하고 도형 사이의 가장 짧은 경로를 강제로 취하도록 합니다. 이를 수행하기 위해 메서드는 `StartShapeConnectionSiteIndex` 및 `EndShapeConnectionSiteIndex` 점을 변경할 수 있습니다. 
+## **Choose a Connection Site**
 
-{{% /alert %}} 
+각 연결 가능한 도형은 [ConnectionSiteCount](https://reference.aspose.com/slides/ko/net/aspose.slides/shape/connectionsitecount/)을 통해 사이트 수를 보고합니다. 연결선 끝에 할당하기 전에 선호하는 0 기반 사이트 인덱스를 검증하세요; 사이트 수는 도형의 기하학에 따라 다릅니다.
 
-## **연결점 지정하기**
-연결선이 도형의 특정 점을 사용하여 두 도형을 연결하도록 하려면 다음과 같이 선호하는 연결점을 지정해야 합니다:
+다음 예시는 해당 사이트가 존재할 경우 타원의 특정 사이트에 연결선을 연결합니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 슬라이드 인덱스를 통해 슬라이드에 대한 참조를 가져옵니다.
-1. `Shapes` 객체가 제공하는 `AddAutoShape` 메서드를 사용하여 슬라이드에 두 개의 [AutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/autoshape/)을 추가합니다.
-1. `Shapes` 객체가 제공하는 `AddConnector` 메서드를 사용하여 연결선 유형을 정의하고 연결선을 추가합니다.
-1. 연결선을 사용하여 도형을 연결합니다.
-1. 도형에 선호하는 연결점을 설정합니다.
-1. 프레젠테이션을 저장합니다.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-다음 C# 코드는 선호하는 연결점을 지정하는 작업을 보여줍니다:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
- // PPTX 파일을 나타내는 프레젠테이션 클래스를 인스턴스화합니다
-using (Presentation presentation = new Presentation())
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // 특정 슬라이드의 도형 컬렉션에 접근합니다
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // 슬라이드의 도형 컬렉션에 연결선 도형을 추가합니다
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // 타원 자동 도형을 추가합니다
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // 사각형 자동 도형을 추가합니다
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // 연결선을 사용하여 도형을 연결합니다
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // 타원 도형에 원하는 연결점 인덱스를 설정합니다
-    uint wantedIndex = 6;
-
-    // 선호하는 인덱스가 최대 사이트 인덱스 개수보다 작은지 확인합니다
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // 타원 자동 도형에 원하는 연결점을 설정합니다
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // 프레젠테이션을 저장합니다
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
-## **연결선 점 조정하기**
+## **Adjust a Connector Point**
 
-조정점이 있는 기존 연결선을 조정할 수 있습니다. 조정점이 있는 연결선만 이 방식으로 변경할 수 있습니다. **[연결선 종류](/slides/ko/net/connector/#types-of-connectors)** 표를 참고하세요.
+조정점을 가진 연결선은 [IGeometryShape.Adjustments](https://reference.aspose.com/slides/ko/net/aspose.slides/igeometryshape/adjustments/)를 통해 노출됩니다. 각 [IAdjustValue](https://reference.aspose.com/slides/ko/net/aspose.slides/iadjustvalue/)를 검사하고, [Type](https://reference.aspose.com/slides/ko/net/aspose.slides/adjustvalue/type/)을 확인한 후 [RawValue](https://reference.aspose.com/slides/ko/net/aspose.slides/adjustvalue/rawvalue/)를 변경하세요. 프리셋 도형 조정 식별에 대한 일반 규칙은 [Shape Manipulation](/slides/ko/net/shape-manipulations/)에 설명되어 있습니다.
 
-### **단순 사례**
+연결선 조정의 수, 순서, 의미 및 유효값 범위는 연결선 프리셋에 따라 달라집니다. `Type` 속성은 읽기 전용이며, 조정값은 쓰기가 가능합니다. 동일한 의미 유형에 대해 여러 조정이 존재하는 경우, 읽기 전용 [Name](https://reference.aspose.com/slides/ko/net/aspose.slides/adjustvalue/name/) 속성이 추가 식별 정보를 제공합니다.
 
-두 도형(A와 B) 사이의 연결선이 세 번째 도형(C)을 통과하는 경우를 고려합니다:
+### **Route Around an Obstacle**
+
+다음 레이아웃에서 두 도형 사이의 `BentConnector5` 연결선이 세 번째 도형을 통과합니다.
 
 ![connector-obstruction](connector-obstruction.png)
 
-코드:
+이 코드는 방해되는 연결선을 생성합니다.
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-세 번째 도형을 피하거나 우회하려면 연결선을 왼쪽으로 수직선을 이동시켜 조정할 수 있습니다:
+세로 굽힘을 이동하면 경로가 바뀌어 연결선이 장애물을 우회합니다.
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+컬렉션 인덱스 `1`이 항상 세로 굽힘을 나타낸다고 가정하는 대신, 이 예시는 `ConnectorBendPositionY`를 찾아 기대되는 의미 유형이 존재할 때만 변경합니다.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **복합 사례** 
+`BentConnector5`에는 두 개의 `ConnectorBendPositionX` 조정과 하나의 `ConnectorBendPositionY` 조정이 있습니다. 필요한 유형이 여러 번 발생하면, `Name`과 해당 프리셋의 알려진 기하학을 확인한 후 선택하세요. 조정이 `ShapeAdjustmentType.Custom`을 반환하면 의미와 범위는 프리셋별이며, 계약이 명확해질 때까지 변경하지 마세요.
 
-보다 복잡한 조정을 수행하려면 다음 사항을 고려해야 합니다:
+## **Relate Adjustment Values to Connector Geometry**
 
-* 연결선의 조정점은 위치를 계산하고 결정하는 수식과 강하게 연결되어 있습니다. 따라서 점 위치를 변경하면 연결선 모양이 바뀔 수 있습니다.
-* 연결선의 조정점은 배열에 엄격한 순서대로 정의됩니다. 조정점은 연결선 시작점에서 끝점까지 번호가 매겨집니다.
-* 조정점 값은 연결선 형태의 너비/높이 비율을 나타냅니다.  
-  * 형태는 연결선 시작점과 끝점을 1000배한 범위 내에 있습니다.  
-  * 첫 번째, 두 번째, 세 번째 점은 각각 너비 비율, 높이 비율, 다시 너비 비율을 정의합니다.
-* 연결선 조정점 좌표를 계산할 때는 연결선의 회전 및 반사를 고려해야 합니다. **Note**: **[연결선 종류](/slides/ko/net/connector/#types-of-connectors)**에 표시된 모든 연결선의 회전 각도는 0입니다.
+굽은 연결선의 경우, 조정값을 사용하여 개별 세그먼트 위치를 추정할 수 있습니다. 이러한 계산은 연결선 프리셋에 특화됩니다.
 
-#### **사례 1**
+- `BentConnector4`는 일반적으로 하나의 `ConnectorBendPositionX`와 하나의 `ConnectorBendPositionY` 조정을 노출합니다.
+- 이러한 굽힘 위치에 대해 `RawValue / 100000f`는 아래 예제에서 사용되는 연결선 프레임 너비 또는 높이의 비율을 생성합니다.
+- 연결선 프레임은 회전하거나 뒤집을 수 있으므로, 프레임 좌표를 슬라이드 좌표와 비교하기 전에 변환해야 합니다.
 
-두 텍스트 프레임 개체가 연결선을 통해 연결된 경우를 고려합니다:
+다음 예제는 먼저 `Type`을 사용해 조정을 식별합니다. 컬렉션 인덱스를 이식 가능한 식별자로 취급하지 않습니다.
+
+### **Unrotated Connector**
+
+초기 레이아웃에는 `BentConnector4`로 연결된 두 텍스트 도형이 있습니다.
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-코드:
+이 예시는 연결선을 검사하고 수평 및 수직 굽힘 조정을 가져옵니다.
 
-```c#
-// PPTX 파일을 나타내는 프레젠테이션 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
-// 프레젠테이션의 첫 번째 슬라이드를 가져옵니다
-ISlide sld = pres.Slides[0];
-// 연결선을 통해 결합될 도형들을 추가합니다
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// 연결선을 추가합니다
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// 연결선의 방향을 지정합니다
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// 연결선의 색상을 지정합니다
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// 연결선의 선 두께를 지정합니다
 connector.LineFormat.Width = 3;
-
-// 연결선을 사용해 도형들을 연결합니다
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// 연결선의 조정점을 가져옵니다
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**조정**
+두 굽힘을 모두 변경하려면 각 기대 유형을 찾아 두 값이 모두 발견된 후에만 수정합니다.
 
-해당 너비와 높이 비율을 각각 20%와 200% 증가시켜 연결선의 조정점 값을 변경할 수 있습니다:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// 조정점의 값을 변경합니다
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-결과:
+그 결과 수평 및 수직 세그먼트가 이동한 연결선이 나타납니다.
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-개별 부분의 좌표와 형태를 결정할 수 있는 모델을 정의하기 위해, 연결선.Adjustments[0] 점에 해당하는 수평 요소를 나타내는 도형을 만들어 보겠습니다:
+의미 유형이 확인되면 값을 연결선 프레임 좌표로 변환할 수 있습니다. 이 예시는 두 굽힘 조정이 제어하는 수직 세그먼트 위에 얇은 사각형을 그립니다.
 
-```c#
-// 연결선의 수직 구성 요소를 그립니다
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-결과:
+가이드 도형은 계산된 세그먼트를 표시합니다.
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **사례 2**
+### **Rotated or Flipped Connector**
 
-**사례 1**에서 기본 원리를 사용한 간단한 연결선 조정 작업을 보여주었습니다. 일반 상황에서는 연결선 회전 및 표시(Connector.Rotation, Connector.Frame.FlipH, Connector.Frame.FlipV)도 고려해야 합니다. 이제 과정을 시연합니다.
+동일한 연결선 기하학이 수직으로 배치될 때, [Frame](https://reference.aspose.com/slides/ko/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/ko/net/aspose.slides/shapeframe/fliph/), [FlipV](https://reference.aspose.com/slides/ko/net/aspose.slides/shapeframe/flipv/) 값이 연결선 프레임 좌표를 슬라이드 좌표로 변환하는 방식에 영향을 줍니다.
 
-먼저, 슬라이드에 새로운 텍스트 프레임 개체(**To 1**)를 추가하고(연결 목적) 기존 개체에 연결되는 새로운(녹색) 연결선을 생성합니다.
+이 예시는 수직으로 배치된 연결선을 생성하고 조정합니다.
 
-```c#
-// 새 바인딩 개체를 생성합니다
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// 새 연결선을 생성합니다
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// 새로 만든 연결선을 사용하여 객체를 연결합니다
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// 연결선의 조정점을 가져옵니다
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// 조정점의 값을 변경합니다 
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-결과:
+조정된 연결선은 도형 사이에 수직으로 표시됩니다.
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-둘째, 새 연결선의 조정점 connector.Adjustments[0]을 통과하는 수평 요소에 해당하는 도형을 만들겠습니다. 여기서는 connector.Rotation, connector.Frame.FlipH, connector.Frame.FlipV 값을 사용하고, 주어진 점 x0을 기준으로 회전하는 일반 좌표 변환 수식을 적용합니다:
+임의의 회전 각도 `alpha`에 대해, 연결선 프레임 점 `(x, y)`를 프레임 중심 `(x0, y0)` 주위로 회전하면:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-우리 경우 객체 회전 각도가 90도이며, 연결선이 수직으로 표시되므로 해당 코드는 다음과 같습니다:
+다음 코드는 이 예제에서 사용된 90도 방향을 처리하고, 해당 연결선 세그먼트 위에 빨간색 가이드를 그립니다.
 
-```c#
- // 연결선 좌표를 저장합니다
-x = connector.X;
-y = connector.Y;
- // 연결선 좌표가 나타날 경우 이를 보정합니다
-if (connector.Frame.FlipH == NullableBool.True)
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
-{
-    y += connector.Height;
-}
- // 조정점 값을 좌표로 사용합니다
-x += connector.Width * adjValue_0.RawValue / 100000;
- //  좌표를 변환합니다 (Sin(90)=1, Cos(90)=0이므로)
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
- // 두 번째 조정점 값을 사용해 수평 구성 요소의 너비를 결정합니다
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-결과:
+좌표 변환 후 빨간색 가이드는 계산된 세그먼트를 표시합니다.
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-우리는 간단한 조정과 복잡한 조정점(회전 각도가 있는 조정점) 계산을 시연했습니다. 이 지식을 활용하면 `GraphicsPath` 객체를 얻거나 특정 슬라이드 좌표에 따라 연결선 조정점 값을 설정하는 자체 모델(또는 코드를) 개발할 수 있습니다.
+이 수식은 예제에 사용된 프리셋을 설명한 것이며 보편적인 연결선 모델을 의미하지 않습니다. 다른 프리셋에 동일한 계산을 적용하기 전에 조정 유형, 프레임 방향 및 값 범위를 검증하세요.
 
-## **연결선의 각도 찾기**
-1. [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 슬라이드 인덱스를 통해 슬라이드에 대한 참조를 가져옵니다.
-1. 연결선 도형에 접근합니다.
-1. 선의 너비, 높이, 도형 프레임 높이 및 도형 프레임 너비를 사용하여 각도를 계산합니다.
+## **Find a Connector Direction Angle**
 
-다음 C# 코드는 연결선 도형의 각도를 계산하는 작업을 보여줍니다:
+직선 연결선의 방향은 너비와 높이, 그리고 수평·수직 뒤집기를 적용하여 계산할 수 있습니다. 다음 예제는 슬라이드 좌표계에서 양의 수평 축을 기준으로 시계 방향 각도를 보고합니다.
 
-```c#
-public static void Run()
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
 ## **FAQ**
 
-**연결선을 특정 도형에 “붙일 수” 있는지 어떻게 확인합니까?**
+**How can I tell whether a connector can attach to a shape?**
 
-해당 도형이 [연결 사이트](https://reference.aspose.com/slides/ko/net/aspose.slides/shape/connectionsitecount/)를 제공하는지 확인하세요. 연결 사이트가 없거나 개수가 0이면 붙이기가 지원되지 않으며, 이 경우 자유 끝점을 사용해 수동으로 위치를 지정해야 합니다. 붙이기 전에 사이트 개수를 확인하는 것이 바람직합니다.
+도형의 `ConnectionSiteCount`를 확인하세요. 양수 값은 도형이 연결 지점을 제공한다는 의미입니다. 연결선 끝에 할당하기 전에 선택한 사이트 인덱스를 검증하세요.
 
-**연결된 도형 중 하나를 삭제하면 연결선은 어떻게 됩니까?**
+**Can I identify a connector adjustment by its collection index?**
 
-양 끝이 분리됩니다; 연결선은 자유 시작/끝을 가진 일반 선으로 슬라이드에 남습니다. 이를 삭제하거나 다시 연결하고 필요에 따라 [reroute](https://reference.aspose.com/slides/ko/net/aspose.slides/connector/reroute/)할 수 있습니다.
+인덱스는 알려진 연결선 프리셋 및 컬렉션 레이아웃에 대해서만 의미가 있습니다. 값을 수정하기 전에 `IAdjustValue.Type`을 확인하고, 동일한 의미 유형이 여러 번 나타날 경우 `IAdjustValue.Name`을 추가 정보로 사용하세요.
 
-**슬라이드를 다른 프레젠테이션에 복사할 때 연결선 바인딩이 유지됩니까?**
+**What happens when a connected shape is deleted?**
 
-일반적으로 대상 도형도 함께 복사되면 유지됩니다. 슬라이드가 연결된 도형 없이 다른 파일에 삽입되면 양 끝이 자유롭게 되고 다시 붙여야 합니다.
+해당 연결선 끝은 분리됩니다. 연결선은 슬라이드에 남아 자유선으로 유지되거나 삭제되거나 다른 도형에 다시 연결될 수 있습니다.
+
+**Are connector bindings preserved when a slide is copied?**
+
+연결된 도형과 함께 슬라이드가 복사되면 일반적으로 바인딩이 유지됩니다. 연결선만 복사되고 대상 도형 중 하나가 없을 경우, 영향을 받은 끝을 다시 연결해야 합니다.

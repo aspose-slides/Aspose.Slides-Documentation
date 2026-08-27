@@ -7,399 +7,476 @@ url: /fa/androidjava/shape-manipulations/
 keywords:
 - شکل پاورپوینت
 - شکل ارائه
-- شکل در اسلاید
+- شکل روی اسلاید
 - یافتن شکل
-- کلون کردن شکل
+- کلون شکل
 - حذف شکل
-- پنهان کردن شکل
+- مخفی‌سازی شکل
 - تغییر ترتیب شکل
-- دریافت شناسه Interop شکل
+- دریافت شناسهٔ شکل Interop
 - متن جایگزین شکل
-- فرمت‌های طرح‌بندی شکل
+- نقطه تنظیم شکل
+- تنظیم پیش‌فرض شکل
+- هندسه شکل
+- قالب‌بندی‌های چیدمان شکل
 - شکل به‌صورت SVG
 - شکل به SVG
 - تراز کردن شکل
+- چرخاندن شکل
 - پاورپوینت
 - ارائه
 - اندروید
 - جاوا
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال را در Aspose.Slides برای اندروید از طریق جاوا ایجاد، ویرایش و بهینه کنید و ارائه‌های پاورپوینت با عملکرد بالا تحویل دهید."
+description: "یاد بگیرید چگونه اشکال ارائه را شناسایی، تنظیم، کلون، حذف، مخفی‌سازی، ترتیب‌دهی مجدد، صادرات، تراز و چرخاندن کنید با Aspose.Slides برای اندروید از طریق جاوا."
 ---
 ## **بررسی کلی**
 
-این مقاله نحوه کار با اشکال در ارائه‌ها با استفاده از Aspose.Slides را شرح می‌دهد. نشان می‌دهد چگونه می‌توان یک شکل را در اسلاید یافت، کلون کرد، حذف کرد، مخفی کرد، ترتیب آن را تغییر داد، شناسه Interop شکل را به‌دست آورد و متن جایگزین را برای شناسایی و پردازش‌های بعدی تنظیم کرد.
+Aspose.Slides for Android via Java اشکال موجود در یک اسلاید را به‌صورت یک ‎[IShapeCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/)‎ مرتب نمایش می‌دهد. این مجموعه هم محل یافتن و ویرایش اشکال است و هم منبع ترتیب لایه‑بندی آن‌ها: اندیس `0` به‌معنای پشت‌ترین شکل است و آخرین اندیس به‌معنای جلوی‌ترین شکل.
 
-همچنین نحوه دسترسی به فرمت‌های طرح‌بندی برای اشکال، رندر یک شکل به‌صورت SVG، تراز کردن اشکال در اسلاید و استفاده از ویژگی‌های وارونه‌سازی برای آینه‌برداری افقی و عمودی را پوشش می‌دهد. علاوه بر این، مقاله شامل یک بخش کوتاه پرسش و پاسخ درباره ترکیب اشکال، ترتیب لایه‌ها و قفل کردن شکل‌ها است.
+این مقاله بر این مدل استوار است. ابتدا نحوه شناسایی قابل‌اعتماد یک شکل و تغییر نقطه تنظیمات از پیش تعریف‌شدهٔ آن را توضیح می‌دهد، سپس نحوهٔ کلون، حذف، مخفی‌سازی و تغییر ترتیب شکل‌ها را نشان می‌دهد. بخش‌های نهایی به قالب‌بندی در سطح طرح‌بندی، خروجی SVG، ترازکردن و تنظیمات چرخش می‌پردازند. هر مثال مستقل است، بنابراین می‌توانید تنها عملیاتی را که جریان کاری‌تان نیاز دارد، استفاده کنید.
 
-## **پیدا کردن یک شکل در اسلاید**
-این موضوع یک تکنیک ساده را برای راحت‌تر کردن پیدا کردن شکل خاصی در اسلاید بدون استفاده از شناسه داخلی آن توصیف می‌کند. مهم است بدانید فایل‌های ارائه PowerPoint هیچ راهی برای شناسایی اشکال در یک اسلاید به‌جز یک شناسه یکتای داخلی ندارند. برای توسعه‌دهندگان یافتن شکل با استفاده از این شناسه یکتا می‌تواند دشوار باشد. تمام اشکالی که به اسلایدها اضافه می‌شوند دارای متن Alt هستند. ما به توسعه‌دهندگان پیشنهاد می‌کنیم برای یافتن شکل خاص، از متن جایگزین استفاده کنند. می‌توانید با استفاده از MS PowerPoint متن جایگزین برای اشیائی که قصد تغییرشان را در آینده دارید تعریف کنید.
+## **شناسایی و یافتن اشکال**
 
-پس از تنظیم متن جایگزین برای هر شکل دلخواه، می‌توانید آن ارائه را با Aspose.Slides برای Android از طریق Java باز کنید و در تمام اشکال اضافه‌شده به یک اسلاید تکرار کنید. در هر بار تکرار می‌توانید متن جایگزین شکل را بررسی کنید و شکلی که متن جایگزین آن مطابقت داشت، همان شکلی است که نیاز دارید. برای نشان دادن این تکنیک به‌صورت بهتر، ما روشی به نام [findShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) ایجاد کرده‌ایم که کار پیدا کردن یک شکل خاص در اسلاید را انجام می‌دهد و سادهاً آن شکل را برمی‌گرداند.
+اندیس‌های مجموعه هنگام پردازش یک فایل شناخته‌شده راحت هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا تغییر ترتیب یک شکل می‌تواند اندیس آن را تغییر دهد. شناسه‌ای متناسب با نحوهٔ ساخت و نگهداری ارائه انتخاب کنید:
 
-```java
-// یک کلاس Presentation را که نشان‌دهنده فایل ارائه است، ایجاد کنید
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getName--) برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در **پنل انتخاب** PowerPoint به‌راحتی قابل مشاهده است. نام‌ها قابل ویرایش‌اند اما تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است، یک کنوانسیون نام‌گذاری اتخاذ کنید.
+- [AlternativeText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getAlternativeText--) زمانی مفید است که یک توضیح دسترس‌پذیری یا برچسبی که توسط نویسنده افزوده شده، پیشاپیش شکل را شناسایی کند. این متن برای کاربران قابل دیدن است، می‌تواند بومی‌سازی یا برای دسترس‌پذیری بازنویسی شود و یکتایی تضمین نمی‌شود. متن دسترس‌پذیری معنادار را به‌صورت ساکت به‌عنوان کلید دیتابیس استفاده نکنید.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) یک شناسهٔ فقط‑خواندنی است که در داخل یک اسلاید یکتا بوده و با شناسهٔ شکل مورد استفاده در PowerPoint Interop مطابقت دارد. زمانی که با PowerPoint ادغام می‌کنید یا نیاز به مرجع واضح در طول عمر یک شکل دارید، از آن استفاده کنید. یک شکل کلون‑شده یا دوباره‌ساخته، شکل دیگری است و شناسهٔ مخصوص به خود را دریافت می‌کند.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // متن جایگزین شکلی که باید یافت شود
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// پیاده سازی متد برای یافتن یک شکل در اسلاید با استفاده از متن جایگزین آن
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // در حال مرور تمام اشکال داخل اسلاید
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // اگر متن جایگزین اسلاید با متن مورد نیاز مطابقت داشته باشد سپس
-        // شکل را بازگردانید
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+متد مرتبط ‎[getUniqueId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getUniqueId--) شناسه‌ای با دامنهٔ ارائه برمی‌گرداند، اما این شناسه برای افزونه‌ها در نظر گرفته شده و می‌تواند مجدداً تخصیص یابد. نباید آن را به‌عنوان کلید خارجی دائمی در نظر گرفت. اگر هویت طولانی‌مدت ضروری است، نگاشت را در داده‌های برنامه ذخیره کنید و اطمینان حاصل کنید که شکل مورد انتظار هنوز وجود دارد.
 
-## **کلون‌کردن یک شکل**
-برای کلون کردن یک شکل به اسلاید با Aspose.Slides برای Android از طریق Java:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از ایندکس آن به‌دست آورید.
-1. به مجموعه شکل‌های اسلاید منبع دسترسی پیدا کنید.
-1. یک اسلاید جدید به ارائه اضافه کنید.
-1. شکل‌ها را از مجموعه شکل‌های اسلاید منبع به اسلاید جدید کلون کنید.
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
-
-مثال زیر یک شکل گروهی را به اسلاید اضافه می‌کند.
+مثال زیر با مقایسهٔ دقیق بر اساس نام جستجو می‌کند و ‎ID‎ اسکُوپ اسلاید را گزارش می‌دهد. وقتی قالب شامل شکل مورد انتظار نباشد، کد همان نتیجه را گزارش می‌کند به‌جای ادامه با شیء اشتباه.
 
 ```java
-// یک نمونه از کلاس Presentation ایجاد کنید
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // فایل PPTX را روی دیسک ذخیره کنید
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **حذف یک شکل**
-Aspose.Slides برای Android از طریق Java به توسعه‌دهندگان اجازه می‌دهد هر شکلی را حذف کنند. برای حذف شکل از هر اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-1. به اسلاید اول دسترسی پیدا کنید.
-1. شکل با متن جایگزین خاص را پیدا کنید.
-1. شکل را حذف کنید.
-1. فایل را روی دیسک ذخیره کنید.
-
-```java
-// شی Presentation را ایجاد کنید
-Presentation pres = new Presentation();
-try {
-    // اولین اسلاید را دریافت کنید
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // افزودن شکل خودکار از نوع مستطیل
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // ارائه را روی دیسک ذخیره کنید
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **پنهان کردن یک شکل**
-Aspose.Slides برای Android از طریق Java به توسعه‌دهندگان اجازه می‌دهد هر شکلی را مخفی کنند. برای مخفی کردن شکل از هر اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-1. به اسلاید اول دسترسی پیدا کنید.
-1. شکل با متن جایگزین خاص را پیدا کنید.
-1. شکل را مخفی کنید.
-1. فایل را روی دیسک ذخیره کنید.
-
-```java
-// یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است، ایجاد کنید
-Presentation pres = new Presentation();
-try {
-    // اولین اسلاید را دریافت کنید
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // افزودن شکل خودکار از نوع مستطیل
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // ارائه را روی دیسک ذخیره کنید
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **تغییر ترتیب شکل**
-Aspose.Slides برای Android از طریق Java به توسعه‌دهندگان اجازه می‌دهد ترتیب اشکال را تغییر دهند. تغییر ترتیب مشخص می‌کند کدام شکل در جلو و کدام در پس‌زمینه قرار می‌گیرد. برای تغییر ترتیب شکل از هر اسلاید، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-1. به اسلاید اول دسترسی پیدا کنید.
-1. یک شکل اضافه کنید.
-1. متنی در فریم متن شکل اضافه کنید.
-1. شکل دیگری با همان مختصات اضافه کنید.
-1. ترتیب اشکال را تغییر دهید.
-1. فایل را روی دیسک ذخیره کنید.
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **دریافت شناسه Interop شکل**
-Aspose.Slides برای Android از طریق Java به توسعه‌دهندگان امکان دریافت یک شناسه یکتا برای شکل در سطح اسلاید را می‌دهد که با متد [getUniqueId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape#getUniqueId--) که شناسه یکتا در سطح ارائه را برمی‌گرداند، متفاوت است. متد [getOfficeInteropShapeId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) به اینترفیس [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape) و کلاس [Shape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Shape) اضافه شده است. مقداری که توسط متد [getOfficeInteropShapeId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) برگردانده می‌شود، معادل مقدار Id شیء Microsoft.Office.Interop.PowerPoint.Shape است. نمونه کد زیر آورده شده است.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // دریافت شناسه یکتای شکل در محدوده اسلاید
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **تنظیم متن جایگزین برای یک شکل**
-Aspose.Slides برای Android از طریق Java به توسعه‌دهندگان اجازه می‌دهد متن جایگزین (AlternateText) هر شکل را تنظیم کنند.
-اشکال در یک ارائه می‌توانند با استفاده از متد [AlternativeText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) یا [Shape Name](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape#setName-java.lang.String-) متمایز شوند.
-متدهای [setAlternativeText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) و [getAlternativeText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape#getAlternativeText--) می‌توانند هم با Aspose.Slides و هم با Microsoft PowerPoint خوانده یا تنظیم شوند.
-با استفاده از این روش می‌توانید یک شکل را برچسب‌گذاری کنید و عملیات مختلفی مانند حذف، مخفی‌سازی یا تغییر ترتیب اشکال روی اسلاید را انجام دهید.
-برای تنظیم AlternateText یک شکل، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-1. به اسلاید اول دسترسی پیدا کنید.
-1. هر شکلی را به اسلاید اضافه کنید.
-1. برخی کارها را با شکل تازه اضافه‌شده انجام دهید.
-1. از میان اشکال عبور کنید تا شکلی را پیدا کنید.
-1. متن جایگزین را تنظیم کنید.
-1. فایل را روی دیسک ذخیره کنید.
-
-```java
-// یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است، ایجاد کنید
-Presentation pres = new Presentation();
-try {
-    // اولین اسلاید را دریافت کنید
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // افزودن شکل خودکار از نوع مستطیل
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // ارائه را روی دیسک ذخیره کنید
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **دسترسی به فرمت‌های طرح‌بندی برای یک شکل**
-Aspose.Slides برای Android از طریق Java یک API ساده برای دسترسی به فرمت‌های طرح‌بندی یک شکل فراهم می‌کند. این مقاله نشان می‌دهد چگونه می‌توانید به فرمت‌های طرح‌بندی دسترسی پیدا کنید.
-
-نمونه کد زیر آورده شده است.
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **رندر یک شکل به‌صورت SVG**
-اکنون Aspose.Slides برای Android از طریق Java از رندر یک شکل به‌صورت SVG پشتیبانی می‌کند. متد [writeAsSvg](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (و overload آن) به کلاس [Shape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Shape) و اینترفیس [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape) اضافه شده است. این متد امکان ذخیره محتوای شکل به‌عنوان فایل SVG را فراهم می‌کند. قطعه کد زیر نشان می‌دهد چگونه شکل اسلاید را به فایل SVG صادر کنید.
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **تراز کردن یک شکل**
-Aspose.Slides امکان تراز کردن اشکال را نسبت به حاشیه‌های اسلاید یا نسبت به یکدیگر فراهم می‌کند. برای این منظور، متد overload شده [SlidesUtil.alignShape()](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) اضافه شده است. شمارش [ShapesAlignmentType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ShapesAlignmentType) گزینه‌های ممکن تراز را تعریف می‌کند.
-
-**مثال 1**
-
-کد منبع زیر اشکال با ایندکس‌های 1، 2 و 4 را در بالای حاشیه اسلاید تراز می‌کند.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**مثال 2**
-
-مثال زیر نشان می‌دهد چگونه تمام مجموعه اشکال را نسبت به شکل پایین‌ترین در مجموعه تراز کنید.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **ویژگی‌های چرخش**
-در Aspose.Slides، کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapeframe/) کنترل آینه‌برداری افقی و عمودی اشکال را از طریق ویژگی‌های `flipH` و `flipV` فراهم می‌کند. هر دو ویژگی از نوع `byte` هستند و مقادیر `1` برای وارونه‌سازی، `0` برای بدون وارونه‌سازی یا `-1` برای استفاده از رفتار پیش‌فرض را می‌پذیرند. این مقادیر از طریق [Frame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getFrame--) شکل قابل دسترس هستند.
-
-برای تغییر تنظیمات واروره‌سازی، یک نمونه جدید از [ShapeFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapeframe/) با موقعیت و اندازه فعلی شکل، مقادیر دلخواه برای `flipH` و `flipV` و زاویه چرخش ساخته می‌شود. انتساب این نمونه به [Frame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getFrame--) شکل و سپس ذخیره ارائه، تبدیل‌های آینه‌ای را اعمال و در فایل خروجی ذخیره می‌کند.
-
-فرض کنید فایلی به نام sample.pptx داریم که اسلاید اول آن شامل یک شکل تک با تنظیمات وارونه‌سازی پیش‌فرض است، همان‌طور که در زیر نشان داده شده است.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-کد زیر ویژگی‌های وارونه‌سازی فعلی شکل را دریافت کرده و آن را به‌صورت افقی و عمودی وارونه می‌کند.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // دریافت ویژگی وارونه‌سازی افقی شکل.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // دریافت ویژگی وارونه‌سازی عمودی شکل.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // وارونه‌سازی افقی.
-    byte flipV = NullableBool.True; // وارونه‌سازی افقی.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-نتیجه:
+هنگامی که عملیاتی مختص به یک نوع شکل است، قبل از استفاده از اعضای نوع‑خاص، اینترفیس را بررسی کنید. این مثال تنها در صورتی که شیء نام‌دار یک ‎[IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/)‎ باشد، متن و متن جایگزین را به‌روز می‌کند.
 
-![The flipped shape](flipped_shape.png)
+```java
+import com.aspose.slides.*;
 
-## **FAQ**
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-**آیا می‌توانم اشکال (اتحاد/تقاطع/تفریق) را در اسلاید همانند یک ویرایشگر دسکتاپ ترکیب کنم؟**
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
 
-یک API عملیات Boolean داخلی وجود ندارد. می‌توانید با ساختن شکل جدیدی که مسیر دلخواه را دارد (مثلاً با استفاده از [GeometryPath](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/geometrypath/)) و حذف اشکال اصلی، به‌صورت تقریبی این کار را انجام دهید.
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-**چگونه می‌توانم ترتیب لایه‌ها (z-order) را کنترل کنم تا یک شکل همیشه «در بالا» بماند؟**
+## **شناسایی و تغییر تنظیمات پیش‌فرض شکل**
 
-ترتیب وارد/جابه‌جایی در مجموعه [shapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseslide/#getShapes--) اسلاید را تغییر دهید. برای نتایج پیش‌بینی‌پذیر، پس از تمام تغییرات دیگر اسلاید، ترتیب z را نهایی کنید.
+اشکال هندسی پیش‌تنظیم‌شده می‌توانند نقاط تنظیمی داشته باشند که ویژگی‌هایی مانند اندازهٔ گوشه، نسبت‌های پیکان یا زوایای قوس را کنترل می‌کنند. برای دسترسی به آن‌ها از مجموعهٔ فقط‑خواندنی ‎[IGeometryShape.getAdjustments](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--)‎ استفاده کنید. خود مجموعه توسط شکل فراهم می‌شود، اما هر ‎[IAdjustValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/)‎ حاوی مقدار قابل تغییر است.
 
-**آیا می‌توانم شکلی را «قفل» کنم تا کاربران در PowerPoint نتوانند آن را ویرایش کنند؟**
+فقط به یک اندیس ثابت مجموعه تکیه نکنید. در تنظیمات مرور کنید و متد فقط‑خواندنی ‎[getType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#getType--)‎ را بررسی کنید؛ مقدار ‎ShapeAdjustmentType‎ توصیف می‌کند تنظیم چه چیزی را کنترل می‌کند. متد فقط‑خواندنی ‎[getName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#getName--)‎ اطلاعات شناسایی تکمیلی فراهم می‌کند و به‌ویژه وقتی یک پیش‌تنظیم چند تنظیم با همان نوع معنایی دارد، مفید است.
 
-بله. پرچم‌های محافظت سطح شکل (مانند قفل انتخاب، حرکت، تغییر اندازه، ویرایش متن) را تنظیم کنید. در صورت نیاز می‌توانید محدودیت‌ها را روی مستر یا لayout اعمال کنید. توجه داشته باشید این حفاظت سطح UI است و ویژگی امنیتی نیست؛ برای حفاظت قوی‌تر می‌توانید آن را با محدودیت‌های سطح فایل مانند [پیشنهادات فقط‌خواندنی یا رمز عبور](/slides/fa/androidjava/password-protected-presentation/) ترکیب کنید.
+از متد مقداری استفاده کنید که با معنی تنظیم منطبق باشد:
+
+| نوع تنظیم | هدف | مقدار برای تغییر |
+|---|---|---|
+| `CornerSize` | اندازهٔ گوشه‌های گرد | [setRawValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | ضخامت دم پیکان | `setRawValue` |
+| `ArrowheadLength` | طول سر پیکان | `setRawValue` |
+| `ArrowheadWidth` | عرض سر پیکان | `setRawValue` |
+| `StartAngle` | زاویهٔ شروع دایره یا قوس | [setAngleValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | زاویهٔ پایان دایره یا قوس | `setAngleValue` |
+
+`getType` و `getName` فقط‑خواندنی هستند. `getRawValue` و `setRawValue` با یک عدد در واحدهای هندسی بومی پیش‌تنظیم کار می‌کنند، در حالی که `getAngleValue` و `setAngleValue` با زاویه بر حسب درجه کار می‌نمایند. تعداد، ترتیب، معنی و بازهٔ معتبر تنظیمات به ‎ShapeType‎ پیش‌تنظیم‑شده وابسته است. مقداری که برای یک پیش‌تنظیم معتبر است، ممکن است برای پیش‌تنظیم دیگری نامعتبر یا اثر متفاوتی داشته باشد.
+
+هنگامی که ‎`getType`‎ مقدار ‎`ShapeAdjustmentType.Custom`‎ را برمی‌گرداند، API معنای معنایی استانداردی را تشخیص نمی‌دهد. ‎`getName`‎، نوع پیش‌تنظیم و مقدار فعلی را بررسی کنید و تنظیم را دست نخورده بگذارید مگر اینکه معنی و بازهٔ مورد انتظار شناخته شده باشد. حتی برای انواع شناخته‌شده، قبل از انتخاب مقدار، بررسی کنید که آیا همان نوع بیش از یک بار رخ می‌دهد یا نه. مقاله ‎[Connector](/slides/fa/androidjava/connector/)‎ این وضعیت را با تنظیمات خم‌کاری‌اتصالات نشان می‌دهد.
+
+مثال کامل زیر نسخه‌های پیش‌فرض و تغییر یافتهٔ سه شکل پیش‌تنظیم‌شده را می‌سازد. برای هر تنظیم، نام و نوع آن را گزارش می‌کند، مقادیر مرتبط با اندازه را با `setRawValue` و زوایا را با `setAngleValue` تغییر می‌دهد و نتیجه را ذخیره می‌کند. ستون چپ هندسه پیش‌فرض را حفظ می‌کند؛ ستون راست مستطیل گرد، پیکان چهار‌سویه و دایرهٔ شعاعی تنظیم‌شده را نشان می‌دهد.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // سرعنوان‌های ستون‌های پیش‌فرض و تنظیم‌شده شکل‌ها را اضافه می‌کند.
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+بررسی نوع معنایی قبل از تغییر مقدار، کد را در مورد قصدش واضح می‌سازد و از فرض اینکه یک اندیس خاص در همهٔ پیش‌تنظیم‌ها همان معنی را دارد، جلوگیری می‌کند.
+
+## **تغییر مجموعهٔ اشکال**
+
+متدهای افزودن، کلون، حذف و تغییر ترتیب بلافاصله بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، دیگر به اندیس‌های ثبت‑شده پیش از آن عمل نباید تکیه کرد.
+
+### **کلون یک شکل**
+
+[addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) یک کپی مستقل می‌سازد و به انتهای مجموعه مقصد اضافه می‌کند. [insertClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) نیز یک کپی می‌سازد اما آن را در اندیس z‑order مشخصی قرار می‌دهد. بارگذاری‌های پذیرفتن مختصات کپی را بدون تغییر اندازه حرکت می‌دهند؛ بارگذاری‌های پذیرندهٔ عرض و ارتفاع می‌توانند اندازهٔ آن را نیز تغییر دهند.
+
+مثال یک اسلاید مقصد می‌سازد، یک مستطیل برچسب‌دار را در جلو کلون می‌کند و یک کلون دوم را در پشت درج می‌کند. تغییرات روی هر دو کلون منبع شکل را تحت تأثیر قرار نمی‌دهد.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+کلون محتوا و قالب‌بندی شکل را کپی می‌کند، شامل نام و متن جایگزین. زمانی که این مقادیر باید یکتا باشند، شناسه‌های منطقی جدید به کلون اختصاص دهید. منابع استفاده‌شده توسط اشکال پیچیده توسط ارائه مدیریت می‌شوند، اما کلون یک آیتم جدید در مجموعه با هویت شکل جدید است.
+
+### **حذف اشکال**
+
+[remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) یک شیء شکل خاص را از مجموعه‌اش حذف می‌کند. هنگام حذف چندین مطابقت طی iteration بر اساس اندیس، از انتها به جلو عبور کنید تا هر اندیس باقی‌مانده معتبر بماند.
+
+این مثال تمام اشکالی را که نام معین دارند حذف می‌کند. شکل را در اندیس جاری می‌خواند، نه یک آیتم ثابت مجموعه، و شکل را بدون نیاز به cast اضافی استفاده می‌کند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+پس از حذف، شمارش اشکال و اندیس‌های اشکال پسین تغییر می‌کند. مراجع به اشکال بدون تغییر نسبت به اندیس‌های ذخیره‌شده قابل‌اعتمادتر هستند. همچنین اتصالات، انیمیشن‌ها و ویژگی‌های دیگر ارائه که ممکن است به شیء حذف‌شده ارجاع دهند را در نظر بگیرید؛ حذف یک شکل قابل‌مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
+
+### **مخفی‌سازی یک شکل**
+
+تنظیم ‎[Hidden](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#setHidden-boolean-)‎ به `true` شکل را در مجموعه نگه می‌دارد اما مانع نمایش آن در نمایش معمولی اسلاید می‌شود. اندیس، قالب‌بندی و محتوای آن برای کد در دسترس می‌مانند، بنابراین مخفی‌سازی برای عناصر اختیاری که ممکن است بعدها دوباره بازگردانده شوند، مناسب است.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+مخفی‌سازی حذف یا امنیت نیست. شیء هنوز می‌تواند توسط کاربر یا کد کشف و دوباره نمایان شود و همچنان بخشی از فایل ارائه باقی می‌ماند.
+
+### **تغییر Z‑Order**
+
+اشکال همپوشانی‌شده بر اساس ترتیب مجموعه نقاشی می‌شوند. ‎[reorder](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-)‎ یک شکل موجود را به یک اندیس هدف بدون کلون کردن منتقل می‌کند. اندیس `0` پشت‌ترین است؛ `size() - 1` جلوی‌ترین.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ابتدا مستطیل ایجاد می‌شود و ابتدا پشت بیضی قرار می‌گیرد. انتقال آن به اندیس نهایی، آن را به جلو می‌آورد. پس از افزودن یا کلون کردن تمام اشکال مرتبط، Z‑Order را نهایی کنید؛ زیرا این عملیات آیتم‌های جدیدی را به مجموعه اضافه یا درج می‌کنند و می‌توانند پشتهٔ موردنظر را تغییر دهند.
+
+## **بازرسی اشکال در اسلایدهای طرح‌بندی**
+
+اسلایدهای عادی، اسلایدهای طرح‌بندی و اسلایدهای مستر مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ طرح‌بندی همان شیء شکل در اسلاید عادی نیست. وقتی نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک طرح‌بندی دارید، اشکال طرح‌بندی را بررسی کنید.
+
+مثال زیر برای هر شکل طرح‌بندی ‎[FillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getFillFormat--)‎ و ‎[LineFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getLineFormat--)‎ را می‌خواند بدون این که فرض کند هر شکل یک `AutoShape` است.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+ویرایش یک طرح‌بندی می‌تواند بر اسلایدهای متعددی که از آن استفاده می‌کنند، تأثیر بگذارد. قبل از تغییر یک شکل طرح‌بندی، تعیین کنید آیا یک اسلاید عادی شیء را به ارث می‌برد یا دارای بازنویسی محلی است و هر اسلایدی که از آن طرح‌بندی استفاده می‌کند را آزمون کنید.
+
+## **صادرات یک شکل به SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) محتوای رندر‌شدهٔ یک شکل را به یک stream می‌نویسد. نتیجه شامل فقط همان شکل است، نه پس‌زمینهٔ کامل اسلاید یا اشکال همسایه.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+در زمان رندر، ارائه را باز نگه دارید. خروجی به قالب‌بندی شکل و به منابعی مانند فونت‌ها و تصویرها وابسته است. اگر به کل ترکیب‌بندی نیاز دارید، به‌جای یک شکل منفرد اسلاید را صادر کنید. فراخواننده مالک stream است و باید آن را ببندد.
+
+## **تراز کردن اشکال**
+
+متد ‎[SlideUtil.alignShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)‎ می‌تواند تمام اشکال یا اندیس‌های مجموعهٔ انتخابی را تراز کند. ‎[ShapesAlignmentType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapesalignmenttype/)‎ نوع لبه، خط مرکزی یا حالت توزیع را مشخص می‌کند. مقدار `alignToSlide` را به `true` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ به `false` تنظیم کنید تا اشکال منتخب نسبت به یکدیگر تراز شوند.
+
+این مثال سه شکل را به لبهٔ بالایی اسلاید تراز می‌کند. ارجاع‌های شکل برگشتی بلافاصله قبل از تراز به اندیس‌های فعلی‌شان تبدیل می‌شوند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+تراز کردن موقعیت‌ها را تغییر می‌دهد، نه Z‑Order. تراز نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی برای تعریف فواصل به تعداد کافی شکل نیاز دارد. اگر پیش از فراخوانی متد مجموعه را تغییر می‌دهید، اندیس‌ها را مجدداً محاسبه کنید.
+
+## **چرخاندن (Flip) یک شکل**
+
+کلاس ‎[ShapeFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapeframe/)‎ موقعیت، اندازه، تنظیمات چرخش افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر `getFlipH` و `getFlipV` از ‎[NullableBool](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/nullablebool/)‎ استفاده می‌کنند: `True` چرخش را فعال می‌کند، `False` غیرفعال می‌کند و `NotDefined` حالت ناشناخته/پیش‌فرض را حفظ می‌کند.
+
+ارائهٔ ورودی زیر شامل یک شکل بدون چرخش است.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+مثال تنها مقادیر فریم دیگر را حفظ می‌کند و تنها دو تنظیم چرخش را جایگزین می‌نماید. این مهم است زیرا اختصاص یک ‎[Frame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-)‎ جدید، فریم کامل را بازنویسی می‌کند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+شکل ذخیره‌شده به‌صورت افقی و عمودی آینه‌ای می‌شود در حالی که موقعیت، اندازه و چرخش آن حفظ می‌شود.
+
+![The shape after flipping](flipped_shape.png)
+
+## **پرسش‌های متداول**
+
+**آیا باید از اندیس مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
+
+فقط برای پردازش‌های کوتاه‌مدتی که مجموعه پیش از استفاده از اندیس تغییر نمی‌کند. برای قالب‌های نوشته‌شده ترجیحاً از یک کنوانسیون معتبر `Name` یا `AlternativeText` استفاده کنید، یا برای کارهای اسکوپ‌دار اسلاید از `OfficeInteropShapeId`.
+
+**آیا مخفی‌سازی یک شکل آن را از Z‑Order حذف می‌کند؟**
+
+خیر. یک شکل مخفی در همان اندیس در مجموعه باقی می‌ماند. می‌توان آن را یافت، دوباره ترتیب داد، ویرایش کرد یا دوباره نمایان ساخت.
+
+**چرا یک شکل کلون‌شده در جلو شکل دیگری ظاهر شد؟**
+
+`addClone` کلون را به انتهای مجموعه اضافه می‌کند که جلوی Z‑Order است. برای انتخاب اندیس اولیه از `insertClone` استفاده کنید یا پس از افزودن تمام اشکال از `reorder` بهره ببرید.
+
+**آیا می‌توانم از یک اندیس ثابت برای شناسایی تنظیم پیش‌تنظیم‌شدهٔ یک شکل استفاده کنم؟**
+
+فقط پس از اعتبارسنجی دقیق پیش‌تنظیم و چینش مجموعه. ترجیحاً به ‎`IGeometryShape.getAdjustments`‎ مرور کنید و `IAdjustValue.getType` را بررسی کنید؛ وقتی همان نوع معنایی بیش از یک بار ظاهر می‌شود، از `IAdjustValue.getName` به عنوان اطلاعات تکمیلی استفاده کنید.

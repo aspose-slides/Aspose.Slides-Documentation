@@ -1,391 +1,517 @@
 ---
-title: Správa konektorů v prezentacích v .NET
-linktitle: Konektor
+title: Správa spojnic v prezentacích v .NET
+linktitle: Spojnice
 type: docs
 weight: 10
 url: /cs/net/connector/
 keywords:
-- konektor
-- typ konektoru
-- bod konektoru
-- čára konektoru
-- úhel konektoru
+- spojnice
+- typ spojnice
+- bod spojnice
+- čára spojnice
+- úhel spojnice
+- napojovací místo
+- upravovací bod
 - propojit tvary
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Umožněte aplikacím .NET kreslit, propojovat a automaticky směrovat čáry v PowerPoint snímcích — získejte plnou kontrolu nad přímými, ohnutými a zakřivenými konektory."
+description: "Naučte se přidávat, připojovat, přepočítávat, upravovat a zkoumat rovné, ohnuté a zakřivené spojnice PowerPointu s Aspose.Slides pro .NET."
 ---
-## **Úvod**
+## **Přehled**
 
-Konektor PowerPointu je speciální čára, která spojuje nebo propojuje dva tvary dohromady a zůstává připojena k tvarům i při jejich přesunu nebo repositionování na daném snímku.  
+Spojnice je čára, která může zůstat připojena ke dvěma tvarem, když se kterýkoliv z tvarů pohybuje. Její konce se připojují k napojovacím místům, která jsou v PowerPointu zobrazena zelenými body. Některé ohnuté a zakřivené spoje také vystavují úpravové body, zobrazené oranžovými body, které řídí polohu jednotlivých segmentů spoje.
 
-Konektory jsou typicky připojeny ke *spojovacím bodům* (zelené tečky), které jsou ve výchozím nastavení přítomny na všech tvarech. Spojovací body se zobrazí, když se kurzor k nim přiblíží.  
+Aspose.Slides představuje spoje prostřednictvím rozhraní [IConnector](https://reference.aspose.com/slides/cs/net/aspose.slides/iconnector/). Můžete je vytvářet, připojovat jejich konce k tvarům, vybírat napojovací místa, přepočítávat je a měnit geometrii spojnic, které mají úpravové body.
 
-*Úpravy bodů* (oranžové tečky), které existují jen u některých konektorů, slouží k úpravě polohy a tvaru konektorů.  
+## **Typy spojnic**
 
-## **Typy konektorů**
+Výčtová hodnota [ShapeType](https://reference.aspose.com/slides/cs/net/aspose.slides/shapetype/) zahrnuje přednastavené rovné, ohnuté a zakřivené spoje. Následující tabulka zobrazuje dostupné geometrie spojnic a počet úpravových bodů definovaný každým přednastavením.
 
-V PowerPointu můžete používat přímé, ohnuté (úhlové) a zakřivené konektory.  
+| Spojnice | Obrázek | Počet úpravových bodů |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides poskytuje následující konektory:
+Počet a význam úpravových bodů jsou součástí vybraného přednastavení spoje. Nepředpokládejte, že dva různé typy spojnic mají stejný rozložení kolekce.
 
-| Konektor                      | Obrázek                                                        | Počet úpravných bodů |
-| ------------------------------ | ------------------------------------------------------------ | -------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                    |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                    |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                    |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                    |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                    |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                    |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                    |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                    |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                    |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                    |
+## **Propojení dvou tvarů**
 
-## **Propojení tvarů pomocí konektorů**
+Použijte [IShapeCollection.AddConnector](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addconnector/) k přidání spoje a přiřaďte jeho vlastnosti [StartShapeConnectedTo](https://reference.aspose.com/slides/cs/net/aspose.slides/connector/startshapeconnectedto/) a [EndShapeConnectedTo](https://reference.aspose.com/slides/cs/net/aspose.slides/connector/endshapeconnectedto/). Po připojení obou konců [IConnector.Reroute](https://reference.aspose.com/slides/cs/net/aspose.slides/iconnector/reroute/) vybere krátkou cestu mezi tvary.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek prostřednictvím jeho indexu.
-1. Přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/autoshape/) pomocí metody `AddAutoShape` poskytované objektem `Shapes`.
-1. Přidejte konektor pomocí metody `AddConnector` poskytované objektem `Shapes` a definujte typ konektoru.
-1. Propojte tvary pomocí konektoru.
-1. Zavolejte metodu `Reroute`, aby se použila nejkratší cesta připojení.
-1. Uložte prezentaci.  
+Následující příklad spojuje elipsu a obdélník ohnutou spojnicí:
 
-Tento C# kód vám ukazuje, jak přidat konektor (ohnutý konektor) mezi dva tvary (elipsu a obdélník):
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-using (Presentation input = new Presentation())
-{                
-    // Přistupuje ke kolekci tvarů konkrétního snímku
-    IShapeCollection shapes = input.Slides[0].Shapes;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Přidá automatický tvar Elipsa
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Přidá automatický tvar Obdélník
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // Přidá tvar konektoru do kolekce tvarů snímku
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Propojí tvary pomocí konektoru
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Volá metodu reroute, která nastaví automatickou nejkratší cestu mezi tvary
-    connector.Reroute();
-
-    // Uloží prezentaci
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Metoda Connector.Reroute` přesměruje konektor a vynutí, aby zvolil nejkratší možnou cestu mezi tvary. K dosažení tohoto cíle může metoda změnit body `StartShapeConnectionSiteIndex` a `EndShapeConnectionSiteIndex`. 
-{{% /alert %}} 
+{{% alert color="warning" title="Varování" %}}
+Volání `Reroute` může změnit hodnoty [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/net/aspose.slides/connector/startshapeconnectionsiteindex/) a [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/cs/net/aspose.slides/connector/endshapeconnectionsiteindex/). Připojte konkrétní napojovací místa po přepočítání, pokud musí zůstat pevná.
+{{% /alert %}}
 
-## **Určení spojovacího bodu**
+## **Výběr napojovacího místa**
 
-Pokud chcete, aby konektor propojil dva tvary pomocí konkrétních bodů na tvarech, musíte specifikovat své preferované spojovací body tímto způsobem:
+Každý připojitelný tvar udává počet svých míst pomocí [ConnectionSiteCount](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/connectionsitecount/). Ověřte preferovaný nulový index místa před jeho přiřazením ke konci spoje; počet míst se liší podle geometrie tvaru.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek prostřednictvím jeho indexu.
-1. Přidejte na snímek dva [AutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/autoshape/) pomocí metody `AddAutoShape` poskytované objektem `Shapes`.
-1. Přidejte konektor pomocí metody `AddConnector` poskytované objektem `Shapes` a definujte typ konektoru.
-1. Propojte tvary pomocí konektoru.
-1. Nastavte své preferované spojovací body na tvarech.
-1. Uložte prezentaci.  
+Tento příklad připojuje spojnici ke konkrétnímu místu na elipse, pokud toto místo existuje:
 
-Tento C# kód demonstruje operaci, kde je specifikován preferovaný spojovací bod:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // Přistupuje ke kolekci tvarů konkrétního snímku
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // Přidá tvar konektoru do kolekce tvarů snímku
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // Přidá automatický tvar Elipsu
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // Přidá automatický tvar Obdélníku
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // Propojí tvary pomocí konektoru
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Nastaví preferovaný index spojovacího bodu na tvaru Elipsy
-    uint wantedIndex = 6;
-
-    // Kontroluje, zda je preferovaný index menší než maximální počet spojovacích míst
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // Nastaví preferovaný spojovací bod na automatickém tvaru Elipsy
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // Uloží prezentaci
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
-## **Úprava bodu konektoru**
+## **Úprava bodu spoje**
 
-Existující konektor můžete upravit pomocí jeho úpravných bodů. Pouze konektory s úpravnými body lze tímto způsobem měnit. Viz tabulka pod **[Typy konektorů.](/slides/cs/net/connector/#types-of-connectors)**  
+Spojnice s úpravovými body je vystavuje prostřednictvím [IGeometryShape.Adjustments](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape/adjustments/). Prozkoumejte každou [IAdjustValue](https://reference.aspose.com/slides/cs/net/aspose.slides/iadjustvalue/) a před změnou zkontrolujte její [Type](https://reference.aspose.com/slides/cs/net/aspose.slides/adjustvalue/type/). Všeobecná pravidla pro identifikaci úprav přednastavených tvarů jsou popsána v článku [Shape Manipulation](/slides/cs/net/shape-manipulations/).
 
-### **Jednoduchý případ**
+Počet, pořadí, význam a platný rozsah hodnot úprav spoje závisí na přednastavení spoje. Vlastnost `Type` je pouze ke čtení, zatímco hodnota úpravy je zapisovatelná. Vlastnost pouze ke čtení [Name](https://reference.aspose.com/slides/cs/net/aspose.slides/adjustvalue/name/) poskytuje další identifikaci, pokud spojnice obsahuje více úprav se stejným sémantickým typem.
 
-Uvažujme případ, kdy konektor mezi dvěma tvary (A a B) prochází třetím tvarem (C):
+### **Obejití překážky**
+
+V následujícím uspořádání prochází spoje `BentConnector5` mezi dvěma tvary třetím tvarem:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Kód:
+Tento kód vytváří blokovanou spojnici:
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-Abychom se vyhnuli nebo obešli třetí tvar, můžeme konektor upravit tak, že přesuneme jeho vertikální čáru doleva tímto způsobem:
+Posunutí vertikálního ohybu změní cestu tak, aby spojnice obešla překážku:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+Místo předpokladu, že index kolekce `1` vždy představuje vertikální ohyb, tento příklad hledá `ConnectorBendPositionY` a mění jej pouze tehdy, když je přítomen očekávaný sémantický typ:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Komplexní případy** 
+`BentConnector5` má dva úpravy `ConnectorBendPositionX` a jednu úpravu `ConnectorBendPositionY`. Pokud se požadovaný typ vyskytuje více než jednou, prozkoumejte `Name` a známou geometrii přednastavení před výběrem. Pokud úprava vrací `ShapeAdjustmentType.Custom`, považujte její význam a rozsah za specifické pro přednastavení a neměňte ji, dokud není tato smlouva známá.
 
-Pro provedení složitějších úprav musíte vzít v úvahu následující body:
+## **Vazba hodnot úprav na geometrii spoje**
 
-* Nástavitelný bod konektoru je úzce spojen s formulí, která vypočítává a určuje jeho polohu. Změny umístění bodu mohou tedy změnit tvar konektoru.  
-* Úpravy bodů konektoru jsou v poli definovány v přísném pořadí. Úpravy bodů jsou číslovány od počátečního bodu konektoru po koncový.  
-* Hodnoty úpravných bodů odrážejí procento šířky/výšky tvaru konektoru.  
-  * Tvar je omezen počátečním a koncovým bodem konektoru vynásobeným 1000.  
-  * První bod, druhý bod a třetí bod definují procento ze šířky, procento z výšky a opět procento ze šířky.  
-* Pro výpočty, které určují souřadnice úpravných bodů konektoru, musíte vzít v úvahu rotaci konektoru a jeho odraz. **Poznámka**: úhel rotace pro všechny konektory zobrazené pod **[Typy konektorů](/slides/cs/net/connector/#types-of-connectors)** je 0.  
+U ohnutých spojnic lze hodnoty úprav použít k odhadu poloh jednotlivých segmentů. Tyto výpočty jsou specifické pro konkrétní přednastavení spoje:
 
-#### **Případ 1**
+- `BentConnector4` obvykle vystavuje jednu úpravu `ConnectorBendPositionX` a jednu `ConnectorBendPositionY`.
+- Pro tyto pozice ohybu `RawValue / 100000f` poskytuje zlomek šířky nebo výšky rámce spoje použitý v níže uvedených příkladech.
+- Rámec spoje může být otočen nebo převrácen, takže souřadnice rámce je nutné transformovat před jejich porovnáním se souřadnicemi snímku.
 
-Uvažujme případ, kdy jsou dva objekty textových rámců propojeny pomocí konektoru:
+Následující příklady nejprve používají `Type` k identifikaci úprav. Nepoužívají indexy kolekce jako přenositelné identifikátory.
+
+### **Neroztočená spojnice**
+
+Počáteční uspořádání obsahuje dva textové tvary spojené `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Kód:
+Tento příklad prozkoumá spojnici a získá její horizontální a vertikální úpravy ohybu:
 
-```c#
-// Vytvoří instanci třídy prezentace, která představuje soubor PPTX
-Presentation pres = new Presentation();
-// Získá první snímek v prezentaci
-ISlide sld = pres.Slides[0];
-// Přidá tvary, které budou propojeny konektorem
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// Přidá konektor
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Určuje směr konektoru
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Určuje barvu konektoru
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Určuje tloušťku čáry konektoru
 connector.LineFormat.Width = 3;
-
-// Propojí tvary pomocí konektoru
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Získá úpravné body pro konektor
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**Úprava**
+Pro změnu obou ohybů najděte každý očekávaný typ a upravte hodnoty až po jejich nalezení:
 
-Můžeme změnit hodnoty úpravných bodů konektoru zvýšením odpovídajícího procenta šířky a výšky o 20 % a 200 % respektive:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Změní hodnoty úpravných bodů
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-Výsledek:
+Výsledkem je spojnice, jejíž horizontální a vertikální segmenty se posunuly:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Abychom definovali model, který nám umožní určit souřadnice a tvar jednotlivých částí konektoru, vytvořme tvar, který odpovídá horizontální komponentě konektoru v bodě connector.Adjustments[0]:
+Jakmile jsou sémantické typy známy, lze jejich hodnoty převést na souřadnice rámce spoje. Tento příklad vykreslí tenký obdélník přes vertikální segment řízený dvěma úpravami ohybu:
 
-```c#
-// Vykreslí vertikální komponentu konektoru
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Výsledek:
+Výukový tvar označuje vypočítaný segment:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Případ 2**
+### **Otočená nebo převrácená spojnice**
 
-V **případě 1** jsme ukázali jednoduchou operaci úpravy konektoru za použití základních principů. V běžných situacích musíte vzít v úvahu rotaci konektoru a jeho zobrazení (které jsou nastaveny pomocí connector.Rotation, connector.Frame.FlipH a connector.Frame.FlipV). Nyní proces demonstrujeme.
+Když je stejná geometrie spoje orientována svisle, hodnoty [Frame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/cs/net/aspose.slides/shapeframe/fliph/), a [FlipV](https://reference.aspose.com/slides/cs/net/aspose.slides/shapeframe/flipv/) ovlivňují převod souřadnic rámce spoje na souřadnice snímku.
 
-Nejprve přidejme na snímek nový objekt textového rámce (**To 1**) (pro účely propojení) a vytvořme nový (zelený) konektor, který jej spojí s objekty, které jsme již vytvořili.
+Tento příklad vytváří a upravuje svisle orientovanou spojnici:
 
-```c#
-// Vytvoří nový objekt vazby
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// Vytvoří nový konektor
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Propojí objekty pomocí nově vytvořeného konektoru
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// Získá úpravné body konektoru
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Změní hodnoty úpravných bodů 
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-Výsledek:
+Upravená spojnice se zobrazuje svisle mezi tvary:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Druhá věc: vytvořme tvar, který bude odpovídat horizontální komponentě konektoru procházející novým úpravným bodem konektoru connector.Adjustments[0]. Použijeme hodnoty z dat konektoru pro connector.Rotation, connector.Frame.FlipH a connector.Frame.FlipV a aplikujeme běžný vzorec pro převod souřadnic při rotaci kolem daného bodu x0:
+Pro libovolný úhel otočení `alpha` otočte bod rámce spoje `(x, y)` kolem středu rámce `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-V našem případě je úhel rotace objektu 90 stupňů a konektor je zobrazen vertikálně, takže odpovídající kód je:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```c#
-// Uloží souřadnice konektoru
-x = connector.X;
-y = connector.Y;
-// Opraví souřadnice konektoru v případě, že se objeví
-if (connector.Frame.FlipH == NullableBool.True)
+Následující kód řeší orientaci 90 stupňů použitou v tomto příkladu a vykreslí červený vodicí prvek nad odpovídajícím segmentem spoje:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
-{
-    y += connector.Height;
-}
-// Přijme hodnotu úpravného bodu jako souřadnici
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  Převádí souřadnice, protože Sin(90) = 1 a Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// Určuje šířku horizontální komponenty pomocí hodnoty druhého úpravného bodu
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Výsledek:
+Červený vodicí prvek označuje vypočítaný segment po transformaci souřadnic:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Ukázali jsme výpočty zahrnující jednoduché úpravy a složité úpravy bodů (úpravy bodů s úhly rotace). S využitím získaných znalostí můžete vyvinout vlastní model (nebo napsat kód), který získá objekt `GraphicsPath` nebo dokonce nastaví hodnoty úpravných bodů konektoru na základě konkrétních souřadnic snímku.
+Tyto vzorce popisují přednastavení použité v příkladech, nikoli univerzální model spoje. Ověřte typy úprav, orientaci rámce a rozsahy hodnot před aplikací stejného výpočtu na jiné přednastavení.
 
-## **Zjištění úhlu čar konektoru**
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek prostřednictvím jeho indexu.
-1. Přistupte k tvaru čáry konektoru.
-1. Použijte šířku a výšku čáry, výšku rámce tvaru a šířku rámce tvaru pro výpočet úhlu.  
+## **Zjištění úhlu směru spoje**
 
-Tento C# kód demonstruje operaci, při které jsme vypočítali úhel pro tvar čáry konektoru:
+Směr rovné spoje lze vypočítat z její šířky a výšky, se započtením horizontálního a vertikálního převrácení. Následující příklad vrací úhel ve směru hodinových ručiček od kladné horizontální osy ve souřadnicích snímku:
 
-```c#
-public static void Run()
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
 ## **Často kladené otázky**
 
-**Jak zjistit, zda lze konektor „přilepit“ k určitému tvaru?**
+**Jak zjistit, zda se spoje může připojit k tvaru?**
 
-Zkontrolujte, zda tvar poskytuje [spojovací místa](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/connectionsitecount/). Pokud nejsou žádná nebo je jejich počet nula, přichycení není k dispozici; v takovém případě použijte volné koncové body a umístěte je ručně. Je rozumné před připojením zkontrolovat počet míst.
+Zkontrolujte `ConnectionSiteCount` tvaru. Kladný počet znamená, že tvar vystavuje napojovací místa. Ověřte vybraný index místa před jeho přiřazením ke kterémukoli konci spoje.
 
-**Co se stane s konektorem, pokud smažu jeden z propojených tvarů?**
+**Mohu identifikovat úpravu spoje podle indexu v kolekci?**
 
-Jeho konce se odpojí; konektor zůstane na snímku jako obyčejná čára s volnými počátkem/koncem. Můžete jej buď smazat, nebo znovu přiřadit spojení a v případě potřeby [přesměrovat](https://reference.aspose.com/slides/cs/net/aspose.slides/connector/reroute/).
+Index má smysl pouze pro známé přednastavení spoje a rozložení kolekce. Před úpravou hodnoty zkontrolujte `IAdjustValue.Type` a použijte `IAdjustValue.Name` jako doplňující informaci, pokud se stejný sémantický typ vyskytuje vícekrát.
 
-**Zůstávají vazby konektorů zachovány při kopírování snímku do jiné prezentace?**
+**Co se stane, když je připojený tvar smazán?**
 
-Obecně ano, pokud jsou spolu s tím i cílové tvary zkopírovány. Pokud je snímek vložen do jiného souboru bez propojených tvarů, konce se stanou volnými a budete je muset znovu připojit.
+Příslušný konec spoje se odpojí. Spojnice zůstane na snímku a může být smazána, umístěna jako volná čára nebo připojena k jinému tvaru.
+
+**Zůstávají vazby spojnic zachovány při kopírování snímku?**
+
+Vazby jsou obecně zachovány, když jsou připojené tvary kopírovány společně se snímkem. Pokud je spoje zkopírována bez jednoho ze svých cílových tvarů, musí být dotčený konec připojen znovu.

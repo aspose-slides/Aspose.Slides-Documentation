@@ -10,30 +10,28 @@ keywords:
 - punkt łącznika
 - linia łącznika
 - kąt łącznika
+- miejsce połączenia
+- punkt regulacji
 - łączenie kształtów
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Umożliw aplikacjom .NET rysowanie, łączenie i automatyczne wyznaczanie tras linii w slajdach PowerPoint - uzyskaj pełną kontrolę nad prostymi, łokowymi i zakrzywionymi łącznikami."
+description: "Dowiedz się, jak dodawać, podłączać, zmieniać trasę, regulować i przeglądać proste, zgięte oraz zakrzywione łączniki PowerPoint przy użyciu Aspose.Slides dla .NET."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Łącznik PowerPoint to specjalna linia, która łączy dwa kształty i pozostaje przy nich nawet po ich przeniesieniu lub zmianie położenia na danym slajdzie.  
+Łącznik jest linią, która może pozostać przyłączona do dwóch kształtów, gdy którykolwiek z nich się przemieszcza. Jego końce łączą się z miejscami połączeń, przedstawionymi jako zielone kropki w programie PowerPoint. Niektóre zgięte i zakrzywione łączniki udostępniają również punkty regulacji, przedstawione jako pomarańczowe kropki, które kontrolują pozycję poszczególnych segmentów łącznika.
 
-Łączniki są zazwyczaj podłączane do *punktów połączenia* (zielonych kropek), które domyślnie istnieją na wszystkich kształtach. Punkty połączenia pojawiają się, gdy kursor zbliży się do nich.  
+Aspose.Slides reprezentuje łączniki za pomocą interfejsu [IConnector](https://reference.aspose.com/slides/pl/net/aspose.slides/iconnector/) . Możesz je tworzyć, łączyć ich końce z kształtami, wybierać miejsca połączeń, zmieniać ich trasę oraz modyfikować geometrie łączników, które posiadają punkty regulacji.
 
-*Punkty regulacji* (pomarańczowe kropki), które istnieją tylko w niektórych łącznikach, służą do modyfikacji położenia i kształtu łączników.
+## **Typy łączników**
 
-## **Rodzaje łączników**
-
-W programie PowerPoint można używać prostych, łokowych (zagiętych) i zakrzywionych łączników.  
-
-Aspose.Slides udostępnia następujące łączniki:
+Wyliczenie [ShapeType](https://reference.aspose.com/slides/pl/net/aspose.slides/shapetype/) zawiera gotowe ustawienia łączników prostych, zgiętych i zakrzywionych. Poniższa tabela przedstawia dostępne geometrie łączników oraz liczbę punktów regulacji zdefiniowaną dla każdego presetu.
 
 | Łącznik | Obraz | Liczba punktów regulacji |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+|---|---|---|
 | `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -45,346 +43,475 @@ Aspose.Slides udostępnia następujące łączniki:
 | `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Łączenie kształtów przy użyciu łączników**
+Liczba i znaczenie punktów regulacji są częścią wybranego presetu łącznika. Nie zakładaj, że dwa różne typy łączników udostępniają taką samą strukturę kolekcji.
 
-1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-2. Uzyskaj referencję do slajdu za pomocą jego indeksu.
-3. Dodaj dwa [AutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/autoshape/) do slajdu, używając metody `AddAutoShape` udostępnionej przez obiekt `Shapes`.
-4. Dodaj łącznik, używając metody `AddConnector` udostępnionej przez obiekt `Shapes`, określając typ łącznika.
-5. Połącz kształty przy użyciu łącznika. 
-6. Wywołaj metodę `Reroute`, aby zastosować najkrótszą ścieżkę połączenia.
-7. Zapisz prezentację. 
+## **Połącz dwa kształty**
 
-Ten kod C# pokazuje, jak dodać łącznik (zagięty łącznik) pomiędzy dwoma kształtami (elipsą i prostokątem):
+Użyj [IShapeCollection.AddConnector](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/addconnector/) aby dodać łącznik i przypisz jego właściwości [StartShapeConnectedTo](https://reference.aspose.com/slides/pl/net/aspose.slides/connector/startshapeconnectedto/) oraz [EndShapeConnectedTo](https://reference.aspose.com/slides/pl/net/aspose.slides/connector/endshapeconnectedto/). Po przyłączeniu obu końcówek, [IConnector.Reroute](https://reference.aspose.com/slides/pl/net/aspose.slides/iconnector/reroute/) wybiera najkrótszą trasę między kształtami.
 
-```c#
-// Tworzy instancję klasy prezentacji reprezentującej plik PPTX
-using (Presentation input = new Presentation())
-{                
-    // Uzyskuje dostęp do kolekcji kształtów dla konkretnego slajdu
-    IShapeCollection shapes = input.Slides[0].Shapes;
+Poniższy przykład łączy elipsę i prostokąt za pomocą zgiętego łącznika:
 
-    // Dodaje autokształt Elipsa
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Dodaje autokształt Prostokąt
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Dodaje kształt łącznika do kolekcji kształtów slajdu
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Łączy kształty za pomocą łącznika
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // Wywołuje metodę reroute, która ustawia automatyczną najkrótszą ścieżkę między kształtami
-    connector.Reroute();
-
-    // Zapisuje prezentację
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Metoda `Connector.Reroute` przekierowuje łącznik i zmusza go do przyjęcia najkrótszej możliwej ścieżki między kształtami. Aby osiągnąć ten cel, metoda może zmienić punkty `StartShapeConnectionSiteIndex` oraz `EndShapeConnectionSiteIndex`. 
-{{% /alert %}} 
+{{% alert color="warning" title="Ostrzeżenie" %}}
+Wywołanie `Reroute` może zmienić wartości [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/pl/net/aspose.slides/connector/startshapeconnectionsiteindex/) oraz [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/pl/net/aspose.slides/connector/endshapeconnectionsiteindex/). Przypisz konkretne miejsca połączeń po zmianie trasy, jeśli te miejsca mają pozostać stałe.
+{{% /alert %}}
 
-## **Określenie punktu połączenia**
+## **Wybierz miejsce połączenia**
 
-Jeśli chcesz, aby łącznik łączył dwa kształty przy użyciu konkretnych punktów na kształtach, musisz określić wybrane punkty połączenia w następujący sposób:
+Każdy łączony kształt zgłasza liczbę swoich miejsc połączeń za pomocą [ConnectionSiteCount](https://reference.aspose.com/slides/pl/net/aspose.slides/shape/connectionsitecount/). Zweryfikuj wybrany indeks miejsca (liczony od zera) przed przypisaniem go końcowi łącznika; liczba miejsc zależy od geometrii kształtu.
 
-1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-2. Uzyskaj referencję do slajdu za pomocą jego indeksu.
-3. Dodaj dwa [AutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/autoshape/) do slajdu, używając metody `AddAutoShape` udostępnionej przez obiekt `Shapes`.
-4. Dodaj łącznik, używając metody `AddConnector` udostępnionej przez obiekt `Shapes`, określając typ łącznika.
-5. Połącz kształty przy użyciu łącznika. 
-6. Ustaw wybrane punkty połączenia na kształtach. 
-7. Zapisz prezentację.
+Ten przykład przyłącza łącznik do konkretnego miejsca na elipsie, jeśli takie miejsce istnieje:
 
-Ten kod C# demonstruje operację, w której określony zostaje punkt połączenia:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Tworzy instancję klasy prezentacji reprezentującej plik PPTX
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // Uzyskuje dostęp do kolekcji kształtów dla konkretnego slajdu
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // Dodaje kształt łącznika do kolekcji kształtów slajdu
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // Dodaje autokształt Elipsa
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // Dodaje autokształt Prostokąt
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // Łączy kształty za pomocą łącznika
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Ustawia preferowany indeks punktu połączenia na kształcie Elipsa
-    uint wantedIndex = 6;
-
-    // Sprawdza, czy preferowany indeks jest mniejszy niż maksymalna liczba punktów połączenia
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // Ustawia preferowany punkt połączenia na autokształcie Elipsa
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // Zapisuje prezentację
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
 ## **Regulacja punktu łącznika**
 
-Możesz regulować istniejący łącznik za pomocą jego punktów regulacji. Tylko łączniki z punktami regulacji mogą być w ten sposób modyfikowane. Zobacz tabelę pod **[Rodzaje łączników.](/slides/pl/net/connector/#types-of-connectors)** 
+Łączniki posiadające punkty regulacji udostępniają je poprzez [IGeometryShape.Adjustments](https://reference.aspose.com/slides/pl/net/aspose.slides/igeometryshape/adjustments/). Przejrzyj każdy [IAdjustValue](https://reference.aspose.com/slides/pl/net/aspose.slides/iadjustvalue/) i sprawdź jego [Type](https://reference.aspose.com/slides/pl/net/aspose.slides/adjustvalue/type/) przed zmianą jego [RawValue](https://reference.aspose.com/slides/pl/net/aspose.slides/adjustvalue/rawvalue/). Ogólne zasady identyfikowania regulacji w presetach kształtów opisano w [Shape Manipulation](/slides/pl/net/shape-manipulations/).
 
-### **Prosty przypadek**
+Liczba, kolejność, znaczenie i dopuszczalny zakres wartości regulacji łącznika zależą od wybranego presetu łącznika. Właściwość `Type` jest tylko do odczytu, natomiast wartość regulacji można modyfikować. Właściwość tylko do odczytu [Name](https://reference.aspose.com/slides/pl/net/aspose.slides/adjustvalue/name/) dostarcza dodatkowej identyfikacji, gdy łącznik zawiera więcej niż jedną regulację tego samego typu semantycznego.
 
-Rozważ przypadek, w którym łącznik pomiędzy dwoma kształtami (A i B) przechodzi przez trzeci kształt (C):
+### **Obejście przeszkody**
+
+W poniższym układzie łącznik `BentConnector5` między dwoma kształtami przechodzi przez trzeci kształt:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Kod:
+Ten kod tworzy łącznik napotykający przeszkodę:
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-Aby uniknąć lub ominąć trzeci kształt, możemy wyregulować łącznik, przesuwając jego pionową linię w lewo w następujący sposób:
+Przesunięcie pionowego zgięcia zmienia trasę tak, aby łącznik omijał przeszkodę:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+Zamiast zakładać, że indeks w kolekcji `1` zawsze oznacza pionowe zgięcie, ten przykład wyszukuje `ConnectorBendPositionY` i zmienia go tylko wtedy, gdy oczekiwany typ semantyczny jest obecny:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Złożone przypadki** 
+`BentConnector5` posiada dwa ustawienia `ConnectorBendPositionX` oraz jedno `ConnectorBendPositionY`. Jeśli potrzebny typ występuje więcej niż raz, sprawdź właściwość `Name` i znaną geometrię tego presetu przed wybraniem konkretnego elementu. Jeśli regulacja zwraca `ShapeAdjustmentType.Custom`, traktuj jej znaczenie i zakres jako specyficzne dla presetu i nie zmieniaj jej, dopóki nie znasz odpowiedniej umowy.
 
-Aby wykonać bardziej skomplikowane regulacje, należy wziąć pod uwagę następujące elementy:
+## **Powiązanie wartości regulacji z geometrią łącznika**
 
-* Punkt regulacji łącznika jest ściśle powiązany z formułą obliczającą i określającą jego położenie. Zmiany położenia punktu mogą więc zmienić kształt łącznika.
-* Punkty regulacji łącznika są zdefiniowane w ścisłej kolejności w tablicy. Punkty regulacji są numerowane od punktu początkowego łącznika do jego końcowego.
-* Wartości punktów regulacji odzwierciedlają procent szerokości/wysokości kształtu łącznika.  
-  * Kształt jest ograniczony przez punkty początkowy i końcowy łącznika pomnożone przez 1000.  
-  * Pierwszy punkt, drugi punkt i trzeci punkt określają odpowiednio procent z szerokości, procent z wysokości oraz ponownie procent z szerokości.  
-* Przy obliczeniach wyznaczających współrzędne punktów regulacji łącznika należy uwzględnić jego obrót oraz odbicie. **Uwaga**, że kąt obrotu wszystkich łączników pokazanych w **[Rodzaje łączników](/slides/pl/net/connector/#types-of-connectors)** wynosi 0.
+Dla zgiętych łączników wartości regulacji mogą być użyte do oszacowania pozycji poszczególnych segmentów. Obliczenia te są specyficzne dla danego presetu łącznika:
 
-#### **Przypadek 1**
+- `BentConnector4` zazwyczaj udostępnia jedną regulację `ConnectorBendPositionX` i jedną `ConnectorBendPositionY`.
+- Dla tych pozycji zgięcia wyrażenie `RawValue / 100000f` daje ułamek szerokości lub wysokości ramki łącznika używany w poniższych przykładach.
+- Ramka łącznika może być obrócona lub odbita, więc współrzędne ramki muszą być przekształcone przed porównaniem z współrzędnymi slajdu.
 
-Rozważ przypadek, w którym dwa obiekty ramki tekstowej są połączone łącznikiem:
+Poniższe przykłady najpierw używają `Type` do identyfikacji regulacji. Nie traktują indeksów kolekcji jako przenośnych identyfikatorów.
+
+### **Łącznik nieobrócony**
+
+Początkowy układ zawiera dwa kształty tekstowe połączone `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-```c#
-// Tworzy instancję klasy prezentacji reprezentującej plik PPTX
-Presentation pres = new Presentation();
-// Pobiera pierwszy slajd w prezentacji
-ISlide sld = pres.Slides[0];
-// Dodaje kształty, które będą połączone za pomocą łącznika
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// Dodaje łącznik
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Określa kierunek łącznika
+Ten przykład przegląda łącznik i pobiera jego regulacje poziomego oraz pionowego zgięcia:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Określa kolor łącznika
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Określa grubość linii łącznika
 connector.LineFormat.Width = 3;
-
-// Łączy kształty razem za pomocą łącznika
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Pobiera punkty regulacji dla łącznika
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**Regulacja**
+Aby zmienić oba zgięcia, znajdź każdy oczekiwany typ i modyfikuj wartości dopiero po odnalezieniu obu:
 
-Możemy zmienić wartości punktów regulacji łącznika, zwiększając odpowiednio procent szerokości o 20 % i procent wysokości o 200 %:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Zmienia wartości punktów regulacji
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-Wynik:
+Wynikiem jest łącznik, którego poziome i pionowe segmenty zostały przesunięte:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Aby zdefiniować model umożliwiający określenie współrzędnych i kształtu poszczególnych części łącznika, utwórzmy kształt odpowiadający poziomej składowej łącznika w punkcie `connector.Adjustments[0]`:
+Gdy typy semantyczne są znane, ich wartości można przeliczyć na współrzędne ramki łącznika. Ten przykład rysuje cienki prostokąt nad pionowym segmentem sterowanym przez dwie regulacje zgięcia:
 
-```c#
-// Rysuje pionową składową łącznika
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Wynik:
+Kształt pomocniczy oznacza obliczony segment:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Przypadek 2**
+### **Obrócony lub odbity łącznik**
 
-W **Przypadku 1** pokazaliśmy prostą operację regulacji łącznika z wykorzystaniem podstawowych zasad. W normalnych sytuacjach należy uwzględnić obrót łącznika oraz jego wyświetlanie (ustawiane przez `connector.Rotation`, `connector.Frame.FlipH` i `connector.Frame.FlipV`). Teraz zaprezentujemy ten proces.
+Gdy ta sama geometria łącznika jest ustawiona pionowo, wartości [Frame](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/pl/net/aspose.slides/shapeframe/fliph/), i [FlipV](https://reference.aspose.com/slides/pl/net/aspose.slides/shapeframe/flipv/) wpływają na przekształcenie współrzędnych ramki łącznika na współrzędne slajdu.
 
-Najpierw dodajmy nowy obiekt ramki tekstowej (**To 1**) do slajdu (w celu połączenia) i utwórzmy nowy (zielony) łącznik, który połączy go z wcześniej utworzonymi obiektami.
+Ten przykład tworzy i reguluje pionowo ustawiony łącznik:
 
-```c#
-// Tworzy nowy obiekt powiązania
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// Tworzy nowy łącznik
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Łączy obiekty przy użyciu nowo utworzonego łącznika
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// Pobiera punkty regulacji łącznika
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Zmienia wartości punktów regulacji
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-Wynik:
+Skorygowany łącznik wyświetla się pionowo między kształtami:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Następnie utwórzmy kształt odpowiadający poziomej składowej łącznika przechodzącej przez nowy punkt regulacji `connector.Adjustments[0]`. Skorzystamy z wartości z danych łącznika: `connector.Rotation`, `connector.Frame.FlipH` i `connector.Frame.FlipV` oraz zastosujemy popularną formułę przekształcenia współrzędnych dla obrotu wokół danego punktu x0:
+Dla dowolnego kąta obrotu `alpha` obróć punkt ramki łącznika `(x, y)` wokół środka ramki `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-W naszym przypadku kąt obrotu obiektu wynosi 90 stopni, a łącznik jest wyświetlany pionowo, więc odpowiedni kod wygląda tak:
+Poniższy kod obsługuje orientację 90 stopni używaną w tym przykładzie i rysuje czerwoną prowadnicę nad odpowiednim segmentem łącznika:
 
-```c#
-// Zapisuje współrzędne łącznika
-x = connector.X;
-y = connector.Y;
-// Koryguje współrzędne łącznika w razie potrzeby
-if (connector.Frame.FlipH == NullableBool.True)
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
+
+if (horizontalBend is null || verticalBend is null)
 {
-    y += connector.Height;
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
 }
-// Używa wartości punktu regulacji jako współrzędnej
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  Konwertuje współrzędne, ponieważ Sin(90) = 1 i Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// Określa szerokość komponentu poziomego przy użyciu wartości drugiego punktu regulacji
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Wynik:
+Czerwona prowadnica oznacza obliczony segment po przekształceniu współrzędnych:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Zademonstrowaliśmy obliczenia obejmujące proste regulacje oraz skomplikowane punkty regulacji (punkty regulacji z kątami obrotu). Korzystając z nabytej wiedzy, możesz opracować własny model (lub napisać kod), aby uzyskać obiekt `GraphicsPath` lub nawet ustawić wartości punktów regulacji łącznika na podstawie konkretnych współrzędnych slajdu.
+Te wzory opisują presety użyte w przykładach, a nie uniwersalny model łącznika. Zweryfikuj typy regulacji, orientację ramki i zakresy wartości przed zastosowaniem tych samych obliczeń do innego presetu.
 
-## **Wyznaczanie kąta linii łącznika**
+## **Znajdź kąt kierunku łącznika**
 
-1. Utwórz instancję klasy [Prezentacja](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
-2. Uzyskaj referencję do slajdu za pomocą jego indeksu.
-3. Uzyskaj dostęp do kształtu linii łącznika. 
-4. Użyj szerokości i wysokości linii oraz wysokości i szerokości ramki kształtu, aby obliczyć kąt.
+Kierunek prostego łącznika można obliczyć na podstawie jego szerokości i wysokości, uwzględniając poziome i pionowe odbicia. Poniższy przykład podaje kąt w stopniach w kierunku zgodnym z ruchem wskazówek zegara od dodatniej osi poziomej w współrzędnych slajdu:
 
-Ten kod C# demonstruje operację, w której obliczyliśmy kąt dla kształtu linii łącznika:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-public static void Run()
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
 ## **FAQ**
 
-**Jak mogę sprawdzić, czy łącznik może być „przyklejony” do konkretnego kształtu?**
+**Jak mogę sprawdzić, czy łącznik może się przyłączyć do kształtu?**
 
-Sprawdź, czy kształt udostępnia [punkty połączenia](https://reference.aspose.com/slides/pl/net/aspose.slides/shape/connectionsitecount/). Jeśli ich brak lub liczba wynosi zero, przyklejanie nie jest dostępne; w takim przypadku użyj wolnych końcówek i ustaw je ręcznie. Warto sprawdzić liczbę punktów przed podłączeniem.
+Sprawdź właściwość `ConnectionSiteCount` kształtu. Dodatnia wartość oznacza, że kształt udostępnia miejsca połączeń. Zweryfikuj wybrany indeks miejsca przed przypisaniem go którejkolwiek końcówce łącznika.
 
-**Co się stanie z łącznikiem, jeśli usunę jeden z połączonych kształtów?**
+**Czy mogę zidentyfikować regulację łącznika po indeksie w kolekcji?**
 
-Jego końce zostaną odłączone; łącznik pozostaje na slajdzie jako zwykła linia z wolnym początkiem i końcem. Możesz go usunąć lub ponownie przydzielić połączenia i, w razie potrzeby, [przekierować](https://reference.aspose.com/slides/pl/net/aspose.slides/connector/reroute/).
+Indeks ma sens tylko dla znanego presetu łącznika i układu kolekcji. Przed modyfikacją wartości sprawdź `IAdjustValue.Type`, a gdy ten sam typ semantyczny występuje wielokrotnie, użyj `IAdjustValue.Name` jako dodatkowej informacji.
 
-**Czy powiązania łączników są zachowywane przy kopiowaniu slajdu do innej prezentacji?**
+**Co się dzieje, gdy połączony kształt zostanie usunięty?**
 
-Zazwyczaj tak, pod warunkiem że skopiowane zostaną również docelowe kształty. Jeśli slajd zostanie wstawiony do innego pliku bez połączonych kształtów, końce staną się wolne i będzie trzeba je ponownie podłączyć.
+Odpowiednia końcówka łącznika zostaje odłączona. Łącznik pozostaje na slajdzie i może zostać usunięty, przekształcony w wolną linię lub ponownie przyłączony do innego kształtu.
+
+**Czy powiązania łączników są zachowywane przy kopiowaniu slajdu?**
+
+Powiązania są zazwyczaj zachowywane, gdy połączone kształty są kopiowane razem ze slajdem. Jeśli łącznik zostanie skopiowany bez jednego z docelowych kształtów, dotknięta końcówka musi być ponownie przyłączona.

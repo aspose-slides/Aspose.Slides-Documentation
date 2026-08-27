@@ -1,397 +1,491 @@
 ---
 title: Διαχείριση Σχημάτων Παρουσίασης σε JavaScript
-linktitle: Χειρισμός Σχημάτων
+linktitle: Διαχείριση Σχημάτων
 type: docs
 weight: 40
 url: /el/nodejs-java/shape-manipulations/
 keywords:
 - Σχήμα PowerPoint
-- Σχήμα Παρουσίασης
-- Σχήμα στη Διαφάνεια
-- Εύρεση Σχήματος
-- Κλωνοποίηση Σχήματος
-- Αφαίρεση Σχήματος
-- Απόκρυψη Σχήματος
-- Αλλαγή Σειράς Σχήματος
-- Λήψη Interop Shape ID
-- Εναλλακτικό Κείμενο Σχήματος
-- Μορφές Διάταξης Σχήματος
+- Σχήμα παρουσίασης
+- Σχήμα στη διαφάνεια
+- Εύρεση σχήματος
+- Κλωνοποίηση σχήματος
+- Αφαίρεση σχήματος
+- Απόκρυψη σχήματος
+- Αλλαγή σειράς σχήματος
+- Λήψη ID σχήματος interop
+- Εναλλακτικό κείμενο σχήματος
+- Σημείο ρύθμισης σχήματος
+- Προρυθμισμένη ρύθμιση σχήματος
+- Γεωμετρία σχήματος
+- Μορφές διάταξης σχήματος
 - Σχήμα ως SVG
-- Μετατροπή Σχήματος σε SVG
-- Στοίχιση Σχήματος
+- Σχήμα σε SVG
+- Ευθυγράμμιση σχήματος
+- Αναστροφή σχήματος
 - PowerPoint
 - Παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μάθετε πώς να δημιουργείτε, επεξεργάζεστε και βελτιστοποιείτε σχήματα χρησιμοποιώντας JavaScript και Aspose.Slides για Node.js μέσω Java και να παραδίδετε παρουσιάσεις PowerPoint υψηλής απόδοσης."
+description: "Μάθετε πώς να αναγνωρίζετε, προσαρμόζετε, κλωνοποιείτε, αφαιρείτε, κρύβετε, αλλάζετε τη σειρά, εξάγετε, ευθυγραμμίζετε και αναστρέφετε σχήματα παρουσίασης με το Aspose.Slides για Node.js μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με σχήματα σε παρουσιάσεις χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να βρείτε ένα σχήμα σε μια διαφάνεια, να το κλωνοποιήσετε, να το αφαιρέσετε, να το κρύψετε, να αλλάξετε τη σειρά του, να λάβετε το Interop ID του σχήματος και να ορίσετε εναλλακτικό κείμενο για την ταυτοποίηση και περαιτέρω επεξεργασία.
+Το Aspose.Slides for Node.js via Java αντιπροσωπεύει τα σχήματα σε μια διαφάνεια ως μια διατεταγμένη [ShapeCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/). Η συλλογή είναι τόσο το σημείο όπου βρίσκετε και τροποποιείτε σχήματα όσο και η πηγή της σειράς στοίβαξής τους: το δείκτη `0` είναι το πιο πίσω σχήμα, ενώ ο τελευταίος δείκτης είναι το πιο μπροστινό σχήμα.
 
-Επιπλέον, καλύπτει πώς να αποκτήσετε πρόσβαση σε μορφές διάταξης για σχήματα, να αποδώσετε ένα σχήμα ως SVG, να ευθυγραμμίσετε σχήματα σε μια διαφάνεια και να χρησιμοποιήσετε τις ιδιότητες αναστροφής για οριζόντια και κάθετη καθρέφτιση. Επιπλέον, το άρθρο περιλαμβάνει μια σύντομη FAQ σχετικά με τον συνδυασμό σχημάτων, τη σειρά στοίβαξης και το κλείδωμα σχημάτων.
+Αυτό το άρθρο ακολουθεί αυτό το μοντέλο. Πρώτα εξηγεί πώς να αναγνωρίζετε αξιόπιστα ένα σχήμα και να τροποποιείτε προρυθμισμένα σημεία ρύθμισης σχήματος, μετά δείχνει πώς να κλωνοποιείτε, να αφαιρείτε, να κρύβετε και να αναδιατάσσετε σχήματα. Τα τελικά τμήματα καλύπτουν διαμόρφωση επιπέδου διάταξης, εξαγωγή SVG, ευθυγράμμιση και ρυθμίσεις ανάστροφης προβολής. Κάθε παράδειγμα είναι ανεξάρτητο, ώστε να μπορείτε να χρησιμοποιήσετε μόνο τις λειτουργίες που απαιτεί η ροή εργασίας σας.
 
-## **Εύρεση Σχήματος σε Διαφάνεια**
-Αυτό το θέμα θα περιγράψει μια απλή τεχνική για να διευκολυνθεί η εύρεση ενός συγκεκριμένου σχήματος σε μια διαφάνεια χωρίς τη χρήση του εσωτερικού του αναγνωριστικού. Είναι σημαντικό να γνωρίζετε ότι τα αρχεία παρουσίασης PowerPoint δεν διαθέτουν κανέναν τρόπο να ταυτοποιούν σχήματα σε μια διαφάνεια εκτός από ένα εσωτερικό μοναδικό Id. Φαίνεται δύσκολο για τους προγραμματιστές να βρουν ένα σχήμα χρησιμοποιώντας το εσωτερικό μοναδικό Id. Όλα τα σχήματα που προστίθενται στις διαφάνειες έχουν κάποιο Alt Text. Συνιστούμε στους προγραμματιστές να χρησιμοποιούν εναλλακτικό κείμενο για την εύρεση ενός συγκεκριμένου σχήματος. Μπορείτε να χρησιμοποιήσετε το MS PowerPoint για να ορίσετε το εναλλακτικό κείμενο για αντικείμενα που σκοπεύετε να αλλάξετε στο μέλλον.
+## **Αναγνώριση και Εύρεση Σχημάτων**
 
-Αφού ορίσετε το εναλλακτικό κείμενο σε οποιοδήποτε επιθυμητό σχήμα, μπορείτε στη συνέχεια να ανοίξετε αυτήν την παρουσίαση χρησιμοποιώντας το Aspose.Slides for Node.js via Java και να επαναλάβετε όλα τα σχήματα που έχουν προστεθεί σε μια διαφάνεια. Κατά τη διάρκεια κάθε επανάληψης, μπορείτε να ελέγξετε το εναλλακτικό κείμενο του σχήματος και το σχήμα με το αντίστοιχο εναλλακτικό κείμενο θα είναι το σχήμα που χρειάζεστε. Για να παρουσιάσουμε αυτήν την τεχνική με καλύτερο τρόπο, δημιουργήσαμε τη μέθοδο [findShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) που κάνει την δουλειά να βρει ένα συγκεκριμένο σχήμα σε μια διαφάνεια και στη συνέχεια επιστρέφει απλώς εκείνο το σχήμα.
+Οι δείκτες της συλλογής είναι βολικοί κατά την επεξεργασία ενός γνωστού αρχείου, αλλά δεν αποτελούν σταθερά αναγνωριστικά. Η προσθήκη, η αφαίρεση ή η αλλαγή σειράς ενός σχήματος μπορεί να αλλάξει τον δείκτη του. Επιλέξτε ένα αναγνωριστικό ανάλογα με το πώς δημιουργείται και συντηρείται η παρουσίαση:
 
-```javascript
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει το αρχείο παρουσίασης
-var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    // Εναλλακτικό κείμενο του σχήματος που θα βρεθεί
-    var shape = findShape(slide, "Shape1");
-    if (shape != null) {
-        console.log("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function findShape(slide, altText) {
-    let shapes = slide.getShapes();
-    
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i);
-        
-        if (shape.getAlternativeText() === altText) {
-            return shape;
-        }
-    }
+- [Name](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getname/) είναι χρήσιμο για πρότυπα ελεγχόμενα από προγραμματιστές και είναι εύκολο να επιθεωρηθεί στο Πλαίσιο Επιλογής του PowerPoint. Τα ονόματα μπορούν να επεξεργαστούν και δεν εγγυώνται μοναδικότητα, οπότε καθιερώστε ένα σύστημα ονοματοδοσίας εάν ο κώδικας εξαρτάται από αυτά.
+- [AlternativeText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getalternativetext/) είναι χρήσιμο όταν μια περιγραφή προσβασιμότητας ή μια ετικέτα που έχει προσθέσει ο δημιουργός ήδη αναγνωρίζει το σχήμα. Είναι ορατό στους χρήστες, μπορεί να μεταφραστεί ή να ξαναγραφτεί για προσβασιμότητα, και δεν εγγυάται μοναδικότητα. Μην επανχρησιμοποιείτε κωδικοποιημένο κείμενο προσβασιμότητας ως κλειδί βάσης δεδομένων.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) είναι ένα αναγνωριστικό μόνο για ανάγνωση το οποίο είναι μοναδικό μέσα σε μια διαφάνεια και αντιστοιχεί στο ID σχήματος που χρησιμοποιεί το PowerPoint interop. Χρησιμοποιήστε το όταν ενσωματώνετε με το PowerPoint ή όταν χρειάζεστε ανεπιφύλακτη αναφορά κατά τη διάρκεια ζωής ενός σχήματος. Ένα κλωνοποιημένο ή ξαναδημιουργημένο σχήμα είναι διαφορετικό σχήμα και λαμβάνει το δικό του ID.
 
-    return null;
-}
-```
+Η σχετική μέθοδος [getUniqueId](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getuniqueid/) επιστρέφει ένα αναγνωριστικό σε επίπεδο παρουσίασης, αλλά αυτό το αναγνωριστικό προορίζεται για πρόσθετα και μπορεί να επανεκχωρηθεί. Δεν πρέπει να αντιμετωπίζεται ως μόνιμο εξωτερικό κλειδί. Εάν η μακροπρόθεσμη ταυτότητα είναι απαραίτητη, κρατήστε τη αντιστοίχιση σε δεδομένα εφαρμογής και επαληθεύστε ότι το αναμενόμενο σχήμα εξακολουθεί να υπάρχει.
 
-## **Κλωνοποίηση Σχήματος**
-Για να κλωνοποιήσετε ένα σχήμα σε μια διαφάνεια χρησιμοποιώντας το Aspose.Slides for Node.js via Java:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-1. Λάβετε την αναφορά μιας διαφάνειας χρησιμοποιώντας το δείκτη της.
-1. Πρόσβαση στη συλλογή σχημάτων της πηγαίας διαφάνειας.
-1. Προσθήκη νέας διαφάνειας στην παρουσία.
-1. Κλωνοποιήστε σχήματα από τη συλλογή σχημάτων της πηγαίας διαφάνειας στη νέα διαφάνεια.
-1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
-
-Το παρακάτω παράδειγμα προσθέτει ένα σχήμα ομάδας σε μια διαφάνεια.
+Το παρακάτω παράδειγμα ψάχνει με βάση το όνομα με ακριβή σύγκριση και αναφέρει το interop ID σε επίπεδο διαφάνειας. Όταν το πρότυπο δεν περιέχει το αναμενόμενο σχήμα, ο κώδικας αναφέρει αυτό το αποτέλεσμα αντί να προχωρήσει με το λανθασμένο αντικείμενο.
 
 ```javascript
-// Δημιουργία αντικειμένου Presentation
-var pres = new aspose.slides.Presentation("Source Frame.pptx");
-try {
-    var sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
-    var destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    var destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // Αποθήκευση του αρχείου PPTX στο δίσκο
-    pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const asposeSlides = require("aspose.slides.via.java");
 
-## **Αφαίρεση Σχήματος**
-Το Aspose.Slides for Node.js via Java επιτρέπει στους προγραμματιστές να αφαιρέσουν οποιοδήποτε σχήμα. Για να αφαιρέσετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Βρείτε το σχήμα με συγκεκριμένο AlternativeText.
-1. Αφαιρέστε το σχήμα.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```javascript
-// Δημιουργία αντικειμένου Presentation
-var pres = new aspose.slides.Presentation();
-try {
-    // Λήψη της πρώτης διαφάνειας
-    var sld = pres.getSlides().get_Item(0);
-    // Προσθήκη αυτόματου σχήματος τύπου ορθογωνίου
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var altText = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(0);
-        if (alttext === ashp.getAlternativeText()) {
-            sld.getShapes().remove(ashp);
-        }
-    }
-    // Αποθήκευση παρουσίασης στο δίσκο
-    pres.save("RemoveShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Απόκρυψη Σχήματος**
-Το Aspose.Slides for Node.js via Java επιτρέπει στους προγραμματιστές να κρύψουν οποιοδήποτε σχήμα. Για να κρύψετε το σχήμα από οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Βρείτε το σχήμα με συγκεκριμένο AlternativeText.
-1. Κρύψτε το σχήμα.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```javascript
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει το PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Λήψη της πρώτης διαφάνειας
-    var sld = pres.getSlides().get_Item(0);
-    // Προσθήκη αυτόματου σχήματος τύπου ορθογωνίου
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var alttext = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(i);
-        if (alttext === ashp.getAlternativeText()) {
-            ashp.setHidden(true);
-        }
-    }
-    // Αποθήκευση παρουσίασης στο δίσκο
-    pres.save("Hiding_Shapes_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Αλλαγή Σειράς Σχημάτων**
-Το Aspose.Slides for Node.js via Java επιτρέπει στους προγραμματιστές να αλλάξουν τη σειρά των σχημάτων. Η αλλαγή σειράς καθορίζει ποιο σχήμα είναι μπροστά ή ποιο είναι στο βάθος. Για να αλλάξετε τη σειρά των σχημάτων σε οποιαδήποτε διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Προσθέστε ένα σχήμα.
-1. Προσθέστε κάποιο κείμενο στο πλαίσιο κειμένου του σχήματος.
-1. Προσθέστε ένα άλλο σχήμα με τις ίδιες συντεταγμένες.
-1. Αλλάξτε τη σειρά των σχημάτων.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```javascript
-var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shp3.addTextFrame(" ");
-    var para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-    shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 200, 365, 400, 150);
-    slide.getShapes().reorder(2, shp3);
-    pres.save("Reshape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Λήψη Interop Shape ID**
-Το Aspose.Slides for Node.js via Java επιτρέπει στους προγραμματιστές να λάβουν ένα μοναδικό αναγνωριστικό σχήματος σε επίπεδο διαφάνειας, σε αντίθεση με τη μέθοδο [getUniqueId](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#getUniqueId--) που παρέχει μοναδικό αναγνωριστικό σε επίπεδο παρουσίασης. Η μέθοδος [getOfficeInteropShapeId](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) προστέθηκε στην κλάση [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape) και η τιμή που επιστρέφει αντιστοιχεί στο Id του αντικειμένου Microsoft.Office.Interop.PowerPoint.Shape. Παρακάτω δίνεται ένα δείγμα κώδικα.
-
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
-try {
-    // Λήψη μοναδικού αναγνωριστικού σχήματος σε επίπεδο διαφάνειας
-    var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Ορισμός Εναλλακτικού Κειμένου για Σχήμα**
-Το Aspose.Slides for Node.js via Java επιτρέπει στους προγραμματιστές να ορίσουν AlternateText για οποιοδήποτε σχήμα. Τα σχήματα σε μια παρουσίαση μπορούν να διακριθούν με τη μέθοδο [AlternativeText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) ή [Shape Name](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#setName-java.lang.String-). Οι μέθοδοι [setAlternativeText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) και [getAlternativeText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#getAlternativeText--) μπορούν να διαβαστούν ή να οριστούν χρησιμοποιώντας το Aspose.Slides καθώς και το Microsoft PowerPoint. Χρησιμοποιώντας αυτήν τη μέθοδο, μπορείτε να ετικετοποιήσετε ένα σχήμα και να εκτελέσετε διαφορετικές λειτουργίες όπως Αφαίρεση σχήματος, Απόκρυψη σχήματος ή Αναδιάταξη σχημάτων σε μια διαφάνεια. Για να ορίσετε το AlternateText ενός σχήματος, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-1. Πρόσβαση στην πρώτη διαφάνεια.
-1. Προσθέστε οποιοδήποτε σχήμα στη διαφάνεια.
-1. Εκτελέστε κάποιες εργασίες με το νεοπροστεθειμένο σχήμα.
-1. Περιηγηθείτε στα σχήματα για να βρείτε ένα σχήμα.
-1. Ορίστε το AlternativeText.
-1. Αποθηκεύστε το αρχείο στο δίσκο.
-
-```javascript
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει το PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Λήψη της πρώτης διαφάνειας
-    var sld = pres.getSlides().get_Item(0);
-    // Προσθήκη αυτόματου σχήματος τύπου ορθογωνίου
-    var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    for (var i = 0; i < sld.getShapes().size(); i++) {
-        var shape = sld.getShapes().get_Item(i);
-        if (shape != null) {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-    // Αποθήκευση παρουσίασης στο δίσκο
-    pres.save("Set_AlternativeText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Πρόσβαση σε Μορφές Διάταξης για Σχήμα**
-Το Aspose.Slides for Node.js via Java παρέχει ένα απλό API για πρόσβαση σε μορφές διάταξης για ένα σχήμα. Το άρθρο αυτό δείχνει πώς μπορείτε να έχετε πρόσβαση σε μορφές διάταξης.
-
-Παρατίθεται παρακάτω δείγμα κώδικα.
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    for (let i = 0; i < pres.getLayoutSlides().size(); i++) {
-        let layoutSlide = pres.getLayoutSlides().get_Item(i);
-        for (let j = 0; j < layoutSlide.getShapes().size(); j++) {
-            let shape = layoutSlide.getShapes().get_Item(j);
-            var fillFormats = shape.getFillFormat();
-            var lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Απόδοση Σχήματος ως SVG**
-Τώρα το Aspose.Slides for Node.js via Java υποστηρίζει την απόδοση ενός σχήματος ως SVG. Η μέθοδος [writeAsSvg](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (και η υπερφόρτωσή της) προστέθηκε στην κλάση [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape). Αυτή η μέθοδος επιτρέπει την αποθήκευση του περιεχομένου του σχήματος ως αρχείο SVG. Το παρακάτω απόσπασμα κώδικα δείχνει πώς να εξάγετε το σχήμα της διαφάνειας σε αρχείο SVG.
-
-```javascript
-var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
-try {
-    var stream = java.newInstanceSync("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) {
-            stream.close();
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Στοίχιση Σχημάτων**
-Το Aspose.Slides επιτρέπει την στοίχιση σχημάτων είτε σχετικά με τα περιθώρια της διαφάνειας είτε μεταξύ τους. Για το σκοπό αυτό, προστέθηκε η υπερφορτωμένη μέθοδος [SlidesUtil.alignShape()](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-). Η ακολουθία [ShapesAlignmentType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ShapesAlignmentType) ορίζει τις πιθανές επιλογές στοίχισης.
-
-**Παράδειγμα 1**
-
-Ο κώδικας παρακάτω στοιχίζει τα σχήματα με δείκτες 1,2 και 4 κατά μήκος του άνω άκρου της διαφάνειας.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shape1 = slide.getShapes().get_Item(1);
-    var shape2 = slide.getShapes().get_Item(2);
-    var shape3 = slide.getShapes().get_Item(4);
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), java.newArray("int", [slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3)]));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-**Παράδειγμα 2**
-
-Το παρακάτω παράδειγμα δείχνει πώς να στοιχίσετε ολόκληρη τη συλλογή σχημάτων σε σχέση με το πιο κάτω σχήμα της συλλογής.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Ιδιότητες Αναστροφής**
-
-Στο Aspose.Slides, η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapeframe/) παρέχει έλεγχο πάνω στην οριζόντια και κάθετη καθρέφτιση των σχημάτων μέσω των ιδιοτήτων `flipH` και `flipV`. Και οι δύο ιδιότητες είναι τύπου `byte`, επιτρέποντας τιμές `1` για αναστροφή, `0` για μη αναστροφή ή `-1` για προεπιλεγμένη συμπεριφορά. Αυτές οι τιμές είναι προσβάσιμες από το [Frame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#getFrame) ενός σχήματος.
-
-Για να τροποποιήσετε τις ρυθμίσεις αναστροφής, δημιουργείται μια νέα παρουσία της κλάσης [ShapeFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapeframe/) με την τρέχουσα θέση και μέγεθος του σχήματος, τις επιθυμητές τιμές για `flipH` και `flipV` και τη γωνία περιστροφής. Η ανάθεση αυτής της παρουσίας στο [Frame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#getFrame) του σχήματος και η αποθήκευση της παρουσίασης εφαρμόζει τις μετασχηματίσεις καθρέφτισης και τις εγγράφει στο αρχείο εξόδου.
-
-Ας υποθέσουμε ότι έχουμε ένα αρχείο sample.pptx στο οποίο η πρώτη διαφάνεια περιέχει ένα μόνο σχήμα με προεπιλεγμένες ρυθμίσεις αναστροφής, όπως φαίνεται παρακάτω.
-
-![Το σχήμα προς αναστροφή](shape_to_be_flipped.png)
-
-Το παρακάτω παράδειγμα κώδικα ανακτά τις τρέχουσες ιδιότητες αναστροφής του σχήματος και το αναστρέφει τόσο οριζόντια όσο και κάθετα.
-
-```js
-var presentation = new asposeSlides.Presentation("sample.pptx");
+var presentation = new asposeSlides.Presentation("input.pptx");
 try {
     var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
 
-    // Ανάγνωση της ιδιότητας οριζόντιας αναστροφής του σχήματος.
-    var horizontalFlip = shape.getFrame().getFlipH();
-    console.log("Horizontal flip:", horizontalFlip);
+    var targetShape = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "RevenueChart") {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Ανάγνωση της ιδιότητας κάθετης αναστροφής του σχήματος.
-    var verticalFlip = shape.getFrame().getFlipV();
-    console.log("Vertical flip:", verticalFlip);
-
-    var x = java.newFloat(shape.getFrame().getX());
-    var y = java.newFloat(shape.getFrame().getY());
-    var width = java.newFloat(shape.getFrame().getWidth());
-    var height = java.newFloat(shape.getFrame().getHeight());
-    var flipH = java.newByte(asposeSlides.NullableBool.True); // Αναστροφή οριζόντια.
-    var flipV = java.newByte(asposeSlides.NullableBool.True); // Αναστροφή κάθετα.
-    var rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new asposeSlides.ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+    if (targetShape === null) {
+        console.log("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        console.log("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Το αποτέλεσμα:
+Όταν μια λειτουργία είναι ειδική για έναν τύπο σχήματος, ελέγξτε την κλάση εκτέλεσης πριν χρησιμοποιήσετε μέλη ειδικά για τον τύπο. Αυτό το παράδειγμα ενημερώνει κείμενο και εναλλακτικό κείμενο μόνο εάν το ονομαζόμενο αντικείμενο είναι ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/).
 
-![Το αναστραμμένο σχήμα](flipped_shape.png)
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **FAQ**
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
 
-**Μπορώ να συνδυάσω σχήματα (union/intersect/subtract) σε μια διαφάνεια όπως σε έναν επεξεργαστή επιφάνειας εργασίας;**
+    var candidate = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "StatusLabel") {
+            candidate = shape;
+            break;
+        }
+    }
 
-Δεν υπάρχει ενσωματωμένο API Boolean λειτουργιών. Μπορείτε να προσεγγίσετε τη λειτουργία δημιουργώντας το επιθυμητό περίγραμμα μόνοι σας — π.χ., υπολογίζοντας τη γεωμετρία (μέσω [GeometryPath](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/geometrypath/)) και δημιουργώντας νέο σχήμα με αυτό το περίγραμμα, προαιρετικά αφαιρώντας τα αρχικά.
+    if (candidate !== null && java.instanceOf(candidate, "com.aspose.slides.AutoShape")) {
+        candidate.getTextFrame().setText("Approved");
+        candidate.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", asposeSlides.SaveFormat.Pptx);
+    } else {
+        console.log("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-**Πώς μπορώ να ελέγξω τη σειρά στοίβαξης (z-order) ώστε ένα σχήμα να παραμένει πάντα «πάνω»;**
+## **Αναγνώριση και Τροποποίηση Προρυθμισμένων Ρυθμίσεων Σχήματος**
 
-Αλλάξτε τη σειρά εισαγωγής ή μετακίνησης εντός της συλλογής [shapes](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseslide/#getShapes) της διαφάνειας. Για προβλέψιμα αποτελέσματα, τελειώστε τη σειρά z-order μετά από όλες τις άλλες τροποποιήσεις της διαφάνειας.
+Τα σχήματα προρυθμισμένης γεωμετρίας μπορούν να εκθέτουν σημεία ρύθμισης που ελέγχουν χαρακτηριστικά όπως το μέγεθος γωνίας, τις αναλογίες βέλους ή τις γωνίες τόξου. Πρόσβαση σε αυτά γίνεται μέσω της [GeometryShape.getAdjustments](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/geometryshape/) συλλογής μόνο για ανάγνωση. Η συλλογή παρέχεται από το σχήμα, αλλά κάθε [AdjustValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/) περιέχει μια τιμή που μπορεί να αλλάξει.
 
-**Μπορώ να «κλειδώσω» ένα σχήμα ώστε να αποτρέψω τους χρήστες από το να το επεξεργαστούν στο PowerPoint;**
+Μην βασίζεστε μόνο σε ένα σταθερό δείκτη συλλογής. Επεξεργαστείτε τις ρυθμίσεις επαναλαμβάνοντας τις προσαρμογές και ελέγχοντας τη μέθοδο μόνο για ανάγνωση [getType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/) της, της οποίας η τιμή [ShapeAdjustmentType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapeadjustmenttype/) περιγράφει τι ελέγχει η ρύθμιση. Η μέθοδος μόνο για ανάγνωση [getName](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/getname/) παρέχει επιπλέον πληροφορίες ταυτοποίησης και είναι ιδιαίτερα χρήσιμη όταν ένα πρότυπο περιέχει περισσότερες από μία ρυθμίσεις με τον ίδιο σημασιολογικό τύπο.
 
-Ναι. Ορίστε σημαίες προστασίας σε επίπεδο σχήματος (π.χ., κλείδωμα επιλογής, κίνησης, αλλαγής μεγέθους, επεξεργασίας κειμένου). Αν χρειάζεται, επεκτείνετε τους περιορισμούς στον κύριο ή στη διάταξη. Σημειώστε ότι αυτό είναι προστασία σε επίπεδο UI, όχι λειτουργία ασφαλείας· για ισχυρότερη προστασία, συνδυάστε με περιορισμούς αρχείου όπως προτάσεις ανάγνωσης μόνο ή κωδικούς πρόσβασης.
+Χρησιμοποιήστε τη μέθοδο τιμής που ταιριάζει με το νόημα της ρύθμισης:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | Μέγεθος στρογγυλεμένων γωνιών | [setRawValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Πάχος ουράς βέλους | `setRawValue` |
+| `ArrowheadLength` | Μήκος κεφαλής βέλους | `setRawValue` |
+| `ArrowheadWidth` | Πλάτος κεφαλής βέλους | `setRawValue` |
+| `StartAngle` | Αρχική γωνία πίτας ή τόξου | [setAngleValue](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Τελική γωνία πίτας ή τόξου | `setAngleValue` |
+
+`getType` και `getName` επιστρέφουν πληροφορίες μόνο για ανάγνωση. `getRawValue` και `setRawValue` λειτουργούν με έναν ακέραιο στις εγγενείς μονάδες γεωμετρίας του προτύπου, ενώ `getAngleValue` και `setAngleValue` λειτουργούν με γωνία σε μοίρες. Ο αριθμός, η σειρά, το νόημα και το έγκυρο εύρος των ρυθμίσεων εξαρτώνται από το προρυθμισμένο [GeometryShape.getShapeType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/geometryshape/). Μια τιμή που είναι έγκυρη για ένα πρότυπο μπορεί να είναι άκυρη ή να έχει διαφορετικό αποτέλεσμα για ένα άλλο.
+
+Όταν το `getType` επιστρέφει `ShapeAdjustmentType.Custom`, το API δεν αναγνωρίζει τυπικό σημασιολογικό νόημα. Ελέγξτε το `getName`, τον τύπο προτύπου και την υπάρχουσα τιμή, και αφήστε την ρύθμιση αμετάβλητη εκτός εάν το αναμενόμενο νόημα και το εύρος είναι γνωστά. Ακόμη και για αναγνωρισμένους τύπους, ελέγξτε αν ο ίδιος τύπος εμφανίζεται περισσότερες από μία φορές πριν επιλέξετε τιμή. Το άρθρο [Connector](/slides/el/nodejs-java/connector/) δείχνει αυτή την κατάσταση με ρυθμίσεις κάμψης συνδέσμων.
+
+Το παρακάτω πλήρες παράδειγμα δημιουργεί προεπιλεγμένες και τροποποιημένες εκδοχές τριών προρυθμισμένων σχημάτων. Επεξεργάζεται κάθε ρύθμιση, αναφέρει το όνομά της και τον τύπο, αλλάζει τιμές σχετικές με μέγεθος μέσω `setRawValue`, αλλάζει γωνίες μέσω `setAngleValue` και αποθηκεύει το αποτέλεσμα. Η αριστερή στήλη διατηρεί την προεπιλεγμένη γεωμετρία· η δεξιά στήλη δείχνει το προσαρμοσμένο στρογγυλεμένο ορθογώνιο, το τετραπλό βέλος και την πίτα.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    // Προσθέτει κεφαλίδες για τις στήλες των προεπιλεγμένων και προσαρμοσμένων σχημάτων.
+    var defaultColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    var adjustedColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    var modifiedRoundedRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 80, 180, 160, 110);
+    var modifiedArrow = slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 95, 330, 130, 130);
+    var modifiedPie = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    var shapesToAdjust = [modifiedRoundedRectangle, modifiedArrow, modifiedPie];
+
+    for (var shapeIndex = 0; shapeIndex < shapesToAdjust.length; shapeIndex++) {
+        var shape = shapesToAdjust[shapeIndex];
+        for (var adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            var adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            console.log(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case asposeSlides.ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.Custom:
+                    console.log("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ο έλεγχος του σημασιολογικού τύπου πριν την αλλαγή τιμής κάνει τον κώδικα σαφή σχετικά με την πρόθεσή του και αποφεύγει την υπόθεση ότι ένας συγκεκριμένος δείκτης συλλογής έχει το ίδιο νόημα σε διαφορετικά προρυθμισμένα σχήματα.
+
+## **Τροποποίηση της Συλλογής Σχημάτων**
+
+Οι μέθοδοι προσθήκης, κλωνοποίησης, αφαίρεσης και αναδιάταξης λειτουργούν άμεσα στη συλλογή. Εάν μια λειτουργία αλλάξει τον αριθμό ή τη σειρά των σχημάτων, μην συνεχίσετε να βασίζεστε σε δείκτες που καταγράφηκαν πριν από αυτή τη λειτουργία.
+
+### **Κλωνοποίηση Σχήματος**
+
+[addClone](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/addclone/) δημιουργεί ένα ανεξάρτητο αντίγραφο και το προσθέτει στο στόχο συλλογής. [insertClone](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/insertclone/) επίσης δημιουργεί ένα αντίγραφο αλλά το τοποθετεί σε καθορισμένο δείκτη z‑order. Οι υπερφορτώσεις που δέχονται συντεταγμένες μετακινούν το κλώνο χωρίς αλλαγή μεγέθους· οι υπερφορτώσεις με πλάτος και ύψος μπορούν επίσης να το αλλάξουν.
+
+Το παράδειγμα δημιουργεί μια διαφάνεια προορισμού, κλωνοποιεί ένα ορθογώνιο με ετικέτα προς τα εμπρός και εισάγει ένα δεύτερο κλώνο στο πίσω μέρος. Οι αλλαγές σε οποιονδήποτε κλώνο δεν τροποποιούν το αρχικό σχήμα.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var sourceSlide = presentation.getSlides().get_Item(0);
+    var sourceShape = sourceSlide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    var blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(java.newByte(asposeSlides.SlideLayoutType.Blank));
+    var destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    var frontClone = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontClone.setName("FrontClone");
+    if (java.instanceOf(frontClone, "com.aspose.slides.AutoShape")) {
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        console.log("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    var backClone = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backClone.setName("BackClone");
+    if (java.instanceOf(backClone, "com.aspose.slides.AutoShape")) {
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        console.log("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η κλωνοποίηση αντιγράφει το περιεχόμενο και τη μορφοποίηση του σχήματος, συμπεριλαμβανομένου του ονόματος και του εναλλακτικού κειμένου. Αναθέστε νέα λογικά αναγνωριστικά στο κλώνο όταν αυτές οι τιμές πρέπει να είναι μοναδικές. Πόροι που χρησιμοποιούνται από σύνθετα σχήματα διαχειρίζονται από την παρουσίαση, αλλά ένα κλώνο παραμένει νέο στοιχείο της συλλογής με νέα ταυτότητα σχήματος.
+
+### **Αφαίρεση Σχημάτων**
+
+[remove](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/remove/) διαγράφει ένα συγκεκριμένο αντικείμενο σχήματος από τη συλλογή του. Όταν αφαιρείτε πολλαπλές αντιστοιχίες κατά τη διάρκεια επανάληψης με δείκτες, περάστε από το τέλος ώστε κάθε υπόλοιπος δείκτης να παραμείνει έγκυρος.
+
+Αυτό το παράδειγμα αφαιρεί κάθε σχήμα με καθορισμένο όνομα. Διαβάζει το σχήμα στον τρέχοντα δείκτη και δεν υποθέτει συγκεκριμένο τύπο σχήματος.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var keepShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    var firstTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    var secondTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (var i = slide.getShapes().size() - 1; i >= 0; i--) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "Temporary") {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Μετά την αφαίρεση, η καταμέτρηση σχήματος και οι δείκτες των επόμενων σχημάτων αλλάζουν. Αναφορές σε αμετάβλητα σχήματα παραμένουν πιο αξιόπιστες από αποθηκευμένους δείκτες. Λάβετε επίσης υπόψη συνδέσμους, κινήσεις και άλλα χαρακτηριστικά παρουσίασης που μπορεί να αναφέρονται στο αφαιρεθέν αντικείμενο· η αφαίρεση ορατού σχήματος μπορεί να αλλάξει περισσότερο από την εμφάνιση της διαφάνειας.
+
+### **Απόκρυψη Σχήματος**
+
+Ορίζοντας το [Hidden](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/sethidden/) σε `true` διατηρεί το σχήμα στη συλλογή αλλά εμποδίζει την εμφάνισή του στην κανονική προβολή διαφάνειας. Ο δείκτης, η μορφοποίηση και το περιεχόμενό του παραμένουν διαθέσιμα στον κώδικα, επομένως η απόκρυψη είναι κατάλληλη για προαιρετικά στοιχεία που μπορεί να επαναφερθούν αργότερα.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var visibleShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    var optionalShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "OptionalDecoration") {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η απόκρυψη δεν είναι διαγραφή ή ασφάλεια. Το αντικείμενο μπορεί ακόμη να ανακαλυφθεί και να εμφανιστεί ξανά από χρήστη ή κώδικα, και παραμένει μέρος του αρχείου παρουσίασης.
+
+### **Αλλαγή του Z‑Order**
+
+Τα επικαλυπτόμενα σχήματα ζωγραφίζονται με σειρά συλλογής. [reorder](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/reorder/) μετακινεί ένα υπάρχον σχήμα σε στόχο δείκτη χωρίς κλωνοποίηση. Ο δείκτης `0` είναι το πίσω μέρος· `size() - 1` είναι το μπροστινό.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var blueRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+
+    var orangeEllipse = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το ορθογώνιο δημιουργείται πρώτα και αρχικά βρίσκεται πίσω από το έλλειψο. Η μετακίνηση του στον τελικό δείκτη το τοποθετεί μπροστά. Ολοκληρώστε το z‑order μετά την προσθήκη ή κλωνοποίηση όλων των σχετικών σχημάτων, επειδή αυτές οι λειτουργίες προσθέτουν ή εισάγουν νέα στοιχεία στη συλλογή και μπορεί να αλλάξουν την προοριζόμενη στοίβα.
+
+## **Έλεγχος Σχημάτων σε Διαφάνειες Διάταξης**
+
+Οι κανονικές διαφάνειες, οι διαφάνειες διάταξης και οι κύριες διαφάνειες έχουν ξεχωριστές συλλογές σχημάτων. Ένα σχήμα σε συλλογή διάταξης δεν είναι το ίδιο αντικείμενο με ένα σχήμα παρόμοιας θέσης σε κανονική διαφάνεια. Εξετάστε τα σχήματα διάταξης όταν πρέπει να κατανοήσετε ή να αλλάξετε τη μορφοποίηση που παρέχεται από μια διάταξη.
+
+Το παρακάτω παράδειγμα διαβάζει το [FillFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getfillformat/) και το [LineFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getlineformat/) κάθε σχήματος διάταξης χωρίς να υποθέτει ότι κάθε σχήμα είναι ένα `AutoShape`.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    for (var i = 0; i < presentation.getLayoutSlides().size(); i++) {
+        var layoutSlide = presentation.getLayoutSlides().get_Item(i);
+        for (var j = 0; j < layoutSlide.getShapes().size(); j++) {
+            var shape = layoutSlide.getShapes().get_Item(j);
+            var fillType = shape.getFillFormat().getFillType();
+            var lineWidth = shape.getLineFormat().getWidth();
+            console.log(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Η επεξεργασία μιας διάταξης μπορεί να επηρεάσει πολλαπλές διαφάνειες που τη χρησιμοποιούν. Πριν αλλάξετε ένα σχήμα διάταξης, προσδιορίστε εάν μια κανονική διαφάνεια κληρονομεί το αντικείμενο ή περιέχει τοπική υπερισχυτική ρύθμιση, και δοκιμάστε κάθε διαφάνεια που χρησιμοποιεί αυτή τη διάταξη.
+
+## **Εξαγωγή Σχήματος σε SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/writeassvg/) γράφει το αποδομένο περιεχόμενο ενός σχήματος σε ροή. Το αποτέλεσμα περιλαμβάνει μόνο το σχήμα, όχι το πλήρες φόντο της διαφάνειας ή τα γειτονικά σχήματα.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() === 0) {
+        console.log("Slide 1 does not contain a shape to export.");
+    } else {
+        var shape = slide.getShapes().get_Item(0);
+        var svgStream = null;
+        try {
+            svgStream = java.newInstanceSync("java.io.FileOutputStream", "shape.svg");
+            shape.writeAsSvg(svgStream);
+        } catch (error) {
+            console.log("The SVG file could not be written: " + error.message);
+        } finally {
+            if (svgStream !== null) {
+                svgStream.close();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Διατηρήστε την παρουσίαση ανοιχτή κατά την απόδοση. Η έξοδος εξαρτάται από τη μορφοποίηση του σχήματος και από πόρους όπως γραμματοσειρές και εικόνες. Εάν χρειάζεστε ολόκληρη τη σύνθεση, εξαγάγετε τη διαφάνεια αντί για το μεμονωμένο σχήμα. Ο καλών χρήστης είναι υπεύθυνος για το κλείσιμο της ροής.
+
+## **Ευθυγράμμιση Σχημάτων**
+
+Οι υπερφορτώσεις του [SlideUtil.alignShapes](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slideutil/alignshapes/) ευθυγραμμίζουν είτε όλα τα σχήματα είτε επιλεγμένους δείκτες συλλογής. Το [ShapesAlignmentType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapesalignmenttype/) καθορίζει την άκρη, τη γραμμή κέντρου ή τη λειτουργία κατανομής. Ορίστε `alignToSlide` σε `true` για χρήση των άκρων της διαφάνειας· ορίστε το σε `false` για ευθυγράμμιση των επιλεγμένων σχημάτων μεταξύ τους.
+
+Αυτό το παράδειγμα ευθυγραμμίζει τρία σχήματα στο άνω όριο της διαφάνειας. Οι αναφορές στα σχήματα που επιστρέφονται μετατρέπονται στους τρέχοντες δείκτες τους αμέσως πριν την ευθυγράμμιση.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var firstShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 60, 80, 120, 50);
+    var secondShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 240, 160, 120, 50);
+    var thirdShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    var shapeIndexes = java.newArray("int", [slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)]);
+
+    asposeSlides.SlideUtil.alignShapes(asposeSlides.ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η ευθυγράμμιση αλλάζει τις θέσεις, όχι το z‑order. Η σχετική ευθυγράμμιση συνήθως απαιτεί τουλάχιστον δύο σχήματα, ενώ η κατανομή οριζόντιας ή κάθετης διεύθυνσης χρειάζεται αρκετά σχήματα για ορισμό διαστημάτων. Επαναϋπολογίστε τους δείκτες εάν τροποποιήσετε τη συλλογή πριν καλέσετε τη μέθοδο.
+
+## **Αναστροφή Σχήματος**
+
+Η κλάση [ShapeFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapeframe/) αποθηκεύει θέση, μέγεθος, οριζόντια και κάθετη ρύθμιση αναστροφής, και περιστροφή. Οι τιμές `getFlipH` και `getFlipV` χρησιμοποιούν το [NullableBool](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/nullablebool/): `True` ενεργοποιεί την αναστροφή, `False` την απενεργοποιεί, και `NotDefined` διατηρεί την ακαθόριστη/προεπιλεγμένη κατάσταση.
+
+Η παρακάτω παρουσίαση εισόδου περιέχει ένα σχήμα χωρίς αναστροφή.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+Το παράδειγμα διατηρεί όλες τις άλλες τιμές του πλαισίου και αντικαθιστά μόνο τις δύο ρυθμίσεις αναστροφής. Αυτό είναι σημαντικό επειδή η ανάθεση ενός νέου [Frame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/setframe/) αντικαθιστά ολόκληρο το πλαίσιο.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var frame = shape.getFrame();
+
+    console.log("Horizontal flip before change: " + frame.getFlipH());
+    console.log("Vertical flip before change: " + frame.getFlipV());
+
+    var changedFrame = new asposeSlides.ShapeFrame(java.newFloat(frame.getX()), java.newFloat(frame.getY()), java.newFloat(frame.getWidth()), java.newFloat(frame.getHeight()), java.newByte(asposeSlides.NullableBool.True), java.newByte(asposeSlides.NullableBool.True), java.newFloat(frame.getRotation()));
+    shape.setFrame(changedFrame);
+
+    presentation.save("flipped-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποθηκευμένο σχήμα αντικατοπτρίζεται οριζόντια και κάθετα ενώ διατηρεί τη θέση, το μέγεθος και τη περιστροφή του.
+
+![The shape after flipping](flipped_shape.png)
+
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+
+**Θα πρέπει να χρησιμοποιήσω δείκτη συλλογής ως αναγνωριστικό σχήματος;**
+
+Μόνο για βραχυπρόθεσμη επεξεργασία όταν η συλλογή δεν θα αλλάξει πριν χρησιμοποιηθεί ο δείκτης. Προτιμήστε μια επικυρωμένη σύμβαση `Name` ή `AlternativeText` για πρότυπα που έχουν δημιουργηθεί, ή `OfficeInteropShapeId` για εργασία interop σε επίπεδο διαφάνειας.
+
+**Αφαιρεί η απόκρυψη ενός σχήματος το z‑order;**
+
+Όχι. Ένα κρυμμένο σχήμα παραμένει στη συλλογή με τον ίδιο δείκτη. Μπορεί να βρεθεί, να αναδιαταχθεί, να επεξεργαστεί ή να γίνει ορατό ξανά.
+
+**Γιατί ένα κλωνοποιημένο σχήμα εμφανίστηκε μπροστά από άλλο σχήμα;**
+
+Το `addClone` προσθέτει το κλώνο στο τέλος της συλλογής, που αποτελεί το μπροστινό μέρος του z‑order. Χρησιμοποιήστε `insertClone` για να επιλέξετε τον αρχικό δείκτη ή `reorder` μετά την προσθήκη όλων των σχημάτων.
+
+**Μπορώ να χρησιμοποιήσω σταθερό δείκτη για την ταυτοποίηση προρυθμισμένης ρύθμισης σχήματος;**
+
+Μόνο μετά από επικύρωση του ακριβούς προτύπου και της διάταξης της συλλογής. Προτιμήστε την επανάληψη μέσω `GeometryShape.getAdjustments` και τον έλεγχο του `AdjustValue.getType`; χρησιμοποιήστε το `AdjustValue.getName` ως πρόσθετη πληροφορία όταν εμφανίζεται ο ίδιος σημασιολογικός τύπος περισσότερες από μία φορές.

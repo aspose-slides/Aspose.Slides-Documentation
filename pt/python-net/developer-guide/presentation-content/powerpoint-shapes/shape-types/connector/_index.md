@@ -7,141 +7,111 @@ url: /pt/python-net/connector/
 keywords:
 - conector
 - tipo de conector
-- ponto de conexão
+- ponto de conector
 - linha de conector
 - ângulo do conector
+- ponto de conexão
+- ponto de ajuste
 - conectar formas
 - PowerPoint
 - apresentação
 - Python
 - Aspose.Slides
-description: "Capacite aplicativos Python a desenhar, conectar e roteirizar automaticamente linhas em slides PowerPoint e OpenDocument — obtenha controle total sobre conectores retos, em cotovelo e curvos."
+description: "Aprenda como adicionar, anexar, redirecionar, ajustar e inspecionar conectores retos, dobrados e curvos do PowerPoint com Aspose.Slides para Python via .NET."
 ---
-## **Introdução**
+## **Visão geral**
 
-Um conector do PowerPoint é uma linha especializada que liga duas formas e permanece anexada quando as formas são movidas ou reposicionadas em um slide. Os conectores se fixam em **pontos de conexão** (pontos verdes) nas formas. Os pontos de conexão aparecem quando o cursor se aproxima deles. **Alças de ajuste** (pontos amarelos), disponíveis em certos conectores, permitem modificar a posição e o formato de um conector.
+Um conector é uma linha que pode permanecer ligada a duas formas quando qualquer forma se move. Suas extremidades se conectam a pontos de conexão, representados por pontos verdes no PowerPoint. Alguns conectores dobrados e curvos também expõem pontos de ajuste, representados por pontos laranja, que controlam a posição de segmentos individuais do conector.
+
+Aspose.Slides representa conectores através da interface [IConnector](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iconnector/). Você pode criá‑los, ligar suas extremidades a formas, escolher pontos de conexão, redirecioná‑los e modificar a geometria dos conectores que têm pontos de ajuste.
 
 ## **Tipos de Conector**
 
-No PowerPoint, você pode usar três tipos de conectores: reto, cotovelo (angulado) e curvo.
+A enumeração [ShapeType](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapetype/) inclui predefinições de conectores retos, dobrados e curvos. A tabela a seguir mostra as geometrias de conectores disponíveis e o número de pontos de ajuste definidos por cada predefinição.
 
-O Aspose.Slides oferece suporte aos seguintes tipos de conectores:
+| Conector | Imagem | Número de pontos de ajuste |
+|---|---|---|
+| `ShapeType.LINE` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.STRAIGHT_CONNECTOR1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BENT_CONNECTOR2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BENT_CONNECTOR3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BENT_CONNECTOR4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BENT_CONNECTOR5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CURVED_CONNECTOR2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CURVED_CONNECTOR3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CURVED_CONNECTOR4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CURVED_CONNECTOR5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Tipo de Conector | Imagem | Número de pontos de ajuste |
-| ---------------- | ------ | --------------------------- |
-| `ShapeType.LINE` | ![Line connector](shapetype-lineconnector.png) | 0 |
-| `ShapeType.STRAIGHT_CONNECTOR1` | ![Straight connector 1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BENT_CONNECTOR2` | ![Bent connector 2](shapetype-bent-connector2.png) | 0 |
-| `ShapeType.BENT_CONNECTOR3` | ![Bent connector 3](shapetype-bentconnector3.png) | 1 |
-| `ShapeType.BENT_CONNECTOR4` | ![Bent connector 4](shapetype-bentconnector4.png) | 2 |
-| `ShapeType.BENT_CONNECTOR5` | ![Bent connector 5](shapetype-bentconnector5.png) | 3 |
-| `ShapeType.CURVED_CONNECTOR2` | ![Curved connector 2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CURVED_CONNECTOR3` | ![Curved connector 3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CURVED_CONNECTOR4` | ![Curved connector 4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CURVED_CONNECTOR5` | ![Curved connector 5](shapetype.curvedconnector5.png) | 3 |
+O número e o significado dos pontos de ajuste fazem parte da predefinição do conector selecionado. Não presuma que dois tipos diferentes de conector exponham a mesma disposição da coleção.
 
-## **Conectar Formas com Conectores**
+## **Conectar duas formas**
 
-Esta seção demonstra como ligar formas com conectores no Aspose.Slides. Você adicionará um conector a um slide, anexará seu início e fim às formas alvo. Usar locais de conexão garante que o conector permaneça “colado” às formas mesmo quando elas são movidas ou redimensionadas.
+Use [IShapeCollection.add_connector](https://reference.aspose.com/slides/pt/python-net/aspose.slides/ishapecollection/add_connector/) para adicionar um conector e atribua suas propriedades [start_shape_connected_to](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iconnector/start_shape_connected_to/) e [end_shape_connected_to](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iconnector/end_shape_connected_to/). Após ambas as extremidades estarem ligadas, [IConnector.reroute](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iconnector/reroute/) seleciona uma rota curta entre as formas.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
-1. Obtenha uma referência ao slide pelo seu índice.
-1. Adicione dois objetos [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) ao slide usando o método `add_auto_shape` exposto pelo objeto [ShapeCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/).
-1. Adicione um conector usando o método `add_connector` exposto pelo objeto [ShapeCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/) e especifique o tipo de conector.
-1. Conecte as formas com o conector.
-1. Chame o método `reroute` para aplicar o caminho de conexão mais curto.
-1. Salve a apresentação.
+O exemplo a seguir conecta uma elipse e um retângulo com um conector dobrado:
 
 ```python
 import aspose.slides as slides
 
-# Instanciar a classe Presentation para criar um arquivo PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Acessar a coleção de formas do primeiro slide.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-    # Adicionar um AutoShape de elipse.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Adicionar um AutoShape de retângulo.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Adicionar um conector ao slide.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
-
-    # Conectar as formas com o conector.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
-
-    # Chamar reroute para definir o caminho mais curto.
     connector.reroute()
 
-    # Salvar a apresentação.
-    presentation.save("connected_shapes.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("connected-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-O método `connector.reroute` redireciona um conector, forçando-o a seguir o caminho mais curto possível entre as formas. Para isso, o método pode alterar os valores `start_shape_connection_site_index` e `end_shape_connection_site_index`.
+{{% alert color="warning" title="Aviso" %}}
+Chamar `reroute` pode alterar os valores de [start_shape_connection_site_index](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iconnector/start_shape_connection_site_index/) e [end_shape_connection_site_index](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iconnector/end_shape_connection_site_index/). Atribua pontos de conexão específicos após o redirecionamento se esses pontos precisarem permanecer fixos.
 {{% /alert %}}
 
-## **Especificar Pontos de Conexão**
+## **Escolher um ponto de conexão**
 
-Esta seção explica como anexar um conector a um ponto de conexão específico em uma forma no Aspose.Slides. Ao direcionar locais de conexão precisos, você pode controlar o roteamento e o layout do conector, produzindo diagramas limpos e previsíveis em suas apresentações.
+Cada forma conectável informa seu número de pontos através de [connection_site_count](https://reference.aspose.com/slides/pt/python-net/aspose.slides/igeometryshape/connection_site_count/). Valide um índice de ponto baseado em zero antes de atribuí‑lo a uma extremidade do conector; a contagem de pontos varia conforme a geometria da forma.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
-1. Obtenha uma referência ao slide pelo seu índice.
-1. Adicione dois objetos [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) ao slide usando o método `add_auto_shape` exposto pelo objeto [ShapeCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/).
-1. Adicione um conector usando o método `add_connector` exposto pelo objeto [ShapeCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/) e especifique o tipo de conector.
-1. Conecte as formas com o conector.
-1. Defina os pontos de conexão preferidos nas formas.
-1. Salve a apresentação.
+Este exemplo liga o conector a um ponto específico na elipse quando esse ponto existe:
 
 ```python
 import aspose.slides as slides
 
-# Instanciar a classe Presentation para criar um arquivo PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Acessar a coleção de formas do primeiro slide.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
 
-    # Adicionar um AutoShape de elipse.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Adicionar um AutoShape de retângulo.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Adicionar um conector à coleção de formas do slide.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
-
-    # Conectar as formas com o conector.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
 
-    # Definir o índice do site de conexão preferido na elipse.
-    site_index = 6
+    preferred_site_index = 2
+    if preferred_site_index < ellipse.connection_site_count:
+        connector.start_shape_connection_site_index = preferred_site_index
+    else:
+        print(f"The ellipse has only {ellipse.connection_site_count} connection sites.")
 
-    # Verificar se o índice preferido está dentro da contagem de sites disponível.
-    if  ellipse.connection_site_count > site_index:
-        # Atribuir o site de conexão preferido no AutoShape da elipse.
-        connector.start_shape_connection_site_index = site_index
-
-    # Salvar a apresentação.
-    presentation.save("connection_points.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("specific-connection-site.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ajustar Pontos do Conector**
+## **Ajustar um ponto do conector**
 
-Você pode modificar conectores usando seus pontos de ajuste. Apenas conectores que expõem pontos de ajuste podem ser editados dessa forma. Para detalhes sobre quais conectores suportam ajustes, veja a tabela em [Connector Types](/slides/pt/python-net/connector/#connector-types).
+Conectores com pontos de ajuste os expõem através de [IGeometryShape.adjustments](https://reference.aspose.com/slides/pt/python-net/aspose.slides/igeometryshape/adjustments/). Inspecione cada [IAdjustValue](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iadjustvalue/) e verifique seu [type](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iadjustvalue/type/) antes de mudar seu [raw_value](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iadjustvalue/raw_value/). Para manipulação geral de formas, consulte [Shape Manipulation](/slides/pt/python-net/shape-manipulations/).
 
-### **Caso Simples**
+O número, a ordem, o significado e o intervalo de valores válidos dos ajustes de conector dependem da predefinição do conector. A propriedade `type` é somente leitura, enquanto o valor do ajuste é gravável. A propriedade somente leitura [name](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iadjustvalue/name/) fornece identificação adicional quando um conector contém mais de um ajuste do mesmo tipo semântico.
 
-Considere um caso em que um conector entre duas formas (A e B) intersecta uma terceira forma (C):
+### **Roteiro ao redor de um obstáculo**
 
-![Obstrução do conector](connector-obstruction.png)
+No layout a seguir, um conector `ShapeType.BENT_CONNECTOR5` entre duas formas passa por uma terceira forma:
 
-Exemplo de código:
+![connector-obstruction](connector-obstruction.png)
+
+Este código cria o conector obstruído:
 
 ```python
 import aspose.slides as slides
@@ -150,237 +120,326 @@ import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
-    
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
     connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
-    
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
-    
-    connector.start_shape_connected_to = shape_from
-    connector.end_shape_connected_to = shape_to
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
     connector.start_shape_connection_site_index = 2
+
+    presentation.save("connector-obstruction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Para evitar a terceira forma, ajuste o conector movendo seu segmento vertical para a esquerda:
+Mover a curva vertical altera a rota para que o conector contorne o obstáculo:
 
-![Obstrução de conector corrigida](connector-obstruction-fixed.png)
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```python
-    adjustment2 = connector.adjustments[1]
-    adjustment2.raw_value += 10000
-```
-
-### **Casos Complexos**
-
-Para ajustes mais avançados, considere o seguinte:
-
-- O ponto ajustável de um conector é governado por uma fórmula que determina sua posição. Alterar esse ponto pode mudar a forma geral do conector.
-- Os pontos de ajuste de um conector são armazenados em um array estritamente ordenado, numerado do início ao fim do conector.
-- Os valores dos pontos de ajuste representam porcentagens da largura/altura da forma do conector.
-  - A forma é limitada pelos pontos de início e fim do conector e escalada por 1000.
-  - Os primeiros, segundo e terceiro pontos de ajuste representam, respectivamente: porcentagem da largura, porcentagem da altura e porcentagem da largura (novamente).
-- Ao calcular as coordenadas dos pontos de ajuste, leve em conta a rotação e a reflexão do conector. **Nota:** Para todos os conectores listados em [Connector Types](/slides/pt/python-net/connector/#connector-types), o ângulo de rotação é 0.
-
-#### **Caso 1**
-
-Considere um caso em que dois objetos de quadro de texto são vinculados com um conector:
-
-![Formas vinculadas](connector-shape-complex.png)
-
-Exemplo de código:
+Em vez de presumir que o índice da coleção `1` represente sempre a curva vertical, este exemplo procura `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` e o altera somente quando o tipo semântico esperado está presente:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instanciar a classe Presentation para criar um arquivo PPTX.
 with slides.Presentation() as presentation:
-
-    # Obter o primeiro slide.
     slide = presentation.slides[0]
 
-    # Obter o primeiro slide.
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
-    shape_from.text_frame.text = "From"
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
-    shape_to.text_frame.text = "To"
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
 
-    # Adicionar um conector.
-    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
-    # Definir a direção do conector.
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
-    # Definir a cor do conector.
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
+    connector.start_shape_connection_site_index = 2
+
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+            break
+
+    if vertical_bend is None:
+        print("The connector does not expose a vertical bend adjustment.")
+    else:
+        vertical_bend.raw_value = 60000
+        presentation.save("connector-obstruction-fixed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Um `ShapeType.BENT_CONNECTOR5` possui dois ajustes `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` e um ajuste `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`. Se o tipo que você precisa ocorrer mais de uma vez, inspecione `name` e a geometria conhecida daquela predefinição antes de selecionar um. Se um ajuste relatar [ShapeAdjustmentType.CUSTOM](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapeadjustmenttype/), trate seu significado e intervalo como específicos da predefinição e não o altere até que esse contrato seja conhecido.
+
+## **Relacionar valores de ajuste à geometria do conector**
+
+Para conectores dobrados, os valores de ajuste podem ser usados para estimar as posições de segmentos individuais. Esses cálculos são específicos da predefinição do conector:
+
+- `ShapeType.BENT_CONNECTOR4` normalmente expõe um ajuste `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` e um ajuste `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`.
+- Para essas posições de curva, `raw_value / 100000` produz a fração da largura ou altura da moldura do conector usada nos exemplos abaixo.
+- A moldura do conector pode ser rotacionada ou espelhada, portanto as coordenadas da moldura devem ser transformadas antes de serem comparadas com as coordenadas do slide.
+
+Os exemplos a seguir utilizam `type` para identificar primeiro os ajustes. Eles não tratam índices de coleção como identificadores portáteis.
+
+### **Conector não rotacionado**
+
+O layout inicial contém duas formas de texto conectadas por um `ShapeType.BENT_CONNECTOR4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Este exemplo inspeciona o conector e obtém seus ajustes de curva horizontal e vertical:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    target_shape.text_frame.text = "To"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.crimson
-    # Definir a espessura da linha do conector.
     connector.line_format.width = 3
-
-    # Vincular as formas com o conector.
-    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 3
-    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 2
 
-    # Obter os pontos de ajuste do conector.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
 ```
 
-**Ajuste**
-
-Altere os valores dos pontos de ajuste do conector aumentando a porcentagem de largura em 20 % e a porcentagem de altura em 200 %, respectivamente:
+Para mudar ambas as curvas, localize cada tipo esperado e modifique os valores somente depois que ambos forem encontrados:
 
 ```python
-    # Alterar os valores dos pontos de ajuste.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+        presentation.save("connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-O resultado:
+O resultado é um conector cujos segmentos horizontal e vertical foram deslocados:
 
-![Ajuste do conector 1](connector-adjusted-1.png)
+![connector-adjusted-1](connector-adjusted-1.png)
 
-Para definir um modelo que nos permita determinar as coordenadas e a forma dos segmentos do conector, crie uma forma que corresponda ao componente vertical do conector em `connector.adjustments[0]`:
+Depois que os tipos semânticos são conhecidos, seus valores podem ser convertidos em coordenadas da moldura do conector. Este exemplo desenha um retângulo fino sobre o segmento vertical controlado pelos dois ajustes de curva:
 
 ```python
-    # Desenhar o componente vertical do conector.
-    x = connector.x + connector.width * adjustment_0.raw_value / 100000
-    y = connector.y
-    height = connector.height * adjustment_1.raw_value / 100000
+import aspose.slides as slides
 
-    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        x = connector.x + connector.width * horizontal_bend.raw_value / 100000
+        y = connector.y
+        height = connector.height * vertical_bend.raw_value / 100000
+        slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 1, height)
+        presentation.save("connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-O resultado:
+A forma guia marca o segmento calculado:
 
-![Ajuste do conector 2](connector-adjusted-2.png)
+![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Caso 2**
+### **Conector rotacionado ou espelhado**
 
-No **Caso 1**, demonstramos um ajuste simples de conector usando princípios básicos. Em cenários típicos, você deve considerar a rotação do conector e suas configurações de exibição (controladas por `connector.rotation`, `connector.frame.flip_h` e `connector.frame.flip_v`). Veja como o processo funciona.
+Quando a mesma geometria de conector está orientada verticalmente, seus valores de [frame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iconnector/frame/), [flip_h](https://reference.aspose.com/slides/pt/python-net/aspose.slides/ishapeframe/flip_h/) e [flip_v](https://reference.aspose.com/slides/pt/python-net/aspose.slides/ishapeframe/flip_v/) influenciam a conversão de coordenadas da moldura do conector para coordenadas do slide.
 
-Primeiro, adicione um novo objeto de quadro de texto (**To 1**) ao slide (para conexão) e crie um novo conector verde que o ligue aos objetos existentes.
+Este exemplo cria e ajusta o conector orientado verticalmente:
 
 ```python
-    # Criar um novo objeto de destino.
-    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
-    shape_to_1.text_frame.text = "To 1"
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    # Criar um novo conector.
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    target_shape.text_frame.text = "To 1"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
-
-    # Conectar os objetos usando o conector recém-criado.
-    connector.start_shape_connected_to = shapeFrom
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 2
-    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 3
 
-    # Obter os pontos de ajuste do conector.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
-    
-    # Alterar os valores dos pontos de ajuste.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            adjustment.raw_value += 20000
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            adjustment.raw_value += 200000
+
+    presentation.save("vertical-connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-O resultado:
+O conector ajustado aparece verticalmente entre as formas:
 
-![Ajuste do conector 3](connector-adjusted-3.png)
+![connector-adjusted-3](connector-adjusted-3.png)
 
-Segundo, crie uma forma que corresponda ao segmento **horizontal** do conector que passa pelo novo ponto de ajuste do conector, `connector.adjustments[0]`. Use os valores de `connector.rotation`, `connector.frame.flip_h` e `connector.frame.flip_v` e aplique a fórmula padrão de conversão de coordenadas para rotação em torno de um ponto `x0`:
+Para um ângulo de rotação arbitrário `alpha`, rotacione um ponto da moldura do conector `(x, y)` ao redor do centro da moldura `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-No nosso caso, o ângulo de rotação do objeto é 90 graus e o conector é exibido verticalmente, então o código correspondente é:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```python
-    # Salvar as coordenadas do conector.
-    x = connector.x
-    y = connector.y
-    
-    # Corrigir as coordenadas do conector se ele estiver invertido.
-    if connector.frame.flip_h == 1:
-        x += connector.width
-    if connector.frame.flip_v == 1:
-        y += connector.height
-
-    # Usar o valor do ponto de ajuste como coordenada.
-    x += connector.width * adjValue_0.raw_value / 100000
-    
-    # Converter as coordenadas porque sin(90°) = 1 e cos(90°) = 0.
-    xx = connector.frame.center_x - y + connector.frame.center_y
-    yy = x - connector.frame.center_x + connector.frame.center_y
-
-    # Determinar a largura do segmento horizontal usando o valor do segundo ponto de ajuste.
-    width = connector.height * adjValue_1.raw_value / 100000
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-```
-
-O resultado:
-
-![Ajuste do conector 4](connector-adjusted-4.png)
-
-Demonstramos cálculos envolvendo ajustes simples e pontos de ajuste mais complexos (aqueles que consideram rotação). Usando esse conhecimento, você pode desenvolver seu próprio modelo — ou escrever código — para obter um objeto `GraphicsPath` ou até mesmo definir os valores dos pontos de ajuste do conector com base em coordenadas específicas do slide.
-
-## **Encontrar Ângulos de Linha do Conector**
-
-Use o exemplo abaixo para determinar o ângulo das linhas de conector em um slide com Aspose.Slides. Você aprenderá a ler os pontos finais de um conector e calcular sua orientação para alinhar com precisão setas, rótulos e outras formas.
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
-1. Obtenha uma referência ao slide pelo índice.
-1. Acesse a forma de linha do conector.
-1. Use a largura e altura da linha e a largura e altura da moldura da forma para calcular o ângulo.
-
-O seguinte código Python demonstra como calcular o ângulo para uma forma de linha de conector:
+O código a seguir trata da orientação de 90 graus usada neste exemplo e desenha um guia vermelho sobre o segmento correspondente do conector:
 
 ```python
 import aspose.slides as slides
-import math
+import aspose.pydrawing as draw
 
-def get_direction(w, h, flip_h, flip_v):
-    end_line_x = w * (-1 if flip_h else 1)
-    end_line_y = h * (-1 if flip_v else 1)
-    end_y_axis_x = 0
-    end_y_axis_y = h
-    angle = math.atan2(end_y_axis_y, end_y_axis_x) - math.atan2(end_line_y, end_line_x)
-    if (angle < 0):
-         angle += 2 * math.pi
-    return angle * 180.0 / math.pi
-
-with slides.Presentation("connector_line_angle.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    for shape_index in range(len(slide.shapes)):
-        direction = 0.0
-        shape = slide.shapes[shape_index]
-        if type(shape) is slides.AutoShape and shape.shape_type == slides.ShapeType.LINE:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        elif type(shape) is slides.Connector:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        print(direction)
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 2
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 3
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+
+        x = connector.x
+        y = connector.y
+        if connector.frame.flip_h == slides.NullableBool.TRUE:
+            x += connector.width
+        if connector.frame.flip_v == slides.NullableBool.TRUE:
+            y += connector.height
+
+        x += connector.width * horizontal_bend.raw_value / 100000
+        rotated_x = connector.frame.center_x - y + connector.frame.center_y
+        rotated_y = x - connector.frame.center_x + connector.frame.center_y
+        segment_width = connector.height * vertical_bend.raw_value / 100000
+        guide = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, rotated_x, rotated_y, segment_width, 1)
+        guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+        guide.line_format.fill_format.solid_fill_color.color = draw.Color.red
+
+        presentation.save("rotated-connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+O guia vermelho marca o segmento calculado após a transformação das coordenadas:
 
-**Como posso saber se um conector pode ser “colado” a uma forma específica?**
+![connector-adjusted-4](connector-adjusted-4.png)
 
-Verifique se a forma expõe [pontos de conexão](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/connection_site_count/). Se não houver nenhum ou a contagem for zero, a colagem não está disponível; nesse caso, use pontos finais livres e posicione-os manualmente. É sensato verificar a contagem de sites antes de anexar.
+Essas fórmulas descrevem as predefinições usadas nos exemplos, não um modelo universal de conector. Valide os tipos de ajuste, a orientação da moldura e os intervalos de valores antes de aplicar o mesmo cálculo a uma predefinição diferente.
 
-**O que acontece com um conector se eu excluir uma das formas conectadas?**
+## **Encontrar o ângulo de direção de um conector**
 
-Suas extremidades serão desacopladas; o conector permanece no slide como uma linha comum com início/fim livres. Você pode excluí-lo ou reatribuir as conexões e, se necessário, [reroute](https://reference.aspose.com/slides/pt/python-net/aspose.slides/connector/reroute/).
+A direção de um conector reto pode ser calculada a partir de sua largura e altura, com inversões horizontais e verticais aplicadas. O exemplo a seguir relata o ângulo horário a partir do eixo horizontal positivo nas coordenadas do slide:
 
-**As ligações de conectores são preservadas ao copiar um slide para outra apresentação?**
+```python
+import math
+import aspose.slides as slides
 
-Geralmente sim, desde que as formas alvo também sejam copiadas. Se o slide for inserido em outro arquivo sem as formas conectadas, as extremidades se tornam livres e será preciso recolocá‑las.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 100, 100, 200, 100)
+
+    flip_h = connector.frame.flip_h == slides.NullableBool.TRUE
+    flip_v = connector.frame.flip_v == slides.NullableBool.TRUE
+    delta_x = connector.width * (-1 if flip_h else 1)
+    delta_y = connector.height * (-1 if flip_v else 1)
+    angle = math.atan2(delta_y, delta_x) * 180.0 / math.pi
+
+    if angle < 0:
+        angle += 360
+
+    print(f"Connector direction: {angle:.2f} degrees")
+```
+
+## **Perguntas frequentes**
+
+**Como saber se um conector pode ser ligado a uma forma?**
+
+Verifique o [connection_site_count](https://reference.aspose.com/slides/pt/python-net/aspose.slides/igeometryshape/connection_site_count/) da forma. Uma contagem positiva indica que a forma expõe pontos de conexão. Valide o índice do ponto selecionado antes de atribuí‑lo a qualquer extremidade do conector.
+
+**Posso identificar um ajuste de conector pelo seu índice de coleção?**
+
+Um índice só tem significado para uma predefinição de conector conhecida e sua disposição de coleção. Verifique [IAdjustValue.type](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iadjustvalue/type/) antes de modificar um valor e use [IAdjustValue.name](https://reference.aspose.com/slides/pt/python-net/aspose.slides/iadjustvalue/name/) como informação adicional quando o mesmo tipo semântico aparecer mais de uma vez.
+
+**O que acontece quando uma forma conectada é excluída?**
+
+A extremidade correspondente do conector se desconecta. O conector permanece no slide e pode ser excluído, posicionado como uma linha livre ou ligado a outra forma.
+
+**As ligações de conector são preservadas quando um slide é copiado?**
+
+As ligações geralmente são preservadas quando as formas conectadas são copiadas junto com o slide. Se um conector for copiado sem uma de suas formas‑alvo, a extremidade afetada deverá ser ligada novamente.

@@ -1,372 +1,582 @@
 ---
-title: "Zarządzanie łącznikami w prezentacjach przy użyciu PHP"
-linktitle: "Łącznik"
+title: Zarządzanie łącznikami w prezentacjach przy użyciu PHP
+linktitle: Łącznik
 type: docs
 weight: 10
 url: /pl/php-java/connector/
 keywords:
-- "łącznik"
-- "typ łącznika"
-- "punkt łącznika"
-- "linia łącznika"
-- "kąt łącznika"
-- "łączenie kształtów"
-- "PowerPoint"
-- "prezentacja"
-- "PHP"
-- "Aspose.Slides"
-description: "Umożliw aplikacjom PHP rysowanie, łączenie i automatyczne trasowanie linii w slajdach PowerPoint — uzyskaj pełną kontrolę nad prostymi, łokciowymi i zakrzywionymi łącznikami."
+- łącznik
+- typ łącznika
+- punkt łącznika
+- linia łącznika
+- kąt łącznika
+- miejsce połączenia
+- punkt regulacji
+- łączenie kształtów
+- PowerPoint
+- prezentacja
+- PHP
+- Aspose.Slides
+description: "Dowiedz się, jak dodawać, przyłączać, zmieniać trasę, regulować i analizować proste, zgięte oraz zakrzywione łączniki PowerPoint przy użyciu Aspose.Slides dla PHP poprzez Java."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Łącznik PowerPoint to specjalna linia, która łączy dwa kształty i pozostaje przy nich przytwierdzona nawet po ich przeniesieniu lub przemieszczeniu na danym slajdzie. 
+Łącznik jest linią, która może pozostać przyłączona do dwóch kształtów, gdy którykolwiek z nich zostanie przesunięty. Jego końce przyłączają się do miejsc połączeń, przedstawionych jako zielone kropki w PowerPoint. Niektóre zgięte i zakrzywione łączniki udostępniają również punkty regulacji, oznaczone pomarańczowymi kropkami, które kontrolują pozycję poszczególnych segmentów łącznika.
 
-Łączniki są zazwyczaj podłączane do *punktów połączeń* (zielonych kropek), które domyślnie istnieją na wszystkich kształtach. Punkty połączeń pojawiają się, gdy kursor zbliży się do nich.
-
-*Punkty regulacji* (pomarańczowe kropki), które występują tylko w niektórych łącznikach, służą do modyfikowania pozycji i kształtów łączników.
+Aspose.Slides reprezentuje łączniki za pomocą klasy [Connector](https://reference.aspose.com/slides/pl/php-java/aspose.slides/connector/). Można je tworzyć, przyłączać ich końce do kształtów, wybierać miejsca połączeń, zmieniać trasę oraz modyfikować geometrię łączników posiadających punkty regulacji.
 
 ## **Typy łączników**
 
-W PowerPoint możesz używać łączników prostych, łokciowych (z kątem) i zakrzywionych. 
-
-Aspose.Slides udostępnia następujące łączniki:
+Klasa [ShapeType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapetype/) zawiera gotowe typy prostych, zgiętych i zakrzywionych łączników. Poniższa tabela prezentuje dostępne geometrie łączników oraz liczbę punktów regulacji zdefiniowaną dla każdego typu.
 
 | Łącznik | Obraz | Liczba punktów regulacji |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Łączenie kształtów przy użyciu łączników**
+Liczba i znaczenie punktów regulacji są częścią wybranego typu łącznika. Nie zakładaj, że dwa różne typy łączników udostępniają tę samą kolejność elementów w kolekcji.
 
-1. Utwórz instancję klasy [Presentation](https://apireference.aspose.com/slides/pl/php-java/aspose.slides/Presentation).
-2. Uzyskaj odwołanie do slajdu poprzez jego indeks.
-3. Dodaj dwa [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/AutoShape) do slajdu, używając metody `addAutoShape` udostępnionej przez obiekt `Shapes`.
-4. Dodaj łącznik za pomocą metody `addConnector` udostępnionej przez obiekt `Shapes`, określając typ łącznika.
-5. Połącz kształty przy użyciu łącznika. 
-6. Wywołaj metodę `reroute`, aby zastosować najkrótszą ścieżkę połączenia.
-7. Zapisz prezentację. 
+## **Połączenie dwóch kształtów**
 
-Ten kod PHP pokazuje, jak dodać łącznik (łamany łącznik) między dwoma kształtami (elipsą i prostokątem):
+Użyj [ShapeCollection::addConnector](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/addconnector/), aby dodać łącznik, a następnie [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/pl/php-java/aspose.slides/connector/setstartshapeconnectedto/) oraz [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/pl/php-java/aspose.slides/connector/setendshapeconnectedto/), aby przyłączyć jego końce. Po przyłączeniu obu końcówek, [Connector::reroute](https://reference.aspose.com/slides/pl/php-java/aspose.slides/connector/reroute/) wybiera najkrótszą trasę między kształtami.
+
+Poniższy przykład łączy elipsę i prostokąt za pomocą zgiętego łącznika:
 
 ```php
-// Tworzy instancję klasy prezentacji reprezentującej plik PPTX
-  $pres = new Presentation();
-  try {
-    # Uzyskuje dostęp do kolekcji kształtów dla określonego slajdu
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Dodaje autokształt Elipsa
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Dodaje autokształt Prostokąt
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Dodaje kształt łącznika do kolekcji kształtów slajdu
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Łączy kształty przy użyciu łącznika
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Wywołuje metodę reroute, która ustawia automatyczną najkrótszą ścieżkę pomiędzy kształtami
     $connector->reroute();
-    # Zapisuje prezentację
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Ostrzeżenie" %}}
 
-Metoda `Connector.reroute` przekierowuje łącznik i wymusza, aby przyjął najkrótszą możliwą ścieżkę między kształtami. Aby osiągnąć ten cel, metoda może zmienić punkty `setStartShapeConnectionSiteIndex` i `setEndShapeConnectionSiteIndex`. 
+Wywołanie `reroute` może zmienić wartości [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) oraz [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/). Przypisz konkretne miejsca połączeń po zmianie trasy, jeśli muszą pozostać stałe.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **Określenie punktu połączenia**
+## **Wybór miejsca połączenia**
 
-Jeśli chcesz, aby łącznik połączył dwa kształty za pomocą konkretnych punktów na tych kształtach, musisz określić preferowane punkty połączenia w następujący sposób:
+Każdy łączny kształt raportuje liczbę dostępnych miejsc poprzez [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getconnectionsitecount/). Zweryfikuj żądany indeks miejsca (zero‑based) przed przypisaniem go do końca łącznika; liczba miejsc różni się w zależności od geometrii kształtu.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/Presentation).
-1. Uzyskaj odwołanie do slajdu poprzez jego indeks.
-1. Dodaj dwa [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/AutoShape) do slajdu, używając metody `addAutoShape` udostępnionej przez obiekt `Shapes`.
-1. Dodaj łącznik za pomocą metody `addConnector` udostępnionej przez obiekt `Shapes`, określając typ łącznika.
-1. Połącz kształty przy użyciu łącznika. 
-1. Ustaw preferowane punkty połączenia na kształtach. 
-1. Zapisz prezentację.
-
-Ten kod PHP demonstruje operację, w której określony jest preferowany punkt połączenia:
+Ten przykład przyłącza łącznik do określonego miejsca na elipsie, jeśli takie miejsce istnieje:
 
 ```php
-  # Tworzy instancję klasy prezentacji reprezentującej plik PPTX
-  $pres = new Presentation();
-  try {
-    # Uzyskuje dostęp do kolekcji kształtów dla określonego slajdu
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Dodaje autokształt Elipsa
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Dodaje autokształt Prostokąt
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Dodaje kształt łącznika do kolekcji kształtów slajdu
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Łączy kształty przy użyciu łącznika
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Ustawia preferowany indeks punktu połączenia na kształcie Elipsa
-    $wantedIndex = 6;
-    # Sprawdza, czy preferowany indeks jest mniejszy niż maksymalna liczba indeksów punktów połączeń
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # Ustawia preferowany punkt połączenia na autokształcie Elipsa
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # Zapisuje prezentację
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Regulacja punktu łącznika**
 
-Możesz regulować istniejący łącznik przy użyciu jego punktów regulacji. Tylko łączniki posiadające punkty regulacji mogą być w ten sposób modyfikowane. Zobacz tabelę pod **[Typy łączników.](/slides/pl/php-java/connector/#types-of-connectors)**
+Łączniki posiadające punkty regulacji udostępniają je przez [GeometryShape::getAdjustments](https://reference.aspose.com/slides/pl/php-java/aspose.slides/geometryshape/#getadjustments). Zbadaj każdy [AdjustValue](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/) i sprawdź jego wartość [AdjustValue::getType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/#gettype) przed zmianą przy użyciu [AdjustValue::setRawValue](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/setrawvalue/). Ogólne zasady identyfikacji regulacji predefiniowanych kształtów opisano w [Manipulacji kształtem](/slides/pl/php-java/shape-manipulations/).
 
-### **Prosty przypadek**
+Liczba, kolejność, znaczenie oraz dopuszczalny zakres wartości regulacji łącznika zależą od wybranego typu łącznika. Typ regulacji jest tylko do odczytu, natomiast jego wartość można modyfikować. Metoda tylko do odczytu [AdjustValue::getName](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/getname/) dostarcza dodatkowej identyfikacji, gdy łącznik zawiera więcej niż jedną regulację tego samego typu semantycznego.
 
-Rozważ przypadek, w którym łącznik między dwoma kształtami (A i B) przechodzi przez trzeci kształt (C):
+### **Omijanie przeszkody**
+
+W poniższym układzie łącznik `BentConnector5` między dwoma kształtami przechodzi przez trzeci kształt:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Ten kod tworzy łącznik z przeszkodą:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Aby uniknąć lub ominąć trzeci kształt, możemy dostosować łącznik, przesuwając jego pionową linię w lewo w następujący sposób:
+Przesunięcie pionowego zgięcia zmienia trasę tak, aby łącznik omijał przeszkodę:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
+Zamiast zakładać, że indeks kolekcji `1` zawsze reprezentuje pionowe zgięcie, ten przykład wyszukuje `ConnectorBendPositionY` i zmienia je tylko wtedy, gdy oczekiwany typ semantyczny jest obecny:
 
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Złożone przypadki** 
+`BentConnector5` posiada dwa regulacje `ConnectorBendPositionX` i jedną regulację `ConnectorBendPositionY`. Jeśli potrzebny typ występuje więcej niż raz, zbadaj `getName` oraz znaną geometrię tego typu przed wybraniem konkretnej regulacji. Gdy regulacja zwraca `ShapeAdjustmentType::Custom`, traktuj jej znaczenie i zakres jako specyficzne dla wybranego typu i nie zmieniaj jej, dopóki nie zostanie określona umowa.
 
-Aby wykonać bardziej skomplikowane regulacje, musisz wziąć pod uwagę następujące kwestie:
+## **Powiązanie wartości regulacji z geometrią łącznika**
 
-* Punkt regulacji łącznika jest ściśle powiązany ze wzorem, który oblicza i określa jego pozycję. Dlatego zmiany położenia punktu mogą zmienić kształt łącznika.
-* Punkty regulacji łącznika są definiowane w ścisłej kolejności w tablicy. Punkty regulacji są numerowane od punktu początkowego łącznika do jego końcowego.
-* Wartości punktów regulacji odzwierciedlają procent szerokości/wysokości kształtu łącznika. 
-  * Kształt jest ograniczony przez punkty początkowy i końcowy łącznika pomnożone przez 1000. 
-  * Pierwszy punkt, drugi punkt i trzeci punkt określają odpowiednio procent z szerokości, procent z wysokości oraz ponownie procent z szerokości. 
-* Dla obliczeń określających współrzędne punktów regulacji łącznika musisz uwzględnić rotację łącznika oraz jego odbicie. **Uwaga** że kąt rotacji wszystkich łączników pokazanych pod **[Typy łączników](/slides/pl/php-java/connector/#types-of-connectors)** wynosi 0.
+W przypadku zgiętych łączników wartości regulacji mogą być używane do przybliżonego określenia pozycji poszczególnych segmentów. Obliczenia te są specyficzne dla konkretnego typu łącznika:
 
-#### **Przypadek 1**
+- `BentConnector4` zazwyczaj udostępnia po jednej regulacji `ConnectorBendPositionX` i `ConnectorBendPositionY`.
+- Dla tych pozycji zgięcia, podzielenie wartości zwróconej przez `getRawValue` przez `100000` daje ułamek szerokości lub wysokości ramki łącznika, używany w poniższych przykładach.
+- Ramka łącznika może być obrócona lub odbita, więc współrzędne ramki muszą być przekształcone przed porównaniem z współrzędnymi slajdu.
 
-Rozważ przypadek, w którym dwa obiekty ramki tekstowej są połączone za pomocą łącznika:
+Poniższe przykłady najpierw używają `getType`, aby zidentyfikować regulacje. Nie traktują indeksów kolekcji jako przenośnych identyfikatorów.
+
+### **Nieobrócony łącznik**
+
+Początkowy układ zawiera dwa kształty tekstowe połączone `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Ten przykład bada łącznik i pobiera jego regulacje poziomego i pionowego zgięcia:
+
 ```php
-  # Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
-  $pres = new Presentation();
-  try {
-    # Pobiera pierwszy slajd w prezentacji
-    $sld = $pres->getSlides()->get_Item(0);
-    # Dodaje kształty, które zostaną połączone łącznikiem
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # Dodaje łącznik
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # Określa kierunek łącznika
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # Określa kolor łącznika
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Określa grubość linii łącznika
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # Łączy kształty razem przy użyciu łącznika
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # Pobiera punkty regulacji dla łącznika
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Regulacja**
-
-Możemy zmienić wartości punktów regulacji łącznika, zwiększając odpowiednio procent szerokości o 20 % oraz wysokości o 200 %:
+Aby zmienić oba zgięcia, znajdź każdy oczekiwany typ i modyfikuj wartości dopiero po odnalezieniu obu:
 
 ```php
-  # Zmienia wartości punktów regulacji
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Wynik:
+Wynikiem jest łącznik, którego segmenty poziome i pionowe zostały przesunięte:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Aby zdefiniować model umożliwiający określenie współrzędnych i kształtu poszczególnych części łącznika, utwórzmy kształt odpowiadający poziomej składowej łącznika w punkcie connector.getAdjustments().get_Item(0):
+Gdy typy semantyczne są znane, ich wartości można przeliczyć na współrzędne ramki łącznika. Ten przykład rysuje cienki prostokąt nad pionowym segmentem kontrolowanym przez dwie regulacje zgięcia:
 
 ```php
-  # Rysuje pionową składową łącznika
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Wynik:
+Kształt prowadzący oznacza obliczony segment:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Przypadek 2**
+### **Obrócony lub odbity łącznik**
 
-W **Przypadku 1** przedstawiliśmy prostą operację regulacji łącznika wykorzystującą podstawowe zasady. W typowych sytuacjach musisz wziąć pod uwagę rotację łącznika oraz jego wyświetlanie (ustawiane przez connector.getRotation(), connector.getFrame().getFlipH() i connector.getFrame().getFlipV()). Teraz pokażemy proces.
+Gdy ta sama geometria łącznika jest ustawiona pionowo, wartości [Shape::getFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getframe/), [ShapeFrame::getFlipH](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapeframe/getfliph/), oraz [ShapeFrame::getFlipV](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapeframe/getflipv/) wpływają na konwersję współrzędnych ramki łącznika na współrzędne slajdu.
 
-Najpierw dodajmy nowy obiekt ramki tekstowej (**To 1**) do slajdu (w celu połączenia) i utwórzmy nowy (zielony) łącznik, który łączy go z już utworzonymi obiektami.
+Ten przykład tworzy i reguluje pionowo ustawiony łącznik:
 
 ```php
-  # Tworzy nowy obiekt wiązania
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # Tworzy nowy łącznik
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # Łączy obiekty przy użyciu nowo utworzonego łącznika
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # Pobiera punkty regulacji łącznika
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # Zmienia wartości punktów regulacji
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Wynik:
+Regulowany łącznik pojawia się pionowo między kształtami:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Po drugie, utwórzmy kształt, który będzie odpowiadał poziomej składowej łącznika przechodzącej przez nowy punkt regulacji connector.getAdjustments().get_Item(0). Zastosujemy wartości z danych łącznika dla connector.getRotation(), connector.getFrame().getFlipH() i connector.getFrame().getFlipV() oraz popularny wzór konwersji współrzędnych dla rotacji wokół danego punktu x0:
+Dla dowolnego kąta obrotu `alpha`, obróć punkt ramki łącznika `(x, y)` wokół środka ramki `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-W naszym przypadku kąt rotacji obiektu wynosi 90 stopni, a łącznik jest wyświetlany pionowo, więc odpowiadający kod wygląda następująco:
+Poniższy kod obsługuje 90‑stopniową orientację używaną w tym przykładzie i rysuje czerwony prowadnik nad odpowiednim segmentem łącznika:
 
 ```php
-  # Zapisuje współrzędne łącznika
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # Koryguje współrzędne łącznika w razie potrzeby
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # Używa wartości punktu regulacji jako współrzędnej
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # Konwertuje współrzędne, ponieważ Sin(90) = 1 i Cos(90) = 0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # Określa szerokość poziomej składowej przy użyciu wartości drugiego punktu regulacji
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Wynik:
+Czerwony prowadnik oznacza obliczony segment po przekształceniu współrzędnych:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Zademonstrowaliśmy obliczenia obejmujące proste regulacje oraz skomplikowane punkty regulacji (punkty regulacji z kątami rotacji). Korzystając z zdobytej wiedzy, możesz opracować własny model (lub napisać kod), aby uzyskać obiekt `GraphicsPath` lub nawet ustawić wartości punktów regulacji łącznika na podstawie konkretnych współrzędnych slajdu.
+Te wzory opisują preset używany w przykładach, a nie uniwersalny model łącznika. Zweryfikuj typy regulacji, orientację ramki oraz zakresy wartości przed zastosowaniem tych samych obliczeń do innego typu.
 
-## **Znajdowanie kąta linii łącznika**
+## **Obliczanie kąta kierunku łącznika**
 
-1. Utwórz instancję klasy.
-1. Uzyskaj odwołanie do slajdu poprzez jego indeks.
-1. Uzyskaj dostęp do kształtu linii łącznika.
-1. Użyj szerokości i wysokości linii, wysokości ramki kształtu oraz szerokości ramki kształtu do obliczenia kąta.
-
-Ten kod PHP demonstruje operację, w której obliczyliśmy kąt dla kształtu linii łącznika:
+Kierunek prostego łącznika można obliczyć na podstawie jego szerokości i wysokości, uwzględniając poziome i pionowe odbicia. Poniższy przykład podaje kąt w stopniach, liczony zgodnie z ruchem wskazówek zegara od dodatniej osi poziomej w współrzędnych slajdu:
 
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Jak mogę sprawdzić, czy łącznik może być „przyklejony” do konkretnego kształtu?**
+**Jak mogę sprawdzić, czy łącznik może być przyłączony do kształtu?**
 
-Sprawdź, czy kształt udostępnia [punkty połączeń](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getconnectionsitecount/). Jeśli ich nie ma lub liczba wynosi zero, przyklejanie nie jest dostępne; w takim przypadku użyj wolnych końcówek i ustaw je ręcznie. Warto sprawdzić liczbę punktów przed ich przyłączeniem.
+Sprawdź wartość [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getconnectionsitecount/). Dodatnia liczba oznacza, że kształt udostępnia miejsca połączeń. Zweryfikuj wybrany indeks miejsca przed przypisaniem go do któregoś końca łącznika.
 
-**Co się stanie z łącznikiem, jeśli usunę jeden z połączonych kształtów?**
+**Czy mogę zidentyfikować regulację łącznika po jej indeksie w kolekcji?**
 
-Jego końce zostaną odłączone; łącznik pozostanie na slajdzie jako zwykła linia z wolnym początkiem/końcem. Możesz go usunąć lub ponownie przypisać połączenia i w razie potrzeby [przekierować](https://reference.aspose.com/slides/pl/php-java/aspose.slides/connector/reroute/).
+Indeks ma sens tylko w kontekście znanego typu łącznika i układu kolekcji. Sprawdź [AdjustValue::getType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/#gettype) przed modyfikacją wartości i użyj [AdjustValue::getName](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/getname/) jako dodatkowej informacji, gdy ten sam typ semantyczny występuje wielokrotnie.
 
-**Czy połączenia łącznika są zachowywane przy kopiowaniu slajdu do innej prezentacji?**
+**Co się dzieje, gdy połączony kształt zostanie usunięty?**
 
-Zasadniczo tak, pod warunkiem że docelowe kształty również zostaną skopiowane. Jeśli slajd zostanie wstawiony do innego pliku bez połączonych kształtów, końce stają się wolne i będzie trzeba je ponownie podłączyć.
+Odpowiedni koniec łącznika zostaje odłączony. Łącznik pozostaje na slajdzie i może być usunięty, przekształcony w wolną linię lub przyłączony do innego kształtu.
+
+**Czy powiązania łączników są zachowywane przy kopiowaniu slajdu?**
+
+Powiązania są zazwyczaj zachowywane, gdy połączone kształty są kopiowane razem ze slajdem. Jeśli łącznik zostanie skopiowany bez jednego z docelowych kształtów, odpowiedni koniec musi zostać ponownie przyłączony.

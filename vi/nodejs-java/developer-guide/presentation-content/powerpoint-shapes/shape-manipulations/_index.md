@@ -1,397 +1,491 @@
 ---
 title: Quản lý các hình dạng trong bản trình chiếu bằng JavaScript
-linktitle: Thao tác Hình dạng
+linktitle: Thao tác hình dạng
 type: docs
 weight: 40
 url: /vi/nodejs-java/shape-manipulations/
 keywords:
 - hình dạng PowerPoint
 - hình dạng bản trình chiếu
-- hình dạng trên slide
-- tìm hình dạng
-- sao chép hình dạng
-- xóa hình dạng
-- ẩn hình dạng
-- thay đổi thứ tự hình dạng
-- lấy ID hình dạng Interop
-- văn bản thay thế của hình dạng
-- định dạng bố cục hình dạng
-- hình dạng dưới dạng SVG
-- hình dạng sang SVG
-- căn hình dạng
+- hình trên slide
+- tìm hình
+- sao chép hình
+- xóa hình
+- ẩn hình
+- thay đổi thứ tự hình
+- lấy ID hình interop
+- văn bản thay thế của hình
+- điểm điều chỉnh hình
+- điều chỉnh hình preset
+- hình học của hình
+- định dạng bố cục hình
+- hình dưới dạng SVG
+- hình sang SVG
+- căn chỉnh hình
+- lật hình
 - PowerPoint
 - bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tìm hiểu cách tạo, chỉnh sửa và tối ưu hóa các hình dạng bằng JavaScript và Aspose.Slides cho Node.js qua Java và cung cấp các bản trình chiếu PowerPoint hiệu suất cao."
+description: "Tìm hiểu cách xác định, điều chỉnh, sao chép, xóa, ẩn, thay đổi thứ tự, xuất, căn chỉnh và lật các hình dạng trong bản trình chiếu với Aspose.Slides cho Node.js via Java."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với các hình dạng trong bản trình chiếu bằng Aspose.Slides. Nó cho thấy cách tìm một hình dạng trên slide, sao chép nó, xóa nó, ẩn nó, thay đổi thứ tự, lấy ID hình dạng Interop, và đặt văn bản thay thế để nhận dạng và xử lý tiếp theo.
+Aspose.Slides for Node.js via Java đại diện cho các hình dạng trên một trang trình chiếu dưới dạng một [ShapeCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/) có thứ tự. Bộ sưu tập vừa là nơi bạn tìm và sửa đổi các hình dạng, vừa là nguồn của thứ tự xếp chồng: chỉ mục `0` là hình dạng ở phía sau nhất, trong khi chỉ mục cuối cùng là hình dạng ở phía trước nhất.
 
-Nó cũng đề cập đến cách truy cập định dạng bố cục cho hình dạng, kết xuất một hình dạng dưới dạng SVG, căn các hình dạng trên slide, và sử dụng các thuộc tính lật để tạo ảnh phản chiếu theo chiều ngang và chiều dọc. Ngoài ra, bài viết bao gồm một phần FAQ ngắn về việc kết hợp hình dạng, thứ tự xếp chồng và khóa hình dạng.
+Bài viết này tuân theo mô hình đó. Đầu tiên giải thích cách xác định một hình dạng một cách đáng tin cậy và sửa đổi các điểm điều chỉnh hình dạng đã định sẵn, sau đó trình bày cách sao chép, xóa, ẩn và thay đổi thứ tự các hình dạng. Các phần cuối cùng bao gồm định dạng ở mức bố cục, xuất SVG, căn chỉnh và thiết lập lật. Mỗi ví dụ là độc lập, vì vậy bạn có thể chỉ sử dụng những thao tác cần thiết cho quy trình của mình.
 
-## **Tìm Hình Dạng Trong Slide**
-Chủ đề này sẽ mô tả một kỹ thuật đơn giản để giúp các nhà phát triển dễ dàng tìm một hình dạng cụ thể trên slide mà không cần sử dụng Id nội bộ của nó. Quan trọng là biết rằng các tệp PowerPoint Presentation không có cách nào để xác định hình dạng trên slide ngoại trừ Id duy nhất nội bộ. Điều này làm cho việc tìm một hình dạng bằng Id duy nhất nội bộ trở nên khó khăn đối với các nhà phát triển. Tất cả các hình dạng được thêm vào slide đều có một số Văn Bản Thay Thế (Alt Text). Chúng tôi đề nghị các nhà phát triển sử dụng văn bản thay thế để tìm một hình dạng cụ thể. Bạn có thể dùng MS PowerPoint để định nghĩa văn bản thay thế cho các đối tượng mà bạn dự định sẽ thay đổi trong tương lai.
+## **Xác định và Tìm Kiếm Hình Dạng**
 
-Sau khi đặt văn bản thay thế cho bất kỳ hình dạng mong muốn nào, bạn có thể mở bản trình chiếu đó bằng Aspose.Slides for Node.js via Java và duyệt qua tất cả các hình dạng được thêm vào một slide. Trong mỗi vòng lặp, bạn kiểm tra văn bản thay thế của hình dạng và hình dạng có văn bản thay thế khớp sẽ là hình dạng bạn cần. Để minh họa kỹ thuật này, chúng tôi đã tạo một phương thức, [findShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) mà thực hiện việc tìm một hình dạng cụ thể trong slide và sau đó trả về hình dạng đó.
+Chỉ mục trong bộ sưu tập thuận tiện khi xử lý một tệp đã biết, nhưng chúng không phải là định danh cố định. Thêm, xóa hoặc thay đổi thứ tự một hình dạng có thể làm thay đổi chỉ mục của nó. Chọn một định danh tùy theo cách trình chiếu được tạo và bảo trì:
 
-```javascript
-// Tạo một lớp Presentation đại diện cho tệp bản trình chiếu
-var pres = new aspose.slides.Presentation("FindingShapeInSlide.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    // Văn bản thay thế của hình dạng cần tìm
-    var shape = findShape(slide, "Shape1");
-    if (shape != null) {
-        console.log("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function findShape(slide, altText) {
-    let shapes = slide.getShapes();
-    
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i);
-        
-        if (shape.getAlternativeText() === altText) {
-            return shape;
-        }
-    }
+- [Name](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/getname/) hữu ích cho các mẫu do nhà phát triển kiểm soát và dễ kiểm tra trong Bảng chọn của PowerPoint. Tên có thể được chỉnh sửa và không được đảm bảo là duy nhất, vì vậy hãy thiết lập quy tắc đặt tên nếu mã phụ thuộc vào chúng.
+- [AlternativeText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/getalternativetext/) hữu ích khi một mô tả khả năng tiếp cận hoặc thẻ do tác giả cung cấp đã xác định hình dạng. Nó hiển thị cho người dùng, có thể được địa phương hoá hoặc viết lại cho khả năng tiếp cận, và không được đảm bảo là duy nhất. Đừng lạm dụng văn bản khả năng tiếp cận có ý nghĩa làm khóa cơ sở dữ liệu.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) là một định danh chỉ đọc, duy nhất trong một trang và tương ứng với ID hình dạng được PowerPoint interop sử dụng. Sử dụng nó khi tích hợp với PowerPoint hoặc khi bạn cần một tham chiếu không mơ hồ trong suốt vòng đời của một hình dạng. Một hình dạng đã sao chép hoặc tạo lại là một hình dạng khác và nhận ID riêng của nó.
 
-    return null;
-}
-```
+Phương thức [getUniqueId](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/getuniqueid/) liên quan trả về một định danh có phạm vi trong bản trình chiếu, nhưng định danh đó được dự định cho các add‑in và có thể được gán lại. Nó không nên được coi là một khóa bên ngoài vĩnh viễn. Nếu nhận dạng dài hạn là cần thiết, hãy giữ ánh xạ trong dữ liệu ứng dụng và xác thực rằng hình dạng mong đợi vẫn còn tồn tại.
 
-## **Sao Chép Hình Dạng**
-Để sao chép một hình dạng vào slide bằng Aspose.Slides for Node.js via Java:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-1. Lấy tham chiếu của một slide bằng cách sử dụng chỉ mục của nó.
-1. Truy cập bộ sưu tập hình dạng của slide nguồn.
-1. Thêm slide mới vào bản trình chiếu.
-1. Sao chép các hình dạng từ bộ sưu tập hình dạng của slide nguồn sang slide mới.
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng file PPTX.
-
-Ví dụ dưới đây thêm một nhóm hình dạng vào một slide.
+Ví dụ sau tìm kiếm theo tên với so sánh chính xác và báo cáo ID interop có phạm vi trong slide. Khi mẫu không chứa hình dạng mong đợi, mã sẽ báo cáo kết quả đó thay vì tiếp tục với đối tượng sai.
 
 ```javascript
-// Tạo một lớp Presentation
-var pres = new aspose.slides.Presentation("Source Frame.pptx");
-try {
-    var sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
-    var destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    var destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-    // Ghi tệp PPTX vào đĩa
-    pres.save("CloneShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+const asposeSlides = require("aspose.slides.via.java");
 
-## **Xóa Hình Dạng**
-Aspose.Slides for Node.js via Java cho phép các nhà phát triển xóa bất kỳ hình dạng nào. Để xóa hình dạng khỏi bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Tìm hình dạng có Văn Bản Thay Thế (AlternativeText) cụ thể.
-1. Xóa hình dạng.
-1. Lưu tệp vào đĩa.
-
-```javascript
-// Tạo đối tượng Presentation
-var pres = new aspose.slides.Presentation();
-try {
-    // Lấy slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Thêm autoshape dạng hình chữ nhật
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var altText = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(0);
-        if (alttext === ashp.getAlternativeText()) {
-            sld.getShapes().remove(ashp);
-        }
-    }
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("RemoveShape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Ẩn Hình Dạng**
-Aspose.Slides for Node.js via Java cho phép các nhà phát triển ẩn bất kỳ hình dạng nào. Để ẩn hình dạng khỏi bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Tìm hình dạng có Văn Bản Thay Thế (AlternativeText) cụ thể.
-1. Ẩn hình dạng.
-1. Lưu tệp vào đĩa.
-
-```javascript
-// Tạo lớp Presentation đại diện cho tệp PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Lấy slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Thêm autoshape dạng hình chữ nhật
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    var alttext = "User Defined";
-    var iCount = sld.getShapes().size();
-    for (var i = 0; i < iCount; i++) {
-        var ashp = sld.getShapes().get_Item(i);
-        if (alttext === ashp.getAlternativeText()) {
-            ashp.setHidden(true);
-        }
-    }
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("Hiding_Shapes_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Thay Đổi Thứ Tự Hình Dạng**
-Aspose.Slides for Node.js via Java cho phép các nhà phát triển thay đổi thứ tự các hình dạng. Thay đổi thứ tự xác định hình dạng nào ở phía trước hoặc phía sau. Để thay đổi thứ tự các hình dạng trên bất kỳ slide nào, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Thêm một hình dạng.
-1. Thêm một đoạn văn bản vào khung văn bản của hình dạng.
-1. Thêm một hình dạng khác với cùng tọa độ.
-1. Thay đổi thứ tự các hình dạng.
-1. Lưu tệp vào đĩa.
-
-```javascript
-var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    shp3.addTextFrame(" ");
-    var para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    var portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-    shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 200, 365, 400, 150);
-    slide.getShapes().reorder(2, shp3);
-    pres.save("Reshape_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Lấy ID Hình Dạng Interop**
-Aspose.Slides for Node.js via Java cho phép các nhà phát triển lấy một định danh duy nhất cho hình dạng trong phạm vi slide, khác với phương thức [getUniqueId](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape#getUniqueId--) cho phép lấy định danh duy nhất trong phạm vi bản trình chiếu. Phương thức [getOfficeInteropShapeId](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) đã được thêm vào lớp [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape) và lớp [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape) tương ứng. Giá trị trả về bởi phương thức [getOfficeInteropShapeId](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape#getOfficeInteropShapeId--) tương ứng với giá trị Id của đối tượng Microsoft.Office.Interop.PowerPoint.Shape. Dưới đây là một đoạn mã mẫu.
-
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
-try {
-    // Lấy định danh hình dạng duy nhất trong phạm vi slide
-    var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Đặt Văn Bản Thay Thế cho Hình Dạng**
-Aspose.Slides for Node.js via Java cho phép các nhà phát triển đặt AlternateText cho bất kỳ hình dạng nào. Các hình dạng trong một bản trình chiếu có thể được phân biệt bằng phương thức [AlternativeText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) hoặc [Shape Name](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape#setName-java.lang.String-). Các phương thức [setAlternativeText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape#setAlternativeText-java.lang.String-) và [getAlternativeText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape#getAlternativeText--) có thể được đọc hoặc đặt bằng Aspose.Slides cũng như Microsoft PowerPoint. Bằng cách sử dụng phương thức này, bạn có thể gắn thẻ một hình dạng và thực hiện các thao tác khác nhau như Xóa hình dạng, Ẩn hình dạng hoặc Thay đổi thứ tự các hình dạng trên slide. Để đặt AlternateText cho một hình dạng, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-1. Truy cập slide đầu tiên.
-1. Thêm bất kỳ hình dạng nào vào slide.
-1. Thực hiện một số công việc với hình dạng vừa thêm.
-1. Duyệt qua các hình dạng để tìm một hình dạng.
-1. Đặt AlternativeText.
-1. Lưu tệp vào đĩa.
-
-```javascript
-// Tạo lớp Presentation đại diện cho tệp PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Lấy slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Thêm autoshape dạng hình chữ nhật
-    var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
-    var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    for (var i = 0; i < sld.getShapes().size(); i++) {
-        var shape = sld.getShapes().get_Item(i);
-        if (shape != null) {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("Set_AlternativeText_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Truy Cập Định Dạng Bố Cục cho Hình Dạng**
-Aspose.Slides for Node.js via Java cung cấp một API đơn giản để truy cập định dạng bố cục cho một hình dạng. Bài viết này trình bày cách bạn có thể truy cập các định dạng bố cục.
-
-Dưới đây là đoạn mã mẫu.
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
-try {
-    for (let i = 0; i < pres.getLayoutSlides().size(); i++) {
-        let layoutSlide = pres.getLayoutSlides().get_Item(i);
-        for (let j = 0; j < layoutSlide.getShapes().size(); j++) {
-            let shape = layoutSlide.getShapes().get_Item(j);
-            var fillFormats = shape.getFillFormat();
-            var lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Kết Xuất Hình Dạng dưới dạng SVG**
-Hiện nay Aspose.Slides for Node.js via Java hỗ trợ việc kết xuất một hình dạng dưới dạng SVG. Phương thức [writeAsSvg](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape#writeAsSvg-java.io.OutputStream-) (và các overload của nó) đã được thêm vào lớp [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape) và lớp [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape). Phương thức này cho phép lưu nội dung của hình dạng dưới dạng file SVG. Đoạn mã dưới đây cho thấy cách xuất hình dạng của slide ra file SVG.
-
-```javascript
-var pres = new aspose.slides.Presentation("TestExportShapeToSvg.pptx");
-try {
-    var stream = java.newInstanceSync("java.io.FileOutputStream", "SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) {
-            stream.close();
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Căn Hình Dạng**
-Aspose.Slides cho phép căn các hình dạng hoặc tương đối với lề slide hoặc tương đối với nhau. Đối với mục đích này, phương thức overload [SlidesUtil.alignShape()](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SlideUtil#alignShapes-int-boolean-aspose.slides.IBaseSlide-int:A-) đã được thêm vào. Phân loại [ShapesAlignmentType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ShapesAlignmentType) xác định các tùy chọn căn có thể.
-
-**Ví dụ 1**
-
-Mã nguồn dưới đây căn các hình dạng có chỉ số 1,2 và 4 dọc theo viền trên của slide.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    var slide = pres.getSlides().get_Item(0);
-    var shape1 = slide.getShapes().get_Item(1);
-    var shape2 = slide.getShapes().get_Item(2);
-    var shape3 = slide.getShapes().get_Item(4);
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), java.newArray("int", [slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3)]));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-**Ví dụ 2**
-
-Ví dụ dưới đây cho thấy cách căn toàn bộ bộ sưu tập các hình dạng tương đối với hình dạng dưới cùng trong bộ sưu tập.
-
-```javascript
-var pres = new aspose.slides.Presentation("example.pptx");
-try {
-    aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Thuộc Tính Lật**
-
-Trong Aspose.Slides, lớp [ShapeFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapeframe/) cung cấp khả năng điều khiển việc lật ngang và lật dọc của các hình dạng thông qua các thuộc tính `flipH` và `flipV`. Cả hai thuộc tính đều có kiểu `byte`, cho phép giá trị `1` để lật, `0` để không lật, hoặc `-1` để sử dụng hành vi mặc định. Các giá trị này có thể truy cập từ [Frame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getFrame) của một hình dạng.
-
-Để chỉnh sửa các thiết lập lật, một thể hiện mới của [ShapeFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapeframe/) được tạo ra với vị trí và kích thước hiện tại của hình dạng, các giá trị mong muốn cho `flipH` và `flipV`, và góc quay. Gán thể hiện này cho [Frame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getFrame) của hình dạng và lưu bản trình chiếu sẽ áp dụng các biến đổi phản chiếu và ghi chúng vào tệp đầu ra.
-
-Giả sử chúng ta có tệp sample.pptx trong đó slide đầu tiên chứa một hình dạng duy nhất với cài đặt lật mặc định, như hình dưới đây.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Đoạn mã sau lấy các thuộc tính lật hiện tại của hình dạng và lật nó cả ngang lẫn dọc.
-
-```js
-var presentation = new asposeSlides.Presentation("sample.pptx");
+var presentation = new asposeSlides.Presentation("input.pptx");
 try {
     var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
 
-    // Lấy thuộc tính lật ngang của hình dạng.
-    var horizontalFlip = shape.getFrame().getFlipH();
-    console.log("Horizontal flip:", horizontalFlip);
+    var targetShape = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "RevenueChart") {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Lấy thuộc tính lật dọc của hình dạng.
-    var verticalFlip = shape.getFrame().getFlipV();
-    console.log("Vertical flip:", verticalFlip);
-
-    var x = java.newFloat(shape.getFrame().getX());
-    var y = java.newFloat(shape.getFrame().getY());
-    var width = java.newFloat(shape.getFrame().getWidth());
-    var height = java.newFloat(shape.getFrame().getHeight());
-    var flipH = java.newByte(asposeSlides.NullableBool.True); // Lật ngang.
-    var flipV = java.newByte(asposeSlides.NullableBool.True); // Lật dọc.
-    var rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new asposeSlides.ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+    if (targetShape === null) {
+        console.log("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        console.log("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Kết quả:
+Khi một thao tác cụ thể cho một loại hình dạng, hãy kiểm tra lớp runtime trước khi sử dụng các thành viên đặc thù loại. Ví dụ này cập nhật văn bản và văn bản thay thế chỉ khi đối tượng có tên là một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/).
 
-![The flipped shape](flipped_shape.png)
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **Câu Hỏi Thường Gặp**
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
 
-**Tôi có thể kết hợp các hình dạng (hợp/giao/trừ) trên slide giống như trong trình chỉnh sửa trên máy tính để bàn không?**
+    var candidate = null;
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "StatusLabel") {
+            candidate = shape;
+            break;
+        }
+    }
 
-Không có API thao tác Boolean tích hợp sẵn. Bạn có thể xấp xỉ bằng cách tự xây dựng đường viền mong muốn — ví dụ, tính toán hình học kết quả (qua [GeometryPath](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/geometrypath/)) và tạo một hình dạng mới với đường viền đó, tùy chọn loại bỏ các hình dạng gốc.
+    if (candidate !== null && java.instanceOf(candidate, "com.aspose.slides.AutoShape")) {
+        candidate.getTextFrame().setText("Approved");
+        candidate.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", asposeSlides.SaveFormat.Pptx);
+    } else {
+        console.log("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-**Làm thế nào tôi có thể kiểm soát thứ tự xếp chồng (z-order) để một hình dạng luôn ở trên cùng?**
+## **Xác định và Sửa Đổi Các Điểm Điều Chỉnh Hình Dạng Được Định Sẵn**
 
-Thay đổi thứ tự chèn/di chuyển trong bộ sưu tập [shapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/#getShapes) của slide. Để có kết quả dự đoán được, hãy hoàn thiện thứ tự z sau khi thực hiện mọi thay đổi khác trên slide.
+Các hình dạng có hình học đã được định sẵn có thể lộ các điểm điều chỉnh kiểm soát các tính năng như kích thước góc, tỷ lệ mũi tên hoặc góc cung. Truy cập chúng qua bộ sưu tập chỉ đọc [GeometryShape.getAdjustments](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/geometryshape/). Bộ sưu tập này được cung cấp bởi hình dạng, nhưng mỗi [AdjustValue](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/adjustvalue/) chứa một giá trị có thể được thay đổi.
 
-**Tôi có thể "khóa" một hình dạng để ngăn người dùng chỉnh sửa nó trong PowerPoint không?**
+Đừng chỉ dựa vào một chỉ mục bộ sưu tập cố định. Duyệt qua các điều chỉnh và kiểm tra phương thức chỉ đọc [getType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/adjustvalue/) , giá trị [ShapeAdjustmentType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapeadjustmenttype/) của nó mô tả điều chỉnh kiểm soát gì. Phương thức chỉ đọc [getName](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/adjustvalue/getname/) cung cấp thông tin nhận dạng bổ sung và đặc biệt hữu ích khi một preset chứa nhiều hơn một điều chỉnh có cùng kiểu ngữ nghĩa.
 
-Có. Đặt các cờ bảo vệ ở mức hình dạng (ví dụ, khóa chọn, di chuyển, thay đổi kích thước, chỉnh sửa văn bản). Nếu cần, có thể áp dụng các hạn chế này trên master hoặc layout. Lưu ý đây là bảo vệ ở cấp UI, không phải tính năng bảo mật; để bảo vệ mạnh hơn, hãy kết hợp với các hạn chế ở cấp tệp như [đề xuất chỉ đọc hoặc mật khẩu](/slides/vi/nodejs-java/password-protected-presentation/).
+Sử dụng phương thức giá trị phù hợp với ý nghĩa của điều chỉnh:
+
+| Loại điều chỉnh | Mục đích | Giá trị cần thay đổi |
+|---|---|---|
+| `CornerSize` | Kích thước góc bo tròn | [setRawValue](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Độ dày đuôi mũi tên | `setRawValue` |
+| `ArrowheadLength` | Độ dài đầu mũi tên | `setRawValue` |
+| `ArrowheadWidth` | Độ rộng đầu mũi tên | `setRawValue` |
+| `StartAngle` | Góc bắt đầu của bánh tròn hoặc cung | [setAngleValue](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Góc kết thúc của bánh tròn hoặc cung | `setAngleValue` |
+
+`getType` và `getName` trả về thông tin chỉ đọc. `getRawValue` và `setRawValue` làm việc với một số nguyên trong đơn vị hình học gốc của preset, trong khi `getAngleValue` và `setAngleValue` làm việc với góc tính bằng độ. Số lượng, thứ tự, ý nghĩa và phạm vi hợp lệ của các điều chỉnh phụ thuộc vào preset được trả về bởi [GeometryShape.getShapeType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/geometryshape/). Một giá trị hợp lệ cho một preset có thể không hợp lệ hoặc có hiệu ứng khác cho một preset khác.
+
+Khi `getType` trả về `ShapeAdjustmentType.Custom`, API không nhận ra ý nghĩa ngữ nghĩa tiêu chuẩn. Kiểm tra `getName`, kiểu preset và giá trị hiện tại, và để nguyên điều chỉnh trừ khi bạn biết ý nghĩa và phạm vi mong đợi. Ngay cả với các kiểu được công nhận, hãy kiểm tra xem cùng một kiểu có xuất hiện hơn một lần hay không trước khi chọn một giá trị. Bài viết về [Connector](/slides/vi/nodejs-java/connector/) minh họa tình huống này với các điều chỉnh uốn cong của connector.
+
+Ví dụ hoàn chỉnh sau tạo các phiên bản mặc định và đã sửa đổi của ba hình dạng preset. Nó duyệt qua mọi điều chỉnh, báo cáo tên và kiểu, thay đổi các giá trị liên quan đến kích thước qua `setRawValue`, thay đổi góc qua `setAngleValue`, và lưu kết quả. Cột bên trái giữ hình học mặc định; cột bên phải hiển thị hình chữ nhật bo tròn đã điều chỉnh, mũi tên bốn chiều và bánh tròn.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    // Thêm tiêu đề cho các cột hình dạng mặc định và đã điều chỉnh.
+    var defaultColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    var adjustedColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    var modifiedRoundedRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 80, 180, 160, 110);
+    var modifiedArrow = slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 95, 330, 130, 130);
+    var modifiedPie = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    var shapesToAdjust = [modifiedRoundedRectangle, modifiedArrow, modifiedPie];
+
+    for (var shapeIndex = 0; shapeIndex < shapesToAdjust.length; shapeIndex++) {
+        var shape = shapesToAdjust[shapeIndex];
+        for (var adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            var adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            console.log(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case asposeSlides.ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.Custom:
+                    console.log("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kiểm tra kiểu ngữ nghĩa trước khi thay đổi giá trị giúp mã rõ ràng về mục đích và tránh giả định rằng một chỉ mục bộ sưu tập cụ thể có cùng ý nghĩa trên các preset khác nhau.
+
+## **Sửa Đổi Bộ Sưu Tập Hình Dạng**
+
+Các phương thức thêm, sao chép, xóa và thay đổi thứ tự hoạt động ngay trên bộ sưu tập. Nếu một thao tác thay đổi số lượng hoặc thứ tự các hình dạng, đừng tiếp tục dựa vào các chỉ mục đã được ghi lại trước thao tác đó.
+
+### **Sao Chép Một Hình Dạng**
+
+[addClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/addclone/) tạo một bản sao độc lập và đính vào bộ sưu tập đích. [insertClone](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/insertclone/) cũng tạo một bản sao nhưng đặt nó tại chỉ mục z‑order được chỉ định. Các overload nhận tọa độ di chuyển bản sao mà không thay đổi kích thước; các overload có chiều rộng và chiều cao cũng có thể thay đổi kích thước.
+
+Ví dụ tạo một slide đích, sao chép một hình chữ nhật có nhãn lên phía trước, và chèn một bản sao thứ hai ở phía sau. Thay đổi trên bất kỳ bản sao nào cũng không làm thay đổi hình dạng nguồn.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var sourceSlide = presentation.getSlides().get_Item(0);
+    var sourceShape = sourceSlide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    var blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(java.newByte(asposeSlides.SlideLayoutType.Blank));
+    var destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    var frontClone = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontClone.setName("FrontClone");
+    if (java.instanceOf(frontClone, "com.aspose.slides.AutoShape")) {
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        console.log("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    var backClone = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backClone.setName("BackClone");
+    if (java.instanceOf(backClone, "com.aspose.slides.AutoShape")) {
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        console.log("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sao chép sao chép nội dung và định dạng của hình, bao gồm tên và văn bản thay thế. Gán định danh logic mới cho bản sao khi các giá trị đó phải là duy nhất. Các tài nguyên được sử dụng bởi các hình dạng phức tạp do bản trình chiếu quản lý, nhưng bản sao vẫn là một mục mới trong bộ sưu tập với định danh hình dạng mới.
+
+### **Xóa Hình Dạng**
+
+[remove](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/remove/) xóa một đối tượng hình dạng cụ thể khỏi bộ sưu tập của nó. Khi xóa nhiều kết quả trong quá trình lặp có chỉ mục, hãy duyệt từ cuối lên đầu để mỗi chỉ mục còn lại vẫn hợp lệ.
+
+Ví dụ này xóa mọi hình dạng có tên được chỉ định. Nó đọc hình dạng tại chỉ mục hiện tại và không giả định kiểu hình dạng cụ thể.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var keepShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    var firstTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    var secondTemporaryShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (var i = slide.getShapes().size() - 1; i >= 0; i--) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "Temporary") {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sau khi xóa, số lượng hình dạng và các chỉ mục của các hình dạng sau thay đổi. Tham chiếu tới các hình dạng không bị ảnh hưởng vẫn đáng tin cậy hơn so với việc lưu lại các chỉ mục. Cũng cần cân nhắc các connector, animation và các tính năng khác của bản trình chiếu có thể tham chiếu tới đối tượng đã bị xóa; việc xóa một hình dạng hiển thị có thể thay đổi hơn cả ngoại hình của slide.
+
+### **Ẩn Một Hình Dạng**
+
+Đặt [Hidden](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/sethidden/) thành `true` giữ hình dạng trong bộ sưu tập nhưng ngăn nó xuất hiện trong chế độ chiếu slide bình thường. Chỉ mục, định dạng và nội dung của nó vẫn có sẵn cho mã, vì vậy việc ẩn phù hợp cho các yếu tố tùy chọn có thể khôi phục lại sau này.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var visibleShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    var optionalShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if (shape.getName() === "OptionalDecoration") {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ẩn không đồng nghĩa với việc xóa hay bảo mật. Đối tượng vẫn có thể được phát hiện và bỏ ẩn bởi người dùng hoặc mã, và nó vẫn là một phần của tệp bản trình chiếu.
+
+### **Thay Đổi Z‑Order**
+
+Các hình dạng chồng lên nhau được vẽ theo thứ tự bộ sưu tập. [reorder](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/reorder/) di chuyển một hình dạng hiện có tới một chỉ mục mục tiêu mà không sao chép nó. Chỉ mục `0` là phía sau; `size() - 1` là phía trước.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var blueRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+
+    var orangeEllipse = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(java.newByte(asposeSlides.FillType.Solid));
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Hình chữ nhật được tạo đầu tiên và ban đầu nằm sau hình ellipse. Di chuyển nó tới chỉ mục cuối cùng sẽ đưa nó lên phía trước. Hoàn thiện z‑order sau khi thêm hoặc sao chép tất cả các hình dạng liên quan, vì các thao tác đó sẽ thêm hoặc chèn các mục mới vào bộ sưu tập và có thể thay đổi thứ tự chồng mong muốn.
+
+## **Kiểm Tra Các Hình Dạng Trên Slide Bố Cục**
+
+Slide thường, slide bố cục và slide chủ có các bộ sưu tập hình dạng riêng. Một hình dạng trong bộ sưu tập bố cục không phải là cùng một đối tượng với một hình dạng ở vị trí tương tự trên slide thường. Kiểm tra các hình dạng bố cục khi bạn cần hiểu hoặc thay đổi định dạng do bố cục cung cấp.
+
+Ví dụ sau đọc [FillFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/getfillformat/) và [LineFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/getlineformat/) của mỗi hình dạng bố cục mà không giả định mọi hình dạng đều là `AutoShape`.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    for (var i = 0; i < presentation.getLayoutSlides().size(); i++) {
+        var layoutSlide = presentation.getLayoutSlides().get_Item(i);
+        for (var j = 0; j < layoutSlide.getShapes().size(); j++) {
+            var shape = layoutSlide.getShapes().get_Item(j);
+            var fillType = shape.getFillFormat().getFillType();
+            var lineWidth = shape.getLineFormat().getWidth();
+            console.log(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Việc chỉnh sửa một bố cục có thể ảnh hưởng đến nhiều slide sử dụng nó. Trước khi thay đổi một hình dạng bố cục, hãy xác định xem một slide thường có kế thừa đối tượng này hay chứa một ghi đè cục bộ, và kiểm tra mọi slide sử dụng bố cục đó.
+
+## **Xuất Hình Dạng Ra SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/writeassvg/) ghi nội dung đã render của một hình dạng vào một luồng. Kết quả chỉ chứa hình dạng, không có nền toàn slide hay các hình dạng lân cận.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() === 0) {
+        console.log("Slide 1 does not contain a shape to export.");
+    } else {
+        var shape = slide.getShapes().get_Item(0);
+        var svgStream = null;
+        try {
+            svgStream = java.newInstanceSync("java.io.FileOutputStream", "shape.svg");
+            shape.writeAsSvg(svgStream);
+        } catch (error) {
+            console.log("The SVG file could not be written: " + error.message);
+        } finally {
+            if (svgStream !== null) {
+                svgStream.close();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Giữ bản trình chiếu mở trong khi render. Đầu ra phụ thuộc vào định dạng của hình dạng và các tài nguyên như phông chữ và hình ảnh. Nếu bạn cần toàn bộ bố cục, hãy xuất slide thay vì riêng lẻ một hình dạng. Người gọi sở hữu luồng và phải đóng nó.
+
+## **Căn Chỉnh Các Hình Dạng**
+
+Các overload của [SlideUtil.alignShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideutil/alignshapes/) căn chỉnh tất cả các hình dạng hoặc các chỉ mục bộ sưu tập đã chọn. [ShapesAlignmentType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapesalignmenttype/) xác định cạnh, đường trung tâm, hoặc chế độ phân phối. Đặt `alignToSlide` thành `true` để dùng các cạnh slide; đặt thành `false` để căn chỉnh các hình dạng đã chọn tương đối với nhau.
+
+Ví dụ này căn chỉnh ba hình dạng tới cạnh trên của slide. Các tham chiếu hình dạng trả về được chuyển thành chỉ mục hiện tại ngay trước khi căn chỉnh.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var firstShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 60, 80, 120, 50);
+    var secondShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Ellipse, 240, 160, 120, 50);
+    var thirdShape = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    var shapeIndexes = java.newArray("int", [slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)]);
+
+    asposeSlides.SlideUtil.alignShapes(asposeSlides.ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Căn chỉnh thay đổi vị trí, không phải z‑order. Căn chỉnh tương đối thường cần ít nhất hai hình dạng, trong khi phân phối ngang hoặc dọc cần đủ số hình để xác định khoảng cách. Tính lại chỉ mục nếu bạn chỉnh sửa bộ sưu tập trước khi gọi phương thức.
+
+## **Lật Một Hình Dạng**
+
+Lớp [ShapeFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapeframe/) lưu vị trí, kích thước, thiết lập lật ngang và dọc, và góc quay. Các giá trị `getFlipH` và `getFlipV` sử dụng [NullableBool](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/nullablebool/): `True` bật lật, `False` tắt lật, và `NotDefined` giữ trạng thái chưa xác định/mặc định.
+
+Bản trình chiếu đầu vào dưới đây chứa một hình không được lật.
+
+![Hình trước khi lật](shape_to_be_flipped.png)
+
+Ví dụ này giữ nguyên mọi giá trị khung khác và chỉ thay thế hai thiết lập lật. Điều này quan trọng vì gán một [Frame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/setframe/) mới sẽ thay thế toàn bộ khung.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new asposeSlides.Presentation("input.pptx");
+try {
+    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var frame = shape.getFrame();
+
+    console.log("Horizontal flip before change: " + frame.getFlipH());
+    console.log("Vertical flip before change: " + frame.getFlipV());
+
+    var changedFrame = new asposeSlides.ShapeFrame(java.newFloat(frame.getX()), java.newFloat(frame.getY()), java.newFloat(frame.getWidth()), java.newFloat(frame.getHeight()), java.newByte(asposeSlides.NullableBool.True), java.newByte(asposeSlides.NullableBool.True), java.newFloat(frame.getRotation()));
+    shape.setFrame(changedFrame);
+
+    presentation.save("flipped-shape.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Hình đã lưu được lật ngược cả chiều ngang và chiều dọc trong khi giữ nguyên vị trí, kích thước và góc quay.
+
+![Hình sau khi lật](flipped_shape.png)
+
+## **FAQ**
+
+**Có nên dùng chỉ mục bộ sưu tập làm định danh cho hình dạng không?**
+
+Chỉ nên dùng trong quá trình xử lý ngắn hạn khi bộ sưu tập sẽ không thay đổi trước khi chỉ mục được sử dụng. Ưu tiên quy tắc `Name` hoặc `AlternativeText` đã được xác thực cho các mẫu được tạo, hoặc `OfficeInteropShapeId` cho công việc interop có phạm vi trong slide.
+
+**Ẩn một hình dạng có loại bỏ nó khỏi z‑order không?**
+
+Không. Một hình dạng ẩn vẫn nằm trong bộ sưu tập ở cùng chỉ mục. Nó vẫn có thể được tìm, thay đổi thứ tự, chỉnh sửa hoặc hiển thị lại.
+
+**Tại sao một hình dạng sao chép lại xuất hiện trước một hình dạng khác?**
+
+`addClone` thêm bản sao vào cuối bộ sưu tập, tức là phía trước của z‑order. Sử dụng `insertClone` để chọn chỉ mục ban đầu hoặc `reorder` sau khi tất cả các hình dạng đã được thêm.
+
+**Có thể dùng chỉ mục cố định để xác định một điều chỉnh hình dạng preset không?**
+
+Chỉ được sau khi xác thực preset và bố trí bộ sưu tập chính xác. Ưu tiên duyệt qua `GeometryShape.getAdjustments` và kiểm tra `AdjustValue.getType`; dùng `AdjustValue.getName` như thông tin bổ sung khi cùng một kiểu ngữ nghĩa xuất hiện hơn một lần.

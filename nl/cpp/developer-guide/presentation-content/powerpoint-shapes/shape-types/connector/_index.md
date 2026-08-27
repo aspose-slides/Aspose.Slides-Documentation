@@ -1,421 +1,679 @@
 ---
-title: Beheer connectoren in presentaties met C++
+title: Beheer connectors in presentaties met C++
 linktitle: Connector
 type: docs
 weight: 10
 url: /nl/cpp/connector/
 keywords:
 - connector
-- type connector
+- connector-type
 - connectorpunt
 - connectorlijn
 - connectorhoek
+- aansluitpunt
+- aanpassingspunt
 - vormen verbinden
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Geef C++‑apps de mogelijkheid om lijnen te tekenen, te verbinden en automatisch te routeren in PowerPoint‑dia’s—krijg volledige controle over rechte, elleboog‑ en gebogen connectoren."
+description: "Leer hoe u rechte, gebogen en gekromde PowerPoint-connectors kunt toevoegen, koppelen, opnieuw routeren, aanpassen en inspecteren met Aspose.Slides voor C++."
 ---
-## **Introductie**
+## **Overzicht**
 
-Een PowerPoint‑connector is een speciale lijn die twee vormen met elkaar verbindt of koppelt en gekoppeld blijft aan de vormen, zelfs wanneer ze worden verplaatst of opnieuw gepositioneerd op een bepaalde dia.  
+Een connector is een lijn die aan twee vormen kan blijven bevestigd wanneer een van beide vormen beweegt. De uiteinden worden bevestigd aan aansluitpunten, weergegeven door groene stippen in PowerPoint. Sommige gebogen en gekromde connectors hebben ook aanpassingspunten, weergegeven door oranje stippen, die de positie van individuele connectorsegmenten regelen.
 
-Connectoren zijn meestal verbonden met *verbindingpuntjes* (groene puntjes), die standaard op alle vormen aanwezig zijn. Verbindingpuntjes verschijnen wanneer de cursor er dicht bij komt.
+Aspose.Slides vertegenwoordigt connectors via de [IConnector](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iconnector/) interface. U kunt ze maken, hun uiteinden aan vormen koppelen, verbindingstoepassingen kiezen, ze opnieuw routeren en de geometrie van connectors die aanpassingspunten hebben wijzigen.
 
-*Aanpassingspunten* (oranje puntjes), die alleen op bepaalde connectoren bestaan, worden gebruikt om de positie en vorm van connectoren aan te passen.
+## **Connector-typen**
 
-## **Soorten connectoren**
+De [ShapeType](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shapetype/) enumeratie bevat rechte, gebogen en gekromde connector‑presets. De onderstaande tabel toont de beschikbare connector‑geometrieën en het aantal aanpassingspunten dat door elk preset wordt gedefinieerd.
 
-In PowerPoint kun je rechte, elleboog (hoekige) en gebogen connectoren gebruiken.  
+| Connector | Image | Aantal aanpassingspunten |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides biedt deze connectoren:
+Het aantal en de betekenis van aanpassingspunten maken deel uit van het gekozen connector‑preset. Ga er niet van uit dat twee verschillende connector‑typen dezelfde collectie‑indeling blootleggen.
 
-| Connector                      | Afbeelding                                                    | Aantal aanpassingspunten |
-| ------------------------------ | ------------------------------------------------------------ | ------------------------ |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                        |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                        |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                        |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                        |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                        |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                        |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                        |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                        |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                        |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                        |
+## **Twee vormen verbinden**
 
-## **Vormen verbinden met connectoren**
+Gebruik [IShapeCollection::AddConnector](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addconnector/) om een connector toe te voegen, en roep [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) en [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) aan om de uiteinden te bevestigen. Nadat beide uiteinden zijn bevestigd, selecteert [IConnector::Reroute](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iconnector/reroute/) een korte route tussen de vormen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation/) klasse aan.  
-1. Haal een referentie naar een dia op via de index.  
-1. Voeg twee [AutoShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.auto_shape) toe aan de dia met behulp van de `AddAutoShape`‑methode van het `Shapes`‑object.  
-1. Voeg een connector toe met de `AddConnector`‑methode van het `Shapes`‑object door het type connector op te geven.  
-1. Verbind de vormen met de connector.  
-1. Roep de `Reroute`‑methode aan om het kortste verbindingspad toe te passen.  
-1. Sla de presentatie op.  
+Het volgende voorbeeld verbindt een ellips en een rechthoek met een gebogen connector:
 
-Deze C++‑code laat zien hoe je een connector (een gebogen connector) tussen twee vormen (een ellips en een rechthoek) toevoegt:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-```c++
- // Het pad naar de documentenmap.
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// Laadt de gewenste presentatie
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// Toegang tot de eerste dia
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// Toegang tot de vormverzameling voor een specifieke dia
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// Voegt een ellips‑autosvorm toe
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// Voegt een rechthoek‑autosvorm toe
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-
-	// Voegt een connector‑vorm toe aan de vormverzameling van de dia
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// Verbindt de vormen met de connector
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// Roept reroute aan, die het automatische kortste pad tussen vormen instelt
-	connector->Reroute();
-	
-	// Slaat de presentatie op
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
+Het aanroepen van `IConnector::Reroute` kan de waarden van [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) en [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/) wijzigen. Wijs specifieke verbindingspunten toe na het opnieuw routeren als die punten vast moeten blijven.
+{{% /alert %}}
 
-De `connector->Reroute`‑methode herrouteert een connector en dwingt deze om het kortst mogelijke pad tussen vormen te volgen. Om dit te bereiken kan de methode de punten `StartShapeConnectionSiteIndex` en `EndShapeConnectionSiteIndex` wijzigen. 
+## **Kies een verbindingspunt**
 
-{{% /alert %}} 
+Elke verbindbare vorm meldt het aantal sites via [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_connectionsitecount/). Valideer een voorkeurs‑index (nulgebaseerd) voordat u deze aan een connector‑uiteinde toewijst; het aantal sites verschilt per vormgeometrie.
 
-## **Een verbindingstipje specificeren**
+Dit voorbeeld koppelt de connector aan een specifiek site op de ellips wanneer dat site bestaat:
 
-Als je wilt dat een connector twee vormen verbindt via specifieke puntjes op de vormen, moet je de gewenste verbindingstippunten op deze manier opgeven:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation/) klasse aan.  
-1. Haal een referentie naar een dia op via de index.  
-1. Voeg twee [AutoShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.auto_shape) toe aan de dia met behulp van de `AddAutoShape`‑methode van het `Shapes`‑object.  
-1. Voeg een connector toe met de `AddConnector`‑methode van het `Shapes`‑object door het type connector op te geven.  
-1. Verbind de vormen met de connector.  
-1. Stel je favoriete verbindingstippunten in op de vormen.  
-1. Sla de presentatie op.  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-Deze C++‑code toont een bewerking waarbij een voorkeursverbindingstipje wordt gespecificeerd:
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-```c++
-	// Het pad naar de documentenmap.
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// Laadt de gewenste presentatie
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// Toegang tot de eerste dia
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// Toegang tot de vormverzameling voor een specifieke dia
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Voeg een ellips‑autosvorm toe
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// Voeg een rechthoek‑autosvorm toe
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// Voegt een connector‑vorm toe aan de vormverzameling van de dia
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// Verbindt de vormen met de connector
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// Stelt het gewenste verbindingstipindex in op de ellips‑vorm
-	int wantedIndex = 6;
-
-	// Controleert of het gewenste index kleiner is dan het maximale aantal verbindingstoegangen
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// Stelt het gewenste verbindingstip in op de ellips‑autosvorm
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// Slaat de presentatie op
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
+## **Een connector‑punt aanpassen**
 
-## **Een connectorpunt aanpassen**
+Connectors met aanpassingspunten maken ze beschikbaar via [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/nl/cpp/aspose.slides/igeometryshape/get_adjustments/). Inspecteer elke [IAdjustValue](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iadjustvalue/) en controleer zijn [IAdjustValue::get_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iadjustvalue/get_type/) voordat u zijn [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iadjustvalue/set_rawvalue/) wijzigt. De algemene regels voor het identificeren van preset‑vormaanpassingen worden beschreven in [Shape Manipulation](/slides/nl/cpp/shape-manipulations/).
 
-Je kunt een bestaande connector aanpassen via zijn aanpassingspunten. Alleen connectoren met aanpassingspunten kunnen op deze manier worden gewijzigd. Zie de tabel onder **[Soorten connectoren.](/slides/nl/cpp/connector/#types-of-connectors)** 
+Het aantal, de volgorde, de betekenis en het geldige waardebereik van connector‑aanpassingen hangen af van het connector‑preset. Het type dat wordt geretourneerd door `IAdjustValue::get_Type` is alleen‑lezen, terwijl de ruwe aanpassingswaarde schrijfbaar is. De alleen‑lezen methode [IAdjustValue::get_Name](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iadjustvalue/get_name/) biedt extra identificatie wanneer een connector meer dan één aanpassing van hetzelfde semantische type bevat.
 
-### **Eenvoudig geval**
+### **Omzeil een obstakel**
 
-Beschouw een geval waarin een connector tussen twee vormen (A en B) door een derde vorm (C) loopt:
+In de onderstaande opstelling passeert een `ShapeType::BentConnector5` connector tussen twee vormen door een derde vorm:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Code:
+Deze code maakt de geblokkeerde connector:
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-Om de derde vorm te vermijden of te omzeilen, kunnen we de connector aanpassen door de verticale lijn naar links te verplaatsen op deze manier:
+Het verplaatsen van de verticale buiging wijzigt de route zodat de connector het obstakel omzeilt:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+In plaats van aan te nemen dat collectie‑index `1` altijd de verticale buiging vertegenwoordigt, zoekt dit voorbeeld naar `ShapeAdjustmentType::ConnectorBendPositionY` en wijzigt het alleen wanneer het verwachte semantische type aanwezig is:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
-### **Complexe gevallen** 
+Een `ShapeType::BentConnector5` heeft twee `ShapeAdjustmentType::ConnectorBendPositionX`‑aanpassingen en één `ShapeAdjustmentType::ConnectorBendPositionY`‑aanpassing. Als het type dat u nodig heeft meer dan eens voorkomt, inspecteer dan `IAdjustValue::get_Name` en de bekende geometrie van dat preset voordat u er één kiest. Als een aanpassing `ShapeAdjustmentType::Custom` rapporteert, beschouw dan de betekenis en het bereik als preset‑specifiek en wijzig het niet totdat dat contract bekend is.
 
-Om meer gecompliceerde aanpassingen uit te voeren, moet je rekening houden met het volgende:
+## **Aanpassingswaarden relateren aan connector‑geometrie**
 
-* Het aanpasbare punt van een connector is nauw verbonden met een formule die zijn positie berekent en bepaalt. Wijzigingen in de locatie van het punt kunnen de vorm van de connector wijzigen.  
-* De aanpassingspunten van een connector worden in een vaste volgorde in een array gedefinieerd. De aanpassingspunten worden genummerd van het startpunt van de connector tot het eindpunt.  
-* De waarden van aanpassingspunten geven het percentage van de breedte/hoogte van de connectorvorm weer.  
-  * De vorm wordt begrensd door de start‑ en eindpunten van de connector vermenigvuldigd met 1000.  
-  * Het eerste punt, tweede punt en derde punt geven respectievelijk het percentage van de breedte, het percentage van de hoogte en opnieuw het percentage van de breedte weer.  
-* Voor berekeningen die de coördinaten van de aanpassingspunten van een connector bepalen, moet je rekening houden met de rotatie en de reflectie van de connector. **Opmerking** dat de rotatiehoek voor alle connectoren die worden getoond onder **[Soorten connectoren](/slides/nl/cpp/connector/#types-of-connectors)** 0 is.  
+Voor gebogen connectors kunnen aanpassingswaarden worden gebruikt om de posities van individuele segmenten te schatten. Deze berekeningen zijn specifiek voor het connector‑preset:
 
-#### **Case 1**
+- `ShapeType::BentConnector4` toont normaal één `ShapeAdjustmentType::ConnectorBendPositionX`‑ en één `ShapeAdjustmentType::ConnectorBendPositionY`‑aanpassing.
+- Voor deze buigposities levert `RawValue / 100000.0f` de fractie van de connector‑frame‑breedte of -hoogte op die in de onderstaande voorbeelden wordt gebruikt.
+- Een connector‑frame kan worden geroteerd of gespiegeld, dus frame‑coördinaten moeten worden getransformeerd vóór vergelijking met dia‑coördinaten.
 
-Beschouw een geval waarin twee tekstkaderobjecten via een connector met elkaar verbonden zijn:
+De volgende voorbeelden gebruiken eerst `IAdjustValue::get_Type` om de aanpassingen te identificeren. Ze behandelen collectie‑indexen niet als draagbare identifiers.
+
+### **Niet‑geroteerde connector**
+
+De initiële opstelling bevat twee tekstvormen die verbonden zijn door een `ShapeType::BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Code:
+Dit voorbeeld inspecteert de connector en verkrijgt zijn horizontale en verticale buig‑aanpassingen:
 
-```c++
-// Instantieert een presentatieklasse die een PPTX-bestand vertegenwoordigt
-auto pres = System::MakeObject<Presentation>();
-// Haalt de eerste dia uit de presentatie
-auto slide = pres->get_Slides()->idx_get(0);
-// Verkrijgt de vormen van de eerste dia
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-// Voegt vormen toe die via een connector worden gekoppeld
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// Voegt een connector toe
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// Specificeert de richting van de connector
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// Specificeert de dikte van de connectorlijn
-lineFormat->set_Width(3);
-// Specificeert de kleur van de connector
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
 
-// Verbindt de vormen met de connector
-connector->set_StartShapeConnectedTo(shapeFrom);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// Verkrijgt de aanpassingspunten van de connector
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
-**Aanpassing**
+Om beide buigingen te wijzigen, zoek elke verwachte type op en wijzig de waarden pas nadat beide zijn gevonden:
 
-We kunnen de waarden van de aanpassingspunten van de connector wijzigen door respectievelijk het bijbehorende percentage van de breedte en hoogte met 20 % en 200 % te verhogen:
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-```c++
-// Wijzigt de waarden van de aanpassingspunten
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-Het resultaat:
+Het resultaat is een connector waarvan de horizontale en verticale segmenten zijn verplaatst:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Om een model te definiëren waarmee we de coördinaten en de vorm van individuele onderdelen van de connector kunnen bepalen, maken we een vorm die overeenkomt met de horizontale component van de connector op het punt `connector.Adjustments[0]`:
+Zodra de semantische types bekend zijn, kunnen hun waarden worden omgezet naar connector‑frame‑coördinaten. Dit voorbeeld tekent een dunne rechthoek over het verticale segment dat wordt bestuurd door de twee buig‑aanpassingen:
 
-```c++
-// Teken de verticale component van de connector
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Het resultaat:
+De hulplijn‑vorm markeert het berekende segment:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Case 2**
+### **Geroteerde of gespiegelde connector**
 
-In **Geval 1** hebben we een eenvoudige connectoraanpassing getoond met behulp van basisprincipes. In normale situaties moet je rekening houden met de rotatie van de connector en de weergave daarvan (die worden ingesteld via `connector.Rotation`, `connector.Frame.FlipH` en `connector.Frame.FlipV`). We zullen nu het proces demonstreren.
+Wanneer dezelfde connector‑geometrie verticaal is georiënteerd, beïnvloeden de waarden van [IShape::get_Frame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_frame/), [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapeframe/get_fliph/), en [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapeframe/get_flipv/) de omzetting van connector‑frame‑coördinaten naar dia‑coördinaten.
 
-Eerst voegen we een nieuw tekstkaderobject (**To 1**) toe aan de dia (voor verbindingsdoeleinden) en maken we een nieuwe (groene) connector die het verbindt met de objecten die we al hebben aangemaakt.
+Dit voorbeeld maakt en past de verticaal georiënteerde connector aan:
 
-```c++
-// Maakt een nieuw bindingobject
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// Maakt een nieuwe connector
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// Verbindt objecten met de recent aangemaakte connector
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// Haalt de aanpassingspunten van de connector op
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// Wijzigt de waarden van de aanpassingspunten
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-Het resultaat:
+De aangepaste connector verschijnt verticaal tussen de vormen:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Vervolgens maken we een vorm die overeenkomt met de horizontale component van de connector die door het nieuwe aanpassingspunt `connector.Adjustments[0]` loopt. We gebruiken de waarden uit de connectorgegevens voor `connector.Rotation`, `connector.Frame.FlipH` en `connector.Frame.FlipV` en passen de bekende formule voor coördinatenconversie bij rotatie rond een gegeven punt x0 toe:
+Voor een willekeurige rotatiehoek `alpha` roteert u een connector‑frame‑punt `(x, y)` rond het frame‑centrum `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-In ons geval is de rotatiehoek van het object 90 graden en wordt de connector verticaal weergegeven, dus dit is de bijbehorende code:
+De volgende code behandelt de 90‑graden‑oriëntatie die in dit voorbeeld wordt gebruikt en tekent een rode hulplijn over het overeenkomende connector‑segment:
 
-```c++
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Het resultaat:
+De rode hulplijn markeert het berekende segment na de coördinatentransformatie:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-We hebben berekeningen gedemonstreerd met eenvoudige aanpassingen en complexe aanpassingspunten (aanpassingspunten met rotatiehoeken). Met de verworven kennis kun je je eigen model ontwikkelen (of code schrijven) om een `GraphicsPath`‑object te verkrijgen of zelfs de aanpassingspuntwaarden van een connector in te stellen op basis van specifieke dia‑coördinaten.
+Deze formules beschrijven de presets die in de voorbeelden worden gebruikt, niet een universeel connector‑model. Valideer de aanpassingstypes, frame‑oriëntatie en waardebereiken voordat u dezelfde berekening op een ander preset toepast.
 
-## **De hoek van connectorlijnen bepalen**
+## **Zoek een connector‑richtingshoek**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation/) klasse aan.  
-1. Haal een referentie naar een dia op via de index.  
-1. Toegang tot de connectorlijnvorm.  
-1. Gebruik de breedte, hoogte, vormframe‑hoogte en vormframe‑breedte om de hoek te berekenen.  
+De richting van een rechte connector kan worden berekend aan de hand van de breedte en hoogte, met horizontale en verticale flips toegepast. Het volgende voorbeeld geeft de klok‑wijze hoek ten opzichte van de positieve horizontale as in dia‑coördinaten weer:
 
-Deze C++‑code toont een bewerking waarbij we de hoek van een connectorlijnvorm hebben berekend:
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
 
-```c++
-void ConnectorLineAngle()
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// Het pad naar de documentenmap.
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Laadt de gewenste presentatie
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// Haalt de eerste dia op
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// Toegang tot de vormverzameling van de dia's
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-				//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-				//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//	float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
 
 ## **FAQ**
 
-**Hoe kan ik zien of een connector op een bepaalde vorm kan worden 'geplakt'?**
+**Hoe kan ik zien of een connector aan een vorm kan worden gekoppeld?**
 
-Controleer of de vorm [verbindingstoegangen](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shape/get_connectionsitecount/) exposeert. Als er geen of een aantal van nul is, is plakken niet beschikbaar; in dat geval gebruik je vrije eindpunten en positioneer je ze handmatig. Het is verstandig om het aantal toegangen te controleren vóór het koppelen.
+Controleer de waarde van `IShape::get_ConnectionSiteCount` van de vorm. Een positieve telling betekent dat de vorm verbindingstoepassingen exposeert. Valideer de geselecteerde site‑index voordat u deze aan een connector‑uiteinde toewijst.
 
-**Wat gebeurt er met een connector als ik een van de gekoppelde vormen verwijder?**
+**Kan ik een connector‑aanpassing identificeren aan de hand van zijn collectie‑index?**
 
-De uiteinden worden losgekoppeld; de connector blijft op de dia staan als een gewone lijn met vrije start/eind. Je kunt hem verwijderen of de verbindingen opnieuw toewijzen en, indien nodig, [reroute](https://reference.aspose.com/slides/nl/cpp/aspose.slides/connector/reroute/).
+Een index is alleen betekenisvol voor een bekend connector‑preset en collectie‑lay-out. Controleer `IAdjustValue::get_Type` voordat u een waarde wijzigt, en gebruik `IAdjustValue::get_Name` als aanvullende informatie wanneer hetzelfde semantische type meer dan één keer voorkomt.
 
-**Worden connectorverbindingen behouden bij het kopiëren van een dia naar een andere presentatie?**
+**Wat gebeurt er als een gekoppelde vorm wordt verwijderd?**
 
-Over het algemeen ja, mits de doelvormen ook worden gekopieerd. Als de dia in een ander bestand wordt ingevoegd zonder de gekoppelde vormen, worden de uiteinden vrij en moet je ze opnieuw koppelen.
+Het bijbehorende connector‑uiteinde wordt losgekoppeld. De connector blijft op de dia staan en kan worden verwijderd, gepositioneerd als een losse lijn, of gekoppeld aan een andere vorm.
+
+**Worden connector‑koppelingen behouden wanneer een dia wordt gekopieerd?**
+
+Koppelingen blijven over het algemeen behouden wanneer de gekoppelde vormen samen met de dia worden gekopieerd. Als een connector wordt gekopieerd zonder een van zijn doelvormen, moet het betreffende uiteinde opnieuw worden gekoppeld.

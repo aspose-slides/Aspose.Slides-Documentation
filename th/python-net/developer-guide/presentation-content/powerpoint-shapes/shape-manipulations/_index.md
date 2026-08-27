@@ -1,327 +1,404 @@
 ---
-title: จัดการรูปทรงในงานนำเสนอด้วย Python
+title: จัดการรูปทรงพรีเซนเทชันใน Python
 linktitle: การจัดการรูปทรง
 type: docs
 weight: 40
 url: /th/python-net/shape-manipulations/
 keywords:
 - รูปทรง PowerPoint
-- รูปทรงงานนำเสนอ
+- รูปทรงพรีเซนเทชัน
 - รูปทรงบนสไลด์
 - ค้นหารูปทรง
-- โคลนรูปทรง
+- คัดลอกรูปทรง
 - ลบรูปทรง
 - ซ่อนรูปทรง
 - เปลี่ยนลำดับรูปทรง
 - รับ Interop Shape ID
-- ข้อความแทนของรูปทรง
+- ข้อความสำรองของรูปทรง
+- จุดปรับรูปทรง
+- การปรับรูปทรงพรีเซ็ต
+- เรขาคณิตรูปทรง
 - รูปแบบเลเอาต์ของรูปทรง
 - รูปทรงเป็น SVG
 - แปลงรูปทรงเป็น SVG
 - จัดแนวรูปทรง
+- พลิกรูปทรง
 - PowerPoint
-- OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้การสร้าง, แก้ไขและปรับแต่งรูปทรงใน Aspose.Slides สำหรับ Python ผ่าน .NET และส่งมอบงานนำเสนอ PowerPoint และ OpenDocument ที่มีประสิทธิภาพสูง"
+description: "เรียนรู้วิธีการระบุ ปรับแต่ง คัดลอก ลบ ซ่อน จัดลำดับใหม่ ส่งออก จัดแนว และพลิกรูปทรงพรีเซนเทชันด้วย Aspose.Slides สำหรับ Python ผ่าน .NET."
 ---
 ## **ภาพรวม**
 
-คู่มือนี้แนะนำการจัดการรูปทรงใน Aspose.Slides สำหรับ Python ผ่าน .NET. เรียนรู้รูปแบบการใช้งานจริงสำหรับการค้นหารูปทรง (รวมถึงโดยข้อความแทน), การทำสำเนา, การลบหรือซ่อน, การจัดลำดับใหม่, การจัดแนวและการพลิก, การอ่าน ID และการจัดรูปแบบตามเลเอาต์, และการส่งออกรูปทรงแต่ละอันเป็น SVG โดยใช้ API ของ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และ [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/)
+Aspose.Slides for Python via .NET แสดงรูปทรงบนสไลด์เป็น [ShapeCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/) ที่จัดลำดับไว้แล้ว คอลเลกชันนี้เป็นทั้งสถานที่ที่คุณค้นหาและแก้ไขรูปทรงและเป็นแหล่งที่มาของลำดับการซ้อนกัน: ดัชนี `0` คือรูปทรงที่อยู่ด้านหลังสุด ส่วนดัชนีสุดท้ายคือรูปทรงที่อยู่ด้านหน้าสุด
 
-## **ค้นหารูปทรงบนสไลด์**
+บทความนี้ปฏิบัติตามโมเดลดังกล่าว โดยอธิบายวิธีระบุรูปทรงอย่างมั่นคงและแก้ไขจุดปรับค่ารูปทรงที่ตั้งไว้ จากนั้นแสดงวิธีคัดลอก, ลบ, ซ่อน, และจัดลำดับรูปทรงใหม่ ส่วนสุดท้ายครอบคลุมการจัดรูปแบบระดับเลเอาต์, การส่งออก SVG, การจัดแนว, และการตั้งค่าการพลิกรูปทรง ตัวอย่างแต่ละอันทำงานอิสระกัน ดังนั้นคุณสามารถใช้เพียงส่วนที่ต้องการในเวิร์กโฟลว์ของคุณได้
 
-PowerPoint ระบุรูปทรงโดยใช้ ID ภายในเท่านั้น. กำหนดข้อความแทน (Alt Text) ที่ไม่ซ้ำกันให้กับรูปทรงเป้าหมายใน PowerPoint, จากนั้นเปิดการพรีเซนเทชันด้วย Aspose.Slides for Python, วนลูปผ่านรูปทรงบนสไลด์, และเลือกรูปทรงที่ข้อความแทนตรงกัน. วิธี `find_shape` ได้ทำตามกระบวนการนี้และคืนค่ารูปทรงที่ตรงกัน.
+## **ระบุและค้นหารูปทรง**
 
-```py
+ดัชนีของคอลเลกชันสะดวกเมื่อต้องประมวลผลไฟล์ที่รู้จักอยู่แล้ว แต่ไม่ใช่ตัวระบุที่คงที่ การเพิ่ม, ลบ, หรือจัดลำดับรูปทรงใหม่อาจทำให้ดัชนีเปลี่ยน เลือกตัวระบุตามวิธีการสร้างและดูแลพรีเซนเทชัน:
+
+- [Shape.name](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/name/) มีประโยชน์สำหรับเทมเพลตที่ควบคุมโดยนักพัฒนาและง่ายต่อการตรวจสอบในแผงการเลือกของ PowerPoint ชื่อสามารถแก้ไขได้และไม่ได้รับประกันความเป็นเอกลักษณ์ ดังนั้นควรกำหนดแนวปฏิบัติการตั้งชื่อหากโค้ดพึ่งพาชื่อ
+- [Shape.alternative_text](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/alternative_text/) มีประโยชน์เมื่อคำอธิบายการเข้าถึงหรือแท็กที่ผู้เขียนกำหนดไว้แล้วระบุรูปทรง มันปรากฏต่อผู้ใช้, อาจแปลเป็นหลายภาษา หรือเขียนใหม่เพื่อการเข้าถึง, และไม่ได้รับประกันความเป็นเอกลักษณ์ อย่าใช้ข้อความการเข้าถึงที่มีความหมายเป็นคีย์ฐานข้อมูลโดยไม่มีการตรวจสอบ
+- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/office_interop_shape_id/) เป็นตัวระบุแบบอ่านอย่างเดียวที่เป็นเอกลักษณ์ภายในสไลด์และสอดคล้องกับ Shape ID ที่ PowerPoint ใช้ ใช้เมื่อต้องรวมกับ PowerPoint หรือเมื่อคุณต้องการอ้างอิงที่ชัดเจนในช่วงอายุของรูปทรง รูปทรงที่คัดลอกหรือสร้างใหม่จะมี ID ที่แตกต่างกัน
+
+คุณสมบัติที่เกี่ยวข้อง [Shape.unique_id](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/unique_id/) มีขอบเขตระดับพรีเซนเทชัน แต่ถูกออกแบบสำหรับแอดอินและสามารถกำหนดใหม่ได้ ไม่ควรถือเป็นคีย์ภายนอกถาวร หากต้องการอัตลักษณ์ระยะยาวควรเก็บแมปปิ้งไว้ในข้อมูลแอปพลิเคชันและตรวจสอบว่ารูปทรงที่คาดหวังยังคงมีอยู่
+
+ตัวอย่างต่อไปนี้ค้นหาโดย `name` ด้วยการเปรียบเทียบที่ตรงกันเป๊ะและรายงาน interop ID ระดับสไลด์ เมื่อเทมเพลตไม่มีรูปทรงที่คาดไว้ โค้ดจะแจ้งผลนั้นแทนที่จะดำเนินการต่อกับอ็อบเจ็กต์ที่ผิดพลาด
+
+```python
 import aspose.slides as slides
 
-# ค้นหารูปทรงบนสไลด์โดยใช้ข้อความแทนของมัน.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ.
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("input.pptx") as presentation:
     slide = presentation.slides[0]
-    # ค้นหารูปทรงที่มีข้อความแทน "Shape1".
-    shape = find_shape(slide, "Shape1")
-    if shape is not None:
-        print("Shape name:", shape.name)
+
+    target_shape = None
+    for shape in slide.shapes:
+        if shape.name == "RevenueChart":
+            target_shape = shape
+            break
+
+    if target_shape is None:
+        print("The shape 'RevenueChart' was not found on slide 1.")
+    else:
+        print("Found {}; interop ID: {}".format(target_shape.name, target_shape.office_interop_shape_id))
 ```
 
-## **โคลนรูปทรง**
+เมื่อการดำเนินการเฉพาะรูปทรงประเภทหนึ่ง ให้ตรวจสอบประเภทก่อนใช้งานสมาชิกเฉพาะประเภท ตัวอย่างนี้อัปเดตข้อความและข้อความทางเลือกเฉพาะเมื่อตัวออบเจ็กต์ที่ตั้งชื่อเป็น [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/)
 
-เพื่อโคลนรูปทรงจากสไลด์ต้นฉบับไปยังสไลด์ใหม่ใน Aspose.Slides, ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้าง [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) จากไฟล์ต้นฉบับ
-1. ดึงสไลด์ต้นฉบับโดยใช้ดัชนีและคอลเลกชันรูปทรงของมัน
-1. รับเลเอาท์เปล่าวัลจากมาสเตอร์สไลด์
-1. เพิ่มสไลด์เปล่าโดยใช้เลเอาท์นั้นและดึงรูปทรงของสไลด์ใหม่
-1. โคลนรูปทรงเข้าสู่สไลด์เป้าหมาย
-1. บันทึกพรีเซนเทชันเป็น PPTX
-
-โค้ดตัวอย่างต่อไปนี้จะแสดงการโคลนรูปทรงจากสไลด์หนึ่งไปยังอีกสไลด์หนึ่ง.
-
-```py
+```python
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation.
-with slides.Presentation("sample.pptx") as presentation:
-    source_shapes = presentation.slides[0].shapes
-    blank_layout = presentation.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-
-    target_slide = presentation.slides.add_empty_slide(blank_layout)
-    target_shapes = target_slide.shapes
-	
-    target_shapes.add_clone(source_shapes[1], 50, 150 + source_shapes[0].height)
-    target_shapes.add_clone(source_shapes[2])
-    target_shapes.insert_clone(0, source_shapes[0], 50, 150)
-
-    # บันทึกงานนำเสนอลงดิสก์.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **ลบรูปทรง**
-
-Aspose.Slides ให้คุณลบรูปทรงใด ๆ จากสไลด์ได้. ตัวอย่างเช่น เพื่อลบรูปทรงจากสไลด์แรกโดยใช้ข้อความแทน, ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และโหลดไฟล์
-1. เข้าถึงสไลด์แรกจากคอลเลกชันสไลด์
-1. ค้นหารูปทรงโดยค่าข้อความแทน
-1. ลบรูปทรงออกจากคอลเลกชันรูปทรงของสไลด์
-1. บันทึกพรีเซนเทชันลงดิสก์ในรูปแบบ PPTX
-
-```py
-import aspose.slides as slides
-
-# ค้นหารูปทรงบนสไลด์โดยใช้ข้อความแทนของมัน.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ.
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("input.pptx") as presentation:
     slide = presentation.slides[0]
-    # ค้นหารูปทรงที่มีข้อความแทน "User Defined".
-    shape = find_shape(slide, "User Defined")
-    # ลบรูปทรง.
-    slide.shapes.remove(shape)
-    # บันทึกงานนำเสนอลงดิสก์.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+
+    candidate = None
+    for shape in slide.shapes:
+        if shape.name == "StatusLabel":
+            candidate = shape
+            break
+
+    if isinstance(candidate, slides.AutoShape):
+        candidate.text_frame.text = "Approved"
+        candidate.alternative_text = "Approval status: approved"
+        presentation.save("identified-shape.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("'StatusLabel' is missing or is not an AutoShape.")
 ```
 
-## **ซ่อนรูปทรง**
+## **ระบุและแก้ไขการปรับค่ารูปทรงที่ตั้งไว้**
 
-Aspose.Slides ให้คุณซ่อนรูปทรงใด ๆ บนสไลด์ได้. ตัวอย่างเช่น เพื่ซ่อนรูปทรงบนสไลด์แรกโดยใช้ข้อความแทน, ทำตามขั้นตอนต่อไปนี้:
+รูปทรงเรขาคณิตที่ตั้งล่วงหน้าสามารถเปิดเผยจุดปรับค่าซึ่งควบคุมคุณลักษณะเช่น ขนาดมุม, อัตราส่วนของลูกศร, หรือมุมของโค้ง เข้าถึงได้ผ่านคอลเลกชันอ่านอย่างเดียว [GeometryShape.adjustments](https://reference.aspose.com/slides/th/python-net/aspose.slides/geometryshape/adjustments/) คอลเลกชันนี้ถูกจัดหาจากรูปทรงเอง แต่ละ [AdjustValue](https://reference.aspose.com/slides/th/python-net/aspose.slides/adjustvalue/) มีค่าเดียวที่สามารถเปลี่ยนแปลงได้
 
-1. สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และโหลดไฟล์
-1. เข้าถึงสไลด์แรกจากคอลเลกชันสไลด์
-1. ค้นหารูปทรงโดยค่าข้อความแทน
-1. ซ่อนรูปทรง
-1. บันทึกพรีเซนเทชันลงดิสก์ในรูปแบบ PPTX
+ห้ามพึ่งพาเฉพาะดัชนีคอลเลกชันคงที่ ให้วนรอบผ่านการปรับค่าและตรวจสอบคุณสมบัติอ่านอย่างเดียว [AdjustValue.type](https://reference.aspose.com/slides/th/python-net/aspose.slides/adjustvalue/type/) ซึ่งค่า [ShapeAdjustmentType](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapeadjustmenttype/) บรรยายว่าการปรับค่านั้นควบคุมอะไร คุณสมบัติ [AdjustValue.name](https://reference.aspose.com/slides/th/python-net/aspose.slides/adjustvalue/name/) ให้ข้อมูลระบุตัวเพิ่มและเป็นประโยชน์โดยเฉพาะเมื่อพรีเซ็ตมีการปรับค่ามากกว่าหนึ่งค่าที่มีประเภทเชิงความหมายเดียวกัน
 
-```py
-# ค้นหารูปทรงบนสไลด์โดยใช้ข้อความแทนของมัน.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
+ใช้คุณสมบัติ value ที่ตรงกับความหมายของการปรับค่า:
 
+| ประเภทการปรับค่า | วัตถุประสงค์ | ค่าที่ต้องเปลี่ยน |
+|---|---|---|
+| `CORNER_SIZE` | ขนาดของมุมโค้ง | [raw_value](https://reference.aspose.com/slides/th/python-net/aspose.slides/adjustvalue/raw_value/) |
+| `ARROW_TAIL_THICKNESS` | ความหนาของหางลูกศร | `raw_value` |
+| `ARROWHEAD_LENGTH` | ความยาวของหัวลูกศร | `raw_value` |
+| `ARROWHEAD_WIDTH` | ความกว้างของหัวลูกศร | `raw_value` |
+| `START_ANGLE` | มุมเริ่มต้นของพายหรือโค้ง | [angle_value](https://reference.aspose.com/slides/th/python-net/aspose.slides/adjustvalue/angle_value/) |
+| `END_ANGLE` | มุมสิ้นสุดของพายหรือโค้ง | `angle_value` |
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # ค้นหารูปทรงที่มีข้อความแทน "User Defined".
-    shape = find_shape(slide, "User Defined")
-    # ซ่อนรูปทรง.
-    shape.hidden = True
-    # บันทึกงานนำเสนอลงดิสก์.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
+`type` และ `name` ไม่สามารถกำหนดค่าได้ `raw_value` เป็นจำนวนเต็มแบบอ่าน/เขียนในหน่วยเรขาคณิตดั้งเดิมของพรีเซ็ต, ส่วน `angle_value` เป็นมุมแบบอ่าน/เขียนหน่วยองศา จำนวน, ลำดับ, ความหมายและช่วงค่าที่ถูกต้องของการปรับค่าขึ้นอยู่กับพรีเซ็ต [GeometryShape.shape_type](https://reference.aspose.com/slides/th/python-net/aspose.slides/geometryshape/shape_type/) ค่าเดียวที่ใช้ได้กับพรีเซ็ตหนึ่งอาจไม่ถูกต้องหรือให้ผลแตกต่างกับพรีเซ็ตอื่น
 
-## **เปลี่ยนลำดับของรูปทรง**
+เมื่อ `type` เป็น `ShapeAdjustmentType.CUSTOM` API จะไม่รู้จักความหมายเชิงมาตรฐาน ตรวจสอบ `name`, ประเภทพรีเซ็ต, และค่าที่มีอยู่ แล้วปล่อยให้การปรับค่าไม่เปลี่ยนแปลง เว้นแต่คุณทราบความหมายและช่วงค่าที่คาดหวัง แม้สำหรับประเภทที่รับรู้แล้วก็ตาม ให้ตรวจสอบว่าประเภทเดียวกันปรากฏหลายครั้งหรือไม่ ก่อนเลือกค่า บทความ [Connector](/slides/th/python-net/connector/) แสดงกรณีนี้ที่การปรับค่าการโค้งของคอนเนคเตอร์
 
-Aspose.Slides อนุญาตให้ผู้พัฒนาจัดลำดับรูปทรงใหม่ (เปลี่ยน z-order). การจัดลำดับกำหนดว่ารูปทรงอันใดอยู่ด้านหน้าหรือด้านหลัง. ตัวอย่างเช่น เพื่อจัดลำดับรูปทรงสองอันบนสไลด์แรก, ทำตามขั้นตอนต่อไปนี้:
+ตัวอย่างสมบูรณ์ต่อไปนี้สร้างเวอร์ชันเริ่มต้นและเวอร์ชันที่ปรับแก้ของสามรูปทรงพรีเซ็ต โดยวนรอบทุกการปรับค่า, รายงาน `name` และ `type`, เปลี่ยนค่าที่เกี่ยวกับขนาดผ่าน `raw_value`, เปลี่ยนมุมผ่าน `angle_value` และบันทึกผล คอลัมน์ซ้ายคงเรขาคณิตเริ่มต้น; คอลัมน์ขวาแสดงสี่เหลี่ยมมุมโค้ง, ลูกศรสี่แบบ, และพายที่ปรับแก้
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)
-1. เข้าถึงสไลด์แรก
-1. เพิ่มรูปทรงแรก (เช่น สี่เหลี่ยม)
-1. เพิ่มรูปทรงที่สอง (เช่น สามเหลี่ยม)
-1. จัดลำดับรูปทรงใหม่โดยย้ายรูปทรงที่สองไปยังตำแหน่งแรกในคอลเลกชัน
-1. บันทึกพรีเซนเทชันลงดิสก์
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # เพิ่มรูปทรงสองอันไปยังสไลด์.
-    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 150)
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 20, 200, 200, 150)
-    # ย้ายรูปทรงที่สองไปยังตำแหน่งแรก.
-    slide.shapes.reorder(0, shape2)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **รับ Interop Shape ID**
-
-Aspose.Slides ให้คุณดึงตัวระบุที่ไม่ซ้ำของรูปทรงในระดับสไลด์, แตกต่างจากคุณสมบัติ `unique_id` ที่เป็นเอกลักษณ์ทั่วทั้งพรีเซนเทชัน. คุณสมบัติ `office_interop_shape_id` มีอยู่ในคลาส [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/) และค่าของมันตรงกับ `Id` ของอ็อบเจ็กต์ `Microsoft.Office.Interop.PowerPoint.Shape`. ตัวอย่างโค้ดด้านล่างแสดงวิธีการนี้.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    # รับตัวระบุที่ไม่ซ้ำของรูปทรงภายในสไลด์.
-    officeInteropShapeId = presentation.slides[0].shapes[0].office_interop_shape_id
-```
-
-## **ตั้งค่าข้อความแทนสำหรับรูปทรง**
-
-Aspose.Slides อนุญาตให้ผู้พัฒนาตั้งค่าข้อความแทนสำหรับรูปทรงใด ๆ. คุณสามารถใช้ข้อความแทนเพื่อระบุและค้นหารูปทรงในพรีเซนเทชัน. คุณสมบัตินี้สามารถอ่านและเขียนได้ผ่านทั้ง Aspose.Slides และ Microsoft PowerPoint. โดยการกำหนดแท็กข้อความแทนให้กับรูปทรง, คุณสามารถลบ, ซ่อน, หรือจัดลำดับใหม่ของรูปทรงเหล่านั้นในภายหลัง.
-
-เพื่อกำหนดข้อความแทนของรูปทรง, ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)
-1. เข้าถึงสไลด์แรก
-1. เพิ่มรูปทรงลงในสไลด์
-1. ตั้งค่าข้อความแทน
-1. บันทึกพรีเซนเทชันลงดิสก์
-
-```py
-import aspose.slides as slides
-
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX.
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    # เพิ่มรูปทรง.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
-    # ตั้งค่าข้อความแทนสำหรับรูปทรง.
-    shape.alternative_text = "User Defined"
-    # บันทึกงานนำเสนอลงดิสก์.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+
+    # เพิ่มส่วนหัวสำหรับคอลัมน์รูปทรงเริ่มต้นและรูปทรงที่ปรับค่า.
+    default_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 250, 30)
+    default_column_label.text_frame.text = "Default preset geometry"
+    adjusted_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 390, 20, 250, 30)
+    adjusted_column_label.text_frame.text = "Modified adjustment values"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 80, 70, 160, 70)
+    modified_rounded_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 430, 70, 160, 70)
+    modified_rounded_rectangle.name = "ModifiedRoundedRectangle"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 80, 180, 160, 110)
+    modified_arrow = slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 430, 180, 160, 110)
+    modified_arrow.name = "ModifiedQuadArrow"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.PIE, 95, 330, 130, 130)
+    modified_pie = slide.shapes.add_auto_shape(slides.ShapeType.PIE, 445, 330, 130, 130)
+    modified_pie.name = "ModifiedPie"
+
+    shapes_to_adjust = [modified_rounded_rectangle, modified_arrow, modified_pie]
+
+    for shape in shapes_to_adjust:
+        for adjustment in shape.adjustments:
+            print("{} / {}: {}".format(shape.name, adjustment.name, adjustment.type.name))
+
+            if adjustment.type == slides.ShapeAdjustmentType.CORNER_SIZE:
+                adjustment.raw_value = 5000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROW_TAIL_THICKNESS:
+                adjustment.raw_value = 25000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_LENGTH:
+                adjustment.raw_value = 30000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_WIDTH:
+                adjustment.raw_value = 40000
+            elif adjustment.type == slides.ShapeAdjustmentType.START_ANGLE:
+                adjustment.angle_value = 30
+            elif adjustment.type == slides.ShapeAdjustmentType.END_ANGLE:
+                adjustment.angle_value = 300
+            elif adjustment.type == slides.ShapeAdjustmentType.CUSTOM:
+                print("Custom adjustment '{}' was not changed.".format(adjustment.name))
+
+    presentation.save("preset-shape-adjustments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เข้าถึงรูปแบบเลเอาท์สำหรับรูปทรง**
+การตรวจสอบประเภทเชิงความหมายก่อนเปลี่ยนค่าทำให้โค้ดชัดเจนเกี่ยวกับเจตนาและหลีกเลี่ยงการสันนิษฐานว่าดัชนีคอลเลกชันเดียวกันมีความหมายเท่ากันในพรีเซ็ตที่แตกต่างกัน
 
-Aspose.Slides มี API ง่าย ๆ สำหรับการเข้าถึงรูปแบบเลเอาท์ของรูปทรง. ส่วนนี้แสดงวิธีการเข้าถึงรูปแบบเลเอาท์.
+## **แก้ไข Shape Collection**
 
-```py
+วิธีการเพิ่ม, คัดลอก, ลบ, และจัดลำดับทำงานบนคอลเลกชันโดยทันที หากการดำเนินการใดเปลี่ยนจำนวนหรือลำดับของรูปทรง อย่าอ้างอิงดัชนีที่จับไว้ก่อนการดำเนินการนั้นต่อไป
+
+### **คัดลอกรูปทรง**
+
+[ShapeCollection.add_clone](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/add_clone/) สร้างสำเนาอิสระและเพิ่มต่อท้ายคอลเลกชันเป้าหมาย [ShapeCollection.insert_clone](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/insert_clone/) ก็สร้างสำเนาเช่นกันแต่แทรกที่ดัชนี z‑order ที่ระบุ เวอร์ชันที่รับพิกัดจะย้ายคลอนโดยไม่เปลี่ยนขนาด; เวอร์ชันที่รับความกว้างและความสูงสามารถปรับขนาดได้ด้วย
+
+ตัวอย่างสร้างสไลด์ปลายทาง, คัดลอกสี่เหลี่ยมที่มีป้ายชื่อไปด้านหน้า, และแทรกคลอนที่สองที่ด้านหลัง การเปลี่ยนแปลงใด ๆ กับคลอนใดคลอนหนึ่งจะไม่แก้ไขรูปทรงต้นฉบับ
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation(folder_path + "sample.pptx") as presentation:
+with slides.Presentation() as presentation:
+    source_slide = presentation.slides[0]
+    source_shape = source_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 180, 60)
+    source_shape.name = "SourceLabel"
+    source_shape.text_frame.text = "Source"
+
+    blank_layout = presentation.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    destination_slide = presentation.slides.add_empty_slide(blank_layout)
+
+    front_clone_shape = destination_slide.shapes.add_clone(source_shape, 80, 80)
+    front_clone_shape.name = "FrontClone"
+    if isinstance(front_clone_shape, slides.AutoShape):
+        front_clone_shape.text_frame.text = "Front clone"
+    else:
+        print("The front clone is not an AutoShape; its text was not changed.")
+
+    back_clone_shape = destination_slide.shapes.insert_clone(0, source_shape, 80, 180)
+    back_clone_shape.name = "BackClone"
+    if isinstance(back_clone_shape, slides.AutoShape):
+        back_clone_shape.text_frame.text = "Back clone"
+    else:
+        print("The back clone is not an AutoShape; its text was not changed.")
+
+    presentation.save("cloned-shapes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+การคัดลอกจะคัดลอกเนื้อหาและการจัดรูปแบบของรูปทรงรวมถึงชื่อและข้อความทางเลือก กำหนดตัวระบุลอจิกใหม่ให้กับคลอนเมื่อค่าดังกล่าวต้องเป็นเอกลักษณ์ รายการทรัพยากรที่ใช้โดยรูปทรงซับซ้อนจะถูกพรีเซนเทชันจัดการ แต่คลอนยังคงเป็นรายการใหม่ในคอลเลกชันพร้อมอัตลักษณ์รูปทรงใหม่
+
+### **ลบรูปทรง**
+
+[ShapeCollection.remove](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/remove/) ลบอ็อบเจ็กต์รูปทรงเฉพาะออกจากคอลเลกชันของมัน เมื่อทำการลบหลายรายการขณะวนรอบตามดัชนี ให้เริ่มจากด้านหลังเพื่อให้ดัชนีที่เหลือยังคงใช้งานได้
+
+ตัวอย่างนี้ลบทุกรูปทรงที่มีชื่อที่กำหนดไว้ มันอ่าน `slide.shapes[index]` ไม่ใช่รายการคอลเลกชันคงที่และไม่ได้ทำการคาสท์รูปทรงโดยไม่จำเป็น
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    keep_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 140, 60)
+    keep_shape.name = "Keep"
+
+    first_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 220, 40, 80, 80)
+    first_temporary_shape.name = "Temporary"
+
+    second_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 340, 40, 100, 80)
+    second_temporary_shape.name = "Temporary"
+
+    for index in range(len(slide.shapes) - 1, -1, -1):
+        shape = slide.shapes[index]
+        if shape.name == "Temporary":
+            slide.shapes.remove(shape)
+
+    presentation.save("removed-shapes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+หลังการลบ จำนวนรูปทรงและดัชนีของรูปทรงต่อมาจะเปลี่ยน การอ้างอิงรูปทรงที่ไม่ได้รับผลกระทบจึงเชื่อถือได้มากกว่าการบันทึกดัชนี ควรพิจารณาคอนเนคเตอร์, แอนิเมชัน, และฟีเจอร์พรีเซนเทชันอื่น ๆ ที่อาจอ้างอิงถึงอ็อบเจ็กต์ที่ลบ; การลบรูปทรงที่มองเห็นได้อาจทำให้มากกว่าการเปลี่ยนแปลงลักษณะของสไลด์
+
+### **ซ่อนรูปทรง**
+
+การตั้งค่า [Shape.hidden](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/hidden/) เป็น `True` ทำให้รูปทรงยังคงอยู่ในคอลเลกชันแต่ไม่ปรากฏในสไลด์โชว์ปกติ ดัชนี, การจัดรูปแบบ, และเนื้อหายังคงพร้อมใช้งานสำหรับโค้ด ดังนั้นการซ่อนจึงเหมาะกับองค์ประกอบที่อาจต้องการเปิดใช้งานใหม่ในภายหลัง
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    visible_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 160, 60)
+    visible_shape.name = "VisibleLabel"
+
+    optional_shape = slide.shapes.add_auto_shape(slides.ShapeType.MOON, 240, 40, 100, 100)
+    optional_shape.name = "OptionalDecoration"
+
+    for shape in slide.shapes:
+        if shape.name == "OptionalDecoration":
+            shape.hidden = True
+
+    presentation.save("hidden-shape.pptx", slides.export.SaveFormat.PPTX)
+```
+
+การซ่อนไม่ใช่การลบหรือความปลอดภัย อ็อบเจ็กต์ยังคงค้นพบและยกเลิกการซ่อนได้โดยผู้ใช้หรือโดยโค้ด และยังคงเป็นส่วนหนึ่งของไฟล์พรีเซนเทชัน
+
+### **เปลี่ยน Z‑Order**
+
+รูปทรงที่ทับซ้อนกันจะถูกวาดตามลำดับคอลเลกชัน [ShapeCollection.reorder](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapecollection/reorder/) ย้ายรูปทรงที่มีอยู่ไปยังดัชนีเป้าหมายโดยไม่ต้องคัดลอก ดัชนี `0` คือหลังสุด; `len(slide.shapes) - 1` คือหน้าสุด
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    blue_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 220, 120)
+    blue_rectangle.name = "BlueRectangle"
+    blue_rectangle.fill_format.fill_type = slides.FillType.SOLID
+    blue_rectangle.fill_format.solid_fill_color.color = draw.Color.steel_blue
+
+    orange_ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 180, 140, 220, 120)
+    orange_ellipse.name = "OrangeEllipse"
+    orange_ellipse.fill_format.fill_type = slides.FillType.SOLID
+    orange_ellipse.fill_format.solid_fill_color.color = draw.Color.orange
+
+    slide.shapes.reorder(len(slide.shapes) - 1, blue_rectangle)
+    presentation.save("reordered-shapes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+สี่เหลี่ยมถูกสร้างก่อนและเริ่มต้นอยู่ด้านหลังวงรี การย้ายไปยังดัชนีสุดท้ายทำให้มันอยู่ด้านหน้า จัดลำดับ z‑order หลังจากเพิ่มหรือคัดลอกรูปทรงที่เกี่ยวข้องทั้งหมด เพราะการดำเนินการเหล่านั้นจะเพิ่มหรือแทรกรายการใหม่ในคอลเลกชันและอาจเปลี่ยนสแตกที่ต้องการ
+
+## **ตรวจสอบรูปทรงบน Layout Slides**
+
+สไลด์ปกติ, สไลด์เลเอาต์, และมาสเตอร์สไลด์มีคอลเลกชันรูปทรงแยกกัน รูปทรงในคอลเลกชันเลเอาต์ไม่ใช่อ็อบเจ็กต์เดียวกับรูปทรงที่อยู่ในตำแหน่งเดียวบนสไลด์ปกติ ตรวจสอบรูปทรงเลเอาต์เมื่อคุณต้องการเข้าใจหรือเปลี่ยนแปลงการจัดรูปแบบที่เลเอาต์จัดหาให้
+
+ตัวอย่างต่อไปนี้อ่าน [Shape.fill_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/fill_format/) และ [Shape.line_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/line_format/) ของแต่ละรูปทรงในเลเอาต์โดยไม่สมมติว่าทุกรูปทรงเป็น `AutoShape`
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
     for layout_slide in presentation.layout_slides:
-        fill_formats = list(map(lambda shape: shape.fill_format, layout_slide.shapes))
-        line_formats = list(map(lambda shape: shape.line_format, layout_slide.shapes))
+        for shape in layout_slide.shapes:
+            fill_type = shape.fill_format.fill_type
+            line_width = shape.line_format.width
+            print("{} / {}: fill={}, line width={}".format(layout_slide.name, shape.name, fill_type, line_width))
 ```
 
-## **เรนเดอร์รูปทรงเป็น SVG**
+การแก้ไขเลเอาต์อาจส่งผลต่อหลายสไลด์ที่ใช้เลเอาต์นั้น ก่อนเปลี่ยนแปลงรูปทรงในเลเอาต์ ให้กำหนดว่ารูปทรงบนสไลด์ปกติสืบทอดอ็อบเจ็กต์นั้นหรือมีการแทนที่ในระดับท้องถิ่น และทดสอบทุกสไลด์ที่ใช้เลเอาต์นั้น
 
-Aspose.Slides รองรับการเรนเดอร์รูปทรงเป็น SVG. วิธี `write_as_svg` (และโอเวอร์โหลดต่าง ๆ) ในคลาส [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/) ให้คุณบันทึกเนื้อหารูปทรงเป็นไฟล์ภาพ SVG. โค้ดตัวอย่างด้านล่างแสดงวิธีส่งออกรูปทรงเป็นไฟล์ SVG.
+## **ส่งออกรูปทรงเป็น SVG**
 
-```py
+[Shape.write_as_svg](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/write_as_svg/) เขียนเนื้อหาที่เรนเดอร์ของรูปทรงหนึ่งไปยังสตรีม ผลลัพธ์จะมีเฉพาะรูปทรงนั้น ไม่รวมพื้นหลังสไลด์หรือรูปทรงใกล้เคียงอื่น ๆ
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    with open("output.svg", "wb") as image_stream:
-        # รับรูปทรงแรกบนสไลด์แรก.
-        shape = presentation.slides[0].shapes[0]
-        shape.write_as_svg(image_stream)
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) == 0:
+        print("Slide 1 does not contain a shape to export.")
+    else:
+        shape = slide.shapes[0]
+        with open("shape.svg", "wb") as svg_stream:
+            shape.write_as_svg(svg_stream)
 ```
+
+ให้เปิดพรีเซนเทชันขณะทำการเรนเดอร์ Output ขึ้นอยู่กับการจัดรูปแบบของรูปทรงและทรัพยากรเช่นฟอนต์และภาพ หากต้องการส่งออกทั้งหมดให้ส่งออกสไลด์แทนการส่งออกรูปทรงเดี่ยว ผู้เรียกต้องเป็นเจ้าของสตรีมและต้องปิดสตรีมเอง
 
 ## **จัดแนวรูปทรง**
 
-โดยใช้วิธี `align_shape` ในคลาส [SlidesUtil](https://reference.aspose.com/slides/th/python-net/aspose.slides.util/slideutil/) คุณสามารถ:
+การโอเวอร์โหลด [SlideUtil.align_shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides.util/slideutil/align_shapes/) สามารถจัดแนวทั้งชุดรูปทรงหรือดัชนีคอลเลกชันที่เลือก [ShapesAlignmentType](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapesalignmenttype/) ระบุขอบ, เส้นศูนย์กลาง, หรือโหมดการกระจาย ตั้งค่า `align_to_slide` เป็น `True` เพื่อใช้ขอบสไลด์; ตั้งค่าเป็น `False` เพื่อจัดแนวรูปทรงที่เลือกสัมพันธ์กัน
 
-* จัดแนวรูปทรงสัมพันธ์กับขอบของสไลด์ (ดูตัวอย่างที่ 1)
-* จัดแนวรูปทรงสัมพันธ์กัน (ดูตัวอย่างที่ 2)
+ตัวอย่างนี้จัดแนวสามรูปทรงให้ชิดขอบบนของสไลด์ ดัชนีปัจจุบันของพวกมันจะถูกแกะออกก่อนการจัดแนว
 
-Enumeration [ShapesAlignmentType](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapesalignmenttype/) กำหนดตัวเลือกการจัดแนวที่มีให้.
-
-**ตัวอย่าง 1**
-
-โค้ด Python นี้แสดงวิธีจัดแนวรูปทรงที่มีดัชนี 1, 2, และ 4 ไปยังขอบบนของสไลด์:
-
-```py
+```python
 import aspose.slides as slides
 
-align_type = slides.ShapesAlignmentType.ALIGN_TOP
-slide_indices = [1, 2, 4]
-
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    slides.util.SlideUtil.align_shapes(align_type, True, slide, slide_indices)
+
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 60, 80, 120, 50)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 240, 160, 120, 50)
+    third_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 420, 240, 120, 50)
+    first_shape.name = "FirstAlignedShape"
+    second_shape.name = "SecondAlignedShape"
+    third_shape.name = "ThirdAlignedShape"
+
+    shape_indexes = [
+        slide.shapes.index_of(first_shape),
+        slide.shapes.index_of(second_shape),
+        slide.shapes.index_of(third_shape)
+    ]
+
+    slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_TOP, True, slide, shape_indexes)
+    presentation.save("aligned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**ตัวอย่าง 2**
+การจัดแนวเปลี่ยนตำแหน่ง ไม่ใช่ z‑order การจัดแนวเชิงสัมพันธ์ทั่วไปต้องมีอย่างน้อยสองรูปทรง ในขณะที่การกระจายแนวนอนหรือแนวตั้งต้องมีรูปทรงจำนวนเพียงพอที่จะกำหนดระยะห่าง หากแก้ไขคอลเลกชันก่อนเรียกเมธอดให้คำนวณดัชนีใหม่
 
-ตัวอย่าง Python นี้แสดงวิธีจัดแนวรูปทรงทั้งหมดในคอลเลกชันสัมพันธ์กับรูปทรงที่อยู่ด้านล่างสุดในคอลเลกชันนั้น:
+## **พลิกรูปทรง**
 
-```py
+คลาส [ShapeFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapeframe/) จัดเก็บตำแหน่ง, ขนาด, การตั้งค่าการพลิกแนวนอนและแนวตั้ง, และการหมุน ค่า `flip_h` และ `flip_v` ใช้ [NullableBool](https://reference.aspose.com/slides/th/python-net/aspose.slides/nullablebool/): `TRUE` เปิดการพลิก, `FALSE` ปิดการพลิก, `NOT_DEFINED` คงสถานะที่ไม่ได้กำหนดหรือค่าเริ่มต้น
+
+พรีเซนเทชันตัวอย่างด้านล่างมีรูปทรงที่ยังไม่ได้พลิก
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+ตัวอย่างนี้คงค่ากรอบอื่นทั้งหมดและแทนที่เฉพาะการตั้งค่าพลิกสองค่านี้เท่านั้น ซึ่งสำคัญเพราะการกำหนดค่าใหม่ให้กับ [Shape.frame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/frame/) จะทับกรอบทั้งหมด
+
+```python
 import aspose.slides as slides
 
-align_type = slides.ShapesAlignmentType.ALIGN_BOTTOM
-
-with slides.Presentation("sample.pptx") as presentation:
-    slides.util.SlideUtil.align_shapes(align_type, False, presentation.slides[0])
-```
-
-## **คุณสมบัติการพลิก**
-
-ใน Aspose.Slides, คลาส [ShapeFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapeframe/) ให้การควบคุมการสะท้อนแนวราบและแนวตั้งของรูปทรงผ่านคุณสมบัติ `flip_h` และ `flip_v`. ทั้งสองเป็นประเภท [NullableBool](https://reference.aspose.com/slides/th/python-net/aspose.slides/nullablebool/) ซึ่งรับค่า `TRUE` เพื่อระบุการพลิก, `FALSE` สำหรับไม่พลิก, หรือ `NOT_DEFINED` เพื่อใช้ค่าเริ่มต้น. ค่าเหล่านี้เข้าถึงได้จาก [Frame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/frame/) ของรูปทรง.
-
-เพื่อปรับการตั้งค่าการพลิก, สร้างอินสแตนซ์ใหม่ของ [ShapeFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shapeframe/) ด้วยตำแหน่งและขนาดปัจจุบันของรูปทรง, ค่าที่ต้องการสำหรับ `flip_h` และ `flip_v`, และมุมการหมุน. กำหนดอินสแตนซ์นี้ให้กับ [Frame](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/frame/) ของรูปทรงและบันทึกพรีเซนเทชันเพื่อใช้การแปลงสะท้อนและบันทึกผลลัพธ์ลงไฟล์เอาต์พุต.
-
-สมมติว่าเรามีไฟล์ sample.pptx ที่สไลด์แรกมีรูปทรงเดียวที่ตั้งค่าการพลิกเป็นค่าเริ่มต้น, ดังแสดงด้านล่าง.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-โค้ดตัวอย่างต่อไปนี้ดึงคุณสมบัติการพลิกปัจจุบันของรูปทรงและพลิกรูปทั้งแนวนอนและแนวตั้ง.
-
-```py
 with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
+    frame = shape.frame
 
-    # ดึงคุณสมบัติการพลิกแนวนอนของรูปทรง.
-    horizontal_flip = shape.frame.flip_h
-    print("Horizontal flip:", horizontal_flip)
+    print("Horizontal flip before change:", frame.flip_h)
+    print("Vertical flip before change:", frame.flip_v)
 
-    # ดึงคุณสมบัติการพลิกแนวตั้งของรูปทรง.
-    vertical_flip = shape.frame.flip_v
-    print("Vertical flip:", vertical_flip)
+    shape.frame = slides.ShapeFrame(
+        frame.x, frame.y, frame.width, frame.height,
+        slides.NullableBool.TRUE, slides.NullableBool.TRUE, frame.rotation)
 
-    x, y = shape.frame.x, shape.frame.y
-    width, height = shape.frame.width, shape.frame.height
-    flip_h, flip_v = slides.NullableBool.TRUE, slides.NullableBool.TRUE  # พลิกแนวนอนและแนวตั้ง.
-    rotation = shape.frame.rotation
-
-    shape.frame = slides.ShapeFrame(x, y, width, height, flip_h, flip_v, rotation)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("flipped-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ผลลัพธ์:
+รูปทรงที่บันทึกจะถูกสะท้อนแนวนอนและแนวตั้งในขณะที่ตำแหน่ง, ขนาด, และการหมุนยังคงเดิม
 
-![The flipped shape](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**ฉันสามารถรวมรูปทรง (union/intersect/subtract) บนสไลด์เหมือนในโปรแกรมแก้ไขเดสก์ท็อปได้หรือไม่?**
+**ควรใช้ดัชนีคอลเลกชันเป็นตัวระบุรูปทรงหรือไม่?**
 
-ไม่มี API การดำเนินการบูลีนในตัว. คุณสามารถทำให้คล้ายกันโดยสร้างรูปร่างขอบที่ต้องการด้วยตนเอง—เช่น คำนวนเรขาคณิตที่ได้ (ผ่าน [GeometryPath](https://reference.aspose.com/slides/th/python-net/aspose.slides/geometrypath/)) และสร้างรูปทรงใหม่ที่มีคอนทัวร์นั้น, พร้อมทางเลือกการลบรูปทรงเดิมออก.
+ใช้ได้เฉพาะการประมวลผลสั้น ๆ ที่คอลเลกชันจะไม่เปลี่ยนก่อนใช้ดัชนี แนะนำให้ใช้ `name` หรือ `alternative_text` ที่ผ่านการตรวจสอบสำหรับเทมเพลตที่สร้างโดยผู้เขียน, หรือ `office_interop_shape_id` สำหรับงานที่เกี่ยวกับ interop ระดับสไลด์
 
-**ฉันจะควบคุมลำดับการซ้อน (z-order) ให้รูปทรงอยู่ “บนสุด” ตลอดได้อย่างไร?**
+**การซ่อนรูปทรงทำให้มันหายจาก z‑order หรือไม่?**
 
-เปลี่ยนลำดับการแทรก/ย้ายภายในคอลเลกชัน [shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/shapes/) ของสไลด์. เพื่อผลลัพธ์คาดเดาได้, ทำการสรุปลำดับ z-order หลังจากการแก้ไขสไลด์ทั้งหมดเสร็จสิ้น.
+ไม่ รูปทรงที่ซ่อนไม่หายจากคอลเลกชันและยังคงอยู่ที่ดัชนีเดียวกัน สามารถค้นหา, จัดลำดับใหม่, แก้ไข, หรือทำให้มองเห็นได้อีกครั้ง
 
-**ฉันสามารถ “ล็อก” รูปทรงเพื่อป้องกันผู้ใช้จากการแก้ไขใน PowerPoint ได้หรือไม่?**
+**ทำไมนำรูปทรงที่คัดลอกได้ปรากฏอยู่ด้านหน้ารูปทรงอื่น?**
 
-ได้. ตั้งค่า [shape-level protection flags](/slides/th/python-net/applying-protection-to-presentation/) (เช่น ล็อกการเลือก, การเคลื่อนย้าย, การปรับขนาด, การแก้ไขข้อความ). หากต้องการ สามารถกำหนดข้อจำกัดเดียวกันบนมาสเตอร์หรือเลเอาท์. หมายเหตุว่าการป้องกันนี้เป็นระดับ UI ไม่ได้เป็นมาตรการความปลอดภัย; หากต้องการระดับความปลอดภัยที่สูงกว่า, ควรผสานกับการจำกัดระดับไฟล์เช่น [คำแนะนำให้อ่านอย่างเดียวหรือรหัสผ่าน](/slides/th/python-net/password-protected-presentation/)
+`add_clone` จะเพิ่มคลอนต่อท้ายคอลเลกชันซึ่งเป็นด้านหน้าของ z‑order ใช้ `insert_clone` เพื่อเลือกดัชนีเริ่มต้นหรือใช้ `reorder` หลังจากเพิ่มรูปทรงทั้งหมดแล้ว
+
+**สามารถใช้ดัชนีคงที่เพื่อระบุการปรับค่าพรีเซ็ตของรูปทรงได้หรือไม่?**
+
+ได้เฉพาะหลังจากตรวจสอบพรีเซ็ตและโครงสร้างคอลเลกชันอย่างแม่นยำ แนะนำให้วนรอบผ่าน `GeometryShape.adjustments` และตรวจสอบ `AdjustValue.type`; ใช้ `AdjustValue.name` เป็นข้อมูลเพิ่มเติมเมื่อประเภทเชิงความหมายเดียวกันปรากฏมากกว่าหนึ่งครั้ง
