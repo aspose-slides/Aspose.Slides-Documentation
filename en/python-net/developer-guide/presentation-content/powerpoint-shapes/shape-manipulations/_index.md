@@ -15,6 +15,9 @@ keywords:
 - change shape order
 - get interop shape ID
 - shape alternative text
+- shape adjustment point
+- preset shape adjustment
+- shape geometry
 - shape layout formats
 - shape as SVG
 - shape to SVG
@@ -24,14 +27,14 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Learn how to identify, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for Python via .NET."
+description: "Learn how to identify, adjust, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for Python via .NET."
 ---
 
 ## **Overview**
 
 Aspose.Slides for Python via .NET represents the shapes on a slide as an ordered [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/). The collection is both the place where you find and modify shapes and the source of their stacking order: index `0` is the backmost shape, while the last index is the frontmost shape.
 
-This article follows that model. It first explains how to identify a shape reliably, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
+This article follows that model. It first explains how to identify a shape reliably and modify preset shape adjustment points, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
 
 ## **Identify and Find Shapes**
 
@@ -84,6 +87,79 @@ with slides.Presentation("input.pptx") as presentation:
     else:
         print("'StatusLabel' is missing or is not an AutoShape.")
 ```
+
+## **Identify and Modify Preset Shape Adjustments**
+
+Preset geometry shapes can expose adjustment points that control features such as corner size, arrow proportions, or arc angles. Access them through the read-only [GeometryShape.adjustments](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/adjustments/) collection. The collection itself is supplied by the shape, but each [AdjustValue](https://reference.aspose.com/slides/python-net/aspose.slides/adjustvalue/) contains a value that can be changed.
+
+Do not rely only on a fixed collection index. Iterate through the adjustments and inspect the read-only [AdjustValue.type](https://reference.aspose.com/slides/python-net/aspose.slides/adjustvalue/type/) property, whose [ShapeAdjustmentType](https://reference.aspose.com/slides/python-net/aspose.slides/shapeadjustmenttype/) value describes what the adjustment controls. The read-only [AdjustValue.name](https://reference.aspose.com/slides/python-net/aspose.slides/adjustvalue/name/) property provides additional identification information and is especially useful when a preset contains more than one adjustment with the same semantic type.
+
+Use the value property that matches the adjustment's meaning:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CORNER_SIZE` | Size of rounded corners | [raw_value](https://reference.aspose.com/slides/python-net/aspose.slides/adjustvalue/raw_value/) |
+| `ARROW_TAIL_THICKNESS` | Thickness of an arrow tail | `raw_value` |
+| `ARROWHEAD_LENGTH` | Length of an arrowhead | `raw_value` |
+| `ARROWHEAD_WIDTH` | Width of an arrowhead | `raw_value` |
+| `START_ANGLE` | Start angle of a pie or arc | [angle_value](https://reference.aspose.com/slides/python-net/aspose.slides/adjustvalue/angle_value/) |
+| `END_ANGLE` | End angle of a pie or arc | `angle_value` |
+
+`type` and `name` cannot be assigned. `raw_value` is a read/write integer in the preset's native geometry units, while `angle_value` is a read/write angle in degrees. The number, order, meaning, and valid range of adjustments depend on the preset [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). A value that is valid for one preset may be invalid or have a different effect for another.
+
+When `type` is `ShapeAdjustmentType.CUSTOM`, the API does not recognize a standard semantic meaning. Inspect `name`, the preset type, and the existing value, and leave the adjustment unchanged unless the expected meaning and range are known. Even for recognized types, check whether the same type occurs more than once before selecting a value. The [Connector](/slides/python-net/connector/) article shows this situation with connector bend adjustments.
+
+The following complete example creates default and modified versions of three preset shapes. It iterates through every adjustment, reports its `name` and `type`, changes size-related values through `raw_value`, changes angles through `angle_value`, and saves the result. The left column retains the default geometry; the right column shows the adjusted rounded rectangle, four-way arrow, and pie.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Add headers for the default and adjusted shape columns.
+    default_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 250, 30)
+    default_column_label.text_frame.text = "Default preset geometry"
+    adjusted_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 390, 20, 250, 30)
+    adjusted_column_label.text_frame.text = "Modified adjustment values"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 80, 70, 160, 70)
+    modified_rounded_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 430, 70, 160, 70)
+    modified_rounded_rectangle.name = "ModifiedRoundedRectangle"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 80, 180, 160, 110)
+    modified_arrow = slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 430, 180, 160, 110)
+    modified_arrow.name = "ModifiedQuadArrow"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.PIE, 95, 330, 130, 130)
+    modified_pie = slide.shapes.add_auto_shape(slides.ShapeType.PIE, 445, 330, 130, 130)
+    modified_pie.name = "ModifiedPie"
+
+    shapes_to_adjust = [modified_rounded_rectangle, modified_arrow, modified_pie]
+
+    for shape in shapes_to_adjust:
+        for adjustment in shape.adjustments:
+            print("{} / {}: {}".format(shape.name, adjustment.name, adjustment.type.name))
+
+            if adjustment.type == slides.ShapeAdjustmentType.CORNER_SIZE:
+                adjustment.raw_value = 5000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROW_TAIL_THICKNESS:
+                adjustment.raw_value = 25000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_LENGTH:
+                adjustment.raw_value = 30000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_WIDTH:
+                adjustment.raw_value = 40000
+            elif adjustment.type == slides.ShapeAdjustmentType.START_ANGLE:
+                adjustment.angle_value = 30
+            elif adjustment.type == slides.ShapeAdjustmentType.END_ANGLE:
+                adjustment.angle_value = 300
+            elif adjustment.type == slides.ShapeAdjustmentType.CUSTOM:
+                print("Custom adjustment '{}' was not changed.".format(adjustment.name))
+
+    presentation.save("preset-shape-adjustments.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Checking the semantic type before changing a value makes the code explicit about its intent and avoids assuming that a particular collection index has the same meaning across different preset shapes.
 
 ## **Modify the Shape Collection**
 
@@ -323,3 +399,7 @@ No. A hidden shape remains in the collection at the same index. It can be found,
 **Why did a cloned shape appear in front of another shape?**
 
 `add_clone` appends the clone to the end of the collection, which is the front of the z-order. Use `insert_clone` to choose the initial index or `reorder` after all shapes have been added.
+
+**Can I use a fixed index to identify a preset shape adjustment?**
+
+Only after validating the exact preset and collection layout. Prefer iterating through `GeometryShape.adjustments` and checking `AdjustValue.type`; use `AdjustValue.name` as additional information when the same semantic type appears more than once.
