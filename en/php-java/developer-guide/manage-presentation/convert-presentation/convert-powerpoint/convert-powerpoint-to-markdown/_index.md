@@ -21,128 +21,269 @@ keywords:
 - save PPT as MD
 - save PPTX as MD
 - export PPT to MD
-- exportPPTX to MD
+- export PPTX to MD
+- Markdown image export
+- CDN image links
 - PowerPoint
 - presentation
 - Markdown
 - PHP
 - Aspose.Slides
-description: "Convert PowerPoint slides — PPT, PPTX — to clean Markdown with Aspose.Slides for PHP via Java, automate documentation and keep formatting."
+description: "Convert PPT and PPTX presentations to Markdown in PHP and control where exported bitmap, metafile, and SVG images are saved and referenced."
 ---
 
-## **Introduction**
+## **Overview**
 
-Aspose.Slides allows you to convert PowerPoint presentations to Markdown, which can be useful for documentation workflows, static site generation, content migration, and version-controlled text publishing. The API supports direct export from PPT and PPTX presentations to MD files and provides additional options to control how slide content is represented in the resulting Markdown document.
+Aspose.Slides for PHP via Java can convert PPT and PPTX presentations to Markdown for documentation, static-site, content-migration, and version-control workflows. You can choose a Markdown flavor, control how slide content is rendered, and decide where exported images are stored and how the generated Markdown references them.
 
-You can export presentations as plain Markdown, choose from multiple Markdown flavors such as CommonMark and GitHub Flavored Markdown, and configure how images are handled during export. For presentations that contain visual content, Aspose.Slides also lets you save images to a separate folder and reference them from the generated Markdown file.
-
-{{% alert color="warning" %}}
-
-PowerPoint-to-Markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to set `ExportType = MarkdownExportType::Visual` and specify `BasePath`, where the images referenced in the Markdown document will be saved.
-
-{{% /alert %}}
+By default, Markdown export uses text-only output. To export visual content, set the export type with the [MarkdownSaveOptions::setExportType](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) method to the `Sequential` or `Visual` value from the [MarkdownExportType](https://reference.aspose.com/slides/php-java/aspose.slides/markdownexporttype/) enumeration. `Sequential` renders slide items separately and in order, whereas `Visual` keeps grouped items together to preserve their visual relationship. The `TextOnly` value does not emit image resources, so the image-saving callbacks are not invoked in that mode.
 
 ## **Convert a Presentation to Markdown**
 
-This section explains how Aspose.Slides converts PowerPoint and OpenDocument presentations (PPT, PPTX, ODP) into clean Markdown, keeping the original slide hierarchy, text, and core formatting intact so you can reuse the content in documentation or version‑controlled workflows without extra manual effort.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class to represent the presentation.
-1. Use the [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) method to export it as a Markdown file.
-
-This PHP code shows how to convert a PowerPoint presentation to Markdown:
+Load the source file with the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class, and then call the [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) method with the `Md` value from the [SaveFormat](https://reference.aspose.com/slides/php-java/aspose.slides/saveformat/) enumeration.
 
 ```php
-$presentation = new Presentation("presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$inputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.pptx";
+$outputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.md";
+$presentation = new Presentation($inputPath);
 try {
-    $presentation->save("presentation.md", SaveFormat::Md);
+    $presentation->save($outputPath, SaveFormat::Md);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Convert a Presentation to Markdown Flavor**
+## **Select a Markdown Flavor**
 
-Aspose.Slides lets you convert PowerPoint presentations to Markdown with basic syntax, as well as to CommonMark, GitHub‑flavored Markdown, Trello, XWiki, GitLab, and seventeen other Markdown flavors.
+The [MarkdownSaveOptions::setFlavor](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) method controls the Markdown specification used for the output. The [Flavor](https://reference.aspose.com/slides/php-java/aspose.slides/flavor/) enumeration includes CommonMark, GitHub Flavored Markdown, and other supported variants.
 
-The following PHP code demonstrates how to convert a PowerPoint presentation to CommonMark:
+The following example exports a presentation as CommonMark:
 
 ```php
-$presentation = new Presentation("presentation.pptx");
-try {
-    $saveOptions = new MarkdownSaveOptions();
-    $saveOptions->setFlavor(Flavor->CommonMark);
+use aspose\slides\Flavor;
+use aspose\slides\MarkdownSaveOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    $presentation->save("presentation.md", SaveFormat::Md, $saveOptions);
+$inputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.pptx";
+$outputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.md";
+$presentation = new Presentation($inputPath);
+try {
+    $options = new MarkdownSaveOptions();
+    $options->setFlavor(Flavor::CommonMark);
+
+    $presentation->save($outputPath, SaveFormat::Md, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-The 23 supported Markdown flavors are listed in the [Flavor enumeration](https://reference.aspose.com/slides/php-java/aspose.slides/flavor/).
+## **Export Images Using the Default Local-Saving Behavior**
 
-## **Convert a Presentation Containing Images to Markdown**
+The [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) class provides two methods for configuring locally saved images:
 
-The [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) class exposes properties and enumerations that let you configure the resulting Markdown file. For example, the [MarkdownExportType](https://reference.aspose.com/slides/php-java/aspose.slides/markdownexporttype/) enumeration specifies how images are handled: `Sequential`, `TextOnly`, or `Visual`.
+- [setBasePath](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) specifies the base directory for the Markdown document and its resources.
+- [setImagesSaveFolderName](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) specifies the image subdirectory. Its default value is `Images`.
 
-{{% alert color="warning" %}}
+The following example renders visual content, writes images to `output/assets`, and creates relative image references in the Markdown document:
 
-By default, PowerPoint‑to‑Markdown export **does not include images**. To embed images, call `markdownSaveOptions.setExportType(MarkdownExportType::Visual)` and set the `BasePath` that specifies where the images referenced in the Markdown file will be saved.
+```php
+use aspose\slides\MarkdownExportType;
+use aspose\slides\MarkdownSaveOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$inputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.pptx";
+$outputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "output";
+if (!is_dir($outputDirectory)) {
+    mkdir($outputDirectory, 0777, true);
+}
+
+$presentation = new Presentation($inputPath);
+try {
+    $options = new MarkdownSaveOptions();
+    $options->setExportType(MarkdownExportType::Visual);
+    $options->setBasePath($outputDirectory);
+    $options->setImagesSaveFolderName("assets");
+
+    $markdownPath = $outputDirectory . DIRECTORY_SEPARATOR . "presentation.md";
+    $presentation->save($markdownPath, SaveFormat::Md, $options);
+} finally {
+    $presentation->dispose();
+}
+```
+
+This behavior also serves as the fallback when a custom image-saving handler returns `false`.
+
+## **Customize Image Saving and Markdown Links**
+
+Use the [MarkdownSaveOptions::setImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) method to register a callback for non-SVG bitmap and metafile resources emitted during Markdown export. Its `MarkdownImageSavingHandler` callback receives the [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) object, its [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/) value, and the generated Markdown link as a one-element Java string array. Save or upload the image with the supplied format, and replace `$link[0]` with the reference that must appear in the Markdown output.
+
+Resources emitted in SVG format are handled separately. Register a callback with the [MarkdownSaveOptions::setSvgImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) method. Its `MarkdownSvgImageSavingHandler` callback receives an [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/isvgimage/) object and the one-element Java string array `$link`. An SVG has no `ImageFormat` argument; write or upload its XML data from the [ISvgImage::getSvgData](https://reference.aspose.com/slides/php-java/aspose.slides/isvgimage/) method instead. Depending on the export mode and visual grouping, an SVG in the source presentation can be rasterized or combined with other content; the resulting non-SVG resource is then passed to the image-saving callback. Register both callbacks when every exported visual resource requires custom processing.
+
+In PHP via Java, implement each callback in a PHP class and use `java_closure` to expose that object as the corresponding Java interface.
+
+{{% alert color="info" title="Note" %}}
+
+Initialize the PHP/Java Bridge with `JAVA_PREFER_VALUES` enabled before loading `Java.inc`. The [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) method returns `void`, and the bridge's default stream mode cannot invoke a PHP callback during that queued call. The complete example below includes the required initialization.
 
 {{% /alert %}}
 
-### **Convert Images Sequentially**
+The handler return value determines who processes the image:
 
-If you want the images to appear individually, one after the other, in the resulting Markdown, you must choose the `Sequential` option. The following PHP code shows how to convert a presentation containing images to Markdown:
+- Return `true` after the handler has saved, uploaded, transformed, or otherwise processed the image and assigned a valid value to `$link[0]`. Aspose.Slides writes that value to the Markdown document and does not perform its default local save.
+- Return `false` to let Aspose.Slides save the image locally and generate its link according to the values set by [MarkdownSaveOptions::setBasePath](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) and [MarkdownSaveOptions::setImagesSaveFolderName](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/).
+
+{{% alert color="warning" title="Important" %}}
+
+A handler that returns `true` takes responsibility for the image. If it returns `true` without assigning a valid, nonempty link, the export fails with an `InvalidOperationException`.
+
+{{% /alert %}}
+
+### **Save Images to a CDN Origin Directory and Use External URLs**
+
+The following example treats `cdn-origin/presentations/quarterly-report` as a mounted or synchronized CDN origin directory. Each handler extracts the generated file name, saves the image to that custom directory, and replaces the generated local reference with a public CDN URL. The sample itself performs no network upload: the URL becomes valid only after the directory is mounted as the CDN origin or its files are published to the CDN. For object storage, replace the file-system write with the storage SDK's upload operation and assign `$link[0]` only after the upload succeeds.
 
 ```php
-$presentation = new Presentation("presentation.pptx");
-try {
-    $saveOptions = new MarkdownSaveOptions();
-    $saveOptions->setShowHiddenSlides(true);
-    $saveOptions->setShowSlideNumber(true);
-    $saveOptions->setFlavor(Flavor->Github);
-    $saveOptions->setExportType(MarkdownExportType::Sequential);
-    $saveOptions->setNewLineType(NewLineType::Windows);
+use aspose\slides\MarkdownExportType;
+use aspose\slides\MarkdownSaveOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    $slideIndices = array(1, 2, 3, 4);
-    $presentation->save("presentation.md", $slideIndices, SaveFormat::Md, $saveOptions);
+define("JAVA_PREFER_VALUES", 1);
+require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once("lib/aspose.slides.php");
+
+function getFileNameFromLink($generatedLink)
+{
+    $urlCompatibleLink = str_replace("\\", "/", java_values($generatedLink));
+    return basename($urlCompatibleLink);
+}
+
+function buildPublicUrl($publicBaseUrl, $fileName)
+{
+    return rtrim($publicBaseUrl, "/") . "/" . rawurlencode($fileName);
+}
+
+class CustomImageSavingHandler
+{
+    private $storageDirectory;
+    private $publicBaseUrl;
+
+    function __construct($storageDirectory, $publicBaseUrl)
+    {
+        $this->storageDirectory = $storageDirectory;
+        $this->publicBaseUrl = $publicBaseUrl;
+    }
+
+    function invoke($image, $format, $link)
+    {
+        if (java_values($image->getWidth()) < 128 || java_values($image->getHeight()) < 128) {
+            return false;
+        }
+
+        $fileName = getFileNameFromLink($link[0]);
+        $storagePath = $this->storageDirectory . DIRECTORY_SEPARATOR . $fileName;
+        $image->save($storagePath, $format);
+        $link[0] = buildPublicUrl($this->publicBaseUrl, $fileName);
+        return true;
+    }
+}
+
+class CustomSvgImageSavingHandler
+{
+    private $storageDirectory;
+    private $publicBaseUrl;
+
+    function __construct($storageDirectory, $publicBaseUrl)
+    {
+        $this->storageDirectory = $storageDirectory;
+        $this->publicBaseUrl = $publicBaseUrl;
+    }
+
+    function invoke($svgImage, $link)
+    {
+        $fileName = getFileNameFromLink($link[0]);
+        $storagePath = $this->storageDirectory . DIRECTORY_SEPARATOR . $fileName;
+        $outputStream = null;
+        try {
+            $outputStream = new Java("java.io.FileOutputStream", $storagePath);
+            $outputStream->write($svgImage->getSvgData());
+        } catch (Throwable $exception) {
+            fwrite(STDERR, "Could not save the SVG image: " . $exception->getMessage() . PHP_EOL);
+            return false;
+        } finally {
+            if ($outputStream !== null) {
+                $outputStream->close();
+            }
+        }
+
+        $link[0] = buildPublicUrl($this->publicBaseUrl, $fileName);
+        return true;
+    }
+}
+
+$inputPath = __DIR__ . DIRECTORY_SEPARATOR . "presentation.pptx";
+$outputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "output";
+$publicBaseUrl = "https://cdn.example.com/presentations/quarterly-report";
+$storageDirectory = __DIR__ . DIRECTORY_SEPARATOR . "cdn-origin" . DIRECTORY_SEPARATOR . "presentations" . DIRECTORY_SEPARATOR . "quarterly-report";
+if (!is_dir($outputDirectory)) {
+    mkdir($outputDirectory, 0777, true);
+}
+if (!is_dir($storageDirectory)) {
+    mkdir($storageDirectory, 0777, true);
+}
+
+$presentation = new Presentation($inputPath);
+try {
+    $options = new MarkdownSaveOptions();
+    $options->setExportType(MarkdownExportType::Visual);
+    $options->setBasePath($outputDirectory);
+    $options->setImagesSaveFolderName("fallback-images");
+
+    $imageSavingHandler = java_closure(new CustomImageSavingHandler($storageDirectory, $publicBaseUrl), null, java('com.aspose.slides.MarkdownSaveOptions$MarkdownImageSavingHandler'));
+    $svgImageSavingHandler = java_closure(new CustomSvgImageSavingHandler($storageDirectory, $publicBaseUrl), null, java('com.aspose.slides.MarkdownSaveOptions$MarkdownSvgImageSavingHandler'));
+    $options->setImageSaving($imageSavingHandler);
+    $options->setSvgImageSaving($svgImageSavingHandler);
+
+    $markdownPath = $outputDirectory . DIRECTORY_SEPARATOR . "presentation.md";
+    $presentation->save($markdownPath, SaveFormat::Md, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-### **Convert Images Visually**
-
-If you want the images to appear together in the resulting Markdown, you must choose the `Visual` option. In this case, the images are saved to the application’s current directory (and a relative path is generated for them in the Markdown document), or you can specify your preferred directory and folder name.
-
-The following PHP code demonstrates the operation:
-
-```php
-$presentation = new Presentation("presentation.pptx");
-try {
-    $outPath = "output";
-
-    $saveOptions = new MarkdownSaveOptions();
-    $saveOptions->setExportType(MarkdownExportType::Visual);
-    $saveOptions->setImagesSaveFolderName("md-images");
-    $saveOptions->setBasePath($outPath);
-
-    $presentation->save("presentation.md", SaveFormat::Md, $saveOptions);
-} finally {
-    $presentation->dispose();
-}
-```
+The bitmap handler deliberately returns `false` for images smaller than 128 × 128 pixels, so Aspose.Slides saves those images to `output/fallback-images` using the default behavior. Larger bitmap and metafile resources, as well as SVG resources, are handled by the custom code. For example, a generated local reference such as `fallback-images/image1.png` becomes `https://cdn.example.com/presentations/quarterly-report/image1.png`. The handlers use operating-system paths only when writing files; links written to Markdown use forward slashes and URL-escaped file names. Apply the same rule when building relative links: use `/`, not the platform-specific directory separator.
 
 ## **FAQ**
 
-### Do hyperlinks survive the export to Markdown?
+**Can one handler process both raster images and SVG images?**
+
+No. Use [MarkdownSaveOptions::setImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) for emitted bitmap and metafile resources and [MarkdownSaveOptions::setSvgImageSaving](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) for resources emitted as SVG. The former provides an [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) object and an [ImageFormat](https://reference.aspose.com/slides/php-java/aspose.slides/imageformat/) value; the latter provides an [ISvgImage](https://reference.aspose.com/slides/php-java/aspose.slides/isvgimage/) object whose SVG data can be read with [ISvgImage::getSvgData](https://reference.aspose.com/slides/php-java/aspose.slides/isvgimage/). A source SVG that is rasterized during export is processed by the image-saving callback instead.
+
+**What happens when an image-saving handler returns `false`?**
+
+Aspose.Slides uses its default local-saving behavior. The image location and generated reference are controlled by the values set with [MarkdownSaveOptions::setBasePath](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) and [MarkdownSaveOptions::setImagesSaveFolderName](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/).
+
+**Can a handler provide a URL without saving the image locally?**
+
+Yes. The handler can upload the image to object storage or pass it to another service, assign the resulting URL to `$link[0]`, and return `true`. The handler must complete the processing itself; returning `true` prevents the default local save.
+
+**Why does Markdown export throw an `InvalidOperationException` from a handler?**
+
+This exception occurs when the handler returns `true` but does not provide a valid link. Assign the relative path or external URL that should be written to Markdown before returning `true`.
+
+**Which path separator should image links use?**
+
+Use forward slashes in Markdown links and URLs. Use `DIRECTORY_SEPARATOR` only for file-system paths, then construct or normalize the Markdown reference separately.
+
+**Are hyperlinks preserved during Markdown export?**
 
 Yes. Text [hyperlinks](/slides/php-java/manage-hyperlinks/) are preserved as standard Markdown links. Slide [transitions](/slides/php-java/slide-transition/) and [animations](/slides/php-java/powerpoint-animation/) are not converted.
 
-### Can I speed up conversion by running it in multiple threads?
+**Can presentations be converted to Markdown in parallel?**
 
-You can parallelize across files, but [don’t share](/slides/php-java/multithreading/) the same [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) instance across threads. Use separate instances/processes per file to avoid contention.
-
-### What happens to images—where are they saved, and are the paths relative?
-
-[Images](/slides/php-java/image/) are exported to a dedicated folder, and the Markdown file references them with relative paths by default. You can configure the base output path and asset folder name to keep a predictable repository structure.
+You can process different presentation files in parallel, but do not share the same [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) instance between threads. Follow the [multithreading guidelines](/slides/php-java/multithreading/) and use a separate instance for each file.

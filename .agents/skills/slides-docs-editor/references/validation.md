@@ -52,3 +52,14 @@ Use one of `compilation: passed`, `compilation: failed`, or `compilation: not ap
 `not applicable`, name each required platform-equivalent check and its result. If a required check was
 not run or failed, report that as an unresolved issue instead of presenting the edit as complete. When
 no code fence changed, state `code unchanged`.
+
+For every .NET article with changed code examples, also report the result of behavioral verification.
+Use `runtime behavior: passed — the examples perform the operations described in the article` only
+after running every applicable example and verifying its required state, saved output, and described
+effects. Compilation alone is not evidence of correct behavior. If an applicable .NET example fails
+behavioral verification or was not run, use `runtime behavior: failed` and describe the unresolved
+issue instead of claiming that the examples work as required.
+
+Do not report behavioral verification for non-.NET articles. Their final reports are limited to the
+compilation status or, when compilation is not applicable, the platform-equivalent checks explicitly
+required above.
