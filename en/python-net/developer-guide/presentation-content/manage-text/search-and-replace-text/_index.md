@@ -47,6 +47,58 @@ For literal-text operations, use [TextSearchOptions](https://reference.aspose.co
 
 Regular-expression operations use a pattern string, so matching rules such as case sensitivity and word boundaries are defined by the expression.
 
+## **Identify the Owner of a Text Frame**
+
+Generic text-processing workflows often receive a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) while searching, replacing, validating, or exporting text. Use [TextFrame.parent_shape](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_shape/) and [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) to determine which presentation object owns the text frame.
+
+The expected values depend on the owner:
+
+| Text frame owner | `parent_shape` | `parent_cell` |
+|---|---|---|
+| An AutoShape or another text-containing shape | The owning [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) | `None` |
+| A table cell | `None` | The owning [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) |
+
+Both properties are read-only navigation properties. Reading them does not move the text frame or change its owner. Generic code should check both values for `None` and handle the possibility that neither owner is available.
+
+The following example uses [SlideUtil.get_all_text_frames](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/get_all_text_frames/) to iterate through the text frames in a presentation. For shapes, it reports the shape name, Python runtime type, and containing slide. For table cells, it reports the zero-based column and row coordinates and the containing slide.
+
+```python
+import aspose.slides as slides
+
+
+def get_slide_label(base_slide):
+    if isinstance(base_slide, slides.Slide):
+        return f"slide {base_slide.slide_number}"
+
+    if isinstance(base_slide, slides.NotesSlide):
+        return f"notes for slide {base_slide.parent_slide.slide_number}"
+
+    return type(base_slide).__name__
+
+
+with slides.Presentation("presentation.pptx") as presentation:
+    text_frames = slides.util.SlideUtil.get_all_text_frames(presentation, False)
+
+    for text_frame in text_frames:
+        owner_shape = text_frame.parent_shape
+        if owner_shape is not None:
+            shape_name = owner_shape.name or "(unnamed)"
+            shape_type = type(owner_shape).__name__
+            slide_label = get_slide_label(owner_shape.slide)
+            print(f"Shape: {shape_name}; type: {shape_type}; {slide_label}")
+            continue
+
+        owner_cell = text_frame.parent_cell
+        if owner_cell is not None:
+            slide_label = get_slide_label(owner_cell.slide)
+            print(f"Table cell: column {owner_cell.first_column_index}, row {owner_cell.first_row_index}; {slide_label}")
+            continue
+
+        print("The text frame owner is not available as a shape or table cell.")
+```
+
+For SmartArt content, iterate through the shapes in [SmartArtNode.shapes](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/shapes/) and access each [ISmartArtShape.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/ismartartshape/text_frame/). The text frame can be traced to its associated shape through [TextFrame.parent_shape](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_shape/), while [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) is `None`. Therefore, the shape branch in the example also handles text from SmartArt nodes.
+
 ## **Highlight Text**
 
 Use the [TextFrame.highlight_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/highlight_text/) method to highlight literal-text matches in a text frame. Pass [TextSearchOptions](https://reference.aspose.com/slides/python-net/aspose.slides/textsearchoptions/) to control the search.

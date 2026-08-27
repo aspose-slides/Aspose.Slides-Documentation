@@ -130,7 +130,7 @@ This section explains how to locate and work with an existing table in a present
 4. Use the [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) object to work with the table.
 5. Save the modified presentation.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 If the slide contains several tables, it’s better to search for the table you need by its `alternative_text` property.
 
@@ -162,6 +162,14 @@ with slides.Presentation("sample.pptx") as presentation:
     # Save the modified presentation to disk.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Find the Cell That Owns a Text Frame**
+
+When generic text-processing code receives a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) from a table, use the [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) property to retrieve the owning [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/). For a table-cell text frame, [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) is set and [TextFrame.parent_shape](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_shape/) is `None`, even though the table itself is a shape.
+
+The cell coordinates are available through the read-only [Cell.first_column_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_column_index/) and [Cell.first_row_index](https://reference.aspose.com/slides/python-net/aspose.slides/cell/first_row_index/) properties. [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) is also read-only: it provides navigation to the owner but does not change ownership. Always check the returned cell for `None` before using it.
+
+For a complete example that identifies table-cell and shape owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/python-net/search-and-replace-text/).
 
 ## **Align Text in Tables**
 
@@ -287,14 +295,14 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-### Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?
+**Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**
 
 Yes. The table exposes a [right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/table/right_to_left/) property, and paragraphs have [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/right_to_left/). Using both ensures the correct RTL order and rendering inside cells.
 
-### How can I prevent users from moving or resizing a table in the final file?
+**How can I prevent users from moving or resizing a table in the final file?**
 
 Use [shape locks](/slides/python-net/applying-protection-to-presentation/) to disable moving, resizing, selection, etc. These locks apply to tables as well.
 
-### Is inserting an image inside a cell as a background supported?
+**Is inserting an image inside a cell as a background supported?**
 
 Yes. You can set a [picture fill](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) for a cell; the image will cover the cell area according to the chosen mode (stretch or tile).
