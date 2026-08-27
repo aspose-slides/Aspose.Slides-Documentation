@@ -97,3 +97,7 @@ In practice, the fonts used in the presentation or proper [substitutes](/slides/
 ### Why does a custom font render as a fallback or missing text on Linux?
 
 If the font file has inconsistent or corrupted name-table entries, the Linux font-matching stack (FreeType/fontconfig) may select an invalid record, causing the font to be unresolved. Using a font version with corrected name-table records or installing a consistent replacement resolves the issue.
+
+### Is the bundled .NET runtime free of known security vulnerabilities?
+
+The Aspose.Slides for Python via .NET wheel version 26.7.0 bundles the .NET Core 3.1 runtime and the assembly **System.Security.Cryptography.X509Certificates.dll** (file version 4.700.22.56512), which is affected by **CVE-2024-0057**. At the time of writing, no supported consumer-side workaround (such as replacing the DLL) is provided; a wheel with a patched runtime is required.
