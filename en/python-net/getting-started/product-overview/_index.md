@@ -41,6 +41,13 @@ With Aspose.Slides, developers can open presentations from different sources, sa
 - Aspose.Slides for Python via .NET is developed using Managed Python. You can use Aspose.Slides for Python via .NET with any .NET language like Python, VB.NET, J#, etc. Aspose.Slides for Python via .NET can also be used with any kind of application—web or Windows application. 
 - Aspose.Slides for Python via .NET also provides fully featured demos and working examples to help developers get a better understanding of the API.
 
+### Comparison With python-pptx
+
+- **Broader format support** - Aspose.Slides can export to PDF/A, PDF/UA, XPS, SWF, TIFF, HTML, SVG, and various image formats, and can import PDF and HTML to create slides, capabilities not provided by python-pptx.
+- **Advanced presentation features** - Includes macro/VBA handling, OLE object access, encryption/password management, detailed font substitution, and multi-threaded processing.
+- **No Microsoft PowerPoint dependency** - The engine works fully independently of PowerPoint, allowing server-side usage without any Office installation.
+- **Enterprise-grade support** - Commercial licensing brings dedicated technical support, regular updates, extensive demos, and comprehensive documentation.
+- **Open-source vs commercial** - python-pptx is open-source and community-maintained, whereas Aspose.Slides offers a fully supported, feature-rich commercial API for complex or large-scale scenarios.
 
 ## **Aspose.Slides Features**
 Aspose.Slides for Python via .NET features can be divided into these groups:
