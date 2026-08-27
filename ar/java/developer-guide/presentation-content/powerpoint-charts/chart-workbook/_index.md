@@ -1,5 +1,5 @@
 ---
-title: إدارة دفاتر عمل المخططات في العروض باستخدام Java
+title: إدارة دفاتر عمل المخططات في العروض التقديمية باستخدام جافا
 linktitle: دفتر عمل المخطط
 type: docs
 weight: 70
@@ -9,29 +9,33 @@ keywords:
 - بيانات المخطط
 - خلية دفتر العمل
 - ملصق البيانات
-- ورقة العمل
+- ورقة عمل
 - مصدر البيانات
 - دفتر عمل خارجي
 - بيانات خارجية
+- ذاكرة مخزن المخطط
+- استعادة دفتر العمل
 - PowerPoint
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "اكتشف Aspose.Slides for Java: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات عرضك التقديمي."
+description: "اكتشف Aspose.Slides لجافا: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات العرض التقديمي."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية العمل مع دفاتر عمل المخططات في Aspose.Slides. تُظهر كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كملصقات بيانات للمخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
+تشرح هذه المقالة كيفية العمل مع دفاتر رسم المخطط في Aspose.Slides. توضح كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كملصقات بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
 
-كما تغطي العمل مع دفاتر عمل خارجية كمصادر بيانات للمخططات. تُظهر الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترجاع مسار دفتر عمل خارجي مرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
+كما تغطي العمل مع دفاتر العمل الخارجية كمصادر بيانات للمخططات. تُظهر الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، استرداد مسار دفتر عمل خارجي مرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
 
 ## **قراءة وكتابة بيانات المخطط من دفتر عمل**
 
-توفر Aspose.Slides الطريقة [ReadWorkbookStream](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IChartData#readWorkbookStream--) والطريقة [WriteWorkbookStream](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) اللتين تتيحان لك قراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات المخطط التي تم تعديلها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تكون منظمة بنفس الطريقة أو أن يكون لها بنية مشابهة للمصدر.
+توفر Aspose.Slides الطريقتين [ReadWorkbookStream](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IChartData#readWorkbookStream--) و [WriteWorkbookStream](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) اللتين تتيحان لك قراءة وكتابة دفاتر بيانات المخطط (التي تحتوي على بيانات المخطط التي تم تحريرها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تكون منظمة بنفس الطريقة أو يجب أن يكون لها بنية مشابهة للمصدر.
 
-هذا الكود Java يوضح عملية نموذجية:
+يعرض هذا كود جافا عملية نموذجية:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("chart.pptx");
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -48,23 +52,46 @@ try {
 }
 ```
 
-## **تعيين خلية دفتر العمل كملصق بيانات المخطط**
+### **تحقق من تخطيط المخطط بعد تعديل دفتر العمل**
 
-1. إنشاء نسخة من فئة [Presentation](https://apireference.aspose.com/slides/ar/java/com.aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط فقاعة مع بعض البيانات.
-4. الوصول إلى سلسلة المخطط.
-5. تعيين خلية دفتر العمل كملصق للبيانات.
-6. حفظ العرض.
-
-هذا الكود Java يوضح كيفية تعيين خلية دفتر عمل كملصق بيانات للمخطط:
+عند استبدال دفتر عمل مضمّن بآخر معدل، يحتفظ المخطط بسلسلات الفئات والمجموعات الأصلية. قد يتسبب هذا التناقض في إلقاء `chart.validateChartLayout()` استثناءً من نوع `ArgumentOutOfRangeException` (معامل: index). لتجنب الاستثناء، امسح السلاسل والفئات الموجودة **قبل** كتابة دفتر العمل المحدث مرة أخرى إلى المخطط.
 
 ```java
+// بعد تعديل تدفق دفتر العمل (مثلًا باستخدام Aspose.Cells)
+byte[] updatedWorkbook = baos.toByteArray();
+
+// امسح مراجع البيانات الحالية.
+chart.getChartData().getSeries().clear();
+chart.getChartData().getCategories().clear();
+
+// اكتب دفتر العمل المحدث مرة أخرى إلى المخطط.
+chart.getChartData().writeWorkbookStream(updatedWorkbook);
+
+// التحقق الآن ينجح.
+chart.validateChartLayout();
+```
+
+يمكّن مسح المجموعات من توافق بنية بيانات المخطط مع دفتر العمل الجديد، مما يسمح لـ `validateChartLayout()` بإكمال التنفيذ دون أخطاء.
+
+## **تعيين خلية دفتر العمل كملصق بيانات المخطط**
+
+1. إنشاء مثيل من الفئة [Presentation](https://apireference.aspose.com/slides/ar/java/com.aspose.slides/presentation) .
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. إضافة مخطط فقاعة مع بعض البيانات.
+4. الوصول إلى سلسلة المخطط.
+5. تعيين خلية دفتر العمل كملصق بيانات.
+6. حفظ العرض التقديمي.
+
+يعرض هذا كود جافا كيفية تعيين خلية دفتر العمل كملصق بيانات المخطط:
+
+```java
+// ينشئ فئة عرض تقديمي تمثل ملف عرض تقديمي
+import com.aspose.slides.*;
+
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// ينشئ مثيلاً لفئة العرض التي تمثل ملف عرض تقديمي
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -88,9 +115,11 @@ try {
 
 ## **إدارة أوراق العمل**
 
-هذا الكود Java يوضح عملية يتم فيها استخدام الطريقة [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) للوصول إلى مجموعة أوراق العمل:
+يظهر هذا كود جافا عملية يتم فيها استخدام طريقة [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) للوصول إلى مجموعة أوراق العمل:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
@@ -104,9 +133,11 @@ try {
 
 ## **تحديد نوع مصدر البيانات**
 
-هذا الكود Java يوضح كيفية تحديد نوع لمصدر البيانات:
+يعرض هذا كود جافا كيفية تحديد نوع لمصدر البيانات:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -124,11 +155,13 @@ try {
 }
 ```
 
-## **الكشف عن تنسيقات دفتر العمل المضمنة غير المدعومة**
+## **كشف صيغ دفاتر العمل المضمنة غير المدعومة**
 
-لا تدعم Aspose.Slides تنسيق دفتر العمل الثنائي للـ Excel (.xlsb) الذي يمكن تضمينه في بعض المخططات. يمكنك استخدام طريقة `getEmbeddedWorkbookType` على [IChartData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IChartData) جنبًا إلى جنب مع تعداد [WorkbookType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/WorkbookType) للكشف عن التنسيقات غير المدعومة وتخطي تلك المخططات.
+لا تدعم Aspose.Slides صيغة دفتر عمل Excel الثنائي (.xlsb) التي يمكن تضمينها في بعض المخططات. يمكنك استخدام طريقة `getEmbeddedWorkbookType` على [IChartData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IChartData) مع تعداد [WorkbookType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/WorkbookType) للكشف عن الصيغ غير المدعومة وتخطي تلك المخططات.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -141,11 +174,11 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-                // دفتر العمل المضمّن بتنسيق .xlsb غير مدعوم.
-                continue;
-            }
+            // دفتر العمل المضمن بتنسيق .xlsb غير مدعوم.
+            continue;
+        }
 
-            // اقرأ أو عدّل بيانات دفتر عمل المخطط هنا.
+        // اقرأ أو عدّل بيانات دفتر عمل المخطط هنا.
     }
 } finally {
     presentation.dispose();
@@ -154,17 +187,21 @@ try {
 
 ## **دفتر عمل خارجي**
 
-{{% alert color="primary" %}} 
-في [Aspose.Slides 19.4](https://docs.aspose.com/slides/ar/java/aspose-slides-for-java-19-4-release-notes/)، قمنا بتنفيذ دعم دفاتر العمل الخارجية كمصدر بيانات للمخططات.
+{{% alert color="info" %}} 
+في [Aspose.Slides 19.4](https://docs.aspose.com/slides/ar/java/aspose-slides-for-java-19-4-release-notes/)، نفذنا دعم دفاتر العمل الخارجية كمصدر بيانات للمخططات.
 {{% /alert %}} 
 
 ### **إنشاء دفتر عمل خارجي**
 
-باستخدام الطريقتين **`readWorkbookStream`** و **`setExternalWorkbook`**، يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو تحويل دفتر عمل داخلي إلى خارجي.
+باستخدام طريقتي **`readWorkbookStream`** و **`setExternalWorkbook`**، يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو جعل دفتر عمل داخلي خارجيًا.
 
-هذا الكود Java يوضح عملية إنشاء دفتر عمل خارجي:
+يظهر هذا كود جافا عملية إنشاء دفتر عمل خارجي:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     final String workbookPath = "externalWorkbook1.xlsx";
@@ -189,14 +226,16 @@ try {
 
 ### **تعيين دفتر عمل خارجي**
 
-باستخدام طريقة **`setExternalWorkbook`**، يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
+باستخدام طريقة **`setExternalWorkbook`**، يمكنك تعيين دفتر عمل خارجي إلى مخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (في حال تم نقل الأخير).
 
-على الرغم من أنك لا تستطيع تحرير البيانات في دفاتر العمل المخزنة في مواقع أو موارد عن بُعد، إلا أنه لا يزال بإمكانك استخدام تلك الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+في حين لا يمكنك تعديل البيانات في دفاتر العمل المخزنة في مواقع أو موارد عن بُعد، لا يزال بإمكانك استخدام تلك الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
 
-هذا الكود Java يوضح كيفية تعيين دفتر عمل خارجي:
+يظهر هذا كود جافا كيفية تعيين دفتر عمل خارجي:
 
 ```java
-// إنشاء نسخة من فئة Presentation
+import com.aspose.slides.*;
+
+// ينشئ مثيلًا لفئة Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -219,13 +258,15 @@ try {
 }
 ```
 
-معلمة `ChartData` (تحت طريقة `setExternalWorkbook`) تُستخدم لتحديد ما إذا كان سيتم تحميل دفتر عمل Excel أم لا.
+المعامل الثاني (`boolean`) لطريقة `setExternalWorkbook` يُستخدم لتحديد ما إذا كان سيتم تحميل دفتر عمل إكسل أم لا.
 
-* عندما تكون قيمة `ChartData` مضبوطة على `false`، يتم فقط تحديث مسار دفتر العمل — لن يتم تحميل أو تحديث بيانات المخطط من دفتر العمل الهدف. قد ترغب في استخدام هذا الإعداد عندما يكون دفتر العمل الهدف غير موجود أو غير متاح. 
-* عندما تكون قيمة `ChartData` مضبوطة على `true`، يتم تحديث بيانات المخطط من دفتر العمل الهدف.
+* عندما يكون قيمته `false`، يتم فقط تحديث مسار دفتر العمل — لا يتم تحميل بيانات المخطط أو تحديثها من دفتر العمل المستهدف. قد تريد استخدام هذا الإعداد عندما يكون دفتر العمل المستهدف غير موجود أو غير متاح.  
+* عندما تكون قيمته `true`، تُحدَّث بيانات المخطط من دفتر العمل المستهدف.
 
 ```java
-// إنشاء نسخة من فئة Presentation
+import com.aspose.slides.*;
+
+// ينشئ مثيلًا لفئة Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -239,18 +280,20 @@ try {
 }
 ```
 
-### **الحصول على مسار دفتر العمل كمصدر بيانات خارجي لمخطط**
+### **الحصول على مسار دفتر العمل لمصدر البيانات الخارجي لمخطط**
 
-1. إنشاء نسخة من فئة [Presentation](https://apireference.aspose.com/slides/ar/java/com.aspose.slides/presentation) .
-2. الحصول على مرجع الشريحة عبر فهرستها.
+1. إنشاء مثيل من الفئة [Presentation](https://apireference.aspose.com/slides/ar/java/com.aspose.slides/presentation) .
+2. الحصول على مرجع الشريحة عبر فهرسها.
 3. إنشاء كائن لشكل المخطط.
 4. إنشاء كائن لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات المخطط.
-5. تحديد الشرط المناسب بناءً على كون نوع المصدر هو نفسه نوع مصدر دفتر العمل الخارجي.
+5. تحديد الشرط المناسب بناءً على تطابق نوع المصدر مع نوع مصدر دفتر العمل الخارجي.
 
-هذا الكود Java يوضح العملية:
+يعرض هذا كود جافا العملية:
 
 ```java
-// إنشاء نسخة من فئة Presentation
+import com.aspose.slides.*;
+
+// ينشئ مثيلًا لفئة Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(1);
@@ -262,7 +305,7 @@ try {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
 	
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -271,12 +314,14 @@ try {
 
 ### **تحرير بيانات المخطط**
 
-يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تقوم بها بتعديل محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم رمي استثناء.
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم إلقاء استثناء.
 
-هذا الكود Java هو تنفيذ للعملية الموضحة:
+هذا كود جافا يوضح العملية المذكورة:
 
 ```java
-// إنشاء نسخة من فئة Presentation
+import com.aspose.slides.*;
+
+// ينشئ مثيلًا لفئة Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -290,28 +335,48 @@ try {
 }
 ```
 
-## **الأسئلة الشائعة**
+### **استعادة دفتر عمل من ذاكرة التخزين المؤقت للمخطط**
 
-**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مدمج؟**
+إذا كان المخطط يستخدم دفتر عمل خارجي مفقود أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزنة مؤقتًا في العرض التقديمي. أنشئ [LoadOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/)، وقم بتكوينه باستخدام [SpreadsheetOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/spreadsheetoptions/)، ثم استدعِ [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) مع `true` قبل فتح العرض التقديمي.
 
-نعم. يمتلك المخطط [نوع مصدر البيانات](https://reference.aspose.com/slides/ar/java/com.aspose.slides/chartdata/#getDataSourceType--) و[مسار إلى دفتر عمل خارجي](https://reference.aspose.com/slides/ar/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من أن ملفًا خارجيًا يتم استخدامه.
+يفتح المثال التالي عرضًا تقديميًا يشير مخططه إلى دفتر عمل خارجي غير متاح ويصل إلى البيانات المستعادة عبر [IChart.getChartData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichart/#getChartData--) و [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
-**هل يتم دعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
-نعم. إذا قمت بتحديد مسار نسبي، يتم تحويله تلقائيًا إلى مسار مطلق. هذا مفيد لنقلية المشروع؛ ومع ذلك، يجب أن تكون على علم بأن العرض سيخزن المسار المطلق في ملف PPTX.
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
-**هل يمكنني استخدام دفاتر العمل الموجودة على موارد/مشاركات الشبكة؟**
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-نعم، يمكن استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يُدعم تحرير دفاتر العمل البعيدة مباشرةً من Aspose.Slides — يمكن استخدامها فقط كمصدر.
+    // اقرأ أو عدل بيانات دفتر العمل المستعاد هنا.
+} finally {
+    presentation.dispose();
+}
+```
 
-**هل يقوم Aspose.Slides باستبدال ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
+إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، يطرح Aspose.Slides استثناءً. فعّل الاستعادة فقط عندما يكون استخدام بيانات المخطط المخزنة مؤقتًا خيارًا مقبولًا، لأن الذاكرة المؤقتة قد لا تحتوي على التغييرات التي أُجريت على دفتر العمل الخارجي بعد آخر تحديث للعرض التقديمي.
 
-لا. يخزن العرض [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/ar/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) ويستخدمه لقراءة البيانات. لا يتم تعديل الملف الخارجي نفسه عند حفظ العرض.
+## **الأسئلة المتكررة**
 
-**ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
+**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مضمن؟**  
+نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/ar/java/com.aspose.slides/chartdata/#getDataSourceType--) و[مسار دفتر عمل خارجي](https://reference.aspose.com/slides/ar/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
 
-Aspose.Slides لا يتقبل كلمة مرور عند الربط. النهج الشائع هو إزالة الحماية مسبقًا أو إعداد نسخة غير مُشفرة (على سبيل المثال، باستخدام [Aspose.Cells](/cells/java/)) والربط بتلك النسخة.
+**هل تدعم المسارات النسبية إلى دفاتر العمل الخارجية، وكيف يتم تخزينها؟**  
+نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. هذا ملائم لنقل المشاريع؛ ومع ذلك، يجب الانتباه إلى أن العرض التقديمي سيخزن المسار المطلق في ملف PPTX.
 
-**هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
+**هل يمكنني استخدام دفاتر عمل موجودة على موارد/مشاركة شبكية؟**  
+نعم، يمكن استخدام such دفاتر عمل كمصدر بيانات خارجي. ومع ذلك، لا يدعم Aspose.Slides تعديل دفاتر العمل البعيدة مباشرةً — يمكن استخدامها فقط كمصدر.
 
-نعم. كل مخطط يخزن رابطه الخاص. إذا كانت جميعها تشير إلى نفس الملف، سيُعكس تحديث ذلك الملف في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
+**هل يقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**  
+لا. يخزن العرض التقديمي [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/ar/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) ويستخدمه لقراءة البيانات. لا يتم تعديل الملف الخارجي عند حفظ العرض التقديمي.
+
+**ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**  
+Aspose.Slides لا يقبل كلمة مرور عند الربط. عادةً ما يتم إما إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال باستخدام [Aspose.Cells](/cells/java/)) وربطها.
+
+**هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**  
+نعم. يخزن كل مخطط رابطه الخاص. إذا كانت جميع الروابط تشير إلى نفس الملف، فإن تحديث ذلك الملف سيظهر في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
