@@ -52,18 +52,87 @@ For literal-text operations, use [TextSearchOptions](https://reference.aspose.co
 
 Regular-expression operations use a Java `Pattern`, so matching rules such as case sensitivity and word boundaries are defined by the expression and its flags.
 
+## **Identify the Owner of a Text Frame**
+
+Generic text-processing workflows often receive a [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) while searching, replacing, validating, or exporting text. Use [TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--) and [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) to determine which presentation object owns the text frame.
+
+The expected values depend on the owner:
+
+| Text frame owner | `getParentShape` | `getParentCell` |
+|---|---|---|
+| An AutoShape or another text-containing shape | The owning [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) | `null` |
+| A table cell | `null` | The owning [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) |
+
+Both methods provide read-only navigation. Calling them does not move the text frame or change its owner. Generic code should check both values for `null` and handle the possibility that neither owner is available.
+
+The following example uses [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) to iterate through the text frames in a presentation. For shapes, it reports the shape name, Java runtime type, and containing slide. For table cells, it reports the zero-based column and row coordinates and the containing slide.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+For SmartArt content, iterate through the shapes in [SmartArtNode.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartnode/#getShapes--) and access each [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartartshape/#getTextFrame--). The text frame can be traced to its associated shape through [TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--), while [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) returns `null`. Therefore, the shape branch in the example also handles text from SmartArt nodes.
+
 ## **Collect Match Information with a Callback**
 
 Create a Java proxy for the result callback to receive a notification for every match. The proxy function receives the related text frame, the source text, the matched text, and the match position.
 
-The callback does not receive a slide number directly. The implementation below derives it through [TextFrame.getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getSlide--), [Slide.getSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getSlideNumber--), and [NotesSlide.getParentSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslide/#getParentSlide--). It also handles text found in slide notes.
+The callback does not receive a slide number directly. The implementation below derives it through the text frame's owning shape or table cell, with [TextFrame.getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getSlide--) as a fallback. It also handles text found in slide notes.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -267,7 +336,14 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();

@@ -52,6 +52,82 @@ For literal-text operations, use [TextSearchOptions](https://reference.aspose.co
 
 Regular-expression operations use a .NET `Regex`, so matching rules such as case sensitivity and word boundaries are defined by the expression and its options.
 
+## **Identify the Owner of a Text Frame**
+
+Generic text-processing workflows often receive an [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) while searching, replacing, validating, or exporting text. Use [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) and [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) to determine which presentation object owns the text frame.
+
+The expected values depend on the owner:
+
+| Text frame owner | `ParentShape` | `ParentCell` |
+|---|---|---|
+| An AutoShape or another text-containing shape | The owning [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) | `null` |
+| A table cell | `null` | The owning [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/) |
+
+Both properties are read-only navigation properties. Reading them does not move the text frame or change its owner. Generic code should check both values for `null` and handle the possibility that neither owner is available.
+
+The following example uses [SlideUtil.GetAllTextFrames](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/getalltextframes/) to iterate through the text frames in a presentation. For shapes, it reports the shape name, shape type, and containing slide. For table cells, it reports the zero-based column and row coordinates and the containing slide.
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var textFrames = SlideUtil.GetAllTextFrames(presentation, false);
+
+foreach (var textFrame in textFrames)
+{
+    var ownerShape = textFrame.ParentShape;
+    if (ownerShape != null)
+    {
+        var shapeName = string.IsNullOrEmpty(ownerShape.Name) ? "(unnamed)" : ownerShape.Name;
+        var shapeType = GetShapeType(ownerShape);
+        var slideLabel = GetSlideLabel(ownerShape.Slide);
+        Console.WriteLine($"Shape: {shapeName}; type: {shapeType}; {slideLabel}");
+
+        continue;
+    }
+
+    var ownerCell = textFrame.ParentCell;
+    if (ownerCell != null)
+    {
+        var slideLabel = GetSlideLabel(ownerCell.Slide);
+        Console.WriteLine($"Table cell: column {ownerCell.FirstColumnIndex}, row {ownerCell.FirstRowIndex}; {slideLabel}");
+        continue;
+    }
+
+    Console.WriteLine("The text frame owner is not available as a shape or table cell.");
+}
+
+static string GetShapeType(IShape shape)
+{
+    if (shape is IGeometryShape geometryShape)
+    {
+        return geometryShape.ShapeType.ToString();
+    }
+
+    return shape.GetType().Name;
+}
+
+static string GetSlideLabel(IBaseSlide baseSlide)
+{
+    if (baseSlide is ISlide slide)
+    {
+        return $"slide {slide.SlideNumber}";
+    }
+
+    if (baseSlide is INotesSlide notesSlide)
+    {
+        return $"notes for slide {notesSlide.ParentSlide.SlideNumber}";
+    }
+
+    return baseSlide.GetType().Name;
+}
+```
+
+For SmartArt content, iterate through the shapes in [ISmartArtNode.Shapes](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartartnode/shapes/) and access each [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartartshape/textframe/). The text frame can be traced to its associated shape through [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/), while [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) is `null`. Therefore, the shape branch in the example also handles text from SmartArt nodes.
+
 ## **Collect Match Information with a Callback**
 
 Implement [IFindResultCallback](https://reference.aspose.com/slides/net/aspose.slides/ifindresultcallback/) to receive a notification for every match. Its [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/net/aspose.slides/ifindresultcallback/foundresult/) method provides the related text frame, the source text, the matched text, and the match position.
@@ -94,12 +170,7 @@ public sealed class TextSearchCallback : IFindResultCallback
 
     private static int? GetSlideNumber(ITextFrame textFrame)
     {
-        if (textFrame is not TextFrame concreteTextFrame)
-        {
-            return null;
-        }
-
-        var parentSlide = concreteTextFrame.Slide;
+        var parentSlide = textFrame.ParentShape?.Slide ?? textFrame.ParentCell?.Slide ?? textFrame.Slide;
 
         if (parentSlide is ISlide slide)
         {

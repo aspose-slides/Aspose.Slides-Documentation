@@ -196,6 +196,13 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 }
 ```
 
+## **Find the Cell That Owns a Text Frame**
+
+When generic text-processing code receives an [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) from a table, use the [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) property to retrieve the owning [ICell](https://reference.aspose.com/slides/net/aspose.slides/icell/). For a table-cell text frame, [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) is set and [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) is `null`, even though the table itself is a shape.
+
+The cell coordinates are available through the read-only [ICell.FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) and [ICell.FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) properties. [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) is also read-only: it provides navigation to the owner but does not change ownership. Always check the returned cell for `null` before using it.
+
+For a complete example that identifies table-cell and shape owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/net/search-and-replace-text/).
 
 ## **Align Text in a Table**
 
@@ -342,14 +349,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-### Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?
+**Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**
 
 Yes. The table exposes a [RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/table/righttoleft/) property, and paragraphs have [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/righttoleft/). Using both ensures the correct RTL order and rendering inside cells.
 
-### How can I prevent users from moving or resizing a table in the final file?
+**How can I prevent users from moving or resizing a table in the final file?**
 
 Use [shape locks](/slides/net/applying-protection-to-presentation/) to disable moving, resizing, selection, etc. These locks apply to tables as well.
 
-### Is inserting an image inside a cell as a background supported?
+**Is inserting an image inside a cell as a background supported?**
 
 Yes. You can set a [picture fill](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) for a cell; the image will cover the cell area according to the chosen mode (stretch or tile).

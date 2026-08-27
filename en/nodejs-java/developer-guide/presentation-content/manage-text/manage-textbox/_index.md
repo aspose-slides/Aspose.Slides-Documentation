@@ -139,6 +139,14 @@ shape4.getTextFrame().setText("");
 // shape4.isTextBox() returns false
 ```
 
+## **Find the Shape That Owns a Text Frame**
+
+In generic text-processing code, you may receive a [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) without already knowing which presentation object contains it. Use the [TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--) method to navigate back to the owning [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/).
+
+For a text frame that belongs to an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) or another text-containing shape, [TextFrame.getParentShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentShape--) returns the owner and [TextFrame.getParentCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getParentCell--) returns `null`. Both methods provide read-only navigation, so calling them does not change ownership. Always check the returned value for `null` before accessing the shape.
+
+For a complete example that identifies shape and table-cell owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/nodejs-java/search-and-replace-text/).
+
 ## **Add Column In Text Box**
 
 Aspose.Slides provides the [setColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) and [setColumnSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) methods from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
@@ -324,10 +332,10 @@ try {
 
 ## **FAQ**
 
-### What’s the difference between a text box and a text placeholder when working with master slides?
+**What’s the difference between a text box and a text placeholder when working with master slides?**
 
 A [placeholder](/slides/nodejs-java/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
 
-### How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?
+**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
 
 Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/)) by traversing their collections separately or skipping those object types.
