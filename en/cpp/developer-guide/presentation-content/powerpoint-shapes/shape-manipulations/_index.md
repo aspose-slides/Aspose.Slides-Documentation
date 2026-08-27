@@ -15,6 +15,9 @@ keywords:
 - change shape order
 - get interop shape ID
 - shape alternative text
+- shape adjustment point
+- preset shape adjustment
+- shape geometry
 - shape layout formats
 - shape as SVG
 - shape to SVG
@@ -24,14 +27,14 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Learn how to identify, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for C++."
+description: "Learn how to identify, adjust, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for C++."
 ---
 
 ## **Overview**
 
 Aspose.Slides for C++ represents the shapes on a slide as an ordered [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/). The collection is both the place where you find and modify shapes and the source of their stacking order: index `0` is the backmost shape, while the last index is the frontmost shape.
 
-This article follows that model. It first explains how to identify a shape reliably, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
+This article follows that model. It first explains how to identify a shape reliably and modify preset shape adjustment points, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
 
 ## **Identify and Find Shapes**
 
@@ -124,6 +127,114 @@ else
 
 presentation->Dispose();
 ```
+
+## **Identify and Modify Preset Shape Adjustments**
+
+Preset geometry shapes can expose adjustment points that control features such as corner size, arrow proportions, or arc angles. Access them through the read-only [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/get_adjustments/) collection. The collection itself is supplied by the shape, but each [IAdjustValue](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/) contains a value that can be changed.
+
+Do not rely only on a fixed collection index. Iterate through the adjustments and inspect the read-only [IAdjustValue::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/get_type/) property, whose [ShapeAdjustmentType](https://reference.aspose.com/slides/cpp/aspose.slides/shapeadjustmenttype/) value describes what the adjustment controls. The read-only [IAdjustValue::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/get_name/) property provides additional identification information and is especially useful when a preset contains more than one adjustment with the same semantic type.
+
+Use the value property that matches the adjustment's meaning:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | Size of rounded corners | [RawValue](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | Thickness of an arrow tail | `RawValue` |
+| `ArrowheadLength` | Length of an arrowhead | `RawValue` |
+| `ArrowheadWidth` | Width of an arrowhead | `RawValue` |
+| `StartAngle` | Start angle of a pie or arc | [AngleValue](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | End angle of a pie or arc | `AngleValue` |
+
+`Type` and `Name` cannot be assigned. `RawValue` is a read/write integer in the preset's native geometry units, while `AngleValue` is a read/write angle in degrees. The number, order, meaning, and valid range of adjustments depend on the preset [ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/get_shapetype/). A value that is valid for one preset may be invalid or have a different effect for another.
+
+When `Type` is `ShapeAdjustmentType::Custom`, the API does not recognize a standard semantic meaning. Inspect `Name`, the preset type, and the existing value, and leave the adjustment unchanged unless the expected meaning and range are known. Even for recognized types, check whether the same type occurs more than once before selecting a value. The [Connector](/slides/cpp/connector/) article shows this situation with connector bend adjustments.
+
+The following complete example creates default and modified versions of three preset shapes. It iterates through every adjustment, reports its `Name` and `Type`, changes size-related values through `RawValue`, changes angles through `AngleValue`, and saves the result. The left column retains the default geometry; the right column shows the adjusted rounded rectangle, four-way arrow, and pie.
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// Adds headers for the default and adjusted shape columns.
+auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
+auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel->get_TextFrame()->set_Text(u"Modified adjustment values");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+auto modifiedRoundedRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle->set_Name(u"ModifiedRoundedRectangle");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+auto modifiedArrow = slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+modifiedArrow->set_Name(u"ModifiedQuadArrow");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+auto modifiedPie = slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+modifiedPie->set_Name(u"ModifiedPie");
+
+auto shapesToAdjust = MakeArray<SharedPtr<IGeometryShape>>({modifiedRoundedRectangle, modifiedArrow, modifiedPie});
+
+for (auto shape : shapesToAdjust)
+{
+    auto adjustments = shape->get_Adjustments();
+    for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+    {
+        auto adjustment = adjustments->idx_get(adjustmentIndex);
+        Console::WriteLine(shape->get_Name() + u" / " + adjustment->get_Name() + u": " + ObjectExt::ToString(adjustment->get_Type()));
+
+        switch (adjustment->get_Type())
+        {
+            case ShapeAdjustmentType::CornerSize:
+                adjustment->set_RawValue(5000);
+                break;
+            case ShapeAdjustmentType::ArrowTailThickness:
+                adjustment->set_RawValue(25000);
+                break;
+            case ShapeAdjustmentType::ArrowheadLength:
+                adjustment->set_RawValue(30000);
+                break;
+            case ShapeAdjustmentType::ArrowheadWidth:
+                adjustment->set_RawValue(40000);
+                break;
+            case ShapeAdjustmentType::StartAngle:
+                adjustment->set_AngleValue(30);
+                break;
+            case ShapeAdjustmentType::EndAngle:
+                adjustment->set_AngleValue(300);
+                break;
+            case ShapeAdjustmentType::Custom:
+                Console::WriteLine(u"Custom adjustment '" + adjustment->get_Name() + u"' was not changed.");
+                break;
+        }
+    }
+}
+
+presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Checking the semantic type before changing a value makes the code explicit about its intent and avoids assuming that a particular collection index has the same meaning across different preset shapes.
 
 ## **Modify the Shape Collection**
 
@@ -480,3 +591,7 @@ No. A hidden shape remains in the collection at the same index. It can be found,
 **Why did a cloned shape appear in front of another shape?**
 
 `AddClone` appends the clone to the end of the collection, which is the front of the z-order. Use `InsertClone` to choose the initial index or `Reorder` after all shapes have been added.
+
+**Can I use a fixed index to identify a preset shape adjustment?**
+
+Only after validating the exact preset and collection layout. Prefer iterating through `IGeometryShape::get_Adjustments` and checking `IAdjustValue::get_Type`; use `IAdjustValue::get_Name` as additional information when the same semantic type appears more than once.

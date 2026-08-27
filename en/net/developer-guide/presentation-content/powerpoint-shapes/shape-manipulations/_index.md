@@ -15,6 +15,9 @@ keywords:
 - change shape order
 - get interop shape ID
 - shape alternative text
+- shape adjustment point
+- preset shape adjustment
+- shape geometry
 - shape layout formats
 - shape as SVG
 - shape to SVG
@@ -25,14 +28,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn how to identify, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for .NET."
+description: "Learn how to identify, adjust, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for .NET."
 ---
 
 ## **Overview**
 
 Aspose.Slides for .NET represents the shapes on a slide as an ordered [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/). The collection is both the place where you find and modify shapes and the source of their stacking order: index `0` is the backmost shape, while the last index is the frontmost shape.
 
-This article follows that model. It first explains how to identify a shape reliably, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
+This article follows that model. It first explains how to identify a shape reliably and modify preset shape adjustment points, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
 
 ## **Identify and Find Shapes**
 
@@ -104,6 +107,101 @@ else
     Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
+
+## **Identify and Modify Preset Shape Adjustments**
+
+Preset geometry shapes can expose adjustment points that control features such as corner size, arrow proportions, or arc angles. Access them through the read-only [IGeometryShape.Adjustments](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/adjustments/) collection. The collection itself is supplied by the shape, but each [IAdjustValue](https://reference.aspose.com/slides/net/aspose.slides/iadjustvalue/) contains a value that can be changed.
+
+Do not rely only on a fixed collection index. Iterate through the adjustments and inspect the read-only [Type](https://reference.aspose.com/slides/net/aspose.slides/adjustvalue/type/) property, whose [ShapeAdjustmentType](https://reference.aspose.com/slides/net/aspose.slides/shapeadjustmenttype/) value describes what the adjustment controls. The read-only [Name](https://reference.aspose.com/slides/net/aspose.slides/adjustvalue/name/) property provides additional identification information and is especially useful when a preset contains more than one adjustment with the same semantic type.
+
+Use the value property that matches the adjustment's meaning:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | Size of rounded corners | [RawValue](https://reference.aspose.com/slides/net/aspose.slides/adjustvalue/rawvalue/) |
+| `ArrowTailThickness` | Thickness of an arrow tail | `RawValue` |
+| `ArrowheadLength` | Length of an arrowhead | `RawValue` |
+| `ArrowheadWidth` | Width of an arrowhead | `RawValue` |
+| `StartAngle` | Start angle of a pie or arc | [AngleValue](https://reference.aspose.com/slides/net/aspose.slides/adjustvalue/anglevalue/) |
+| `EndAngle` | End angle of a pie or arc | `AngleValue` |
+
+`Type` and `Name` cannot be assigned. `RawValue` is a read/write integer in the preset's native geometry units, while `AngleValue` is a read/write angle in degrees. The number, order, meaning, and valid range of adjustments depend on the preset [ShapeType](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/shapetype/). A value that is valid for one preset may be invalid or have a different effect for another.
+
+When `Type` is `ShapeAdjustmentType.Custom`, the API does not recognize a standard semantic meaning. Inspect `Name`, the preset type, and the existing value, and leave the adjustment unchanged unless the expected meaning and range are known. Even for recognized types, check whether the same type occurs more than once before selecting a value. The [Connector](/slides/net/connector/) article shows this situation with connector bend adjustments.
+
+The following complete example creates default and modified versions of three preset shapes. It iterates through every adjustment, reports its `Name` and `Type`, changes size-related values through `RawValue`, changes angles through `AngleValue`, and saves the result. The left column retains the default geometry; the right column shows the adjusted rounded rectangle, four-way arrow, and pie.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+// Adds headers for the default and adjusted shape columns.
+var defaultColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+defaultColumnLabel.TextFrame.Text = "Default preset geometry";
+var adjustedColumnLabel = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel.TextFrame.Text = "Modified adjustment values";
+
+slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+var modifiedRoundedRectangle = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle.Name = "ModifiedRoundedRectangle";
+
+slide.Shapes.AddAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+var modifiedArrow = slide.Shapes.AddAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+modifiedArrow.Name = "ModifiedQuadArrow";
+
+slide.Shapes.AddAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+var modifiedPie = slide.Shapes.AddAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+modifiedPie.Name = "ModifiedPie";
+
+var shapesToAdjust = new IGeometryShape[]
+{
+    modifiedRoundedRectangle,
+    modifiedArrow,
+    modifiedPie
+};
+
+foreach (var shape in shapesToAdjust)
+{
+    for (var adjustmentIndex = 0; adjustmentIndex < shape.Adjustments.Count; adjustmentIndex++)
+    {
+        var adjustment = shape.Adjustments[adjustmentIndex];
+        Console.WriteLine($"{shape.Name} / {adjustment.Name}: {adjustment.Type}");
+
+        switch (adjustment.Type)
+        {
+            case ShapeAdjustmentType.CornerSize:
+                adjustment.RawValue = 5000;
+                break;
+            case ShapeAdjustmentType.ArrowTailThickness:
+                adjustment.RawValue = 25000;
+                break;
+            case ShapeAdjustmentType.ArrowheadLength:
+                adjustment.RawValue = 30000;
+                break;
+            case ShapeAdjustmentType.ArrowheadWidth:
+                adjustment.RawValue = 40000;
+                break;
+            case ShapeAdjustmentType.StartAngle:
+                adjustment.AngleValue = 30;
+                break;
+            case ShapeAdjustmentType.EndAngle:
+                adjustment.AngleValue = 300;
+                break;
+            case ShapeAdjustmentType.Custom:
+                Console.WriteLine($"Custom adjustment '{adjustment.Name}' was not changed.");
+                break;
+        }
+    }
+}
+
+presentation.Save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+```
+
+Checking the semantic type before changing a value makes the code explicit about its intent and avoids assuming that a particular collection index has the same meaning across different preset shapes.
 
 ## **Modify the Shape Collection**
 
@@ -383,3 +481,7 @@ No. A hidden shape remains in the collection at the same index. It can be found,
 **Why did a cloned shape appear in front of another shape?**
 
 `AddClone` appends the clone to the end of the collection, which is the front of the z-order. Use `InsertClone` to choose the initial index or `Reorder` after all shapes have been added.
+
+**Can I use a fixed index to identify a preset shape adjustment?**
+
+Only after validating the exact preset and collection layout. Prefer iterating through `IGeometryShape.Adjustments` and checking `IAdjustValue.Type`; use `IAdjustValue.Name` as additional information when the same semantic type appears more than once.

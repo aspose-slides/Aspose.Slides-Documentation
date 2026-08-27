@@ -15,6 +15,9 @@ keywords:
 - change shape order
 - get interop shape ID
 - shape alternative text
+- shape adjustment point
+- preset shape adjustment
+- shape geometry
 - shape layout formats
 - shape as SVG
 - shape to SVG
@@ -25,14 +28,14 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Learn how to identify, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for Node.js via Java."
+description: "Learn how to identify, adjust, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for Node.js via Java."
 ---
 
 ## **Overview**
 
 Aspose.Slides for Node.js via Java represents the shapes on a slide as an ordered [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/). The collection is both the place where you find and modify shapes and the source of their stacking order: index `0` is the backmost shape, while the last index is the frontmost shape.
 
-This article follows that model. It first explains how to identify a shape reliably, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
+This article follows that model. It first explains how to identify a shape reliably and modify preset shape adjustment points, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
 
 ## **Identify and Find Shapes**
 
@@ -102,6 +105,96 @@ try {
     presentation.dispose();
 }
 ```
+
+## **Identify and Modify Preset Shape Adjustments**
+
+Preset geometry shapes can expose adjustment points that control features such as corner size, arrow proportions, or arc angles. Access them through the read-only [GeometryShape.getAdjustments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) collection. The collection itself is supplied by the shape, but each [AdjustValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/adjustvalue/) contains a value that can be changed.
+
+Do not rely only on a fixed collection index. Iterate through the adjustments and inspect the read-only [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/adjustvalue/) method, whose [ShapeAdjustmentType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeadjustmenttype/) value describes what the adjustment controls. The read-only [getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/adjustvalue/getname/) method provides additional identification information and is especially useful when a preset contains more than one adjustment with the same semantic type.
+
+Use the value method that matches the adjustment's meaning:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | Size of rounded corners | [setRawValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Thickness of an arrow tail | `setRawValue` |
+| `ArrowheadLength` | Length of an arrowhead | `setRawValue` |
+| `ArrowheadWidth` | Width of an arrowhead | `setRawValue` |
+| `StartAngle` | Start angle of a pie or arc | [setAngleValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | End angle of a pie or arc | `setAngleValue` |
+
+`getType` and `getName` return read-only information. `getRawValue` and `setRawValue` work with an integer in the preset's native geometry units, while `getAngleValue` and `setAngleValue` work with an angle in degrees. The number, order, meaning, and valid range of adjustments depend on the preset [GeometryShape.getShapeType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/). A value that is valid for one preset may be invalid or have a different effect for another.
+
+When `getType` returns `ShapeAdjustmentType.Custom`, the API does not recognize a standard semantic meaning. Inspect `getName`, the preset type, and the existing value, and leave the adjustment unchanged unless the expected meaning and range are known. Even for recognized types, check whether the same type occurs more than once before selecting a value. The [Connector](/slides/nodejs-java/connector/) article shows this situation with connector bend adjustments.
+
+The following complete example creates default and modified versions of three preset shapes. It iterates through every adjustment, reports its name and type, changes size-related values through `setRawValue`, changes angles through `setAngleValue`, and saves the result. The left column retains the default geometry; the right column shows the adjusted rounded rectangle, four-way arrow, and pie.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    // Adds headers for the default and adjusted shape columns.
+    var defaultColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    var adjustedColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    var modifiedRoundedRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 80, 180, 160, 110);
+    var modifiedArrow = slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 95, 330, 130, 130);
+    var modifiedPie = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    var shapesToAdjust = [modifiedRoundedRectangle, modifiedArrow, modifiedPie];
+
+    for (var shapeIndex = 0; shapeIndex < shapesToAdjust.length; shapeIndex++) {
+        var shape = shapesToAdjust[shapeIndex];
+        for (var adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            var adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            console.log(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case asposeSlides.ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.Custom:
+                    console.log("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Checking the semantic type before changing a value makes the code explicit about its intent and avoids assuming that a particular collection index has the same meaning across different preset shapes.
 
 ## **Modify the Shape Collection**
 
@@ -393,3 +486,7 @@ No. A hidden shape remains in the collection at the same index. It can be found,
 **Why did a cloned shape appear in front of another shape?**
 
 `addClone` appends the clone to the end of the collection, which is the front of the z-order. Use `insertClone` to choose the initial index or `reorder` after all shapes have been added.
+
+**Can I use a fixed index to identify a preset shape adjustment?**
+
+Only after validating the exact preset and collection layout. Prefer iterating through `GeometryShape.getAdjustments` and checking `AdjustValue.getType`; use `AdjustValue.getName` as additional information when the same semantic type appears more than once.

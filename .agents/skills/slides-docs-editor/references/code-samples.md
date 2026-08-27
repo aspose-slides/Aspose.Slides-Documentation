@@ -1,8 +1,8 @@
 # Code samples
 
-Every new or changed sample must be self-contained and compilable: include imports/usings and label
-the code fence. Validate it according to [validation.md](validation.md). Where runtime validation is
-required, verify the behavior described by the article and reopen generated output when applicable.
+Every sample must be self-contained and valid for its platform: include imports/usings and label the
+code fence. [validation.md](validation.md) is the single source of truth for validation scope,
+required checks, completion criteria, and final reporting.
 
 Do not use `throw` statements in documentation samples. Handle missing objects, unexpected types,
 and unavailable data with conditional branches and non-throwing diagnostic output.

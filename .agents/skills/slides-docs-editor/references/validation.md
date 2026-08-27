@@ -1,9 +1,14 @@
 # Code sample validation
 
-Validate only code fences whose contents changed in the current edit. Do not compile or run unchanged
-examples from the same article or platform.
+Every new or changed code fence must pass the platform's compilation check before the edit is
+considered complete. Apply this rule only to fences added or modified in the current diff; do not
+compile or run unchanged examples from the same article or platform. A parser or syntax-only check
+does not count as compilation. For an interpreted platform that has no applicable compilation step,
+run the strongest platform-equivalent validation that loads the real Aspose.Slides API and report it
+explicitly as non-compilation validation. Do not claim that a sample was compiled when only syntax
+parsing or runtime execution was performed.
 
-Identify the changed code fences from the diff, then use the existing checker for the article's
+Identify the applicable code fences from the diff, then use the existing checker for the article's
 platform and read its `README.md` when present. If the checker cannot select individual fences and
 would process the entire article, give it a temporary Markdown input containing only the changed
 fences. Use the source article directly only when every code fence in it changed. Keep temporary
@@ -12,13 +17,18 @@ for the sake of validation. Do not create an ad hoc project or install another p
 
 Platform policies:
 
-- **.NET:** Use `tools/net/` to compile and run only the changed examples. Verify the relevant in-memory
+- **.NET:** Use `tools/net/` to compile and run only the applicable examples. Verify the relevant in-memory
   state. When an example saves output, reopen it and confirm the described objects, properties, or
   content. Extend the existing validator with only the minimum temporary invocation or assertions
   needed.
-- **Android via Java:** Use `tools/androidjava/snippet-check/` to compile only the changed examples.
+- **Android via Java:** Use `tools/androidjava/snippet-check/` to compile only the applicable examples.
   Do not start an emulator, connect a device, install an APK, or execute snippets at runtime.
-- **All other platforms:** Use `tools/<platform>/` to compile only the changed examples. Their
+- **Node.js via Java:** JavaScript has no applicable compile step in this repository. A successful
+  `node --check` result is syntax-only and is insufficient by itself. Run the checker with `-Docker`
+  so it performs both the syntax check and execution of only the applicable examples against the real
+  `aspose.slides.via.java` package. Report `compilation: not applicable`, followed by the syntax and
+  API runtime results separately.
+- **All other platforms:** Use `tools/<platform>/` to compile only the applicable examples. Their
   documentation checks are compile-only; do not execute the examples or require runtime-result
   verification.
 
@@ -30,12 +40,15 @@ powershell -ExecutionPolicy Bypass -File tools\net\snippet-check\check-snippets.
 powershell -ExecutionPolicy Bypass -File tools\java\snippet-check\check-snippets.ps1 -Article <validation-input>
 powershell -ExecutionPolicy Bypass -File tools\cpp\snippet-check\check-snippets.ps1 -Article <validation-input>
 powershell -ExecutionPolicy Bypass -File tools\androidjava\snippet-check\check-snippets.ps1 -Article <validation-input>
-powershell -ExecutionPolicy Bypass -File tools\nodejs-java\snippet-check\check-snippets.ps1 -Article <validation-input>
+powershell -ExecutionPolicy Bypass -File tools\nodejs-java\snippet-check\check-snippets.ps1 -Article <validation-input> -Docker
 ```
 
 For Python platforms, follow `tools/python-net/snippet-check/README.md` or
 `tools/python-java/snippet-check/README.md` and use the supplied launcher. For other platforms, inspect
 `tools/<platform>/snippet-check/` and reuse its dependencies and runtime.
 
-In the final report, state for every changed article whether its changed code examples were compiled.
-Include the result when compilation was performed; when no code fence changed, state `code unchanged`.
+In the final report, state for every article covered by this rule whether its applicable code examples were compiled.
+Use one of `compilation: passed`, `compilation: failed`, or `compilation: not applicable`. For
+`not applicable`, name each required platform-equivalent check and its result. If a required check was
+not run or failed, report that as an unresolved issue instead of presenting the edit as complete. When
+no code fence changed, state `code unchanged`.
