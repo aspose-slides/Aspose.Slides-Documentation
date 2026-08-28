@@ -4,18 +4,21 @@ linktitle: Beheer alinea
 type: docs
 weight: 40
 url: /nl/net/manage-paragraph/
+aliases:
+  - /net/paragraph/
+  - /net/portion/
 keywords:
 - tekst toevoegen
 - alinea toevoegen
 - tekst beheren
 - alinea beheren
-- opsommingstekens beheren
-- alinea-inspringing
-- hangende inspringing
-- alinea-opsomming
+- opsommingsteken beheren
+- alinea-insprong
+- hangende insprong
+- alinea-opsommingsteken
 - genummerde lijst
-- opsomming met opsommingstekens
-- alinea-eigenschappen
+- opsommingslijst
+- eigenschappen van alinea
 - HTML importeren
 - tekst naar HTML
 - alinea naar HTML
@@ -27,708 +30,611 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Beheers de opmaak van alinea's met Aspose.Slides voor .NET—optimaliseer uitlijning, afstand en stijl in PPT, PPTX en ODP-presentaties in C#."
+description: "Leer hoe u alinea's, porties, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en alinea-afbeeldingen kunt maken en opmaken met Aspose.Slides voor .NET."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Aspose.Slides biedt alle interfaces en klassen die u nodig heeft om met PowerPoint-teksten, alinea's en delen te werken in C#.
+Aspose.Slides for .NET stelt tekst voor als een hiërarchie van tekstkaders, alinea’s en porties:
 
-* Aspose.Slides biedt de [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) interface waarmee u objecten kunt toevoegen die een alinea vertegenwoordigen. Een `ITextFame` object kan één of meerdere alinea's hebben (elke alinea wordt aangemaakt via een regeleinde).
-* Aspose.Slides biedt de [IParagraph](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/) interface waarmee u objecten kunt toevoegen die delen vertegenwoordigen. Een `IParagraph` object kan één of meerdere delen hebben (een verzameling iPortions-objecten).
-* Aspose.Slides biedt de [IPortion](https://reference.aspose.com/slides/nl/net/aspose.slides/iportion/) interface waarmee u objecten kunt toevoegen die teksten en hun opmaak‑eigenschappen vertegenwoordigen.
+* [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) vertegenwoordigt de tekstcontainer in een vorm en biedt toegang tot de alinea‑collectie.
+* [IParagraph](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/) vertegenwoordigt één alinea in een tekstkader en biedt toegang tot de porties en alinea‑niveau opmaak.
+* [IPortion](https://reference.aspose.com/slides/nl/net/aspose.slides/iportion/) vertegenwoordigt een tekstrun binnen een alinea. Elke portie kan zijn eigen tekst en teken‑niveau opmaak hebben.
 
-Een `IParagraph` object kan teksten met verschillende opmaak‑eigenschappen verwerken via de onderliggende `IPortion` objecten.
+Een alinea kan dus tekst bevatten met verschillende lettertypen, kleuren, groottes en andere opmaak door meerdere porties te gebruiken.
 
-## **Meerdere alinea's met meerdere delen toevoegen**
+## **Alinea's maken en opmaken**
 
-Deze stappen laten zien hoe u een tekstkader toevoegt dat 3 alinea's bevat, en elke alinea bevat 3 delen:
+### **Alinea's maken met meerdere porties**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.
-2. Open de referentie van de betreffende dia via de index.
+De volgende stappen maken een tekstkader met drie alinea’s, elk met drie porties:
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
+2. Verkrijg de referentie naar de betreffende dia via de index.
 3. Voeg een rechthoekige [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe aan de dia.
-4. Haal het ITextFrame op dat geassocieerd is met de [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/).
-5. Maak twee [IParagraph](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/) objecten aan en voeg ze toe aan de `IParagraphs` collectie van het [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/).
-6. Maak drie [IPortion](https://reference.aspose.com/slides/nl/net/aspose.slides/iportion/) objecten voor elke nieuwe `IParagraph` (twee Portion‑objecten voor de standaard alinea) en voeg elk `IPortion` object toe aan de IPortion‑collectie van elke `IParagraph`.
-7. Stel wat tekst in voor elk deel.
-8. Pas uw gewenste opmaakfuncties toe op elk deel via de opmaak‑eigenschappen die door het `IPortion` object worden blootgesteld.
+4. Verkrijg het [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) van de vorm.
+5. Gebruik de standaardalinea en voeg twee extra [IParagraph](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/) objecten toe aan het tekstkader.
+6. Voeg voldoende [IPortion](https://reference.aspose.com/slides/nl/net/aspose.slides/iportion/) objecten toe zodat elke alinea drie porties bevat. De standaardalinea bevat al één lege portie.
+7. Stel de tekst van elke portie in.
+8. Pas teken‑niveau opmaak toe via [IPortion.PortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iportion/portionformat/).
 9. Sla de gewijzigde presentatie op.
 
-```c#
-// Instantieert een Presentation-klasse die een PPTX-bestand vertegenwoordigt
-using (Presentation pres = new Presentation())
-{
-    // Verkrijgt de eerste dia
-    ISlide slide = pres.Slides[0];
-
-    // Voegt een rechthoekige IAutoShape toe
-    IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
-
-    // Verkrijgt het TextFrame van de AutoShape
-    ITextFrame tf = ashp.TextFrame;
-
-    // Creëert alinea's en delen met verschillende tekstopmaak
-    IParagraph para0 = tf.Paragraphs[0];
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.Portions.Add(port01);
-    para0.Portions.Add(port02);
-
-    IParagraph para1 = new Paragraph();
-    tf.Paragraphs.Add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.Portions.Add(port10);
-    para1.Portions.Add(port11);
-    para1.Portions.Add(port12);
-
-    IParagraph para2 = new Paragraph();
-    tf.Paragraphs.Add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.Portions.Add(port20);
-    para2.Portions.Add(port21);
-    para2.Portions.Add(port22);
-
-    for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
-        {
-            tf.Paragraphs[i].Portions[j].Text = "Portion0" + j.ToString();
-            if (j == 0)
-            {
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.FillType = FillType.Solid;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontBold = NullableBool.True;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontHeight = 15;
-            }
-            else if (j == 1)
-            {
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.FillType = FillType.Solid;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontItalic = NullableBool.True;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontHeight = 18;
-            }
-        }
-    // Slaat de aangepaste presentatie op
-    pres.Save("multiParaPort_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Alinea opsommingstekens beheren**
-
-Opsommingsteksten helpen u om informatie snel en efficiënt te organiseren en te presenteren. Alinea's met opsommingstekens zijn altijd makkelijker te lezen en te begrijpen.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.
-2. Open de referentie van de betreffende dia via de index.
-3. Voeg een [autoshape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe aan de geselecteerde dia.
-4. Open het [TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) van de autoshape.
-5. Verwijder de standaard alinea in het `TextFrame`.
-6. Maak de eerste alinea aan met behulp van de [Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraph/) klasse.
-8. Stel het bullet `Type` voor de alinea in op `Symbol` en stel het bullet‑teken in.
-9. Stel de alinea `Text` in.
-10. Stel de alinea `Indent` in voor het bullet.
-11. Stel een kleur in voor het bullet.
-12. Stel een hoogte in voor het bullet.
-13. Voeg de nieuwe alinea toe aan de `TextFrame` alinea‑collectie.
-14. Voeg de tweede alinea toe en herhaal het proces zoals beschreven in stappen 7 t/m 13.
-15. Sla de presentatie op.
-
-```c#
-// Instantieert een Presentation-klasse die een PPTX-bestand vertegenwoordigt
-using (Presentation pres = new Presentation())
-{
-
-    // Haalt de eerste dia op
-    ISlide slide = pres.Slides[0];
-
-
-    // Voegt een AutoShape toe en krijgt deze op
-    IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Haalt het tekstkader van de AutoShape op
-    ITextFrame txtFrm = aShp.TextFrame;
-
-    // Verwijdert de standaard alinea
-    txtFrm.Paragraphs.RemoveAt(0);
-
-    // Creëert een alinea
-    Paragraph para = new Paragraph();
-
-    // Stelt de opsommingstekenstijl en symbool van de alinea in
-    para.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-
-    // Stelt de alinea-tekst in
-    para.Text = "Welcome to Aspose.Slides";
-
-    // Stelt de inspringing van het opsommingsteken in
-    para.ParagraphFormat.Indent = 25;
-
-    // Stelt de kleur van het opsommingsteken in
-    para.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
-    para.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // stel IsBulletHardColor in op true om de eigen kleur van het opsommingsteken te gebruiken
-
-    // Stelt de hoogte van het opsommingsteken in
-    para.ParagraphFormat.Bullet.Height = 100;
-
-    // Voegt de alinea toe aan het tekstkader
-    txtFrm.Paragraphs.Add(para);
-
-    // Creëert een tweede alinea
-    Paragraph para2 = new Paragraph();
-
-    // Stelt het type en de stijl van het opsommingsteken in voor de alinea
-    para2.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-    para2.ParagraphFormat.Bullet.NumberedBulletStyle = NumberedBulletStyle.BulletCircleNumWDBlackPlain;
-
-    // Voegt alinea-tekst toe
-    para2.Text = "This is numbered bullet";
-
-    // Stelt de inspringing van het opsommingsteken in
-    para2.ParagraphFormat.Indent = 25;
-
-    para2.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
-    para2.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para2.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // stel IsBulletHardColor in op true om de eigen kleur van het opsommingsteken te gebruiken
-
-    // Stelt de hoogte van het opsommingsteken in
-    para2.ParagraphFormat.Bullet.Height = 100;
-
-    // Voegt de alinea toe aan het tekstkader
-    txtFrm.Paragraphs.Add(para2);
-
-
-    // Slaat de aangepaste presentatie op
-    pres.Save("Bullet_out.pptx", SaveFormat.Pptx);
-
-}
-```
-
-## **Afbeeldings‑opsommingstekens beheren**
-
-Opsommingsteksten helpen u om informatie snel en efficiënt te organiseren en te presenteren. Alinea's met afbeeldingen zijn makkelijk te lezen en te begrijpen.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.
-2. Open de referentie van de betreffende dia via de index.
-3. Voeg een [autoshape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe aan de dia.
-4. Open het [TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/) van de autoshape.
-5. Verwijder de standaard alinea in het `TextFrame`.
-6. Maak de eerste alinea aan met behulp van de [Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraph/) klasse.
-7. Laad de afbeelding in [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/).
-8. Stel het bullet‑type in op [Picture](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) en stel de afbeelding in.
-9. Stel de alinea `Text` in.
-10. Stel de alinea `Indent` in voor het bullet.
-11. Stel een kleur in voor het bullet.
-12. Stel een hoogte in voor het bullet.
-13. Voeg de nieuwe alinea toe aan de `TextFrame` alinea‑collectie.
-14. Voeg de tweede alinea toe en herhaal het proces op basis van de voorgaande stappen.
-15. Sla de gewijzigde presentatie op.
-
-```c#
-// Instancieert een Presentation-klasse die een PPTX-bestand vertegenwoordigt
-Presentation presentation = new Presentation();
-
-// Haalt de eerste dia op
-ISlide slide = presentation.Slides[0];
-
-// Instancieert de afbeelding voor opsommingstekens
-IImage image = Images.FromFile("bullets.png");
-IPPImage ippxImage = presentation.Images.AddImage(image);
-image.Dispose();
-
-// Voegt een AutoShape toe en krijgt deze op
-IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-// Haalt het tekstkader van de AutoShape op
-ITextFrame textFrame = autoShape.TextFrame;
-
-// Verwijdert de standaard alinea
-textFrame.Paragraphs.RemoveAt(0);
-
-// Creëert een nieuwe alinea
-Paragraph paragraph = new Paragraph();
-paragraph.Text = "Welcome to Aspose.Slides";
-
-// Stelt de opsommingstekenstijl en afbeelding van de alinea in
-paragraph.ParagraphFormat.Bullet.Type = BulletType.Picture;
-paragraph.ParagraphFormat.Bullet.Picture.Image = ippxImage;
-
-// Stelt de hoogte van het opsommingsteken in
-paragraph.ParagraphFormat.Bullet.Height = 100;
-
-// Voegt de alinea toe aan het tekstkader
-textFrame.Paragraphs.Add(paragraph);
-
-// Schrijft de presentatie weg als een PPTX-bestand
-presentation.Save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-// Schrijft de presentatie weg als een PPT-bestand
-presentation.Save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-```
-
-## **Meerlagige opsommingstekens beheren**
-
-Opsommingsteksten helpen u om informatie snel en efficiënt te organiseren en te presenteren. Meerlagige opsommingstekens zijn makkelijk te lezen en te begrijpen.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.
-2. Open de referentie van de betreffende dia via de index.
-3. Voeg een [autoshape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe in de nieuwe dia.
-4. Open het [TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/) van de autoshape.
-5. Verwijder de standaard alinea in het `TextFrame`.
-6. Maak de eerste alinea via de [Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraph/) klasse en stel de diepte in op 0.
-7. Maak de tweede alinea via de `Paragraph` klasse en stel de diepte in op 1.
-8. Maak de derde alinea via de `Paragraph` klasse en stel de diepte in op 2.
-9. Maak de vierde alinea via de `Paragraph` klasse en stel de diepte in op 3.
-10. Voeg de nieuwe alinea's toe aan de `TextFrame` alinea‑collectie.
-11. Sla de gewijzigde presentatie op.
-
-```c#
-// Instancieert een Presentation-klasse die een PPTX-bestand vertegenwoordigt
-using (Presentation pres = new Presentation())
-{
-
-    // Haalt de eerste dia op
-    ISlide slide = pres.Slides[0];
-    
-    // Voegt een AutoShape toe en krijgt deze op
-    IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Haalt het tekstkader van de aangemaakte AutoShape op
-    ITextFrame text = aShp.AddTextFrame("");
-    
-    // Verwijdert de standaard alinea
-    text.Paragraphs.Clear();
-
-    // Voegt de eerste alinea toe
-    IParagraph para1 = new Paragraph();
-    para1.Text = "Content";
-    para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-    para1.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para1.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Stelt het opsommingsteken-niveau in
-    para1.ParagraphFormat.Depth = 0;
-
-    // Voegt de tweede alinea toe
-    IParagraph para2 = new Paragraph();
-    para2.Text = "Second Level";
-    para2.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para2.ParagraphFormat.Bullet.Char = '-';
-    para2.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para2.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Stelt het opsommingsteken-niveau in
-    para2.ParagraphFormat.Depth = 1;
-
-    // Voegt de derde alinea toe
-    IParagraph para3 = new Paragraph();
-    para3.Text = "Third Level";
-    para3.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-    para3.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para3.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Stelt het opsommingsteken-niveau in
-    para3.ParagraphFormat.Depth = 2;
-
-    // Voegt de vierde alinea toe
-    IParagraph para4 = new Paragraph();
-    para4.Text = "Fourth Level";
-    para4.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para4.ParagraphFormat.Bullet.Char = '-';
-    para4.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para4.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Stelt het opsommingsteken-niveau in
-    para4.ParagraphFormat.Depth = 3;
-
-    // Voegt alinea's toe aan de verzameling
-    text.Paragraphs.Add(para1);
-    text.Paragraphs.Add(para2);
-    text.Paragraphs.Add(para3);
-    text.Paragraphs.Add(para4);
-
-    // Schrijft de presentatie weg als een PPTX-bestand
-    pres.Save("MultilevelBullet.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-## **Een alinea met een aangepaste genummerde lijst beheren**
-
-De [IBulletFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/) interface biedt de eigenschap [NumberedBulletStartWith](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/numberedbulletstartwith) en andere, waarmee u alinea's met aangepaste nummering of opmaak kunt beheren.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.
-2. Open de dia die de alinea bevat.
-3. Voeg een [autoshape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe aan de dia.
-4. Open het autoshape [TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/).
-5. Verwijder de standaard alinea in het `TextFrame`.
-6. Maak de eerste alinea via de [Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraph/) klasse en stel [NumberedBulletStartWith](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/numberedbulletstartwith) in op 2.
-7. Maak de tweede alinea via de `Paragraph` klasse en stel `NumberedBulletStartWith` in op 3.
-8. Maak de derde alinea via de `Paragraph` klasse en stel `NumberedBulletStartWith` in op 7.
-9. Voeg de nieuwe alinea's toe aan de `TextFrame` alinea‑collectie.
-10. Sla de gewijzigde presentatie op.
-
-```c#
-using (var presentation = new Presentation())
-{
-	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-	// Haalt het tekstkader van de aangemaakte autoshape op
-	ITextFrame textFrame = shape.TextFrame;
-
-	// Verwijdert de standaard bestaande alinea
-	textFrame.Paragraphs.RemoveAt(0);
-
-	// Eerste lijst
-	var paragraph1 = new Paragraph { Text = "bullet 2" };
-	paragraph1.ParagraphFormat.Depth = 4; 
-	paragraph1.ParagraphFormat.Bullet.NumberedBulletStartWith = 2;
-	paragraph1.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-	textFrame.Paragraphs.Add(paragraph1);
-
-	var paragraph2 = new Paragraph { Text = "bullet 3" };
-	paragraph2.ParagraphFormat.Depth = 4;
-	paragraph2.ParagraphFormat.Bullet.NumberedBulletStartWith = 3; 
-	paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;  
-	textFrame.Paragraphs.Add(paragraph2);
-
-	
-	var paragraph5 = new Paragraph { Text = "bullet 7" };
-	paragraph5.ParagraphFormat.Depth = 4;
-	paragraph5.ParagraphFormat.Bullet.NumberedBulletStartWith = 7;
-	paragraph5.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-	textFrame.Paragraphs.Add(paragraph5);
-
-	presentation.Save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Eerste‑regelinspring voor een alinea instellen**
-
-Gebruik de eigenschap [IParagraphFormat.Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) om de eerste‑regelinspring van een alinea te regelen. Deze eigenschap verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
-
-Gebruik [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/marginleft/) wanneer u de hele alinea wilt verplaatsen. Gebruik [IParagraphFormat.Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) wanneer u alleen de eerste regel wilt verplaatsen.
-
-Het onderstaande voorbeeld maakt meerdere alinea's en past verschillende `Indent` waarden toe om te laten zien hoe de eerste‑regelinspring de lay-out van de alinea beïnvloedt.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse.
-2. Open de doel‑dia.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/) toe aan de dia.
-4. Voeg een leeg [TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/) toe aan de vorm en verwijder de standaard alinea.
-5. Maak verschillende alinea's aan en stel voor elk verschillende [Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) waarden in.
-6. Voeg de alinea's toe aan het tekstkader.
-7. Sla de gewijzigde presentatie op.
-
-```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    IAutoShape rectangleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.FillFormat.FillType = FillType.NoFill;
-    rectangleShape.LineFormat.FillFormat.FillType = FillType.Solid;
-    rectangleShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-
-    ITextFrame textFrame = rectangleShape.AddTextFrame(string.Empty);
-    textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
-    textFrame.Paragraphs.RemoveAt(0);
-
-    Paragraph firstParagraph = new Paragraph();
-    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    firstParagraph.Text = "No first-line indent. Wrapped lines start at the same position as the first line.";
-    firstParagraph.ParagraphFormat.MarginLeft = 20f;
-    firstParagraph.ParagraphFormat.Indent = 0f;
-
-    Paragraph secondParagraph = new Paragraph();
-    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    secondParagraph.Text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.";
-    secondParagraph.ParagraphFormat.MarginLeft = 20f;
-    secondParagraph.ParagraphFormat.Indent = 20f;
-
-    Paragraph thirdParagraph = new Paragraph();
-    thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    thirdParagraph.Text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.";
-    thirdParagraph.ParagraphFormat.MarginLeft = 20f;
-    thirdParagraph.ParagraphFormat.Indent = 40f;
-
-    textFrame.Paragraphs.Add(firstParagraph);
-    textFrame.Paragraphs.Add(secondParagraph);
-    textFrame.Paragraphs.Add(thirdParagraph);
-
-    presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-```
-
-![De eerste‑regelinspring van de alinea's](first_line_indent.png)
-
-## **Hangende inspring voor een alinea instellen**
-
-Een hangende inspring is een alinea‑lay-out waarbij de eerste regel links van de overige regels begint. In Aspose.Slides creëert u dit effect met de eigenschap [IParagraphFormat.Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/). Stel `Indent` in op een negatieve waarde om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
-
-In de praktijk bepaalt [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/marginleft/) de linkse positie van de alinea‑inhoud, en [IParagraphFormat.Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) de positie van de eerste regel ten opzichte van die marge. Om een hangende inspring te maken, stelt u een positieve `MarginLeft`‑waarde en een negatieve `Indent`‑waarde in.
-
-Deze opmaak is nuttig voor bibliografieën, referenties, begrippenlijsten en andere alinea's waarbij omslagen onder de alinea‑inhoud moeten uitlijnen in plaats van onder het eerste teken van de eerste regel.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse.
-2. Open de doel‑dia.
-3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/) toe aan de dia.
-4. Voeg een leeg [TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/) toe aan de vorm en verwijder de standaard alinea.
-5. Maak alinea's en stel voor elke alinea een positieve [MarginLeft](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/marginleft/) waarde in.
-6. Stel een negatieve [Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) waarde in om het hangende‑inspring‑effect te creëren.
-7. Voeg de alinea's toe aan het tekstkader.
-8. Sla de gewijzigde presentatie op.
-
-```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    IAutoShape rectangleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.FillFormat.FillType = FillType.NoFill;
-    rectangleShape.LineFormat.FillFormat.FillType = FillType.Solid;
-    rectangleShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-
-    ITextFrame textFrame = rectangleShape.AddTextFrame(string.Empty);
-    textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
-    textFrame.Paragraphs.RemoveAt(0);
-
-    Paragraph firstParagraph = new Paragraph();
-    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    firstParagraph.Text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.";
-    firstParagraph.ParagraphFormat.MarginLeft = 40f;
-    firstParagraph.ParagraphFormat.Indent = -20f;
-
-    Paragraph secondParagraph = new Paragraph();
-    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    secondParagraph.Text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.";
-    secondParagraph.ParagraphFormat.MarginLeft = 60f;
-    secondParagraph.ParagraphFormat.Indent = -30f;
-
-    textFrame.Paragraphs.Add(firstParagraph);
-    textFrame.Paragraphs.Add(secondParagraph);
-
-    presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-```
-
-![De hangende inspring van de alinea's](hanging_indent.png)
-
-## **Eind‑alinea‑run‑eigenschappen beheren**
-
-1. Maak een instantie van [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.
-2. Haal de referentie op voor de dia die de alinea bevat via de positie.
-3. Voeg een rechthoekige [autoshape](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/) toe aan de dia.
-4. Voeg een [TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/) met twee alinea's toe aan de rechthoek.
-5. Stel de `FontHeight` en het lettertype in voor de alinea's.
-6. Stel de End‑eigenschappen in voor de alinea's.
-7. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
-
-```c#
-using (Presentation pres = new Presentation("Test.pptx"))
-{
-	IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
-
-	Paragraph para1 = new Paragraph();
-	para1.Portions.Add(new Portion("Sample text"));
-
-	Paragraph para2 = new Paragraph();
-	para2.Portions.Add(new Portion("Sample text 2"));
-	PortionFormat endParagraphPortionFormat = new PortionFormat();
-	endParagraphPortionFormat.FontHeight = 48;
-	endParagraphPortionFormat.LatinFont = new FontData("Times New Roman");
-	para2.EndParagraphPortionFormat = endParagraphPortionFormat;
-
-	shape.TextFrame.Paragraphs.Add(para1);
-	shape.TextFrame.Paragraphs.Add(para2);
-
-	pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **HTML‑tekst in alinea's importeren**
-
-Aspose.Slides biedt verbeterde ondersteuning voor het importeren van HTML‑tekst in alinea's.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse.
-2. Open de referentie van de betreffende dia via de index.
-3. Voeg een [autoshape](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/) toe aan de dia.
-4. Voeg toe en open het `autoshape` [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/).
-5. Verwijder de standaard alinea in het `ITextFrame`.
-6. Lees het bron‑HTML‑bestand in met een TextReader.
-7. Maak de eerste alinea via de [Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraph/) klasse.
-8. Voeg de inhoud van het HTML‑bestand, gelezen met de TextReader, toe aan de [ParagraphCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraphcollection/) van het TextFrame.
-9. Sla de gewijzigde presentatie op.
-
-```c#
-// Creëert een lege presentatie‑instance
-using (Presentation pres = new Presentation())
-{
-	// Benadert de standaard eerste dia van de presentatie
-	ISlide slide = pres.Slides[0];
-
-	// Voegt de AutoShape toe om de HTML‑inhoud in te huisvesten
-	IAutoShape ashape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, pres.SlideSize.Size.Width - 20, pres.SlideSize.Size.Height - 10);
-
-	ashape.FillFormat.FillType = FillType.NoFill;
-
-	// Voegt een tekstkader toe aan de vorm
-	ashape.AddTextFrame("");
-
-	// Verwijdert alle alinea's in het toegevoegde tekstkader
-	ashape.TextFrame.Paragraphs.Clear();
-
-	// Laadt het HTML‑bestand met een stream‑reader
-	TextReader tr = new StreamReader("file.html");
-
-	// Voegt de tekst uit de HTML‑stream‑reader toe aan het tekstkader
-	ashape.TextFrame.Paragraphs.AddFromHtml(tr.ReadToEnd());
-
-	// Slaat de presentatie op
-	pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-## **Alinea‑tekst naar HTML exporteren**
-
-Aspose.Slides biedt verbeterde ondersteuning voor het exporteren van teksten (geïntegreerd in alinea's) naar HTML.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse en laad de gewenste presentatie.
-2. Open de referentie van de betreffende dia via de index.
-3. Open de vorm die de te exporteren tekst naar HTML bevat.
-4. Open het [TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/) van de vorm.
-5. Maak een instantie van `StreamWriter` en voeg het nieuwe HTML‑bestand toe.
-6. Geef een start‑index aan StreamWriter en exporteer de gewenste alinea's.
-
-```c#
-// Laadt het presentatiebestand
-using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
-{
-
-    // Benadert de standaard eerste dia van de presentatie
-    ISlide slide = pres.Slides[0];
-
-    // Benadert de vereiste index
-    int index = 0;
-
-    // Benadert de toegevoegde vorm
-    IAutoShape ashape = (IAutoShape)slide.Shapes[index];
-
-    StreamWriter sw = new StreamWriter("output_out.html", false, Encoding.UTF8);
-
-    // Schrijft de alinea‑gegevens naar HTML door de startindex van de alinea en het aantal te kopiëren alinea's op te geven
-    sw.Write(ashape.TextFrame.Paragraphs.ExportToHtml(0, ashape.TextFrame.Paragraphs.Count, null));
-
-    sw.Close();
-}
-```
-
-## **Een alinea als afbeelding opslaan**
-
-In dit gedeelte onderzoeken we twee voorbeelden die laten zien hoe u een tekst‑alinea, vertegenwoordigd door de [IParagraph](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/) interface, als afbeelding kunt opslaan. Beide voorbeelden omvatten het verkrijgen van de afbeelding van een vorm die de alinea bevat via de `GetImage`‑methoden van de [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/) interface, het berekenen van de afmetingen van de alinea binnen de vorm, en het exporteren ervan als bitmap‑afbeelding. Deze benaderingen stellen u in staat specifieke delen van de tekst uit PowerPoint‑presentaties te extraheren en op te slaan als losse afbeeldingen, wat nuttig kan zijn voor later gebruik in diverse scenario's.
-
-Laten we aannemen dat we een presentatiedocument hebben genaamd **sample.pptx** met één dia, waarbij de eerste vorm een tekstvak is met drie alinea's.
-
-![Het tekstvak met drie alinea's](paragraph_to_image_input.png)
-
-**Voorbeeld 1**
-
-In dit voorbeeld verkrijgen we de tweede alinea als afbeelding. Hiervoor extraheren we de afbeelding van de vorm uit de eerste dia van de presentatie en berekenen daarna de afmetingen van de tweede alinea in het tekstkader van de vorm. De alinea wordt vervolgens opnieuw getekend op een nieuwe bitmap‑afbeelding, die in PNG‑formaat wordt opgeslagen. Deze methode is vooral handig wanneer u een specifieke alinea als afzonderlijke afbeelding wilt opslaan terwijl de exacte afmetingen en opmaak van de tekst behouden blijven.
+Dit C#‑voorbeeld implementeert de stappen:
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
-var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Save the shape in memory as a bitmap.
-using var shapeImage = firstShape.GetImage();
-using var shapeImageStream = new MemoryStream();
-shapeImage.Save(shapeImageStream, ImageFormat.Png);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+var textFrame = shape.TextFrame;
 
-// Create a shape bitmap from memory.
-shapeImageStream.Seek(0, SeekOrigin.Begin);
-using var shapeBitmap = Image.FromStream(shapeImageStream);
+var firstParagraph = textFrame.Paragraphs[0];
+firstParagraph.Portions.Add(new Portion());
+firstParagraph.Portions.Add(new Portion());
 
-// Calculate the boundaries of the second paragraph.
-var secondParagraph = firstShape.TextFrame.Paragraphs[1];
-var paragraphRectangle = secondParagraph.GetRect();
+var secondParagraph = new Paragraph();
+secondParagraph.Portions.Add(new Portion());
+secondParagraph.Portions.Add(new Portion());
+secondParagraph.Portions.Add(new Portion());
+textFrame.Paragraphs.Add(secondParagraph);
 
-// Calculate the size for the output image (minimum size - 1x1 pixel).
-var imageWidth = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Width));
-var imageHeight = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Height));
+var thirdParagraph = new Paragraph();
+thirdParagraph.Portions.Add(new Portion());
+thirdParagraph.Portions.Add(new Portion());
+thirdParagraph.Portions.Add(new Portion());
+textFrame.Paragraphs.Add(thirdParagraph);
 
-// Prepare a bitmap for the paragraph.
-using var paragraphBitmap = new Bitmap(imageWidth, imageHeight);
+var paragraphCount = textFrame.Paragraphs.Count;
+for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+{
+    var paragragaph = textFrame.Paragraphs[paragraphIndex];
+    var portionCount = paragragaph.Portions.Count;
+    for (var portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    {
+        var portion = paragragaph.Portions[portionIndex];
+        portion.Text = $"Portion {paragraphIndex + 1}.{portionIndex + 1}";
 
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
-using var imageGraphics = Graphics.FromImage(paragraphBitmap);
-var drawingRectangle = new RectangleF(0, 0, paragraphRectangle.Width, paragraphRectangle.Height);
-imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, GraphicsUnit.Pixel);
+        if (portionIndex == 0)
+        {
+            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+            portion.PortionFormat.FontBold = NullableBool.True;
+            portion.PortionFormat.FontHeight = 15;
+        }
+        else if (portionIndex == 1)
+        {
+            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+            portion.PortionFormat.FontItalic = NullableBool.True;
+            portion.PortionFormat.FontHeight = 18;
+        }
+    }
+}
 
-paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
+presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
+
+## **Maken van opsomming- en genummerde lijsten**
+
+### **Een opsomming of genummerde lijst maken**
+
+Opsommingstekens en nummering maken gerelateerde items makkelijker scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [IBulletFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/).
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
+2. Verkrijg de referentie naar de betreffende dia via de index.
+3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe aan de geselecteerde dia.
+4. Verkrijg het [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) van de vorm.
+5. Verwijder de standaardalinea uit het tekstkader.
+6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraph/) voor een symbool‑opsommingsteken.
+7. Stel [IBulletFormat.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/type/) in op [BulletType.Symbol](https://reference.aspose.com/slides/nl/net/aspose.slides/bullettype/) en specificeer het opsommingsteken.
+8. Stel de alinea‑tekst, inspringing, opsommingsteken‑kleur en opsommingsteken‑hoogte in.
+9. Voeg de alinea toe aan het tekstkader.
+10. Maak een tweede alinea en stel [IBulletFormat.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/type/) in op [BulletType.Numbered](https://reference.aspose.com/slides/nl/net/aspose.slides/bullettype/).
+11. Configureer de genummerde opsommingstijl en voeg de alinea toe aan het tekstkader.
+12. Sla de presentatie op.
+
+Dit C#‑voorbeeld maakt een symbool‑opsommingsteken en een genummerde opsomming:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
+
+var symbolParagraph = new Paragraph { Text = "Welcome to Aspose.Slides" };
+symbolParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+symbolParagraph.ParagraphFormat.Bullet.Char = Convert.ToChar(0x2022);
+symbolParagraph.ParagraphFormat.Indent = 25;
+symbolParagraph.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
+symbolParagraph.ParagraphFormat.Bullet.Color.Color = Color.Black;
+symbolParagraph.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True;
+symbolParagraph.ParagraphFormat.Bullet.Height = 100;
+textFrame.Paragraphs.Add(symbolParagraph);
+
+var numberedParagraph = new Paragraph { Text = "This is a numbered item" };
+numberedParagraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+numberedParagraph.ParagraphFormat.Bullet.NumberedBulletStyle = NumberedBulletStyle.BulletCircleNumWDBlackPlain;
+numberedParagraph.ParagraphFormat.Indent = 25;
+numberedParagraph.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
+numberedParagraph.ParagraphFormat.Bullet.Color.Color = Color.Black;
+numberedParagraph.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True;
+numberedParagraph.ParagraphFormat.Bullet.Height = 100;
+textFrame.Paragraphs.Add(numberedParagraph);
+
+presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
+```
+
+### **Afbeeldings‑opsommingstekens gebruiken**
+
+Afbeeldings‑opsommingstekens laten je een aangepast beeld gebruiken in plaats van een symbool of een nummer.
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
+2. Verkrijg de referentie naar de betreffende dia via de index.
+3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe en verkrijg zijn [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/).
+4. Verwijder de standaardalinea uit het tekstkader.
+5. Laad de opsommingsteken‑afbeelding en voeg deze toe aan de afbeeldings‑collectie van de presentatie als een [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/).
+6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraph/) en stel de tekst in.
+7. Stel [IBulletFormat.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/type/) in op [BulletType.Picture](https://reference.aspose.com/slides/nl/net/aspose.slides/bullettype/).
+8. Wijs de afbeelding toe via [IBulletFormat.Picture](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/picture/) en stel de opsommingsteken‑hoogte in.
+9. Voeg de alinea toe aan het tekstkader.
+10. Sla de gewijzigde presentatie op.
+
+Dit C#‑voorbeeld maakt een afbeeldings‑opsommingsteken:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var bulletImage = Images.FromFile("bullets.png");
+var presentationImage = presentation.Images.AddImage(bulletImage);
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
+
+var paragraph = new Paragraph { Text = "Welcome to Aspose.Slides" };
+paragraph.ParagraphFormat.Bullet.Type = BulletType.Picture;
+paragraph.ParagraphFormat.Bullet.Picture.Image = presentationImage;
+paragraph.ParagraphFormat.Bullet.Height = 100;
+textFrame.Paragraphs.Add(paragraph);
+
+presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
+presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
+```
+
+### **Een meerlagige lijst maken**
+
+Stel [IParagraphFormat.Depth](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/depth/) in om alinea’s op verschillende niveaus van een lijst te plaatsen. Het bovenste niveau heeft een diepte van `0`.
+
+1. Maak een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) en verkrijg een dia.
+2. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe en verwijder de standaardalinea uit het tekstkader.
+3. Maak vier alinea’s en configureer hun opsommingsteken‑symbolen.
+4. Stel hun [IParagraphFormat.Depth](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/depth/) waarden in op `0`, `1`, `2` en `3`.
+5. Voeg de alinea’s toe aan het tekstkader en sla de presentatie op.
+
+Dit C#‑voorbeeld maakt een vier‑niveaus opsomminglijst:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
+
+var firstParagraph = new Paragraph { Text = "Content" };
+firstParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+firstParagraph.ParagraphFormat.Bullet.Char = Convert.ToChar(0x2022);
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+firstParagraph.ParagraphFormat.Depth = 0;
+
+var secondParagraph = new Paragraph { Text = "Second level" };
+secondParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+secondParagraph.ParagraphFormat.Bullet.Char = '-';
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+secondParagraph.ParagraphFormat.Depth = 1;
+
+var thirdParagraph = new Paragraph { Text = "Third level" };
+thirdParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+thirdParagraph.ParagraphFormat.Bullet.Char = Convert.ToChar(0x2022);
+thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+thirdParagraph.ParagraphFormat.Depth = 2;
+
+var fourthParagraph = new Paragraph { Text = "Fourth level" };
+fourthParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+fourthParagraph.ParagraphFormat.Bullet.Char = '-';
+fourthParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+fourthParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+fourthParagraph.ParagraphFormat.Depth = 3;
+
+textFrame.Paragraphs.Add(firstParagraph);
+textFrame.Paragraphs.Add(secondParagraph);
+textFrame.Paragraphs.Add(thirdParagraph);
+textFrame.Paragraphs.Add(fourthParagraph);
+
+presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
+```
+
+### **Genummerde lijstitems starten met aangepaste waarden**
+
+Gebruik [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/numberedbulletstartwith/) om het initiële nummer in te stellen dat wordt weergegeven voor een genummerde alinea.
+
+1. Maak een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) en voeg een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe aan een dia.
+2. Verwijder de standaardalinea uit het tekstkader van de vorm.
+3. Maak drie genummerde alinea’s.
+4. Stel [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/nl/net/aspose.slides/ibulletformat/numberedbulletstartwith/) in op `2`, `3` en `7` voor de respectieve alinea’s.
+5. Voeg de alinea’s toe aan het tekstkader en sla de presentatie op.
+
+Dit C#‑voorbeeld kent een aangepaste startwaarde toe aan elke alinea:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
+
+var firstParagraph = new Paragraph { Text = "Start at 2" };
+firstParagraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+firstParagraph.ParagraphFormat.Bullet.NumberedBulletStartWith = 2;
+textFrame.Paragraphs.Add(firstParagraph);
+
+var secondParagraph = new Paragraph { Text = "Start at 3" };
+secondParagraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+secondParagraph.ParagraphFormat.Bullet.NumberedBulletStartWith = 3;
+textFrame.Paragraphs.Add(secondParagraph);
+
+var thirdParagraph = new Paragraph { Text = "Start at 7" };
+thirdParagraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+thirdParagraph.ParagraphFormat.Bullet.NumberedBulletStartWith = 7;
+textFrame.Paragraphs.Add(thirdParagraph);
+
+presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
+```
+
+## **Alinea‑lay‑out en eind‑eigenschappen beheren**
+
+### **Een eerste‑regelinspanning instellen**
+
+Gebruik de eigenschap [IParagraphFormat.Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) om de eerste‑regelinspanning van een alinea te regelen. Deze eigenschap verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
+
+Gebruik [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/marginleft/) wanneer je de hele alinea wilt verplaatsen. Gebruik [IParagraphFormat.Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) wanneer je alleen de eerste regel wilt verplaatsen.
+
+Het voorbeeld hieronder maakt verschillende alinea’s en past verschillende [IParagraphFormat.Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) waarden toe om te demonstreren hoe de eerste‑regelinspanning de lay‑out beïnvloedt.
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) aan.
+2. Verkrijg de doel‑dia.
+3. Voeg een rechthoekige [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe aan de dia.
+4. Verkrijg het [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) van de vorm en verwijder de standaardalinea.
+5. Maak meerdere alinea’s en stel verschillende [Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) waarden in.
+6. Voeg de alinea’s toe aan het tekstkader.
+7. Sla de gewijzigde presentatie op.
+
+Deze code laat zien hoe je een alinea‑insprong instelt:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+textFrame.Paragraphs.Clear();
+
+var firstParagraph = new Paragraph { Text = "No first-line indent. Wrapped lines start at the same position as the first line." };
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+firstParagraph.ParagraphFormat.MarginLeft = 20;
+firstParagraph.ParagraphFormat.Indent = 0;
+
+var secondParagraph = new Paragraph { Text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body." };
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+secondParagraph.ParagraphFormat.MarginLeft = 20;
+secondParagraph.ParagraphFormat.Indent = 20;
+
+var thirdParagraph = new Paragraph { Text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see." };
+thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+thirdParagraph.ParagraphFormat.MarginLeft = 20;
+thirdParagraph.ParagraphFormat.Indent = 40;
+
+textFrame.Paragraphs.Add(firstParagraph);
+textFrame.Paragraphs.Add(secondParagraph);
+textFrame.Paragraphs.Add(thirdParagraph);
+
+presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
+```
+
+Resultaat:
+
+![De eerste‑regelinspanning van de alinea’s](first_line_indent.png)
+
+### **Een hangende insprong instellen**
+
+Een hangende insprong is een alinea‑lay‑out waarbij de eerste regel links van de overige regels start. In Aspose.Slides creëer je dit effect met de eigenschap [IParagraphFormat.Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/). Stel `Indent` in op een negatieve waarde om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
+
+In de praktijk bepaalt [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/marginleft/) de linkermarge van de alinea‑inhoud, en [IParagraphFormat.Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) de positie van de eerste regel ten opzichte van die marge. Voor een hangende insprong stel je een positieve `MarginLeft` en een negatieve `Indent` in.
+
+Deze opmaak is nuttig voor bibliografieën, verwijzingen, glossarium‑items en andere alinea’s waarbij ingesprongen regels onder de alinea‑inhoud moeten uitlijnen in plaats van onder het eerste teken van de eerste regel.
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) aan.
+2. Verkrijg de doel‑dia.
+3. Voeg een rechthoekige [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe aan de dia.
+4. Verkrijg het [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) van de vorm en verwijder de standaardalinea.
+5. Maak alinea’s en stel voor elke alinea een positieve [MarginLeft](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/marginleft/) waarde in.
+6. Stel een negatieve [Indent](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/indent/) waarde in om het hangende‑insprong‑effect te verkrijgen.
+7. Voeg de alinea’s toe aan het tekstkader.
+8. Sla de gewijzigde presentatie op.
+
+Deze code laat zien hoe je een hangende insprong voor een alinea instelt:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+textFrame.Paragraphs.Clear();
+
+var firstParagraph = new Paragraph { Text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body." };
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+firstParagraph.ParagraphFormat.MarginLeft = 40;
+firstParagraph.ParagraphFormat.Indent = -20;
+
+var secondParagraph = new Paragraph { Text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare." };
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+secondParagraph.ParagraphFormat.MarginLeft = 60;
+secondParagraph.ParagraphFormat.Indent = -30;
+
+textFrame.Paragraphs.Add(firstParagraph);
+textFrame.Paragraphs.Add(secondParagraph);
+
+presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
+```
+
+Resultaat:
+
+![De hangende insprong van de alinea’s](hanging_indent.png)
+
+### **Eind‑alinea‑run‑eigenschappen instellen**
+
+De eigenschap [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/endparagraphportionformat/) bepaalt de opmaak van het alinea‑eindteken. Het volgende voorbeeld wijst een lettertype‑grootte en een Latijn‑lettertype toe aan het eindteken van de tweede alinea:
+
+1. Laad een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) en verkrijg een dia.
+2. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe en verwijder de standaardalinea.
+3. Maak twee alinea’s en voeg tekst‑porties toe.
+4. Maak een [PortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/portionformat/) voor het eindteken van de tweede alinea.
+5. Stel [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/fontheight/) en [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/latinfont/) in.
+6. Wijs de opmaak toe aan [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/endparagraphportionformat/) en sla de presentatie op.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("Test.pptx");
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
+
+var firstParagraph = new Paragraph();
+firstParagraph.Portions.Add(new Portion("Sample text"));
+
+var secondParagraph = new Paragraph();
+secondParagraph.Portions.Add(new Portion("Sample text 2"));
+
+var endParagraphFormat = new PortionFormat();
+endParagraphFormat.FontHeight = 48;
+endParagraphFormat.LatinFont = new FontData("Times New Roman");
+secondParagraph.EndParagraphPortionFormat = endParagraphFormat;
+
+textFrame.Paragraphs.Add(firstParagraph);
+textFrame.Paragraphs.Add(secondParagraph);
+
+presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
+```
+
+## **Paragraafinhoud importeren en exporteren**
+
+### **HTML‑tekst importeren in alinea’s**
+
+Gebruik [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraphcollection/addfromhtml/) om HTML‑markup om te zetten naar alinea’s en porties in een tekstkader.
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan.
+2. Verkrijg een dia en voeg een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) toe.
+3. Verkrijg het [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) van de vorm en verwijder de standaardalinea.
+4. Lees het bron‑HTML‑bestand.
+5. Geef de HTML‑string door aan [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraphcollection/addfromhtml/).
+6. Sla de gewijzigde presentatie op.
+
+Dit C#‑voorbeeld importeert HTML in een tekstkader:
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shapeWidth = presentation.SlideSize.Size.Width - 20;
+var shapeHeight = presentation.SlideSize.Size.Height - 20;
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.TextFrame.Paragraphs.Clear();
+
+using var reader = new StreamReader("file.html");
+var html = reader.ReadToEnd();
+shape.TextFrame.Paragraphs.AddFromHtml(html);
+
+presentation.Save("html_text.pptx", SaveFormat.Pptx);
+```
+
+### **Paragraaftekst exporteren naar HTML**
+
+Gebruik [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraphcollection/exporttohtml/) om een geselecteerd bereik van alinea’s als HTML te exporteren.
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) en laad de gewenste presentatie.
+2. Verkrijg de dia en vind de [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) die de tekst bevat.
+3. Verkrijg het [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) van de vorm.
+4. Roep [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraphcollection/exporttohtml/) aan met de start‑alinea‑index en het aantal alinea’s dat geëxporteerd moet worden.
+5. Schrijf de geretourneerde HTML‑string naar een bestand.
+
+Dit C#‑voorbeeld exporteert alle alinea’s van de eerste tekstvorm:
+
+```csharp
+using System;
+using System.IO;
+using System.Text;
+using Aspose.Slides;
+
+using var presentation = new Presentation("ExportingHTMLText.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+
+if (shape is IAutoShape textShape && textShape.TextFrame != null)
+{
+    var paragraphs = textShape.TextFrame.Paragraphs;
+    var html = paragraphs.ExportToHtml(0, paragraphs.Count, null);
+    using var writer = new StreamWriter("paragraphs.html", false, Encoding.UTF8);
+    writer.Write(html);
+}
+else
+{
+    Console.WriteLine("The first shape is not a text shape.");
+}
+```
+
+### **Een alinea renderen als afbeelding**
+
+[IParagraph.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/getimage/) rendert een individuele alinea direct en retourneert een [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/). Sla het resultaat op naar een bestand of stream met [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/save/). Je hoeft de omvattende vorm niet te renderen of een bitmap handmatig bij te snijden.
+
+[IParagraph.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/getimage/) kan `null` retourneren als de alinea niet in de bovenliggende collectie wordt gevonden, geen geldige render‑afmetingen heeft, of niet gerenderd kan worden. Controleer het resultaat vóór het opslaan en maak de geretourneerde afbeelding vrij na gebruik.
+
+#### **Een alinea renderen op de standaard‑schaal**
+
+Stel dat we een presentatiedocument hebben genaamd sample.pptx met één dia, waarin de eerste vorm een tekstvak met drie alinea’s is.
+
+![Het tekstvak met drie alinea’s](paragraph_to_image_input.png)
+
+Het volgende voorbeeld rendert de tweede alinea in een normale tekstvorm op de standaard‑schaal en slaat de geretourneerde afbeelding op in PNG‑formaat. De `using`‑declaratie zorgt ervoor dat de afbeelding correct wordt vrijgegeven.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+
+var shape = presentation.Slides[0].Shapes[0];
+if (shape is IAutoShape textShape && 
+    textShape.TextFrame != null && 
+    textShape.TextFrame.Paragraphs.Count > 1)
+{
+    var paragraph = textShape.TextFrame.Paragraphs[1];
+    using var paragraphImage = paragraph.GetImage();
+
+    if (paragraphImage != null)
+    {
+        paragraphImage.Save("paragraph.png", ImageFormat.Png);
+    }
+    else
+    {
+        Console.WriteLine("The paragraph could not be rendered.");
+    }
+}
+else
+{
+    Console.WriteLine("The expected text shape or paragraph was not found.");
+}
+```
+
+Resultaat:
 
 ![De alinea‑afbeelding](paragraph_to_image_output.png)
 
-**Voorbeeld 2**
+#### **Een alinea renderen in een tabelcel met schaling**
 
-In dit voorbeeld breiden we de vorige aanpak uit door schaalfactoren aan de alinea‑afbeelding toe te voegen. De vorm wordt uit de presentatie geëxtraheerd en opgeslagen als afbeelding met een schaalfactor van `2`. Hierdoor ontstaat een hogere resolutie bij het exporteren van de alinea. De afmetingen van de alinea worden vervolgens berekend rekening houdend met de schaal. Schalen kan bijzonder nuttig zijn wanneer een gedetailleerdere afbeelding nodig is, bijvoorbeeld voor gebruik in hoogwaardige gedrukte materialen.
+Gebruik de overload van [IParagraph.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/getimage/) die de parameters `float scaleX` en `float scaleY` accepteert om de horizontale en verticale schaalfactoren in te stellen. Het volgende voorbeeld maakt een tabel, rendert de alinea in de eerste cel op het dubbele van de standaardbreedte en -hoogte, en slaat het resultaat op als PNG‑afbeelding.
 
 ```csharp
-var imageScaleX = 2f;
-var imageScaleY = imageScaleX;
+using System;
+using Aspose.Slides;
 
-using var presentation = new Presentation("sample.pptx");
-var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
+var scaleX = 2f;
+var scaleY = 2f;
 
-// Save the shape in memory as a bitmap with scaling.
-using var shapeImage = firstShape.GetImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-using var shapeImageStream = new MemoryStream();
-shapeImage.Save(shapeImageStream, ImageFormat.Png);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var table = slide.Shapes.AddTable(50, 50, new[] { 300d }, new[] { 80d });
+var paragraph = table[0, 0].TextFrame.Paragraphs[0];
+paragraph.Text = "Text in a table cell";
 
-// Create a shape bitmap from memory.
-shapeImageStream.Seek(0, SeekOrigin.Begin);
-using var shapeBitmap = Image.FromStream(shapeImageStream);
-
-// Calculate the boundaries of the second paragraph.
-var secondParagraph = firstShape.TextFrame.Paragraphs[1];
-var paragraphRectangle = secondParagraph.GetRect();
-paragraphRectangle.X *= imageScaleX;
-paragraphRectangle.Y *= imageScaleY;
-paragraphRectangle.Width *= imageScaleX;
-paragraphRectangle.Height *= imageScaleY;
-
-// Calculate the size for the output image (minimum size - 1x1 pixel).
-var imageWidth = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Width));
-var imageHeight = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Height));
-
-// Prepare a bitmap for the paragraph.
-using var paragraphBitmap = new Bitmap(imageWidth, imageHeight);
-
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
-using var imageGraphics = Graphics.FromImage(paragraphBitmap);
-var drawingRectangle = new RectangleF(0, 0, paragraphRectangle.Width, paragraphRectangle.Height);
-imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, GraphicsUnit.Pixel);
-
-paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
+using var paragraphImage = paragraph.GetImage(scaleX, scaleY);
+if (paragraphImage != null)
+{
+    paragraphImage.Save("table_paragraph.png", ImageFormat.Png);
+}
+else
+{
+    Console.WriteLine("The paragraph could not be rendered.");
+}
 ```
+
+Een schaalfactor van `1` behoudt die as op de standaard‑pixelgrootte. Bijvoorbeeld, `2` voor beide factoren produceert een afbeelding waarvan breedte en hoogte ongeveer dubbel zo groot zijn, wat resulteert in vier keer zoveel pixels. Grotere factoren geven doorgaans scherpere tekst voor zoom of hoge‑resolutie‑output, maar verhogen ook het geheugen‑ en bestandsgrootte‑gebruik. Factoren onder `1` leveren kleinere afbeeldingen met minder detail. Gebruik gelijke factoren om de beeldverhouding van de alinea te behouden; verschillende horizontale en verticale factoren rekken de uitvoer onafhankelijk uit.
+
+Het renderen van een volledige vorm met [IShape.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/getimage/) blijft nuttig wanneer de output de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een afbeelding die alleen de alinea bevat, gebruik [IParagraph.GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
 **Kan ik het automatisch afbreken van tekst in een tekstkader volledig uitschakelen?**
 
-Ja. Gebruik de afbreekinstelling van het tekstkader ([WrapText](https://reference.aspose.com/slides/nl/net/aspose.slides/textframeformat/wraptext/)) om afbreken uit te zetten zodat regels niet worden afgebroken aan de randen van het kader.
+Ja. Stel [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/wraptext/) in om afbreken uit te schakelen zodat regels niet breken aan de rand van het tekstkader.
 
-**Hoe kan ik de exacte positie van een specifieke alinea op de dia verkrijgen?**
+**Hoe krijg ik de exacte on‑slide‑afmetingen van een specifieke alinea?**
 
-U kunt de begrenzende rechthoek van de alinea (en zelfs van een enkel deel) opvragen om de precieze positie en grootte op de dia te weten.
+Gebruik [IParagraph.GetRect](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraph/getrect/) om de omhullende rechthoek van de alinea op te halen. [IPortion.GetRect](https://reference.aspose.com/slides/nl/net/aspose.slides/iportion/getrect/) geeft de afmetingen van een individuele portie.
 
-**Waar wordt de alinea‑uitlijning (links/rechts/centraal/uitvullen) beheerd?**
+**Waar wordt de alinea‑uitlijning (links, rechts, gecentreerd of uitvullen) geregeld?**
 
-[Alignment](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraphformat/alignment/) is een alinea‑niveau instelling in [ParagraphFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/paragraphformat/); deze wordt toegepast op de volledige alinea, ongeacht de opmaak van individuele delen.
+[IParagraphFormat.Alignment](https://reference.aspose.com/slides/nl/net/aspose.slides/iparagraphformat/alignment/) is een alinea‑niveau instelling en wordt toegepast op de volledige alinea, ongeacht de opmaak van individuele porties.
 
-**Kan ik een spellingscontrotaling instellen voor slechts een deel van een alinea (bijv. één woord)?**
+**Kan ik de proefleestaal voor een deel van een alinea instellen?**
 
-Ja. De taal wordt ingesteld op het deel‑niveau ([PortionFormat.LanguageId](https://reference.aspose.com/slides/nl/net/aspose.slides/baseportionformat/languageid/)), waardoor meerdere talen binnen één alinea kunnen coexisteren.
+Ja. Stel [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseportionformat/languageid/) in voor afzonderlijke porties, zodat één alinea tekst in meerdere talen kan bevatten.

@@ -1,9 +1,12 @@
 ---
 title: Zarządzanie akapitami tekstu PowerPoint w JavaScript
-linktitle: Zarządzaj akapitem
+linktitle: Zarządzanie akapitem
 type: docs
 weight: 40
 url: /pl/nodejs-java/manage-paragraph/
+aliases:
+  - /nodejs-java/paragraph/
+  - /nodejs-java/portion/
 keywords:
 - dodaj tekst
 - dodaj akapit
@@ -11,420 +14,391 @@ keywords:
 - zarządzaj akapitem
 - zarządzaj wypunktowaniem
 - wcięcie akapitu
-- wcięcie zwisające
+- wcięcie wiszące
 - wypunktowanie akapitu
 - lista numerowana
-- lista punktowana
+- lista wypunktowana
 - właściwości akapitu
-- importuj HTML
+- import HTML
 - tekst do HTML
 - akapit do HTML
 - akapit do obrazu
 - tekst do obrazu
-- eksportuj akapit
+- eksport akapitu
 - PowerPoint
-- OpenDocument
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Opanuj formatowanie akapitów za pomocą Aspose.Slides dla Node.js w Java—optymalizuj wyrównanie, odstępy i styl w prezentacjach PPT, PPTX i ODP w JavaScript."
+description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla Node.js via Java."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Aspose.Slides zapewnia wszystkie klasy i klasy, których potrzebujesz do pracy z tekstami, akapitami i fragmentami PowerPoint w języku Java.
+Aspose.Slides for Node.js via Java reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
 
-* Aspose.Slides udostępnia klasę [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) umożliwiającą dodawanie obiektów reprezentujących akapit. Obiekt `TextFame` może mieć jeden lub wiele akapitów (każdy akapit jest tworzony poprzez znak powrotu karetki).
-* Aspose.Slides udostępnia klasę [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/) umożliwiającą dodawanie obiektów reprezentujących fragmenty. Obiekt `Paragraph` może mieć jeden lub wiele fragmentów (kolekcja obiektów fragmentu tekstu).
-* Aspose.Slides udostępnia klasę [Portion](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portion/) umożliwiającą dodawanie obiektów reprezentujących teksty i ich właściwości formatowania.
+* [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) reprezentuje kontener tekstu w kształcie i zapewnia dostęp do jego kolekcji akapitów.
+* [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
+* [Portion](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portion/) reprezentuje fragment tekstu w akapicie. Każdy fragment może mieć własny tekst i formatowanie znaków.
 
-Obiekt `Paragraph` jest w stanie obsługiwać teksty o różnych właściwościach formatowania za pośrednictwem swoich wewnętrznych obiektów `Portion`.
+Akapit może więc zawierać tekst w różnych czcionkach, kolorach, rozmiarach i innym formatowaniu, korzystając z wielu fragmentów.
 
-## **Dodaj wiele akapitów zawierających wiele fragmentów**
+## **Tworzenie i formatowanie akapitów**
 
-Poniższe kroki pokazują, jak dodać ramkę tekstową zawierającą 3 akapity, a każdy akapit zawierający 3 fragmenty:
+### **Tworzenie akapitów z wieloma fragmentami**
+
+Poniższe kroki tworzą ramkę tekstową z trzema akapitami, z których każdy zawiera trzy fragmenty:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj prostokątny [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-4. Pobierz obiekt `ITextFrame` powiązany z [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/).
-5. Utwórz dwa obiekty [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/) i dodaj je do kolekcji `IParagraphs` klasy [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/).
-6. Utwórz trzy obiekty [Portion](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portion/) dla każdego nowego `Paragraph` (dwa obiekty `Portion` dla domyślnego akapitu) i dodaj każdy obiekt `Portion` do kolekcji `IPortion` każdego `Paragraph`.
-7. Ustaw tekst dla każdego fragmentu.
-8. Zastosuj preferowane funkcje formatowania do każdego fragmentu, używając właściwości formatowania udostępnionych przez obiekt `Portion`.
+2. Uzyskaj dostęp do odpowiedniego slajdu przy użyciu jego indeksu.
+3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
+4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) kształtu.
+5. Użyj domyślnego akapitu i dodaj dwa dodatkowe obiekty [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/) do ramki tekstowej.
+6. Dodaj wystarczającą liczbę obiektów [Portion](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portion/) dla każdego akapitu, aby zawierał trzy fragmenty. Domyślny akapit już zawiera jeden pusty fragment.
+7. Ustaw tekst każdego fragmentu.
+8. Zastosuj formatowanie na poziomie znaków przy użyciu [Portion.getPortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portion/getportionformat/).
 9. Zapisz zmodyfikowaną prezentację.
 
+Ten przykład w JavaScript implementuje te kroki:
+
 ```javascript
-// Utwórz obiekt klasy Presentation reprezentujący plik PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Dostęp do pierwszego slajdu
-    var slide = pres.getSlides().get_Item(0);
-    // Dodaj AutoShape typu Prostokąt
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
-    // Uzyskaj dostęp do TextFrame auto‑kształtu
-    var tf = ashp.getTextFrame();
-    // Utwórz akapity i fragmenty o różnych formatach tekstu
-    var para0 = tf.getParagraphs().get_Item(0);
-    var port01 = new aspose.slides.Portion();
-    var port02 = new aspose.slides.Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
-    var para1 = new aspose.slides.Paragraph();
-    tf.getParagraphs().add(para1);
-    var port10 = new aspose.slides.Portion();
-    var port11 = new aspose.slides.Portion();
-    var port12 = new aspose.slides.Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
-    var para2 = new aspose.slides.Paragraph();
-    tf.getParagraphs().add(para2);
-    var port20 = new aspose.slides.Portion();
-    var port21 = new aspose.slides.Portion();
-    var port22 = new aspose.slides.Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-    for (var i = 0; i < 3; i++) {
-        for (var j = 0; j < 3; j++) {
-            var portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j);
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
+    const textFrame = shape.getTextFrame();
+
+    const firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new aspose.slides.Portion());
+    firstParagraph.getPortions().add(new aspose.slides.Portion());
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.getPortions().add(new aspose.slides.Portion());
+    secondParagraph.getPortions().add(new aspose.slides.Portion());
+    secondParagraph.getPortions().add(new aspose.slides.Portion());
+    textFrame.getParagraphs().add(secondParagraph);
+
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.getPortions().add(new aspose.slides.Portion());
+    thirdParagraph.getPortions().add(new aspose.slides.Portion());
+    thirdParagraph.getPortions().add(new aspose.slides.Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    const paragraphCount = textFrame.getParagraphs().getCount();
+    for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        const portionCount = paragraph.getPortions().getCount();
+        for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            const portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
+
+            if (portionIndex === 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                portion.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+                portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex === 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-                portion.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+                portion.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
                 portion.getPortionFormat().setFontHeight(18);
             }
         }
     }
-    // Zapisz PPTX na dysk
-    pres.save("multiParaPort_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("paragraphs_with_portions.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Zarządzanie punktorami akapitu**
+## **Tworzenie list wypunktowanych i numerowanych**
 
-Listy punktowane pomagają szybko i efektywnie organizować oraz prezentować informacje. Akapity z punktorami są zawsze łatwiejsze do odczytania i zrozumienia.
+### **Tworzenie listy wypunktowanej lub numerowanej**
+
+Wypunktowania i numeracje ułatwiają przegląd powiązanych elementów. W Aspose.Slides ustawienia listy są definiowane poprzez [BulletFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/).
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
+2. Uzyskaj dostęp do odpowiedniego slajdu przy użyciu jego indeksu.
 3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do wybranego slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) auto‑kształtu.
-5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu używając klasy [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/).
-7. Ustaw `Type` punktora na `Symbol` i określ znak punktora.
-8. Ustaw `Text` akapitu.
-9. Ustaw `Indent` akapitu dla punktora.
-10. Ustaw kolor punktora.
-11. Ustaw wysokość punktora.
-12. Dodaj nowy akapit do kolekcji akapitów `TextFrame`.
-13. Dodaj drugi akapit i powtórz proces opisany w krokach od 7 do 13.
-14. Zapisz prezentację.
+4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) kształtu.
+5. Usuń domyślny akapit z ramki tekstowej.
+6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/) dla symbolu wypunktowania.
+7. Ustaw [BulletFormat.setType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Symbol](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bullettype/) i określ znak wypunktowania.
+8. Ustaw tekst akapitu, wcięcie, kolor wypunktowania i wysokość wypunktowania.
+9. Dodaj akapit do ramki tekstowej.
+10. Utwórz drugi akapit i ustaw [BulletFormat.setType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Numbered](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bullettype/).
+11. Skonfiguruj styl numerowanego wypunktowania i dodaj akapit do ramki tekstowej.
+12. Zapisz prezentację.
+
+Ten przykład w JavaScript tworzy symbol wypunktowania i numerowane wypunktowanie:
 
 ```javascript
-// Tworzy obiekt klasy Presentation reprezentujący plik PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var slide = pres.getSlides().get_Item(0);
-    // Dodaje i uzyskuje dostęp do AutoShape
-    var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // Uzyskuje dostęp do ramki tekstowej auto‑kształtu
-    var txtFrm = aShp.getTextFrame();
-    // Usuwa domyślny akapit
-    txtFrm.getParagraphs().removeAt(0);
-    // Tworzy akapit
-    var para = new aspose.slides.Paragraph();
-    // Ustawia styl i znak punktora akapitu
-    para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar(8226);
-    // Ustawia tekst akapitu
-    para.setText("Welcome to Aspose.Slides");
-    // Ustawia wcięcie punktora
-    para.getParagraphFormat().setIndent(25);
-    // Ustawia kolor punktora
-    para.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True); // ustaw IsBulletHardColor na true, aby użyć własnego koloru punktora
-    // Ustawia wysokość punktora
-    para.getParagraphFormat().getBullet().setHeight(100);
-    // Dodaje akapit do ramki tekstowej
-    txtFrm.getParagraphs().add(para);
-    // Tworzy drugi akapit
-    var para2 = new aspose.slides.Paragraph();
-    // Ustawia typ i styl punktora akapitu
-    para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-    // Dodaje tekst akapitu
-    para2.setText("This is numbered bullet");
-    // Ustawia wcięcie punktora
-    para2.getParagraphFormat().setIndent(25);
-    para2.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para2.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True); // ustaw IsBulletHardColor na true, aby użyć własnego koloru punktora
-    // Ustawia wysokość punktora
-    para2.getParagraphFormat().getBullet().setHeight(100);
-    // Dodaje akapit do ramki tekstowej
-    txtFrm.getParagraphs().add(para2);
-    // Zapisuje zmodyfikowaną prezentację
-    pres.save("Bullet_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const symbolParagraph = new aspose.slides.Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    symbolParagraph.getParagraphFormat().getBullet().setChar(java.newChar(0x2022));
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
+
+    const numberedParagraph = new aspose.slides.Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(java.newByte(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain));
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
+
+    presentation.save("bulleted_and_numbered_list.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Zarządzanie punktorami obrazkowymi**
+### **Użycie wypunktowania obrazkowego**
 
-Listy punktowane pomagają szybko i efektywnie organizować oraz prezentować informacje. Akapity z obrazkowymi punktorami są łatwe do odczytania i zrozumienia.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) auto‑kształtu.
-5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu używając klasy [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/).
-7. Wczytaj obraz do [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/).
-8. Ustaw typ punktora na [Picture](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/) i określ obraz.
-9. Ustaw `Text` akapitu.
-10. Ustaw `Indent` akapitu dla punktora.
-11. Ustaw kolor punktora.
-12. Ustaw wysokość punktora.
-13. Dodaj nowy akapit do kolekcji akapitów `TextFrame`.
-14. Dodaj drugi akapit i powtórz proces opisany w poprzednich krokach.
-15. Zapisz zmodyfikowaną prezentację.
-
-```javascript
-// Tworzy obiekt klasy Presentation, który reprezentuje plik PPTX
-var presentation = new aspose.slides.Presentation();
-try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var slide = presentation.getSlides().get_Item(0);
-    // Tworzy obraz dla punktorów
-    var picture;
-    var image = aspose.slides.Images.fromFile("bullets.png");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Dodaje i uzyskuje dostęp do AutoShape
-    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // Uzyskuje dostęp do ramki tekstowej auto‑kształtu
-    var textFrame = autoShape.getTextFrame();
-    // Usuwa domyślny akapit
-    textFrame.getParagraphs().removeAt(0);
-    // Tworzy nowy akapit
-    var paragraph = new aspose.slides.Paragraph();
-    paragraph.setText("Welcome to Aspose.Slides");
-    // Ustawia styl punktora akapitu i obraz
-    paragraph.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-    // Ustawia wysokość punktora
-    paragraph.getParagraphFormat().getBullet().setHeight(100);
-    // Dodaje akapit do ramki tekstowej
-    textFrame.getParagraphs().add(paragraph);
-    // Zapisuje prezentację jako plik PPTX
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", aspose.slides.SaveFormat.Pptx);
-    // Zapisuje prezentację jako plik PPT
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", aspose.slides.SaveFormat.Ppt);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Zarządzanie punktorami wielopoziomowymi**
-
-Listy punktowane pomagają szybko i efektywnie organizować oraz prezentować informacje. Wielopoziomowe punktor są łatwe do odczytania i zrozumienia.
+Wypunktowania obrazkowe pozwalają użyć własnego obrazu zamiast symbolu lub liczby.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) w nowym slajdzie.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) auto‑kształtu.
-5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/) i ustaw głębokość na 0.
-7. Utwórz drugą instancję akapitu przy użyciu klasy `Paragraph` i ustaw głębokość na 1.
-8. Utwórz trzecią instancję akapitu przy użyciu klasy `Paragraph` i ustaw głębokość na 2.
-9. Utwórz czwartą instancję akapitu przy użyciu klasy `Paragraph` i ustaw głębokość na 3.
-10. Dodaj nowe akapity do kolekcji akapitów `TextFrame`.
-11. Zapisz zmodyfikowaną prezentację.
-
-```javascript
-// Tworzy obiekt klasy Presentation reprezentujący plik PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Uzyskuje dostęp do pierwszego slajdu
-    var slide = pres.getSlides().get_Item(0);
-    // Dodaje i uzyskuje dostęp do AutoShape
-    var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // Uzyskuje dostęp do ramki tekstowej utworzonego AutoShape
-    var text = aShp.addTextFrame("");
-    // Czyści domyślny akapit
-    text.getParagraphs().clear();
-    // Dodaje pierwszy akapit
-    var para1 = new aspose.slides.Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar(8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Ustawia poziom punktora
-    para1.getParagraphFormat().setDepth(0);
-    // Dodaje drugi akapit
-    var para2 = new aspose.slides.Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Ustawia poziom punktora
-    para2.getParagraphFormat().setDepth(1);
-    // Dodaje trzeci akapit
-    var para3 = new aspose.slides.Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar(8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Ustawia poziom punktora
-    para3.getParagraphFormat().setDepth(2);
-    // Dodaje czwarty akapit
-    var para4 = new aspose.slides.Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Ustawia poziom punktora
-    para4.getParagraphFormat().setDepth(3);
-    // Dodaje akapity do kolekcji
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-    // Zapisuje prezentację jako plik PPTX
-    pres.save("MultilevelBullet.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Zarządzanie akapitem z niestandardową listą numerowaną**
-
-Klasa [BulletFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/) udostępnia właściwość [NumberedBulletStartWith](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) oraz inne, które pozwalają zarządzać akapitami z własnym numerowaniem lub formatowaniem.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj dostęp do slajdu zawierającego akapit.
-3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) auto‑kształtu.
-5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/) i ustaw [NumberedBulletStartWith](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) na 2.
-7. Utwórz drugą instancję akapitu przy użyciu klasy `Paragraph` i ustaw `NumberedBulletStartWith` na 3.
-8. Utwórz trzecią instancję akapitu przy użyciu klasy `Paragraph` i ustaw `NumberedBulletStartWith` na 7.
-9. Dodaj nowe akapity do kolekcji akapitów `TextFrame`.
+2. Uzyskaj dostęp do odpowiedniego slajdu przy użyciu jego indeksu.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) i uzyskaj dostęp do jego [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/).
+4. Usuń domyślny akapit z ramki tekstowej.
+5. Wczytaj obraz wypunktowania i dodaj go do kolekcji obrazów prezentacji jako [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/).
+6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/) i ustaw jego tekst.
+7. Ustaw [BulletFormat.setType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/settype/) na [BulletType.Picture](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bullettype/).
+8. Przypisz obraz przy użyciu [BulletFormat.getPicture](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/getpicture/) i ustaw wysokość wypunktowania.
+9. Dodaj akapit do ramki tekstowej.
 10. Zapisz zmodyfikowaną prezentację.
 
+Ten przykład w JavaScript tworzy wypunktowanie obrazkowe:
+
 ```javascript
-var presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // Uzyskuje dostęp do ramki tekstowej utworzonego auto‑kształtu
-    var textFrame = shape.getTextFrame();
-    // Usuwa domyślny istniejący akapit
-    textFrame.getParagraphs().removeAt(0);
-    // Pierwsza lista
-    var paragraph1 = new aspose.slides.Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth(4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith(2);
-    paragraph1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
-    var paragraph2 = new aspose.slides.Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth(4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith(3);
-    paragraph2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
-    var paragraph5 = new aspose.slides.Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth(4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith(7);
-    paragraph5.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
-    presentation.save("SetCustomBulletsNumber-slides.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const bulletImage = aspose.slides.Images.fromFile("image.png");
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(bulletImage);
+    } finally {
+        bulletImage.dispose();
     }
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const paragraph = new aspose.slides.Paragraph();
+    paragraph.setText("Welcome to Aspose.Slides");
+    paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Picture));
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
+    paragraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(paragraph);
+
+    presentation.save("picture_bullet.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", aspose.slides.SaveFormat.Ppt);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Ustaw wcięcie pierwszej linii dla akapitu**
+### **Tworzenie listy wielopoziomowej**
 
-Użyj metody [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/), aby kontrolować wcięcie pierwszej linii akapitu. Metoda ta przesuwa wyłącznie pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, a pozostałe linie pozostają wyrównane do treści akapitu.
+Ustaw [ParagraphFormat.setDepth](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setdepth/) aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
 
-Użyj [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setmarginleft/), gdy potrzebujesz przesunąć cały akapit. Użyj [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/), gdy chcesz przesunąć tylko pierwszą linię.
+1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
+2. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) i usuń domyślny akapit z jego ramki tekstowej.
+3. Utwórz cztery akapity i skonfiguruj ich symbole wypunktowania.
+4. Ustaw ich wartości [ParagraphFormat.setDepth](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setdepth/) na `0`, `1`, `2` i `3`.
+5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
 
-Poniższy przykład tworzy kilka akapitów i stosuje różne wartości wcięcia, aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
+Ten przykład w JavaScript tworzy listę wypunktowaną czteropoziomową:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    firstParagraph.getParagraphFormat().getBullet().setChar(java.newChar(0x2022));
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    firstParagraph.getParagraphFormat().setDepth(java.newShort(0));
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    secondParagraph.getParagraphFormat().getBullet().setChar(java.newChar(45));
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    secondParagraph.getParagraphFormat().setDepth(java.newShort(1));
+
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    thirdParagraph.getParagraphFormat().getBullet().setChar(java.newChar(0x2022));
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    thirdParagraph.getParagraphFormat().setDepth(java.newShort(2));
+
+    const fourthParagraph = new aspose.slides.Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    fourthParagraph.getParagraphFormat().getBullet().setChar(java.newChar(45));
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    fourthParagraph.getParagraphFormat().setDepth(java.newShort(3));
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
+
+    presentation.save("multilevel_list.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Rozpoczęcie numeracji elementów listy od własnych wartości**
+
+Użyj [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) aby ustawić początkowy numer wyświetlany dla numerowanego akapitu.
+
+1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) i dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
+2. Usuń domyślny akapit z ramki tekstowej kształtu.
+3. Utwórz trzy numerowane akapity.
+4. Ustaw [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) na `2`, `3` i `7` dla odpowiednich akapitów.
+5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
+
+Ten przykład w JavaScript przypisuje własny numer początkowy każdemu akapitowi:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(2));
+    textFrame.getParagraphs().add(firstParagraph);
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(3));
+    textFrame.getParagraphs().add(secondParagraph);
+
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(7));
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kontrola układu akapitu i właściwości końcowych**
+
+### **Ustawienie wcięcia pierwszej linii**
+
+Użyj [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/) aby kontrolować wcięcie pierwszej linii akapitu. Metoda ta przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, natomiast pozostałe linie pozostają wyrównane do ciała akapitu.
+
+Użyj [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) gdy potrzebujesz przesunąć cały akapit. Użyj [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/) gdy potrzebujesz przesunąć tylko pierwszą linię.
+
+Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/), aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
-3. Dodaj prostokątny [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-4. Dodaj pusty [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) do kształtu i usuń domyślny akapit.
-5. Utwórz kilka akapitów i ustaw różne wartości [Indent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/) dla nich.
+3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
+4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) kształtu i usuń domyślny akapit.
+5. Utwórz kilka akapitów i ustaw różne wartości [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/) dla nich.
 6. Dodaj akapity do ramki tekstowej.
 7. Zapisz zmodyfikowaną prezentację.
 
-```js
-let presentation = new aspose.slides.Presentation();
+Ten kod pokazuje, jak ustawić wcięcie akapitu:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let rectangleShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    rectangleShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
 
-    let textFrame = rectangleShape.addTextFrame("");
+    const textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
-    let firstParagraph = new aspose.slides.Paragraph();
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().setMarginLeft(20);
     firstParagraph.getParagraphFormat().setIndent(0);
 
-    let secondParagraph = new aspose.slides.Paragraph();
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20);
     secondParagraph.getParagraphFormat().setIndent(20);
 
-    let thirdParagraph = new aspose.slides.Paragraph();
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20);
     thirdParagraph.getParagraphFormat().setIndent(40);
 
@@ -433,8 +407,7 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
@@ -443,48 +416,54 @@ Wynik:
 
 ![Wcięcie pierwszej linii akapitów](first_line_indent.png)
 
-## **Ustaw wcięcie zwisające dla akapitu**
+### **Ustawienie wcięcia wiszącego**
 
-Wcięcie zwisające to układ akapitu, w którym pierwsza linia zaczyna się po lewo od pozostałych linii. W Aspose.Slides efekt ten uzyskuje się metodą [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/). Ustaw wcięcie na wartość ujemną, aby przesunąć pierwszą linię w lewo względem treści akapitu.
+Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt przy pomocy [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/). Przekaż ujemną wartość, aby przesunąć pierwszą linię w lewo względem ciała akapitu.
 
-W praktyce [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) definiuje lewą pozycję treści akapitu, a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/) określa pozycję pierwszej linii względem tego marginesu. Aby utworzyć wcięcie zwisające, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
+W praktyce [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) definiuje lewą pozycję ciała akapitu, a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/) określa pozycję pierwszej linii względem tego marginesu. Aby stworzyć wcięcie wiszące, przekaż dodatnią wartość do `setMarginLeft` i ujemną wartość do `setIndent`.
 
-To formatowanie jest przydatne przy bibliografiach, odnośnikach, hasłach słownikowych i innych akapitach, w których zawijane linie muszą być wyrównane pod treścią akapitu, a nie pod pierwszym znakiem pierwszej linii.
+To formatowanie jest przydatne w bibliografiach, przypisach, hasłach słownika i innych akapitach, gdzie linie zawijane muszą być wyrównane pod ciałem akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
 2. Uzyskaj dostęp do docelowego slajdu.
-3. Dodaj prostokątny [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-4. Dodaj pusty [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) do kształtu i usuń domyślny akapit.
-5. Utwórz akapity i ustaw dodatnią wartość [MarginLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) dla każdego akapitu.
-6. Ustaw ujemną wartość [Indent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/) aby uzyskać efekt wcięcia zwisającego.
+3. Dodaj prostokątną [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
+4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) kształtu i usuń domyślny akapit.
+5. Utwórz akapity i przekaż dodatnią wartość do [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) dla każdego akapitu.
+6. Przekaż ujemną wartość do [ParagraphFormat.setIndent](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setindent/), aby uzyskać efekt wcięcia wiszącego.
 7. Dodaj akapity do ramki tekstowej.
 8. Zapisz zmodyfikowaną prezentację.
 
-```js
-let presentation = new aspose.slides.Presentation();
+Ten kod pokazuje, jak ustawić wcięcie wiszące dla akapitu:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let rectangleShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    rectangleShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
 
-    let textFrame = rectangleShape.addTextFrame("");
+    const textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
-    let firstParagraph = new aspose.slides.Paragraph();
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40);
     firstParagraph.getParagraphFormat().setIndent(-20);
 
-    let secondParagraph = new aspose.slides.Paragraph();
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60);
     secondParagraph.getParagraphFormat().setIndent(-30);
 
@@ -492,177 +471,197 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 Wynik:
 
-![Wcięcie zwisające akapitów](hanging_indent.png)
+![Wcięcie wiszące akapitów](hanging_indent.png)
 
-## **Zarządzanie właściwościami końcowego uruchomienia akapitu**
+### **Ustawienie właściwości końcowych akapitu**
+
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) kontroluje formatowanie znaku końcowego akapitu. Poniższy przykład przypisuje rozmiar czcionki i czcionkę łacińską do znaku końcowego drugiego akapitu:
+
+1. Utwórz lub wczytaj [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
+2. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) i usuń jego domyślny akapit.
+3. Utwórz dwa akapity i dodaj do nich fragmenty tekstu.
+4. Utwórz [PortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portionformat/) dla końcowego znaku drugiego akapitu.
+5. Ustaw [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) i [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
+6. Przypisz format przy użyciu [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) i zapisz prezentację.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.getPortions().add(new aspose.slides.Portion("Sample text"));
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.getPortions().add(new aspose.slides.Portion("Sample text 2"));
+
+    const endParagraphFormat = new aspose.slides.PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    presentation.save("end_paragraph_format.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Import i eksport zawartości akapitu**
+
+### **Importowanie tekstu HTML do akapitów**
+
+Użyj [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) aby przekształcić kod HTML w akapity i fragmenty w ramce tekstowej.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu zawierającego akapit poprzez jego pozycję.
-1. Dodaj prostokątny [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-1. Dodaj [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) z dwoma akapitami do prostokąta.
-1. Ustaw `FontHeight` i typ czcionki dla akapitów.
-1. Ustaw właściwości End dla akapitów.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj dostęp do slajdu i dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/).
+3. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) kształtu i usuń domyślny akapit.
+4. Zdefiniuj lub odczytaj źródłowy ciąg HTML.
+5. Przekaż ciąg HTML do [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
+6. Zapisz zmodyfikowaną prezentację.
+
+Ten przykład w JavaScript importuje HTML do ramki tekstowej:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
-    var para1 = new aspose.slides.Paragraph();
-    para1.getPortions().add(new aspose.slides.Portion("Sample text"));
-    var para2 = new aspose.slides.Paragraph();
-    para2.getPortions().add(new aspose.slides.Portion("Sample text 2"));
-    var portionFormat = new aspose.slides.PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
-    pres.save(resourcesOutputPath + "pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
+    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const html = "<p><b>Aspose.Slides</b> imports HTML text into presentation paragraphs.</p>";
+    shape.getTextFrame().getParagraphs().addFromHtml(html);
+    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Importowanie tekstu HTML do akapitów**
+### **Eksport tekstu akapitu do HTML**
 
-Aspose.Slides zapewnia rozszerzone wsparcie dla importowania tekstu HTML do akapitów.
+Użyj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) aby wyeksportować wybrany zakres akapitów jako HTML.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-4. Dodaj i uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) auto‑kształtu.
-5. Usuń domyślny akapit w `TextFrame`.
-6. Odczytaj źródłowy plik HTML przy użyciu TextReader.
-7. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/).
-8. Dodaj zawartość pliku HTML odczytaną z TextReader do [ParagraphCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphcollection/) ramki tekstowej.
-9. Zapisz zmodyfikowaną prezentację.
+1. Utwórz lub wczytaj instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
+2. Uzyskaj dostęp do slajdu i znajdź [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/), który zawiera tekst.
+3. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) kształtu.
+4. Wywołaj [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) z indeksem początkowego akapitu i liczbą akapitów do wyeksportowania.
+5. Zapisz zwrócony ciąg HTML do pliku.
+
+Ten samodzielny przykład w JavaScript tworzy kształt tekstowy i eksportuje wszystkie jego akapity:
 
 ```javascript
-// Utwórz pustą instancję prezentacji
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Uzyskaj dostęp do domyślnego pierwszego slajdu prezentacji
-    var slide = pres.getSlides().get_Item(0);
-    // Dodawanie AutoShape, aby pomieścić treść HTML
-    var ashape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, pres.getSlideSize().getSize().getWidth() - 20, pres.getSlideSize().getSize().getHeight() - 10);
-    ashape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Dodawanie ramki tekstowej do kształtu
-    ashape.addTextFrame("");
-    // Usuwanie wszystkich akapitów w dodanej ramce tekstowej
-    ashape.getTextFrame().getParagraphs().clear();
-    // Wczytywanie pliku HTML przy użyciu stream readera
-    var tr = java.newInstanceSync("StreamReader", "file.html");
-    // Dodawanie tekstu z HTML stream readera do ramki tekstowej
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-    // Zapisywanie prezentacji
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
+    const sourceTextFrame = sourceShape.getTextFrame();
+    sourceTextFrame.getParagraphs().clear();
+    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
+        const sourceParagraph = new aspose.slides.Paragraph();
+        sourceParagraph.setText(text);
+        sourceTextFrame.getParagraphs().add(sourceParagraph);
     }
+    const shape = slide.getShapes().get_Item(0);
+
+    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+        const textFrame = shape.getTextFrame();
+        if (textFrame !== null) {
+            const paragraphs = textFrame.getParagraphs();
+            const html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            fs.writeFileSync("paragraphs.html", html, "utf8");
+        } else {
+            console.log("The first shape does not contain a text frame.");
+        }
+    } else {
+        console.log("The first shape is not a text shape.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Eksportowanie tekstu akapitów do HTML**
+### **Renderowanie akapitu jako obrazu**
 
-Aspose.Slides zapewnia rozszerzone wsparcie dla eksportowania tekstów (zawartych w akapitach) do HTML.
+[Paragraph.getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/#getImage) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/iimage/). Zapisz wynik do pliku przy użyciu [IImage.save](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/iimage/#save). Nie musisz renderować zawierającego kształtu ani ręcznie przycinać bitmapy.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) i wczytaj żądaną prezentację.
-2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Uzyskaj dostęp do kształtu zawierającego tekst, który zostanie wyeksportowany do HTML.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/) kształtu.
-5. Utwórz instancję `StreamWriter` i dodaj nowy plik HTML.
-6. Podaj indeks początkowy do StreamWriter i wyeksportuj wybrane akapity.
+[Paragraph.getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/#getImage) może zwrócić `null`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisem i zwolnij zwrócony obraz po użyciu.
 
-```javascript
-// Wczytaj plik prezentacji
-var pres = new aspose.slides.Presentation("ExportingHTMLText.pptx");
-try {
-    // Uzyskaj dostęp do domyślnego pierwszego slajdu prezentacji
-    var slide = pres.getSlides().get_Item(0);
-    // Żądany indeks
-    var index = 0;
-    // Uzyskiwanie dostępu do dodanego kształtu
-    var ashape = slide.getShapes().get_Item(index);
-    // Tworzenie wyjściowego pliku HTML
-    var os = java.newInstanceSync("java.io.FileOutputStream", "output.html");
-    var writer = java.newInstanceSync("java.io.OutputStreamWriter", os, "UTF-8");
-    // Eksportowanie pierwszego akapitu jako HTML
-    // Zapisywanie danych akapitów do HTML, podając indeks początkowego akapitu oraz liczbę akapitów do skopiowania
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+#### **Renderowanie akapitu w domyślnej skali**
 
-## **Zapis akapitu jako obrazu**
-
-W tej sekcji przedstawiamy dwa przykłady demonstrujące, jak zapisać akapit tekstowy, reprezentowany przez klasę [Paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/), jako obraz. Oba przykłady obejmują uzyskanie obrazu kształtu zawierającego akapit przy użyciu metod `getImage` z klasy [Shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/), obliczenie granic akapitu w ramach kształtu oraz eksportowanie go jako obrazu bitmapowego. Podejścia te umożliwiają wyodrębnienie konkretnych fragmentów tekstu z prezentacji PowerPoint i zapisanie ich jako oddzielnych obrazów, co może być przydatne w różnych scenariuszach.
-
-Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, gdzie pierwszy kształt to pole tekstowe zawierające trzy akapity.
+Poniższe pole tekstowe zawiera trzy akapity:
 
 ![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
 
-**Przykład 1**
+Poniższy przykład renderuje drugi akapit w zwykłym kształcie tekstowym w domyślnej skali i zapisuje zwrócony obraz w formacie PNG. Blok `finally` zapewnia prawidłowe zwolnienie obrazu.
 
-W tym przykładzie uzyskujemy drugi akapit jako obraz. W tym celu wyodrębniamy obraz kształtu z pierwszego slajdu prezentacji, a następnie obliczamy granice drugiego akapitu w ramce tekstowej kształtu. Akapit zostaje następnie narysowany na nowym obrazie bitmapowym, który jest zapisywany w formacie PNG. Metoda ta jest szczególnie przydatna, gdy trzeba zapisać konkretny akapit jako oddzielny obraz, zachowując dokładne wymiary i formatowanie tekstu.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-```java
-const imageio = java.import("javax.imageio.ImageIO");
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Zapisz kształt w pamięci jako bitmapę.
-    const shapeImage = firstShape.getImage();
-        
-    const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
-    shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
-    shapeImage.dispose();
-    shapeImageStream.flush();
-    
-    // Utwórz bitmapę kształtu z pamięci.
-    const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
-    const javaBytes = java.newArray("byte", Array.from(byteBuffer));
-    const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
-    const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
-    const shapeBitmap = imageio.read(shapeImageInputStream);
-
-    // Oblicz granice drugiego akapitu.
-    const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    const paragraphRectangle = secondParagraph.getRect();
-
-    // Oblicz współrzędne i rozmiar obrazu wyjściowego (minimalny rozmiar - 1x1 piksel).
-    const imageX = Math.floor(paragraphRectangle.getX());
-    const imageY = Math.floor(paragraphRectangle.getY());
-    const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
-    const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
-
-    // Przytnij bitmapę kształtu, aby uzyskać wyłącznie bitmapę akapitu.
-    const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    const file = java.newInstanceSync("java.io.File", "paragraph.png");
-
-    imageio.write(paragraphBitmap, "png", file);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
+    const sourceTextFrame = sourceShape.getTextFrame();
+    sourceTextFrame.getParagraphs().clear();
+    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
+        const sourceParagraph = new aspose.slides.Paragraph();
+        sourceParagraph.setText(text);
+        sourceTextFrame.getParagraphs().add(sourceParagraph);
     }
+    const shape = slide.getShapes().get_Item(0);
+
+    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+        const textFrame = shape.getTextFrame();
+        if (textFrame !== null && textFrame.getParagraphs().getCount() > 1) {
+            const paragraph = textFrame.getParagraphs().get_Item(1);
+            const paragraphImage = paragraph.getImage();
+
+            if (paragraphImage !== null) {
+                try {
+                    paragraphImage.save("paragraph.png", aspose.slides.ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                console.log("The paragraph could not be rendered.");
+            }
+        } else {
+            console.log("The expected paragraph was not found.");
+        }
+    } else {
+        console.log("The first shape is not a text shape.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
@@ -670,75 +669,60 @@ Wynik:
 
 ![Obraz akapitu](paragraph_to_image_output.png)
 
-**Przykład 2**
+#### **Renderowanie akapitu w komórce tabeli ze skalowaniem**
 
-W tym przykładzie rozszerzamy poprzednie podejście, dodając współczynniki skalowania do obrazu akapitu. Kształt jest wyodrębniany z prezentacji i zapisywany jako obraz ze współczynnikiem skalowania równym `2`. Dzięki temu uzyskuje się wyższą rozdzielczość przy eksporcie akapitu. Granice akapitu są następnie obliczane z uwzględnieniem skali. Skalowanie może być szczególnie użyteczne, gdy potrzebny jest bardziej szczegółowy obraz, np. do wysokiej jakości materiałów drukowanych.
+Użyj przeciążenia [Paragraph.getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/#getImage), które przyjmuje parametry `scaleX` i `scaleY`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce dwukrotnie szerzej i wyżej niż domyślne rozmiary i zapisuje wynik jako obraz PNG.
 
-```java
-const imageScaleX = 2;
-const imageScaleY = imageScaleX;
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-const imageio = java.import("javax.imageio.ImageIO");
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const scaleX = 2;
+const scaleY = 2;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const columnWidths = java.newArray("double", [300]);
+    const rowHeights = java.newArray("double", [80]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    const paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // Zapisz kształt w pamięci jako bitmapę ze skalowaniem.
-    const shapeImage = firstShape.getImage(aspose.slides.ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
-    shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
-    shapeImage.dispose();
-
-    // Utwórz bitmapę kształtu z pamięci.
-    const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
-    const javaBytes = java.newArray("byte", Array.from(byteBuffer));
-    const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
-    const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
-    const shapeBitmap = imageio.read(shapeImageInputStream);
-
-    // Oblicz granice drugiego akapitu.
-    const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    const paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.setRect(
-            paragraphRectangle.getX() * imageScaleX,
-            paragraphRectangle.getY() * imageScaleY,
-            paragraphRectangle.getWidth() * imageScaleX,
-            paragraphRectangle.getHeight() * imageScaleY
-    );
-
-    // Oblicz współrzędne i rozmiar obrazu wyjściowego (minimalny rozmiar - 1x1 piksel).
-    const imageX = Math.floor(paragraphRectangle.getX());
-    const imageY = Math.floor(paragraphRectangle.getY());
-    const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
-    const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
-
-    // Przytnij bitmapę kształtu, aby uzyskać wyłącznie bitmapę akapitu.
-    const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    const file = java.newInstanceSync("java.io.File", "paragraph.png");
-
-    imageio.write(paragraphBitmap, "png", file);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+    const paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage !== null) {
+        try {
+            paragraphImage.save("table_paragraph.png", aspose.slides.ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        console.log("The paragraph could not be rendered.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+Czynnik skali `1` pozostawia oś w jej domyślnym rozmiarze pikseli. Na przykład `2` dla obu czynników tworzy obraz, którego szerokość i wysokość są w przybliżeniu dwa razy większe od domyślnych wymiarów, co daje cztery razy więcej pikseli. Większe czynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Czynniki poniżej `1` tworzą mniejsze obrazy z mniejszą ilością szczegółów. Używaj równych czynników, aby zachować proporcje akapitu; różne czynniki poziome i pionowe rozciągają wynik niezależnie.
+
+Renderowanie całego kształtu przy użyciu [Shape.getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/#getImage) pozostaje przydatne, gdy wynik musi zawierać wypełnienie, obramowanie lub inne konteksty wizualne kształtu. Dla obrazu tylko z akapitu użyj [Paragraph.getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/#getImage).
+
 ## **FAQ**
 
-**Czy mogę całkowicie wyłączyć łamanie linii w ramce tekstowej?**
+**Czy mogę całkowicie wyłączyć zawijanie tekstu w ramce tekstowej?**
 
-Tak. Użyj ustawienia zawijania tekstu ramki ([setWrapText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/setwraptext/)), aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane przy krawędziach ramki.
+Tak. Ustaw [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/setwraptext/) aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane przy krawędziach ramki tekstowej.
 
-**Jak mogę uzyskać dokładne granice akapitu na slajdzie?**
+**Jak mogę uzyskać dokładne granice na slajdzie konkretnego akapitu?**
 
-Możesz pobrać prostokąt otaczający akapit (a nawet pojedynczy fragment), aby poznać jego precyzyjne położenie i rozmiar na slajdzie.
+Użyj [Paragraph.getRect](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/getrect/), aby pobrać prostokąt otaczający akapit. [Portion.getRect](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portion/#getRect) podaje granice pojedynczego fragmentu.
 
-**Gdzie kontrolowane jest wyrównanie akapitu (lewe/prawe/środkowe/wyjustowane)?**
+**Gdzie kontrolowane jest wyrównanie akapitu (lewe, prawe, wyśrodkowane lub wyjustowane)?**
 
-[setAlignment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setalignment/) jest metodą ustawiającą wyrównanie na poziomie akapitu w [ParagraphFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/); dotyczy całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/setalignment/) jest ustawieniem na poziomie akapitu i ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
 
-**Czy mogę ustawić język sprawdzania pisowni tylko dla części akapitu (np. jednego słowa)?**
+**Czy mogę ustawić język sprawdzania pisowni dla części akapitu?**
 
-Tak. Język jest ustawiany na poziomie fragmentu ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setLanguageId)), więc w jednym akapicie mogą współistnieć różne języki.
+Tak. Ustaw [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) dla poszczególnych fragmentów, aby jeden akapit mógł zawierać tekst w wielu językach.

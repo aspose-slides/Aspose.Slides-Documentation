@@ -1,742 +1,640 @@
 ---
-title: PowerPoint szövegbekezdések kezelése .NET-ben
-linktitle: Bekezdés kezelése
+title: PowerPoint szöveg bekezdéseinek kezelése .NET-ben
+linktitle: Bekezdések kezelése
 type: docs
 weight: 40
 url: /hu/net/manage-paragraph/
+aliases:
+  - /net/bekezdes/
+  - /net/rész/
 keywords:
-- szöveg hozzáadása
-- bekezdés hozzáadása
-- szöveg kezelése
-- bekezdés kezelése
-- felsorolás kezelése
-- bekezdés behúzása
-- lógó behúzás
-- bekezdés felsorolás
-- számozott lista
-- felsoroláslista
-- bekezdés tulajdonságok
-- HTML importálása
-- szöveg HTML-be
-- bekezdés HTML-be
-- bekezdés képpé
-- szöveg képpé
-- bekezdés exportálása
-- PowerPoint
-- prezentáció
-- .NET
-- C#
-- Aspose.Slides
-description: "Mesteri bekezdésformázás az Aspose.Slides .NET számára – optimalizálja a igazítást, távolságot és stílust PPT, PPTX és ODP prezentációkban C#-ban."
+  - szöveg hozzáadása
+  - bekezdés hozzáadása
+  - szöveg kezelése
+  - bekezdés kezelése
+  - felsorolás kezelése
+  - bekezdés behúzása
+  - függő behúzás
+  - bekezdés felsorolás
+  - számozott lista
+  - felsoroláslista
+  - bekezdés tulajdonságok
+  - HTML importálása
+  - szöveg HTML-be
+  - bekezdés HTML-be
+  - bekezdés képpé
+  - szöveg képpé
+  - bekezdés exportálása
+  - PowerPoint
+  - prezentáció
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Tanulja meg, hogyan hozhat létre és formázhat bekezdéseket, részeket, felsorolásjeleket, számozott listákat, behúzásokat, HTML tartalmat és bekezdés képeket az Aspose.Slides for .NET segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Az Aspose.Slides minden szükséges interfészt és osztályt biztosít a PowerPoint szövegek, bekezdések és részek C#-ban történő kezeléséhez.
+Aspose.Slides for .NET a szöveget szövegdobozok, bekezdések és részek (portions) hierarchiájában ábrázolja:
 
-* Az Aspose.Slides biztosítja az [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) interfészt, amely lehetővé teszi, hogy olyan objektumokat adjunk hozzá, amelyek egy bekezdést képviselnek. Egy `ITextFame` objektumnak lehet egy vagy több bekezdése (minden bekezdés egy sortöréssel jön létre).
-* Az Aspose.Slides biztosítja az [IParagraph](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/) interfészt, amely lehetővé teszi, hogy olyan objektumokat adjunk hozzá, amelyek részeket képviselnek. Egy `IParagraph` objektumnak lehet egy vagy több részlete (az iPortions objektumok gyűjteménye).
-* Az Aspose.Slides biztosítja az [IPortion](https://reference.aspose.com/slides/hu/net/aspose.slides/iportion/) interfészt, amely lehetővé teszi, hogy olyan objektumokat adjunk hozzá, amelyek szövegeket és azok formázási tulajdonságait képviselik.
+* [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) a szöveg tárolója egy alakzatban, és hozzáférést biztosít a bekezdésgyűjteményéhez.
+* [IParagraph](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/) egy bekezdést képvisel egy szövegdobozban, és hozzáférést biztosít a részeihez és a bekezdés‑szintű formázáshoz.
+* [IPortion](https://reference.aspose.com/slides/hu/net/aspose.slides/iportion/) egy szövegrészt (run) képvisel egy bekezdésen belül. Minden rész saját szöveggel és karakter‑szintű formázással rendelkezhet.
 
-Egy `IParagraph` objektum képes különböző formázási tulajdonságú szövegek kezelésére az alatta lévő `IPortion` objektumok segítségével.
+Egy bekezdés ezért több rész segítségével különböző betűtípusú, színű, méretű és egyéb formázású szöveget is tartalmazhat.
 
-## **Több bekezdés hozzáadása, amelyek több részt tartalmaznak**
+## **Bekezdések létrehozása és formázása**
 
-Ezek a lépések megmutatják, hogyan adjon hozzá egy szövegkeretet, amely 3 bekezdést és minden bekezdés 3 részt tartalmaz.
+### **Bekezdések létrehozása több részzel**
+
+Az alábbi lépések egy szövegdobozt hoznak létre három bekezdéssel, melyek mindegyike három részt tartalmaz:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-2. Szerezze meg a megfelelő dia referenciaját az indexe alapján.
-3. Adjon hozzá egy téglalap [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diára.
-4. Szerezze meg az [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemhez társított ITextFrame-et.
-5. Hozzon létre két [IParagraph](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/) objektumot, és adja hozzá őket a `IParagraphs` gyűjteményhez a [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemben.
-6. Minden új `IParagraph` számára hozzon létre három [IPortion](https://reference.aspose.com/slides/hu/net/aspose.slides/iportion/) objektumot (az alapértelmezett bekezdéshez két Portion objektumot), és adja hozzá az egyes `IPortion` objektumokat az adott `IParagraph` IPortion gyűjteményéhez.
-7. Állítson be szöveget minden részhez.
-8. Alkalmazza a kívánt formázási beállításokat minden részre a `IPortion` objektum által biztosított formázási tulajdonságokkal.
-9. Mentse el a módosított bemutatót.
+2. Érje el a megfelelő diát a indexén keresztül.
+3. Adjon hozzá egy téglalap alakú [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) a diához.
+4. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)‑jét.
+5. Használja az alapértelmezett bekezdést, és adjon hozzá két további [IParagraph](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/) objektumot a szövegdobozhoz.
+6. Adjon elegendő [IPortion](https://reference.aspose.com/slides/hu/net/aspose.slides/iportion/) objektumot minden bekezdéshez, hogy három részt tartalmazzanak. Az alapértelmezett bekezdés már tartalmaz egy üres részt.
+7. Állítsa be minden rész szövegét.
+8. Alkalmazzon karakter szintű formázást a [IPortion.PortionFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/iportion/portionformat/) segítségével.
+9. Mentse el a módosított prezentációt.
 
-Ez a C# kód a bekezdések és részek hozzáadásának lépéseit valósítja meg:
+Ez a C# példa megvalósítja a lépéseket:
 
-```c#
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-using (Presentation pres = new Presentation())
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+var textFrame = shape.TextFrame;
+
+var firstParagraph = textFrame.Paragraphs[0];
+firstParagraph.Portions.Add(new Portion());
+firstParagraph.Portions.Add(new Portion());
+
+var secondParagraph = new Paragraph();
+secondParagraph.Portions.Add(new Portion());
+secondParagraph.Portions.Add(new Portion());
+secondParagraph.Portions.Add(new Portion());
+textFrame.Paragraphs.Add(secondParagraph);
+
+var thirdParagraph = new Paragraph();
+thirdParagraph.Portions.Add(new Portion());
+thirdParagraph.Portions.Add(new Portion());
+thirdParagraph.Portions.Add(new Portion());
+textFrame.Paragraphs.Add(thirdParagraph);
+
+var paragraphCount = textFrame.Paragraphs.Count;
+for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 {
-    // Eléri az első diát
-    ISlide slide = pres.Slides[0];
+    var paragragaph = textFrame.Paragraphs[paragraphIndex];
+    var portionCount = paragragaph.Portions.Count;
+    for (var portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    {
+        var portion = paragragaph.Portions[portionIndex];
+        portion.Text = $"Portion {paragraphIndex + 1}.{portionIndex + 1}";
 
-    // Hozzáad egy Rectangle IAutoShape elemet
-    IAutoShape ashp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
-
-    // Eléri az AutoShape TextFrame-jét
-    ITextFrame tf = ashp.TextFrame;
-
-    // Létrehozza a bekezdéseket és részeket különböző szövegformátumokkal
-    IParagraph para0 = tf.Paragraphs[0];
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.Portions.Add(port01);
-    para0.Portions.Add(port02);
-
-    IParagraph para1 = new Paragraph();
-    tf.Paragraphs.Add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.Portions.Add(port10);
-    para1.Portions.Add(port11);
-    para1.Portions.Add(port12);
-
-    IParagraph para2 = new Paragraph();
-    tf.Paragraphs.Add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.Portions.Add(port20);
-    para2.Portions.Add(port21);
-    para2.Portions.Add(port22);
-
-    for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
+        if (portionIndex == 0)
         {
-            tf.Paragraphs[i].Portions[j].Text = "Portion0" + j.ToString();
-            if (j == 0)
-            {
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.FillType = FillType.Solid;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontBold = NullableBool.True;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontHeight = 15;
-            }
-            else if (j == 1)
-            {
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.FillType = FillType.Solid;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontItalic = NullableBool.True;
-                tf.Paragraphs[i].Portions[j].PortionFormat.FontHeight = 18;
-            }
+            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+            portion.PortionFormat.FontBold = NullableBool.True;
+            portion.PortionFormat.FontHeight = 15;
         }
-    // Elmenti a módosított bemutatót
-    pres.Save("multiParaPort_out.pptx", SaveFormat.Pptx);
+        else if (portionIndex == 1)
+        {
+            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+            portion.PortionFormat.FontItalic = NullableBool.True;
+            portion.PortionFormat.FontHeight = 18;
+        }
+    }
 }
+
+presentation.Save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 ```
 
-## **Bekezdés felsoroláskezelés**
+## **Felsorolás és számozott listák létrehozása**
 
-A felsorolások segítenek az információ gyors és hatékony rendszerezésében és bemutatásában. A felsorolásos bekezdések mindig könnyebben olvashatók és érthetők.
+### **Felsorolás vagy számozott lista létrehozása**
+
+A felsorolás‑ és számjelölések megkönnyítik a kapcsolódó elemek átláthatóságát. Az Aspose.Slides-ban a lista beállításait az [IBulletFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/) segítségével definiálhatja.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-2. Szerezze meg a megfelelő dia referenciaját az indexe alapján.
-3. Adjon hozzá egy [autoshape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a kiválasztott diára.
-4. Szerezze meg az autoshape [TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) elemét.
-5. Távolítsa el az alapértelmezett bekezdést a `TextFrame`-ből.
-6. Hozza létre az első bekezdés példányát a [Paragraph](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraph/) osztállyal.
-8. Állítsa be a bekezdés bullet `Type` értékét `Symbol`-ra, és adja meg a bullet karaktert.
-9. Állítsa be a bekezdés `Text` értékét.
-10. Állítsa be a bekezdés `Indent` értékét a bullethez.
-11. Állítson be színt a bullethez.
-12. Állítson be magasságot a bulletnek.
-13. Adja hozzá az új bekezdést a `TextFrame` bekezdésgyűjteményéhez.
-14. Adja hozzá a második bekezdést, és ismételje meg a 7‑13. lépésben leírt folyamatot.
-15. Mentse el a bemutatót.
+2. Érje el a megfelelő diát a indexén keresztül.
+3. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) a kiválasztott diára.
+4. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)‑jét.
+5. Távolítsa el az alapértelmezett bekezdést a szövegdobozból.
+6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraph/) a szimbólum felsoroláshoz.
+7. Állítsa be a [IBulletFormat.Type](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/type/)‑t [BulletType.Symbol](https://reference.aspose.com/slides/hu/net/aspose.slides/bullettype/)‑ra, és adja meg a jel karakterét.
+8. Állítsa be a bekezdés szövegét, a behúzást, a felsorolás színét és a felsorolás magasságát.
+9. Adja hozzá a bekezdést a szövegdobozhoz.
+10. Hozzon létre egy második bekezdést, és állítsa be a [IBulletFormat.Type](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/type/)‑t [BulletType.Numbered](https://reference.aspose.com/slides/hu/net/aspose.slides/bullettype/)‑ra.
+11. Konfigurálja a számozott felsorolás stílusát, és adja hozzá a bekezdést a szövegdobozhoz.
+12. Mentse el a prezentációt.
 
-```c#
-// Példányosít egy Presentation osztályt, amely egy PPTX fájlt képvisel
-using (Presentation pres = new Presentation())
-{
+Ez a C# példa egy szimbólum és egy számozott felsorolást hoz létre:
 
-    // Eléri az első diát
-    ISlide slide = pres.Slides[0];
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
 
-    // Hozzáad és eléri az Autoshape elemet
-    IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+var symbolParagraph = new Paragraph { Text = "Welcome to Aspose.Slides" };
+symbolParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+symbolParagraph.ParagraphFormat.Bullet.Char = Convert.ToChar(0x2022);
+symbolParagraph.ParagraphFormat.Indent = 25;
+symbolParagraph.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
+symbolParagraph.ParagraphFormat.Bullet.Color.Color = Color.Black;
+symbolParagraph.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True;
+symbolParagraph.ParagraphFormat.Bullet.Height = 100;
+textFrame.Paragraphs.Add(symbolParagraph);
 
-    // Eléri az autoshape szövegkeretét
-    ITextFrame txtFrm = aShp.TextFrame;
+var numberedParagraph = new Paragraph { Text = "This is a numbered item" };
+numberedParagraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+numberedParagraph.ParagraphFormat.Bullet.NumberedBulletStyle = NumberedBulletStyle.BulletCircleNumWDBlackPlain;
+numberedParagraph.ParagraphFormat.Indent = 25;
+numberedParagraph.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
+numberedParagraph.ParagraphFormat.Bullet.Color.Color = Color.Black;
+numberedParagraph.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True;
+numberedParagraph.ParagraphFormat.Bullet.Height = 100;
+textFrame.Paragraphs.Add(numberedParagraph);
 
-    // Eltávolítja az alapértelmezett bekezdést
-    txtFrm.Paragraphs.RemoveAt(0);
-
-    // Létrehoz egy bekezdést
-    Paragraph para = new Paragraph();
-
-    // Beállítja a bekezdés bullet stílusát és szimbólumát
-    para.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-
-    // Beállítja a bekezdés szövegét
-    para.Text = "Welcome to Aspose.Slides";
-
-    // Beállítja a bullet behúzását
-    para.ParagraphFormat.Indent = 25;
-
-    // Beállítja a bullet színét
-    para.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
-    para.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // állítsa az IsBulletHardColor értékét true-ra, hogy saját bullet színt használjon
-
-    // Beállítja a bullet magasságát
-    para.ParagraphFormat.Bullet.Height = 100;
-
-    // Hozzáadja a bekezdést a szövegkerethez
-    txtFrm.Paragraphs.Add(para);
-
-    // Létrehoz egy második bekezdést
-    Paragraph para2 = new Paragraph();
-
-    // Beállítja a bekezdés bullet típusát és stílusát
-    para2.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-    para2.ParagraphFormat.Bullet.NumberedBulletStyle = NumberedBulletStyle.BulletCircleNumWDBlackPlain;
-
-    // Hozzáadja a bekezdés szövegét
-    para2.Text = "This is numbered bullet";
-
-    // Beállítja a bullet behúzását
-    para2.ParagraphFormat.Indent = 25;
-
-    para2.ParagraphFormat.Bullet.Color.ColorType = ColorType.RGB;
-    para2.ParagraphFormat.Bullet.Color.Color = Color.Black;
-    para2.ParagraphFormat.Bullet.IsBulletHardColor = NullableBool.True; // állítsa az IsBulletHardColor értékét true-ra, hogy saját bullet színt használjon
-
-    // Beállítja a bullet magasságát
-    para2.ParagraphFormat.Bullet.Height = 100;
-
-    // Hozzáadja a bekezdést a szövegkerethez
-    txtFrm.Paragraphs.Add(para2);
-
-
-    // Elmenti a módosított bemutatót
-    pres.Save("Bullet_out.pptx", SaveFormat.Pptx);
-
-}
+presentation.Save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Kép felsorolások kezelése**
+### **Képes felsorolások használata**
 
-A felsorolások segítenek az információ gyors és hatékony rendszerezésében és bemutatásában. A képes bekezdések könnyen olvashatók és érthetők.
+A képes felsorolások lehetővé teszik, hogy egy egyedi képet használjon szimbólum vagy szám helyett.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-2. Szerezze meg a megfelelő dia referenciaját az indexe alapján.
-3. Adjon hozzá egy [autoshape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diára.
-4. Szerezze meg az autoshape [TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/) elemét.
-5. Távolítsa el az alapértelmezett bekezdést a `TextFrame`-ből.
-6. Hozza létre az első bekezdés példányát a [Paragraph](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraph/) osztállyal.
-7. Töltse be a képet a [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) segítségével.
-8. Állítsa be a bullet típust [Picture](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) értékre, és adja meg a képet.
-9. Állítsa be a Paragraph `Text` értékét.
-10. Állítsa be a Paragraph `Indent` értékét a bullethez.
-11. Állítson be színt a bullethez.
-12. Állítson be magasságot a bulletnek.
-13. Adja hozzá az új bekezdést a `TextFrame` bekezdésgyűjteményéhez.
-14. Adja hozzá a második bekezdést, és ismételje meg a korábbi lépéseket.
-15. Mentse el a módosított bemutatót.
+2. Érje el a megfelelő diát a indexén keresztül.
+3. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) és érje el annak [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)‑jét.
+4. Távolítsa el az alapértelmezett bekezdést a szövegdobozból.
+5. Töltse be a felsorolás képet, és adja hozzá a prezentáció képgyűjteményéhez [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumként.
+6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraph/) és állítsa be a szövegét.
+7. Állítsa be a [IBulletFormat.Type](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/type/)‑t [BulletType.Picture](https://reference.aspose.com/slides/hu/net/aspose.slides/bullettype/)‑ra.
+8. Rendelje hozzá a képet a [IBulletFormat.Picture](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/picture/) segítségével, és állítsa be a felsorolás magasságát.
+9. Adja hozzá a bekezdést a szövegdobozhoz.
+10. Mentse el a módosított prezentációt.
 
-```c#
-// Létrehozza a Presentation osztályt, amely egy PPTX fájlt képvisel
-Presentation presentation = new Presentation();
+Ez a C# példa egy képes felsorolást hoz létre:
 
-// Eléri az első diát
-ISlide slide = presentation.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Példányosítja a bulletokhoz használt képet
-IImage image = Images.FromFile("bullets.png");
-IPPImage ippxImage = presentation.Images.AddImage(image);
-image.Dispose();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Hozzáad és eléri az Autoshape elemet
-IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+using var bulletImage = Images.FromFile("bullets.png");
+var presentationImage = presentation.Images.AddImage(bulletImage);
 
-// Eléri az autoshape szövegkeretét
-ITextFrame textFrame = autoShape.TextFrame;
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
 
-// Eltávolítja az alapértelmezett bekezdést
-textFrame.Paragraphs.RemoveAt(0);
-
-// Létrehoz egy új bekezdést
-Paragraph paragraph = new Paragraph();
-paragraph.Text = "Welcome to Aspose.Slides";
-
-// Beállítja a bekezdés bullet stílusát és képét
+var paragraph = new Paragraph { Text = "Welcome to Aspose.Slides" };
 paragraph.ParagraphFormat.Bullet.Type = BulletType.Picture;
-paragraph.ParagraphFormat.Bullet.Picture.Image = ippxImage;
-
-// Beállítja a bullet magasságát
+paragraph.ParagraphFormat.Bullet.Picture.Image = presentationImage;
 paragraph.ParagraphFormat.Bullet.Height = 100;
-
-// Hozzáadja a bekezdést a szövegkerethez
 textFrame.Paragraphs.Add(paragraph);
 
-// Mentés PPTX fájlként
-presentation.Save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-// Mentés PPT fájlként
-presentation.Save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
+presentation.Save("picture_bullet.pptx", SaveFormat.Pptx);
+presentation.Save("picture_bullet.ppt", SaveFormat.Ppt);
 ```
 
-## **Többszintű felsorolások kezelése**
+### **Többszintű lista létrehozása**
 
-A felsorolások segítenek az információ gyors és hatékony rendszerezésében és bemutatásában. A többszintű felsorolások könnyen olvashatók és érthetők.
+Állítsa be a [IParagraphFormat.Depth](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/depth/)‑t, hogy a bekezdéseket a lista különböző szintjeire helyezze. A felső szint mélysége `0`.
 
-1. Hozzon létre egy példányt a [Presentation ](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation)osztályból.
-2. Szerezze meg a megfelelő dia referenciaját az indexe alapján.
-3. Adjon hozzá egy [autoshape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet az új diára.
-4. Szerezze meg az autoshape [TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/) elemét.
-5. Távolítsa el az alapértelmezett bekezdést a `TextFrame`-ből.
-6. Hozza létre az első bekezdést a [Paragraph](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraph/) osztály segítségével, és állítsa be a mélységet 0-ra.
-7. Hozza létre a második bekezdést a `Paragraph` osztály segítségével, és állítsa be a mélységet 1-re.
-8. Hozza létre a harmadik bekezdést a `Paragraph` osztály segítségével, és állítsa be a mélységet 2-re.
-9. Hozza létre a negyedik bekezdést a `Paragraph` osztály segítségével, és állítsa be a mélységet 3-ra.
-10. Adja hozzá az új bekezdéseket a `TextFrame` bekezdésgyűjteményéhez.
-11. Mentse el a módosított bemutatót.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/)‑t, és érje el egy diát.
+2. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/)‑t, és törölje az alapértelmezett bekezdést a szövegdobozából.
+3. Hozzon létre négy bekezdést, és állítsa be a felsorolás szimbólumaikat.
+4. Állítsa be a [IParagraphFormat.Depth](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/depth/) értékét `0`, `1`, `2` és `3`‑ra.
+5. Adja hozzá a bekezdéseket a szövegdobozhoz, és mentse el a prezentációt.
 
-```c#
-// Példányosít egy Presentation osztályt, amely egy PPTX fájlt képvisel
-using (Presentation pres = new Presentation())
-{
+Ez a C# példa egy négy szintű felsorolást hoz létre:
 
-    // Eléri az első diát
-    ISlide slide = pres.Slides[0];
-    
-    // Hozzáad és eléri az Autoshape elemet
-    IAutoShape aShp = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Eléri a létrehozott autoshape szövegkeretét
-    ITextFrame text = aShp.AddTextFrame("");
-    
-    // Törli az alapértelmezett bekezdést
-    text.Paragraphs.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
 
-    // Hozzáadja az első bekezdést
-    IParagraph para1 = new Paragraph();
-    para1.Text = "Content";
-    para1.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para1.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-    para1.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para1.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Beállítja a bullet szintjét
-    para1.ParagraphFormat.Depth = 0;
+var firstParagraph = new Paragraph { Text = "Content" };
+firstParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+firstParagraph.ParagraphFormat.Bullet.Char = Convert.ToChar(0x2022);
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+firstParagraph.ParagraphFormat.Depth = 0;
 
-    // Hozzáadja a második bekezdést
-    IParagraph para2 = new Paragraph();
-    para2.Text = "Second Level";
-    para2.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para2.ParagraphFormat.Bullet.Char = '-';
-    para2.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para2.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Beállítja a bullet szintjét
-    para2.ParagraphFormat.Depth = 1;
+var secondParagraph = new Paragraph { Text = "Second level" };
+secondParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+secondParagraph.ParagraphFormat.Bullet.Char = '-';
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+secondParagraph.ParagraphFormat.Depth = 1;
 
-    // Hozzáadja a harmadik bekezdést
-    IParagraph para3 = new Paragraph();
-    para3.Text = "Third Level";
-    para3.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para3.ParagraphFormat.Bullet.Char = Convert.ToChar(8226);
-    para3.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para3.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Beállítja a bullet szintjét
-    para3.ParagraphFormat.Depth = 2;
+var thirdParagraph = new Paragraph { Text = "Third level" };
+thirdParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+thirdParagraph.ParagraphFormat.Bullet.Char = Convert.ToChar(0x2022);
+thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+thirdParagraph.ParagraphFormat.Depth = 2;
 
-    // Hozzáadja a negyedik bekezdést
-    IParagraph para4 = new Paragraph();
-    para4.Text = "Fourth Level";
-    para4.ParagraphFormat.Bullet.Type = BulletType.Symbol;
-    para4.ParagraphFormat.Bullet.Char = '-';
-    para4.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    para4.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    // Beállítja a bullet szintjét
-    para4.ParagraphFormat.Depth = 3;
+var fourthParagraph = new Paragraph { Text = "Fourth level" };
+fourthParagraph.ParagraphFormat.Bullet.Type = BulletType.Symbol;
+fourthParagraph.ParagraphFormat.Bullet.Char = '-';
+fourthParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+fourthParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+fourthParagraph.ParagraphFormat.Depth = 3;
 
-    // Hozzáadja a bekezdéseket a gyűjteményhez
-    text.Paragraphs.Add(para1);
-    text.Paragraphs.Add(para2);
-    text.Paragraphs.Add(para3);
-    text.Paragraphs.Add(para4);
+textFrame.Paragraphs.Add(firstParagraph);
+textFrame.Paragraphs.Add(secondParagraph);
+textFrame.Paragraphs.Add(thirdParagraph);
+textFrame.Paragraphs.Add(fourthParagraph);
 
-    // Mentés PPTX fájlként
-    pres.Save("MultilevelBullet.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("multilevel_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Egy bekezdés kezelése egy egyedi számozott listával**
+### **Számozott listaelemek indítása egyedi értékekkel**
 
-Az [IBulletFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/) interfész biztosítja a [NumberedBulletStartWith](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/numberedbulletstartwith) tulajdonságot és egyéb lehetőségeket, amelyek lehetővé teszik a bekezdések egyedi számozású vagy formázott kezelését.
+Használja a [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/numberedbulletstartwith/) beállítást, hogy megadja a számozott bekezdés kiinduló számát.
 
-1. Hozzon létre egy példányt a [Presentation ](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation)osztályból.
-2. Szerezze meg a bekezdést tartalmazó diát.
-3. Adjon hozzá egy [autoshape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-4. Szerezze meg az autoshape [TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/) elemét.
-5. Távolítsa el az alapértelmezett bekezdést a `TextFrame`-ből.
-6. Hozza létre az első bekezdést a [Paragraph](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraph/) osztály segítségével, és állítsa be a [NumberedBulletStartWith](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/numberedbulletstartwith) értékét 2-re.
-7. Hozza létre a második bekezdést a `Paragraph` osztály segítségével, és állítsa be a `NumberedBulletStartWith` értékét 3-ra.
-8. Hozza létre a harmadik bekezdést a `Paragraph` osztály segítségével, és állítsa be a `NumberedBulletStartWith` értékét 7-re.
-9. Adja hozzá az új bekezdéseket a `TextFrame` bekezdésgyűjteményéhez.
-10. Mentse el a módosított bemutatót.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation)‑t, és adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/)‑t a diához.
+2. Törölje az alapértelmezett bekezdést az alakzat szövegdobozából.
+3. Hozzon létre három számozott bekezdést.
+4. Állítsa be a [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/hu/net/aspose.slides/ibulletformat/numberedbulletstartwith/) értékét `2`, `3` és `7`‑re a megfelelő bekezdéseknél.
+5. Adja hozzá a bekezdéseket a szövegdobozhoz, és mentse el a prezentációt.
 
-```c#
-using (var presentation = new Presentation())
-{
-	var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+Ez a C# példa egyedi kiinduló számot rendel minden bekezdéshez:
 
-	// Eléri a létrehozott autoshape szövegkeretét
-	ITextFrame textFrame = shape.TextFrame;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-	// Eltávolítja az alapértelmezett létező bekezdést
-	textFrame.Paragraphs.RemoveAt(0);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
 
-	// Első lista
-	var paragraph1 = new Paragraph { Text = "bullet 2" };
-	paragraph1.ParagraphFormat.Depth = 4; 
-	paragraph1.ParagraphFormat.Bullet.NumberedBulletStartWith = 2;
-	paragraph1.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-	textFrame.Paragraphs.Add(paragraph1);
+var firstParagraph = new Paragraph { Text = "Start at 2" };
+firstParagraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+firstParagraph.ParagraphFormat.Bullet.NumberedBulletStartWith = 2;
+textFrame.Paragraphs.Add(firstParagraph);
 
-	var paragraph2 = new Paragraph { Text = "bullet 3" };
-	paragraph2.ParagraphFormat.Depth = 4;
-	paragraph2.ParagraphFormat.Bullet.NumberedBulletStartWith = 3; 
-	paragraph2.ParagraphFormat.Bullet.Type = BulletType.Numbered;  
-	textFrame.Paragraphs.Add(paragraph2);
+var secondParagraph = new Paragraph { Text = "Start at 3" };
+secondParagraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+secondParagraph.ParagraphFormat.Bullet.NumberedBulletStartWith = 3;
+textFrame.Paragraphs.Add(secondParagraph);
 
-	
-	var paragraph5 = new Paragraph { Text = "bullet 7" };
-	paragraph5.ParagraphFormat.Depth = 4;
-	paragraph5.ParagraphFormat.Bullet.NumberedBulletStartWith = 7;
-	paragraph5.ParagraphFormat.Bullet.Type = BulletType.Numbered;
-	textFrame.Paragraphs.Add(paragraph5);
+var thirdParagraph = new Paragraph { Text = "Start at 7" };
+thirdParagraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
+thirdParagraph.ParagraphFormat.Bullet.NumberedBulletStartWith = 7;
+textFrame.Paragraphs.Add(thirdParagraph);
 
-	presentation.Save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
-}
+presentation.Save("custom_numbered_list.pptx", SaveFormat.Pptx);
 ```
 
-## **Első sor behúzás beállítása bekezdéshez**
+## **Bekezdés elrendezésének és befejező tulajdonságainak vezérlése**
 
-Használja az [IParagraphFormat.Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) tulajdonságot a bekezdés első sorának behúzásának szabályozásához. Ez a tulajdonság csak az első sort mozgatja a bekezdés bal margójához képest. A pozitív érték jobbra tolja az első sort, míg a többi sor a bekezdés törzshöz igazodik.
+### **Első sor behúzás beállítása**
 
-Használja az [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/marginleft/) tulajdonságot, ha a teljes bekezdést szeretné eltolni. Használja az [IParagraphFormat.Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) tulajdonságot, ha csak az első sort szeretné eltolni.
+Használja az [IParagraphFormat.Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) tulajdonságot a bekezdés első sorának behúzásának szabályozásához. Ez a tulajdonság csak az első sort mozdítja el a bekezdés bal margójához képest. Pozitív érték esetén az első sor jobbra tolódik, míg a többi sor a bekezdés törzséhez igazodik.
 
-Az alábbi példa több bekezdést hoz létre, és különböző `Indent` értékeket alkalmaz, hogy bemutassa, hogyan befolyásolja az első sor behúzása a bekezdés elrendezését.
+Használja az [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/marginleft/)‑t, ha az egész bekezdést szeretné elmozdítani. Használja az [IParagraphFormat.Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/)‑t, ha csak az első sort akarja elmozdítani.
+
+Az alábbi példa több bekezdést hoz létre, és különböző [IParagraphFormat.Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) értékeket alkalmaz, hogy bemutassa, hogyan befolyásolja a bekezdéselrendezést az első sor behúzása.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-2. Szerezze meg a cél diát.
-3. Adjon hozzá egy téglalap [AutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/) elemet a diához.
-4. Adjon egy üres [TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/) elemet a formához, és távolítsa el az alapértelmezett bekezdést.
-5. Hozzon létre több bekezdést, és állítson be különböző [Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) értékeket.
-6. Adja hozzá a bekezdéseket a szövegkerethez.
-7. Mentse el a módosított bemutatót.
+2. Érje el a célzott diát.
+3. Adjon hozzá egy téglalap alakú [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/)‑t a diához.
+4. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)‑jét, és távolítsa el az alapértelmezett bekezdést.
+5. Hozzon létre több bekezdést, és állítson be különböző [Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) értékeket számukra.
+6. Adja hozzá a bekezdéseket a szövegdobozhoz.
+7. Mentse el a módosított prezentációt.
 
-```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+Ez a kód megmutatja, hogyan állítható be a bekezdés behúzása:
 
-    IAutoShape rectangleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.FillFormat.FillType = FillType.NoFill;
-    rectangleShape.LineFormat.FillFormat.FillType = FillType.Solid;
-    rectangleShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    ITextFrame textFrame = rectangleShape.AddTextFrame(string.Empty);
-    textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
-    textFrame.Paragraphs.RemoveAt(0);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
 
-    Paragraph firstParagraph = new Paragraph();
-    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    firstParagraph.Text = "No first-line indent. Wrapped lines start at the same position as the first line.";
-    firstParagraph.ParagraphFormat.MarginLeft = 20f;
-    firstParagraph.ParagraphFormat.Indent = 0f;
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+textFrame.Paragraphs.Clear();
 
-    Paragraph secondParagraph = new Paragraph();
-    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    secondParagraph.Text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.";
-    secondParagraph.ParagraphFormat.MarginLeft = 20f;
-    secondParagraph.ParagraphFormat.Indent = 20f;
+var firstParagraph = new Paragraph { Text = "No first-line indent. Wrapped lines start at the same position as the first line." };
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+firstParagraph.ParagraphFormat.MarginLeft = 20;
+firstParagraph.ParagraphFormat.Indent = 0;
 
-    Paragraph thirdParagraph = new Paragraph();
-    thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    thirdParagraph.Text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.";
-    thirdParagraph.ParagraphFormat.MarginLeft = 20f;
-    thirdParagraph.ParagraphFormat.Indent = 40f;
+var secondParagraph = new Paragraph { Text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body." };
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+secondParagraph.ParagraphFormat.MarginLeft = 20;
+secondParagraph.ParagraphFormat.Indent = 20;
 
-    textFrame.Paragraphs.Add(firstParagraph);
-    textFrame.Paragraphs.Add(secondParagraph);
-    textFrame.Paragraphs.Add(thirdParagraph);
+var thirdParagraph = new Paragraph { Text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see." };
+thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+thirdParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+thirdParagraph.ParagraphFormat.MarginLeft = 20;
+thirdParagraph.ParagraphFormat.Indent = 40;
 
-    presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
+textFrame.Paragraphs.Add(firstParagraph);
+textFrame.Paragraphs.Add(secondParagraph);
+textFrame.Paragraphs.Add(thirdParagraph);
+
+presentation.Save("paragraph_indent.pptx", SaveFormat.Pptx);
 ```
 
 Az eredmény:
 
-![A bekezdések első sor behúzása](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-## **Lógó behúzás beállítása bekezdéshez**
+### **Függő behúzás beállítása**
 
-A lógó behúzás egy olyan bekezdéselrendezés, ahol az első sor a többi sor bal oldalán kezdődik. Az Aspose.Slides-ban ezt a hatást az [IParagraphFormat.Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) tulajdonsággal hozhatja létre. Állítsa a `Indent` értékét negatívra, hogy az első sor balra mozduljon a bekezdés törzshöz képest.
+A függő behúzás egy olyan bekezdéselrendezés, ahol az első sor balra kezdődik a többi sorhoz képest. Az Aspose.Slides-ban ezt a hatást az [IParagraphFormat.Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) tulajdonsággal hozhatja létre. Állítsa az `Indent` értékét negatívra, hogy az első sor balra mozduljon a bekezdés törzséhez képest.
 
-Gyakorlatban az [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/marginleft/) határozza meg a bekezdés törzsének bal pozícióját, az [IParagraphFormat.Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) pedig az első sor pozícióját ehhez a margóhoz képest. Lógó behúzás létrehozásához állítson be egy pozitív `MarginLeft` értéket és egy negatív `Indent` értéket.
+Gyakorlatban az [IParagraphFormat.MarginLeft](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/marginleft/) definiálja a bekezdés törzsének bal pozícióját, míg az [IParagraphFormat.Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) meghatározza az első sor helyzetét ehhez a margóhoz képest. Függő behúzás létrehozásához állítson be egy pozitív `MarginLeft` értéket és egy negatív `Indent` értéket.
 
-Ez a formázás hasznos bibliográfiák, hivatkozások, szószedetek és más bekezdések esetén, ahol a tördelődő soroknak a bekezdés törzsének alá kell illeszkedniük, nem pedig az első sor első karakteréhez.
+Ez a formázás hasznos bibliográfiák, hivatkozások, szószedetek és egyéb bekezdések esetén, ahol a tördelődő soroknak a bekezdés törzsének alatt kell elhelyezkedniük, nem pedig az első sor első karaktere alatt.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-2. Szerezze meg a cél diát.
-3. Adjon hozzá egy téglalap [AutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/) elemet a diához.
-4. Adjon egy üres [TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/) elemet a formához, és távolítsa el az alapértelmezett bekezdést.
+2. Érje el a célzott diát.
+3. Adjon hozzá egy téglalap alakú [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/)‑t a diához.
+4. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)‑jét, és távolítsa el az alapértelmezett bekezdést.
 5. Hozzon létre bekezdéseket, és állítson be egy pozitív [MarginLeft](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/marginleft/) értéket minden bekezdéshez.
-6. Állítson be egy negatív [Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) értéket a lógó behúzás hatásának létrehozásához.
-7. Adja hozzá a bekezdéseket a szövegkerethez.
-8. Mentse el a módosított bemutatót.
+6. Állítson be egy negatív [Indent](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/indent/) értéket a függő behúzás létrehozásához.
+7. Adja hozzá a bekezdéseket a szövegdobozhoz.
+8. Mentse el a módosított prezentációt.
 
-```cs
-using (Presentation presentation = new Presentation())
+Ez a kód megmutatja, hogyan állítható be a függő behúzás egy bekezdéshez:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+
+var textFrame = shape.TextFrame;
+textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
+textFrame.Paragraphs.Clear();
+
+var firstParagraph = new Paragraph { Text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body." };
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+firstParagraph.ParagraphFormat.MarginLeft = 40;
+firstParagraph.ParagraphFormat.Indent = -20;
+
+var secondParagraph = new Paragraph { Text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare." };
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+secondParagraph.ParagraphFormat.MarginLeft = 60;
+secondParagraph.ParagraphFormat.Indent = -30;
+
+textFrame.Paragraphs.Add(firstParagraph);
+textFrame.Paragraphs.Add(secondParagraph);
+
+presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
+```
+
+Az eredmény:
+
+![The hanging indent of the paragraphs](hanging_indent.png)
+
+### **A bekezdés végének futtatási tulajdonságainak beállítása**
+
+Az [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/endparagraphportionformat/) tulajdonság szabályozza a bekezdés végjelének formázását. Az alábbi példa egy betűméretet és egy latin betűtípust rendel a második bekezdés végjeléhez:
+
+1. Töltsön be egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/)‑t, és érje el egy diát.
+2. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/)‑t, és törölje az alapértelmezett bekezdést.
+3. Hozzon létre két bekezdést, és adjon hozzá szövegrészeket.
+4. Hozzon létre egy [PortionFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/portionformat/)‑t a második bekezdés végjeléhez.
+5. Állítsa be a [IBasePortionFormat.FontHeight](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseportionformat/fontheight/) és a [IBasePortionFormat.LatinFont](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseportionformat/latinfont/) értékeket.
+6. Rendelje hozzá a formázást az [IParagraph.EndParagraphPortionFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/endparagraphportionformat/)‑hez, és mentse el a prezentációt.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("Test.pptx");
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+var textFrame = shape.TextFrame;
+textFrame.Paragraphs.Clear();
+
+var firstParagraph = new Paragraph();
+firstParagraph.Portions.Add(new Portion("Sample text"));
+
+var secondParagraph = new Paragraph();
+secondParagraph.Portions.Add(new Portion("Sample text 2"));
+
+var endParagraphFormat = new PortionFormat();
+endParagraphFormat.FontHeight = 48;
+endParagraphFormat.LatinFont = new FontData("Times New Roman");
+secondParagraph.EndParagraphPortionFormat = endParagraphFormat;
+
+textFrame.Paragraphs.Add(firstParagraph);
+textFrame.Paragraphs.Add(secondParagraph);
+
+presentation.Save("end_paragraph_format.pptx", SaveFormat.Pptx);
+```
+
+## **Bekezdés tartalom importálása és exportálása**
+
+### **HTML szöveg importálása bekezdésekbe**
+
+Használja a [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraphcollection/addfromhtml/)‑t, hogy a HTML jelölőnyelvet bekezdésekké és részekké alakítsa egy szövegdobozban.
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
+2. Érje el egy diát, és adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/)‑t.
+3. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)‑jét, és törölje az alapértelmezett bekezdést.
+4. Olvassa be a forrás HTML fájlt.
+5. Adja át a HTML karakterláncot a [ParagraphCollection.AddFromHtml](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraphcollection/addfromhtml/)‑nek.
+6. Mentse el a módosított prezentációt.
+
+Ez a C# példa HTML-t importál egy szövegdobozba:
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shapeWidth = presentation.SlideSize.Size.Width - 20;
+var shapeHeight = presentation.SlideSize.Size.Height - 20;
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.TextFrame.Paragraphs.Clear();
+
+using var reader = new StreamReader("file.html");
+var html = reader.ReadToEnd();
+shape.TextFrame.Paragraphs.AddFromHtml(html);
+
+presentation.Save("html_text.pptx", SaveFormat.Pptx);
+```
+
+### **Bekezdésszöveg exportálása HTML-be**
+
+Használja a [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraphcollection/exporttohtml/)‑t, hogy a kijelölt bekezdéstartományt HTML-ként exportálja.
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, és töltse be a kívánt prezentációt.
+2. Érje el a diát, és keresse meg a szöveget tartalmazó [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/)‑t.
+3. Érje el az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/)‑jét.
+4. Hívja meg a [ParagraphCollection.ExportToHtml](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraphcollection/exporttohtml/)‑t a kezdő bekezdés indexével és az exportálandó bekezdések számával.
+5. Írja a visszakapott HTML karakterláncot egy fájlba.
+
+Ez a C# példa az első szöveges alakzat összes bekezdését exportálja:
+
+```csharp
+using System;
+using System.IO;
+using System.Text;
+using Aspose.Slides;
+
+using var presentation = new Presentation("ExportingHTMLText.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+
+if (shape is IAutoShape textShape && textShape.TextFrame != null)
 {
-    ISlide slide = presentation.Slides[0];
+    var paragraphs = textShape.TextFrame.Paragraphs;
+    var html = paragraphs.ExportToHtml(0, paragraphs.Count, null);
+    using var writer = new StreamWriter("paragraphs.html", false, Encoding.UTF8);
+    writer.Write(html);
+}
+else
+{
+    Console.WriteLine("The first shape is not a text shape.");
+}
+```
 
-    IAutoShape rectangleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.FillFormat.FillType = FillType.NoFill;
-    rectangleShape.LineFormat.FillFormat.FillType = FillType.Solid;
-    rectangleShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+### **Bekezdés renderelése képként**
 
-    ITextFrame textFrame = rectangleShape.AddTextFrame(string.Empty);
-    textFrame.TextFrameFormat.AutofitType = TextAutofitType.Shape;
-    textFrame.Paragraphs.RemoveAt(0);
+[IParagraph.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/getimage/) közvetlenül egy bekezdést renderel, és egy [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/)‑t ad vissza. A visszakapott képet fájlba vagy stream‑be mentheti a [IImage.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/save/)‑vel. Nem kell a tartalmazó alakzatot renderelni vagy a bitmapet manuálisan kivágni.
 
-    Paragraph firstParagraph = new Paragraph();
-    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    firstParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    firstParagraph.Text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.";
-    firstParagraph.ParagraphFormat.MarginLeft = 40f;
-    firstParagraph.ParagraphFormat.Indent = -20f;
+[IParagraph.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/getimage/) `null` értéket adhat vissza, ha a bekezdés nem található a szülő gyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. Ellenőrizze az eredményt a mentés előtt, és a használat után szabadítsa fel a visszakapott képet.
 
-    Paragraph secondParagraph = new Paragraph();
-    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    secondParagraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    secondParagraph.Text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.";
-    secondParagraph.ParagraphFormat.MarginLeft = 60f;
-    secondParagraph.ParagraphFormat.Indent = -30f;
+#### **Bekezdés renderelése az alapértelmezett méretezésben**
 
-    textFrame.Paragraphs.Add(firstParagraph);
-    textFrame.Paragraphs.Add(secondParagraph);
+Tegyük fel, hogy van egy sample.pptx nevű prezentációs fájlunk egy diával, ahol az első alakzat egy három bekezdést tartalmazó szövegdoboz.
 
-    presentation.Save("hanging_indent.pptx", SaveFormat.Pptx);
+![The text box with three paragraphs](paragraph_to_image_input.png)
+
+Az alábbi példa a második bekezdést egy általános szöveges alakzatban az alapértelmezett méretezésben rendereli, és a visszakapott képet PNG formátumban menti. A `using` deklaráció biztosítja, hogy a kép helyesen felszabaduljon.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+
+var shape = presentation.Slides[0].Shapes[0];
+if (shape is IAutoShape textShape && 
+    textShape.TextFrame != null && 
+    textShape.TextFrame.Paragraphs.Count > 1)
+{
+    var paragraph = textShape.TextFrame.Paragraphs[1];
+    using var paragraphImage = paragraph.GetImage();
+
+    if (paragraphImage != null)
+    {
+        paragraphImage.Save("paragraph.png", ImageFormat.Png);
+    }
+    else
+    {
+        Console.WriteLine("The paragraph could not be rendered.");
+    }
+}
+else
+{
+    Console.WriteLine("The expected text shape or paragraph was not found.");
 }
 ```
 
 Az eredmény:
 
-![A bekezdések lógó behúzása](hanging_indent.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-## **Bekezdés végének futás tulajdonságainak kezelése**
+#### **Bekezdés renderelése táblázatcellában méretezéssel**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-2. Szerezze meg a bekezdést tartalmazó dia referenciáját a pozíciója alapján.
-3. Adjon hozzá egy téglalap [autoshape](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/) elemet a diához.
-4. Adjon egy [TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/) elemet két bekezdéssel a téglalaphoz.
-5. Állítsa be a bekezdések `FontHeight` és betűtípus értékét.
-6. Állítsa be a bekezdések End tulajdonságait.
-7. Írja ki a módosított bemutatót PPTX fájlként.
-
-```c#
-using (Presentation pres = new Presentation("Test.pptx"))
-{
-	IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
-
-	Paragraph para1 = new Paragraph();
-	para1.Portions.Add(new Portion("Sample text"));
-
-	Paragraph para2 = new Paragraph();
-	para2.Portions.Add(new Portion("Sample text 2"));
-	PortionFormat endParagraphPortionFormat = new PortionFormat();
-	endParagraphPortionFormat.FontHeight = 48;
-	endParagraphPortionFormat.LatinFont = new FontData("Times New Roman");
-	para2.EndParagraphPortionFormat = endParagraphPortionFormat;
-
-	shape.TextFrame.Paragraphs.Add(para1);
-	shape.TextFrame.Paragraphs.Add(para2);
-
-	pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **HTML szöveg importálása bekezdésekbe**
-
-Az Aspose.Slides fejlett támogatást nyújt a HTML szöveg bekezdésekbe történő importálásához.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-2. Szerezze meg a megfelelő dia referenciaját az indexe alapján.
-3. Adjon hozzá egy [autoshape](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/) elemet a diára.
-4. Adjon hozzá és érje el az `autoshape` [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) elemét.
-5. Távolítsa el az alapértelmezett bekezdést az `ITextFrame`-ből.
-6. Olvassa be a forrás HTML fájlt egy TextReader segítségével.
-7. Hozza létre az első bekezdést a [Paragraph](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraph/) osztály segítségével.
-8. Adja hozzá a beolvasott TextReader HTML tartalmát a TextFrame [ParagraphCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraphcollection/) gyűjteményéhez.
-9. Mentse el a módosított bemutatót.
-
-```c#
-// Létrehozza az üres bemutató példányát
-using (Presentation pres = new Presentation())
-{
-    // Eléri a bemutató alapértelmezett első diáját
-    ISlide slide = pres.Slides[0];
-
-    // Hozzáadja az AutoShape elemet, amely a HTML tartalmat tartalmazza
-    IAutoShape ashape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, pres.SlideSize.Size.Width - 20, pres.SlideSize.Size.Height - 10);
-
-    ashape.FillFormat.FillType = FillType.NoFill;
-
-    // Hozzáad egy szövegkeretet a formához
-    ashape.AddTextFrame("");
-
-    // Törli az összes bekezdést a hozzáadott szövegkeretben
-    ashape.TextFrame.Paragraphs.Clear();
-
-    // Betölti a HTML fájlt stream olvasóval
-    TextReader tr = new StreamReader("file.html");
-
-    // A HTML stream olvasóból származó szöveget hozzáadja a szövegkerethez
-    ashape.TextFrame.Paragraphs.AddFromHtml(tr.ReadToEnd());
-
-    // Elmenti a bemutatót
-    pres.Save("output_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
-
-## **Bekezdés szöveg exportálása HTML-be**
-
-Az Aspose.Slides fejlett támogatást nyújt a szövegek (bekezdésekben) HTML-be exportálásához.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, és töltse be a kívánt bemutatót.
-2. Szerezze meg a megfelelő dia referenciaját az indexe alapján.
-3. Szerezze meg a szöveget tartalmazó alakzatot, amelyet HTML-be exportálni kíván.
-4. Érje el a alakzat [TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/textframe/) elemét.
-5. Hozzon létre egy `StreamWriter` példányt, és adja hozzá az új HTML fájlt.
-6. Adjon meg egy kezdő indexet a StreamWriternek, és exportálja a kívánt bekezdéseket.
-
-```c#
-// Betölti a bemutató fájlt
-using (Presentation pres = new Presentation("ExportingHTMLText.pptx"))
-{
-
-    // Eléri a bemutató alapértelmezett első diáját
-    ISlide slide = pres.Slides[0];
-
-    // Eléri a szükséges indexet
-    int index = 0;
-
-    // Eléri a hozzáadott alakzatot
-    IAutoShape ashape = (IAutoShape)slide.Shapes[index];
-
-    StreamWriter sw = new StreamWriter("output_out.html", false, Encoding.UTF8);
-
-    // Bekezdések adatait HTML-be írja, megadva a kezdő bekezdésindexet és a másolandó bekezdések számát
-    sw.Write(ashape.TextFrame.Paragraphs.ExportToHtml(0, ashape.TextFrame.Paragraphs.Count, null));
-
-    sw.Close();
-}
-```
-
-## **Bekezdés mentése képként**
-
-Az ebben a szakaszban két példát mutatunk be, amelyek bemutatják, hogyan menthetünk egy szövegbekezdést, amelyet az [IParagraph](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/) interfész képvisel, képként. Mindkét példa magában foglalja a bekezdést tartalmazó alakzat képének megszerzését a [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/) interfész `GetImage` metódusaival, a bekezdés határainak kiszámítását az alakzaton belül, valamint annak bitmap képként való exportálását. Ezek a megközelítések lehetővé teszik a PowerPoint prezentációkból származó szövegrészek kinyerését és különálló képként történő mentését, ami különféle forgatókönyvekben hasznos lehet.
-
-Tegyük fel, hogy van egy sample.pptx nevű bemutató fájlnk egy diával, ahol az első alakzat egy szövegdoboz, amely három bekezdést tartalmaz.
-
-![A három bekezdést tartalmazó szövegdoboz](paragraph_to_image_input.png)
-
-**Example 1**
-
-Ebben a példában a második bekezdést jelenítjük meg képként. Ehhez kinyerjük a forma képét a bemutató első diájáról, majd kiszámítjuk a második bekezdés határait a forma szövegkeretében. A bekezdést ezután új bitmap képre rajzoljuk át, amelyet PNG formátumban mentünk. Ez a módszer különösen hasznos, ha egy adott bekezdést külön képként szeretnénk menteni anélkül, hogy a szöveg pontos méreteit és formázását megváltoztatnánk.
+Használja a [IParagraph.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/getimage/) túlterhelést, amely `float scaleX` és `float scaleY` paramétereket fogad a vízszintes és függőleges méretezési tényezők beállításához. Az alábbi példa egy táblázatot hoz létre, a bekezdést az első cellájában kétszeres szélességre és magasságra rendereli, majd a eredményt PNG képként menti.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
-var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
+using System;
+using Aspose.Slides;
 
-// Mentse el a formát memóriában bitmapként.
-using var shapeImage = firstShape.GetImage();
-using var shapeImageStream = new MemoryStream();
-shapeImage.Save(shapeImageStream, ImageFormat.Png);
+var scaleX = 2f;
+var scaleY = 2f;
 
-// Hozzon létre egy alakzat bitmapet a memóriából.
-shapeImageStream.Seek(0, SeekOrigin.Begin);
-using var shapeBitmap = Image.FromStream(shapeImageStream);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var table = slide.Shapes.AddTable(50, 50, new[] { 300d }, new[] { 80d });
+var paragraph = table[0, 0].TextFrame.Paragraphs[0];
+paragraph.Text = "Text in a table cell";
 
-// Számolja ki a második bekezdés határait.
-var secondParagraph = firstShape.TextFrame.Paragraphs[1];
-var paragraphRectangle = secondParagraph.GetRect();
-
-// Számolja ki a kimeneti kép méretét (minimum méret - 1x1 pixel).
-var imageWidth = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Width));
-var imageHeight = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Height));
-
-// Készítsen bitmapet a bekezdéshez.
-using var paragraphBitmap = new Bitmap(imageWidth, imageHeight);
-
-// Rajzolja újra a bekezdést az alakzat bitmapből a bekezdés bitmapre.
-using var imageGraphics = Graphics.FromImage(paragraphBitmap);
-var drawingRectangle = new RectangleF(0, 0, paragraphRectangle.Width, paragraphRectangle.Height);
-imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, GraphicsUnit.Pixel);
-
-paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
+using var paragraphImage = paragraph.GetImage(scaleX, scaleY);
+if (paragraphImage != null)
+{
+    paragraphImage.Save("table_paragraph.png", ImageFormat.Png);
+}
+else
+{
+    Console.WriteLine("The paragraph could not be rendered.");
+}
 ```
 
-Az eredmény:
+Az `1` méretezési tényező az adott tengelyt az alapértelmezett pixelméretben tartja. Például a `2` mindkét tényező esetén a kép szélessége és magassága nagyjából kétszerese az alapértelmezett méretnek, ami négyszeres pixel számot eredményez. A nagyobb tényezők általában élesebb szöveget biztosítanak nagyításkor vagy nagy felbontású kimenetnél, de növelik a memóriahasználatot és a fájlméretet. Az `1`‑nél kisebb tényezők kisebb, kevésbé részletgazdag képeket adnak. Azonos tényezők használata megőrzi a bekezdés oldalarányát; különböző vízszintes és függőleges tényezők külön-külön nyújtják a kimenetet.
 
-![A bekezdés képe](paragraph_to_image_output.png)
-
-**Example 2**
-
-Ebben a példában a korábbi megközelítést bővítjük a bekezdés képéhez skálázási tényezők hozzáadásával. A forma kinyerésre kerül a bemutatóból, és `2`‑es skálázási tényezővel képként mentődik. Ez lehetővé teszi a bekezdés exportálásakor a magasabb felbontású kimenetet. A bekezdés határait ezután a skálát figyelembe véve számítjuk ki. A skálázás különösen hasznos, ha részletesebb képre van szükség, például magas minőségű nyomtatott anyagokhoz.
-
-```csharp
-var imageScaleX = 2f;
-var imageScaleY = imageScaleX;
-
-using var presentation = new Presentation("sample.pptx");
-var firstShape = presentation.Slides[0].Shapes[0] as IAutoShape;
-
-// A formát memóriában bitmapként, skálázással menti.
-using var shapeImage = firstShape.GetImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-using var shapeImageStream = new MemoryStream();
-shapeImage.Save(shapeImageStream, ImageFormat.Png);
-
-// Létrehozza a forma bitmapet a memóriából.
-shapeImageStream.Seek(0, SeekOrigin.Begin);
-using var shapeBitmap = Image.FromStream(shapeImageStream);
-
-// Kiszámítja a második bekezdés határait.
-var secondParagraph = firstShape.TextFrame.Paragraphs[1];
-var paragraphRectangle = secondParagraph.GetRect();
-paragraphRectangle.X *= imageScaleX;
-paragraphRectangle.Y *= imageScaleY;
-paragraphRectangle.Width *= imageScaleX;
-paragraphRectangle.Height *= imageScaleY;
-
-// Kiszámítja a kimeneti kép méretét (minimum méret - 1x1 pixel).
-var imageWidth = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Width));
-var imageHeight = Math.Max(1, (int)Math.Ceiling(paragraphRectangle.Height));
-
-// Előkészíti a bitmapet a bekezdéshez.
-using var paragraphBitmap = new Bitmap(imageWidth, imageHeight);
-
-// Újrarajzolja a bekezdést a forma bitmapből a bekezdés bitmapre.
-using var imageGraphics = Graphics.FromImage(paragraphBitmap);
-var drawingRectangle = new RectangleF(0, 0, paragraphRectangle.Width, paragraphRectangle.Height);
-imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, GraphicsUnit.Pixel);
-
-paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
-```
+Egy teljes alakzat renderelése a [IShape.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/getimage/)‑val akkor hasznos, ha a kimenetnek tartalmaznia kell az alakzat kitöltését, szegélyét vagy egyéb vizuális kontextusát. Ha csak a bekezdés képe a cél, használja az [IParagraph.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/getimage/)‑t.
 
 ## **GYIK**
 
-**Lehet-e teljesen letiltani a sortörést egy szövegkereten belül?**
+**Teljesen letilthatom a sortörést egy szövegdobozban?**
 
-Igen. Használja a szövegkeret sortörés beállítását ([WrapText](https://reference.aspose.com/slides/hu/net/aspose.slides/textframeformat/wraptext/)), hogy letiltsa a sortörést, így a sorok nem törnek meg a keret szélén.
+Igen. Állítsa be az [ITextFrameFormat.WrapText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframeformat/wraptext/) tulajdonságot, hogy letiltsa a sortörést, így a sorok nem törnek a szövegdoboz szélén.
 
-**Hogyan kaphatom meg egy adott bekezdés pontos helyét a dián?**
+**Hogyan kaphatom meg egy adott bekezdés pontos dián belüli határait?**
 
-Lekérheti a bekezdés (vagy akár egyetlen rész) határoló téglalapját, hogy tudja a pontos pozícióját és méretét a dián.
+Használja az [IParagraph.GetRect](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraph/getrect/)‑t a bekezdés határoló téglalapjának lekéréséhez. Az [IPortion.GetRect](https://reference.aspose.com/slides/hu/net/aspose.slides/iportion/getrect/) egy egyedi rész határait adja vissza.
 
-**Hol szabályozható a bekezdés igazítása (balra/jobbra/középre/széthúzott)?**
+**Hol szabályozható a bekezdés igazítása (balra, jobbra, középre vagy sorkizárt)?**
 
-Az [Alignment](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraphformat/alignment/) a bekezdés szintű beállítás a [ParagraphFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/paragraphformat/)‑ban; a teljes bekezdésre vonatkozik, függetlenül az egyes részek formázásától.
+Az [IParagraphFormat.Alignment](https://reference.aspose.com/slides/hu/net/aspose.slides/iparagraphformat/alignment/) egy bekezdés‑szintű beállítás, amely a teljes bekezdésre vonatkozik, függetlenül az egyes részek formázásától.
 
-**Beállíthatok helyesírás-nyelvet a bekezdés egy részére (például egy szóra)?**
+**Beállíthatok bizonyos nyelvet egy bekezdés részére?**
 
-Igen. A nyelv a rész szintjén van beállítva ([PortionFormat.LanguageId](https://reference.aspose.com/slides/hu/net/aspose.slides/baseportionformat/languageid/)), így több nyelv is együtt létezhet egy bekezdésen belül.
+Igen. Állítsa be az [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseportionformat/languageid/)‑t az egyes részeknél, így egy bekezdés több nyelven is tartalmazhat szöveget.

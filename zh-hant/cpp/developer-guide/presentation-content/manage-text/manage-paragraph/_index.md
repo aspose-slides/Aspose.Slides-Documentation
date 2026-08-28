@@ -4,6 +4,9 @@ linktitle: 管理段落
 type: docs
 weight: 40
 url: /zh-hant/cpp/manage-paragraph/
+aliases:
+  - /cpp/paragraph/
+  - /cpp/portion/
 keywords:
 - 新增文字
 - 新增段落
@@ -14,492 +17,444 @@ keywords:
 - 懸掛縮排
 - 段落項目符號
 - 編號清單
-- 項目清單
+- 項目符號清單
 - 段落屬性
 - 匯入 HTML
 - 文字轉 HTML
 - 段落轉 HTML
-- 段落轉圖像
-- 文字轉圖像
+- 段落轉影像
+- 文字轉影像
 - 匯出段落
 - PowerPoint
-- OpenDocument
 - 簡報
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 完善段落格式設定——在 PPT、PPTX 與 ODP 簡報中優化對齊、間距與樣式。"
+description: "了解如何使用 Aspose.Slides for C++ 建立與格式化段落、部分、項目符號、編號清單、縮排、HTML 內容以及段落影像。"
 ---
-## **簡介**
+## **概觀**
 
-Aspose.Slides 提供在 C++ 中處理 PowerPoint 文字、段落與段落內部文字區塊所需的所有介面與類別。
+Aspose.Slides for C++ 將文字表示為文字框、段落和部分的階層結構：
 
-* Aspose.Slides 提供 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/) 介面，以讓您新增代表段落的物件。`ITextFrame` 物件可以包含一個或多個段落（每個段落透過換行字元建立）。
-* Aspose.Slides 提供 [IParagraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/) 介面，以讓您新增代表文字區塊的物件。`IParagraph` 物件可以包含一個或多個文字區塊（iPortions 物件的集合）。
-* Aspose.Slides 提供 [IPortion](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iportion/) 介面，以讓您新增代表文字及其格式屬性的物件。
+* [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/) 代表形狀中的文字容器，並提供對其段落集合的存取。
+* [IParagraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/) 代表文字框中的一個段落，並提供對其部分及段落層級格式的存取。
+* [IPortion](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iportion/) 代表段落內的文字執行。每個部分可以有自己的文字及字元層級格式。
 
-`IParagraph` 物件能透過其底層的 `IPortion` 物件處理具有不同格式屬性的文字。
+因此，一個段落可以使用多個部分，包含不同字型、顏色、大小以及其他格式的文字。
 
-## **新增包含多個文字區塊的多段落**
+## **建立與格式化段落**
 
-以下步驟示範如何新增一個包含 3 個段落、且每個段落包含 3 個文字區塊的文字框：
+### **建立包含多個部分的段落**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得目標投影片的參考。
-3. 在投影片上新增一個矩形 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
-4. 取得與 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/) 相關的 ITextFrame。
-5. 建立兩個 [IParagraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/) 物件，並將它們加入 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/) 的 `IParagraphs` 集合中。
-6. 為每個新 `IParagraph` 建立三個 [IPortion](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iportion/) 物件（預設段落兩個 Portion 物件），並將每個 `IPortion` 物件加入相應 `IParagraph` 的 IPortion 集合中。
-7. 為每個文字區塊設定文字內容。
-8. 使用 `IPortion` 物件所提供的格式屬性，為每個文字區塊套用您偏好的格式設定。
-9. 保存已修改的簡報。
-
-以下 C++ 程式碼實作上述加入文字區塊的步驟：
-
-```c++
-// 文件目錄的路徑。
-const String outPath = u"../out/MultipleParagraphs_out.pptx";
-
-
-
-// 載入所需的簡報
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 存取第一張投影片
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-
-// 新增類型為矩形的 AutoShape
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-
-// 為矩形加入 TextFrame
-SharedPtr<ITextFrame> tf=ashp->AddTextFrame(u" ");
-
-
-// 存取第一個段落
-SharedPtr<IParagraph> para0 = tf->get_Paragraphs()->idx_get(0);
-	
-SharedPtr<Portion> port01 = MakeObject<Portion>();
-SharedPtr<Portion> port02 = MakeObject<Portion>();
-para0->get_Portions()->Add(port01);
-para0->get_Portions()->Add(port02);
-
-// Adding second Paragraph
-SharedPtr<Paragraph> para1 = MakeObject<Paragraph>();
-tf->get_Paragraphs()->Add(para1);
-SharedPtr<Portion> port10 = MakeObject<Portion>();
-SharedPtr<Portion> port11 = MakeObject<Portion>();
-SharedPtr<Portion> port12 = MakeObject<Portion>();
-para1->get_Portions()->Add(port10);
-para1->get_Portions()->Add(port11);
-para1->get_Portions()->Add(port12);
-
-// Adding third Paragraph
-SharedPtr<Paragraph> para2 = MakeObject<Paragraph>();
-tf->get_Paragraphs()->Add(para2);
-SharedPtr<Portion> port20 = MakeObject<Portion>();
-SharedPtr<Portion> port21 = MakeObject<Portion>();
-SharedPtr<Portion> port22 = MakeObject<Portion>();
-para2->get_Portions()->Add(port20);
-para2->get_Portions()->Add(port21);
-para2->get_Portions()->Add(port22);
-
-
-for (int i = 0; i < 3; i++)
-{
-	for (int j = 0; j < 3; j++)
-	{
-		tf->get_Paragraphs()->idx_get(i)->get_Portions()->idx_get(j)->set_Text(u"Portion_"+j);
-		SharedPtr<IPortionFormat>format = tf->get_Paragraphs()->idx_get(i)->get_Portions()->idx_get(j)->get_PortionFormat();
-
-		if (j == 0)
-		{
-			format->get_FillFormat()->set_FillType(FillType::Solid);
-			format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
-			format->set_FontBold(NullableBool::True);
-			format->set_FontHeight(15);
-		}
-		else if (j == 1)
-		{
-			format->get_FillFormat()->set_FillType(FillType::Solid);
-			format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-			format->set_FontBold(NullableBool::True);
-			format->set_FontHeight(18);
-		}
-	}
-
-}
-
-// 將 PPTX 儲存至磁碟
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **管理段落項目符號**
-
-項目符號清單可協助您快速且有效率地組織與呈現資訊。使用項目符號的段落更易於閱讀與理解。
+以下步驟會建立一個文字框，內含三個段落，每個段落都有三個部分：
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得目標投影片的參考。
-3. 在選取的投影片上新增一個 [autoshape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
-4. 取得 autoshape 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
-5. 移除 `TextFrame` 中的預設段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraph/) 類別建立第一個段落實例。
-7. 將段落的項目符號 `Type` 設為 `Symbol`，並設定項目符號字元。
-8. 設定段落的 `Text`。
-9. 設定段落的 `Indent`（項目符號縮排）。
-10. 為項目符號設定顏色。
-11. 設定項目符號的高度。
-12. 將新段落加入 `TextFrame` 的段落集合中。
-13. 新增第二個段落，並重複步驟 7 至 13。
-14. 保存簡報。
-
-以下 C++ 程式碼示範如何新增段落項目符號：
-
-```c++
-// 文件目錄的路徑。
-const String outPath = u"../out/ParagraphBullets_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
-
-// 載入所需的簡報
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 存取第一張投影片
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-
-// 新增類型為矩形的 AutoShape
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-
-// 為矩形加入 TextFrame
-ashp->AddTextFrame(u"");
-
-// 存取文字框
-SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
-txtFrame->get_Paragraphs()->Clear();
-
-// 建立文字框的 Paragraph 物件
-SharedPtr<Paragraph> paragraph = MakeObject<Paragraph>();
-
-// 設定文字
-paragraph->set_Text(u"Welcome to Aspose.Slides");
-
-// 設定項目符號縮排
-paragraph->get_ParagraphFormat()->set_Indent (25);
-
-// 設定項目符號顏色
-paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType ( ColorType::RGB);
-paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
-	
-// 將 IsBulletHardColor 設為 true 以使用自訂的項目符號顏色
-paragraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True); 
-																					
-// 設定項目符號高度
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
-
-// 將 Paragraph 加入文字框
-txtFrame->get_Paragraphs()->Add(paragraph);
-
-// 建立第二個段落
-// 建立文字框的 Paragraph 物件
-SharedPtr<Paragraph> paragraph2 = MakeObject<Paragraph>();
-
-// 設定文字
-paragraph2->set_Text(u"This is numbered bullet");
-
-// 設定段落的項目符號類型與樣式
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_Type ( BulletType::Numbered);
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStyle ( NumberedBulletStyle::BulletCircleNumWDBlackPlain);
-
-// 設定項目符號縮排
-paragraph2->get_ParagraphFormat()->set_Indent(25);
-
-// 設定項目符號顏色
-paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
-paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
-
-// 將 IsBulletHardColor 設為 true 以使用自訂的項目符號顏色
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
-
-// 設定項目符號高度
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_Height(100);
-
-// 將 Paragraph 加入文字框
-txtFrame->get_Paragraphs()->Add(paragraph2);
-
-
-// 將 PPTX 儲存至磁碟
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **管理圖片項目符號**
-
-圖片清單可協助您快速且有效率地組織與呈現資訊。使用圖片段落的內容同樣易於閱讀與理解。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得目標投影片的參考。
-3. 在投影片上新增一個 [autoshape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
-4. 取得 autoshape 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
-5. 移除 `TextFrame` 中的預設段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraph/) 類別建立第一個段落實例。
-7. 透過 [IPPImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ippimage/) 載入圖片。
-8. 將項目符號類型設定為 [Picture](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ippimage/)，並設定圖片。
-9. 設定段落的 `Text`。
-10. 設定段落的 `Indent`（圖片項目符號縮排）。
-11. 為圖片項目符號設定顏色。
-12. 設定圖片項目符號的高度。
-13. 將新段落加入 `TextFrame` 的段落集合中。
-14. 新增第二個段落，並依上述步驟重複操作。
-15. 保存已修改的簡報。
-
-以下 C++ 程式碼示範如何新增與管理圖片項目符號：
-
-```c++
-// 實例化一個代表 PPTX 檔案的 Presentation 類別
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-
-// 存取第一張投影片
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// 實例化用於項目符號的圖片
-System::SharedPtr<IImage> image = Images::FromFile(u"bullets.png");
-System::SharedPtr<IPPImage> ippxImage = presentation->get_Images()->AddImage(image);
-
-// 新增並存取 AutoShape
-System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
-
-// 存取 AutoShape 的 TextFrame
-System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
-
-// 移除預設段落
-System::SharedPtr<IParagraphCollection> paragraphs = textFrame->get_Paragraphs();
-paragraphs->RemoveAt(0);
-
-// 建立新的段落
-System::SharedPtr<Paragraph> paragraph = System::MakeObject<Paragraph>();
-paragraph->set_Text(u"Welcome to Aspose.Slides");
-
-// 設定段落的項目符號樣式與圖片
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Picture);
-paragraph->get_ParagraphFormat()->get_Bullet()->get_Picture()->set_Image(ippxImage);
-
-// 設定項目符號高度
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100.0f);
-
-// 將段落加入 TextFrame
-paragraphs->Add(paragraph);
-
-// 將簡報儲存為 PPTX 檔案
-presentation->Save(u"ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
-
-// 將簡報儲存為 PPT 檔案
-presentation->Save(u"ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
-```
-
-## **管理多層次項目符號**
-
-多層次項目符號可協助您快速且有效率地組織與呈現資訊，且易於閱讀與理解。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得目標投影片的參考。
-3. 在新投影片上新增一個 [autoshape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
-4. 取得 autoshape 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
-5. 移除 `TextFrame` 中的預設段落。
-6. 透過 [Paragraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraph/) 類別建立第一個段落實例，並將深度設定為 0。
-7. 透過 `Paragraph` 類別建立第二個段落實例，並將深度設定為 1。
-8. 透過 `Paragraph` 類別建立第三個段落實例，並將深度設定為 2。
-9. 透過 `Paragraph` 類別建立第四個段落實例，並將深度設定為 3。
-10. 將新段落加入 `TextFrame` 的段落集合中。
-11. 保存已修改的簡報。
-
-以下 C++ 程式碼示範如何新增與管理多層次項目符號：
-
-```c++
-// 建立一個代表 PPTX 檔案的 Presentation 類別實例
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-// 存取第一張投影片
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// 新增並存取 AutoShape
-System::SharedPtr<IAutoShape> aShp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
-
-// 存取已建立 AutoShape 的文字框
-System::SharedPtr<ITextFrame> text = aShp->AddTextFrame(u"");
-
-// 清除預設段落
-text->get_Paragraphs()->Clear();
-
-// 加入第一個段落
-System::SharedPtr<IParagraph> para1 = System::MakeObject<Paragraph>();
-para1->set_Text(u"Content");
-System::SharedPtr<IParagraphFormat> para1Format = para1->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet1Format = para1Format->get_Bullet();
-bullet1Format->set_Type(BulletType::Symbol);
-bullet1Format->set_Char(System::Convert::ToChar(8226));
-System::SharedPtr<IFillFormat> defaultFillFormat1 = para1Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat1->set_FillType(FillType::Solid);
-defaultFillFormat1->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// 設定項目符號層級
-para1Format->set_Depth(0);
-
-// 加入第二個段落
-System::SharedPtr<IParagraph> para2 = System::MakeObject<Paragraph>();
-para2->set_Text(u"Second Level");
-System::SharedPtr<IParagraphFormat> para2Format = para2->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet2Format = para2Format->get_Bullet();
-bullet2Format->set_Type(BulletType::Symbol);
-bullet2Format->set_Char(u'-');
-System::SharedPtr<IFillFormat> defaultFillFormat2 = para2Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat2->set_FillType(FillType::Solid);
-defaultFillFormat2->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// 設定項目符號層級
-para2Format->set_Depth(1);
-
-// 加入第三個段落
-System::SharedPtr<IParagraph> para3 = System::MakeObject<Paragraph>();
-para3->set_Text(u"Third Level");
-System::SharedPtr<IParagraphFormat> para3Format = para3->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet3Format = para3Format->get_Bullet();
-bullet3Format->set_Type(BulletType::Symbol);
-bullet3Format->set_Char(System::Convert::ToChar(8226));
-System::SharedPtr<IFillFormat> defaultFillFormat3 = para3Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat3->set_FillType(FillType::Solid);
-defaultFillFormat3->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// 設定項目符號層級
-para3Format->set_Depth(2);
-
-// 加入第四個段落
-System::SharedPtr<IParagraph> para4 = System::MakeObject<Paragraph>();
-para4->set_Text(u"Fourth Level");
-System::SharedPtr<IParagraphFormat> para4Format = para4->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet4Format = para4Format->get_Bullet();
-bullet4Format->set_Type(BulletType::Symbol);
-bullet4Format->set_Char(u'-');
-System::SharedPtr<IFillFormat> defaultFillFormat4 = para4Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat4->set_FillType(FillType::Solid);
-defaultFillFormat4->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// 設定項目符號層級
-para4Format->set_Depth(3);
-
-// 將段落加入集合
-System::SharedPtr<IParagraphCollection> paragraphs = text->get_Paragraphs();
-paragraphs->Add(para1);
-paragraphs->Add(para2);
-paragraphs->Add(para3);
-paragraphs->Add(para4);
-
-// 將簡報寫入為 PPTX 檔案
-pres->Save(u"MultilevelBullet.pptx", SaveFormat::Pptx);
-```
-
-## **管理具有自訂編號清單的段落**
-
-[IBulletFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibulletformat/) 介面提供 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 屬性等，可讓您管理具自訂編號或格式的段落。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
-2. 取得包含目標段落的投影片。
-3. 在投影片上新增一個 [autoshape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
-4. 取得 autoshape 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
-5. 移除 `TextFrame` 中的預設段落。
-6. 透過 [Paragraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraph/) 類別建立第一個段落實例，並將 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 設為 2。
-7. 透過 `Paragraph` 類別建立第二個段落實例，並將 `NumberedBulletStartWith` 設為 3。
-8. 透過 `Paragraph` 類別建立第三個段落實例，並將 `NumberedBulletStartWith` 設為 7。
-9. 將新段落加入 `TextFrame` 的段落集合中。
-10. 保存已修改的簡報。
-
-以下 C++ 程式碼示範如何新增與管理具自訂編號或格式的段落：
-
-```c++
-auto presentation = System::MakeObject<Presentation>();
-
-auto shape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
-
-// 取得已建立 AutoShape 的文字框
-System::SharedPtr<ITextFrame> textFrame = shape->get_TextFrame();
-
-// 移除預設的現有段落
-textFrame->get_Paragraphs()->RemoveAt(0);
-
-// 第一個清單
-auto paragraph1 = System::MakeObject<Paragraph>();
-paragraph1->set_Text(u"bullet 2");
-auto paragraph1Format = paragraph1->get_ParagraphFormat();
-paragraph1Format->set_Depth(4);
-auto bullet1Format = paragraph1Format->get_Bullet();
-bullet1Format->set_NumberedBulletStartWith(2);
-bullet1Format->set_Type(BulletType::Numbered);
-textFrame->get_Paragraphs()->Add(paragraph1);
-
-auto paragraph2 = System::MakeObject<Paragraph>();
-paragraph2->set_Text(u"bullet 3");
-auto paragraph2Format = paragraph2->get_ParagraphFormat();
-paragraph2Format->set_Depth(4);
-auto bullet2Format = paragraph2Format->get_Bullet();
-bullet2Format->set_NumberedBulletStartWith(3);
-bullet2Format->set_Type(BulletType::Numbered);
-textFrame->get_Paragraphs()->Add(paragraph2);
-
-auto paragraph5 = System::MakeObject<Paragraph>();
-paragraph5->set_Text(u"bullet 7");
-auto paragraph5Format = paragraph5->get_ParagraphFormat();
-paragraph5Format->set_Depth(4);
-auto bullet5Format = paragraph5Format->get_Bullet();
-bullet5Format->set_NumberedBulletStartWith(7);
-bullet5Format->set_Type(BulletType::Numbered);
-textFrame->get_Paragraphs()->Add(paragraph5);
-
-presentation->Save(u"SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
-```
-
-## **設定段落的首行縮排**
-
-使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 方法可控制段落的首行縮排。此方法僅移動段落左側邊界相對的第一行。正值會將第一行向右移動，而其餘行保持與段落本體對齊。
-
-當需要移動整段文字時，請使用 [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_marginleft/)；僅想移動第一行時，請使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/)。
-
-以下範例建立多個段落，並套用不同的 `Indent` 值，以示範首行縮排如何影響段落版面。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
-2. 取得目標投影片。
-3. 在投影片上新增一個矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/autoshape/)。
-4. 在形狀中新增空的 [TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/textframe/)，並移除預設段落。
-5. 建立多個段落，並為它們設定不同的 [Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 值。
-6. 將段落加入文字框中。
-7. 保存已修改的簡報。
-
-以下程式碼示範如何設定段落縮排：
+2. 透過索引取得相關投影片的參照。
+3. 在投影片上加入矩形的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
+4. 取得圖形的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
+5. 使用預設段落，並向文字框加入另外兩個 [IParagraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/) 物件。
+6. 為每個段落新增足夠的 [IPortion](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iportion/) 物件，使其包含三個部分。預設段落已包含一個空的部分。
+7. 設定每個部分的文字。
+8. 透過 [IPortion::get_PortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iportion/get_portionformat/) 套用字元層級的格式設定。
+9. 儲存已修改的簡報。
+
+此 C++ 範例實作上述步驟：
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
+auto textFrame = shape->get_TextFrame();
+
+auto firstParagraph = textFrame->get_Paragraph(0);
+firstParagraph->get_Portions()->Add(MakeObject<Portion>());
+firstParagraph->get_Portions()->Add(MakeObject<Portion>());
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->get_Portions()->Add(MakeObject<Portion>());
+secondParagraph->get_Portions()->Add(MakeObject<Portion>());
+secondParagraph->get_Portions()->Add(MakeObject<Portion>());
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
+thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
+thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
+textFrame->get_Paragraphs()->Add(thirdParagraph);
+
+auto paragraphCount = textFrame->get_Paragraphs()->get_Count();
+for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+{
+    auto paragraph = textFrame->get_Paragraph(paragraphIndex);
+    auto portionCount = paragraph->get_Portions()->get_Count();
+    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    {
+        auto portion = paragraph->get_Portion(portionIndex);
+        portion->set_Text(String::Format(u"Portion {0}.{1}", paragraphIndex + 1, portionIndex + 1));
+        auto portionFormat = portion->get_PortionFormat();
+
+        if (portionIndex == 0)
+        {
+            portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+            portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+            portionFormat->set_FontBold(NullableBool::True);
+            portionFormat->set_FontHeight(15);
+        }
+        else if (portionIndex == 1)
+        {
+            portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+            portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+            portionFormat->set_FontItalic(NullableBool::True);
+            portionFormat->set_FontHeight(18);
+        }
+    }
+}
+
+presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **建立項目符號與編號清單**
+
+### **建立項目符號或編號清單**
+
+項目符號與編號可使相關項目更易於瀏覽。在 Aspose.Slides 中，清單設定透過 [IBulletFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibulletformat/) 定義。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
+2. 透過索引取得相關投影片的參照。
+3. 在選取的投影片上加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
+4. 取得圖形的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
+5. 從文字框中移除預設段落。
+6. 為符號項目建立一個 [Paragraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraph/)。
+7. 將 [IBulletFormat::set_Type](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibulletformat/set_type/) 設為 [BulletType::Symbol](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/bullettype/)，並指定項目字元。
+8. 設定段落文字、縮排、項目顏色與項目高度。
+9. 將段落加入文字框。
+10. 建立第二個段落，將 [IBulletFormat::set_Type](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibulletformat/set_type/) 設為 [BulletType::Numbered](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/bullettype/)。
+11. 設定編號項目樣式，並將段落加入文字框。
+12. 儲存簡報。
+
+此 C++ 範例建立符號項目與編號項目：
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/ColorType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/convert.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto symbolParagraph = MakeObject<Paragraph>();
+symbolParagraph->set_Text(u"Welcome to Aspose.Slides");
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(0x2022));
+symbolParagraph->get_ParagraphFormat()->set_Indent(25);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
+textFrame->get_Paragraphs()->Add(symbolParagraph);
+
+auto numberedParagraph = MakeObject<Paragraph>();
+numberedParagraph->set_Text(u"This is a numbered item");
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStyle(NumberedBulletStyle::BulletCircleNumWDBlackPlain);
+numberedParagraph->get_ParagraphFormat()->set_Indent(25);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
+textFrame->get_Paragraphs()->Add(numberedParagraph);
+
+presentation->Save(u"bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **使用圖片項目符號**
+
+圖片項目符號讓您可以使用自訂圖像取代符號或數字。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
+2. 透過索引取得相關投影片的參照。
+3. 加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/) 並取得其 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
+4. 從文字框中移除預設段落。
+5. 載入項目圖像，並以 [IPPImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ippimage/) 加入簡報的圖像集合。
+6. 建立一個 [Paragraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraph/) 並設定其文字。
+7. 將 [IBulletFormat::set_Type](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibulletformat/set_type/) 設為 [BulletType::Picture](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/bullettype/)。
+8. 透過 [ISlidesPicture::set_Image](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidespicture/set_image/) 指定圖像，並設定項目高度。
+9. 將段落加入文字框。
+10. 儲存已修改的簡報。
+
+此 C++ 範例建立圖片項目符號：
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto rectangleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
-rectangleShape->get_FillFormat()->set_FillType(FillType::NoFill);
-rectangleShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-rectangleShape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
+auto bulletImage = Images::FromFile(u"bullets.png");
+auto presentationImage = presentation->get_Images()->AddImage(bulletImage);
+bulletImage->Dispose();
 
-auto textFrame = rectangleShape->AddTextFrame(u"");
-textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
-textFrame->get_Paragraphs()->RemoveAt(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto paragraph = MakeObject<Paragraph>();
+paragraph->set_Text(u"Welcome to Aspose.Slides");
+paragraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Picture);
+paragraph->get_ParagraphFormat()->get_Bullet()->get_Picture()->set_Image(presentationImage);
+paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
+textFrame->get_Paragraphs()->Add(paragraph);
+
+presentation->Save(u"picture_bullet.pptx", SaveFormat::Pptx);
+presentation->Save(u"picture_bullet.ppt", SaveFormat::Ppt);
+presentation->Dispose();
+```
+
+### **建立多層次清單**
+
+將 [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_depth/) 設為不同值，即可將段落放在清單的不同層級。最高層的深度為 `0`。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 並取得一張投影片。
+2. 加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/) 並從其文字框中清除預設段落。
+3. 建立四個段落，並設定其項目符號。
+4. 分別將它們的 [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_depth/) 設為 `0`、`1`、`2`、`3`。
+5. 將段落加入文字框，並儲存簡報。
+
+此 C++ 範例建立四層級的項目符號清單：
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/convert.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
 
 auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"Content");
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(0x2022));
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-firstParagraph->set_Text(u"No first-line indent. Wrapped lines start at the same position as the first line.");
-firstParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
-firstParagraph->get_ParagraphFormat()->set_Indent(0.f);
+firstParagraph->get_ParagraphFormat()->set_Depth(0);
 
 auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"Second level");
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(u'-');
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-secondParagraph->set_Text(u"First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
-secondParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
-secondParagraph->get_ParagraphFormat()->set_Indent(20.f);
+secondParagraph->get_ParagraphFormat()->set_Depth(1);
 
 auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->set_Text(u"Third level");
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(0x2022));
 thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+thirdParagraph->get_ParagraphFormat()->set_Depth(2);
+
+auto fourthParagraph = MakeObject<Paragraph>();
+fourthParagraph->set_Text(u"Fourth level");
+fourthParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+fourthParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(u'-');
+fourthParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+fourthParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+fourthParagraph->get_ParagraphFormat()->set_Depth(3);
+
+textFrame->get_Paragraphs()->Add(firstParagraph);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+textFrame->get_Paragraphs()->Add(thirdParagraph);
+textFrame->get_Paragraphs()->Add(fourthParagraph);
+
+presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **將編號清單項目起始值設定為自訂值**
+
+使用 [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 可設定編號段落的起始號碼。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 並在投影片上加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
+2. 從圖形的文字框中清除預設段落。
+3. 建立三個編號段落。
+4. 分別將 [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) 設為 `2`、`3`、`7`。
+5. 將段落加入文字框，並儲存簡報。
+
+此 C++ 範例為每個段落指派自訂的起始編號：
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"Start at 2");
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith(2);
+textFrame->get_Paragraphs()->Add(firstParagraph);
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"Start at 3");
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith(3);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->set_Text(u"Start at 7");
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith(7);
+textFrame->get_Paragraphs()->Add(thirdParagraph);
+
+presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **控制段落版面配置與結尾屬性**
+
+### **設定首行縮排**
+
+使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 只會移動段落第一行相對於左邊框的縮排。正值會將首行向右移動，其他行則保持與段落本體對齊。
+
+當需要整段移動時，請使用 [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_marginleft/)。僅需移動首行時，請使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/)。
+
+以下範例建立多個段落，並對不同段落套用不同的 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 值，以示範首行縮排對版面配置的影響。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
+2. 取得目標投影片。
+3. 在投影片上加入矩形的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
+4. 取得圖形的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)，並移除預設段落。
+5. 建立多個段落，為它們設定不同的 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 值。
+6. 將段落加入文字框。
+7. 儲存已修改的簡報。
+
+此程式碼示範如何設定段落縮排：
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
+
+auto textFrame = shape->get_TextFrame();
+textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
+textFrame->get_Paragraphs()->Clear();
+
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"No first-line indent. Wrapped lines start at the same position as the first line.");
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+firstParagraph->get_ParagraphFormat()->set_MarginLeft(20);
+firstParagraph->get_ParagraphFormat()->set_Indent(0);
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+secondParagraph->get_ParagraphFormat()->set_MarginLeft(20);
+secondParagraph->get_ParagraphFormat()->set_Indent(20);
+
+auto thirdParagraph = MakeObject<Paragraph>();
 thirdParagraph->set_Text(u"First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
-thirdParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
-thirdParagraph->get_ParagraphFormat()->set_Indent(40.f);
+thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+thirdParagraph->get_ParagraphFormat()->set_MarginLeft(20);
+thirdParagraph->get_ParagraphFormat()->set_Indent(40);
 
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
@@ -513,51 +468,65 @@ presentation->Dispose();
 
 ![段落的首行縮排](first_line_indent.png)
 
-## **設定段落的懸掛縮排**
+### **設定懸掛縮排**
 
-懸掛縮排是指段落的第一行位於其餘行左側的版面配置。在 Aspose.Slides 中，您可使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 方法，將縮排設為負值，使第一行相對於段落本體向左移動。
+懸掛縮排是一種段落版面配置，第一行位於其餘行的左側。在 Aspose.Slides 中，您可以使用 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/)，將縮排設為負值，即可將第一行向左移動。
 
-實務上，[IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_marginleft/) 定義段落本體的左側位置，而 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 定義第一行相對於該左邊界的位置。要產生懸掛縮排，請將正值的 `MarginLeft` 與負值的 `Indent` 結合使用。
+實務上，[IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_marginleft/) 定義段落本體的左側位置，而 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 定義第一行相對於該左側的位移。要產生懸掛縮排，請將左邊距設定為正值，縮排設定為負值。
 
-此格式常用於參考書目、引用、詞彙表項目等，需要將換行行對齊於段落本體而非第一行的第一個字元之情境。
+此格式特別適用於書目、參考文獻、詞彙表條目等需要讓換行行對齊於段落本體而非第一行首字的情況。
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
 2. 取得目標投影片。
-3. 在投影片上新增一個矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/autoshape/)。
-4. 在形狀中新增空的 [TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/textframe/)，並移除預設段落。
-5. 為每個段落設定正值的 [MarginLeft](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_marginleft/)。
-6. 設定負值的 [Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 以產生懸掛縮排效果。
-7. 將段落加入文字框中。
-8. 保存已修改的簡報。
+3. 在投影片上加入矩形的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
+4. 取得圖形的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)，並移除預設段落。
+5. 為每個段落設定正值的 [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_marginleft/)。
+6. 設定負值的 [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_indent/) 以產生懸掛縮排效果。
+7. 將段落加入文字框。
+8. 儲存已修改的簡報。
 
-以下程式碼示範如何為段落設定懸掛縮排：
+此程式碼示範如何為段落設定懸掛縮排：
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
 
-auto rectangleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
-rectangleShape->get_FillFormat()->set_FillType(FillType::NoFill);
-rectangleShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-rectangleShape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
-
-auto textFrame = rectangleShape->AddTextFrame(u"");
+auto textFrame = shape->get_TextFrame();
 textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
-textFrame->get_Paragraphs()->RemoveAt(0);
+textFrame->get_Paragraphs()->Clear();
 
 auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-firstParagraph->set_Text(u"A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
-firstParagraph->get_ParagraphFormat()->set_MarginLeft(40.f);
-firstParagraph->get_ParagraphFormat()->set_Indent(-20.f);
+firstParagraph->get_ParagraphFormat()->set_MarginLeft(40);
+firstParagraph->get_ParagraphFormat()->set_Indent(-20);
 
 auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-secondParagraph->set_Text(u"This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
-secondParagraph->get_ParagraphFormat()->set_MarginLeft(60.f);
-secondParagraph->get_ParagraphFormat()->set_Indent(-30.f);
+secondParagraph->get_ParagraphFormat()->set_MarginLeft(60);
+secondParagraph->get_ParagraphFormat()->set_Indent(-30);
 
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
@@ -570,311 +539,263 @@ presentation->Dispose();
 
 ![段落的懸掛縮排](hanging_indent.png)
 
-## **管理段落結尾執行屬性**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
-2. 透過位置取得包含目標段落的投影片參考。
-3. 在投影片上新增一個矩形 [autoshape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
-4. 在矩形中新增一個含兩個段落的 [TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
-5. 設定段落的 `FontHeight` 與字型。
-6. 設定段落的 End 屬性。
-7. 將修改後的簡報寫入為 PPTX 檔案。
-
-以下 C++ 程式碼示範如何在 PowerPoint 中為段落設定 End 屬性：
-
-```c++
-// 文件目錄的路徑。
-const String outPath = u"../out/EndParaGraphProperties_out.pptx";
-//const String templatePath = u"../templates/DefaultFonts.pptx";
-
-
-
-// 載入所需的簡報
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 存取第一張投影片
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-
-// 新增類型為矩形的 AutoShape
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-
-// 為矩形加入 TextFrame
-SharedPtr<ITextFrame> tf = ashp->AddTextFrame(String::Empty);
-
-// 加入第一個段落
-//SharedPtr<IParagraph> para1 = tf->get_Paragraphs()->idx_get(0);
-
-SharedPtr<Paragraph> para1 = MakeObject<Paragraph>();
-SharedPtr<Portion> port01 = MakeObject<Portion>(u"Sample text");
-
-para1->get_Portions()->Add(port01);
-
-// 加入第二個段落
-SharedPtr<Paragraph> para2 = MakeObject<Paragraph>();
-SharedPtr<Portion> port02 = MakeObject<Portion>(u"Sample text 2");
-
-para2->get_Portions()->Add(port02);
-
-
-SharedPtr<PortionFormat> endParagraphPortionFormat = MakeObject< PortionFormat>();
-endParagraphPortionFormat->set_FontHeight ( 48);
-endParagraphPortionFormat->set_LatinFont ( MakeObject< FontData>(u"Times New Roman"));
-para2->set_EndParagraphPortionFormat(endParagraphPortionFormat);
-
-ashp->get_TextFrame()->get_Paragraphs()->Add(para1);
-ashp->get_TextFrame()->get_Paragraphs()->Add(para2);
-
-
-
-// 將 PPTX 儲存至磁碟
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **將 HTML 文字匯入段落**
-
-Aspose.Slides 加強了將 HTML 文字匯入段落的支援。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
-2. 透過索引取得目標投影片的參考。
-3. 在投影片上新增一個 [autoshape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
-4. 新增並取得 `autoshape` 的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
-5. 移除 `ITextFrame` 中的預設段落。
-6. 在 TextReader 中讀取來源 HTML 檔案。
-7. 透過 [Paragraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraph/) 類別建立第一個段落實例。
-8. 將讀取的 HTML 內容加入 TextFrame 的 [ParagraphCollection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraphcollection/)。
-9. 保存已修改的簡報。
-
-以下 C++ 程式碼實作匯入 HTML 文字至段落的步驟：
-
-```c++
-For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
-// 文件目錄的路徑。
-const String outPath = u"../out/ImportingHTMLText_out.pptx";
-const String sampleHtml = u"../templates/file.html";
-
-	
-// 載入所需的簡報
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// 存取第一張投影片
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-
-// 新增類型為矩形的 AutoShape
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 700, 500);
-	
-// 重設預設填充色
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-	
-// 為矩形新增 TextFrame
-ashp->AddTextFrame(u" ");
-
-// 取得文字框
-SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
-
-// 取得段落集合
-SharedPtr<Aspose::Slides::IParagraphCollection>ParaCollection = txtFrame->get_Paragraphs();
-
-// 清除已加入文字框中的所有段落
-ParaCollection->Clear();
-
-// 使用 StreamReader 載入 HTML 檔案
-SharedPtr<System::IO::StreamReader>  tr = MakeObject<System::IO::StreamReader>(sampleHtml);
-
-// 將 HTML StreamReader 的文字加入文字框
-ParaCollection->AddFromHtml(tr->ReadToEnd());
-
-
-// 建立文字框的 Paragraph 物件
-SharedPtr<IParagraph> paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// 建立段落的 Portion 物件
-SharedPtr<IPortion> portion = paragraph->get_Portions()->idx_get(0);
-portion->set_Text(u"Aspose TextBox");
-
-// 取得 Portion 格式
-SharedPtr<IPortionFormat> pf = portion->get_PortionFormat();
-
-// 設定 Portion 的字型
-pf->set_LatinFont(MakeObject<FontData>(u"Times New Roman"));
-
-// 設定字型的粗體屬性
-pf->set_FontBold(NullableBool::True);
-
-// 設定字型的斜體屬性
-pf->set_FontItalic(NullableBool::True);
-
-// 設定字型的底線屬性
-pf->set_FontUnderline(TextUnderlineType::Single);
-
-// 設定字型的高度
-pf->set_FontHeight(25);
-
-// 設定字型的顏色
-pf->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-
-// 將 PPTX 儲存至磁碟
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **將段落文字匯出為 HTML**
-
-Aspose.Slides 加強了將段落文字匯出為 HTML 的支援。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例，並載入目標簡報。
-2. 透過索引取得目標投影片的參考。
-3. 取得包含欲匯出文字的圖層。
-4. 取得圖層的 [TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
-5. 建立 `StreamWriter` 實例，並新增新的 HTML 檔案。
-6. 為 StreamWriter 提供起始索引，並匯出您選擇的段落。
-
-以下 C++ 程式碼示範如何將 PowerPoint 段落文字匯出為 HTML：
-
-```c++
-For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
-// 文件目錄的路徑。
-const String outPath = u"../out/output.html";
-const String tempplatePath = u"../templates/DefaultFonts.pptx";
-
-// 載入所需的簡報
-SharedPtr<Presentation> pres = MakeObject<Presentation>(tempplatePath);
-
-
-// 取得簡報的預設第一張投影片
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-// 目標索引
-int index = 0;
-
-// 取得已加入的圖形
-SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
-
-SharedPtr<AutoShape> ashape = DynamicCast<Aspose::Slides::AutoShape>(shape);
-
-// 將第一段落匯出為 HTML
-SharedPtr<System::IO::StreamWriter> sw = MakeObject<System::IO::StreamWriter>(outPath, false, Encoding::get_UTF8());
-//  System::IO::StreamWriter^ sr = gcnew System::IO::StreamWriter("TestFile.txt", false, Encoding::get_UTF8());
-
-// 依據段落起始索引與要複製的段落總數，將段落資料寫入 HTML
-sw->Write(ashape->get_TextFrame()->get_Paragraphs()->ExportToHtml(0, ashape->get_TextFrame()->get_Paragraphs()->get_Count(), nullptr));
-
-sw->Close();
-
-```
-
-## **將段落儲存為圖像**
-
-本節將說明兩個範例，示範如何將由 [IParagraph](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/) 介面表示的文字段落儲存為圖像。兩個範例皆包含以下步驟：使用 [IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/) 介面的 `GetImage` 方法取得包含段落的圖層圖像、計算段落在圖層內的邊界，並將其匯出為點陣圖。此做法讓您能從 PowerPoint 簡報中抽取特定文字片段並另存為獨立圖像，適用於各種後續使用情境。
-
-假設我們有一個名為 `sample.pptx` 的簡報檔，裡面只有一張投影片，且第一個圖層是一個包含三段文字的文字方塊。
-
-![包含三段文字的文字方塊](paragraph_to_image_input.png)
-
-### **範例 1**
-
-此範例取得第二段落的圖像。首先從簡報的第一張投影片取得圖層圖像，接著計算第二段落在圖層文字框中的邊界，最後將段落重新繪製到新的位圖並以 PNG 格式儲存。此方法特別適合在需要將特定段落另存為圖像，同時保留文字的精確尺寸與格式時使用。
+### **設定段落結尾執行屬性**
+
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) 控制段落結尾標記的格式。以下範例為第二段的結尾標記指定字型大小與拉丁字型：
+
+1. 讀取一個 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/)，並取得投影片。
+2. 加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)，並清除其預設段落。
+3. 建立兩個段落，並向其中加入文字部分。
+4. 為第二段的結尾標記建立 [PortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/portionformat/)。
+5. 設定 [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/set_fontheight/) 以及 [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/set_latinfont/)。
+6. 以 [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) 套用格式，並儲存簡報。
 
 ```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->get_Portions()->Add(MakeObject<Portion>(u"Sample text"));
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->get_Portions()->Add(MakeObject<Portion>(u"Sample text 2"));
+
+auto endParagraphFormat = MakeObject<PortionFormat>();
+endParagraphFormat->set_FontHeight(48);
+endParagraphFormat->set_LatinFont(MakeObject<FontData>(u"Times New Roman"));
+secondParagraph->set_EndParagraphPortionFormat(endParagraphFormat);
+
+textFrame->get_Paragraphs()->Add(firstParagraph);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **匯入與匯出段落內容**
+
+### **將 HTML 文字匯入段落**
+
+使用 [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphcollection/addfromhtml/) 可將 HTML 標記轉換為文字框中的段落與部分。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例。
+2. 取得投影片，並加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
+3. 取得圖形的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)，並清除預設段落。
+4. 讀取來源 HTML 檔案。
+5. 將 HTML 字串傳遞給 [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphcollection/addfromhtml/)。
+6. 儲存已修改的簡報。
+
+此 C++ 範例將 HTML 匯入文字框：
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/stream_reader.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, slideSize.get_Width() - 20, slideSize.get_Height() - 20);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_TextFrame()->get_Paragraphs()->Clear();
+
+auto reader = MakeObject<StreamReader>(u"file.html");
+auto html = reader->ReadToEnd();
+reader->Close();
+shape->get_TextFrame()->get_Paragraphs()->AddFromHtml(html);
+
+presentation->Save(u"html_text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **將段落文字匯出為 HTML**
+
+使用 [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphcollection/exporttohtml/) 可將選取的段落範圍匯出為 HTML。
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例，並載入目標簡報。
+2. 取得投影片，並找出包含文字的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
+3. 取得圖形的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。
+4. 呼叫 [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphcollection/exporttohtml/)，傳入起始段落索引與要匯出的段落數量。
+5. 將回傳的 HTML 字串寫入檔案。
+
+此 C++ 範例匯出第一個文字圖形的所有段落：
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/stream_writer.h>
+#include <system/object_ext.h>
+#include <system/text/encoding.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+using namespace System::Text;
+
+auto presentation = MakeObject<Presentation>(u"ExportingHTMLText.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto textShape = AsCast<IAutoShape>(shape);
+
+if (textShape != nullptr && textShape->get_TextFrame() != nullptr)
+{
+    auto paragraphs = textShape->get_TextFrame()->get_Paragraphs();
+    auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), nullptr);
+    auto writer = MakeObject<StreamWriter>(u"paragraphs.html", false, Encoding::get_UTF8());
+    writer->Write(html);
+    writer->Close();
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a text shape.");
+}
+
+presentation->Dispose();
+```
+
+### **將段落渲染為影像**
+
+[IParagraph::GetImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/getimage/) 會直接渲染單一段落，並回傳 [IImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iimage/)。您可以使用 [IImage::Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iimage/save/) 將結果儲存為檔案或串流，無需渲染整個圖形或自行裁切位圖。
+
+若段落不存在、沒有有效的渲染範圍，或無法渲染，則 [IParagraph::GetImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/getimage/) 可能回傳 `nullptr`。請在儲存前檢查結果，並於使用完畢後釋放影像。
+
+#### **以預設比例渲染段落**
+
+假設我們有一個名為 sample.pptx 的簡報檔，內含一張投影片，第一個圖形是一個包含三個段落的文字方塊。
+
+![包含三個段落的文字方塊](paragraph_to_image_input.png)
+
+以下範例在預設比例下渲染第二段，並以 PNG 格式儲存回傳的影像。
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto textShape = AsCast<IAutoShape>(shape);
 
-// Save the shape in memory as a bitmap.
-auto shapeImage = firstShape->GetImage();
-auto shapeImageStream = MakeObject<MemoryStream>();
-shapeImage->Save(shapeImageStream, ImageFormat::Png);
-shapeImage->Dispose();
+if (textShape != nullptr && textShape->get_TextFrame() != nullptr && textShape->get_TextFrame()->get_Paragraphs()->get_Count() > 1)
+{
+    auto paragraph = textShape->get_TextFrame()->get_Paragraph(1);
+    auto paragraphImage = paragraph->GetImage();
 
-// Create a shape bitmap from memory.
-shapeImageStream->set_Position(0);
-auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
-
-// Calculate the boundaries of the second paragraph.
-auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
-auto paragraphRectangle = secondParagraph->GetRect();
-
-// Calculate the size for the output image (minimum size - 1x1 pixel).
-auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
-auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
-
-// Prepare a bitmap for the paragraph.
-auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
-
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
-auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
-RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
-imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
-imageGraphics->Dispose();
-
-paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
+    if (paragraphImage != nullptr)
+    {
+        paragraphImage->Save(u"paragraph.png", ImageFormat::Png);
+        paragraphImage->Dispose();
+    }
+    else
+    {
+        Console::WriteLine(u"The paragraph could not be rendered.");
+    }
+}
+else
+{
+    Console::WriteLine(u"The expected text shape or paragraph was not found.");
+}
 
 presentation->Dispose();
 ```
 
 結果：
 
-![段落圖像](paragraph_to_image_output.png)
+![段落影像](paragraph_to_image_output.png)
 
-### **範例 2**
+#### **在表格儲存格中以縮放比例渲染段落**
 
-此範例在前一個方法的基礎上加入縮放因子。先以縮放係數 `2` 取得圖層圖像，藉此在匯出段落時得到較高解析度的輸出。接著在考慮縮放比例的情況下計算段落邊界。當需要更高細節的圖像（例如用於高品質印刷材料）時，縮放相當有用。
+使用接受 `float scaleX` 與 `float scaleY` 參數的 [IParagraph::GetImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/getimage/) 版本，可設定水平與垂直的縮放係數。以下範例建立一個表格，於其第一個儲存格中以兩倍寬度與高度渲染段落，並將結果儲存為 PNG 影像。
 
 ```cpp
-auto imageScaleX = 2.0f;
-auto imageScaleY = imageScaleX;
+#include <DOM/IParagraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/array.h>
+#include <system/console.h>
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+using namespace Aspose::Slides;
+using namespace System;
 
-// Save the shape in memory as a bitmap with scaling.
-auto shapeImage = firstShape->GetImage(ShapeThumbnailBounds::Shape, imageScaleX, imageScaleY);
-auto shapeImageStream = MakeObject<MemoryStream>();
-shapeImage->Save(shapeImageStream, ImageFormat::Png);
-shapeImage->Dispose();
+auto scaleX = 2.0f;
+auto scaleY = 2.0f;
 
-// Create a shape bitmap from memory.
-shapeImageStream->set_Position(0);
-auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto table = slide->get_Shapes()->AddTable(50, 50, MakeArray<double>({300}), MakeArray<double>({80}));
+auto paragraph = table->idx_get(0, 0)->get_TextFrame()->get_Paragraph(0);
+paragraph->set_Text(u"Text in a table cell");
 
-// Calculate the boundaries of the second paragraph.
-auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
-auto paragraphRectangle = secondParagraph->GetRect();
-paragraphRectangle.set_X(paragraphRectangle.get_X() * imageScaleX);
-paragraphRectangle.set_Y(paragraphRectangle.get_Y() * imageScaleY);
-paragraphRectangle.set_Width(paragraphRectangle.get_Width() * imageScaleX);
-paragraphRectangle.set_Height(paragraphRectangle.get_Height() * imageScaleY);
-
-// Calculate the size for the output image (minimum size - 1x1 pixel).
-auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
-auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
-
-// Prepare a bitmap for the paragraph.
-auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
-
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
-auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
-RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
-imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
-imageGraphics->Dispose();
-
-paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
+auto paragraphImage = paragraph->GetImage(scaleX, scaleY);
+if (paragraphImage != nullptr)
+{
+    paragraphImage->Save(u"table_paragraph.png", ImageFormat::Png);
+    paragraphImage->Dispose();
+}
+else
+{
+    Console::WriteLine(u"The paragraph could not be rendered.");
+}
 
 presentation->Dispose();
 ```
 
+縮放係數為 `1` 時保持預設像素大小。例如，水平與垂直同為 `2` 時，產生的影像寬高約為預設的兩倍，像素數量為四倍。較大的係數通常可產生較銳利的文字，適合放大或高解析度輸出，但也會增加記憶體使用量與檔案大小。小於 `1` 的係數會產生較小且細節較少的影像。使用相同的水平與垂直係數可保留段落的長寬比；不同的係數則會分別拉伸輸出。
+
+在需要包含圖形填充、邊框或其他視覺上下文時，仍可使用 [IShape::GetImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/getimage/)。若僅需段落影像，請使用 [IParagraph::GetImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/getimage/)。
+
 ## **常見問題集**
 
-**我可以完全停用文字框內的換行嗎？**
+**可以完全停用文字框內的換行嗎？**
 
-可以。使用文字框的換行方法（[set_WrapText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/textframeformat/set_wraptext/)）關閉換行，即可讓文字不在框邊緣斷行。
+可以。使用 [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_wraptext/) 可停用換行，使文字不會在文字框邊緣斷行。
 
-**我要如何取得投影片上特定段落的精確邊界？**
+**如何取得特定段落在投影片上的實際邊界？**
 
-您可以取得段落（甚至單一文字區塊）的邊界矩形，以得知其在投影片上的確切位置與大小。
+使用 [IParagraph::GetRect](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraph/getrect/) 取得段落的邊界矩形。[IPortion::GetRect](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iportion/getrect/) 則提供單一部分的邊界。
 
-**段落的對齊方式（左對齊/右對齊/置中/兩端對齊）在哪裡設定？**
+**段落的對齊方式（左、右、置中或兩端對齊）在哪裡設定？**
 
-[Alignment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraphformat/set_alignment/) 是 `ParagraphFormat`（[ParagraphFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/paragraphformat/)）層級的設定，會套用於整個段落，與個別文字區塊的格式無關。
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iparagraphformat/set_alignment/) 為段落層級設定，會套用於整個段落，與各部分的格式無關。
 
-**我可以只為段落中的部分文字（例如單一詞彙）設定拼寫檢查語言嗎？**
+**可以為段落的一部分設定校對語言嗎？**
 
-可以。語言屬性在文字區塊層級設定（[PortionFormat::set_LanguageId](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/baseportionformat/set_languageid/)），因此同一段落內可以同時存在多種語言。
+可以。使用 [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseportionformat/set_languageid/) 為個別部分設定語言，讓同一段落可包含多種語言的文字。

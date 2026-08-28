@@ -1,111 +1,105 @@
 ---
-title: PowerPoint szöveg bekezdések kezelése Androidon
+title: PowerPoint szövegbekezdések kezelése Androidon
 linktitle: Bekezdés kezelése
 type: docs
 weight: 40
 url: /hu/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/bekezdes/
+  - /androidjava/szakasz/
 keywords:
-- szöveg hozzáadása
-- bekezdés hozzáadása
-- szöveg kezelése
-- bekezdés kezelése
-- felsorolás kezelése
-- bekezdés behúzása
-- függő behúzás
-- bekezdés felsorolás
-- számozott lista
-- felsoroláslista
-- bekezdés tulajdonságai
-- HTML importálása
-- szöveg HTML-be
-- bekezdés HTML-be
-- bekezdés képre
-- szöveg képre
-- bekezdés exportálása
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Android
-- Java
-- Aspose.Slides
-description: "Az Aspose.Slides for Android segítségével könnyedén kezelheti a bekezdések formázását – optimalizálja az igazítást, sortávolságot és stílust PPT, PPTX és ODP prezentációkban Java‑ban."
+  - szöveg hozzáadása
+  - bekezdés hozzáadása
+  - szöveg kezelése
+  - bekezdés kezelése
+  - golyó kezelése
+  - bekezdés behúzása
+  - függőleges behúzás
+  - bekezdés golyó
+  - számozott lista
+  - felsoroláslista
+  - bekezdés tulajdonságok
+  - HTML importálása
+  - szöveg HTML-re
+  - bekezdés HTML-re
+  - bekezdés képbe
+  - szöveg képpé
+  - bekezdés exportálása
+  - PowerPoint
+  - bemutató
+  - Android
+  - Java
+  - Aspose.Slides
+description: "Ismerje meg, hogyan hozhat létre és formázhat bekezdéseket, szakaszokat, felsorolásjeleket, számozott listákat, behúzásokat, HTML‑tartalmat és bekezdésképeket az Aspose.Slides for Android via Java segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Az Aspose.Slides minden interfészt és osztályt biztosít, amelyekre a PowerPoint szövegek, bekezdések és részek Java-ban történő kezeléséhez szükség van.
+Aspose.Slides for Android via Java a szöveget szövegdobozok, bekezdések és szakaszok hierarchiájában ábrázolja:
 
-* Az Aspose.Slides a [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) interfészt biztosítja, amely lehetővé teszi, hogy olyan objektumokat adjunk hozzá, amelyek egy bekezdést képviselnek. Egy `ITextFame` objektum egy vagy több bekezdést (minden bekezdés egy sortöréssel jön létre) tartalmazhat.
-* Az Aspose.Slides a [IParagraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/) interfészt biztosítja, amely lehetővé teszi, hogy olyan objektumokat adjunk hozzá, amelyek részeket képviselnek. Egy `IParagraph` objektum egy vagy több részt (az iPortions objektumok gyűjteménye) tartalmazhat.
-* Az Aspose.Slides a [IPortion](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportion/) interfészt biztosítja, amely lehetővé teszi, hogy olyan objektumokat adjunk hozzá, amelyek szövegeket és azok formázási tulajdonságait képviselik.
+* [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) a szövegkonténert egy alakzatban képviseli, és hozzáférést biztosít a bekezdésgyűjteményéhez.
+* [IParagraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/) egy bekezdést képvisel egy szövegdobozban, és hozzáférést biztosít a szakaszokhoz és a bekezdés-szintű formázáshoz.
+* [IPortion](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportion/) egy szövegrészt képvisel egy bekezdésen belül. Minden szakasz saját szöveggel és karakter-szintű formázással rendelkezhet.
 
-Az `IParagraph` objektum képes különböző formázási tulajdonságú szövegeket kezelni az alatta lévő `IPortion` objektumok segítségével.
+Ezáltal egy bekezdés különböző betűtípusokkal, színekkel, méretekkel és egyéb formázásokkal rendelkező szöveget tartalmazhat több szakasz használatával.
 
-## **Több bekezdés hozzáadása, amelyek több szövegrészt tartalmaznak**
+## **Bebe​dzések létrehozása és formázása**
 
-Az alábbi lépések bemutatják, hogyan adhatunk hozzá egy szövegdobozt, amely 3 bekezdést tartalmaz, és minden bekezdés 3 részt tartalmaz:
+### **Bebe​dzések létrehozása több szakaszszal**
+
+Az alábbi lépések egy szövegdobozt hoznak létre három bekezdéssel, mindegyik három szakaszt tartalmazva:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Hozzáférés a megfelelő dia referenciájához az indexével.
-3. Adjunk hozzá egy Rectangle [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) objektumot a diára.
-4. Szerezze meg a [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/)‑hez tartozó ITextFrame‑et.
-5. Hozzon létre két [IParagraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/) objektumot, és adja hozzá őket az [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) `IParagraphs` gyűjteményéhez.
-6. Hozzon létre három [IPortion](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportion/) objektumot minden új `IParagraph` számára (alapértelmezett bekezdéshez két Portion objektum), és adja hozzá az egyes `IPortion` objektumokat az adott `IParagraph` IPortion gyűjteményéhez.
-7. Állítson be szöveget minden részhez.
-8. Alkalmazza a kívánt formázási tulajdonságokat minden részre a `IPortion` objektum által biztosított formázási beállításokkal.
-9. Mentse el a módosított prezentációt.
+2. Hozzáférés a megfelelő diát a indexén keresztül.
+3. Adjon egy téglalap alakú [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
+4. Hozzáférés az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) részéhez.
+5. Használja az alapértelmezett bekezdést, és adjon hozzá még két [IParagraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/) objektumot a szövegdobozhoz.
+6. Adjon elegendő [IPortion](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportion/) objektumot minden bekezdéshez, hogy három szakaszt tartalmazzanak. Az alapértelmezett bekezdés már tartalmaz egy üres szakaszt.
+7. Állítsa be minden szakasz szövegét.
+8. Alkalmazzon karakter‑szintű formázást az [IPortion.getPortionFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportion/#getPortionFormat--) segítségével.
+9. Mentse a módosított bemutatót.
 
-Ez a Java kód a bekezdések és részek hozzáadásának lépéseinek megvalósítása:
+Ez az Android via Java példa megvalósítja a lépéseket:
 
 ```java
-// Példányosít egy Presentation osztályt, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Az első dia elérése
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    ITextFrame textFrame = shape.getTextFrame();
 
-    // Hozzáad egy Rectangle típusú AutoShape-et
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    IParagraph firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new Portion());
+    firstParagraph.getPortions().add(new Portion());
 
-    // Az AutoShape TextFrame-jének elérése
-    ITextFrame tf = ashp.getTextFrame();
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(secondParagraph);
 
-    // Bekezdések és részek létrehozása különböző szövegformátumokkal
-    IParagraph para0 = tf.getParagraphs().get_Item(0);
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
 
-    IParagraph para1 = new Paragraph();
-    tf.getParagraphs().add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
+    int paragraphCount = textFrame.getParagraphs().getCount();
+    for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        int portionCount = paragraph.getPortions().getCount();
+        for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
 
-    IParagraph para2 = new Paragraph();
-    tf.getParagraphs().add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-
-    for (int i = 0; i < 3; i++) 
-    {
-        for (int j = 0; j < 3; j++) 
-        {
-            IPortion portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j); 
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+            if (portionIndex == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
                 portion.getPortionFormat().setFontBold(NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
                 portion.getPortionFormat().setFontItalic(NullableBool.True);
@@ -114,369 +108,289 @@ try {
         }
     }
 
-    // PPTX írása lemezre
-    pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
+    presentation.save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bekezdés felsorolási pontok kezelése**
+## **Felsorolások és számozott listák létrehozása**
 
-A felsoroláslista segít az információ gyors és hatékony rendszerezésében és bemutatásában. A felsorolásos bekezdések mindig könnyebben olvashatók és érthetők.
+### **Felsorolás vagy számozott lista létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Hozzáférés a megfelelő dia referenciájához az indexével.
-3. Adjunk hozzá egy [autoshape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) objektumot a kiválasztott diához.
-4. Hozzáférés az autoshape [TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) objektumához.
-5. Távolítsa el az alapértelmezett bekezdést a `TextFrame`‑ből.
-6. Hozza létre az első bekezdés példányát a [Paragraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraph/) osztállyal.
-7. Állítsa be a bekezdés bullet `Type` értékét `Symbol`‑ra, és adja meg a bullet karaktert.
-8. Állítsa be a bekezdés `Text` értékét.
-9. Állítsa be a bekezdés `Indent` értékét a bullethez.
-10. Állítson be színt a bullethez.
-11. Állítson be magasságot a bulletnek.
-12. Adja hozzá az új bekezdést a `TextFrame` bekezdésgyűjteményéhez.
-13. Adja hozzá a második bekezdést, és ismételje a 7‑13. lépésben leírt folyamatot.
-14. Mentse el a prezentációt.
-
-Ez a Java kód bemutatja, hogyan adhatunk hozzá bekezdés bulletet:
-
-```java
-    // Példányosít egy Presentation osztályt, amely egy PPTX fájlt képvisel
-    Presentation pres = new Presentation();
-    try {
-        // Az első dia elérése
-        ISlide slide = pres.getSlides().get_Item(0);
-        
-        // Autoshape hozzáadása és elérése
-        IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-        // Az autoshape szövegdobozának elérése
-        ITextFrame txtFrm = aShp.getTextFrame();
-
-        // Az alapértelmezett bekezdés eltávolítása
-        txtFrm.getParagraphs().removeAt(0);
-
-        // Bekezdés létrehozása
-        Paragraph para = new Paragraph();
-
-        // Bekezdés bullet stílusának és szimbólumának beállítása
-        para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-        para.getParagraphFormat().getBullet().setChar((char)8226);
-
-        // Bekezdés szövegének beállítása
-        para.setText("Welcome to Aspose.Slides");
-
-        // Bullet behúzás beállítása
-        para.getParagraphFormat().setIndent(25);
-
-        // Bullet szín beállítása
-        para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-        para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-        para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // állítsa az IsBulletHardColor értékét true-ra saját bullet szín használatához
-
-        // Bullet magasság beállítása
-        para.getParagraphFormat().getBullet().setHeight(100);
-
-        // Bekezdés hozzáadása a szövegdobozhoz
-        txtFrm.getParagraphs().add(para);
-
-        // Második bekezdés létrehozása
-        Paragraph para2 = new Paragraph();
-
-        // Bekezdés bullet típusának és stílusának beállítása
-        para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-        para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-
-        // Bekezdés szövegének hozzáadása
-        para2.setText("This is numbered bullet");
-
-        // Bullet behúzás beállítása
-        para2.getParagraphFormat().setIndent(25);
-
-        para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-        para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-        para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // állítsa az IsBulletHardColor értékét true-ra saját bullet szín használatához
-
-        // Bullet magasság beállítása
-        para2.getParagraphFormat().getBullet().setHeight(100);
-
-        // Bekezdés hozzáadása a szövegdobozhoz
-        txtFrm.getParagraphs().add(para2);
-        
-        // A módosított prezentáció mentése
-        pres.save("Bullet_out.pptx", SaveFormat.Pptx);
-    } finally {
-        if (pres != null) pres.dispose();
-    }
-```
-
-## **Képes bulletek kezelése**
-
-A felsoroláslisták segítenek az információ gyors és hatékony rendszerezésében és bemutatásában. A képes bekezdések könnyen olvashatók és érthetők.
+A golyók és a számozás megkönnyítik a kapcsolódó elemek áttekintését. Az Aspose.Slides‑ben a lista beállításait az [IBulletFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/) határozza meg.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Hozzáférés a megfelelő dia referenciájához az indexével.
-3. Adjunk hozzá egy [autoshape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) objektumot a diához.
-4. Hozzáférés az autoshape [TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) objektumához.
-5. Távolítsa el az alapértelmezett bekezdést a `TextFrame`‑ből.
-6. Hozza létre az első bekezdés példányát a [Paragraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraph/) osztállyal.
-7. Töltse be a képet a [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/) segítségével.
-8. Állítsa be a bullet típusát [Picture](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/)‑re, és adja meg a képet.
-9. Állítsa be a Paragraph `Text` értékét.
-10. Állítsa be a Paragraph `Indent` értékét a bullethez.
-11. Állítson be színt a bullethez.
-12. Állítson be magasságot a bulletnek.
-13. Adja hozzá az új bekezdést a `TextFrame` bekezdésgyűjteményéhez.
-14. Adja hozzá a második bekezdést, és ismételje meg a lépéseket az előzőek alapján.
-15. Mentse el a módosított prezentációt.
+2. Hozzáférés a megfelelő diát a indexén keresztül.
+3. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a kiválasztott diára.
+4. Hozzáférés az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) részéhez.
+5. Távolítsa el az alapértelmezett bekezdést a szövegdobozból.
+6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraph/) elemet egy szimbólum golyóhoz.
+7. Állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/#setType-int-) értékét [BulletType.Symbol](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/bullettype/)‑ra, és adja meg a golyó karaktert.
+8. Állítsa be a bekezdés szövegét, behúzását, golyó színét és golyó magasságát.
+9. Adja hozzá a bekezdést a szövegdobozhoz.
+10. Hozzon létre egy második bekezdést, és állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/#setType-int-) értékét [BulletType.Numbered](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/bullettype/)‑ra.
+11. Konfigurálja a számozott golyó stílusát, és adja hozzá a bekezdést a szövegdobozhoz.
+12. Mentse a bemutatót.
 
-Ez a Java kód bemutatja, hogyan adhatunk hozzá és kezelhetünk képes bulleteket:
+Ez az Android via Java példa egy szimbólum golyót és egy számozott golyót hoz létre:
 
 ```java
-// Példányosít egy Presentation osztályt, amely egy PPTX fájlt képvisel
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
-    // Az első dia elérése
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph symbolParagraph = new Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    symbolParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
+
+    Paragraph numberedParagraph = new Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
+
+    presentation.save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Képgolyók használata**
+
+A képgolyók lehetővé teszik egy egyedi kép használatát a szimbólum vagy szám helyett.
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
+2. Hozzáférés a megfelelő diát a indexén keresztül.
+3. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet, és férjen hozzá annak [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) részéhez.
+4. Távolítsa el az alapértelmezett bekezdést a szövegdobozból.
+5. Töltse be a golyó képet, és adja hozzá a bemutató képgyűjteményéhez [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/)‑ként.
+6. Hozzon létre egy [Paragraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraph/) elemet, és állítsa be a szövegét.
+7. Állítsa be az [IBulletFormat.setType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/#setType-int-) értékét [BulletType.Picture](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/bullettype/)‑ra.
+8. Rendelje hozzá a képet az [IBulletFormat.getPicture](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/#getPicture--) segítségével, és állítsa be a golyó magasságát.
+9. Adja hozzá a bekezdést a szövegdobozhoz.
+10. Mentse a módosított bemutatót.
+
+Ez az Android via Java példa egy képgolyót hoz létre:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Létrehozza a bulletekhez használt képet
-    IPPImage picture;
-    IImage image = Images.fromFile("bullets.png");
+    IImage bulletImage = Images.fromFile("bullets.png");
+    IPPImage presentationImage;
     try {
-        picture = presentation.getImages().addImage(image);
+        presentationImage = presentation.getImages().addImage(bulletImage);
     } finally {
-        if (image != null) image.dispose();
+        bulletImage.dispose();
     }
-    // Autoshape hozzáadása és elérése
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Az autoshape szövegdobozának elérése
-    ITextFrame textFrame = autoShape.getTextFrame();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // Az alapértelmezett bekezdés eltávolítása
-    textFrame.getParagraphs().removeAt(0);
-
-    // Új bekezdés létrehozása
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
-
-    // Bekezdés bullet stílusának és képének beállítása
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-    // Bullet magasság beállítása
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
     paragraph.getParagraphFormat().getBullet().setHeight(100);
-
-    // Bekezdés hozzáadása a szövegdobozhoz
     textFrame.getParagraphs().add(paragraph);
 
-    // A prezentáció mentése PPTX fájlként
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-    // A prezentáció mentése PPT fájlként
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-} catch (IOException e) {
+    presentation.save("picture_bullet.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", SaveFormat.Ppt);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Többszintű bulletek kezelése**
+### **Többszintű lista létrehozása**
 
-A felsoroláslisták segítik az információ gyors és hatékony rendszerezését és bemutatását. A többszintű bulletek könnyen olvashatók és érthetők.
+Állítsa be az [IParagraphFormat.setDepth](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) értékét, hogy a bekezdéseket a lista különböző szintjeire helyezze. A legfelső szint mélysége `0`.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Hozzáférés a megfelelő dia referenciájához az indexével.
-3. Adjunk hozzá egy [autoshape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) objektumot az új dián.
-4. Hozzáférés az autoshape [TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) objektumához.
-5. Távolítsa el az alapértelmezett bekezdést a `TextFrame`‑ből.
-6. Hozza létre az első bekezdést a [Paragraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraph/) osztállyal, és állítsa a mélységet 0‑ra.
-7. Hozza létre a második bekezdést a `Paragraph` osztállyal, és állítsa a mélységet 1‑re.
-8. Hozza létre a harmadik bekezdést a `Paragraph` osztállyal, és állítsa a mélységet 2‑re.
-9. Hozza létre a negyedik bekezdést a `Paragraph` osztállyal, és állítsa a mélységet 3‑ra.
-10. Adja hozzá az új bekezdéseket a `TextFrame` bekezdésgyűjteményéhez.
-11. Mentse el a módosított prezentációt.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) elemet, és férjen hozzá egy diához.
+2. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet, és távolítsa el az alapértelmezett bekezdést a szövegdobozából.
+3. Hozzon létre négy bekezdést, és konfigurálja a golyó szimbólumaikat.
+4. Állítsa be azok [IParagraphFormat.setDepth](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) értékeit `0`, `1`, `2` és `3`‑ra.
+5. Adja hozzá a bekezdéseket a szövegdobozhoz, és mentse a bemutatót.
 
-Ez a Java kód bemutatja, hogyan adhatunk hozzá és kezelhetünk többszintű bulleteket:
+Ez az Android via Java példa egy négy szintű golyós listát hoz létre:
 
 ```java
-// Példányosít egy Presentation osztályt, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation();
-try {
-    // Az első dia elérése
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // Autoshape hozzáadása és elérése
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // A létrehozott autoshape szövegdobozának elérése
-    ITextFrame text = aShp.addTextFrame("");
-
-    // Az alapértelmezett bekezdés törlése
-    text.getParagraphs().clear();
-
-    // Az első bekezdés hozzáadása
-    IParagraph para1 = new Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // A bullet szint beállítása
-    para1.getParagraphFormat().setDepth((short)0);
-
-    // A második bekezdés hozzáadása
-    IParagraph para2 = new Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // A bullet szint beállítása
-    para2.getParagraphFormat().setDepth((short)1);
-
-    // A harmadik bekezdés hozzáadása
-    IParagraph para3 = new Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // A bullet szint beállítása
-    para3.getParagraphFormat().setDepth((short)2);
-
-    // A negyedik bekezdés hozzáadása
-    IParagraph para4 = new Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // A bullet szint beállítása
-    para4.getParagraphFormat().setDepth((short)3);
-
-    // Bekezdések hozzáadása a gyűjteményhez
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-
-    // A prezentáció mentése PPTX fájlként
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Egy bekezdés kezelése egy egyéni számozott listával**
-
-Az [IBulletFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/) interfész a [NumberedBulletStartWith](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) tulajdonságot és másokat biztosít, amelyek lehetővé teszik, hogy egyéni számozással vagy formázással rendelkező bekezdéseket kezeljünk.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Hozzáférés a bekezdést tartalmazó diához.
-3. Adjunk hozzá egy [autoshape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) objektumot a diához.
-4. Hozzáférés az autoshape [TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) objektumához.
-5. Távolítsa el az alapértelmezett bekezdést a `TextFrame`‑ből.
-6. Hozza létre az első bekezdést a [Paragraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraph/) osztállyal, és állítsa a [NumberedBulletStartWith](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) értékét 2‑re.
-7. Hozza létre a második bekezdést a `Paragraph` osztállyal, és állítsa a `NumberedBulletStartWith` értékét 3‑ra.
-8. Hozza létre a harmadik bekezdést a `Paragraph` osztállyal, és állítsa a `NumberedBulletStartWith` értékét 7‑re.
-9. Adja hozzá az új bekezdéseket a `TextFrame` bekezdésgyűjteményéhez.
-10. Mentse el a módosított prezentációt.
-
-Ez a Java kód bemutatja, hogyan adhatunk hozzá és kezelhetünk bekezdéseket egyéni számozással vagy formázással:
-
-```java
 Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Eléri a létrehozott autoshape szövegdobozát
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // Eltávolítja az alapértelmezett, már meglévő bekezdést
-    textFrame.getParagraphs().removeAt(0);
+    IParagraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    firstParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.getParagraphFormat().setDepth((short) 0);
 
-    // Első lista
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    secondParagraph.getParagraphFormat().getBullet().setChar('-');
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().setDepth((short) 1);
 
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    thirdParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.getParagraphFormat().setDepth((short) 2);
 
+    IParagraph fourthParagraph = new Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    fourthParagraph.getParagraphFormat().getBullet().setChar('-');
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    fourthParagraph.getParagraphFormat().setDepth((short) 3);
 
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
 
-    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+    presentation.save("multilevel_list.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Első sor behúzás beállítása bekezdéshez**
+### **Számozott listaelemek egyéni kezdőértékkel**
 
-Az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) metódus használatával szabályozhatja egy bekezdés első sorának behúzását. Ez a metódus csak az első sort mozgatja a bekezdés bal margójához képest. A pozitív érték jobbra tolja az első sort, míg a többi sor a bekezdés törzséhez igazodik.
+Használja az [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) metódust a számozott bekezdés kezdeti számának beállításához.
 
-Használja az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) metódust, ha a teljes bekezdést szeretné elmozdítani. Használja az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) metódust, ha csak az első sort szeretné eltolni.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) elemet, és adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet egy diára.
+2. Távolítsa el az alapértelmezett bekezdést az alakzat szövegdobozából.
+3. Hozzon létre három számozott bekezdést.
+4. Állítsa be az [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) értékét `2`, `3` és `7`‑re az egyes bekezdéseknél.
+5. Adja hozzá a bekezdéseket a szövegdobozhoz, és mentse a bemutatót.
 
-Az alábbi példa több bekezdést hoz létre, és különböző behúzási értékeket alkalmaz, hogy bemutassa, hogyan befolyásolja az első sor behúzása a bekezdés elrendezését.
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Hozzáférés a cél diához.
-3. Adjunk hozzá egy téglalap [AutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/autoshape/) objektumot a diához.
-4. Adjunk egy üres [TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textframe/) objektumot az alakzathoz, és távolítsuk el az alapértelmezett bekezdést.
-5. Hozzon létre több bekezdést, és állítson be különböző [Indent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) értékeket.
-6. Adja hozzá a bekezdéseket a szövegdobozhoz.
-7. Mentse el a módosított prezentációt.
-
-Ez a kód bemutatja, hogyan állíthat be bekezdésbehúzást:
+Ez az Android via Java példa egyedi kezdőszámot rendel minden bekezdéshez:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 2);
+    textFrame.getParagraphs().add(firstParagraph);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 3);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 7);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Beke​dzés elrendezésének és végjellemzőinek vezérlése**
+
+### **Első sor behúzásának beállítása**
+
+Használja az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) metódust a bekezdés első sorának behúzásának szabályozásához. Ez a módszer csak az első sort mozgatja a bekezdés bal margójához képest. A pozitív érték jobbra tolja az első sort, míg a többi sor a bekezdés testhez igazodik.
+
+Használja az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) metódust, ha az egész bekezdést szeretné eltolni. Az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) csak az első sort mozgatja.
+
+Az alábbi példa több bekezdést hoz létre, és különböző [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) értékekkel mutatja be, hogyan befolyásolja az első sor behúzása a bekezdés elrendezését.
+
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt.
+2. Hozzáférés a cél diához.
+3. Adjon egy téglalap alakú [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
+4. Hozzáférés az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) részéhez, és távolítsa el az alapértelmezett bekezdést.
+5. Hozzon létre több bekezdést, és állítson be különböző [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) értékeket.
+6. Adja hozzá a bekezdéseket a szövegdobozhoz.
+7. Mentse a módosított bemutatót.
+
+Ez a kód megmutatja, hogyan állíthat be bekezdés behúzást:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().setMarginLeft(20f);
     firstParagraph.getParagraphFormat().setIndent(0f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20f);
     secondParagraph.getParagraphFormat().setIndent(20f);
 
     Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20f);
     thirdParagraph.getParagraphFormat().setIndent(40f);
 
@@ -485,8 +399,7 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
@@ -495,50 +408,53 @@ Az eredmény:
 
 ![A bekezdések első sorának behúzása](first_line_indent.png)
 
-## **Függő behúzás beállítása bekezdéshez**
+### **Függőleges (hanging) behúzás beállítása**
 
-A függő behúzás egy bekezdéselrendezés, ahol az első sor a többi sor bal oldalán kezdődik. Az Aspose.Slides-ben ezt a hatást az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) metódus segítségével hozhatja létre. Állítsa a behúzást negatív értékre, hogy az első sort a bekezdés törzséhez képest balra mozgassa.
+A függőleges behúzás egy olyan bekezdéselrendezés, ahol az első sor balra indul a többi sorhoz képest. Az Aspose.Slides‑ben ezt az effektust az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) negatív értékével érheti el, amely az első sort balra mozdítja a bekezdés testhez képest.
 
-Gyakorlatban az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) a bekezdés törzsének bal pozícióját határozza meg, míg az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) az első sor pozícióját az adott margóhoz képest. Függő behúzás létrehozásához állítsa be a `MarginLeft` értékét pozitívra, és az `Indent` értékét negatívra.
+Gyakorlatban az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) határozza meg a bekezdés test bal pozícióját, míg az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) az első sor pozícióját ezen a margón belül. A függőleges behúzás létrehozásához adjon pozitív értéket a `setMarginLeft`‑nak, és negatív értéket a `setIndent`‑nek.
 
-Ez a formázás hasznos bibliográfiák, hivatkozások, szójegyzék bejegyzések és más bekezdések esetén, ahol a tördelő soroknak a bekezdés törzsének alá kell illeszkedniük, nem pedig az első sor első karakteréhez.
+Ez a formázás hasznos bibliográfiákhoz, hivatkozásokhoz, szószedet-bejegyzésekhez és más bekezdésekhez, ahol a tördelő soroknak a bekezdés test alatt kell igazodniuk, nem pedig az első sor első karaktere alatt.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt.
 2. Hozzáférés a cél diához.
-3. Adjunk hozzá egy téglalap [AutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/autoshape/) objektumot a diához.
-4. Hozzáférés egy üres [TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textframe/) objektumhoz az alakzathoz, és távolítsuk el az alapértelmezett bekezdést.
-5. Hozzon létre bekezdéseket, és állítson be pozitív [MarginLeft](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) értéket minden bekezdéshez.
-6. Állítson be negatív [Indent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) értéket a függő behúzás hatás létrehozásához.
+3. Adjon egy téglalap alakú [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
+4. Hozzáférés az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) részéhez, és távolítsa el az alapértelmezett bekezdést.
+5. Hozzon létre bekezdéseket, és adjon pozitív értéket minden bekezdéshez az [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) metódussal.
+6. Adjon negatív értéket az [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) metódusnak a függőleges behúzás hatásának eléréséhez.
 7. Adja hozzá a bekezdéseket a szövegdobozhoz.
-8. Mentse el a módosított prezentációt.
+8. Mentse a módosított bemutatót.
 
-Ez a kód bemutatja, hogyan állíthat be függő behúzást egy bekezdéshez:
+Ez a kód megmutatja, hogyan állíthat be függőleges behúzást egy bekezdéshez:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40f);
     firstParagraph.getParagraphFormat().setIndent(-20f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -546,185 +462,190 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 Az eredmény:
 
-![A bekezdések függő behúzása](hanging_indent.png)
+![A bekezdések függőleges behúzása](hanging_indent.png)
 
-## **A bekezdés végi futtatási tulajdonságok kezelése**
+### **Befejező bekezdés‑szakasz formátumának beállítása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezze be a bekezdést tartalmazó dia referenciáját a pozíciója alapján.
-3. Adjunk hozzá egy téglalap [autoshape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) objektumot a diához.
-4. Adjunk egy [TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) objektumot két bekezdéssel a téglalaphoz.
-5. Állítsa be a bekezdések `FontHeight` és betűtípus típusát.
-6. Állítsa be a bekezdések End (vég) tulajdonságait.
-7. Írja ki a módosított prezentációt PPTX fájlként.
+Az [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) a bekezdés végjelet formázza. Az alábbi példa a második bekezdés végjeléhez állít be betűméretet és latin betűtípust:
 
-Ez a Java kód bemutatja, hogyan állíthatja be a bekezdések End (vég) tulajdonságait a PowerPointban:
+1. Töltsön be egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) fájlt, és férjen hozzá egy diához.
+2. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet, és törölje az alapértelmezett bekezdést.
+3. Hozzon létre két bekezdést, és adjon hozzá szövegszakaszokat.
+4. Hozzon létre egy [PortionFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/portionformat/) objektumot a második bekezdés végjeléhez.
+5. Állítsa be az [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) és az [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) értékeket.
+6. Rendelje hozzá a formátumot az [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) segítségével, és mentse a bemutatót.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Sample text"));
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getPortions().add(new Portion("Sample text"));
 
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Sample text 2"));
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion("Sample text 2"));
 
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
+    PortionFormat endParagraphFormat = new PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
 
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    presentation.save("end_paragraph_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **HTML szöveg importálása bekezdésekbe**
+## **Beke​dzés tartalmának importálása és exportálása**
 
-Az Aspose.Slides fejlett támogatást nyújt a HTML szöveg bekezdésekbe való importálásához.
+### **HTML‑szöveg importálása bekezdésekbe**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Hozzáférés a megfelelő dia referenciájához az indexével.
-3. Adjunk hozzá egy [autoshape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) objektumot a diához.
-4. Adjunk hozzá és érjük el az `autoshape` [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) objektumot.
-5. Távolítsa el az alapértelmezett bekezdést az `ITextFrame`‑ből.
-6. Olvassa be a forrás HTML fájlt egy TextReader segítségével.
-7. Hozza létre az első bekezdés példányt a [Paragraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraph/) osztállyal.
-8. Adja hozzá a beolvasott TextReaderből származó HTML fájl tartalmát a TextFrame [ParagraphCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraphcollection/) gyűjteményéhez.
-9. Mentse el a módosított prezentációt.
+Használja a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metódust a HTML‑jelölés bekezdésekké és szakaszokká konvertálásához egy szövegdobozban.
 
-Ez a Java kód a HTML szövegek bekezdésekbe importálásának lépéseinek megvalósítása:
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt.
+2. Hozzáférés egy diához, és adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet.
+3. Hozzáférés az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) részéhez, és törölje az alapértelmezett bekezdést.
+4. Olvassa be a forrás‑HTML fájlt.
+5. Adja át a HTML‑karakterláncot a [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) metódusnak.
+6. Mentse a módosított bemutatót.
+
+Ez az Android via Java példa HTML‑t importál egy szövegdobozba:
 
 ```java
-// Üres prezentációs példány létrehozása
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // A prezentáció alapértelmezett első diájának elérése
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
+    float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
 
-    // AutoShape hozzáadása a HTML tartalom elhelyezéséhez
-    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
-
-    ashape.getFillFormat().setFillType(FillType.NoFill);
-
-    // Szövegdoboz hozzáadása az alakzathoz
-    ashape.addTextFrame("");
-
-    // A hozzáadott szövegdoboz összes bekezdésének törlése
-    ashape.getTextFrame().getParagraphs().clear();
-
-    // HTML fájl betöltése stream olvasóval
-    TextReader tr = new StreamReader("file.html");
-
-    // Szöveg hozzáadása a HTML stream olvasóból a szövegdobozhoz
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-
-    // Prezentáció mentése
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    try {
+        byte[] htmlBytes = Files.readAllBytes(Paths.get("file.html"));
+        String html = new String(htmlBytes, StandardCharsets.UTF_8);
+        shape.getTextFrame().getParagraphs().addFromHtml(html);
+        presentation.save("html_text.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("The HTML file could not be read: " + exception.getMessage());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bekezdés szöveg exportálása HTML-be**
+### **Beke​dzés‑szöveg exportálása HTML‑be**
 
-Az Aspose.Slides fejlett támogatást nyújt a szövegek (bekezdésekben lévő) HTML-be exportálásához.
+Használja a [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metódust a kiválasztott bekezdéstartomány HTML‑ként történő exportálásához.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból, és töltse be a kívánt prezentációt.
-2. Hozzáférés a megfelelő dia referenciájához az indexével.
-3. Hozzáférés ahhoz az alakzathoz, amely a HTML-be exportálandó szöveget tartalmazza.
-4. Hozzáférés az alakzat [TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textframe/) objektumához.
-5. Hozzon létre egy `StreamWriter` példányt, és adja hozzá az új HTML fájlt.
-6. Adjon meg egy kezdő indexet a StreamWriternek, és exportálja a kívánt bekezdéseket.
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt, és töltse be a kívánt bemutatót.
+2. Hozzáférés a diához, és keresse meg a szöveget tartalmazó [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet.
+3. Hozzáférés az alakzat [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) részéhez.
+4. Hívja meg a [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) metódust a kezdő bekezdés indexével és az exportálandó bekezdések számával.
+5. Írja a visszaadott HTML‑karakterláncot fájlba.
 
-Ez a Java kód bemutatja, hogyan exportálhatja a PowerPoint bekezdés szövegeket HTML-be:
+Ez az Android via Java példa az első szöveges alakzatról exportálja az összes bekezdést:
 
 ```java
-// Tölti be a prezentáció fájlt
-Presentation pres = new Presentation("ExportingHTMLText.pptx");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    // A prezentáció alapértelmezett első diájának elérése
-    ISlide slide = pres.getSlides().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Kívánt index
-    int index = 0;
-
-    // A hozzáadott alakzat elérése
-    IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
-
-    // Kimeneti HTML fájl létrehozása
-    OutputStream os = new FileOutputStream("output.html");
-    Writer writer = new OutputStreamWriter(os, "UTF-8");
-
-    //Első bekezdés kinyerése HTML-ként
-    // Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (IOException e) {
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null) {
+            IParagraphCollection paragraphs = textFrame.getParagraphs();
+            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            try {
+                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException exception) {
+                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("The first shape does not contain a text frame.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bekezdés mentése képként**
+### **Beke​dzés renderelése képként**
 
-Ebben a szakaszban két példát vizsgálunk meg, amelyek bemutatják, hogyan menthetünk egy szövegbekezdéset, amelyet az [IParagraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/) interfész képvisel, képként. Mindkét példa magában foglalja a bekezdést tartalmazó alakzat képének lekérését a [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) interfész `getImage` metódusaival, a bekezdés határainak kiszámítását az alakzaton belül, és a bitmap képként történő exportálást. Ezek a megközelítések lehetővé teszik, hogy a PowerPoint prezentációkból származó szöveg meghatározott részeit különálló képként nyerjük ki, ami különböző forgatókönyvekben hasznos lehet.
+Az [IParagraph.getImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/#getImage--) egyedi bekezdést renderel közvetlenül, és visszaad egy [IImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iimage/) objektumot. Mentse az eredményt fájlba vagy streambe az [IImage.save](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) metódussal. Nem szükséges a szülő alakzatot renderelni vagy a bitmapet manuálisan levágni.
 
-Tegyük fel, hogy van egy sample.pptx nevű prezentációs fájlunk egy diával, ahol az első alakzat egy szövegdoboz, amely három bekezdést tartalmaz.
+Az [IParagraph.getImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/#getImage--) `null`‑t adhat vissza, ha a bekezdés nem található a szülőgyűjteményben, nincs érvényes renderelési határa, vagy nem renderelhető. Ellenőrizze az eredményt a mentés előtt, és a használat után szabadítsa fel a visszakapott képet.
+
+#### **Beke​dzés renderelése az alapértelmezett méretezéssel**
+
+Tegyük fel, hogy van egy `sample.pptx` nevű bemutatófájl egy diával, ahol az első alakzat egy három bekezdést tartalmazó szövegdoboz.
 
 ![A három bekezdést tartalmazó szövegdoboz](paragraph_to_image_input.png)
 
-**Példa 1**
-
-Ebben a példában a második bekezdést képként nyerjük ki. Ehhez az alakzat képét a prezentáció első diájáról kivonjuk, majd kiszámítjuk a második bekezdés határait az alakzat szövegdobozában. A bekezdést ezután egy új bitmap képre rajzoljuk, amely PNG formátumban kerül mentésre. Ez a módszer különösen hasznos, ha egy adott bekezdést különálló képként szeretnénk menteni, miközben megőrzük a szöveg pontos méreteit és formázását.
+Az alábbi példa a második bekezdést rendeli a szabályos szövegalkotáshoz alapértelmezett méretben, és PNG formátumban menti a visszakapott képet. A `finally` blokk biztosítja a kép helyes felszabadítását.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // A forma mentése memóriában bitmapként.
-    IImage shapeImage = firstShape.getImage();
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null && textFrame.getParagraphs().getCount() > 1) {
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(1);
+            IImage paragraphImage = paragraph.getImage();
 
-    // Form bitmap létrehozása memóriából.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // A második bekezdés határainak kiszámítása.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-
-    // A kimeneti kép koordinátáinak és méretének kiszámítása (minimum méret - 1x1 pixel).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // A forma bitmap vágása, hogy csak a bekezdés bitmap maradjon.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+            if (paragraphImage != null) {
+                try {
+                    paragraphImage.save("paragraph.png", ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                System.out.println("The paragraph could not be rendered.");
+            }
+        } else {
+            System.out.println("The expected paragraph was not found.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -732,68 +653,56 @@ Az eredmény:
 
 ![A bekezdés képe](paragraph_to_image_output.png)
 
-**Példa 2**
+#### **Beke​dzés renderelése táblázatcellában méretezéssel**
 
-Ebben a példában a korábbi megközelítést kiterjesztjük a bekezdés képre skálázási tényezőket alkalmazva. Az alakzatot a prezentációból kivonjuk, és `2` skálázási tényezővel képként mentjük. Ez magasabb felbontású kimenetet tesz lehetővé a bekezdés exportálásakor. A bekezdés határait ezután a skálát figyelembe véve számítjuk ki. A skálázás különösen hasznos lehet, ha részletesebb képre van szükség, például nagy minőségű nyomtatott anyagokhoz.
+Használja az [IParagraph.getImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) túlterhelést, amely `float scaleX` és `float scaleY` paramétereket fogad, hogy beállítsa a vízszintes és függőleges skálafaktorokat. Az alábbi példa egy táblázatot hoz létre, a bekezdést az első cellában duplájára méretezi, és PNG képként menti az eredményt.
 
 ```java
-float imageScaleX = 2f;
-float imageScaleY = imageScaleX;
+import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("sample.pptx");
+float scaleX = 2f;
+float scaleY = 2f;
+
+Presentation presentation = new Presentation();
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
+    IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // A forma mentése memóriában bitmapként skálázással.
-    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
-
-    // Forma bitmap létrehozása memóriából.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // A második bekezdés határainak kiszámítása.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.set(
-            paragraphRectangle.left * imageScaleX,
-            paragraphRectangle.top * imageScaleY,
-            paragraphRectangle.right * imageScaleX,
-            paragraphRectangle.bottom * imageScaleY
-    );
-
-    // A kimeneti kép koordinátáinak és méretének kiszámítása (minimum méret - 1x1 pixel).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // A forma bitmap levágása, hogy csak a bekezdés bitmap maradjon.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+    IImage paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage != null) {
+        try {
+            paragraphImage.save("table_paragraph.png", ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        System.out.println("The paragraph could not be rendered.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Az `1` skálafaktor megtartja az adott tengely alapértelmezett pixelméretét. Például a `2` mindkét tényezőnél olyan képet eredményez, amelynek szélessége és magassága megközelítőleg kétszerese az alapértelmezett dimenzióknak, így négyzetgyöke négy egységnyi pixel. A nagyobb faktorek általában élesebb szöveget adnak nagyítás vagy nagy felbontású kimenet esetén, de növelik a memóriahasználatot és a fájlméretet. Az `1` alatti faktorek kisebb, részletgazdagabb képet eredményeznek. Egyenlő faktorekkel megőrizhető a bekezdés arány, míg a különböző vízszintes és függőleges faktorek önállóan nyújtják a képet.
 
-**Teljesen letilthatom a sorok tördelését egy szövegdobozban?**
+Az egész alakzat renderelése az [IShape.getImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getImage--) metódussal akkor hasznos, ha a kimenetnek tartalmaznia kell az alakzat kitöltését, szegélyét vagy egyéb vizuális kontextusát. Egy csupán bekezdés‑képre csak az [IParagraph.getImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/#getImage--) elegendő.
 
-Igen. Használja a szövegdoboz tördelési beállítását ([setWrapText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) a tördelés kikapcsolásához, így a sorok nem törnek meg a keret szélén.
+## **GYIK**
 
-**Hogyan kaphatom meg egy adott bekezdés pontos dián belüli határait?**
+**Teljesen letiltható a sortörés egy szövegdobozban?**
 
-Lekérheti a bekezdés (és akár egyetlen rész) határoló téglalapját, hogy megtudja annak pontos pozícióját és méretét a dián.
+Igen. Állítsa az [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) értékét a sorok szélek mentén való törésének letiltásához.
 
-**Hol állítható be a bekezdés igazítása (balra/jobbra/középre/széthúzott)?**
+**Hogyan kapható meg egy adott bekezdés pontos diára vonatkozó határa?**
 
-[Alignment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) a bekezdés szintű beállítás a [ParagraphFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/paragraphformat/)‑ban; a teljes bekezdésre vonatkozik, függetlenül az egyes részek formázásától.
+Használja az [IParagraph.getRect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/#getRect--) metódust a bekezdés körülhatároló téglalap lekéréséhez. Az [IPortion.getRect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportion/#getRect--) egyedi szakasz határait adja vissza.
 
-**Beállíthatok helyesírás-ellenőrzési nyelvet a bekezdés csak egy részére (például egy szóra)?**
+**Hol van szabályozva a bekezdés igazítása (balra, jobbra, középre vagy sorkizárt)?**
 
-Igen. A nyelvet a rész szintjén állítja be ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), így több nyelv is létezhet egy bekezdésen belül.
+Az [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) egy bekezdés‑szintű beállítás, amely a teljes bekezdésre vonatkozik, függetlenül az egyedi szakaszformázástól.
+
+**Beállítható a nyelvi helyesírás-ellenőrzés egy bekezdés részére?**
+
+Igen. Állítsa az [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) értékét egyedi szakaszokra, így egy bekezdés több nyelven írt szöveget is tartalmazhat.

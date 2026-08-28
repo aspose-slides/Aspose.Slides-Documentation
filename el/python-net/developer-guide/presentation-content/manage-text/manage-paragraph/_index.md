@@ -1,9 +1,12 @@
 ---
-title: Διαχείριση παραγράφων κειμένου PowerPoint στην Python
+title: Διαχείριση Παραγράφων Κειμένου PowerPoint σε Python
 linktitle: Διαχείριση Παραγράφου
 type: docs
 weight: 40
 url: /el/python-net/manage-paragraph/
+aliases:
+  - /python-net/paragraph/
+  - /python-net/portion/
 keywords:
 - προσθήκη κειμένου
 - προσθήκη παραγράφου
@@ -11,7 +14,7 @@ keywords:
 - διαχείριση παραγράφου
 - διαχείριση κουκίδας
 - εσοχή παραγράφου
-- κρεματή εσοχή
+- κρεμαστή εσοχή
 - κουκίδα παραγράφου
 - αριθμημένη λίστα
 - λίστα με κουκίδες
@@ -26,436 +29,337 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Κατέχετε τη μορφοποίηση παραγράφων με το Aspose.Slides για Python μέσω .NET—βελτιώστε την ευθυγράμμιση, το διάστημα & το στυλ σε παρουσιάσεις PowerPoint και OpenDocument στην Python για να εντυπωσιάζετε το κοινό."
+description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφων με το Aspose.Slides for Python via .NET."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Το Aspose.Slides παρέχει τις κλάσεις που χρειάζεστε για να εργαστείτε με κείμενο PowerPoint στην Python.
+Το Aspose.Slides for Python via .NET αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
 
-* Το Aspose.Slides παρέχει την κλάση [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) για τη δημιουργία αντικειμένων πλαισίου κειμένου. Ένα αντικείμενο `TextFrame` μπορεί να περιέχει μία ή περισσότερες παραγράφους (κάθε παράγραφος διαχωρίζεται με επιστροφή γραμμής).
-* Το Aspose.Slides παρέχει την κλάση [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) για τη δημιουργία αντικειμένων παραγράφου. Ένα αντικείμενο `Paragraph` μπορεί να περιέχει μία ή περισσότερες πορώσεις κειμένου.
-* Το Aspose.Slides παρέχει την κλάση [Portion](https://reference.aspose.com/slides/el/python-net/aspose.slides/portion/) για τη δημιουργία αντικειμένων portion και τον καθορισμό των ιδιοτήτων μορφοποίησής τους.
+* [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) αντιπροσωπεύει το περιέκτη κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
+* [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) αντιπροσωπεύει μία παράγραφο σε πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα και στη μορφοποίηση επιπέδου παραγράφου.
+* [Portion](https://reference.aspose.com/slides/el/python-net/aspose.slides/portion/) αντιπροσωπεύει μια ακολουθία κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει δική του μορφοποίηση χαρακτήρων.
 
-Ένα αντικείμενο `Paragraph` μπορεί να διαχειριστεί κείμενο με διαφορετικές ιδιότητες μορφοποίησης μέσω των υποκείμενων αντικειμένων `Portion`.
+Έτσι, μια παράγραφος μπορεί να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες μορφοποιήσεις χρησιμοποιώντας πολλά τμήματα.
 
-## **Προσθήκη Πολλών Παραγράφων που Περιέχουν Πολλά Portion**
+## **Δημιουργία και Μορφοποίηση Παραγράφων**
 
-Αυτά τα βήματα δείχνουν πώς να προσθέσετε ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους, η καθεμία με τρία Portion:
+### **Δημιουργία Παραγράφων με Πολλά Τμήματα**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά στη στόχο διαφάνεια βάσει του δείκτη της.
-1. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
-1. Αποκτήστε το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) που συσχετίζεται με το [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/).
-1. Δημιουργήστε δύο αντικείμενα [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) και προσθέστε τα στη συλλογή παραγράφων του [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) (μαζί με την προεπιλεγμένη παράγραφο, αυτό δίνει τρεις παραγράφους).
-1. Για κάθε παράγραφο, δημιουργήστε τρία αντικείμενα [Portion](https://reference.aspose.com/slides/el/python-net/aspose.slides/portion/) και προσθέστε τα στη συλλογή portion της παραγράφου.
-1. Ορίστε το κείμενο για κάθε portion.
-1. Εφαρμόστε οποιαδήποτε επιθυμητή μορφοποίηση σε κάθε κείμενο portion χρησιμοποιώντας τις ιδιότητες που παρέχει η κλάση [Portion](https://reference.aspose.com/slides/el/python-net/aspose.slides/portion/).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, καθεμία από τις οποίες περιέχει τρία τμήματα:
 
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation για να δημιουργήσετε ένα νέο αρχείο PPTX.
-with slides.Presentation() as presentation:
-
-    # Προσπελάστε την πρώτη διαφάνεια.
-    slide = presentation.slides[0]
-
-    # Προσθέστε ένα ορθογώνιο AutoShape.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
-
-    # Προσπελάστε το TextFrame του AutoShape.
-    text_frame = shape.text_frame
-
-    # Δημιουργήστε παραγράφους και portion· η μορφοποίηση εφαρμόζεται παρακάτω.
-    paragraph0 = text_frame.paragraphs[0]
-    portion01 = slides.Portion()
-    portion02 = slides.Portion()
-    paragraph0.portions.add(portion01)
-    paragraph0.portions.add(portion02)
-
-    paragraph1 = slides.Paragraph()
-    text_frame.paragraphs.add(paragraph1)
-    portion10 = slides.Portion()
-    portion11 = slides.Portion()
-    portion12 = slides.Portion()
-    paragraph1.portions.add(portion10)
-    paragraph1.portions.add(portion11)
-    paragraph1.portions.add(portion12)
-
-    paragraph2 = slides.Paragraph()
-    text_frame.paragraphs.add(paragraph2)
-    portion20 = slides.Portion()
-    portion21 = slides.Portion()
-    portion22 = slides.Portion()
-    paragraph2.portions.add(portion20)
-    paragraph2.portions.add(portion21)
-    paragraph2.portions.add(portion22)
-
-    for i in range(3):
-        for j in range(3):
-            text_frame.paragraphs[i].portions[j].text = "Portion0" + str(j)
-            if j == 0:
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.red
-                text_frame.paragraphs[i].portions[j].portion_format.font_bold = 1
-                text_frame.paragraphs[i].portions[j].portion_format.font_height = 15
-            elif j == 1:
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-                text_frame.paragraphs[i].portions[j].portion_format.font_italic = 1
-                text_frame.paragraphs[i].portions[j].portion_format.font_height = 18
-
-    # Αποθηκεύστε το PPTX στο δίσκο.
-    presentation.save("paragraphs_and_portions_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Διαχείριση Κουκίδων Παραγράφων**
-
-Οι λίστες με κουκίδες σας βοηθούν να οργανώνετε και να παρουσιάζετε πληροφορίες γρήγορα και αποτελεσματικά. Οι παράγραφοι με κουκίδες είναι συχνά πιο εύκολες στην ανάγνωση και κατανόηση.
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Προσπελάστε τη διαφάνεια-στόχο με το δείκτη της.
-1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
-1. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος.
-1. Αφαιρέστε την προεπιλεγμένη παράγραφο από το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Δημιουργήστε την πρώτη παράγραφο χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/).
-1. Ορίστε τον τύπο κουκίδας της παραγράφου σε `SYMBOL` και καθορίστε το χαρακτήρα της κουκίδας.
-1. Ορίστε το κείμενο της παραγράφου.
-1. Ορίστε την εσοχή της κουκίδας για την παράγραφο.
-1. Ορίστε το χρώμα της κουκίδας.
-1. Ορίστε το μέγεθος (ύψος) της κουκίδας.
-1. Προσθέστε την παράγραφο στη συλλογή παραγράφων του [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Προσθέστε μια δεύτερη παράγραφο και επαναλάβετε τα βήματα 7–12.
-1. Αποθηκεύστε την παρουσίαση.
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Δημιουργήστε μια παρουσίαση.
-with slides.Presentation() as presentation:
-
-    # Προσπελάστε την πρώτη διαφάνεια.
-    slide = presentation.slides[0]
-
-    # Προσθέστε και προσπελάστε ένα AutoShape.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Προσπελάστε το πλαίσιο κειμένου του δημιουργημένου AutoShape.
-    text_frame = shape.text_frame
-
-    # Αφαιρέστε την προεπιλεγμένη παράγραφο.
-    text_frame.paragraphs.remove_at(0)
-
-    # Δημιουργήστε μια παράγραφο.
-    paragraph = slides.Paragraph()
-
-    # Ορίστε το στυλ κουκίδας και το σύμβολο της παραγράφου.
-    paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph.paragraph_format.bullet.char = chr(8226)
-
-    # Ορίστε το κείμενο της παραγράφου.
-    paragraph.text = "Welcome to Aspose.Slides"
-
-    # Ορίστε την εσοχή της κουκίδας.
-    paragraph.paragraph_format.indent = 25
-
-    # Ορίστε το χρώμα της κουκίδας.
-    paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
-    paragraph.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph.paragraph_format.bullet.is_bullet_hard_color = 1 
-
-    # Ορίστε το ύψος της κουκίδας.
-    paragraph.paragraph_format.bullet.height = 100
-
-    # Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-    text_frame.paragraphs.add(paragraph)
-
-    # Δημιουργήστε τη δεύτερη παράγραφο.
-    paragraph2 = slides.Paragraph()
-
-    # Ορίστε τον τύπο και το στυλ της κουκίδας της παραγράφου.
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
-
-    # Ορίστε το κείμενο της παραγράφου.
-    paragraph2.text = "This is numbered bullet"
-
-    # Ορίστε την εσοχή της κουκίδας.
-    paragraph2.paragraph_format.indent = 25
-
-    # Ορίστε το χρώμα της κουκίδας.
-    paragraph2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
-    paragraph2.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph2.paragraph_format.bullet.is_bullet_hard_color = 1
-
-    # Ορίστε το ύψος της κουκίδας.
-    paragraph2.paragraph_format.bullet.height = 100
-
-    # Προσθέστε τη δεύτερη παράγραφο στο πλαίσιο κειμένου.
-    text_frame.paragraphs.add(paragraph2)
-
-    # Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
-    presentation.save("bullets_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Διαχείριση Κουκίδων Εικόνας**
-
-Οι λίστες με κουκίδες εικόνας βοηθούν να οργανώνετε και να παρουσιάζετε πληροφορίες γρήγορα και αποτελεσματικά. Οι κουκίδες εικόνας είναι εύκολες στην ανάγνωση και κατανόηση.
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Προσπελάστε τη διαφάνεια-στόχο με το δείκτη της.
-1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
-1. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος.
-1. Αφαιρέστε την προεπιλεγμένη παράγραφο από το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Δημιουργήστε την πρώτη παράγραφο χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/).
-1. Φορτώστε μια εικόνα σε ένα [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/).
-1. Ορίστε τον τύπο κουκίδας σε [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/) και αντιστοιχίστε την εικόνα.
-1. Ορίστε το κείμενο της παραγράφου.
-1. Ορίστε την εσοχή της παραγράφου για την κουκίδα.
-1. Ορίστε το χρώμα της κουκίδας.
-1. Ορίστε το ύψος της κουκίδας.
-1. Προσθέστε τη νέα παράγραφο στη συλλογή παραγράφων του [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Προσθέστε μια δεύτερη παράγραφο και επαναλάβετε τα βήματα 8–12.
-1. Αποθηκεύστε την παρουσίαση.
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation() as presentation:
-
-    # Προσπελάστε την πρώτη διαφάνεια.
-    slide = presentation.slides[0]
-
-    # Φορτώστε την εικόνα της κουκίδας.
-    image = draw.Bitmap("bullets.png")
-    pp_image = presentation.images.add_image(image)
-
-    # Προσθέστε και προσπελάστε ένα AutoShape.
-    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Προσπελάστε το TextFrame του δημιουργημένου AutoShape.
-    text_frame = auto_shape.text_frame
-
-    # Αφαιρέστε την προεπιλεγμένη παράγραφο.
-    text_frame.paragraphs.remove_at(0)
-
-    # Δημιουργήστε μια νέα παράγραφο.
-    paragraph = slides.Paragraph()
-    paragraph.text = "Welcome to Aspose.Slides"
-
-    # Ορίστε τον τύπο κουκίδας της παραγράφου σε Εικόνα και αντιστοιχίστε την εικόνα.
-    paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
-    paragraph.paragraph_format.bullet.picture.image = pp_image
-
-    # Ορίστε το ύψος της κουκίδας.
-    paragraph.paragraph_format.bullet.height = 100
-
-    # Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-    text_frame.paragraphs.add(paragraph)
-
-    # Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
-    presentation.save("picture_bullets_out.pptx", slides.export.SaveFormat.PPTX)
-    # Αποθηκεύστε την παρουσίαση ως αρχείο PPT.
-    presentation.save("picture_bullets_out.ppt", slides.export.SaveFormat.PPT)
-```
-
-## **Διαχείριση Πολυεπίπεδων Κουκίδων**
-
-Οι λίστες με πολλαπλά επίπεδα κουκίδων βοηθούν να οργανώνετε και να παρουσιάζετε πληροφορίες γρήγορα και αποτελεσματικά. Οι πολυεπίπεδες κουκίδες είναι εύκολες στην ανάγνωση και κατανόηση.
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Προσπελάστε τη διαφάνεια-στόχο με το δείκτη της.
-1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
-1. Προσπελάστε το [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/)'s [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Αφαιρέστε την προεπιλεγμένη παράγραφο από το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Δημιουργήστε την πρώτη παράγραφο χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) και ορίστε το βάθος της σε 0.
-1. Δημιουργήστε τη δεύτερη παράγραφο χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) και ορίστε το βάθος της σε 1.
-1. Δημιουργήστε την τρίτη παράγραφο χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) και ορίστε το βάθος της σε 2.
-1. Δημιουργήστε την τέταρτη παράγραφο χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) και ορίστε το βάθος της σε 3.
-1. Προσθέστε τις νέες παραγράφους στη συλλογή παραγράφων του [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Αποθηκεύστε την παρουσίαση.
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Δημιουργήστε ένα αντικείμενο παρουσίασης.
-with slides.Presentation() as presentation:
-
-    # Προσπελάστε την πρώτη διαφάνεια.
-    slide = presentation.slides[0]
-    
-    # Προσθέστε ένα AutoShape.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Προσπελάστε το TextFrame του δημιουργημένου AutoShape.
-    text_frame = auto_shape.text_frame
-    
-    # Απομακρύνετε την προεπιλεγμένη παράγραφο.
-    text_frame.paragraphs.clear()
-
-    # Προσθέστε την πρώτη παράγραφο.
-    paragraph1 = slides.Paragraph()
-    paragraph1.text = "Content"
-    paragraph1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph1.paragraph_format.bullet.char = chr(8226)
-    paragraph1.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph1.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Ορίστε το επίπεδο της κουκίδας.
-    paragraph1.paragraph_format.depth = 0
-
-    # Προσθέστε τη δεύτερη παράγραφο.
-    paragraph2 = slides.Paragraph()
-    paragraph2.text = "Second Level"
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph2.paragraph_format.bullet.char = '-'
-    paragraph2.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph2.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Ορίστε το επίπεδο της κουκίδας.
-    paragraph2.paragraph_format.depth = 1
-
-    # Προσθέστε την τρίτη παράγραφο.
-    paragraph3 = slides.Paragraph()
-    paragraph3.text = "Third Level"
-    paragraph3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph3.paragraph_format.bullet.char = chr(8226)
-    paragraph3.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph3.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Ορίστε το επίπεδο της κουκίδας.
-    paragraph3.paragraph_format.depth = 2
-
-    # Προσθέστε την τέταρτη παράγραφο.
-    paragraph4 = slides.Paragraph()
-    paragraph4.text = "Fourth Level"
-    paragraph4.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph4.paragraph_format.bullet.char = '-'
-    paragraph4.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph4.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Ορίστε το επίπεδο της κουκίδας.
-    paragraph4.paragraph_format.depth = 3
-
-    # Προσθέστε τις παραγράφους στη συλλογή.
-    text_frame.paragraphs.add(paragraph1)
-    text_frame.paragraphs.add(paragraph2)
-    text_frame.paragraphs.add(paragraph3)
-    text_frame.paragraphs.add(paragraph4)
-
-    # Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
-    presentation.save("multilevel_bullets_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Διαχείριση Παραγράφων με Προσαρμοσμένες Αριθμημένες Λίστες**
-
-Η κλάση [BulletFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/bulletformat/) παρέχει την ιδιότητα `numbered_bullet_start_with` (και άλλες) για τον έλεγχο προσαρμοσμένης αρίθμησης και μορφοποίησης των παραγράφων.
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Προσπελάστε τη διαφάνεια που θα περιέχει τις παραγράφους.
-1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
-1. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος.
-1. Αφαιρέστε την προεπιλεγμένη παράγραφο από το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Δημιουργήστε την πρώτη [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) και ορίστε `numbered_bullet_start_with` σε 2.
-1. Δημιουργήστε τη δεύτερη [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) και ορίστε `numbered_bullet_start_with` σε 3.
-1. Δημιουργήστε την τρίτη [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) και ορίστε `numbered_bullet_start_with` σε 7.
-1. Προσθέστε τις παραγράφους στη συλλογή του [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Αποθηκεύστε την παρουσίαση.
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation() as presentation:
-
-    # Προσθέστε και προσπελάστε ένα AutoShape.
-    shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Προσπελάστε το TextFrame του δημιουργημένου AutoShape.
-    text_frame = shape.text_frame
-
-    # Αφαιρέστε την προεπιλεγμένη υπάρχουσα παράγραφο.
-    text_frame.paragraphs.remove_at(0)
-
-    # Δημιουργήστε το πρώτο αριθμημένο στοιχείο (έναρξη στο 2, επίπεδο βάθους 4).
-    paragraph1 = slides.Paragraph()
-    paragraph1.text = "bullet 2"
-    paragraph1.paragraph_format.depth = 4 
-    paragraph1.paragraph_format.bullet.numbered_bullet_start_with = 2
-    paragraph1.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    text_frame.paragraphs.add(paragraph1)
-
-    # Δημιουργήστε το δεύτερο αριθμημένο στοιχείο (έναρξη στο 3, επίπεδο βάθους 4).
-    paragraph2 = slides.Paragraph()
-    paragraph2.text = "bullet 3"
-    paragraph2.paragraph_format.depth = 4
-    paragraph2.paragraph_format.bullet.numbered_bullet_start_with = 3 
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED  
-    text_frame.paragraphs.add(paragraph2)
-
-    # Δημιουργήστε το τρίτο αριθμημένο στοιχείο (έναρξη στο 7, επίπεδο βάθους 4).
-    paragraph5 = slides.Paragraph()
-    paragraph5.text = "bullet 7"
-    paragraph5.paragraph_format.depth = 4
-    paragraph5.paragraph_format.bullet.numbered_bullet_start_with = 7
-    paragraph5.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    text_frame.paragraphs.add(paragraph5)
-
-    presentation.save("custom_bullets_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ορισμός Εσοχής Πρώτης Γραμμής για Παράγραφο**
-
-Χρησιμοποιήστε την ιδιότητα [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) για τον έλεγχο της εσοχής της πρώτης γραμμής μιας παραγράφου. Αυτή η ιδιότητα μετατοπίζει μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετακινεί την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
-
-Χρησιμοποιήστε [ParagraphFormat.margin_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/margin_left/) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) όταν χρειάζεται να μετακινήσετε μόνο την πρώτη γραμμή.
-
-Το παρακάτω παράδειγμα δημιουργεί αρκετές παραγράφους και εφαρμόζει διαφορετικές τιμές `indent` για να δείξει πώς η εσοχή πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-2. Προσπελάστε τη διαφάνεια-στόχο.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στη σχετική διαφάνεια μέσω του δείκτη της.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
-4. Προσθέστε ένα κενό [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) στο σχήμα και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές [indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) για αυτές.
-6. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος.
+5. Χρησιμοποιήστε την προεπιλεγμένη παράγραφο και προσθέστε δύο ακόμη αντικείμενα [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) στο πλαίσιο κειμένου.
+6. Προσθέστε αρκετά αντικείμενα [Portion](https://reference.aspose.com/slides/el/python-net/aspose.slides/portion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφος περιέχει ήδη ένα κενό τμήμα.
+7. Ορίστε το κείμενο για κάθε τμήμα.
+8. Εφαρμόστε μορφοποίηση επιπέδου χαρακτήρων μέσω του [Portion.portion_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/portion/portion_format/).
+9. Αποθηκεύστε την τροποποιημένη παρουσία.
 
-```py
-import aspose.slides as slides
+Αυτό το παράδειγμα Python υλοποιεί τα βήματα:
+
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
+    text_frame = shape.text_frame
 
-    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
-    rectangle.fill_format.fill_type = slides.FillType.NO_FILL
-    rectangle.line_format.fill_format.fill_type = slides.FillType.SOLID
-    rectangle.line_format.fill_format.solid_fill_color.color = draw.Color.gray
-
-    text_frame = rectangle.add_text_frame("")
-    text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
-    text_frame.paragraphs.remove_at(0)
-
-    first_paragraph = slides.Paragraph()
-    first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    first_paragraph.text = "No first-line indent. Wrapped lines start at the same position as the first line."
-    first_paragraph.paragraph_format.margin_left = 20.0
-    first_paragraph.paragraph_format.indent = 0.0
+    first_paragraph = text_frame.paragraphs[0]
+    first_paragraph.portions.add(slides.Portion())
+    first_paragraph.portions.add(slides.Portion())
 
     second_paragraph = slides.Paragraph()
-    second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    second_paragraph.text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body."
-    second_paragraph.paragraph_format.margin_left = 20.0
-    second_paragraph.paragraph_format.indent = 20.0
+    second_paragraph.portions.add(slides.Portion())
+    second_paragraph.portions.add(slides.Portion())
+    second_paragraph.portions.add(slides.Portion())
+    text_frame.paragraphs.add(second_paragraph)
 
     third_paragraph = slides.Paragraph()
+    third_paragraph.portions.add(slides.Portion())
+    third_paragraph.portions.add(slides.Portion())
+    third_paragraph.portions.add(slides.Portion())
+    text_frame.paragraphs.add(third_paragraph)
+
+    for paragraph_index in range(text_frame.paragraphs.count):
+        paragraph = text_frame.paragraphs[paragraph_index]
+        for portion_index in range(paragraph.portions.count):
+            portion = paragraph.portions[portion_index]
+            portion.text = f"Portion {paragraph_index + 1}.{portion_index + 1}"
+
+            if portion_index == 0:
+                portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+                portion.portion_format.fill_format.solid_fill_color.color = draw.Color.red
+                portion.portion_format.font_bold = slides.NullableBool.TRUE
+                portion.portion_format.font_height = 15
+            elif portion_index == 1:
+                portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+                portion.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+                portion.portion_format.font_italic = slides.NullableBool.TRUE
+                portion.portion_format.font_height = 18
+
+    presentation.save("paragraphs_with_portions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Δημιουργία Κουκίδων και Αριθμημένων Λιστών**
+
+### **Δημιουργία Λίστας με Κουκίδες ή Αριθμημένη**
+
+Οι κουκίδες και η αρίθμηση κάνουν τα σχετικά στοιχεία πιο εύκολα στην ανάγνωση. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [BulletFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/bulletformat/).
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στη σχετική διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος.
+5. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) για μια κουκίδα συμβόλου.
+7. Ορίστε το [BulletFormat.type](https://reference.aspose.com/slides/el/python-net/aspose.slides/bulletformat/type/) σε [BulletType.SYMBOL](https://reference.aspose.com/slides/el/python-net/aspose.slides/bullettype/) και καθορίστε τον χαρακτήρα της κουκίδας.
+8. Ορίστε το κείμενο της παραγράφου, την εσοχή, το χρώμα της κουκίδας και το ύψος της κουκίδας.
+9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
+10. Δημιουργήστε μια δεύτερη παράγραφο και ορίστε το [BulletFormat.type](https://reference.aspose.com/slides/el/python-net/aspose.slides/bulletformat/type/) σε [BulletType.NUMBERED](https://reference.aspose.com/slides/el/python-net/aspose.slides/bullettype/).
+11. Διαμορφώστε το στυλ της αριθμημένης κουκίδας και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
+12. Αποθηκεύστε την παρουσία.
+
+Αυτό το παράδειγμα Python δημιουργεί μια κουκίδα συμβόλου και μια αριθμημένη κουκίδα:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    symbol_paragraph = slides.Paragraph()
+    symbol_paragraph.text = "Welcome to Aspose.Slides"
+    symbol_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    symbol_paragraph.paragraph_format.bullet.char = chr(0x2022)
+    symbol_paragraph.paragraph_format.indent = 25
+    symbol_paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    symbol_paragraph.paragraph_format.bullet.color.color = draw.Color.black
+    symbol_paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
+    symbol_paragraph.paragraph_format.bullet.height = 100
+    text_frame.paragraphs.add(symbol_paragraph)
+
+    numbered_paragraph = slides.Paragraph()
+    numbered_paragraph.text = "This is a numbered item"
+    numbered_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    numbered_paragraph.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WD_BLACK_PLAIN
+    numbered_paragraph.paragraph_format.indent = 25
+    numbered_paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    numbered_paragraph.paragraph_format.bullet.color.color = draw.Color.black
+    numbered_paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
+    numbered_paragraph.paragraph_format.bullet.height = 100
+    text_frame.paragraphs.add(numbered_paragraph)
+
+    presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Χρήση Κουκίδων Εικόνας**
+
+Οι κουκίδες εικόνας σάς επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στη σχετική διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) και πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
+4. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
+5. Φορτώστε την εικόνα της κουκίδας και προσθέστε τη στη συλλογή εικόνων της παρουσίασης ως [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/).
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) και ορίστε το κείμενό του.
+7. Ορίστε το [BulletFormat.type](https://reference.aspose.com/slides/el/python-net/aspose.slides/bulletformat/type/) σε [BulletType.PICTURE](https://reference.aspose.com/slides/el/python-net/aspose.slides/bullettype/).
+8. Αναθέστε την εικόνα μέσω του [BulletFormat.picture](https://reference.aspose.com/slides/el/python-net/aspose.slides/bulletformat/picture/) και ορίστε το ύψος της κουκίδας.
+9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
+10. Αποθηκεύστε την τροποποιημένη παρουσία.
+
+Αυτό το παράδειγμα Python δημιουργεί μια κουκίδα εικόνας:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with slides.Images.from_file("bullets.png") as bullet_image:
+        presentation_image = presentation.images.add_image(bullet_image)
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    paragraph = slides.Paragraph()
+    paragraph.text = "Welcome to Aspose.Slides"
+    paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
+    paragraph.paragraph_format.bullet.picture.image = presentation_image
+    paragraph.paragraph_format.bullet.height = 100
+    text_frame.paragraphs.add(paragraph)
+
+    presentation.save("picture_bullet.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture_bullet.ppt", slides.export.SaveFormat.PPT)
+```
+
+### **Δημιουργία Πολυεπίπεδου Καταλόγου**
+
+Ορίστε το [ParagraphFormat.depth](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/depth/) για να τοποθετήσετε παραγράφους σε διαφορετικά επίπεδα λίστας. Το ανώτερο επίπεδο έχει βάθος `0`.
+
+1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και πρόσβαση σε μια διαφάνεια.
+2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
+3. Δημιουργήστε τέσσερις παραγράφους και ρυθμίστε τα σύμβολα των κουκίδων τους.
+4. Ορίστε τις τιμές του [ParagraphFormat.depth](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/depth/) σε `0`, `1`, `2` και `3`.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
+
+Αυτό το παράδειγμα Python δημιουργεί μια λίστα με τέσσερα επίπεδα κουκίδων:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    first_paragraph = slides.Paragraph()
+    first_paragraph.text = "Content"
+    first_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    first_paragraph.paragraph_format.bullet.char = chr(0x2022)
+    first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    first_paragraph.paragraph_format.depth = 0
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "Second level"
+    second_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    second_paragraph.paragraph_format.bullet.char = "-"
+    second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    second_paragraph.paragraph_format.depth = 1
+
+    third_paragraph = slides.Paragraph()
+    third_paragraph.text = "Third level"
+    third_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    third_paragraph.paragraph_format.bullet.char = chr(0x2022)
     third_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     third_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    third_paragraph.paragraph_format.depth = 2
+
+    fourth_paragraph = slides.Paragraph()
+    fourth_paragraph.text = "Fourth level"
+    fourth_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    fourth_paragraph.paragraph_format.bullet.char = "-"
+    fourth_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    fourth_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    fourth_paragraph.paragraph_format.depth = 3
+
+    text_frame.paragraphs.add(first_paragraph)
+    text_frame.paragraphs.add(second_paragraph)
+    text_frame.paragraphs.add(third_paragraph)
+    text_frame.paragraphs.add(fourth_paragraph)
+
+    presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Έναρξη Αριθμημένων Στοιχείων Λίστας με Προσαρμοσμένες Τιμές**
+
+Χρησιμοποιήστε το [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/el/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται για μια αριθμημένη παράγραφο.
+
+1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) σε μια διαφάνεια.
+2. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του σχήματος.
+3. Δημιουργήστε τρεις αριθμημένες παραγράφους.
+4. Ορίστε το [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/el/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) σε `2`, `3` και `7` για τις αντίστοιχες παραγράφους.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
+
+Αυτό το παράδειγμα Python αναθέτει έναν προσαρμοσμένο αρχικό αριθμό σε κάθε παράγραφο:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    first_paragraph = slides.Paragraph()
+    first_paragraph.text = "Start at 2"
+    first_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    first_paragraph.paragraph_format.bullet.numbered_bullet_start_with = 2
+    text_frame.paragraphs.add(first_paragraph)
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "Start at 3"
+    second_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    second_paragraph.paragraph_format.bullet.numbered_bullet_start_with = 3
+    text_frame.paragraphs.add(second_paragraph)
+
+    third_paragraph = slides.Paragraph()
+    third_paragraph.text = "Start at 7"
+    third_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    third_paragraph.paragraph_format.bullet.numbered_bullet_start_with = 7
+    text_frame.paragraphs.add(third_paragraph)
+
+    presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Έλεγχος Διάταξης Παραγράφου και Ιδιοτήτων Τέλους**
+
+### **Ορισμός Εσοχής Πρώτης Γραμμής**
+
+Χρησιμοποιήστε την ιδιότητα [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η ιδιότητα μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
+
+Χρησιμοποιήστε το [ParagraphFormat.margin_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/margin_left/) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) όταν χρειάζεται να μετακινήσετε μόνο την πρώτη γραμμή.
+
+Το παρακάτω παράδειγμα δημιουργεί πολλές παραγράφους και εφαρμόζει διαφορετικές τιμές [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) για να δείξει πώς η εσοχή πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στη στοχευμένη διαφάνεια.
+3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος και αφαίρεση της προεπιλεγμένης παραγράφου.
+5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) για αυτές.
+6. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
+7. Αποθηκεύστε την τροποποιημένη παρουσία.
+
+Αυτός ο κώδικας δείχνει πώς να ορίσετε εσοχή παραγράφου:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.gray
+
+    text_frame = shape.text_frame
+    text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
+    text_frame.paragraphs.clear()
+
+    first_paragraph = slides.Paragraph()
+    first_paragraph.text = "No first-line indent. Wrapped lines start at the same position as the first line."
+    first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    first_paragraph.paragraph_format.margin_left = 20
+    first_paragraph.paragraph_format.indent = 0
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body."
+    second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    second_paragraph.paragraph_format.margin_left = 20
+    second_paragraph.paragraph_format.indent = 20
+
+    third_paragraph = slides.Paragraph()
     third_paragraph.text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see."
-    third_paragraph.paragraph_format.margin_left = 20.0
-    third_paragraph.paragraph_format.indent = 40.0
+    third_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    third_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    third_paragraph.paragraph_format.margin_left = 20
+    third_paragraph.paragraph_format.indent = 40
 
     text_frame.paragraphs.add(first_paragraph)
     text_frame.paragraphs.add(second_paragraph)
@@ -468,49 +372,53 @@ with slides.Presentation() as presentation:
 
 ![Η εσοχή πρώτης γραμμής των παραγράφων](first_line_indent.png)
 
-## **Ορισμός Κρεματής Εσοχής για Παράγραφο**
+### **Ορισμός Κρεμαστής Εσοχής**
 
-Η κρεματή εσοχή είναι μια διάταξη παραγράφου στην οποία η πρώτη γραμμή ξεκινά αριστερότερα από τις υπόλοιπες γραμμές. Στο Aspose.Slides, μπορείτε να δημιουργήσετε αυτό το εφέ με την ιδιότητα [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/). Ορίστε `indent` σε αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή προς τα αριστερά σε σχέση με το σώμα της παραγράφου.
+Μια κρεμαστή εσοχή είναι μια διάταξη παραγράφου όπου η πρώτη γραμμή ξεκινά αριστερά των υπολοίπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με την ιδιότητα [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/). Ορίστε το `indent` σε αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
 
-Στην πράξη, το [ParagraphFormat.margin_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/margin_left/) ορίζεται η αριστερή θέση του σώματος της παραγράφου, ενώ το [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε κρεματή εσοχή, ορίστε μια θετική τιμή στο `margin_left` και μια αρνητική τιμή στο `indent`.
+Στην πράξη, το [ParagraphFormat.margin_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/margin_left/) ορίζει τη θέση του αριστερού περιθωρίου του σώματος της παραγράφου, ενώ το [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε κρεμαστή εσοχή, ορίστε μια θετική τιμή `margin_left` και μια αρνητική τιμή `indent`.
 
-Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, αναφορές, όρους γλωσσάριου και άλλες παραγράφους όπου οι αναδιπλωμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
+Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, αναφορές, εγγραφές γλωσσολογικού λεξικού και άλλες παραγράφους όπου οι περιτυλιγμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-2. Προσπελάστε τη διαφάνεια-στόχο.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
+2. Πρόσβαση στη στοχευμένη διαφάνεια.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
-4. Προσθέστε ένα κενό [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) στο σχήμα και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε παραγράφους και ορίστε μια θετική τιμή [margin_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/margin_left/) για κάθε παράγραφο.
-6. Ορίστε μια αρνητική τιμή [indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) για να δημιουργήσετε το εφέ της κρεματής εσοχής.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος και αφαίρεση της προεπιλεγμένης παραγράφου.
+5. Δημιουργήστε παραγράφους και ορίστε μια θετική τιμή [ParagraphFormat.margin_left](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/margin_left/) για κάθε παράγραφο.
+6. Ορίστε μια αρνητική τιμή [ParagraphFormat.indent](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/indent/) για να δημιουργήσετε το εφέ κρεμαστής εσοχής.
 7. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+8. Αποθηκεύστε την τροποποιημένη παρουσία.
 
-```py
+Αυτός ο κώδικας δείχνει πώς να ορίσετε κρεμαστή εσοχή για μια παράγραφο:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.gray
 
-    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
-    rectangle.fill_format.fill_type = slides.FillType.NO_FILL
-    rectangle.line_format.fill_format.fill_type = slides.FillType.SOLID
-    rectangle.line_format.fill_format.solid_fill_color.color = draw.Color.gray
-
-    text_frame = rectangle.add_text_frame("")
+    text_frame = shape.text_frame
     text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
-    text_frame.paragraphs.remove_at(0)
+    text_frame.paragraphs.clear()
 
     first_paragraph = slides.Paragraph()
+    first_paragraph.text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body."
     first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    first_paragraph.text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body."
-    first_paragraph.paragraph_format.margin_left = 40.0
-    first_paragraph.paragraph_format.indent = -20.0
+    first_paragraph.paragraph_format.margin_left = 40
+    first_paragraph.paragraph_format.indent = -20
 
     second_paragraph = slides.Paragraph()
+    second_paragraph.text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare."
     second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    second_paragraph.text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare."
-    second_paragraph.paragraph_format.margin_left = 60.0
-    second_paragraph.paragraph_format.indent = -30.0
+    second_paragraph.paragraph_format.margin_left = 60
+    second_paragraph.paragraph_format.indent = -30
 
     text_frame.paragraphs.add(first_paragraph)
     text_frame.paragraphs.add(second_paragraph)
@@ -520,223 +428,184 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα:
 
-![Η κρεματή εσοχή των παραγράφων](hanging_indent.png)
+![Η κρεμαστή εσοχή των παραγράφων](hanging_indent.png)
 
-## **Διαχείριση Μορφοποίησης Portion στο Τέλος της Παραγράφου**
+### **Ορισμός Ιδιοτήτων Τέλους Παραγράφου**
 
-Όταν χρειάζεται να ελέγξετε τη μορφοποίηση του «τέλους» μιας παραγράφου (η μορφοποίηση που εφαρμόζεται μετά το τελευταίο κείμενο portion), χρησιμοποιήστε την ιδιότητα `end_paragraph_portion_format`. Το παρακάτω παράδειγμα εφαρμόζει μεγαλύτερη γραμματοσειρά Times New Roman στο τέλος της δεύτερης παραγράφου.
+Η ιδιότητα [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) ελέγχει τη μορφοποίηση του σημείου τέλους της παραγράφου. Το παρακάτω παράδειγμα αναθέτει μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο σημείο τέλους της δεύτερης παραγράφου:
 
-1. Δημιουργήστε ή ανοίξτε ένα αρχείο [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Αποκτήστε τη διαφάνεια-στόχο κατά δείκτη.
-1. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
-1. Χρησιμοποιήστε το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος και δημιουργήστε δύο παραγράφους.
-1. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/) 48‑pt Times New Roman και εφαρμόστε το ως μορφοποίηση τέλους παραγράφου.
-1. Εκχωρήστε το στην `end_paragraph_portion_format` της παραγράφου (εφαρμόζεται στο τέλος της δεύτερης παραγράφου).
-1. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Φορτώστε μια [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και πρόσβαση σε μια διαφάνεια.
+2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο.
+3. Δημιουργήστε δύο παραγράφους και προσθέστε τμήματα κειμένου σε αυτές.
+4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/) για το σημείο τέλους της δεύτερης παραγράφου.
+5. Ορίστε το [PortionFormat.font_height](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/font_height/) και το [PortionFormat.latin_font](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/latin_font/).
+6. Αναθέστε τη μορφοποίηση στο [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) και αποθηκεύστε την παρουσία.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-	shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
+with slides.Presentation("Test.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
 
-	paragraph1 = slides.Paragraph()
-	paragraph1.portions.add(slides.Portion("Sample text"))
+    first_paragraph = slides.Paragraph()
+    first_paragraph.portions.add(slides.Portion("Sample text"))
 
-	end_paragraph_portion_format = slides.PortionFormat()
-	end_paragraph_portion_format.font_height = 48
-	end_paragraph_portion_format.latin_font = slides.FontData("Times New Roman")
+    second_paragraph = slides.Paragraph()
+    second_paragraph.portions.add(slides.Portion("Sample text 2"))
 
-	paragraph2 = slides.Paragraph()
-	paragraph2.portions.add(slides.Portion("Sample text 2"))
-	paragraph2.end_paragraph_portion_format = end_paragraph_portion_format
+    end_paragraph_format = slides.PortionFormat()
+    end_paragraph_format.font_height = 48
+    end_paragraph_format.latin_font = slides.FontData("Times New Roman")
+    second_paragraph.end_paragraph_portion_format = end_paragraph_format
 
-	shape.text_frame.paragraphs.add(paragraph1)
-	shape.text_frame.paragraphs.add(paragraph2)
+    text_frame.paragraphs.add(first_paragraph)
+    text_frame.paragraphs.add(second_paragraph)
 
-	presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Εισαγωγή Κειμένου HTML σε Παραγράφους**
+## **Εισαγωγή και Εξαγωγή Περιεχομένου Παραγράφου**
 
-Το Aspose.Slides παρέχει βελτιωμένη υποστήριξη για εισαγωγή κειμένου HTML σε παραγράφους.
+### **Εισαγωγή Κειμένου HTML σε Παραγράφους**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Προσπελάστε τη διαφάνεια-στόχο με το δείκτη της.
-1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) στη διαφάνεια.
-1. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/).
-1. Αφαιρέστε την προεπιλεγμένη παράγραφο από το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Διαβάστε το αρχείο πηγής HTML.
-1. Δημιουργήστε την πρώτη παράγραφο χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/).
-1. Προσθέστε το περιεχόμενο HTML στη συλλογή παραγράφων του [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+Χρησιμοποιήστε το [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphcollection/add_from_html/) για να μετατρέψετε σήμανση HTML σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
+2. Πρόσβαση σε μια διαφάνεια και προσθήκη ενός [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/).
+3. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος και αφαίρεση της προεπιλεγμένης παραγράφου.
+4. Διαβάστε το πηγαίο αρχείο HTML.
+5. Μεταβιβάστε τη συμβολοσειρά HTML στο [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphcollection/add_from_html/).
+6. Αποθηκεύστε την τροποποιημένη παρουσία.
+
+Αυτό το παράδειγμα Python εισάγει HTML σε ένα πλαίσιο κειμένου:
 
 ```python
 import aspose.slides as slides
 
-# Δημιουργήστε ένα κενό αντικείμενο Presentation.
 with slides.Presentation() as presentation:
-
-    # Προσπελάστε την πρώτη διαφάνεια της παρουσίασης.
     slide = presentation.slides[0]
-
-    slide_width = presentation.slide_size.size.width
-    slide_height = presentation.slide_size.size.height
-
-    # Προσθέστε ένα AutoShape για να φιλοξενήσει το περιεχόμενο HTML.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, slide_width - 20, slide_height - 10)
-
-    # Καθαρίστε όλες τις παραγράφους στο προστιθέμενο πλαίσιο κειμένου.
+    shape_width = presentation.slide_size.size.width - 20
+    shape_height = presentation.slide_size.size.height - 20
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, shape_width, shape_height)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.text_frame.paragraphs.clear()
 
-    # Φορτώστε το αρχείο HTML.
-    with open("file.html", "rt") as html_stream:
-        # Προσθέστε το κείμενο από το αρχείο HTML στο πλαίσιο κειμένου.
-        shape.text_frame.paragraphs.add_from_html(html_stream.read())
+    with open("file.html", "r", encoding="utf-8") as html_stream:
+        html = html_stream.read()
 
-    # Αποθηκεύστε την παρουσίαση.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    shape.text_frame.paragraphs.add_from_html(html)
+    presentation.save("html_text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Εξαγωγή Κειμένου Παραγράφου σε HTML**
+### **Εξαγωγή Κειμένου Παραγράφου σε HTML**
 
-Το Aspose.Slides παρέχει βελτιωμένη υποστήριξη για εξαγωγή κειμένου σε HTML.
+Χρησιμοποιήστε το [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphcollection/export_to_html/) για να εξάγετε μια επιλεγμένη ομάδα παραγράφων ως HTML.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και φορτώστε την παρουσίαση-στόχο.
-1. Προσπελάστε τη ζητούμενη διαφάνεια με το δείκτη της.
-1. Επιλέξτε το σχήμα που περιέχει το κείμενο προς εξαγωγή.
-1. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος.
-1. Ανοίξτε μια ροή αρχείου για να γράψετε την έξοδο HTML.
-1. Καθορίστε τον αρχικό δείκτη και εξάγετε τις απαιτούμενες παραγράφους.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και φορτώστε την επιθυμητή παρουσία.
+2. Πρόσβαση στη διαφάνεια και εντοπισμός του [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) που περιέχει το κείμενο.
+3. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος.
+4. Καλέστε το [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphcollection/export_to_html/) με τον δείκτη της αρχικής παραγράφου και τον αριθμό των παραγράφων προς εξαγωγή.
+5. Γράψτε τη ληφθείσα συμβολοσειρά HTML σε αρχείο.
+
+Αυτό το παράδειγμα Python εξάγει όλες τις παραγράφους από το πρώτο σχήμα κειμένου:
 
 ```python
 import aspose.slides as slides
 
-# Φορτώστε το αρχείο παρουσίασης.
-with slides.Presentation("exporting_HTML_text.pptx") as presentation:
-    # Προσπελάστε την πρώτη διαφάνεια της παρουσίασης.
-    slide = presentation.slides[0]
+with slides.Presentation("ExportingHTMLText.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-    # Δείκτης του στόχου σχήματος.
-    index = 0
-
-    # Προσπελάστε το σχήμα με βάση το δείκτη.
-    shape = slide.shapes[index]
-
-    with open("output.html", "w") as html_stream:
-        # Γράψτε τα δεδομένα της παραγράφου σε HTML παρέχοντας τον αρχικό δείκτη παραγράφου και τον συνολικό αριθμό παραγράφων προς εξαγωγή.
-        html_stream.write(shape.text_frame.paragraphs.export_to_html(0, shape.text_frame.paragraphs.count, None))
+    if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+        paragraphs = shape.text_frame.paragraphs
+        html = paragraphs.export_to_html(0, paragraphs.count, None)
+        with open("paragraphs.html", "w", encoding="utf-8") as html_stream:
+            html_stream.write(html)
+    else:
+        print("The first shape is not a text shape.")
 ```
 
-## **Αποθήκευση Παραγράφου ως Εικόνα**
+### **Απόδοση Παραγράφου ως Εικόνας**
 
-Σε αυτήν την ενότητα, θα εξετάσουμε δύο παραδείγματα που δείχνουν πώς να αποθηκεύσετε μια παράγραφο κειμένου, εκπροσωπούμενη από την κλάση [Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/), ως εικόνα. Και τα δύο παραδείγματα περιλαμβάνουν λήψη της εικόνας ενός σχήματος που περιέχει την παράγραφο χρησιμοποιώντας τις μεθόδους `get_image` της κλάσης [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/), υπολογισμό των ορίων της παραγράφου μέσα στο σχήμα και εξαγωγή της ως bitmap εικόνας. Αυτές οι προσεγγίσεις επιτρέπουν την εξαγωγή συγκεκριμένων τμημάτων του κειμένου από παρουσιάσεις PowerPoint και την αποθήκευσή τους ως ξεχωριστές εικόνες, χρήσιμες για περαιτέρω χρήση σε διάφορα σενάρια.
+[Paragraph](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/) παρέχει τη μέθοδο `get_image` για άμεση απόδοση μιας μεμονωμένης παραγράφου. Η μέθοδος επιστρέφει ένα [IImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/iimage/) που μπορείτε να αποθηκεύσετε σε αρχείο ή ροή με τη [IImage.save](https://reference.aspose.com/slides/el/python-net/aspose.slides/iimage/save/). Δεν χρειάζεται να αποδώσετε το σχήμα που το περιέχει ή να περικόψετε bitmap με το χέρι.
+
+Η μέθοδος `get_image` μπορεί να επιστρέψει `None` εάν η παράγραφος δεν μπορεί να βρεθεί στη συλλογή γονέα, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και χρησιμοποιήστε την εικόνα ως διαχειριστή περιεχομένου για να απελευθερώσετε τους πόρους της.
+
+#### **Απόδοση Παραγράφου στην Προεπιλεγμένη Κλίμακα**
 
 Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης με όνομα sample.pptx με μία διαφάνεια, όπου το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
 
-![Το πλαίσιο κειμένου με τρεις παραγράφους](paragraph_to_image_input.png)
+![Το πλαίσιο κειμένου με τρεις παραγράφων](paragraph_to_image_input.png)
 
-**Παράδειγμα 1**
+Το παρακάτω παράδειγμα αποδίδει τη δεύτερη παράγραφο σε ένα κανονικό σχήμα κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την επιστρεφόμενη εικόνα σε μορφή PNG:
 
-Σε αυτό το παράδειγμα, λαμβάνουμε τη δεύτερη παράγραφο ως εικόνα. Για να το κάνουμε αυτό, εξάγουμε την εικόνα του σχήματος από την πρώτη διαφάνεια της παρουσίασης και στη συνέχεια υπολογίζουμε τα όρια της δεύτερης παραγράφου στο πλαίσιο κειμένου του σχήματος. Η παράγραφος στη συνέχεια σχεδιάζεται εκ νέου σε μια νέα bitmap εικόνα, η οποία αποθηκεύεται σε μορφή PNG. Αυτή η μέθοδος είναι ιδιαίτερα χρήσιμη όταν πρέπει να αποθηκεύσετε μια συγκεκριμένη παράγραφο ως ξεχωριστή εικόνα διατηρώντας τις ακριβείς διαστάσεις και τη μορφοποίηση του κειμένου.
-
-```py
+```python
 import aspose.slides as slides
-import math
-import io
-from PIL import Image
 
 with slides.Presentation("sample.pptx") as presentation:
-    first_shape = presentation.slides[0].shapes[0]
+    shape = presentation.slides[0].shapes[0]
 
-    # Αποθηκεύστε το σχήμα στη μνήμη ως bitmap.
-    with first_shape.get_image() as shape_image:
-        shape_image_stream = io.BytesIO()
-        shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
+    if isinstance(shape, slides.AutoShape) and shape.text_frame is not None and shape.text_frame.paragraphs.count > 1:
+        paragraph = shape.text_frame.paragraphs[1]
+        paragraph_image = paragraph.get_image()
 
-    # Δημιουργήστε ένα bitmap σχήματος από τη μνήμη.
-    shape_image_stream.seek(0)
-    shape_bitmap = Image.open(shape_image_stream)
-
-    # Υπολογίστε τα όρια της δεύτερης παραγράφου.
-    second_paragraph = first_shape.text_frame.paragraphs[1]
-    paragraph_rectangle = second_paragraph.get_rect()
-
-    # Υπολογίστε τις συντεταγμένες και το μέγεθος για την εικόνα εξόδου (ελάχιστο μέγεθος - 1x1 pixel).
-    image_left = math.floor(paragraph_rectangle.x)
-    image_top = math.floor(paragraph_rectangle.y)
-    image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
-    image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
-
-    # Κόψτε το bitmap του σχήματος ώστε να πάρετε μόνο το bitmap της παραγράφου.
-    paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
-
-    paragraph_bitmap.save("paragraph.png")
+        if paragraph_image is not None:
+            with paragraph_image:
+                paragraph_image.save("paragraph.png", slides.ImageFormat.PNG)
+        else:
+            print("The paragraph could not be rendered.")
+    else:
+        print("The expected text shape or paragraph was not found.")
 ```
 
 Το αποτέλεσμα:
 
 ![Η εικόνα της παραγράφου](paragraph_to_image_output.png)
 
-**Παράδειγμα 2**
+#### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλιμάκωση**
 
-Σε αυτό το παράδειγμα, επεκτείνουμε την προηγούμενη προσέγγιση προσθέτοντας παράγοντες κλιμάκωσης στην εικόνα της παραγράφου. Το σχήμα εξάγεται από την παρουσίαση και αποθηκεύεται ως εικόνα με παράγοντα κλιμάκωσης `2`. Αυτό επιτρέπει την παραγωγή εικόνας υψηλότερης ανάλυσης κατά την εξαγωγή της παραγράφου. Τα όρια της παραγράφου υπολογίζονται έπειτα λαμβάνοντας υπόψη την κλίμακα. Η κλιμάκωση μπορεί να είναι ιδιαίτερα χρήσιμη όταν απαιτείται πιο λεπτομερής εικόνα, για παράδειγμα για χρήση σε υψηλής ποιότητας έντυπο υλικό.
+Περάστε οριζόντιους και κάθετους συντελεστές κλιμάκωσης στη `get_image` για να ελέγξετε το μέγεθος της αποδομένης παραγράφου. Το παρακάτω παράδειγμα δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο κελί του με ύψος και πλάτος διπλάσια από την προεπιλεγμένη τιμή, και αποθηκεύει το αποτέλεσμα ως εικόνα PNG:
 
-```py
+```python
 import aspose.slides as slides
-import math
-import io
-from PIL import Image
 
-image_scale_x = 2
-image_scale_y = image_scale_x
+scale_x = 2
+scale_y = 2
 
-with slides.Presentation("sample.pptx") as presentation:
-    first_shape = presentation.slides[0].shapes[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes.add_table(50, 50, [300], [80])
+    paragraph = table.rows[0][0].text_frame.paragraphs[0]
+    paragraph.text = "Text in a table cell"
 
-    # Αποθηκεύστε το σχήμα στη μνήμη ως bitmap.
-    with first_shape.get_image(slides.ShapeThumbnailBounds.SHAPE, image_scale_x, image_scale_y) as shape_image:
-        shape_image_stream = io.BytesIO()
-        shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
-
-    # Δημιουργήστε ένα bitmap σχήματος από τη μνήμη.
-    shape_image_stream.seek(0)
-    shape_bitmap = Image.open(shape_image_stream)
-
-    # Υπολογίστε τα όρια της δεύτερης παραγράφου.
-    second_paragraph = first_shape.text_frame.paragraphs[1]
-    paragraph_rectangle = second_paragraph.get_rect()
-    paragraph_rectangle.x *= image_scale_x
-    paragraph_rectangle.y *= image_scale_y
-    paragraph_rectangle.width *= image_scale_x
-    paragraph_rectangle.height *= image_scale_y
-
-    # Υπολογίστε τις συντεταγμένες και το μέγεθος για την εικόνα εξόδου (ελάχιστο μέγεθος - 1x1 pixel).
-    image_left = math.floor(paragraph_rectangle.x)
-    image_top = math.floor(paragraph_rectangle.y)
-    image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
-    image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
-
-    # Κόψτε το bitmap του σχήματος ώστε να πάρετε μόνο το bitmap της παραγράφου.
-    paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
-
-    paragraph_bitmap.save("paragraph.png")
+    paragraph_image = paragraph.get_image(scale_x, scale_y)
+    if paragraph_image is not None:
+        with paragraph_image:
+            paragraph_image.save("table_paragraph.png", slides.ImageFormat.PNG)
+    else:
+        print("The paragraph could not be rendered.")
 ```
+
+Ένας συντελεστής κλιμάκωσης `1` διατηρεί το μέγεθος του άξονα στην προεπιλεγμένη τιμή εικονοστοιχείου. Για παράδειγμα, `2` για και τους δύο παράγοντες παράγει εικόνα του οποίου το πλάτος και το ύψος είναι περίπου διπλάσια των προεπιλεγμένων διαστάσεων, με τέσσερις φορές περισσότερους εικονοστοιχεία. Μεγαλύτεροι παράγοντες συνήθως παράγουν πιο αιχμηρό κείμενο για μεγέθυνση ή εξαγωγή υψηλής ανάλυσης, αλλά αυξάνουν επίσης τη χρήση μνήμης και το μέγεθος του αρχείου. Παράγοντες κάτω του `1` παράγουν μικρότερες εικόνες με λιγότερες λεπτομέρειες. Χρησιμοποιήστε ίδιους παράγοντες για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κάθετοι παράγοντες διαστέλλουν το αποτέλεσμα ανεξάρτητα.
+
+Η απόδοση ολόκληρου σχήματος με τη [Shape.get_image](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/get_image/) παραμένει χρήσιμη όταν η έξοδος πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλο οπτικό πλαίσιο του σχήματος. Για εικόνα μόνο της παραγράφου, χρησιμοποιήστε `Paragraph.get_image`.
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να απενεργοποιήσω εντελώς τη συστροφή γραμμής μέσα σε ένα TextFrame;**
+**Μπορώ να απενεργοποιήσω πλήρως την αναδίπλωση κειμένου μέσα σε ένα πλαίσιο κειμένου;**
 
-Ναι. Χρησιμοποιήστε τη ρύθμιση περιτύλιξης του πλαισίου κειμένου ([wrap_text](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/wrap_text/)) για να απενεργοποιήσετε το περιτύλιγμα, ώστε οι γραμμές να μην σπάζουν στα άκρα του πλαισίου.
+Ναι. Ορίστε το [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/wrap_text/) για να απενεργοποιήσετε την αναδίπλωση, ώστε οι γραμμές να μην σπάζουν στις άκρες του πλαισίου κειμένου.
 
-**Πώς μπορώ να λάβω τα ακριβή όρια μιας συγκεκριμένης παραγράφου στην διαφάνεια;**
+**Πώς μπορώ να λάβω τα ακριβή όρια στην διαφάνεια για μια συγκεκριμένη παράγραφο;**
 
-Μπορείτε να ανακτήσετε το ορθογώνιο περιορισμού της παραγράφου (και ακόμη και ενός μεμονωμένου portion) για να γνωρίζετε τη θέση και το μέγεθός της στην διαφάνεια.
+Χρησιμοποιήστε το [Paragraph.get_rect](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/get_rect/) για να ανακτήσετε το ορθογώνιο περιορισμού της παραγράφου. Το [Portion.get_rect](https://reference.aspose.com/slides/el/python-net/aspose.slides/portion/get_rect/) παρέχει τα όρια ενός μεμονωμένου τμήματος.
 
-**Πού ελέγχεται η στοίχιση της παραγράφου (αριστερά/δεξιά/κέντρο/ομοιόμορφα);**
+**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης ευθυγράμμιση);**
 
-Η [Alignment](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/alignment/) είναι ρύθμιση επιπέδου παραγράφου στην [ParagraphFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/); εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη μορφοποίηση των μεμονωμένων portion.
+Το [ParagraphFormat.alignment](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/alignment/) είναι ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη μορφοποίηση των επιμέρους τμημάτων.
 
-**Μπορώ να ορίσω γλώσσα ελέγχου ορθογραφίας μόνο για μέρος μιας παραγράφου (π.χ. μια λέξη);**
+**Μπορώ να ορίσω τη γλώσσα διόρθωσης για μέρος μιας παραγράφου;**
 
-Ναι. Η γλώσσα ορίζεται στο επίπεδο portion ([PortionFormat.language_id](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/language_id/)), έτσι ώστε να μπορούν να συνυπάρχουν πολλές γλώσσες μέσα σε μία παράγραφο.
+Ναι. Ορίστε το [PortionFormat.language_id](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/language_id/) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.

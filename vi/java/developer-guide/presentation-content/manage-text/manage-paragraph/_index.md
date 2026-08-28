@@ -1,109 +1,104 @@
 ---
-title: Quản lý đoạn văn bản PowerPoint trong Java
-linktitle: Quản lý Đoạn Văn
+title: Quản lý các đoạn văn bản PowerPoint trong Java
+linktitle: Quản lý đoạn
 type: docs
 weight: 40
 url: /vi/java/manage-paragraph/
+aliases:
+  - /java/paragraph/
+  - /java/portion/
 keywords:
 - thêm văn bản
-- thêm đoạn văn
+- thêm đoạn
 - quản lý văn bản
-- quản lý đoạn văn
+- quản lý đoạn
 - quản lý dấu đầu dòng
-- thụt lề đoạn văn
+- thụt lề đoạn
 - thụt lề treo
-- dấu đầu dòng đoạn văn
+- dấu đầu dòng đoạn
 - danh sách đánh số
 - danh sách có dấu đầu dòng
-- thuộc tính đoạn văn
+- thuộc tính đoạn
 - nhập HTML
 - văn bản sang HTML
-- đoạn văn sang HTML
-- đoạn văn sang hình ảnh
+- đoạn sang HTML
+- đoạn sang hình ảnh
 - văn bản sang hình ảnh
-- xuất đoạn văn
+- xuất đoạn
 - PowerPoint
-- OpenDocument
 - bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Nắm bắt việc định dạng đoạn văn với Aspose.Slides cho Java—tối ưu căn chỉnh, khoảng cách và kiểu dáng trong các bản trình chiếu PPT, PPTX và ODP bằng Java."
+description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, dấu đầu dòng, danh sách đánh số, thụt lề, nội dung HTML và hình ảnh đoạn với Aspose.Slides cho Java."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Aspose.Slides cung cấp tất cả các giao diện và lớp mà bạn cần để làm việc với văn bản, đoạn văn và phần trong PowerPoint bằng Java.
+Aspose.Slides for Java đại diện cho văn bản dưới dạng một hệ thống phân cấp gồm khung văn bản, đoạn và phần:
 
-* Aspose.Slides cung cấp giao diện [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) cho phép bạn thêm các đối tượng đại diện cho một đoạn văn. Một đối tượng `ITextFame` có thể chứa một hoặc nhiều đoạn văn (mỗi đoạn văn được tạo bằng ký tự xuống dòng).
-* Aspose.Slides cung cấp giao diện [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/) cho phép bạn thêm các đối tượng đại diện cho các phần. Một đối tượng `IParagraph` có thể chứa một hoặc nhiều phần (tập hợp các đối tượng iPortions).
-* Aspose.Slides cung cấp giao diện [IPortion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/) cho phép bạn thêm các đối tượng đại diện cho văn bản và các thuộc tính định dạng của chúng. 
+* [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn.
+* [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/) đại diện cho một đoạn trong khung văn bản và cung cấp quyền truy cập vào các phần và định dạng ở mức đoạn.
+* [IPortion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/) đại diện cho một đoạn chạy văn bản trong một đoạn. Mỗi phần có thể có văn bản và định dạng ký tự riêng.
 
-Một đối tượng `IParagraph` có khả năng xử lý văn bản với các thuộc tính định dạng khác nhau thông qua các đối tượng `IPortion` cơ bản của nó.
+Do đó, một đoạn có thể chứa văn bản có các phông chữ, màu sắc, kích thước và định dạng khác nhau bằng cách sử dụng nhiều phần.
 
-## **Thêm Nhiều Đoạn Văn Chứa Nhiều Phần**
+## **Tạo và Định dạng Đoạn Văn**
 
-Những bước sau đây cho bạn biết cách thêm một khung văn bản chứa 3 đoạn và mỗi đoạn chứa 3 phần:
+### **Tạo Đoạn Văn với Nhiều Phần**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Truy cập tham chiếu của slide tương ứng thông qua chỉ mục của nó.
-3. Thêm một hình chữ nhật [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Lấy ITextFrame liên kết với [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) .
-5. Tạo hai đối tượng [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/) và thêm chúng vào bộ sưu tập `IParagraphs` của [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) .
-6. Tạo ba đối tượng [IPortion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/) cho mỗi `IParagraph` mới (hai đối tượng Portion cho Đoạn Văn mặc định) và thêm mỗi đối tượng `IPortion` vào bộ sưu tập IPortion của từng `IParagraph` .
-7. Đặt một số văn bản cho mỗi phần.
-8. Áp dụng các tính năng định dạng mong muốn cho mỗi phần bằng cách sử dụng các thuộc tính định dạng do đối tượng `IPortion` cung cấp.
-9. Lưu bản trình chiếu đã chỉnh sửa.
+Những bước sau tạo một khung văn bản với ba đoạn, mỗi đoạn chứa ba phần:
 
-Mã Java này là một triển khai của các bước để thêm các đoạn chứa các phần:
+1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
+2. Truy cập slide liên quan qua chỉ mục của nó.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình.
+5. Sử dụng đoạn mặc định và thêm hai đối tượng [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/) nữa vào khung văn bản.
+6. Thêm đủ các đối tượng [IPortion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần trống.
+7. Đặt văn bản cho mỗi phần.
+8. Áp dụng định dạng ký tự thông qua [IPortion.getPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/#getPortionFormat--) .
+9. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ Java này thực hiện các bước:
+
 ```java
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Truy cập slide đầu tiên
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    ITextFrame textFrame = shape.getTextFrame();
 
-    // Thêm một AutoShape loại Hình chữ nhật
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    IParagraph firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new Portion());
+    firstParagraph.getPortions().add(new Portion());
 
-    // Truy cập TextFrame của AutoShape
-    ITextFrame tf = ashp.getTextFrame();
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(secondParagraph);
 
-    // Tạo các Paragraph và Portion với các định dạng văn bản khác nhau
-    IParagraph para0 = tf.getParagraphs().get_Item(0);
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
 
-    IParagraph para1 = new Paragraph();
-    tf.getParagraphs().add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
+    int paragraphCount = textFrame.getParagraphs().getCount();
+    for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        int portionCount = paragraph.getPortions().getCount();
+        for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
 
-    IParagraph para2 = new Paragraph();
-    tf.getParagraphs().add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-
-    for (int i = 0; i < 3; i++) 
-    {
-        for (int j = 0; j < 3; j++) 
-        {
-            IPortion portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j); 
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+            if (portionIndex == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
                 portion.getPortionFormat().setFontBold(NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
                 portion.getPortionFormat().setFontItalic(NullableBool.True);
@@ -112,364 +107,287 @@ try {
         }
     }
 
-    // Ghi PPTX ra đĩa
-    pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
+    presentation.save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Quản Lý Dấu Đầu Dòng Đoạn Văn**
+## **Tạo Danh Sách Đánh Dấu và Đánh Số**
 
-Danh sách dấu đầu dòng giúp bạn tổ chức và trình bày thông tin một cách nhanh chóng và hiệu quả. Các đoạn văn có dấu đầu dòng luôn dễ đọc và hiểu hơn.
+### **Tạo danh sách có dấu đầu dòng hoặc đánh số**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Truy cập tham chiếu của slide tương ứng thông qua chỉ mục của nó.
-3. Thêm một [autoshape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide được chọn.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của autoshape.
-5. Xóa đoạn văn mặc định trong `TextFrame`.
-6. Tạo thể hiện đoạn văn đầu tiên bằng lớp [Paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraph/) .
-7. Đặt thuộc tính `Type` của dấu đầu dòng cho đoạn văn thành `Symbol` và đặt ký tự dấu đầu dòng.
-8. Đặt `Text` cho đoạn văn.
-9. Đặt `Indent` cho dấu đầu dòng của đoạn văn.
-10. Đặt màu cho dấu đầu dòng.
-11. Đặt chiều cao cho dấu đầu dòng.
-12. Thêm đoạn văn mới vào bộ sưu tập đoạn văn của `TextFrame`.
-13. Thêm đoạn văn thứ hai và lặp lại quy trình được mô tả trong các bước 7 đến 13.
-14. Lưu bản trình chiếu.
+Dấu đầu dòng và đánh số giúp các mục liên quan dễ dàng quét. Trong Aspose.Slides, cài đặt danh sách được định nghĩa thông qua [IBulletFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/) .
 
-Mã Java này cho bạn thấy cách thêm một dấu đầu dòng cho đoạn văn:
+1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
+2. Truy cập slide liên quan qua chỉ mục của nó.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide đã chọn.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình.
+5. Xóa đoạn mặc định khỏi khung văn bản.
+6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraph/) cho một dấu đầu dòng ký hiệu.
+7. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/) và chỉ định ký tự dấu đầu dòng.
+8. Đặt văn bản đoạn, thụt lề, màu dấu đầu dòng và chiều cao dấu đầu dòng.
+9. Thêm đoạn vào khung văn bản.
+10. Tạo một đoạn thứ hai và đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/) .
+11. Cấu hình kiểu dấu đầu dòng đánh số và thêm đoạn vào khung văn bản.
+12. Lưu bản trình chiếu.
+
+Ví dụ Java này tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng đánh số:
+
 ```java
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
-Presentation pres = new Presentation();
-try {
-    // Truy cập slide đầu tiên
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Thêm và truy cập Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-    // Truy cập khung văn bản của autoshape
-    ITextFrame txtFrm = aShp.getTextFrame();
-
-    // Xóa đoạn văn mặc định
-    txtFrm.getParagraphs().removeAt(0);
-
-    // Tạo một đoạn văn
-    Paragraph para = new Paragraph();
-
-    // Đặt kiểu dấu đầu dòng và ký tự cho đoạn văn
-    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar((char)8226);
-
-    // Đặt văn bản cho đoạn văn
-    para.setText("Welcome to Aspose.Slides");
-
-    // Đặt thụt lề dấu đầu dòng
-    para.getParagraphFormat().setIndent(25);
-
-    // Đặt màu cho dấu đầu dòng
-    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // đặt IsBulletHardColor thành true để sử dụng màu dấu đầu dòng riêng
-
-    // Đặt chiều cao dấu đầu dòng
-    para.getParagraphFormat().getBullet().setHeight(100);
-
-    // Thêm đoạn văn vào khung văn bản
-    txtFrm.getParagraphs().add(para);
-
-    // Tạo đoạn văn thứ hai
-    Paragraph para2 = new Paragraph();
-
-    // Đặt loại và kiểu dấu đầu dòng cho đoạn văn
-    para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-
-    // Thêm văn bản cho đoạn văn
-    para2.setText("This is numbered bullet");
-
-    // Đặt thụt lề dấu đầu dòng
-    para2.getParagraphFormat().setIndent(25);
-
-    para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // đặt IsBulletHardColor thành true để sử dụng màu dấu đầu dòng riêng
-
-    // Đặt chiều cao dấu đầu dòng
-    para2.getParagraphFormat().getBullet().setHeight(100);
-
-    // Thêm đoạn văn vào khung văn bản
-    txtFrm.getParagraphs().add(para2);
-    
-    // Lưu bản trình chiếu đã chỉnh sửa
-    pres.save("Bullet_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Quản Lý Dấu Đầu Dòng Hình Ảnh**
-
-Danh sách dấu đầu dòng giúp bạn tổ chức và trình bày thông tin một cách nhanh chóng và hiệu quả. Các đoạn văn có hình ảnh dễ đọc và hiểu.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Truy cập tham chiếu của slide tương ứng thông qua chỉ mục của nó.
-3. Thêm một [autoshape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của autoshape.
-5. Xóa đoạn văn mặc định trong `TextFrame`.
-6. Tạo thể hiện đoạn văn đầu tiên bằng lớp [Paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraph/) .
-7. Tải hình ảnh vào [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/) .
-8. Đặt loại dấu đầu dòng thành [Picture](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/) và đặt hình ảnh.
-9. Đặt `Text` cho Paragraph.
-10. Đặt `Indent` cho dấu đầu dòng của Paragraph.
-11. Đặt màu cho dấu đầu dòng.
-12. Đặt chiều cao cho dấu đầu dòng.
-13. Thêm đoạn văn mới vào bộ sưu tập đoạn văn của `TextFrame`.
-14. Thêm đoạn văn thứ hai và lặp lại quy trình dựa trên các bước trước.
-15. Lưu bản trình chiếu đã chỉnh sửa.
-
-Mã Java này cho bạn thấy cách thêm và quản lý dấu đầu dòng dạng hình ảnh:
-```java
-// Tạo một lớp Presentation đại diện cho tệp PPTX
 Presentation presentation = new Presentation();
 try {
-    // Truy cập slide đầu tiên
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph symbolParagraph = new Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    symbolParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
+
+    Paragraph numberedParagraph = new Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
+
+    presentation.save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Sử dụng Dấu Đầu Dòng Hình Ảnh**
+
+Dấu đầu dòng hình ảnh cho phép bạn sử dụng một hình tùy chỉnh thay cho ký hiệu hoặc số.
+
+1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
+2. Truy cập slide liên quan qua chỉ mục của nó.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) và truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) .
+4. Xóa đoạn mặc định khỏi khung văn bản.
+5. Tải hình ảnh dấu đầu dòng và thêm nó vào bộ sưu tập hình ảnh của bản trình chiếu dưới dạng một [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/) .
+6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraph/) và đặt văn bản của nó.
+7. Đặt [IBulletFormat.setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setType-int-) thành [BulletType.Picture](https://reference.aspose.com/slides/vi/java/com.aspose.slides/bullettype/) .
+8. Gán hình ảnh qua [IBulletFormat.getPicture](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#getPicture--) và đặt chiều cao dấu đầu dòng.
+9. Thêm đoạn vào khung văn bản.
+10. Lưu bản trình chiếu đã sửa đổi.
+
+Ví dụ Java này tạo một dấu đầu dòng hình ảnh:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Tạo ảnh cho dấu đầu dòng
-    IPPImage picture;
-    IImage image = Images.fromFile("bullets.png");
+    IImage bulletImage = Images.fromFile("bullets.png");
+    IPPImage presentationImage;
     try {
-        picture = presentation.getImages().addImage(image);
+        presentationImage = presentation.getImages().addImage(bulletImage);
     } finally {
-        if (image != null) image.dispose();
+        bulletImage.dispose();
     }
-    // Thêm và truy cập Autoshape
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // Truy cập khung văn bản của autoshape
-    ITextFrame textFrame = autoShape.getTextFrame();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // Xóa đoạn văn mặc định
-    textFrame.getParagraphs().removeAt(0);
-
-    // Tạo một đoạn văn mới
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
-
-    // Đặt kiểu dấu đầu dòng và hình ảnh cho đoạn văn
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-    // Đặt chiều cao dấu đầu dòng
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
     paragraph.getParagraphFormat().getBullet().setHeight(100);
-
-    // Thêm đoạn văn vào khung văn bản
     textFrame.getParagraphs().add(paragraph);
 
-    // Ghi bản trình chiếu dưới dạng tệp PPTX
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-    // Ghi bản trình chiếu dưới dạng tệp PPT
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-} catch (IOException e) {
+    presentation.save("picture_bullet.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", SaveFormat.Ppt);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Quản Lý Dấu Đầu Dòng Đa Cấp**
+### **Tạo Danh Sách Đa Cấp**
 
-Danh sách dấu đầu dòng giúp bạn tổ chức và trình bày thông tin một cách nhanh chóng và hiệu quả. Dấu đầu dòng đa cấp dễ đọc và hiểu.
+Đặt [IParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setDepth-short-) để đặt các đoạn ở các cấp độ khác nhau của danh sách. Cấp độ trên cùng có độ sâu là `0` .
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Truy cập tham chiếu của slide tương ứng thông qua chỉ mục của nó.
-3. Thêm một [autoshape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide mới.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của autoshape.
-5. Xóa đoạn văn mặc định trong `TextFrame`.
-6. Tạo thể hiện đoạn văn đầu tiên thông qua lớp [Paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraph/) và đặt độ sâu thành 0.
-7. Tạo thể hiện đoạn văn thứ hai thông qua lớp `Paragraph` và đặt độ sâu thành 1.
-8. Tạo thể hiện đoạn văn thứ ba thông qua lớp `Paragraph` và đặt độ sâu thành 2.
-9. Tạo thể hiện đoạn văn thứ tư thông qua lớp `Paragraph` và đặt độ sâu thành 3.
-10. Thêm các đoạn văn mới vào bộ sưu tập đoạn văn của `TextFrame`.
-11. Lưu bản trình chiếu đã chỉnh sửa.
+1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và truy cập một slide.
+2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) và xóa đoạn mặc định khỏi khung văn bản của nó.
+3. Tạo bốn đoạn và cấu hình các ký hiệu dấu đầu dòng cho chúng.
+4. Đặt giá trị [IParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setDepth-short-) của chúng thành `0`, `1`, `2`, và `3` .
+5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
-Mã Java này cho bạn thấy cách thêm và quản lý dấu đầu dòng đa cấp:
+Ví dụ Java này tạo một danh sách có bốn cấp độ:
+
 ```java
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX
-Presentation pres = new Presentation();
-try {
-    // Truy cập slide đầu tiên
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-    // Thêm và truy cập Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Truy cập khung văn bản của autoshape được tạo
-    ITextFrame text = aShp.addTextFrame("");
-
-    // Xóa đoạn văn mặc định
-    text.getParagraphs().clear();
-
-    // Thêm đoạn văn đầu tiên
-    IParagraph para1 = new Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Đặt mức độ dấu đầu dòng
-    para1.getParagraphFormat().setDepth((short)0);
-
-    // Thêm đoạn văn thứ hai
-    IParagraph para2 = new Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Đặt mức độ dấu đầu dòng
-    para2.getParagraphFormat().setDepth((short)1);
-
-    // Thêm đoạn văn thứ ba
-    IParagraph para3 = new Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Đặt mức độ dấu đầu dòng
-    para3.getParagraphFormat().setDepth((short)2);
-
-    // Thêm đoạn văn thứ tư
-    IParagraph para4 = new Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Đặt mức độ dấu đầu dòng
-    para4.getParagraphFormat().setDepth((short)3);
-
-    // Thêm các đoạn văn vào bộ sưu tập
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-
-    // Ghi bản trình chiếu dưới dạng tệp PPTX
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Quản Lý Đoạn Văn Với Danh Sách Đánh Số Tùy Chỉnh**
-
-Giao diện [IBulletFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/) cung cấp thuộc tính [NumberedBulletStartWith](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) và các thuộc tính khác cho phép bạn quản lý các đoạn văn với đánh số hoặc định dạng tùy chỉnh.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Truy cập slide chứa đoạn văn.
-3. Thêm một [autoshape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của autoshape.
-5. Xóa đoạn văn mặc định trong `TextFrame`.
-6. Tạo thể hiện đoạn văn đầu tiên thông qua lớp [Paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraph/) và đặt [NumberedBulletStartWith] thành 2.
-7. Tạo thể hiện đoạn văn thứ hai thông qua lớp `Paragraph` và đặt `NumberedBulletStartWith` thành 3.
-8. Tạo thể hiện đoạn văn thứ ba thông qua lớp `Paragraph` và đặt `NumberedBulletStartWith` thành 7.
-9. Thêm các đoạn văn mới vào bộ sưu tập đoạn văn của `TextFrame`.
-10. Lưu bản trình chiếu đã chỉnh sửa.
-
-Mã Java này cho bạn thấy cách thêm và quản lý các đoạn văn với việc đánh số hoặc định dạng tùy chỉnh:
-```java
 Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Truy cập khung văn bản của autoshape đã tạo
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // Xóa đoạn văn mặc định hiện có
-    textFrame.getParagraphs().removeAt(0);
+    IParagraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    firstParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.getParagraphFormat().setDepth((short) 0);
 
-    // Danh sách đầu tiên
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    secondParagraph.getParagraphFormat().getBullet().setChar('-');
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().setDepth((short) 1);
 
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    thirdParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.getParagraphFormat().setDepth((short) 2);
 
+    IParagraph fourthParagraph = new Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    fourthParagraph.getParagraphFormat().getBullet().setChar('-');
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    fourthParagraph.getParagraphFormat().setDepth((short) 3);
 
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
 
-    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+    presentation.save("multilevel_list.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt Thụt Dòng Dòng Đầu Cho Đoạn Văn**
+### **Bắt Đầu Các Mục Đánh Số Với Giá Trị Tùy Chỉnh**
 
-Sử dụng phương thức [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) để kiểm soát thụt đầu dòng của một đoạn văn. Phương thức này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn văn. Giá trị dương dịch dòng đầu tiên sang bên phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
+Sử dụng [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) để đặt số ban đầu hiển thị cho một đoạn đánh số.
 
-Sử dụng [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) khi bạn cần di chuyển toàn bộ đoạn văn. Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khi bạn chỉ cần di chuyển dòng đầu tiên.
+1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào một slide.
+2. Xóa đoạn mặc định khỏi khung văn bản của hình.
+3. Tạo ba đoạn đánh số.
+4. Đặt [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) thành `2`, `3`, và `7` cho các đoạn tương ứng.
+5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
-Ví dụ dưới đây tạo nhiều đoạn văn và áp dụng các giá trị thụt khác nhau để minh họa cách thụt đầu dòng ảnh hưởng đến bố cục đoạn.
+Ví dụ Java này gán một số bắt đầu tùy chỉnh cho mỗi đoạn:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Truy cập slide mục tiêu.
-3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/autoshape/) hình chữ nhật vào slide.
-4. Thêm một [TextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/textframe/) trống vào hình và xóa đoạn văn mặc định.
-5. Tạo một số đoạn văn và đặt các giá trị [Indent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau cho chúng.
-6. Thêm các đoạn văn vào khung văn bản.
-7. Lưu bản trình chiếu đã chỉnh sửa.
-
-Mã này cho bạn thấy cách đặt thụt lề cho đoạn văn:
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 2);
+    textFrame.getParagraphs().add(firstParagraph);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 3);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 7);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kiểm Soát Bố Cục Đoạn Văn và Thuộc Tính Kết Thúc**
+
+### **Đặt Thụt Lề Dòng Đầu**
+
+Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) để kiểm soát thụt lề dòng đầu của một đoạn văn. Phương thức này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương đẩy dòng đầu sang phải, trong khi các dòng còn lại vẫn căn chỉnh với phần thân đoạn.
+
+Sử dụng [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) khi bạn cần di chuyển toàn bộ đoạn. Sử dụng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khi bạn chỉ cần di chuyển dòng đầu tiên.
+
+Ví dụ dưới đây tạo một số đoạn và áp dụng các giá trị [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau để minh họa cách thụt lề dòng đầu ảnh hưởng đến bố cục đoạn.
+
+1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
+2. Truy cập slide mục tiêu.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình và xóa đoạn mặc định.
+5. Tạo một số đoạn và đặt các giá trị [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) khác nhau cho chúng.
+6. Thêm các đoạn vào khung văn bản.
+7. Lưu bản trình chiếu đã sửa đổi.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().setMarginLeft(20f);
     firstParagraph.getParagraphFormat().setIndent(0f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20f);
     secondParagraph.getParagraphFormat().setIndent(20f);
 
     Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20f);
     thirdParagraph.getParagraphFormat().setIndent(40f);
 
@@ -478,58 +396,60 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 Kết quả:
-![Thụt đầu dòng của các đoạn văn](first_line_indent.png)
 
-## **Đặt Thụt Lề Treo Cho Đoạn Văn**
+![Thụt lề dòng đầu của các đoạn](first_line_indent.png)
 
-Thụt lề treo là một bố cục đoạn văn trong đó dòng đầu tiên bắt đầu bên trái các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng phương thức [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Đặt giá trị thụt là số âm để di chuyển dòng đầu tiên sang bên trái so với thân đoạn văn.
+### **Đặt Thụt Lề Treo**
 
-Trong thực tế, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) xác định vị trí bên trái của thân đoạn văn, và [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) xác định vị trí của dòng đầu tiên so với lề đó. Để tạo thụt lề treo, đặt giá trị `MarginLeft` dương và giá trị `Indent` âm.
+Thụt lề treo là một bố cục đoạn trong đó dòng đầu bắt đầu bên trái các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-). Đưa một giá trị âm để di chuyển dòng đầu sang trái so với phần thân đoạn.
 
-Định dạng này hữu ích cho danh mục tài liệu, tham chiếu, mục từ điển, và các đoạn văn khác nơi các dòng đã gói cần căn chỉnh dưới thân đoạn văn thay vì dưới ký tự đầu tiên của dòng đầu.
+Trong thực tế, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) xác định vị trí bên trái của phần thân đoạn, và [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt lề treo, đưa một giá trị dương cho `setMarginLeft` và một giá trị âm cho `setIndent`.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
+Định dạng này hữu ích cho thư mục, tham chiếu, mục lục và các đoạn khác mà các dòng gói cần căn dưới phần thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
+
+1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
 2. Truy cập slide mục tiêu.
-3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/autoshape/) hình chữ nhật vào slide.
-4. Thêm một [TextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/textframe/) trống vào hình và xóa đoạn văn mặc định.
-5. Tạo các đoạn văn và đặt một giá trị [MarginLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) dương cho mỗi đoạn văn.
-6. Đặt một giá trị [Indent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) âm để tạo hiệu ứng thụt lề treo.
-7. Thêm các đoạn văn vào khung văn bản.
-8. Lưu bản trình chiếu đã chỉnh sửa.
+3. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
+4. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình và xóa đoạn mặc định.
+5. Tạo các đoạn và đưa một giá trị dương cho [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) cho mỗi đoạn.
+6. Đưa một giá trị âm cho [IParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setIndent-float-) để tạo hiệu ứng thụt lề treo.
+7. Thêm các đoạn vào khung văn bản.
+8. Lưu bản trình chiếu đã sửa đổi.
 
-Mã này cho bạn thấy cách đặt thụt lề treo cho đoạn văn:
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40f);
     firstParagraph.getParagraphFormat().setIndent(-20f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -537,246 +457,243 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 Kết quả:
-![Thụt lề treo của các đoạn văn](hanging_indent.png)
 
-## **Quản Lý Thuộc Tính Chạy Kết Thúc Đoạn Văn**
+![Thụt lề treo của các đoạn](hanging_indent.png)
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Lấy tham chiếu cho slide chứa đoạn văn thông qua vị trí của nó.
-3. Thêm một [autoshape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) hình chữ nhật vào slide.
-4. Thêm một [TextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) có hai đoạn văn vào hình chữ nhật.
-5. Đặt `FontHeight` và kiểu Font cho các đoạn văn.
-6. Đặt các thuộc tính End cho các đoạn văn.
-7. Ghi bản trình chiếu đã chỉnh sửa thành file PPTX.
+### **Đặt Thuộc Tính Đoạn Kết Thúc**
 
-Mã Java này cho bạn thấy cách đặt các thuộc tính End cho các đoạn văn trong PowerPoint:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) kiểm soát định dạng của ký hiệu kết thúc đoạn. Ví dụ sau gán kích thước phông chữ và phông Latin cho ký hiệu kết thúc của đoạn thứ hai:
+
+1. Tải một [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và truy cập một slide.
+2. Thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) và xóa đoạn mặc định của nó.
+3. Tạo hai đoạn và thêm các phần văn bản vào chúng.
+4. Tạo một [PortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/portionformat/) cho ký hiệu kết thúc của đoạn thứ hai.
+5. Đặt [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) và [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) .
+6. Gán định dạng với [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) và lưu bản trình chiếu.
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Sample text"));
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getPortions().add(new Portion("Sample text"));
 
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Sample text 2"));
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion("Sample text 2"));
 
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
+    PortionFormat endParagraphFormat = new PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
 
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    presentation.save("end_paragraph_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Nhập Văn Bản HTML Vào Các Đoạn Văn**
+## **Nhập và Xuất Nội Dung Đoạn Văn**
 
-Aspose.Slides cung cấp hỗ trợ nâng cao cho việc nhập văn bản HTML vào các đoạn văn.
+### **Nhập Văn bản HTML vào Đoạn Văn**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
-2. Truy cập tham chiếu của slide tương ứng thông qua chỉ mục của nó.
-3. Thêm một [autoshape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) vào slide.
-4. Thêm và truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của `autoshape` .
-5. Xóa đoạn văn mặc định trong `ITextFrame`.
-6. Đọc tệp HTML nguồn bằng một TextReader.
-7. Tạo thể hiện đoạn văn đầu tiên thông qua lớp [Paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraph/) .
-8. Thêm nội dung tệp HTML đã đọc từ TextReader vào [ParagraphCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphcollection/) của TextFrame.
-9. Lưu bản trình chiếu đã chỉnh sửa.
+Sử dụng [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) để chuyển đổi mã HTML thành các đoạn và phần trong một khung văn bản.
 
-Mã Java này là một triển khai các bước để nhập văn bản HTML vào các đoạn văn:
+1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) .
+2. Truy cập một slide và thêm một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) .
+3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình và xóa đoạn mặc định.
+4. Đọc tệp HTML nguồn.
+5. Chuyển chuỗi HTML tới [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) .
+6. Lưu bản trình chiếu đã sửa đổi.
+
 ```java
-// Tạo một thể hiện Presentation rỗng
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // Truy cập slide đầu tiên mặc định của bản trình chiếu
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
+    float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
 
-    // Thêm AutoShape để chứa nội dung HTML
-    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
-
-    ashape.getFillFormat().setFillType(FillType.NoFill);
-
-    // Thêm khung văn bản vào hình
-    ashape.addTextFrame("");
-
-    // Xóa tất cả các đoạn trong khung văn bản đã thêm
-    ashape.getTextFrame().getParagraphs().clear();
-
-    // Tải tệp HTML bằng stream reader
-    TextReader tr = new StreamReader("file.html");
-
-    // Thêm văn bản từ stream reader HTML vào khung văn bản
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-
-    // Lưu bản trình chiếu
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    try {
+        byte[] htmlBytes = Files.readAllBytes(Paths.get("file.html"));
+        String html = new String(htmlBytes, StandardCharsets.UTF_8);
+        shape.getTextFrame().getParagraphs().addFromHtml(html);
+        presentation.save("html_text.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("The HTML file could not be read: " + exception.getMessage());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Xuất Văn Bản Đoạn Văn Sang HTML**
+### **Xuất Văn bản Đoạn sang HTML**
 
-Aspose.Slides cung cấp hỗ trợ nâng cao để xuất văn bản (được chứa trong các đoạn) sang HTML.
+Sử dụng [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) để xuất một dải đoạn đã chọn dưới dạng HTML.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và tải bản trình chiếu mong muốn.
-2. Truy cập tham chiếu của slide tương ứng thông qua chỉ mục của nó.
-3. Truy cập hình chứa văn bản sẽ được xuất sang HTML.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/textframe/) của hình.
-5. Tạo một thể hiện của `StreamWriter` và thêm tệp HTML mới.
-6. Cung cấp chỉ mục bắt đầu cho StreamWriter và xuất các đoạn văn bạn muốn.
+1. Tạo một đối tượng của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và tải bản trình chiếu mong muốn.
+2. Truy cập slide và tìm [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) chứa văn bản.
+3. Truy cập [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) của hình.
+4. Gọi [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) với chỉ số đoạn bắt đầu và số lượng đoạn cần xuất.
+5. Ghi chuỗi HTML trả về vào một tệp.
 
-Mã Java này cho bạn thấy cách xuất các văn bản đoạn PowerPoint sang HTML:
 ```java
-// Tải tệp bản trình chiếu
-Presentation pres = new Presentation("ExportingHTMLText.pptx");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    // Truy cập slide đầu tiên mặc định của bản trình chiếu
-    ISlide slide = pres.getSlides().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Chỉ mục mong muốn
-    int index = 0;
-
-    // Truy cập hình đã thêm
-    IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
-
-    // Tạo tệp HTML đầu ra
-    OutputStream os = new FileOutputStream("output.html");
-    Writer writer = new OutputStreamWriter(os, "UTF-8");
-
-    //Trích xuất đoạn đầu tiên dưới dạng HTML
-    // Ghi dữ liệu các đoạn vào HTML bằng cách cung cấp chỉ số bắt đầu của đoạn và tổng số đoạn cần sao chép
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (IOException e) {
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null) {
+            IParagraphCollection paragraphs = textFrame.getParagraphs();
+            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            try {
+                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException exception) {
+                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("The first shape does not contain a text frame.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Lưu Đoạn Văn Dưới Dạng Hình Ảnh**
+### **Kết Xuất Đoạn Văn dưới Dạng Hình Ảnh**
 
-Trong phần này, chúng ta sẽ khám phá hai ví dụ minh họa cách lưu một đoạn văn bản, được đại diện bởi giao diện [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/), dưới dạng hình ảnh. Cả hai ví dụ đều bao gồm việc lấy hình ảnh của một hình chứa đoạn văn bằng các phương thức `getImage` từ giao diện [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/), tính toán giới hạn của đoạn văn trong hình, và xuất nó dưới dạng ảnh bitmap. Các cách tiếp cận này cho phép bạn trích xuất các phần cụ thể của văn bản từ bản trình chiếu PowerPoint và lưu chúng dưới dạng hình ảnh riêng, hữu ích cho các trường hợp sử dụng khác nhau.
+[IParagraph.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getImage--) kết xuất trực tiếp một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimage/). Lưu kết quả vào tệp hoặc luồng với [IImage.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimage/#save-java.lang.String-int-) . Bạn không cần phải kết xuất hình chứa hoặc cắt thủ công một bitmap.
 
-Giả sử chúng ta có một tệp bản trình chiếu tên sample.pptx với một slide, trong đó hình đầu tiên là một hộp văn bản chứa ba đoạn.
+[IParagraph.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getImage--) có thể trả về `null` nếu đoạn không thể tìm thấy trong bộ sưu tập cha, không có giới hạn vẽ hợp lệ, hoặc không thể được kết xuất. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh đã trả về sau khi sử dụng.
+
+#### **Kết Xuất Đoạn Văn ở Tỷ Lệ Mặc Định**
+
+Giả sử chúng ta có một tệp trình chiếu có tên sample.pptx với một slide, trong đó hình đầu tiên là một hộp văn bản chứa ba đoạn.
+
 ![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
 
-**Ví dụ 1**
+Ví dụ sau kết xuất đoạn thứ hai trong một hình văn bản thường ở tỷ lệ mặc định và lưu hình trả về dưới dạng PNG. Khối `finally` đảm bảo rằng hình được giải phóng đúng cách.
 
-Trong một ví dụ này, chúng ta lấy đoạn văn thứ hai dưới dạng hình ảnh. Để thực hiện, chúng ta trích xuất hình ảnh của hình từ slide đầu tiên của bản trình chiếu và sau đó tính toán giới hạn của đoạn văn thứ hai trong khung văn bản của hình. Đoạn văn sau đó được vẽ lại lên một ảnh bitmap mới, được lưu ở định dạng PNG. Phương pháp này đặc biệt hữu ích khi bạn cần lưu một đoạn cụ thể dưới dạng hình ảnh riêng, đồng thời giữ nguyên kích thước và định dạng của văn bản.
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Lưu hình dạng vào bộ nhớ dưới dạng bitmap.
-    IImage shapeImage = firstShape.getImage();
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null && textFrame.getParagraphs().getCount() > 1) {
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(1);
+            IImage paragraphImage = paragraph.getImage();
 
-    // Tạo bitmap cho hình dạng từ bộ nhớ.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // Tính toán giới hạn của đoạn văn thứ hai.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    Rectangle2D paragraphRectangle = secondParagraph.getRect();
-
-    // Tính toán tọa độ và kích thước cho ảnh đầu ra (kích thước tối thiểu - 1x1 pixel).
-    int imageX = (int) Math.floor(paragraphRectangle.getX());
-    int imageY = (int) Math.floor(paragraphRectangle.getY());
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
-
-    // Cắt bitmap của hình để chỉ lấy bitmap của đoạn văn.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+            if (paragraphImage != null) {
+                try {
+                    paragraphImage.save("paragraph.png", ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                System.out.println("The paragraph could not be rendered.");
+            }
+        } else {
+            System.out.println("The expected paragraph was not found.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 Kết quả:
+
 ![Hình ảnh đoạn văn](paragraph_to_image_output.png)
 
-**Ví dụ 2**
+#### **Kết Xuất Đoạn Văn trong Ô Bảng với Tỷ Lệ**
 
-Trong ví dụ này, chúng ta mở rộng cách tiếp cận trước bằng cách thêm các yếu tố tỷ lệ vào hình ảnh đoạn văn. Hình được trích xuất từ bản trình chiếu và lưu dưới dạng hình ảnh với hệ số tỷ lệ là `2`. Điều này cho phép đầu ra có độ phân giải cao hơn khi xuất đoạn văn. Các giới hạn của đoạn văn sau đó được tính toán dựa trên tỷ lệ. Việc tỷ lệ có thể đặc biệt hữu ích khi cần một hình ảnh chi tiết hơn, ví dụ, cho việc sử dụng trong tài liệu in chất lượng cao.
+Sử dụng phương thức quá tải [IParagraph.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getImage-float-float-) chấp nhận các tham số `float scaleX` và `float scaleY` để đặt các hệ số tỷ lệ ngang và dọc. Ví dụ sau tạo một bảng, kết xuất đoạn trong ô đầu tiên với chiều rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG.
+
 ```java
-float imageScaleX = 2f;
-float imageScaleY = imageScaleX;
+import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("sample.pptx");
+float scaleX = 2f;
+float scaleY = 2f;
+
+Presentation presentation = new Presentation();
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
+    IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // Lưu hình dạng vào bộ nhớ dưới dạng bitmap với tỷ lệ phóng đại.
-    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
-
-    // Tạo bitmap cho hình dạng từ bộ nhớ.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // Tính toán giới hạn của đoạn văn thứ hai.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    Rectangle2D paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.setRect(
-            paragraphRectangle.getX() * imageScaleX,
-            paragraphRectangle.getY() * imageScaleY,
-            paragraphRectangle.getWidth() * imageScaleX,
-            paragraphRectangle.getHeight() * imageScaleY
-    );
-
-    // Tính toán tọa độ và kích thước cho ảnh đầu ra (kích thước tối thiểu - 1x1 pixel).
-    int imageX = (int) Math.floor(paragraphRectangle.getX());
-    int imageY = (int) Math.floor(paragraphRectangle.getY());
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
-
-    // Cắt bitmap của hình để chỉ lấy bitmap của đoạn văn.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+    IImage paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage != null) {
+        try {
+            paragraphImage.save("table_paragraph.png", ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        System.out.println("The paragraph could not be rendered.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+Một hệ số `1` giữ kích thước pixel mặc định cho trục tương ứng. Ví dụ, `2` cho cả hai hệ số sẽ tạo ra một hình ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tức là có bốn lần số pixel. Hệ số lớn hơn thường cho văn bản sắc nét hơn khi phóng to hoặc xuất với độ phân giải cao, nhưng cũng làm tăng bộ nhớ và kích thước tệp. Hệ số dưới `1` tạo hình ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỉ lệ khía cạnh của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
+
+Kết xuất toàn bộ hình bằng [IShape.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getImage--) vẫn hữu ích khi đầu ra cần bao gồm màu nền, viền hoặc ngữ cảnh hình ảnh khác. Đối với hình chỉ chứa đoạn, hãy sử dụng [IParagraph.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getImage--) .
+
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể tắt hoàn toàn việc ngắt dòng trong một khung văn bản không?**
+**Tôi có thể tắt hoàn toàn việc ngắt dòng trong khung văn bản không?**
 
-Có. Sử dụng cài đặt ngắt dòng của khung văn bản ([setWrapText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/textframeformat/#setWrapText-byte-)) để tắt tính năng ngắt dòng, do đó các dòng sẽ không bị cắt ở các cạnh của khung.
+Có. Đặt [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) để tắt việc ngắt dòng, vì vậy các dòng sẽ không bị cắt ở các cạnh của khung văn bản.
 
-**Làm thế nào tôi có thể lấy giới hạn chính xác trên slide của một đoạn văn cụ thể?**
+**Làm sao tôi có thể lấy kích thước chính xác trên slide của một đoạn cụ thể?**
 
-Bạn có thể lấy hình chữ nhật bao quanh của đoạn văn (hoặc thậm chí của một phần riêng lẻ) để biết vị trí và kích thước chính xác của nó trên slide.
+Sử dụng [IParagraph.getRect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getRect--) để lấy hình chữ nhật bao quanh đoạn. [IPortion.getRect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportion/#getRect--) cung cấp giới hạn của một phần riêng lẻ.
 
-**Căn chỉnh đoạn văn (trái/phải/giữa/đều) được kiểm soát ở đâu?**
+**Căn chỉnh đoạn (trái, phải, trung tâm, hoặc căn đều) được điều khiển ở đâu?**
 
-[Alignment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphformat/#setAlignment-int-) là một cài đặt ở mức đoạn văn trong [ParagraphFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/paragraphformat/); nó áp dụng cho toàn bộ đoạn văn bất kể định dạng của từng phần.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) là cài đặt ở mức đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng phần riêng lẻ.
 
-**Tôi có thể đặt ngôn ngữ kiểm tra chính tả cho chỉ một phần của đoạn văn (ví dụ, một từ) không?**
+**Tôi có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
 
-Có. Ngôn ngữ được đặt ở mức phần ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), do đó nhiều ngôn ngữ có thể cùng tồn tại trong một đoạn văn.
+Có. Đặt [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.

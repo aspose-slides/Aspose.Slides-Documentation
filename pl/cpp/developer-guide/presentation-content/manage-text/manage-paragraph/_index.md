@@ -1,9 +1,12 @@
 ---
-title: Zarządzaj akapitami tekstu PowerPoint w C++
-linktitle: Zarządzaj akapitem
+title: Zarządzanie akapitami tekstu PowerPoint w C++
+linktitle: Zarządzanie akapitem
 type: docs
 weight: 40
 url: /pl/cpp/manage-paragraph/
+aliases:
+  - /cpp/paragraph/
+  - /cpp/portion/
 keywords:
 - dodaj tekst
 - dodaj akapit
@@ -23,487 +26,429 @@ keywords:
 - tekst do obrazu
 - eksportuj akapit
 - PowerPoint
-- OpenDocument
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Mistrzowskie formatowanie akapitu z Aspose.Slides dla C++ — optymalizuj wyrównanie, odstępy i styl w prezentacjach PPT, PPTX i ODP w C++."
+description: "Dowiedz się, jak tworzyć i formatować akapity, fragmenty, wypunktowania, listy numerowane, wcięcia, treść HTML oraz obrazy akapitów przy użyciu Aspose.Slides dla C++."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Aspose.Slides zapewnia wszystkie interfejsy i klasy potrzebne do pracy z tekstami, akapitami i fragmentami PowerPoint w C++.
+Aspose.Slides dla C++ reprezentuje tekst jako hierarchię ramek tekstowych, akapitów i fragmentów:
 
-* Aspose.Slides udostępnia interfejs [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) umożliwiający dodawanie obiektów reprezentujących akapit. Obiekt `ITextFame` może mieć jeden lub wiele akapitów (każdy akapit tworzony jest poprzez znak powrotu).
-* Aspose.Slides udostępnia interfejs [IParagraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/) umożliwiający dodawanie obiektów reprezentujących fragmenty. Obiekt `IParagraph` może mieć jeden lub wiele fragmentów (kolekcja obiektów iPortions).
-* Aspose.Slides udostępnia interfejs [IPortion](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iportion/) umożliwiający dodawanie obiektów reprezentujących teksty i ich właściwości formatowania. 
+* [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) reprezentuje kontener tekstu w kształcie i zapewnia dostęp do jego kolekcji akapitów.
+* [IParagraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/) reprezentuje jeden akapit w ramce tekstowej i zapewnia dostęp do jego fragmentów oraz formatowania na poziomie akapitu.
+* [IPortion](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iportion/) reprezentuje fragment tekstowy w akapicie. Każdy fragment może mieć własny tekst i formatowanie na poziomie znaków.
 
-Obiekt `IParagraph` jest w stanie obsługiwać teksty o różnych właściwościach formatowania poprzez leżące pod nim obiekty `IPortion`.
+Akapit może więc zawierać tekst o różnych czcionkach, kolorach, rozmiarach i innych formatach, używając wielu fragmentów.
 
-## **Dodaj wiele akapitów zawierających wiele fragmentów**
+## **Tworzenie i formatowanie akapitów**
 
-Te kroki pokazują, jak dodać ramkę tekstową zawierającą 3 akapity, a każdy akapit zawierający 3 fragmenty:
+### **Tworzenie akapitów z wieloma fragmentami**
+
+Poniższe kroki tworzą ramkę tekstową z trzema akapitami, z których każdy zawiera trzy fragmenty:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj prostokątny [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do slajdu.
-4. Pobierz ITextFrame powiązany z [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/).
-5. Utwórz dwa obiekty [IParagraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/) i dodaj je do kolekcji `IParagraphs` w [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/).
-6. Utwórz trzy obiekty [IPortion](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iportion/) dla każdego nowego `IParagraph` (dwa obiekty Portion dla domyślnego akapitu) i dodaj każdy obiekt `IPortion` do kolekcji IPortion każdego `IParagraph`.
+2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
+3. Dodaj prostokątną [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do slajdu.
+4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) kształtu.
+5. Użyj domyślnego akapitu i dodaj dwa kolejne obiekty [IParagraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/) do ramki tekstowej.
+6. Dodaj wystarczającą liczbę obiektów [IPortion](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iportion/) dla każdego akapitu, aby zawierały po trzy fragmenty. Domyślny akapit już zawiera jeden pusty fragment.
 7. Ustaw tekst dla każdego fragmentu.
-8. Zastosuj wybrane właściwości formatowania do każdego fragmentu przy użyciu właściwości formatowania udostępnionych przez obiekt `IPortion`.
+8. Zastosuj formatowanie na poziomie znaków za pomocą [IPortion::get_PortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iportion/get_portionformat/).
 9. Zapisz zmodyfikowaną prezentację.
 
-Ten kod C++ jest implementacją kroków dodawania akapitów zawierających fragmenty: 
+Ten przykład w C++ implementuje te kroki:
 
-```c++
-// Ścieżka do katalogu dokumentów.
-const String outPath = u"../out/MultipleParagraphs_out.pptx";
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
+auto textFrame = shape->get_TextFrame();
 
-// Wczytaj żądaną prezentację
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+auto firstParagraph = textFrame->get_Paragraph(0);
+firstParagraph->get_Portions()->Add(MakeObject<Portion>());
+firstParagraph->get_Portions()->Add(MakeObject<Portion>());
 
-// Uzyskaj dostęp do pierwszego slajdu
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->get_Portions()->Add(MakeObject<Portion>());
+secondParagraph->get_Portions()->Add(MakeObject<Portion>());
+secondParagraph->get_Portions()->Add(MakeObject<Portion>());
+textFrame->get_Paragraphs()->Add(secondParagraph);
 
-// Dodaj AutoShape typu Prostokąt
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
+auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
+thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
+thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
+textFrame->get_Paragraphs()->Add(thirdParagraph);
 
-// Dodaj TextFrame do prostokąta
-SharedPtr<ITextFrame> tf=ashp->AddTextFrame(u" ");
-
-
-// Uzyskanie pierwszego akapitu
-SharedPtr<IParagraph> para0 = tf->get_Paragraphs()->idx_get(0);
-	
-SharedPtr<Portion> port01 = MakeObject<Portion>();
-SharedPtr<Portion> port02 = MakeObject<Portion>();
-para0->get_Portions()->Add(port01);
-para0->get_Portions()->Add(port02);
-
-// Dodawanie drugiego akapitu
-SharedPtr<Paragraph> para1 = MakeObject<Paragraph>();
-tf->get_Paragraphs()->Add(para1);
-SharedPtr<Portion> port10 = MakeObject<Portion>();
-SharedPtr<Portion> port11 = MakeObject<Portion>();
-SharedPtr<Portion> port12 = MakeObject<Portion>();
-para1->get_Portions()->Add(port10);
-para1->get_Portions()->Add(port11);
-para1->get_Portions()->Add(port12);
-
-// Dodawanie trzeciego akapitu
-SharedPtr<Paragraph> para2 = MakeObject<Paragraph>();
-tf->get_Paragraphs()->Add(para2);
-SharedPtr<Portion> port20 = MakeObject<Portion>();
-SharedPtr<Portion> port21 = MakeObject<Portion>();
-SharedPtr<Portion> port22 = MakeObject<Portion>();
-para2->get_Portions()->Add(port20);
-para2->get_Portions()->Add(port21);
-para2->get_Portions()->Add(port22);
-
-
-for (int i = 0; i < 3; i++)
+auto paragraphCount = textFrame->get_Paragraphs()->get_Count();
+for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 {
-	for (int j = 0; j < 3; j++)
-	{
-		tf->get_Paragraphs()->idx_get(i)->get_Portions()->idx_get(j)->set_Text(u"Portion_"+j);
-		SharedPtr<IPortionFormat>format = tf->get_Paragraphs()->idx_get(i)->get_Portions()->idx_get(j)->get_PortionFormat();
+    auto paragraph = textFrame->get_Paragraph(paragraphIndex);
+    auto portionCount = paragraph->get_Portions()->get_Count();
+    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    {
+        auto portion = paragraph->get_Portion(portionIndex);
+        portion->set_Text(String::Format(u"Portion {0}.{1}", paragraphIndex + 1, portionIndex + 1));
+        auto portionFormat = portion->get_PortionFormat();
 
-		if (j == 0)
-		{
-			format->get_FillFormat()->set_FillType(FillType::Solid);
-			format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
-			format->set_FontBold(NullableBool::True);
-			format->set_FontHeight(15);
-		}
-		else if (j == 1)
-		{
-			format->get_FillFormat()->set_FillType(FillType::Solid);
-			format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-			format->set_FontBold(NullableBool::True);
-			format->set_FontHeight(18);
-		}
-	}
-
+        if (portionIndex == 0)
+        {
+            portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+            portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+            portionFormat->set_FontBold(NullableBool::True);
+            portionFormat->set_FontHeight(15);
+        }
+        else if (portionIndex == 1)
+        {
+            portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+            portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+            portionFormat->set_FontItalic(NullableBool::True);
+            portionFormat->set_FontHeight(18);
+        }
+    }
 }
 
-// Zapisz PPTX na dysku
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **Tworzenie list wypunktowanych i numerowanych**
 
-## **Zarządzaj wypunktowaniem akapitów**
+### **Tworzenie listy wypunktowanej lub numerowanej**
 
-Listy wypunktowane pomagają szybko i efektywnie organizować oraz prezentować informacje. Akapity z wypunktowaniem są zawsze łatwiejsze do czytania i zrozumienia.
+Punkty i numeracja ułatwiają przeglądanie powiązanych elementów. W Aspose.Slides ustawienia listy są definiowane za pomocą [IBulletFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/).
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [autoshape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do wybranego slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) autoshape. 
-5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraph/).
-7. Ustaw `Type` wypunktowania dla akapitu na `Symbol` i określ znak wypunktowania.
-8. Ustaw `Text` akapitu.
-9. Ustaw `Indent` akapitu dla wypunktowania.
-10. Ustaw kolor wypunktowania.
-11. Ustaw wysokość wypunktowania.
-12. Dodaj nowy akapit do kolekcji akapitów `TextFrame`.
-13. Dodaj drugi akapit i powtórz proces opisany w krokach 7‑13.
-14. Zapisz prezentację.
+2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
+3. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do wybranego slajdu.
+4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/).
+5. Usuń domyślny akapit z ramki tekstowej.
+6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraph/) dla symbolu wypunktowania.
+7. Ustaw [IBulletFormat::set_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Symbol](https://reference.aspose.com/slides/pl/cpp/aspose.slides/bullettype/) i określ znak wypunktowania.
+8. Ustaw tekst akapitu, wcięcie, kolor wypunktowania i wysokość wypunktowania.
+9. Dodaj akapit do ramki tekstowej.
+10. Utwórz drugi akapit i ustaw [IBulletFormat::set_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Numbered](https://reference.aspose.com/slides/pl/cpp/aspose.slides/bullettype/).
+11. Skonfiguruj styl numerowanego wypunktowania i dodaj akapit do ramki tekstowej.
+12. Zapisz prezentację.
 
-Ten kod C++ pokazuje, jak dodać wypunktowanie akapitu:
+Ten przykład w C++ tworzy wypunktowanie symboliczne i numerowane:
 
-```c++
-// Ścieżka do katalogu dokumentów.
-const String outPath = u"../out/ParagraphBullets_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/ColorType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/convert.h>
 
-// Wczytaj żądaną prezentację
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-// Uzyskaj dostęp do pierwszego slajdu
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
 
-// Dodaj AutoShape typu Prostokąt
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
+auto symbolParagraph = MakeObject<Paragraph>();
+symbolParagraph->set_Text(u"Welcome to Aspose.Slides");
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(0x2022));
+symbolParagraph->get_ParagraphFormat()->set_Indent(25);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
+textFrame->get_Paragraphs()->Add(symbolParagraph);
 
-// Dodaj TextFrame do prostokąta
-ashp->AddTextFrame(u"");
+auto numberedParagraph = MakeObject<Paragraph>();
+numberedParagraph->set_Text(u"This is a numbered item");
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStyle(NumberedBulletStyle::BulletCircleNumWDBlackPlain);
+numberedParagraph->get_ParagraphFormat()->set_Indent(25);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
+textFrame->get_Paragraphs()->Add(numberedParagraph);
 
-// Uzyskanie ramki tekstowej
-SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
-txtFrame->get_Paragraphs()->Clear();
-
-// Utwórz obiekt Paragraph dla ramki tekstowej
-SharedPtr<Paragraph> paragraph = MakeObject<Paragraph>();
-
-//Ustawianie tekstu
-paragraph->set_Text(u"Welcome to Aspose.Slides");
-
-// Ustawianie wcięcia wypunktowania
-paragraph->get_ParagraphFormat()->set_Indent (25);
-
-// Ustawianie koloru wypunktowania
-paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType ( ColorType::RGB);
-paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
-	
-// set IsBulletHardColor na true, aby użyć własnego koloru wypunktowania
-paragraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True); 
-																					
-// Ustawianie wysokości wypunktowania
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
-
-// Dodawanie Paragraph do ramki tekstowej
-txtFrame->get_Paragraphs()->Add(paragraph);
-
-// Tworzenie drugiego akapitu
-// Utwórz obiekt Paragraph dla ramki tekstowej
-SharedPtr<Paragraph> paragraph2 = MakeObject<Paragraph>();
-
-//Ustawianie tekstu
-paragraph2->set_Text(u"This is numbered bullet");
-
-// Ustawianie typu i stylu wypunktowania akapitu
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_Type ( BulletType::Numbered);
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStyle ( NumberedBulletStyle::BulletCircleNumWDBlackPlain);
-
-// Ustawianie wcięcia wypunktowania
-paragraph2->get_ParagraphFormat()->set_Indent(25);
-
-// Ustawianie koloru wypunktowania
-paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
-paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
-
-// set IsBulletHardColor na true, aby użyć własnego koloru wypunktowania
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
-
-// Ustawianie wysokości wypunktowania
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_Height(100);
-
-// Dodawanie Paragraph do ramki tekstowej
-txtFrame->get_Paragraphs()->Add(paragraph2);
-
-
-// Zapisz PPTX na dysku
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+### **Użycie wypunktowań obrazkowych**
 
-## **Zarządzaj wypunktowaniem obrazkowym**
-
-Listy wypunktowane pomagają szybko i efektywnie organizować oraz prezentować informacje. Akapity z obrazkami są łatwe do odczytania i zrozumienia.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [autoshape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) autoshape. 
-5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraph/).
-7. Wczytaj obraz przy użyciu [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/).
-8. Ustaw typ wypunktowania na [Picture](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/) i określ obraz.
-9. Ustaw `Text` akapitu.
-10. Ustaw `Indent` akapitu dla wypunktowania.
-11. Ustaw kolor wypunktowania.
-12. Ustaw wysokość wypunktowania.
-13. Dodaj nowy akapit do kolekcji akapitów `TextFrame`.
-14. Dodaj drugi akapit i powtórz proces opisany w poprzednich krokach.
-15. Zapisz zmodyfikowaną prezentację.
-
-Ten kod C++ pokazuje, jak dodać i zarządzać wypunktowaniem obrazkowym:
-
-```c++
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-
-// Uzyskuje dostęp do pierwszego slajdu
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// Tworzy obraz dla wypunktowania
-System::SharedPtr<IImage> image = Images::FromFile(u"bullets.png");
-System::SharedPtr<IPPImage> ippxImage = presentation->get_Images()->AddImage(image);
-
-// Dodaje i uzyskuje dostęp do Autoshape
-System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
-
-// Uzyskuje dostęp do ramki tekstowej autoshape
-System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
-
-// Usuwa domyślny akapit
-System::SharedPtr<IParagraphCollection> paragraphs = textFrame->get_Paragraphs();
-paragraphs->RemoveAt(0);
-
-// Tworzy nowy akapit
-System::SharedPtr<Paragraph> paragraph = System::MakeObject<Paragraph>();
-paragraph->set_Text(u"Welcome to Aspose.Slides");
-
-// Ustawia styl i obraz wypunktowania akapitu
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Picture);
-paragraph->get_ParagraphFormat()->get_Bullet()->get_Picture()->set_Image(ippxImage);
-
-// Ustawia wysokość wypunktowania
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100.0f);
-
-// Dodaje akapit do ramki tekstowej
-paragraphs->Add(paragraph);
-
-// Zapisuje prezentację jako plik PPTX
-presentation->Save(u"ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
-
-// Zapisuje prezentację jako plik PPT
-presentation->Save(u"ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
-```
-
-
-## **Zarządzaj wypunktowaniem wielopoziomowym**
-
-Listy wypunktowane pomagają szybko i efektywnie organizować oraz prezentować informacje. Wypunktowanie wielopoziomowe jest łatwe do odczytania i zrozumienia.
+Wypunktowania obrazkowe pozwalają użyć własnego obrazu zamiast symbolu lub liczby.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [autoshape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) w nowym slajdzie.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) autoshape. 
-5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraph/) i ustaw głębokość na 0.
-7. Utwórz drugą instancję akapitu przy użyciu klasy `Paragraph` i ustaw głębokość na 1.
-8. Utwórz trzecią instancję akapitu przy użyciu klasy `Paragraph` i ustaw głębokość na 2.
-9. Utwórz czwartą instancję akapitu przy użyciu klasy `Paragraph` i ustaw głębokość na 3.
-10. Dodaj nowe akapity do kolekcji akapitów `TextFrame`.
-11. Zapisz zmodyfikowaną prezentację.
-
-Ten kod C++ pokazuje, jak dodać i zarządzać wypunktowaniem wielopoziomowym:
-
-```c++
-// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-// Uzyskuje dostęp do pierwszego slajdu
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Dodaje i uzyskuje dostęp do Autoshape
-System::SharedPtr<IAutoShape> aShp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
-
-// Uzyskuje dostęp do ramki tekstowej utworzonego autoshape
-System::SharedPtr<ITextFrame> text = aShp->AddTextFrame(u"");
-
-// Czyści domyślny akapit
-text->get_Paragraphs()->Clear();
-
-// Dodaje pierwszy akapit
-System::SharedPtr<IParagraph> para1 = System::MakeObject<Paragraph>();
-para1->set_Text(u"Content");
-System::SharedPtr<IParagraphFormat> para1Format = para1->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet1Format = para1Format->get_Bullet();
-bullet1Format->set_Type(BulletType::Symbol);
-bullet1Format->set_Char(System::Convert::ToChar(8226));
-System::SharedPtr<IFillFormat> defaultFillFormat1 = para1Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat1->set_FillType(FillType::Solid);
-defaultFillFormat1->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// Ustawia poziom wypunktowania
-para1Format->set_Depth(0);
-
-// Dodaje drugi akapit
-System::SharedPtr<IParagraph> para2 = System::MakeObject<Paragraph>();
-para2->set_Text(u"Second Level");
-System::SharedPtr<IParagraphFormat> para2Format = para2->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet2Format = para2Format->get_Bullet();
-bullet2Format->set_Type(BulletType::Symbol);
-bullet2Format->set_Char(u'-');
-System::SharedPtr<IFillFormat> defaultFillFormat2 = para2Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat2->set_FillType(FillType::Solid);
-defaultFillFormat2->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// Ustawia poziom wypunktowania
-para2Format->set_Depth(1);
-
-// Dodaje trzeci akapit
-System::SharedPtr<IParagraph> para3 = System::MakeObject<Paragraph>();
-para3->set_Text(u"Third Level");
-System::SharedPtr<IParagraphFormat> para3Format = para3->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet3Format = para3Format->get_Bullet();
-bullet3Format->set_Type(BulletType::Symbol);
-bullet3Format->set_Char(System::Convert::ToChar(8226));
-System::SharedPtr<IFillFormat> defaultFillFormat3 = para3Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat3->set_FillType(FillType::Solid);
-defaultFillFormat3->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// Ustawia poziom wypunktowania
-para3Format->set_Depth(2);
-
-// Dodaje czwarty akapit
-System::SharedPtr<IParagraph> para4 = System::MakeObject<Paragraph>();
-para4->set_Text(u"Fourth Level");
-System::SharedPtr<IParagraphFormat> para4Format = para4->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet4Format = para4Format->get_Bullet();
-bullet4Format->set_Type(BulletType::Symbol);
-bullet4Format->set_Char(u'-');
-System::SharedPtr<IFillFormat> defaultFillFormat4 = para4Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat4->set_FillType(FillType::Solid);
-defaultFillFormat4->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// Ustawia poziom wypunktowania
-para4Format->set_Depth(3);
-
-// Dodaje akapity do kolekcji
-System::SharedPtr<IParagraphCollection> paragraphs = text->get_Paragraphs();
-paragraphs->Add(para1);
-paragraphs->Add(para2);
-paragraphs->Add(para3);
-paragraphs->Add(para4);
-
-// Zapisuje prezentację jako plik PPTX
-pres->Save(u"MultilevelBullet.pptx", SaveFormat::Pptx);
-```
-
-
-## **Zarządzaj akapitem z niestandardową listą numerowaną**
-
-Interfejs [IBulletFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/) udostępnia właściwość [NumberedBulletStartWith](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) i inne, które pozwalają zarządzać akapitami z własnym numerowaniem lub formatowaniem. 
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu zawierającego akapit.
-3. Dodaj [autoshape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do slajdu.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) autoshape. 
-5. Usuń domyślny akapit w `TextFrame`.
-6. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraph/) i ustaw [NumberedBulletStartWith](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) na 2.
-7. Utwórz drugą instancję akapitu przy użyciu klasy `Paragraph` i ustaw `NumberedBulletStartWith` na 3.
-8. Utwórz trzecią instancję akapitu przy użyciu klasy `Paragraph` i ustaw `NumberedBulletStartWith` na 7.
-9. Dodaj nowe akapity do kolekcji akapitów `TextFrame`.
+2. Uzyskaj odniesienie do odpowiedniego slajdu za pomocą jego indeksu.
+3. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) i uzyskaj dostęp do jego [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/).
+4. Usuń domyślny akapit z ramki tekstowej.
+5. Załaduj obraz wypunktowania i dodaj go do kolekcji obrazów prezentacji jako [IPPImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ippimage/).
+6. Utwórz [Paragraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraph/) i ustaw jego tekst.
+7. Ustaw [IBulletFormat::set_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Picture](https://reference.aspose.com/slides/pl/cpp/aspose.slides/bullettype/).
+8. Przypisz obraz przez [ISlidesPicture::set_Image](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islidespicture/set_image/) i ustaw wysokość wypunktowania.
+9. Dodaj akapit do ramki tekstowej.
 10. Zapisz zmodyfikowaną prezentację.
 
-Ten kod C++ pokazuje, jak dodać i zarządzać akapitami z własnym numerowaniem lub formatowaniem:
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
 
-```c++
-auto presentation = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto shape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Accesses the text frame of created autoshape
-System::SharedPtr<ITextFrame> textFrame = shape->get_TextFrame();
+auto bulletImage = Images::FromFile(u"bullets.png");
+auto presentationImage = presentation->get_Images()->AddImage(bulletImage);
+bulletImage->Dispose();
 
-// Removes the default existing paragraph
-textFrame->get_Paragraphs()->RemoveAt(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
 
-// First list
-auto paragraph1 = System::MakeObject<Paragraph>();
-paragraph1->set_Text(u"bullet 2");
-auto paragraph1Format = paragraph1->get_ParagraphFormat();
-paragraph1Format->set_Depth(4);
-auto bullet1Format = paragraph1Format->get_Bullet();
-bullet1Format->set_NumberedBulletStartWith(2);
-bullet1Format->set_Type(BulletType::Numbered);
-textFrame->get_Paragraphs()->Add(paragraph1);
+auto paragraph = MakeObject<Paragraph>();
+paragraph->set_Text(u"Welcome to Aspose.Slides");
+paragraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Picture);
+paragraph->get_ParagraphFormat()->get_Bullet()->get_Picture()->set_Image(presentationImage);
+paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
+textFrame->get_Paragraphs()->Add(paragraph);
 
-auto paragraph2 = System::MakeObject<Paragraph>();
-paragraph2->set_Text(u"bullet 3");
-auto paragraph2Format = paragraph2->get_ParagraphFormat();
-paragraph2Format->set_Depth(4);
-auto bullet2Format = paragraph2Format->get_Bullet();
-bullet2Format->set_NumberedBulletStartWith(3);
-bullet2Format->set_Type(BulletType::Numbered);
-textFrame->get_Paragraphs()->Add(paragraph2);
-
-auto paragraph5 = System::MakeObject<Paragraph>();
-paragraph5->set_Text(u"bullet 7");
-auto paragraph5Format = paragraph5->get_ParagraphFormat();
-paragraph5Format->set_Depth(4);
-auto bullet5Format = paragraph5Format->get_Bullet();
-bullet5Format->set_NumberedBulletStartWith(7);
-bullet5Format->set_Type(BulletType::Numbered);
-textFrame->get_Paragraphs()->Add(paragraph5);
-
-presentation->Save(u"SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
+presentation->Save(u"picture_bullet.pptx", SaveFormat::Pptx);
+presentation->Save(u"picture_bullet.ppt", SaveFormat::Ppt);
+presentation->Dispose();
 ```
 
-## **Ustaw wcięcie pierwszej linii akapitu**
+### **Tworzenie listy wielopoziomowej**
 
-Użyj metody [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) aby kontrolować wcięcie pierwszej linii akapitu. Metoda ta przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Dodatnia wartość przesuwa pierwszą linię w prawo, podczas gdy pozostałe linie pozostają wyrównane do treści akapitu.
+Ustaw [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_depth/) aby umieścić akapity na różnych poziomach listy. Najwyższy poziom ma głębokość `0`.
 
-Użyj [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_marginleft/) gdy potrzebujesz przesunąć cały akapit. Użyj [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) gdy chcesz przesunąć tylko pierwszą linię.
+1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
+2. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) i usuń domyślny akapit z jego ramki tekstowej.
+3. Utwórz cztery akapity i skonfiguruj ich symbole wypunktowania.
+4. Ustaw ich [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_depth/) na `0`, `1`, `2` i `3`.
+5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
 
-Poniższy przykład tworzy kilka akapitów i stosuje różne wartości `Indent`, aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/convert.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"Content");
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(0x2022));
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+firstParagraph->get_ParagraphFormat()->set_Depth(0);
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"Second level");
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(u'-');
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+secondParagraph->get_ParagraphFormat()->set_Depth(1);
+
+auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->set_Text(u"Third level");
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(0x2022));
+thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+thirdParagraph->get_ParagraphFormat()->set_Depth(2);
+
+auto fourthParagraph = MakeObject<Paragraph>();
+fourthParagraph->set_Text(u"Fourth level");
+fourthParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+fourthParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(u'-');
+fourthParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+fourthParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+fourthParagraph->get_ParagraphFormat()->set_Depth(3);
+
+textFrame->get_Paragraphs()->Add(firstParagraph);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+textFrame->get_Paragraphs()->Add(thirdParagraph);
+textFrame->get_Paragraphs()->Add(fourthParagraph);
+
+presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **Rozpoczęcie elementów listy numerowanej od niestandardowych wartości**
+
+Użyj [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) aby ustawić początkową liczbę wyświetlaną w numerowanym akapicie.
+
+1. Utwórz [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) i dodaj [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do slajdu.
+2. Usuń domyślny akapit z ramki tekstowej kształtu.
+3. Utwórz trzy numerowane akapity.
+4. Ustaw [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) na `2`, `3` i `7` dla odpowiednich akapitów.
+5. Dodaj akapity do ramki tekstowej i zapisz prezentację.
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"Start at 2");
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith(2);
+textFrame->get_Paragraphs()->Add(firstParagraph);
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"Start at 3");
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith(3);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->set_Text(u"Start at 7");
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith(7);
+textFrame->get_Paragraphs()->Add(thirdParagraph);
+
+presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Kontrola układu akapitu i właściwości końcowych**
+
+### **Ustawienie wcięcia pierwszej linii**
+
+Użyj [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) aby kontrolować wcięcie pierwszej linii akapitu. Metoda ta przesuwa tylko pierwszą linię względem lewego marginesu akapitu. Wartość dodatnia przesuwa pierwszą linię w prawo, natomiast pozostałe linie pozostają wyrównane do treści akapitu.
+
+Użyj [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_marginleft/) gdy potrzebujesz przesunąć cały akapit. Użyj [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) gdy potrzebujesz przesunąć tylko pierwszą linię.
+
+Poniższy przykład tworzy kilka akapitów i stosuje różne wartości [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/), aby pokazać, jak wcięcie pierwszej linii wpływa na układ akapitu.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do docelowego slajdu.
-3. Dodaj prostokątny [AutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/autoshape/) do slajdu.
-4. Dodaj pusty [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textframe/) do kształtu i usuń domyślny akapit.
-5. Utwórz kilka akapitów i ustaw różne wartości [Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) dla nich.
+2. Uzyskaj dostęp do docelowego slajdu.
+3. Dodaj prostokątną [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do slajdu.
+4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) kształtu i usuń domyślny akapit.
+5. Utwórz kilka akapitów i ustaw różne wartości [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) dla nich.
 6. Dodaj akapity do ramki tekstowej.
 7. Zapisz zmodyfikowaną prezentację.
 
 Ten kod pokazuje, jak ustawić wcięcie akapitu:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
 
-auto rectangleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
-rectangleShape->get_FillFormat()->set_FillType(FillType::NoFill);
-rectangleShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-rectangleShape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
-
-auto textFrame = rectangleShape->AddTextFrame(u"");
+auto textFrame = shape->get_TextFrame();
 textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
-textFrame->get_Paragraphs()->RemoveAt(0);
+textFrame->get_Paragraphs()->Clear();
 
 auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"No first-line indent. Wrapped lines start at the same position as the first line.");
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-firstParagraph->set_Text(u"No first-line indent. Wrapped lines start at the same position as the first line.");
-firstParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
-firstParagraph->get_ParagraphFormat()->set_Indent(0.f);
+firstParagraph->get_ParagraphFormat()->set_MarginLeft(20);
+firstParagraph->get_ParagraphFormat()->set_Indent(0);
 
 auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-secondParagraph->set_Text(u"First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
-secondParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
-secondParagraph->get_ParagraphFormat()->set_Indent(20.f);
+secondParagraph->get_ParagraphFormat()->set_MarginLeft(20);
+secondParagraph->get_ParagraphFormat()->set_Indent(20);
 
 auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->set_Text(u"First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
 thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-thirdParagraph->set_Text(u"First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
-thirdParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
-thirdParagraph->get_ParagraphFormat()->set_Indent(40.f);
+thirdParagraph->get_ParagraphFormat()->set_MarginLeft(20);
+thirdParagraph->get_ParagraphFormat()->set_Indent(40);
 
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
@@ -515,53 +460,67 @@ presentation->Dispose();
 
 Wynik:
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![Wcięcie pierwszej linii akapitu](first_line_indent.png)
 
-## **Ustaw wcięcie wiszące akapitu**
+### **Ustawienie wcięcia wiszącego**
 
-Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą metody [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/). Ustaw wcięcie na wartość ujemną, aby przesunąć pierwszą linię w lewo względem treści akapitu.
+Wcięcie wiszące to układ akapitu, w którym pierwsza linia zaczyna się po lewej stronie pozostałych linii. W Aspose.Slides tworzysz ten efekt za pomocą [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/). Ustaw wcięcie na wartość ujemną, aby przesunąć pierwszą linię w lewo względem treści akapitu.
 
-W praktyce [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_marginleft/) określa lewą pozycję treści akapitu, a [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) określa pozycję pierwszej linii względem tego marginesu. Aby stworzyć wcięcie wiszące, ustaw dodatnią wartość `MarginLeft` i ujemną wartość `Indent`.
+W praktyce [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_marginleft/) określa lewą pozycję treści akapitu, a [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) określa pozycję pierwszej linii względem tego marginesu. Aby uzyskać wcięcie wiszące, ustaw dodatnią wartość margin-left i ujemną wartość wcięcia.
 
-To formatowanie jest przydatne w bibliografiach, odniesieniach, hasłach słownika i innych akapitach, w których zawijane linie muszą być wyrównane pod treścią akapitu, a nie pod pierwszym znakiem pierwszej linii.
+To formatowanie jest przydatne w bibliografiach, odnośnikach, hasłach słownika i innych akapitach, w których zawijane linie muszą wyrównywać się pod treścią akapitu, a nie pod pierwszym znakiem pierwszej linii.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do docelowego slajdu.
-3. Dodaj prostokątny [AutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/autoshape/) do slajdu.
-4. Dodaj pusty [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textframe/) do kształtu i usuń domyślny akapit.
-5. Utwórz akapity i ustaw dodatnią wartość [MarginLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_marginleft/) dla każdego akapitu.
-6. Ustaw ujemną wartość [Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) aby uzyskać efekt wcięcia wiszącego.
+2. Uzyskaj dostęp do docelowego slajdu.
+3. Dodaj prostokątną [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do slajdu.
+4. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) kształtu i usuń domyślny akapit.
+5. Utwórz akapity i ustaw dodatnią wartość [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_marginleft/) dla każdego z nich.
+6. Ustaw ujemną wartość [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_indent/) aby uzyskać efekt wcięcia wiszącego.
 7. Dodaj akapity do ramki tekstowej.
 8. Zapisz zmodyfikowaną prezentację.
 
-Ten kod pokazuje, jak ustawić wcięcie wiszące akapitu:
+Ten kod pokazuje, jak ustawić wcięcie wiszące dla akapitu:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
 
-auto rectangleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
-rectangleShape->get_FillFormat()->set_FillType(FillType::NoFill);
-rectangleShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-rectangleShape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
-
-auto textFrame = rectangleShape->AddTextFrame(u"");
+auto textFrame = shape->get_TextFrame();
 textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
-textFrame->get_Paragraphs()->RemoveAt(0);
+textFrame->get_Paragraphs()->Clear();
 
 auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-firstParagraph->set_Text(u"A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
-firstParagraph->get_ParagraphFormat()->set_MarginLeft(40.f);
-firstParagraph->get_ParagraphFormat()->set_Indent(-20.f);
+firstParagraph->get_ParagraphFormat()->set_MarginLeft(40);
+firstParagraph->get_ParagraphFormat()->set_Indent(-20);
 
 auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-secondParagraph->set_Text(u"This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
-secondParagraph->get_ParagraphFormat()->set_MarginLeft(60.f);
-secondParagraph->get_ParagraphFormat()->set_Indent(-30.f);
+secondParagraph->get_ParagraphFormat()->set_MarginLeft(60);
+secondParagraph->get_ParagraphFormat()->set_Indent(-30);
 
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
@@ -572,315 +531,261 @@ presentation->Dispose();
 
 Wynik:
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![Wcięcie wiszące akapitu](hanging_indent.png)
 
-## **Zarządzaj właściwościami końcowymi akapitu**
+### **Ustawienie właściwości zakończenia akapitu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-1. Pobierz odwołanie do slajdu zawierającego akapit według jego pozycji.
-1. Dodaj prostokątny [autoshape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do slajdu.
-1. Dodaj [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) z dwoma akapitami do prostokąta.
-1. Ustaw `FontHeight` i typ czcionki dla akapitów.
-1. Ustaw właściwości końcowe dla akapitów.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) kontroluje formatowanie znaku końcowego akapitu. Poniższy przykład przypisuje rozmiar czcionki i czcionkę łacińską do znaku końcowego drugiego akapitu:
 
-Ten kod C++ pokazuje, jak ustawić właściwości końcowe akapitów w PowerPoint: 
+1. Wczytaj [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) i uzyskaj dostęp do slajdu.
+2. Dodaj [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) i usuń jego domyślny akapit.
+3. Utwórz dwa akapity i dodaj do nich fragmenty tekstu.
+4. Utwórz [PortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/portionformat/) dla znaku końcowego drugiego akapitu.
+5. Ustaw [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/set_fontheight/) oraz [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/set_latinfont/).
+6. Przypisz format przy pomocy [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) i zapisz prezentację.
 
-```c++
-// Ścieżka do katalogu dokumentów.
-const String outPath = u"../out/EndParaGraphProperties_out.pptx";
-//const String templatePath = u"../templates/DefaultFonts.pptx";
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Wczytaj żądaną prezentację
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
 
-// Uzyskaj dostęp do pierwszego slajdu
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->get_Portions()->Add(MakeObject<Portion>(u"Sample text"));
 
-// Dodaj AutoShape typu Prostokąt
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->get_Portions()->Add(MakeObject<Portion>(u"Sample text 2"));
 
-// Dodaj TextFrame do prostokąta
-SharedPtr<ITextFrame> tf = ashp->AddTextFrame(String::Empty);
+auto endParagraphFormat = MakeObject<PortionFormat>();
+endParagraphFormat->set_FontHeight(48);
+endParagraphFormat->set_LatinFont(MakeObject<FontData>(u"Times New Roman"));
+secondParagraph->set_EndParagraphPortionFormat(endParagraphFormat);
 
-// Dodawanie pierwszego akapitu
-//SharedPtr<IParagraph> para1 = tf->get_Paragraphs()->idx_get(0);
+textFrame->get_Paragraphs()->Add(firstParagraph);
+textFrame->get_Paragraphs()->Add(secondParagraph);
 
-SharedPtr<Paragraph> para1 = MakeObject<Paragraph>();
-SharedPtr<Portion> port01 = MakeObject<Portion>(u"Sample text");
-
-para1->get_Portions()->Add(port01);
-
-// Dodawanie drugiego akapitu
-SharedPtr<Paragraph> para2 = MakeObject<Paragraph>();
-SharedPtr<Portion> port02 = MakeObject<Portion>(u"Sample text 2");
-
-para2->get_Portions()->Add(port02);
-
-
-SharedPtr<PortionFormat> endParagraphPortionFormat = MakeObject< PortionFormat>();
-endParagraphPortionFormat->set_FontHeight ( 48);
-endParagraphPortionFormat->set_LatinFont ( MakeObject< FontData>(u"Times New Roman"));
-para2->set_EndParagraphPortionFormat(endParagraphPortionFormat);
-
-ashp->get_TextFrame()->get_Paragraphs()->Add(para1);
-ashp->get_TextFrame()->get_Paragraphs()->Add(para2);
-
-
-
-// Zapisz PPTX na dysku
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **Import i eksport treści akapitu**
 
-## **Importuj tekst HTML do akapitów**
+### **Importowanie tekstu HTML do akapitów**
 
-Aspose.Slides zapewnia rozszerzone wsparcie dla importowania tekstu HTML do akapitów.
+Użyj [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphcollection/addfromhtml/) aby przekształcić znacznik HTML w akapity i fragmenty w ramce tekstowej.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Dodaj [autoshape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) do slajdu.
-4. Dodaj i uzyskaj dostęp do `autoshape` [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) 
-5. Usuń domyślny akapit w `ITextFrame`.
-6. Odczytaj źródłowy plik HTML w obiekcie TextReader.
-7. Utwórz pierwszą instancję akapitu przy użyciu klasy [Paragraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraph/).
-8. Dodaj zawartość pliku HTML odczytanego przez TextReader do [ParagraphCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraphcollection/) ramki tekstowej.
-9. Zapisz zmodyfikowaną prezentację.
+2. Uzyskaj dostęp do slajdu i dodaj [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/).
+3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) kształtu i usuń domyślny akapit.
+4. Odczytaj źródłowy plik HTML.
+5. Przekaż ciąg HTML do [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphcollection/addfromhtml/).
+6. Zapisz zmodyfikowaną prezentację.
 
-Ten kod C++ jest implementacją kroków importowania tekstów HTML do akapitów: 
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/stream_reader.h>
 
-```c++
-For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
-// Ścieżka do katalogu dokumentów.
-const String outPath = u"../out/ImportingHTMLText_out.pptx";
-const String sampleHtml = u"../templates/file.html";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-	
-// Wczytaj żądaną prezentację
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, slideSize.get_Width() - 20, slideSize.get_Height() - 20);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_TextFrame()->get_Paragraphs()->Clear();
 
-// Uzyskaj dostęp do pierwszego slajdu
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto reader = MakeObject<StreamReader>(u"file.html");
+auto html = reader->ReadToEnd();
+reader->Close();
+shape->get_TextFrame()->get_Paragraphs()->AddFromHtml(html);
 
-// Dodaj AutoShape typu Prostokąt
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 700, 500);
-	
-//Resetowanie domyślnego koloru wypełnienia
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-	
-// Dodaj TextFrame do prostokąta
-ashp->AddTextFrame(u" ");
-
-// Uzyskiwanie dostępu do ramki tekstowej
-SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
-
-//GetParagraphs collection
-SharedPtr<Aspose::Slides::IParagraphCollection>ParaCollection = txtFrame->get_Paragraphs();
-
-// Clearing all paragraphs in added text frame
-ParaCollection->Clear();
-
-// Loading the HTML file using stream reader
-SharedPtr<System::IO::StreamReader>  tr = MakeObject<System::IO::StreamReader>(sampleHtml);
-
-// Adding text from HTML stream reader in text frame
-ParaCollection->AddFromHtml(tr->ReadToEnd());
-
-
-// Create the Paragraph object for text frame
-SharedPtr<IParagraph> paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Create Portion object for paragraph
-SharedPtr<IPortion> portion = paragraph->get_Portions()->idx_get(0);
-portion->set_Text(u"Aspose TextBox");
-
-//Get portion format
-SharedPtr<IPortionFormat> pf = portion->get_PortionFormat();
-
-// Set the Font for the Portion
-pf->set_LatinFont(MakeObject<FontData>(u"Times New Roman"));
-
-// Set Bold property of the Font
-pf->set_FontBold(NullableBool::True);
-
-// Set Italic property of the Font
-pf->set_FontItalic(NullableBool::True);
-
-// Set Underline property of the Font
-pf->set_FontUnderline(TextUnderlineType::Single);
-
-// Set the Height of the Font
-pf->set_FontHeight(25);
-
-// Set the color of the Font
-pf->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-
-// Save PPTX to Disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"html_text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+### **Eksportowanie tekstu akapitu do HTML**
 
-## **Eksportuj tekst akapitu do HTML**
-
-Aspose.Slides zapewnia rozszerzone wsparcie dla eksportowania tekstów (zawartych w akapitach) do HTML.
+Użyj [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphcollection/exporttohtml/) aby wyeksportować wybrany zakres akapitów jako HTML.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) i wczytaj żądaną prezentację.
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Uzyskaj dostęp do kształtu zawierającego tekst, który ma zostać wyeksportowany do HTML.
-4. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) kształtu.
-5. Utwórz instancję `StreamWriter` i dodaj nowy plik HTML.
-6. Podaj indeks początkowy do StreamWriter i wyeksportuj wybrane akapity.
+2. Uzyskaj dostęp do slajdu i znajdź [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/), który zawiera tekst.
+3. Uzyskaj dostęp do [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/).
+4. Wywołaj [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphcollection/exporttohtml/) podając indeks początkowego akapitu oraz liczbę akapitów do wyeksportowania.
+5. Zapisz zwrócony ciąg HTML do pliku.
 
-Ten kod C++ pokazuje, jak wyeksportować teksty akapitów PowerPoint do HTML: 
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/stream_writer.h>
+#include <system/object_ext.h>
+#include <system/text/encoding.h>
 
-```c++
-For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
-// Ścieżka do katalogu dokumentów.
-const String outPath = u"../out/output.html";
-const String tempplatePath = u"../templates/DefaultFonts.pptx";
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+using namespace System::Text;
 
-// Wczytaj żądaną prezentację
-SharedPtr<Presentation> pres = MakeObject<Presentation>(tempplatePath);
+auto presentation = MakeObject<Presentation>(u"ExportingHTMLText.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto textShape = AsCast<IAutoShape>(shape);
 
+if (textShape != nullptr && textShape->get_TextFrame() != nullptr)
+{
+    auto paragraphs = textShape->get_TextFrame()->get_Paragraphs();
+    auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), nullptr);
+    auto writer = MakeObject<StreamWriter>(u"paragraphs.html", false, Encoding::get_UTF8());
+    writer->Write(html);
+    writer->Close();
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a text shape.");
+}
 
-// Uzyskaj dostęp do domyślnego pierwszego slajdu prezentacji
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-// Żądany indeks
-int index = 0;
-
-// Uzyskiwanie dostępu do dodanego kształtu
-SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
-
-SharedPtr<AutoShape> ashape = DynamicCast<Aspose::Slides::AutoShape>(shape);
-
-// Wyodrębnianie pierwszego akapitu jako HTML
-SharedPtr<System::IO::StreamWriter> sw = MakeObject<System::IO::StreamWriter>(outPath, false, Encoding::get_UTF8());
-//	System::IO::StreamWriter^ sr = gcnew System::IO::StreamWriter("TestFile.txt", false, Encoding::get_UTF8());
-
-// Zapis danych akapitów do HTML poprzez podanie indeksu początkowego akapitu i liczby akapitów do skopiowania
-sw->Write(ashape->get_TextFrame()->get_Paragraphs()->ExportToHtml(0, ashape->get_TextFrame()->get_Paragraphs()->get_Count(), nullptr));
-
-sw->Close();
-
+presentation->Dispose();
 ```
 
-## **Zapisz akapit jako obraz**
+### **Renderowanie akapitu jako obrazu**
 
-W tej sekcji przedstawimy dwa przykłady demonstrujące, jak zapisać akapit tekstowy, reprezentowany przez interfejs [IParagraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/), jako obraz. Oba przykłady obejmują uzyskanie obrazu kształtu zawierającego akapit przy użyciu metod `GetImage` z interfejsu [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/), obliczenie granic akapitu w obrębie kształtu oraz wyeksportowanie go jako obrazu bitmapowego. Podejścia te pozwalają wyodrębnić konkretne fragmenty tekstu z prezentacji PowerPoint i zapisać je jako oddzielne obrazy, co może być przydatne w różnych scenariuszach.
+[IParagraph::GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/getimage/) renderuje pojedynczy akapit bezpośrednio i zwraca [IImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimage/). Zapisz wynik do pliku lub strumienia przy pomocy [IImage::Save](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimage/save/). Nie musisz renderować całego kształtu ani ręcznie przycinać bitmapy.
+
+[IParagraph::GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/getimage/) może zwrócić `nullptr`, jeśli akapit nie zostanie znaleziony w kolekcji nadrzędnej, nie ma prawidłowych granic renderowania lub nie może być renderowany. Sprawdź wynik przed zapisaniem i zwolnij zwrócony obraz po użyciu.
+
+#### **Renderowanie akapitu w domyślnej skali**
 
 Załóżmy, że mamy plik prezentacji o nazwie sample.pptx z jednym slajdem, gdzie pierwszy kształt jest polem tekstowym zawierającym trzy akapity.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+![Pole tekstowe z trzema akapitami](paragraph_to_image_input.png)
 
-**Przykład 1**
-
-W tym przykładzie uzyskujemy drugi akapit jako obraz. W tym celu wyodrębniamy obraz kształtu z pierwszego slajdu prezentacji, a następnie obliczamy granice drugiego akapitu w ramce tekstowej kształtu. Akapit jest następnie rysowany na nowym obrazie bitmapowym, który zapisywany jest w formacie PNG. Metoda ta jest szczególnie przydatna, gdy trzeba zapisać konkretny akapit jako oddzielny obraz, zachowując dokładne wymiary i formatowanie tekstu.
+Poniższy przykład renderuje drugi akapit w zwykłym polu tekstowym w domyślnej skali i zapisuje zwrócony obraz w formacie PNG.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto textShape = AsCast<IAutoShape>(shape);
 
-// Save the shape in memory as a bitmap.
-auto shapeImage = firstShape->GetImage();
-auto shapeImageStream = MakeObject<MemoryStream>();
-shapeImage->Save(shapeImageStream, ImageFormat::Png);
-shapeImage->Dispose();
+if (textShape != nullptr && textShape->get_TextFrame() != nullptr && textShape->get_TextFrame()->get_Paragraphs()->get_Count() > 1)
+{
+    auto paragraph = textShape->get_TextFrame()->get_Paragraph(1);
+    auto paragraphImage = paragraph->GetImage();
 
-// Create a shape bitmap from memory.
-shapeImageStream->set_Position(0);
-auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
-
-// Calculate the boundaries of the second paragraph.
-auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
-auto paragraphRectangle = secondParagraph->GetRect();
-
-// Calculate the size for the output image (minimum size - 1x1 pixel).
-auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
-auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
-
-// Prepare a bitmap for the paragraph.
-auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
-
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
-auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
-RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
-imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
-imageGraphics->Dispose();
-
-paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
+    if (paragraphImage != nullptr)
+    {
+        paragraphImage->Save(u"paragraph.png", ImageFormat::Png);
+        paragraphImage->Dispose();
+    }
+    else
+    {
+        Console::WriteLine(u"The paragraph could not be rendered.");
+    }
+}
+else
+{
+    Console::WriteLine(u"The expected text shape or paragraph was not found.");
+}
 
 presentation->Dispose();
 ```
 
 Wynik:
 
-![The paragraph image](paragraph_to_image_output.png)
+![Obraz akapitu](paragraph_to_image_output.png)
 
-**Przykład 2**
+#### **Renderowanie akapitu w komórce tabeli ze skalowaniem**
 
-W tym przykładzie rozszerzamy poprzednie podejście o czynniki skalowania obrazu akapitu. Kształt jest wyodrębniany z prezentacji i zapisywany jako obraz ze współczynnikiem skali `2`. Umożliwia to uzyskanie obrazu o wyższej rozdzielczości przy eksportowaniu akapitu. Granice akapitu są następnie obliczane z uwzględnieniem skali. Skalowanie może być szczególnie użyteczne, gdy potrzebny jest bardziej szczegółowy obraz, np. do zastosowań w materiałach drukowanych wysokiej jakości.
+Użyj przeciążenia [IParagraph::GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/getimage/), które przyjmuje parametry `float scaleX` i `float scaleY`, aby ustawić czynniki skali poziomej i pionowej. Poniższy przykład tworzy tabelę, renderuje akapit w jej pierwszej komórce przy dwukrotnej szerokości i wysokości względem domyślnych i zapisuje wynik jako obraz PNG.
 
 ```cpp
-auto imageScaleX = 2.0f;
-auto imageScaleY = imageScaleX;
+#include <DOM/IParagraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/array.h>
+#include <system/console.h>
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+using namespace Aspose::Slides;
+using namespace System;
 
-// Zapisz kształt w pamięci jako bitmapę z skalowaniem.
-auto shapeImage = firstShape->GetImage(ShapeThumbnailBounds::Shape, imageScaleX, imageScaleY);
-auto shapeImageStream = MakeObject<MemoryStream>();
-shapeImage->Save(shapeImageStream, ImageFormat::Png);
-shapeImage->Dispose();
+auto scaleX = 2.0f;
+auto scaleY = 2.0f;
 
-// Utwórz bitmapę kształtu z pamięci.
-shapeImageStream->set_Position(0);
-auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto table = slide->get_Shapes()->AddTable(50, 50, MakeArray<double>({300}), MakeArray<double>({80}));
+auto paragraph = table->idx_get(0, 0)->get_TextFrame()->get_Paragraph(0);
+paragraph->set_Text(u"Text in a table cell");
 
-// Oblicz granice drugiego akapitu.
-auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
-auto paragraphRectangle = secondParagraph->GetRect();
-paragraphRectangle.set_X(paragraphRectangle.get_X() * imageScaleX);
-paragraphRectangle.set_Y(paragraphRectangle.get_Y() * imageScaleY);
-paragraphRectangle.set_Width(paragraphRectangle.get_Width() * imageScaleX);
-paragraphRectangle.set_Height(paragraphRectangle.get_Height() * imageScaleY);
-
-// Oblicz rozmiar obrazu wyjściowego (minimalny rozmiar - 1x1 piksel).
-auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
-auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
-
-// Przygotuj bitmapę dla akapitu.
-auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
-
-// Przerysuj akapit z bitmapy kształtu na bitmapę akapitu.
-auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
-RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
-imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
-imageGraphics->Dispose();
-
-paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
+auto paragraphImage = paragraph->GetImage(scaleX, scaleY);
+if (paragraphImage != nullptr)
+{
+    paragraphImage->Save(u"table_paragraph.png", ImageFormat::Png);
+    paragraphImage->Dispose();
+}
+else
+{
+    Console::WriteLine(u"The paragraph could not be rendered.");
+}
 
 presentation->Dispose();
 ```
+
+Współczynnik skali `1` zachowuje domyślny rozmiar w pikselach. Na przykład `2` dla obu współczynników produkuje obraz, którego szerokość i wysokość są w przybliżeniu dwukrotnie większe niż domyślne wymiary, co skutkuje czterokrotnie większą liczbą pikseli. Wyższe współczynniki zazwyczaj dają ostrzejszy tekst przy powiększaniu lub wyjściu o wysokiej rozdzielczości, ale zwiększają zużycie pamięci i rozmiar pliku. Współczynniki poniżej `1` tworzą mniejsze obrazy z mniejszą ilością szczegółów. Używaj równych współczynników, aby zachować proporcje akapitu; różne współczynniki poziome i pionowe rozciągają wynik niezależnie.
+
+Renderowanie całego kształtu przy pomocy [IShape::GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/getimage/) pozostaje przydatne, gdy wynik musi zawierać wypełnienie, obramowanie lub inny kontekst wizualny kształtu. Dla obrazu zawierającego tylko akapit, użyj [IParagraph::GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/getimage/).
 
 ## **FAQ**
 
 **Czy mogę całkowicie wyłączyć zawijanie linii wewnątrz ramki tekstowej?**
 
-Tak. Użyj metody zawijania ramki tekstowej ([set_WrapText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textframeformat/set_wraptext/)), aby wyłączyć zawijanie, dzięki czemu linie nie będą łamane przy krawędziach ramki.
+Tak. Użyj [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframeformat/set_wraptext/) aby wyłączyć zawijanie, dzięki czemu linie nie przerywają się przy krawędziach ramki tekstowej.
 
-**Jak uzyskać dokładne granice akapitu na slajdzie?**
+**Jak mogę uzyskać dokładne granice akapitu na slajdzie?**
 
-Możesz pobrać prostokąt ograniczający akapit (a nawet pojedynczy fragment), aby poznać jego precyzyjne położenie i rozmiar na slajdzie.
+Użyj [IParagraph::GetRect](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/getrect/) aby pobrać prostokąt otaczający akapit. [IPortion::GetRect](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iportion/getrect/) dostarcza granice pojedynczego fragmentu.
 
-**Gdzie kontrolowane jest wyrównanie akapitu (lewo/prawo/środek/wyjustowanie)?**
+**Gdzie jest kontrolowane wyrównanie akapitu (do lewej, prawej, wyśrodkowane lub wyjustowane)?**
 
-[Alignment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraphformat/set_alignment/) jest ustawieniem na poziomie akapitu w [ParagraphFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraphformat/); ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_alignment/) jest ustawieniem na poziomie akapitu i ma zastosowanie do całego akapitu, niezależnie od formatowania poszczególnych fragmentów.
 
-**Czy mogę ustawić język sprawdzania pisowni tylko dla części akapitu (np. jednego słowa)?**
+**Czy mogę ustawić język korekty dla części akapitu?**
 
-Tak. Język jest ustawiany na poziomie fragmentu przy użyciu ([PortionFormat::set_LanguageId](https://reference.aspose.com/slides/pl/cpp/aspose.slides/baseportionformat/set_languageid/)), więc w jednym akapicie mogą współistnieć różne języki.
+Tak. Użyj [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/set_languageid/) dla poszczególnych fragmentów, dzięki czemu jeden akapit może zawierać tekst w kilku językach.

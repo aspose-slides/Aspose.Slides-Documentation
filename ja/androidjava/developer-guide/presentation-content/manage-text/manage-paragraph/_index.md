@@ -1,9 +1,12 @@
 ---
-title: Android で PowerPoint のテキスト段落を管理する
+title: Android で PowerPoint のテキスト段落を管理
 linktitle: 段落を管理
 type: docs
 weight: 40
 url: /ja/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
+  - /androidjava/portion/
 keywords:
 - テキストを追加
 - 段落を追加
@@ -12,96 +15,91 @@ keywords:
 - 箇条書きを管理
 - 段落インデント
 - ハンギングインデント
-- 段落の箇条書き
+- 段落箇条書き
 - 番号付きリスト
 - 箇条書きリスト
 - 段落プロパティ
-- HTML のインポート
+- HTML をインポート
 - テキストを HTML に変換
 - 段落を HTML に変換
 - 段落を画像に変換
 - テキストを画像に変換
 - 段落をエクスポート
 - PowerPoint
-- OpenDocument
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を使用して段落の書式設定をマスターし、Java で PPT、PPTX、ODP プレゼンテーションの配置、間隔、スタイルを最適化します。"
+description: "Aspose.Slides for Android via Java を使用して、段落、ポーション、箇条書き、番号付きリスト、インデント、HTML コンテンツ、段落画像の作成と書式設定方法を学びます。"
 ---
-Aspose.Slides は、Java で PowerPoint のテキスト、段落、およびパーツを操作するために必要なすべてのインターフェイスとクラスを提供します。
+## **概要**
 
-* Aspose.Slides は、段落を表すオブジェクトを追加できるようにする [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) インターフェイスを提供します。`ITextFame` オブジェクトは 1 つまたは複数の段落を持つことができます（各段落は改行で作成されます）。
-* Aspose.Slides は、パーツを表すオブジェクトを追加できるようにする [IParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/) インターフェイスを提供します。`IParagraph` オブジェクトは 1 つまたは複数のパーツ（iPortions オブジェクトのコレクション）を持つことができます。
-* Aspose.Slides は、テキストとその書式設定プロパティを表すオブジェクトを追加できるようにする [IPortion](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iportion/) インターフェイスを提供します。
+Aspose.Slides for Android via Java は、テキストをテキスト フレーム、段落、ポーションの階層として表現します。
 
-`IParagraph` オブジェクトは、基礎となる `IPortion` オブジェクトを通じて、異なる書式設定プロパティを持つテキストを処理できます。
+* [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) は、シェイプ内のテキスト コンテナを表し、段落コレクションへのアクセスを提供します。
+* [IParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/) は、テキスト フレーム内の 1 つの段落を表し、ポーションおよび段落レベルの書式設定へのアクセスを提供します。
+* [IPortion](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iportion/) は、段落内のテキスト ランを表します。各ポーションは独自のテキストと文字レベルの書式設定を持つことができます。
 
-## **複数のテキストパーツを含む複数の段落を追加する**
+このように、段落は複数のポーションを使用することで、フォント、色、サイズ、その他の書式設定が異なるテキストを含めることができます。
 
-以下の手順では、3 つの段落を含むテキストフレームを追加し、各段落に 3 つのパーツを含める方法を示します。
+## **段落の作成と書式設定**
+
+### **複数のポーションで段落を作成**
+
+次の手順は、3 つの段落を持ち、各段落に 3 つのポーションを含むテキスト フレームを作成します。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用して対象スライドの参照にアクセスします。
+2. インデックスを使用して対象のスライドにアクセスします。
 3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
-4. [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) に関連付けられた ITextFrame を取得します。
-5. 2 つの [IParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/) オブジェクトを作成し、[ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) の `IParagraphs` コレクションに追加します。
-6. 新しい各 `IParagraph` に対して 3 つの [IPortion](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iportion/) オブジェクトを作成（デフォルトの段落には 2 つの Portion オブジェクト）し、各 `IPortion` オブジェクトをそれぞれの `IParagraph` の IPortion コレクションに追加します。
-7. 各パーツにテキストを設定します。
-8. `IPortion` オブジェクトが提供する書式プロパティを使用して、各パーツに好みの書式設定を適用します。
-9. 変更されたプレゼンテーションを保存します。
+4. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスします。
+5. デフォルトの段落を使用し、テキスト フレームにさらに 2 つの [IParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/) オブジェクトを追加します。
+6. 各段落が 3 つのポーションを含むように十分な [IPortion](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iportion/) オブジェクトを追加します。デフォルトの段落にはすでに空のポーションが 1 つ含まれています。
+7. 各ポーションのテキストを設定します。
+8. [IPortion.getPortionFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iportion/#getPortionFormat--) を使用して文字レベルの書式設定を適用します。
+9. 変更したプレゼンテーションを保存します。
+
+この Android via Java の例は上記手順を実装しています。
 
 ```java
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成する
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // 最初のスライドにアクセスする
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    ITextFrame textFrame = shape.getTextFrame();
 
-    // 矩形タイプの AutoShape を追加する
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    IParagraph firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new Portion());
+    firstParagraph.getPortions().add(new Portion());
 
-    // AutoShape の TextFrame にアクセスする
-    ITextFrame tf = ashp.getTextFrame();
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(secondParagraph);
 
-    // 異なるテキスト書式を持つ段落とパーツを作成する
-    IParagraph para0 = tf.getParagraphs().get_Item(0);
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
 
-    IParagraph para1 = new Paragraph();
-    tf.getParagraphs().add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
+    int paragraphCount = textFrame.getParagraphs().getCount();
+    for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        int portionCount = paragraph.getPortions().getCount();
+        for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
 
-    IParagraph para2 = new Paragraph();
-    tf.getParagraphs().add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-
-    for (int i = 0; i < 3; i++) 
-    {
-        for (int j = 0; j < 3; j++) 
-        {
-            IPortion portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j); 
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+            if (portionIndex == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
                 portion.getPortionFormat().setFontBold(NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
                 portion.getPortionFormat().setFontItalic(NullableBool.True);
@@ -110,359 +108,289 @@ try {
         }
     }
 
-    // PPTX をディスクに書き込む
-    pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
+    presentation.save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **段落の箇条書きの管理**
+## **箇条書きと番号付きリストの作成**
 
-箇条書きリストは、情報を迅速かつ効率的に整理・提示するのに役立ちます。箇条書きの段落は常に読みやすく、理解しやすいです。
+### **箇条書きまたは番号付きリストの作成**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用して対象スライドの参照にアクセスします。
-3. 選択したスライドに [autoshape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
-4. autoshape の [TextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスします。
-5. `TextFrame` のデフォルトの段落を削除します。
-6. [Paragraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成します。
-7. 段落の箇条書き `Type` を `Symbol` に設定し、箇条書き文字を設定します。
-8. 段落の `Text` を設定します。
-9. 箇条書きの段落 `Indent` を設定します。
-10. 箇条書きの色を設定します。
-11. 箇条書きの高さを設定します。
-12. 新しい段落を `TextFrame` の段落コレクションに追加します。
-13. 2 番目の段落を追加し、ステップ 7 から 13 の手順を繰り返します。
-14. プレゼンテーションを保存します。
-
-```java
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成する
-Presentation pres = new Presentation();
-try {
-    // 最初のスライドにアクセスする
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // AutoShape を追加してアクセスする
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // AutoShape のテキストフレームにアクセスする
-    ITextFrame txtFrm = aShp.getTextFrame();
-
-    // デフォルトの段落を削除する
-    txtFrm.getParagraphs().removeAt(0);
-
-    // 段落を作成する
-    Paragraph para = new Paragraph();
-
-    // 段落の箇条書きスタイルとシンボルを設定する
-    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar((char)8226);
-
-    // 段落のテキストを設定する
-    para.setText("Welcome to Aspose.Slides");
-
-    // 箇条書きインデントを設定する
-    para.getParagraphFormat().setIndent(25);
-
-    // 箇条書きの色を設定する
-    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor を true に設定して独自の箇条書き色を使用する
-
-    // 箇条書きの高さを設定する
-    para.getParagraphFormat().getBullet().setHeight(100);
-
-    // 段落をテキストフレームに追加する
-    txtFrm.getParagraphs().add(para);
-
-    // 2 番目の段落を作成する
-    Paragraph para2 = new Paragraph();
-
-    // 段落の箇条書きタイプとスタイルを設定する
-    para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-
-    // 段落のテキストを追加する
-    para2.setText("This is numbered bullet");
-
-    // 箇条書きインデントを設定する
-    para2.getParagraphFormat().setIndent(25);
-
-    para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor を true に設定して独自の箇条書き色を使用する
-
-    // 箇条書きの高さを設定する
-    para2.getParagraphFormat().getBullet().setHeight(100);
-
-    // 段落をテキストフレームに追加する
-    txtFrm.getParagraphs().add(para2);
-    
-    // 変更されたプレゼンテーションを保存する
-    pres.save("Bullet_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **画像箇条書きの管理**
-
-箇条書きリストは、情報を迅速かつ効率的に整理・提示するのに役立ちます。画像の段落は読みやすく、理解しやすいです。
+箇条書きと番号付けにより、関連項目を見やすくスキャンできます。Aspose.Slides では、リスト設定は [IBulletFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibulletformat/) を通じて定義されます。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用して対象スライドの参照にアクセスします。
-3. スライドに [autoshape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
-4. autoshape の [TextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスします。
-5. `TextFrame` のデフォルトの段落を削除します。
-6. [Paragraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成します。
-7. [IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/) で画像をロードします。
-8. 箇条書きのタイプを [Picture](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/) に設定し、画像を設定します。
-9. 段落の `Text` を設定します。
-10. 箇条書きの段落 `Indent` を設定します。
-11. 箇条書きの色を設定します。
-12. 箇条書きの高さを設定します。
-13. 新しい段落を `TextFrame` の段落コレクションに追加します。
-14. 2 番目の段落を追加し、前の手順に基づいて同じ操作を繰り返します。
-15. 変更されたプレゼンテーションを保存します。
+2. インデックスを使用して対象のスライドにアクセスします。
+3. 選択したスライドに [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
+4. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスします。
+5. テキスト フレームからデフォルトの段落を削除します。
+6. 記号付き箇条書き用に [Paragraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraph/) を作成します。
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibulletformat/#setType-int-) を [BulletType.Symbol](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/bullettype/) に設定し、箇条文字を指定します。
+8. 段落のテキスト、インデント、箇条書きの色、箇条書きの高さを設定します。
+9. 段落をテキスト フレームに追加します。
+10. 2 番目の段落を作成し、[IBulletFormat.setType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibulletformat/#setType-int-) を [BulletType.Numbered](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/bullettype/) に設定します。
+11. 番号付き箇条書きのスタイルを構成し、段落をテキスト フレームに追加します。
+12. プレゼンテーションを保存します。
+
+この Android via Java の例は記号箇条書きと番号付き箇条書きを作成します。
 
 ```java
-// PPTX ファイルを表す Presentation クラスのインスタンスを生成する
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
-    // 最初のスライドにアクセスする
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph symbolParagraph = new Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    symbolParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
+
+    Paragraph numberedParagraph = new Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
+
+    presentation.save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **画像箇条書きの使用**
+
+画像箇条書きを使用すると、記号や番号の代わりにカスタム画像を使用できます。
+
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスを使用して対象のスライドにアクセスします。
+3. [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加し、その [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスします。
+4. テキスト フレームからデフォルトの段落を削除します。
+5. 箇条書き画像を読み込み、プレゼンテーションの画像コレクションに [IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/) として追加します。
+6. [Paragraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraph/) を作成し、テキストを設定します。
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibulletformat/#setType-int-) を [BulletType.Picture](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/bullettype/) に設定します。
+8. [IBulletFormat.getPicture](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibulletformat/#getPicture--) で画像を割り当て、箇条書きの高さを設定します。
+9. 段落をテキスト フレームに追加します。
+10. 変更したプレゼンテーションを保存します。
+
+この Android via Java の例は画像箇条書きを作成します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 箇条書き用の画像をインスタンス化する
-    IPPImage picture;
-    IImage image = Images.fromFile("bullets.png");
+    IImage bulletImage = Images.fromFile("bullets.png");
+    IPPImage presentationImage;
     try {
-        picture = presentation.getImages().addImage(image);
+        presentationImage = presentation.getImages().addImage(bulletImage);
     } finally {
-        if (image != null) image.dispose();
+        bulletImage.dispose();
     }
-    // AutoShape を追加してアクセスする
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // AutoShape のテキストフレームにアクセスする
-    ITextFrame textFrame = autoShape.getTextFrame();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // デフォルトの段落を削除する
-    textFrame.getParagraphs().removeAt(0);
-
-    // 新しい段落を作成する
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
-
-    // 段落の箇条書きスタイルと画像を設定する
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-    // 箇条書きの高さを設定する
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
     paragraph.getParagraphFormat().getBullet().setHeight(100);
-
-    // 段落をテキストフレームに追加する
     textFrame.getParagraphs().add(paragraph);
 
-    // プレゼンテーションを PPTX ファイルとして保存する
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-    // プレゼンテーションを PPT ファイルとして保存する
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-} catch (IOException e) {
+    presentation.save("picture_bullet.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", SaveFormat.Ppt);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **多階層箇条書きの管理**
+### **階層リストの作成**
 
-箇条書きリストは、情報を迅速かつ効率的に整理・提示するのに役立ちます。多階層箇条書きは読みやすく、理解しやすいです。
+[IParagraphFormat.setDepth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) を設定して、段落をリストの異なるレベルに配置します。最上位レベルの深さは `0` です。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用して対象スライドの参照にアクセスします。
-3. 新しいスライドに [autoshape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
-4. autoshape の [TextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスします。
-5. `TextFrame` のデフォルトの段落を削除します。
-6. [Paragraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成し、深さを 0 に設定します。
-7. `Paragraph` クラスを使用して 2 番目の段落インスタンスを作成し、深さを 1 に設定します。
-8. `Paragraph` クラスを使用して 3 番目の段落インスタンスを作成し、深さを 2 に設定します。
-9. `Paragraph` クラスを使用して 4 番目の段落インスタンスを作成し、深さを 3 に設定します。
-10. 新しい段落を `TextFrame` の段落コレクションに追加します。
-11. 変更されたプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) を作成し、スライドにアクセスします。
+2. [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加し、テキスト フレームからデフォルトの段落をクリアします。
+3. 4 つの段落を作成し、箇条記号を構成します。
+4. それぞれの [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 値を `0`、`1`、`2`、`3` に設定します。
+5. 段落をテキスト フレームに追加し、プレゼンテーションを保存します。
+
+この Android via Java の例は 4 段階の箇条書きリストを作成します。
 
 ```java
-// PPTX ファイルを表す Presentation クラスのインスタンスを生成する
-Presentation pres = new Presentation();
-try {
-    // 最初のスライドにアクセスする
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // AutoShape を追加してアクセスする
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // 作成した AutoShape のテキストフレームにアクセスする
-    ITextFrame text = aShp.addTextFrame("");
-
-    // デフォルトの段落を削除する
-    text.getParagraphs().clear();
-
-    // 最初の段落を追加する
-    IParagraph para1 = new Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 箇条書きのレベルを設定する
-    para1.getParagraphFormat().setDepth((short)0);
-
-    // 2 番目の段落を追加する
-    IParagraph para2 = new Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 箇条書きのレベルを設定する
-    para2.getParagraphFormat().setDepth((short)1);
-
-    // 3 番目の段落を追加する
-    IParagraph para3 = new Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 箇条書きのレベルを設定する
-    para3.getParagraphFormat().setDepth((short)2);
-
-    // 4 番目の段落を追加する
-    IParagraph para4 = new Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 箇条書きのレベルを設定する
-    para4.getParagraphFormat().setDepth((short)3);
-
-    // 段落をコレクションに追加する
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-
-    // プレゼンテーションを PPTX ファイルとして保存する
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **カスタム番号リストを持つ段落の管理**
-
-[IBulletFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibulletformat/) インターフェイスは、[NumberedBulletStartWith](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) プロパティなどを提供し、カスタム番号付けや書式設定を持つ段落を管理できるようにします。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. 段落が含まれるスライドにアクセスします。
-3. スライドに [autoshape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
-4. autoshape の [TextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスします。
-5. `TextFrame` のデフォルトの段落を削除します。
-6. [Paragraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成し、[NumberedBulletStartWith] を 2 に設定します。
-7. `Paragraph` クラスを使用して 2 番目の段落インスタンスを作成し、`NumberedBulletStartWith` を 3 に設定します。
-8. `Paragraph` クラスを使用して 3 番目の段落インスタンスを作成し、`NumberedBulletStartWith` を 7 に設定します。
-9. 新しい段落を `TextFrame` の段落コレクションに追加します。
-10. 変更されたプレゼンテーションを保存します。
-
-```java
 Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // 作成した AutoShape のテキストフレームにアクセスする
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // デフォルトの既存段落を削除する
-    textFrame.getParagraphs().removeAt(0);
+    IParagraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    firstParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.getParagraphFormat().setDepth((short) 0);
 
-    // 最初のリスト
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    secondParagraph.getParagraphFormat().getBullet().setChar('-');
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().setDepth((short) 1);
 
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    thirdParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.getParagraphFormat().setDepth((short) 2);
 
+    IParagraph fourthParagraph = new Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    fourthParagraph.getParagraphFormat().getBullet().setChar('-');
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    fourthParagraph.getParagraphFormat().setDepth((short) 3);
 
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
 
-    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+    presentation.save("multilevel_list.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **段落の先頭行インデントの設定**
+### **番号付きリスト項目をカスタム値から開始**
 
-段落の先頭行インデントを制御するには、[IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) メソッドを使用します。このメソッドは、段落の左余白に対して最初の行だけを移動させます。正の値は最初の行を右へシフトし、残りの行は段落本体に揃ったままです。
+[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) を使用して、番号付き段落の開始番号を設定できます。
 
-段落全体を移動させたい場合は [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) を使用し、最初の行だけを移動させたい場合は [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) を使用します。
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) を作成し、スライドに [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
+2. シェイプのテキスト フレームからデフォルトの段落をクリアします。
+3. 3 つの番号付き段落を作成します。
+4. 各段落に対して [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) を `2`、`3`、`7` に設定します。
+5. 段落をテキスト フレームに追加し、プレゼンテーションを保存します。
 
-以下の例では、複数の段落を作成し、異なるインデント値を適用して、先頭行インデントが段落レイアウトに与える影響を示しています。
+この Android via Java の例は各段落にカスタム開始番号を割り当てます。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 2);
+    textFrame.getParagraphs().add(firstParagraph);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 3);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 7);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **段落のレイアウトと終了プロパティの制御**
+
+### **先頭行インデントの設定**
+
+[IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) を使用して段落の先頭行インデントを制御します。このメソッドは段落の左余白に対して最初の行だけを移動させます。正の値は最初の行を右にシフトし、残りの行は段落本文に揃ったままです。
+
+全体の段落を移動したい場合は [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) を使用し、先頭行だけを移動したい場合は [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) を使用します。
+
+以下の例は複数の段落を作成し、異なる [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 値を適用して、先頭行インデントが段落レイアウトに与える影響を示します。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. 対象スライドにアクセスします。
-3. スライドに矩形の [AutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/autoshape/) を追加します。
-4. シェイプに空の [TextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/textframe/) を追加し、デフォルトの段落を削除します。
-5. 複数の段落を作成し、それぞれに異なる [Indent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 値を設定します。
-6. 段落をテキストフレームに追加します。
-7. 変更されたプレゼンテーションを保存します。
+3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
+4. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスし、デフォルトの段落を削除します。
+5. 複数の段落を作成し、それぞれに異なる [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 値を設定します。
+6. 段落をテキスト フレームに追加します。
+7. 変更したプレゼンテーションを保存します。
+
+このコードは段落インデントの設定方法を示します。
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().setMarginLeft(20f);
     firstParagraph.getParagraphFormat().setIndent(0f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20f);
     secondParagraph.getParagraphFormat().setIndent(20f);
 
     Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20f);
     thirdParagraph.getParagraphFormat().setIndent(40f);
 
@@ -471,56 +399,62 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
+結果:
+
 ![段落の先頭行インデント](first_line_indent.png)
 
-## **段落のハンギングインデントの設定**
+### **ハンギングインデントの設定**
 
-ハンギングインデントは、最初の行が残りの行より左側から始まる段落レイアウトです。Aspose.Slides では、[IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) メソッドを使用してこの効果を作成します。インデントに負の値を設定すると、段落本体に対して最初の行が左へ移動します。
+ハンギングインデントは、最初の行が残りの行の左側に開始する段落レイアウトです。Aspose.Slides では [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) に負の値を渡すことで、段落本文に対して最初の行を左に移動させます。
 
-実際には、[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) が段落本体の左位置を定義し、[IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) がその余白に対する最初の行の位置を定義します。ハンギングインデントを作成するには、正の `MarginLeft` 値と負の `Indent` 値を設定します。
+実際には、[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) が段落本文の左位置を定義し、[IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) がその余白に対する最初の行の位置を定義します。ハンギングインデントを作成するには、`setMarginLeft` に正の値、`setIndent` に負の値を設定します。
 
-この書式設定は、文献リスト、参照、用語集の項目など、折り返し行が段落本体の下に揃う必要がある段落に便利です。
+この書式設定は、文献リスト、参考文献、用語集エントリなど、折り返し行を段落本文の下に揃える必要がある段落で便利です。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
 2. 対象スライドにアクセスします。
-3. スライドに矩形の [AutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/autoshape/) を追加します。
-4. シェイプに空の [TextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/textframe/) を追加し、デフォルトの段落を削除します。
-5. 段落を作成し、各段落に正の [MarginLeft](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 値を設定します。
-6. ハンギングインデント効果を作成するために負の [Indent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 値を設定します。
-7. 段落をテキストフレームに追加します。
-8. 変更されたプレゼンテーションを保存します。
+3. スライドに矩形の [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
+4. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスし、デフォルトの段落を削除します。
+5. 各段落に対して正の値で [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) を設定します。
+6. 負の値で [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) を設定し、ハンギングインデント効果を作成します。
+7. 段落をテキスト フレームに追加します。
+8. 変更したプレゼンテーションを保存します。
+
+このコードは段落のハンギングインデント設定方法を示します。
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40f);
     firstParagraph.getParagraphFormat().setIndent(-20f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -528,244 +462,247 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
+結果:
+
 ![段落のハンギングインデント](hanging_indent.png)
 
-## **段落末端実行プロパティの管理**
+### **段落末尾の書式プロパティの設定**
+
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) は段落終端マークの書式設定を制御します。以下の例では、2 番目の段落の終端マークにフォントサイズとラテン文字フォントを割り当てます。
+
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) を読み込み、スライドにアクセスします。
+2. [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加し、デフォルトの段落をクリアします。
+3. 2 つの段落を作成し、テキスト ポーションを追加します。
+4. 2 番目の段落の終端マーク用に [PortionFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/portionformat/) を作成します。
+5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) と [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) を設定します。
+6. [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) で書式を割り当て、プレゼンテーションを保存します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getPortions().add(new Portion("Sample text"));
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion("Sample text 2"));
+
+    PortionFormat endParagraphFormat = new PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    presentation.save("end_paragraph_format.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **段落コンテンツのインポートとエクスポート**
+
+### **HTML テキストを段落にインポート**
+
+[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) を使用して、HTML マークアップをテキスト フレーム内の段落およびポーションに変換します。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. 位置を基に段落が含まれるスライドの参照を取得します。
-3. スライドに矩形の [autoshape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
-4. 矩形に 2 つの段落を持つ [TextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) を追加します。
-5. 段落の `FontHeight` とフォントタイプを設定します。
-6. 段落の End プロパティを設定します。
-7. 変更されたプレゼンテーションを PPTX ファイルとして書き出します。
+2. スライドにアクセスし、[IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
+3. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスし、デフォルトの段落をクリアします。
+4. ソース HTML ファイルを読み取ります。
+5. HTML 文字列を [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) に渡します。
+6. 変更したプレゼンテーションを保存します。
+
+この Android via Java の例は HTML をテキスト フレームにインポートします。
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
+    float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
 
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Sample text"));
-
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Sample text 2"));
-
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
-
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
-
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    try {
+        byte[] htmlBytes = Files.readAllBytes(Paths.get("file.html"));
+        String html = new String(htmlBytes, StandardCharsets.UTF_8);
+        shape.getTextFrame().getParagraphs().addFromHtml(html);
+        presentation.save("html_text.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("The HTML file could not be read: " + exception.getMessage());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **HTML テキストを段落にインポートする**
+### **段落テキストを HTML にエクスポート**
 
-Aspose.Slides は、HTML テキストを段落にインポートするための拡張サポートを提供します。
+[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) を使用して、選択した段落範囲を HTML としてエクスポートします。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用して対象スライドの参照にアクセスします。
-3. スライドに [autoshape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を追加します。
-4. `autoshape` の [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) を追加し、アクセスします。
-5. `ITextFrame` のデフォルトの段落を削除します。
-6. TextReader でソース HTML ファイルを読み取ります。
-7. [Paragraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraph/) クラスを使用して最初の段落インスタンスを作成します。
-8. 読み取った TextReader の HTML ファイル内容を TextFrame の [ParagraphCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraphcollection/) に追加します。
-9. 変更されたプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) のインスタンスを作成し、目的のプレゼンテーションをロードします。
+2. スライドにアクセスし、テキストを含む [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) を見つけます。
+3. シェイプの [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) にアクセスします。
+4. 開始段落インデックスとエクスポートする段落数を指定して、[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) を呼び出します。
+5. 返された HTML 文字列をファイルに書き込みます。
+
+この Android via Java の例は最初のテキスト シェイプからすべての段落をエクスポートします。
 
 ```java
-// 空のプレゼンテーションインスタンスを作成
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    // プレゼンテーションのデフォルトの最初のスライドにアクセス
-    ISlide slide = pres.getSlides().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // HTML コンテンツを収容するために AutoShape を追加
-    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
-
-    ashape.getFillFormat().setFillType(FillType.NoFill);
-
-    // シェイプにテキストフレームを追加
-    ashape.addTextFrame("");
-
-    // 追加したテキストフレーム内のすべての段落をクリア
-    ashape.getTextFrame().getParagraphs().clear();
-
-    // ストリームリーダーを使用して HTML ファイルをロード
-    TextReader tr = new StreamReader("file.html");
-
-    // HTML ストリームリーダーからテキストをテキストフレームに追加
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-
-    // プレゼンテーションを保存
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null) {
+            IParagraphCollection paragraphs = textFrame.getParagraphs();
+            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            try {
+                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException exception) {
+                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("The first shape does not contain a text frame.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **段落テキストを HTML にエクスポートする**
+### **段落を画像としてレンダリング**
 
-Aspose.Slides は、段落に含まれるテキストを HTML にエクスポートするための拡張サポートを提供します。
+[IParagraph.getImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/#getImage--) は個々の段落を直接レンダリングし、[IImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iimage/) を返します。返された画像は [IImage.save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) を使ってファイルまたはストリームに保存できます。形状全体をレンダリングしたり、ビットマップを手動で切り取る必要はありません。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、目的のプレゼンテーションをロードします。
-2. インデックスを使用して対象スライドの参照にアクセスします。
-3. HTML にエクスポートするテキストを含むシェイプにアクセスします。
-4. シェイプの [TextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/textframe/) にアクセスします。
-5. `StreamWriter` のインスタンスを作成し、新しい HTML ファイルを追加します。
-6. StreamWriter に開始インデックスを指定し、希望する段落をエクスポートします。
+段落が親コレクションに存在しない、または有効な描画境界がない、あるいは描画できない場合、[IParagraph.getImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/#getImage--) は `null` を返すことがあります。保存する前に結果を確認し、使用後は画像を破棄してください。
 
-```java
-// プレゼンテーションファイルをロードする
-Presentation pres = new Presentation("ExportingHTMLText.pptx");
-try {
-    // プレゼンテーションのデフォルトの最初のスライドにアクセスする
-    ISlide slide = pres.getSlides().get_Item(0);
+#### **デフォルトスケールで段落をレンダリング**
 
-    // 目的のインデックス
-    int index = 0;
+サンプルとして、sample.pptx という 1 スライドのプレゼンテーションがあり、最初のシェイプが 3 つの段落を含むテキスト ボックスであるとします。
 
-    // 追加されたシェイプにアクセスする
-    IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
+![3 つの段落を含むテキスト ボックス](paragraph_to_image_input.png)
 
-    // 出力 HTML ファイルを作成する
-    OutputStream os = new FileOutputStream("output.html");
-    Writer writer = new OutputStreamWriter(os, "UTF-8");
-
-    //最初の段落を HTML として抽出する
-    // 段落の開始インデックスとコピーする総段落数を指定して、段落データを書き出して HTML に出力する
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **段落を画像として保存する**
-
-このセクションでは、[IParagraph] インターフェイスで表されるテキスト段落を画像として保存する 2 つの例を紹介します。両例とも、[IShape] インターフェイスの `getImage` メソッドを使用して段落を含むシェイプの画像を取得し、シェイプ内の段落の境界を計算してビットマップ画像としてエクスポートします。この方法により、PowerPoint プレゼンテーションからテキストの特定部分を抽出し、別々の画像として保存でき、さまざまなシナリオで活用できます。
-
-ここでは、sample.pptx というプレゼンテーション ファイルが 1 枚のスライドを持ち、最初のシェイプが 3 つの段落を含むテキスト ボックスであると想定します。
-
-![3 つの段落を含むテキストボックス](paragraph_to_image_input.png)
-
-**例 1**
-
-この例では、2 番目の段落を画像として取得します。まず、プレゼンテーションの最初のスライドからシェイプの画像を抽出し、シェイプのテキストフレーム内の 2 番目の段落の境界を計算します。その後、段落を新しいビットマップ画像に再描画し、PNG 形式で保存します。この方法は、特定の段落を正確なサイズと書式設定を保持したまま別画像として保存するのに特に有用です。
+以下の例は、通常のテキスト シェイプ内の 2 番目の段落をデフォルトスケールでレンダリングし、PNG 形式で画像を保存します。`finally` ブロックで画像が正しく破棄されるようにしています。
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // メモリ上にシェイプをビットマップとして保存します。
-    IImage shapeImage = firstShape.getImage();
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
-
-    // メモリからシェイプのビットマップを作成します。
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // 2 番目の段落の境界を計算します。
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-
-    // 出力画像の座標とサイズを計算します（最小サイズは 1x1 ピクセル）。
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // シェイプのビットマップを切り取り、段落のビットマップだけを取得します。
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-![段落の画像](paragraph_to_image_output.png)
-
-**例 2**
-
-この例では、前のアプローチにスケーリング係数を追加します。シェイプをプレゼンテーションから抽出し、スケーリング係数 `2` で画像として保存します。これにより、段落をエクスポートする際に高解像度の出力が得られます。その後、スケールを考慮して段落の境界を計算します。スケーリングは、たとえば高品質の印刷物で使用する詳細な画像が必要な場合に特に役立ちます。
-
-```java
-float imageScaleX = 2f;
-float imageScaleY = imageScaleX;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // スケーリング付きでシェイプをメモリ上にビットマップとして保存します。
-    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null && textFrame.getParagraphs().getCount() > 1) {
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(1);
+            IImage paragraphImage = paragraph.getImage();
 
-    // メモリからシェイプのビットマップを作成します。
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // 2 番目の段落の境界を計算します。
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.set(
-            paragraphRectangle.left * imageScaleX,
-            paragraphRectangle.top * imageScaleY,
-            paragraphRectangle.right * imageScaleX,
-            paragraphRectangle.bottom * imageScaleY
-    );
-
-    // 出力画像の座標とサイズを計算します（最小サイズは 1x1 ピクセル）。
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // シェイプのビットマップを切り取り、段落のビットマップだけを取得します。
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+            if (paragraphImage != null) {
+                try {
+                    paragraphImage.save("paragraph.png", ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                System.out.println("The paragraph could not be rendered.");
+            }
+        } else {
+            System.out.println("The expected paragraph was not found.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+結果:
 
-**テキストフレーム内で行折り返しを完全に無効にできますか？**
+![段落画像](paragraph_to_image_output.png)
 
-はい。テキストフレームの折り返し設定（[setWrapText](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)）を使用して折り返しをオフにすると、フレームの端で行が改行されなくなります。
+#### **テーブルセル内の段落をスケーリングしてレンダリング**
+
+`float scaleX` と `float scaleY` パラメータを受け取るオーバーロード [IParagraph.getImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) を使用して、横方向および縦方向のスケール係数を設定します。以下の例はテーブルを作成し、最初のセル内の段落をデフォルト幅と高さの 2 倍でレンダリングし、PNG 画像として保存します。
+
+```java
+import com.aspose.slides.*;
+
+float scaleX = 2f;
+float scaleY = 2f;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
+    IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
+
+    IImage paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage != null) {
+        try {
+            paragraphImage.save("table_paragraph.png", ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        System.out.println("The paragraph could not be rendered.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+スケール係数 `1` はその軸をデフォルトのピクセルサイズのままにします。たとえば、両方の係数を `2` にすると、幅と高さが約 2 倍になり、ピクセル数は 4 倍になります。大きな係数はズームや高解像度出力でテキストをより鮮明にしますが、メモリ使用量とファイルサイズも増加します。係数が `1` 未満の場合は、詳細が少ない小さな画像が生成されます。アスペクト比を保持したい場合は同一係数を使用し、横方向と縦方向で異なる係数を使用すると出力が個別に伸びます。
+
+[IShape.getImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#getImage--) を使用して形状全体をレンダリングすることは、塗りつぶし、枠線、その他の視覚コンテキストを含める必要がある場合に有用です。段落だけの画像が必要な場合は [IParagraph.getImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/#getImage--) を使用してください。
+
+## **よくある質問**
+
+**テキスト フレーム内で改行を完全に無効にできますか？**
+
+はい。`[ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-)` を設定してラップを無効にすると、テキスト フレームの端で行が折り返されません。
 
 **特定の段落のスライド上での正確な境界を取得するにはどうすればよいですか？**
 
-段落（場合によっては単一のパーツ）のバウンディング矩形を取得すれば、スライド上での正確な位置とサイズを知ることができます。
+`[IParagraph.getRect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/#getRect--)` を使用して段落のバウンディング矩形を取得できます。個々のポーションの境界は `[IPortion.getRect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iportion/#getRect--)` が提供します。
 
-**段落の配置（左揃え/右揃え/中央揃え/両端揃え）はどこで制御されますか？**
+**段落の配置（左揃え、右揃え、中央揃え、両端揃え）はどこで制御しますか？**
 
-[Alignment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) は、[ParagraphFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/paragraphformat/) の段落レベル設定であり、個々のパーツの書式設定に関係なく段落全体に適用されます。
+`[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-)` は段落レベルの設定であり、個々のポーションの書式設定に関係なく段落全体に適用されます。
 
-**段落の一部（例: 単語）だけにスペルチェック言語を設定できますか？**
+**段落の一部に校正言語を設定できますか？**
 
-はい。言語はパーツレベル（[PortionFormat.setLanguageId](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)）で設定されるため、1 つの段落内で複数の言語を共存させることができます。
+はい。個々のポーションに対して `[IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)` を設定すれば、1 つの段落内に複数言語のテキストを含めることができます。

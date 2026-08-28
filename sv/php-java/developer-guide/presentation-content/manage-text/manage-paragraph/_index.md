@@ -4,99 +4,106 @@ linktitle: Hantera stycke
 type: docs
 weight: 40
 url: /sv/php-java/manage-paragraph/
+aliases:
+  - /php-java/paragraph/
+  - /php-java/portion/
 keywords:
-- lägg till text
-- lägg till stycke
-- hantera text
-- hantera stycke
-- hantera punkt
-- styckeindrag
-- hängande indrag
-- styckepunkt
-- numrerad lista
-- punktlista
-- styckeegenskaper
-- importera HTML
-- text till HTML
-- stycke till HTML
-- stycke till bild
-- text till bild
-- exportera stycke
-- PowerPoint
-- OpenDocument
-- presentation
-- PHP
-- Aspose.Slides
-description: "Behärska styckeformatering med Aspose.Slides för PHP via Java — optimera justering, avstånd och stil i PPT-, PPTX- och ODP-presentationer."
+  - lägg till text
+  - lägg till stycke
+  - hantera text
+  - hantera stycke
+  - hantera punkt
+  - styckeindrag
+  - hängande indrag
+  - styckepunkt
+  - numrerad lista
+  - punktlista
+  - styckeegenskaper
+  - importera HTML
+  - text till HTML
+  - stycke till HTML
+  - stycke till bild
+  - text till bild
+  - exportera stycke
+  - PowerPoint
+  - presentation
+  - PHP
+  - Aspose.Slides
+description: "Lär dig hur du skapar och formaterar stycken, delar, punkter, numrerade listor, indrag, HTML-innehåll och styckebilder med Aspose.Slides för PHP via Java."
 ---
-## **Introduktion**
+## **Översikt**
 
-Aspose.Slides tillhandahåller alla klasser du behöver för att arbeta med PowerPoint-texter, stycken och portioner.
+Aspose.Slides för PHP via Java representerar text som en hierarki av textramar, stycken och delar:
 
-* Aspose.Slides tillhandahåller klassen [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) för att låta dig lägga till objekt som representerar ett stycke. Ett `TextFame`‑objekt kan ha ett eller flera stycken (varje stycke skapas genom ett radbrytningstecken).
-* Aspose.Slides tillhandahåller klassen [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/) för att låta dig lägga till objekt som representerar portioner. Ett `Paragraph`‑objekt kan ha en eller flera portioner (samling av portionsobjekt).
-* Aspose.Slides tillhandahåller klassen [Portion](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portion/) för att låta dig lägga till objekt som representerar texter och deras formateringsegenskaper.
+* [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) representerar textbehållaren i en form och ger åtkomst till dess styckesamling.
+* [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/) representerar ett stycke i en textram och ger åtkomst till dess delar och formatering på styckesnivå.
+* [Portion](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portion/) representerar en textkörning inom ett stycke. Varje del kan ha egen text och teckenformatering.
 
-Ett `Paragraph`‑objekt kan hantera texter med olika formateringsegenskaper via sina underliggande `Portion`‑objekt.
+Ett stycke kan därför innehålla text med olika teckensnitt, färger, storlekar och annan formatering genom att använda flera delar.
 
-## **Lägg till flera stycken som innehåller flera portioner**
+## **Skapa och formatera stycken**
 
-Dessa steg visar hur du lägger till en textruta som innehåller 3 stycken och varje stycke innehåller 3 portioner:
+### **Skapa stycken med flera delar**
+
+Följande steg skapar en textram med tre stycken, där varje stycke innehåller tre delar:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-2. Hämta referensen till den aktuella bilden via dess index.
-3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
-4. Hämta ITextFrame som är associerad med [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/).
-5. Skapa två [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/)‑objekt och lägg till dem i stycke‑samlingen för [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
-6. Skapa tre [Portion](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portion/)‑objekt för varje nytt `Paragraph` (två Portion‑objekt för standard‑Paragraph) och lägg varje `Portion`‑objekt i portionssamlingen för respektive `Paragraph`.
-7. Ange text för varje portion.
-8. Tillämpa önskade formateringsfunktioner på varje portion med hjälp av formateringsegenskaperna som erbjuds av `Portion`‑objektet.
+2. Hämta den aktuella bilden via dess index.
+3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
+4. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
+5. Använd standardstycket och lägg till två ytterligare [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/)‑objekt i textramen.
+6. Lägg till tillräckligt med [Portion](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portion/)‑objekt så att varje stycke får tre delar. Standardstycket innehåller redan en tom del.
+7. Ange texten för varje del.
+8. Tillämpa teckenformatering via [Portion::getPortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portion/#getPortionFormat--).
 9. Spara den modifierade presentationen.
 
-Denna PHP‑kod är en implementation av stegen för att lägga till stycken som innehåller portioner:
+Detta PHP‑exempel implementerar stegen:
 
 ```php
-# Instansiera en Presentation-klass som representerar en PPTX-fil
-$pres = new Presentation();
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    # Hämtar första bilden
-    $slide = $pres->getSlides()->get_Item(0);
-    # Lägg till en AutoShape av rektangeltyp
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # Hämtar TextFrame för AutoShape
-    $tf = $ashp->getTextFrame();
-    # Create Paragraphs and Portions with different text formats
-    $para0 = $tf->getParagraphs()->get_Item(0);
-    $port01 = new Portion();
-    $port02 = new Portion();
-    $para0->getPortions()->add($port01);
-    $para0->getPortions()->add($port02);
-    $para1 = new Paragraph();
-    $tf->getParagraphs()->add($para1);
-    $port10 = new Portion();
-    $port11 = new Portion();
-    $port12 = new Portion();
-    $para1->getPortions()->add($port10);
-    $para1->getPortions()->add($port11);
-    $para1->getPortions()->add($port12);
-    $para2 = new Paragraph();
-    $tf->getParagraphs()->add($para2);
-    $port20 = new Portion();
-    $port21 = new Portion();
-    $port22 = new Portion();
-    $para2->getPortions()->add($port20);
-    $para2->getPortions()->add($port21);
-    $para2->getPortions()->add($port22);
-    for($i = 0; $i < 3; $i++) {
-        for($j = 0; $j < 3; $j++) {
-            $portion = $tf->getParagraphs()->get_Item($i)->getPortions()->get_Item($j);
-            $portion->setText("Portion0" . $j);
-            if ($j == 0) {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
+    $textFrame = $shape->getTextFrame();
+
+    $firstParagraph = $textFrame->getParagraphs()->get_Item(0);
+    $firstParagraph->getPortions()->add(new Portion());
+    $firstParagraph->getPortions()->add(new Portion());
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getPortions()->add(new Portion());
+    $secondParagraph->getPortions()->add(new Portion());
+    $secondParagraph->getPortions()->add(new Portion());
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->getPortions()->add(new Portion());
+    $thirdParagraph->getPortions()->add(new Portion());
+    $thirdParagraph->getPortions()->add(new Portion());
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $paragraphCount = java_values($textFrame->getParagraphs()->getCount());
+    for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+        $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+        $portionCount = java_values($paragraph->getPortions()->getCount());
+        for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+            $portion = $paragraph->getPortions()->get_Item($portionIndex);
+            $portion->setText("Portion " . ($paragraphIndex + 1) . "." . ($portionIndex + 1));
+
+            if ($portionIndex == 0) {
                 $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
                 $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
                 $portion->getPortionFormat()->setFontBold(NullableBool::True);
                 $portion->getPortionFormat()->setFontHeight(15);
-            } else if ($j == 1) {
+            } else if ($portionIndex == 1) {
                 $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
                 $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
                 $portion->getPortionFormat()->setFontItalic(NullableBool::True);
@@ -104,338 +111,311 @@ try {
             }
         }
     }
-    # Spara PPTX till disk
-    $pres->save("multiParaPort_out.pptx", SaveFormat::Pptx);
+
+    $presentation->save("paragraphs_with_portions.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Hantera stycke‑punkter**
+## **Skapa punkt- och numrerade listor**
 
-Punktlistor hjälper dig att organisera och presentera information snabbt och effektivt. Punktmarkerade stycken är alltid lättare att läsa och förstå.
+### **Skapa en punkt- eller numrerad lista**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-2. Hämta referensen till den aktuella bilden via dess index.
-3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till den valda bilden.
-4. Hämta autoformens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
-5. Ta bort standard‑stycket i `TextFrame`.
-6. Skapa det första stycket med hjälp av klassen [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/).
-7. Ange punktens `Type` för stycket till `Symbol` och sätt punkttecknet.
-8. Ange styckets `Text`.
-9. Ange styckets `Indent` för punkten.
-10. Ange en färg för punkten.
-11. Ange en höjd för punkten.
-12. Lägg till det nya stycket i `TextFrame`‑styckesamlingen.
-13. Lägg till det andra stycket och upprepa processen som beskrivs i steg 7‑13.
-14. Spara presentationen.
-
-Denna PHP‑kod visar hur du lägger till en stycke‑punkt:
-
-```php
-# Instansierar en Presentation-klass som representerar en PPTX-fil
-$pres = new Presentation();
-try {
-    # Hämtar den första bilden
-    $slide = $pres->getSlides()->get_Item(0);
-    # Lägger till och hämtar Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Hämtar autoshapens textruta
-    $txtFrm = $aShp->getTextFrame();
-    # Tar bort standard‑stycket
-    $txtFrm->getParagraphs()->removeAt(0);
-    # Skapar ett stycke
-    $para = new Paragraph();
-    # Ställer in ett styckepunktformat och symbol
-    $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para->getParagraphFormat()->getBullet()->setChar(8226);
-    # Ställer in styckets text
-    $para->setText("Welcome to Aspose.Slides");
-    # Ställer in punktindrag
-    $para->getParagraphFormat()->setIndent(25);
-    # Ställer in punktfärg
-    $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
-    $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// sätt IsBulletHardColor till true för att använda egen punktfärg
-    # Ställer in punktens höjd
-    $para->getParagraphFormat()->getBullet()->setHeight(100);
-    # Lägger till stycke i textrutan
-    $txtFrm->getParagraphs()->add($para);
-    # Skapar andra stycket
-    $para2 = new Paragraph();
-    # Ställer in stycke-punktens typ och stil
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
-    # Lägger till stycke-text
-    $para2->setText("This is numbered bullet");
-    # Ställer in punktindrag
-    $para2->getParagraphFormat()->setIndent(25);
-    $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
-    $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// sätt IsBulletHardColor till true för att använda egen punktfärg
-    # Ställer in punktens höjd
-    $para2->getParagraphFormat()->getBullet()->setHeight(100);
-    # Lägger till stycke i textrutan
-    $txtFrm->getParagraphs()->add($para2);
-    # Sparar den modifierade presentationen
-    $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
-}
-```
-
-## **Hantera bildpunkter**
-
-Punktlistor hjälper dig att organisera och presentera information snabbt och effektivt. Bildstycken är lätta att läsa och förstå.
+Punkter och numrering gör relaterade objekt enklare att skanna. I Aspose.Slides definieras listinställningar via [BulletFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/).
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-2. Hämta referensen till den aktuella bilden via dess index.
-3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
-4. Hämta autoformens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
-5. Ta bort standard‑stycket i `TextFrame`.
-6. Skapa det första stycket med hjälp av klassen [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/).
-7. Läs in bilden i [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/).
-8. Ställ in punktens typ till [Picture](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bullettype/#Picture) och ange bilden.
-9. Ange styckets `Text`.
-10. Ange styckets `Indent` för punkten.
-11. Ange en färg för punkten.
-12. Ange en höjd för punkten.
-13. Lägg till det nya stycket i `TextFrame`‑styckesamlingen.
-14. Lägg till det andra stycket och upprepa processen baserat på föregående steg.
-15. Spara den modifierade presentationen.
+2. Hämta den aktuella bilden via dess index.
+3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på den valda bilden.
+4. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
+5. Ta bort standardstycket från textramen.
+6. Skapa ett [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/) för en symbolpunkt.
+7. Anropa [BulletFormat::setType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/#setType-int-) med [BulletType::Symbol](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bullettype/) och ange punkttecknet.
+8. Ställ in styckestext, indrag, punktfärg och punktens höjd.
+9. Lägg till stycket i textramen.
+10. Skapa ett andra stycke och anropa [BulletFormat::setType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/#setType-int-) med [BulletType::Numbered](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bullettype/).
+11. Konfigurera den numrerade punktstilen och lägg till stycket i textramen.
+12. Spara presentationen.
 
-Denna PHP‑kod visar hur du lägger till och hanterar bildpunkter:
+Detta PHP‑exempel skapar en symbolpunkt och en numrerad punkt:
 
 ```php
-# Instansierar en Presentation-klass som representerar en PPTX-fil
+use aspose\slides\BulletType;
+use aspose\slides\ColorType;
+use aspose\slides\NullableBool;
+use aspose\slides\NumberedBulletStyle;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    # Hämtar den första bilden
     $slide = $presentation->getSlides()->get_Item(0);
-    # Instansierar bilden för punkter
-    $picture;
-    $image = Images->fromFile("bullets.png");
-    try {
-        $picture = $presentation->getImages()->addImage($image);
-    } finally {
-        if (!java_is_null($image)) {
-            $image->dispose();
-        }
-    }
-    # Lägger till och hämtar Autoshape
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Hämtar autoshapens textruta
-    $textFrame = $autoShape->getTextFrame();
-    # Tar bort standard‑stycket
-    $textFrame->getParagraphs()->removeAt(0);
-    # Skapar ett nytt stycke
-    $paragraph = new Paragraph();
-    $paragraph->setText("Welcome to Aspose.Slides");
-    # Ställer in styckepunktstil och bild
-    $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
-    $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
-    # Ställer in punktens höjd
-    $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
-    # Lägger till stycke i textrutan
-    $textFrame->getParagraphs()->add($paragraph);
-    # Sparar presentationen som en PPTX-fil
-    $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
-    # Sparar presentationen som en PPT-fil
-    $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
-} catch (JavaException $e) {
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $symbolParagraph = new Paragraph();
+    $symbolParagraph->setText("Welcome to Aspose.Slides");
+    $symbolParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $symbolParagraph->getParagraphFormat()->setIndent(25);
+    $symbolParagraph->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
+    $symbolParagraph->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($symbolParagraph);
+
+    $numberedParagraph = new Paragraph();
+    $numberedParagraph->setText("This is a numbered item");
+    $numberedParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle::BulletCircleNumWDBlackPlain);
+    $numberedParagraph->getParagraphFormat()->setIndent(25);
+    $numberedParagraph->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
+    $numberedParagraph->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($numberedParagraph);
+
+    $presentation->save("bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Hantera flernivå‑punkter**
+### **Använd bildpunkter**
 
-Punktlistor hjälper dig att organisera och presentera information snabbt och effektivt. Flernivå‑punkter är lätta att läsa och förstå.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-2. Hämta referensen till den aktuella bilden via dess index.
-3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) i den nya bilden.
-4. Hämta autoformens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
-5. Ta bort standard‑stycket i `TextFrame`.
-6. Skapa det första stycket via klassen [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/) och sätt djupet till 0.
-7. Skapa det andra stycket via `Paragraph`‑klassen och sätt djupet till 1.
-8. Skapa det tredje stycket via `Paragraph`‑klassen och sätt djupet till 2.
-9. Skapa det fjärde stycket via `Paragraph`‑klassen och sätt djupet till 3.
-10. Lägg till de nya styckena i `TextFrame`‑styckesamlingen.
-11. Spara den modifierade presentationen.
-
-Denna PHP‑kod visar hur du lägger till och hanterar flernivå‑punkter:
-
-```php
-# Instansierar en Presentation-klass som representerar en PPTX-fil
-$pres = new Presentation();
-try {
-    # Hämtar den första bilden
-    $slide = $pres->getSlides()->get_Item(0);
-    # Lägger till och hämtar Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Hämtar textrutan för den skapade autoshapen
-    $text = $aShp->addTextFrame("");
-    # Rensar standard‑stycket
-    $text->getParagraphs()->clear();
-    # Lägger till det första stycket
-    $para1 = new Paragraph();
-    $para1->setText("Content");
-    $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para1->getParagraphFormat()->getBullet()->setChar(8226);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ställer in punktnivån
-    $para1->getParagraphFormat()->setDepth(0);
-    # Lägger till det andra stycket
-    $para2 = new Paragraph();
-    $para2->setText("Second Level");
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para2->getParagraphFormat()->getBullet()->setChar('-');
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ställer in punktnivån
-    $para2->getParagraphFormat()->setDepth(1);
-    # Lägger till det tredje stycket
-    $para3 = new Paragraph();
-    $para3->setText("Third Level");
-    $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para3->getParagraphFormat()->getBullet()->setChar(8226);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ställer in punktnivån
-    $para3->getParagraphFormat()->setDepth(2);
-    # Lägger till det fjärde stycket
-    $para4 = new Paragraph();
-    $para4->setText("Fourth Level");
-    $para4->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para4->getParagraphFormat()->getBullet()->setChar('-');
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ställer in punktnivån
-    $para4->getParagraphFormat()->setDepth(3);
-    # Lägger till stycken i samlingen
-    $text->getParagraphs()->add($para1);
-    $text->getParagraphs()->add($para2);
-    $text->getParagraphs()->add($para3);
-    $text->getParagraphs()->add($para4);
-    # Sparar presentationen som en PPTX-fil
-    $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
-}
-```
-
-## **Hantera ett stycke med en anpassad numrerad lista**
-
-Klassen [BulletFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/) tillhandahåller metoden [setNumberedBulletStartWith](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) och andra som låter dig hantera stycken med anpassad numrering eller formatering.
+Bildpunkter låter dig använda en anpassad bild istället för en symbol eller siffra.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-2. Hämta bilden som innehåller stycket.
-3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
-4. Hämta autoformens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
-5. Ta bort standard‑stycket i `TextFrame`.
-6. Skapa det första stycket via klassen [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/) och sätt [NumberedBulletStartWith](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) till 2.
-7. Skapa det andra stycket via `Paragraph`‑klassen och sätt `NumberedBulletStartWith` till 3.
-8. Skapa det tredje stycket via `Paragraph`‑klassen och sätt `NumberedBulletStartWith` till 7.
-9. Lägg till de nya styckena i `TextFrame`‑styckesamlingen.
+2. Hämta den aktuella bilden via dess index.
+3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) och hämta dess [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
+4. Ta bort standardstycket från textramen.
+5. Läs in punktbilden och lägg till den i presentationens bildsamling som en [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/).
+6. Skapa ett [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/) och ange dess text.
+7. Anropa [BulletFormat::setType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/#setType-int-) med [BulletType::Picture](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bullettype/).
+8. Tilldela bilden via [BulletFormat::getPicture](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/#getPicture--) och ange punktens höjd.
+9. Lägg till stycket i textramen.
 10. Spara den modifierade presentationen.
 
-Denna PHP‑kod visar hur du lägger till och hanterar stycken med anpassad numrering eller formatering:
+Detta PHP‑exempel skapar en bildpunkt:
 
 ```php
+use aspose\slides\BulletType;
+use aspose\slides\Images;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $bulletImage = Images::fromFile("bullets.png");
+    try {
+        $presentationImage = $presentation->getImages()->addImage($bulletImage);
+    } finally {
+        $bulletImage->dispose();
+    }
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $paragraph = new Paragraph();
+    $paragraph->setText("Welcome to Aspose.Slides");
+    $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
+    $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($presentationImage);
+    $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($paragraph);
+
+    $presentation->save("picture_bullet.pptx", SaveFormat::Pptx);
+    $presentation->save("picture_bullet.ppt", SaveFormat::Ppt);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Skapa en flernivålista**
+
+Ange [ParagraphFormat::setDepth](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setDepth-short-) för att placera stycken på olika nivåer i en lista. Toppenivån har djupet `0`.
+
+1. Skapa en [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) och öppna en bild.
+2. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) och rensa standardstycket från dess textram.
+3. Skapa fyra stycken och konfigurera deras punkttecken.
+4. Ange deras [ParagraphFormat::setDepth](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setDepth-short-) till `0`, `1`, `2` respektive `3`.
+5. Lägg till styckena i textramen och spara presentationen.
+
+Detta PHP‑exempel skapar en fyranivåpunktlista:
+
+```php
+use aspose\slides\BulletType;
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->setText("Content");
+    $firstParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $firstParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $firstParagraph->getParagraphFormat()->setDepth(0);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Second level");
+    $secondParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $secondParagraph->getParagraphFormat()->getBullet()->setChar('-');
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $secondParagraph->getParagraphFormat()->setDepth(1);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("Third level");
+    $thirdParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $thirdParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $thirdParagraph->getParagraphFormat()->setDepth(2);
+
+    $fourthParagraph = new Paragraph();
+    $fourthParagraph->setText("Fourth level");
+    $fourthParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $fourthParagraph->getParagraphFormat()->getBullet()->setChar('-');
+    $fourthParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $fourthParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $fourthParagraph->getParagraphFormat()->setDepth(3);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+    $textFrame->getParagraphs()->add($fourthParagraph);
+
+    $presentation->save("multilevel_list.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Starta numrerade listobjekt på anpassade värden**
+
+Använd [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) för att ange det inledande numret som visas för ett numrerat stycke.
+
+1. Skapa en [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) och lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på en bild.
+2. Rensa standardstycket från formens textram.
+3. Skapa tre numrerade stycken.
+4. Använd [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/sv/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) med `2`, `3` respektive `7` för de olika styckena.
+5. Lägg till styckena i textramen och spara presentationen.
+
+Detta PHP‑exempel tilldelar ett eget startnummer till varje stycke:
+
+```php
+use aspose\slides\BulletType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Hämtar textrutan för den skapade autoshapen
     $textFrame = $shape->getTextFrame();
-    # Tar bort standard-stycket
-    $textFrame->getParagraphs()->removeAt(0);
-    # Första listan
-    $paragraph1 = new Paragraph();
-    $paragraph1->setText("bullet 2");
-    $paragraph1->getParagraphFormat()->setDepth(4);
-    $paragraph1->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
-    $paragraph1->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph1);
-    $paragraph2 = new Paragraph();
-    $paragraph2->setText("bullet 3");
-    $paragraph2->getParagraphFormat()->setDepth(4);
-    $paragraph2->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
-    $paragraph2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph2);
-    $paragraph5 = new Paragraph();
-    $paragraph5->setText("bullet 7");
-    $paragraph5->getParagraphFormat()->setDepth(4);
-    $paragraph5->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
-    $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph5);
-    $presentation->save("SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->setText("Start at 2");
+    $firstParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $firstParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
+    $textFrame->getParagraphs()->add($firstParagraph);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Start at 3");
+    $secondParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $secondParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("Start at 7");
+    $thirdParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $thirdParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $presentation->save("custom_numbered_list.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Ställ in första‑rad‑indrag för ett stycke**
+## **Styr layout och slutegenskaper för stycken**
 
-Använd metoden [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setindent/) för att kontrollera första‑rad‑indraget för ett stycke. Denna metod flyttar bara den första raden i förhållande till styckets vänstra marginal. Ett positivt värde flyttar den första raden åt höger, medan de återstående raderna förblir justerade med styckeskroppen.
+### **Ange första‑radens indrag**
 
-Använd [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setmarginleft/) när du behöver flytta hela stycket. Använd [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setindent/) när du bara vill flytta den första raden.
+Använd [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setIndent-float-) för att kontrollera första‑radens indrag i ett stycke. Denna metod flyttar endast den första raden relativt styckets vänstra marginal. Ett positivt värde förflyttar den första raden åt höger, medan de resterande raderna behåller sin placering i styckets kropp.
 
-Exemplet nedan skapar flera stycken och tillämpar olika indragsvärden för att demonstrera hur första‑rad‑indraget påverkar stycke‑layouten.
+Använd [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) när du vill flytta hela stycket. Använd [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setIndent-float-) när du bara vill flytta den första raden.
+
+Exemplet nedan skapar flera stycken och tillämpar olika [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setIndent-float-)‑värden för att demonstrera hur första‑radens indrag påverkar styckeformateringen.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
 2. Hämta målbilden.
-3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
-4. Lägg till en tom [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) till formen och ta bort standard‑stycket.
-5. Skapa flera stycken och sätt olika [Indent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setindent/)‑värden för dem.
-6. Lägg till styckena i textrutan.
+3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
+4. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) och ta bort standardstycket.
+5. Skapa flera stycken och ange olika [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setIndent-float-)‑värden för dem.
+6. Lägg till styckena i textramen.
 7. Spara den modifierade presentationen.
 
-Denna kod visar hur du anger ett styckeindrag:
+Detta PHP‑kodexempel visar hur du anger ett styckeindrag:
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
-    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
-    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
 
-    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame = $shape->getTextFrame();
     $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    $textFrame->getParagraphs()->removeAt(0);
+    $textFrame->getParagraphs()->clear();
 
     $firstParagraph = new Paragraph();
+    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     $firstParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $firstParagraph->getParagraphFormat()->setIndent(0.0);
 
     $secondParagraph = new Paragraph();
+    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     $secondParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $secondParagraph->getParagraphFormat()->setIndent(20.0);
 
     $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     $thirdParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $thirdParagraph->getParagraphFormat()->setIndent(40.0);
 
@@ -451,52 +431,59 @@ try {
 
 Resultatet:
 
-![Första radens indrag av styckena](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-## **Ställ in hängande indrag för ett stycke**
+### **Ange hängande indrag**
 
-Ett hängande indrag är en stycke‑layout där den första raden börjar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med metoden [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setindent/). Sätt indraget till ett negativt värde för att flytta den första raden åt vänster i förhållande till styckets kropp.
+Ett hängande indrag är en styckeformat där den första raden börjar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setIndent-float-). Ange ett negativt värde för att flytta den första raden åt vänster relativt styckets kropp.
 
-I praktiken definierar [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setmarginleft/) den vänstra positionen för styckeskroppen, och [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setindent/) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, sätt ett positivt `MarginLeft`‑värde och ett negativt `Indent`‑värde.
+I praktiken definierar [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) den vänstra positionen för styckets kropp, och [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setIndent-float-) definierar den första radens position relativt denna marginal. För att skapa ett hängande indrag, ange ett positivt värde till `setMarginLeft` och ett negativt värde till `setIndent`.
 
-Denna formatering är användbar för bibliografier, referenser, uppslagsord och andra stycken där radbrytningar måste linjera under styckets kropp snarare än under första tecknet i första raden.
+Denna formatering är användbar för bibliografier, referenser, uppslagsord och andra stycken där radbrytningar ska linjeras under styckets kropp istället för under det första tecknet i första raden.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
 2. Hämta målbilden.
-3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
-4. Lägg till en tom [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) till formen och ta bort standard‑stycket.
-5. Skapa stycken och sätt ett positivt [MarginLeft](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setmarginleft/)‑värde för varje stycke.
-6. Sätt ett negativt [Indent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setindent/)‑värde för att skapa hängande indrag.
-7. Lägg till styckena i textrutan.
+3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) på bilden.
+4. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) och ta bort standardstycket.
+5. Skapa stycken och ange ett positivt värde till [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) för varje stycke.
+6. Ange ett negativt värde till [ParagraphFormat::setIndent](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setIndent-float-) för att skapa hängande indrag.
+7. Lägg till styckena i textramen.
 8. Spara den modifierade presentationen.
 
-Denna kod visar hur du anger ett hängande indrag för ett stycke:
+Detta PHP‑kodexempel visar hur du anger ett hängande indrag för ett stycke:
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
-    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
-    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
 
-    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame = $shape->getTextFrame();
     $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    $textFrame->getParagraphs()->removeAt(0);
+    $textFrame->getParagraphs()->clear();
 
     $firstParagraph = new Paragraph();
+    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     $firstParagraph->getParagraphFormat()->setMarginLeft(40.0);
     $firstParagraph->getParagraphFormat()->setIndent(-20.0);
 
     $secondParagraph = new Paragraph();
+    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     $secondParagraph->getParagraphFormat()->setMarginLeft(60.0);
     $secondParagraph->getParagraphFormat()->setIndent(-30.0);
 
@@ -511,241 +498,238 @@ try {
 
 Resultatet:
 
-![Hängande indrag av styckena](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-## **Hantera slut‑stycke‑körnings‑egenskaper**
+### **Ange slutegenskaper för styckeelement**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Hämta referensen till bilden som innehåller stycket via dess position.
-1. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
-1. Lägg till en [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) med två stycken till rektangeln.
-1. Ställ in teckenhöjd och teckensnittstyp för styckena.
-1. Ställ in slut‑egenskaperna för styckena.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) styr formateringen av styckets avslutningstecken. Följande PHP‑exempel tilldelar en teckenstorlek och ett latinskt teckensnitt till avslutningstecknet för det andra stycket:
 
-Denna PHP‑kod visar hur du anger slut‑egenskaper för stycken i PowerPoint:
+1. Läs in en [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) och öppna en bild.
+2. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) och rensa dess standardstycke.
+3. Skapa två stycken och lägg till textdelar i dem.
+4. Skapa ett [PortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portionformat/) för det andra styckets avslutningstecken.
+5. Ange [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) och [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Tilldela formatet med [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) och spara presentationen.
 
 ```php
-$pres = new Presentation();
+use aspose\slides\FontData;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\PortionFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation("Test.pptx");
 try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
-    $para1 = new Paragraph();
-    $para1->getPortions()->add(new Portion("Sample text"));
-    $para2 = new Paragraph();
-    $para2->getPortions()->add(new Portion("Sample text 2"));
-    $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(48);
-    $portionFormat::setLatinFont(new FontData("Times New Roman"));
-    $para2->setEndParagraphPortionFormat($portionFormat);
-    $shape->getTextFrame()->getParagraphs()->add($para1);
-    $shape->getTextFrame()->getParagraphs()->add($para2);
-    $pres->save($resourcesOutputPath . "pres.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->getPortions()->add(new Portion("Sample text"));
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getPortions()->add(new Portion("Sample text 2"));
+
+    $endParagraphFormat = new PortionFormat();
+    $endParagraphFormat->setFontHeight(48);
+    $endParagraphFormat->setLatinFont(new FontData("Times New Roman"));
+    $secondParagraph->setEndParagraphPortionFormat($endParagraphFormat);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $presentation->save("end_paragraph_format.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Importera HTML‑text till stycken**
+## **Import och export av styckeinnehåll**
 
-Aspose.Slides erbjuder förbättrat stöd för att importera HTML‑text till stycken.
+### **Importera HTML‑text till stycken**
+
+Använd [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) för att konvertera HTML‑markup till stycken och delar i en textram.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-2. Hämta referensen till den aktuella bilden via dess index.
-3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) till bilden.
-4. Lägg till och hämta `AutoShape`‑ens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
-5. Ta bort standard‑stycket i `TextFrame`.
-6. Läs in käll‑HTML‑filen i en TextReader.
-7. Skapa det första stycket via klassen [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/).
-8. Lägg till HTML‑filens innehåll från den lästa TextReadern till TextFrame‑s [ParagraphCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphcollection/).
-9. Spara den modifierade presentationen.
+2. Öppna en bild och lägg till en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/).
+3. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) och rensa dess standardstycke.
+4. Läs in käll‑HTML‑filen.
+5. Skicka HTML‑strängen till [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+6. Spara den modifierade presentationen.
 
-Denna PHP‑kod är en implementation av stegen för att importera HTML‑texter i stycken:
+Detta PHP‑exempel importerar HTML till en textram:
 
 ```php
-# Skapa tom presentation‑instans
-$pres = new Presentation();
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    # Hämta standardförsta bilden i presentationen
-    $slide = $pres->getSlides()->get_Item(0);
-    # Lägger till AutoShape för att rymma HTML‑innehållet
-    $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
-    $ashape->getFillFormat()->setFillType(FillType::NoFill);
-    # Lägger till textruta i formen
-    $ashape->addTextFrame("");
-    # Rensar alla stycken i den tillagda textrutan
-    $ashape->getTextFrame()->getParagraphs()->clear();
-    # Laddar HTML‑filen med stream‑läsare
-    $tr = new StreamReader("file.html");
-    # Lägger till text från HTML‑stream‑läsaren i textrutan
-    $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
-    # Sparar presentationen
-    $pres->save("output_out.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeWidth = java_values($presentation->getSlideSize()->getSize()->getWidth()) - 20;
+    $shapeHeight = java_values($presentation->getSlideSize()->getSize()->getHeight()) - 20;
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $shapeWidth, $shapeHeight);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getTextFrame()->getParagraphs()->clear();
+
+    $html = file_get_contents("file.html");
+    if ($html !== false) {
+        $shape->getTextFrame()->getParagraphs()->addFromHtml($html);
+        $presentation->save("html_text.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The HTML file could not be read.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **Exportera stycke‑text till HTML**
+### **Exportera styckettext till HTML**
 
-Aspose.Slides erbjuder förbättrat stöd för att exportera texter (innehållande i stycken) till HTML.
+Använd [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) för att exportera ett valt intervall av stycken som HTML.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) och läs in önskad presentation.
-2. Hämta referensen till den aktuella bilden via dess index.
-3. Hämta formen som innehåller texten som ska exporteras till HTML.
-4. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
-5. Skapa en instans av `StreamWriter` och lägg till den nya HTML‑filen.
-6. Ange ett startindex till StreamWriter och exportera de önskade styckena.
+2. Öppna bilden och hitta den [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/) som innehåller texten.
+3. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/).
+4. Anropa [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) med start‑styckeindex och antal stycken att exportera.
+5. Skriv den returnerade HTML‑strängen till en fil.
 
-Denna PHP‑kod visar hur du exporterar PowerPoint‑stycketexter till HTML:
+Detta PHP‑exempel exporterar alla stycken från den första textformen:
 
 ```php
-# Läs in presentationsfilen
-$pres = new Presentation("ExportingHTMLText.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    # Hämta standardförsta bilden i presentationen
-    $slide = $pres->getSlides()->get_Item(0);
-    # Önskat index
-    $index = 0;
-    # Hämtar den tillagda formen
-    $ashape = $slide->getShapes()->get_Item($index);
-    # Skapar utdata‑HTML‑fil
-    $os = new Java("java.io.FileOutputStream", "output.html");
-    $writer = new OutputStreamWriter($os, "UTF-8");
-    # Extraherar första stycket som HTML
-    # Skriver stycke‑data till HTML genom att ange startindex för stycket, totalt antal stycken som ska kopieras
-    $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
-    $writer->close();
-} catch (JavaException $e) {
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+        $textFrame = $shape->getTextFrame();
+        if (!java_is_null($textFrame)) {
+            $paragraphs = $textFrame->getParagraphs();
+            $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), null);
+            if (file_put_contents("paragraphs.html", $html) === false) {
+                echo "The HTML file could not be written.";
+            }
+        } else {
+            echo "The first shape does not contain a text frame.";
+        }
+    } else {
+        echo "The first shape is not a text shape.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **Spara ett stycke som bild**
+### **Rendera ett stycke som bild**
 
-I detta avsnitt utforskar vi två exempel som visar hur man sparar ett textstycke, representerat av klassen [Paragraph](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/), som en bild. Båda exemplen inkluderar att hämta bilden av en form som innehåller stycket med `getImage`‑metoderna från klassen [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/), beräkna styckets gränser inom formen och exportera det som en bitmap‑bild. Dessa tillvägagångssätt möjliggör att extrahera specifika delar av texten från PowerPoint‑presentationer och spara dem som separata bilder, vilket kan vara användbart i olika scenarier.
+[Paragraph::getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/#getImage--) renderar ett enskilt stycke direkt och returnerar en [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/). Spara resultatet till en fil eller ström med [IImage::save](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Du behöver inte rendera den omgivande formen eller beskära en bitmap manuellt.
 
-Låt oss anta att vi har en presentationsfil kallad sample.pptx med en bild, där den första formen är en textruta som innehåller tre stycken.
+[Paragraph::getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/#getImage--) kan returnera `null` om stycket inte finns i sin föräldrakollektion, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan du sparar det och frigör den returnerade bilden efter användning.
 
-![Textrutan med tre stycken](paragraph_to_image_input.png)
+#### **Rendera ett stycke i standardskala**
 
-**Exempel 1**
+Anta att vi har en presentationsfil kallad sample.pptx med en bild, där den första formen är en textruta som innehåller tre stycken.
 
-I detta exempel hämtar vi det andra stycket som en bild. För att göra detta extraherar vi bildens form från den första bilden i presentationen och beräknar sedan gränserna för det andra stycket i formens textruta. Stycket ritas sedan om på en ny bitmap‑bild som sparas i PNG‑format. Denna metod är särskilt användbar när du behöver spara ett specifikt stycke som en separat bild samtidigt som du bevarar exakt dimension och formatering.
+![The text box with three paragraphs](paragraph_to_image_input.png)
+
+Följande PHP‑exempel renderar det andra stycket i en vanlig textform i standardskala och sparar den returnerade bilden i PNG‑format. `finally`‑blocket säkerställer att bilden frigörs korrekt.
 
 ```php
-$imageIO = new Java("javax.imageio.ImageIO");
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // Spara formen i minnet som en bitmap.
-    $shapeImage = $firstShape->getImage();
-    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-    $shapeImage->save($shapeImageStream, ImageFormat::Png);
-    $shapeImage->dispose();
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+        $textFrame = $shape->getTextFrame();
+        if (!java_is_null($textFrame) && java_values($textFrame->getParagraphs()->getCount()) > 1) {
+            $paragraph = $textFrame->getParagraphs()->get_Item(1);
+            $paragraphImage = $paragraph->getImage();
 
-    // Skapa en bitmap av formen från minnet.
-    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-    $shapeBitmap = $imageIO->read($shapeImageInputStream);
-
-    // Beräkna gränserna för det andra stycket.
-    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-    $paragraphRectangle = $secondParagraph->getRect();
-
-    // Beräkna koordinaterna och storleken för utdata-bilden (minsta storlek - 1x1 pixel).
-    $imageX = floor(java_values($paragraphRectangle->getX()));
-    $imageY = floor(java_values($paragraphRectangle->getY()));
-    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
-
-    // Beskär formens bitmap för att bara få stycke-bitmapen.
-    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
-
-    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-} finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
+            if (!java_is_null($paragraphImage)) {
+                try {
+                    $paragraphImage->save("paragraph.png", ImageFormat::Png);
+                } finally {
+                    $paragraphImage->dispose();
+                }
+            } else {
+                echo "The paragraph could not be rendered.";
+            }
+        } else {
+            echo "The expected paragraph was not found.";
+        }
+    } else {
+        echo "The first shape is not a text shape.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
 Resultatet:
 
-![Styckebilden](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-**Exempel 2**
+#### **Rendera ett stycke i en tabellcell med skalning**
 
-I detta exempel utvidgar vi föregående metod genom att lägga till skalningsfaktorer till styckebilden. Formen extraheras från presentationen och sparas som en bild med en skalningsfaktor på `2`. Detta möjliggör en högre upplösning vid export av stycket. Styckets gränser beräknas sedan med hänsyn till skalan. Skalning kan vara särskilt användbart när en mer detaljerad bild behövs, till exempel för högkvalitativt tryck.
+Använd [Paragraph::getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/#getImage-float-float-)‑overloaden som accepterar parametrarna `$scaleX` och `$scaleY` för att ange horisontella och vertikala skalningsfaktorer. Följande PHP‑exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild.
 
 ```php
-$imageIO = new Java("javax.imageio.ImageIO");
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
 
-$imageScaleX = 2;
-$imageScaleY = $imageScaleX;
+$scaleX = 2;
+$scaleY = 2;
 
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation();
 try {
-    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->addTable(50, 50, array(300), array(80));
+    $paragraph = $table->get_Item(0, 0)->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->setText("Text in a table cell");
 
-    // Spara formen i minnet som en bitmap med skalning.
-    $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
-    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-    $shapeImage->save($shapeImageStream, ImageFormat::Png);
-    $shapeImage->dispose();
-
-    // Skapa en bitmap av formen från minnet.
-    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-    $shapeBitmap = $imageIO->read($shapeImageInputStream);
-
-    // Beräkna gränserna för det andra stycket.
-    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-    $paragraphRectangle = $secondParagraph->getRect();
-    $paragraphRectangle->setRect(
-            java_values($paragraphRectangle->getX()) * $imageScaleX,
-            java_values($paragraphRectangle->getY()) * $imageScaleY,
-            java_values($paragraphRectangle->getWidth()) * $imageScaleX,
-            java_values($paragraphRectangle->getHeight()) * $imageScaleY
-    );
-
-    // Beräkna koordinaterna och storleken för utdata-bilden (minsta storlek - 1x1 pixel).
-    $imageX = floor(java_values($paragraphRectangle->getX()));
-    $imageY = floor(java_values($paragraphRectangle->getY()));
-    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
-
-    // Beskär formens bitmap för att endast få stycke-bitmapen.
-    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
-
-    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-} finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
+    $paragraphImage = $paragraph->getImage($scaleX, $scaleY);
+    if (!java_is_null($paragraphImage)) {
+        try {
+            $paragraphImage->save("table_paragraph.png", ImageFormat::Png);
+        } finally {
+            $paragraphImage->dispose();
+        }
+    } else {
+        echo "The paragraph could not be rendered.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
+En skalningsfaktor på `1` behåller den axeln på dess standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standard, vilket resulterar i fyra gånger så många pixlar. Större faktorer ger vanligtvis skarpare text för zoomning eller högupplöst output, men ökar också minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detalj. Använd lika faktorer för att bevara bildens proportioner; olika horisontella och vertikala faktorer sträcker bilden oberoende.
+
+Att rendera en hel form med [Shape::getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/#getImage--) är fortfarande användbart när output ska inkludera formens fyllning, kantlinje eller annan visuell kontext. För enbart bild på stycke, använd [Paragraph::getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/#getImage--).
+
 ## **FAQ**
 
-**Kan jag helt inaktivera radbrytning i en textruta?**
+**Kan jag helt inaktivera radbrytning i en textram?**
 
-Ja. Använd textrutans radbrytningsinställning ([setWrapText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/setwraptext/)) för att stänga av radbrytning så att raderna inte bryts vid ramens kanter.
+Ja. Använd [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframeformat/#setWrapText-byte-) för att inaktivera inbrytning så att rader inte bryts vid textramens kanter.
 
-**Hur får jag exakt position på en viss paragraf på bilden?**
+**Hur får jag exakt slide‑position för ett specifikt stycke?**
 
-Du kan hämta styckets (och även en enskild portions) avgränsningsrektangel för att veta dess exakta position och storlek på bilden.
+Använd [Paragraph::getRect](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraph/#getRect--) för att hämta styckets omgivande rektangel. [Portion::getRect](https://reference.aspose.com/slides/sv/php-java/aspose.slides/portion/#getRect--) ger gränserna för en enskild del.
 
-**Var styrs styckejustering (vänster/höger/centrerat/justify)?**
+**Var styrs styckejustering (vänster, höger, centrerad eller marginaljusterad)?**
 
-[Alignment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/setalignment/) är en inställning på styckelnivå i [ParagraphFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/); den gäller hela stycket oavsett individuell portionsformatering.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/paragraphformat/#setAlignment-int-) är en inställning på styckesnivå och tillämpas på hela stycket oavsett individuell del‑formattering.
 
-**Kan jag ange ett stavningsspråk för bara en del av ett stycke (t.ex. ett ord)?**
+**Kan jag ange korrekturläsningsspråk för en del av ett stycke?**
 
-Ja. Språket sätts på portionsnivå ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#setLanguageId)), så flera språk kan samexistera inom ett och samma stycke.
+Ja. Använd [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) för enskilda delar, så att ett stycke kan innehålla text på flera språk.
