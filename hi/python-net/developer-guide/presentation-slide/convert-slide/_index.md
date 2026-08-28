@@ -1,56 +1,59 @@
 ---
-title: PowerPoint स्लाइड्स को Python में छवियों में बदलें
-linktitle: स्लाइड से छवि
+title: Python में प्रस्तुति स्लाइड्स को इमेज में बदलें
+linktitle: स्लाइड से इमेज
 type: docs
 weight: 41
 url: /hi/python-net/convert-slide/
 keywords:
 - स्लाइड बदलें
-- स्लाइड को छवि में बदलें
-- स्लाइड को छवि के रूप में निर्यात करें
-- स्लाइड को छवि के रूप में सहेजें
-- स्लाइड से छवि
+- स्लाइड निर्यात करें
+- स्लाइड से इमेज
+- स्लाइड को इमेज के रूप में सहेजें
+- स्लाइड से EMF
 - स्लाइड से PNG
 - स्लाइड से JPEG
 - स्लाइड से बिटमैप
+- स्लाइड से TIFF
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument स्लाइड्स को विभिन्न प्रारूपों में बदलना सीखें। PPTX और ODP स्लाइड्स को BMP, PNG, JPEG, TIFF इत्यादि में उच्च-गुणवत्ता के परिणामों के साथ आसानी से निर्यात करें।"
+description: "PPT, PPTX और ODP प्रस्तुतियों से स्लाइड्स को PNG, JPEG, GIF, TIFF, EMF और अन्य इमेज फ़ॉर्मैट्स में Python के साथ Aspose.Slides का उपयोग करके बदलें।"
 ---
 ## **परिचय**
 
-Aspose.Slides for Python via .NET आपको आसानी से PowerPoint और OpenDocument प्रस्तुति स्लाइड्स को विभिन्न चित्र प्रारूपों जैसे BMP, PNG, JPG (JPEG), GIF और अन्य में बदलने में सक्षम बनाता है।
+Aspose.Slides for Python via .NET व्यक्तिगत स्लाइड्स को PowerPoint और OpenDocument प्रस्तुतियों से PNG, JPEG, GIF, TIFF, और अन्य इमेज फ़ॉर्मैट्स में रेंडर कर सकता है।
 
-स्लाइड को छवि में बदलने के लिए, निम्नलिखित चरणों का पालन करें:
+एक स्लाइड को इमेज में बदलने के लिए, निम्नलिखित चरणों का पालन करें:
 
-1. वांछित परिवर्तन सेटिंग्स को निर्धारित करें और उन स्लाइड्स का चयन करें जिन्हें आप निर्यात करना चाहते हैं, इसके लिए उपयोग करें:
-    - [TiffOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/tiffoptions/) क्लास, या
-    - [RenderingOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/renderingoptions/) क्लास।
-2. स्लाइड छवि उत्पन्न करने के लिए [Slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/) क्लास की `get_image` विधि को कॉल करें।
+1. प्रेजेंटेशन को [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास के साथ लोड करें।
+2. जिस स्लाइड को आप रेंडर करना चाहते हैं, उसे चुनें।
+3. यदि आवश्यक हो, तो रेंडरिंग को [RenderingOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/renderingoptions/) या [TiffOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/tiffoptions/) क्लास के साथ कॉन्फ़िगर करें।
+4. [Slide.get_image](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/get_image/) मेथड को कॉल करें। यह एक [IImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/) ऑब्जेक्ट लौटाता है।
+5. [IImage.save](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/save/) मेथड को कॉल करें और आउटपुट फ़ॉर्मेट को एक [ImageFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/imageformat/) वैल्यू से निर्दिष्ट करें।
 
-Aspose.Slides for Python via .NET में, [IImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/) एक क्लास है जो पिक्सेल डेटा द्वारा परिभाषित छवियों के साथ काम करने की अनुमति देती है। आप इस क्लास की एक इंस्टेंस का उपयोग करके BMP, JPG, PNG आदि जैसे विभिन्न प्रारूपों में छवियों को सहेज सकते हैं।
+## **स्लाइड को PNG इमेज में बदलें**
 
-## **स्लाइड्स को बिटमैप में बदलें और PNG में छवियों को सहेजें**
+सबसे सरल रूपांतरण डिफ़ॉल्ट रेंडरिंग सेटिंग्स का उपयोग करता है। प्राप्त [IImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/) ऑब्जेक्ट को मेमोरी में प्रोसेस किया जा सकता है या फ़ाइल में सेव किया जा सकता है।
 
-आप स्लाइड को बिटमैप ऑब्जेक्ट में बदल सकते हैं और इसे सीधे अपने एप्लिकेशन में उपयोग कर सकते हैं। वैकल्पिक रूप से, आप स्लाइड को बिटमैप में बदलकर फिर छवि को JPEG या किसी अन्य इच्छित प्रारूप में सहेज सकते हैं।
+निम्नलिखित Python उदाहरण प्रथम स्लाइड को रेंडर करता है और इसे PNG इमेज के रूप में सहेजता है:
 
-यह Python कोड प्रदर्शित करता है कि प्रस्तुति की पहली स्लाइड को बिटमैप ऑब्जेक्ट में कैसे बदलें और फिर PNG प्रारूप में छवि को कैसे सहेजें:
-
-```py 
+```py
 import aspose.slides as slides
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # प्रस्तुति में पहली स्लाइड को बिटमैप में बदलें.
-    with presentation.slides[0].get_image() as image:
-        # छवि को PNG प्रारूप में सहेजें.
+    slide = presentation.slides[0]
+
+    with slide.get_image() as image:
         image.save("Slide_0.png", slides.ImageFormat.PNG)
 ```
 
-## **कस्टम आकार के साथ स्लाइड्स को छवियों में बदलें**
+## **कस्टम साइज के साथ स्लाइड्स को इमेज में बदलें**
 
-आपको किसी निश्चित आकार की छवि चाहिए हो सकती है। [get_image](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) की एक ओवरलोड का उपयोग करके, आप स्लाइड को विशिष्ट आयामों (चौड़ाई और ऊँचाई) वाले चित्र में बदल सकते हैं। 
+स्लाइड को सटीक पिक्सेल आयामों के साथ रेंडर करने के लिए, वह [Slide.get_image](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) ओवरलोड उपयोग करें जो एक [Size](https://reference.aspose.com/slides/hi/python-net/aspose.pydrawing/size/) वैल्यू को स्वीकार करता है।
 
-यह नमूना कोड दर्शाता है कि यह कैसे किया जाता है:
+निम्नलिखित उदाहरण 1820 × 1040 JPEG इमेज बनाता है:
 
 ```py
 import aspose.pydrawing as draw
@@ -59,83 +62,72 @@ import aspose.slides as slides
 image_size = draw.Size(1820, 1040)
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # प्रस्तुति में पहली स्लाइड को निर्दिष्ट आकार के साथ बिटमैप में बदलें।
-    with presentation.slides[0].get_image(image_size) as image:
-        # छवि को JPEG प्रारूप में सहेजें।
+    slide = presentation.slides[0]
+
+    with slide.get_image(image_size) as image:
         image.save("Slide_0.jpg", slides.ImageFormat.JPEG)
 ```
 
-## **नोट्स और कमेंट्स वाले स्लाइड्स को छवियों में बदलें**
+## **नोट्स और कमेंट्स के साथ स्लाइड्स को इमेज में बदलें**
 
-कुछ स्लाइड्स में नोट्स और कमेंट्स हो सकते हैं।
+डिफ़ॉल्ट रूप से, स्लाइड इमेज में नोट्स या कमेंट्स शामिल नहीं होते हैं। नोट्स और कमेंट्स कहां दिखाई दें, इसे नियंत्रित करने के लिए एक [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/notescommentslayoutingoptions/) ऑब्जेक्ट को [RenderingOptions.slides_layout_options](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/renderingoptions/slides_layout_options/) प्रॉपर्टी में असाइन करें।
 
-Aspose.Slides दो क्लासें—[TiffOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/tiffoptions/) और [RenderingOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/renderingoptions/)— प्रदान करती है जो प्रस्तुति स्लाइड्स को छवियों में रेंडर करने को नियंत्रित करने देती हैं। दोनों क्लासों में `slides_layout_options` प्रॉपर्टी मौजूद है, जो स्लाइड को छवि में बदलते समय नोट्स और कमेंट्स के रेंडरिंग को कॉन्फ़िगर करने की अनुमति देती है।
+निम्नलिखित उदाहरण ट्रंकेटेड नोट्स को स्लाइड के नीचे और कमेंट्स को दाईं ओर रखता है:
 
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/notescommentslayoutingoptions/) क्लास के साथ, आप परिणामी छवि में नोट्स और कमेंट्स की पसंदीदा स्थिति निर्दिष्ट कर सकते हैं।
-
-यह Python कोड दर्शाता है कि नोट्स और कमेंट्स वाली स्लाइड को कैसे बदला जाए:
-
-```py 
+```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
 scale_x = 2
 scale_y = scale_x
 
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
+layout_options.comments_position = slides.export.CommentsPositions.RIGHT
+layout_options.comments_area_width = 500
+layout_options.comments_area_color = draw.Color.antique_white
+
+rendering_options = slides.export.RenderingOptions()
+rendering_options.slides_layout_options = layout_options
+
 with slides.Presentation("Presentation_with_notes_and_comments.pptx") as presentation:
-    notes_comments_options = slides.export.NotesCommentsLayoutingOptions()
-    notes_comments_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED  # नोट्स की स्थिति निर्धारित करें।
-    notes_comments_options.comments_position = slides.export.CommentsPositions.RIGHT       # टिप्पणियों की स्थिति निर्धारित करें।
-    notes_comments_options.comments_area_width = 500                                       # टिप्पणियों क्षेत्र की चौड़ाई निर्धारित करें।
-    notes_comments_options.comments_area_color = draw.Color.antique_white                  # टिप्पणियों क्षेत्र का रंग निर्धारित करें।
+    slide = presentation.slides[0]
 
-    # रेंडरिंग विकल्प बनाएं।
-    options = slides.export.RenderingOptions()
-    options.slides_layout_options = notes_comments_options
-
-    # प्रस्तुति की पहली स्लाइड को छवि में बदलें।
-    with presentation.slides[0].get_image(options, scale_x, scale_y) as image:
-        # छवि को GIF प्रारूप में सहेजें।
+    with slide.get_image(rendering_options, scale_x, scale_y) as image:
         image.save("Image_with_notes_and_comments_0.gif", slides.ImageFormat.GIF)
 ```
 
-{{% alert title="Note" color="warning" %}} 
-किसी भी स्लाइड‑से‑छवि रूपांतरण प्रक्रिया में, [notes_position](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) प्रॉपर्टी को `BOTTOM_FULL` पर सेट नहीं किया जा सकता (नोट्स की स्थिति निर्धारित करने के लिए) क्योंकि नोट का पाठ बहुत बड़ा हो सकता है, जिससे वह निर्दिष्ट छवि आकार में फिट नहीं हो पाता।
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+स्लाइड-से-इमेज रूपांतरण के लिए, [NotesCommentsLayoutingOptions.notes_position](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) प्रॉपर्टी को [NotesPositions.BOTTOM_FULL](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/notespositions/) पर सेट न करें। नोट्स में स्थिर इमेज आकार से अधिक टेक्स्ट हो सकता है। इसके बजाय [NotesPositions.BOTTOM_TRUNCATED](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/notespositions/) का उपयोग करें।
+{{% /alert %}}
 
-## **TIFF विकल्पों का उपयोग करके स्लाइड्स को छवियों में बदलें**
+## **TIFF विकल्पों का उपयोग करके स्लाइड्स को इमेज में बदलें**
 
-[TiffOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/tiffoptions/) क्लास आपको आकार, रिज़ॉल्यूशन, रंग पैलेट आदि जैसे पैरामीटर निर्दिष्ट करके परिणामी TIFF छवि पर अधिक नियंत्रण प्रदान करती है।
+[TiffOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/tiffoptions/) क्लास आपको रेंडर किए गए TIFF इमेज का साइज, रिज़ॉल्यूशन और अन्य प्रॉपर्टीज़ को नियंत्रित करने देती है।
 
-यह Python कोड एक रूपांतरण प्रक्रिया दर्शाता है जिसमें TIFF विकल्पों का उपयोग करके 300 DPI रिज़ॉल्यूशन और 2160 × 2800 आकार की काली‑सफ़ेद छवि उत्पन्न की जाती है:
+निम्नलिखित उदाहरण प्रथम स्लाइड को 2160 × 2880 TIFF इमेज 300 DPI पर रेंडर करता है:
 
-```py 
+```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# प्रस्तुति फ़ाइल लोड करें।
+tiff_options = slides.export.TiffOptions()
+tiff_options.image_size = draw.Size(2160, 2880)
+tiff_options.dpi_x = 300
+tiff_options.dpi_y = 300
+
 with slides.Presentation("sample.pptx") as presentation:
-    # प्रस्तुति से पहली स्लाइड प्राप्त करें।
     slide = presentation.slides[0]
 
-    # आउटपुट TIFF छवि की सेटिंग्स कॉन्फ़िगर करें।
-    options = slides.export.TiffOptions()
-    options.image_size = draw.Size(2160, 2880)                                 # छवि का आकार निर्धारित करें।
-    options.pixel_format = slides.export.ImagePixelFormat.FORMAT_1BPP_INDEXED  # पिक्सेल फ़ॉर्मेट निर्धारित करें (काले और सफेद)।
-    options.dpi_x = 300                                                        # क्षैतिज रिज़ॉल्यूशन निर्धारित करें।
-    options.dpi_y = 300                                                        # लंबवत रिज़ॉल्यूशन निर्धारित करें।
-
-    # निर्दिष्ट विकल्पों के साथ स्लाइड को छवि में बदलें।
-    with slide.get_image(options) as image:
-        # छवि को TIFF प्रारूप में सहेजें।
+    with slide.get_image(tiff_options) as image:
         image.save("output.tiff", slides.ImageFormat.TIFF)
 ```
 
-## **सभी स्लाइड्स को छवियों में बदलें**
+## **सभी स्लाइड्स को इमेज में बदलें**
 
-Aspose.Slides आपको प्रस्तुति की सभी स्लाइड्स को छवियों में बदलने की अनुमति देता है, जिससे पूरी प्रस्तुति को छवियों की श्रृंखला में बदला जा सकता है।
+सभी स्लाइड्स को इमेजों की श्रृंखला में बदलने के लिए स्लाइड कलेक्शन पर इटररेट करें। छिपी हुई स्लाइड्स भी शामिल की जाती हैं जब तक आप स्पष्ट रूप से उन्हें स्किप न करें।
 
-यह नमूना कोड दर्शाता है कि Python में प्रस्तुति की सभी स्लाइड्स को छवियों में कैसे बदला जाए:
+निम्नलिखित उदाहरण हर स्लाइड को क्षैतिज और लंबवत स्केल फैक्टर 2 के साथ JPEG इमेज में रेंडर करता है:
 
 ```py
 import aspose.slides as slides
@@ -144,28 +136,77 @@ scale_x = 2
 scale_y = scale_x
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # प्रस्तुति को स्लाइड दर स्लाइड छवियों में रेंडर करें।
-    for i, slide in enumerate(presentation.slides):
-        # छिपी हुई स्लाइड्स को नियंत्रित करें (छिपी स्लाइड्स को रेंडर न करें)।
-        if slide.hidden:
-            continue
-
-        # स्लाइड को छवि में बदलें।
+    for index, slide in enumerate(presentation.slides):
         with slide.get_image(scale_x, scale_y) as image:
-            # छवि को JPEG प्रारूप में सहेजें।
-            image.save("Slide_{0}.jpg".format(i), slides.ImageFormat.JPEG)
+            image.save("Slide_{}.jpg".format(index), slides.ImageFormat.JPEG)
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **Enhanced Metafile आउटपुट बनाएं**
 
-**क्या Aspose.Slides एनीमेशन्स के साथ स्लाइड्स को रेंडर करने का समर्थन करता है?**
+Enhanced Metafile (EMF) तब उपयोगी होता है जब वेक्टर-आधारित ग्राफिक्स को Microsoft Office या अन्य Windows एप्लिकेशन में एक्सचेंज करना हो जो Windows metafiles को सपोर्ट करते हैं। पिक्सेल-आधारित इमेज के विपरीत, EMF वेक्टर ड्राइंग ऑपरेशन्स को बरकरार रख सकता है जो स्केल होने पर भी स्पष्टता नहीं खोते। हालांकि, EMF मुख्यतः उन एप्लिकेशन के लिए एक कम्पैटिबिलिटी फ़ॉर्मेट है जो Windows metafile सपोर्ट रखते हैं, न कि एक सार्वभौमिक इंटरचेंज फ़ॉर्मेट। इसके अतिरिक्त, जटिल स्लाइड कंटेंट, जैसे बिटमैप इमेजेज और कुछ इफ़ेक्ट्स, वेक्टर मेटाफाइल कंटेनर के भीतर रॅस्टराइज़्ड तत्वों के रूप में संग्रहीत हो सकते हैं।
 
-नहीं, `get_image` मेथड केवल स्लाइड की स्थिर छवि को सहेजता है, जिसमें एनीमेशन नहीं होते।
+### **स्लाइड को EMF में एक्सपोर्ट करें**
 
-**क्या छिपी हुई स्लाइड्स को छवियों के रूप में निर्यात किया जा सकता है?**
+[Slide.write_as_emf](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/write_as_emf/) मेथड एक [Slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/) को लक्ष्य स्ट्रीम में EMF फ़ॉर्मेट में लिखता है। निम्नलिखित उदाहरण एक प्रस्तुति लोड करता है, प्रथम स्लाइड चुनता है, और उसे EMF फ़ाइल स्ट्रीम में लिखता है:
 
-हाँ, छिपी हुई स्लाइड्स को सामान्य स्लाइड्स की तरह ही प्रोसेस किया जा सकता है। सुनिश्चित करें कि वे प्रोसेसिंग लूप में शामिल हों।
+```py
+import aspose.slides as slides
 
-**क्या छवियों को शैडो और इफ़ेक्ट्स के साथ सहेजा जा सकता है?**
+with slides.Presentation("Presentation.pptx") as presentation:
+    slide = presentation.slides[0]
 
-हाँ, Aspose.Slides स्लाइड्स को छवियों के रूप में सहेजते समय शैडो, ट्रांसपेरेंसी और अन्य ग्राफ़िक इफ़ेक्ट्स को रेंडर करने का समर्थन करता है।
+    with open("Slide_0.emf", "wb") as emf_stream:
+        slide.write_as_emf(emf_stream)
+```
+
+कॉलर को [Slide.write_as_emf](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/write_as_emf/) को पास किए गए स्ट्रीम का स्वामित्व होता है और उसे बंद करना चाहिए। Aspose.Slides स्ट्रीम की वर्तमान पोजीशन पर लिखता है और स्ट्रीम को खुला छोड़ देता है।
+
+### **SVG इमेज को EMF में बदलें और प्रस्तुति में जोड़ें**
+
+[SvgImage.write_as_emf](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/write_as_emf/) का उपयोग करके SVG कंटेंट को EMF में बदलें। प्राप्त बाइट्स को [ImageCollection.add_image](https://reference.aspose.com/slides/hi/python-net/aspose.slides/imagecollection/add_image/) के ज़रिए प्रस्तुति में जोड़ा जा सकता है और [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_picture_frame/) के साथ स्लाइड पर रख सकते हैं।
+
+निम्नलिखित उदाहरण SVG मार्कअप से एक [SvgImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/) बनाता है, इसे मेमोरी में EMF में बदलता है, पहले स्लाइड पर मेटाफाइल डालता है, और प्रस्तुति को सहेजता है:
+
+```py
+import io
+import aspose.slides as slides
+
+svg_content = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect width="200" height="100" fill="#4472C4"/></svg>'
+svg_image = slides.SvgImage(svg_content)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with io.BytesIO() as emf_stream:
+        svg_image.write_as_emf(emf_stream)
+        emf_data = emf_stream.getvalue()
+
+    image = presentation.images.add_image(emf_data)
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 100, image)
+
+    presentation.save("Presentation_with_emf.pptx", slides.export.SaveFormat.PPTX)
+```
+
+[SvgImage.write_as_emf](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/write_as_emf/) डेस्टिनेशन स्ट्रीम का स्वामित्व नहीं लेता। लिखने के बाद, स्ट्रीम पोजीशन उत्पन्न डेटा के अंत में होती है। वर्तमान स्ट्रीम पोजीशन की परवाह किए बिना पूरे बफ़र को प्राप्त करने के लिए `getvalue` कॉल करें, जैसा कि ऊपर दिखाया गया है। डेटा पढ़े जाने तक स्ट्रीम को खुला रखें, और बाद में इसे बंद करें।
+
+EMF जनरेशन उन ऑपरेटिंग सिस्टम्स पर उपलब्ध है जो Aspose.Slides for Python via .NET द्वारा समर्थित हैं, लेकिन जब फ़ॉन्ट्स या नेटिव ग्राफ़िक्स डिपेंडेंसीज़ उपलब्ध न हों तो रेंडरिंग प्लेटफ़ॉर्म के अनुसार अलग हो सकती है। स्रोत कंटेंट द्वारा उपयोग किए गए फ़ॉन्ट्स को इंस्टॉल करें या उपयुक्त प्रतिस्थापन सेट करें, Aspose.Slides के लिए [platform requirements](/slides/hi/python-net/system-requirements/) का पालन करें, और लक्ष्य EMF उपयोग करने वाले एप्लिकेशन में परिणाम को वैलिडेट करें। Linux और macOS एप्लिकेशन्स अक्सर Windows metafiles को दिखाने और एडिट करने में सीमित या असंगत सपोर्ट रखती हैं।
+
+## **कलर इमोजी रेंडरिंग**
+
+{{% alert title="Note" color="info" %}}
+जब प्रस्तुति स्लाइड्स को इमेज में बदलते हैं तो कलर इमोजी को सही ढंग से रेंडर करने के लिए, प्रस्तुति में उपयोग किए गए इमोजी फ़ॉन्ट्स को इंस्टॉल किया जाना चाहिए और वह सिस्टम पर उपलब्ध होना चाहिए जहाँ रूपांतरण हो रहा है। उदाहरण के लिए, यदि प्रस्तुति में **Segoe UI Emoji** उपयोग किया गया है और यह फ़ॉन्ट अनुपलब्ध है, तो आउटपुट इमेजेज में इमोजी मोनोक्रोम दिख सकते हैं।
+{{% /alert %}}
+
+## **FAQ**
+
+**क्या Aspose.Slides एनीमेशन के साथ स्लाइड्स को रेंडर करने को सपोर्ट करता है?**
+
+नहीं। [Slide.get_image](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/get_image/) मेथड स्लाइड की स्थैतिक इमेज रेंडर करता है और एनीमेशन को एक्सपोर्ट नहीं करता।
+
+**क्या छिपी स्लाइड्स को इमेज के रूप में एक्सपोर्ट किया जा सकता है?**
+
+हाँ। छिपी स्लाइड्स को नियमित स्लाइड्स की तरह रेंडर किया जा सकता है। उन्हें प्रोसेसिंग लूप में शामिल करें, जैसा कि ऊपर के उदाहरण में दिखाया गया है।
+
+**क्या शैडोज़ और अन्य इफ़ेक्ट्स स्लाइड इमेज में संरक्षित रहते हैं?**
+
+हाँ। Aspose.Slides शैडोज़, ट्रांसपरेंसी और अन्य समर्थित ग्राफ़िकल इफ़ेक्ट्स को स्लाइड इमेज में रेंडर करता है।

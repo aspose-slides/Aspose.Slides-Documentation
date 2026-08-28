@@ -1,51 +1,56 @@
 ---
-title: "Prezentációs diák képekké konvertálása Java-ban"
-linktitle: "Dia képre"
+title: Prezentációs diák konvertálása képekké Java-ban
+linktitle: Dia képre
 type: docs
 weight: 35
 url: /hu/java/convert-slide/
 keywords:
 - dia konvertálása
 - dia exportálása
-- dia képbe
+- dia képre
 - dia mentése képként
+- dia EMF-be
 - dia PNG-be
 - dia JPEG-be
-- dia bitmapre
+- dia bitmapként
 - dia TIFF-be
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Diák konvertálása PPT, PPTX és ODP formátumból képekké Java-ban az Aspose.Slides használatával — gyors, magas minőségű renderelés világos kódrészletekkel."
+description: "Konvertálja a PPT, PPTX és ODP prezentációkból a diákat PNG, JPEG, GIF, TIFF, EMF és más képformátumokra Java-ban, az Aspose.Slides segítségével."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for Java lehetővé teszi, hogy egyszerűen konvertálja a PowerPoint és OpenDocument bemutató diák különféle képp formátumokra, többek között BMP, PNG, JPG (JPEG), GIF és egyéb formátumokra.
+Az Aspose.Slides for Java képes egyedi diák renderelésére PowerPoint és OpenDocument prezentációkból PNG, JPEG, GIF, TIFF és egyéb képformátumokként.
 
 A dia képbe konvertálásához kövesse az alábbi lépéseket:
 
-1. Határozza meg a kívánt konverziós beállításokat, és válassza ki a kívánt exportálandó diákot a következőkkel:
-    - az [ITiffOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itiffoptions/) interfész, vagy
-    - az [IRenderingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/irenderingoptions/) interfész.
-2. Készítse el a dia képet a [getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) metódus meghívásával.
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztállyal.
+2. Válassza ki a megjeleníteni kívánt diát.
+3. Szükség esetén konfigurálja a renderelést a [RenderingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/renderingoptions/) vagy a [TiffOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/tiffoptions/) osztállyal.
+4. Hívja meg a [ISlide.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/#getImage--) metódust. Ez egy [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/) objektumot ad vissza.
+5. Hívja meg a [IImage.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/#save-java.lang.String-int-) metódust, és adja meg a kimeneti formátumot egy [ImageFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imageformat/) értékkel.
 
-Az Aspose.Slides for Java-ban az [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/) egy interfész, amely lehetővé teszi a pixeladatok alapján definiált képek kezelését. Ezzel az interfésszel számos formátumba (BMP, JPG, PNG stb.) mentheti a képeket.
+## **Dia konvertálása PNG képre**
 
-## **Diarak konvertálása bitmapre és a képek mentése PNG formátumban**
+A legegyszerűbb konvertálás az alapértelmezett renderelési beállításokat használja. A keletkezett [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/) objektum memóriában feldolgozható vagy fájlba menthető.
 
-Konvertálhat egy diát bitmap objektummá, és közvetlenül felhasználhatja az alkalmazásában. Alternatívaként konvertálhatja a diát bitmapre, majd mentheti a képet JPEG vagy egyéb kívánt formátumban.
+Az alábbi Java példa rendereli az első diát, és PNG képként menti:
 
-Ez a kód bemutatja, hogyan konvertálhatja egy bemutató első diáját bitmap objektummá, majd mentheti a képet PNG formátumban:
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
 
-```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Konvertálja a bemutató első diáját bitmapre.
-    IImage image = presentation.getSlides().get_Item(0).getImage();
-	try {
-        // Mentse a képet PNG formátumban.
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IImage image = slide.getImage();
+    try {
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -55,22 +60,27 @@ try {
 }
 ```
 
-## **Diarak konvertálása képekké egyéni méretekkel**
+## **Diák konvertálása képekké egyéni méretekkel**
 
-Lehet, hogy egy adott méretű képre van szüksége. A [getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) egyik túlterhelését használva konvertálhat egy diát képpé meghatározott méretekkel (szélesség és magasság).
+Használja a [ISlide.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) túlterhelést, amely egy [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) értéket fogad el a dia pontos képpontmérettel történő rendereléséhez.
 
-Ez a példakód bemutatja, hogyan lehet ezt megvalósítani:
+Az alábbi példa egy 1820 × 1040 JPEG képet hoz létre:
 
-```java 
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import java.awt.Dimension;
+
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Konvertálja a bemutató első diáját a megadott mérettel bitmapre.
-    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IImage image = slide.getImage(imageSize);
     try {
-        // Mentse a képet JPEG formátumban.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,38 +90,43 @@ try {
 }
 ```
 
-## **Diarak konvertálása képekké megjegyzésekkel és kommentárokkal**
+## **Dia konvertálása jegyzetekkel és megjegyzésekkel képekké**
 
-Egyes diák megjegyzéseket és kommentárokat tartalmazhatnak.
+Alapértelmezés szerint a dia képei nem tartalmazzák a jegyzeteket vagy megjegyzéseket. Adjon át egy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notescommentslayoutingoptions/) objektumot a [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/renderingoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) metódusnak, hogy szabályozza, hol jelenjenek meg a jegyzetek és megjegyzések.
 
-Az Aspose.Slides két interfészt kínál – a [ITiffOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itiffoptions/) és az [IRenderingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/irenderingoptions/) – amelyekkel szabályozhatja a bemutató diák képként történő megjelenítését. Mindkét interfész tartalmazza a `setSlidesLayoutOptions` metódust, amely lehetővé teszi a megjegyzések és kommentárok megjelenítésének beállítását egy dián képre konvertáláskor.
+Az alábbi példa a lekicsinyített jegyzeteket a dia alá, a megjegyzéseket pedig jobbra helyezi:
 
-A [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notescommentslayoutingoptions/) osztállyal megadhatja a megjegyzések és kommentárok kívánt pozícióját a keletkező képen.
+```java
+import com.aspose.slides.CommentsPositions;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.NotesCommentsLayoutingOptions;
+import com.aspose.slides.NotesPositions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
+import java.awt.Color;
 
-Ez a kód bemutatja, hogyan konvertálhat egy megjegyzésekkel és kommentárokkal rendelkező diát:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
-// Load a presentation file.
+Color commentsAreaColor = new Color(250, 235, 215);
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Állítsa be a jegyzetek pozícióját.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Állítsa be a kommentárok pozícióját.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Állítsa be a kommentárok terület szélességét.
-    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // Állítsa be a kommentárok terület színét.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Hozza létre a renderelési beállításokat.
-    RenderingOptions options = new RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
-
-    // Konvertálja a bemutató első diáját képpé.
-    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
-
+    IImage image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Mentse a képet GIF formátumban.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -121,35 +136,37 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Bármely dia‑kép konverziós folyamat során a [setNotesPosition](https://reference.aspose.com/slides/hu/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) metódus nem alkalmazható a `BottomFull` (a megjegyzés pozíciójának meghatározásához), mivel a megjegyzés szövege túl nagy lehet, és nem fér el a megadott képméretben.
-{{% /alert %}} 
+{{% alert title="Figyelmeztetés" color="warning" %}}
+Dia képre konvertálásnál ne adjon át [BottomFull](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notespositions/) a [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notescommentslayoutingoptions/#setNotesPosition-int-) metódusnak. A jegyzetek több szöveget tartalmazhatnak, mint amit a fix képméret befogadhat. Helyette használja a [BottomTruncated](https://reference.aspose.com/slides/hu/java/com.aspose.slides/notespositions/) opciót.
+{{% /alert %}}
 
-## **Diarak konvertálása képekké TIFF beállítások használatával**
+## **Diák konvertálása képekké TIFF opciók használatával**
 
-A [ITiffOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itiffoptions/) interfész nagyobb ellenőrzést biztosít a létrejövő TIFF kép felett, lehetővé téve a méret, felbontás, színpaletta és egyéb paraméterek megadását.
+A [TiffOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/tiffoptions/) osztály lehetővé teszi a renderelt TIFF kép méretének, felbontásának és egyéb tulajdonságainak szabályozását.
 
-Ez a kód bemutat egy olyan konverziós folyamatot, ahol a TIFF beállítások segítségével fekete‑fehér képet állítunk elő 300 DPI felbontással és 2160 × 2800 mérettel:
+Az alábbi példa az első diát 2160 × 2880 méretű, 300 DPI-s TIFF képként rendereli:
 
-```java 
-// Töltsön be egy prezentációs fájlt.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.TiffOptions;
+import java.awt.Dimension;
+
+Dimension imageSize = new Dimension(2160, 2880);
+
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Szerezze meg az első diát a prezentációból.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Állítsa be a kimeneti TIFF kép beállításait.
-    TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Dimension(2160, 2880));             // Állítsa be a kép méretét.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Állítsa be a pixelformátumot (fekete-fehér).
-    tiffOptions.setDpiX(300);                                        // Állítsa be a vízszintes felbontást.
-    tiffOptions.setDpiY(300);                                        // Állítsa be a függőleges felbontást.
-
-    // Konvertálja a diát egy képpé a megadott beállításokkal.
     IImage image = slide.getImage(tiffOptions);
-
     try {
-        // Mentse a képet TIFF formátumban.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -159,60 +176,132 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-A Tiff támogatás nem garantált a JDK 9 előtti verziókban.
-{{% /alert %}} 
+{{% alert title="Figyelmeztetés" color="warning" %}}
+A TIFF támogatás nem garantált a JDK 9 előtti Java verziókban.
+{{% /alert %}}
 
-## **Az összes dia konvertálása képekké**
+## **Minden dia konvertálása képekké**
 
-Az Aspose.Slides lehetővé teszi, hogy a bemutató összes diaját képekké konvertálja, ezáltal a teljes bemutatót egy sor képpé alakítja.
+Iteráljon a diakollekción, hogy a teljes prezentációt képsorozattá alakítsa. A rejtett diák is bele vannak foglalva, hacsak nem hagyja ki őket kifejezetten.
 
-Ez a példakód bemutatja, hogyan konvertálhatja a bemutató összes diáját képekké Java nyelven:
+Az alábbi példa minden diát JPEG képként renderel, a vízszintes és függőleges méretezési tényezővel 2:
 
-```java 
-float scaleX = 2;
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+float scaleX = 2f;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Renderelje a prezentációt képekké diaanként.
-    for (int i = 0 ; i < presentation.getSlides().size(); i++)
-    {
-        // Rejtett diák kezelése (ne renderelje a rejtett diákokat).
-        if (presentation.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // Konvertálja a diát képpé.
-        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
-
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-            // Mentse a képet JPEG formátumban.
-            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
     }
 } finally {
     presentation.dispose();
-} 
+}
 ```
 
-## **Színes Emoji megjelenítés**
+## **Enhanced Metafile (EMF) kimenet létrehozása**
 
-{{% alert title="Note" color="warning" %}} 
-A színes emoji-k helyes megjelenítéséhez a bemutató diák képekké konvertálásakor a bemutatóban használt emoji betűtípusoknak telepítve és a konvertálást végző rendszeren elérhetőnek kell lenniük. Például, ha a bemutató a **Segoe UI Emoji** betűtípust használja, és ez hiányzik, akkor az emoji-k monokrómként jelenhetnek meg a kimeneti képeken.
+Az Enhanced Metafile (EMF) akkor hasznos, amikor vektoralapú grafikákat kell cserélni a Microsoft Office vagy más Windows alkalmazásokkal, amelyek támogatják a Windows metafájlokat. A pixelalapú képpel szemben egy EMF megőrizheti a vektoros rajzolási műveleteket, amelyek méretezéskor nem veszítenek élességben. Azonban az EMF elsősorban kompatibilitási formátum Windows metafájl támogatással rendelkező alkalmazások számára, nem egy univerzális csereformátum. Emellett a komplex diá tartalom, például bitmap képek és egyes hatások, rasterizált elemekként tárolhatók a vektor metafájl konténerben.
+
+### **Dia exportálása EMF-re**
+
+A [ISlide.writeAsEmf](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) metódus egy [ISlide] objektumot egy cél streambe EMF formátumban ír. Az alábbi példa betölti a prezentációt, kiválasztja az első diát, és egy EMF fájl streambe írja:
+
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    FileOutputStream emfStream = new FileOutputStream("Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A hívó tulajdonolja a [ISlide.writeAsEmf] metódusnak átadott streamet, és felelős annak lezárásáért, ahogyan fent is látható.
+
+### **SVG kép konvertálása EMF-re és hozzáadása egy prezentációhoz**
+
+Használja a [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) metódust az SVG tartalom EMF-re konvertálásához. A keletkezett bájtok hozzáadhatók a prezentációhoz a [IImageCollection.addImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimagecollection/#addImage-byte:A-) segítségével, és a [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) metódussal elhelyezhetők egy dián.
+
+Az alábbi példa egy [SvgImage] objektumot hoz létre SVG markupból, memóriában EMF-re konvertálja, a metafájlt az első diára helyezi el, majd menti a prezentációt:
+
+```java
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ISvgImage;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import com.aspose.slides.SvgImage;
+import java.io.ByteArrayOutputStream;
+
+String svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+ISvgImage svgImage = new SvgImage(svgContent);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ByteArrayOutputStream emfStream = new ByteArrayOutputStream();
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        byte[] emfData = emfStream.toByteArray();
+        IPPImage image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[ISvgImage.writeAsEmf](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) nem veszi át a cél stream tulajdonjogát. A [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) az összes generált adatot memóriában tárolja, így a `toByteArray` hívása előtt nincs szükség a pozíció visszaállítására. A visszaadott byte tömb a stream lezárása után is érvényes.
+
+Az EMF generálás elérhető azokban a operációs rendszerekben, amelyeket a kiválasztott Aspose.Slides for Java és JDK konfiguráció támogat, azonban a renderelés platformonként eltérhet, ha betűtípusok vagy grafikai függőségek nem állnak rendelkezésre. Telepítse a forrás tartalom által használt betűtípusokat vagy konfiguráljon megfelelő helyettesítéseket, kövesse az [platformkövetelményeket](/slides/hu/java/system-requirements/) az Aspose.Slides for Java-hoz, és ellenőrizze az eredményt a cél EMF-öt fogyasztó alkalmazásban. A Linux és macOS alkalmazások gyakran korlátozott vagy inkonzisztens támogatással rendelkeznek a Windows metafájlok megjelenítésére és szerkesztésére.
+
+## **Színes Emoji renderelés**
+
+{{% alert title="Megjegyzés" color="info" %}}
+A prezentáció diái képekké konvertálásakor a színes emoji-k helyes rendereléséhez a prezentációban használt emoji betűtípusoknak telepítve kell lenniük, és elérhetőeknek kell lenniük azon a rendszeren, amely a konvertálást végzi. Például, ha a prezentáció **Segoe UI Emoji** betűtípust használ, és ez hiányzik, az emoji-k monokrómként jelenhetnek meg a kimeneti képeken.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Támogatja az Aspose.Slides a diák animációval történő megjelenítését?**
+**Támogatja az Aspose.Slides a diák animációval történő renderelését?**
 
-Nem, a `getImage` metódus csak a dia statikus képet menti, animációk nélkül.
+Nem. Az [ISlide.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/#getImage--) metódus a dia statikus képét rendereli, és nem exportálja az animációkat.
 
 **Exportálhatók rejtett diák képekként?**
 
-Igen, a rejtett diák is feldolgozhatók, mint a normálak. Ügyeljen arra, hogy a feldolgozási ciklusban szerepeljenek.
+Igen. A rejtett diák úgy renderelhetők, mint a normál diák. Vegye fel őket a feldolgozási ciklusba, ahogyan a fenti példában is látható.
 
-**Menthetők a képek árnyékokkal és hatásokkal?**
+**Megmaradnak az árnyékok és egyéb hatások a dia képeiben?**
 
-Igen, az Aspose.Slides támogatja az árnyékok, átlátszóság és egyéb grafikai hatások megjelenítését a diák képként való mentésekor.
+Igen. Az Aspose.Slides árnyékokat, áttetszőséget és egyéb támogatott grafikai hatásokat renderel a dia képeiben.

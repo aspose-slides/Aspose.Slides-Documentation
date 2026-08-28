@@ -1,191 +1,225 @@
 ---
-title: .NET में प्रस्तुति स्लाइड्स को इमेज में बदलें
-linktitle: स्लाइड से इमेज
+title: .NET में प्रस्तुति स्लाइड्स को छवियों में बदलें
+linktitle: स्लाइड से छवि
 type: docs
 weight: 41
 url: /hi/net/convert-slide/
 keywords:
-- स्लाइड परिवर्तित करें
+- स्लाइड बदलें
 - स्लाइड निर्यात करें
-- स्लाइड से इमेज
-- स्लाइड को इमेज के रूप में सहेजें
+- स्लाइड से छवि
+- स्लाइड को छवि के रूप में सहेजें
+- स्लाइड से EMF
 - स्लाइड से PNG
 - स्लाइड से JPEG
 - स्लाइड से बिटमैप
 - स्लाइड से TIFF
-- PowerPoint
-- OpenDocument
+- पावरपॉइंट
+- ओपनडॉक्यूमेंट
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "PPT, PPTX और ODP से स्लाइड को C# में Aspose.Slides for .NET का उपयोग करके इमेज में बदलें—तेज़, उच्च-गुणवत्ता वाला रेंडरिंग स्पष्ट कोड उदाहरणों के साथ."
+description: "PPT, PPTX और ODP प्रस्तुतियों की स्लाइड्स को PNG, JPEG, GIF, TIFF, EMF और अन्य चित्र स्वरूपों में C# के साथ Aspose.Slides for .NET का उपयोग करके बदलें।"
 ---
 ## **परिचय**
 
-Aspose.Slides for .NET आपको PowerPoint और OpenDocument प्रस्तुति स्लाइड्स को विभिन्न इमेज फ़ॉर्मेट्स जैसे BMP, PNG, JPG (JPEG), GIF आदि में आसानी से परिवर्तित करने की सुविधा देता है।
+Aspose.Slides for .NET व्यक्तिगत स्लाइडों को PowerPoint और OpenDocument प्रस्तुतियों से PNG, JPEG, GIF, TIFF और अन्य छवि स्वरूपों में रेंडर कर सकता है।
 
-स्लाइड को इमेज में बदलने के लिए निम्न चरणों का पालन करें:
+एक स्लाइड को छवि में बदलने के लिए, इन चरणों का पालन करें:
 
-1. आवश्यक रूपांतरण सेटिंग्स निर्धारित करें और उन स्लाइड्स का चयन करें जिन्हें आप निर्यात करना चाहते हैं:
-    - [ITiffOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/itiffoptions/) इंटरफ़ेस का उपयोग करके, या
-    - [IRenderingOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/irenderingoptions/) इंटरफ़ेस का उपयोग करके.
-2. [GetImage](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/getimage/) मेथड को कॉल करके स्लाइड इमेज उत्पन्न करें।
+1. प्रेज़ेंटेशन को [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) वर्ग के साथ लोड करें।
+2. उस स्लाइड का चयन करें जिसे आप रेंडर करना चाहते हैं।
+3. यदि आवश्यक हो, तो रेंडरिंग को [RenderingOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/renderingoptions/) या [TiffOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/tiffoptions/) वर्ग के साथ कॉन्फ़िगर करें।
+4. [GetImage](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/getimage/) विधि को कॉल करें। यह एक [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) ऑब्जेक्ट लौटाता है।
+5. [IImage.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/save/) विधि को कॉल करें और आउटपुट फ़ॉर्मेट को एक [ImageFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/imageformat/) मान के साथ निर्दिष्ट करें।
 
-.NET में, एक [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) वह ऑब्जेक्ट है जो पिक्सेल डेटा द्वारा परिभाषित इमेजेस के साथ काम करने की सुविधा देता है। आप इस क्लास की एक इंस्टेंस का उपयोग करके BMP, JPG, PNG आदि विभिन्न फ़ॉर्मेट्स में इमेज को सहेज सकते हैं।
+## **स्लाइड को PNG छवि में बदलें**
 
-## **स्लाइड्स को बिटमैप में बदलें और PNG में इमेज सहेजें**
+सबसे सरल रूपांतरण डिफ़ॉल्ट रेंडरिंग सेटिंग्स का उपयोग करता है। परिणामस्वरूप [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) ऑब्जेक्ट को मेमोरी में प्रोसेस किया जा सकता है या फ़ाइल में सहेजा जा सकता है।
 
-आप स्लाइड को एक बिटमैप ऑब्जेक्ट में बदल सकते हैं और इसे सीधे अपने एप्लिकेशन में उपयोग कर सकते हैं। वैकल्पिक रूप से, आप स्लाइड को बिटमैप में बदलकर इमेज को JPEG या किसी अन्य पसंदीदा फ़ॉर्मेट में सहेज सकते हैं।
-
-यह C# कोड दिखाता है कि प्रस्तुति की पहली स्लाइड को बिटमैप ऑब्जेक्ट में कैसे बदलें और फिर इमेज को PNG फ़ॉर्मेट में सहेजें:
+निम्नलिखित C# उदाहरण पहला स्लाइड रेंडर करता है और इसे PNG छवि के रूप में सहेजता है:
 
 ```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage();
+image.Save("Slide_0.png", ImageFormat.Png);
+```
+
+## **कस्टम आकारों के साथ स्लाइड्स को छवियों में बदलें**
+
+एक स्लाइड को सटीक पिक्सेल आयामों के साथ रेंडर करने के लिए, वह [GetImage](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/getimage/) ओवरलोड उपयोग करें जो एक [Size](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.size) मान स्वीकार करता है।
+
+निम्नलिखित उदाहरण 1820 × 1040 JPEG छवि बनाता है:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+var imageSize = new Size(1820, 1040);
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(imageSize);
+image.Save("Slide_0.jpg", ImageFormat.Jpeg);
+```
+
+## **नोट्स और टिप्पणियों के साथ स्लाइड्स को छवियों में बदलें**
+
+डिफ़ॉल्ट रूप से, स्लाइड छवियों में नोट्स या टिप्पणियां शामिल नहीं होतीं। नोट्स और टिप्पणियों के प्रदर्शित स्थान को नियंत्रित करने के लिए एक [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/notescommentslayoutingoptions/) ऑब्जेक्ट को [RenderingOptions.SlidesLayoutOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/renderingoptions/slideslayoutoptions/) प्रॉपर्टी पर असाइन करें।
+
+निम्नलिखित उदाहरण स्लाइड के नीचे ट्रंकेटेड नोट्स और दाएँ ओर टिप्पणियां रखता है:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // प्रस्तुति में पहली स्लाइड को बिटमैप में बदलें।
-    using (IImage image = presentation.Slides[0].GetImage())
-    {
-        // इमेज को PNG फ़ॉर्मेट में सहेजें।
-        image.Save("Slide_0.png", ImageFormat.Png);
-    }
+    NotesPosition = NotesPositions.BottomTruncated,
+    CommentsPosition = CommentsPositions.Right,
+    CommentsAreaWidth = 500,
+    CommentsAreaColor = Color.AntiqueWhite
+};
+
+var renderingOptions = new RenderingOptions { SlidesLayoutOptions = layoutOptions };
+
+using var presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(renderingOptions, scaleX, scaleY);
+image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
+```
+
+{{% alert title="Warning" color="warning" %}}
+स्लाइड-टू-इमेज रूपांतरण के लिए, [NotesPosition](https://reference.aspose.com/slides/hi/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) प्रॉपर्टी को [BottomFull](https://reference.aspose.com/slides/hi/net/aspose.slides.export/notespositions/) पर सेट न करें। नोट्स में ऐसी मात्रा में टेक्स्ट हो सकता है जो निश्चित छवि आकार में फिट नहीं हो पाएगा। इसके बजाय [BottomTruncated](https://reference.aspose.com/slides/hi/net/aspose.slides.export/notespositions/) का उपयोग करें।
+{{% /alert %}}
+
+## **TIFF विकल्पों का उपयोग करके स्लाइड्स को छवियों में बदलें**
+
+[TiffOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/tiffoptions/) वर्ग आपको रेंडर की गई TIFF छवि का आकार, रिज़ॉल्यूशन और अन्य गुणों को नियंत्रित करने की अनुमति देता है।
+
+निम्नलिखित उदाहरण पहले स्लाइड को 2160 × 2880 TIFF छवि के रूप में 300 DPI पर रेंडर करता है:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var tiffOptions = new TiffOptions
+{
+    ImageSize = new Size(2160, 2880),
+    DpiX = 300,
+    DpiY = 300
+};
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(tiffOptions);
+image.Save("output.tiff", ImageFormat.Tiff);
+```
+
+## **सभी स्लाइड्स को छवियों में बदलें**
+
+पूरा प्रेज़ेंटेशन को छवियों की श्रृंखला में बदलने के लिए स्लाइड संग्रह के माध्यम से इटररेट करें। छिपी हुई स्लाइड्स को शामिल किया जाता है जब तक आप उन्हें स्पष्ट रूप से छोड़ न दें।
+
+निम्नलिखित उदाहरण प्रत्येक स्लाइड को क्षैतिज और लंबवत स्केल कारक 2 के साथ JPEG छवि के रूप में रेंडर करता है:
+
+```cs
+using Aspose.Slides;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
+{
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"Slide_{index}.jpg", ImageFormat.Jpeg);
 }
 ```
 
-## **कस्टम आकारों के साथ स्लाइड्स को इमेज में बदलें**
+## **एन्हांस्ड मेटाफाइल आउटपुट बनाएं**
 
-कभी-कभी आपको निश्चित आकार की इमेज चाहिए होती है। [GetImage](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/getimage/) के एक ओवरलोड का उपयोग करके, आप स्लाइड को विशिष्ट आयामों (चौड़ाई और ऊँचाई) वाली इमेज में बदल सकते हैं।
+Enhanced Metafile (EMF) तब उपयोगी होता है जब वेक्टर-आधारित ग्राफ़िक्स को Microsoft Office या अन्य Windows अनुप्रयोगों के साथ, जो Windows मेटाफाइल का समर्थन करते हैं, के साथ साझा करना आवश्यक हो। पिक्सेल-आधारित छवि के विपरीत, EMF वेक्टर ड्रॉइंग ऑपरेशन्स को बनाए रख सकता है जो स्केल होने पर भी कटाव नहीं होते। हालांकि, EMF मुख्यतः Windows मेटाफाइल समर्थन वाले अनुप्रयोगों के लिए एक संगतता फ़ॉर्मेट है, न कि एक सार्वभौमिक विनिमय फ़ॉर्मेट। इसके अतिरिक्त, जटिल स्लाइड सामग्री, जैसे बिटमैप छवियां और कुछ प्रभाव, वेक्टर मेटाफाइल कंटेनर के अंदर रास्टराइज़्ड तत्वों के रूप में संग्रहीत हो सकते हैं।
 
-यह नमूना कोड इस प्रक्रिया को दर्शाता है:
+### **स्लाइड को EMF में निर्यात करें**
 
-```cs
-Size imageSize = new Size(1820, 1040);
-
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // प्रस्तुति में पहली स्लाइड को निर्दिष्ट आकार के साथ बिटमैप में बदलें।
-    using (IImage image = presentation.Slides[0].GetImage(imageSize))
-    {
-        // इमेज को JPEG फ़ॉर्मेट में सहेजें।
-        image.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
-```
-
-## **नोट्स और टिप्पणियों के साथ स्लाइड्स को इमेज में बदलें**
-
-कुछ स्लाइड्स में नोट्स और टिप्पणियाँ हो सकती हैं।
-
-Aspose.Slides दो इंटरफ़ेस—[ITiffOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/itiffoptions/) और [IRenderingOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/irenderingoptions/)—प्रदान करता है जो प्रस्तुति स्लाइड्स को इमेज में रेंडर करने को नियंत्रित करने की अनुमति देते हैं। दोनों इंटरफ़ेस में `SlidesLayoutOptions` प्रॉपर्टी शामिल है, जो स्लाइड को इमेज में बदलते समय नोट्स और टिप्पणियों के रेंडरिंग को कॉन्फ़िगर करने में मदद करती है।
-
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/notescommentslayoutingoptions/) क्लास के साथ, आप परिणामस्वरूप इमेज में नोट्स और टिप्पणियों की इच्छित स्थिति निर्धारित कर सकते हैं।
-
-यह C# कोड दिखाता है कि नोट्स और टिप्पणियों के साथ स्लाइड को कैसे बदलें:
+[ISlide.WriteAsEmf](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/writeasemf/) विधि एक [ISlide](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/) को EMF फ़ॉर्मेट में टार्गेट स्ट्रीम पर लिखती है। निम्नलिखित उदाहरण एक प्रेज़ेंटेशन लोड करता है, पहला स्लाइड चुनता है, और इसे EMF फ़ाइल स्ट्रीम में लिखता है:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using System.IO;
+using Aspose.Slides;
 
-// प्रस्तुति फ़ाइल लोड करें।
-using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
-{
-    // रेंडरिंग विकल्प बनाएं।
-    RenderingOptions options = new RenderingOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomTruncated,  // नोट्स की स्थिति सेट करें।
-            CommentsPosition = CommentsPositions.Right,      // टिप्पणियों की स्थिति सेट करें।
-            CommentsAreaWidth = 500,                         // टिप्पणियों के क्षेत्र की चौड़ाई सेट करें।
-            CommentsAreaColor = Color.AntiqueWhite           // टिप्पणियों के क्षेत्र के लिए रंग सेट करें।
-        }
-    };
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
 
-    // प्रस्तुति की पहली स्लाइड को इमेज में बदलें।
-    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
-    {
-        // इमेज को GIF फ़ॉर्मेट में सहेजें।
-        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
-    }
-}
+using var emfStream = File.Create("Slide_0.emf");
+slide.WriteAsEmf(emfStream);
 ```
 
-{{% alert title="Note" color="warning" %}} 
+कॉलर वह स्ट्रीम का मालिक होता है जो [ISlide.WriteAsEmf](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/writeasemf/) को पास किया गया है और उसे बंद या डिस्पोज करना आवश्यक है। Aspose.Slides स्ट्रीम की वर्तमान पोज़िशन पर लिखता है और स्ट्रीम को खुला छोड़ देता है।
 
-किसी भी स्लाइड-से-इमेज रूपांतरण प्रक्रिया में, [NotesPosition](https://reference.aspose.com/slides/hi/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) प्रॉपर्टी को `BottomFull` पर सेट नहीं किया जा सकता (नोट्स की स्थिति निर्दिष्ट करने के लिए), क्योंकि नोट के टेक्स्ट का आकार बहुत बड़ा हो सकता है, जिससे वह निर्दिष्ट इमेज आकार में फिट नहीं हो पाता।
+### **SVG छवि को EMF में बदलें और प्रेज़ेंटेशन में जोड़ें**
 
-{{% /alert %}} 
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/writeasemf/) का उपयोग करके SVG सामग्री को EMF में बदलें। परिणामस्वरूप बाइट्स को [IImageCollection.AddImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimagecollection/addimage/) के माध्यम से प्रेज़ेंटेशन में जोड़ा जा सकता है और उन्हें [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addpictureframe/) द्वारा स्लाइड पर रखा जा सकता है।
 
-## **TIFF विकल्पों का उपयोग करके स्लाइड्स को इमेज में बदलें**
-
-[ITiffOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/itiffoptions/) इंटरफ़ेस आपको आकार, रिज़ॉल्यूशन, रंग पैलेट आदि जैसे पैरामीटर निर्दिष्ट करके परिणामी TIFF इमेज पर अधिक नियंत्रण देता है।
-
-यह C# कोड दिखाता है कि कैसे TIFF विकल्पों का उपयोग करके 300 DPI रिज़ॉल्यूशन और 2160 × 2800 आकार की काली-सफ़ेद इमेज उत्पन्न की जाए:
+निम्नलिखित उदाहरण SVG मार्कअप से एक [SvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/svgimage/) बनाता है, इसे इन-मेमोरी EMF में बदलता है, प्रथम स्लाइड पर मेटाफाइल सम्मिलित करता है, और प्रेज़ेंटेशन को सहेजता है:
 
 ```cs
-// प्रस्तुति फ़ाइल लोड करें।
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    // प्रस्तुति से पहला स्लाइड प्राप्त करें।
-    ISlide slide = presentation.Slides[0];
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // आउटपुट TIFF इमेज की सेटिंग्स कॉन्फ़िगर करें।
-    TiffOptions tiffOptions = new TiffOptions
-    {
-        ImageSize = new Size(2160, 2880),                  // इमेज का आकार सेट करें।
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // पिक्सेल फ़ॉर्मेट सेट करें (काला और सफ़ेद)।
-        DpiX = 300,                                        // क्षैतिज रेज़ॉल्यूशन सेट करें।
-        DpiY = 300                                         // लंबवत रेज़ॉल्यूशन सेट करें।
-    };
+var svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+var svgImage = new SvgImage(svgContent);
 
-    // निर्दिष्ट विकल्पों के साथ स्लाइड को इमेज में बदलें।
-    using (IImage image = slide.GetImage(tiffOptions))
-    {
-        // इमेज को TIFF फ़ॉर्मेट में सहेजें।
-        image.Save("output.tiff", ImageFormat.Tiff);
-    }
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var emfStream = new MemoryStream();
+svgImage.WriteAsEmf(emfStream);
+
+emfStream.Position = 0;
+var image = presentation.Images.AddImage(emfStream);
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+
+presentation.Save("Presentation_with_emf.pptx", SaveFormat.Pptx);
 ```
 
-## **सभी स्लाइड्स को इमेज में बदलें**
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/writeasemf/) लक्ष्य स्ट्रीम की स्वामित्व नहीं लेता। लिखने के बाद, स्ट्रीम पोज़िशन उत्पन्न डेटा के अंत में होती है। ऊपर दिखाए अनुसार उसी सीक योग्य स्ट्रीम को रीडर को पास करने से पहले `Position` को शुरुआत में रीसेट करें। कंज्यूमर के पढ़ने समाप्त होने तक स्ट्रीम को खुला रखें, और बाद में उसे डिस्पोज करें। वैकल्पिक रूप से, `ToArray` को कॉल करें और वापस मिला बाइट ऐरे [IImageCollection.AddImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimagecollection/addimage/) को पास करें; `ToArray` वर्तमान स्ट्रीम पोज़िशन की परवाह किए बिना पूर्ण बफ़र लौटाता है।
 
-Aspose.Slides आपको प्रस्तुति की सभी स्लाइड्स को इमेज में बदलने की अनुमति देता है, जिससे पूरी प्रस्तुति को इमेजों की श्रृंखला में परिवर्तित किया जा सकता है।
+EMF जनरेशन चयनित Aspose.Slides for .NET बिल्ड द्वारा समर्थित ऑपरेटिंग सिस्टम पर उपलब्ध है, लेकिन फ़ॉन्ट्स या नेटिव ग्राफ़िक्स निर्भरताएँ अनुपलब्ध होने पर विभिन्न प्लेटफ़ॉर्म पर रेंडरिंग भिन्न हो सकती है। स्रोत सामग्री द्वारा उपयोग किए गए फ़ॉन्ट्स स्थापित करें या उपयुक्त प्रतिस्थापन कॉन्फ़िगर करें, अपने Aspose.Slides पैकेज के लिए [platform requirements](/slides/hi/net/system-requirements/) का पालन करें, और लक्ष्य EMF-उपभोगकर्ता एप्लिकेशन में परिणाम को मान्य करें। Linux और macOS एप्लिकेशन अक्सर Windows मेटाफाइल को दिखाने और संपादित करने में सीमित या असंगत समर्थन रखते हैं।
 
-यह नमूना कोड C# में दिखाता है कि कैसे सभी स्लाइड्स को इमेज में बदला जाए:
+## **रंगीन इमोजी रेंडरिंग**
 
-```cs
-float scaleX = 2;
-float scaleY = scaleX;
+{{% alert title="Note" color="info" %}}
+प्रेज़ेंटेशन स्लाइड्स को छवियों में बदलते समय रंगीन इमोजी को सही ढंग से रेंडर करने के लिए, प्रेज़ेंटेशन में उपयोग किए गए इमोजी फ़ॉन्ट्स को इंस्टॉल किया जाना चाहिए और वह सिस्टम पर उपलब्ध होना चाहिए जो रूपांतरण कर रहा हो। उदाहरण के लिए, यदि प्रेज़ेंटेशन **Segoe UI Emoji** का उपयोग करता है और यह फ़ॉन्ट अनुपलब्ध है, तो आउटपुट छवियों में इमोजी मोनोक्रोम दिख सकते हैं।
+{{% /alert %}}
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // प्रस्तुति को प्रत्येक स्लाइड के लिए इमेज में रेंडर करें।
-    for (int i = 0; i < presentation.Slides.Count; i++)
-    {
-        // छिपी हुई स्लाइड्स को नियंत्रित करें (छिपी स्लाइड्स को रेंडर न करें)।
-        if (presentation.Slides[i].Hidden)
-            continue;
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-        // स्लाइड को इमेज में बदलें।
-        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
-        {
-            // इमेज को JPEG फ़ॉर्मेट में सहेजें।
-            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
-        }
-    }
-}
-```
+**क्या Aspose.Slides एनीमेशन के साथ स्लाइड्स को रेंडर करने का समर्थन करता है?**
 
-## **FAQ**
+नहीं। [GetImage](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/getimage/) विधि स्लाइड की एक स्थैतिक छवि रेंडर करती है और एनीमेशन निर्यात नहीं करती।
 
-**1. क्या Aspose.Slides एनीमेशन के साथ स्लाइड्स को रेंडर करने का समर्थन करता है?**
+**क्या छिपी हुई स्लाइड्स को छवियों के रूप में निर्यात किया जा सकता है?**
 
-नहीं, `GetImage` मेथड केवल स्लाइड की स्थैतिक इमेज सहेजता है, बिना एनीमेशन के।
+हाँ। छिपी हुई स्लाइड्स को सामान्य स्लाइड्स की तरह रेंडर किया जा सकता है। उन्हें प्रोसेसिंग लूप में शामिल करें, जैसा कि ऊपर दिए उदाहरण में दिखाया गया है।
 
-**2. क्या छुपी हुई स्लाइड्स को इमेज के रूप में निर्यात किया जा सकता है?**
+**क्या स्लाइड छवियों में शैडो और अन्य प्रभाव संरक्षित रहते हैं?**
 
-हां, छुपी हुई स्लाइड्स को भी सामान्य स्लाइड्स की तरह प्रोसेस किया जा सकता है। सुनिश्चित करें कि वे प्रोसेसिंग लूप में शामिल हैं।
-
-**3. क्या इमेजेज़ को छाया और प्रभावों के साथ सहेजा जा सकता है?**
-
-हां, Aspose.Slides स्लाइड्स को इमेज के रूप में सहेजते समय छाया, पारदर्शिता और अन्य ग्राफ़िक प्रभावों को रेंडर करने का समर्थन करता है।
+हाँ। Aspose.Slides स्लाइड छवियों में छायाएँ, पारदर्शिता और अन्य समर्थित ग्राफ़िकल प्रभावों को रेंडर करता है।

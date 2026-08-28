@@ -1,14 +1,15 @@
 ---
-title: Mengonversi Slide Presentasi menjadi Gambar dalam C++
+title: Mengonversi Slide Presentasi menjadi Gambar di C++
 linktitle: Slide ke Gambar
 type: docs
 weight: 41
 url: /id/cpp/convert-slide/
 keywords:
-- konversi slide
-- ekspor slide
+- mengonversi slide
+- mengekspor slide
 - slide ke gambar
-- simpan slide sebagai gambar
+- menyimpan slide sebagai gambar
+- slide ke EMF
 - slide ke PNG
 - slide ke JPEG
 - slide ke bitmap
@@ -18,34 +19,40 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Mengonversi slide dari PPT, PPTX, dan ODP menjadi gambar dalam C++ menggunakan Aspose.Slides—rendering cepat, berkualitas tinggi dengan contoh kode yang jelas."
+description: "Mengonversi slide dari presentasi PPT, PPTX, dan ODP menjadi PNG, JPEG, GIF, TIFF, EMF, dan format gambar lainnya di C++ dengan Aspose.Slides untuk C++."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides for C++ memungkinkan Anda dengan mudah mengonversi slide presentasi PowerPoint dan OpenDocument ke berbagai format gambar, termasuk BMP, PNG, JPG (JPEG), GIF, dan lainnya.
+Aspose.Slides untuk C++ dapat merender slide individu dari presentasi PowerPoint dan OpenDocument sebagai PNG, JPEG, GIF, TIFF, dan format gambar lainnya.
 
 Untuk mengonversi slide menjadi gambar, ikuti langkah-langkah berikut:
 
-1. Tentukan pengaturan konversi yang diinginkan dan pilih slide yang ingin Anda ekspor dengan menggunakan:
-    - Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/itiffoptions/) atau
-    - Antarmuka [IRenderingOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/irenderingoptions/)
-2. Hasilkan gambar slide dengan memanggil metode [GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/getimage/).
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+2. Pilih slide yang ingin Anda render.
+3. Jika diperlukan, konfigurasikan rendering dengan kelas [RenderingOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/renderingoptions/) atau [TiffOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/tiffoptions/).
+4. Panggil metode [ISlide::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/getimage/). Metode ini mengembalikan objek [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/).
+5. Panggil metode [IImage::Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/save/) dan tentukan format keluaran dengan nilai [ImageFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/imageformat/).
 
-Sebuah [Bitmap](https://reference.aspose.com/slides/id/cpp/system.drawing/bitmap/) adalah objek yang memungkinkan Anda bekerja dengan gambar yang didefinisikan oleh data piksel. Anda dapat menggunakan instance dari kelas ini untuk menyimpan gambar dalam berbagai format (BMP, JPG, PNG, dll.).
+## **Konversi Slide ke Gambar PNG**
 
-## **Konversi Slide ke Bitmap dan Simpan Gambar dalam PNG**
+Konversi paling sederhana menggunakan pengaturan rendering default. Objek [IImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimage/) yang dihasilkan dapat diproses dalam memori atau disimpan ke file.
 
-Anda dapat mengonversi slide menjadi objek bitmap dan menggunakannya langsung dalam aplikasi Anda. Atau, Anda dapat mengonversi slide menjadi bitmap dan kemudian menyimpan gambar dalam format JPEG atau format lain yang diinginkan.
+Contoh C++ berikut merender slide pertama dan menyimpannya sebagai gambar PNG:
 
-Kode C++ berikut menunjukkan cara mengonversi slide pertama dari presentasi menjadi objek bitmap dan kemudian menyimpan gambar dalam format PNG:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
 
-```cpp 
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Mengonversi slide pertama dalam presentasi menjadi bitmap.
-auto image = presentation->get_Slide(0)->GetImage();
-
-// Simpan gambar dalam format PNG.
+auto image = slide->GetImage();
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
@@ -54,19 +61,28 @@ presentation->Dispose();
 
 ## **Konversi Slide ke Gambar dengan Ukuran Kustom**
 
-Anda mungkin perlu mendapatkan gambar dengan ukuran tertentu. Dengan menggunakan overload dari [GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/getimage/), Anda dapat mengonversi slide menjadi gambar dengan dimensi spesifik (lebar dan tinggi). 
+Gunakan overload [ISlide::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/getimage/) yang menerima nilai [Size](https://reference.aspose.com/slides/id/cpp/system.drawing/size/) untuk merender slide dengan dimensi piksel yang tepat.
 
-Kode contoh ini menunjukkan cara melakukannya:
+Contoh berikut membuat gambar JPEG 1820 × 1040:
 
-```cpp 
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Mengonversi slide pertama dalam presentasi menjadi bitmap dengan ukuran yang ditentukan.
-auto image = presentation->get_Slide(0)->GetImage(imageSize);
-
-// Simpan gambar dalam format JPEG.
+auto image = slide->GetImage(imageSize);
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
@@ -75,72 +91,83 @@ presentation->Dispose();
 
 ## **Konversi Slide dengan Catatan dan Komentar ke Gambar**
 
-Beberapa slide mungkin berisi catatan dan komentar.
+Secara default, gambar slide tidak menyertakan catatan atau komentar. Tetapkan objek [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/notescommentslayoutingoptions/) ke metode [RenderingOptions::set_SlidesLayoutOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/renderingoptions/set_slideslayoutoptions/) untuk mengontrol di mana catatan dan komentar muncul.
 
-Aspose.Slides menyediakan dua antarmuka—[ITiffOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/itiffoptions/) dan [IRenderingOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/irenderingoptions/)—yang memungkinkan Anda mengontrol rendering slide presentasi ke gambar. Kedua antarmuka menyertakan metode `set_SlidesLayoutOptions`, yang memungkinkan Anda mengatur rendering catatan dan komentar pada slide saat mengonversinya menjadi gambar.
+Contoh berikut menempatkan catatan terpotong di bawah slide dan komentar di sebelah kanannya:
 
-Dengan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/notescommentslayoutingoptions/), Anda dapat menentukan posisi yang diinginkan untuk catatan dan komentar dalam gambar yang dihasilkan.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
 
-Kode C++ berikut menunjukkan cara mengonversi slide dengan catatan dan komentar:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-```cpp 
-float scaleX = 2;
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
-// Load a presentation file.
+auto layoutOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+layoutOptions->set_CommentsAreaWidth(500);
+layoutOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutOptions);
+
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Atur posisi catatan.
-notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Atur posisi komentar.
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // Atur lebar area komentar.
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Atur warna area komentar.
-
-// Buat opsi rendering.
-auto options = MakeObject<RenderingOptions>();
-options->set_SlidesLayoutOptions(notesCommentsOptions);
-
-// Konversi slide pertama dari presentasi menjadi gambar.
-auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-
-// Simpan gambar dalam format GIF.
+auto image = slide->GetImage(renderingOptions, scaleX, scaleY);
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert title="Catatan" color="warning" %}} 
-
-Dalam proses konversi slide ke gambar apa pun, metode [set_NotesPosition](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) tidak dapat menerapkan `BottomFull` (untuk menentukan posisi catatan) karena teks catatan mungkin terlalu besar, sehingga tidak dapat muat dalam ukuran gambar yang ditentukan.
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Untuk konversi slide-ke-gambar, jangan atur metode [NotesCommentsLayoutingOptions::set_NotesPosition](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) ke [BottomFull](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/notespositions/). Catatan dapat berisi lebih banyak teks daripada ukuran gambar tetap yang dapat menampungnya. Gunakan [BottomTruncated](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/notespositions/) sebagai gantinya.
+{{% /alert %}}
 
 ## **Konversi Slide ke Gambar Menggunakan Opsi TIFF**
 
-Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/itiffoptions/) memberikan kontrol lebih besar atas gambar TIFF yang dihasilkan dengan memungkinkan Anda menentukan parameter seperti ukuran, resolusi, palet warna, dan lain-lain.
+Kelas [TiffOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/tiffoptions/) memungkinkan Anda mengontrol ukuran, resolusi, dan properti lainnya dari gambar TIFF yang dirender.
 
-Kode C++ berikut menunjukkan proses konversi di mana opsi TIFF digunakan untuk menghasilkan gambar hitam-putih dengan resolusi 300 DPI dan ukuran 2160 × 2800:
+Contoh berikut merender slide pertama sebagai gambar TIFF 2160 × 2880 pada 300 DPI:
 
-```cpp 
-// Muat file presentasi.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));
+tiffOptions->set_DpiX(300);
+tiffOptions->set_DpiY(300);
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-// Dapatkan slide pertama dari presentasi.
 auto slide = presentation->get_Slide(0);
 
-// Konfigurasikan pengaturan gambar TIFF output.
-auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // Atur ukuran gambar.
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Atur format piksel (hitam putih).
-tiffOptions->set_DpiX(300);                                         // Atur resolusi horizontal.
-tiffOptions->set_DpiY(300);                                         // Atur resolusi vertikal.
-
-// Konversi slide menjadi gambar dengan opsi yang ditentukan.
 auto image = slide->GetImage(tiffOptions);
-
-// Simpan gambar dalam format TIFF.
-image->Save(u"output.bmp", ImageFormat::Tiff);
+image->Save(u"output.tiff", ImageFormat::Tiff);
 
 image->Dispose();
 presentation->Dispose();
@@ -148,47 +175,131 @@ presentation->Dispose();
 
 ## **Konversi Semua Slide ke Gambar**
 
-Aspose.Slides memungkinkan Anda mengonversi semua slide dalam sebuah presentasi menjadi gambar, secara efektif mengubah seluruh presentasi menjadi serangkaian gambar.
+Iterasikan koleksi slide untuk mengonversi seluruh presentasi menjadi serangkaian gambar. Slide tersembunyi disertakan kecuali Anda secara eksplisit melewatkannya.
 
-Kode contoh ini menunjukkan cara mengonversi semua slide dalam presentasi menjadi gambar menggunakan C++:
+Contoh berikut merender setiap slide sebagai gambar JPEG dengan faktor skala horizontal dan vertikal sebesar 2:
 
-```cpp 
-float scaleX = 2;
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Render presentasi menjadi gambar slide per slide.
-for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
+int32_t slideCount = presentation->get_Slides()->get_Count();
+for (int32_t index = 0; index < slideCount; index++)
 {
-    // Kendalikan slide tersembunyi (jangan render slide tersembunyi).
-    if (presentation->get_Slide(i)->get_Hidden())
-    {
-        continue;
-    }
-
-    // Konversi slide menjadi gambar.
-    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
-
-    // Simpan gambar dalam format JPEG.
-    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
-
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"Slide_{0}.jpg", index), ImageFormat::Jpeg);
     image->Dispose();
 }
 
 presentation->Dispose();
 ```
 
+## **Buat Output Enhanced Metafile**
+
+Enhanced Metafile (EMF) berguna ketika grafik berbasis vektor harus dipertukarkan dengan Microsoft Office atau aplikasi Windows lainnya yang mendukung metafile Windows. Tidak seperti gambar berbasis piksel, EMF dapat mempertahankan operasi menggambar vektor yang dapat diskalakan tanpa kehilangan ketajaman yang sama. Namun, EMF terutama merupakan format kompatibilitas untuk aplikasi dengan dukungan metafile Windows, bukan format pertukaran universal. Selain itu, konten slide yang kompleks, seperti gambar bitmap dan beberapa efek, dapat disimpan sebagai elemen raster di dalam kontainer metafile vektor.
+
+### **Ekspor Slide ke EMF**
+
+Metode [ISlide::WriteAsEmf](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/writeasemf/) menulis sebuah [ISlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/) ke aliran target dalam format EMF. Contoh berikut memuat presentasi, memilih slide pertama, dan menulisnya ke aliran file EMF:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = File::Create(u"Slide_0.emf");
+slide->WriteAsEmf(emfStream);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+Pemanggil memiliki aliran yang diteruskan ke [ISlide::WriteAsEmf](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/writeasemf/) dan harus menutup atau membuangnya. Aspose.Slides menulis pada posisi saat ini dari aliran dan membiarkannya tetap terbuka.
+
+### **Konversi Gambar SVG ke EMF dan Tambahkan ke Presentasi**
+
+Gunakan [ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/id/cpp/aspose.slides/isvgimage/writeasemf/) untuk mengonversi konten SVG ke EMF. Byte yang dihasilkan dapat ditambahkan ke presentasi melalui [IImageCollection::AddImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimagecollection/addimage/) dan ditempatkan pada slide dengan [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addpictureframe/).
+
+Contoh berikut membuat [SvgImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/svgimage/) dari markup SVG, mengonversinya menjadi EMF dalam memori, menyisipkan metafile pada slide pertama, dan menyimpan presentasi:
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String svgContent = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = MakeObject<MemoryStream>();
+svgImage->WriteAsEmf(emfStream);
+
+auto emfData = emfStream->ToArray();
+auto image = presentation->get_Images()->AddImage(emfData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, image);
+
+presentation->Save(u"Presentation_with_emf.pptx", SaveFormat::Pptx);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+[ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/id/cpp/aspose.slides/isvgimage/writeasemf/) tidak mengambil kepemilikan aliran tujuan. Setelah menulis, posisi aliran berada di akhir data yang dihasilkan. Contoh memanggil [MemoryStream::ToArray](https://reference.aspose.com/slides/id/cpp/system.io/memorystream/toarray/) untuk mendapatkan buffer lengkap terlepas dari posisi aliran saat ini, kemudian mengirimkan array byte tersebut ke [IImageCollection::AddImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/iimagecollection/addimage/). Jaga aliran tetap terbuka sampai konsumen selesai membacanya, dan tutup setelahnya.
+
+Pembuatan EMF tersedia pada sistem operasi yang didukung oleh Aspose.Slides untuk C++, namun rendering dapat berbeda antar platform ketika font atau ketergantungan grafis native tidak tersedia. Instal font yang digunakan oleh konten sumber atau konfigurasikan substitusi yang sesuai, ikuti [platform requirements](/slides/id/cpp/system-requirements/) untuk Aspose.Slides untuk C++, dan validasi hasilnya di aplikasi tujuan yang mengonsumsi EMF. Aplikasi Linux dan macOS sering memiliki dukungan yang terbatas atau tidak konsisten untuk menampilkan dan menyunting metafile Windows.
+
+## **Render Emoji Berwarna**
+
+{{% alert title="Note" color="info" %}}
+Untuk merender emoji berwarna dengan benar saat mengonversi slide presentasi menjadi gambar, font emoji yang digunakan dalam presentasi harus diinstal dan tersedia di sistem yang melakukan konversi. Misalnya, jika presentasi menggunakan **Segoe UI Emoji** dan font ini tidak ada, emoji dapat muncul dalam monokrom pada gambar output.
+{{% /alert %}}
+
 ## **FAQ**
 
 **Apakah Aspose.Slides mendukung rendering slide dengan animasi?**
 
-Tidak, metode `GetImage` hanya menyimpan gambar statis dari slide, tanpa animasi.
+Tidak. Metode [ISlide::GetImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/islide/getimage/) merender gambar statis dari slide dan tidak mengekspor animasi.
 
 **Apakah slide tersembunyi dapat diekspor sebagai gambar?**
 
-Ya, slide tersembunyi dapat diproses seperti slide biasa. Pastikan slide tersebut termasuk dalam loop pemrosesan.
+Ya. Slide tersembunyi dapat dirender seperti slide biasa. Sertakan mereka dalam loop pemrosesan, seperti yang ditunjukkan pada contoh di atas.
 
-**Apakah gambar dapat disimpan dengan bayangan dan efek?**
+**Apakah bayangan dan efek lainnya dipertahankan dalam gambar slide?**
 
-Ya, Aspose.Slides mendukung rendering bayangan, transparansi, dan efek grafis lainnya saat menyimpan slide sebagai gambar.
+Ya. Aspose.Slides merender bayangan, transparansi, dan efek grafis lain yang didukung dalam gambar slide.

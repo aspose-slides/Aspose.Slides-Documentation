@@ -1,51 +1,54 @@
 ---
-title: Sunum Slaytlarını PHP'de Görüntülere Dönüştürme
-linktitle: Slayttan Görüntüye
+title: "PHP'de Sunum Slaytlarını Görüntülere Dönüştürme"
+linktitle: "Slayttan Görüntüye"
 type: docs
 weight: 35
 url: /tr/php-java/convert-slide/
 keywords:
 - slaytı dönüştür
 - slaytı dışa aktar
-- slayttan görüntüye
+- slaytı görüntüye
 - slaytı görüntü olarak kaydet
-- slayttan PNG
-- slayttan JPEG
-- slayttan bitmap
-- slayttan TIFF
+- slaytı EMF'ye
+- slaytı PNG'ye
+- slaytı JPEG'e
+- slaytı bitmap'e
+- slaytı TIFF'e
 - PowerPoint
 - OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PPT, PPTX ve ODP slaytlarını görüntülere dönüştürün — hızlı, yüksek kaliteli işleme ve net kod örnekleri."
+description: "PPT, PPTX ve ODP sunumlarından slaytları PNG, JPEG, GIF, TIFF, EMF ve diğer görüntü formatlarına PHP ile Aspose.Slides kullanarak dönüştürün."
 ---
 ## **Giriş**
 
-Aspose.Slides for PHP via Java, PowerPoint ve OpenDocument sunum slaytlarını BMP, PNG, JPG (JPEG), GIF ve diğerleri dahil olmak üzere çeşitli görüntü biçimlerine kolayca dönüştürmenizi sağlar.
+Aspose.Slides for PHP via Java, PowerPoint ve OpenDocument sunumlarından tek tek slaytları PNG, JPEG, GIF, TIFF ve diğer görüntü formatlarında oluşturabilir.
 
-Bir slaytı görüntüye dönüştürmek için aşağıdaki adımları izleyin:
+Bir slaytı görüntüye dönüştürmek için şu adımları izleyin:
 
-1. Dönüştürme ayarlarını belirleyin ve dışa aktarmak istediğiniz slaytları şu sınıfları kullanarak seçin:
-    - The [TiffOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/tiffoptions/) class, or
-    - The [RenderingOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/renderingoptions/) class.
-2. Slayt görüntüsünü, [getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getImage) yöntemini çağırarak oluşturun.
+1. Sunumu [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. Render (oluştur) etmek istediğiniz slaytı seçin.
+3. Gerekirse render ayarlarını [RenderingOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/renderingoptions/) veya [TiffOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/tiffoptions/) sınıfı ile yapılandırın.
+4. [Slide::getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getImage) metodunu çağırın. Bu metod bir [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) nesnesi döndürür.
+5. [IImage::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/#save) metodunu çağırın ve çıktı formatını bir [ImageFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imageformat/) değeri ile belirtin.
 
-Aspose.Slides for PHP via Java'da, [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) piksel verileriyle tanımlanan görüntülerle çalışmanıza olanak tanıyan bir sınıftır. Bu sınıfı, görüntüleri geniş bir format yelpazesinde (BMP, JPG, PNG vb.) kaydetmek için kullanabilirsiniz.
+## **Bir Slaytı PNG Görüntüsü Olarak Dönüştürün**
 
-## **Slaytları Bitmape Dönüştürme ve Görüntüleri PNG Olarak Kaydetme**
+En basit dönüşüm, varsayılan render ayarlarını kullanır. Oluşan [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) nesnesi bellekte işlenebilir veya bir dosyaya kaydedilebilir.
 
-Bir slaytı bitmap nesnesine dönüştürüp uygulamanızda doğrudan kullanabilirsiniz. Alternatif olarak, slaytı bitmap'e dönüştürüp ardından görüntüyü JPEG veya tercih ettiğiniz başka bir formatta kaydedebilirsiniz.
-
-Bu kod, bir sunumun ilk slaytını bitmap nesnesine dönüştürüp ardından PNG formatında kaydetmeyi gösterir:
+Aşağıdaki PHP örneği ilk slaytı render eder ve PNG görüntüsü olarak kaydeder:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Sunumdaki ilk slaytı bitmap'e dönüştür.
-    $image = $presentation->getSlides()->get_Item(0)->getImage();
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage();
     try {
-        // Görüntüyü PNG formatında kaydet.
         $image->save("Slide_0.png", ImageFormat::Png);
     } finally {
         $image->dispose();
@@ -55,21 +58,24 @@ try {
 }
 ```
 
-## **Özel Boyutlarda Slayt Görüntüleri Dönüştürme**
+## **Özel Boyutlarla Slaytları Görüntülere Dönüştürün**
 
-Belirli bir boyutta bir görüntü elde etmeniz gerekebilir. [getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getImage) yönteminin bir aşırı yüklemesini kullanarak, bir slaytı belirli boyutlarda (genişlik ve yükseklik) görüntüye dönüştürebilirsiniz.
+[Slide::getImage] aşırı yüklemesini kullanın; bu, tam piksel boyutlarıyla bir slaytı render etmek için bir [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) değerini kabul eder.
 
-Bu örnek kod, bu işlemi nasıl yapacağınızı gösterir:
+Aşağıdaki örnek 1820 × 1040 JPEG görüntüsü oluşturur:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $imageSize = new Java("java.awt.Dimension", 1820, 1040);
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Sunumdaki ilk slaytı belirtilen boyutta bitmap'e dönüştür.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($imageSize);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage($imageSize);
     try {
-        // Görüntüyü JPEG formatında kaydet.
         $image->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
         $image->dispose();
@@ -79,36 +85,40 @@ try {
 }
 ```
 
-## **Notlar ve Yorumlar İçeren Slaytları Görüntülere Dönüştürme**
+## **Notlar ve Yorumlarla Slaytları Görüntülere Dönüştürün**
 
-Bazı slaytlar not ve yorum içerebilir.
+Varsayılan olarak, slayt görüntüleri notları veya yorumları içermez. Notların ve yorumların nerede görüneceğini kontrol etmek için bir [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notescommentslayoutingoptions/) nesnesini [RenderingOptions::setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) metoduna geçirin.
 
-Aspose.Slides, sunum slaytlarının görüntülere dönüştürülmesini kontrol etmenizi sağlayan iki sınıf olan [TiffOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/tiffoptions/) ve [RenderingOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/renderingoptions/) sunar. Her iki sınıf da `setSlidesLayoutOptions` metodunu içerir; bu metod, bir slaytı görüntüye dönüştürürken notların ve yorumların işlenmesini yapılandırmanıza olanak tanır.
-
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notescommentslayoutingoptions/) sınıfı ile, ortaya çıkan görüntüde not ve yorumların istediğiniz konumunu belirtebilirsiniz.
-
-Bu kod, not ve yorum içeren bir slaytı nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, kesilmiş notları slaytın altında ve yorumları sağında konumlandırır:
 
 ```php
+use aspose\slides\CommentsPositions;
+use aspose\slides\ImageFormat;
+use aspose\slides\NotesCommentsLayoutingOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\Presentation;
+use aspose\slides\RenderingOptions;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
+$commentsAreaColor = new Java("java.awt.Color", 250, 235, 215);
+
+$layoutOptions = new NotesCommentsLayoutingOptions();
+$layoutOptions->setNotesPosition(NotesPositions::BottomTruncated);
+$layoutOptions->setCommentsPosition(CommentsPositions::Right);
+$layoutOptions->setCommentsAreaWidth(500);
+$layoutOptions->setCommentsAreaColor($commentsAreaColor);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutOptions);
+
 $presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    $notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    $notesCommentsOptions->setNotesPosition(NotesPositions::BottomTruncated);         // Notların konumunu ayarla.
-    $notesCommentsOptions->setCommentsPosition(CommentsPositions::Right);             // Yorumların konumunu ayarla.
-    $notesCommentsOptions->setCommentsAreaWidth(500);                                 // Yorum alanının genişliğini ayarla.
-    $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // Yorum alanının rengini ayarla.
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    // Render seçeneklerini oluştur.
-    $options = new RenderingOptions();
-    $options->setSlidesLayoutOptions($notesCommentsOptions);
-
-    // Sunumun ilk slaytını görüntüye dönüştür.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($options, $scaleX, $scaleY);
+    $image = $slide->getImage($renderingOptions, $scaleX, $scaleY);
     try {
-        // Görüntüyü GIF formatında kaydet.
         $image->save("Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
     } finally {
         $image->dispose();
@@ -118,36 +128,34 @@ try {
 }
 ```
 
-{{% alert title="Not" color="warning" %}} 
+{{% alert title="Uyarı" color="warning" %}}
+Slayt-görüntü dönüşümü için, [NotesCommentsLayoutingOptions::setNotesPosition](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) metoduna [BottomFull](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notespositions/) geçirmeyin. Notlar, sabit görüntü boyutunun alabileceğinden daha fazla metin içerebilir. Bunun yerine [BottomTruncated](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notespositions/) kullanın.
+{{% /alert %}}
 
-Herhangi bir slayt‑görüntü dönüştürme sürecinde, [setNotesPosition](https://reference.aspose.com/slides/tr/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) yöntemi, bir notun metni çok büyük olabileceği ve belirtilen görüntü boyutuna sığmayabileceği için `BottomFull` (notların konumunu belirtmek amacıyla) uygulanamaz.
+## **TIFF Seçenekleri Kullanarak Slaytları Görüntülere Dönüştürün**
 
-{{% /alert %}} 
+[TiffOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/tiffoptions/) sınıfı, render edilen TIFF görüntüsünün boyutunu, çözünürlüğünü ve diğer özelliklerini kontrol etmenizi sağlar.
 
-## **TIFF Seçeneklerini Kullanarak Slaytları Görüntülere Dönüştürme**
-
-[TiffOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/tiffoptions/) sınıfı, boyut, çözünürlük, renk paleti ve daha fazlası gibi parametreleri belirlemenizi sağlayarak ortaya çıkan TIFF görüntüsü üzerinde daha fazla kontrol sunar.
-
-Bu kod, TIFF seçeneklerinin 300 DPI çözünürlük ve 2160 × 2800 boyutunda bir siyah‑beyaz görüntü oluşturmak için kullanıldığı bir dönüştürme sürecini gösterir:
+Aşağıdaki örnek, ilk slaytı 2160 × 2880 TIFF görüntüsü olarak 300 DPI'da render eder:
 
 ```php
-// Bir sunum dosyasını yükle.
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\TiffOptions;
+
+$imageSize = new Java("java.awt.Dimension", 2160, 2880);
+
+$tiffOptions = new TiffOptions();
+$tiffOptions->setImageSize($imageSize);
+$tiffOptions->setDpiX(300);
+$tiffOptions->setDpiY(300);
+
 $presentation = new Presentation("sample.pptx");
 try {
-    // Sunumdan ilk slaytı al.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Çıktı TIFF görüntüsünün ayarlarını yapılandır.
-    $options = new TiffOptions();
-    $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));  // Görüntü boyutunu ayarla.
-    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);       // Piksel formatını ayarla (siyah beyaz).
-    $options->setDpiX(300);                                              // Yatay çözünürlüğü ayarla.
-    $options->setDpiY(300);                                              // Dikey çözünürlüğü ayarla.
-    
-    // Slaytı belirtilen seçeneklerle görüntüye dönüştür.
-    $image = $slide->getImage($options);
+    $image = $slide->getImage($tiffOptions);
     try {
-        // Görüntüyü TIFF formatında kaydet.
         $image->save("output.tiff", ImageFormat::Tiff);
     } finally {
         $image->dispose();
@@ -157,36 +165,31 @@ try {
 }
 ```
 
-{{% alert title="Not" color="warning" %}} 
+{{% alert title="Uyarı" color="warning" %}}
+TIFF desteği, JDK 9'dan önceki Java sürümlerinde garanti edilmez.
+{{% /alert %}}
 
-Tiff desteği JDK 9'dan önceki sürümlerde garanti edilmez.
+## **Tüm Slaytları Görüntülere Dönüştürün**
 
-{{% /alert %}} 
+Tüm sunumu bir dizi görüntüye dönüştürmek için slayt koleksiyonunda döngü yapın. Gizli slaytlar, açıkça atlamadığınız sürece dahil edilir.
 
-## **Tüm Slaytları Görüntülere Dönüştürme**
-
-Aspose.Slides, bir sunumdaki tüm slaytları görüntülere dönüştürmenize olanak tanır; bu sayede bütün sunum bir dizi görüntüye çevrilir.
-
-Bu örnek kod, bir sunumdaki tüm slaytları PHP'de görüntülere nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, her slaytı yatay ve dikey ölçek faktörleri 2 olan bir JPEG görüntüsü olarak render eder:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Sunumu slayt slayt görüntülere işle.
-    for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
-        // Gizli slaytları kontrol et (gizli slaytları renderleme).
-        if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
-            continue;
-        }
-
-        // Slaytı bir görüntüye dönüştür.
-        $image = $presentation->getSlides()->get_Item($i)->getImage($scaleX, $scaleY);
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($scaleX, $scaleY);
         try {
-            // Görüntüyü JPEG formatında kaydet.
-            $image->save("Slide_" . $i . ".jpg", ImageFormat::Jpeg);
+            $image->save("Slide_" . $index . ".jpg", ImageFormat::Jpeg);
         } finally {
             $image->dispose();
         }
@@ -196,16 +199,90 @@ try {
 }
 ```
 
+## **Gelişmiş Metafile Çıktısı Oluşturun**
+
+Enhanced Metafile (EMF), vektör tabanlı grafiklerin Microsoft Office veya Windows metafilleri destekleyen diğer Windows uygulamalarıyla değiş tokuş edilmesi gerektiğinde kullanışlıdır. Piksel tabanlı bir görüntünün aksine, EMF keskinlik kaybı olmadan ölçeklenebilen vektör çizim işlemlerini koruyabilir. Ancak EMF, öncelikle Windows metafili desteği olan uygulamalar için bir uyumluluk biçimidir, evrensel bir değişim biçimi değildir. Ayrıca, bitmap görüntüler ve bazı efektler gibi karmaşık slayt içeriği, vektör metafili kapsayıcısı içinde rasterleştirilmiş öğeler olarak saklanabilir.
+
+### **Bir Slaytı EMF Olarak Dışa Aktarın**
+
+[Slide::writeAsEmf](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#writeAsEmf) metodu, bir slaytı EMF formatında hedef bir akıma yazar. Aşağıdaki örnek bir sunumu yükler, ilk slaytı seçer ve bir EMF dosya akışına yazar:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        $slide->writeAsEmf($emfStream);
+    } finally {
+        $emfStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Çağıran, [Slide::writeAsEmf](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#writeAsEmf)’e geçirilen akımın sahibidir ve yukarıda gösterildiği gibi onu kapatmakla sorumludur.
+
+### **Bir SVG Görüntüsünü EMF'ye Dönüştürün ve Sunuma Ekleyin**
+
+SVG içeriğini EMF'ye dönüştürmek için [SvgImage::writeAsEmf](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/#writeAsEmf) kullanın. Ortaya çıkan baytlar, [ImageCollection::addImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imagecollection/#addImage) ile sunuma eklenebilir ve bir slayta [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/#addPictureFrame) ile yerleştirilebilir.
+
+Aşağıdaki örnek, SVG işaretlemesinden bir [SvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/) oluşturur, bunu bellek içi bir EMF'ye dönüştürür, metafili ilk slayta ekler ve sunumu kaydeder:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$svgContent = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect width="200" height="100" fill="#4472C4"/></svg>';
+$svgImage = new SvgImage($svgContent);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.ByteArrayOutputStream");
+    try {
+        $svgImage->writeAsEmf($emfStream);
+
+        $emfData = $emfStream->toByteArray();
+        $image = $presentation->getImages()->addImage($emfData);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, $image);
+    } finally {
+        $emfStream->close();
+    }
+
+    $presentation->save("Presentation_with_emf.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+[SvgImage::writeAsEmf](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/#writeAsEmf), hedef akımın sahipliğini almaz. Bir [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html), tüm oluşturulan verileri bellekte saklar, bu nedenle `toByteArray` çağrılmadan önce konum sıfırlamaya gerek yoktur. Döndürülen bayt dizisi, akım kapatıldıktan sonra da geçerli kalır.
+
+EMF üretimi, seçilen Aspose.Slides for PHP via Java ve JDK yapılandırması tarafından desteklenen işletim sistemlerinde mevcuttur, ancak yazı tipleri veya grafik bağımlılıkları mevcut değilse platformlar arasında render farkları olabilir. Kaynak içerikte kullanılan yazı tiplerini yükleyin veya uygun değişiklikleri yapılandırın, Aspose.Slides for PHP via Java için [platform gereksinimlerini](/slides/tr/php-java/system-requirements/) izleyin ve sonucu hedef EMF tüketen uygulamada doğrulayın. Linux ve macOS uygulamaları genellikle Windows metafillerinin görüntülenmesi ve düzenlenmesi konusunda sınırlı veya tutarsız destek sunar.
+
+## **Renkli Emoji Render'ı**
+
+{{% alert title="Not" color="info" %}}
+Sunum slaytlarını görüntülere dönüştürürken renkli emojileri doğru şekilde render etmek için, sunumda kullanılan emoji yazı tiplerinin dönüşümü yapan sistemde yüklü ve erişilebilir olması gerekir. Örneğin, sunum **Segoe UI Emoji** yazı tipini kullanıyorsa ve bu yazı tipi eksikse, emojiler çıkış görüntülerinde tek renkli (monokrom) görünür.
+{{% /alert %}}
+
 ## **SSS**
 
-**Aspose.Slides animasyonlu slaytların işlenmesini destekliyor mu?**
+**Aspose.Slides animasyonlu slaytların render edilmesini destekliyor mu?**
 
-Hayır, `getImage` yöntemi slaytı yalnızca statik bir görüntü olarak kaydeder, animasyon içermez.
+Hayır. [Slide::getImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getImage) metodu slaytın statik bir görüntüsünü render eder ve animasyonları dışa aktarmaz.
 
 **Gizli slaytlar görüntü olarak dışa aktarılabilir mi?**
 
-Evet, gizli slaytlar normal slaytlar gibi işlenebilir. İşlem döngüsünde yer aldıklarından emin olun.
+Evet. Gizli slaytlar normal slaytlar gibi render edilebilir. Yukarıdaki örnekte gösterildiği gibi işleme döngüsüne dahil edin.
 
-**Görüntüler gölgeler ve efektler ile kaydedilebilir mi?**
+**Gölge ve diğer efektler slayt görüntülerinde korunur mu?**
 
-Evet, Aspose.Slides, slaytları görüntü olarak kaydederken gölgeler, saydamlık ve diğer grafik efektlerinin işlenmesini destekler.
+Evet. Aspose.Slides, slayt görüntülerinde gölgeler, şeffaflık ve diğer desteklenen grafik efektlerini render eder.

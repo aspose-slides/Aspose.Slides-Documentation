@@ -1,189 +1,225 @@
 ---
 title: Konvertera presentationsbilder till bilder i .NET
-linktitle: Bildruta till bild
+linktitle: Bild till bild
 type: docs
 weight: 41
 url: /sv/net/convert-slide/
 keywords:
-- konvertera bildruta
-- exportera bildruta
-- bildruta till bild
-- spara bildruta som bild
-- bildruta till PNG
-- bildruta till JPEG
-- bildruta till bitmap
-- bildruta till TIFF
+- konvertera bild
+- exportera bild
+- bild till bild
+- spara bild som bild
+- bild till EMF
+- bild till PNG
+- bild till JPEG
+- bild till bitmap
+- bild till TIFF
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Konvertera bildrutor från PPT, PPTX och ODP till bilder i C# med Aspose.Slides för .NET—snabb, högkvalitativ rendering med tydliga kodexempel."
+description: "Konvertera bilder från PPT-, PPTX- och ODP-presentationer till PNG, JPEG, GIF, TIFF, EMF och andra bildformat i C# med Aspose.Slides för .NET."
 ---
 ## **Introduktion**
 
-Aspose.Slides för .NET gör det enkelt att konvertera PowerPoint- och OpenDocument-presentationer till olika bildformat, inklusive BMP, PNG, JPG (JPEG), GIF och andra.
+Aspose.Slides för .NET kan rendera enskilda bilder från PowerPoint- och OpenDocument-presentationer som PNG, JPEG, GIF, TIFF och andra bildformat.
 
-För att konvertera en bildruta till en bild, följ dessa steg:
+För att konvertera en bild till en bildfil, följ dessa steg:
 
-1. Definiera önskade konverteringsinställningar och välj de bildrutor du vill exportera genom att använda:
-    - [ITiffOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/itiffoptions/) gränssnittet, eller
-    - [IRenderingOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/irenderingoptions/) gränssnittet.
-2. Generera bildrutans bild genom att anropa [GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/)-metoden.
+1. Läs in presentationen med klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/).
+2. Välj den bild du vill rendera.
+3. Om nödvändigt, konfigurera rendering med klassen [RenderingOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/renderingoptions/) eller [TiffOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/tiffoptions/).
+4. Anropa metoden [GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/). Den returnerar ett [IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/)-objekt.
+5. Anropa metoden [IImage.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/save/) och ange utdataformatet med ett [ImageFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/imageformat/)-värde.
 
-I .NET är en [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) ett objekt som låter dig arbeta med bilder definierade av pixeldata. Du kan använda en instans av denna klass för att spara bilder i ett brett spektrum av format (BMP, JPG, PNG osv.).
+## **Konvertera en bild till en PNG-bild**
 
-## **Konvertera bildrutor till bitmappar och spara bilderna i PNG**
+Den enklaste konverteringen använder standardinställningarna för rendering. Det resulterande [IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/)-objektet kan bearbetas i minnet eller sparas till en fil.
 
-Du kan konvertera en bildruta till ett bitmap-objekt och använda det direkt i din applikation. Alternativt kan du konvertera en bildruta till en bitmap och sedan spara bilden i JPEG eller något annat föredraget format.
-
-Den här C#‑koden demonstrerar hur du konverterar den första bildrutan i en presentation till ett bitmap‑objekt och sedan sparar bilden i PNG‑format:
+Följande C#-exempel renderar den första bilden och sparar den som en PNG-bild:
 
 ```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage();
+image.Save("Slide_0.png", ImageFormat.Png);
+```
+
+## **Konvertera bilder till bildfiler med anpassade storlekar**
+
+Använd överlagringen av [GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/) som tar emot ett [Size](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.size)-värde för att rendera en bild med exakta pixeldimensioner.
+
+Följande exempel skapar en 1820 × 1040 JPEG-bild:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+var imageSize = new Size(1820, 1040);
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(imageSize);
+image.Save("Slide_0.jpg", ImageFormat.Jpeg);
+```
+
+## **Konvertera bilder med anteckningar och kommentarer till bildfiler**
+
+Som standard innehåller bildfiler inga anteckningar eller kommentarer. Tilldela ett [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/notescommentslayoutingoptions/)‑objekt till egenskapen [RenderingOptions.SlidesLayoutOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/renderingoptions/slideslayoutoptions/) för att kontrollera var anteckningar och kommentarer visas.
+
+Följande exempel placerar avkortade anteckningar under bilden och kommentarer till höger om den:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // Konvertera den första bildrutan i presentationen till en bitmap.
-    using (IImage image = presentation.Slides[0].GetImage())
-    {
-        // Spara bilden i PNG-format.
-        image.Save("Slide_0.png", ImageFormat.Png);
-    }
+    NotesPosition = NotesPositions.BottomTruncated,
+    CommentsPosition = CommentsPositions.Right,
+    CommentsAreaWidth = 500,
+    CommentsAreaColor = Color.AntiqueWhite
+};
+
+var renderingOptions = new RenderingOptions { SlidesLayoutOptions = layoutOptions };
+
+using var presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(renderingOptions, scaleX, scaleY);
+image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
+```
+
+{{% alert title="Warning" color="warning" %}}
+För konvertering från slide till bild, ange inte egenskapen [NotesPosition](https://reference.aspose.com/slides/sv/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) till [BottomFull](https://reference.aspose.com/slides/sv/net/aspose.slides.export/notespositions/). Anteckningar kan innehålla mer text än den fasta bildstorleken kan rymma. Använd [BottomTruncated](https://reference.aspose.com/slides/sv/net/aspose.slides.export/notespositions/) istället.
+{{% /alert %}}
+
+## **Konvertera bilder till bildfiler med TIFF-alternativ**
+
+Klassen [TiffOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/tiffoptions/) låter dig kontrollera storlek, upplösning och andra egenskaper för den renderade TIFF-bilden.
+
+Följande exempel renderar den första bilden som en 2160 × 2880 TIFF-bild med 300 DPI:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var tiffOptions = new TiffOptions
+{
+    ImageSize = new Size(2160, 2880),
+    DpiX = 300,
+    DpiY = 300
+};
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(tiffOptions);
+image.Save("output.tiff", ImageFormat.Tiff);
+```
+
+## **Konvertera alla bilder till bildfiler**
+
+Iterera igenom bildsamlingen för att konvertera hela presentationen till en serie bildfiler. Dolda bilder inkluderas om du inte explicit hoppar över dem.
+
+Följande exempel renderar varje bild som en JPEG-bild med horisontella och vertikala skalningsfaktorer på 2:
+
+```cs
+using Aspose.Slides;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
+{
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"Slide_{index}.jpg", ImageFormat.Jpeg);
 }
 ```
 
-## **Konvertera bildrutor till bilder med anpassade storlekar**
+## **Skapa Enhanced Metafile-utdata**
 
-Du kan behöva få en bild av en viss storlek. Genom att använda en överlagring från [GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/), kan du konvertera en bildruta till en bild med specifika dimensioner (bredd och höjd).
+Enhanced Metafile (EMF) är användbart när vektorgrafik måste utbytas med Microsoft Office eller andra Windows‑applikationer som stödjer Windows‑metafiler. Till skillnad från en pixelbaserad bild kan en EMF bevara vektorritningar som kan skalas utan samma förlust av skärpa. EMF är dock främst ett kompatibilitetsformat för applikationer med stöd för Windows‑metafiler, inte ett universellt utbytesformat. Dessutom kan komplext bildinnehåll, såsom bitmapbilder och vissa effekter, lagras som rasteriserade element i vektormetafilsbehållaren.
 
-Denna exempelkod demonstrerar hur du gör detta:
+### **Exportera en bild till EMF**
 
-```cs
-Size imageSize = new Size(1820, 1040);
-
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Konvertera den första bildrutan i presentationen till en bitmap med angiven storlek.
-    using (IImage image = presentation.Slides[0].GetImage(imageSize))
-    {
-        // Spara bilden i JPEG-format.
-        image.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
-```
-
-## **Konvertera bildrutor med anteckningar och kommentarer till bilder**
-
-Vissa bildrutor kan innehålla anteckningar och kommentarer.
-
-Aspose.Slides tillhandahåller två gränssnitt—[ITiffOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/itiffoptions/) och [IRenderingOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/irenderingoptions/)—som låter dig kontrollera renderingen av presentationsbilder till bilder. Båda gränssnitten innehåller egenskapen `SlidesLayoutOptions`, som gör det möjligt att konfigurera rendering av anteckningar och kommentarer på en bildruta när den konverteras till en bild.
-
-Med klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/notescommentslayoutingoptions/) kan du ange din föredragna position för anteckningar och kommentarer i den resulterande bilden.
-
-Den här C#‑koden demonstrerar hur du konverterar en bildruta med anteckningar och kommentarer:
+Metoden [ISlide.WriteAsEmf](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/writeasemf/) skriver en [ISlide](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/) till ett mål‑ström i EMF-format. Följande exempel laddar en presentation, väljer den första bilden och skriver den till ett EMF‑filström:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using System.IO;
+using Aspose.Slides;
 
-// Läs in en presentationsfil.
-using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
-{
-    // Skapa renderingsalternativen.
-    RenderingOptions options = new RenderingOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomTruncated,  // Ange noteringarnas position.
-            CommentsPosition = CommentsPositions.Right,      // Ange kommentarernas position.
-            CommentsAreaWidth = 500,                         // Ange bredden på kommentarsområdet.
-            CommentsAreaColor = Color.AntiqueWhite           // Ange färgen för kommentarsområdet.
-        }
-    };
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
 
-    // Konvertera den första bildrutan i presentationen till en bild.
-    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
-    {
-        // Spara bilden i GIF-format.
-        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
-    }
-}
+using var emfStream = File.Create("Slide_0.emf");
+slide.WriteAsEmf(emfStream);
 ```
 
-{{% alert title="Note" color="warning" %}} 
-I någon bildruta‑till‑bild‑konverteringsprocess kan egenskapen [NotesPosition](https://reference.aspose.com/slides/sv/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) inte sättas till `BottomFull` (för att ange positionen för anteckningar) eftersom en antecknings text kan vara för stor, vilket gör att den inte får plats inom den angivna bildstorleken.
-{{% /alert %}} 
+Anroparen äger strömmen som skickas till [ISlide.WriteAsEmf](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/writeasemf/) och måste stänga eller disponera den. Aspose.Slides skriver på strömmens aktuella position och lämnar strömmen öppen.
 
-## **Konvertera bildrutor till bilder med TIFF‑alternativ**
+### **Konvertera en SVG-bild till EMF och lägg till den i en presentation**
 
-Gränssnittet [ITiffOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/itiffoptions/) ger större kontroll över den resulterande TIFF‑bilden genom att låta dig ange parametrar såsom storlek, upplösning, färgpalett och mer.
+Använd [ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/sv/net/aspose.slides/isvgimage/writeasemf/) för att konvertera SVG-innehåll till EMF. De resulterande bytena kan läggas till i presentationen via [IImageCollection.AddImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimagecollection/addimage/) och placeras på en bild med [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addpictureframe/).
 
-Den här C#‑koden demonstrerar en konverteringsprocess där TIFF‑alternativ används för att skapa en svart‑vit bild med 300 DPI‑upplösning och en storlek på 2160 × 2800:
+Följande exempel skapar en [SvgImage](https://reference.aspose.com/slides/sv/net/aspose.slides/svgimage/) från SVG‑markup, konverterar den till ett EMF‑objekt i minnet, infogar metafilen på den första bilden och sparar presentationen:
 
 ```cs
-// Läs in en presentationsfil.
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    // Hämta den första bildrutan från presentationen.
-    ISlide slide = presentation.Slides[0];
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Konfigurera inställningarna för den utgående TIFF-bilden.
-    TiffOptions tiffOptions = new TiffOptions
-    {
-        ImageSize = new Size(2160, 2880),                  // Ange bildstorleken.
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // Ange pixelformatet (svartvitt).
-        DpiX = 300,                                        // Ange den horisontella upplösningen.
-        DpiY = 300                                         // Ange den vertikala upplösningen.
-    };
+var svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+var svgImage = new SvgImage(svgContent);
 
-    // Konvertera bildrutan till en bild med de angivna alternativen.
-    using (IImage image = slide.GetImage(tiffOptions))
-    {
-        // Spara bilden i TIFF-format.
-        image.Save("output.tiff", ImageFormat.Tiff);
-    }
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var emfStream = new MemoryStream();
+svgImage.WriteAsEmf(emfStream);
+
+emfStream.Position = 0;
+var image = presentation.Images.AddImage(emfStream);
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+
+presentation.Save("Presentation_with_emf.pptx", SaveFormat.Pptx);
 ```
 
-## **Konvertera alla bildrutor till bilder**
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/sv/net/aspose.slides/isvgimage/writeasemf/) tar inte ägandeskap över destinationsströmmen. Efter skrivning är strömmens position i slutet av den genererade datan. Återställ `Position` till början innan samma sökbara ström skickas till en läsare, som visas ovan. Håll strömmen öppen tills konsumenten har läst färdigt den och disponera den därefter. Alternativt kan du anropa `ToArray` och skicka den returnerade byte‑arrayen till [IImageCollection.AddImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimagecollection/addimage/); `ToArray` returnerar hela bufferten oavsett strömmens aktuella position.
 
-Aspose.Slides låter dig konvertera alla bildrutor i en presentation till bilder, vilket effektivt omvandlar hela presentationen till en serie bilder.
+EMF‑generering är tillgänglig på de operativsystem som stöds av den valda Aspose.Slides för .NET‑byggnaden, men rendering kan skilja sig åt mellan plattformar när typsnitt eller inhemska grafikberoenden saknas. Installera de typsnitt som används av källinnehållet eller konfigurera lämpliga ersättningar, följ [platform requirements](/slides/sv/net/system-requirements/) för ditt Aspose.Slides‑paket och validera resultatet i den mål‑EMF‑konsumerande applikationen. Linux‑ och macOS‑applikationer har ofta begränsat eller inkonsekvent stöd för att visa och redigera Windows‑metafiler.
 
-Denna exempelkod demonstrerar hur du konverterar alla bildrutor i en presentation till bilder i C#:
+## **Rendering av färgade emojis**
 
-```cs
-float scaleX = 2;
-float scaleY = scaleX;
-
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Rendera presentationen till bilder bildruta för bildruta.
-    for (int i = 0; i < presentation.Slides.Count; i++)
-    {
-        // Kontrollera dolda bildrutor (rendera inte dolda bildrutor).
-        if (presentation.Slides[i].Hidden)
-            continue;
-
-        // Konvertera bildrutan till en bild.
-        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
-        {
-            // Spara bilden i JPEG-format.
-            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
-        }
-    }
-}
-```
+{{% alert title="Note" color="info" %}}
+För att rendera färgade emojis korrekt när presentationsbilder konverteras till bildfiler måste de emoji‑typsnitt som används i presentationen vara installerade och tillgängliga på systemet som utför konverteringen. Till exempel, om presentationen använder **Segoe UI Emoji** och detta typsnitt saknas, kan emojis visas i monokrom i utdata‑bilderna.
+{{% /alert %}}
 
 ## **FAQ**
 
-**1. Stöder Aspose.Slides rendering av bildrutor med animationer?**
+**Stöder Aspose.Slides rendering av bilder med animationer?**
 
-Nej, metoden `GetImage` sparar endast en statisk bild av bildrutan, utan animationer.
+Nej. Metoden [GetImage](https://reference.aspose.com/slides/sv/net/aspose.slides/islide/getimage/) renderar en statisk bild av sliden och exporterar inte animationer.
 
-**2. Kan dolda bildrutor exporteras som bilder?**
+**Kan dolda bilder exporteras som bildfiler?**
 
-Ja, dolda bildrutor kan behandlas precis som vanliga. Se bara till att de inkluderas i bearbetningsloopen.
+Ja. Dolda bilder kan renderas som vanliga bilder. Inkludera dem i bearbetningsloopen, som visas i exemplet ovan.
 
-**3. Kan bilder sparas med skuggor och effekter?**
+**Bevaras skuggor och andra effekter i bildfiler?**
 
-Ja, Aspose.Slides stöder rendering av skuggor, transparens och andra grafiska effekter när bildrutor sparas som bilder.
+Ja. Aspose.Slides renderar skuggor, transparens och andra stödjade grafiska effekter i bildfiler.

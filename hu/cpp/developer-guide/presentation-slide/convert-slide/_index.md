@@ -1,189 +1,305 @@
 ---
-title: Diák konvertálása képekké C++-ban
-linktitle: Dia kép
+title: Prezentációs diák képekké konvertálása C++-ban
+linktitle: Dia képpé
 type: docs
 weight: 41
 url: /hu/cpp/convert-slide/
-keywords: 
+keywords:
 - dia konvertálása
 - dia exportálása
-- dia képre
+- dia képbe
 - dia mentése képként
-- dia PNG-re
-- dia JPEG-re
-- dia bitmapre
-- dia TIFF-re
+- dia EMF-be
+- dia PNG-be
+- dia JPEG-be
+- dia bitmapbe
+- dia TIFF-be
 - PowerPoint
 - OpenDocument
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Konvertálja a PPT, PPTX és ODP diákat képekké C++-ban az Aspose.Slides segítségével – gyors, magas minőségű renderelés világos kódpéldákkal."
+description: "Konvertálja a PPT, PPTX és ODP prezentációk diáját PNG, JPEG, GIF, TIFF, EMF és egyéb képadatformátumokba C++-ban az Aspose.Slides for C++ segítségével."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for C++ lehetővé teszi, hogy könnyedén átalakítsa a PowerPoint és az OpenDocument prezentációs diákat különféle képformátumokká, többek közt BMP, PNG, JPG (JPEG), GIF és egyebek.
+Az Aspose.Slides for C++ képes megjeleníteni egyedi diákot PowerPoint és OpenDocument bemutatókból PNG, JPEG, GIF, TIFF és más képformátumokban.
 
-A dia képformátumba konvertálásához kövesse az alábbi lépéseket:
+A dia képpé konvertálásához kövesse az alábbi lépéseket:
 
-1. Határozza meg a kívánt konverziós beállításokat, és válassza ki a kívánt diák exportálásához a következőket:
-    - Az [ITiffOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/itiffoptions/) interfész,
-    - Az [IRenderingOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/irenderingoptions/) interfész.
-2. A dia képét a [GetImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage/) metódus meghívásával hozza létre.
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztállyal.
+2. Válassza ki a megjeleníteni kívánt diát.
+3. Szükség esetén konfigurálja a renderelést a [RenderingOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/renderingoptions/) vagy a [TiffOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/tiffoptions/) osztállyal.
+4. Hívja meg a [ISlide::GetImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage/) metódust. Ez egy [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/) objektumot ad vissza.
+5. Hívja meg az [IImage::Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/save/) metódust, és adja meg a kimeneti formátumot egy [ImageFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imageformat/) értékkel.
 
-A [Bitmap](https://reference.aspose.com/slides/hu/cpp/system.drawing/bitmap/) egy olyan objektum, amely lehetővé teszi a pixeladatok alapján definiált képek kezelését. Ennek az osztálynak egy példányával különféle formátumokban (BMP, JPG, PNG stb.) mentheti a képeket.
+## **Dia konvertálása PNG képpé**
 
-## **Diák konvertálása bitmap formátumba és a képek mentése PNG formátumban**
+A legegyszerűbb konvertálás az alapértelmezett renderelési beállításokat használja. Az eredményül kapott [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/) objektum memóriában feldolgozható vagy fájlba menthető.
 
-Konvertálhatja a diát bitmap objektummá, és közvetlenül felhasználhatja az alkalmazásban. Alternatívaként konvertálhatja a diát bitmapre, majd a képet JPEG vagy bármely más kívánt formátumban mentheti.
+Az alábbi C++ példa rendereli az első diát, és PNG képként menti el:
 
-Ez a C++ kód bemutatja, hogyan konvertálja egy prezentáció első diáját bitmap objektummá, majd PNG formátumban menti a képet:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
 
-```cpp 
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Konvertálja a prezentáció első diáját bitmapre.
-auto image = presentation->get_Slide(0)->GetImage();
-
-// Mentse a képet PNG formátumban.
+auto image = slide->GetImage();
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Diák konvertálása képekké egyéni méretekkel**
+## **Dia(k) konvertálása egyedi méretű képekké**
 
-Lehet, hogy egy adott méretű képre van szüksége. A [GetImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage/) egy overload-jának használatával konvertálhatja a diát a kívánt szélességű és magasságú képpé.
+Használja a [ISlide::GetImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage/) túlterhelést, amely egy [Size](https://reference.aspose.com/slides/hu/cpp/system.drawing/size/) értéket fogad, hogy a diát pontos pixelmérettel renderelje.
 
-Ez a mintakód bemutatja, hogyan valósítható meg:
+Az alábbi példa 1820 × 1040 méretű JPEG képet hoz létre:
 
-```cpp 
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Konvertálja a prezentáció első diáját bitmapre a megadott mérettel.
-auto image = presentation->get_Slide(0)->GetImage(imageSize);
-
-// Mentse a képet JPEG formátumban.
+auto image = slide->GetImage(imageSize);
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Diák konvertálása megjegyzésekkel és kommentárokkal képekké**
+## **Dia(k) konvertálása képekké jegyzetekkel és megjegyzésekkel**
 
-Egyes diák megjegyzéseket és kommentárokat tartalmazhatnak.
+Alapértelmezés szerint a diaképek nem tartalmazzák a jegyzeteket vagy megjegyzéseket. Rendeljen egy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/notescommentslayoutingoptions/) objektumot a [RenderingOptions::set_SlidesLayoutOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/renderingoptions/set_slideslayoutoptions/) metódushoz, hogy szabályozza, hol jelenjenek meg a jegyzetek és megjegyzések.
 
-Az Aspose.Slides két interfészt biztosít – az [ITiffOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/itiffoptions/) és az [IRenderingOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/irenderingoptions/) – amelyek lehetővé teszik a prezentációs diák képre való renderelésének szabályozását. Mindkét interfész tartalmazza a `set_SlidesLayoutOptions` metódust, amely lehetővé teszi a dián lévő megjegyzések és kommentárok renderelésének beállítását a kép konvertálásakor.
+Az alábbi példa a levágott jegyzeteket a dia alá, a megjegyzéseket pedig jobbra helyezi:
 
-A [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/notescommentslayoutingoptions/) osztállyal megadhatja a megjegyzések és kommentárok kívánt pozícióját a keletkező képen.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
 
-Ez a C++ kód bemutatja, hogyan konvertálja a megjegyzésekkel és kommentárokkal rendelkező diát:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-```cpp 
-float scaleX = 2;
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
-// Load a presentation file.
+auto layoutOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+layoutOptions->set_CommentsAreaWidth(500);
+layoutOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutOptions);
+
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Állítsa be a jegyzetek pozícióját.
-notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Állítsa be a megjegyzések pozícióját.
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // Állítsa be a megjegyzések területének szélességét.
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Állítsa be a megjegyzések területének színét.
-
-// Create the rendering options.
-auto options = MakeObject<RenderingOptions>();
-options->set_SlidesLayoutOptions(notesCommentsOptions);
-
-// Convert the first slide of the presentation to an image.
-auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-
-// Save the image in the GIF format.
+auto image = slide->GetImage(renderingOptions, scaleX, scaleY);
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Bármely dia‑kép konvertálási folyamatban a [set_NotesPosition](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) metódus nem alkalmazható a `BottomFull` értékkel (a megjegyzés pozíciójának meghatározásához), mivel a megjegyzés szövege túl nagy lehet, és nem fér bele a megadott képméretbe.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Dia‑képre konvertálás során ne állítsa be a [NotesCommentsLayoutingOptions::set_NotesPosition](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) metódust a [BottomFull](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/notespositions/) értékre. A jegyzetek több szöveget is tartalmazhatnak, mint amennyit a rögzített képméret befogad. Használja helyette a [BottomTruncated](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/notespositions/) értéket.
+{{% /alert %}}
 
-## **Diák konvertálása képekké TIFF beállítások használatával**
+## **Dia(k) konvertálása képekké TIFF beállítások használatával**
 
-Az [ITiffOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/itiffoptions/) interfész nagyobb szabályozást tesz lehetővé a keletkező TIFF kép felett, mivel lehetővé teszi olyan paraméterek megadását, mint a méret, felbontás, színpaletta és egyebek.
+A [TiffOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/tiffoptions/) osztály lehetővé teszi a renderelt TIFF kép méretének, felbontásának és egyéb tulajdonságainak szabályozását.
 
-Ez a C++ kód bemutat egy konvertálási folyamatot, ahol a TIFF beállítások segítségével fekete‑fehér képet állítunk elő 300 DPI felbontással és 2160 × 2800 mérettel:
+Az alábbi példa az első diát 2160 × 2880 méretű, 300 DPI felbontású TIFF képként rendereli:
 
-```cpp 
-// Töltsön be egy prezentációs fájlt.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));
+tiffOptions->set_DpiX(300);
+tiffOptions->set_DpiY(300);
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-// Szerezze be a prezentáció első diáját.
 auto slide = presentation->get_Slide(0);
 
-// Állítsa be a kimeneti TIFF kép beállításait.
-auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // Állítsa be a kép méretét.
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Állítsa be a pixel formátumot (fekete-fehér).
-tiffOptions->set_DpiX(300);                                         // Állítsa be a vízszintes felbontást.
-tiffOptions->set_DpiY(300);                                         // Állítsa be a függőleges felbontást.
-
-// Konvertálja a diát a megadott beállításokkal képpé.
 auto image = slide->GetImage(tiffOptions);
-
-// Mentse a képet TIFF formátumban.
-image->Save(u"output.bmp", ImageFormat::Tiff);
+image->Save(u"output.tiff", ImageFormat::Tiff);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Minden dia konvertálása képekké**
+## **Az összes dia képekké konvertálása**
 
-Az Aspose.Slides lehetővé teszi a prezentáció összes diájának képekké konvertálását, ezzel a teljes prezentációt képsorozattá alakítva.
+Iteráljon a dia gyűjteményén, hogy az egész prezentációt képsorozattá konvertálja. A rejtett diák is belekerülnek, hacsak nem hagyja ki őket kifejezetten.
 
-Ez a mintakód bemutatja, hogyan konvertálja a prezentáció összes diáját C++-ban képekké:
+Az alábbi példa minden diát JPEG képként renderel, a vízszintes és függőleges méretezési tényezőkkel 2:
 
-```cpp 
-float scaleX = 2;
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// A prezentáció képekké renderelése diaról diara.
-for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
+int32_t slideCount = presentation->get_Slides()->get_Count();
+for (int32_t index = 0; index < slideCount; index++)
 {
-    // Rejtett diák kezelése (ne renderelje a rejtett diákot).
-    if (presentation->get_Slide(i)->get_Hidden())
-    {
-        continue;
-    }
-
-    // Konvertálja a diát képpé.
-    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
-
-    // Mentse a képet JPEG formátumban.
-    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
-
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"Slide_{0}.jpg", index), ImageFormat::Jpeg);
     image->Dispose();
 }
 
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **Enhanced Metafile (EMF) létrehozása**
 
-**Az Aspose.Slides támogatja-e a diák animációval történő renderelését?**  
-Nem, a `GetImage` metódus csak a dia statikus képét menti, animációk nélkül.
+Az Enhanced Metafile (EMF) akkor hasznos, ha vektoros grafikát kell cserélni a Microsoft Office‑szal vagy más, Windows metafájlokat támogató Windows alkalmazásokkal. A pixel alapú képekhez képest egy EMF megmaradhatja a vektoros rajzolási műveleteket, amelyek méretezése nem jár olyan mértékű élességveszteséggel. Az EMF azonban elsősorban kompatibilitási formátum Windows metafájl támogatással rendelkező alkalmazások számára, nem pedig univerzális csereformátum. Továbbá a komplex diatartalom, például bitmap képek és egyes hatások, vektor metafájl tárolóban raszter elemekként tárolhatók.
 
-**Rejtett diák exportálhatók-e képekként?**  
-Igen, a rejtett diák is feldolgozhatók, mint a normálak. Csak ügyeljen arra, hogy a feldolgozási ciklusban szerepeljenek.
+### **Dia exportálása EMF‑be**
 
-**Menthetők-e a képek árnyékokkal és hatásokkal?**  
-Igen, az Aspose.Slides támogatja az árnyékok, átlátszóság és egyéb grafikai hatások renderelését a diák képként való mentésekor.
+A [ISlide::WriteAsEmf](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/writeasemf/) metódus egy [ISlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/) objektumot EMF formátumban egy cél streambe ír. Az alábbi példa betölt egy prezentációt, kiválasztja az első diát, és egy EMF fájl streambe írja:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = File::Create(u"Slide_0.emf");
+slide->WriteAsEmf(emfStream);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+A hívó tulajdonolja a [ISlide::WriteAsEmf](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/writeasemf/) metódusnak átadott streamet, és be kell zárnia vagy el kell pusztítania. Az Aspose.Slides a stream aktuális pozíciójában ír, és a streamet nyitva hagyja.
+
+### **SVG kép konvertálása EMF‑be és hozzáadása a prezentációhoz**
+
+Használja a [ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/writeasemf/) metódust az SVG tartalom EMF‑re konvertálásához. A kapott bájtok a [IImageCollection::AddImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimagecollection/addimage/) segítségével hozzáadhatók a prezentációhoz, és egy diára a [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/addpictureframe/) metódussal helyezhetők el.
+
+Az alábbi példa egy [SvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/svgimage/) objektumot hoz létre SVG markupból, memóriában EMF‑re konvertálja, az első diára helyezi be a metafájlt, és elmenti a prezentációt:
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String svgContent = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = MakeObject<MemoryStream>();
+svgImage->WriteAsEmf(emfStream);
+
+auto emfData = emfStream->ToArray();
+auto image = presentation->get_Images()->AddImage(emfData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, image);
+
+presentation->Save(u"Presentation_with_emf.pptx", SaveFormat::Pptx);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+A [ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/writeasemf/) nem veszi át a cél stream tulajdonjogát. Írás után a stream pozíciója a generált adat vége. A példa a [MemoryStream::ToArray](https://reference.aspose.com/slides/hu/cpp/system.io/memorystream/toarray/) metódust hívja a teljes puffer lekéréséhez a stream aktuális pozíciójától függetlenül, majd ezt a byte tömböt adja át a [IImageCollection::AddImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimagecollection/addimage/) metódusnak. Hagyja a streamet nyitva, amíg a fogyasztó be nem fejezte a olvasást, majd ezután zárja be.
+
+Az EMF generálás elérhető az Aspose.Slides for C++ által támogatott operációs rendszereken, de a renderelés platformonként eltérhet, ha betűtípusok vagy natív grafikai függőségek hiányoznak. Telepítse a forrás tartalom által használt betűtípusokat, vagy állítson be megfelelő helyettesítéseket, kövesse az Aspose.Slides for C++ [platformkövetelményeket](/slides/hu/cpp/system-requirements/), és ellenőrizze az eredményt a cél EMF‑fogyasztó alkalmazásban. A Linux és macOS alkalmazások gyakran korlátozott vagy nem konzisztens támogatással rendelkeznek a Windows metafájlok megjelenítésére és szerkesztésére.
+
+## **Színes Emoji renderelés**
+
+{{% alert title="Note" color="info" %}}
+A színes emoji‑k helyes rendereléséhez a prezentációban használt emoji betűtípusokat telepíteni kell, és elérhetőnek kell lenniük a konvertálást végző rendszeren. Például, ha a prezentáció **Segoe UI Emoji** betűtípust használ, és ez hiányzik, az emojik monokrómként jelenhetnek meg a kimeneti képeken.
+{{% /alert %}}
+
+## **GYIK**
+
+**Támogatja-e az Aspose.Slides a diaok animációval történő renderelését?**
+
+Nem. A [ISlide::GetImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage/) metódus a dia statikus képét rendereli, és nem exportál animációkat.
+
+**Exportálhatók-e a rejtett diák képekként?**
+
+Igen. A rejtett diák ugyanúgy renderelhetők, mint a normál diák. Vegye őket fel a feldolgozási ciklusba, ahogy a fenti példában látható.
+
+**Megmaradnak-e az árnyékok és egyéb hatások a dia képekben?**
+
+Igen. Az Aspose.Slides árnyékokat, átlátszóságot és egyéb támogatott grafikai hatásokat renderel a dia képeiben.

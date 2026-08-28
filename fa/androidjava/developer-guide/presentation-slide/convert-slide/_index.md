@@ -1,52 +1,57 @@
 ---
-title: تبدیل اسلایدهای ارائه به تصویر در اندروید
+title: تبدیل اسلایدهای ارائه به تصاویر روی اندروید
 linktitle: اسلاید به تصویر
 type: docs
 weight: 35
 url: /fa/androidjava/convert-slide/
 keywords:
 - تبدیل اسلاید
-- صادرات اسلاید
+- استخراج اسلاید
 - اسلاید به تصویر
 - ذخیره اسلاید به عنوان تصویر
+- اسلاید به EMF
 - اسلاید به PNG
 - اسلاید به JPEG
 - اسلاید به بیت‌مپ
 - اسلاید به TIFF
-- PowerPoint
-- OpenDocument
+- پاورپوینت
+- سند باز
 - ارائه
-- Android
-- Java
+- اندروید
+- جاوا
 - Aspose.Slides
-description: "اسلایدهای PPT، PPTX و ODP را با استفاده از Aspose.Slides برای اندروید به تصویر تبدیل کنید—رندرینگ سریع و با کیفیت بالا همراه با مثال‌های واضح کد جاوا."
+description: "اسلایدهای ارائه از فرمت‌های PPT، PPTX و ODP را به PNG، JPEG، GIF، TIFF، EMF و سایر فرمت‌های تصویری در اندروید با Aspose.Slides تبدیل کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-Aspose.Slides for Android via Java به شما امکان می‌دهد اسلایدهای ارائه PowerPoint و OpenDocument را به فرمت‌های تصویر مختلف از جمله BMP، PNG، JPG (JPEG)، GIF و دیگران به‌راحتی تبدیل کنید.
+Aspose.Slides for Android via Java می‌تواند اسلایدهای تک‌تک از ارائه‌های PowerPoint و OpenDocument را به صورت PNG، JPEG، GIF، TIFF و سایر فرمت‌های تصویری رندر کند.
 
 برای تبدیل یک اسلاید به تصویر، مراحل زیر را دنبال کنید:
 
-1. تنظیمات تبدیل موردنظر را تعریف کنید و اسلایدهای موردنظر برای استخراج را با استفاده از:
-    - رابط [ITiffOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiffoptions/) یا
-    - رابط [IRenderingOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/irenderingoptions/) انتخاب کنید.
-2. تصویر اسلاید را با فراخوانی متد [getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#getImage--) تولید کنید.
+1. ارائه را با کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) بارگیری کنید.
+2. اسلایدی که می‌خواهید رندر کنید را انتخاب کنید.
+3. در صورت نیاز، رندر را با کلاس [RenderingOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/renderingoptions/) یا [TiffOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/) پیکربندی کنید.
+4. متد [ISlide.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#getImage--) را صدا بزنید. این متد یک شیء [IImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iimage/) برمی‌گرداند.
+5. متد [IImage.save](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) را صدا بزنید و فرمت خروجی را با مقدار [ImageFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imageformat/) مشخص کنید.
 
-در Aspose.Slides for Android via Java، یک [IImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iimage/) یک رابط است که به شما امکان کار با تصاویر تعریف‌شده توسط داده‌های پیکسل را می‌دهد. می‌توانید از این رابط برای ذخیره تصاویر در طیف وسیعی از فرمت‌ها (BMP، JPG، PNG و غیره) استفاده کنید.
+## **تبدیل یک اسلاید به تصویر PNG**
 
-## **تبدیل اسلایدها به بیت‌مپ و ذخیره تصاویر در PNG**
+ساده‌ترین تبدیل از تنظیمات پیش‌فرض رندر استفاده می‌کند. شیء [IImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iimage/) حاصل می‌تواند در حافظه پردازش یا به فایل ذخیره شود.
 
-می‌توانید یک اسلاید را به شیء بیت‌مپ تبدیل کنید و مستقیماً در برنامه خود استفاده کنید. همچنین می‌توانید اسلاید را به بیت‌مپ تبدیل کرده و سپس تصویر را در JPEG یا هر فرمت دلخواه دیگر ذخیره کنید.
+مثال زیر در زبان Java اسلاید اول را رندر کرده و به عنوان تصویر PNG ذخیره می‌کند:
 
-این کد نشان می‌دهد چگونه اولین اسلاید یک ارائه را به شیء بیت‌مپ تبدیل و سپس تصویر را در فرمت PNG ذخیره کنید:
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
 
-```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // اسلاید اول ارائه را به یک بیت‌مپ تبدیل کنید.
-    IImage image = presentation.getSlides().get_Item(0).getImage();
-	try {
-        // تصویر را در قالب PNG ذخیره کنید.
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IImage image = slide.getImage();
+    try {
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,22 +61,27 @@ try {
 }
 ```
 
-## **تبدیل اسلایدها به تصویر با اندازه‌های سفارشی**
+## **تبدیل اسلایدها به تصاویر با اندازه‌های سفارشی**
 
-ممکن است نیاز داشته باشید تصویری با اندازه خاص دریافت کنید. با استفاده از یک overload از متد [getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) می‌توانید اسلاید را به تصویری با ابعاد مشخص (عرض و ارتفاع) تبدیل کنید.
+از متد [ISlide.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) که یک مقدار [Size](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides.android/size/) می‌گیرد استفاده کنید تا اسلاید را با ابعاد پیکسلی دقیق رندر کنید.
 
-این نمونه کد نشان می‌دهد چگونه این کار را انجام دهید:
+مثال زیر یک تصویر JPEG با ابعاد 1820 × 1040 ایجاد می‌کند:
 
-```java 
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.android.Size;
+
 Size imageSize = new Size(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // اسلاید اول ارائه را با اندازه مشخص به یک بیت‌مپ تبدیل کنید.
-    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IImage image = slide.getImage(imageSize);
     try {
-        // تصویر را در قالب JPEG ذخیره کنید.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -81,38 +91,43 @@ try {
 }
 ```
 
-## **تبدیل اسلایدهای حاوی یادداشت‌ها و نظرات به تصویر**
+## **تبدیل اسلایدها با یادداشت‌ها و نظرات به تصاویر**
 
-برخی اسلایدها ممکن است شامل یادداشت‌ها و نظرات باشند.
+به‌طور پیش‌فرض، تصاویر اسلاید شامل یادداشت‌ها یا نظرات نیستند. برای کنترل مکان نمایش یادداشت‌ها و نظرات، یک شیء [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/notescommentslayoutingoptions/) را به متد [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/renderingoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) پاس دهید.
 
-Aspose.Slides دو رابط—[ITiffOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiffoptions/) و [IRenderingOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/irenderingoptions/)—را فراهم می‌کند که به شما اجازه می‌دهد رندرینگ اسلایدهای ارائه به تصویر را کنترل کنید. هر دو رابط شامل متد `setSlidesLayoutOptions` هستند که امکان پیکربندی رندرینگ یادداشت‌ها و نظرات بر روی اسلاید هنگام تبدیل به تصویر را می‌دهند.
+مثال زیر یادداشت‌های کوتاه شده را زیر اسلاید و نظرات را در سمت راست آن قرار می‌دهد:
 
-با کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/notescommentslayoutingoptions/) می‌توانید موقعیت دلخواه خود برای یادداشت‌ها و نظرات را در تصویر نهایی تعیین کنید.
+```java
+import android.graphics.Color;
+import com.aspose.slides.CommentsPositions;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.NotesCommentsLayoutingOptions;
+import com.aspose.slides.NotesPositions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
 
-این کد نشان می‌دهد چگونه یک اسلاید همراه با یادداشت‌ها و نظرات را تبدیل کنید:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
-// فایل ارائه را بارگیری کنید.
+int commentsAreaColor = Color.rgb(250, 235, 215);
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // موقعیت یادداشت‌ها را تنظیم کنید.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // موقعیت نظرات را تنظیم کنید.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // عرض ناحیه نظرات را تنظیم کنید.
-    notesCommentsOptions.setCommentsAreaColor(Color.LTGRAY);   // رنگ ناحیه نظرات را تنظیم کنید.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // گزینه‌های رندرینگ را ایجاد کنید.
-    RenderingOptions options = new RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
-
-    // اسلاید اول ارائه را به تصویر تبدیل کنید.
-    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
-
+    IImage image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // تصویر را در قالب GIF ذخیره کنید.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -122,35 +137,37 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-در هر فرایند تبدیل اسلاید به تصویر، متد [setNotesPosition](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) نمی‌تواند مقدار `BottomFull` را اعمال کند (برای تعیین موقعیت یادداشت) زیرا متن یک یادداشت ممکن است بسیار بزرگ باشد و نتواند در اندازه تصویر مشخص شده جا بگیرد.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+برای تبدیل اسلاید به تصویر، مقدار [BottomFull](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/notespositions/) را به متد [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/notescommentslayoutingoptions/#setNotesPosition-int-) پاس ندهید. یادداشت‌ها می‌توانند متنی بیش از اندازهٔ ثابت تصویر داشته باشند. به جای آن از [BottomTruncated](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/notespositions/) استفاده کنید.
+{{% /alert %}}
 
-## **تبدیل اسلایدها به تصویر با استفاده از گزینه‌های TIFF**
+## **تبدیل اسلایدها به تصاویر با استفاده از گزینه‌های TIFF**
 
-رابط [ITiffOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiffoptions/) کنترل بیشتری بر تصویر TIFF خروجی فراهم می‌کند و به شما اجازه می‌دهد پارامترهایی مانند اندازه، وضوح، پالت رنگ و موارد دیگر را مشخص کنید.
+کلاس [TiffOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/) به شما اجازه می‌دهد اندازه، وضوح و سایر ویژگی‌های تصویر TIFF رندر شده را کنترل کنید.
 
-این کد یک فرایند تبدیل را نشان می‌دهد که در آن گزینه‌های TIFF برای خروجی تصویر سیاه‑سفید با وضوح 300 DPI و اندازه 2160 × 2800 استفاده می‌شوند:
+مثال زیر اسلاید اول را به عنوان تصویر TIFF با اندازه 2160 × 2880 در 300 DPI رندر می‌کند:
 
-```java 
-// فایل ارائه را بارگیری کنید.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.TiffOptions;
+import com.aspose.slides.android.Size;
+
+Size imageSize = new Size(2160, 2880);
+
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // اولین اسلاید را از ارائه دریافت کنید.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // تنظیمات تصویر خروجی TIFF را پیکربندی کنید.
-    TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Size(2160, 2880));                  // اندازه تصویر را تنظیم کنید.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // فرمت پیکسل را تنظیم کنید (سیاه و سفید).
-    tiffOptions.setDpiX(300);                                        // رزولوشن افقی را تنظیم کنید.
-    tiffOptions.setDpiY(300);                                        // رزولوشن عمودی را تنظیم کنید.
-
-    // اسلاید را با گزینه‌های مشخص به تصویر تبدیل کنید.
     IImage image = slide.getImage(tiffOptions);
-
     try {
-        // تصویر را در قالب TIFF ذخیره کنید.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -160,31 +177,29 @@ try {
 }
 ```
 
-## **تبدیل تمام اسلایدها به تصویر**
+## **تبدیل تمام اسلایدها به تصاویر**
 
-Aspose.Slides به شما امکان می‌دهد تمام اسلایدهای یک ارائه را به تصویر تبدیل کنید و به‌این‌ترتیب کل ارائه را به مجموعه‌ای از تصاویر تبدیل نمایید.
+از مجموعه اسلایدها عبور کنید تا کل ارائه را به مجموعه‌ای از تصاویر تبدیل کنید. اسلایدهای مخفی نیز شامل می‌شوند مگر اینکه صراحتاً آنها را نادیده بگیرید.
 
-این نمونه کد نشان می‌دهد چگونه تمام اسلایدهای یک ارائه را در Java به تصویر تبدیل کنید:
+مثال زیر هر اسلاید را به عنوان تصویر JPEG با ضریب مقیاس افقی و عمودی ۲ رندر می‌کند:
 
-```java 
-float scaleX = 2;
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+float scaleX = 2f;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // ارائه را به‌صورت اسلاید به اسلاید به تصاویر رندر کنید.
-    for (int i = 0 ; i < presentation.getSlides().size(); i++)
-    {
-        // کنترل اسلایدهای مخفی (اسلایدهای مخفی رندر نشوند).
-        if (presentation.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // اسلاید را به تصویر تبدیل کنید.
-        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
-
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-            // تصویر را در قالب JPEG ذخیره کنید.
-            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -194,16 +209,96 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **ایجاد خروجی متافایل پیشرفته**
 
-**آیا Aspose.Slides قابلیت رندرینگ اسلایدهای دارای انیمیشن را پشتیبانی می‌کند؟**
+متافایل پیشرفته (EMF) زمانی مفید است که گرافیک‌های مبتنی بر بردار باید با Microsoft Office یا دیگر برنامه‌های ویندوزی که از متافایل‌های ویندوز پشتیبانی می‌کنند، مبادله شود. برخلاف تصویر مبتنی بر پیکسل، یک EMF می‌تواند عملیات رسم برداری را حفظ کند که بدون از دست دادن وضوح مقیاس‌پذیر است. اما EMF عمدتاً یک فرمت سازگاری برای برنامه‌های دارای پشتیبانی از متافایل ویندوز است و نه یک فرمت تبادل عمومی. علاوه بر این، محتویات پیچیده اسلاید، مانند تصاویر بیت‌مپ و برخی افکت‌ها، ممکن است به صورت عناصر رسترشده در داخل بسته‌گر متافایل برداری ذخیره شوند.
 
-خیر، متد `getImage` فقط تصویر ایستایی از اسلاید را ذخیره می‌کند و انیمیشن‌ها را شامل نمی‌شود.
+### **استخراج یک اسلاید به EMF**
 
-**آیا می‌توان اسلایدهای مخفی را به تصویر صادر کرد؟**
+متد [ISlide.writeAsEmf](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) یک [ISlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/) را به جریان هدف در فرمت EMF می‌نویسد. مثال زیر یک ارائه را بارگیری می‌کند، اسلاید اول را انتخاب می‌کند و آن را به یک جریان فایل EMF می‌نویسد:
 
-بله، اسلایدهای مخفی می‌توانند همانند اسلایدهای معمولی پردازش شوند. فقط کافی است اطمینان حاصل کنید که در حلقه پردازش گنجانده شوند.
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import java.io.FileOutputStream;
 
-**آیا می‌توان تصاویر را با سایه‌ها و افکت‌ها ذخیره کرد؟**
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-بله، Aspose.Slides رندرینگ سایه‌ها، شفافیت و سایر اثرات گرافیکی را هنگام ذخیره اسلایدها به صورت تصویر پشتیبانی می‌کند.
+    FileOutputStream emfStream = new FileOutputStream("Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+صاحب جریان‌ای که به [ISlide.writeAsEmf](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) پاس می‌شود، مسئول بستن آن است، همان‌طور که در بالا نشان داده شد.
+
+### **تبدیل یک تصویر SVG به EMF و افزودن آن به ارائه**
+
+از [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) برای تبدیل محتویات SVG به EMF استفاده کنید. بایت‌های حاصل می‌توانند از طریق [IImageCollection.addImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iimagecollection/#addImage-byte:A-) به ارائه اضافه شوند و با [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) بر روی اسلاید قرار گیرند.
+
+مثال زیر یک [SvgImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/svgimage/) را از علامت‌گذاری SVG ایجاد می‌کند، آن را به EMF در حافظه تبدیل می‌کند، متافایل را بر اسلاید اول درج می‌کند و ارائه را ذخیره می‌کند:
+
+```java
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ISvgImage;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import com.aspose.slides.SvgImage;
+import java.io.ByteArrayOutputStream;
+
+String svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+ISvgImage svgImage = new SvgImage(svgContent);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ByteArrayOutputStream emfStream = new ByteArrayOutputStream();
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        byte[] emfData = emfStream.toByteArray();
+        IPPImage image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+متد [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) مالکیت جریان مقصد را بر عهده نمی‌گیرد. یک [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) تمام داده‌های تولید شده را در حافظه ذخیره می‌کند، بنابراین قبل از فراخوانی `toByteArray` نیازی به بازنشانی موقعیت نیست. آرایه بایتی بازگردانده‌شده پس از بسته شدن جریان همچنان معتبر است.
+
+تولید EMF در نسخه‌های پشتیبانی‌شده Android و پیکربندی‌های دستگاه موجود است، اما رندر ممکن است هنگامی که فونت‌ها یا وابستگی‌های گرافیکی در دسترس نیستند، متفاوت باشد. فونت‌های استفاده‌شده در محتویات منبع را نصب کنید یا جایگزین‌های مناسب را پیکربندی کنید، راهنمای [installation guide](/slides/fa/androidjava/install-aspose-slides-for-android-via-java/) را برای Aspose.Slides for Android via Java دنبال کنید و نتیجه را در برنامه مصرف‌کننده EMF هدف معتبرسازی کنید. برنامه‌های غیر ویندوزی اغلب پشتیبانی محدودی برای نمایش و ویرایش متافایل‌های ویندوز دارند.
+
+## **رندر رنگی ایموجی**
+
+{{% alert title="Note" color="info" %}}
+برای رندر صحیح ایموجی‌های رنگی هنگام تبدیل اسلایدهای ارائه به تصاویر، فونت‌های ایموجی استفاده‌شده در ارائه باید بر روی سیستمی که تبدیل را انجام می‌دهد نصب و در دسترس باشد. به عنوان مثال، اگر ارائه از **Segoe UI Emoji** استفاده کند و این فونت موجود نباشد، ایموجی‌ها ممکن است به صورت تک‌رنگ در تصویر خروجی ظاهر شوند.
+{{% /alert %}}
+
+## **سوالات متداول**
+
+**آیا Aspose.Slides از رندر اسلایدهای دارای انیمیشن پشتیبانی می‌کند؟**
+
+خیر. متد [ISlide.getImage](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#getImage--) یک تصویر ثابت از اسلاید رندر می‌کند و انیمیشن‌ها را استخراج نمی‌کند.
+
+**آیا می‌توان اسلایدهای پنهان را به عنوان تصویر استخراج کرد؟**
+
+بله. اسلایدهای پنهان می‌توانند مانند اسلایدهای عادی رندر شوند. آنها را در حلقه پردازش شامل کنید، همان‌طور که در مثال بالا نشان داده شد.
+
+**آیا سایه‌ها و سایر افکت‌ها در تصاویر اسلاید حفظ می‌شوند؟**
+
+بله. Aspose.Slides سایه‌ها، شفافیت و سایر افکت‌های گرافیکی پشتیبانی‌شده را در تصاویر اسلاید رندر می‌کند.

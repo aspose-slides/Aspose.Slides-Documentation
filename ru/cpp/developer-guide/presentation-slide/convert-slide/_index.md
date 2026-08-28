@@ -1,14 +1,15 @@
 ---
-title: Конвертировать слайды презентации в изображения на C++
+title: Преобразование слайдов презентаций в изображения на C++
 linktitle: Слайд в изображение
 type: docs
 weight: 41
 url: /ru/cpp/convert-slide/
 keywords:
-- конвертировать слайд
+- преобразовать слайд
 - экспортировать слайд
 - слайд в изображение
 - сохранить слайд как изображение
+- слайд в EMF
 - слайд в PNG
 - слайд в JPEG
 - слайд в bitmap
@@ -18,178 +19,287 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Конвертировать слайды из PPT, PPTX и ODP в изображения на C++ с помощью Aspose.Slides — быстрое, высококачественное рендеринг с понятными примерами кода."
+description: "Преобразуйте слайды из презентаций PPT, PPTX и ODP в PNG, JPEG, GIF, TIFF, EMF и другие форматы изображений на C++ с помощью Aspose.Slides для C++."
 ---
+## **Введение**
 
-## **Обзор**
+Aspose.Slides for C++ может рендерить отдельные слайды из презентаций PowerPoint и OpenDocument в форматах PNG, JPEG, GIF, TIFF и других форматов изображений.
 
-Aspose.Slides for C++ позволяет легко преобразовывать слайды презентаций PowerPoint и OpenDocument в различные форматы изображений, включая BMP, PNG, JPG (JPEG), GIF и другие.
+Чтобы преобразовать слайд в изображение, выполните следующие шаги:
 
-Чтобы преобразовать слайд в изображение, выполните следующие действия:
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/).
+2. Выберите слайд, который нужно отрендерить.
+3. При необходимости настройте рендеринг с помощью класса [RenderingOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/renderingoptions/) или [TiffOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/tiffoptions/).
+4. Вызовите метод [ISlide::GetImage](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/getimage/). Он возвращает объект [IImage](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iimage/).
+5. Вызовите метод [IImage::Save](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iimage/save/) и укажите формат вывода с помощью значения [ImageFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/imageformat/).
 
-1. Определите желаемые параметры преобразования и выберите слайды, которые хотите экспортировать, используя:
-    - интерфейс [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/), или
-    - интерфейс [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/).
-2. Сгенерируйте изображение слайда, вызвав метод [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/).
+## **Преобразование слайда в PNG-изображение**
 
-[Bitmap](https://reference.aspose.com/slides/cpp/system.drawing/bitmap/) — объект, позволяющий работать с изображениями, определяемыми данными пикселей. Вы можете использовать экземпляр этого класса для сохранения изображений в широком диапазоне форматов (BMP, JPG, PNG и т.д.).
+Самый простой способ использует настройки рендеринга по умолчанию. Полученный объект [IImage](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iimage/) можно обработать в памяти или сохранить в файл.
 
-## **Преобразование слайдов в Bitmap и сохранение изображений в PNG**
+В следующем примере C++ первый слайд рендерится и сохраняется как PNG-изображение:
 
-Вы можете преобразовать слайд в объект bitmap и использовать его напрямую в приложении. Кроме того, можно преобразовать слайд в bitmap, а затем сохранить изображение в JPEG или любом другом предпочтительном формате.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
 
-Следующий код C++ демонстрирует, как преобразовать первый слайд презентации в объект bitmap и затем сохранить изображение в формате PNG:
-```cpp 
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Convert the first slide in the presentation to a bitmap.
-auto image = presentation->get_Slide(0)->GetImage();
-
-// Save the image in the PNG format.
+auto image = slide->GetImage();
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-
 ## **Преобразование слайдов в изображения с пользовательскими размерами**
 
-Возможно, вам понадобится получить изображение определённого размера. Используя перегрузку метода [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/), вы можете преобразовать слайд в изображение с конкретными шириной и высотой.
+Используйте перегрузку [ISlide::GetImage](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/getimage/), которая принимает значение [Size](https://reference.aspose.com/slides/ru/cpp/system.drawing/size/), чтобы отрендерить слайд с точными пиксельными размерами.
 
-Этот пример кода демонстрирует, как это сделать:
-```cpp 
+В следующем примере создаётся JPEG‑изображение размером 1820 × 1040:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Преобразовать первый слайд презентации в bitmap с указанным размером.
-auto image = presentation->get_Slide(0)->GetImage(imageSize);
-
-// Сохранить изображение в формате JPEG.
+auto image = slide->GetImage(imageSize);
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-
 ## **Преобразование слайдов с заметками и комментариями в изображения**
 
-Некоторые слайды могут содержать заметки и комментарии.
+По умолчанию изображения слайдов не включают заметки или комментарии. Присвойте объект [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/notescommentslayoutingoptions/) методу [RenderingOptions::set_SlidesLayoutOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/renderingoptions/set_slideslayoutoptions/), чтобы управлять размещением заметок и комментариев.
 
-Aspose.Slides предоставляет два интерфейса — [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) и [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/) — которые позволяют контролировать рендеринг слайдов презентации в изображения. Оба интерфейса включают метод `set_SlidesLayoutOptions`, который позволяет настроить рендеринг заметок и комментариев на слайде при его преобразовании в изображение.
+В следующем примере усечённые заметки размещаются под слайдом, а комментарии — справа от него:
 
-С помощью класса [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) вы можете указать предпочтительное расположение заметок и комментариев в получаемом изображении.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
 
-Этот код C++ демонстрирует, как преобразовать слайд с заметками и комментариями:
-```cpp 
-float scaleX = 2;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
-// Загрузить файл презентации.
+auto layoutOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+layoutOptions->set_CommentsAreaWidth(500);
+layoutOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutOptions);
+
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Установить положение заметок.
-notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Установить положение комментариев.
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // Установить ширину области комментариев.
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Установить цвет области комментариев.
-
-// Создать параметры рендеринга.
-auto options = MakeObject<RenderingOptions>();
-options->set_SlidesLayoutOptions(notesCommentsOptions);
-
-// Преобразовать первый слайд презентации в изображение.
-auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-
-// Сохранить изображение в формате GIF.
+auto image = slide->GetImage(renderingOptions, scaleX, scaleY);
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-
-В любом процессе преобразования слайдов в изображения метод [set_NotesPosition](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) не может применить `BottomFull` (чтобы указать позицию для заметок), поскольку текст заметки может быть слишком большим, и он не помещается в указанный размер изображения.
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Для преобразования слайдов в изображения не устанавливайте метод [NotesCommentsLayoutingOptions::set_NotesPosition](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) в значение [BottomFull](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/notespositions/). Заметки могут содержать больше текста, чем может вместить фиксированный размер изображения. Вместо этого используйте [BottomTruncated](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/notespositions/).
+{{% /alert %}}
 
 ## **Преобразование слайдов в изображения с использованием TIFF‑опций**
 
-Интерфейс [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) предоставляет более тонкий контроль над результирующим TIFF‑изображением, позволяя задавать такие параметры, как размер, разрешение, цветовая палитра и другие.
+Класс [TiffOptions](https://reference.aspose.com/slides/ru/cpp/aspose.slides.export/tiffoptions/) позволяет управлять размером, разрешением и другими свойствами отрендеренного TIFF‑изображения.
 
-Этот код C++ демонстрирует процесс преобразования, где TIFF‑опции используются для вывода черно‑белого изображения с разрешением 300 DPI и размером 2160 × 2800:
-```cpp 
-// Загрузить файл презентации.
+В следующем примере первый слайд рендерится как TIFF‑изображение размером 2160 × 2880 с разрешением 300 DPI:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));
+tiffOptions->set_DpiX(300);
+tiffOptions->set_DpiY(300);
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-// Получить первый слайд из презентации.
 auto slide = presentation->get_Slide(0);
 
-// Настроить параметры выходного TIFF-изображения.
-auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // Установить размер изображения.
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Установить формат пикселей (чёрно-белый).
-tiffOptions->set_DpiX(300);                                         // Установить горизонтальное разрешение.
-tiffOptions->set_DpiY(300);                                         // Установить вертикальное разрешение.
-
-// Преобразовать слайд в изображение с указанными параметрами.
 auto image = slide->GetImage(tiffOptions);
-
-// Сохранить изображение в формате TIFF.
-image->Save(u"output.bmp", ImageFormat::Tiff);
+image->Save(u"output.tiff", ImageFormat::Tiff);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-
 ## **Преобразование всех слайдов в изображения**
 
-Aspose.Slides позволяет преобразовать все слайды презентации в изображения, фактически превращая всю презентацию в серию изображений.
+Итерируйте коллекцию слайдов, чтобы преобразовать всю презентацию в последовательность изображений. Скрытые слайды включаются, если вы явно не пропустите их.
 
-Этот пример кода демонстрирует, как преобразовать все слайды презентации в изображения в C++:
-```cpp 
-float scaleX = 2;
+В следующем примере каждый слайд рендерится как JPEG‑изображение с горизонтальными и вертикальными коэффициентами масштабирования, равными 2:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Рендерить презентацию в изображения слайд за слайдом.
-for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
+int32_t slideCount = presentation->get_Slides()->get_Count();
+for (int32_t index = 0; index < slideCount; index++)
 {
-    // Управление скрытыми слайдами (не рендерить скрытые слайды).
-    if (presentation->get_Slide(i)->get_Hidden())
-    {
-        continue;
-    }
-
-    // Преобразовать слайд в изображение.
-    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
-
-    // Сохранить изображение в формате JPEG.
-    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
-
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"Slide_{0}.jpg", index), ImageFormat::Jpeg);
     image->Dispose();
 }
 
 presentation->Dispose();
 ```
 
+## **Создание вывода в формате Enhanced Metafile**
+
+Enhanced Metafile (EMF) полезен, когда необходимо обмениваться векторной графикой с Microsoft Office или другими Windows‑приложениями, поддерживающими Windows‑метафайлы. В отличие от растрового изображения, EMF может сохранять векторные операции рисования, которые масштабируются без потери чёткости. Однако EMF в основном является форматом совместимости для приложений с поддержкой Windows‑метафайлов, а не универсальным форматом обмена. Кроме того, сложное содержимое слайда, такое как растровые изображения и некоторые эффекты, может храниться в виде растровых элементов внутри контейнера векторного метафайла.
+
+### **Экспорт слайда в EMF**
+
+Метод [ISlide::WriteAsEmf](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/writeasemf/) записывает объект [ISlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/) в целевой поток в формате EMF. В следующем примере загружается презентация, выбирается первый слайд и записывается в поток EMF‑файла:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = File::Create(u"Slide_0.emf");
+slide->WriteAsEmf(emfStream);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+Вызывающая сторона владеет потоком, переданным в [ISlide::WriteAsEmf](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/writeasemf/), и должна закрыть или освободить его. Aspose.Slides пишет в текущую позицию потока и оставляет его открытым.
+
+### **Преобразование SVG‑изображения в EMF и добавление его в презентацию**
+
+Используйте [ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isvgimage/writeasemf/) для преобразования SVG‑контента в EMF. Полученные байты можно добавить в презентацию через [IImageCollection::AddImage](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iimagecollection/addimage/) и разместить на слайде с помощью [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapecollection/addpictureframe/).
+
+В следующем примере создаётся объект [SvgImage](https://reference.aspose.com/slides/ru/cpp/aspose.slides/svgimage/) из SVG‑разметки, преобразуется в EMF в памяти, вставляется в первый слайд и сохраняется презентация:
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String svgContent = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = MakeObject<MemoryStream>();
+svgImage->WriteAsEmf(emfStream);
+
+auto emfData = emfStream->ToArray();
+auto image = presentation->get_Images()->AddImage(emfData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, image);
+
+presentation->Save(u"Presentation_with_emf.pptx", SaveFormat::Pptx);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+[ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isvgimage/writeasemf/) не принимает владение над целевым потоком. После записи позиция потока находится в конце сгенерированных данных. В примере вызывается [MemoryStream::ToArray](https://reference.aspose.com/slides/ru/cpp/system.io/memorystream/toarray/) для получения полного буфера независимо от текущей позиции потока, затем этот массив байтов передаётся в [IImageCollection::AddImage](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iimagecollection/addimage/). Оставляйте поток открытым, пока потребитель не завершит чтение, и закрывайте его после этого.
+
+Генерация EMF доступна на операционных системах, поддерживаемых Aspose.Slides для C++, но рендеринг может различаться между платформами при отсутствии шрифтов или нативных графических зависимостей. Установите шрифты, используемые исходным содержимым, или настройте соответствующие замены, следуйте [требованиям к платформе](/slides/ru/cpp/system-requirements/) для Aspose.Slides для C++ и проверьте результат в целевом приложении, потребляющем EMF. Приложения для Linux и macOS часто имеют ограниченную или непоследовательную поддержку отображения и редактирования Windows‑метафайлов.
+
+## **Отображение цветных эмодзи**
+
+{{% alert title="Note" color="info" %}}
+Чтобы правильно отобразить цветные эмодзи при преобразовании слайдов презентации в изображения, шрифты эмодзи, используемые в презентации, должны быть установлены и доступны в системе, выполняющей конвертацию. Например, если презентация использует **Segoe UI Emoji** и этот шрифт отсутствует, эмодзи могут отображаться монохромно в результирующих изображениях.
+{{% /alert %}}
 
 ## **FAQ**
 
-**Поддерживает ли Aspose.Slides рендеринг слайдов с анимацией?**
+**Поддерживает ли Aspose.Slides рендеринг слайдов с анимациями?**
 
-Нет, метод `GetImage` сохраняет только статическое изображение слайда без анимаций.
+Нет. Метод [ISlide::GetImage](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/getimage/) рендерит статическое изображение слайда и не экспортирует анимации.
 
-**Можно ли экспортировать скрытые слайды в виде изображений?**
+**Можно ли экспортировать скрытые слайды как изображения?**
 
-Да, скрытые слайды могут обрабатываться так же, как обычные. Просто убедитесь, что они включены в цикл обработки.
+Да. Скрытые слайды можно рендерить так же, как обычные. Включайте их в цикл обработки, как показано в примере выше.
 
-**Можно ли сохранять изображения с тенями и эффектами?**
+**Сохраняются ли тени и другие эффекты на изображениях слайдов?**
 
-Да, Aspose.Slides поддерживает рендеринг теней, прозрачности и других графических эффектов при сохранении слайдов в виде изображений.
+Да. Aspose.Slides рендерит тени, прозрачность и другие поддерживаемые графические эффекты на изображениях слайдов.

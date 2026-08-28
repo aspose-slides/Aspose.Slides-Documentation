@@ -1,14 +1,15 @@
 ---
-title: Mengonversi Slide Presentasi menjadi Gambar di .NET
+title: Mengonversi Slide Presentasi ke Gambar di .NET
 linktitle: Slide ke Gambar
 type: docs
 weight: 41
 url: /id/net/convert-slide/
 keywords:
-- mengonversi slide
-- mengekspor slide
+- konversi slide
+- ekspor slide
 - slide ke gambar
 - simpan slide sebagai gambar
+- slide ke EMF
 - slide ke PNG
 - slide ke JPEG
 - slide ke bitmap
@@ -19,171 +20,206 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Mengonversi slide dari PPT, PPTX, dan ODP menjadi gambar dalam C# menggunakan Aspose.Slides untuk .NET—rendering cepat dengan kualitas tinggi dan contoh kode yang jelas."
+description: "Konversi slide dari presentasi PPT, PPTX, dan ODP ke format PNG, JPEG, GIF, TIFF, EMF, dan format gambar lainnya dalam C# dengan Aspose.Slides untuk .NET."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides untuk .NET memungkinkan Anda dengan mudah mengonversi slide presentasi PowerPoint dan OpenDocument ke berbagai format gambar, termasuk BMP, PNG, JPG (JPEG), GIF, dan lainnya.
+Aspose.Slides for .NET dapat merender slide individu dari presentasi PowerPoint dan OpenDocument sebagai PNG, JPEG, GIF, TIFF, dan format gambar lainnya.
 
-Untuk mengonversi slide menjadi gambar, ikuti langkah-langkah berikut:
+Untuk mengonversi slide menjadi gambar, ikuti langkah‑langs berikut:
 
-1. Tentukan pengaturan konversi yang diinginkan dan pilih slide yang ingin Anda ekspor dengan menggunakan:
-    - Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/itiffoptions/), atau
-    - Antarmuka [IRenderingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/irenderingoptions/).
-2. Hasilkan gambar slide dengan memanggil metode [GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/islide/getimage/).
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
+2. Pilih slide yang ingin Anda render.
+3. Jika diperlukan, konfigurasikan rendering dengan kelas [RenderingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/renderingoptions/) atau [TiffOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/tiffoptions/).
+4. Panggil metode [GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/islide/getimage/). Metode ini mengembalikan objek [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/).
+5. Panggil metode [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/save/) dan tentukan format output dengan nilai [ImageFormat](https://reference.aspose.com/slides/id/net/aspose.slides/imageformat/).
 
-Di .NET, sebuah [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) adalah objek yang memungkinkan Anda bekerja dengan gambar yang didefinisikan oleh data piksel. Anda dapat menggunakan instance kelas ini untuk menyimpan gambar dalam berbagai format (BMP, JPG, PNG, dll.).
+## **Mengonversi Slide ke Gambar PNG**
 
-## **Mengonversi Slide ke Bitmap dan Menyimpan Gambar dalam PNG**
+Konversi paling sederhana menggunakan pengaturan rendering default. Objek [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) yang dihasilkan dapat diproses di memori atau disimpan ke file.
 
-Anda dapat mengonversi slide menjadi objek bitmap dan menggunakannya secara langsung dalam aplikasi Anda. Atau, Anda dapat mengonversi slide menjadi bitmap dan kemudian menyimpan gambar dalam format JPEG atau format lain yang diinginkan.
-
-Kode C# ini menunjukkan cara mengonversi slide pertama dari presentasi menjadi objek bitmap dan kemudian menyimpan gambar dalam format PNG:
+Contoh C# berikut merender slide pertama dan menyimpannya sebagai gambar PNG:
 
 ```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Mengonversi slide pertama dalam presentasi menjadi bitmap.
-    using (IImage image = presentation.Slides[0].GetImage())
-    {
-        // Simpan gambar dalam format PNG.
-        image.Save("Slide_0.png", ImageFormat.Png);
-    }
-}
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage();
+image.Save("Slide_0.png", ImageFormat.Png);
 ```
 
 ## **Mengonversi Slide ke Gambar dengan Ukuran Kustom**
 
-Anda mungkin perlu mendapatkan gambar dengan ukuran tertentu. Dengan menggunakan overload dari [GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/islide/getimage/), Anda dapat mengonversi slide menjadi gambar dengan dimensi spesifik (lebar dan tinggi). 
+Gunakan overload [GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/islide/getimage/) yang menerima nilai [Size](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.size) untuk merender slide dengan dimensi piksel yang tepat.
 
-Kode contoh ini menunjukkan cara melakukannya:
+Contoh berikut membuat gambar JPEG 1820 × 1040:
 
 ```cs
-Size imageSize = new Size(1820, 1040);
+using System.Drawing;
+using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Mengonversi slide pertama dalam presentasi menjadi bitmap dengan ukuran yang ditentukan.
-    using (IImage image = presentation.Slides[0].GetImage(imageSize))
-    {
-        // Simpan gambar dalam format JPEG.
-        image.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
+var imageSize = new Size(1820, 1040);
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(imageSize);
+image.Save("Slide_0.jpg", ImageFormat.Jpeg);
 ```
 
 ## **Mengonversi Slide dengan Catatan dan Komentar ke Gambar**
 
-Beberapa slide mungkin berisi catatan dan komentar.
+Secara default, gambar slide tidak menyertakan catatan atau komentar. Tetapkan objek [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/notescommentslayoutingoptions/) ke properti [RenderingOptions.SlidesLayoutOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/renderingoptions/slideslayoutoptions/) untuk mengontrol di mana catatan dan komentar muncul.
 
-Aspose.Slides menyediakan dua antarmuka—[ITiffOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/itiffoptions/) dan [IRenderingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/irenderingoptions/)—yang memungkinkan Anda mengontrol rendering slide presentasi menjadi gambar. Kedua antarmuka menyertakan properti `SlidesLayoutOptions`, yang memungkinkan Anda mengonfigurasi rendering catatan dan komentar pada slide saat mengonversinya menjadi gambar.
-
-Dengan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/notescommentslayoutingoptions/), Anda dapat menentukan posisi yang diinginkan untuk catatan dan komentar dalam gambar yang dihasilkan.
-
-Kode C# ini menunjukkan cara mengonversi slide dengan catatan dan komentar:
+Contoh berikut menempatkan catatan yang dipotong di bawah slide dan komentar di sebelah kanannya:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Muat file presentasi.
-using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // Buat opsi perenderan.
-    RenderingOptions options = new RenderingOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomTruncated,  // Setel posisi catatan.
-            CommentsPosition = CommentsPositions.Right,      // Setel posisi komentar.
-            CommentsAreaWidth = 500,                         // Setel lebar area komentar.
-            CommentsAreaColor = Color.AntiqueWhite           // Setel warna area komentar.
-        }
-    };
+    NotesPosition = NotesPositions.BottomTruncated,
+    CommentsPosition = CommentsPositions.Right,
+    CommentsAreaWidth = 500,
+    CommentsAreaColor = Color.AntiqueWhite
+};
 
-    // Konversi slide pertama dari presentasi menjadi gambar.
-    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
-    {
-        // Simpan gambar dalam format GIF.
-        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
-    }
-}
+var renderingOptions = new RenderingOptions { SlidesLayoutOptions = layoutOptions };
+
+using var presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(renderingOptions, scaleX, scaleY);
+image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Dalam proses konversi slide-ke-gambar apa pun, properti [NotesPosition](https://reference.aspose.com/slides/id/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) tidak dapat diatur ke `BottomFull` (untuk menentukan posisi catatan) karena teks catatan mungkin terlalu besar, sehingga tidak dapat muat dalam ukuran gambar yang ditentukan.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Untuk konversi slide ke gambar, jangan atur properti [NotesPosition](https://reference.aspose.com/slides/id/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) ke [BottomFull](https://reference.aspose.com/slides/id/net/aspose.slides.export/notespositions/). Catatan dapat berisi lebih banyak teks daripada ukuran gambar tetap dapat menampung. Gunakan [BottomTruncated](https://reference.aspose.com/slides/id/net/aspose.slides.export/notespositions/) sebagai gantinya.
+{{% /alert %}}
 
 ## **Mengonversi Slide ke Gambar Menggunakan Opsi TIFF**
 
-Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/itiffoptions/) memberikan kontrol lebih besar atas gambar TIFF yang dihasilkan dengan memungkinkan Anda menentukan parameter seperti ukuran, resolusi, palet warna, dan lainnya.
+Kelas [TiffOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/tiffoptions/) memungkinkan Anda mengontrol ukuran, resolusi, dan properti lainnya dari gambar TIFF yang dirender.
 
-Kode C# ini menunjukkan proses konversi di mana opsi TIFF digunakan untuk menghasilkan gambar hitam-putih dengan resolusi 300 DPI dan ukuran 2160 × 2800:
+Contoh berikut merender slide pertama sebagai gambar TIFF 2160 × 2880 dengan 300 DPI:
 
 ```cs
-// Muat file presentasi.
-using (Presentation presentation = new Presentation("sample.pptx"))
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var tiffOptions = new TiffOptions
 {
-    // Dapatkan slide pertama dari presentasi.
-    ISlide slide = presentation.Slides[0];
+    ImageSize = new Size(2160, 2880),
+    DpiX = 300,
+    DpiY = 300
+};
 
-    // Konfigurasikan pengaturan gambar TIFF output.
-    TiffOptions tiffOptions = new TiffOptions
-    {
-        ImageSize = new Size(2160, 2880),                  // Setel ukuran gambar.
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // Setel format piksel (hitam putih).
-        DpiX = 300,                                        // Setel resolusi horizontal.
-        DpiY = 300                                         // Setel resolusi vertikal.
-    };
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Konversi slide menjadi gambar dengan opsi yang ditentukan.
-    using (IImage image = slide.GetImage(tiffOptions))
-    {
-        // Simpan gambar dalam format TIFF.
-        image.Save("output.tiff", ImageFormat.Tiff);
-    }
-}
+using var image = slide.GetImage(tiffOptions);
+image.Save("output.tiff", ImageFormat.Tiff);
 ```
 
 ## **Mengonversi Semua Slide ke Gambar**
 
-Aspose.Slides memungkinkan Anda mengonversi semua slide dalam sebuah presentasi menjadi gambar, secara efektif mengubah seluruh presentasi menjadi serangkaian gambar.
+Iterasikan koleksi slide untuk mengonversi seluruh presentasi menjadi serangkaian gambar. Slide tersembunyi termasuk kecuali Anda secara eksplisit melewatinya.
 
-Kode contoh ini menunjukkan cara mengonversi semua slide dalam sebuah presentasi menjadi gambar dalam C#:
+Contoh berikut merender setiap slide sebagai gambar JPEG dengan faktor skala horizontal dan vertikal sebesar 2:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
+var scaleX = 2f;
+var scaleY = scaleX;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    // Render presentasi menjadi gambar slide demi slide.
-    for (int i = 0; i < presentation.Slides.Count; i++)
-    {
-        // Kendalikan slide tersembunyi (jangan render slide tersembunyi).
-        if (presentation.Slides[i].Hidden)
-            continue;
-
-        // Konversi slide menjadi gambar.
-        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
-        {
-            // Simpan gambar dalam format JPEG.
-            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"Slide_{index}.jpg", ImageFormat.Jpeg);
 }
 ```
 
+## **Membuat Output Metafile Ditingkatkan**
+
+Enhanced Metafile (EMF) berguna ketika grafik berbasis vektor harus dipertukarkan dengan Microsoft Office atau aplikasi Windows lain yang mendukung metafile Windows. Tidak seperti gambar berbasis piksel, EMF dapat mempertahankan operasi gambar vektor yang dapat diskalakan tanpa kehilangan ketajaman yang sama. Namun, EMF terutama merupakan format kompatibilitas untuk aplikasi dengan dukungan metafile Windows, bukan format pertukaran universal. Selain itu, konten slide yang kompleks, seperti gambar bitmap dan beberapa efek, dapat disimpan sebagai elemen raster di dalam kontainer metafile vektor.
+
+### **Ekspor Slide ke EMF**
+
+Metode [ISlide.WriteAsEmf](https://reference.aspose.com/slides/id/net/aspose.slides/islide/writeasemf/) menulis [ISlide](https://reference.aspose.com/slides/id/net/aspose.slides/islide/) ke aliran target dalam format EMF. Contoh berikut memuat presentasi, memilih slide pertama, dan menulisnya ke aliran file EMF:
+
+```cs
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var emfStream = File.Create("Slide_0.emf");
+slide.WriteAsEmf(emfStream);
+```
+
+Pemanggil memiliki aliran yang diteruskan ke [ISlide.WriteAsEmf](https://reference.aspose.com/slides/id/net/aspose.slides/islide/writeasemf/) dan harus menutup atau membuangnya. Aspose.Slides menulis pada posisi saat ini dari aliran dan membiarkan aliran tetap terbuka.
+
+### **Mengonversi Gambar SVG ke EMF dan Menambahkannya ke Presentasi**
+
+Gunakan [ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/writeasemf/) untuk mengonversi konten SVG ke EMF. Byte yang dihasilkan dapat ditambahkan ke presentasi melalui [IImageCollection.AddImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimagecollection/addimage/) dan ditempatkan pada slide dengan [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addpictureframe/).
+
+Contoh berikut membuat [SvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/svgimage/) dari markup SVG, mengonversinya ke EMF dalam memori, menyisipkan metafile pada slide pertama, dan menyimpan presentasi:
+
+```cs
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var emfStream = new MemoryStream();
+svgImage.WriteAsEmf(emfStream);
+
+emfStream.Position = 0;
+var image = presentation.Images.AddImage(emfStream);
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+
+presentation.Save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+```
+
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/writeasemf/) tidak mengambil kepemilikan aliran tujuan. Setelah menulis, posisi aliran berada di akhir data yang dihasilkan. Reset `Position` ke awal sebelum meneruskan aliran yang dapat dicari ke pembaca, seperti yang ditunjukkan di atas. Pertahankan aliran terbuka sampai konsumen selesai membacanya, dan buang setelahnya. Alternatifnya, panggil `ToArray` dan berikan array byte yang dikembalikan ke [IImageCollection.AddImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimagecollection/addimage/); `ToArray` mengembalikan buffer lengkap terlepas dari posisi aliran saat ini.
+
+Generasi EMF tersedia pada sistem operasi yang didukung oleh build Aspose.Slides untuk .NET yang dipilih, tetapi rendering dapat berbeda antar platform ketika font atau ketergantungan grafik native tidak tersedia. Instal font yang digunakan oleh konten sumber atau konfigurasikan substitusi yang sesuai, ikuti [platform requirements](/slides/id/net/system-requirements/) untuk paket Aspose.Slides Anda, dan validasi hasilnya di aplikasi tujuan yang mengkonsumsi EMF. Aplikasi Linux dan macOS sering memiliki dukungan terbatas atau tidak konsisten untuk menampilkan dan mengedit metafile Windows.
+
+## **Rendering Emoji Berwarna**
+
+{{% alert title="Note" color="info" %}}
+Untuk merender emoji berwarna dengan benar saat mengonversi slide presentasi ke gambar, font emoji yang digunakan dalam presentasi harus diinstal dan tersedia pada sistem yang melakukan konversi. Misalnya, jika presentasi menggunakan **Segoe UI Emoji** dan font ini tidak tersedia, emoji dapat muncul dalam monokrom pada gambar output.
+{{% /alert %}}
+
 ## **FAQ**
 
-**1. Apakah Aspose.Slides mendukung rendering slide dengan animasi?**
+**Apakah Aspose.Slides mendukung rendering slide dengan animasi?**
 
-Tidak, metode `GetImage` hanya menyimpan gambar statis dari slide, tanpa animasi.
+Tidak. Metode [GetImage](https://reference.aspose.com/slides/id/net/aspose.slides/islide/getimage/) merender gambar statis slide dan tidak mengekspor animasi.
 
-**2. Apakah slide tersembunyi dapat diekspor sebagai gambar?**
+**Apakah slide tersembunyi dapat diekspor sebagai gambar?**
 
-Ya, slide tersembunyi dapat diproses seperti slide biasa. Pastikan mereka termasuk dalam loop pemrosesan.
+Ya. Slide tersembunyi dapat dirender seperti slide biasa. Termasuk mereka dalam loop pemrosesan, seperti contoh di atas.
 
-**3. Apakah gambar dapat disimpan dengan bayangan dan efek?**
+**Apakah bayangan dan efek lain dipertahankan dalam gambar slide?**
 
-Ya, Aspose.Slides mendukung rendering bayangan, transparansi, dan efek grafis lainnya saat menyimpan slide sebagai gambar.
+Ya. Aspose.Slides merender bayangan, transparansi, dan efek grafis lain yang didukung dalam gambar slide.

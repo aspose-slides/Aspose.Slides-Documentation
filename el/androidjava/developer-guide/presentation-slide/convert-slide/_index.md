@@ -1,6 +1,6 @@
 ---
-title: Μετατροπή διαφανειών παρουσίασης σε εικόνες στο Android
-linktitle: Διαφάνεια σε εικόνα
+title: Μετατροπή Διαφανειών Παρουσίασης σε Εικόνες σε Android
+linktitle: Διαφάνεια σε Εικόνα
 type: docs
 weight: 35
 url: /el/androidjava/convert-slide/
@@ -9,6 +9,7 @@ keywords:
 - εξαγωγή διαφάνειας
 - διαφάνεια σε εικόνα
 - αποθήκευση διαφάνειας ως εικόνα
+- διαφάνεια σε EMF
 - διαφάνεια σε PNG
 - διαφάνεια σε JPEG
 - διαφάνεια σε bitmap
@@ -19,34 +20,38 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Μετατροπή διαφανειών από PPT, PPTX και ODP σε εικόνες χρησιμοποιώντας το Aspose.Slides για Android—γρήγορη, υψηλής ποιότητας απόδοση με σαφή παραδείγματα κώδικα Java."
+description: "Μετατροπή διαφανειών από παρουσιάσεις PPT, PPTX και ODP σε PNG, JPEG, GIF, TIFF, EMF και άλλες μορφές εικόνας σε Android με Aspose.Slides."
 ---
 ## **Εισαγωγή**
 
-Το Aspose.Slides for Android via Java σας επιτρέπει να μετατρέψετε εύκολα διαφάνειες παρουσιάσεων PowerPoint και OpenDocument σε διάφορες μορφές εικόνας, συμπεριλαμβανομένων των BMP, PNG, JPG (JPEG), GIF και άλλων.
+Το Aspose.Slides for Android μέσω Java μπορεί να αποδώσει μεμονωμένες διαφάνειες από παρουσιάσεις PowerPoint και OpenDocument ως PNG, JPEG, GIF, TIFF και άλλες μορφές εικόνας.
 
 Για να μετατρέψετε μια διαφάνεια σε εικόνα, ακολουθήστε τα παρακάτω βήματα:
 
-1. Ορίστε τις επιθυμητές ρυθμίσεις μετατροπής και επιλέξτε τις διαφάνειες που θέλετε να εξάγετε χρησιμοποιώντας:
-    - Την διεπαφή [ITiffOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiffoptions/) ή
-    - Τη διεπαφή [IRenderingOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/irenderingoptions/) .
-2. Δημιουργήστε την εικόνα της διαφάνειας καλώντας τη μέθοδο [getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#getImage--) .
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/).
+2. Επιλέξτε τη διαφάνεια που θέλετε να αποδώσετε.
+3. Εάν είναι απαραίτητο, ρυθμίστε την απόδοση με την κλάση [RenderingOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/renderingoptions/) ή [TiffOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/tiffoptions/).
+4. Καλέστε τη μέθοδο [ISlide.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#getImage--). Επιστρέφει ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/).
+5. Καλέστε τη μέθοδο [IImage.save](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) και καθορίστε τη μορφή εξόδου με μια τιμή [ImageFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imageformat/).
 
-Στο Aspose.Slides for Android via Java, το [IImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/) είναι μια διεπαφή που σας επιτρέπει να εργάζεστε με εικόνες που ορίζονται από δεδομένα εικονοστοιχείων. Μπορείτε να χρησιμοποιήσετε αυτή τη διεπαφή για να αποθηκεύετε εικόνες σε ένα ευρύ φάσμα μορφών (BMP, JPG, PNG κ.ά.).
+## **Μετατροπή μιας διαφάνειας σε εικόνα PNG**
 
-## **Μετατροπή διαφανειών σε bitmap και αποθήκευση των εικόνων σε PNG**
+Η πιο απλή μετατροπή χρησιμοποιεί τις προεπιλεγμένες ρυθμίσεις απόδοσης. Το προκύπτον αντικείμενο [IImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/) μπορεί να υποβληθεί σε επεξεργασία στη μνήμη ή να αποθηκευτεί σε αρχείο.
 
-Μπορείτε να μετατρέψετε μια διαφάνεια σε αντικείμενο bitmap και να το χρησιμοποιήσετε άμεσα στην εφαρμογή σας. Εναλλακτικά, μπορείτε να μετατρέψετε μια διαφάνεια σε bitmap και στη συνέχεια να αποθηκεύσετε την εικόνα σε JPEG ή οποιαδήποτε άλλη προτιμώμενη μορφή.
+Το ακόλουθο παράδειγμα Java αποδίδει την πρώτη διαφάνεια και την αποθηκεύει ως εικόνα PNG:
 
-Αυτός ο κώδικας δείχνει πώς να μετατρέψετε την πρώτη διαφάνεια μιας παρουσίασης σε αντικείμενο bitmap και έπειτα να αποθηκεύσετε την εικόνα σε μορφή PNG:
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
 
-```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Μετατρέψτε την πρώτη διαφάνεια στην παρουσίαση σε bitmap.
-    IImage image = presentation.getSlides().get_Item(0).getImage();
-	try {
-        // Αποθηκεύστε την εικόνα σε μορφή PNG.
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IImage image = slide.getImage();
+    try {
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -58,20 +63,25 @@ try {
 
 ## **Μετατροπή διαφανειών σε εικόνες με προσαρμοσμένα μεγέθη**
 
-Μπορεί να χρειαστεί να λάβετε μια εικόνα συγκεκριμένου μεγέθους. Χρησιμοποιώντας μία υπερφόρτωση της μεθόδου [getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-), μπορείτε να μετατρέψετε μια διαφάνεια σε εικόνα με συγκεκριμένες διαστάσεις (πλάτος και ύψος). 
+Χρησιμοποιήστε την υπερφόρτωση [ISlide.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) που δέχεται μια τιμή [Size](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides.android/size/) για να αποδώσετε μια διαφάνεια με ακριβείς διαστάσεις σε εικονοστοιχεία.
 
-Αυτό το παράδειγμα κώδικα δείχνει πώς να το κάνετε:
+Το παρακάτω παράδειγμα δημιουργεί μια εικόνα JPEG 1820 × 1040:
 
-```java 
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.android.Size;
+
 Size imageSize = new Size(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Μετατρέψτε την πρώτη διαφάνεια στην παρουσίαση σε bitmap με το καθορισμένο μέγεθος.
-    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IImage image = slide.getImage(imageSize);
     try {
-        // Αποθηκεύστε την εικόνα σε μορφή JPEG.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -83,36 +93,41 @@ try {
 
 ## **Μετατροπή διαφανειών με σημειώσεις και σχόλια σε εικόνες**
 
-Ορισμένες διαφάνειες μπορεί να περιέχουν σημειώσεις και σχόλια.
+Από προεπιλογή, οι εικόνες διαφανειών δεν περιλαμβάνουν σημειώσεις ή σχόλια. Περάστε ένα αντικείμενο [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/notescommentslayoutingoptions/) στη μέθοδο [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/renderingoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) για να ελέγξετε πού εμφανίζονται οι σημειώσεις και τα σχόλια.
 
-Aspose.Slides παρέχει δύο διεπαφές — [ITiffOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiffoptions/) και [IRenderingOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/irenderingoptions/) — που σας επιτρέπουν να ελέγχετε τη μετατροπή των διαφανειών παρουσίασης σε εικόνες. Και οι δύο διεπαφές περιλαμβάνουν τη μέθοδο `setSlidesLayoutOptions`, η οποία σας επιτρέπει να ρυθμίσετε την απόδοση των σημειώσεων και των σχολίων σε μια διαφάνεια κατά τη μετατροπή της σε εικόνα.
+Το παρακάτω παράδειγμα τοποθετεί περικομμένες σημειώσεις κάτω από τη διαφάνεια και σχόλια στα δεξιά της:
 
-Με την κλάση [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/notescommentslayoutingoptions/) μπορείτε να καθορίσετε την προτιμώμενη θέση των σημειώσεων και των σχολίων στην τελική εικόνα.
+```java
+import android.graphics.Color;
+import com.aspose.slides.CommentsPositions;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.NotesCommentsLayoutingOptions;
+import com.aspose.slides.NotesPositions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
 
-Αυτός ο κώδικας δείχνει πώς να μετατρέψετε μια διαφάνεια με σημειώσεις και σχόλια:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
-// Φορτώστε ένα αρχείο παρουσίασης.
+int commentsAreaColor = Color.rgb(250, 235, 215);
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Ορίστε τη θέση των σημειώσεων.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Ορίστε τη θέση των σχολίων.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Ορίστε το πλάτος της περιοχής σχολίων.
-    notesCommentsOptions.setCommentsAreaColor(Color.LTGRAY);   // Ορίστε το χρώμα της περιοχής σχολίων.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Δημιουργήστε τις επιλογές απόδοσης.
-    RenderingOptions options = new RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
-
-    // Μετατρέψτε την πρώτη διαφάνεια της παρουσίασης σε εικόνα.
-    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
-
+    IImage image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Αποθηκεύστε την εικόνα σε μορφή GIF.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -122,37 +137,37 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Σε οποιαδήποτε διαδικασία μετατροπής διαφάνειας σε εικόνα, η μέθοδος [setNotesPosition](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) δεν μπορεί να εφαρμόσει το `BottomFull` (για τον καθορισμό της θέσης των σημειώσεων) επειδή το κείμενο μιας σημείωσης μπορεί να είναι πολύ μεγάλο, καθιστώντας αδύνατη την προσαρμογή του στην καθορισμένη διάσταση της εικόνας.
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Για τη μετατροπή διαφάνειας σε εικόνα, μην περάσετε το [BottomFull](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/notespositions/) στη μέθοδο [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/notescommentslayoutingoptions/#setNotesPosition-int-). Οι σημειώσεις μπορεί να περιέχουν περισσότερο κείμενο από ό,τι μπορεί να χωρέσει το σταθερό μέγεθος της εικόνας. Χρησιμοποιήστε το [BottomTruncated](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/notespositions/) αντί αυτού.
+{{% /alert %}}
 
 ## **Μετατροπή διαφανειών σε εικόνες χρησιμοποιώντας επιλογές TIFF**
 
-Η διεπαφή [ITiffOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiffoptions/) προσφέρει μεγαλύτερο έλεγχο πάνω στην τελική εικόνα TIFF, επιτρέποντάς σας να καθορίσετε παραμέτρους όπως μέγεθος, ανάλυση, παλέτα χρωμάτων και άλλα.
+Η κλάση [TiffOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/tiffoptions/) σάς επιτρέπει να ελέγξετε το μέγεθος, την ανάλυση και άλλα χαρακτηριστικά της αποδοθέντας εικόνας TIFF.
 
-Αυτός ο κώδικας δείχνει μια διαδικασία μετατροπής όπου οι επιλογές TIFF χρησιμοποιούνται για να παραχθεί μια ασπρόμαυρη εικόνα με ανάλυση 300 DPI και μέγεθος 2160 × 2800:
+Το παρακάτω παράδειγμα αποδίδει την πρώτη διαφάνεια ως εικόνα TIFF 2160 × 2880 στα 300 DPI:
 
-```java 
-// Φορτώστε ένα αρχείο παρουσίασης.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.TiffOptions;
+import com.aspose.slides.android.Size;
+
+Size imageSize = new Size(2160, 2880);
+
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Πάρτε την πρώτη διαφάνεια από την παρουσίαση.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Διαμορφώστε τις ρυθμίσεις της εξαγόμενης εικόνας TIFF.
-    TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Size(2160, 2880));                  // Ορίστε το μέγεθος της εικόνας.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Ορίστε τη μορφή εικονοστοιχείων (ασπρόμαυρη).
-    tiffOptions.setDpiX(300);                                        // Ορίστε την οριζόντια ανάλυση.
-    tiffOptions.setDpiY(300);                                        // Ορίστε την κάθετη ανάλυση.
-
-    // Μετατρέψτε τη διαφάνεια σε εικόνα με τις καθορισμένες επιλογές.
     IImage image = slide.getImage(tiffOptions);
-
     try {
-        // Αποθηκεύστε την εικόνα σε μορφή TIFF.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -164,29 +179,27 @@ try {
 
 ## **Μετατροπή όλων των διαφανειών σε εικόνες**
 
-Το Aspose.Slides σας επιτρέπει να μετατρέψετε όλες τις διαφάνειες μιας παρουσίασης σε εικόνες, μετατρέποντας ουσιαστικά ολόκληρη την παρουσίαση σε μια σειρά εικόνων.
+Περιηγηθείτε στη συλλογή διαφανειών για να μετατρέψετε ολόκληρη την παρουσίαση σε μια σειρά εικόνων. Οι κρυμμένες διαφάνειες περιλαμβάνονται εκτός εάν τις παραλείψετε ρητά.
 
-Αυτό το παράδειγμα κώδικα δείχνει πώς να μετατρέψετε όλες τις διαφάνειες μιας παρουσίασης σε εικόνες σε Java:
+Το παρακάτω παράδειγμα αποδίδει κάθε διαφάνεια ως εικόνα JPEG με οριζόντιους και κάθετους συντελεστές κλιμάκωσης 2:
 
-```java 
-float scaleX = 2;
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+float scaleX = 2f;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Αποδώστε την παρουσίαση σε εικόνες διαφάνεια προς διαφάνεια.
-    for (int i = 0 ; i < presentation.getSlides().size(); i++)
-    {
-        // Διαχειριστείτε κρυμμένες διαφάνειες (μην αποδίδετε κρυμμένες διαφάνειες).
-        if (presentation.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // Μετατρέψτε τη διαφάνεια σε εικόνα.
-        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
-
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-            // Αποθηκεύστε την εικόνα σε μορφή JPEG.
-            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -196,16 +209,96 @@ try {
 }
 ```
 
-## **Συχνές ερωτήσεις**
+## **Δημιουργία εξόδου Enhanced Metafile**
+
+Το Enhanced Metafile (EMF) είναι χρήσιμο όταν τα διανυσματικά γραφικά πρέπει να ανταλλαχθούν με το Microsoft Office ή άλλες εφαρμογές Windows που υποστηρίζουν Windows metafiles. Σε αντίθεση με μια εικόνα βάσει εικονοστοιχείων, ένα EMF μπορεί να διατηρήσει τις διανυσματικές λειτουργίες σχεδίασης που κλιμακώνονται χωρίς την ίδια απώλεια ευκρίνειας. Ωστόσο, το EMF είναι κυρίως μια μορφή συμβατότητας για εφαρμογές με υποστήριξη Windows metafile, όχι μια καθολική μορφή ανταλλαγής. Επιπλέον, το πολύπλοκο περιεχόμενο διαφάνειας, όπως εικόνες bitmap και ορισμένα εφέ, μπορεί να αποθηκευτεί ως ραστεροποιημένα στοιχεία μέσα στο διανυσματικό δοχείο metafile.
+
+### **Εξαγωγή διαφάνειας σε EMF**
+
+Η μέθοδος [ISlide.writeAsEmf](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) γράφει ένα [ISlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/) σε ένα ρεύμα προορισμού σε μορφή EMF. Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση, επιλέγει την πρώτη διαφάνεια και την γράφει σε ένα ρεύμα αρχείου EMF:
+
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    FileOutputStream emfStream = new FileOutputStream("Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Ο καλών είναι υπεύθυνος για το ρεύμα που περάστηκε στη [ISlide.writeAsEmf](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) και είναι υπεύθυνος για το κλείσιμο του, όπως φαίνεται παραπάνω.
+
+### **Μετατροπή εικόνας SVG σε EMF και προσθήκη στην παρουσίαση**
+
+Χρησιμοποιήστε το [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) για να μετατρέψετε το περιεχόμενο SVG σε EMF. Τα προκύπτουν bytes μπορούν να προστεθούν στην παρουσίαση μέσω του [IImageCollection.addImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimagecollection/#addImage-byte:A-) και να τοποθετηθούν σε μια διαφάνεια με το [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-).
+
+Το παρακάτω παράδειγμα δημιουργεί ένα [SvgImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/svgimage/) από σήμανση SVG, το μετατρέπει σε EMF στη μνήμη, εισάγει το metafile στην πρώτη διαφάνεια και αποθηκεύει την παρουσίαση:
+
+```java
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ISvgImage;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import com.aspose.slides.SvgImage;
+import java.io.ByteArrayOutputStream;
+
+String svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+ISvgImage svgImage = new SvgImage(svgContent);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ByteArrayOutputStream emfStream = new ByteArrayOutputStream();
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        byte[] emfData = emfStream.toByteArray();
+        IPPImage image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) δεν αποκτά την ιδιοκτησία του ρεύματος προορισμού. Ένα [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) αποθηκεύει όλα τα παραγόμενα δεδομένα στη μνήμη, έτσι δεν απαιτείται επαναφορά θέσης πριν από την κλήση του `toByteArray`. Ο επιστρεφόμενος πίνακας byte παραμένει έγκυρος μετά το κλείσιμο του ρεύματος.
+
+Η δημιουργία EMF είναι διαθέσιμη σε υποστηριζόμενες εκδόσεις Android και διαμορφώσεις συσκευών, αλλά η απόδοση μπορεί να διαφέρει όταν λείπουν γραμματοσειρές ή εξαρτήσεις γραφικών. Εγκαταστήστε τις γραμματοσειρές που χρησιμοποιούνται από το πηγαίο περιεχόμενο ή διαμορφώστε κατάλληλες υποκαταστάσεις, ακολουθήστε τον [οδηγό εγκατάστασης](/slides/el/androidjava/install-aspose-slides-for-android-via-java/) για το Aspose.Slides for Android μέσω Java, και επαληθεύστε το αποτέλεσμα στην εφαρμογή-δέκτη EMF. Οι εφαρμογές σε πλατφόρμες εκτός Windows συχνά έχουν περιορισμένη ή ασυνεπή υποστήριξη για προβολή και επεξεργασία Windows metafiles.
+
+## **Απόδοση χρωματικών Emoji**
+
+{{% alert title="Note" color="info" %}}
+Για να αποδίδονται σωστά τα χρωματικά emoji κατά τη μετατροπή των διαφανειών παρουσίασης σε εικόνες, οι γραμματοσειρές emoji που χρησιμοποιούνται στην παρουσίαση πρέπει να είναι εγκατεστημένες και διαθέσιμες στο σύστημα που πραγματοποιεί τη μετατροπή. Για παράδειγμα, εάν η παρουσίαση χρησιμοποιεί **Segoe UI Emoji** και αυτή η γραμματοσειρά λείπει, τα emoji μπορεί να εμφανιστούν σε μονόχρωμη μορφή στις εικόνες εξόδου.
+{{% /alert %}}
+
+## **Συχνές Ερωτήσεις**
 
 **Υποστηρίζει το Aspose.Slides την απόδοση διαφανειών με κινούμενα σχέδια;**
 
-Όχι, η μέθοδος `getImage` αποθηκεύει μόνο μια στατική εικόνα της διαφάνειας, χωρίς κινούμενα σχέδια.
+Όχι. Η μέθοδος [ISlide.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/#getImage--) αποδίδει μια στατική εικόνα της διαφάνειας και δεν εξάγει τις κινούμενες εικόνες.
 
 **Μπορούν οι κρυμμένες διαφάνειες να εξαχθούν ως εικόνες;**
 
-Ναι, οι κρυμμένες διαφάνειες μπορούν να επεξεργαστούν όπως και οι κανονικές. Απλώς βεβαιωθείτε ότι περιλαμβάνονται στο βρόχο επεξεργασίας.
+Ναι. Οι κρυμμένες διαφάνειες μπορούν να αποδοθούν όπως οι κανονικές διαφάνειες. Συμπεριλάβετε τις στο βρόχο επεξεργασίας, όπως φαίνεται στο παραπάνω παράδειγμα.
 
-**Μπορούν οι εικόνες να αποθηκευτούν με σκιές και εφέ;**
+**Διατηρούνται οι σκιές και άλλα εφέ στις εικόνες διαφανειών;**
 
-Ναι, το Aspose.Slides υποστηρίζει την απόδοση σκιών, διαφάνειας και άλλων γραφικών εφέ κατά την αποθήκευση των διαφανειών ως εικόνες.
+Ναι. Το Aspose.Slides αποδίδει σκιές, διαφάνειες και άλλα υποστηριζόμενα γραφικά εφέ στις εικόνες διαφανειών.

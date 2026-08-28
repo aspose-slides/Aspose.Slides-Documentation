@@ -9,6 +9,7 @@ keywords:
 - exportovat snímek
 - snímek na obrázek
 - uložit snímek jako obrázek
+- snímek na EMF
 - snímek na PNG
 - snímek na JPEG
 - snímek na bitmapu
@@ -18,34 +19,36 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Převod snímků z formátů PPT, PPTX a ODP na obrázky pomocí Aspose.Slides for PHP via Java — rychlé, vysoce kvalitní vykreslování s přehlednými ukázkami kódu."
+description: "Převod snímků z prezentací PPT, PPTX a ODP na PNG, JPEG, GIF, TIFF, EMF a další formáty obrázků v PHP pomocí Aspose.Slides."
 ---
 ## **Úvod**
 
-Aspose.Slides for PHP via Java vám umožňuje snadno převádět snímky prezentací PowerPoint a OpenDocument do různých formátů obrázků, včetně BMP, PNG, JPG (JPEG), GIF a dalších.
+Aspose.Slides for PHP via Java dokáže vykreslovat jednotlivé snímky z prezentací PowerPoint a OpenDocument jako PNG, JPEG, GIF, TIFF a další formáty obrázků.
 
-Chcete-li převést snímek na obrázek, postupujte podle těchto kroků:
+Pro převod snímku na obrázek postupujte podle těchto kroků:
 
-1. Definujte požadovaná nastavení převodu a vyberte snímky, které chcete exportovat, pomocí:
-    - Třídy [TiffOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/tiffoptions/) nebo
-    - Třídy [RenderingOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/renderingoptions/).
-2. Vytvořte obrázek snímku voláním metody [getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#getImage).
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+2. Vyberte snímek, který chcete vykreslit.
+3. V případě potřeby nakonfigurujte vykreslování pomocí třídy [RenderingOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/renderingoptions/) nebo [TiffOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/tiffoptions/).
+4. Zavolejte metodu [Slide::getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#getImage). Vrací objekt [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/).
+5. Zavolejte metodu [IImage::save](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/#save) a specifikujte výstupní formát pomocí hodnoty [ImageFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imageformat/).
 
-V Aspose.Slides for PHP via Java je [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/) třída, která umožňuje pracovat s obrázky definovanými pixelovými daty. Tuto třídu můžete použít k ukládání obrázků v široké škále formátů (BMP, JPG, PNG atd.).
+## **Převod snímku na PNG obrázek**
 
-## **Převod snímků na bitmapy a uložení obrázků ve formátu PNG**
+Nejjednodušší převod používá výchozí nastavení vykreslování. Výsledný objekt [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/) lze zpracovat v paměti nebo uložit do souboru.
 
-Můžete převést snímek na objekt bitmapy a použít jej přímo ve své aplikaci. Případně můžete snímek převést na bitmapu a poté uložit obrázek ve formátu JPEG nebo jakémkoli jiném preferovaném formátu.
-
-Tento kód ukazuje, jak převést první snímek prezentace na objekt bitmapy a následně uložit obrázek ve formátu PNG:
+Následující PHP příklad vykreslí první snímek a uloží jej jako PNG obrázek:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Převést první snímek v prezentaci na bitmapu.
-    $image = $presentation->getSlides()->get_Item(0)->getImage();
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage();
     try {
-        // Uložit obrázek ve formátu PNG.
         $image->save("Slide_0.png", ImageFormat::Png);
     } finally {
         $image->dispose();
@@ -57,19 +60,22 @@ try {
 
 ## **Převod snímků na obrázky s vlastními rozměry**
 
-Možná budete potřebovat obrázek o určité velikosti. Pomocí přetížené verze metody [getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#getImage) můžete převést snímek na obrázek se specifickými rozměry (šířka a výška).
+Použijte přetížení [Slide::getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#getImage), které přijímá hodnotu [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) pro vykreslení snímku s přesnými rozměry v pixelech.
 
-Tento ukázkový kód ukazuje, jak to provést:
+Následující příklad vytvoří JPEG obrázek 1820 × 1040:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $imageSize = new Java("java.awt.Dimension", 1820, 1040);
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Převést první snímek v prezentaci na bitmapu s určenou velikostí.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($imageSize);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage($imageSize);
     try {
-        // Uložit obrázek ve formátu JPEG.
         $image->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
         $image->dispose();
@@ -81,34 +87,38 @@ try {
 
 ## **Převod snímků s poznámkami a komentáři na obrázky**
 
-Některé snímky mohou obsahovat poznámky a komentáře.
+Ve výchozím nastavení obrázky snímků neobsahují poznámky ani komentáře. Předávejte objekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notescommentslayoutingoptions/) metodě [RenderingOptions::setSlidesLayoutOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions), abyste určili, kde se poznámky a komentáře zobrazí.
 
-Aspose.Slides poskytuje dvě třídy [TiffOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/tiffoptions/) a [RenderingOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/renderingoptions/), které umožňují řídit vykreslování snímků prezentace do obrázků. Obě třídy obsahují metodu `setSlidesLayoutOptions`, která vám umožní nakonfigurovat vykreslování poznámek a komentářů na snímku při jeho převodu na obrázek.
-
-Pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notescommentslayoutingoptions/) můžete určit požadovanou pozici poznámek a komentářů ve výsledném obrázku.
-
-Tento kód ukazuje, jak převést snímek s poznámkami a komentáři:
+Následující příklad umístí zkrácené poznámky pod snímek a komentáře vpravo od něj:
 
 ```php
+use aspose\slides\CommentsPositions;
+use aspose\slides\ImageFormat;
+use aspose\slides\NotesCommentsLayoutingOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\Presentation;
+use aspose\slides\RenderingOptions;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
+$commentsAreaColor = new Java("java.awt.Color", 250, 235, 215);
+
+$layoutOptions = new NotesCommentsLayoutingOptions();
+$layoutOptions->setNotesPosition(NotesPositions::BottomTruncated);
+$layoutOptions->setCommentsPosition(CommentsPositions::Right);
+$layoutOptions->setCommentsAreaWidth(500);
+$layoutOptions->setCommentsAreaColor($commentsAreaColor);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutOptions);
+
 $presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    $notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    $notesCommentsOptions->setNotesPosition(NotesPositions::BottomTruncated);         // Nastavit pozici poznámek.
-    $notesCommentsOptions->setCommentsPosition(CommentsPositions::Right);             // Nastavit pozici komentářů.
-    $notesCommentsOptions->setCommentsAreaWidth(500);                                 // Nastavit šířku oblasti komentářů.
-    $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // Nastavit barvu oblasti komentářů.
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    // Vytvořit možnosti vykreslování.
-    $options = new RenderingOptions();
-    $options->setSlidesLayoutOptions($notesCommentsOptions);
-
-    // Převést první snímek prezentace na obrázek.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($options, $scaleX, $scaleY);
+    $image = $slide->getImage($renderingOptions, $scaleX, $scaleY);
     try {
-        // Uložit obrázek ve formátu GIF.
         $image->save("Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
     } finally {
         $image->dispose();
@@ -118,34 +128,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-V jakémkoli procesu převodu snímku na obrázek metoda [setNotesPosition](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) nemůže použít `BottomFull` (pro určení pozice poznámek), protože text poznámky může být příliš dlouhý a nevejde se do určené velikosti obrázku.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Pro převod snímku na obrázek nepřepínejte [BottomFull](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notespositions/) metodě [NotesCommentsLayoutingOptions::setNotesPosition](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Poznámky mohou obsahovat více textu, než je velikost pevného obrázku schopna pojmout. Použijte místo toho [BottomTruncated](https://reference.aspose.com/slides/cs/php-java/aspose.slides/notespositions/).
+{{% /alert %}}
 
 ## **Převod snímků na obrázky pomocí TIFF možností**
 
-Třída [TiffOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/tiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že umožňuje specifikovat parametry jako velikost, rozlišení, barevná paleta a další.
+Třída [TiffOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/tiffoptions/) vám umožňuje řídit velikost, rozlišení a další vlastnosti vykresleného TIFF obrázku.
 
-Tento kód ukazuje proces převodu, kde jsou použity TIFF možnosti k vytvoření černobílého obrázku s rozlišením 300 DPI a velikostí 2160 x 2800:
+Následující příklad vykreslí první snímek jako TIFF obrázek 2160 × 2880 při 300 DPI:
 
 ```php
-// Načíst soubor prezentace.
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\TiffOptions;
+
+$imageSize = new Java("java.awt.Dimension", 2160, 2880);
+
+$tiffOptions = new TiffOptions();
+$tiffOptions->setImageSize($imageSize);
+$tiffOptions->setDpiX(300);
+$tiffOptions->setDpiY(300);
+
 $presentation = new Presentation("sample.pptx");
 try {
-    // Získat první snímek z prezentace.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Nastavit konfiguraci výstupního TIFF obrázku.
-    $options = new TiffOptions();
-    $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));  // Nastavit velikost obrázku.
-    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);       // Nastavit formát pixelů (černobílý).
-    $options->setDpiX(300);                                              // Nastavit horizontální rozlišení.
-    $options->setDpiY(300);                                              // Nastavit vertikální rozlišení.
-    
-    // Převést snímek na obrázek s určenými možnostmi.
-    $image = $slide->getImage($options);
+    $image = $slide->getImage($tiffOptions);
     try {
-        // Uložit obrázek ve formátu TIFF.
         $image->save("output.tiff", ImageFormat::Tiff);
     } finally {
         $image->dispose();
@@ -155,34 +165,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Podpora TIFF není zaručena ve verzích starších než JDK 9.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Podpora TIFF není zaručena v Java verzích před JDK 9.
+{{% /alert %}}
 
 ## **Převod všech snímků na obrázky**
 
-Aspose.Slides vám umožňuje převést všechny snímky v prezentaci na obrázky, čímž prakticky převede celou prezentaci na sérii obrázků.
+Projděte kolekci snímků a převěďte celou prezentaci na sérii obrázků. Skryté snímky jsou zahrnuty, pokud je explicitně nepřeskočíte.
 
-Tento ukázkový kód ukazuje, jak v PHP převést všechny snímky v prezentaci na obrázky:
+Následující příklad vykreslí každý snímek jako JPEG obrázek se horizontálním a vertikálním měřítkem 2:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Vykreslit prezentaci do obrázků snímek po snímku.
-    for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
-        // Ovládání skrytých snímků (nevykreslovat skryté snímky).
-        if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
-            continue;
-        }
-
-        // Převést snímek na obrázek.
-        $image = $presentation->getSlides()->get_Item($i)->getImage($scaleX, $scaleY);
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($scaleX, $scaleY);
         try {
-            // Uložit obrázek ve formátu JPEG.
-            $image->save("Slide_" . $i . ".jpg", ImageFormat::Jpeg);
+            $image->save("Slide_" . $index . ".jpg", ImageFormat::Jpeg);
         } finally {
             $image->dispose();
         }
@@ -192,13 +199,90 @@ try {
 }
 ```
 
+## **Vytvoření výstupu Enhanced Metafile**
+
+Enhanced Metafile (EMF) je užitečný, když je nutné vyměňovat vektorovou grafiku s Microsoft Office nebo jinými Windows aplikacemi, které podporují Windows metafily. Na rozdíl od rastrového obrázku může EMF zachovat vektorové kreslící operace, které se škálují bez ztráty ostrosti. Přesto je EMF převážně formát kompatibility pro aplikace s podporou Windows metafilů, nikoli univerzální výměnný formát. Navíc může být složitý obsah snímku, jako bitmapové obrázky a některé efekty, uložen jako rasterizované prvky uvnitř kontejneru vektorového metafile.
+
+### **Export snímku do EMF**
+
+Metoda [Slide::writeAsEmf](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#writeAsEmf) zapíše snímek do cílového proudu ve formátu EMF. Následující příklad načte prezentaci, vybere první snímek a zapíše jej do EMF souborového proudu:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        $slide->writeAsEmf($emfStream);
+    } finally {
+        $emfStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Volající vlastní proud předaný metodě [Slide::writeAsEmf](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#writeAsEmf) a je zodpovědný za jeho uzavření, jak je ukázáno výše.
+
+### **Převod SVG obrázku na EMF a přidání do prezentace**
+
+Použijte [SvgImage::writeAsEmf](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/#writeAsEmf) k převodu SVG obsahu na EMF. Výsledná bajtová data lze přidat do prezentace pomocí [ImageCollection::addImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/#addImage) a umístit na snímek pomocí [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/#addPictureFrame).
+
+Následující příklad vytvoří [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/) ze SVG značkování, převede jej na EMF v paměti, vloží metafil na první snímek a uloží prezentaci:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$svgContent = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect width="200" height="100" fill="#4472C4"/></svg>';
+$svgImage = new SvgImage($svgContent);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.ByteArrayOutputStream");
+    try {
+        $svgImage->writeAsEmf($emfStream);
+
+        $emfData = $emfStream->toByteArray();
+        $image = $presentation->getImages()->addImage($emfData);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, $image);
+    } finally {
+        $emfStream->close();
+    }
+
+    $presentation->save("Presentation_with_emf.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+[SvgImage::writeAsEmf](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/#writeAsEmf) nepřebírá vlastnictví cílového proudu. [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) ukládá všechna generovaná data v paměti, takže před voláním `toByteArray` není nutné resetovat pozici. Vrácené pole bytů zůstává platné i po uzavření proudu.
+
+Generování EMF je dostupné na operačních systémech podporovaných vybranou konfigurací Aspose.Slides for PHP via Java a JDK, avšak vykreslování se může lišit napříč platformami, pokud nejsou k dispozici písma nebo grafické závislosti. Nainstalujte písma použité ve zdrojovém obsahu nebo nastavte vhodné náhrady, řiďte se [požadavky na platformu](/slides/cs/php-java/system-requirements/) pro Aspose.Slides for PHP via Java a ověřte výsledek v cílové aplikaci spotřebovávající EMF. Aplikace na Linuxu a macOS často mají omezenou či nejednotnou podporu pro zobrazování a editaci Windows metafilů.
+
+## **Vykreslování barevných emoji**
+
+{{% alert title="Note" color="info" %}}
+Aby bylo možné při převodu snímků prezentace na obrázky správně vykreslovat barevné emoji, musí být písma emoji použité v prezentaci nainstalována a dostupná v systému provádějícím převod. Například pokud prezentace používá **Segoe UI Emoji** a toto písmo chybí, mohou se emoji v výstupních obrázcích zobrazovat v monochromu.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Podporuje Aspose.Slides vykreslování snímků s animacemi?**  
-Ne, metoda `getImage` uloží pouze statický obrázek snímku, bez animací.
+**Podporuje Aspose.Slides vykreslování snímků s animacemi?**
 
-**Lze skryté snímky exportovat jako obrázky?**  
-Ano, skryté snímky lze zpracovat stejně jako běžné. Jen se ujistěte, že jsou zahrnuty ve smyčce zpracování.
+Ne. Metoda [Slide::getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#getImage) vykresluje statický obrázek snímku a neexportuje animace.
 
-**Lze obrázky uložit se stíny a efekty?**  
-Ano, Aspose.Slides podporuje vykreslování stínů, průhlednosti a dalších grafických efektů při ukládání snímků jako obrázků.
+**Lze skryté snímky exportovat jako obrázky?**
+
+Ano. Skryté snímky lze vykreslit jako běžné snímky. Zahrňte je do zpracovatelského cyklu, jak je ukázáno v předchozím příkladu.
+
+**Zůstávají stíny a další efekty zachovány v obrázcích snímků?**
+
+Ano. Aspose.Slides vykresluje stíny, průhlednost a další podporované grafické efekty v obrázcích snímků.

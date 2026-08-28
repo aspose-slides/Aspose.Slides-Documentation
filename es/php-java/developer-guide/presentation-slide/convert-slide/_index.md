@@ -1,6 +1,6 @@
 ---
 title: Convertir diapositivas de presentación a imágenes en PHP
-linktitle: Diapositiva a imagen
+linktitle: Diapositiva a Imagen
 type: docs
 weight: 35
 url: /es/php-java/convert-slide/
@@ -9,43 +9,46 @@ keywords:
 - exportar diapositiva
 - diapositiva a imagen
 - guardar diapositiva como imagen
+- diapositiva a EMF
 - diapositiva a PNG
 - diapositiva a JPEG
-- diapositiva a bitmap
+- diapositiva a mapa de bits
 - diapositiva a TIFF
 - PowerPoint
 - OpenDocument
 - presentación
 - PHP
 - Aspose.Slides
-description: "Convierte diapositivas de PPT, PPTX y ODP a imágenes usando Aspose.Slides para PHP a través de Java — renderizado rápido y de alta calidad con ejemplos de código claros."
+description: Convertir diapositivas de presentaciones PPT, PPTX y ODP a PNG, JPEG, GIF, TIFF, EMF y otros formatos de imagen en PHP con Aspose.Slides.
 ---
+## **Introducción**
 
-## **Descripción general**
-
-Aspose.Slides para PHP a través de Java le permite convertir fácilmente diapositivas de presentaciones PowerPoint y OpenDocument a varios formatos de imagen, incluidos BMP, PNG, JPG (JPEG), GIF y otros.
+Aspose.Slides para PHP a través de Java puede renderizar diapositivas individuales de presentaciones PowerPoint y OpenDocument como PNG, JPEG, GIF, TIFF y otros formatos de imagen.
 
 Para convertir una diapositiva en una imagen, siga estos pasos:
 
-1. Defina la configuración de conversión deseada y seleccione las diapositivas que desea exportar usando:
-    - La clase [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/), o
-    - La clase [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/).
-2. Genere la imagen de la diapositiva llamando al método [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage).
+1. Cargue la presentación con la clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/).
+2. Seleccione la diapositiva que desea renderizar.
+3. Si es necesario, configure la renderización con la clase [RenderingOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/renderingoptions/) o [TiffOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/tiffoptions/).
+4. Llame al método [Slide::getImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/slide/#getImage). Devuelve un objeto [IImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/iimage/).
+5. Llame al método [IImage::save](https://reference.aspose.com/slides/es/php-java/aspose.slides/iimage/#save) y especifique el formato de salida con un valor [ImageFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/imageformat/).
 
-En Aspose.Slides para PHP a través de Java, un [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) es una clase que le permite trabajar con imágenes definidas por datos de píxeles. Puede usar esta clase para guardar imágenes en una amplia gama de formatos (BMP, JPG, PNG, etc.).
+## **Convertir una diapositiva a una imagen PNG**
 
-## **Convertir diapositivas a mapas de bits y guardar las imágenes en PNG**
+La conversión más simple utiliza la configuración de renderizado predeterminada. El objeto [IImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/iimage/) resultante puede procesarse en memoria o guardarse en un archivo.
 
-Puede convertir una diapositiva a un objeto bitmap y usarlo directamente en su aplicación. Alternativamente, puede convertir una diapositiva a un bitmap y luego guardar la imagen en JPEG o cualquier otro formato preferido.
+El siguiente ejemplo en PHP renderiza la primera diapositiva y la guarda como imagen PNG:
 
-Este código muestra cómo convertir la primera diapositiva de una presentación a un objeto bitmap y luego guardar la imagen en formato PNG:
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Convertir la primera diapositiva de la presentación a un bitmap.
-    $image = $presentation->getSlides()->get_Item(0)->getImage();
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage();
     try {
-        // Guardar la imagen en formato PNG.
         $image->save("Slide_0.png", ImageFormat::Png);
     } finally {
         $image->dispose();
@@ -55,21 +58,24 @@ try {
 }
 ```
 
-
 ## **Convertir diapositivas a imágenes con tamaños personalizados**
 
-Puede que necesite obtener una imagen de un tamaño determinado. Usando una sobrecarga del método [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage), puede convertir una diapositiva a una imagen con dimensiones específicas (anchura y altura).
+Utilice la sobrecarga [Slide::getImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/slide/#getImage) que acepta un valor [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) para renderizar una diapositiva con dimensiones de píxel exactas.
 
-Este fragmento de código muestra cómo hacerlo:
+El siguiente ejemplo crea una imagen JPEG de 1820 × 1040:
+
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $imageSize = new Java("java.awt.Dimension", 1820, 1040);
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Convertir la primera diapositiva de la presentación a un bitmap con el tamaño especificado.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($imageSize);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage($imageSize);
     try {
-        // Guardar la imagen en formato JPEG.
         $image->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
         $image->dispose();
@@ -79,36 +85,40 @@ try {
 }
 ```
 
-
 ## **Convertir diapositivas con notas y comentarios a imágenes**
 
-Algunas diapositivas pueden contener notas y comentarios.
+Por defecto, las imágenes de diapositivas no incluyen notas ni comentarios. Pase un objeto [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/notescommentslayoutingoptions/) al método [RenderingOptions::setSlidesLayoutOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) para controlar dónde aparecen las notas y los comentarios.
 
-Aspose.Slides proporciona dos clases[TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) y [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/)—que le permiten controlar la renderización de diapositivas de presentación a imágenes. Ambas clases incluyen el método `setSlidesLayoutOptions`, que le permite configurar la renderización de notas y comentarios en una diapositiva al convertirla a una imagen.
+El siguiente ejemplo coloca notas truncadas debajo de la diapositiva y comentarios a su derecha:
 
-Con la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/) puede especificar la posición preferida de notas y comentarios en la imagen resultante.
-
-Este código muestra cómo convertir una diapositiva con notas y comentarios:
 ```php
+use aspose\slides\CommentsPositions;
+use aspose\slides\ImageFormat;
+use aspose\slides\NotesCommentsLayoutingOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\Presentation;
+use aspose\slides\RenderingOptions;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
+$commentsAreaColor = new Java("java.awt.Color", 250, 235, 215);
+
+$layoutOptions = new NotesCommentsLayoutingOptions();
+$layoutOptions->setNotesPosition(NotesPositions::BottomTruncated);
+$layoutOptions->setCommentsPosition(CommentsPositions::Right);
+$layoutOptions->setCommentsAreaWidth(500);
+$layoutOptions->setCommentsAreaColor($commentsAreaColor);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutOptions);
+
 $presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    $notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    $notesCommentsOptions->setNotesPosition(NotesPositions::BottomTruncated);         // Establecer la posición de las notas.
-    $notesCommentsOptions->setCommentsPosition(CommentsPositions::Right);             // Establecer la posición de los comentarios.
-    $notesCommentsOptions->setCommentsAreaWidth(500);                                 // Establecer el ancho del área de comentarios.
-    $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // Establecer el color del área de comentarios.
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    // Crear las opciones de renderizado.
-    $options = new RenderingOptions();
-    $options->setSlidesLayoutOptions($notesCommentsOptions);
-
-    // Convertir la primera diapositiva de la presentación a una imagen.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($options, $scaleX, $scaleY);
+    $image = $slide->getImage($renderingOptions, $scaleX, $scaleY);
     try {
-        // Guardar la imagen en formato GIF.
         $image->save("Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
     } finally {
         $image->dispose();
@@ -118,34 +128,34 @@ try {
 }
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-En cualquier proceso de conversión de diapositivas a imágenes, el método [setNotesPosition](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) no puede aplicar `BottomFull` (para especificar la posición de las notas) porque el texto de una nota puede ser demasiado grande, lo que impide que quepa dentro del tamaño de imagen especificado.
-{{% /alert %}} 
+{{% alert title="Advertencia" color="warning" %}}
+Para la conversión de diapositiva a imagen, no pase [BottomFull](https://reference.aspose.com/slides/es/php-java/aspose.slides/notespositions/) al método [NotesCommentsLayoutingOptions::setNotesPosition](https://reference.aspose.com/slides/es/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Las notas pueden contener más texto del que el tamaño fijo de la imagen puede albergar. Use [BottomTruncated](https://reference.aspose.com/slides/es/php-java/aspose.slides/notespositions/) en su lugar.
+{{% /alert %}}
 
 ## **Convertir diapositivas a imágenes usando opciones TIFF**
 
-La clase [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) ofrece un mayor control sobre la imagen TIFF resultante al permitirle especificar parámetros como tamaño, resolución, paleta de colores y más.
+La clase [TiffOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/tiffoptions/) le permite controlar el tamaño, la resolución y otras propiedades de la imagen TIFF renderizada.
 
-Este código muestra un proceso de conversión donde se utilizan opciones TIFF para generar una imagen en blanco y negro con una resolución de 300 dpi y un tamaño de 2160 × 2800:
+El siguiente ejemplo renderiza la primera diapositiva como una imagen TIFF de 2160 × 2880 a 300 DPI:
+
 ```php
-// Cargar un archivo de presentación.
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\TiffOptions;
+
+$imageSize = new Java("java.awt.Dimension", 2160, 2880);
+
+$tiffOptions = new TiffOptions();
+$tiffOptions->setImageSize($imageSize);
+$tiffOptions->setDpiX(300);
+$tiffOptions->setDpiY(300);
+
 $presentation = new Presentation("sample.pptx");
 try {
-    // Obtener la primera diapositiva de la presentación.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Configurar los ajustes de la imagen TIFF de salida.
-    $options = new TiffOptions();
-    $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));  // Establecer el tamaño de la imagen.
-    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);       // Establecer el formato de píxel (blanco y negro).
-    $options->setDpiX(300);                                              // Establecer la resolución horizontal.
-    $options->setDpiY(300);                                              // Establecer la resolución vertical.
-    
-    // Convertir la diapositiva a una imagen con las opciones especificadas.
-    $image = $slide->getImage($options);
+    $image = $slide->getImage($tiffOptions);
     try {
-        // Guardar la imagen en formato TIFF.
         $image->save("output.tiff", ImageFormat::Tiff);
     } finally {
         $image->dispose();
@@ -155,34 +165,31 @@ try {
 }
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-El soporte de TIFF no está garantizado en versiones anteriores a JDK 9.
-{{% /alert %}} 
+{{% alert title="Advertencia" color="warning" %}}
+El soporte de TIFF no está garantizado en versiones de Java anteriores a JDK 9.
+{{% /alert %}}
 
 ## **Convertir todas las diapositivas a imágenes**
 
-Aspose.Slides le permite convertir todas las diapositivas de una presentación a imágenes, convirtiendo efectivamente toda la presentación en una serie de imágenes.
+Itere a través de la colección de diapositivas para convertir toda la presentación en una serie de imágenes. Las diapositivas ocultas se incluyen a menos que las omita explícitamente.
 
-Este fragmento de código muestra cómo convertir todas las diapositivas de una presentación a imágenes en PHP:
+El siguiente ejemplo renderiza cada diapositiva como una imagen JPEG con factores de escala horizontal y vertical de 2:
+
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Renderizar la presentación a imágenes diapositiva a diapositiva.
-    for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
-        // Controlar diapositivas ocultas (no renderizar diapositivas ocultas).
-        if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
-            continue;
-        }
-
-        // Convertir la diapositiva a una imagen.
-        $image = $presentation->getSlides()->get_Item($i)->getImage($scaleX, $scaleY);
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($scaleX, $scaleY);
         try {
-            // Guardar la imagen en formato JPEG.
-            $image->save("Slide_" . $i . ".jpg", ImageFormat::Jpeg);
+            $image->save("Slide_" . $index . ".jpg", ImageFormat::Jpeg);
         } finally {
             $image->dispose();
         }
@@ -192,17 +199,90 @@ try {
 }
 ```
 
+## **Crear salida Enhanced Metafile**
+
+Enhanced Metafile (EMF) es útil cuando los gráficos vectoriales deben intercambiarse con Microsoft Office u otras aplicaciones de Windows que admiten metafiles de Windows. A diferencia de una imagen basada en píxeles, un EMF puede conservar las operaciones de dibujo vectorial que se escalan sin la misma pérdida de nitidez. Sin embargo, EMF es principalmente un formato de compatibilidad para aplicaciones con soporte de metafiles de Windows, no un formato de intercambio universal. Además, el contenido complejo de la diapositiva, como imágenes de mapa de bits y algunos efectos, puede almacenarse como elementos rasterizados dentro del contenedor de metafile vectorial.
+
+### **Exportar una diapositiva a EMF**
+
+El método [Slide::writeAsEmf](https://reference.aspose.com/slides/es/php-java/aspose.slides/slide/#writeAsEmf) escribe una diapositiva en un flujo de destino en formato EMF. El siguiente ejemplo carga una presentación, selecciona la primera diapositiva y la escribe en un flujo de archivo EMF:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        $slide->writeAsEmf($emfStream);
+    } finally {
+        $emfStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+El llamador posee el flujo pasado a [Slide::writeAsEmf](https://reference.aspose.com/slides/es/php-java/aspose.slides/slide/#writeAsEmf) y es responsable de cerrarlo, como se muestra arriba.
+
+### **Convertir una imagen SVG a EMF y añadirla a una presentación**
+
+Utilice [SvgImage::writeAsEmf](https://reference.aspose.com/slides/es/php-java/aspose.slides/svgimage/#writeAsEmf) para convertir contenido SVG a EMF. Los bytes resultantes pueden añadirse a la presentación mediante [ImageCollection::addImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/imagecollection/#addImage) y colocarse en una diapositiva con [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/shapecollection/#addPictureFrame).
+
+El siguiente ejemplo crea un [SvgImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/svgimage/) a partir de marcado SVG, lo convierte en un EMF en memoria, inserta el metafile en la primera diapositiva y guarda la presentación:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$svgContent = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect width="200" height="100" fill="#4472C4"/></svg>';
+$svgImage = new SvgImage($svgContent);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.ByteArrayOutputStream");
+    try {
+        $svgImage->writeAsEmf($emfStream);
+
+        $emfData = $emfStream->toByteArray();
+        $image = $presentation->getImages()->addImage($emfData);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, $image);
+    } finally {
+        $emfStream->close();
+    }
+
+    $presentation->save("Presentation_with_emf.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+[SvgImage::writeAsEmf](https://reference.aspose.com/slides/es/php-java/aspose.slides/svgimage/#writeAsEmf) no toma la propiedad del flujo de destino. Un [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) almacena todos los datos generados en memoria, por lo que no es necesario restablecer la posición antes de llamar a `toByteArray`. El array de bytes devuelto sigue siendo válido después de cerrar el flujo.
+
+La generación de EMF está disponible en los sistemas operativos soportados por la configuración seleccionada de Aspose.Slides para PHP a través de Java y JDK, pero el renderizado puede variar entre plataformas cuando las fuentes o dependencias gráficas no están disponibles. Instale las fuentes usadas por el contenido original o configure sustituciones adecuadas, siga los [requisitos de plataforma](/slides/es/php-java/system-requirements/) para Aspose.Slides para PHP a través de Java y valide el resultado en la aplicación que consumirá el EMF. Las aplicaciones en Linux y macOS a menudo tienen un soporte limitado o inconsistente para mostrar y editar metafiles de Windows.
+
+## **Renderizado de Emoji a Color**
+
+{{% alert title="Nota" color="info" %}}
+Para renderizar correctamente los emojis a color al convertir diapositivas de una presentación a imágenes, las fuentes emoji usadas en la presentación deben estar instaladas y disponibles en el sistema que realiza la conversión. Por ejemplo, si la presentación usa **Segoe UI Emoji** y esa fuente falta, los emojis pueden aparecer en monocromo en las imágenes resultantes.
+{{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**¿Aspose.Slides admite la renderización de diapositivas con animaciones?**
+**¿Aspose.Slides admite el renderizado de diapositivas con animaciones?**
 
-No, el método `getImage` guarda solo una imagen estática de la diapositiva, sin animaciones.
+No. El método [Slide::getImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/slide/#getImage) renderiza una imagen estática de la diapositiva y no exporta animaciones.
 
-**¿Se pueden exportar diapositivas ocultas como imágenes?**
+**¿Se pueden exportar como imágenes las diapositivas ocultas?**
 
-Sí, las diapositivas ocultas pueden procesarse igual que las normales. Sólo asegúrese de que estén incluidas en el bucle de procesamiento.
+Sí. Las diapositivas ocultas pueden renderizarse como diapositivas normales. Inclúyalas en el bucle de procesamiento, como se muestra en el ejemplo anterior.
 
-**¿Se pueden guardar imágenes con sombras y efectos?**
+**¿Se conservan las sombras y otros efectos en las imágenes de diapositivas?**
 
-Sí, Aspose.Slides admite la renderización de sombras, transparencias y otros efectos gráficos al guardar diapositivas como imágenes.
+Sí. Aspose.Slides renderiza sombras, transparencia y otros efectos gráficos compatibles en las imágenes de las diapositivas.

@@ -1,195 +1,305 @@
 ---
-title: C++でプレゼンテーションスライドを画像に変換
-linktitle: スライドを画像に
+title: C++ でプレゼンテーション スライドを画像に変換する
+linktitle: スライドから画像へ
 type: docs
 weight: 41
 url: /ja/cpp/convert-slide/
 keywords:
-- スライドを変換
-- スライドをエクスポート
-- スライドを画像に変換
+- スライド変換
+- スライドエクスポート
+- スライドから画像へ
 - スライドを画像として保存
-- スライドをPNGに変換
-- スライドをJPEGに変換
-- スライドをビットマップに変換
-- スライドをTIFFに変換
+- スライドから EMF へ
+- スライドから PNG へ
+- スライドから JPEG へ
+- スライドからビットマップへ
+- スライドから TIFF へ
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides を使用して、PPT、PPTX、ODP のスライドを C++ で画像に変換します — 高速で高品質なレンダリングと分かりやすいコード例を提供します。"
+description: "Aspose.Slides for C++ を使用して、PPT、PPTX、ODP プレゼンテーションのスライドを PNG、JPEG、GIF、TIFF、EMF などの画像形式に C++ で変換します。"
 ---
+## **はじめに**
 
-## **概要**
+Aspose.Slides for C++ は、PowerPoint および OpenDocument プレゼンテーションから個々のスライドを PNG、JPEG、GIF、TIFF などの画像形式でレンダリングできます。
 
-Aspose.Slides for C++ を使用すると、PowerPoint および OpenDocument のプレゼンテーションスライドを BMP、PNG、JPG（JPEG）、GIF などのさまざまな画像フォーマットに簡単に変換できます。
+スライドを画像に変換する手順は次のとおりです。
 
-スライドを画像に変換する手順は次のとおりです：
+1. プレゼンテーションを [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスで読み込みます。
+2. レンダリングするスライドを選択します。
+3. 必要に応じて、[RenderingOptions](https://reference.aspose.com/slides/ja/cpp/aspose.slides.export/renderingoptions/) または [TiffOptions](https://reference.aspose.com/slides/ja/cpp/aspose.slides.export/tiffoptions/) クラスでレンダリング設定を構成します。
+4. [ISlide::GetImage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/getimage/) メソッドを呼び出します。これは [IImage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iimage/) オブジェクトを返します。
+5. [IImage::Save](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iimage/save/) メソッドを呼び出し、[ImageFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imageformat/) の値で出力形式を指定します。
 
-1. 目的の変換設定を定義し、エクスポートするスライドを次のいずれかで選択します：
-    - [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) インターフェイス、または
-    - [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/) インターフェイス。
-2. [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) メソッドを呼び出してスライド画像を生成します。
+## **スライドを PNG 画像に変換する**
 
-[Bitmap](https://reference.aspose.com/slides/cpp/system.drawing/bitmap/) は、ピクセルデータで定義された画像を操作できるオブジェクトです。このクラスのインスタンスを使用して、画像を BMP、JPG、PNG などの幅広い形式で保存できます。
+最もシンプルな変換はデフォルトのレンダリング設定を使用します。生成された [IImage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iimage/) オブジェクトはメモリ内で処理したり、ファイルに保存したりできます。
 
-## **スライドをビットマップに変換し、PNG で画像を保存する**
+次の C++ サンプルは最初のスライドをレンダリングし、PNG 画像として保存します。
 
-スライドをビットマップオブジェクトに変換してそのままアプリケーションで使用できます。または、ビットマップに変換した後で JPEG や他の任意の形式で画像を保存できます。
-
-次の C++ コードは、プレゼンテーションの最初のスライドをビットマップオブジェクトに変換し、PNG 形式で保存する方法を示しています：
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// プレゼンテーション内の最初のスライドをビットマップに変換します。
-auto image = presentation->get_Slide(0)->GetImage();
-
-// 画像を PNG 形式で保存します。
+auto image = slide->GetImage();
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-
 ## **カスタムサイズでスライドを画像に変換する**
 
-特定のサイズの画像が必要な場合があります。[GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) のオーバーロードを使用すると、幅と高さを指定してスライドを画像に変換できます。
+正確なピクセル寸法でスライドをレンダリングするには、[Size](https://reference.aspose.com/slides/ja/cpp/system.drawing/size/) 値を受け取るオーバーロードの [ISlide::GetImage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/getimage/) を使用します。
 
-このサンプルコードはその手順を示しています：
-```cpp 
+次の例は 1820 × 1040 の JPEG 画像を作成します。
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// プレゼンテーション内の最初のスライドを、指定したサイズのビットマップに変換します。
-auto image = presentation->get_Slide(0)->GetImage(imageSize);
-
-// 画像を JPEG 形式で保存します。
+auto image = slide->GetImage(imageSize);
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-
 ## **ノートとコメントを含むスライドを画像に変換する**
 
-スライドにはノートやコメントが含まれていることがあります。
+デフォルトでは、スライド画像にノートやコメントは含まれません。[RenderingOptions::set_SlidesLayoutOptions](https://reference.aspose.com/slides/ja/cpp/aspose.slides.export/renderingoptions/set_slideslayoutoptions/) メソッドに [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ja/cpp/aspose.slides.export/notescommentslayoutingoptions/) オブジェクトを設定して、ノートとコメントの表示位置を制御します。
 
-Aspose.Slides は [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) と [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/) の 2 つのインターフェイスを提供し、スライドを画像にレンダリングする際の制御が可能です。両インターフェイスには `set_SlidesLayoutOptions` メソッドがあり、変換時にノートやコメントのレンダリングを設定できます。
+次の例は、スライド下に切り詰めたノートを、右側にコメントを配置します。
 
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) クラスを使用すると、生成される画像内でノートとコメントの位置を好きな場所に指定できます。
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
 
-次の C++ コードは、ノートとコメントを含むスライドを変換する方法を示しています：
-```cpp 
-float scaleX = 2;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
-// プレゼンテーションファイルを読み込む。
+auto layoutOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+layoutOptions->set_CommentsAreaWidth(500);
+layoutOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutOptions);
+
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // ノートの位置を設定する。
-notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // コメントの位置を設定する。
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // コメント領域の幅を設定する。
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // コメント領域の色を設定する。
-
-// レンダリングオプションを作成する。
-auto options = MakeObject<RenderingOptions>();
-options->set_SlidesLayoutOptions(notesCommentsOptions);
-
-// プレゼンテーションの最初のスライドを画像に変換する。
-auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-
-// 画像を GIF 形式で保存する。
+auto image = slide->GetImage(renderingOptions, scaleX, scaleY);
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-
-スライドから画像への変換プロセス全体で、[set_NotesPosition](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) メソッドは `BottomFull` を適用できません。ノートのテキストが大きすぎて、指定した画像サイズに収まらない場合があるためです。
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+スライドから画像への変換では、[NotesCommentsLayoutingOptions::set_NotesPosition](https://reference.aspose.com/slides/ja/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) メソッドを [BottomFull](https://reference.aspose.com/slides/ja/cpp/aspose.slides.export/notespositions/) に設定しないでください。ノートは固定画像サイズに収まらないほど長くなることがあります。代わりに [BottomTruncated](https://reference.aspose.com/slides/ja/cpp/aspose.slides.export/notespositions/) を使用してください。
+{{% /alert %}}
 
 ## **TIFF オプションを使用してスライドを画像に変換する**
 
-[ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) インターフェイスは、サイズ、解像度、カラーパレットなどのパラメータを指定できるため、生成される TIFF 画像をより細かく制御できます。
+[TiffOptions](https://reference.aspose.com/slides/ja/cpp/aspose.slides.export/tiffoptions/) クラスを使用すると、レンダリングされた TIFF 画像のサイズ、解像度、その他のプロパティを制御できます。
 
-次の C++ コードは、TIFF オプションを使用して 300 DPI の解像度で白黒画像（サイズ 2160 × 2800）を出力する変換プロセスを示しています：
-```cpp 
-// プレゼンテーションファイルを読み込む。
+次の例は、最初のスライドを 2160 × 2880、300 DPI の TIFF 画像としてレンダリングします。
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));
+tiffOptions->set_DpiX(300);
+tiffOptions->set_DpiY(300);
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-// プレゼンテーションから最初のスライドを取得。
 auto slide = presentation->get_Slide(0);
 
-// 出力TIFF画像の設定を構成する。
-auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // 画像サイズを設定する。
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // ピクセル形式（白黒）を設定する。
-tiffOptions->set_DpiX(300);                                         // 水平解像度を設定する。
-tiffOptions->set_DpiY(300);                                         // 垂直解像度を設定する。
-
-// 指定したオプションでスライドを画像に変換する。
 auto image = slide->GetImage(tiffOptions);
-
-// 画像をTIFF形式で保存する。
-image->Save(u"output.bmp", ImageFormat::Tiff);
+image->Save(u"output.tiff", ImageFormat::Tiff);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-
 ## **すべてのスライドを画像に変換する**
 
-Aspose.Slides を使用すると、プレゼンテーション内のすべてのスライドを画像に変換でき、プレゼンテーション全体を画像のシリーズに変換できます。
+スライドコレクションを反復処理して、プレゼンテーション全体を画像の連続に変換します。非表示スライドも、明示的に除外しない限り含まれます。
 
-次のサンプルコードは、C++ でプレゼンテーションのすべてのスライドを画像に変換する方法を示しています：
-```cpp 
-float scaleX = 2;
+次の例は、すべてのスライドを水平・垂直スケール係数 2 の JPEG 画像としてレンダリングします。
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// プレゼンテーションをスライドごとに画像にレンダリングします。
-for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
+int32_t slideCount = presentation->get_Slides()->get_Count();
+for (int32_t index = 0; index < slideCount; index++)
 {
-    // 非表示スライドを制御します（非表示スライドはレンダリングしません）。
-    if (presentation->get_Slide(i)->get_Hidden())
-    {
-        continue;
-    }
-
-    // スライドを画像に変換します。
-    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
-
-    // 画像を JPEG 形式で保存します。
-    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
-
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"Slide_{0}.jpg", index), ImageFormat::Jpeg);
     image->Dispose();
 }
 
 presentation->Dispose();
 ```
 
+## **拡張メタファイル出力を作成する**
+
+拡張メタファイル (EMF) は、Microsoft Office や Windows メタファイルをサポートする他の Windows アプリケーションとベクター グラフィックを交換する必要がある場合に便利です。ピクセルベースの画像とは異なり、EMF はベクター描画操作を保持でき、拡大縮小しても鋭さが失われません。ただし、EMF は主に Windows メタファイル対応アプリケーション向けの互換形式であり、汎用の交換フォーマットではありません。また、ビットマップ画像や一部のエフェクトなどの複雑なスライド コンテンツは、ベクターメタファイル内にラスタライズされた要素として格納されることがあります。
+
+### **スライドを EMF にエクスポートする**
+
+[ISlide::WriteAsEmf](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/writeasemf/) メソッドは、[ISlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/) を EMF 形式で対象ストリームに書き込みます。次の例はプレゼンテーションを読み込み、最初のスライドを EMF ファイルストリームに書き込む方法を示します。
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = File::Create(u"Slide_0.emf");
+slide->WriteAsEmf(emfStream);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+呼び出し側は [ISlide::WriteAsEmf](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/writeasemf/) に渡すストリームの所有権を持ち、ストリームを閉じるか破棄する必要があります。Aspose.Slides はストリームの現在位置から書き込み、ストリームは開いたままにします。
+
+### **SVG 画像を EMF に変換してプレゼンテーションに追加する**
+
+[ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/ja/cpp/aspose.slides/isvgimage/writeasemf/) を使用して SVG コンテンツを EMF に変換します。生成されたバイト列は [IImageCollection::AddImage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iimagecollection/addimage/) でプレゼンテーションに追加でき、[IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/addpictureframe/) でスライド上に配置できます。
+
+次の例は SVG マークアップから [SvgImage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/svgimage/) を作成し、メモリ内の EMF に変換し、最初のスライドにメタファイルを挿入してプレゼンテーションを保存します。
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String svgContent = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = MakeObject<MemoryStream>();
+svgImage->WriteAsEmf(emfStream);
+
+auto emfData = emfStream->ToArray();
+auto image = presentation->get_Images()->AddImage(emfData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, image);
+
+presentation->Save(u"Presentation_with_emf.pptx", SaveFormat::Pptx);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+[ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/ja/cpp/aspose.slides/isvgimage/writeasemf/) は宛先ストリームの所有権を取得しません。書き込み後、ストリーム位置は生成データの末尾にあります。例では [MemoryStream::ToArray](https://reference.aspose.com/slides/ja/cpp/system.io/memorystream/toarray/) を呼び出して現在位置に関係なく完全なバッファを取得し、そのバイト配列を [IImageCollection::AddImage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iimagecollection/addimage/) に渡しています。ストリームはコンシューマが読み取り終えるまで開いたままにし、その後閉じてください。
+
+EMF の生成は Aspose.Slides for C++ がサポートするオペレーティング システムで利用可能ですが、フォントやネイティブ グラフィック依存関係が利用できない場合、プラットフォーム間でレンダリングが異なることがあります。ソース コンテンツで使用されているフォントをインストールするか、適切な代替フォントを構成し、Aspose.Slides for C++ の [プラットフォーム要件](/slides/ja/cpp/system-requirements/) に従って、ターゲットの EMF 消費アプリケーションで結果を検証してください。Linux や macOS のアプリケーションは、Windows メタファイルの表示や編集に対してサポートが限定的または一貫性がないことがあります。
+
+## **カラ―絵文字のレンダリング**
+
+{{% alert title="Note" color="info" %}}
+プレゼンテーション スライドを画像に変換する際にカラー絵文字を正しくレンダリングするには、プレゼンテーションで使用されている絵文字フォントが変換を実行するシステムにインストールされている必要があります。たとえば、プレゼンテーションが **Segoe UI Emoji** を使用しているがフォントがない場合、出力画像では絵文字がモノクロで表示されることがあります。
+{{% /alert %}}
 
 ## **FAQ**
 
 **Aspose.Slides はアニメーション付きスライドのレンダリングをサポートしていますか？**
 
-いいえ、`GetImage` メソッドはスライドの静止画像のみを保存し、アニメーションは含まれません。
+いいえ。[ISlide::GetImage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/getimage/) メソッドはスライドの静止画像をレンダリングし、アニメーションはエクスポートされません。
 
 **非表示スライドを画像としてエクスポートできますか？**
 
-はい、非表示スライドも通常のスライドと同様に処理できます。処理ループに含めることを忘れないでください。
+はい。非表示スライドは通常のスライドと同様にレンダリングできます。上記のサンプルのように処理ループに含めてください。
 
-**画像を影やエフェクト付きで保存できますか？**
+**スライド画像に影やその他のエフェクトは保持されますか？**
 
-はい、Aspose.Slides はスライドを画像として保存する際に、影、透明度、その他のグラフィックエフェクトのレンダリングをサポートしています。
+はい。Aspose.Slides はスライド画像に影、透明度、その他サポートされているグラフィック効果をレンダリングします。

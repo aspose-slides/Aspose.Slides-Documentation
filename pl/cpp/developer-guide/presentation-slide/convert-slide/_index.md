@@ -1,6 +1,6 @@
 ---
-title: Konwertowanie slajdów prezentacji na obrazy w C++
-linktitle: Slajd do obrazu
+title: Konwersja slajdów prezentacji na obrazy w C++
+linktitle: Slajd na obraz
 type: docs
 weight: 41
 url: /pl/cpp/convert-slide/
@@ -9,6 +9,7 @@ keywords:
 - eksport slajdu
 - slajd na obraz
 - zapisz slajd jako obraz
+- slajd do EMF
 - slajd do PNG
 - slajd do JPEG
 - slajd do bitmapy
@@ -18,175 +19,284 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Konwertuj slajdy z formatów PPT, PPTX i ODP na obrazy w C++ przy użyciu Aspose.Slides — szybkie, wysokiej jakości renderowanie z przejrzystymi przykładami kodu."
+description: "Konwertuj slajdy z prezentacji PPT, PPTX i ODP na PNG, JPEG, GIF, TIFF, EMF i inne formaty obrazów w C++ z użyciem Aspose.Slides for C++."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides dla C++ umożliwia łatwe konwertowanie slajdów prezentacji PowerPoint i OpenDocument na różne formaty obrazu, w tym BMP, PNG, JPG (JPEG), GIF i inne.
+Aspose.Slides for C++ może renderować poszczególne slajdy z prezentacji PowerPoint i OpenDocument jako PNG, JPEG, GIF, TIFF i inne formaty obrazów.
 
 Aby przekonwertować slajd na obraz, wykonaj następujące kroki:
 
-1. Zdefiniuj żądane ustawienia konwersji i wybierz slajdy, które chcesz wyeksportować, używając:
-    - The [ITiffOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/itiffoptions/) interface, or
-    - The [IRenderingOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/irenderingoptions/) interface.
-2. Wygeneruj obraz slajdu, wywołując metodę [GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/getimage/).
+1. Załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
+2. Wybierz slajd, który chcesz wyrenderować.
+3. Jeśli to konieczne, skonfiguruj renderowanie przy użyciu klasy [RenderingOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/renderingoptions/) lub [TiffOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/tiffoptions/).
+4. Wywołaj metodę [ISlide::GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/getimage/). Zwraca ona obiekt [IImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimage/).
+5. Wywołaj metodę [IImage::Save](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimage/save/) i określ format wyjściowy przy pomocy wartości [ImageFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imageformat/).
 
-Obiekt [Bitmap](https://reference.aspose.com/slides/pl/cpp/system.drawing/bitmap/) pozwala pracować z obrazami zdefiniowanymi danymi pikseli. Możesz użyć instancji tej klasy do zapisywania obrazów w szerokim zakresie formatów (BMP, JPG, PNG itp.).
+## **Konwersja slajdu do obrazu PNG**
 
-## **Konwertuj slajdy na bitmapy i zapisz obrazy w formacie PNG**
+Najprostsza konwersja używa domyślnych ustawień renderowania. Otrzymany obiekt [IImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimage/) może być przetwarzany w pamięci lub zapisany do pliku.
 
-Możesz przekonwertować slajd na obiekt bitmapy i używać go bezpośrednio w aplikacji. Alternatywnie możesz przekonwertować slajd na bitmapę, a następnie zapisać obraz w formacie JPEG lub innym wybranym formacie.
+Poniższy przykład w C++ renderuje pierwszy slajd i zapisuje go jako obraz PNG:
 
-Poniższy kod C++ pokazuje, jak przekonwertować pierwszy slajd prezentacji na obiekt bitmapy, a następnie zapisać obraz w formacie PNG:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
 
-```cpp 
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Convert the first slide in the presentation to a bitmap.
-auto image = presentation->get_Slide(0)->GetImage();
-
-// Save the image in the PNG format.
+auto image = slide->GetImage();
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Konwertuj slajdy na obrazy o niestandardowych rozmiarach**
+## **Konwersja slajdów do obrazów o niestandardowych rozmiarach**
 
-Możesz potrzebować obrazu o określonym rozmiarze. Korzystając z przeciążenia metody [GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/getimage/), możesz przekonwertować slajd na obraz o konkretnych wymiarach (szerokość i wysokość). 
+Użyj przeciążenia [ISlide::GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/getimage/), które akceptuje wartość [Size](https://reference.aspose.com/slides/pl/cpp/system.drawing/size/), aby renderować slajd o dokładnych wymiarach w pikselach.
 
-Poniższy przykładowy kod pokazuje, jak to zrobić:
+Poniższy przykład tworzy obraz JPEG o wymiarach 1820 × 1040:
 
-```cpp 
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Przekształć pierwszy slajd w prezentacji na bitmapę o określonym rozmiarze.
-auto image = presentation->get_Slide(0)->GetImage(imageSize);
-
-// Zapisz obraz w formacie JPEG.
+auto image = slide->GetImage(imageSize);
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Konwertuj slajdy z notatkami i komentarzami na obrazy**
+## **Konwersja slajdów z notatkami i komentarzami do obrazów**
 
-Niektóre slajdy mogą zawierać notatki i komentarze.
+Domyślnie obrazy slajdów nie zawierają notatek ani komentarzy. Przypisz obiekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/notescommentslayoutingoptions/) do metody [RenderingOptions::set_SlidesLayoutOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/renderingoptions/set_slideslayoutoptions/), aby kontrolować, gdzie pojawiają się notatki i komentarze.
 
-Aspose.Slides udostępnia dwa interfejsy—[ITiffOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/itiffoptions/) i [IRenderingOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/irenderingoptions/)—pozwalające kontrolować renderowanie slajdów prezentacji na obrazy. Oba interfejsy zawierają metodę `set_SlidesLayoutOptions`, która umożliwia konfigurowanie renderowania notatek i komentarzy na slajdzie podczas konwersji na obraz.
+Poniższy przykład umieszcza obcięte notatki pod slajdem oraz komentarze po jego prawej stronie:
 
-Korzystając z klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/notescommentslayoutingoptions/), możesz określić preferowaną pozycję notatek i komentarzy w wygenerowanym obrazie.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
 
-Poniższy kod C++ pokazuje, jak przekonwertować slajd z notatkami i komentarzami:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-```cpp 
-float scaleX = 2;
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
-// Załaduj plik prezentacji.
+auto layoutOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+layoutOptions->set_CommentsAreaWidth(500);
+layoutOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutOptions);
+
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Ustaw pozycję notatek.
-notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Ustaw pozycję komentarzy.
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // Ustaw szerokość obszaru komentarzy.
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Ustaw kolor obszaru komentarzy.
-
-// Utwórz opcje renderowania.
-auto options = MakeObject<RenderingOptions>();
-options->set_SlidesLayoutOptions(notesCommentsOptions);
-
-// Przekształć pierwszy slajd prezentacji na obraz.
-auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-
-// Zapisz obraz w formacie GIF.
+auto image = slide->GetImage(renderingOptions, scaleX, scaleY);
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert title="Uwaga" color="warning" %}} 
-W każdym procesie konwersji slajdu na obraz metoda [set_NotesPosition](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) nie może zastosować `BottomFull` (określającego pozycję notatek), ponieważ tekst notatki może być zbyt obszerny, co uniemożliwia zmieszczenie go w określonym rozmiarze obrazu.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Podczas konwersji slajdu na obraz nie ustawiaj metody [NotesCommentsLayoutingOptions::set_NotesPosition](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) na wartość [BottomFull](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/notespositions/). Notatki mogą zawierać więcej tekstu niż stały rozmiar obrazu może pomieścić. Użyj zamiast tego [BottomTruncated](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/notespositions/).
+{{% /alert %}}
 
-## **Konwertuj slajdy na obrazy przy użyciu opcji TIFF**
+## **Konwersja slajdów do obrazów przy użyciu opcji TIFF**
 
-Interfejs [ITiffOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/itiffoptions/) zapewnia większą kontrolę nad wynikowym obrazem TIFF, umożliwiając określenie parametrów takich jak rozmiar, rozdzielczość, paleta kolorów i inne.
+Klasa [TiffOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/tiffoptions/) umożliwia kontrolowanie rozmiaru, rozdzielczości i innych właściwości renderowanego obrazu TIFF.
 
-Poniższy kod C++ demonstruje proces konwersji, w którym opcje TIFF są używane do wygenerowania czarno-białego obrazu o rozdzielczości 300 DPI i rozmiarze 2160 × 2800:
+Poniższy przykład renderuje pierwszy slajd jako obraz TIFF 2160 × 2880 przy 300 DPI:
 
-```cpp 
-// Załaduj plik prezentacji.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));
+tiffOptions->set_DpiX(300);
+tiffOptions->set_DpiY(300);
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-// Pobierz pierwszy slajd z prezentacji.
 auto slide = presentation->get_Slide(0);
 
-// Skonfiguruj ustawienia wyjściowego obrazu TIFF.
-auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // Ustaw rozmiar obrazu.
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Ustaw format pikseli (czarno-biały).
-tiffOptions->set_DpiX(300);                                         // Ustaw rozdzielczość poziomą.
-tiffOptions->set_DpiY(300);                                         // Ustaw rozdzielczość pionową.
-
-// Przekształć slajd na obraz przy użyciu określonych opcji.
 auto image = slide->GetImage(tiffOptions);
-
-// Zapisz obraz w formacie TIFF.
-image->Save(u"output.bmp", ImageFormat::Tiff);
+image->Save(u"output.tiff", ImageFormat::Tiff);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Konwertuj wszystkie slajdy na obrazy**
+## **Konwersja wszystkich slajdów do obrazów**
 
-Aspose.Slides umożliwia konwersję wszystkich slajdów w prezentacji na obrazy, efektywnie przekształcając całą prezentację w serię obrazów.
+Iteruj po kolekcji slajdów, aby przekonwertować całą prezentację na serię obrazów. Ukryte slajdy są uwzględniane, chyba że jawnie je pomijasz.
 
-Poniższy przykładowy kod pokazuje, jak przekonwertować wszystkie slajdy w prezentacji na obrazy w C++:
+Poniższy przykład renderuje każdy slajd jako obraz JPEG ze współczynnikami skalowania poziomego i pionowego równymi 2:
 
-```cpp 
-float scaleX = 2;
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Renderuj prezentację na obrazy slajd po slajdzie.
-for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
+int32_t slideCount = presentation->get_Slides()->get_Count();
+for (int32_t index = 0; index < slideCount; index++)
 {
-    // Kontroluj ukryte slajdy (nie renderuj ukrytych slajdów).
-    if (presentation->get_Slide(i)->get_Hidden())
-    {
-        continue;
-    }
-
-    // Przekształć slajd na obraz.
-    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
-
-    // Zapisz obraz w formacie JPEG.
-    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
-
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"Slide_{0}.jpg", index), ImageFormat::Jpeg);
     image->Dispose();
 }
 
 presentation->Dispose();
 ```
 
+## **Tworzenie wyjścia w formacie Enhanced Metafile**
+
+Enhanced Metafile (EMF) jest przydatny, gdy grafika wektorowa musi być wymieniana z Microsoft Office lub innymi aplikacjami Windows obsługującymi metafile Windows. W odróżnieniu od obrazu rastrowego, EMF może zachować operacje rysowania wektorowego, które skaluje się bez utraty ostrości. Jednak EMF jest przede wszystkim formatem kompatybilności dla aplikacji obsługujących metafile Windows, a nie uniwersalnym formatem wymiany. Ponadto złożona zawartość slajdu, taka jak obrazy bitmapowe i niektóre efekty, może być przechowywana jako elementy rastrowe wewnątrz wektorowego kontenera metafile.
+
+### **Eksport slajdu do EMF**
+
+Metoda [ISlide::WriteAsEmf](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/writeasemf/) zapisuje [ISlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/) do docelowego strumienia w formacie EMF. Poniższy przykład ładuje prezentację, wybiera pierwszy slajd i zapisuje go do strumienia pliku EMF:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = File::Create(u"Slide_0.emf");
+slide->WriteAsEmf(emfStream);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+Wywołujący jest właścicielem strumienia przekazanego do [ISlide::WriteAsEmf](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/writeasemf/) i musi go zamknąć lub zwolnić. Aspose.Slides zapisuje w bieżącej pozycji strumienia i pozostawia go otwartym.
+
+### **Konwersja obrazu SVG do EMF i dodanie go do prezentacji**
+
+Użyj [ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/pl/cpp/aspose.slides/isvgimage/writeasemf/) aby przekonwertować zawartość SVG na EMF. Uzyskane bajty można dodać do prezentacji za pomocą [IImageCollection::AddImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimagecollection/addimage/) i umieścić na slajdzie przy pomocy [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addpictureframe/).
+
+Poniższy przykład tworzy [SvgImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/svgimage/) z kodu SVG, konwertuje go do EMF w pamięci, wstawia metafile na pierwszym slajdzie i zapisuje prezentację:
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String svgContent = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = MakeObject<MemoryStream>();
+svgImage->WriteAsEmf(emfStream);
+
+auto emfData = emfStream->ToArray();
+auto image = presentation->get_Images()->AddImage(emfData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, image);
+
+presentation->Save(u"Presentation_with_emf.pptx", SaveFormat::Pptx);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+[ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/pl/cpp/aspose.slides/isvgimage/writeasemf/) nie przejmuje własności strumienia docelowego. Po zapisie pozycja strumienia znajduje się na końcu wygenerowanych danych. Przykład wywołuje [MemoryStream::ToArray](https://reference.aspose.com/slides/pl/cpp/system.io/memorystream/toarray/) aby uzyskać pełny bufor niezależnie od bieżącej pozycji strumienia, a następnie przekazuje tę tablicę bajtów do [IImageCollection::AddImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iimagecollection/addimage/). Trzymaj strumień otwarty, dopóki konsument nie skończy go czytać, a następnie zamknij go.
+
+Generowanie EMF jest dostępne na systemach operacyjnych obsługiwanych przez Aspose.Slides for C++, ale renderowanie może różnić się między platformami, gdy czcionki lub natywne zależności graficzne są niedostępne. Zainstaluj czcionki użyte w źródłowej zawartości lub skonfiguruj odpowiednie zamienniki, postępuj zgodnie z [platform requirements](/slides/pl/cpp/system-requirements/) dla Aspose.Slides for C++ i zweryfikuj wynik w docelowej aplikacji obsługującej EMF. Aplikacje na Linuxie i macOS często mają ograniczoną lub niejednolito obsługę wyświetlania i edycji metafile Windows.
+
+## **Renderowanie kolorowych emoji**
+
+{{% alert title="Note" color="info" %}}
+Aby poprawnie renderować kolorowe emoji podczas konwersji slajdów prezentacji na obrazy, czcionki emoji użyte w prezentacji muszą być zainstalowane i dostępne w systemie wykonującym konwersję. Na przykład, jeśli prezentacja używa **Segoe UI Emoji** i ta czcionka jest nieobecna, emoji mogą być wyświetlane w odcieniach szarości w obrazach wyjściowych.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Czy Aspose.Slides obsługuje renderowanie slajdów z animacjami?**
+**Czy Aspose.Slides obsługuje renderowanie slajdów z animacjami?**  
+Nie. Metoda [ISlide::GetImage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/getimage/) renderuje statyczny obraz slajdu i nie eksportuje animacji.
 
-Nie, metoda `GetImage` zapisuje tylko statyczny obraz slajdu, bez animacji.
+**Czy ukryte slajdy mogą być eksportowane jako obrazy?**  
+Tak. Ukryte slajdy mogą być renderowane tak jak zwykłe slajdy. Uwzględnij je w pętli przetwarzania, jak pokazano w powyższym przykładzie.
 
-**Czy ukryte slajdy mogą być eksportowane jako obrazy?**
-
-Tak, ukryte slajdy mogą być przetwarzane tak samo jak zwykłe. Należy tylko upewnić się, że są uwzględnione w pętli przetwarzania.
-
-**Czy obrazy mogą być zapisywane z cieniami i efektami?**
-
-Tak, Aspose.Slides obsługuje renderowanie cieni, przezroczystości i innych efektów graficznych przy zapisywaniu slajdów jako obrazy.
+**Czy cienie i inne efekty są zachowywane w obrazach slajdów?**  
+Tak. Aspose.Slides renderuje cienie, przezroczystość i inne obsługiwane efekty graficzne w obrazach slajdów.

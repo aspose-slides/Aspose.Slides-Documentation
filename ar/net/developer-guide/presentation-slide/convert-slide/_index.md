@@ -1,17 +1,18 @@
 ---
-title: تحويل شرائح العرض التقديمي إلى صور في .NET
-linktitle: الشرائح إلى صورة
+title: تحويل شرائح العروض التقديمية إلى صور في .NET
+linktitle: شريحة إلى صورة
 type: docs
 weight: 41
 url: /ar/net/convert-slide/
 keywords:
-- تحويل الشريحة
-- تصدير الشريحة
+- تحويل شريحة
+- تصدير شريحة
 - شريحة إلى صورة
 - حفظ الشريحة كصورة
+- شريحة إلى EMF
 - شريحة إلى PNG
 - شريحة إلى JPEG
-- شريحة إلى bitmap
+- شريحة إلى صورة نقطية
 - شريحة إلى TIFF
 - PowerPoint
 - OpenDocument
@@ -19,174 +20,206 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تحويل الشرائح من PPT و PPTX و ODP إلى صور باستخدام C# و Aspose.Slides للـ .NET—أداء سريع وجودة عالية مع أمثلة شفرة واضحة."
+description: "تحويل الشرائح من عروض PPT و PPTX و ODP إلى PNG و JPEG و GIF و TIFF و EMF وغيرها من صيغ الصور في C# باستخدام Aspose.Slides for .NET."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
-
-يتيح لك Aspose.Slides for .NET تحويل شرائح عروض PowerPoint و OpenDocument بسهولة إلى صيغ صور مختلفة، بما في ذلك BMP و PNG و JPG (JPEG) و GIF وغيرها.
+Aspose.Slides for .NET يمكنه تصيير شرائح فردية من عروض PowerPoint و OpenDocument كصور PNG أو JPEG أو GIF أو TIFF وغيرها من صيغ الصور.
 
 لتحويل شريحة إلى صورة، اتبع الخطوات التالية:
 
-1. حدد إعدادات التحويل المطلوبة واختر الشرائح التي تريد تصديرها باستخدام:
-    - واجهة [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/)، أو
-    - واجهة [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/) .
-2. أنشئ صورة الشريحة عن طريق استدعاء الطريقة [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) .
+1. حمّل العرض باستخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/).
+2. اختر الشريحة التي تريد تصييرها.
+3. إذا لزم الأمر، اضبط إعدادات التصيير باستخدام الفئة [RenderingOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/renderingoptions/) أو [TiffOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/tiffoptions/).
+4. استدعِ الطريقة [GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/getimage/). ستُعيد كائنًا من النوع [IImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/).
+5. استدعِ الطريقة [IImage.Save](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/save/) وحدد صيغة الإخراج باستخدام قيمة من النوع [ImageFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/imageformat/).
 
-في .NET، تُعد فئة [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) كائنًا يتيح لك التعامل مع الصور المعتمدة على بيانات البكسل. يمكنك استخدام مثيل من هذه الفئة لحفظ الصور في مجموعة واسعة من الصيغ (BMP، JPG، PNG، إلخ).
+## **تحويل شريحة إلى صورة PNG**
 
-## **تحويل الشرائح إلى صور Bitmap وحفظ الصور بصيغة PNG**
+أبسط طريقة للتحويل هي استخدام إعدادات التصيير الافتراضية. يمكن معالجة كائن [IImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimage/) الناتج في الذاكرة أو حفظه إلى ملف.
 
-يمكنك تحويل شريحة إلى كائن bitmap واستخدامه مباشرة في تطبيقك. بدلاً من ذلك، يمكنك تحويل شريحة إلى bitmap ثم حفظ الصورة بصيغة JPEG أو أي صيغة مفضلة أخرى.
+مثال C# التالي يصيّر الشريحة الأولى ويحفظها كصورة PNG:
 
-هذا الكود C# يُظهر كيفية تحويل الشريحة الأولى في عرض تقديمي إلى كائن bitmap ثم حفظ الصورة بصيغة PNG:
 ```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // تحويل الشريحة الأولى في العرض التقديمي إلى bitmap.
-    using (IImage image = presentation.Slides[0].GetImage())
-    {
-        // حفظ الصورة بصيغة PNG.
-        image.Save("Slide_0.png", ImageFormat.Png);
-    }
-}
-```
+using Aspose.Slides;
 
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage();
+image.Save("Slide_0.png", ImageFormat.Png);
+```
 
 ## **تحويل الشرائح إلى صور بأحجام مخصصة**
 
-قد تحتاج إلى الحصول على صورة ذات حجم معين. باستخدام أحد التحميلات المزدوجة للطريقة [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/)، يمكنك تحويل شريحة إلى صورة بأبعاد محددة (العرض والارتفاع).
+استخدم التحميل الزائد للطريقة [GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/getimage/) الذي يقبل قيمة من النوع [Size](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.size) لتصِيير الشريحة بأبعاد بكسلية محدَّدة.
 
-هذا مثال الكود يوضح كيفية القيام بذلك:
+المثال التالي ينشئ صورة JPEG بحجم 1820 × 1040 بكسل:
+
 ```cs
-Size imageSize = new Size(1820, 1040);
+using System.Drawing;
+using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // تحويل الشريحة الأولى في العرض التقديمي إلى bitmap بالحجم المحدد.
-    using (IImage image = presentation.Slides[0].GetImage(imageSize))
-    {
-        // حفظ الصورة بصيغة JPEG.
-        image.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
+var imageSize = new Size(1820, 1040);
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(imageSize);
+image.Save("Slide_0.jpg", ImageFormat.Jpeg);
 ```
-
 
 ## **تحويل الشرائح مع الملاحظات والتعليقات إلى صور**
 
-قد تحتوي بعض الشرائح على ملاحظات وتعليقات.
+بشكل افتراضي، لا تتضمن صور الشرائح الملاحظات أو التعليقات. قم بتعيين كائن من النوع [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/notescommentslayoutingoptions/) إلى الخاصية [RenderingOptions.SlidesLayoutOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/renderingoptions/slideslayoutoptions/) للتحكم في موضع ظهور الملاحظات والتعليقات.
 
-توفر Aspose.Slides واجهتين—[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) و[IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/)—تتيحان لك التحكم في عملية تصيير شرائح العروض التقديمية إلى صور. تضم كلتا الواجهتين الخاصية `SlidesLayoutOptions`، التي تمكنك من تكوين تصيير الملاحظات والتعليقات على الشريحة عند تحويلها إلى صورة.
+المثال التالي يضع الملاحظات المختصرة أسفل الشريحة والتعليقات إلى يمينها:
 
-باستخدام فئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/)، يمكنك تحديد الموقع المفضل للملاحظات والتعليقات في الصورة الناتجة.
-
-هذا الكود C# يُظهر كيفية تحويل شريحة تحتوي على ملاحظات وتعليقات:
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// تحميل ملف عرض تقديمي.
-using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // إنشاء خيارات التصيير.
-    RenderingOptions options = new RenderingOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomTruncated,  // تحديد موضع الملاحظات.
-            CommentsPosition = CommentsPositions.Right,      // تحديد موضع التعليقات.
-            CommentsAreaWidth = 500,                         // تحديد عرض منطقة التعليقات.
-            CommentsAreaColor = Color.AntiqueWhite           // تحديد لون منطقة التعليقات.
-        }
-    };
+    NotesPosition = NotesPositions.BottomTruncated,
+    CommentsPosition = CommentsPositions.Right,
+    CommentsAreaWidth = 500,
+    CommentsAreaColor = Color.AntiqueWhite
+};
 
-    // تحويل الشريحة الأولى من العرض التقديمي إلى صورة.
-    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
-    {
-        // حفظ الصورة بصيغة GIF.
-        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
-    }
-}
+var renderingOptions = new RenderingOptions { SlidesLayoutOptions = layoutOptions };
+
+using var presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(renderingOptions, scaleX, scaleY);
+image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
 ```
 
-
-{{% alert title="ملاحظة" color="warning" %}} 
-
-في أي عملية تحويل من شريحة إلى صورة، لا يمكن تعيين الخاصية [NotesPosition](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) إلى `BottomFull` (لتحديد موقع الملاحظات) لأن نص الملاحظة قد يكون كبيرًا جدًا، مما يجعله غير قادر على التناسب مع حجم الصورة المحدد.
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+في عملية تحويل الشريحة إلى صورة، لا تقم بتعيين الخاصية [NotesPosition](https://reference.aspose.com/slides/ar/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) إلى [BottomFull](https://reference.aspose.com/slides/ar/net/aspose.slides.export/notespositions/). قد تحتوي الملاحظات على نص أكثر مما يمكن لصورة ثابتة أن تستوعبه. استخدم [BottomTruncated](https://reference.aspose.com/slides/ar/net/aspose.slides.export/notespositions/) بدلاً من ذلك.
+{{% /alert %}}
 
 ## **تحويل الشرائح إلى صور باستخدام خيارات TIFF**
 
-توفر واجهة [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) تحكمًا أكبر في صورة TIFF الناتجة من خلال السماح لك بتحديد معلمات مثل الحجم، والدقة، ولوحة الألوان، وأكثر.
+الفئة [TiffOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/tiffoptions/) تتيح لك التحكم في الحجم والدقة والخصائص الأخرى لصورة TIFF المصيّرة.
 
-هذا الكود C# يوضح عملية تحويل تستخدم خيارات TIFF لإنتاج صورة بالأبيض والأسود بدقة 300 DPI وحجم 2160 × 2800:
+المثال التالي يصيّر الشريحة الأولى كصورة TIFF بحجم 2160 × 2880 بكسل بدقة 300 DPI:
+
 ```cs
-// تحميل ملف عرض تقديمي.
-using (Presentation presentation = new Presentation("sample.pptx"))
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var tiffOptions = new TiffOptions
 {
-    // احصل على الشريحة الأولى من العرض التقديمي.
-    ISlide slide = presentation.Slides[0];
+    ImageSize = new Size(2160, 2880),
+    DpiX = 300,
+    DpiY = 300
+};
 
-    // إعداد إعدادات صورة TIFF الناتجة.
-    TiffOptions tiffOptions = new TiffOptions
-    {
-        ImageSize = new Size(2160, 2880),                  // تحديد حجم الصورة.
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // تحديد تنسيق البكسل (أسود وأبيض).
-        DpiX = 300,                                        // تحديد الدقة الأفقية.
-        DpiY = 300                                         // تحديد الدقة العمودية.
-    };
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // تحويل الشريحة إلى صورة باستخدام الخيارات المحددة.
-    using (IImage image = slide.GetImage(tiffOptions))
-    {
-        // حفظ الصورة بصيغة TIFF.
-        image.Save("output.tiff", ImageFormat.Tiff);
-    }
-}
+using var image = slide.GetImage(tiffOptions);
+image.Save("output.tiff", ImageFormat.Tiff);
 ```
-
 
 ## **تحويل جميع الشرائح إلى صور**
 
-يتيح لك Aspose.Slides تحويل جميع الشرائح في عرض تقديمي إلى صور، مما يؤدي إلى تحويل العرض بأكمله إلى سلسلة من الصور.
+قم بالتكرار عبر مجموعة الشرائح لتحويل العرض بالكامل إلى سلسلة من الصور. تُضمّن الشرائح المخفية ما لم تقم بتخطيها صراحةً.
 
-هذا مثال الكود يوضح كيفية تحويل جميع الشرائح في عرض تقديمي إلى صور باستخدام C#:
+المثال التالي يصيّر كل شريحة كصورة JPEG مع عوامل مقياس أفقية وعمودية بقيمة 2:
+
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
+var scaleX = 2f;
+var scaleY = scaleX;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    // تحويل العرض التقديمي إلى صور شريحة بشريحة.
-    for (int i = 0; i < presentation.Slides.Count; i++)
-    {
-        // التحكم في الشرائح المخفية (عدم تصيير الشرائح المخفية).
-        if (presentation.Slides[i].Hidden)
-            continue;
-
-        // تحويل الشريحة إلى صورة.
-        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
-        {
-            // حفظ الصورة بصيغة JPEG.
-            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"Slide_{index}.jpg", ImageFormat.Jpeg);
 }
 ```
 
+## **إنشاء مخرجات Enhanced Metafile**
 
-## **FAQ**
+Enhanced Metafile (EMF) مفيدة عندما يجب تبادل رسومات تعتمد على المتجهات مع Microsoft Office أو تطبيقات Windows الأخرى التي تدعم ملفات Windows metafile. على عكس الصورة القائمة على البكسل، يمكن لـ EMF الاحتفاظ بعمليات الرسم المتجهية التي تتوسع دون فقدان الحدة. ومع ذلك، تُعد EMF في الأساس صيغة توافق لتطبيقات تدعم ملفات Windows metafile، وليست صيغة تبادل شاملة. بالإضافة إلى ذلك، قد يتم تخزين محتوى شريحة معقد، مثل الصور النقطية وبعض التأثيرات، كعناصر مُرصّصة داخل حاوية ملف المتجه.
 
-**1. هل يدعم Aspose.Slides تصيير الشرائح مع الحركات؟**
+### **تصدير شريحة إلى EMF**
 
-لا، طريقة `GetImage` تحفظ صورة ثابتة فقط للشريحة، دون الحركات.
+الطريقة [ISlide.WriteAsEmf](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/writeasemf/) تكتب كائن [ISlide](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/) إلى تدفق الهدف بصيغة EMF. المثال التالي يحمل عرضًا، يختار الشريحة الأولى، ويكتبها إلى تدفق ملف EMF:
 
-**2. هل يمكن تصدير الشرائح المخفية كصور؟**
+```cs
+using System.IO;
+using Aspose.Slides;
 
-نعم، يمكن معالجة الشرائح المخفية كأي شرائح أخرى. فقط تأكد من تضمينها في حلقة المعالجة.
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
 
-**3. هل يمكن حفظ الصور بظل وتأثيرات؟**
+using var emfStream = File.Create("Slide_0.emf");
+slide.WriteAsEmf(emfStream);
+```
 
-نعم، يدعم Aspose.Slides تصيير الظلال والشفافية وغيرها من المؤثرات الرسومية عند حفظ الشرائح كصور.
+المستدعي هو المسؤول عن تدفق البيانات الممرّر إلى [ISlide.WriteAsEmf](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/writeasemf/) ويجب إغلاقه أو التخلص منه. يقوم Aspose.Slides بالكتابة في الموضع الحالي للتدفق ويترك التدفق مفتوحًا.
+
+### **تحويل صورة SVG إلى EMF وإضافتها إلى عرض**
+
+استخدم [ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/ar/net/aspose.slides/isvgimage/writeasemf/) لتحويل محتوى SVG إلى EMF. يمكن إضافة البايتات الناتجة إلى العرض عبر [IImageCollection.AddImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimagecollection/addimage/) ووضعها على شريحة باستخدام [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addpictureframe/).
+
+المثال التالي ينشئ كائن [SvgImage](https://reference.aspose.com/slides/ar/net/aspose.slides/svgimage/) من تعليمات SVG، يحوله إلى EMF في الذاكرة، يدرج الملف المتجه على الشريحة الأولى، ويحفظ العرض:
+
+```cs
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var emfStream = new MemoryStream();
+svgImage.WriteAsEmf(emfStream);
+
+emfStream.Position = 0;
+var image = presentation.Images.AddImage(emfStream);
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+
+presentation.Save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+```
+
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/ar/net/aspose.slides/isvgimage/writeasemf/) لا يتولى ملكية تدفق الوجهة. بعد الكتابة، يكون موضع التدفق في نهاية البيانات المُولدة. أعد تعيين `Position` إلى البداية قبل تمرير نفس التدفق القابل للبحث إلى القارئ، كما هو موضح أعلاه. حافظ على التدفق مفتوحًا حتى ينتهي المستهلك من قراءته، ثم حرره. بدلاً من ذلك، استدعِ `ToArray` ومرّر المصفوفة البايتية الناتجة إلى [IImageCollection.AddImage](https://reference.aspose.com/slides/ar/net/aspose.slides/iimagecollection/addimage/)؛ `ToArray` تُعيد كامل المخزن بغض النظر عن موضع التدفق الحالي.
+
+تتوفر عملية توليد EMF على أنظمة التشغيل المدعومة من بنية Aspose.Slides for .NET المختارة، لكن عملية التصيير قد تختلف بين الأنظمة عندما تكون الخطوط أو تبعيات الرسوميات الأصلية غير متوفرة. ثبّت الخطوط المستخدمة في المحتوى الأصلي أو اضبط استبدالات ملائمة، وتبع [متطلبات المنصة](/slides/ar/net/system-requirements/) لحزمة Aspose.Slides الخاصة بك، وتحقق من النتيجة في التطبيق المستهلك لـ EMF المستهدف. غالبًا ما تكون تطبيقات Linux و macOS ذات دعم محدود أو غير متسق لعرض وتحرير ملفات Windows metafile.
+
+## **تصيير الإيموجي الملونة**
+
+{{% alert title="Note" color="info" %}}
+لتحقيق تصيير صحيح للإيموجي الملونة عند تحويل شرائح العرض إلى صور، يجب تثبيت خطوط الإيموجي المستخدمة في العرض وتوافرها على النظام الذي يجري التحويل. على سبيل المثال، إذا كان العرض يستخدم **Segoe UI Emoji** وكانت هذه الخط غير موجودة، قد تظهر الإيموجي بأبيض وأسود في الصور الناتجة.
+{{% /alert %}}
+
+## **الأسئلة المتكررة**
+
+**هل تدعم Aspose.Slides تصيير الشرائح مع الحركات؟**
+
+لا. الطريقة [GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/getimage/) تصيّر صورة ثابتة للشريحة ولا تُصدّر الحركات.
+
+**هل يمكن تصدير الشرائح المخفية كصور؟**
+
+نعم. يمكن تصيير الشرائح المخفية مثل الشرائح العادية. أدرجها في حلقة المعالجة كما هو موضح في المثال أعلاه.
+
+**هل يتم الحفاظ على الظلال والتأثيرات الأخرى في صور الشرائح؟**
+
+نعم. تقوم Aspose.Slides بتصيير الظلال والشفافية وغيرها من التأثيرات الرسومية المدعومة في صور الشرائح.

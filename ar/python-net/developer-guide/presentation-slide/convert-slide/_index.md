@@ -1,57 +1,60 @@
 ---
-title: تحويل شرائح PowerPoint إلى صور في Python
-linktitle: الشريحة إلى صورة
+title: تحويل شرائح العرض إلى صور في بايثون
+linktitle: شريحة إلى صورة
 type: docs
 weight: 41
 url: /ar/python-net/convert-slide/
 keywords:
-- تحويل الشريحة
-- تحويل الشريحة إلى صورة
-- تصدير الشريحة كصورة
+- تحويل شريحة
+- تصدير شريحة
+- شريحة إلى صورة
 - حفظ الشريحة كصورة
-- الشريحة إلى صورة
-- الشريحة إلى PNG
-- الشريحة إلى JPEG
-- الشريحة إلى صورة نقطية
+- شريحة إلى EMF
+- شريحة إلى PNG
+- شريحة إلى JPEG
+- شريحة إلى bitmap
+- شريحة إلى TIFF
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية تحويل شرائح PowerPoint وOpenDocument إلى صيغ مختلفة باستخدام Aspose.Slides for Python عبر .NET. قم بتصدير شرائح PPTX وODP بسهولة إلى BMP وPNG وJPEG وTIFF وغيرها مع نتائج عالية الجودة."
+description: "تحويل الشرائح من عروض PPT و PPTX و ODP إلى PNG و JPEG و GIF و TIFF و EMF وغيرها من صيغ الصور في بايثون باستخدام Aspose.Slides."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
-
-Aspose.Slides for Python عبر .NET تتيح لك تحويل شرائح العروض التقديمية من PowerPoint وOpenDocument بسهولة إلى تنسيقات صور متعددة، بما في ذلك BMP وPNG وJPG (JPEG) وGIF وغيرها.
+يمكن لـ Aspose.Slides for Python via .NET عرض الشرائح الفردية من عروض PowerPoint و OpenDocument كصيغ PNG و JPEG و GIF و TIFF وغيرها من صيغ الصور.
 
 لتحويل شريحة إلى صورة، اتبع الخطوات التالية:
 
-1. حدد إعدادات التحويل المطلوبة واختر الشرائح التي تريد تصديرها باستخدام:
-    - الفئة [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) ، أو
-    - الفئة [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/)
-2. توليد صورة الشريحة عن طريق استدعاء طريقة `get_image` من الفئة [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) .
+1. حمِّل العرض باستخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) .
+2. اختر الشريحة التي تريد عرضها.
+3. إذا لزم الأمر، اضبط إعدادات العرض باستخدام الفئة [RenderingOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/renderingoptions/) أو الفئة [TiffOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/) .
+4. استدعِ الطريقة [Slide.get_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/get_image/) . تُرجِع كائنًا من النوع [IImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/) .
+5. استدعِ الطريقة [IImage.save](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/save/) وحدد تنسيق الإخراج باستخدام قيمة من النوع [ImageFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imageformat/) .
 
-في Aspose.Slides for Python عبر .NET، الفئة [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) هي فئة تتيح لك التعامل مع الصور المعرفة ببيانات البكسل. يمكنك استخدام نسخة من هذه الفئة لحفظ الصور في مجموعة واسعة من التنسيقات (BMP، JPG، PNG، إلخ).
+## **تحويل شريحة إلى صورة PNG**
 
-## **تحويل الشرائح إلى صورة نقطية وحفظ الصور بتنسيق PNG**
+أبسط طريقة تحويل تستخدم إعدادات العرض الافتراضية. يمكن معالجة كائن [IImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/) الناتج في الذاكرة أو حفظه إلى ملف.
 
-يمكنك تحويل شريحة إلى كائن صورة نقطية واستخدامه مباشرةً في تطبيقك. بدلاً من ذلك، يمكنك تحويل شريحة إلى صورة نقطية ثم حفظ الصورة بتنسيق JPEG أو أي تنسيق آخر تفضله.
+المثال التالي بلغة Python يقوم بعرض الشريحة الأولى ويحفظها كصورة PNG:
 
-يظهر هذا الكود بايثون كيفية تحويل الشريحة الأولى في عرض تقديمي إلى كائن صورة نقطية ثم حفظ الصورة بتنسيق PNG:
-```py 
+```py
 import aspose.slides as slides
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # تحويل الشريحة الأولى في العرض التقديمي إلى صورة نقطية.
-    with presentation.slides[0].get_image() as image:
-        # حفظ الصورة بصيغة PNG.
+    slide = presentation.slides[0]
+
+    with slide.get_image() as image:
         image.save("Slide_0.png", slides.ImageFormat.PNG)
 ```
 
-
 ## **تحويل الشرائح إلى صور بأحجام مخصصة**
 
-قد تحتاج إلى الحصول على صورة بحجم معين. باستخدام أحد إصدارات طريقة [get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposepydrawingsize)، يمكنك تحويل شريحة إلى صورة بأبعاد محددة (العرض والارتفاع).
+استخدم التحميل الزائد للطريقة [Slide.get_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) الذي يقبل قيمة [Size](https://reference.aspose.com/slides/ar/python-net/aspose.pydrawing/size/) لعرض الشريحة بأبعاد بكسل دقيقة.
 
-يظهر هذا الكود المثال كيفية القيام بذلك:
+المثال التالي ينشئ صورة JPEG بحجم 1820 × 1040:
+
 ```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -59,86 +62,73 @@ import aspose.slides as slides
 image_size = draw.Size(1820, 1040)
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # تحويل الشريحة الأولى في العرض التقديمي إلى صورة نقطية بالحجم المحدد.
-    with presentation.slides[0].get_image(image_size) as image:
-        # حفظ الصورة بصيغة JPEG.
+    slide = presentation.slides[0]
+
+    with slide.get_image(image_size) as image:
         image.save("Slide_0.jpg", slides.ImageFormat.JPEG)
 ```
 
+## **تحويل الشرائح التي تحتوي على ملاحظات وتعليقات إلى صور**
 
-## **تحويل الشرائح مع الملاحظات والتعليقات إلى صور**
+بشكل افتراضي، لا تتضمن صور الشرائح ملاحظات أو تعليقات. عين كائنًا من النوع [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/notescommentslayoutingoptions/) إلى الخاصية [RenderingOptions.slides_layout_options](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/renderingoptions/slides_layout_options/) للتحكم في موضع ظهور الملاحظات والتعليقات.
 
-قد تحتوي بعض الشرائح على ملاحظات وتعليقات.
+المثال التالي يضع ملاحظات مقصوصة أسفل الشريحة وتعليقات على يمينها:
 
-توفر Aspose.Slides فئتين—[TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) و[RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/)—تتيحان لك التحكم في عرض شرائح العرض التقديمي كصور. تشمل كلا الفئتين الخاصية `slides_layout_options`، التي تمكنك من تكوين عرض الملاحظات والتعليقات على الشريحة عند تحويلها إلى صورة.
-
-باستخدام الفئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/) يمكنك تحديد الموضع المفضل للملاحظات والتعليقات في الصورة الناتجة.
-
-يظهر هذا الكود بايثون كيفية تحويل شريحة تحتوي على ملاحظات وتعليقات:
-```py 
+```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
 scale_x = 2
 scale_y = scale_x
 
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
+layout_options.comments_position = slides.export.CommentsPositions.RIGHT
+layout_options.comments_area_width = 500
+layout_options.comments_area_color = draw.Color.antique_white
+
+rendering_options = slides.export.RenderingOptions()
+rendering_options.slides_layout_options = layout_options
+
 with slides.Presentation("Presentation_with_notes_and_comments.pptx") as presentation:
-    notes_comments_options = slides.export.NotesCommentsLayoutingOptions()
-    notes_comments_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED  # تحديد موضع الملاحظات.
-    notes_comments_options.comments_position = slides.export.CommentsPositions.RIGHT       # تحديد موضع التعليقات.
-    notes_comments_options.comments_area_width = 500                                       # تحديد عرض مساحة التعليقات.
-    notes_comments_options.comments_area_color = draw.Color.antique_white                  # تحديد لون مساحة التعليقات.
+    slide = presentation.slides[0]
 
-    # إنشاء خيارات التقديم.
-    options = slides.export.RenderingOptions()
-    options.slides_layout_options = notes_comments_options
-
-    # تحويل الشريحة الأولى في العرض التقديمي إلى صورة.
-    with presentation.slides[0].get_image(options, scale_x, scale_y) as image:
-        # حفظ الصورة بتنسيق GIF.
+    with slide.get_image(rendering_options, scale_x, scale_y) as image:
         image.save("Image_with_notes_and_comments_0.gif", slides.ImageFormat.GIF)
 ```
 
-
-{{% alert title="Note" color="warning" %}} 
-
-في أي عملية تحويل شريحة إلى صورة، لا يمكن ضبط الخاصية [notes_position](https://reference.aspose.com/slides/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) إلى `BOTTOM_FULL` (لتحديد موضع الملاحظات) لأن نص الملاحظة قد يكون كبيرًا جدًا، مما يجعلها غير قادرة على الاحتواء ضمن حجم الصورة المحدد.
-
-{{% /alert %}} 
+{{% alert title="تحذير" color="warning" %}}
+في تحويل الشرائح إلى صور، لا تقم بتعيين الخاصية [NotesCommentsLayoutingOptions.notes_position](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) إلى القيمة [NotesPositions.BOTTOM_FULL](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/notespositions/). قد تحتوي الملاحظات على نص أكثر مما تستطيع الصورة الثابتة استيعابه. استخدم القيمة [NotesPositions.BOTTOM_TRUNCATED](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/notespositions/) بدلاً من ذلك.
+{{% /alert %}}
 
 ## **تحويل الشرائح إلى صور باستخدام خيارات TIFF**
 
-توفر الفئة [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) سيطرة أكبر على صورة TIFF الناتجة من خلال السماح لك بتحديد معلمات مثل الحجم، الدقة، لوحة الألوان، والمزيد.
+تتيح لك الفئة [TiffOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/) التحكم في الحجم والدقة وغيرها من خصائص صورة TIFF المُصدرة.
 
-يظهر هذا الكود بايثون عملية تحويل يتم فيها استخدام خيارات TIFF لإنتاج صورة بالأبيض والأسود بدقة 300 DPI وحجم 2160 × 2800:
-```py 
+المثال التالي يعرض الشريحة الأولى كصورة TIFF بحجم 2160 × 2880 وبدقة 300 DPI:
+
+```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# تحميل ملف عرض تقديمي.
+tiff_options = slides.export.TiffOptions()
+tiff_options.image_size = draw.Size(2160, 2880)
+tiff_options.dpi_x = 300
+tiff_options.dpi_y = 300
+
 with slides.Presentation("sample.pptx") as presentation:
-    # الحصول على الشريحة الأولى من العرض التقديمي.
     slide = presentation.slides[0]
 
-    # تكوين إعدادات صورة TIFF الناتجة.
-    options = slides.export.TiffOptions()
-    options.image_size = draw.Size(2160, 2880)                                 # تحديد حجم الصورة.
-    options.pixel_format = slides.export.ImagePixelFormat.FORMAT_1BPP_INDEXED  # تحديد تنسيق البكسل (أسود وأبيض).
-    options.dpi_x = 300                                                        # تحديد الدقة الأفقية.
-    options.dpi_y = 300                                                        # تحديد الدقة العمودية.
-
-    # تحويل الشريحة إلى صورة باستخدام الإعدادات المحددة.
-    with slide.get_image(options) as image:
-        # حفظ الصورة بتنسيق TIFF.
+    with slide.get_image(tiff_options) as image:
         image.save("output.tiff", slides.ImageFormat.TIFF)
 ```
 
-
 ## **تحويل جميع الشرائح إلى صور**
 
-تتيح لك Aspose.Slides تحويل جميع الشرائح في عرض تقديمي إلى صور، مما يحول العرض التقديمي بالكامل إلى سلسلة من الصور.
+قم بالتكرار عبر مجموعة الشرائح لتحويل العرض بالكامل إلى سلسلة من الصور. يتم تضمين الشرائح المخفية ما لم تقم بتجاوزها صراحة.
 
-يظهر هذا الكود المثال كيفية تحويل جميع الشرائح في عرض تقديمي إلى صور باستخدام بايثون:
+المثال التالي يعرض كل شريحة كصورة JPEG بعامل قياس أفقي ورأسي مقداره 2:
+
 ```py
 import aspose.slides as slides
 
@@ -146,29 +136,77 @@ scale_x = 2
 scale_y = scale_x
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # تحويل العرض التقديمي إلى صور شريحة بشريحة.
-    for i, slide in enumerate(presentation.slides):
-        # التحكم في الشرائح المخفية (عدم تحويل الشرائح المخفية).
-        if slide.hidden:
-            continue
-
-        # تحويل الشريحة إلى صورة.
+    for index, slide in enumerate(presentation.slides):
         with slide.get_image(scale_x, scale_y) as image:
-            # حفظ الصورة بصيغة JPEG.
-            image.save("Slide_{0}.jpg".format(i), slides.ImageFormat.JPEG)
+            image.save("Slide_{}.jpg".format(index), slides.ImageFormat.JPEG)
 ```
 
+## **إنشاء إخراج Enhanced Metafile**
 
-## **الأسئلة الشائعة**
+Enhanced Metafile (EMF) مفيد عندما يجب تبادل الرسومات القائمة على المتجهات مع Microsoft Office أو تطبيقات Windows الأخرى التي تدعم ملفات Windows metafile. على عكس الصورة القائمة على البكسل، يمكن لـ EMF الاحتفاظ بعمليات الرسم المتجهة التي تتوسع دون فقدان الحدة. ومع ذلك، يُعد EMF في الأساس تنسيق توافق للتطبيقات التي تدعم ملفات Windows metafile، وليس تنسيق تبادل عالمي. بالإضافة إلى ذلك، قد يتم تخزين محتوى الشرائح المعقد، مثل الصور النقطية وبعض التأثيرات، كعناصر مُرصّصة داخل حاوية ملف المتجه.
+
+### **تصدير شريحة إلى EMF**
+
+الطريقة [Slide.write_as_emf](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/write_as_emf/) تكتب كائن [Slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/) إلى تدفق هدف بتنسيق EMF. المثال التالي يحمل عرضًا، يختار الشريحة الأولى، ويكتبها إلى تدفق ملف EMF:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("Presentation.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    with open("Slide_0.emf", "wb") as emf_stream:
+        slide.write_as_emf(emf_stream)
+```
+
+المستدعي يمتلك التدفق الممرر إلى [Slide.write_as_emf](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/write_as_emf/) ويجب إغلاقه. تقوم Aspose.Slides بالكتابة في موضع التدفق الحالي وتترك التدفق مفتوحًا.
+
+### **تحويل صورة SVG إلى EMF وإضافتها إلى عرض**
+
+استخدم [SvgImage.write_as_emf](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/write_as_emf/) لتحويل محتوى SVG إلى EMF. يمكن إضافة البايتات الناتجة إلى العرض عبر [ImageCollection.add_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imagecollection/add_image/) ووضعها على شريحة باستخدام [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_picture_frame/).
+
+المثال التالي ينشئ كائن [SvgImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/) من ترميز SVG، يحوله إلى EMF في الذاكرة، يُدرج ملف الميتافايل على الشريحة الأولى، ويحفظ العرض:
+
+```py
+import io
+import aspose.slides as slides
+
+svg_content = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect width="200" height="100" fill="#4472C4"/></svg>'
+svg_image = slides.SvgImage(svg_content)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with io.BytesIO() as emf_stream:
+        svg_image.write_as_emf(emf_stream)
+        emf_data = emf_stream.getvalue()
+
+    image = presentation.images.add_image(emf_data)
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 100, image)
+
+    presentation.save("Presentation_with_emf.pptx", slides.export.SaveFormat.PPTX)
+```
+
+الطريقة [SvgImage.write_as_emf](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/write_as_emf/) لا تتولى ملكية التدفق الوجهة. بعد الكتابة، يكون موضع التدفق في نهاية البيانات المُولدة. استدعِ `getvalue` للحصول على الـ buffer الكامل بغض النظر عن موضع التدفق الحالي، كما هو موضح أعلاه. احتفظ بالتدفق مفتوحًا حتى تُقرأ البيانات، ثم أغلقه بعد ذلك.
+
+تتوفر عملية إنشاء EMF على أنظمة التشغيل التي تدعمها Aspose.Slides for Python via .NET، لكن عملية العرض قد تختلف بين المنصات عندما تكون الخطوط أو تبعيات الرسومات الأصلية غير متوفرة. قم بتثبيت الخطوط المستخدمة في المحتوى الأصلي أو اضبط بدائل مناسبة، واتبع [platform requirements](/slides/ar/python-net/system-requirements/) لـ Aspose.Slides، وتحقق من النتيجة في التطبيق المستهدف الذي يستهلك ملفات EMF. غالبًا ما تكون تطبيقات Linux و macOS ذات دعم محدود أو غير متسق لعرض وتحرير ملفات Windows metafile.
+
+## **عرض إيموجي ملونة**
+
+{{% alert title="ملاحظة" color="info" %}}
+لعرض الإيموجي الملونة بشكل صحيح عند تحويل شرائح العرض إلى صور، يجب تثبيت خطوط الإيموجي المستخدمة في العرض وتوافرها على النظام الذي يجري التحويل. على سبيل المثال، إذا كان العرض يستخدم **Segoe UI Emoji** وكان هذا الخط غير موجود، قد تظهر الإيموجي بالأبيض والأسود في الصور الناتجة.
+{{% /alert %}}
+
+## **الأسئلة المتكررة**
 
 **هل تدعم Aspose.Slides عرض الشرائح مع الرسوم المتحركة؟**
 
-لا، طريقة `get_image` تحفظ صورة ثابتة فقط للشريحة، دون رسوم متحركة.
+لا. الطريقة [Slide.get_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/get_image/) تعرض صورة ثابتة للشريحة ولا تصدر الرسوم المتحركة.
 
 **هل يمكن تصدير الشرائح المخفية كصور؟**
 
-نعم، يمكن معالجة الشرائح المخفية تمامًا كما العادية. فقط تأكد من تضمينها في حلقة المعالجة.
+نعم. يمكن عرض الشرائح المخفية مثل الشرائح العادية. أدرجها في حلقة المعالجة، كما هو موضح في المثال أعلاه.
 
-**هل يمكن حفظ الصور مع الظلال والتأثيرات؟**
+**هل يتم الحفاظ على الظلال وغيرها من التأثيرات في صور الشرائح؟**
 
-نعم، تدعم Aspose.Slides عرض الظلال، والشفافية، وغيرها من التأثيرات الرسومية عند حفظ الشرائح كصور.
+نعم. تقوم Aspose.Slides بعرض الظلال والشفافية وغيرها من التأثيرات الرسومية المدعومة في صور الشرائح.

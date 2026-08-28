@@ -4,11 +4,12 @@ linktitle: Snímek na obrázek
 type: docs
 weight: 41
 url: /cs/net/convert-slide/
-keywords:
-- převést snímek
-- exportovat snímek
+keywords: 
+- převod snímku
+- export snímku
 - snímek na obrázek
 - uložit snímek jako obrázek
+- snímek na EMF
 - snímek na PNG
 - snímek na JPEG
 - snímek na bitmapu
@@ -19,171 +20,206 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Převod snímků z PPT, PPTX a ODP na obrázky v C# pomocí Aspose.Slides pro .NET—rychlé, vysoce kvalitní renderování s přehlednými ukázkami kódu."
+description: "Převod snímků z prezentací PPT, PPTX a ODP na PNG, JPEG, GIF, TIFF, EMF a další formáty obrázků v C# s Aspose.Slides pro .NET."
 ---
 ## **Úvod**
 
-Aspose.Slides pro .NET vám umožňuje snadno převádět snímky prezentací PowerPoint a OpenDocument do různých formátů obrázků, včetně BMP, PNG, JPG (JPEG), GIF a dalších.
+Aspose.Slides for .NET může vykreslovat jednotlivé snímky z prezentací PowerPoint a OpenDocument jako PNG, JPEG, GIF, TIFF a další formáty obrázků.
 
-Pro převod snímku do obrázku postupujte podle těchto kroků:
+Chcete-li převést snímek na obrázek, postupujte podle těchto kroků:
 
-1. Definujte požadovaná nastavení převodu a vyberte snímky, které chcete exportovat, pomocí:
-    - Rozhraní [ITiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/itiffoptions/) , nebo
-    - Rozhraní [IRenderingOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/irenderingoptions/).
-2. Vygenerujte obrázek snímku voláním metody [GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/getimage/).
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
+2. Vyberte snímek, který chcete vykreslit.
+3. V případě potřeby nakonfigurujte vykreslování pomocí třídy [RenderingOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/renderingoptions/) nebo [TiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/).
+4. Zavolejte metodu [GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/getimage/). Vrátí objekt [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/).
+5. Zavolejte metodu [IImage.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/) a určete výstupní formát pomocí hodnoty [ImageFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/imageformat/).
 
-V .NET je [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) objekt, který vám umožňuje pracovat s obrázky definovanými pomocí pixelových dat. Můžete použít instanci této třídy k uložení obrázků v široké škále formátů (BMP, JPG, PNG atd.).
+## **Převod snímku na PNG obrázek**
 
-## **Převod snímků na bitmapy a uložení obrázků ve formátu PNG**
+Nejjednodušší převod používá výchozí nastavení vykreslování. Výsledný objekt [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) lze zpracovat v paměti nebo uložit do souboru.
 
-Můžete převést snímek na objekt bitmapy a použít jej přímo ve své aplikaci. Případně můžete převést snímek na bitmapu a poté uložit obrázek ve formátu JPEG nebo v jiném preferovaném formátu.
-
-Tento C# kód ukazuje, jak převést první snímek prezentace na objekt bitmapy a poté uložit obrázek ve formátu PNG:
+Následující příklad v C# vykreslí první snímek a uloží jej jako PNG obrázek:
 
 ```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Převést první snímek v prezentaci na bitmapu.
-    using (IImage image = presentation.Slides[0].GetImage())
-    {
-        // Uložit obrázek ve formátu PNG.
-        image.Save("Slide_0.png", ImageFormat.Png);
-    }
-}
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage();
+image.Save("Slide_0.png", ImageFormat.Png);
 ```
 
 ## **Převod snímků na obrázky s vlastními rozměry**
 
-Možná budete potřebovat získat obrázek určité velikosti. Pomocí přetížení metody [GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/getimage/), můžete převést snímek na obrázek s konkrétními rozměry (šířka a výška).
+Použijte přetížení metody [GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/getimage/), které přijímá hodnotu [Size](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.size) pro vykreslení snímku s přesnými rozměry v pixelech.
 
-Tento ukázkový kód ukazuje, jak to provést:
+Následující příklad vytváří JPEG obrázek o rozměrech 1820 × 1040:
 
 ```cs
-Size imageSize = new Size(1820, 1040);
+using System.Drawing;
+using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Převést první snímek v prezentaci na bitmapu se zadanou velikostí.
-    using (IImage image = presentation.Slides[0].GetImage(imageSize))
-    {
-        // Uložit obrázek ve formátu JPEG.
-        image.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
+var imageSize = new Size(1820, 1040);
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(imageSize);
+image.Save("Slide_0.jpg", ImageFormat.Jpeg);
 ```
 
 ## **Převod snímků s poznámkami a komentáři na obrázky**
 
-Některé snímky mohou obsahovat poznámky a komentáře.
+Ve výchozím nastavení obrázky snímků neobsahují poznámky ani komentáře. Přiřaďte objekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/notescommentslayoutingoptions/) do vlastnosti [RenderingOptions.SlidesLayoutOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/renderingoptions/slideslayoutoptions/), abyste určili, kde se poznámky a komentáře zobrazí.
 
-Aspose.Slides poskytuje dvě rozhraní — [ITiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/itiffoptions/) a [IRenderingOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/irenderingoptions/) — která vám umožňují řídit vykreslování snímků prezentace do obrázků. Obě rozhraní obsahují vlastnost `SlidesLayoutOptions`, která vám umožní konfigurovat vykreslování poznámek a komentářů na snímku při jeho převodu na obrázek.
-
-S třídou [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/notescommentslayoutingoptions/) můžete určit preferovanou pozici poznámek a komentářů ve výsledném obrázku.
-
-Tento C# kód ukazuje, jak převést snímek s poznámkami a komentáři:
+Následující příklad umístí zkrácené poznámky pod snímek a komentáře napravo:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Načíst soubor prezentace.
-using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // Vytvořit možnosti vykreslování.
-    RenderingOptions options = new RenderingOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomTruncated,  // Nastavit pozici poznámek.
-            CommentsPosition = CommentsPositions.Right,      // Nastavit pozici komentářů.
-            CommentsAreaWidth = 500,                         // Nastavit šířku oblasti komentářů.
-            CommentsAreaColor = Color.AntiqueWhite           // Nastavit barvu oblasti komentářů.
-        }
-    };
+    NotesPosition = NotesPositions.BottomTruncated,
+    CommentsPosition = CommentsPositions.Right,
+    CommentsAreaWidth = 500,
+    CommentsAreaColor = Color.AntiqueWhite
+};
 
-    // Převést první snímek prezentace na obrázek.
-    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
-    {
-        // Uložit obrázek ve formátu GIF.
-        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
-    }
-}
+var renderingOptions = new RenderingOptions { SlidesLayoutOptions = layoutOptions };
+
+using var presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(renderingOptions, scaleX, scaleY);
+image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
 ```
 
-{{% alert title="Note" color="warning" %}} 
-V jakémkoli procesu převodu snímku na obrázek nelze vlastnost [NotesPosition](https://reference.aspose.com/slides/cs/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) nastavit na `BottomFull` (pro určení pozice poznámek), protože text poznámky může být příliš velký a nemusí se vejít do zadané velikosti obrázku.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Pro převod snímku na obrázek nenastavujte vlastnost [NotesPosition](https://reference.aspose.com/slides/cs/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) na hodnotu [BottomFull](https://reference.aspose.com/slides/cs/net/aspose.slides.export/notespositions/). Poznámky mohou obsahovat více textu, než co může pevná velikost obrázku pojmout. Použijte místo toho [BottomTruncated](https://reference.aspose.com/slides/cs/net/aspose.slides.export/notespositions/).
+{{% /alert %}}
 
 ## **Převod snímků na obrázky pomocí TIFF možností**
 
-Rozhraní [ITiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/itiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že vám umožňuje specifikovat parametry jako velikost, rozlišení, barevná paleta a další.
+Třída [TiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/) vám umožňuje řídit velikost, rozlišení a další vlastnosti vykresleného TIFF obrázku.
 
-Tento C# kód ukazuje proces převodu, kde jsou použity TIFF možnosti k vytvoření černobílého obrázku s rozlišením 300 DPI a velikostí 2160 × 2800:
+Následující příklad vykreslí první snímek jako TIFF obrázek o rozměrech 2160 × 2880 při 300 DPI:
 
 ```cs
-// Načíst soubor prezentace.
-using (Presentation presentation = new Presentation("sample.pptx"))
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var tiffOptions = new TiffOptions
 {
-    // Získat první snímek z prezentace.
-    ISlide slide = presentation.Slides[0];
+    ImageSize = new Size(2160, 2880),
+    DpiX = 300,
+    DpiY = 300
+};
 
-    // Nastavit nastavení výstupního TIFF obrázku.
-    TiffOptions tiffOptions = new TiffOptions
-    {
-        ImageSize = new Size(2160, 2880),                  // Nastavit velikost obrázku.
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // Nastavit formát pixelů (černobílý).
-        DpiX = 300,                                        // Nastavit horizontální rozlišení.
-        DpiY = 300                                         // Nastavit vertikální rozlišení.
-    };
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Převést snímek na obrázek s určenými možnostmi.
-    using (IImage image = slide.GetImage(tiffOptions))
-    {
-        // Uložit obrázek ve formátu TIFF.
-        image.Save("output.tiff", ImageFormat.Tiff);
-    }
-}
+using var image = slide.GetImage(tiffOptions);
+image.Save("output.tiff", ImageFormat.Tiff);
 ```
 
 ## **Převod všech snímků na obrázky**
 
-Aspose.Slides vám umožňuje převést všechny snímky v prezentaci na obrázky, čímž efektivně převedete celou prezentaci na sérii obrázků.
+Procházejte kolekci snímků a převedete celou prezentaci na sérii obrázků. Skryté snímky jsou zahrnuty, pokud je výslovně nevynecháte.
 
-Tento ukázkový kód ukazuje, jak v C# převést všechny snímky v prezentaci na obrázky:
+Následující příklad vykreslí každý snímek jako JPEG obrázek se horizontálním a vertikálním měřítkem 2:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
+var scaleX = 2f;
+var scaleY = scaleX;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    // Vykreslit prezentaci do obrázků snímek po snímku.
-    for (int i = 0; i < presentation.Slides.Count; i++)
-    {
-        // Ovládání skrytých snímků (nevykreslovat skryté snímky).
-        if (presentation.Slides[i].Hidden)
-            continue;
-
-        // Převést snímek na obrázek.
-        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
-        {
-            // Uložit obrázek ve formátu JPEG.
-            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"Slide_{index}.jpg", ImageFormat.Jpeg);
 }
 ```
 
+## **Vytvoření výstupu Enhanced Metafile**
+
+Enhanced Metafile (EMF) je užitečný, když je nutné vyměňovat vektorovou grafiku s Microsoft Office nebo jinými aplikacemi Windows, které podporují Windows metafily. Na rozdíl od pixelového obrázku může EMF zachovat vektorové kreslířské operace, které se škálují bez ztráty ostrosti. EMF je však především formát kompatibility pro aplikace s podporou Windows metafilu, nikoli univerzální výměnný formát. Navíc může být složitý obsah snímku, jako jsou bitmapové obrázky a některé efekty, uložen jako rasterizované prvky uvnitř kontejneru vektorového metafilu.
+
+### **Export snímku do EMF**
+
+Metoda [ISlide.WriteAsEmf](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/writeasemf/) zapisuje [ISlide](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/) do cílového proudu ve formátu EMF. Následující příklad načte prezentaci, vybere první snímek a zapíše jej do EMF souborového proudu:
+
+```cs
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var emfStream = File.Create("Slide_0.emf");
+slide.WriteAsEmf(emfStream);
+```
+
+Volající vlastní proud předaný metodě [ISlide.WriteAsEmf](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/writeasemf/) a musí jej uzavřít nebo uvolnit. Aspose.Slides zapisuje na aktuální pozici proudu a nechává proud otevřený.
+
+### **Převod SVG obrázku na EMF a přidání do prezentace**
+
+Použijte [ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/cs/net/aspose.slides/isvgimage/writeasemf/) k převodu SVG obsahu na EMF. Výsledné bajty lze přidat do prezentace pomocí [IImageCollection.AddImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimagecollection/addimage/) a umístit na snímek pomocí [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addpictureframe/).
+
+Následující příklad vytvoří [SvgImage](https://reference.aspose.com/slides/cs/net/aspose.slides/svgimage/) ze SVG značkování, převede jej na EMF v paměti, vloží metafil na první snímek a uloží prezentaci:
+
+```cs
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var emfStream = new MemoryStream();
+svgImage.WriteAsEmf(emfStream);
+
+emfStream.Position = 0;
+var image = presentation.Images.AddImage(emfStream);
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+
+presentation.Save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+```
+
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/cs/net/aspose.slides/isvgimage/writeasemf/) nepřevádí vlastnictví cílového proudu. Po zápisu je pozice proudu na konci generovaných dat. Před předáním stejného seekovatelného proudu čteči jej, jak je ukázáno výše, nastavte `Position` na začátek. Proud nechte otevřený, dokud jej spotřebitel nedokončí číst, a poté jej uvolněte. Případně zavolejte `ToArray` a předáte vrácené pole bajtů metodě [IImageCollection.AddImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimagecollection/addimage/); `ToArray` vrací celý buffer bez ohledu na aktuální pozici proudu.
+
+Generování EMF je k dispozici na operačních systémech podporovaných vybranou sestavou Aspose.Slides pro .NET, ale vykreslování se může lišit napříč platformami, pokud nejsou k dispozici fonty nebo nativní grafické závislosti. Nainstalujte fonty použité ve zdrojovém obsahu nebo nakonfigurujte vhodné náhrady, dodržujte [požadavky na platformu](/slides/cs/net/system-requirements/) pro váš balíček Aspose.Slides a ověřte výsledek v cílové aplikaci, která EMF používá. Aplikace pro Linux a macOS často mají omezenou nebo nekonzistentní podporu pro zobrazování a úpravu Windows metafile.
+
+## **Vykreslování barevných emoji**
+
+{{% alert title="Note" color="info" %}}
+Pro správné vykreslení barevných emoji při převodu snímků prezentace na obrázky musí být v systému, kde probíhá převod, nainstalovány a dostupné fonty emoji použité v prezentaci. Například pokud prezentace používá **Segoe UI Emoji** a tento font chybí, mohou se emoji ve výstupních obrázcích zobrazit v černobílé.
+{{% /alert %}}
+
 ## **Často kladené otázky**
 
-**1. Podporuje Aspose.Slides vykreslování snímků s animacemi?**
+**Podporuje Aspose.Slides vykreslování snímků s animacemi?**
 
-Ne, metoda `GetImage` ukládá pouze statický obrázek snímku, bez animací.
+Ne. Metoda [GetImage](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/getimage/) vykresluje statický obrázek snímku a neexportuje animace.
 
-**2. Lze skryté snímky exportovat jako obrázky?**
+**Lze skryté snímky exportovat jako obrázky?**
 
-Ano, skryté snímky lze zpracovat stejně jako běžné. Stačí zajistit, aby byly zahrnuty do smyčky zpracování.
+Ano. Skryté snímky lze vykreslit jako běžné snímky. Zahrňte je do smyčky zpracování, jak je ukázáno v příkladu výše.
 
-**3. Lze obrázky uložit se stíny a efekty?**
+**Zachovají se stíny a další efekty v obrázcích snímků?**
 
-Ano, Aspose.Slides podporuje vykreslování stínů, průhlednosti a dalších grafických efektů při ukládání snímků jako obrázky.
+Ano. Aspose.Slides vykresluje stíny, průhlednost a další podporované grafické efekty v obrázcích snímků.

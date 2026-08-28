@@ -1,5 +1,5 @@
 ---
-title: Převod snímků prezentace na obrázky v JavaScriptu
+title: Převod prezentace snímků na obrázky v JavaScriptu
 linktitle: Snímek na obrázek
 type: docs
 weight: 35
@@ -9,6 +9,7 @@ keywords:
 - exportovat snímek
 - snímek na obrázek
 - uložit snímek jako obrázek
+- snímek na EMF
 - snímek na PNG
 - snímek na JPEG
 - snímek na bitmapu
@@ -19,34 +20,36 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Převádějte snímky z PPT, PPTX a ODP na obrázky v JavaScriptu pomocí Aspose.Slides pro Node.js přes Java — rychlé, vysoce kvalitní vykreslování s přehlednými příklady kódu."
+description: "Převádějte snímky z prezentací PPT, PPTX a ODP do PNG, JPEG, GIF, TIFF, EMF a dalších formátů obrázků v JavaScriptu pomocí Aspose.Slides."
 ---
 ## **Úvod**
 
-Aspose.Slides pro Node.js přes Java vám umožňuje snadno převádět snímky prezentací PowerPoint a OpenDocument do různých formátů obrázků, včetně BMP, PNG, JPG (JPEG), GIF a dalších.
+Aspose.Slides pro Node.js přes Java dokáže vykreslovat jednotlivé snímky z prezentací PowerPoint a OpenDocument jako PNG, JPEG, GIF, TIFF a další formáty obrázků.
 
 Pro převod snímku na obrázek postupujte podle následujících kroků:
 
-1. Definujte požadovaná nastavení převodu a vyberte snímky, které chcete exportovat, pomocí:
-    - Třídy [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) nebo
-    - Třídy [RenderingOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/renderingoptions/) .
-2. Vygenerujte obrázek snímku voláním metody [getImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage) .
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/).
+2. Vyberte snímek, který chcete vykreslit.
+3. V případě potřeby nakonfigurujte vykreslování pomocí třídy [RenderingOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/renderingoptions/) nebo [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/).
+4. Zavolejte metodu [Slide.getImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage). Vrátí objekt typu [IImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/).
+5. Zavolejte metodu [IImage.save](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/#save) a určete výstupní formát pomocí hodnoty [ImageFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/imageformat/).
 
-V Aspose.Slides pro Node.js přes Java je [IImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/) třída, která vám umožňuje pracovat s obrázky definovanými pomocí pixelových dat. Touto třídou můžete ukládat obrázky v široké škále formátů (BMP, JPG, PNG atd.).
+## **Převod snímku na PNG obrázek**
 
-## **Převod snímků na bitmapu a uložení obrázků v PNG**
+Nejjednodušší převod používá výchozí nastavení vykreslování. Výsledný objekt [IImage] lze zpracovat v paměti nebo uložit do souboru.
 
-Můžete převést snímek na objekt bitmapy a použít jej přímo ve své aplikaci. Případně můžete převést snímek na bitmapu a následně uložit obrázek ve formátu JPEG nebo jakémkoli jiném preferovaném formátu.
+Následující JavaScriptový příklad vykreslí první snímek a uloží jej jako PNG obrázek:
 
-Tento JavaScriptový kód ukazuje, jak převést první snímek prezentace na objekt bitmapy a poté uložit obrázek ve formátu PNG:
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Převést první snímek v prezentaci na bitmapu.
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // Uložit obrázek ve formátu PNG.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -58,19 +61,23 @@ try {
 
 ## **Převod snímků na obrázky s vlastními rozměry**
 
-Možná budete potřebovat získat obrázek určité velikosti. Pomocí přetížení metody [getImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage) můžete převést snímek na obrázek s konkrétními rozměry (šířka a výška).
+Použijte přetíženou metodu [Slide.getImage], která akceptuje hodnotu `java.awt.Dimension`, pro vykreslení snímku s přesnými rozměry v pixelech.
 
-Tento ukázkový kód demonstruje, jak to provést:
+Následující příklad vytvoří JPEG obrázek 1820 × 1040 pixelů:
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Převést první snímek v prezentaci na bitmapu s určenou velikostí.
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // Uložit obrázek ve formátu JPEG.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -82,35 +89,35 @@ try {
 
 ## **Převod snímků s poznámkami a komentáři na obrázky**
 
-Některé snímky mohou obsahovat poznámky a komentáře.
+Ve výchozím nastavení obrázky snímků neobsahují poznámky ani komentáře. Předávejte objekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notescommentslayoutingoptions/) metodě [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions), abyste určili, kde se poznámky a komentáře zobrazí.
 
-Aspose.Slides poskytuje dvě třídy - [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) a [RenderingOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/renderingoptions/) - které vám umožňují kontrolovat vykreslování snímků prezentace do obrázků. Obě třídy obsahují metodu `setSlidesLayoutOptions`, která vám umožňuje nastavit vykreslování poznámek a komentářů na snímku při jeho převodu na obrázek.
+Následující příklad umístí zkrácené poznámky pod snímek a komentáře vpravo od něj:
 
-S třídou [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notescommentslayoutingoptions/) můžete specifikovat požadovanou pozici poznámek a komentářů ve výsledném obrázku.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Tento JavaScriptový kód ukazuje, jak převést snímek s poznámkami a komentáři:
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Načíst soubor prezentace.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Nastavit polohu poznámek.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Nastavit polohu komentářů.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // Nastavit šířku oblasti komentářů.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // Nastavit barvu oblasti komentářů.
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // Vytvořit nastavení vykreslování.
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // Převést první snímek prezentace na obrázek.
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Uložit obrázek ve formátu GIF.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,34 +127,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-V jakémkoli procesu převodu snímku na obrázek metoda [setNotesPosition](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) nemůže použít `BottomFull` (pro určení pozice poznámek), protože text poznámky může být příliš velký a nepřesahuje určenou velikost obrázku.
-{{% /alert %}} 
+{{% alert title="Varování" color="warning" %}}
+Při převodu snímků na obrázky nepředávejte [BottomFull](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notespositions/) metodě [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Poznámky mohou obsahovat více textu, než je možné zobrazit v pevně dané velikosti obrázku. Použijte místo toho [BottomTruncated](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notespositions/).
+{{% /alert %}}
 
 ## **Převod snímků na obrázky pomocí TIFF možností**
 
-Třída [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že umožňuje specifikovat parametry jako velikost, rozlišení, barevnou paletu a další.
+Třída [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) umožňuje řídit velikost, rozlišení a další vlastnosti vykresleného TIFF obrázku.
 
-Tento JavaScriptový kód ukazuje proces konverze, kde jsou použity TIFF možnosti k vytvoření černobílého obrázku s rozlišením 300 DPI a velikostí 2160 × 2800:
+Následující příklad vykreslí první snímek jako TIFF obrázek 2160 × 2880 pixelů při 300 DPI:
 
-```js
-// Načíst soubor prezentace.
-let presentation = new aspose.slides.Presentation("sample.pptx");
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
+
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Získat první snímek z prezentace.
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Nastavit konfiguraci výstupního TIFF obrazu.
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Nastavit velikost obrázku.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Nastavit formát pixelů (černobílý).
-    tiffOptions.setDpiX(300);                                                          // Nastavit horizontální rozlišení.
-    tiffOptions.setDpiY(300);                                                          // Nastavit vertikální rozlišení.
-
-    // Převést snímek na obrázek s určenými možnostmi.
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // Uložit obrázek ve formátu TIFF.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -157,34 +164,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Podpora TIFF není zaručena ve verzích starších než JDK 9.
-{{% /alert %}} 
+{{% alert title="Varování" color="warning" %}}
+Podpora TIFF není zaručena ve verzích Javy starších než JDK 9.
+{{% /alert %}}
 
 ## **Převod všech snímků na obrázky**
 
-Aspose.Slides vám umožňuje převést všechny snímky v prezentaci na obrázky, čímž efektivně převádí celou prezentaci na sérii obrázků.
+Procházejte kolekci snímků a převádějte celou prezentaci na řadu obrázků. Skryté snímky jsou zahrnuty, pokud je explicitně nevynecháte.
 
-Tento ukázkový kód demonstruje, jak převést všechny snímky v prezentaci na obrázky v JavaScriptu:
+Následující příklad vykreslí každý snímek jako JPEG obrázek se horizontálním a vertikálním měřítkem 2:
 
-```js
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Vykreslit prezentaci na obrázky snímek po snímku.
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // Ovládání skrytých snímků (nevykreslovat skryté snímky).
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // Převést snímek na obrázek.
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // Uložit obrázek ve formátu JPEG.
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -194,16 +198,91 @@ try {
 }
 ```
 
+## **Vytvoření výstupu Enhanced Metafile**
+
+Enhanced Metafile (EMF) je užitečný, když je potřeba vyměňovat vektorovou grafiku s Microsoft Office nebo jinými Windows aplikacemi podporujícími Windows metafily. Na rozdíl od rastrového obrázku může EMF zachovat vektorové kreslicí operace, které se škálují bez ztráty ostrosti. EMF však slouží především jako formát kompatibility pro aplikace s podporou Windows metafilů, nikoli jako univerzální výměnný formát. Navíc složitý obsah snímku, jako jsou bitmapové obrázky a některé efekty, může být uložen jako rasterizované prvky uvnitř vektorového kontejneru.
+
+### **Exportovat snímek do EMF**
+
+Metoda [Slide.writeAsEmf](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#writeAsEmf) zapíše snímek do cílového proudu ve formátu EMF. Následující příklad načte prezentaci, vybere první snímek a zapíše jej do EMF souborového proudu:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Volající vlastní proud předaný metodě [Slide.writeAsEmf](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#writeAsEmf) a je zodpovědný za jeho uzavření, jak je ukázáno výše.
+
+### **Převést SVG obrázek do EMF a přidat jej do prezentace**
+
+Použijte [SvgImage.writeAsEmf](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/svgimage/#writeAsEmf) k převodu SVG obsahu do EMF. Výsledná bajtová data lze přidat do prezentace pomocí [ImageCollection.addImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/imagecollection/#addImage) a umístit na snímek pomocí [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/#addPictureFrame).
+
+Následující příklad vytvoří [SvgImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/svgimage/) ze SVG značkování, převádí jej do paměťového EMF, vloží metafil na první snímek a uloží prezentaci:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[SvgImage.writeAsEmf](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/svgimage/#writeAsEmf) nepřebírá vlastnictví cílového proudu. `java.io.ByteArrayOutputStream` ukládá veškerá generovaná data v paměti, takže před voláním `toByteArray` není nutné resetovat pozici. Vrácené pole bajtů zůstává platné i po uzavření proudu.
+
+Generování EMF je k dispozici na operačních systémech podporovaných vybranou verzí Aspose.Slides pro Node.js přes Java a konfigurací JDK, avšak vykreslování může mezi platformami lišit, pokud chybí písma nebo grafické závislosti. Nainstalujte písma používaná ve zdrojovém obsahu nebo nakonfigurujte vhodné náhrady, řiďte se [požadavky na platformu](/slides/cs/nodejs-java/system-requirements/) pro Aspose.Slides pro Node.js přes Java a ověřte výsledek v cílové aplikaci konzumující EMF. Linuxové a macOS aplikace často mají omezenou nebo nekonzistentní podporu pro zobrazování a úpravu Windows metafilů.
+
+## **Vykreslování barevných emoji**
+
+{{% alert title="Poznámka" color="info" %}}
+Aby se při převodu snímků prezentace na obrázky správně vykreslily barevné emoji, musí být nainstalována a dostupná emoji písma použité v prezentaci na systému, který převod provádí. Například pokud prezentace používá **Segoe UI Emoji** a toto písmo chybí, mohou se emoji ve výstupních obrázcích zobrazit černobíle.
+{{% /alert %}}
+
 ## **Často kladené otázky**
 
 **Podporuje Aspose.Slides vykreslování snímků s animacemi?**
 
-Ne, metoda `getImage` ukládá pouze statický obrázek snímku, bez animací.
+Ne. Metoda [Slide.getImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage) vykresluje statický obrázek snímku a neexportuje animace.
 
 **Lze skryté snímky exportovat jako obrázky?**
 
-Ano, skryté snímky lze zpracovat stejně jako běžné. Jen se ujistěte, že jsou zahrnuty ve smyčce zpracování.
+Ano. Skryté snímky lze vykreslit stejně jako běžné snímky. Zahrňte je do zpracovatelského cyklu, jak je ukázáno v předchozím příkladu.
 
-**Lze obrázky ukládat se stíny a efekty?**
+**Zachovají se stíny a další efekty v obrázcích snímků?**
 
-Ano, Aspose.Slides podporuje vykreslování stínů, průhlednosti a dalších grafických efektů při ukládání snímků jako obrázky.
+Ano. Aspose.Slides vykresluje stíny, průhlednost a další podporované grafické efekty v obrázcích snímků.

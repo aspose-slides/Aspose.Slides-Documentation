@@ -1,5 +1,5 @@
 ---
-title: แปลงสไลด์การนำเสนอเป็นภาพใน JavaScript
+title: แปลงสไลด์งานนำเสนอเป็นภาพใน JavaScript
 linktitle: สไลด์เป็นภาพ
 type: docs
 weight: 35
@@ -9,44 +9,47 @@ keywords:
 - ส่งออกสไลด์
 - สไลด์เป็นภาพ
 - บันทึกสไลด์เป็นภาพ
+- สไลด์เป็น EMF
 - สไลด์เป็น PNG
 - สไลด์เป็น JPEG
-- สไลด์เป็นบิทแมป
+- สไลด์เป็นบิตแมพ
 - สไลด์เป็น TIFF
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "แปลงสไลด์จาก PPT, PPTX และ ODP เป็นภาพใน JavaScript ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java — การแสดงผลที่รวดเร็วและคุณภาพสูง พร้อมตัวอย่างโค้ดที่ชัดเจน."
+description: "แปลงสไลด์จากงานนำเสนอรูปแบบ PPT, PPTX และ ODP เป็น PNG, JPEG, GIF, TIFF, EMF และรูปแบบภาพอื่น ๆ ใน JavaScript ด้วย Aspose.Slides."
 ---
 ## **บทนำ**
 
-Aspose.Slides for Node.js via Java ช่วยให้คุณแปลงสไลด์การนำเสนอ PowerPoint และ OpenDocument ไปเป็นรูปแบบภาพต่าง ๆ ได้อย่างง่ายดาย รวมถึง BMP, PNG, JPG (JPEG), GIF และอื่น ๆ
+Aspose.Slides for Node.js via Java สามารถเรนเดอร์สไลด์แต่ละสไลด์จากงานนำเสนอ PowerPoint และ OpenDocument เป็นรูปแบบ PNG, JPEG, GIF, TIFF และรูปแบบภาพอื่น ๆ
 
-เพื่อแปลงสไลด์เป็นรูปภาพ ให้ทำตามขั้นตอนต่อไปนี้:
+เพื่อแปลงสไลด์เป็นภาพ ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. กำหนดการตั้งค่าการแปลงที่ต้องการและเลือกสไลด์ที่คุณต้องการส่งออกโดยใช้:
-    - คลาส [TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/) หรือ
-    - คลาส [RenderingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/renderingoptions/)
-2. สร้างภาพสไลด์โดยเรียกใช้เมธอด [getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#getImage)
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/)  
+2. เลือกสไลด์ที่ต้องการเรนเดอร์  
+3. หากจำเป็น ให้กำหนดค่าการเรนเดอร์ด้วยคลาส [RenderingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/renderingoptions/) หรือ [TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/)  
+4. เรียกใช้เมธอด [Slide.getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#getImage) เมธอดนี้จะคืนค่าอ็อบเจ็กต์ที่เป็น [IImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/iimage/)  
+5. เรียกใช้เมธอด [IImage.save](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/iimage/#save) และระบุรูปแบบของไฟล์ผลลัพธ์ด้วยค่า [ImageFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imageformat/)
 
-ใน Aspose.Slides for Node.js via Java, [IImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/iimage/) คือคลาสที่ช่วยให้คุณทำงานกับภาพที่กำหนดโดยข้อมูลพิกเซล คุณสามารถใช้คลาสนี้เพื่อบันทึกภาพในรูปแบบที่หลากหลาย (BMP, JPG, PNG เป็นต้น)
+## **แปลงสไลด์เป็นภาพ PNG**
 
-## **แปลงสไลด์เป็นบิทแมปและบันทึกรูปภาพเป็น PNG**
+การแปลงที่ง่ายที่สุดใช้การตั้งค่าเรนเดอร์เริ่มต้น อ็อบเจ็กต์ [IImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/iimage/) ที่ได้สามารถประมวลผลในหน่วยความจำหรือบันทึกลงไฟล์ได้
 
-คุณสามารถแปลงสไลด์เป็นออบเจกต์บิทแมปและใช้โดยตรงในแอปพลิเคชันของคุณ หรือคุณสามารถแปลงสไลด์เป็นบิทแมปแล้วบันทึกรูปภาพเป็น JPEG หรือรูปแบบอื่นที่คุณต้องการ
+ตัวอย่าง JavaScript ด้านล่างเรนเดอร์สไลด์แรกและบันทึกเป็นภาพ PNG:
 
-โค้ด JavaScript ตัวอย่างนี้แสดงวิธีแปลงสไลด์แรกของการนำเสนอเป็นออบเจกต์บิทแมปและจากนั้นบันทึกรูปภาพเป็นรูปแบบ PNG:
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // แปลงสไลด์แรกในงานนำเสนอเป็นบิทแมป.
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // บันทึกภาพในรูปแบบ PNG.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,21 +59,25 @@ try {
 }
 ```
 
-## **แปลงสไลด์เป็นภาพด้วยขนาดที่กำหนดเอง**
+## **แปลงสไลด์เป็นภาพด้วยขนาดกำหนดเอง**
 
-คุณอาจต้องการภาพที่มีขนาดเฉพาะ โดยใช้ overload ของเมธอด [getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#getImage) คุณสามารถแปลงสไลด์เป็นภาพด้วยมิติที่กำหนด (ความกว้างและความสูง)
+ใช้เมธอดโอเวอร์โหลดของ [Slide.getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#getImage) ที่รับค่า `java.awt.Dimension` เพื่อเรนเดอร์สไลด์ด้วยขนาดพิกเซลที่ต้องการอย่างแม่นยำ
 
-โค้ดตัวอย่างนี้แสดงวิธีทำเช่นนั้น:
+ตัวอย่างต่อไปนี้สร้างภาพ JPEG ขนาด 1820 × 1040 พิกเซล:
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // แปลงสไลด์แรกในงานนำเสนอเป็นบิทแมปด้วยขนาดที่ระบุ.
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // บันทึกภาพในรูปแบบ JPEG.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,37 +87,37 @@ try {
 }
 ```
 
-## **แปลงสไลด์ที่มีบันทึกและคอมเมนต์เป็นภาพ**
+## **แปลงสไลด์พร้อมบันทึกบันทึกย่อและความคิดเห็นเป็นภาพ**
 
-บางสไลด์อาจมีบันทึกและคอมเมนต์
+โดยค่าเริ่มต้น ภาพสไลด์จะไม่รวมบันทึกย่อหรือความคิดเห็น ส่งอ็อบเจ็กต์ [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notescommentslayoutingoptions/) ไปยังเมธอด [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) เพื่อกำหนดตำแหน่งที่ต้องการให้บันทึกย่อและความคิดเห็นแสดงผล
 
-Aspose.Slides มีสองคลาส—[TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/) และ [RenderingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/renderingoptions/)—ที่ให้คุณควบคุมการเรนเดอร์สไลด์การนำเสนอเป็นภาพ ทั้งสองคลาสมีเมธอด `setSlidesLayoutOptions` ซึ่งช่วยให้คุณกำหนดการเรนเดอร์ของบันทึกและคอมเมนต์บนสไลด์เมื่อแปลงเป็นภาพ
+ตัวอย่างต่อไปนี้วางบันทึกย่อที่ตัดทอนไว้ด้านล่างสไลด์และวางความคิดเห็นไว้ทางด้านขวา:
 
-ด้วยคลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notescommentslayoutingoptions/) คุณสามารถระบุตำแหน่งที่ต้องการสำหรับบันทึกและคอมเมนต์ในภาพผลลัพธ์ได้
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-โค้ด JavaScript ตัวอย่างนี้แสดงวิธีแปลงสไลด์ที่มีบันทึกและคอมเมนต์:
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// โหลดไฟล์งานนำเสนอ.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // ตั้งค่าตำแหน่งของบันทึก.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // ตั้งค่าตำแหน่งของคอมเมนต์.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // ตั้งค่าความกว้างของพื้นที่คอมเมนต์.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // ตั้งค่าสีสำหรับพื้นที่คอมเมนต์.
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // สร้างตัวเลือกการเรนเดอร์.
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // แปลงสไลด์แรกของงานนำเสนอเป็นภาพ.
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // บันทึกภาพในรูปแบบ GIF.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,36 +127,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Warning" color="warning" %}}
+สำหรับการแปลงสไลด์เป็นภาพ ห้ามส่งค่า [BottomFull](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notespositions/) ไปยังเมธอด [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) เนื่องจากบันทึกย่ออาจมีข้อความมากกว่าขนาดภาพที่กำหนดได้ ใช้ค่า [BottomTruncated](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notespositions/) แทน
+{{% /alert %}}
 
-ในการแปลงสไลด์เป็นภาพใด ๆ เมธอด [setNotesPosition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) ไม่สามารถใช้ค่า `BottomFull` (เพื่อระบุตำแหน่งของบันทึก) ได้ เนื่องจากข้อความของบันทึกอาจยาวเกินไป ทำให้ไม่สามารถใส่ลงในขนาดภาพที่กำหนดได้.
+## **แปลงสไลด์เป็นภาพโดยใช้ตัวเลือก TIFF**
 
-{{% /alert %}} 
+คลาส [TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/) ช่วยให้คุณควบคุมขนาด ความละเอียด และคุณสมบัติอื่น ๆ ของภาพ TIFF ที่เรนเดอร์
 
-## **แปลงสไลด์เป็นภาพโดยใช้ TIFF Options**
+ตัวอย่างต่อไปนี้เรนเดอร์สไลด์แรกเป็นภาพ TIFF ขนาด 2160 × 2880 พิกเซลที่ความละเอียด 300 DPI:
 
-คลาส [TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/) ให้การควบคุมที่ละเอียดขึ้นสำหรับภาพ TIFF ผลลัพธ์โดยให้คุณระบุพารามิเตอร์ต่าง ๆ เช่น ขนาด, ความละเอียด, พาเลตสี และอื่น ๆ
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-โค้ด JavaScript ตัวอย่างนี้แสดงกระบวนการแปลงโดยใช้ตัวเลือก TIFF เพื่อสร้างภาพขาว-ดำที่มีความละเอียด 300 DPI และขนาด 2160 × 2800:
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
 
-```js
-// โหลดไฟล์งานนำเสนอ.
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // ดึงสไลด์แรกจากงานนำเสนอ.
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // กำหนดการตั้งค่าภาพ TIFF ที่ส่งออก.
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // ตั้งค่าขนาดของภาพ.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // ตั้งค่ารูปแบบพิกเซล (ขาวดำ).
-    tiffOptions.setDpiX(300);                                                          // ตั้งความละเอียดแนวนอน.
-    tiffOptions.setDpiY(300);                                                          // ตั้งความละเอียดแนวตั้ง.
-
-    // แปลงสไลด์เป็นภาพด้วยตัวเลือกที่ระบุ.
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // บันทึกภาพในรูปแบบ TIFF.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -159,36 +164,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-การสนับสนุน TIFF ไม่รับประกันในเวอร์ชันก่อน JDK 9.
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+การสนับสนุน TIFF ไม่ได้รับการรับประกันในรุ่น Java ก่อน JDK 9
+{{% /alert %}}
 
 ## **แปลงสไลด์ทั้งหมดเป็นภาพ**
 
-Aspose.Slides ช่วยให้คุณแปลงสไลด์ทั้งหมดในงานนำเสนอเป็นภาพ ซึ่งทำให้การแปลงงานนำเสนอทั้งหมดเป็นชุดของภาพได้อย่างมีประสิทธิภาพ
+วนลูปผ่านคอลเลกชันสไลด์เพื่อแปลงงานนำเสนอทั้งหมดเป็นชุดของภาพ สไลด์ที่ซ่อนไว้จะถูกรวมด้วย เว้นแต่คุณจะข้ามอย่างชัดเจน
 
-โค้ดตัวอย่างนี้แสดงวิธีแปลงสไลด์ทั้งหมดในงานนำเสนอเป็นภาพด้วย JavaScript:
+ตัวอย่างต่อไปนี้เรนเดอร์ทุกสไลด์เป็นภาพ JPEG โดยใช้ค่าขยายในแนวนอนและแนวตั้งเท่ากับ 2:
 
-```js
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // เรนเดอร์งานนำเสนอเป็นภาพแต่ละสไลด์.
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // ควบคุมสไลด์ที่ซ่อน (ไม่เรนเดอร์สไลด์ที่ซ่อน).
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // แปลงสไลด์เป็นภาพ.
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // บันทึกภาพในรูปแบบ JPEG.
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -198,16 +198,88 @@ try {
 }
 ```
 
+## **สร้างเอาต์พุตแบบ Enhanced Metafile**
+
+Enhanced Metafile (EMF) มีประโยชน์เมื่อจำเป็นต้องแลกเปลี่ยนกราฟิกแบบเวกเตอร์กับ Microsoft Office หรือแอปพลิเคชัน Windows อื่น ๆ ที่รองรับ Windows metafile เทียบกับภาพแบบพิกเซล EMF สามารถเก็บการดำเนินการวาดเวกเตอร์ที่ปรับขนาดได้โดยไม่สูญเสียความคมชัด อย่างไรก็ตาม EMF เป็นรูปแบบความเข้ากันได้สำหรับแอปพลิเคชันที่สนับสนุน Windows metafile เท่านั้น ไม่ใช่รูปแบบการแลกเปลี่ยนสากล นอกจากนี้ เนื้อหาสไลด์ที่ซับซ้อน เช่น รูปภาพบิตแมพและเอฟเฟกต์บางอย่าง อาจถูกจัดเก็บเป็นองค์ประกอบที่แปลงเป็นราสเตอร์ภายในคอนเทนเนอร์ metafile เวกเตอร์
+
+### **ส่งออกสไลด์เป็น EMF**
+
+เมธอด [Slide.writeAsEmf](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#writeAsEmf) เขียนสไลด์ลงสตรีมเป้าหมายในรูปแบบ EMF ตัวอย่างต่อไปนี้โหลดงานนำเสนอ เลือกสไลด์แรก แล้วเขียนลงสตรีมไฟล์ EMF:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+ผู้เรียกจะเป็นเจ้าของสตรีมที่ส่งให้กับ [Slide.writeAsEmf](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#writeAsEmf) และต้องรับผิดชอบการปิดสตรีมนั้น ตามที่แสดงข้างต้น
+
+### **แปลงภาพ SVG เป็น EMF แล้วเพิ่มลงในงานนำเสนอ**
+
+ใช้เมธอด [SvgImage.writeAsEmf](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/svgimage/#writeAsEmf) เพื่อแปลงเนื้อหา SVG เป็น EMF ไบต์ที่ได้สามารถเพิ่มลงในงานนำเสนอผ่านเมธอด [ImageCollection.addImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagecollection/#addImage) และวางบนสไลด์ด้วยเมธอด [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/#addPictureFrame)
+
+ตัวอย่างต่อไปนี้สร้างอ็อบเจ็กต์ [SvgImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/svgimage/) จากโค้ด SVG แปลงเป็น EMF ในหน่วยความจำ แทรก metafile ลงบนสไลด์แรก และบันทึกงานนำเสนอ:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[SvgImage.writeAsEmf](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/svgimage/#writeAsEmf) ไม่รับการเป็นเจ้าของสตรีมปลายทาง `java.io.ByteArrayOutputStream` เก็บข้อมูลทั้งหมดในหน่วยความจำ จึงไม่ต้องรีเซ็ตตำแหน่งก่อนเรียก `toByteArray` อาร์เรย์ไบต์ที่คืนค่าจะยังคงใช้ได้หลังจากสตรีมถูกปิด
+
+การสร้าง EMF มีให้ใช้บนระบบปฏิบัติการที่สนับสนุนโดย Aspose.Slides for Node.js via Java และการกำหนดค่า JDK ที่เลือก แต่การเรนเดอร์อาจแตกต่างกันระหว่างแพลตฟอร์มเมื่อฟอนต์หรือไลบรารีกราฟิกขาดหาย ลองติดตั้งฟอนต์ที่ใช้ในเนื้อหาแหล่งต้น หรือกำหนดการทดแทนที่เหมาะสม ปฏิบัติตาม [platform requirements](/slides/th/nodejs-java/system-requirements/) สำหรับ Aspose.Slides for Node.js via Java แล้วตรวจสอบผลลัพธ์ในแอปพลิเคชันที่รับ EMF เป้าหมาย แอปพลิเคชันบน Linux และ macOS มักมีการสนับสนุนการแสดงและแก้ไข Windows metafile อย่างจำกัดหรือไม่สม่ำเสมอ
+
+## **การเรนเดอร์สี Emoji**
+
+{{% alert title="Note" color="info" %}}
+เพื่อให้สี Emoji แสดงผลอย่างถูกต้องเมื่อแปลงสไลด์นำเสนอเป็นภาพ ฟอนต์ Emoji ที่ใช้ในงานนำเสนอจำเป็นต้องติดตั้งและพร้อมใช้งานบนระบบที่ทำการแปลง ตัวอย่างเช่น หากงานนำเสนอใช้ **Segoe UI Emoji** แต่ฟอนต์นี้ไม่มีอยู่ Emoji อาจปรากฏเป็นสีเดียว (โมโนโครม) ในภาพผลลัพธ์
+{{% /alert %}}
+
 ## **คำถามที่พบบ่อย**
 
-**Aspose.Slides รองรับการเรนเดอร์สไลด์ที่มีแอนิเมชันหรือไม่?**
+**Aspose.Slides รองรับการเรนเดอร์สไลด์พร้อมแอนิเมชันหรือไม่?**  
+ไม่. เมธอด [Slide.getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#getImage) เรนเดอร์ภาพสไลด์แบบคงที่และไม่ได้ส่งออกแอนิเมชัน
 
-ไม่, เมธอด `getImage` จะบันทึกเฉพาะภาพนิ่งของสไลด์เท่านั้น ไม่รวมแอนิเมชัน.
+**สไลด์ที่ซ่อนไว้สามารถส่งออกเป็นภาพได้หรือไม่?**  
+ได้. สไลด์ที่ซ่อนไว้สามารถเรนเดอร์ได้เช่นเดียวกับสไลด์ปกติ ให้วางไว้ในลูปการประมวลผลตามตัวอย่างข้างต้น
 
-**สไลด์ที่ซ่อนสามารถส่งออกเป็นภาพได้หรือไม่?**
-
-ได้, สไลด์ที่ซ่อนสามารถประมวลผลได้เช่นเดียวกับสไลด์ทั่วไป เพียงให้แน่ใจว่ามีการรวมสไลด์เหล่านั้นในลูปการประมวลผล.
-
-**สามารถบันทึกรูปภาพพร้อมเงาและเอฟเฟกต์ได้หรือไม่?**
-
-ได้, Aspose.Slides รองรับการเรนเดอร์เงา, ความโปร่งแสง, และเอฟเฟกต์กราฟิกอื่น ๆ เมื่อบันทึกสไลด์เป็นภาพ.
+**เงาและเอฟเฟกต์อื่น ๆ ถูกเก็บรักษาในภาพสไลด์หรือไม่?**  
+ได้. Aspose.Slides จะเรนเดอร์เงา ความโปร่งใส และเอฟเฟกต์กราฟิกที่สนับสนุนอื่น ๆ ในภาพสไลด์

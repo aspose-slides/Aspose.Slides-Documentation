@@ -1,6 +1,6 @@
 ---
-title: Sunum Slaytlarını JavaScript'te Görüntülere Dönüştür
-linktitle: Slayttan Görüntüye
+title: JavaScript ile Sunum Slaytlarını Görsellere Dönüştür
+linktitle: Slayttan Görsele
 type: docs
 weight: 35
 url: /tr/nodejs-java/convert-slide/
@@ -9,6 +9,7 @@ keywords:
 - slaytı dışa aktar
 - slayttan görüntüye
 - slaytı görüntü olarak kaydet
+- slayttan EMF'ye
 - slayttan PNG'ye
 - slayttan JPEG'e
 - slayttan bitmap'e
@@ -19,34 +20,36 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java kullanarak JavaScript'te PPT, PPTX ve ODP slaytlarını görüntülere dönüştürün — hızlı, yüksek kaliteli renderlama ve net kod örnekleri."
+description: "Aspose.Slides ile JavaScript'te PPT, PPTX ve ODP sunumlarından PNG, JPEG, GIF, TIFF, EMF ve diğer görüntü formatlarına slaytları dönüştürün."
 ---
-## **Giriş**
+## **Introduction**
 
-Aspose.Slides for Node.js via Java, PowerPoint ve OpenDocument sunum slaytlarını BMP, PNG, JPG (JPEG), GIF ve diğer çeşitli görüntü formatlarına kolayca dönüştürmenizi sağlar.
+Aspose.Slides for Node.js via Java, PowerPoint ve OpenDocument sunumlarından ayrı slaytları PNG, JPEG, GIF, TIFF ve diğer görüntü formatları olarak işleyebilir.
 
-Bir slaytı görüntüye dönüştürmek için şu adımları izleyin:
+Bir slaytı görüntüye dönüştürmek için aşağıdaki adımları izleyin:
 
-1. İstediğiniz dönüşüm ayarlarını tanımlayın ve dışa aktarmak istediğiniz slaytları aşağıdakileri kullanarak seçin:
-    - [TiffOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tiffoptions/) sınıfı, ya da
-    - [RenderingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/renderingoptions/) sınıfı.
-2. Slayt görüntüsünü oluşturmak için [getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#getImage) yöntemini çağırın.
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfı ile yükleyin.  
+2. Görüntülenmesini istediğiniz slaytı seçin.  
+3. Gerekirse, renderlemeyi [RenderingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/renderingoptions/) veya [TiffOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tiffoptions/) sınıfı ile yapılandırın.  
+4. [Slide.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#getImage) metodunu çağırın. Bu metod bir [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) nesnesi döndürür.  
+5. [IImage.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/#save) metodunu çağırın ve çıkış formatını bir [ImageFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/imageformat/) değeriyle belirtin.
 
-Aspose.Slides for Node.js via Java'da, [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) sınıfı, piksel verileriyle tanımlanan görüntülerle çalışmanıza olanak sağlar. Bu sınıfı BMP, JPG, PNG vb. geniş bir format yelpazesinde görüntüleri kaydetmek için kullanabilirsiniz.
+## **Convert a Slide to a PNG Image**
 
-## **Slaytları Bitmape Dönüştür ve Görüntüleri PNG Olarak Kaydet**
+En basit dönüşüm, varsayılan renderleme ayarlarını kullanır. Oluşan [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) nesnesi bellekte işlenebilir ya da bir dosyaya kaydedilebilir.
 
-Bir slaytı bitmap nesnesine dönüştürüp uygulamanızda doğrudan kullanabilirsiniz. Alternatif olarak, slaytı bitmap'e dönüştürüp ardından görüntüyü JPEG veya başka bir tercih edilen formatta kaydedebilirsiniz.
+Aşağıdaki JavaScript örneği, ilk slaytı renderler ve PNG görüntüsü olarak kaydeder:
 
-Bu JavaScript kodu, bir sunumun ilk slaytını bitmap nesnesine dönüştürüp ardından PNG formatında kaydetmeyi gösterir:
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Sunumdaki ilk slaytı bitmap'e dönüştür.
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // Görüntüyü PNG formatında kaydet.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,21 +59,25 @@ try {
 }
 ```
 
-## **Slaytları Özel Boyutlarla Görüntülere Dönüştür**
+## **Convert Slides to Images with Custom Sizes**
 
-Belirli bir boyutta görüntü almanız gerekebilir. [getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#getImage) metodunun bir aşırı yüklemesini kullanarak, bir slaytı belirli boyutlarda (genişlik ve yükseklik) bir görüntüye dönüştürebilirsiniz.
+Tam piksel boyutlarıyla bir slaytı renderlemek için `java.awt.Dimension` değerini kabul eden [Slide.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#getImage) aşırı yüklemesini kullanın.
 
-Bu örnek kod bunu nasıl yapacağınızı gösterir:
+Aşağıdaki örnek, 1820 × 1040 boyutlarında bir JPEG görüntüsü oluşturur:
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Sunumdaki ilk slaytı belirtilen boyutta bitmap'e dönüştür.
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // Görüntüyü JPEG formatında kaydet.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,37 +87,37 @@ try {
 }
 ```
 
-## **Notlar ve Yorumlar İçeren Slaytları Görüntülere Dönüştür**
+## **Convert Slides with Notes and Comments to Images**
 
-Bazı slaytlarda notlar ve yorumlar bulunabilir.
+Varsayılan olarak slayt görselleri notları veya yorumları içermez. Notların ve yorumların nerede görüneceğini kontrol etmek için [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) metoduna bir [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/notescommentslayoutingoptions/) nesnesi gönderin.
 
-Aspose.Slides, sunum slaytlarının görüntülere render edilmesini kontrol etmenizi sağlayan iki sınıf—[TiffOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tiffoptions/) ve [RenderingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/renderingoptions/)—sağlar. Her iki sınıf da `setSlidesLayoutOptions` metodunu içerir; bu metot, bir slaytı görüntüye dönüştürürken notların ve yorumların render edilmesini yapılandırmanıza olanak tanır.
+Aşağıdaki örnek, kesilmiş notları slaytın altına ve yorumları sağ tarafına yerleştirir:
 
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/notescommentslayoutingoptions/) sınıfı ile, ortaya çıkan görüntüde notlar ve yorumlar için tercih ettiğiniz konumu belirleyebilirsiniz.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Bu JavaScript kodu, notlar ve yorumlar içeren bir slaytı nasıl dönüştüreceğinizi gösterir:
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Bir sunum dosyası yükle.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Notların konumunu ayarla.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Yorumların konumunu ayarla.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // Yorum alanının genişliğini ayarla.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // Yorum alanının rengini ayarla.
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // Renderleme seçeneklerini oluştur.
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // Sunumun ilk slaytını görüntüye dönüştür.
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Görüntüyü GIF formatında kaydet.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,34 +127,36 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Herhangi bir slayt‑görüntü dönüştürme işleminde, [setNotesPosition](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) yöntemi `BottomFull` konumunu (notların konumunu belirtmek için) uygulamaz; çünkü not metni çok büyük olabilir ve belirtilen görüntü boyutuna sığmayabilir.
-{{% /alert %}} 
+{{% alert title="Uyarı" color="warning" %}}
 
-## **TIFF Seçeneklerini Kullanarak Slaytları Görüntülere Dönüştür**
+Slayt‑görüntü dönüşümü için, [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) metoduna [BottomFull](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/notespositions/) gönderilmemelidir. Notlar, sabit görüntü boyutunun alabileceğinden daha fazla metin içerebilir. Bunun yerine [BottomTruncated](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/notespositions/) kullanın.
 
-[TiffOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tiffoptions/) sınıfı, boyut, çözünürlük, renk paleti ve daha fazlası gibi parametreleri belirlemenize izin vererek ortaya çıkan TIFF görüntüsü üzerinde daha fazla kontrol sağlar.
+{{% /alert %}}
 
-Bu JavaScript kodu, TIFF seçeneklerinin 300 DPI çözünürlükte ve 2160 × 2800 boyutunda siyah‑beyaz bir görüntü üretmek için kullanıldığı bir dönüştürme sürecini gösterir:
+## **Convert Slides to Images Using TIFF Options**
 
-```js
-// Bir sunum dosyası yükle.
-let presentation = new aspose.slides.Presentation("sample.pptx");
+[TiffOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/tiffoptions/) sınıfı, oluşturulan TIFF görüntüsünün boyutunu, çözünürlüğünü ve diğer özelliklerini kontrol etmenizi sağlar.
+
+Aşağıdaki örnek, ilk slaytı 2160 × 2880 boyutlarında, 300 DPI çözünürlükte bir TIFF görüntüsü olarak renderler:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
+
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Sunumdan ilk slaytı al.
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Çıktı TIFF görüntüsünün ayarlarını yapılandır.
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Görüntü boyutunu ayarla.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Piksel formatını ayarla (siyah ve beyaz).
-    tiffOptions.setDpiX(300);                                                          // Yatay çözünürlüğü ayarla.
-    tiffOptions.setDpiY(300);                                                          // Dikey çözünürlüğü ayarla.
-
-    // Slaytı belirtilen seçeneklerle görüntüye dönüştür.
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // Görüntüyü TIFF formatında kaydet.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -157,34 +166,33 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Tiff desteği JDK 9 öncesi sürümlerde garanti edilmez.
-{{% /alert %}} 
+{{% alert title="Uyarı" color="warning" %}}
 
-## **Tüm Slaytları Görüntülere Dönüştür**
+TIFF desteği, JDK 9’dan önceki Java sürümlerinde garanti edilmez.
 
-Aspose.Slides, bir sunumdaki tüm slaytları görüntülere dönüştürmenizi sağlar; böylece tüm sunumu bir dizi görüntüye dönüştürmüş olursunuz.
+{{% /alert %}}
 
-Bu örnek kod, bir sunumdaki tüm slaytları JavaScript ile görüntülere dönüştürmeyi gösterir:
+## **Convert All Slides to Images**
 
-```js
+Tüm sunumu bir dizi görüntüye dönüştürmek için slayt koleksiyonunda döngü yapın. Gizli slaytlar, özellikle atlamazsanız dahil edilir.
+
+Aşağıdaki örnek, her slaytı yatay ve dikey ölçek faktörleri 2 olan bir JPEG görüntüsü olarak renderler:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Sunumu slayt slayt görüntülere render et.
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // Gizli slaytları kontrol et (gizli slaytları render etme).
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // Slaytı görüntüye dönüştür.
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // Görüntüyü JPEG formatında kaydet.
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -194,16 +202,91 @@ try {
 }
 ```
 
+## **Create Enhanced Metafile Output**
+
+Enhanced Metafile (EMF), vektör tabanlı grafiklerin Microsoft Office veya Windows metafile desteği olan diğer Windows uygulamalarıyla değiş tokuş edilmesi gerektiğinde kullanışlıdır. Piksel tabanlı bir görüntünün aksine, EMF, aynı keskinlik kaybı olmadan ölçeklenebilen vektör çizim işlemlerini koruyabilir. Ancak EMF, esas olarak Windows metafile desteği olan uygulamalar için bir uyumluluk formatıdır, evrensel bir değiş‑takas formatı değildir. Ayrıca, bitmap görüntüler ve bazı efektler gibi karmaşık slayt içerikleri, vektör metafile konteyneri içinde rasterleştirilmiş öğeler olarak saklanabilir.
+
+### **Export a Slide to EMF**
+
+[Slide.writeAsEmf](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#writeAsEmf) metodu, bir slaytı EMF formatında hedef akıma yazar. Aşağıdaki örnek bir sunumu yükler, ilk slaytı seçer ve bir EMF dosya akışına yazar:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[Slide.writeAsEmf](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#writeAsEmf) metoduna geçirilen akımın sahibi arayan taraftır ve örnekte gösterildiği gibi kapanmasından sorumludur.
+
+### **Convert an SVG Image to EMF and Add It to a Presentation**
+
+SVG içeriğini EMF’ye dönüştürmek için [SvgImage.writeAsEmf](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/#writeAsEmf) kullanın. Ortaya çıkan baytlar, [ImageCollection.addImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/imagecollection/#addImage) aracılığıyla sunuma eklenebilir ve [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) ile bir slayta yerleştirilebilir.
+
+Aşağıdaki örnek, SVG işaretlemesinden bir [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) oluşturur, bunu bellek içinde bir EMF’ye dönüştürür, metafile’i ilk slayta ekler ve sunumu kaydeder:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[SvgImage.writeAsEmf](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/#writeAsEmf), hedef akımın sahipliğini almaz. `java.io.ByteArrayOutputStream` tüm oluşturulan veriyi bellekte tutar; bu nedenle `toByteArray` çağrılmadan önce konum sıfırlamaya gerek yoktur. Döndürülen bayt dizisi, akım kapatıldıktan sonra da geçerliliğini korur.
+
+EMF üretimi, seçilen Aspose.Slides for Node.js via Java ve JDK yapılandırması tarafından desteklenen işletim sistemlerinde kullanılabilir, ancak yazı tipleri veya grafik bağımlılıkları bulunmadığında platformlar arasında renderleme farklılık gösterebilir. Kaynak içeriğin kullandığı yazı tiplerini kurun veya uygun ikameler yapılandırın, Aspose.Slides for Node.js via Java için [platform gereksinimlerini](/slides/tr/nodejs-java/system-requirements/) izleyin ve hedef EMF tüketen uygulamada sonucu doğrulayın. Linux ve macOS uygulamaları genellikle Windows metafile’larını görüntüleme ve düzenlemede sınırlı veya tutarsız destek sunar.
+
+## **Color Emoji Rendering**
+
+{{% alert title="Bilgi" color="info" %}}
+Sunum slaytlarını görüntülere dönüştürürken renkli emoji’lerin doğru renderlenmesi için, sunumda kullanılan emoji yazı tiplerinin dönüştürmeyi yapan sistemde kurulu ve erişilebilir olması gerekir. Örneğin, sunum **Segoe UI Emoji** yazı tipini kullanıyorsa ve bu yazı tipi eksikse, emoji’ler çıktı görüntülerinde tek renkli (monokrom) görünebilir.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Aspose.Slides animasyonlu slaytları render etmeyi destekliyor mu?**
+**Aspose.Slides, animasyonlu slaytların renderlenmesini destekliyor mu?**
 
-Hayır, `getImage` yöntemi slaytı yalnızca statik bir görüntü olarak kaydeder, animasyon içermeden.
+Hayır. [Slide.getImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#getImage) metodu, slaytin statik bir görüntüsünü oluşturur ve animasyonları dışa aktmaz.
 
 **Gizli slaytlar görüntü olarak dışa aktarılabilir mi?**
 
-Evet, gizli slaytlar da normal slaytlar gibi işlenebilir. İşlem döngüsünde yer aldıklarından emin olun.
+Evet. Gizli slaytlar, normal slaytlar gibi renderlenebilir. Yukarıdaki örnekte gösterildiği gibi işleme döngüsüne dahil edin.
 
-**Görseller gölgeler ve efektlerle kaydedilebilir mi?**
+**Slayt görüntülerinde gölgeler ve diğer efektler korunur mu?**
 
-Evet, Aspose.Slides, slaytları görüntü olarak kaydederken gölgeler, şeffaflık ve diğer grafik efektlerinin render edilmesini destekler.
+Evet. Aspose.Slides, gölgeler, şeffaflık ve diğer desteklenen grafik efektlerini slayt görüntülerinde renderler.

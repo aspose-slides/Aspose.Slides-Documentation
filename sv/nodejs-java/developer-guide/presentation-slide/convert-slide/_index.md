@@ -5,48 +5,51 @@ type: docs
 weight: 35
 url: /sv/nodejs-java/convert-slide/
 keywords:
-  - konvertera bild
-  - exportera bild
-  - bild till bild
-  - spara bild som bild
-  - bild till PNG
-  - bild till JPEG
-  - bild till bitmap
-  - bild till TIFF
-  - PowerPoint
-  - OpenDocument
-  - presentation
-  - Node.js
-  - JavaScript
-  - Aspose.Slides
-description: "Konvertera bilder från PPT, PPTX och ODP till bilder i JavaScript med Aspose.Slides för Node.js via Java — snabb, högkvalitativ rendering med tydliga kodexempel."
+- konvertera bild
+- exportera bild
+- bild till bild
+- spara bild som bild
+- bild till EMF
+- bild till PNG
+- bild till JPEG
+- bild till bitmap
+- bild till TIFF
+- PowerPoint
+- OpenDocument
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Konvertera bilder från PPT-, PPTX- och ODP-presentationer till PNG, JPEG, GIF, TIFF, EMF och andra bildformat i JavaScript med Aspose.Slides."
 ---
 ## **Introduktion**
 
-Aspose.Slides för Node.js via Java gör det enkelt att konvertera PowerPoint‑ och OpenDocument‑presentationer till olika bildformat, inklusive BMP, PNG, JPG (JPEG), GIF och andra.
+Aspose.Slides för Node.js via Java kan rendera individuella bilder från PowerPoint- och OpenDocument-presentationer som PNG, JPEG, GIF, TIFF och andra bildformat.
 
-För att konvertera en bild till en bildfil, följ dessa steg:
+För att konvertera en bild till en bild, följ dessa steg:
 
-1. Definiera önskade konverteringsinställningar och välj de bilder du vill exportera genom att använda:
-    - Klassen [TiffOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/tiffoptions/), eller
-    - Klassen [RenderingOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/renderingoptions/).
-2. Generera bildfilen genom att anropa metoden [getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/#getImage).
+1. Läs in presentationen med klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/).
+2. Välj den bild du vill rendera.
+3. Om nödvändigt, konfigurera rendering med klassen [RenderingOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/renderingoptions/) eller [TiffOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/tiffoptions/).
+4. Anropa metoden [Slide.getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/#getImage). Den returnerar ett [IImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/iimage/)‑objekt.
+5. Anropa metoden [IImage.save](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/iimage/#save) och ange utdataformatet med ett [ImageFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imageformat/)‑värde.
 
-I Aspose.Slides för Node.js via Java är en [IImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/iimage/) en klass som låter dig arbeta med bilder definierade av pixeldata. Du kan använda denna klass för att spara bilder i ett brett sortiment av format (BMP, JPG, PNG osv.).
+## **Konvertera en bild till en PNG‑bild**
 
-## **Konvertera bilder till bitmap och spara dem i PNG**
+Den enklaste konverteringen använder standardinställningarna för rendering. Det resulterande [IImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/iimage/)‑objektet kan bearbetas i minnet eller sparas till en fil.
 
-Du kan konvertera en bild till ett bitmap‑objekt och använda det direkt i din applikation. Alternativt kan du konvertera en bild till en bitmap och sedan spara den i JPEG eller något annat önskat format.
+Följande JavaScript‑exempel renderar den första bilden och sparar den som en PNG‑bild:
 
-Denna JavaScript‑kod visar hur du konverterar den första bilden i en presentation till ett bitmap‑objekt och sedan sparar bilden i PNG‑format:
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Konvertera den första bilden i presentationen till en bitmap.
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // Spara bilden i PNG-format.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,21 +59,25 @@ try {
 }
 ```
 
-## **Konvertera bilder till bilder med anpassade storlekar**
+## **Konvertera bilder till bildformat med anpassade storlekar**
 
-Du kan behöva en bild i en viss storlek. Genom att använda en överlagring av [getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/#getImage) kan du konvertera en bild till en bild med specifika dimensioner (bredd och höjd).
+Använd överlagringen av [Slide.getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/#getImage) som accepterar ett `java.awt.Dimension`‑värde för att rendera en bild med exakta pixeldimensioner.
 
-Denna exempelkod visar hur du gör detta:
+Följande exempel skapar en 1820 × 1040 JPEG‑bild:
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Konvertera den första bilden i presentationen till en bitmap med angiven storlek.
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // Spara bilden i JPEG-format.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -82,35 +89,35 @@ try {
 
 ## **Konvertera bilder med anteckningar och kommentarer till bilder**
 
-Vissa bilder kan innehålla anteckningar och kommentarer.
+Som standard innehåller bildfilerna inga anteckningar eller kommentarer. Skicka ett [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notescommentslayoutingoptions/)‑objekt till metoden [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) för att styra var anteckningar och kommentarer visas.
 
-Aspose.Slides tillhandahåller två klasser—[TiffOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/tiffoptions/) och [RenderingOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/renderingoptions/)—som låter dig styra rendering av presentationsbilder till bilder. Båda klasserna innehåller metoden `setSlidesLayoutOptions`, som gör det möjligt att konfigurera rendering av anteckningar och kommentarer på en bild när den konverteras till en bild.
+Följande exempel placerar avkortade anteckningar under bilden och kommentarer till höger om den:
 
-Med klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notescommentslayoutingoptions/) kan du ange din föredragna position för anteckningar och kommentarer i den resulterande bilden.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Denna JavaScript‑kod visar hur du konverterar en bild med anteckningar och kommentarer:
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Load a presentation file.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Ange positionen för anteckningarna.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Ange positionen för kommentarerna.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // Ange bredden på kommentarsområdet.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // Ange färgen för kommentarsområdet.
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // Skapa renderingsalternativen.
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // Konvertera den första bilden i presentationen till en bild.
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Spara bilden i GIF-format.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,34 +127,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-I alla bild‑till‑bild‑konverteringsprocesser kan metoden [setNotesPosition](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) inte tillämpa `BottomFull` (för att ange positionen för anteckningar) eftersom en antecknings text kan vara för stor och därmed inte få plats i den angivna bildstorleken.
-{{% /alert %}} 
+{{% alert title="Varning" color="warning" %}}
+Vid konvertering från bild till bildfil får du inte skicka [BottomFull](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notespositions/) till metoden [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Anteckningar kan innehålla mer text än den fasta bildstorleken kan rymma. Använd [BottomTruncated](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notespositions/) istället.
+{{% /alert %}}
 
-## **Konvertera bilder till bilder med TIFF‑alternativ**
+## **Konvertera bilder till bildformat med TIFF‑alternativ**
 
-Klassen [TiffOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/tiffoptions/) ger större kontroll över den resulterande TIFF‑bilden genom att låta dig specificera parametrar som storlek, upplösning, färgpalett och mer.
+Klassen [TiffOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/tiffoptions/) låter dig styra storlek, upplösning och andra egenskaper för den renderade TIFF‑bilden.
 
-Denna JavaScript‑kod visar en konverteringsprocess där TIFF‑alternativ används för att generera en svart‑vit bild med 300 DPI‑upplösning och en storlek på 2160 × 2800:
+Följande exempel renderar den första bilden som en 2160 × 2880 TIFF‑bild med 300 DPI:
 
-```js
-// Läs in en presentationsfil.
-let presentation = new aspose.slides.Presentation("sample.pptx");
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
+
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Hämta den första bilden från presentationen.
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Konfigurera inställningarna för den utgående TIFF-bilden.
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Ange bildstorlek.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Ange pixelformaten (svartvitt).
-    tiffOptions.setDpiX(300);                                                          // Ange horisontell upplösning.
-    tiffOptions.setDpiY(300);                                                          // Ange vertikal upplösning.
-
-    // Konvertera bilden till en bild med de angivna alternativen.
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // Spara bilden i TIFF-format.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -157,34 +164,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Tiff‑stöd garanteras inte i versioner äldre än JDK 9.
-{{% /alert %}} 
+{{% alert title="Varning" color="warning" %}}
+TIFF‑stöd garanteras inte i Java‑versioner äldre än JDK 9.
+{{% /alert %}}
 
-## **Konvertera alla bilder till bilder**
+## **Konvertera alla bilder till bildformat**
 
-Aspose.Slides låter dig konvertera alla bilder i en presentation till bilder, vilket effektivt omvandlar hela presentationen till en serie bilder.
+Iterera genom bildsamlingen för att konvertera hela presentationen till en serie bilder. Dolda bilder inkluderas såvida du inte explicit hoppar över dem.
 
-Denna exempelkod visar hur du konverterar alla bilder i en presentation till bilder i JavaScript:
+Följande exempel renderar varje bild som en JPEG‑bild med horisontella och vertikala skalfaktorer på 2:
 
-```js
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Rendera presentationen till bilder bild för bild.
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // Hantera dolda bilder (rendera inte dolda bilder).
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // Konvertera bilden till en bild.
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // Spara bilden i JPEG-format.
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -194,16 +198,91 @@ try {
 }
 ```
 
-## **FAQ**
+## **Skapa Enhanced Metafile‑utdata**
+
+Enhanced Metafile (EMF) är användbart när vektorgrafik måste utbytas med Microsoft Office eller andra Windows‑program som stöder Windows‑metafiler. Till skillnad från en pixelbaserad bild kan en EMF behålla vektorritningsoperationer som skalas utan samma förlust av skärpa. EMF är dock främst ett kompatibilitetsformat för program med stöd för Windows‑metafiler, inte ett universellt utbytesformat. Dessutom kan komplext bildinnehåll, såsom bitmapbilder och vissa effekter, lagras som rasteriserade element i den vektor‑metafilkontainern.
+
+### **Exportera en bild till EMF**
+
+Metoden [Slide.writeAsEmf](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/#writeAsEmf) skriver en bild till ett målstöm i EMF‑format. Följande exempel läser in en presentation, väljer den första bilden och skriver den till ett EMF‑filström:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Anroparen äger strömmen som skickas till [Slide.writeAsEmf](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/#writeAsEmf) och är ansvarig för att stänga den, som visas ovan.
+
+### **Konvertera en SVG‑bild till EMF och lägg till den i en presentation**
+
+Använd [SvgImage.writeAsEmf](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/svgimage/#writeAsEmf) för att konvertera SVG‑innehåll till EMF. De resulterande bytena kan läggas till i presentationen via [ImageCollection.addImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagecollection/#addImage) och placeras på en bild med [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/#addPictureFrame).
+
+Följande exempel skapar en [SvgImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/svgimage/) från SVG‑markup, konverterar den till ett EMF‑objekt i minnet, infogar metafilen på den första bilden och sparar presentationen:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[SvgImage.writeAsEmf](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/svgimage/#writeAsEmf) tar inte ägandeskap över destinationsströmmen. En `java.io.ByteArrayOutputStream` lagrar all genererad data i minnet, så ingen positionsåterställning behövs innan `toByteArray` anropas. Den returnerade byte‑arrayen förblir giltig efter att strömmen har stängts.
+
+EMF‑generering är tillgänglig på de operativsystem som stöds av den valda Aspose.Slides för Node.js via Java och JDK‑konfiguration, men rendering kan variera mellan plattformar när teckensnitt eller grafikberoenden saknas. Installera de teckensnitt som används av källinnehållet eller konfigurera lämpliga substitutioner, följ [plattformskraven](/slides/sv/nodejs-java/system-requirements/) för Aspose.Slides för Node.js via Java och validera resultatet i den mål‑EMF‑konsumerande applikationen. Linux‑ och macOS‑program har ofta begränsat eller inkonsekvent stöd för att visa och redigera Windows‑metafiler.
+
+## **Rendering av färg‑emoji**
+
+{{% alert title="Notering" color="info" %}}
+För att rendera färg‑emoji korrekt när presentationens bilder konverteras till bildformat måste de emoji‑teckensnitt som används i presentationen vara installerade och tillgängliga på systemet som utför konverteringen. Till exempel, om presentationen använder **Segoe UI Emoji** och detta teckensnitt saknas, kan emoji visas i monokrom i utdata‑bilderna.
+{{% /alert %}}
+
+## **Vanliga frågor**
 
 **Stöder Aspose.Slides rendering av bilder med animationer?**
 
-Nej, metoden `getImage` sparar bara en statisk bild av bilden, utan animationer.
+Nej. Metoden [Slide.getImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/#getImage) renderar en statisk bild av sliden och exporterar inte animationer.
 
 **Kan dolda bilder exporteras som bilder?**
 
-Ja, dolda bilder kan behandlas precis som vanliga. Se bara till att de inkluderas i bearbetningsslingan.
+Ja. Dolda bilder kan renderas som vanliga bilder. Inkludera dem i bearbetningsloopen, som i exemplet ovan.
 
-**Kan bilder sparas med skuggor och effekter?**
+**Bevaras skuggor och andra effekter i bildfilerna?**
 
-Ja, Aspose.Slides stöder rendering av skuggor, transparens och andra grafiska effekter när bilder sparas som bilder.
+Ja. Aspose.Slides renderar skuggor, genomskinlighet och andra stödda grafiska effekter i bildfilerna.

@@ -4,48 +4,53 @@ linktitle: Diapositiva in immagine
 type: docs
 weight: 35
 url: /it/java/convert-slide/
-keywords: 
-- converti diapositiva
-- esporta diapositiva
-- diapositiva in immagine
+keywords:
+- convertire diapositiva
+- esportare diapositiva
+- diapositiva a immagine
 - salva diapositiva come immagine
-- diapositiva in PNG
-- diapositiva in JPEG
-- diapositiva in bitmap
-- diapositiva in TIFF
+- diapositiva a EMF
+- diapositiva a PNG
+- diapositiva a JPEG
+- diapositiva a bitmap
+- diapositiva a TIFF
 - PowerPoint
 - OpenDocument
 - presentazione
 - Java
 - Aspose.Slides
-description: "Converti diapositive da PPT, PPTX e ODP in immagini in Java con Aspose.Slides—rendering veloce e di alta qualità con esempi di codice chiari."
+description: "Converti diapositive da presentazioni PPT, PPTX e ODP in PNG, JPEG, GIF, TIFF, EMF e altri formati immagine in Java con Aspose.Slides."
 ---
 ## **Introduzione**
 
-Aspose.Slides per Java consente di convertire facilmente le diapositive di presentazioni PowerPoint e OpenDocument in vari formati immagine, tra cui BMP, PNG, JPG (JPEG), GIF e altri.
+Aspose.Slides per Java può renderizzare singole diapositive da presentazioni PowerPoint e OpenDocument come PNG, JPEG, GIF, TIFF e altri formati immagine.
 
-Per convertire una diapositiva in un'immagine, segui questi passaggi:
+Per convertire una diapositiva in un'immagine, seguire questi passaggi:
 
-1. Definisci le impostazioni di conversione desiderate e seleziona le diapositive da esportare utilizzando:
-    - L'interfaccia [ITiffOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/itiffoptions/),
-    - L'interfaccia [IRenderingOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/irenderingoptions/).
-2. Genera l'immagine della diapositiva chiamando il metodo [getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-).
+1. Caricare la presentazione con la classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
+2. Selezionare la diapositiva da renderizzare.
+3. Se necessario, configurare il rendering con la classe [RenderingOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/renderingoptions/) o [TiffOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/tiffoptions/).
+4. Chiamare il metodo [ISlide.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#getImage--). Restituisce un oggetto [IImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/).
+5. Chiamare il metodo [IImage.save](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/#save-java.lang.String-int-) e specificare il formato di output con un valore [ImageFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/imageformat/).
 
-In Aspose.Slides per Java, un [IImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/) è un'interfaccia che consente di lavorare con immagini definite da dati pixel. Puoi usare questa interfaccia per salvare le immagini in un'ampia gamma di formati (BMP, JPG, PNG, ecc.).
+## **Convertire una diapositiva in un'immagine PNG**
 
-## **Converti Diapositive in Bitmap e Salva le Immagini in PNG**
+La conversione più semplice utilizza le impostazioni predefinite di rendering. L'oggetto [IImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/) risultante può essere elaborato in memoria o salvato su file.
 
-Puoi convertire una diapositiva in un oggetto bitmap e usarlo direttamente nella tua applicazione. In alternativa, puoi convertire una diapositiva in un bitmap e poi salvare l'immagine in JPEG o in qualsiasi altro formato preferito.
+Il seguente esempio Java renderizza la prima diapositiva e la salva come immagine PNG:
 
-Questo codice dimostra come convertire la prima diapositiva di una presentazione in un oggetto bitmap e poi salvare l'immagine in formato PNG:
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
 
-```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Converti la prima diapositiva della presentazione in una bitmap.
-    IImage image = presentation.getSlides().get_Item(0).getImage();
-	try {
-        // Salva l'immagine nel formato PNG.
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IImage image = slide.getImage();
+    try {
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -55,22 +60,27 @@ try {
 }
 ```
 
-## **Converti Diapositive in Immagini con Dimensioni Personalizzate**
+## **Convertire diapositive in immagini con dimensioni personalizzate**
 
-Potresti aver bisogno di ottenere un'immagine di una certa dimensione. Utilizzando una sovraccarico del metodo [getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), puoi convertire una diapositiva in un'immagine con dimensioni specifiche (larghezza e altezza).
+Utilizzare la sovraccarico [ISlide.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) che accetta un valore [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) per renderizzare una diapositiva con esatte dimensioni in pixel.
 
-Questo esempio di codice dimostra come farlo:
+Il seguente esempio crea un'immagine JPEG 1820 × 1040:
 
-```java 
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import java.awt.Dimension;
+
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Converti la prima diapositiva della presentazione in una bitmap con la dimensione specificata.
-    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IImage image = slide.getImage(imageSize);
     try {
-        // Salva l'immagine nel formato JPEG.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,38 +90,43 @@ try {
 }
 ```
 
-## **Converti Diapositive con Note e Commenti in Immagini**
+## **Convertire diapositive con note e commenti in immagini**
 
-Alcune diapositive possono contenere note e commenti.
+Per impostazione predefinita, le immagini delle diapositive non includono note o commenti. Passare un oggetto [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/notescommentslayoutingoptions/) al metodo [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/renderingoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) per controllare dove appaiono note e commenti.
 
-Aspose.Slides fornisce due interfacce—[ITiffOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/itiffoptions/) e [IRenderingOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/irenderingoptions/)—che consentono di controllare il rendering delle diapositive della presentazione in immagini. Entrambe le interfacce includono il metodo `setSlidesLayoutOptions`, che permette di configurare il rendering di note e commenti su una diapositiva durante la conversione in immagine.
+Il seguente esempio posiziona note troncate sotto la diapositiva e commenti a destra:
 
-Con la classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/notescommentslayoutingoptions/) puoi specificare la posizione preferita per note e commenti nell'immagine risultante.
+```java
+import com.aspose.slides.CommentsPositions;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.NotesCommentsLayoutingOptions;
+import com.aspose.slides.NotesPositions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
+import java.awt.Color;
 
-Questo codice dimostra come convertire una diapositiva con note e commenti:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
-// Carica un file di presentazione.
+Color commentsAreaColor = new Color(250, 235, 215);
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Imposta la posizione delle note.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Imposta la posizione dei commenti.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Imposta la larghezza dell'area dei commenti.
-    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // Imposta il colore per l'area dei commenti.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Crea le opzioni di rendering.
-    RenderingOptions options = new RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
-
-    // Converte la prima diapositiva della presentazione in un'immagine.
-    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
-
+    IImage image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Salva l'immagine nel formato GIF.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -121,35 +136,37 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-In qualsiasi processo di conversione da diapositiva a immagine, il metodo [setNotesPosition](https://reference.aspose.com/slides/it/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) non può applicare `BottomFull` (per specificare la posizione delle note) perché il testo di una nota può essere troppo grande, impedendone l'adattamento alla dimensione dell'immagine specificata.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Per la conversione da diapositiva a immagine, non passare [BottomFull](https://reference.aspose.com/slides/it/java/com.aspose.slides/notespositions/) al metodo [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/it/java/com.aspose.slides/notescommentslayoutingoptions/#setNotesPosition-int-). Le note possono contenere più testo di quanto la dimensione fissa dell'immagine possa contenere. Utilizzare invece [BottomTruncated](https://reference.aspose.com/slides/it/java/com.aspose.slides/notespositions/).
+{{% /alert %}}
 
-## **Converti Diapositive in Immagini Usando le Opzioni TIFF**
+## **Convertire diapositive in immagini usando le opzioni TIFF**
 
-L'interfaccia [ITiffOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/itiffoptions/) offre un maggiore controllo sull'immagine TIFF risultante consentendo di specificare parametri come dimensione, risoluzione, tavolozza dei colori e altro.
+La classe [TiffOptions](https://reference.aspose.com/slides/it/java/com.aspose.slides/tiffoptions/) consente di controllare le dimensioni, la risoluzione e altre proprietà dell'immagine TIFF renderizzata.
 
-Questo codice dimostra un processo di conversione in cui le opzioni TIFF sono usate per generare un'immagine in bianco e nero con una risoluzione di 300 DPI e una dimensione di 2160 × 2800:
+Il seguente esempio renderizza la prima diapositiva come immagine TIFF 2160 × 2880 a 300 DPI:
 
-```java 
-// Carica un file di presentazione.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.TiffOptions;
+import java.awt.Dimension;
+
+Dimension imageSize = new Dimension(2160, 2880);
+
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Ottieni la prima diapositiva dalla presentazione.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Configura le impostazioni dell'immagine TIFF di output.
-    TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Dimension(2160, 2880));             // Imposta la dimensione dell'immagine.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Imposta il formato pixel (bianco e nero).
-    tiffOptions.setDpiX(300);                                        // Imposta la risoluzione orizzontale.
-    tiffOptions.setDpiY(300);                                        // Imposta la risoluzione verticale.
-
-    // Converte la diapositiva in un'immagine con le opzioni specificate.
     IImage image = slide.getImage(tiffOptions);
-
     try {
-        // Salva l'immagine in formato TIFF.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -159,60 +176,132 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Il supporto TIFF non è garantito nelle versioni precedenti a JDK 9.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Il supporto TIFF non è garantito nelle versioni Java anteriori a JDK 9.
+{{% /alert %}}
 
-## **Converti Tutte le Diapositive in Immagini**
+## **Convertire tutte le diapositive in immagini**
 
-Aspose.Slides consente di convertire tutte le diapositive di una presentazione in immagini, trasformando efficacemente l'intera presentazione in una serie di immagini.
+Iterare la raccolta di diapositive per convertire l'intera presentazione in una serie di immagini. Le diapositive nascoste sono incluse a meno che non vengano saltate esplicitamente.
 
-Questo esempio di codice dimostra come convertire tutte le diapositive di una presentazione in immagini in Java:
+Il seguente esempio renderizza ogni diapositiva come immagine JPEG con fattori di scala orizzontale e verticale pari a 2:
 
-```java 
-float scaleX = 2;
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+float scaleX = 2f;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Esegui il rendering della presentazione in immagini diapositiva per diapositiva.
-    for (int i = 0 ; i < presentation.getSlides().size(); i++)
-    {
-        // Gestisci le diapositive nascoste (non renderizzare le diapositive nascoste).
-        if (presentation.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // Converti la diapositiva in un'immagine.
-        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
-
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-            // Salva l'immagine nel formato JPEG.
-            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
     }
 } finally {
     presentation.dispose();
-} 
+}
 ```
 
-## **Rendering di Emoji a Colori**
+## **Creare output Metafile migliorato**
 
-{{% alert title="Note" color="warning" %}} 
-Per renderizzare correttamente le emoji a colori durante la conversione delle diapositive della presentazione in immagini, i font emoji utilizzati nella presentazione devono essere installati e disponibili sul sistema che esegue la conversione. Per esempio, se la presentazione utilizza **Segoe UI Emoji** e questo font è assente, le emoji potrebbero apparire in bianco e nero nelle immagini di output.
+Enhanced Metafile (EMF) è utile quando è necessario scambiare grafica vettoriale con Microsoft Office o altre applicazioni Windows che supportano i metafile Windows. A differenza di un'immagine basata su pixel, un EMF può conservare le operazioni di disegno vettoriale che si scalano senza la stessa perdita di nitidezza. Tuttavia, EMF è principalmente un formato di compatibilità per le applicazioni con supporto ai metafile Windows, non un formato di scambio universale. Inoltre, contenuti complessi delle diapositive, come immagini bitmap e alcuni effetti, possono essere memorizzati come elementi rasterizzati all'interno del contenitore del metafile vettoriale.
+
+### **Esportare una diapositiva in EMF**
+
+Il metodo [ISlide.writeAsEmf](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) scrive un [ISlide](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/) su uno stream di destinazione in formato EMF. Il seguente esempio carica una presentazione, seleziona la prima diapositiva e la scrive su uno stream di file EMF:
+
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    FileOutputStream emfStream = new FileOutputStream("Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Chi chiama possiede lo stream passato a [ISlide.writeAsEmf](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) ed è responsabile della sua chiusura, come mostrato sopra.
+
+### **Convertire un'immagine SVG in EMF e aggiungerla a una presentazione**
+
+Utilizzare [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/it/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) per convertire il contenuto SVG in EMF. I byte risultanti possono essere aggiunti alla presentazione tramite [IImageCollection.addImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimagecollection/#addImage-byte:A-) e posizionati su una diapositiva con [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-).
+
+Il seguente esempio crea un [SvgImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/svgimage/) dal markup SVG, lo converte in un EMF in memoria, inserisce il metafile nella prima diapositiva e salva la presentazione:
+
+```java
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ISvgImage;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import com.aspose.slides.SvgImage;
+import java.io.ByteArrayOutputStream;
+
+String svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+ISvgImage svgImage = new SvgImage(svgContent);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ByteArrayOutputStream emfStream = new ByteArrayOutputStream();
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        byte[] emfData = emfStream.toByteArray();
+        IPPImage image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[ISvgImage.writeAsEmf](https://reference.aspose.com/slides/it/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) non prende possesso dello stream di destinazione. Un [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) memorizza tutti i dati generati in memoria, quindi non è necessario reinizializzare la posizione prima di chiamare `toByteArray`. L'array di byte restituito rimane valido dopo la chiusura dello stream.
+
+La generazione di EMF è disponibile sui sistemi operativi supportati dalla configurazione selezionata di Aspose.Slides per Java e JDK, ma il rendering può differire tra piattaforme quando i font o le dipendenze grafiche non sono disponibili. Installare i font utilizzati dal contenuto di origine o configurare sostituzioni adeguate, seguire i [requisiti di piattaforma](/slides/it/java/system-requirements/) per Aspose.Slides per Java e convalidare il risultato nell'applicazione di destinazione che consuma EMF. Le applicazioni Linux e macOS spesso hanno un supporto limitato o incoerente per la visualizzazione e la modifica dei metafile Windows.
+
+## **Rendering emoji a colori**
+
+{{% alert title="Note" color="info" %}}
+Per renderizzare correttamente gli emoji a colori durante la conversione delle diapositive della presentazione in immagini, i font emoji utilizzati nella presentazione devono essere installati e disponibili sul sistema che esegue la conversione. Ad esempio, se la presentazione utilizza **Segoe UI Emoji** e questo font è mancante, gli emoji potrebbero apparire in monocromo nelle immagini di output.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Aspose.Slides supporta il rendering di diapositive con animazioni?**
 
-No, il metodo `getImage` salva solo un'immagine statica della diapositiva, senza animazioni.
+No. Il metodo [ISlide.getImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#getImage--) renderizza un'immagine statica della diapositiva e non esporta le animazioni.
 
 **Le diapositive nascoste possono essere esportate come immagini?**
 
-Sì, le diapositive nascoste possono essere elaborate proprio come quelle normali. Basta assicurarsi che siano incluse nel ciclo di elaborazione.
+Sì. Le diapositive nascoste possono essere renderizzate come le diapositive regolari. Includerle nel ciclo di elaborazione, come mostrato nell'esempio sopra.
 
-**Le immagini possono essere salvate con ombre ed effetti?**
+**Ombre e altri effetti sono preservati nelle immagini delle diapositive?**
 
-Sì, Aspose.Slides supporta il rendering di ombre, trasparenza e altri effetti grafici durante il salvataggio delle diapositive come immagini.
+Sì. Aspose.Slides renderizza ombre, trasparenza e altri effetti grafici supportati nelle immagini delle diapositive.

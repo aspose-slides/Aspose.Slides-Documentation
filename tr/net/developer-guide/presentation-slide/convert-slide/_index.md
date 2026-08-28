@@ -1,191 +1,225 @@
 ---
 title: Sunum Slaytlarını .NET'te Görüntülere Dönüştürme
-linktitle: Slayttan Görüntüye
+linktitle: Slayt Görüntüye
 type: docs
 weight: 41
 url: /tr/net/convert-slide/
 keywords:
 - slaytı dönüştür
 - slaytı dışa aktar
-- slayttan görüntüye
+- slayttan görüntü
 - slaytı görüntü olarak kaydet
-- slayttan PNG'ye
-- slayttan JPEG'e
-- slayttan bitmap'e
-- slayttan TIFF'e
+- slayttan EMF
+- slayttan PNG
+- slayttan JPEG
+- slayttan bitmap
+- slayttan TIFF
 - PowerPoint
 - OpenDocument
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak C# ile PPT, PPTX ve ODP dosyalarındaki slaytları görüntülere dönüştürün—hızlı, yüksek kaliteli renderleme ve net kod örnekleri."
+description: "PPT, PPTX ve ODP sunumlarından PNG, JPEG, GIF, TIFF, EMF ve diğer görüntü formatlarına C# ile Aspose.Slides for .NET kullanarak slaytları dönüştürün."
 ---
 ## **Giriş**
 
-Aspose.Slides for .NET, PowerPoint ve OpenDocument sunum slaytlarını BMP, PNG, JPG (JPEG), GIF ve diğer çeşitli görüntü formatlarına kolayca dönüştürmenizi sağlar.
+Aspose.Slides for .NET, PowerPoint ve OpenDocument sunumlarından tek tek slaytları PNG, JPEG, GIF, TIFF ve diğer görüntü formatları olarak render edebilir.
 
 Bir slaytı görüntüye dönüştürmek için şu adımları izleyin:
 
-1. İstediğiniz dönüşüm ayarlarını tanımlayın ve dışa aktarmak istediğiniz slaytları aşağıdakileri kullanarak seçin:
-    - [ITiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/itiffoptions/) arayüzü, veya
-    - [IRenderingOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/irenderingoptions/) arayüzü.
-2. Slayt görüntüsünü oluşturmak için [GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/getimage/) metodunu çağırın.
+1. Sunumu [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı ile yükleyin.
+2. Render etmek istediğiniz slaytı seçin.
+3. Gerekirse renderlemeyi [RenderingOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/renderingoptions/) veya [TiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/) sınıfı ile yapılandırın.
+4. [GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/getimage/) yöntemini çağırın. Bu, bir [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) nesnesi döndürür.
+5. [IImage.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/save/) yöntemini çağırın ve çıktı formatını bir [ImageFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/imageformat/) değeriyle belirtin.
 
-.NET'te, [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) piksel verileriyle tanımlanan görüntülerle çalışmanıza olanak tanıyan bir nesnedir. Bu sınıfın bir örneğini kullanarak BMP, JPG, PNG vb. çeşitli formatlarda görüntüleri kaydedebilirsiniz.
+## **Bir Slaytı PNG Görüntüsü Olarak Dönüştürme**
 
-## **Slaytları Bitmapi'ye Dönüştürmek ve PNG Olarak Görüntüleri Kaydetmek**
+En basit dönüşüm, varsayılan render ayarlarını kullanır. Oluşan [IImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimage/) nesnesi bellekte işlenebilir veya bir dosyaya kaydedilebilir.
 
-Bir slaytı bitmap nesnesine dönüştürüp uygulamanızda doğrudan kullanabilirsiniz. Alternatif olarak, slaytı bitmap'e dönüştürüp ardından görüntüyü JPEG veya tercih ettiğiniz başka bir formatta kaydedebilirsiniz.
-
-Bu C# kodu, bir sunumun ilk slaytını bitmap nesnesine dönüştürüp ardından PNG formatında kaydetmeyi gösterir:
+Aşağıdaki C# örneği ilk slaytı render eder ve PNG görüntüsü olarak kaydeder:
 
 ```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage();
+image.Save("Slide_0.png", ImageFormat.Png);
+```
+
+## **Özel Boyutlarla Slaytları Görüntülere Dönüştürme**
+
+Bir slaytı tam piksel boyutlarıyla renderlemek için [Size](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.size) değerini kabul eden [GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/getimage/) aşırı yüklemesini kullanın.
+
+Aşağıdaki örnek 1820 × 1040 JPEG görüntüsü oluşturur:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+var imageSize = new Size(1820, 1040);
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(imageSize);
+image.Save("Slide_0.jpg", ImageFormat.Jpeg);
+```
+
+## **Not ve Yorumlu Slaytları Görüntülere Dönüştürme**
+
+Varsayılan olarak, slayt görüntüleri notları veya yorumları içermez. Notların ve yorumların nerede görüneceğini kontrol etmek için bir [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/notescommentslayoutingoptions/) nesnesini [RenderingOptions.SlidesLayoutOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/renderingoptions/slideslayoutoptions/) özelliğine atayın.
+
+Aşağıdaki örnek, kesilmiş notları slaydın altına ve yorumları sağ tarafına yerleştirir:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // Sunumdaki ilk slaytı bitmap'e dönüştür.
-    using (IImage image = presentation.Slides[0].GetImage())
-    {
-        // Görüntüyü PNG formatında kaydet.
-        image.Save("Slide_0.png", ImageFormat.Png);
-    }
+    NotesPosition = NotesPositions.BottomTruncated,
+    CommentsPosition = CommentsPositions.Right,
+    CommentsAreaWidth = 500,
+    CommentsAreaColor = Color.AntiqueWhite
+};
+
+var renderingOptions = new RenderingOptions { SlidesLayoutOptions = layoutOptions };
+
+using var presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(renderingOptions, scaleX, scaleY);
+image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
+```
+
+{{% alert title="Uyarı" color="warning" %}}
+Slaytı-görüntüye dönüştürme işlemi için, [NotesPosition](https://reference.aspose.com/slides/tr/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) özelliğini [BottomFull](https://reference.aspose.com/slides/tr/net/aspose.slides.export/notespositions/) olarak ayarlamayın. Notlar, sabit görüntü boyutunun alabileceğinden daha fazla metin içerebilir. Bunun yerine [BottomTruncated](https://reference.aspose.com/slides/tr/net/aspose.slides.export/notespositions/) kullanın.
+{{% /alert %}}
+
+## **TIFF Seçeneklerini Kullanarak Slaytları Görüntülere Dönüştürme**
+
+[TiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/) sınıfı, render edilen TIFF görüntüsünün boyutunu, çözünürlüğünü ve diğer özelliklerini kontrol etmenizi sağlar.
+
+Aşağıdaki örnek, ilk slaytı 2160 × 2880 TIFF görüntüsü olarak 300 DPI'da render eder:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var tiffOptions = new TiffOptions
+{
+    ImageSize = new Size(2160, 2880),
+    DpiX = 300,
+    DpiY = 300
+};
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(tiffOptions);
+image.Save("output.tiff", ImageFormat.Tiff);
+```
+
+## **Tüm Slaytları Görüntülere Dönüştürme**
+
+Tüm sunumu bir dizi görüntüye dönüştürmek için slayt koleksiyonunu yineleyin. Gizli slaytlar, açıkça atmadığınız sürece dahil edilir.
+
+Aşağıdaki örnek, her slaytı yatay ve dikey ölçek faktörleri 2 olan JPEG görüntüsü olarak render eder:
+
+```cs
+using Aspose.Slides;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
+{
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"Slide_{index}.jpg", ImageFormat.Jpeg);
 }
 ```
 
-## **Özel Boyutlarla Slaytları Görüntülere Dönüştürmek**
+## **Gelişmiş Metafile Çıktısı Oluşturma**
 
-Belirli bir boyutta bir görüntü almanız gerekebilir. [GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/getimage/) metodunun bir aşırı yüklemesini kullanarak bir slaytı belirli boyutlarda (genişlik ve yükseklik) görüntüye dönüştürebilirsiniz. 
+Gelişmiş Metafile (EMF), vektör tabanlı grafiklerin Microsoft Office veya Windows metafile desteği olan diğer Windows uygulamalarıyla değiş tokuş edilmesi gerektiğinde faydalıdır. Piksel tabanlı bir görüntünün aksine, EMF, keskinlik kaybı olmadan ölçeklenebilen vektör çizim işlemlerini koruyabilir. Ancak EMF, temel olarak Windows metafile desteği olan uygulamalar için bir uyumluluk formatıdır, evrensel bir değişim formatı değildir. Ayrıca, bitmap görüntüler ve bazı efektler gibi karmaşık slayt içeriği, vektör metafile kapsayıcısının içinde rasterleştirilmiş öğeler olarak saklanabilir.
 
-Bu örnek kod bunu nasıl yapacağınızı gösterir:
+### **Bir Slaytı EMF Olarak Dışa Aktarma**
 
-```cs
-Size imageSize = new Size(1820, 1040);
-
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Sunumdaki ilk slaytı belirtilen boyutta bitmap'e dönüştür.
-    using (IImage image = presentation.Slides[0].GetImage(imageSize))
-    {
-        // Görüntüyü JPEG formatında kaydet.
-        image.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
-```
-
-## **Not ve Yorum İçeren Slaytları Görüntülere Dönüştürmek**
-
-Bazı slaytlar not ve yorumlar içerebilir.
-
-Aspose.Slides, sunum slaytlarının görüntülere render edilmesini kontrol etmenizi sağlayan iki arayüz—[ITiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/itiffoptions/) ve [IRenderingOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/irenderingoptions/)—sunar. Her iki arayüz de `SlidesLayoutOptions` özelliğini içerir; bu özellik, bir slaytı görüntüye dönüştürürken not ve yorumların render edilmesini yapılandırmanıza olanak tanır.
-
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/notescommentslayoutingoptions/) sınıfı ile sonuç görüntüde not ve yorumların istediğiniz konumunu belirtebilirsiniz.
-
-Bu C# kodu, not ve yorum içeren bir slaytı nasıl dönüştüreceğinizi gösterir:
+[ISlide.WriteAsEmf](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/writeasemf/) yöntemi, bir [ISlide](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/) hedef akışa EMF formatında yazar. Aşağıdaki örnek bir sunumu yükler, ilk slaytı seçer ve onu bir EMF dosya akışına yazar:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using System.IO;
+using Aspose.Slides;
 
-// Bir sunum dosyası yükle.
-using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
-{
-    // Rendering seçeneklerini oluştur.
-    RenderingOptions options = new RenderingOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomTruncated,  // Notların konumunu ayarla.
-            CommentsPosition = CommentsPositions.Right,      // Yorumların konumunu ayarla.
-            CommentsAreaWidth = 500,                         // Yorum alanının genişliğini ayarla.
-            CommentsAreaColor = Color.AntiqueWhite           // Yorum alanı için rengi ayarla.
-        }
-    };
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
 
-    // Sunumun ilk slaytını görüntüye dönüştür.
-    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
-    {
-        // Görüntüyü GIF formatında kaydet.
-        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
-    }
-}
+using var emfStream = File.Create("Slide_0.emf");
+slide.WriteAsEmf(emfStream);
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Çağıran, [ISlide.WriteAsEmf](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/writeasemf/) yöntemine geçirilen akışın sahibi olup, onu kapatmalı veya dispose etmelidir. Aspose.Slides, akışın mevcut konumunda yazar ve akışı açık bırakır.
 
-Herhangi bir slayt‑görüntü dönüştürme işleminde, [NotesPosition](https://reference.aspose.com/slides/tr/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) özelliği `BottomFull` (notların konumunu belirlemek için) olarak ayarlanamaz çünkü bir notun metni çok büyük olabilir ve belirtilen görüntü boyutuna sığmayabilir.
+### **Bir SVG Görüntüsünü EMF Olarak Dönüştürme ve Sunuma Ekleme**
 
-{{% /alert %}} 
+SVG içeriğini EMF'e dönüştürmek için [ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/tr/net/aspose.slides/isvgimage/writeasemf/) kullanın. Ortaya çıkan baytlar, [IImageCollection.AddImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimagecollection/addimage/) aracılığıyla sunuma eklenebilir ve bir slayta [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addpictureframe/) ile yerleştirilebilir.
 
-## **TIFF Seçeneklerini Kullanarak Slaytları Görüntülere Dönüştürmek**
-
-[ITiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/itiffoptions/) arayüzü, boyut, çözünürlük, renk paleti ve daha fazlası gibi parametreleri belirlemenizi sağlayarak oluşturulan TIFF görüntüsü üzerinde daha fazla kontrol sunar.
-
-Bu C# kodu, TIFF seçeneklerinin 300 DPI çözünürlükte ve 2160 × 2800 boyutunda siyah‑beyaz bir görüntü üretmek için kullanıldığı bir dönüştürme sürecini gösterir:
+Aşağıdaki örnek, SVG işaretlemesinden bir [SvgImage](https://reference.aspose.com/slides/tr/net/aspose.slides/svgimage/) oluşturur, bunu bellek içi bir EMF'e dönüştürür, metafile'i ilk slayta ekler ve sunumu kaydeder:
 
 ```cs
-// Sunum dosyasını yükle.
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    // Sunumdan ilk slaytı al.
-    ISlide slide = presentation.Slides[0];
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Çıktı TIFF görüntüsünün ayarlarını yapılandır.
-    TiffOptions tiffOptions = new TiffOptions
-    {
-        ImageSize = new Size(2160, 2880),                  // Görüntü boyutunu ayarla.
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // Piksel formatını ayarla (siyah beyaz).
-        DpiX = 300,                                        // Yatay çözünürlüğü ayarla.
-        DpiY = 300                                         // Dikey çözünürlüğü ayarla.
-    };
+var svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+var svgImage = new SvgImage(svgContent);
 
-    // Belirtilen seçeneklerle slaytı görüntüye dönüştür.
-    using (IImage image = slide.GetImage(tiffOptions))
-    {
-        // Görüntüyü TIFF formatında kaydet.
-        image.Save("output.tiff", ImageFormat.Tiff);
-    }
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var emfStream = new MemoryStream();
+svgImage.WriteAsEmf(emfStream);
+
+emfStream.Position = 0;
+var image = presentation.Images.AddImage(emfStream);
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+
+presentation.Save("Presentation_with_emf.pptx", SaveFormat.Pptx);
 ```
 
-## **Tüm Slaytları Görüntülere Dönüştürmek**
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/tr/net/aspose.slides/isvgimage/writeasemf/) hedef akışın sahipliğini almaz. Yazdıktan sonra, akış konumu üretilen verinin sonunda olur. Yukarıda gösterildiği gibi aynı seekable akışı bir okuyucuya geçirmeden önce `Position`'ı başa sıfırlayın. Akışı, tüketici okumayı bitirene kadar açık tutun ve ardından dispose edin. Alternatif olarak, `ToArray`'i çağırıp dönen bayt dizisini [IImageCollection.AddImage](https://reference.aspose.com/slides/tr/net/aspose.slides/iimagecollection/addimage/) yöntemine gönderin; `ToArray`, mevcut akış konumundan bağımsız olarak tam tamponu döndürür.
 
-Aspose.Slides, bir sunumdaki tüm slaytları görüntülere dönüştürmenize olanak tanır; böylece bütün sunum etkili bir şekilde bir dizi görüntüye çevrilir.
+EMF oluşturma, seçilen Aspose.Slides for .NET derlemesi tarafından desteklenen işletim sistemlerinde mümkündür, ancak yazı tipleri veya yerel grafik bağımlılıkları mevcut olmadığında platformlar arasında renderleme farklılık gösterebilir. Kaynak içeriği tarafından kullanılan yazı tiplerini kurun veya uygun ikameler yapılandırın, Aspose.Slides paketinize ilişkin [platform gereksinimlerini](/slides/tr/net/system-requirements/) izleyin ve hedef EMF tüketen uygulamada sonucu doğrulayın. Linux ve macOS uygulamaları genellikle Windows metafilelarını görüntüleme ve düzenleme konusunda sınırlı veya tutarsız destek sunar.
 
-Bu örnek kod, bir sunumdaki tüm slaytları C# ile görüntülere nasıl dönüştüreceğinizi gösterir:
+## **Renkli Emoji Renderleme**
 
-```cs
-float scaleX = 2;
-float scaleY = scaleX;
-
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Sunumu slayt slayt görüntülere render et.
-    for (int i = 0; i < presentation.Slides.Count; i++)
-    {
-        // Gizli slaytları kontrol et (gizli slaytları render etme).
-        if (presentation.Slides[i].Hidden)
-            continue;
-
-        // Slaytı bir görüntüye dönüştür.
-        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
-        {
-            // Görüntüyü JPEG formatında kaydet.
-            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
-        }
-    }
-}
-```
+{{% alert title="Not" color="info" %}}
+Sunum slaytlarını görüntülere dönüştürürken renkli emojileri doğru bir şekilde renderlemek için, sunumda kullanılan emoji yazı tiplerinin dönüştürmeyi yapan sistemde kurulmuş ve erişilebilir olması gerekir. Örneğin, sunum **Segoe UI Emoji** yazı tipini kullanıyorsa ve bu yazı tipi eksikse, emojiler çıktı görüntülerinde tek renkli görünebilir.
+{{% /alert %}}
 
 ## **SSS**
 
-**1. Aspose.Slides, animasyonlu slaytların render edilmesini destekliyor mu?**
+**Aspose.Slides animasyonlu slaytların render edilmesini destekliyor mu?**
 
-Hayır, `GetImage` metodu slaytı yalnızca statik bir görüntü olarak kaydeder, animasyonlar dahil edilmez.
+Hayır. [GetImage](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/getimage/) yöntemi slaytın statik bir görüntüsünü render eder ve animasyonları dışa aktarmaz.
 
-**2. Gizli slaytlar görüntü olarak dışa aktarılabilir mi?**
+**Gizli slaytlar görüntü olarak dışa aktarılabilir mi?**
 
-Evet, gizli slaytlar da normal slaytlar gibi işlenebilir. İşleme döngüsünde yer aldıklarından emin olun.
+Evet. Gizli slaytlar normal slaytlar gibi render edilebilir. Yukarıdaki örnekte gösterildiği gibi işleme döngüsüne dahil edin.
 
-**3. Görüntüler gölgeler ve efektlerle kaydedilebilir mi?**
+**Slayt görüntülerinde gölgeler ve diğer efektler korunuyor mu?**
 
-Evet, Aspose.Slides, slaytları görüntü olarak kaydederken gölgeler, şeffaflık ve diğer grafik efektlerinin render edilmesini destekler.
+Evet. Aspose.Slides, slayt görüntülerinde gölgeler, şeffaflık ve diğer desteklenen grafik efektlerini render eder.

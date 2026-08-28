@@ -1,6 +1,6 @@
 ---
-title: Chuyển đổi Slide Bản trình bày thành Hình ảnh trong Java
-linktitle: Slide sang Hình ảnh
+title: Chuyển Đổi Các Slide Bản Trình Bày Sang Hình Ảnh trong Java
+linktitle: Slide sang Hình Ảnh
 type: docs
 weight: 35
 url: /vi/java/convert-slide/
@@ -9,6 +9,7 @@ keywords:
 - xuất slide
 - slide sang hình ảnh
 - lưu slide dưới dạng hình ảnh
+- slide sang EMF
 - slide sang PNG
 - slide sang JPEG
 - slide sang bitmap
@@ -18,34 +19,38 @@ keywords:
 - bản trình bày
 - Java
 - Aspose.Slides
-description: "Chuyển đổi slide từ PPT, PPTX và ODP thành hình ảnh trong Java bằng Aspose.Slides—render nhanh, chất lượng cao với các ví dụ mã rõ ràng."
+description: "Chuyển đổi các slide từ bản trình bày PPT, PPTX và ODP sang PNG, JPEG, GIF, TIFF, EMF và các định dạng hình ảnh khác trong Java bằng Aspose.Slides."
 ---
 ## **Giới thiệu**
 
-Aspose.Slides for Java cho phép bạn dễ dàng chuyển đổi các slide bản trình bày PowerPoint và OpenDocument sang nhiều định dạng hình ảnh khác nhau, bao gồm BMP, PNG, JPG (JPEG), GIF và các định dạng khác.
+Aspose.Slides for Java có thể render các slide riêng lẻ từ các bản trình bày PowerPoint và OpenDocument dưới dạng PNG, JPEG, GIF, TIFF và các định dạng hình ảnh khác.
 
 Để chuyển đổi một slide thành hình ảnh, hãy làm theo các bước sau:
 
-1. Xác định các thiết lập chuyển đổi mong muốn và chọn các slide bạn muốn xuất bằng cách sử dụng:
-    - Giao diện [ITiffOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiffoptions/) , hoặc
-    - Giao diện [IRenderingOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/irenderingoptions/) .
-2. Tạo hình ảnh slide bằng cách gọi phương thức [getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) .
+1. Tải bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/).
+2. Chọn slide mà bạn muốn render.
+3. Nếu cần, cấu hình việc render bằng lớp [RenderingOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/renderingoptions/) hoặc [TiffOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/tiffoptions/).
+4. Gọi phương thức [ISlide.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#getImage--) . Phương thức này trả về một đối tượng [IImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimage/).
+5. Gọi phương thức [IImage.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimage/#save-java.lang.String-int-) và chỉ định định dạng đầu ra bằng một giá trị [ImageFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imageformat/).
 
-Trong Aspose.Slides for Java, một [IImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimage/) là giao diện cho phép bạn làm việc với các hình ảnh được định nghĩa bằng dữ liệu pixel. Bạn có thể sử dụng giao diện này để lưu hình ảnh ở nhiều định dạng khác nhau (BMP, JPG, PNG, v.v.).
+## **Chuyển Đổi Slide Thành Hình Ảnh PNG**
 
-## **Chuyển đổi Slide sang Bitmap và Lưu Hình ảnh dưới dạng PNG**
+Cách chuyển đổi đơn giản nhất sử dụng cài đặt render mặc định. Đối tượng [IImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimage/) được tạo ra có thể được xử lý trong bộ nhớ hoặc lưu vào tệp.
 
-Bạn có thể chuyển đổi một slide thành đối tượng bitmap và sử dụng trực tiếp trong ứng dụng của mình. Ngoài ra, bạn cũng có thể chuyển đổi slide thành bitmap và sau đó lưu hình ảnh dưới dạng JPEG hoặc bất kỳ định dạng nào khác mà bạn muốn.
+Ví dụ Java sau render slide đầu tiên và lưu nó dưới dạng hình ảnh PNG:
 
-Đoạn mã dưới đây minh họa cách chuyển đổi slide đầu tiên của bản trình bày thành đối tượng bitmap và sau đó lưu hình ảnh dưới định dạng PNG:
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
 
-```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Chuyển đổi slide đầu tiên trong bản trình bày thành bitmap.
-    IImage image = presentation.getSlides().get_Item(0).getImage();
-	try {
-        // Lưu hình ảnh ở định dạng PNG.
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IImage image = slide.getImage();
+    try {
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -55,22 +60,27 @@ try {
 }
 ```
 
-## **Chuyển đổi Slide sang Hình ảnh với Kích thước Tùy chỉnh**
+## **Chuyển Đổi Các Slide Thành Hình Ảnh Với Kích Thước Tùy Chỉnh**
 
-Bạn có thể cần có một hình ảnh với kích thước nhất định. Sử dụng một phiên bản quá tải của phương thức [getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), bạn có thể chuyển đổi slide thành hình ảnh với kích thước cụ thể (chiều rộng và chiều cao).
+Sử dụng phương thức overload của [ISlide.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) nhận một giá trị [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) để render slide với kích thước pixel chính xác.
 
-Đoạn mã mẫu dưới đây cho thấy cách thực hiện điều này:
+Ví dụ sau tạo một hình ảnh JPEG kích thước 1820 × 1040:
 
-```java 
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import java.awt.Dimension;
+
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Chuyển đổi slide đầu tiên trong bản trình bày thành bitmap với kích thước được chỉ định.
-    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IImage image = slide.getImage(imageSize);
     try {
-        // Lưu hình ảnh ở định dạng JPEG.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,38 +90,43 @@ try {
 }
 ```
 
-## **Chuyển đổi Slide có Ghi chú và Bình luận thành Hình ảnh**
+## **Chuyển Đổi Các Slide Có Ghi Chú và Bình Luận Thành Hình Ảnh**
 
-Một số slide có thể chứa ghi chú và bình luận.
+Mặc định, hình ảnh slide không bao gồm ghi chú hoặc bình luận. Truyền một đối tượng [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/notescommentslayoutingoptions/) vào phương thức [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/renderingoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) để kiểm soát vị trí hiển thị ghi chú và bình luận.
 
-Aspose.Slides cung cấp hai giao diện—[ITiffOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiffoptions/) và [IRenderingOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/irenderingoptions/)—cho phép bạn kiểm soát việc render các slide bản trình bày thành hình ảnh. Cả hai giao diện đều bao gồm phương thức `setSlidesLayoutOptions`, cho phép bạn cấu hình việc render ghi chú và bình luận trên một slide khi chuyển đổi nó thành hình ảnh.
+Ví dụ sau đặt các ghi chú đã cắt ngắn phía dưới slide và các bình luận ở phía bên phải:
 
-Với lớp [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/notescommentslayoutingoptions/) , bạn có thể chỉ định vị trí mong muốn cho ghi chú và bình luận trong hình ảnh kết quả.
+```java
+import com.aspose.slides.CommentsPositions;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.NotesCommentsLayoutingOptions;
+import com.aspose.slides.NotesPositions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
+import java.awt.Color;
 
-Đoạn mã dưới đây minh họa cách chuyển đổi một slide có ghi chú và bình luận:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
-// Load a presentation file.
+Color commentsAreaColor = new Color(250, 235, 215);
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Đặt vị trí của ghi chú.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Đặt vị trí của bình luận.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Đặt độ rộng của vùng bình luận.
-    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // Đặt màu cho vùng bình luận.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Create the rendering options.
-    RenderingOptions options = new RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
-
-    // Convert the first slide of the presentation to an image.
-    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
-
+    IImage image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Save the image in the GIF format.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -121,35 +136,37 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Trong bất kỳ quy trình chuyển đổi slide sang hình ảnh nào, phương thức [setNotesPosition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) không thể áp dụng `BottomFull` (để chỉ định vị trí cho ghi chú) vì văn bản ghi chú có thể quá dài, khiến nó không thể vừa trong kích thước hình ảnh đã chỉ định.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Đối với việc chuyển đổi slide sang hình ảnh, không truyền [BottomFull](https://reference.aspose.com/slides/vi/java/com.aspose.slides/notespositions/) vào phương thức [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/notescommentslayoutingoptions/#setNotesPosition-int-). Ghi chú có thể chứa nhiều văn bản hơn kích thước hình ảnh cố định có thể chứa. Thay vào đó, sử dụng [BottomTruncated](https://reference.aspose.com/slides/vi/java/com.aspose.slides/notespositions/).
+{{% /alert %}}
 
-## **Chuyển đổi Slide sang Hình ảnh bằng Tùy chọn TIFF**
+## **Chuyển Đổi Các Slide Thành Hình Ảnh Bằng Tùy Chọn TIFF**
 
-Giao diện [ITiffOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiffoptions/) cung cấp khả năng kiểm soát cao hơn đối với hình ảnh TIFF kết quả bằng cách cho phép bạn chỉ định các tham số như kích thước, độ phân giải, bảng màu và các tùy chọn khác.
+Lớp [TiffOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/tiffoptions/) cho phép bạn kiểm soát kích thước, độ phân giải và các thuộc tính khác của hình ảnh TIFF đã render.
 
-Đoạn mã dưới đây minh họa một quy trình chuyển đổi sử dụng tùy chọn TIFF để tạo ra hình ảnh đen trắng với độ phân giải 300 DPI và kích thước 2160 × 2800:
+Ví dụ sau render slide đầu tiên dưới dạng hình ảnh TIFF 2160 × 2880 với độ phân giải 300 DPI:
 
-```java 
-// Tải tệp bản trình bày.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.TiffOptions;
+import java.awt.Dimension;
+
+Dimension imageSize = new Dimension(2160, 2880);
+
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Lấy slide đầu tiên từ bản trình bày.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Cấu hình các thiết lập cho hình ảnh TIFF đầu ra.
-    TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Dimension(2160, 2880));             // Đặt kích thước hình ảnh.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Đặt định dạng pixel (đen và trắng).
-    tiffOptions.setDpiX(300);                                        // Đặt độ phân giải theo chiều ngang.
-    tiffOptions.setDpiY(300);                                        // Đặt độ phân giải theo chiều dọc.
-
-    // Chuyển đổi slide thành hình ảnh với các tùy chọn đã chỉ định.
     IImage image = slide.getImage(tiffOptions);
-
     try {
-        // Lưu hình ảnh ở định dạng TIFF.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -159,60 +176,132 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Hỗ trợ TIFF không được đảm bảo trong các phiên bản cũ hơn JDK 9.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Hỗ trợ TIFF không được bảo đảm trong các phiên bản Java trước JDK 9.
+{{% /alert %}}
 
-## **Chuyển đổi Tất cả Slide sang Hình ảnh**
+## **Chuyển Đổi Tất Cả Các Slide Thành Hình Ảnh**
 
-Aspose.Slides cho phép bạn chuyển đổi tất cả các slide trong một bản trình bày thành hình ảnh, thực chất biến toàn bộ bản trình bày thành một loạt các hình ảnh.
+Duyệt qua bộ sưu tập slide để chuyển đổi toàn bộ bản trình bày thành một loạt các hình ảnh. Các slide ẩn sẽ được bao gồm trừ khi bạn bỏ qua chúng một cách rõ ràng.
 
-Đoạn mã mẫu dưới đây minh họa cách chuyển đổi tất cả các slide trong một bản trình bày thành hình ảnh trong Java:
+Ví dụ sau render mỗi slide thành hình ảnh JPEG với hệ số co dọc và ngang là 2:
 
-```java 
-float scaleX = 2;
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+float scaleX = 2f;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Kết xuất bản trình bày thành các hình ảnh slide theo slide.
-    for (int i = 0 ; i < presentation.getSlides().size(); i++)
-    {
-        // Kiểm soát các slide ẩn (không kết xuất các slide ẩn).
-        if (presentation.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // Chuyển đổi slide thành hình ảnh.
-        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
-
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-            // Lưu hình ảnh ở định dạng JPEG.
-            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
     }
 } finally {
     presentation.dispose();
-} 
+}
 ```
+
+## **Tạo Đầu Ra Metafile Nâng Cao (EMF)**
+
+Enhanced Metafile (EMF) hữu ích khi cần trao đổi đồ họa dựa trên vector với Microsoft Office hoặc các ứng dụng Windows khác hỗ trợ metafile Windows. Khác với hình ảnh dựa trên pixel, EMF có thể giữ lại các thao tác vẽ vector và có thể phóng to mà không mất độ sắc nét. Tuy nhiên, EMF chủ yếu là định dạng tương thích cho các ứng dụng hỗ trợ metafile Windows, không phải là định dạng trao đổi chung. Ngoài ra, nội dung slide phức tạp, chẳng hạn như hình ảnh bitmap và một số hiệu ứng, có thể được lưu dưới dạng các phần tử raster bên trong container metafile vector.
+
+### **Xuất Slide Sang EMF**
+
+Phương thức [ISlide.writeAsEmf](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) ghi một [ISlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/) vào luồng đích ở định dạng EMF. Ví dụ sau tải một bản trình bày, chọn slide đầu tiên và ghi nó vào luồng tệp EMF:
+
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    FileOutputStream emfStream = new FileOutputStream("Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Người gọi sở hữu luồng được truyền vào [ISlide.writeAsEmf](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) và chịu trách nhiệm đóng luồng này, như đã minh họa ở trên.
+
+### **Chuyển Đổi Hình Ảnh SVG Sang EMF Và Thêm Vào Bản Trình Bày**
+
+Sử dụng [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) để chuyển đổi nội dung SVG sang EMF. Các byte kết quả có thể được thêm vào bản trình bày thông qua [IImageCollection.addImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagecollection/#addImage-byte:A-) và đặt lên slide bằng [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-).
+
+Ví dụ sau tạo một [SvgImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/svgimage/) từ mã SVG, chuyển đổi nó thành EMF trong bộ nhớ, chèn metafile vào slide đầu tiên và lưu bản trình bày:
+
+```java
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ISvgImage;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import com.aspose.slides.SvgImage;
+import java.io.ByteArrayOutputStream;
+
+String svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+ISvgImage svgImage = new SvgImage(svgContent);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ByteArrayOutputStream emfStream = new ByteArrayOutputStream();
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        byte[] emfData = emfStream.toByteArray();
+        IPPImage image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[ISvgImage.writeAsEmf](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) không chịu trách nhiệm sở hữu luồng đích. Một [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) lưu trữ tất cả dữ liệu tạo ra trong bộ nhớ, vì vậy không cần đặt lại vị trí trước khi gọi `toByteArray`. Mảng byte trả về vẫn hợp lệ sau khi luồng được đóng.
+
+Việc tạo EMF khả dụng trên các hệ điều hành được hỗ trợ bởi Aspose.Slides for Java và cấu hình JDK đã chọn, nhưng quá trình render có thể khác nhau giữa các nền tảng khi thiếu phông chữ hoặc phụ thuộc đồ họa. Cài đặt các phông chữ được sử dụng trong nội dung nguồn hoặc cấu hình các thay thế phù hợp, tuân theo [yêu cầu nền tảng](/slides/vi/java/system-requirements/) cho Aspose.Slides for Java, và kiểm tra kết quả trong ứng dụng tiêu thụ EMF mục tiêu. Các ứng dụng trên Linux và macOS thường có hỗ trợ hạn chế hoặc không nhất quán đối với việc hiển thị và chỉnh sửa metafile Windows.
 
 ## **Render Emoji Màu**
 
-{{% alert title="Note" color="warning" %}} 
-Để hiển thị emoji màu đúng khi chuyển đổi slide bản trình bày sang hình ảnh, các phông chữ emoji được sử dụng trong bản trình bày phải được cài đặt và khả dụng trên hệ thống thực hiện việc chuyển đổi. Ví dụ, nếu bản trình bày sử dụng **Segoe UI Emoji** mà phông chữ này thiếu, các emoji có thể xuất hiện dưới dạng đen trắng trong các hình ảnh đầu ra.
+{{% alert title="Note" color="info" %}}
+Để render emoji màu đúng cách khi chuyển đổi slide trình chiếu sang hình ảnh, phông chữ emoji được sử dụng trong bản trình bày phải được cài đặt và có sẵn trên hệ thống thực hiện việc chuyển đổi. Ví dụ, nếu bản trình bày sử dụng **Segoe UI Emoji** và phông chữ này thiếu, các emoji có thể hiển thị dưới dạng đơn sắc trong các hình ảnh đầu ra.
 {{% /alert %}}
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
 **Aspose.Slides có hỗ trợ render slide có hoạt ảnh không?**
 
-Không, phương thức `getImage` chỉ lưu một hình ảnh tĩnh của slide, không có hoạt ảnh.
+Không. Phương thức [ISlide.getImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#getImage--) render một hình ảnh tĩnh của slide và không xuất hoạt ảnh.
 
 **Có thể xuất các slide ẩn dưới dạng hình ảnh không?**
 
-Có, các slide ẩn có thể được xử lý giống như các slide thường. Chỉ cần đảm bảo chúng được bao gồm trong vòng lặp xử lý.
+Có. Các slide ẩn có thể được render giống như các slide thường. Bao gồm chúng trong vòng lặp xử lý, như đã minh họa trong ví dụ ở trên.
 
-**Có thể lưu hình ảnh có bóng và hiệu ứng không?**
+**Các bóng đổ và các hiệu ứng khác có được bảo tồn trong hình ảnh slide không?**
 
-Có, Aspose.Slides hỗ trợ render bóng, độ trong suốt và các hiệu ứng đồ họa khác khi lưu slide dưới dạng hình ảnh.
+Có. Aspose.Slides render các bóng đổ, độ trong suốt và các hiệu ứng đồ họa được hỗ trợ khác trong hình ảnh slide.
