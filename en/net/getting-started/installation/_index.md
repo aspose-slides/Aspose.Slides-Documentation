@@ -22,7 +22,9 @@ description: "Learn how to quickly install Aspose.Slides for .NET. Step-by-step 
 
 ## **Overview**
 
-This article explains how to install Aspose.Slides for .NET on Windows and macOS. It focuses on NuGet-based installation and shows how to add the library to a Visual Studio project either through the NuGet Package Manager or the Package Manager Console on Windows. It also describes how to update the package and install prerelease builds when needed.
+This article explains how to install Aspose.Slides for .NET on Windows, Linux, and macOS. It focuses on NuGet-based installation and shows how to add the library through the NuGet Package Manager or the Package Manager Console on Windows, to a .NET project on Linux, and to a Visual Studio project on macOS. It also describes how to update the package and install prerelease builds when needed.
+
+Before installation, review the supported operating systems, .NET implementations, and additional dependencies in [System Requirements](/slides/net/system-requirements/).
 
 ## **Windows**
 NuGet provides the easiest path to downloading and installing Aspose APIs for .NET on PCs. 
@@ -77,17 +79,13 @@ Internet Service Providers, which host multiple applications from different comp
 
 For the reasons above, we strongly recommend that you run Aspose.Slides on **Full Trust** permissions. If you use **Medium trust,** you might experience inconsistencies—some library features (rendering, for example) might not work when you perform certain tasks. 
 
+## **Linux**
+
+NuGet provides the easiest path to downloading and installing Aspose.Slides for .NET on Linux. Add the [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET/) package to your .NET project.
+
 ## **macOS**
 
-NuGet provides the easiest path to downloading and installing Aspose.Slides for .NET on macs. 
-
-**Install Prerequisite**
-
-The `System.Drawing` namespace operates differently in macOS, so you have to install mono-libgdiplus. 
-
-> In .NET 5 and previous versions, the [System.Drawing.Common](https://www.nuget.org/packages/System.Drawing.Common/) NuGet package works on Windows, Linux, and macOS. However, there are some platform differences. On Linux and macOS, the GDI+ functionality is implemented by the [libgdiplus)](https://www.mono-project.com/docs/gui/libgdiplus/) library. This library is not installed by default in most Linux distributions and doesn't support all the functionality of GDI+ on Windows and macOS. There are also platforms where libgdiplus is not available at all. To use types from the System.Drawing.Common package on Linux and macOS, you must install libgdiplus separately. For more information, see [Install .NET on Linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux) or [Install .NET on macOS](https://docs.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus).s
-
-To install mono-libgdiplus separately on your mac, see [this article](https://docs.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus) from .NET documentation. 
+NuGet provides the easiest path to downloading and installing Aspose.Slides for .NET on macs.
 
 ### **Install Aspose.Slides**
 
@@ -104,6 +102,6 @@ To install mono-libgdiplus separately on your mac, see [this article](https://do
 
 ## **FAQ**
 
-### Is there a free version or trial limitation?
+**Is there a free version or trial limitation?**
 
 Yes, by default, Aspose.Slides runs in evaluation mode, which places watermarks and may have other limitations. To remove restrictions, you need to apply a valid [license](/slides/net/licensing/).
