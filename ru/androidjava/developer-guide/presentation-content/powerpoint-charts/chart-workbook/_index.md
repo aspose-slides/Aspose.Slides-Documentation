@@ -1,6 +1,6 @@
 ---
 title: Управление рабочими книгами диаграмм в презентациях на Android
-linktitle: Рабочая книга диаграммы
+linktitle: Рабочая книга диаграмм
 type: docs
 weight: 70
 url: /ru/androidjava/chart-workbook/
@@ -9,23 +9,29 @@ keywords:
 - данные диаграммы
 - ячейка рабочей книги
 - метка данных
-- лист рабочей книги
+- лист
 - источник данных
 - внешняя рабочая книга
 - внешние данные
+- кеш диаграмм
+- восстановление рабочей книги
 - PowerPoint
 - презентация
 - Android
 - Java
 - Aspose.Slides
-description: "Откройте для себя Aspose.Slides для Android на Java: легко управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, оптимизируя данные вашей презентации."
+description: "Откройте для себя Aspose.Slides для Android на Java: без труда управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, упрощая работу с данными презентаций."
 ---
-## **Чтение и запись данных диаграммы из рабочей книги**
-Aspose.Slides предоставляет методы [ReadWorkbookStream](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) и [WriteWorkbookStream](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) , позволяющие читать и записывать рабочие книги данных диаграмм (содержащие данные диаграмм, отредактированные с помощью Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы тем же способом или иметь структуру, похожую на исходную.
+## **Обзор**
 
-Этот код на Java демонстрирует пример операции:
+В этой статье объясняется, как работать с рабочими книгами диаграмм в Aspose.Slides. Описывается, как читать и записывать данные диаграмм через потоки рабочих книг, использовать ячейки рабочей книги в качестве меток данных диаграммы, получать доступ к коллекциям листов и указывать тип источника данных для значений диаграмм. Также рассматривается работа с внешними рабочими книгами в качестве источников данных для диаграмм. В примерах демонстрируется, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
+
+## **Чтение и запись данных диаграммы из рабочей книги**
+Aspose.Slides предоставляет методы [ReadWorkbookStream](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) и [WriteWorkbookStream](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) , позволяющие читать и записывать рабочие книги с данными диаграмм (содержащие данные диаграмм, отредактированные с помощью Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы таким же образом или иметь структуру, схожую с исходной.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("chart.pptx");
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -42,23 +48,44 @@ try {
 }
 ```
 
-## **Установка ячейки рабочей книги в качестве метки данных диаграммы**
+### **Проверка расположения диаграммы после изменения рабочей книги**
+
+Когда вы заменяете встроенную рабочую книгу измененной, диаграмма сохраняет свои исходные коллекции серий и категорий. Такое несоответствие может привести к сбою [IChart.validateChartLayout](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IChart#validateChartLayout--) с ошибкой выхода индекса за пределы. Очистите существующие серии и категории перед записью обновлённой рабочей книги обратно в диаграмму.
+
+```java
+// После изменения потока рабочей книги (например, с помощью Aspose.Cells)
+byte[] updatedWorkbook = chartData.readWorkbookStream();
+
+// Очистить существующие ссылки данных.
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+Очистка коллекций гарантирует, что структура данных диаграммы соответствует новой рабочей книге, позволяя `validateChartLayout` завершиться без ошибок.
+
+## **Установить ячейку рабочей книги в качестве метки данных диаграммы**
 
 1. Создайте экземпляр класса [Presentation](https://apireference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте пузырчатую диаграмму с некоторыми данными.
+1. Добавьте пузырьковую диаграмму с некоторыми данными.
 1. Получите доступ к сериям диаграммы.
 1. Установите ячейку рабочей книги в качестве метки данных.
 1. Сохраните презентацию.
 
-Следующий код на Java показывает, как установить ячейку рабочей книги в качестве метки данных диаграммы:
+Этот код на Java показывает, как установить ячейку рабочей книги в качестве метки данных диаграммы:
 
 ```java
+import com.aspose.slides.*;
+
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// Создает объект класса презентации, представляющий файл презентации
+// Создаёт экземпляр класса презентации, представляющего файл презентации
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -80,11 +107,13 @@ try {
 }
 ```
 
-## **Управление листами рабочей книги**
+## **Управление листами**
 
-Этот код на Java демонстрирует операцию, в которой метод [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) используется для доступа к коллекции листов:
+Этот код на Java демонстрирует операцию, где метод [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) используется для доступа к коллекции листов:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
@@ -101,6 +130,8 @@ try {
 Этот код на Java показывает, как указать тип для источника данных:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -120,9 +151,11 @@ try {
 
 ## **Обнаружение неподдерживаемых форматов встроенных рабочих книг**
 
-Aspose.Slides не поддерживает бинарный формат рабочей книги Excel (.xlsb), который может быть встроен в некоторые диаграммы. Вы можете использовать метод `getEmbeddedWorkbookType` интерфейса [IChartData](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IChartData) вместе с перечислением [WorkbookType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/WorkbookType) для обнаружения неподдерживаемых форматов и пропускать такие диаграммы.
+Aspose.Slides не поддерживает двоичный формат рабочей книги Excel (.xlsb), который может быть встроен в некоторые диаграммы. Вы можете использовать метод `getEmbeddedWorkbookType` интерфейса [IChartData](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IChartData) вместе с перечислением [WorkbookType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/WorkbookType) для обнаружения неподдерживаемых форматов и пропуска таких диаграмм.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -135,11 +168,11 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-                // Встроенная рабочая книга в формате .xlsb, который не поддерживается.
-                continue;
+            // Встроенная рабочая книга в формате .xlsb, который не поддерживается.
+            continue;
         }
 
-        // Читайте или изменяйте данные рабочей книги диаграммы здесь.
+        // Здесь можно читать или изменять данные рабочей книги диаграммы.
     }
 } finally {
     presentation.dispose();
@@ -152,11 +185,15 @@ Aspose.Slides поддерживает внешние рабочие книги 
 
 ### **Создание внешней рабочей книги**
 
-С помощью методов **`readWorkbookStream`** и **`setExternalWorkbook`** вы можете либо создать внешнюю рабочую книгу с нуля, либо сделать внутреннюю рабочую книгу внешней.
+С помощью методов **`readWorkbookStream`** и **`setExternalWorkbook`** вы можете либо создать внешнюю рабочую книгу с нуля, либо превратить внутреннюю рабочую книгу во внешнюю.
 
 Этот код на Java демонстрирует процесс создания внешней рабочей книги:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     final String workbookPath = "externalWorkbook1.xlsx";
@@ -179,16 +216,18 @@ try {
 }
 ```
 
-### **Установка внешней рабочей книги**
+### **Назначение внешней рабочей книги**
 
-С помощью метода **`setExternalWorkbook`** вы можете назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот метод также может использоваться для обновления пути к внешней рабочей книге (если она была перемещена).
+С помощью метода **`setExternalWorkbook`** вы можете назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот метод также можно использовать для обновления пути к внешней рабочей книге (если она была перемещена).
 
-Хотя вы не можете редактировать данные в рабочих книгах, хранящихся в удаленных местах или ресурсах, их всё равно можно использовать как внешний источник данных. Если указать относительный путь к внешней рабочей книге, он автоматически преобразуется в полный путь.
+Хотя вы не можете редактировать данные в рабочих книгах, хранящихся в удалённых местах или ресурсах, их всё равно можно использовать в качестве внешнего источника данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в абсолютный путь.
 
-Этот код на Java показывает, как установить внешнюю рабочую книгу:
+Этот код на Java показывает, как назначить внешнюю рабочую книгу:
 
 ```java
-// Создает экземпляр класса Presentation
+import com.aspose.slides.*;
+
+// Создаёт экземпляр класса Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -211,13 +250,15 @@ try {
 }
 ```
 
-Параметр `ChartData` (в методе `setExternalWorkbook`) используется для указания, будет ли загружена Excel‑рабочая книга.
+Параметр `updateChartData` (в методе `setExternalWorkbook`) используется для указания, будет ли Excel‑рабочая книга загружена.
 
-* Когда значение `ChartData` установлено в `false`, обновляется только путь к рабочей книге — данные диаграммы не будут загружаться и не будут обновляться из целевой рабочей книги. Этот параметр полезен, когда целевая рабочая книга отсутствует или недоступна. 
-* Когда значение `ChartData` установлено в `true`, данные диаграммы обновляются из целевой рабочей книги.
+* Когда значение `updateChartData` установлено в `false`, обновляется только путь к рабочей книге — данные диаграммы не будут загружаться и обновляться из целевой рабочей книги. Это настройку удобно использовать, если целевая рабочая книга отсутствует или недоступна. 
+* Когда значение `updateChartData` установлено в `true`, данные диаграммы обновляются из целевой рабочей книги.
 
 ```java
-// Создает экземпляр класса Presentation
+import com.aspose.slides.*;
+
+// Создаёт экземпляр класса Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -231,18 +272,20 @@ try {
 }
 ```
 
-### **Получение пути к внешней рабочей книге источника данных диаграммы**
+### **Получение пути к внешней рабочей книге-источнику данных диаграммы**
 
 1. Создайте экземпляр класса [Presentation](https://apireference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation) .
 1. Получите ссылку на слайд по его индексу.
 1. Создайте объект для формы диаграммы.
 1. Создайте объект типа источника (`ChartDataSourceType`), представляющего источник данных диаграммы.
-1. Укажите соответствующее условие, исходя из того, что тип источника совпадает с типом внешней рабочей книги.
+1. Укажите соответствующее условие, основанное на том, что тип источника совпадает с типом внешней рабочей книги.
 
 Этот код на Java демонстрирует операцию:
 
 ```java
-// Создает экземпляр класса Presentation
+import com.aspose.slides.*;
+
+// Создаёт экземпляр класса Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(1);
@@ -263,12 +306,14 @@ try {
 
 ### **Редактирование данных диаграммы**
 
-Вы можете редактировать данные во внешних рабочих книгах так же, как вносите изменения в содержимое внутренних книг. Если внешнюю рабочую книгу невозможно загрузить, генерируется исключение.
+Вы можете редактировать данные во внешних рабочих книгах так же, как вносите изменения в содержимое внутренних книг. Если внешняя рабочая книга не может быть загружена, генерируется исключение.
 
 Этот код на Java реализует описанный процесс:
 
 ```java
-// Создает экземпляр класса Presentation
+import com.aspose.slides.*;
+
+// Создаёт экземпляр класса Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -282,28 +327,50 @@ try {
 }
 ```
 
-## **Часто задаваемые вопросы**
+### **Восстановление рабочей книги из кэша диаграммы**
 
-**Могу ли я определить, связана ли конкретная диаграмма с внешней или встроенной рабочей книгой?**
+Если диаграмма использует внешнюю рабочую книгу, которой нет или она недоступна, Aspose.Slides может воссоздать рабочую книгу диаграммы из данных, кэшированных в презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/loadoptions/), настройте его с помощью [SpreadsheetOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/spreadsheetoptions/), и вызовите [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) со значением `true` перед открытием презентации.
 
-Да. У диаграммы есть тип источника данных и путь к внешней рабочей книге; если источник — внешняя рабочая книга, вы можете прочитать полный путь, чтобы убедиться, что используется внешний файл.
+Следующий пример на Java открывает презентацию, в которой диаграмма ссылается на недоступную внешнюю рабочую книгу, и получает восстановленные данные через [IChart.getChartData](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichart/#getChartData--) и [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
-**Поддерживаются ли относительные пути к внешним рабочим книгам и как они хранятся?**
+```java
+import com.aspose.slides.*;
 
-Да. Если указать относительный путь, он автоматически преобразуется в абсолютный. Это удобно для переносимости проекта, однако следует учитывать, что презентация хранит абсолютный путь в файле PPTX.
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
-**Могу ли я использовать рабочие книги, расположенные в сетевых ресурсах/общих папках?**
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
-Да, такие рабочие книги могут использоваться как внешний источник данных. Однако редактирование удалённых рабочих книг напрямую из Aspose.Slides не поддерживается — их можно только использовать как источник.
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-**Перезаписывает ли Aspose.Slides внешний файл XLSX при сохранении презентации?**
+    // Здесь читаем или изменяем восстановленные данные рабочей книги.
+} finally {
+    presentation.dispose();
+}
+```
 
-Нет. Презентация хранит ссылку на внешний файл и использует её для чтения данных. Сам внешний файл не изменяется при сохранении презентации.
+Если внешняя рабочая книга недоступна и восстановление отключено, Aspose.Slides генерирует исключение. Включайте восстановление только тогда, когда использование кэшированных данных диаграммы является приемлемой альтернативой, так как кэш может не содержать изменения, внесённые во внешнюю рабочую книгу после последнего обновления презентации.
 
-**Что делать, если внешний файл защищён паролем?**
+## **FAQ**
 
-Aspose.Slides не принимает пароль при привязке. Обычно защищённость снимают заранее или подготавливают дешифрованную копию (например, с помощью [Aspose.Cells](/cells/androidjava/)) и привязывают её.
+**Могу ли я определить, связана ли конкретная диаграмма с внешней или встроенной рабочей книгой?**  
+Да. У диаграммы есть [тип источника данных](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) и [путь к внешней рабочей книге](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); если источник — внешняя рабочая книга, вы можете прочитать полный путь, чтобы убедиться, что используется внешний файл.
 
-**Могут ли несколько диаграмм ссылаться на одну и ту же внешнюю рабочую книгу?**
+**Поддерживаются ли относительные пути к внешним рабочим книгам, и как они хранятся?**  
+Да. Если указать относительный путь, он автоматически преобразуется в абсолютный. Это удобно для переносимости проекта; однако следует учитывать, что презентация сохраняет абсолютный путь в файле PPTX.
 
-Да. Каждая диаграмма хранит свою собственную ссылку. Если они указывают на один и тот же файл, обновление этого файла отразится во всех диаграммах при следующей загрузке данных.
+**Можно ли использовать рабочие книги, расположенные на сетевых ресурсах/общих папках?**  
+Да, такие рабочие книги можно использовать в качестве внешнего источника данных. Однако редактировать удалённые рабочие книги напрямую из Aspose.Slides не поддерживается — они могут использоваться только как источник.
+
+**Перезаписывает ли Aspose.Slides внешний файл XLSX при сохранении презентации?**  
+Нет. Презентация сохраняет [ссылку на внешний файл](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) и использует её для чтения данных. Сам внешний файл не изменяется при сохранении презентации.
+
+**Что делать, если внешний файл защищён паролем?**  
+Aspose.Slides не принимает пароль при создании ссылки. Обычно предварительно снимают защиту или подготавливают расшифрованную копию (например, с помощью [Aspose.Cells](/cells/androidjava/)) и связывают её.
+
+**Может ли несколько диаграмм ссылаться на одну и ту же внешнюю рабочую книгу?**  
+Да. Каждая диаграмма хранит свою собственную ссылку. Если все они указывают на один и тот же файл, обновление этого файла отразится в каждой диаграмме при следующей загрузке данных.

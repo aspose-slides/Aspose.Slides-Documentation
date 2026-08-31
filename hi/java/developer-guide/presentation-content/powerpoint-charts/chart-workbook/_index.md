@@ -1,34 +1,39 @@
 ---
-title: Java का उपयोग करके प्रस्तुतियों में चार्ट वर्कबुक प्रबंधित करें
-linktitle: चार्ट वर्कबुक
+title: जावा का उपयोग करके प्रस्तुतियों में चार्ट कार्यपुस्तिकाओं का प्रबंधन
+linktitle: चार्ट कार्यपुस्तिका
 type: docs
 weight: 70
 url: /hi/java/chart-workbook/
 keywords:
-- चार्ट वर्कबुक
+- चार्ट कार्यपुस्तिका
 - चार्ट डेटा
-- वर्कबुक सेल
+- कार्यपुस्तिका सेल
 - डेटा लेबल
 - वर्कशीट
 - डेटा स्रोत
-- बाह्य वर्कबुक
+- बाह्य कार्यपुस्तिका
 - बाह्य डेटा
+- चार्ट कैश
+- कार्यपुस्तिका पुनरुद्धार
 - PowerPoint
-- प्रेजेंटेशन
+- प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java खोजें: PowerPoint और OpenDocument स्वरूपों में चार्ट वर्कबुक को आसानी से प्रबंधित करें और अपनी प्रेजेंटेशन डेटा को सुव्यवस्थित करें।"
+description: "Aspose.Slides for Java को खोजें: PowerPoint और OpenDocument फ़ॉर्मेट में चार्ट कार्यपुस्तिकाओं का सहजता से प्रबंधन करें ताकि आपकी प्रस्तुति डेटा को सुव्यवस्थित किया जा सके।"
 ---
-## **परिचय**
+## **समीक्षा**
 
-यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीके को समझाता है। यह दिखाता है कि वर्कबुक स्ट्रीम्स के माध्यम से चार्ट डेटा को कैसे पढ़ें और लिखें, वर्कबुक सेल्स को चार्ट डेटा लेबल के रूप में कैसे उपयोग करें, वर्कशीट कलेक्शन तक कैसे पहुँचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार को कैसे निर्दिष्ट करें।
+यह लेख Aspose.Slides में चार्ट कार्यपुस्तिकाओं के साथ काम करने का विवरण देता है। यह दिखाता है कि कार्यपुस्तिका स्ट्रिम्स के माध्यम से चार्ट डेटा को कैसे पढ़ें और लिखें, कार्यपुस्तिका सेल्स को चार्ट डेटा लेबल के रूप में उपयोग करें, वर्कशीट संग्रहों तक पहुँचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार कैसे निर्दिष्ट करें।
 
-यह बाह्य वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दर्शाते हैं कि कैसे एक बाह्य वर्कबुक बनाएँ और असाइन करें, एक चार्ट से जुड़े बाह्य वर्कबुक का पाथ प्राप्त करें, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा को संपादित करें।
+यह बाह्य कार्यपुस्तिकाओं को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दर्शाते हैं कि कैसे एक बाह्य कार्यपुस्तिका बनाएं और असाइन करें, चार्ट से जुड़ी बाह्य कार्यपुस्तिका का पाथ कैसे प्राप्त करें, और जब कार्यपुस्तिका उपलब्ध हो तो चार्ट डेटा को संपादित करें।
 
-## **चार्ट डेटा को वर्कबुक से पढ़ना और लिखना**
-Aspose.Slides प्रदान करता है [ReadWorkbookStream](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IChartData#readWorkbookStream--) और [WriteWorkbookStream](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) मेथड्स जो आपको चार्ट डेटा वर्कबुक (जिसमें Aspose.Cells से संपादित चार्ट डेटा है) पढ़ने और लिखने की अनुमति देते हैं। **Note** कि चार्ट डेटा को उसी तरीके से व्यवस्थित होना चाहिए या स्रोत के समान संरचना होनी चाहिए।
+## **कार्यपुस्तिका से चार्ट डेटा को पढ़ना और लिखना**
+
+Aspose.Slides [ReadWorkbookStream](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IChartData#readWorkbookStream--) और [WriteWorkbookStream](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) मेथड्स प्रदान करता है जो आपको चार्ट डेटा कार्यपुस्तिकाओं (Aspose.Cells के साथ संपादित चार्ट डेटा वाली) को पढ़ने और लिखने की अनुमति देता है। **ध्यान दें** कि चार्ट डेटा को उसी क्रम में व्यवस्थित किया जाना चाहिए या स्रोत के समान संरचना होना चाहिए।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("chart.pptx");
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -45,23 +50,44 @@ try {
 }
 ```
 
-## **वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट करना**
+### **कार्यपुस्तिका संशोधन के बाद चार्ट लेआउट की मान्यताप्राप्ति**
 
-1. [Presentation](https://apireference.aspose.com/slides/hi/java/com.aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।  
-2. स्लाइड का रेफ़रेंस उसके इंडेक्स के माध्यम से प्राप्त करें।  
-3. कुछ डेटा के साथ एक बबल चार्ट जोड़ें।  
-4. चार्ट सीरीज़ तक पहुंचें।  
-5. वर्कबुक सेल को डेटा लेबल के रूप में सेट करें।  
-6. प्रेजेंटेशन को सेव करें।  
-
-यह Java कोड आपको वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट करने का तरीका दिखाता है:
+जब आप एम्बेडेड कार्यपुस्तिका को संशोधित कार्यपुस्तिका से बदलते हैं, तो चार्ट अपनी मूल श्रृंखला और श्रेणी संग्रहों को बनाए रखता है। यह असंगतता [IChart.validateChartLayout](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichart/#validateChartLayout--) को `ArgumentOutOfRangeException` (parameter: index) उत्पन्न करने का कारण बन सकती है। अपवाद से बचने के लिए, अपडेटेड कार्यपुस्तिका को चार्ट में लिखने से **पहले** मौजूदा श्रृंखला और श्रेणियों को साफ़ करें।
 
 ```java
+// कार्यपुस्तिका स्ट्रिम को संशोधित करने के बाद (उदाहरण के लिए, Aspose.Cells का उपयोग करके)
+byte[] updatedWorkbook = baos.toByteArray();
+
+// मौजूदा डेटा रेफरेंसेज को साफ़ करें।
+chart.getChartData().getSeries().clear();
+chart.getChartData().getCategories().clear();
+
+chart.getChartData().writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+संग्रहों को साफ़ करने से यह सुनिश्चित होता है कि चार्ट डेटा संरचना नई कार्यपुस्तिका के साथ मेल खाती है, जिससे `validateChartLayout` त्रुटियों के बिना पूरा हो पाता है।
+
+## **कार्यपुस्तिका सेल को चार्ट डेटा लेबल के रूप में सेट करें**
+
+1. [Presentation](https://apireference.aspose.com/slides/hi/java/com.aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।  
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।  
+1. कुछ डेटा के साथ एक बबल चार्ट जोड़ें।  
+1. चार्ट की श्रृंखला तक पहुँचें।  
+1. वर्कबुक सेल को डेटा लेबल के रूप में सेट करें।  
+1. प्रेजेंटेशन को सेव करें।
+
+यह Java कोड दिखाता है कि कैसे वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट किया जाए:
+
+```java
+// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले प्रस्तुति वर्ग को इंस्टैंसिएट करता है
+import com.aspose.slides.*;
+
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का इंस्टैंस बनाता है
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -83,10 +109,13 @@ try {
 }
 ```
 
-## **वर्कशीट्स को प्रबंधित करना**
-यह Java कोड दर्शाता है कि कैसे [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) मेथड का उपयोग करके वर्कशीट कलेक्शन तक पहुँचा जाता है:
+## **वर्कशीट्स का प्रबंधन**
+
+यह Java कोड एक ऑपरेशन दर्शाता है जहाँ [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) मेथड का उपयोग करके वर्कशीट संग्रह तक पहुँच प्राप्त की जाती है:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
@@ -98,10 +127,13 @@ try {
 }
 ```
 
-## **डेटा सोर्स टाइप निर्दिष्ट करना**
-यह Java कोड आपको डेटा स्रोत के लिए टाइप निर्दिष्ट करने का तरीका दिखाता है:
+## **डेटा स्रोत प्रकार निर्दिष्ट करें**
+
+यह Java कोड दर्शाता है कि कैसे डेटा स्रोत के लिए प्रकार निर्दिष्ट किया जाए:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -119,10 +151,13 @@ try {
 }
 ```
 
-## **असमर्थित एम्बेडेड वर्कबुक फॉर्मैट्स का पता लगाना**
-Aspose.Slides उन Excel बाइनरी वर्कबुक (.xlsb) फॉर्मैट को सपोर्ट नहीं करता जो कुछ चार्ट्स में एम्बेड किए जा सकते हैं। आप `getEmbeddedWorkbookType` मेथड को [IChartData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IChartData) पर और [WorkbookType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/WorkbookType) एन्नमरेशन के साथ उपयोग कर सकते हैं ताकि असमर्थित फॉर्मैट्स का पता लगाया जा सके और उन चार्ट्स को स्किप किया जा सके।
+## **असमर्थित एम्बेडेड कार्यपुस्तिका स्वरूपों का पता लगाएँ**
+
+Aspose.Slides उन Excel बाइनरी कार्यपुस्तिकाओं (.xlsb) को समर्थन नहीं देता जो कुछ चार्ट में एम्बेड की जा सकती हैं। आप [IChartData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IChartData) पर `getEmbeddedWorkbookType` मेथड के साथ [WorkbookType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/WorkbookType) एनेमरेशन का उपयोग करके असमर्थित स्वरूपों का पता लगा सकते हैं और उन चार्ट को स्किप कर सकते हैं।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -135,30 +170,34 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // एम्बेडेड वर्कबुक .xlsb फॉर्मेट में है, जो समर्थित नहीं है।
+            // एम्बेडेड कार्यपुस्तिका .xlsb फ़ॉर्मेट में है, जो समर्थित नहीं है।
             continue;
         }
 
-        // यहाँ चार्ट वर्कबुक डेटा को पढ़ें या संशोधित करें।
+        // यहाँ चार्ट कार्यपुस्तिका डेटा को पढ़ें या संशोधित करें।
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **बाह्य वर्कबुक**
+## **बाह्य कार्यपुस्तिका**
 
-{{% alert color="primary" %}} 
-[Aspose.Slides 19.4](https://docs.aspose.com/slides/hi/java/aspose-slides-for-java-19-4-release-notes/) में हमने चार्ट्स के लिए डेटा स्रोत के रूप में बाह्य वर्कबुक का समर्थन लागू किया है। 
+{{% alert color="info" %}} 
+[Aspose.Slides 19.4](https://docs.aspose.com/slides/hi/java/aspose-slides-for-java-19-4-release-notes/) में, हमने चार्ट के डेटा स्रोत के रूप में बाह्य कार्यपुस्तिकाओं के समर्थन को लागू किया। 
 {{% /alert %}} 
 
-### **बाह्य वर्कबुक बनाना**
+### **बाह्य कार्यपुस्तिका बनाएं**
 
-**`readWorkbookStream`** और **`setExternalWorkbook`** मेथड्स का उपयोग करके आप शून्य से एक बाह्य वर्कबुक बना सकते हैं या एक आंतरिक वर्कबुक को बाह्य बना सकते हैं।
+**`readWorkbookStream`** और **`setExternalWorkbook`** मेथड्स का उपयोग करके आप या तो शून्य से एक बाह्य कार्यपुस्तिका बना सकते हैं या एक आंतरिक कार्यपुस्तिका को बाह्य बना सकते हैं।
 
-यह Java कोड बाह्य वर्कबुक निर्माण प्रक्रिया को दर्शाता है:
+यह Java कोड बाह्य कार्यपुस्तिका निर्माण प्रक्रिया को दर्शाता है:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     final String workbookPath = "externalWorkbook1.xlsx";
@@ -181,16 +220,18 @@ try {
 }
 ```
 
-### **बाह्य वर्कबुक सेट करना**
+### **बाह्य कार्यपुस्तिका सेट करें**
 
-**`setExternalWorkbook`** मेथड का उपयोग करके आप एक चार्ट को उसका डेटा स्रोत बनाने के लिए बाह्य वर्कबुक असाइन कर सकते हैं। यह मेथड बाह्य वर्कबुक के पाथ को अपडेट करने के लिए भी उपयोग किया जा सकता है (यदि बाद वाला स्थानांतरित हो गया हो)।
+**`setExternalWorkbook`** मेथड का उपयोग करके आप एक बाह्य कार्यपुस्तिका को चार्ट के डेटा स्रोत के रूप में असाइन कर सकते हैं। यह मेथड बाह्य कार्यपुस्तिका के पाथ को अपडेट करने के लिए भी इस्तेमाल किया जा सकता है (यदि वह स्थानांतरित किया गया हो)।
 
-हालांकि आप रिमोट लोकेशन या रिसोर्सेज में संग्रहीत वर्कबुक्स के डेटा को संपादित नहीं कर सकते, आप फिर भी ऐसे वर्कबुक्स को बाह्य डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाह्य वर्कबुक के लिए रिलेटिव पाथ प्रदान किया जाता है, तो इसे स्वचालित रूप से पूर्ण पाथ में परिवर्तित कर दिया जाता है।
+रिमोट लोकेशंस या रिसोर्सेज़ में संग्रहीत कार्यपुस्तिकाओं के डेटा को आप संपादित नहीं कर सकते, लेकिन इन्हें बाह्य डेटा स्रोत के रूप में अभी भी उपयोग किया जा सकता है। यदि बाह्य कार्यपुस्तिका के लिए रिलेटिव पाथ प्रदान किया जाता है, तो इसे स्वतः पूर्ण पाथ में बदल दिया जाता है।
 
-यह Java कोड आपको बाह्य वर्कबुक सेट करने का तरीका दिखाता है:
+यह Java कोड दिखाता है कि कैसे बाह्य कार्यपुस्तिका सेट की जाए:
 
 ```java
-// Presentation क्लास का एक इंस्टैंस बनाता है
+import com.aspose.slides.*;
+
+// Presentation क्लास का एक इंस्टेंस बनाता है
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -213,13 +254,15 @@ try {
 }
 ```
 
-`ChartData` पैरामीटर (`setExternalWorkbook` मेथड के अंतर्गत) यह निर्धारित करने के लिए उपयोग किया जाता है कि Excel वर्कबुक लोड किया जाएगा या नहीं।
+`setExternalWorkbook` मेथड का दूसरा (`boolean`) पैरामीटर यह निर्दिष्ट करता है कि Excel कार्यपुस्तिका लोड होगी या नहीं।
 
-* जब `ChartData` मान `false` पर सेट किया जाता है, तो केवल वर्कबुक पाथ अपडेट होता है—चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं होगा। आप इस सेटिंग का उपयोग तब कर सकते हैं जब लक्ष्य वर्कबुक मौजूद न हो या उपलब्ध न हो।  
-* जब `ChartData` मान `true` पर सेट किया जाता है, तो चार्ट डेटा लक्ष्य वर्कबुक से अपडेट होता है।
+* जब इसका मान `false` रखा जाता है, तो केवल कार्यपुस्तिका पाथ अपडेट होता है—चार्ट डेटा लक्ष्य कार्यपुस्तिका से लोड या अपडेट नहीं होगा। आप इस सेटिंग का उपयोग तब कर सकते हैं जब लक्ष्य कार्यपुस्तिका मौजूद न हो या उपलब्ध न हो।  
+* जब इसका मान `true` रखा जाता है, तो चार्ट डेटा लक्ष्य कार्यपुस्तिका से अपडेट हो जाता है।
 
 ```java
-// Presentation क्लास का एक इंस्टैंस बनाता है
+import com.aspose.slides.*;
+
+// Presentation क्लास का एक इंस्टेंस बनाता है
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -233,18 +276,20 @@ try {
 }
 ```
 
-### **चार्ट के बाह्य डेटा सोर्स वर्कबुक पथ को प्राप्त करना**
+### **चार्ट की बाह्य डेटा स्रोत कार्यपुस्तिका पाथ प्राप्त करें**
 
 1. [Presentation](https://apireference.aspose.com/slides/hi/java/com.aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।  
-2. स्लाइड का रेफ़रेंस उसके इंडेक्स के माध्यम से प्राप्त करें।  
-3. चार्ट शेप के लिए एक ऑब्जेक्ट बनाएं।  
-4. स्रोत (`ChartDataSourceType`) टाइप के लिए एक ऑब्जेक्ट बनाएं जो चार्ट के डेटा स्रोत का प्रतिनिधित्व करता है।  
-5. उस शर्त को निर्दिष्ट करें जो स्रोत टाइप को बाह्य वर्कबुक डेटा स्रोत टाइप के समान होने पर लागू होती है।  
+1. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करें।  
+1. चार्ट शेप के लिए एक ऑब्जेक्ट बनाएं।  
+1. डेटा स्रोत प्रकार (`ChartDataSourceType`) को दर्शाने वाला एक ऑब्जेक्ट बनाएं जो चार्ट के डेटा स्रोत को प्रस्तुत करता है।  
+1. उपयुक्त शर्त निर्दिष्ट करें कि स्रोत प्रकार बाह्य कार्यपुस्तिका डेटा स्रोत प्रकार के समान है या नहीं।
 
-यह Java कोड इस ऑपरेशन को दर्शाता है:
+यह Java कोड ऑपरेशन को दर्शाता है:
 
 ```java
-// Presentation क्लास का एक इंस्टैंस बनाता है
+import com.aspose.slides.*;
+
+// Presentation क्लास का एक इंस्टेंस बनाता है
 Presentation pres = new Presentation("chart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(1);
@@ -256,20 +301,23 @@ try {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
 	
-	// प्रेजेंटेशन को सहेजता है
+	// प्रस्तुति को सहेजता है
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **चार्ट डेटा संपादित करना**
-आप बाह्य वर्कबुक्स में डेटा को उसी तरह संपादित कर सकते हैं जैसे आप आंतरिक वर्कबुक्स की सामग्री में परिवर्तन करते हैं। जब कोई बाह्य वर्कबुक लोड नहीं हो पाती है, तो एक एक्सेप्शन फेंका जाता है।
+### **चार्ट डेटा संपादित करें**
+
+आप बाह्य कार्यपुस्तिकाओं के डेटा को उसी तरह संपादित कर सकते हैं जैसा आप आंतरिक कार्यपुस्तिकाओं के सामग्री को बदलते हैं। जब एक बाह्य कार्यपुस्तिका लोड नहीं हो पाती, तो एक एक्सेप्शन फेंका जाता है।
 
 यह Java कोड वर्णित प्रक्रिया का कार्यान्वयन है:
 
 ```java
-// Presentation क्लास का एक इंस्टैंस बनाता है
+import com.aspose.slides.*;
+
+// Presentation क्लास का एक इंस्टेंस बनाता है
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = (IChart)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -283,22 +331,54 @@ try {
 }
 ```
 
+### **चार्ट कैश से कार्यपुस्तिका पुनः प्राप्त करें**
+
+यदि कोई चार्ट बाह्य कार्यपुस्तिका का उपयोग करता है जो अनुपलब्ध या गायब है, तो Aspose.Slides प्रस्तुति में कैश किए गए डेटा से चार्ट कार्यपुस्तिका को पुनः निर्मित कर सकता है। [LoadOptions](https://reference.aspose.com/slides/hi/java/com.aspose.slides/loadoptions/) बनाएं, उसे [SpreadsheetOptions](https://reference.aspose.com/slides/hi/java/com.aspose.slides/spreadsheetoptions/) के साथ कॉन्फ़िगर करें, और प्रस्तुति खोलने से पहले `true` के साथ [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) को कॉल करें।
+
+निम्नलिखित Java उदाहरण एक प्रस्तुति खोलता है जिसकी चार्ट एक अनुपलब्ध बाह्य कार्यपुस्तिका को संदर्भित करता है और पुनः प्राप्त डेटा को [IChart.getChartData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichart/#getChartData--) तथा [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) के माध्यम से एक्सेस करता है:
+
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // यहाँ पुनर्प्राप्त कार्यपुस्तिका डेटा को पढ़ें या संशोधित करें।
+} finally {
+    presentation.dispose();
+}
+```
+
+यदि बाह्य कार्यपुस्तिका अनुपलब्ध है और पुनरुद्धार निष्क्रिय है, तो Aspose.Slides एक एक्सेप्शन फेंकेगा। केवल तभी पुनरुद्धार सक्षम करें जब कैश्ड चार्ट डेटा को फॉलबैक के रूप में उपयोग करना स्वीकार्य हो, क्योंकि कैश में बाह्य कार्यपुस्तिका में किए गए परिवर्तन शामिल नहीं हो सकते।
+
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं यह निर्धारित कर सकता हूँ कि कोई विशिष्ट चार्ट बाह्य या एम्बेडेड वर्कबुक से लिंक्ड है?**  
-हाँ। चार्ट में एक [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chartdata/#getDataSourceType--) और एक [बाह्य वर्कबुक का पाथ](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) होता है; यदि स्रोत एक बाह्य वर्कबुक है, तो आप पूर्ण पाथ पढ़ कर यह सुनिश्चित कर सकते हैं कि बाह्य फ़ाइल उपयोग में है।
+**क्या मैं यह निर्धारित कर सकता हूँ कि कोई विशेष चार्ट बाह्य या एम्बेडेड कार्यपुस्तिका से जुड़ा है?**  
 
-**क्या बाह्य वर्कबुक्स के रिलेटिव पाथ्स सपोर्टेड हैं, और वे कैसे संग्रहीत होते हैं?**  
-हाँ। यदि आप एक रिलेटिव पाथ निर्दिष्ट करते हैं, तो वह स्वचालित रूप से एक एब्सोल्यूट पाथ में परिवर्तित हो जाता है। यह प्रोजेक्ट पोर्टेबिलिटी के लिए सुविधाजनक है; हालांकि, ध्यान रखें कि प्रेजेंटेशन PPTX फ़ाइल में एब्सोल्यूट पाथ संग्रहीत करता है।
+हाँ। एक चार्ट के पास [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chartdata/#getDataSourceType--) और एक [बाह्य कार्यपुस्तिका पाथ](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) होता है; यदि स्रोत बाह्य कार्यपुस्तिका है, तो आप पूर्ण पाथ पढ़कर सुनिश्चित कर सकते हैं कि बाह्य फ़ाइल का उपयोग किया जा रहा है।
 
-**क्या मैं नेटवर्क रिसोर्सेज/शेयर्स पर स्थित वर्कबुक्स का उपयोग कर सकता हूँ?**  
-हाँ, ऐसे वर्कबुक्स को बाह्य डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालांकि, Aspose.Slides से रिमोट वर्कबुक्स को सीधे संपादित करना समर्थित नहीं है—वे केवल स्रोत के रूप में उपयोग किए जा सकते हैं।
+**क्या बाह्य कार्यपुस्तिकाओं के लिए रिलेटिव पाथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**  
 
-**क्या Aspose.Slides प्रेजेंटेशन सेव करने पर बाह्य XLSX को ओवरराइट करता है?**  
-नहीं। प्रेजेंटेशन एक [बाह्य फ़ाइल के लिंक](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) को संग्रहीत करता है और डेटा पढ़ने के लिए इसका उपयोग करता है। प्रेजेंटेशन सेव करने पर बाह्य फ़ाइल स्वयं संशोधित नहीं होती।
+हाँ। यदि आप एक रिलेटिव पाथ निर्दिष्ट करते हैं, तो वह स्वतः एक एब्सॉल्यूट पाथ में बदल जाता है। यह प्रोजेक्ट पोर्टेबिलिटी के लिए सुविधाजनक है; हालांकि, प्रस्तुति PPTX फ़ाइल में एब्सॉल्यूट पाथ को स्टोर करेगी।
 
-**यदि बाह्य फ़ाइल पासवर्ड से सुरक्षित हो तो मुझे क्या करना चाहिए?**  
-Aspose.Slides लिंकिंग के समय पासवर्ड स्वीकार नहीं करता। एक सामान्य दृष्टिकोण यह है कि पहले सुरक्षा हटाई जाए या एक डिक्रिप्टेड कॉपी तैयार की जाए (उदाहरण के लिए, [Aspose.Cells](/cells/java/) का उपयोग करके) और उस कॉपी को लिंक किया जाए।
+**क्या मैं नेटवर्क रिसोर्सेज़/शेयर पर स्थित कार्यपुस्तिकाओं का उपयोग कर सकता हूँ?**  
 
-**क्या कई चार्ट्स एक ही बाह्य वर्कबुक को रेफ़र कर सकते हैं?**  
-हां। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर संकेत करते हैं, तो उस फ़ाइल को अपडेट करने से अगली बार डेटा लोड होने पर प्रत्येक चार्ट में परिवर्तन परिलक्षित होगा।
+हाँ, ऐसी कार्यपुस्तिकाओं को बाह्य डेटा स्रोत के रूप में उपयोग किया जा सकता है। लेकिन Aspose.Slides से सीधे रिमोट कार्यपुस्तिकाओं को संपादित करना समर्थित नहीं है—वे केवल स्रोत के रूप में उपयोग की जा सकती हैं।
+
+**क्या Aspose.Slides प्रस्तुति को सेव करने पर बाह्य XLSX को ओवरराइट करता है?**  
+
+नहीं। प्रस्तुति एक [बाह्य फ़ाइल लिंक](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) को स्टोर करती है और डेटा पढ़ने के लिए इसका उपयोग करती है। प्रस्तुति को सेव करने पर बाह्य फ़ाइल स्वयं संशोधित नहीं होती।
+
+**यदि बाह्य फ़ाइल पासवर्ड-प्रोटेक्टेड है तो मुझे क्या करना चाहिए?**  
+
+Aspose.Slides लिंकिंग के समय पासवर्ड स्वीकार नहीं करता। आम तौर पर पहले सुरक्षा हटाना या एक डिक्रिप्टेड कॉपी तैयार करना (उदाहरण के लिए, [Aspose.Cells](/cells/java/) का उपयोग करके) और उस कॉपी को लिंक करना बेहतर होता है।
+
+**क्या कई चार्ट एक ही बाह्य कार्यपुस्तिका को संदर्भित कर सकते हैं?**  
+
+हाँ। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर संकेत करते हैं, तो उस फ़ाइल में परिवर्तन अगली बार डेटा लोड होने पर प्रत्येक चार्ट में परिलक्षित होगा।

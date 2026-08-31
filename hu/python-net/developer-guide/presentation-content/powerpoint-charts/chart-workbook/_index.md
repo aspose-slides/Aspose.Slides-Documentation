@@ -1,35 +1,37 @@
 ---
-title: Diagram munkafüzetek kezelése prezentációkban Python segítségével
-linktitle: Diagram munkafüzet
+title: Diagrammunkafüzetek kezelése prezentációkban Python segítségével
+linktitle: Diagrammunkafüzet
 type: docs
 weight: 70
 url: /hu/python-net/chart-workbook/
 keywords:
-- diagram munkafüzet
-- diagram adat
+- diagrammunkafüzet
+- diagramadat
 - munkafüzet cella
 - adatcímke
 - munkalap
 - adatforrás
 - külső munkafüzet
 - külső adat
+- diagram gyorsítótár
+- munkafüzet helyreállítás
 - PowerPoint
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Ismerje meg az Aspose.Slides for Python-t .NET-en keresztül: könnyedén kezelje a diagram munkafüzeteit PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse prezentációja adatait."
+description: "Fedezze fel az Aspose.Slides-t Python számára .NET-en keresztül: könnyedén kezelje a diagrammunkafüzeteket PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse prezentációja adatait."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan dolgozhatunk diagrammunnevekkel (chart workbooks) az Aspose.Slides-ben. Bemutatja, hogyan lehet olvasni és írni diagramadatokat munkafüzet‑folyamokon keresztül, a munkafüzet‑cellákat diagramadat‑címkeként használni, a munkalap‑gyűjteményekhez hozzáférni, valamint a diagramértékek adatforrás‑típusát megadni.
+Ez a cikk bemutatja, hogyan lehet a diagrammunkafüzetekkel dolgozni az Aspose.Slides‑ben. Megmutatja, hogyan lehet a diagramadatokat munkafüzet‑folyamokon keresztül olvasni és írni, a munkafüzet‑cellákat diagramcímkeként használni, a munkalap‑gyűjteményekhez hozzáférni, és megadni az adatforrás típusát a diagramértékekhez.
 
-Továbbá kitér a külső munkafüzetek diagramadat‑forrásként való használatára. A példák bemutatják, hogyan hozhatunk létre és rendelhetünk hozzá egy külső munkafüzetet, hogyan kérhetjük le egy diagramhoz csatolt külső munkafüzet útvonalát, és hogyan szerkeszthetünk diagramadatokat, ha a munkafüzet elérhető.
+Továbbá tárgyalja a külső munkafüzetek diagramadat‑forrásként való használatát. A példák bemutatják, hogyan hozhatunk létre és rendelhetünk hozzá egy külső munkafüzetet, hogyan kérhetjük le egy diagramhoz kapcsolódó külső munkafüzet útvonalát, és hogyan szerkeszthetjük a diagramadatokat, ha a munkafüzet elérhető.
 
 ## **Diagramadatok olvasása és írása munkafüzetből**
 
-Az Aspose.Slides módszereket biztosít a diagramadat‑munkafüzetek (amelyek Aspose.Cells‑szel szerkesztett diagramadatokat tartalmaznak) olvasására és írására. **Megjegyzés:** A diagramadatoknak ugyanúgy kell szervezve lenniük, vagy hasonló struktúrával kell rendelkezniük, mint a forrás.
+Az Aspose.Slides módszereket biztosít a diagramadat‑munkafüzetek (amelyek Aspose.Cells‑szel szerkesztett diagramadatokat tartalmaznak) olvasására és írására. **Megjegyzés:** A diagramadatoknak ugyanúgy vagy hasonló szerkezetben kell felépülniük, mint a forrásban.
 
-Az alábbi Python‑kód egy minta műveletet mutat be:
+A következő Python‑kód egy példaműveletet mutat be:
 
 ```py
 import aspose.slides as slides
@@ -46,24 +48,44 @@ with slides.Presentation("chart.pptx") as presentation:
     chart.chart_data.write_workbook_stream(data_stream)
 ```
 
-## **WorkBook cellát beállítani diagramadat‑címkeként**
+### **Diagramelrendezés ellenőrzése munkafüzet módosítása után**
 
-Néha olyan diagramcímkékre van szükség, amelyek közvetlenül a mögöttes adatmunkafüzet celláiból származnak. Az Aspose.Slides lehetővé teszi, hogy adatcímkéket konkrét munkafüzet‑cellákhoz kötve a címke szövege mindig a cella értékét tükrözze. Az alábbi példa megmutatja, hogyan engedélyezhetők cella‑érték‑címkék, és hogyan irányíthatók a kiválasztott címkék egyéni cellákra a diagram munkafüzetében.
+Amikor egy beágyazott munkafüzetet egy módosítottra cserélünk, a diagram megtartja az eredeti sorozat‑ és kategóriagyűjteményeit. Ez a nem egyezés [IChart.validate_chart_layout](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichart/validate_chart_layout/) hibához vezethet, amely index‑kívül‑tartományi hibát dob. Írja ki a meglévő sorozatokat és kategóriákat, mielőtt az új munkafüzetet visszaírná a diagramba.
 
-1. Hozzon létre egy példányt a [Presentation](https://docs.aspose.com/slides/hu/python-net/api-reference/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást a diára index alapján.
-1. Adjon hozzá egy buborékdiagramot mintaadatokkal.
-1. Hozzáférés a diagram sorozatokhoz.
-1. Használjon munkafüzet‑cellát adatcímkeként.
-1. Mentse el a prezentációt.
+```python
+# A munkafüzet adatfolyam módosítása után (pl. Aspose.Cells használatával)
+updated_workbook = chart_data.read_workbook_stream()
 
-Az alábbi Python‑kód megmutatja, hogyan állítható be egy munkafüzet‑cellát diagramadat‑címkeként:
+# Létező adat hivatkozások tisztítása.
+chart_data.series.clear()
+chart_data.categories.clear()
+
+updated_workbook.seek(0)
+chart_data.write_workbook_stream(updated_workbook)
+
+chart.validate_chart_layout()
+```
+
+A gyűjtemények törlése biztosítja, hogy a diagram adatstruktúrája egyezzen az új munkafüzettel, lehetővé téve a `validate_chart_layout` hibamentes befejezését.
+
+## **Munkafüzetcellát használni diagramadatcímkeként**
+
+Néha olyan diagramcímkékre van szükség, amelyek közvetlenül a mögöttes adatmunkafüzet celláiból származnak. Az Aspose.Slides lehetővé teszi, hogy adatcímkéket adott munkafüzetcellákhoz kössön, így a címkeszöveg mindig a cella értékét tükrözi. Az alábbi példa megmutatja, hogyan lehet cellából származó címkéket engedélyezni, és a kiválasztott címkéket egyéni cellákra mutatni a diagram munkafüzetében.
+
+1. Hozzon létre egy példányt a [Presentation](https://docs.aspose.com/slides/hu/python-net/api-reference/aspose.slides/presentation/) osztályból.  
+1. Szerezze be a diát index alapján.  
+1. Adjon hozzá egy buborékdiagramot mintaadatokkal.  
+1. Hozzáférés a diagram sorozatához.  
+1. Használjon egy munkafüzetcellát adatcímkeként.  
+1. Mentse a prezentációt.
+
+A következő Python‑kód mutatja, hogyan állíthat be egy munkafüzetcellát diagramadatcímkeként:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-# Létrehozza a Presentation osztályt, amely egy prezentációs fájlt képvisel.
+# Példányosítsa a Presentation osztályt, amely egy prezentációfájlt képvisel.
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -84,7 +106,7 @@ with slides.Presentation() as presentation:
 
 ## **Munkalapok kezelése**
 
-Az alábbi Python‑kód bemutatja, hogyan használhatja a `worksheets` tulajdonságot a munkalap‑gyűjtemény eléréséhez:
+Az alábbi Python‑kód bemutatja, hogyan használja a `worksheets` tulajdonságot a munkalap‑gyűjtemény eléréséhez:
 
 ```python
 import aspose.slides as slides
@@ -100,9 +122,9 @@ with slides.Presentation() as presentation:
         print(workbook.worksheets[i].name)
 ```
 
-## **Az adatforrás típusának megadása**
+## **Adatforrás típusának megadása**
 
-Az alábbi Python‑kód megmutatja, hogyan adható meg egy adatforrás‑típus:
+Az alábbi Python‑kód mutatja, hogyan adhatja meg az adatforrás típusát:
 
 ```python
 import aspose.slides as slides
@@ -123,9 +145,9 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nem támogatott beágyazott munkafüzet‑formátumok felismerése**
+## **Nem támogatott beágyazott munkafüzet formátumok felismerése**
 
-Az Aspose.Slides nem támogatja az Excel bináris munkafüzet (.xlsb) formátumot, amely néhány diagramba beágyazható. Használhatja az `embedded_workbook_type` tulajdonságot a [ChartData](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/) osztályon, együtt a [WorkbookType](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/workbooktype/) felsorolással, hogy felismerje a nem támogatott formátumokat, és kihagyja az érintett diagramokat.
+Az Aspose.Slides nem támogatja a néhány diagramhoz beágyazható Excel bináris munkafüzet (.xlsb) formátumot. Használhatja a `embedded_workbook_type` tulajdonságot a [ChartData](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/) osztályon, valamint a [WorkbookType](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/workbooktype/) felsorolást az nem támogatott formátumok felismeréséhez és azok a diagramok kihagyásához.
 
 ```py
 import aspose.slides as slides
@@ -143,23 +165,23 @@ with slides.Presentation("sample.pptx") as presentation:
 
         if (chart_data.data_source_type == charts.ChartDataSourceType.INTERNAL_WORKBOOK and
                 chart_data.embedded_workbook_type == charts.WorkbookType.WORKBOOK_BINARY_MACRO):
-            # Beágyazott munkafüzet .xlsb formátumban van, amely nem támogatott.
+            # A beágyazott munkafüzet .xlsb formátumban van, amely nem támogatott.
             continue
 
-        # Itt olvassa vagy módosíthatja a diagram munkafüzet adatait.
+        # Olvassa vagy módosítsa itt a diagram munkafüzet adatát.
 ```
 
 ## **Külső munkafüzetek**
 
-Az Aspose.Slides támogatja a külső munkafüzetek diagramok adatforrásként való használatát.
+Az Aspose.Slides támogatja a külső munkafüzetek diagramadat‑forrásként való használatát.
 
 ### **Külső munkafüzetek beállítása**
 
-A [ChartData.set_external_workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metódus használatával egy külső munkafüzetet rendelhet egy diagramhoz adatforrásként. Ez a metódus frissítheti a külső munkafüzet útvonalát is, ha az áthelyezésre kerül.
+A [ChartData.set_external_workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metódus használatával egy külső munkafüzetet rendelhet a diagram adatforrásaként. Ez a metódus frissítheti a külső munkafüzet útvonalát is, ha azt áthelyezték.
 
-Bár nem szerkesztheti a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatait, továbbra is használhatja ezeket külső adatforrásként. Ha relatív útvonalat ad meg egy külső munkafüzethez, az automatikusan teljes útvonallá konvertálódik.
+Bár a távoli helyeken vagy erőforrásokon tárolt munkafüzetek adatait nem szerkesztheti, továbbra is használhatja ezeket külső adatforrásként. Ha relatív útvonalat ad meg egy külső munkafüzethez, az automatikusan teljes útvonallá konvertálódik.
 
-Az alábbi Python‑kód megmutatja, hogyan állítható be egy külső munkafüzet:
+Az alábbi Python‑kód mutatja, hogyan állíthat be egy külső munkafüzetet:
 
 ```python
 import aspose.slides as slides
@@ -169,19 +191,20 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chart.chart_data.set_external_workbook("external_workbook.xlsx")
+    # Adja meg a False értéket, így csak az útvonal kerül tárolásra: a cél munkafüzettnek még nem kell léteznie.
+    chart.chart_data.set_external_workbook("external_workbook.xlsx", False)
 
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A `update_chart_data` paraméter a [set_external_workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metódusban határozza meg, hogy az Excel‑munkafüzet betöltődjön‑e.
+A [set_external_workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metódus `update_chart_data` paramétere határozza meg, hogy az Excel‑munkafüzet be lesz‑töltve-e.
 
-- Ha `update_chart_data` értéke `False`, csak a munkafüzet útvonala frissül; a diagramadatok nem töltődnek be vagy frissülnek a célmunkafüzetből. Ezt a beállítást akkor használja, ha a célmunkafüzet nem létezik vagy nem érhető el.
-- Ha `update_chart_data` értéke `True`, a diagramadatok beolvasásra és frissítésre kerülnek a célmunkafüzetből.
+- Ha az `update_chart_data` értéke `False`, csak a munkafüzet útvonala frissül; a diagramadatot nem töltik be, és nem frissítik a célmunkafüzetről. Ezt a beállítást használja, ha a célmunkafüzet nem létezik vagy nem érhető el.  
+- Ha az `update_chart_data` értéke `True` (az alapértelmezett), a diagramadat be‑ és frissül a célmunkafüzetről. Ha a munkafüzetet nem lehet megnyitni, a rendszer „External workbook is not available” üzenetű kivételt dob.
 
 ### **Külső munkafüzetek létrehozása**
 
-A [read_workbook_stream](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) és a [set_external_workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metódusok használatával vagy egy új külső munkafüzetet hozhat létre teljesen vagy egy belső munkafüzetet alakíthat át külsővé.
+A [read_workbook_stream](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) és a [set_external_workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/set_external_workbook/) metódusok használatával akár teljesen új külső munkafüzetet hozhat létre, vagy egy belső munkafüzetet alakíthat át külsővé.
 
 Ez a Python‑kód bemutatja a külső munkafüzet létrehozási folyamatát:
 
@@ -208,17 +231,17 @@ with slides.Presentation() as presentation:
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **A diagram külső adatforrás‑munkafüzete útvonalának lekérdezése**
+### **Külső adatforrás munkafüzet útvonalának lekérése diagramhoz**
 
-Néha a diagram adatai egy külső Excel‑munkafüzethez vannak csatolva a prezentáció beágyazott adatai helyett. Az Aspose.Slides segítségével ellenőrizheti a diagram adatforrását, és ha külső munkafüzetről van szó, kiolvashatja a teljes munkafüzet‑útvonalat.
+Néha egy diagram adatai egy külső Excel‑munkafüzethez vannak kapcsolva a prezentáció beágyazott adatai helyett. Az Aspose.Slides segítségével megvizsgálhatja a diagram adatforrását, és ha külső munkafüzetről van szó, kiolvashatja a teljes munkafüzeter útvonalát.
 
-1. Hozzon létre egy példányt a [Presentation](https://docs.aspose.com/slides/hu/python-net/api-reference/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást a diára index szerint.
-1. Szerezzen hivatkozást a diagram alakzatára.
-1. Szerezze meg a forrást ([ChartDataSourceType](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdatasourcetype/)), amely a diagram adatforrását képviseli.
-1. Ellenőrizze, hogy a forrástípus egyezik‑e a külső munkafüzettel.
+1. Hozzon létre egy példányt a [Presentation](https://docs.aspose.com/slides/hu/python-net/api-reference/aspose.slides/presentation/) osztályból.  
+1. Szerezze be a diát index szerint.  
+1. Szerezze be a diagram alakzatot.  
+1. Szerezze meg a forrást ([ChartDataSourceType](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdatasourcetype/)), amely a diagram adatforrását jelöli.  
+1. Ellenőrizze, hogy a forrás típusa megegyezik‑e a külső munkafüzet adatforrás típusával.
 
-Az alábbi Python‑kód bemutatja a műveletet:
+Az alábbi Python‑kód demonstrálja a műveletet:
 
 ```python
 import aspose.slides as slides
@@ -233,7 +256,7 @@ with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
 
 ### **Diagramadatok szerkesztése**
 
-A külső munkafüzetek adatait ugyanúgy szerkesztheti, mint a belső munkafüzetekét. Ha egy külső munkafüzet nem tölthető be, kivétel keletkezik.
+Ugyanúgy szerkesztheti a külső munkafüzetek adatait, mint a belső munkafüzetekét. Ha egy külső munkafüzetet nem lehet betölteni, kivétel keletkezik.
 
 ```python
 import aspose.slides as slides
@@ -244,28 +267,43 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Munkafüzet helyreállítása a diagram gyorsítótárából**
+
+Ha egy diagram olyan külső munkafüzetet használ, amely hiányzik vagy nem érhető el, az Aspose.Slides rekonstruálhatja a diagram munkafüzetét a prezentációban tárolt gyorsítótárazott adatokból. Hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/), majd a [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/spreadsheet_options/) segítségével engedélyezze a [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/hu/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) beállítást, mielőtt megnyitná a prezentációt.
+
+Az alábbi Python‑példa megnyit egy prezentációt, amelynek diagramja egy nem elérhető külső munkafüzetre hivatkozik, és a helyreállított adatokat a [Chart.chart_data](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chart/chart_data/) és a [ChartData.chart_data_workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) segítségével éri el:
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.recover_workbook_from_chart_cache = True
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    chart = presentation.slides[0].shapes[0]
+    recovered_workbook = chart.chart_data.chart_data_workbook
+
+    # Olvassa vagy módosítsa itt a helyreállított munkafüzet adatait.
+```
+
+Ha a külső munkafüzet nem érhető el, és a helyreállítás ki van kapcsolva, az Aspose.Slides kivételt dob. Engedélyezze a helyreállítást csak akkor, ha a gyorsítótárból származó diagramadatok használata elfogadható tartalékmegoldás, mivel a gyorsítótár esetleg nem tartalmazza a külső munkafüzetben a prezentáció legutóbbi frissítése óta történt változtatásokat.
+
 ## **GYIK**
 
-**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzettel van‑e összekötve?**
+**Meg tudom határozni, hogy egy adott diagram egy külső vagy beágyazott munkafüzethez van-e kapcsolva?**  
+Igen. A diagramnek van egy [data source type](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/data_source_type/) és egy [path to an external workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/external_workbook_path/); ha a forrás egy külső munkafüzet, kiolvashatja a teljes útvonalat, hogy megbizonyosodjon a külső fájl használatáról.
 
-Igen. A diagramnak van egy [data source type](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/data_source_type/) és egy [path to an external workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/external_workbook_path/); ha a forrás egy külső munkafüzet, leolvashatja a teljes útvonalat, hogy megbizonyosodjon arról, külső fájlt használ‑e.
+**Támogatottak a relatív útvonalak a külső munkafüzetekhez, és hogyan tárolódnak?**  
+Igen. Ha relatív útvonalat ad meg, az automatikusan abszolút útvonalra konvertálódik. Ez praktikus a projektek hordozhatóságához; azonban a prezentáció az abszolút útvonalat tárolja a PPTX‑fájlban.
 
-**Támogatottak‑e a relatív útvonalak külső munkafüzetekhez, és hogyan tárolódnak?**
+**Használhatok munkafüzeteket hálózati erőforrásokon/megosztott meghajtókon?**  
+Igen, ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑ből nem támogatott – csak forrásként alkalmazhatók.
 
-Igen. Ha relatív útvonalat ad meg, az automatikusan átalakul abszolút útvonallá. Ez a projekt hordozhatóságát segíti; azonban vegye figyelembe, hogy a prezentáció az abszolút útvonalat tárolja a PPTX‑fájlban.
+**Az Aspose.Slides felülírja a külső XLSX‑et a prezentáció mentésekor?**  
+Csak akkor, ha a diagram adatát szerkesztette. A prezentáció egy [link to the external file](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/external_workbook_path/) tárol, és ezt használja az adatok olvasásához, így a prezentáció megnyitása és mentése nem módosítja a munkafüzetet. Azonban a diagramon keresztül módosított értékek (lásd a **Diagramadatok szerkesztése** részt fent) visszaírásra kerülnek a külső munkafüzetbe a prezentáció mentésekor – dolgozzon egy másolaton, ha az eredetit érintetlenül kell hagyni.
 
-**Használhatok‑e munkafüzeteket hálózati erőforrásokon/megosztott meghajtókon?**
+**Mit kell tennem, ha a külső fájl jelszóval védett?**  
+Az Aspose.Slides nem fogad jelszót a hivatkozás létrehozásakor. Általános megoldás a védelem előzetes eltávolítása vagy egy dekódolt másolat előkészítése (például az [Aspose.Cells](/cells/python-net/) használatával), majd a másolatra való hivatkozás.
 
-Igen, ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑ból nem támogatott – csak forrásként használhatók.
-
-**Az Aspose.Slides felülírja‑e a külső XLSX‑et a prezentáció mentésekor?**
-
-Nem. A prezentáció egy [link to the external file](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/external_workbook_path/) tárol, és ezt használja az adatok olvasásához. A külső fájl maga nem módosul a prezentáció mentésekor.
-
-**Mit tegyek, ha a külső fájl jelszó‑védett?**
-
-Az Aspose.Slides nem fogad el jelszót a hivatkozáskor. Általános megoldás, hogy a védelmet előzetesen eltávolítja, vagy egy visszafejtett másolatot (például a [Aspose.Cells](/cells/python-net/) használatával) készít, és arra hivatkozik.
-
-**Több diagram hivatkozhat ugyanarra a külső munkafüzetre?**
-
-Igen. Minden diagram a saját hivatkozását tárolja. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése minden diagramon megjelenik a következő adatbetöltéskor.
+**Több diagram hivatkozhat ugyanarra a külső munkafüzetre?**  
+Igen. Minden diagram saját hivatkozást tárol. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése a következő adatbetöltéskor minden diagramon megjelenik.

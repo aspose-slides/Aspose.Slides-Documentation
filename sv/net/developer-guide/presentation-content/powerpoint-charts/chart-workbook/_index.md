@@ -1,5 +1,5 @@
 ---
-title: Hantera diagramarbok i presentationer i .NET
+title: Hantera diagramarbetsböcker i presentationer i .NET
 linktitle: Diagramarbok
 type: docs
 weight: 70
@@ -13,25 +13,30 @@ keywords:
 - datakälla
 - extern arbetsbok
 - extern data
+- diagramcache
+- arbetsboksåterställning
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för .NET: hantera diagramarbok i PowerPoint- och OpenDocument-format på ett enkelt sätt för att effektivisera dina presentationsdata."
+description: "Upptäck Aspose.Slides för .NET: hantera diagramarbetsböcker i PowerPoint och OpenDocument-format enkelt för att effektivisera dina presentationsdata."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkning, får åtkomst till arbetsbladssamlingar och anger datakälltyp för diagramvärden.
+Denna artikel förklarar hur du arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur du läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkningar, får åtkomst till arbetsbladssamlingar och anger datakälltyp för diagramvärden.
 
-Den behandlar även arbete med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
+Den behandlar också arbete med externa arbetsböcker som datakällor för diagram. Exemplen visar hur du skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
 
 ## **Läs och skriv diagramdata från en arbetsbok**
-Aspose.Slides tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdata/writeworkbookstream/) som låter dig läsa och skriva diagramarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Obs!** diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
+Aspose.Slides tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdata/writeworkbookstream/) som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Obs!** diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
 
-Denna C#‑kod demonstrerar ett exempel:
+Denna C#‑kod demonstrerar ett exempel på operationen:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation("chart.pptx"))
 {
     Chart chart = (Chart) pres.Slides[0].Shapes[0];
@@ -47,17 +52,40 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
-## **Ange en arbetsbokscell som diagramdatamärkning**
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) .
-2. Hämta en bilds referens via dess index.
-3. Lägg till ett bubbeldiagram med någon data.
-4. Få åtkomst till diagramserierna.
-5. Ange arbetsbokscellen som en datamärkning.
-6. Spara presentationen.
+### **Validera diagramlayout efter arbetsboksändring**
 
-Denna C#‑kod visar hur du anger en arbetsbokscell som en diagramdatamärkning:
+När du ersätter en inbäddad arbetsbok med en modifierad behåller diagrammet sina ursprungliga serie‑ och kategori­samlingar. Detta missförhållande kan få [IChart.ValidateChartLayout](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichart/validatechartlayout/) att misslyckas med ett index‑out‑of‑range‑fel. Rensa de befintliga serierna och kategorierna innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet.
+
+```csharp
+// Efter att ha modifierat arbetsboksströmmen (t.ex. med Aspose.Cells)
+using var updatedWorkbook = chartData.ReadWorkbookStream();
+
+// Rensa befintliga datareferenser.
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+updatedWorkbook.Position = 0;
+chartData.WriteWorkbookStream(updatedWorkbook);
+
+chart.ValidateChartLayout();
+```
+
+Att rensa samlingarna säkerställer att diagramdatastrukturen är konsistent med den nya arbetsboken, så att `ValidateChartLayout` kan slutföras utan fel.
+
+## **Ange en arbetsbokscell som diagramdatamärkning**
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/).
+1. Hämta en bilds referens via dess index.
+1. Lägg till ett bubbeldiagram med någon data.
+1. Åtkomst till diagramserierna.
+1. Ange arbetsboks‑cellen som en datamärkning.
+1. Spara presentationen.
+
+Denna C#‑kod visar hur du anger en arbetsbokscell som diagramdatamärkning:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
@@ -87,9 +115,12 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 
 ## **Hantera arbetsblad**
 
-Denna C#‑kod demonstrerar en operation där egenskapen [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) används för att få åtkomst till en arbetsbladssamling:
+Denna C#‑kod demonstrerar en operation där egenskapen [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) används för att åtkomst till en arbetsblads­samling:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation())
 {
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
@@ -101,9 +132,13 @@ using (Presentation pres = new Presentation())
 
 ## **Ange datakälltyp**
 
-Denna C#‑kod visar hur du anger en typ för en datakälla:
+Denna C#‑kod visar hur du specificerar en typ för en datakälla:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -119,11 +154,14 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Identifiera ej stödjade inbäddade arbetsbokformat**
+## **Detektera ej stödda inbäddade arbetsboksformat**
 
-Aspose.Slides stöder inte Excel‑binärarbetsboksformatet (.xlsb) som kan vara inbäddat i vissa diagram. Du kan använda egenskapen `EmbeddedWorkbookType` på [IChartData](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/workbooktype/) för att identifiera ej stödjade format och hoppa över dessa diagram.
+Aspose.Slides stödjer inte Excel‑binärarbok (.xlsb) som kan vara inbäddad i vissa diagram. Du kan använda egenskapen `EmbeddedWorkbookType` på [IChartData](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/workbooktype/) för att upptäcka ej stödda format och hoppa över dessa diagram.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var slide = presentation.Slides[0];
@@ -141,23 +179,27 @@ using (var presentation = new Presentation("sample.pptx"))
             continue;
         }
 
-        // Läs eller modifiera diagramarbokens data här.
+        // Läs eller ändra diagramarboksdata här.
     }
 }
 ```
 
 ## **Extern arbetsbok**
 
-{{% alert color="primary" %}} 
-I [Aspose.Slides 19.4](https://docs.aspose.com/slides/sv/net/aspose-slides-for-net-19-4-release-notes/) har vi implementerat stöd för externa arbetsböcker som datakälla för diagram.
+{{% alert color="info" %}} 
+I [Aspose.Slides 19.4](https://docs.aspose.com/slides/sv/net/aspose-slides-for-net-19-4-release-notes/) implementerade vi stöd för externa arbetsböcker som datakälla för diagram.
 {{% /alert %}} 
 
 ### **Skapa en extern arbetsbok**
-Med metoderna **`ReadWorkbookStream`** och **`SetExternalWorkbook`** kan du antingen skapa en extern arbetsbok från grunden eller göra en intern arbetsbok extern.
+Genom att använda metoderna **`ReadWorkbookStream`** och **`SetExternalWorkbook`** kan du antingen skapa en extern arbetsbok från början eller göra en intern arbetsbok extern.
 
 Denna C#‑kod demonstrerar processen för att skapa en extern arbetsbok:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     const string workbookPath = "externalWorkbook1.xlsx";
@@ -175,14 +217,18 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Ange en extern arbetsbok**
+### **Tilldela en extern arbetsbok**
 Med metoden **`SetExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
 
-Du kan inte redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, men du kan ändå använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok tillhandahålls konverteras den automatiskt till en fullständig sökväg.
+Du kan inte redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, men du kan fortfarande använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok anges konverteras den automatiskt till en fullständig sökväg.
 
 Denna C#‑kod visar hur du anger en extern arbetsbok:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Sökvägen till dokumentkatalogen.
 using (Presentation pres = new Presentation())
 {
@@ -204,12 +250,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Parametern `ChartData` (under metoden `SetExternalWorkbook`) används för att ange om en Excel‑arbetsbok ska laddas eller inte.
+Parametern `ChartData` (under metoden `SetExternalWorkbook`) används för att ange om en Excel‑arbok ska laddas eller inte. 
 
-* När `ChartData`‑värdet är `false` uppdateras endast arbetsbokens sökväg – diagramdata laddas inte och uppdateras inte från mål‑arbetsboken. Detta kan vara användbart när mål‑arbetsboken saknas eller är otillgänglig.  
-* När `ChartData`‑värdet är `true` uppdateras diagramdata från mål‑arbetsboken.
+* När `ChartData`‑värdet är `false` uppdateras endast arbetsbokens sökväg – diagramdata laddas eller uppdateras inte från mål‑arboken. Detta kan vara lämpligt när mål‑arboken saknas eller är otillgänglig. 
+* När `ChartData`‑värdet är `true` uppdateras diagramdata från mål‑arboken.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -221,17 +271,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Hämta den externa datakällans arbetsboksökväg för ett diagram**
+### **Hämta den externa datakällans arbetsboks­väg för ett diagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) .
-2. Hämta en bilds referens via dess index.
-3. Skapa ett objekt för diagramformen.
-4. Skapa ett objekt för källtypen (`ChartDataSourceType`) som representerar diagrammets datakälla.
-5. Ange det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsbokens datakälltyp.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/).
+1. Hämta en bilds referens via dess index.
+1. Skapa ett objekt för diagramformen.
+1. Skapa ett objekt för källtypen (`ChartDataSourceType`) som representerar diagrammets datakälla.
+1. Specificera det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsbokens datakälltyp.
 
 Denna C#‑kod demonstrerar operationen:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[1];
@@ -249,11 +303,15 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Redigera diagramdata**
 
-Du kan redigera data i externa arbetsböcker på samma sätt som du gör ändringar i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
+Du kan redigera data i externa arbetsböcker på samma sätt som du gör ändringar i innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Denna C#‑kod är en implementation av den beskrivna processen:
+Denna C#‑kod är en implementering av den beskrivna processen:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     IChart chart = pres.Slides[0].Shapes[0] as IChart;
@@ -265,6 +323,34 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
+### **Återställ en arbetsbok från diagramcachen**
+
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig kan Aspose.Slides återskapa diagramarboken från de data som cachats i presentationen. Skapa ett [LoadOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/), konfigurera dess [SpreadsheetOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/spreadsheetoptions/), och sätt [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) till `true` innan du öppnar presentationen.
+
+Följande C#‑exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till den återställda datan via [IChart.ChartData](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichart/chartdata/) och [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        RecoverWorkbookFromChartCache = true
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+var chart = (IChart)presentation.Slides[0].Shapes[0];
+var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
+
+// Read or modify the recovered workbook data here.
+```
+
+Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett `InvalidOperationException`. Aktivera återställning endast när användning av cachad diagramdata är ett acceptabelt alternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+
 ## **FAQ**
 
 **Kan jag avgöra om ett specifikt diagram är länkat till en extern eller inbäddad arbetsbok?**
@@ -273,20 +359,20 @@ Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/net
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är praktiskt för projektportabilitet; dock lagras den absoluta sökvägen i PPTX‑filen.
+Ja. Anges en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta underlättar projektportabilitet, men observera att presentationen lagrar den absoluta sökvägen i PPTX‑filen.
 
-**Kan jag använda arbetsböcker som ligger på nätverksresurser/delade mappar?**
+**Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Att redigera fjärrarbetsböcker direkt från Aspose.Slides stöds däremot inte – de kan endast användas som källa.
+Ja, sådana arbetsböcker kan användas som extern datakälla. Redigering av fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som källa.
 
 **Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
 Nej. Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/chartdata/externalworkbookpath/) och använder den för att läsa data. Den externa filen ändras inte när presentationen sparas.
 
-**Vad ska jag göra om den externa filen är lösenordsskyddad?**
+**Vad gör jag om den externa filen är lösenordsskyddad?**
 
-Aspose.Slides accepterar inget lösenord vid länkning. Ett vanligt tillvägagångssätt är att i förväg ta bort skyddet eller skapa en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/net/)) och länka till den kopian.
+Aspose.Slides accepterar inte ett lösenord vid länkning. Ett vanligt tillvägagångssätt är att i förväg ta bort skyddet eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/net/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 
-Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en ändring av den filen att återspeglas i varje diagram nästa gång data laddas.
+Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil reflekteras en uppdatering av filen i varje diagram nästa gång data laddas.

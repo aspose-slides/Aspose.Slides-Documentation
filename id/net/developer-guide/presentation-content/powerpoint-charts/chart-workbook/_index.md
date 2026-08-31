@@ -1,37 +1,40 @@
 ---
-title: Kelola Buku Kerja Diagram dalam Presentasi di .NET
-linktitle: Buku Kerja Diagram
+title: Kelola Workbook Diagram dalam Presentasi di .NET
+linktitle: Workbook Diagram
 type: docs
 weight: 70
 url: /id/net/chart-workbook/
 keywords:
-- buku kerja diagram
+- workbook diagram
 - data diagram
-- sel buku kerja
+- sel workbook
 - label data
 - lembar kerja
 - sumber data
-- buku kerja eksternal
+- workbook eksternal
 - data eksternal
+- cache diagram
+- pemulihan workbook
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Temukan Aspose.Slides untuk .NET: kelola buku kerja diagram dengan mudah di format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
+description: "Temukan Aspose.Slides untuk .NET: kelola workbook diagram dengan mudah dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan buku kerja diagram di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data diagram melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data diagram, mengakses koleksi lembar kerja, dan menentukan jenis sumber data untuk nilai diagram.
+Artikel ini menjelaskan cara bekerja dengan workbook diagram di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data diagram melalui aliran workbook, menggunakan sel workbook sebagai label data diagram, mengakses koleksi worksheet, dan menentukan jenis sumber data untuk nilai diagram.
 
-Artikel ini juga membahas cara bekerja dengan buku kerja eksternal sebagai sumber data diagram. Contoh-contoh menunjukkan cara membuat dan menetapkan buku kerja eksternal, mengambil jalur buku kerja eksternal yang terhubung ke sebuah diagram, dan mengedit data diagram ketika buku kerja tersedia.
+Artikel ini juga membahas penggunaan workbook eksternal sebagai sumber data diagram. Contoh‑contohnya menunjukkan cara membuat dan menetapkan workbook eksternal, mengambil jalur workbook eksternal yang terhubung ke diagram, serta mengedit data diagram ketika workbook tersedia.
 
-## **Membaca dan Menulis Data Diagram dari Buku Kerja**
+## **Baca dan Tulis Data Diagram dari Workbook**
+Aspose.Slides menyediakan metode [ReadWorkbookStream](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdata/readworkbookstream/) dan [WriteWorkbookStream](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdata/writeworkbookstream/) yang memungkinkan Anda membaca dan menulis workbook data diagram (yang berisi data diagram yang diedit dengan Aspose.Cells). **Catatan** bahwa data diagram harus diatur dengan cara yang sama atau memiliki struktur yang mirip dengan sumbernya.
 
-Aspose.Slides menyediakan metode [ReadWorkbookStream](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdata/readworkbookstream/) dan [WriteWorkbookStream](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdata/writeworkbookstream/) yang memungkinkan Anda membaca dan menulis buku kerja data diagram (yang berisi data diagram yang disunting dengan Aspose.Cells). **Catatan** bahwa data diagram harus diatur dengan cara yang sama atau harus memiliki struktur yang mirip dengan sumber.
-
-Kode C# ini menunjukkan operasi contoh:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation("chart.pptx"))
 {
     Chart chart = (Chart) pres.Slides[0].Shapes[0];
@@ -47,22 +50,42 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
-## **Menetapkan Sel Buku Kerja sebagai Label Data Diagram**
+### **Validasi Tata Letak Diagram Setelah Modifikasi Workbook**
+Ketika Anda mengganti workbook yang tertanam dengan yang telah dimodifikasi, diagram akan tetap mempertahankan koleksi seri dan kategori aslinya. Ketidaksesuaian ini dapat menyebabkan [IChart.ValidateChartLayout](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichart/validatechartlayout/) gagal dengan kesalahan indeks di luar rentang. Hapus seri dan kategori yang ada sebelum menulis kembali workbook yang diperbarui ke diagram.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram Bubble dengan beberapa data.
-4. Akses seri diagram.
-5. Setel sel buku kerja sebagai label data.
-6. Simpan presentasi.
+```csharp
+// Setelah memodifikasi aliran workbook (misalnya, menggunakan Aspose.Cells)
+using var updatedWorkbook = chartData.ReadWorkbookStream();
 
-Kode C# ini menunjukkan cara menetapkan sel buku kerja sebagai label data diagram:
+// Hapus referensi data yang ada.
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+updatedWorkbook.Position = 0;
+chartData.WriteWorkbookStream(updatedWorkbook);
+
+chart.ValidateChartLayout();
+```
+
+Menghapus koleksi memastikan bahwa struktur data diagram konsisten dengan workbook baru, sehingga `ValidateChartLayout` dapat selesai tanpa error.
+
+## **Atur Sel Workbook sebagai Label Data Diagram**
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
+1. Dapatkan referensi slide melalui indeksnya.
+1. Tambahkan diagram Bubble dengan beberapa data.
+1. Akses seri diagram.
+1. Atur sel workbook sebagai label data.
+1. Simpan presentasi.
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
-// Membuat instance kelas presentasi yang merepresentasikan file presentasi 
+// Membuat instance kelas presentasi yang mewakili file presentasi 
 
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
@@ -85,10 +108,13 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 }
 ```
 
-## **Kelola Lembar Kerja**
+## **Kelola Worksheet**
+Kode C# berikut mendemonstrasikan operasi di mana properti [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) digunakan untuk mengakses koleksi worksheet:
 
-Kode C# ini menunjukkan operasi di mana properti [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) digunakan untuk mengakses koleksi lembar kerja:
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation())
 {
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
@@ -99,9 +125,13 @@ using (Presentation pres = new Presentation())
 ```
 
 ## **Tentukan Jenis Sumber Data**
+Kode C# berikut menunjukkan cara menentukan jenis untuk sebuah sumber data:
 
-Kode C# ini menunjukkan cara menentukan jenis untuk sumber data:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -117,10 +147,13 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Deteksi Format Buku Kerja Tersemat yang Tidak Didukung**
+## **Deteksi Format Workbook Tertanam yang Tidak Didukung**
+Aspose.Slides tidak mendukung format workbook Excel biner (.xlsb) yang dapat tertanam dalam beberapa diagram. Anda dapat menggunakan properti `EmbeddedWorkbookType` pada [IChartData](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/net/aspose.slides.charts/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan diagram‑diagram tersebut.
 
-Aspose.Slides tidak mendukung format buku kerja biner Excel (.xlsb) yang dapat tersemat dalam beberapa diagram. Anda dapat menggunakan properti `EmbeddedWorkbookType` pada [IChartData](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/net/aspose.slides.charts/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan diagram‑diagram tersebut.
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var slide = presentation.Slides[0];
@@ -134,25 +167,29 @@ using (var presentation = new Presentation("sample.pptx"))
         if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
             chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
         {
-            // Buku kerja tersemat berformat .xlsb, yang tidak didukung.
+            // Workbook tertanam berformat .xlsb, yang tidak didukung.
             continue;
         }
 
-        // Baca atau ubah data buku kerja diagram di sini.
+        // Baca atau modifikasi data workbook diagram di sini.
     }
 }
 ```
 
-## **Buku Kerja Eksternal**
-{{% alert color="primary" %}} 
-Pada [Aspose.Slides 19.4](https://docs.aspose.com/slides/id/net/aspose-slides-for-net-19-4-release-notes/) kami menambahkan dukungan untuk buku kerja eksternal sebagai sumber data untuk diagram.
+## **Workbook Eksternal**
+
+{{% alert color="info" %}} 
+Pada [Aspose.Slides 19.4](https://docs.aspose.com/slides/id/net/aspose-slides-for-net-19-4-release-notes/), kami menambahkan dukungan untuk workbook eksternal sebagai sumber data untuk diagram.
 {{% /alert %}} 
 
-### **Buat Buku Kerja Eksternal**
-Dengan menggunakan metode **`ReadWorkbookStream`** dan **`SetExternalWorkbook`**, Anda dapat membuat buku kerja eksternal dari awal atau mengubah buku kerja internal menjadi eksternal.
+### **Buat Workbook Eksternal**
+Dengan menggunakan metode **`ReadWorkbookStream`** dan **`SetExternalWorkbook`**, Anda dapat membuat workbook eksternal dari awal atau mengonversi workbook internal menjadi eksternal.
 
-Kode C# ini menunjukkan proses pembuatan buku kerja eksternal:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     const string workbookPath = "externalWorkbook1.xlsx";
@@ -170,13 +207,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Tetapkan Buku Kerja Eksternal**
-Dengan menggunakan metode **`SetExternalWorkbook`**, Anda dapat menetapkan buku kerja eksternal ke diagram sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
+### **Atur Workbook Eksternal**
+Dengan menggunakan metode **`SetExternalWorkbook`**, Anda dapat menetapkan workbook eksternal ke sebuah diagram sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke workbook eksternal (jika workbook tersebut telah dipindahkan).
 
-Meskipun Anda tidak dapat mengedit data dalam buku kerja yang disimpan di lokasi atau sumber daya jarak jauh, Anda masih dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal diberikan, jalur tersebut secara otomatis akan dikonversi menjadi jalur lengkap.
+Meskipun Anda tidak dapat mengedit data dalam workbook yang disimpan di lokasi atau sumber daya jarak jauh, Anda masih dapat menggunakan workbook tersebut sebagai sumber data eksternal. Jika jalur relatif untuk workbook eksternal diberikan, jalur tersebut akan otomatis dikonversi ke jalur lengkap.
 
-Kode C# ini menunjukkan cara menetapkan buku kerja eksternal:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Jalur ke direktori dokumen.
 using (Presentation pres = new Presentation())
 {
@@ -198,11 +238,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Parameter `ChartData` (di bawah metode `SetExternalWorkbook`) digunakan untuk menentukan apakah buku kerja Excel akan dimuat atau tidak. 
+Parameter `ChartData` (pada metode `SetExternalWorkbook`) digunakan untuk menentukan apakah workbook Excel akan dimuat atau tidak. 
 
-* Ketika nilai `ChartData` diatur ke `false`, hanya jalur buku kerja yang diperbarui—data diagram tidak akan dimuat atau diperbarui dari buku kerja target. Anda mungkin ingin menggunakan pengaturan ini ketika buku kerja target tidak ada atau tidak tersedia. 
-* Ketika nilai `ChartData` diatur ke `true`, data diagram diperbarui dari buku kerja target.
+* Ketika nilai `ChartData` disetel ke `false`, hanya jalur workbook yang diperbarui—data diagram tidak akan dimuat atau diperbarui dari workbook target. Anda dapat menggunakan pengaturan ini ketika workbook target tidak ada atau tidak tersedia. 
+* Ketika nilai `ChartData` disetel ke `true`, data diagram diperbarui dari workbook target.
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -214,16 +259,19 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Dapatkan Jalur Buku Kerja Sumber Data Eksternal dari Sebuah Diagram**
+### **Dapatkan Jalur Workbook Sumber Data Eksternal dari Diagram**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Buat objek untuk bentuk diagram.
-4. Buat objek untuk tipe sumber (`ChartDataSourceType`) yang mewakili sumber data diagram.
-5. Tentukan kondisi yang relevan berdasarkan tipe sumber yang sama dengan tipe sumber data buku kerja eksternal.
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
+1. Dapatkan referensi slide melalui indeksnya.
+1. Buat objek untuk bentuk diagram.
+1. Buat objek untuk tipe sumber (`ChartDataSourceType`) yang mewakili sumber data diagram.
+1. Tentukan kondisi yang relevan berdasarkan tipe sumber yang sama dengan tipe sumber data workbook eksternal.
 
-Kode C# ini menunjukkan operasi tersebut:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[1];
@@ -240,11 +288,13 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 ### **Edit Data Diagram**
+Anda dapat mengedit data dalam workbook eksternal dengan cara yang sama seperti mengubah isi workbook internal. Ketika sebuah workbook eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
 
-Anda dapat mengedit data dalam buku kerja eksternal dengan cara yang sama seperti Anda mengubah isi buku kerja internal. Ketika buku kerja eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
-
-Kode C# ini adalah implementasi dari proses yang dijelaskan:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     IChart chart = pres.Slides[0].Shapes[0] as IChart;
@@ -256,28 +306,55 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
+### **Pulihkan Workbook dari Cache Diagram**
+Jika sebuah diagram menggunakan workbook eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat membangun kembali workbook diagram dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/), konfigurasikan [SpreadsheetOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/spreadsheetoptions/), dan setel [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) ke `true` sebelum membuka presentasi.
+
+Contoh C# berikut membuka sebuah presentasi yang diagramnya merujuk ke workbook eksternal yang tidak tersedia dan mengakses data yang dipulihkan melalui [IChart.ChartData](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichart/chartdata/) dan [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        RecoverWorkbookFromChartCache = true
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+var chart = (IChart)presentation.Slides[0].Shapes[0];
+var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
+
+// Baca atau modifikasi data workbook yang dipulihkan di sini.
+```
+
+Jika workbook eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar `InvalidOperationException`. Aktifkan pemulihan hanya ketika penggunaan data diagram yang di‑cache merupakan alternatif yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dibuat pada workbook eksternal setelah presentasi terakhir kali diperbarui.
+
 ## **FAQ**
 
-**Apakah saya dapat menentukan apakah diagram tertentu terhubung ke buku kerja eksternal atau tersemat?**
+**Apakah saya dapat menentukan apakah sebuah diagram tertentu terhubung ke workbook eksternal atau tertanam?**
 
-Ya. Sebuah diagram memiliki [jenis sumber data](https://reference.aspose.com/slides/id/net/aspose.slides.charts/chartdata/datasourcetype/) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/id/net/aspose.slides.charts/chartdata/externalworkbookpath/); jika sumbernya merupakan buku kerja eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
+Ya. Sebuah diagram memiliki [jenis sumber data](https://reference.aspose.com/slides/id/net/aspose.slides.charts/chartdata/datasourcetype/) dan sebuah [jalur ke workbook eksternal](https://reference.aspose.com/slides/id/net/aspose.slides.charts/chartdata/externalworkbookpath/); jika sumbernya adalah workbook eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
 
-**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana mereka disimpan?**
+**Apakah jalur relatif ke workbook eksternal didukung, dan bagaimana cara penyimpanannya?**
 
-Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis akan dikonversi menjadi jalur absolut. Ini memudahkan portabilitas proyek; namun, perlu diingat bahwa presentasi akan menyimpan jalur absolut dalam file PPTX.
+Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis akan dikonversi menjadi jalur absolut. Ini memudahkan portabilitas proyek; namun, perlu diketahui bahwa presentasi akan menyimpan jalur absolut di dalam file PPTX.
 
-**Apakah saya dapat menggunakan buku kerja yang berada pada sumber daya/jaringan bersama?**
+**Apakah saya dapat menggunakan workbook yang berada di sumber daya/jaringan bersama?**
 
-Ya, buku kerja tersebut dapat digunakan sebagai sumber data eksternal. Namun, penyuntingan buku kerja jarak jauh secara langsung dari Aspose.Slides tidak didukung—mereka hanya dapat digunakan sebagai sumber.
+Ya, workbook tersebut dapat digunakan sebagai sumber data eksternal. Namun, mengedit workbook yang berada jauh secara langsung dari Aspose.Slides tidak didukung—mereka hanya dapat dipakai sebagai sumber.
 
 **Apakah Aspose.Slides menimpa file XLSX eksternal saat menyimpan presentasi?**
 
-Tidak. Presentasi menyimpan sebuah [tautan ke file eksternal](https://reference.aspose.com/slides/id/net/aspose.slides.charts/chartdata/externalworkbookpath/) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak diubah ketika presentasi disimpan.
+Tidak. Presentasi menyimpan sebuah [tautan ke file eksternal](https://reference.aspose.com/slides/id/net/aspose.slides.charts/chartdata/externalworkbookpath/) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak dimodifikasi ketika presentasi disimpan.
 
-**Apa yang harus saya lakukan jika file eksternal dilindungi password?**
+**Bagaimana jika file eksternal dilindungi dengan sandi?**
 
-Aspose.Slides tidak menerima password saat membuat tautan. Pendekatan umum adalah menghapus perlindungan terlebih dahulu atau menyiapkan salinan yang sudah didekripsi (misalnya, menggunakan [Aspose.Cells](/cells/net/)) dan menautkan ke salinan tersebut.
+Aspose.Slides tidak menerima sandi saat membuat tautan. Pendekatan umum adalah menghapus proteksi terlebih dahulu atau menyiapkan salinan yang telah didekripsi (misalnya dengan menggunakan [Aspose.Cells](/cells/net/)) dan menautkan ke salinan tersebut.
 
-**Apakah beberapa diagram dapat merujuk ke buku kerja eksternal yang sama?**
+**Dapatkah beberapa diagram merujuk ke workbook eksternal yang sama?**
 
-Ya. Setiap diagram menyimpan tautannya masing‑masing. Jika semua diagram menunjuk ke file yang sama, memperbarui file tersebut akan tercermin pada setiap diagram pada saat data dimuat berikutnya.
+Ya. Setiap diagram menyimpan tautannya masing‑masing. Jika semuanya mengarah ke file yang sama, pembaruan file tersebut akan tercermin pada setiap diagram pada saat data dimuat kembali.

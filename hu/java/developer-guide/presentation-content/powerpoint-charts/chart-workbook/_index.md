@@ -1,6 +1,6 @@
 ---
-title: "Diagrammunkafüzetek kezelése prezentációkban Java használatával"
-linktitle: "Diagrammunkafüzet"
+title: Diagrammunkafüzetek kezelése a prezentációkban Java használatával
+linktitle: Diagrammunkafüzet
 type: docs
 weight: 70
 url: /hu/java/chart-workbook/
@@ -13,24 +13,28 @@ keywords:
 - adatforrás
 - külső munkafüzet
 - külső adat
+- diagramgyorsítótár
+- munkafüzet-helyreállítás
 - PowerPoint
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for Java-t: könnyedén kezelje a diagrammunkafüzeteket PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse prezentációja adatait."
+description: "Fedezze fel az Aspose.Slides for Java-t: könnyedén kezelje a diagrammunkafüzeteket PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse prezentációi adatait."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet dolgozni diagram-munkafüzetekkel az Aspose.Slides-ban. Megmutatja, hogyan lehet be‑ és kinyerni a diagramadatokat munkafüzet‑adatfolyamokon keresztül, hogyan lehet a munkafüzet cellákat diagramadat‑címkeként használni, hogyan lehet a munkalap‑gyűjteményeket elérni, és hogyan lehet megadni az adatforrás típusát a diagramértékekhez.  
-A cikk továbbá kitér a külső munkafüzetek diagramadat‑forrásként való használatára is. A példák bemutatják, hogyan hozhatunk létre és rendelhetünk hozzá egy külső munkafüzetet, hogyan kérhetjük le egy diagramhoz kapcsolt külső munkafüzet útvonalát, és hogyan szerkeszthetjük a diagramadatokat, ha a munkafüzet elérhető.
+Ez a cikk ismerteti, hogyan kell dolgozni diagrammunkafüzettel az Aspose.Slides-ben. Bemutatja, hogyan kell olvasni és írni diagramadatokat munkafüzet‑folyamokon keresztül, hogyan kell a munkafüzetcellákat diagramadatcímkékként használni, hogyan lehet a munkalap‑gyűjteményekhez hozzáférni, valamint hogyan kell megadni az adatforrás‑típust a diagramértékekhez.
 
-## **Diagramadatok be- és kiolvasása munkafüzetből**
+A külső munkafüzetek diagramadat‑forrásként való használatát is tárgyalja. A példák bemutatják, hogyan lehet létrehozni és hozzárendelni egy külső munkafüzetet, hogyan lehet lekérdezni egy diagramhoz kapcsolt külső munkafüzet útvonalát, valamint hogyan lehet szerkeszteni a diagramadatokat, ha a munkafüzet elérhető.
 
-Az Aspose.Slides a [ReadWorkbookStream](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IChartData#readWorkbookStream--) és a [WriteWorkbookStream](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) metódusokat biztosítja, amelyek lehetővé teszik a diagramadat‑munkafüzetek (Aspose.Cells‑szel szerkesztett diagramadatokat tartalmazó) be‑ és kiolvasását. **Megjegyzés**: a diagramadatoknak ugyanúgy kell felépülniük, vagy hasonló struktúrával kell rendelkezniük, mint a forrás.  
+## **Diagramadatok olvasása és írása munkafüzetből**
+Aspose.Slides a [ReadWorkbookStream](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IChartData#readWorkbookStream--) és a [WriteWorkbookStream](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) metódusokat biztosítja, amelyek lehetővé teszik diagramadat‑munkafüzetek (az Aspose.Cells‑szel szerkesztett diagramadatokkal) olvasását és írását. **Megjegyzés**: a diagramadatoknak ugyanúgy kell felépítve lennie, vagy hasonló szerkezettel kell rendelkezniük, mint a forrásnak.
 
-Ez a Java kód egy példaműveletet mutat be:
+Ez a Java‑kód egy mintaműveletet mutat be:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("chart.pptx");
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -47,23 +51,44 @@ try {
 }
 ```
 
-## **Munkafüzet‑cellát beállítása diagramadat‑címkeként**
+### **Diagramelrendezés ellenőrzése a munkafüzet módosítása után**
 
-1. Hozzon létre egy példányt a [Presentation](https://apireference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztályból.  
-2. Szerezze be a dia referenciáját az indexe alapján.  
-3. Adjon hozzá egy Buborék‑diagramot némi adattal.  
-4. Érje el a diagram sorozatait.  
-5. Állítsa be a munkafüzet celláját adatcímkének.  
-6. Mentse a bemutatót.  
-
-Ez a Java kód bemutatja, hogyan állítható be a munkafüzet cellája diagramadat‑címkeként:
+Ha egy beágyazott munkafüzetet egy módosítottra cserél, a diagram megtartja eredeti sorozat‑ és kategória‑gyűjteményeit. Ez az inkonzisztencia a [IChart.validateChartLayout](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichart/#validateChartLayout--) hívását `ArgumentOutOfRangeException`‑hez (paraméter: index) vezetheti. A kivétel elkerülése érdekében törölje a meglévő sorozatokat és kategóriákat **előtt**, mielőtt a frissített munkafüzetet visszaírná a diagramba.
 
 ```java
+// A munkafüzetfolyam módosítása után (pl. az Aspose.Cells használatával)
+byte[] updatedWorkbook = baos.toByteArray();
+
+// Törölje a meglévő adatreferenciákat.
+chart.getChartData().getSeries().clear();
+chart.getChartData().getCategories().clear();
+
+chart.getChartData().writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+A gyűjtemények törlése biztosítja, hogy a diagram adatstruktúrája illeszkedjen az új munkafüzethez, ezáltal a `validateChartLayout` hiba nélkül befejeződik.
+
+## **Munkafüzetcellát beállítása diagramadatcímkeként**
+
+1. Hozzon létre egy példányt a [Presentation](https://apireference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztályból.  
+2. Szerezze meg egy dia hivatkozását az indexe alapján.  
+3. Adjon hozzá egy buborékdiagramot némi adattal.  
+4. Érje el a diagram sorozatait.  
+5. Állítsa be a munkafüzetcellát adatcímkeként.  
+6. Mentse a prezentációt.
+
+Ez a Java‑kód megmutatja, hogyan kell beállítani egy munkafüzetcellát diagramadatcímkeként:
+
+```java
+import com.aspose.slides.*;
+
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// Létrehozza a prezentációs fájlt képviselő prezentáció osztályt
+// Létrehozza a prezentációt reprezentáló osztály egy példányát, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -87,13 +112,15 @@ try {
 
 ## **Munkalapok kezelése**
 
-Ez a Java kód egy olyan műveletet mutat be, ahol a [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) metódust használják a munkalap‑gyűjtemény eléréséhez:
+Ez a Java‑kód egy olyan műveletet mutat be, amelyben a [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) metódus segítségével egy munkalap‑gyűjteményhez férünk hozzá:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
-    IChartDataWorkbook wb =  chart.getChartData(). .getChartDataWorkbook();
+    IChartDataWorkbook wb =  chart.getChartData().getChartDataWorkbook();
     for (int i = 0; i < wb.getWorksheets().size(); i++)
         System.out.println(wb.getWorksheets().get_Item(i).getName());
 } finally {
@@ -101,11 +128,13 @@ try {
 }
 ```
 
-## **Adatforrás típusának megadása**
+## **Adatforrás‑típus meghatározása**
 
-Ez a Java kód megmutatja, hogyan lehet egy adatforrás típusát megadni:
+Ez a Java‑kód megmutatja, hogyan kell egy típus megadását egy adatforrás számára:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -125,9 +154,11 @@ try {
 
 ## **Nem támogatott beágyazott munkafüzetformátumok észlelése**
 
-Az Aspose.Slides nem támogatja az egyes diagramokba beágyazható Excel bináris munkafüzet (.xlsb) formátumot. A `getEmbeddedWorkbookType` metódust az [IChartData](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IChartData)‑n és a [WorkbookType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/WorkbookType) felsorolással együtt használhatja a nem támogatott formátumok felismerésére, és a diagramok kihagyására.
+Az Aspose.Slides nem támogatja az Excel bináris munkafüzet (.xlsb) formátumát, amely néhány diagramba beágyazható. A `getEmbeddedWorkbookType` metódust az [IChartData](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IChartData) mellett a [WorkbookType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/WorkbookType) felsorolással használva felismerheti a nem támogatott formátumokat, és kihagyhatja azokat a diagramoknál.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -144,7 +175,7 @@ try {
             continue;
         }
 
-        // Olvassa vagy módosítsa a diagram munkafüzet adatait itt.
+        // Itt olvassa vagy módosítsa a diagram munkafüzet adatait.
     }
 } finally {
     presentation.dispose();
@@ -153,17 +184,21 @@ try {
 
 ## **Külső munkafüzet**
 
-{{% alert color="primary" %}} 
-A [Aspose.Slides 19.4](https://docs.aspose.com/slides/hu/java/aspose-slides-for-java-19-4-release-notes/) verzióban bevezettük a külső munkafüzetek diagramadat‑forrásként való támogatását. 
+{{% alert color="info" %}} 
+Az [Aspose.Slides 19.4](https://docs.aspose.com/slides/hu/java/aspose-slides-for-java-19-4-release-notes/) verzióban bevezettük a külső munkafüzetek diagramadat‑forrásként való támogatását. 
 {{% /alert %}} 
 
 ### **Külső munkafüzet létrehozása**
 
-A **`readWorkbookStream`** és **`setExternalWorkbook`** metódusok használatával vagy teljesen új külső munkafüzetet hozhat létre, vagy egy belső munkafüzetet tehet külsővé.  
+A **`readWorkbookStream`** és **`setExternalWorkbook`** metódusok használatával létrehozhat egy külső munkafüzetet a semmiből, vagy egy belső munkafüzetet külsővé tehet.
 
-Ez a Java kód bemutatja a külső munkafüzet létrehozási folyamatát:
+Ez a Java‑kód bemutatja a külső munkafüzet létrehozási folyamatát:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     final String workbookPath = "externalWorkbook1.xlsx";
@@ -188,12 +223,15 @@ try {
 
 ### **Külső munkafüzet beállítása**
 
-Az **`setExternalWorkbook`** metódussal egy külső munkafüzetet rendelhet egy diagram adatforrásaként. Ez a metódus használható a külső munkafüzet útvonalának frissítésére is (ha az áthelyezésre került).  
-Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatait nem szerkesztheti, továbbra is felhasználhatja ezeket külső adatforrásként. Ha egy külső munkafüzet relatív útvonala van megadva, az automatikusan teljes útvonallá konvertálódik.  
+A **`setExternalWorkbook`** metódus segítségével egy külső munkafüzetet rendelhet a diagram adatforrásaként. Ez a metódus használható a külső munkafüzet útvonalának frissítésére is (ha az át lett helyezve).
 
-Ez a Java kód megmutatja, hogyan állítható be egy külső munkafüzet:
+Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatát közvetlenül nem szerkesztheti, továbbra is használhatja ezeket külső adatforrásként. Ha megad egy relatív útvonalat a külső munkafüzethez, az automatikusan teljes útvonallá konvertálódik.
+
+Ez a Java‑kód megmutatja, hogyan kell beállítani egy külső munkafüzetet:
 
 ```java
+import com.aspose.slides.*;
+
 // Létrehozza a Presentation osztály egy példányát
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -217,12 +255,14 @@ try {
 }
 ```
 
-A `ChartData` paraméter (a `setExternalWorkbook` metódus alatt) azt határozza meg, hogy Excel‑munkafüzetet betöltsünk‑e vagy sem.  
+A `setExternalWorkbook` metódus második (`boolean`) paramétere határozza meg, hogy az Excel‑munkafüzet betöltődjön‑e vagy sem.
 
-* Ha a `ChartData` értéke `false`, csak a munkafüzet útvonala frissül – a diagramadatok nem töltődnek be, és nem frissülnek a célmunkafüzetből. Ezt a beállítást akkor érdemes használni, ha a célmunkafüzet nem létezik vagy nem érhető el.  
-* Ha a `ChartData` értéke `true`, a diagramadatok a célmunkafüzetből frissülnek.  
+* Ha értéke `false`, csak a munkafüzet útvonala frissül – a diagram adatai nem lesznek betöltve vagy frissítve a cél‑munkafüzetből. Ezt a beállítást akkor használja, ha a cél‑munkafüzet nem létezik vagy nem érhető el.  
+* Ha értéke `true`, a diagram adatai frissülnek a cél‑munkafüzetből.
 
 ```java
+import com.aspose.slides.*;
+
 // Létrehozza a Presentation osztály egy példányát
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -237,17 +277,19 @@ try {
 }
 ```
 
-### **Diagram külső adatforrás‑munkafüzetének útvonalának lekérdezése**
+### **Diagram külső adatforrás munkafüzet útvonalának lekérése**
 
 1. Hozzon létre egy példányt a [Presentation](https://apireference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztályból.  
-2. Szerezze be a dia referenciáját az indexe alapján.  
-3. Hozzon létre egy objektumot a diagram alakzatához.  
-4. Hozzon létre egy objektumot a forrás (`ChartDataSourceType`) típushoz, amely a diagram adatforrását képviseli.  
-5. Adja meg a megfelelő feltételt attól függően, hogy a forrástípus megegyezik-e a külső munkafüzet adatforrás típusával.  
+2. Szerezze meg egy dia hivatkozását az indexe alapján.  
+3. Hozzon létre egy objektumot a diagram alakzathoz.  
+4. Hozzon létre egy objektumot a forrást (`ChartDataSourceType`) reprezentáló típushoz, amely a diagram adatforrását jelöli.  
+5. Adja meg a megfelelő feltételt a forrástípus alapján, amely egyezik a külső munkafüzet adatforrás‑típusával.
 
-Ez a Java kód bemutatja a műveletet:
+Ez a Java‑kód bemutatja a műveletet:
 
 ```java
+import com.aspose.slides.*;
+
 // Létrehozza a Presentation osztály egy példányát
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -259,8 +301,8 @@ try {
     {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
-
-    // Elmenti a prezentációt
+	
+	// Elmenti a prezentációt
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -269,11 +311,13 @@ try {
 
 ### **Diagramadatok szerkesztése**
 
-A külső munkafüzetek adatait ugyanúgy szerkesztheti, ahogy a belső munkafüzetek tartalmát módosítja. Ha egy külső munkafüzetet nem lehet betölteni, kivétel keletkezik.  
+Külső munkafüzetelek adatainak szerkesztése ugyanúgy történik, mint a belső munkafüzetelek tartalmának módosítása. Ha egy külső munkafüzet nem tölthető be, kivétel keletkezik.
 
-Ez a Java kód a leírt folyamat megvalósítását mutatja:
+Ez a Java‑kód a leírt folyamat megvalósítását mutatja:
 
 ```java
+import com.aspose.slides.*;
+
 // Létrehozza a Presentation osztály egy példányát
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -288,28 +332,48 @@ try {
 }
 ```
 
+### **Munkafüzet helyreállítása a diagram gyorsítótárából**
+
+Ha egy diagram olyan külső munkafüzetet használ, amely hiányzik vagy nem érhető el, az Aspose.Slides képes a diagram munkafüzetet a prezentációban tárolt gyorsítótárazott adatból rekonstruálni. Hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/loadoptions/) objektumot, konfigurálja egy [SpreadsheetOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/spreadsheetoptions/) példánnyal, és a megnyitás előtt hívja meg a [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) metódust `true` értékkel.
+
+Az alábbi Java‑példa megnyit egy prezentációt, amelynek diagramja egy nem elérhető külső munkafüzetre hivatkozik, és a helyreállított adatokat az [IChart.getChartData](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichart/#getChartData--) valamint az [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) segítségével érheti el:
+
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // Itt olvassa vagy módosítsa a helyreállított munkafüzet adatait.
+} finally {
+    presentation.dispose();
+}
+```
+
+Ha a külső munkafüzet nem elérhető és a helyreállítás le van tiltva, az Aspose.Slides kivételt dob. A helyreállítást csak akkor engedélyezze, ha a gyorsítótárazott diagramadatok használata elfogadható tartalék, mivel a gyorsítótár nem feltétlenül tartalmazza a külső munkafüzetben a prezentáció legutóbbi mentése óta történt változásokat.
+
 ## **GYIK**
 
-**Meg tudom állapítani, hogy egy adott diagram külső vagy beágyazott munkafüzethez van‑e csatolva?**
+**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzethez van kapcsolva?**  
+Igen. A diagram rendelkezik egy [data source type](https://reference.aspose.com/slides/hu/java/com.aspose.slides/chartdata/#getDataSourceType--) és egy [path to an external workbook](https://reference.aspose.com/slides/hu/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) attribútummal; ha a forrás külső munkafüzet, akkor leolvashatja a teljes útvonalat, hogy megbizonyosodjon a külső fájl használatáról.
 
-Igen. A diagram rendelkezik egy [adatforrás típussal](https://reference.aspose.com/slides/hu/java/com.aspose.slides/chartdata/#getDataSourceType--) és egy [külső munkafüzet útvonalával](https://reference.aspose.com/slides/hu/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); ha a forrás egy külső munkafüzet, leolvashatja a teljes útvonalat, hogy megbizonyosodjon arról, hogy külső fájlt használ.
+**Támogatottak a relatív útvonalak külső munkafüzetekhez, és hogyan tárolódnak?**  
+Igen. Ha relatív útvonalat ad meg, az automatikusan átalakul abszolút útvonallá. Ez kényelmes a projekt hordozhatósága miatt; azonban a prezentáció az abszolút útvonalat tárolja a PPTX‑fájlban.
 
-**Támogatottak a relatív útvonalak a külső munkafüzetekhez, és hogyan tárolódnak?**
+**Használhatók hálózati erőforrásokon/megosztott helyeken lévő munkafüzetek?**  
+Igen, az ilyen munkafüzetek használhatók külső adatforrásként. A távoli munkafüzetelek közvetlen szerkesztése az Aspose.Slides‑kel nem támogatott – csak forrásként használhatók.
 
-Igen. Ha relatív útvonalat ad meg, az automatikusan abszolút útvonalra konvertálódik. Ez kényelmes a projekt hordozhatósága szempontjából; ugyanakkor vegye figyelembe, hogy a bemutató az abszolút útvonalat tárolja a PPTX fájlban.
+**Az Aspose.Slides felülírja-e a külső XLSX‑et a prezentáció mentésekor?**  
+Nem. A prezentáció egy [link to the external file](https://reference.aspose.com/slides/hu/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) tárol, és ezt használja az adatok olvasásához. A külső fájl maga nem módosul a mentés során.
 
-**Használhatok hálózati erőforrásokon/megosztott helyeken lévő munkafüzeteket?**
+**Mit tegyek, ha a külső fájl jelszóval védett?**  
+Az Aspose.Slides nem fogad el jelszót a kapcsolódáskor. Általános megoldás, hogy előre eltávolítja a védelmet, vagy egy dekódolt másolatot készít (például a [Aspose.Cells](/cells/java/) használatával), majd ahhoz kapcsolódik.
 
-Igen, ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑ból nem támogatott – csak forrásként használhatók.
-
-**Felülírja az Aspose.Slides a külső XLSX‑et a bemutató mentésekor?**
-
-Nem. A bemutató egy [linket tárol a külső fájlra](https://reference.aspose.com/slides/hu/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) és azt használja az adatok beolvasásához. A külső fájl maga nem módosul a bemutató mentésekor.
-
-**Mit tegyek, ha a külső fájl jelszóval védett?**
-
-Az Aspose.Slides nem fogadja el a jelszót a hivatkozáskor. Egy gyakori megoldás, hogy előre eltávolítja a védelmet, vagy egy dekódolt másolatot készít (például a [Aspose.Cells](/cells/java/) használatával), és ehhez a másolathoz hivatkozik.
-
-**Több diagram hivatkozhat ugyanarra a külső munkafüzetre?**
-
-Igen. Minden diagram a saját linkjét tárolja. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése a következő adatbetöltéskor minden diagramon megjelenik.
+**Több diagram hivatkozhat ugyanarra a külső munkafüzetre?**  
+Igen. Minden diagram saját linket tárol. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése minden diagramon megjelenik a következő adatbetöltéskor.

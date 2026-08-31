@@ -1,5 +1,5 @@
 ---
-title: JavaScript का उपयोग करके प्रस्तुतियों में चार्ट वर्कबुक प्रबंधित करें
+title: जावास्क्रिप्ट का उपयोग करके प्रस्तुतियों में चार्ट वर्कबुक का प्रबंधन
 linktitle: चार्ट वर्कबुक
 type: docs
 weight: 70
@@ -13,26 +13,31 @@ keywords:
 - डेटा स्रोत
 - बाहरी वर्कबुक
 - बाहरी डेटा
+- चार्ट कैश
+- वर्कबुक पुनर्प्राप्ति
 - PowerPoint
-- प्रेजेंटेशन
+- प्रस्तुति
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Node.js के लिए Aspose.Slides को Java के माध्यम से खोजें: PowerPoint और OpenDocument फ़ॉर्मेट में चार्ट वर्कबुक को आसानी से प्रबंधित करें और अपनी प्रेजेंटेशन डेटा को सुव्यवस्थित करें।"
+description: "जावास्क्रिप्ट के माध्यम से Aspose.Slides for Node.js की खोज करें: PowerPoint और OpenDocument फ़ॉर्मेट में चार्ट वर्कबुक को आसानी से प्रबंधित करके अपने प्रस्तुति डेटा को सुव्यवस्थित करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के बारे में बताता है। यह दर्शाता है कि वर्कबुक स्ट्रीम्स के माध्यम से चार्ट डेटा को कैसे पढ़ें और लिखें, वर्कबुक सेल्स को चार्ट डेटा लेबल के रूप में उपयोग करें, वर्कशीट संग्रहों तक पहुंचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार को कैसे निर्दिष्ट करें।
+यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीके को समझाता है। यह दिखाता है कि वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा को कैसे पढ़ें और लिखें, वर्कबुक सेल को चार्ट डेटा लेबल के रूप में कैसे उपयोग करें, कार्यपत्रक संग्रहों तक कैसे पहुँचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार कैसे निर्दिष्ट करें।
 
-यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दिखाते हैं कि बाहरी वर्कबुक को कैसे बनाएं और असाइन करें, चार्ट से जुड़ी बाहरी वर्कबुक का पथ कैसे प्राप्त करें, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा को कैसे संपादित करें।
+यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दिखाते हैं कि बाहरी वर्कबुक कैसे बनाएं और असाइन करें, चार्ट से जुड़ी बाहरी वर्कबुक का पथ कैसे प्राप्त करें, और वर्कबुक उपलब्ध होने पर चार्ट डेटा को कैसे संपादित करें।
 
-## **वर्कबुक से चार्ट डेटा पढ़ें और लिखें**
+## **वर्कबुक से चार्ट डेटा पढ़ना और लिखना**
 
-Aspose.Slides [readWorkbookStream](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) और [writeWorkbookStream](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) मेथड प्रदान करता है जो आपको चार्ट डेटा वर्कबुक (Aspose.Cells के साथ संपादित चार्ट डेटा वाली) को पढ़ने और लिखने की अनुमति देता है। **ध्यान दें** कि चार्ट डेटा को समान तरीके से व्यवस्थित किया जाना चाहिए या स्रोत के समान संरचना होनी चाहिए।
+Aspose.Slides [readWorkbookStream](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) और [writeWorkbookStream](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) मेथड प्रदान करता है जो आपको चार्ट डेटा वर्कबुक (Aspose.Cells के साथ संपादित चार्ट डेटा वाले) पढ़ने और लिखने की अनुमति देता है। **ध्यान दें** कि चार्ट डेटा को समान क्रम में व्यवस्थित होना चाहिए या स्रोत के समान संरचना होनी चाहिए।
 
-This JavaScript code demonstrates a sample operation:
+यह JavaScript कोड एक नमूना ऑपरेशन दर्शाता है:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -48,22 +53,44 @@ try {
 }
 ```
 
-## **वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट करें**
+### **वर्कबुक संशोधन के बाद चार्ट लेआउट को मान्य करना**
 
-1. [Presentation](https://apireference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation) क्लास की एक इंस्टेंस बनाएं।
-2. स्लाइड को उसके इंडेक्स के माध्यम से प्राप्त करें।
-3. कुछ डेटा के साथ एक बबल चार्ट जोड़ें।
-4. चार्ट सीरीज़ तक पहुंचें।
-5. वर्कबुक सेल को डेटा लेबल के रूप में सेट करें।
-6. प्रेजेंटेशन सहेजें।
-
-This JavaScript code shows you to set a workbook cell as a chart data label:
+जब आप एक एम्बेडेड वर्कबुक को संशोधित वर्कबुक से बदलते हैं, तो चार्ट अपनी मूल श्रृंखला और श्रेणी संग्रहों को बनाए रखता है। यह असंगति [Chart.validateChartLayout](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Chart#validateChartLayout--) को इंडेक्स-आउट-ऑफ-रेंज त्रुटि के साथ फेल कर सकती है। अपडेट की गई वर्कबुक को चार्ट में वापस लिखने से पहले मौजूदा श्रृंखलाओं और श्रेणियों को साफ़ करें।
 
 ```javascript
+// वर्कबुक स्ट्रीम को संशोधित करने के बाद (उदाहरण के लिए, Aspose.Cells का उपयोग करके)
+var updatedWorkbook = chartData.readWorkbookStream();
+
+// मौजूदा डेटा रेफ़रेंसेज़ को साफ़ करें।
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+संग्रहों को साफ़ करने से यह सुनिश्चित होता है कि चार्ट डेटा संरचना नई वर्कबुक के साथ संगत है, जिससे `validateChartLayout` बिना त्रुटियों के पूरा हो जाता है।
+
+## **वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट करना**
+
+1. [Presentation](https://apireference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।  
+1. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
+1. कुछ डेटा के साथ एक बबल चार्ट जोड़ें।  
+1. चार्ट श्रृंखला तक पहुँचें।  
+1. वर्कबुक सेल को डेटा लेबल के रूप में सेट करें।  
+1. प्रेजेंटेशन सहेजें।
+
+यह JavaScript कोड दिखाता है कि वर्कबुक सेल को चार्ट डेटा लेबल के रूप में कैसे सेट करें:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
 var lbl2 = "Label 2 cell value";
-// प्रस्तुति फ़ाइल को दर्शाने वाली प्रस्तुति क्लास को इंस्टेनशिएट करता है
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
 var pres = new aspose.slides.Presentation("chart2.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -83,11 +110,14 @@ try {
 }
 ```
 
-## **वर्कशीट प्रबंधित करें**
+## **वर्कशीट्स का प्रबंधन**
 
-This JavaScript code demonstrates an operation where the [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+यह JavaScript कोड दर्शाता है कि [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) मेथड का उपयोग करके वर्कशीट संग्रह तक कैसे पहुँचा जाए:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
@@ -102,11 +132,14 @@ try {
 }
 ```
 
-## **डेटा स्रोत प्रकार निर्दिष्ट करें**
+## **डेटा स्रोत प्रकार निर्दिष्ट करना**
 
-This JavaScript code shows you how to specify a type for a data source:
+यह JavaScript कोड दिखाता है कि डेटा स्रोत के लिए प्रकार कैसे निर्दिष्ट करें:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
@@ -123,11 +156,15 @@ try {
 }
 ```
 
-## **असमर्थित एम्बेडेड वर्कबुक फ़ॉर्मेट का पता लगाएँ**
+## **असमर्थित एम्बेडेड वर्कबुक फ़ॉर्मेट का पता लगाना**
 
-Aspose.Slides कुछ चार्ट में एम्बेड किए जा सकने वाले Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट का समर्थन नहीं करता है। आप [ChartData](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/) पर `getEmbeddedWorkbookType` मेथड और [WorkbookType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/workbooktype/) एनेमरेशन का उपयोग करके असमर्थित फ़ॉर्मेट का पता लगा सकते हैं और उन चार्ट को छोड़ सकते हैं।
+Aspose.Slides कुछ चार्ट में एम्बेडेड Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट का समर्थन नहीं करता। आप [ChartData](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/) पर `getEmbeddedWorkbookType` मेथड को [WorkbookType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/workbooktype/) एनेमरेशन के साथ उपयोग करके असमर्थित फ़ॉर्मेट का पता लगा सकते हैं और उन चार्ट को छोड़ सकते हैं।
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -156,28 +193,26 @@ try {
 
 ## **बाहरी वर्कबुक**
 
-Aspose.Slides चार्ट के लिए डेटा स्रोत के रूप में बाहरी वर्कबुक को समर्थन देता है।
+Aspose.Slides चार्ट के लिए डेटा स्रोत के रूप में बाहरी वर्कबुक का समर्थन करता है।
 
-### **बाहरी वर्कबुक बनाएं**
+### **बाहरी वर्कबुक बनाना**
 
 **`readWorkbookStream`** और **`setExternalWorkbook`** मेथड का उपयोग करके आप या तो शून्य से एक बाहरी वर्कबुक बना सकते हैं या एक आंतरिक वर्कबुक को बाहरी बना सकते हैं।
 
-This JavaScript code demonstrates the external workbook creation process:
+यह JavaScript कोड बाहरी वर्कबुक निर्माण प्रक्रिया को दर्शाता है:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+
 var pres = new aspose.slides.Presentation();
 try {
-    final var workbookPath = "externalWorkbook1.xlsx";
+    var workbookPath = "externalWorkbook1.xlsx";
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    var fileStream = java.newInstanceSync("java.io.FileOutputStream", workbookPath);
-    try {
-        var workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) {
-            fileStream.close();
-        }
-    }
+    // readWorkbookStream वर्कबुक बाइट्स को Node Buffer के रूप में लौटाता है।
+    var workbookData = chart.getChartData().readWorkbookStream();
+    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
     chart.getChartData().setExternalWorkbook(workbookPath);
     pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
@@ -188,16 +223,19 @@ try {
 }
 ```
 
-### **बाहरी वर्कबुक सेट करें**
+### **बाहरी वर्कबुक सेट करना**
 
-**`setExternalWorkbook`** मेथड का उपयोग करके आप किसी चार्ट को उसका डेटा स्रोत के रूप में एक बाहरी वर्कबुक असाइन कर सकते हैं। यह मेथड बाहरी वर्कबुक के पथ को अपडेट करने के लिए भी उपयोग किया जा सकता है (यदि वह स्थानांतरित किया गया हो)।
+**`setExternalWorkbook`** मेथड का उपयोग करके आप एक चार्ट को उसके डेटा स्रोत के रूप में बाहरी वर्कबुक असाइन कर सकते हैं। यह मेथड बाहरी वर्कबुक के पथ को भी अपडेट करने के लिए उपयोग किया जा सकता है (यदि बाद वाला स्थानांतरित किया गया हो)।
 
-जबकि आप दूरस्थ स्थानों या संसाधनों में संग्रहीत वर्कबुक के डेटा को संपादित नहीं कर सकते, आप फिर भी ऐसी वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाहरी वर्कबुक का रिलेटिव पाथ प्रदान किया जाता है, तो यह स्वचालित रूप से पूर्ण पाथ में बदल जाता है।
+जबकि आप रिमोट लोकेशन या संसाधनों में संग्रहीत वर्कबुक के डेटा को संपादित नहीं कर सकते, आप फिर भी ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाहरी वर्कबुक के लिए सापेक्ष पथ प्रदान किया जाता है, तो यह स्वचालित रूप से पूर्ण पथ में परिवर्तित हो जाता है।
 
-This JavaScript code shows you how to set an external workbook:
+यह JavaScript कोड दिखाता है कि बाहरी वर्कबुक कैसे सेट करें:
 
 ```javascript
-// Presentation क्लास की एक इंस्टेंस बनाता है
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Presentation क्लास का एक इंस्टेंस बनाता है
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
@@ -218,13 +256,16 @@ try {
 }
 ```
 
-`ChartData` पैरामीटर (`setExternalWorkbook` मेथड के तहत) यह निर्दिष्ट करने के लिए उपयोग किया जाता है कि Excel वर्कबुक लोड होगा या नहीं।
+`setExternalWorkbook` मेथड का दूसरा पैरामीटर, `updateChartData`, यह निर्धारित करता है कि Excel वर्कबुक लोड की जाएगी या नहीं।
 
-* जब `ChartData` मान `false` सेट किया जाता है, तो केवल वर्कबुक पाथ अपडेट होता है—चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं किया जाएगा। आप इस सेटिंग का उपयोग तब कर सकते हैं जब लक्ष्य वर्कबुक मौजूद न हो या उपलब्ध न हो।
-* जब `ChartData` मान `true` सेट किया जाता है, तो चार्ट डेटा लक्ष्य वर्कबुक से अपडेट हो जाता है।
+* जब `updateChartData` को `false` पर सेट किया जाता है, तो केवल वर्कबुक पथ अपडेट होता है—चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं किया जाता। आप इस सेटिंग का उपयोग तब करना चाहेंगे जब लक्ष्य वर्कबुक मौजूद न हो या उपलब्ध न हो।  
+* जब `updateChartData` को `true` पर सेट किया जाता है, तो चार्ट डेटा लक्ष्य वर्कबुक से अपडेट हो जाता है।
 
 ```javascript
-// Presentation क्लास की एक इंस्टेंस बनाता है
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Presentation क्लास का एक इंस्टेंस बनाता है
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
@@ -238,18 +279,21 @@ try {
 }
 ```
 
-### **चार्ट बाहरी डेटा स्रोत वर्कबुक पाथ प्राप्त करें**
+### **चार्ट बाहरी डेटा स्रोत वर्कबुक पथ प्राप्त करना**
 
-1. [Presentation](https://apireference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation) क्लास की एक इंस्टेंस बनाएं।
-2. स्लाइड को उसके इंडेक्स से प्राप्त करें।
-3. चार्ट शेप के लिए एक ऑब्जेक्ट बनाएं।
-4. स्रोत (`ChartDataSourceType`) प्रकार के लिए एक ऑब्जेक्ट बनाएं जो चार्ट के डेटा स्रोत को दर्शाता है।
-5. स्रोत प्रकार को बाहरी वर्कबुक डेटा स्रोत प्रकार के समान होने के आधार पर संबंधित शर्त निर्दिष्ट करें।
+1. [Presentation](https://apireference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।  
+1. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
+1. चार्ट शेप के लिए एक ऑब्जेक्ट बनाएं।  
+1. स्रोत (`ChartDataSourceType`) प्रकार के लिए एक ऑब्जेक्ट बनाएं जो चार्ट के डेटा स्रोत को प्रतिनिधित्व करता है।  
+1. संबंधित शर्त निर्दिष्ट करें जो यह दर्शाती है कि स्रोत प्रकार बाहरी वर्कबुक डेटा स्रोत प्रकार के समान है।
 
-This JavaScript code demonstrates the operation:
+यह JavaScript कोड ऑपरेशन को दर्शाता है:
 
 ```javascript
-// Presentation क्लास की एक इंस्टेंस बनाता है
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Presentation क्लास का एक इंस्टेंस बनाता है
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var slide = pres.getSlides().get_Item(1);
@@ -258,7 +302,7 @@ try {
     if (sourceType == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
         var path = chart.getChartData().getExternalWorkbookPath();
     }
-    // प्रेज़ेंटेशन को सहेजता है
+    // प्रस्तुति को सहेजता है
     pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -267,14 +311,17 @@ try {
 }
 ```
 
-### **चार्ट डेटा संपादित करें**
+### **चार्ट डेटा संपादित करना**
 
-आप बाहरी वर्कबुक में डेटा को उसी तरह संपादित कर सकते हैं जैसे आप आंतरिक वर्कबुक की सामग्री में परिवर्तन करते हैं। जब बाहरी वर्कबुक लोड नहीं हो पाती, तो एक एक्सेप्शन फेंका जाता है।
+आप बाहरी वर्कबुक के डेटा को उसी तरह संपादित कर सकते हैं जैसे आप आंतरिक वर्कबुक की सामग्री में परिवर्तन करते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाती, तो एक अपवाद फेंका जाता है।
 
-This JavaScript code is an implementation of the described process:
+यह JavaScript कोड वर्णित प्रक्रिया को लागू करता है:
 
 ```javascript
-// Presentation क्लास की एक इंस्टेंस बनाता है
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Presentation क्लास का एक इंस्टेंस बनाता है
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -288,28 +335,51 @@ try {
 }
 ```
 
+### **चार्ट कैश से वर्कबुक को पुनर्स्थापित करना**
+
+यदि कोई चार्ट किसी बाहरी वर्कबुक का उपयोग करता है जो गायब या अनुपलब्ध है, तो Aspose.Slides प्रेजेंटेशन में कैश किए गए डेटा से चार्ट वर्कबुक को पुनः बनाता है। [LoadOptions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/loadoptions/) बनाएं, इसे [SpreadsheetOptions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/spreadsheetoptions/) के साथ कॉन्फ़िगर करें, और प्रस्तुति खोलने से पहले `true` के साथ [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) को कॉल करें।
+
+नीचे दिया गया JavaScript उदाहरण एक ऐसी प्रेजेंटेशन खोलता है जिसकी चार्ट एक अनुपलब्ध बाहरी वर्कबुक को संदर्भित करता है और पुनः प्राप्त डेटा को [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) के माध्यम से एक्सेस करता है:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // यहाँ पुनर्प्राप्त वर्कबुक डेटा को पढ़ें या संशोधित करें।
+} finally {
+    presentation.dispose();
+}
+```
+
+यदि बाहरी वर्कबुक अनुपलब्ध है और पुनर्प्राप्ति अक्षम है, तो Aspose.Slides एक अपवाद फेंकेगा। केवल तब पुनर्प्राप्ति सक्षम करें जब कैश्ड चार्ट डेटा का उपयोग स्वीकार्य फॉलबैक हो, क्योंकि कैश में बाहरी वर्कबुक में किए गए बदलाव शामिल नहीं हो सकते।
+
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं निर्धारित कर सकता हूँ कि कोई विशिष्ट चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा है?**
+**क्या मैं निर्धारित कर सकता हूँ कि कोई विशिष्ट चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा है?**  
+हाँ। एक चार्ट के पास [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) और एक [बाहरी वर्कबुक पथ](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) होता है; यदि स्रोत बाहरी वर्कबुक है, तो आप पूर्ण पथ पढ़ सकते हैं ताकि यह सुनिश्चित हो सके कि एक बाहरी फ़ाइल उपयोग में है।
 
-हां। एक चार्ट में एक [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) और एक [बाहरी वर्कबुक का पाथ](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) होता है; यदि स्रोत एक बाहरी वर्कबुक है, तो आप पूर्ण पाथ पढ़कर सुनिश्चित कर सकते हैं कि बाहरी फ़ाइल उपयोग में है।
+**क्या बाहरी वर्कबुक के सापेक्ष पथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**  
+हाँ। यदि आप सापेक्ष पथ निर्दिष्ट करते हैं, तो वह स्वचालित रूप से पूर्ण पथ में परिवर्तित हो जाता है। यह प्रोजेक्ट पोर्टेबिलिटी के लिए सुविधाजनक है; हालांकि, प्रस्तुति PPTX फ़ाइल में पूर्ण पथ संग्रहीत करती है।
 
-**क्या बाहरी वर्कबुक के रिलेटिव पाथ समर्थित हैं, और उन्हें कैसे संग्रहीत किया जाता है?**
+**क्या मैं नेटवर्क संसाधनों/शेयर्स पर स्थित वर्कबुक का उपयोग कर सकता हूँ?**  
+हाँ, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालांकि, Aspose.Slides से सीधे रिमोट वर्कबुक को संपादित करना समर्थित नहीं है—वे केवल स्रोत के रूप में उपयोग किए जा सकते हैं।
 
-हां। यदि आप रिलेटिव पाथ निर्दिष्ट करते हैं, तो यह स्वचालित रूप से एब्सोल्यूट पाथ में परिवर्तित हो जाता है। यह प्रोजेक्ट पोर्टेबिलिटी के लिए सुविधाजनक है; लेकिन ध्यान रखें कि प्रेजेंटेशन PPTX फ़ाइल में एब्सोल्यूट पाथ संग्रहीत करेगा।
+**क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को ओवरराइट करता है?**  
+नहीं। प्रस्तुति एक [बाहरी फ़ाइल लिंक](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) संग्रहीत करती है और डेटा पढ़ने के लिए इसका उपयोग करती है। प्रस्तुति सहेजते समय बाहरी फ़ाइल स्वयं संशोधित नहीं होती।
 
-**क्या मैं नेटवर्क संसाधनों/शेयरों पर स्थित वर्कबुक का उपयोग कर सकता हूँ?**
+**यदि बाहरी फ़ाइल पासवर्ड से सुरक्षित है तो क्या करें?**  
+Aspose.Slides लिंक बनाते समय पासवर्ड स्वीकार नहीं करता। एक सामान्य तरीका है पहले सुरक्षा हटाना या एक डिक्रिप्टेड कॉपी तैयार करना (उदाहरण के लिए, [Aspose.Cells](/cells/nodejs-java/) का उपयोग करके) और उस कॉपी को लिंक करना।
 
-हां, ऐसी वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालांकि, Aspose.Slides से सीधे रिमोट वर्कबुक को संपादित करना समर्थित नहीं है—इन्हें केवल स्रोत के रूप में ही उपयोग किया जा सकता है।
-
-**क्या Aspose.Slides प्रेजेंटेशन सहेजते समय बाहरी XLSX को ओवरराइट करता है?**
-
-नहीं। प्रेजेंटेशन एक [बाहरी फ़ाइल का लिंक](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) संग्रहीत करता है और इसे डेटा पढ़ने के लिए उपयोग करता है। प्रेजेंटेशन सहेजते समय बाहरी फ़ाइल स्वयं नहीं बदली जाती।
-
-**यदि बाहरी फ़ाइल पासवर्ड-संरक्षित है तो मुझे क्या करना चाहिए?**
-
-Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता है। आम तौर पर पहले सुरक्षा हटाना या एक डिक्रिप्टेड कॉपी तैयार करना (उदाहरण के लिए, [Aspose.Cells](/cells/nodejs-java/) का उपयोग करके) और उस कॉपी को लिंक करना।
-
-**क्या कई चार्ट एक ही बाहरी वर्कबुक को संदर्भित कर सकते हैं?**
-
-हां। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फाइल की ओर इशारा करते हैं, तो उस फाइल को अपडेट करने से अगली बार डेटा लोड होने पर प्रत्येक चार्ट में परिवर्तन परिलक्षित होगा।
+**क्या कई चार्ट एक ही बाहरी वर्कबुक को संदर्भित कर सकते हैं?**  
+हाँ। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो फ़ाइल को अपडेट करने से अगली बार डेटा लोड होने पर प्रत्येक चार्ट में परिवर्तन प्रतिबिंबित होंगे।

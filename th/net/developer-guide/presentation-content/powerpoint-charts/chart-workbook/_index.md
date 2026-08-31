@@ -1,37 +1,43 @@
 ---
-title: จัดการเวิร์กบุ๊กแผนภูมิในงานนำเสนอด้วย .NET
-linktitle: เวิร์กบุ๊กแผนภูมิ
+title: จัดการเวิร์กบุ๊คแผนภูมิในงานนำเสนอด้วย .NET
+linktitle: เวิร์กบุ๊คแผนภูมิ
 type: docs
 weight: 70
 url: /th/net/chart-workbook/
 keywords:
-- เวิร์กบุ๊กแผนภูมิ
+- เวิร์กบุ๊คแผนภูมิ
 - ข้อมูลแผนภูมิ
-- เซลล์เวิร์กบุ๊ก
+- เซลล์เวิร์กบุ๊ค
 - ป้ายกำกับข้อมูล
 - แผ่นงาน
 - แหล่งข้อมูล
-- เวิร์กบุ๊กภายนอก
+- เวิร์กบุ๊คภายนอก
 - ข้อมูลภายนอก
+- แคชแผนภูมิ
+- การกู้คืนเวิร์กบุ๊ค
 - PowerPoint
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ .NET: จัดการเวิร์กบุ๊กแผนภูมิใน PowerPoint และรูปแบบ OpenDocument อย่างง่ายดาย เพื่อทำให้ข้อมูลการนำเสนอของคุณเป็นระเบียบ"
+description: "ค้นพบ Aspose.Slides สำหรับ .NET: จัดการเวิร์กบุ๊คแผนภูมิใน PowerPoint และรูปแบบ OpenDocument อย่างง่ายดายเพื่อทำให้ข้อมูลงานนำเสนอของคุณเป็นระเบียบ"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับเวิร์กบุ๊กแผนภูมิใน Aspose.Slides โดยแสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของเวิร์กบุ๊ก, ใช้เซลล์ของเวิร์กบุ๊กเป็นป้ายกำกับข้อมูลแผนภูมิ, เข้าถึงคอลเลกชันแผ่นงาน, และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีการทำงานกับเวิร์กบุ๊คของแผนภูมิใน Aspose.Slides โดยแสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของเวิร์กบุ๊ค, ใช้เซลล์ของเวิร์กบุ๊คเป็นป้ายกำกับข้อมูลแผนภูมิ, เข้าถึงคอลเลกชันของแผ่นงาน, และระบุประเภทของแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-นอกจากนี้ยังครอบคลุมการทำงานกับเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีสร้างและกำหนดเวิร์กบุ๊กภายนอก, ดึงเส้นทางของเวิร์กบุ๊กภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อเวิร์กบุ๊กพร้อมใช้งาน
+บทความยังครอบคลุมการทำงานกับเวิร์กบุ๊คภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีสร้างและกำหนดเวิร์กบุ๊คภายนอก, ดึงเส้นทางของเวิร์กบุ๊คภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อเวิร์กบุ๊คพร้อมใช้งาน
 
-## **อ่านและเขียนข้อมูลแผนภูมิจากเวิร์กบุ๊ก**
-Aspose.Slides มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/readworkbookstream/) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/writeworkbookstream/) ที่ให้คุณอ่านและเขียนเวิร์กบุ๊กข้อมูลแผนภูมิ (ซึ่งอาจถูกแก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูล
+## **อ่านและเขียนข้อมูลแผนภูมิจากเวิร์กบุ๊ค**
 
-โค้ด C# ตัวอย่างต่อไปนี้แสดงการทำงาน:
+Aspose.Slides มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/readworkbookstream/) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/writeworkbookstream/) ที่ช่วยให้คุณอ่านและเขียนเวิร์กบุ๊คข้อมูลแผนภูมิ (ซึ่งมีข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูติต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูล
+
+โค้ด C# นี้แสดงตัวอย่างการดำเนินการ:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation("chart.pptx"))
 {
     Chart chart = (Chart) pres.Slides[0].Shapes[0];
@@ -47,22 +53,46 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
-## **กำหนดเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลแผนภูมิ**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-1. เพิ่มแผนภูมิ Bubble พร้อมข้อมูลบางส่วน  
-1. เข้าถึงซีรีส์ของแผนภูมิ  
-1. ตั้งค่าเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูล  
-1. บันทึกพรีเซนเทชัน
+### **ตรวจสอบการจัดเรียงแผนภูมิหลังการแก้ไขเวิร์กบุ๊ค**
 
-โค้ด C# นี้แสดงวิธีกำหนดเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลแผนภูมิ:
+เมื่อคุณแทนที่เวิร์กบุ๊คที่ฝังไว้ด้วยเวิร์กบุ๊คที่แก้ไขแล้ว แผนภูมิจะยังคงรักษาชุดข้อมูลซีรีส์และคอลเลกชันของประเภทเดิม การไม่ตรงกันนี้อาจทำให้ [IChart.ValidateChartLayout](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/validatechartlayout/) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ให้ล้างซีรีส์และประเภทที่มีอยู่ก่อนเขียนเวิร์กบุ๊คที่อัปเดตกลับไปยังแผนภูมิ
+
+```csharp
+// หลังจากแก้ไขสตรีมของเวิร์กบุ๊ค (เช่น การใช้ Aspose.Cells)
+using var updatedWorkbook = chartData.ReadWorkbookStream();
+
+// ล้างการอ้างอิงข้อมูลที่มีอยู่.
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+updatedWorkbook.Position = 0;
+chartData.WriteWorkbookStream(updatedWorkbook);
+
+chart.ValidateChartLayout();
+```
+
+การล้างคอลเลกชันทำให้โครงสร้างข้อมูลแผนภูมิสอดคล้องกับเวิร์กบุ๊คใหม่, ทำให้ `ValidateChartLayout` สามารถทำงานสำเร็จโดยไม่มีข้อผิดพลาด
+
+## **ตั้งค่าเซลล์เวิร์กบุ๊คเป็นป้ายกำกับข้อมูลแผนภูมิ**
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)  
+2. ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน  
+3. เพิ่มแผนภูมิ Bubble พร้อมข้อมูลบางส่วน  
+4. เข้าถึงซีรีส์ของแผนภูมิ  
+5. ตั้งค่าเซลล์ของเวิร์กบุ๊คเป็นป้ายกำกับข้อมูล  
+6. บันทึกการนำเสนอ  
+
+โค้ด C# นี้แสดงวิธีตั้งค่าเซลล์เวิร์กบุ๊คเป็นป้ายกำกับข้อมูลแผนภูมิ:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์พรีเซนเทชัน 
+// สร้างอินสแตนซ์ของคลาส presentation ที่แสดงไฟล์งานนำเสนอ 
 
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
@@ -87,9 +117,12 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 
 ## **จัดการแผ่นงาน**
 
-โค้ด C# นี้แสดงการทำงานที่ใช้คุณสมบัติ [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) เพื่อเข้าถึงคอลเลกชันแผ่นงาน:
+โค้ด C# นี้แสดงการดำเนินการที่ใช้คุณสมบัติ [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) เพื่อเข้าถึงคอลเลกชันของแผ่นงาน:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation())
 {
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
@@ -99,11 +132,15 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **ระบุประเภทแหล่งข้อมูล**
+## **ระบุประเภทของแหล่งข้อมูล**
 
-โค้ด C# นี้แสดงวิธีระบุประเภทสำหรับแหล่งข้อมูล:
+โค้ด C# นี้แสดงวิธีการระบุประเภทสำหรับแหล่งข้อมูล:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -119,11 +156,14 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **ตรวจจับรูปแบบเวิร์กบุ๊กฝังที่ไม่รองรับ**
+## **ตรวจจับรูปแบบเวิร์กบุ๊คฝังที่ไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบเวิร์กบุ๊ก Excel แบบไบนารี (.xlsb) ที่อาจถูกฝังในบางแผนภูมิ คุณสามารถใช้คุณสมบัติ `EmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/) ร่วมกับการอธิบายค่า [WorkbookType](https://reference.aspose.com/slides/th/net/aspose.slides.charts/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมิเหล่านั้น
+Aspose.Slides ไม่รองรับรูปแบบเวิร์กบุ๊คแบบไบนารี Excel (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้คุณสมบัติ `EmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/th/net/aspose.slides.charts/workbooktype/) เพื่อค้นหารูปแบบที่ไม่รองรับและข้ามแผนภูมินั้นๆ
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var slide = presentation.Slides[0];
@@ -137,27 +177,32 @@ using (var presentation = new Presentation("sample.pptx"))
         if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
             chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
         {
-            // เวิร์กบุ๊กที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ
+            // เวิร์กบุ๊คที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ.
             continue;
         }
 
-        // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กของแผนภูมิที่นี่.
+        // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊คของแผนภูมิเกรงนี้.
     }
 }
 ```
 
-## **เวิร์กบุ๊กภายนอก**
+## **เวิร์กบุ๊คภายนอก**
 
-{{% alert color="primary" %}} 
-ใน [Aspose.Slides 19.4](https://docs.aspose.com/slides/th/net/aspose-slides-for-net-19-4-release-notes/) เราได้เพิ่มการสนับสนุนเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
+{{% alert color="info" %}} 
+ใน [Aspose.Slides 19.4](https://docs.aspose.com/slides/th/net/aspose-slides-for-net-19-4-release-notes/), เราได้เพิ่มการสนับสนุนเวิร์กบุ๊คภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
 {{% /alert %}} 
 
-### **สร้างเวิร์กบุ๊กภายนอก**
-โดยใช้เมธอด **`ReadWorkbookStream`** และ **`SetExternalWorkbook`** คุณสามารถสร้างเวิร์กบุ๊กภายนอกจากศูนย์หรือทำให้เวิร์กบุ๊กภายในกลายเป็นภายนอกได้
+### **สร้างเวิร์กบุ๊คภายนอก**
 
-โค้ด C# นี้แสดงกระบวนการสร้างเวิร์กบุ๊กภายนอก:
+โดยใช้เมธอด **`ReadWorkbookStream`** และ **`SetExternalWorkbook`** คุณสามารถสร้างเวิร์กบุ๊คภายนอกจากศูนย์หรือทำให้เวิร์กบุ๊คภายในกลายเป็นภายนอกได้
+
+โค้ด C# นี้แสดงกระบวนการสร้างเวิร์กบุ๊คภายนอก:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     const string workbookPath = "externalWorkbook1.xlsx";
@@ -175,14 +220,19 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **กำหนดเวิร์กบุ๊กภายนอก**
-โดยใช้เมธอด **`SetExternalWorkbook`** คุณสามารถกำหนดเวิร์กบุ๊กภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังสามารถใช้เพื่ออัปเดตเส้นทางของเวิร์กบุ๊กภายนอก (หากเวิร์กบุ๊กถูกย้าย)
+### **กำหนดเวิร์กบุ๊คภายนอก**
 
-แม้ว่าจะไม่สามารถแก้ไขข้อมูลในเวิร์กบุ๊กที่จัดเก็บในตำแหน่งระยะไกลหรือทรัพยากรอื่นๆ ได้ แต่คุณยังสามารถใช้เวิร์กบุ๊กเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพันธ์สำหรับเวิร์กบุ๊กภายนอก ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ
+โดยใช้เมธอด **`SetExternalWorkbook`** คุณสามารถกำหนดเวิร์กบุ๊คภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังสามารถใช้เพื่ออัปเดตเส้นทางไปยังเวิร์กบุ๊คภายนอก (หากไฟล์ดังกล่าวถูกย้าย)
 
-โค้ด C# นี้แสดงวิธีกำหนดเวิร์กบุ๊กภายนอก:
+แม้ว่าคุณไม่สามารถแก้ไขข้อมูลในเวิร์กบุ๊คที่เก็บในตำแหน่งหรือแหล่งข้อมูลระยะไกลได้ แต่คุณยังสามารถใช้เวิร์กบุ๊คเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางแบบสัมพันธ์สำหรับเวิร์กบุ๊คภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
+
+โค้ด C# นี้แสดงวิธีกำหนดเวิร์กบุ๊คภายนอก:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // เส้นทางไปยังไดเรกทอรีเอกสาร.
 using (Presentation pres = new Presentation())
 {
@@ -204,12 +254,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-พารามิเตอร์ `ChartData` (ภายใต้เมธอด `SetExternalWorkbook`) ใช้ในการระบุว่าจะโหลดเวิร์กบุ๊ก Excel หรือไม่
+พารามิเตอร์ `ChartData` (ภายใต้เมธอด `SetExternalWorkbook`) ใช้กำหนดว่าจะโหลดเวิร์กบุ๊ค Excel หรือไม่
 
-* เมื่อค่า `ChartData` ตั้งเป็น `false` จะอัปเดตเฉพาะเส้นทางของเวิร์กบุ๊ก — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากเวิร์กบุ๊กเป้าหมาย คุณอาจใช้การตั้งค่านี้เมื่อเวิร์กบุ๊กเป้าหมายไม่มีหรือไม่สามารถเข้าถึงได้  
-* เมื่อค่า `ChartData` ตั้งเป็น `true` ข้อมูลแผนภูมิจะถูกอัปเดตจากเวิร์กบุ๊กเป้าหมาย
+* เมื่อค่าพารามิเตอร์ `ChartData` ตั้งเป็น `false` จะอัปเดตเฉพาะเส้นทางของเวิร์กบุ๊คเท่านั้น — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากเวิร์กบุ๊คเป้าหมาย คุณอาจใช้การตั้งค่านี้เมื่อเวิร์กบุ๊คเป้าหมายไม่มีอยู่หรือไม่สามารถเข้าถึงได้  
+* เมื่อค่าพารามิเตอร์ `ChartData` ตั้งเป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากเวิร์กบุ๊คเป้าหมาย
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -221,17 +275,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **ดึงเส้นทางเวิร์กบุ๊กแหล่งข้อมูลภายนอกจากแผนภูมิ**
+### **รับเส้นทางเวิร์กบุ๊คแหล่งข้อมูลภายนอกของแผนภูมิ**
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-1. สร้างอ็อบเจกต์สำหรับรูปร่างแผนภูมิ  
-1. สร้างอ็อบเจกต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่แทนแหล่งข้อมูลของแผนภูมิ  
-1. ระบุเงื่อนไขที่เกี่ยวข้องโดยอิงจากประเภทแหล่งข้อมูลที่ตรงกับประเภทแหล่งข้อมูลเวิร์กบุ๊กภายนอก
+2. ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน  
+3. สร้างออบเจกต์สำหรับรูปแบบแผนภูมิ  
+4. สร้างออบเจกต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่แทนแหล่งข้อมูลของแผนภูมิ  
+5. ระบุเงื่อนไขที่เกี่ยวข้องโดยอิงจากประเภทแหล่งข้อมูลที่เหมือนกับประเภทแหล่งข้อมูลเวิร์กบุ๊คภายนอก  
 
-โค้ด C# นี้แสดงการทำงาน:
+โค้ด C# นี้แสดงการดำเนินการ:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[1];
@@ -242,18 +300,22 @@ using (Presentation pres = new Presentation("pres.pptx"))
         string path = chart.ChartData.ExternalWorkbookPath;
     }
     
-    // บันทึกพรีเซนเทชัน
+    // บันทึกการนำเสนอ
     pres.Save("Result.pptx", SaveFormat.Pptx);
 }
 ```
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในเวิร์กบุ๊กภายนอกได้เช่นเดียวกับการเปลี่ยนแปลงเนื้อหาในเวิร์กบุ๊กภายใน เมื่อเวิร์กบุ๊กภายนอกไม่สามารถโหลดได้ ระบบจะโยนข้อยกเว้น
+คุณสามารถแก้ไขข้อมูลในเวิร์กบุ๊คภายนอกได้เช่นเดียวกับที่ทำการเปลี่ยนแปลงเนื้อหาในเวิร์กบุ๊คภายใน เมื่อเวิร์กบุ๊คภายนอกไม่สามารถโหลดได้ จะมีการโยนข้อยกเว้น
 
-โค้ด C# นี้เป็นการทำตามกระบวนการที่อธิบายไว้:
+โค้ด C# นี้เป็นการดำเนินการตามขั้นตอนที่อธิบายไว้:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     IChart chart = pres.Slides[0].Shapes[0] as IChart;
@@ -265,28 +327,56 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
-## **FAQ**
+### **กู้คืนเวิร์กบุ๊คจากแคชของแผนภูมิ**
 
-**ฉันสามารถตรวจสอบได้หรือไม่ว่าแผนภูมิเฉพาะใดเชื่อมโยงกับเวิร์กบุ๊กภายนอกหรือเวิร์กบุ๊กฝัง?**
+หากแผนภูมิใช้เวิร์กบุ๊คภายนอกที่หายไปหรือไม่สามารถเข้าถึงได้ Aspose.Slides สามารถสร้างเวิร์กบุ๊คแผนภูมิโดยอิงจากข้อมูลที่แคชไว้ในไฟล์การนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/), ตั้งค่าของ [SpreadsheetOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/spreadsheetoptions/), และตั้งค่า [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/th/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) เป็น `true` ก่อนเปิดไฟล์การนำเสนอ
 
-ได้ แผนภูมิมี [data source type](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdata/datasourcetype/) และ [path to an external workbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdata/externalworkbookpath/) หากเป็นเวิร์กบุ๊กภายนอกคุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าไฟล์ภายนอกกำลังถูกใช้
+ตัวอย่าง C# ต่อไปนี้เปิดไฟล์การนำเสนอที่แผนภูมิอ้างอิงเวิร์กบุ๊คภายนอกที่ไม่สามารถเข้าถึงได้ และเข้าถึงข้อมูลที่กู้คืนผ่าน [IChart.ChartData](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/chartdata/) และ [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
-**รองรับเส้นทางสัมพันธ์ไปยังเวิร์กบุ๊กภายนอกหรือไม่และจัดเก็บอย่างไร?**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-รองรับ หากคุณระบุเส้นทางสัมพันธ์ ระบบจะทำการแปลงเป็นเส้นทางสัมบูรณ์โดยอัตโนมัติ ซึ่งสะดวกต่อการพกพาโครงการ; อย่างไรก็ตาม การพรีเซนเทชันจะเก็บเส้นทางสัมบูรณ์ไว้ในไฟล์ PPTX
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        RecoverWorkbookFromChartCache = true
+    }
+};
 
-**ฉันสามารถใช้เวิร์กบุ๊กที่อยู่บนทรัพยากรเครือข่ายหรือแชร์ได้หรือไม่?**
+using var presentation = new Presentation("presentation.pptx", loadOptions);
 
-ได้ สามารถใช้เวิร์กบุ๊กเหล่านั้นเป็นแหล่งข้อมูลภายนอก อย่างไรก็ตาม การแก้ไขเวิร์กบุ๊กระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน — สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+var chart = (IChart)presentation.Slides[0].Shapes[0];
+var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกพรีเซนเทชันหรือไม่?**
+// Read or modify the recovered workbook data here.
+```
 
-ไม่ พรีเซนเทชันจะเก็บ [link to the external file](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdata/externalworkbookpath/) และใช้ลิงก์นั้นเพื่ออ่านข้อมูล ไฟล์ภายนอกเองจะไม่ถูกแก้ไขเมื่อบันทึกพรีเซนเทชัน
+หากเวิร์กบุ๊คภายนอกไม่สามารถเข้าถึงได้และการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยน `InvalidOperationException` เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแผนภูมิที่แคชไว้เป็นวิธีสำรองที่ยอมรับได้ เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำในเวิร์กบุ๊คภายนอกหลังจากการอัปเดตไฟล์การนำเสนอครั้งล่าสุด
 
-**ถ้าไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่านฉันควรทำอย่างไร?**
+## **คำถามที่พบบ่อย**
 
-Aspose.Slides ไม่รับรหัสผ่านเมื่อเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ไม่เข้ารหัส (เช่น ใช้ [Aspose.Cells](/cells/net/)) และเชื่อมโยงไปยังสำเนานั้น
+**ฉันสามารถตรวจสอบได้หรือไม่ว่าแผนภูมิที่กำหนดเชื่อมโยงกับเวิร์กบุ๊คภายนอกหรือเวิร์กบุ๊คที่ฝังอยู่?**
 
-**แผนภูมิหลายรายการสามารถอ้างอิงเวิร์กบุ๊กภายนอกเดียวกันได้หรือไม่?**
+ใช่ แผนภูมิมี [data source type](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdata/datasourcetype/) และ [path to an external workbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdata/externalworkbookpath/) หากแหล่งข้อมูลเป็นเวิร์กบุ๊คภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ากำลังใช้ไฟล์ภายนอก
 
-ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในทุกแผนภูมิเมื่อข้อมูลถูกโหลดครั้งต่อไป
+**รองรับเส้นทางแบบสัมพันธ์สำหรับเวิร์กบุ๊คภายนอกหรือไม่ และจัดเก็บอย่างไร?**
+
+ใช่ หากคุณระบุเส้นทางแบบสัมพันธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ ซึ่งสะดวกต่อการพกพาโครงการ; อย่างไรก็ตาม โปรดทราบว่าไฟล์การนำเสนอจะบันทึกเส้นทางเต็มในไฟล์ PPTX
+
+**ฉันสามารถใช้เวิร์กบุ๊คที่อยู่บนทรัพยากรหรือแชร์เครือข่ายได้หรือไม่?**
+
+ได้ เวิร์กบุ๊คเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขเวิร์กบุ๊คระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน — สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกการนำเสนอหรือไม่?**
+
+ไม่ การนำเสนอจะเก็บ [link to the external file](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdata/externalworkbookpath/) และใช้ลิงก์นั้นเพื่ออ่านข้อมูล ไฟล์ภายนอกจะไม่ถูกแก้ไขเมื่อบันทึกการนำเสนอ
+
+**ควรทำอย่างไรหากไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน?**
+
+Aspose.Slides ไม่รับรหัสผ่านเมื่อลิงก์ แนะนำให้ถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัส (เช่น การใช้ [Aspose.Cells](/cells/net/)) แล้วลิงก์ไปยังสำเนานั้น
+
+**หลายแผนภูมิสามารถอ้างอิงเวิร์กบุ๊คภายนอกเดียวกันได้หรือไม่?**
+
+ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดอ้างอิงไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งต่อไปที่โหลดข้อมูล
