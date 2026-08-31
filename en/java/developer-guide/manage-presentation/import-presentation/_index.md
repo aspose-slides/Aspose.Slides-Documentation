@@ -58,6 +58,10 @@ You may want to check out **Aspose free** [PDF to PowerPoint](https://products.a
 
 {{% /alert %}} 
 
+{{% alert title="Troubleshooting" color="danger" %}}
+If you encounter a **java.lang.NullPointerException: Cannot invoke “com.aspose.slides.t1z.h5()” because “image” is null** while calling `addFromPdf()`, it may be caused by a bug in Aspose.Slides for Java 26.8. Upgrading to a newer version (e.g., 26.9 or later) can resolve the issue.
+{{% /alert %}}
+
 ## **Import PowerPoint from HTML**
 
 In this case, you get to convert a HTML document to a PowerPoint presentation.
