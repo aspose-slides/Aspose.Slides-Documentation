@@ -1,8 +1,10 @@
 ---
-title: Rendering and Printing of Presentation
+title: Presentation Rendering
 type: docs
 weight: 70
-url: /net/rendering-and-printing-of-presentation/
+url: /net/presentation-rendering/
+aliases:
+  - /net/rendering-and-printing-of-presentation/
 ---
 
 This section includes the following topics

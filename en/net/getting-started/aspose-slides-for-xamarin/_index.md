@@ -32,7 +32,7 @@ Aspose.Slides API works on the Xamarin platform. To achieve this, the Aspose.Sli
 - editing contents in presentations: text, shapes, charts, SmartArt, audio/video, fonts, etc.
 - handling/dealing with animation, 2D effects, WordArt, etc.
 - handling/dealing with metadata and document properties.
-- printing, cloning, merging, comparing, splitting, etc.
+- cloning, merging, comparing, splitting, etc.
 
 We provided a comparison of the full features in another section close to the bottom of this page.
 

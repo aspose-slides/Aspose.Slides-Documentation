@@ -9,7 +9,6 @@ keywords:
 - file format
 - conversion
 - rendering
-- printing
 - formatting
 - PowerPoint
 - OpenDocument
@@ -41,14 +40,14 @@ Aspose.Slides for Python via .NET supports most PowerPoint document formats. It 
 |[Tagged Image File Format (TIFF)](/slides/python-net/convert-powerpoint-to-tiff/)|You can export all supported presentation file formats to Tagged Image File Format (TIFF).|
 |[PPTX To HTML Conversion](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)|Aspose.Slides for Python via .NET supports the conversion of PresentationEx to HTML format.|
 
-## **Rendering and Printing**
+## **Presentation Rendering**
 Aspose.Slides for Python via .NET supports high fidelity rendering of slides in the presentation documents to various graphics formats. Go through these details:
 
 |**Feature**|**Description**|
 | :- | :- |
 |.NET Supported Image Formats|With Aspose.Slides for Python via .NET, you get to render presentation slides and images on slides to all the .NET supported graphics formats such as TIFF, PNG, BMP, JPEG, GIF, and metafiles.|
 |SVG Format|Aspose.Slides for Python via .NET also provides built-in methods that allow you to export presentation slides to Scalable Vector Graphics (SVG) formats.|
-|Presentation Printing|The latest versions of Aspose.Slides for Python via .NET provide built-in print methods with different options.|
+
 ## **Content Features**
 Aspose.Slides for Python via .NET allows you to access, modify, or create almost all the items or contents of presentation documents. Go through these details:
 
