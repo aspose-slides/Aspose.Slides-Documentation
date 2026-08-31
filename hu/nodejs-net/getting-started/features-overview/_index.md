@@ -4,69 +4,68 @@ type: docs
 weight: 20
 url: /hu/nodejs-net/features-overview/
 ---
-## **Támogatott platformok**
-Aspose.Slides for Node.js via .NET egy platformfüggetlen API. Bármely olyan platformon (Windows, Linux, macOS stb.) használható, ahol a Node.js 7 vagy újabb verziója telepítve van. Az Oracle JDK 8 vagy újabb szintén követelmény.
+## **Supported Platforms**
+Az Aspose.Slides for Node.js via .NET egy platformfüggetlen API. Bármely platformon (Windows, Linux, macOS stb.) használható, ahol a Node.js 7 vagy újabb verziója telepítve van. Az Oracle JDK 8 vagy újabb szintén kötelező.
 
-## **Fájlformátumok és konverziók**
-Aspose.Slides for Node.js via .NET támogatja a legtöbb PowerPoint dokumentumformátumot. Emellett lehetővé teszi, hogy ezeket a szervezetek által használt és megosztott népszerű fájlformátumokra exportálja. Tekintse meg ezeket a részleteket:
+## **File Formats and Conversions**
+Az Aspose.Slides for Node.js via .NET a legtöbb PowerPoint dokumentumformátumot támogat. Lehetővé teszi azok exportálását a szervezetek által gyakran használt és megosztott népszerű fájlformátumokba is. Tekintse meg a részleteket:
 
-|**Funkció**|**Leírás**|
+|**Feature**|**Description**|
 | :- | :- |
 |Microsoft PowerPoint (PPT)|Az Aspose.Slides for Node.js via .NET a leggyorsabb feldolgozást biztosít ehhez a prezentációs dokumentumformátumhoz.|
 |PPT to PPTX conversion|Az Aspose.Slides for Node.js via .NET támogatja a PPT‑ről PPTX‑re konvertálást.|
-|Portable Document Format (PDF)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot az Adobe Portable Document Format (PDF) dokumentumokba.|
-|XML Parser Specification (XPS)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot az XML Parser Specification (XPS) dokumentumokba.|
-|Tagged Image File Format (TIFF)|Exportálhatja az összes támogatott prezentációs fájlformátumot a Tagged Image File Format (TIFF) formátumba.|
+|Portable Document Format (PDF)|Egyetlen módszerrel exportálhatja az összes támogatott fájlformátumot az Adobe Portable Document Format (PDF) dokumentumokba.|
+|XML Parser Specification (XPS)|Egyetlen módszerrel exportálhatja az összes támogatott fájlformátumot az XML Parser Specification (XPS) dokumentumokba.|
+|Tagged Image File Format (TIFF)|Az összes támogatott prezentációs fájlformátumot exportálhatja a Tagged Image File Format (TIFF) formátumba.|
 |PPTX To HTML Conversion|Az Aspose.Slides for Node.js via .NET támogatja a PresentationEx HTML formátumba konvertálását.|
 
-## **Megjelenítés és nyomtatás**
-Az Aspose.Slides for Node.js via .NET magas hűségű megjelenítést támogat a prezentációs diák különböző grafikus formátumokba. Tekintse meg ezeket a részleteket:
+## **Presentation Rendering**
+Az Aspose.Slides for Node.js via .NET magas pontosságú renderelést támogat a prezentáció diáin különböző grafikus formátumokba. Tekintse meg a részleteket:
 
-|**Funkció**|**Leírás**|
+|**Feature**|**Description**|
 | :- | :- |
-|.NET Supported Image Formats|Az Aspose.Slides for Node.js via .NET használatával a prezentációs diák és a diákon lévő képek minden .NET által támogatott grafikus formátumba (például TIFF, PNG, BMP, JPEG, GIF) renderelhetők.|
-|SVG Format|Az Aspose.Slides for Node.js via .NET beépített metódusokat is biztosít, amelyekkel a prezentációs diák exportálhatók a Scalable Vector Graphics (SVG) formátumba.|
-|Presentation Printing|Az Aspose.Slides for Node.js via .NET legújabb verziói beépített nyomtatási metódusokat kínálnak különböző beállításokkal.|
+|.NET Supported Image Formats|Az Aspose.Slides for Node.js via .NET segítségével renderelheti a prezentációs diát és a diákon lévő képeket az összes .NET által támogatott grafikus formátumba, például TIFF, PNG, BMP, JPEG, GIF.|
+|SVG Format|Az Aspose.Slides for Node.js via .NET beépített módszereket is kínál, amelyek lehetővé teszik a prezentációs diák exportálását a Scalable Vector Graphics (SVG) formátumba.|
 
-## **Tartalmi funkciók**
-Az Aspose.Slides for Node.js via .NET lehetővé teszi, hogy szinte minden elemet vagy tartalmat elérjen, módosítson vagy létrehozzon a prezentációs dokumentumokban. Tekintse meg ezeket a részleteket:
+## **Content Features**
+Az Aspose.Slides for Node.js via .NET lehetővé teszi a prezentációs dokumentumok szinte minden elemének vagy tartalmának elérését, módosítását vagy létrehozását. Tekintse meg a részleteket:
 
-|**Funkció**|**Leírás**|
+|**Feature**|**Description**|
 | :- | :- |
-|Master Slides|A master diák határozzák meg a normál diák elrendezését. Az Aspose.Slides for Node.js via .NET lehetővé teszi a master diák elérését és módosítását a prezentációs dokumentumokban.|
-|Normal Slides|Az Aspose.Slides for Node.js via .NET segítségével különböző típusú új diák létrehozhatók; emellett elérheti és módosíthatja a már létező diákat a prezentációkban.|
-|Cloning / Copying Slides|Az Aspose.Slides for Node.js via .NET beépített metódusai lehetővé teszik a meglévő diák klónozását vagy másolását egy prezentáción belül. Másik prezentációba is felhasználhatja a másolt és klónozott diákot. Mivel egy dia a master diától örökli az elrendezést, a beépített klónozási metódusok automatikusan átmásolják a master‑t a klónozás során.|
-|Managing Slides sections|Metódusok a diák különböző szakaszokba rendezéséhez egy prezentációban.|
-|Place Holders and Text Holders|Elérheti a helyőrzőket és szöveghelyőrzőket egy dián. Ezen felül a megfelelő metódus segítségével üresen, a szöveghelyőrzőket tartalmazó diát is létrehozhat.|
+|Master Slides|A mesterdiák határozzák meg a normál diák elrendezését. Az Aspose.Slides for Node.js via .NET lehetővé teszi a mesterdiák elérését és módosítását a prezentációs dokumentumokban.|
+|Normal Slides|Az Aspose.Slides for Node.js via .NET segítségével különböző típusú új diák hozhatók létre; emellett elérhetők és módosíthatók a meglévő diák a prezentációkban.|
+|Cloning / Copying Slides|Az Aspose.Slides for Node.js via .NET beépített módszereket biztosít, amelyek lehetővé teszik a meglévő diák klónozását vagy másolását egy prezentáción belül. A másolt és klónozott diák felhasználhatók egy prezentációból a másikba. Mivel egy dia a mesterdiától örökli az elrendezést, a beépített klónozási módszerek automatikusan átmásolják a mestert klónozáskor.|
+|Managing Slides sections|Módszerek a diák különböző szekciókba rendezésére egy prezentáción belül.|
+|Place Holders and Text Holders|A dián elérhetőek a helyfoglalók és szövegtartók. Továbbá egy diát teljesen újra létrehozhat szövegtartókkal a megfelelő módszerrel.|
 |Header and Footers|Az Aspose.Slides for Node.js via .NET megkönnyíti a fejlécek/láblécek kezelését a diákon.|
-|Notes in Slides|Az Aspose.Slides for Node.js via .NET segítségével hozzáférhet a diához tartozó jegyzetekhez, módosíthatja azokat, illetve új jegyzeteket is hozzáadhat.|
-|Finding a Shape|A dián egy adott alakzatot megtalálhat a hozzá tartozó alternatív szöveg alapján.|
-|Backgrounds|Az Aspose.Slides for Node.js via .NET lehetővé teszi a háttérképek kezelését, amelyek egy master vagy normál dia részei a prezentációban.|
-|Text Boxes|Szövegdobozok üresen létrehozhatók. Elérheti a már meglévő szövegdobozokat. A szövegeket módosíthatja az eredeti formázás megőrzése mellett.|
-|Rectangle Shapes|Az Aspose.Slides for Node.js via .NET segítségével téglalap alakzatokat hozhat létre vagy módosíthat.|
-|Poly Line Shapes|Az Aspose.Slides for Node.js via .NET segítségével vonallánc alakzatokat hozhat létre vagy módosíthat.|
-|Ellipse Shapes|Az Aspose.Slides for Node.js via .NET segítségével ellipszis alakzatokat hozhat létre vagy módosíthat.|
+|Notes in Slides|Az Aspose.Slides for Node.js via .NET segítségével elérhetők és módosíthatók a diával kapcsolatos jegyzetek, valamint új jegyzetek is hozzáadhatók.|
+|Finding a Shape|Egy adott alakzat megtalálható a dián a hozzá tartozó alternatív szöveg alapján.|
+|Backgrounds|Az Aspose.Slides for Node.js via .NET lehetővé teszi a mester vagy normál dia háttérképeivel való munkát egy prezentációban.|
+|Text Boxes|Szövegdobozok létrehozhatók teljesen újra. Elérhetők a meglévő szövegdobozok. A szövegeket módosíthatja az eredeti formátum megtartásával.|
+|Rectangle Shapes|Az Aspose.Slides for Node.js via .NET segítségével téglalap alakzatok hozhatók létre vagy módosíthatók.|
+|Poly Line Shapes|Az Aspose.Slides for Node.js via .NET segítségével polívonalis vonal alakzatok hozhatók létre vagy módosíthatók.|
+|Ellipse Shapes|Az Aspose.Slides for Node.js via .NET segítségével ellipszis alakzatok hozhatók létre vagy módosíthatók.|
 |Group Shapes|Az Aspose.Slides for Node.js via .NET támogatja a csoportos alakzatokat.|
 |Auto Shapes|Az Aspose.Slides for Node.js via .NET támogatja az automatikus alakzatokat.|
-|SmartArt|Az Aspose.Slides for Node.js via .NET támogatja a SmartArt alakzatokat a Microsoft PowerPointben.|
-|Charts|Az Aspose.Slides for Node.js via .NET támogatja az MSO diagramokat a PowerPointben.|
-|Shapes Serialization|Az Aspose.Slides for Node.js via .NET számos alakzatot támogat. Ha egy adott alakzat nincs támogatva, használhat egy sorosítási metódust, amellyel az alakzatot egy meglévő diáról sorosíthatja. Így a saját igényei szerint később is felhasználhatja az alakzatot.|
-|Picture Frames|Az Aspose.Slides for Node.js via .NET segítségével képeket kezelhet képkockákban.|
-|Audio Frames|Az Aspose.Slides for Node.js via .NET lehetővé teszi hangfájlok összekapcsolását vagy beágyazását a diák hangkereteibe.|
-|Video Frames|Video fájlokat kezelhet video keretekben. Az Aspose.Slides for Node.js via .NET támogatja a linkelt és beágyazott videókat is.|
-|OLE Frame|OLE objektumokat kezelhet OLE keretekben az Aspose.Slides for Node.js via .NET segítségével.|
+|SmartArt|Az Aspose.Slides for Node.js via .NET támogatja a SmartArt alakzatokat a MS PowerPointban.|
+|Charts|Az Aspose.Slides for Node.js via .NET támogatja az MSO diagramokat a PowerPointban.|
+|Shapes Serialization|Az Aspose.Slides for Node.js via .NET számos alakzatot támogat. Ha egy adott alakzatot nem támogat, használhat egy sorosítási módszert, amely lehetővé teszi, hogy az alakzatot egy meglévő diáról sorosítsa. Így a forma később a saját igényei szerint felhasználható.|
+|Picture Frames|Az Aspose.Slides for Node.js via .NET segítségével kezelhet képeket képkockákban.|
+|Audio Frames|Az Aspose.Slides for Node.js via .NET lehetővé teszi hangfájlok hivatkozását vagy beágyazását hangkeretekbe a diákon.|
+|Video Frames|Videó fájlok kezelhetők videókeretekben. Az Aspose.Slides for Node.js via .NET támogatja a hivatkozott és beágyazott videókat is.|
+|OLE Frame|Az Aspose.Slides for Node.js via .NET segítségével kezelhet OLE objektumokat OLE keretekben.|
 |Tables|Az Aspose.Slides for Node.js via .NET támogatja a táblázatokat a diákon.|
 |ActiveX Controls|ActiveX vezérlők támogatása.|
-|VBA Macros|VBA makrók kezelése a prezentációkban.|
-|Text Frame|Az alakzattal kapcsolatos szövegkeret segítségével elérheti a szöveget bármely alakzaton.|
-|Text Scanning|Beépített vizsgálati metódusokkal szkennelheti a szöveget a prezentáció vagy egy adott dia szintjén.|
-|Animations|Animációkat alkalmazhat alakzatokra.|
-|Slide Shows|Az Aspose.Slides for Node.js via .NET támogatja a diavetítéseket és a diaátmeneteket.|
+|VBA Macros|VBA makrók kezelésének támogatása a prezentációkban.|
+|Text Frame|A szöveg elérhető bármely alakzattal a hozzá tartozó szövegkereten keresztül.|
+|Text Scanning|Beépített vizsgálati módszerekkel szöveget tud beolvasni a prezentációban vagy a dián.|
+|Animations|Alakzatokra animációk alkalmazhatók.|
+|Slide Shows|Az Aspose.Slides for Node.js via .NET támogatja a diavetítéseket és diaátmeneteket.|
 
-## **Formázási funkciók**
-Az Aspose.Slides for Node.js via .NET segítségével formázhat szövegeket és alakzatokat a prezentációs diákon. Tekintse meg ezeket a részleteket:
+## **Formatting Features**
+Az Aspose.Slides for Node.js via .NET segítségével szövegeket és alakzatokat formázhat a prezentációk diáin. Tekintse meg a részleteket:
 
-|**Funkció**|**Leírás**|
+|**Feature**|**Description**|
 | :- | :- |
-|Text Formatting|<p>Az Aspose.Slides for Node.js via .NET-ben a szövegeket a alakzatokhoz tartozó szövegkeretekkel kezelheti. Így a szövegeket a szövegkeretekhez kapcsolódó bekezdések és részek használatával formázhatja. Ezeket a szövegelemeket az Aspose.Slides for Node.js via .NET formázhatja.</p><p>- Betűtípus</p><p>- Betűméret</p><p>- Betűszín</p><p>- Betűárnyalatok</p><p>- Bekezdés igazítása</p><p>- Bekezdés felsorolás</p><p>- Bekezdés orientációja</p>|
-|Shape Formatting|<p>Az Aspose.Slides for Node.js via .NET-ben egy dia alapvető eleme egy alakzat. Ezeket az alakzatelemeket az Aspose.Slides for Node.js via .NET segítségével formázhatja:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (beleértve a Mintát, Gradiens, Szilárd)</p><p>- Szöveg</p><p>- Kép</p>|
+|Text Formatting|<p>Az Aspose.Slides for Node.js via .NET segítségével a szövegeket a formához tartozó szövegkeretekben kezelheti. Így a szövegeket a szövegkeretekhez tartozó bekezdésekkel és részekkel formázhatja. Ezeket a szövegelemeket az Aspose.Slides for Node.js via .NET formázhatja.</p><p>- Betűtípus</p><p>- Betűméret</p><p>- Betűszín</p><p>- Betűárnyalatok</p><p>- Bekezdés igazítása</p><p>- Bekezdés felsorolás</p><p>- Bekezdés orientációja</p>|
+|Shape Formatting|<p>Az Aspose.Slides for Node.js via .NET-ben a dia alapvető eleme egy alakzat. Ezeket az alakzatelemeket az Aspose.Slides for Node.js via .NET segítségével formázhatja:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (beleértve a mintát, gradientet, szilárdot)</p><p>- Szöveg</p><p>- Kép</p>|

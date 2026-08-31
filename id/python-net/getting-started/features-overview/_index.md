@@ -9,110 +9,103 @@ keywords:
 - format file
 - konversi
 - rendering
-- pencetakan
 - pemformatan
 - PowerPoint
 - OpenDocument
 - presentasi
 - Python
 - Aspose.Slides
-description: "Temukan Aspose.Slides untuk Python via .NET: sebuah API kuat untuk membuat, mengedit, mengotomatiskan, dan mengonversi presentasi PowerPoint serta OpenDocument secara efisien."
+description: "Temukan Aspose.Slides for Python via .NET: API kuat untuk membuat, mengedit, mengotomatiskan, dan mengonversi presentasi PowerPoint serta OpenDocument dengan efisien."
 ---
 ## **Platform yang Didukung**
-Platform Aspose.Slides untuk Python via .NET dapat digunakan pada Windows x64 atau x86 dan berbagai distribusi Linux dengan Python 3.5 atau yang lebih baru terpasang. Ada persyaratan tambahan untuk platform Linux target:
-- Perpustakaan runtime GCC-6 (atau yang lebih baru)
-- Dependensi .NET Core Runtime. Menginstal .NET Core Runtime itu sendiri TIDAK diperlukan
-- Untuk Python 3.5-3.7: Build Python dengan `pymalloc` diperlukan. Opsi build Python `--with-pymalloc` diaktifkan secara default. Biasanya, build Python dengan `pymalloc` ditandai dengan akhiran `m` pada nama file.
-- `libpython` perpustakaan Python bersama. Opsi build Python `--enable-shared` dinonaktifkan secara default, beberapa distribusi Python tidak menyertakan perpustakaan `libpython` bersama. Untuk beberapa platform Linux, perpustakaan `libpython` bersama dapat diinstal menggunakan manajer paket, misalnya: `sudo apt-get install libpython3.7`. Masalah umum adalah perpustakaan `libpython` diinstal di lokasi berbeda dari lokasi standar sistem untuk perpustaan bersama. Masalah ini dapat diperbaiki dengan menggunakan opsi build Python untuk mengatur jalur perpustakaan alternatif saat mengkompilasi Python, atau diperbaiki dengan membuat tautan simbolik ke file perpustakaan `libpython` di lokasi standar sistem untuk perpustakaan bersama. Biasanya, nama file perpustakaan `libpython` bersama adalah `libpythonX.Ym.so.1.0` untuk Python 3.5-3.7, atau `libpythonX.Y.so.1.0` untuk Python 3.8 atau yang lebih baru (contoh: `libpython3.7m.so.1.0`, `libpython3.9.so.1.0`).
+Platform Aspose.Slides for Python via .NET dapat digunakan di Windows x64 atau x86 serta berbagai distribusi Linux dengan Python 3.5 atau yang lebih baru terpasang. Ada persyaratan tambahan untuk platform Linux target:
 
-Jika Anda memerlukan dukungan untuk lebih banyak platform, cari produk “kembar” Aspose.Slides untuk .NET atau Aspose.Slides untuk Java.
+- Perpustakaan runtime GCC-6 (atau lebih baru)
+- Ketergantungan .NET Core Runtime. Menginstal .NET Core Runtime itu sendiri TIDAK diperlukan
+- Untuk Python 3.5-3.7: Build Python dengan `pymalloc` diperlukan. Opsi build Python `--with-pymalloc` diaktifkan secara default. Biasanya, build `pymalloc` Python ditandai dengan akhiran `m` pada nama file.
+- Perpustakaan Python bersama `libpython`. Opsi build Python `--enable-shared` dinonaktifkan secara default, beberapa distribusi Python tidak menyertakan perpustakaan bersama `libpython`. Untuk beberapa platform Linux, perpustakaan `libpython` dapat dipasang menggunakan manajer paket, misalnya: `sudo apt-get install libpython3.7`. Masalah umum adalah perpustakaan `libpython` diinstal di lokasi yang berbeda dari lokasi standar sistem untuk perpustakaan bersama. Masalah ini dapat diperbaiki dengan menggunakan opsi build Python untuk mengatur jalur perpustakaan alternatif saat mengompilasi Python, atau dengan membuat tautan simbolik ke file perpustakaan `libpython` di lokasi standar sistem untuk perpustakaan bersama. Biasanya, nama file perpustakaan bersama `libpython` adalah `libpythonX.Ym.so.1.0` untuk Python 3.5-3.7, atau `libpythonX.Y.so.1.0` untuk Python 3.8 atau yang lebih baru (contoh: `libpython3.7m.so.1.0`, `libpython3.9.so.1.0`).
+
+Jika Anda membutuhkan dukungan untuk lebih banyak platform, carilah produk “saudara kembar” Aspose.Slides for .NET atau Aspose.Slides for Java.
 
 ## **Format File dan Konversi**
-Aspose.Slides untuk Python via .NET mendukung sebagian besar format dokumen PowerPoint. Ini juga memungkinkan Anda mengekspor mereka ke format populer yang banyak digunakan dan dipertukarkan oleh organisasi. Lihat detail berikut:
+Aspose.Slides for Python via .NET mendukung sebagian besar format dokumen PowerPoint. Ini juga memungkinkan Anda mengekspornya ke format populer yang banyak digunakan dan dipertukarkan oleh organisasi. Lihat detail berikut:
 
 |**Fitur**|**Deskripsi**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/id/python-net/ppt-vs-pptx/)|Aspose.Slides untuk Python via .NET menyediakan pemrosesan tercepat untuk format dokumen presentasi ini.|
-|[PPT to PPTX conversion](/slides/id/python-net/convert-ppt-to-pptx/)|Aspose.Slides untuk Python via .NET mendukung konversi PPT ke PPTX.|
+|[Microsoft PowerPoint (PPT)](/slides/id/python-net/ppt-vs-pptx/)|Aspose.Slides for Python via .NET menyediakan pemrosesan tercepat untuk format dokumen presentasi ini.|
+|[PPT to PPTX conversion](/slides/id/python-net/convert-ppt-to-pptx/)|Aspose.Slides for Python via .NET mendukung konversi PPT ke PPTX.|
 |[Portable Document Format (PDF)](/slides/id/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Anda dapat mengekspor semua format file yang didukung ke dokumen Adobe Portable Document Format (PDF) dengan satu metode.|
 |[XML Parser Specification (XPS)](https://docs.aspose.com/slides/id/python-net/convert-powerpoint-to-xps/)|Anda dapat mengekspor semua format file yang didukung ke dokumen XML Parser Specification (XPS) dengan satu metode.|
 |[Tagged Image File Format (TIFF)](/slides/id/python-net/convert-powerpoint-to-tiff/)|Anda dapat mengekspor semua format file presentasi yang didukung ke Tagged Image File Format (TIFF).|
-|[PPTX To HTML Conversion](https://docs.aspose.com/slides/id/python-net/convert-powerpoint-to-html/)|Aspose.Slides untuk Python via .NET mendukung konversi PresentationEx ke format HTML.|
+|[PPTX To HTML Conversion](https://docs.aspose.com/slides/id/python-net/convert-powerpoint-to-html/)|Aspose.Slides for Python via .NET mendukung konversi PresentationEx ke format HTML.|
 
-## **Rendering dan Pencetakan**
-Aspose.Slides untuk Python via .NET mendukung rendering fidelity tinggi dari slide dalam dokumen presentasi ke berbagai format grafis. Lihat detail berikut:
+## **Rendering Presentasi**
+Aspose.Slides for Python via .NET mendukung rendering dengan fidelitas tinggi dari slide dalam dokumen presentasi ke berbagai format grafis. Lihat detail berikut:
 
 |**Fitur**|**Deskripsi**|
 | :- | :- |
-|.NET Supported Image Formats|Dengan Aspose.Slides untuk Python via .NET, Anda dapat merender slide presentasi dan gambar pada slide ke semua format grafis yang didukung .NET seperti TIFF, PNG, BMP, JPEG, GIF, dan metafile.|
-|SVG Format|Aspose.Slides untuk Python via .NET juga menyediakan metode bawaan yang memungkinkan Anda mengekspor slide presentasi ke format Scalable Vector Graphics (SVG).|
-|Presentation Printing|Versi terbaru Aspose.Slides untuk Python via .NET menyediakan metode cetak bawaan dengan berbagai opsi.|
+|Format Gambar yang Didukung .NET|Dengan Aspose.Slides for Python via .NET, Anda dapat merender slide presentasi dan gambar pada slide ke semua format grafis yang didukung .NET seperti TIFF, PNG, BMP, JPEG, GIF, dan metafile.|
+|Format SVG|Aspose.Slides for Python via .NET juga menyediakan metode bawaan yang memungkinkan Anda mengekspor slide presentasi ke format Scalable Vector Graphics (SVG).|
 
 ## **Fitur Konten**
-Aspose.Slides untuk Python via .NET memungkinkan Anda mengakses, memodifikasi, atau membuat hampir semua item atau konten dokumen presentasi. Lihat detail berikut:
+Aspose.Slides for Python via .NET memungkinkan Anda mengakses, memodifikasi, atau membuat hampir semua item atau konten dokumen presentasi. Lihat detail berikut:
 
 |**Fitur**|**Deskripsi**|
 | :- | :- |
-|Master Slides|Master Slides menentukan tata letak slide normal. Aspose.Slides untuk Python via .NET memungkinkan Anda mengakses dan memodifikasi Master Slides dari dokumen presentasi.|
-|Normal Slides|Dengan Aspose.Slides untuk Python via .NET, Anda dapat membuat slide baru dengan berbagai tipe; Anda juga dapat mengakses dan memodifikasi slide yang sudah ada dalam presentasi.|
-|Cloning / Copying Slides|Ada metode bawaan yang disediakan oleh Aspose.Slides untuk Python via .NET yang memungkinkan Anda mengkloning atau menyalin slide yang ada dalam presentasi. Anda juga dapat menggunakan slide yang disalin dan dikloning dari satu presentasi ke yang lain. Karena slide mewarisi tata letaknya dari master slide, metode kloning bawaan secara otomatis menyalin master saat mengkloning.|
-|Managing Slides sections|Metode untuk mengorganisir slide dalam berbagai bagian di dalam sebuah presentasi.|
-|Place Holders and Text Holders|Anda dapat mengakses placeholder dan text holder dalam sebuah slide. Lebih lagi, Anda dapat membuat slide dengan text holder dari awal menggunakan metode yang tepat.|
-|Header and Footers|Aspose.Slides untuk Python via .NET memfasilitasi penanganan header/footer dalam slide.|
-|Notes in Slides|Dengan Aspose.Slides untuk Python via .NET, Anda dapat mengakses dan memodifikasi catatan yang terkait dengan sebuah slide serta menambahkan catatan baru.|
-|Finding a Shape|Anda juga dapat menemukan shape tertentu dari sebuah slide menggunakan teks alternatif yang terkait dengan shape tersebut.|
-|Backgrounds|Aspose.Slides untuk Python via .NET memungkinkan Anda bekerja dengan latar belakang yang terkait dengan master atau slide normal dalam sebuah presentasi.|
-|Text Boxes|Kotak teks dapat dibuat dari awal. Anda dapat mengakses kotak teks yang sudah ada. Anda juga dapat memodifikasi teksnya tanpa kehilangan format teks asli.|
-|Rectangle Shapes|Anda dapat membuat atau memodifikasi shape persegi panjang dengan Aspose.Slides untuk Python via .NET.|
-|Poly Line Shapes|Anda dapat membuat atau memodifikasi shape poly line dengan Aspose.Slides untuk Python via .NET.|
-|Ellipse Shapes|Anda dapat membuat atau memodifikasi shape elips dengan Aspose.Slides untuk Python via .NET.|
-|Group Shapes|Aspose.Slides untuk Python via .NET mendukung group shapes.|
-|Auto Shapes|Aspose.Slides untuk Python via .NET mendukung auto shapes.|
-|SmartArt|Aspose.Slides untuk Python via .NET menyediakan dukungan untuk shape SmartArt di MS PowerPoint.|
-|Charts|Aspose.Slides untuk Python via .NET menyediakan dukungan untuk MSO Charts di PowerPoint.|
-|Shapes Serialization|Aspose.Slides untuk Python via .NET mendukung sejumlah besar shape. Ketika Aspose.Slides untuk Python via .NET tidak memiliki dukungan untuk suatu shape, Anda dapat menggunakan metode serialisasi melalui mana Anda dapat menseralisasi shape tersebut dari slide yang ada. Dengan cara ini, Anda dapat menggunakan shape tersebut lebih lanjut sesuai kebutuhan Anda.|
-|Picture Frames|Anda dapat mengelola gambar dalam picture frames dengan Aspose.Slides untuk Python via .NET.|
-|Audio Frames|Anda dapat menautkan atau menyematkan file audio dalam audio frames pada slide dengan Aspose.Slides untuk Python via .NET.|
-|Video Frames|Anda dapat menangani file video dalam video frames. Aspose.Slides untuk Python via .NET juga menyediakan dukungan untuk video yang ditautkan dan disematkan.|
-|OLE Frame|Anda dapat mengelola OLE Objects dalam OLE frames dengan Aspose.Slides untuk Python via .NET.|
-|Tables|Aspose.Slides untuk Python via .NET mendukung tabel dalam slide.|
-|ActiveX Controls|Dukungan untuk kontrol ActiveX.|
-|VBA Macros|Dukungan untuk mengelola VBA macros di dalam presentasi.|
-|Text Frame|Anda dapat mengakses teks pada shape apa pun melalui text frame yang terkait dengan shape tersebut.|
-|Text Scanning|Anda dapat memindai teks dalam presentasi pada tingkat presentasi atau slide melalui metode pemindaian bawaan.|
-|Animations|Anda dapat menerapkan animasi pada shape.|
-|Slide Shows|Aspose.Slides untuk Python via .NET mendukung slide show dan transisi slide.|
+|Slide Master|Slide Master menentukan tata letak slide normal. Aspose.Slides for Python via .NET memungkinkan Anda mengakses dan memodifikasi Slide Master dari dokumen presentasi|
+|Slide Normal|Dengan Aspose.Slides for Python via .NET, Anda dapat membuat slide baru dengan berbagai tipe; Anda juga dapat mengakses dan memodifikasi slide yang ada dalam presentasi|
+|Menggandakan / Menyalin Slide|Ada metode bawaan yang disediakan oleh Aspose.Slides for Python via .NET yang memungkinkan Anda menggandakan atau menyalin slide yang ada dalam sebuah presentasi. Anda juga dapat menggunakan slide yang disalin atau digandakan dari satu presentasi ke presentasi lain. Karena sebuah slide mewarisi tata letaknya dari slide master, metode penggandaan bawaan secara otomatis menyalin master saat menggandakan|
+|Mengelola Bagian Slide|Metode untuk mengatur slide dalam berbagai bagian di dalam sebuah presentasi|
+|Placeholder dan Placeholder Teks|Anda dapat mengakses placeholder dan placeholder teks dalam sebuah slide. Selain itu, Anda dapat membuat slide dengan placeholder teks dari awal menggunakan metode yang sesuai|
+|Header dan Footer|Aspose.Slides for Python via .NET mempermudah penanganan header/footer di slide|
+|Catatan pada Slide|Dengan Aspose.Slides for Python via .NET, Anda dapat mengakses dan memodifikasi catatan yang terkait dengan slide serta menambahkan catatan baru|
+|Mencari Bentuk|Anda juga dapat menemukan bentuk tertentu dari sebuah slide menggunakan teks alternatif yang terkait dengan bentuk tersebut|
+|Latar Belakang|Aspose.Slides for Python via .NET memungkinkan Anda bekerja dengan latar belakang yang terkait dengan slide master atau slide normal dalam sebuah presentasi|
+|Kotak Teks|Kotak teks dapat dibuat dari awal. Anda dapat mengakses kotak teks yang ada. Anda juga dapat memodifikasi teksnya tanpa kehilangan format teks asli|
+|Bentuk Persegi Panjang|Anda dapat membuat atau memodifikasi bentuk persegi panjang dengan Aspose.Slides for Python via .NET|
+|Bentuk Garis Poly|Anda dapat membuat atau memodifikasi bentuk garis poly dengan Aspose.Slides for Python via .NET|
+|Bentuk Elips|Anda dapat membuat atau memodifikasi bentuk elips dengan Aspose.Slides for Python via .NET|
+|Bentuk Grup|Aspose.Slides for Python via .NET mendukung bentuk grup|
+|Auto Shapes|Aspose.Slides for Python via .NET mendukung auto shapes|
+|SmartArt|Aspose.Slides for Python via .NET menyediakan dukungan untuk bentuk SmartArt di MS PowerPoint|
+|Charts|Aspose.Slides for Python via .NET menyediakan dukungan untuk MSO Charts di PowerPoint|
+|Serialisasi Bentuk| Aspose.Slides for Python via .NET mendukung banyak bentuk. Ketika Aspose.Slides for Python via .NET tidak mendukung suatu bentuk, Anda dapat menggunakan metode serialisasi untuk men-serialisasi bentuk tersebut dari slide yang ada. Dengan cara ini, Anda dapat menggunakan bentuk tersebut lebih lanjut sesuai kebutuhan Anda |
+|Frame Gambar|Anda dapat mengelola gambar dalam frame gambar dengan Aspose.Slides for Python via .NET|
+|Frame Audio|Anda dapat menautkan atau menyematkan file audio dalam frame audio pada slide dengan Aspose.Slides for Python via .NET|
+|Frame Video|Anda dapat menangani file video dalam frame video. Aspose.Slides for Python via .NET juga menyediakan dukungan untuk video yang ditautkan dan disematkan|
+|Frame OLE|Anda dapat mengelola OLE Objects dalam frame OLE dengan Aspose.Slides for Python via .NET|
+|Tables|Aspose.Slides for Python via .NET mendukung tabel di slide|
+|Kontrol ActiveX|Mendukung kontrol ActiveX|
+|Makro VBA|Mendukung pengelolaan makro VBA di dalam presentasi|
+|Frame Teks|Anda dapat mengakses teks pada bentuk apa pun melalui frame teks yang terkait dengan bentuk tersebut|
+|Pemindaian Teks|Anda dapat memindai teks dalam sebuah presentasi pada tingkat presentasi atau slide melalui metode pemindaian bawaan|
+|Animasi|Anda dapat menerapkan animasi pada bentuk|
+|Slide Shows|Aspose.Slides for Python via .NET mendukung pertunjukan slide dan transisi slide|
 
 ## **Fitur Pemformatan**
-Dengan Aspose.Slides untuk Python via .NET, Anda dapat memformat teks dan shape pada slide dalam presentasi. Lihat detail berikut:
+Dengan Aspose.Slides for Python via .NET, Anda dapat memformat teks dan bentuk pada slide dalam presentasi. Lihat detail berikut:
 
 |**Fitur**|**Deskripsi**|
 | :- | :- |
-|Text Formatting|<p>Dalam Aspose.Slides untuk Python via .NET, Anda dapat mengelola teks melalui text frame yang terkait dengan shape. Oleh karena itu, Anda dapat memformat teks menggunakan paragraf dan bagian yang terkait dengan text frame. Elemen teks ini dapat diformat melalui Aspose.Slides untuk Python via .NET.</p><p>- Jenis Font</p><p>- Ukuran Font</p><p>- Warna Font</p><p>- Nada Font</p><p>- Penjajaran Paragraf</p><p>- Penomoran Paragraf</p><p>- Orientasi Paragraf</p>|
-|Shape Formatting|<p>Dalam Aspose.Slides untuk Python via .NET, elemen dasar sebuah slide adalah shape. Anda dapat memformat elemen shape ini dengan Aspose.Slides untuk Python via .NET:</p><p>- Posisi</p><p>- Ukuran</p><p>- Garis</p><p>- Isi (termasuk Pola, Gradasi, Solid)</p><p>- Teks</p><p>- Gambar</p>|
+|Pemformatan Teks|<p>Di Aspose.Slides for Python via .NET, Anda dapat mengelola teks melalui frame teks yang terkait dengan bentuk. Oleh karena itu, Anda dapat memformat teks menggunakan paragraf dan bagian yang terkait dengan frame teks. Elemen teks ini dapat diformat melalui Aspose.Slides for Python via .NET.</p><p>- Jenis Font</p><p>- Ukuran Font</p><p>- Warna Font</p><p>- Nuansa Font</p><p>- Penjajaran Paragraf</p><p>- Penomoran Paragraf</p><p>- Orientasi Paragraf</p>|
+|Pemformatan Bentuk|<p>Di Aspose.Slides for Python via .NET, elemen dasar slide adalah sebuah bentuk. Anda dapat memformat elemen bentuk ini dengan Aspose.Slides for Python via .NET:</p><p>- Posisi</p><p>- Ukuran</p><p>- Garis</p><p>- Isi (termasuk Pola, Gradasi, Solid)</p><p>- Teks</p><p>- Gambar</p>|
 
 ## **FAQ**
 
-**Apakah saya perlu menginstal Microsoft PowerPoint di server/PC agar perpustakaan berfungsi?**
+### Apakah saya perlu menginstal Microsoft PowerPoint di server/PC agar pustaka dapat berfungsi?
+Tidak. PowerPoint tidak diperlukan; Aspose.Slides adalah mesin mandiri untuk membuat, mengedit, mengonversi, dan merender presentasi.
 
-Tidak. PowerPoint tidak diperlukan; Aspose.Slides adalah mesin mandiri untuk membuat, mengedit, mengkonversi, dan merender presentasi.
+### Bagaimana cara kerja multithreading? Apakah pemrosesan dapat diparalelkan?
+Aman untuk memproses dokumen yang berbeda di thread yang berbeda; objek [presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) yang sama tidak boleh digunakan oleh [multiple threads](/slides/id/python-net/multithreading/) secara bersamaan.
 
-**Bagaimana cara kerja multithreading? Apakah pemrosesan dapat diparalelkan?**
+### Apakah kata sandi file dan enkripsi didukung?
+Ya. [Anda dapat](/slides/id/python-net/password-protected-presentation/) membuka presentasi yang dienkripsi, mengatur atau menghapus kata sandi buka dan tulis, serta memeriksa status perlindungan.
 
-Aman untuk memproses dokumen yang berbeda dalam thread yang berbeda; objek [presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) yang sama tidak boleh digunakan oleh [multiple threads](/slides/id/python-net/multithreading/) secara bersamaan.
+### Apakah saya perlu memperhatikan paket font di kontainer Linux?
+Ya. Disarankan untuk menginstal paket font umum dan/atau secara eksplisit [specify font directories](/slides/id/python-net/custom-font/) dalam aplikasi Anda untuk menghindari substitusi yang tidak diharapkan.
 
-**Apakah kata sandi file dan enkripsi didukung?**
+### Apakah ada batasan dalam versi evaluasi?
+Dalam [evaluation mode](/slides/id/python-net/licensing/), sebuah watermark ditambahkan pada output dan beberapa batasan berlaku; sebuah [30-day temporary license](https://purchase.aspose.com/temporary-license/) tersedia untuk pengujian fitur lengkap.
 
-Ya. [Anda dapat](/slides/id/python-net/password-protected-presentation/) membuka presentasi yang terenkripsi, mengatur atau menghapus kata sandi buka dan tulis, serta memeriksa status perlindungan.
-
-**Apakah saya perlu memperhatikan paket font di kontainer Linux?**
-
-Ya. Disarankan untuk menginstal paket font umum dan/atau secara eksplisit [menentukan direktori font](/slides/id/python-net/custom-font/) dalam aplikasi Anda untuk menghindari substitusi yang tidak terduga.
-
-**Apakah ada keterbatasan dalam versi evaluasi?**
-
-Dalam [mode evaluasi](/slides/id/python-net/licensing/), watermark ditambahkan pada output dan beberapa batasan diterapkan; [lisensi sementara 30 hari](https://purchase.aspose.com/temporary-license/) tersedia untuk pengujian semua fitur.
-
-**Apakah mengimpor format eksternal ke dalam presentasi (PDF/HTML → PPTX) didukung?**
-
-Ya. Anda dapat menambahkan [halaman PDF dan konten HTML](/slides/id/python-net/import-presentation/) ke presentasi, mengubahnya menjadi slide.
+### Apakah mengimpor format eksternal ke dalam presentasi (PDF/HTML → PPTX) didukung?
+Ya. Anda dapat menambahkan [PDF pages and HTML content](/slides/id/python-net/import-presentation/) ke presentasi, mengubahnya menjadi slide.

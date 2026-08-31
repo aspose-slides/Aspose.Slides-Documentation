@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides pro Python prostřednictvím .NET
-second_title: "Aspose.Slides pro Python Dokumentace"
+title: Aspose.Slides for Python via .NET
+second_title: Aspose.Slides for Python
 type: docs
 weight: 35
 url: /cs/python-net/
@@ -9,58 +9,86 @@ keywords:
 - Aspose.Slides pro Python
 - Automatizace PowerPoint v Pythonu
 - Knihovna PPT pro Python
-- export PowerPoint do PDF v Pythonu
-- export PowerPoint do SVG v Pythonu
-- úprava PowerPoint v Pythonu
-- PowerPoint v Pythonu bez Microsoft Office
-- správa PPTX v Pythonu
-- náhled snímků v Pythonu
-- Python přidá audio do snímků
+- Export PowerPoint do PDF v Pythonu
+- Export PowerPoint do SVG v Pythonu
+- Editace PowerPoint v Pythonu
+- PowerPoint pro Python bez Microsoft Office
+- Správa PPTX v Pythonu
+- Náhled snímků v Pythonu
+- Přidání audia do snímků v Pythonu
 - PowerPoint
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Aspose.Slides pro Python prostřednictvím .NET nabízí komplexní sadu funkcí, včetně správy textu, tvarů, tabulek a animací, přidávání audia a videa do snímků, náhledu snímků a exportu do SVG, PDF a dalších."
+description: "Aspose.Slides for Python via .NET nabízí komplexní sadu funkcí, včetně správy textu, tvarů, tabulek a animací, přidávání audia a videa do snímků, náhledu snímků a exportu do SVG, PDF a dalších."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-**Vítáme vás v Aspose.Slides pro Python prostřednictvím .NET**
+**Vítejte v Aspose.Slides for Python via .NET**
 
-![Aspose.Slides pro Python prostřednictvím .NET Produktové logo](aspose_slides-for-python.png)
+![Logo produktu Aspose.Slides for Python via .NET](aspose_slides-for-python.png)
 
-Aspose.Slides pro Python prostřednictvím .NET je robustní knihovna tříd, která umožňuje vašim aplikacím číst a zapisovat prezentace PowerPoint® bez nutnosti Microsoft PowerPoint®.
+Aspose.Slides for Python via .NET je robustní knihovna tříd, která umožňuje vašim aplikacím číst a zapisovat prezentace PowerPoint® bez nutnosti Microsoft PowerPoint®.
 
-Jedná se o první a jediné komponenty, které poskytují plnohodnotnou správu dokumentů PowerPoint® pro vývojáře v Pythonu.
+Jedná se o první a jediné komponentu, která poskytuje kompletní správu dokumentů PowerPoint® pro vývojáře v Pythonu.
 
-Aspose.Slides pro Python prostřednictvím .NET obsahuje širokou škálu funkcí, jako je práce s textem, tvary, tabulkami a animacemi; přidávání audia a videa; náhled snímků; a export snímků do formátů jako SVG, PDF a dalších.
+Aspose.Slides for Python via .NET zahrnuje širokou škálu funkcí, jako je práce s textem, tvary, tabulkami a animacemi; přidávání audia a videa; náhled snímků; a export snímků do formátů jako SVG, PDF a další.
 
 {{% /alert %}}
 
-## Zdroje Aspose.Slides pro Python prostřednictvím .NET
+## Instalace Aspose.Slides for Python via .NET
+
+```bash
+pip install aspose.slides
+```
+
+Balíček obsahuje požadované .NET runtime, takže není potřeba nic dalšího instalovat a Microsoft PowerPoint není vyžadován. Python 3.7 nebo novější na Windows, Linuxu nebo macOS.
+
+## Vytvoření PowerPoint prezentace v Pythonu
+
+Tento příklad vytvoří prezentaci, přidá tvar s textem na první snímek a uloží výsledek jako PPTX i PDF.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 600, 100)
+    shape.text_frame.text = "Created with Aspose.Slides for Python via .NET"
+
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation.pdf", slides.export.SaveFormat.PDF)
+```
+
+Po spuštění zapíše `presentation.pptx` (asi 34 KB) a `presentation.pdf` (asi 36 KB) do pracovního adresáře.
+
+Bez licence knihovna běží v režimu hodnocení, který přidává vodoznak a omezuje počet snímků. Viz [Licencování](/slides/cs/python-net/licensing/) pro jeho použití.
+
+## Zdroje Aspose.Slides for Python via .NET
 
 Prozkoumejte tyto užitečné zdroje:
 
-- [Aspose.Slides pro Python prostřednictvím .NET Online dokumentace](/slides/cs/python-net/)
-- [Funkce Aspose.Slides pro Python prostřednictvím .NET](/slides/cs/python-net/features-overview/)
-- [Poznámky k vydání Aspose.Slides pro Python prostřednictvím .NET](https://releases.aspose.com/slides/cs/python-net/release-notes/)
-- [Stránka produktu Aspose.Slides pro Python prostřednictvím .NET](https://products.aspose.com/slides/cs/python-net/)
-- [Stáhnout Aspose.Slides pro Python prostřednictvím .NET](https://releases.aspose.com/slides/cs/python-net/)
-- [Instalovat balíček PyPi Aspose.Slides pro Python prostřednictvím .NET](https://pypi.org/project/aspose.slides/)
-- [Průvodce referencí API Aspose.Slides pro Python prostřednictvím .NET](https://reference.aspose.com/slides/cs/python-net/)
-- [Bezplatné fórum podpory Aspose.Slides pro Python prostřednictvím .NET](https://forum.aspose.com/c/slides/cs/11)
-- [Placená podpora Aspose.Slides pro Python prostřednictvím .NET Helpdesk](https://helpdesk.aspose.com/)
+- [Online dokumentace Aspose.Slides for Python via .NET](/slides/cs/python-net/)
+- [Funkce Aspose.Slides for Python via .NET](/slides/cs/python-net/features-overview/)
+- [Poznámky k vydání Aspose.Slides for Python via .NET](https://releases.aspose.com/slides/cs/python-net/release-notes/)
+- [Stránka produktu Aspose.Slides for Python via .NET](https://products.aspose.com/slides/cs/python-net/)
+- [Stáhnout Aspose.Slides for Python via .NET](https://releases.aspose.com/slides/cs/python-net/)
+- [Instalovat balíček Aspose.Slides for Python via .NET z PyPi](https://pypi.org/project/aspose.slides/)
+- [Průvodce referencí API Aspose.Slides for Python via .NET](https://reference.aspose.com/slides/cs/python-net/)
+- [Bezplatné fórum podpory Aspose.Slides for Python via .NET](https://forum.aspose.com/c/slides/cs/11)
+- [Placená podpora Aspose.Slides for Python via .NET](https://helpdesk.aspose.com/)
 
 ## Často kladené otázky
 
-### Co je Aspose.Slides pro Python prostřednictvím .NET?
+### Co je Aspose.Slides for Python via .NET?
 
-Aspose.Slides pro Python prostřednictvím .NET je výkonná knihovna Pythonu, která vám umožňuje programově vytvářet, upravovat a konvertovat prezentace PowerPoint (PPT, PPTX, ODP) bez nainstalovaného Microsoft PowerPoint.
+Aspose.Slides for Python via .NET je výkonná knihovna Pythonu, která vám umožňuje programově vytvářet, upravovat a konvertovat prezentace PowerPoint (PPT, PPTX, ODP) bez nainstalovaného Microsoft PowerPoint.
 
 ### Jaké funkce prezentací Aspose.Slides podporuje?
 
-Knihovna podporuje správu textu, tvarů, tabulek, grafů, animací, hlavních snímků, audia, videa a dalších. Také umožňuje náhled snímků, vykreslování, tisk a export do formátů jako PDF, SVG, HTML a obrázky.
+Knihovna podporuje správu textu, tvarů, tabulek, grafů, animací, základních snímků, audia, videa a dalších. Umožňuje také náhled snímků, vykreslování a export do formátů jako PDF, SVG, HTML a obrázky.
 
-### Mohu pomocí Aspose.Slides převádět prezentace do jiných formátů?
+### Mohu konvertovat prezentace do jiných formátů pomocí Aspose.Slides?
 
 Ano. Aspose.Slides umožňuje konverzi souborů PowerPoint do PDF, SVG, HTML, JPG, PNG, TIFF a dalších formátů s vysokou věrností a výkonem.
 
@@ -68,10 +96,10 @@ Ano. Aspose.Slides umožňuje konverzi souborů PowerPoint do PDF, SVG, HTML, JP
 
 Ne. Aspose.Slides je samostatné API a nevyžaduje Microsoft Office ani žádný software třetí strany.
 
-### Jaké platformy Aspose.Slides pro Python prostřednictvím .NET podporuje?
+### Jaké platformy Aspose.Slides for Python via .NET podporuje?
 
 Je multiplatformní a funguje v prostředích Windows, Linux a macOS.
 
-### Jak začít s Aspose.Slides pro Python?
+### Jak začít s Aspose.Slides for Python?
 
-Můžete jej nainstalovat přes PyPi a prozkoumat [Průvodce vývojáře](/slides/cs/python-net/developer-guide/), abyste začali s příklady, referencemi API a tutoriály.
+Můžete jej nainstalovat přes PyPi a prozkoumat [Průvodce vývojáře](/slides/cs/python-net/developer-guide/) pro zahájení s příklady, referencemi API a tutoriály.

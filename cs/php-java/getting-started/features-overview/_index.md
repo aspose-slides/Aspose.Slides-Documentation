@@ -9,104 +9,96 @@ keywords:
 - formát souboru
 - konverze
 - renderování
-- tisk
 - formátování
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Objevte Aspose.Slides for PHP via Java: výkonné API pro vytváření, úpravu, automatizaci a převod prezentací PowerPoint a OpenDocument efektivně."
+description: "Objevte Aspose.Slides pro PHP přes Java: výkonné API pro vytváření, úpravu, automatizaci a konverzi prezentací PowerPoint a OpenDocument efektivně."
 ---
 ## **Podporované platformy**
-Aspose.Slides for PHP via Java je platformově nezávislé API. Lze jej použít na libovolné platformě (Windows, Linux, macOS atd.), kde je nainstalováno PHP 7 nebo vyšší. Oracle JDK 7 nebo vyšší je další požadavek.
+Aspose.Slides pro PHP přes Java je platformově nezávislé API. Lze jej použít na jakékoli platformě (Windows, Linux, macOS atd.), kde je nainstalováno PHP 7 nebo vyšší. Dalším požadavkem je Oracle JDK 7 nebo vyšší.
 
 ## **Formáty souborů a konverze**
-Aspose.Slides for PHP via Java podporuje většinu formátů PowerPoint dokumentů. Umožňuje také export do populárních formátů, které organizace používají a sdílejí. Prohlédněte si podrobnosti:
+Aspose.Slides pro PHP přes Java podporuje většinu formátů dokumentů PowerPoint. Také umožňuje export do populárních formátů souborů, které organizace používají a sdílejí mezi sebou. Projděte si následující podrobnosti:
 
 |**Funkce**|**Popis**|
 | :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for PHP via Java poskytuje nejrychlejší zpracování pro tento formát prezentačního dokumentu.|
-|PPT to PPTX conversion|Aspose.Slides for PHP via Java podporuje konverzi PPT na PPTX.|
-|Portable Document Format (PDF)|Můžete exportovat všechny podporované souborové formáty do dokumentů Adobe Portable Document Format (PDF) jednou metodou.|
-|XML Parser Specification (XPS)|Můžete exportovat všechny podporované souborové formáty do dokumentů XML Parser Specification (XPS) jednou metodou.|
-|Tagged Image File Format (TIFF)|Můžete exportovat všechny podporované formáty prezentačních souborů do Tagged Image File Format (TIFF).|
-|PPTX To HTML Conversion|Aspose.Slides for PHP via Java podporuje konverzi PresentationEx do formátu HTML.|
+|Microsoft PowerPoint (PPT)|Aspose.Slides pro PHP přes Java poskytuje nejrychlejší zpracování tohoto formátu prezentačního dokumentu.|
+|PPT na PPTX konverze|Aspose.Slides pro PHP přes Java podporuje konverzi PPT na PPTX.|
+|Portable Document Format (PDF)|Můžete exportovat všechny podporované formáty souborů do dokumentů Adobe Portable Document Format (PDF) jednou metodou.|
+|XML Parser Specification (XPS)|Můžete exportovat všechny podporované formáty souborů do dokumentů XML Parser Specification (XPS) jednou metodou.|
+|Tagged Image File Format (TIFF)|Můžete exportovat všechny podporované formáty prezentačních souborů do formátu Tagged Image File Format (TIFF).|
+|PPTX na HTML konverze|Aspose.Slides pro PHP přes Java podporuje konverzi PresentationEx do formátu HTML.|
 
 ## **Renderování prezentací**
-Aspose.Slides for PHP via Java podporuje vysoce věrné renderování snímků v prezentaci do různých grafických formátů. Prohlédněte si podrobnosti:
+Aspose.Slides pro PHP přes Java podporuje vysoce věrné renderování snímků v prezentaci do různých grafických formátů. Projděte si následující podrobnosti:
 
 |**Funkce**|**Popis**|
 | :- | :- |
-|Java Supported Image Formats|Pomocí Aspose.Slides for PHP via Java můžete renderovat snímky prezentace a obrázky na snímcích do všech grafických formátů podporovaných Javou, jako jsou TIFF, PNG, BMP, JPEG, GIF.|
-|SVG Format|Aspose.Slides for PHP via Java také poskytuje vestavěné metody, které umožňují exportovat snímky prezentace do formátů Scalable Vector Graphics (SVG).|
-|Presentation Printing|Nejnovější verze Aspose.Slides for PHP via Java poskytují vestavěné tiskové metody s různými možnostmi.|
+|Formáty obrázků podporované v Java|Pomocí Aspose.Slides pro PHP přes Java můžete renderovat snímky prezentace a obrázky na snímcích do všech grafických formátů podporovaných v Javě, jako jsou TIFF, PNG, BMP, JPEG, GIF.|
+|Formát SVG|Aspose.Slides pro PHP přes Java také poskytuje vestavěné metody, které umožňují exportovat snímky prezentace do formátů Scalable Vector Graphics (SVG).|
 
 ## **Funkce obsahu**
-Aspose.Slides for PHP via Java vám umožňuje přístup, úpravu nebo vytvoření téměř všech položek nebo obsahu prezentačních dokumentů. Prohlédněte si podrobnosti:
+Aspose.Slides pro PHP přes Java vám umožňuje přistupovat, upravovat nebo vytvářet téměř všechny položky nebo obsah prezentačních dokumentů. Projděte si následující podrobnosti:
 
 |**Funkce**|**Popis**|
 | :- | :- |
-|Master Slides|Master Slides definují rozvržení normálních snímků. Aspose.Slides for PHP via Java umožňuje přístup a úpravu Master Slides prezentačních dokumentů.|
-|Normal Slides|S Aspose.Slides for PHP via Java můžete vytvářet nové snímky různých typů; také můžete přistupovat k existujícím snímkům v prezentacích a upravovat je.|
-|Cloning / Copying Slides|Existují vestavěné metody poskytované Aspose.Slides for PHP via Java, které umožňují klonovat nebo kopírovat existující snímky v rámci prezentace. Také můžete použít zkopírované a klonované snímky z jedné prezentace do druhé. Protože snímek dědí rozvržení z hlavního snímku, vestavěné metody klonování automaticky kopírují master při klonování.|
-|Managing Slides sections|Metody pro organizaci snímků v různých sekcích uvnitř prezentace.|
-|Place Holders and Text Holders|Můžete přistupovat k place holdérům a textovým holdérům na snímku. Navíc můžete vytvořit snímek s textovými holdéry od nuly pomocí příslušné metody.|
-|Header and Footers|Aspose.Slides for PHP via Java usnadňuje práci s hlavičkami/patičkami na snímcích.|
-|Notes in Slides|S Aspose.Slides for PHP via Java můžete přistupovat k poznámkám spojeným se snímkem, upravovat je a také přidávat nové poznámky.|
-|Finding a Shape|Můžete také najít konkrétní tvar na snímku pomocí alternativního textu spojeného s tvarem.|
-|Backgrounds|Aspose.Slides for PHP via Java vám umožňuje pracovat s pozadími spojenými s hlavním nebo běžným snímkem v prezentaci.|
-|Text Boxes|Textová pole lze vytvořit od nuly. Můžete přistupovat k existujícím textovým polím. Také můžete upravovat jejich texty bez ztráty původního formátování textu.|
-|Rectangle Shapes|Můžete vytvářet nebo upravovat obdélníkové tvary pomocí Aspose.Slides for PHP via Java.|
-|Poly Line Shapes|Můžete vytvářet nebo upravovat tvary polyline s Aspose.Slides for PHP via Java.|
-|Ellipse Shapes|Můžete vytvářet nebo upravovat eliptické tvary s Aspose.Slides for PHP via Java.|
-|Group Shapes|Aspose.Slides for PHP via Java podporuje skupinové tvary.|
-|Auto Shapes|Aspose.Slides for PHP via Java podporuje automatické tvary.|
-|SmartArt|Aspose.Slides for PHP via Java poskytuje podporu pro SmartArt tvary v MS PowerPoint.|
-|Charts|Aspose.Slides for PHP via Java poskytuje podporu pro MSO diagramy v PowerPoint.|
-|Shapes Serialization|Aspose.Slides for PHP via Java podporuje velké množství tvarů. Když Aspose.Slides for PHP via Java postrádá podporu pro konkrétní tvar, můžete použít metodu serializace, pomocí které můžete serializovat tento tvar z existujícího snímku. Tímto způsobem můžete tvar dále používat podle svých požadavků.|
-|Picture Frames|Můžete spravovat obrázky v rámečcích obrázků pomocí Aspose.Slides for PHP via Java.|
-|Audio Frames|Můžete propojit nebo vložit zvukové soubory v audio rámečcích na snímcích s Aspose.Slides for PHP via Java.|
-|Video Frames|Můžete pracovat se soubory videa ve video rámcích. Aspose.Slides for PHP via Java také poskytuje podporu pro propojená a vložená videa.|
-|OLE Frame|Můžete spravovat OLE objekty v OLE rámečcích s Aspose.Slides for PHP via Java.|
-|Tables|Aspose.Slides for PHP via Java podporuje tabulky na snímcích.|
-|ActiveX Controls|Podpora pro ActiveX ovládací prvky.|
-|VBA Macros|Podpora pro správu VBA maker v prezentacích.|
-|Text Frame|Můžete přistupovat k textu jakéhokoli tvaru prostřednictvím textového rámce spojeného s tímto tvarem.|
-|Text Scanning|Můžete skenovat text v prezentaci na úrovni celé prezentace nebo jednotlivých snímků pomocí vestavěných skenovacích metod.|
-|Animations|Můžete aplikovat animace na tvary.|
-|Slide Shows|Aspose.Slides for PHP via Java podporuje slideshow a přechody mezi snímky.|
+|Mistrovské snímky|Mistrovské snímky definují rozložení běžných snímků. Aspose.Slides pro PHP přes Java vám umožňuje přistupovat k mistrům snímkům a upravovat je v prezentačních dokumentech.|
+|Normální snímky|S Aspose.Slides pro PHP přes Java můžete vytvářet nové snímky různých typů; také můžete přistupovat k existujícím snímkům v prezentacích a upravovat je.|
+|Klonování / kopírování snímků|Existují vestavěné metody poskytované Aspose.Slides pro PHP přes Java, které vám umožňují klonovat nebo kopírovat existující snímky v rámci prezentace. Také můžete použít zkopírované a klonované snímky z jedné prezentace do druhé. Protože snímek dědí své rozložení z mistrovského snímku, vestavěné metody klonování automaticky zkopírují mistrovský snímek při klonování.|
+|Správa sekcí snímků|Metody pro organizaci snímků v různých sekcích uvnitř prezentace.|
+|Zástupci místa a textové zástupce|Můžete přistupovat k zástupcům místa a textovým zástupcům na snímku. Navíc můžete vytvořit snímek s textovými zástupci od začátku pomocí příslušné metody.|
+|Záhlaví a zápatí|Aspose.Slides pro PHP přes Java usnadňuje práci se záhlavími a zápatími na snímcích.|
+|Poznámky na snímcích|S Aspose.Slides pro PHP přes Java můžete přistupovat k poznámkám spojeným se snímkem a upravovat je, stejně jako přidávat nové poznámky.|
+|Vyhledání tvaru|Můžete také najít konkrétní tvar na snímku pomocí alternativního textu spojeného s tvarem.|
+|Pozadí|Aspose.Slides pro PHP přes Java vám umožňuje pracovat s pozadími spojenými s mistrovským nebo normálním snímkem v prezentaci.|
+|Textová pole|Textová pole lze vytvořit od nuly. Můžete přistupovat k existujícím textovým polím. Také můžete upravovat jejich texty, aniž byste ztratili původní formátování textu.|
+|Obdélníkové tvary|Můžete pomocí Aspose.Slides pro PHP přes Java vytvářet nebo upravovat obdélníkové tvary.|
+|Tvary polyline|Můžete pomocí Aspose.Slides pro PHP přes Java vytvářet nebo upravovat tvary polyline.|
+|Elipsové tvary|Můžete pomocí Aspose.Slides pro PHP přes Java vytvářet nebo upravovat elipsové tvary.|
+|Skupinové tvary|Aspose.Slides pro PHP přes Java podporuje skupinové tvary.|
+|Automatické tvary|Aspose.Slides pro PHP přes Java podporuje automatické tvary.|
+|SmartArt|Aspose.Slides pro PHP přes Java poskytuje podporu pro tvary SmartArt v MS PowerPoint.|
+|Grafy|Aspose.Slides pro PHP přes Java poskytuje podporu pro grafy MSO v PowerPoint.|
+|Serializace tvarů|Aspose.Slides pro PHP přes Java podporuje velké množství tvarů. Když Aspose.Slides pro PHP přes Java postrádá podporu pro určitý tvar, můžete použít metodu serializace, pomocí které můžete serializovat tento tvar z existujícího snímku. Tímto způsobem můžete tvar dále využívat podle svých potřeb.|
+|Rámečky obrázků|Můžete spravovat obrázky v rámečcích obrázků pomocí Aspose.Slides pro PHP přes Java.|
+|Zvukové rámečky|Můžete propojit nebo vložit audio soubory do zvukových rámečků na snímcích pomocí Aspose.Slides pro PHP přes Java.|
+|Video rámečky|Můžete pracovat se soubory videa ve video rámečcích. Aspose.Slides pro PHP přes Java také poskytuje podporu pro propojená a vložená videa.|
+|OLE Rámeček|Můžete spravovat OLE objekty v OLE rámečcích pomocí Aspose.Slides pro PHP přes Java.|
+|Tabulky|Aspose.Slides pro PHP přes Java podporuje tabulky na snímcích.|
+|ActiveX ovládací prvky|Podpora pro ActiveX ovládací prvky.|
+|VBA makra|Podpora pro správu VBA makr v prezentacích.|
+|Textové pole|Můžete přistupovat k textu jakéhokoli tvaru prostřednictvím textového rámce spojeného s tímto tvarem.|
+|Skenování textu|Můžete skenovat text v prezentaci na úrovni prezentace nebo snímku pomocí vestavěných metod skenování.|
+|Animace|Můžete aplikovat animace na tvary.|
+|Promítání snímků|Aspose.Slides pro PHP přes Java podporuje promítání snímků a přechody mezi snímky.|
 
 ## **Formátovací funkce**
-S Aspose.Slides for PHP via Java můžete formátovat texty a tvary na snímcích v prezentacích. Prohlédněte si podrobnosti:
+S Aspose.Slides pro PHP přes Java můžete formátovat texty a tvary na snímcích v prezentacích. Projděte si následující podrobnosti:
 
 |**Funkce**|**Popis**|
 | :- | :- |
-|Text Formatting|<p>V Aspose.Slides for PHP via Java můžete spravovat texty prostřednictvím textových rámců spojených s tvary. Tím můžete formátovat texty pomocí odstavců a částí spojených s textovými rámci. Tyto textové prvky lze formátovat pomocí Aspose.Slides for PHP via Java.</p><p>- Typ písma</p><p>- Velikost písma</p><p>- Barva písma</p><p>- Odstíny písma</p><p>- Zarovnání odstavce</p><p>- Odrážkování odstavce</p><p>- Orientace odstavce</p>|
-|Shape Formatting|<p>V Aspose.Slides for PHP via Java je základním prvkem snímku tvar. Tyto prvky tvarů můžete formátovat pomocí Aspose.Slides for PHP via Java:</p><p>- Pozice</p><p>- Velikost</p><p>- Čára</p><p>- Výplň (včetně vzoru, gradientu, plné)</p><p>- Text</p><p>- Obrázek</p>|
+|Formátování textu|<p>V Aspose.Slides pro PHP přes Java můžete spravovat texty prostřednictvím textových rámců spojených s tvary. Tím můžete formátovat texty pomocí odstavců a částí spojených s textovými rámci. Tyto textové prvky lze formátovat pomocí Aspose.Slides pro PHP přes Java.</p><p>- Typ písma</p><p>- Velikost písma</p><p>- Barva písma</p><p>- Stíny písma</p><p>- Zarovnání odstavce</p><p>- Odrážky odstavce</p><p>- Orientace odstavce</p>|
+|Formátování tvarů|<p>V Aspose.Slides pro PHP přes Java je základním prvkem snímku tvar. Tyto tvary můžete formátovat pomocí Aspose.Slides pro PHP přes Java:</p><p>- Pozice</p><p>- Velikost</p><p>- Čára</p><p>- Výplň (včetně vzoru, přechodu, plné)</p><p>- Text</p><p>- Obrázek</p>|
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Potřebuji nainstalovat Microsoft PowerPoint na server/PC, aby knihovna fungovala?**
+### Musím mít nainstalovaný Microsoft PowerPoint na serveru/PC, aby knihovna fungovala?
+Ne. PowerPoint není potřeba; Aspose.Slides je samostatný engine pro vytváření, úpravu, konverzi a renderování prezentací.
 
-Ne. PowerPoint není vyžadován; Aspose.Slides je samostatný engine pro vytváření, úpravu, konverzi a renderování prezentací.
+### Jak funguje vícevláknové zpracování? Lze proces paralelizovat?
+Je bezpečné zpracovávat různé dokumenty v různých vláknech; stejný objekt [presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) nesmí být používán [multiple threads](/slides/cs/php-java/multithreading/) současně.
 
-**Jak funguje multithreading? Lze zpracování paralelizovat?**
+### Jsou podporována hesla souborů a šifrování?
+Ano. [You can](/slides/cs/php-java/password-protected-presentation/) otevřít šifrované prezentace, nastavit nebo odstranit heslo pro otevření a zápis a zkontrolovat stav ochrany.
 
-Je bezpečné zpracovávat různé dokumenty v různých vláknech; stejný objekt [prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) nesmí být používán [více vláken](/slides/cs/php-java/multithreading/) současně.
+### Musím se starat o balíčky písem v Linux kontejneroch?
+Ano. Doporučuje se nainstalovat běžné balíčky písem a/nebo explicitně [specify font directories](/slides/cs/php-java/custom-font/) ve vaší aplikaci, aby se předešlo nečekaným nahrazením.
 
-**Jsou podporována hesla k souborům a šifrování?**
+### Existují omezení ve zkušební verzi?
+V [evaluation mode](/slides/cs/php-java/licensing/) je do výstupu přidán vodoznak a platí určitá omezení; [30-day temporary license](https://purchase.aspose.com/temporary-license/) je k dispozici pro kompletní testování funkcí.
 
-Ano. [Můžete](/slides/cs/php-java/password-protected-presentation/) otevřít šifrované prezentace, nastavit nebo odebrat heslo pro otevření a zápis a zkontrolovat stav ochrany.
-
-**Musím řešit balíčky písem v Linux kontejnerech?**
-
-Ano. Doporučuje se nainstalovat běžné balíčky písem a/nebo výslovně [specifikovat adresáře písem](/slides/cs/php-java/custom-font/) ve vaší aplikaci, aby se předešlo neočekávaným náhradám.
-
-**Existují omezení ve zkušební verzi?**
-
-V [režimu hodnocení](/slides/cs/php-java/licensing/) se do výstupu přidává vodoznak a platí určitá omezení; [30denní dočasná licence](https://purchase.aspose.com/temporary-license/) je k dispozici pro testování všech funkcí.
-
-**Je podporováno importování externích formátů do prezentace (PDF/HTML → PPTX)?**
-
-Ano. Můžete přidat [PDF stránky a HTML obsah](/slides/cs/php-java/import-presentation/) do prezentace, čímž je převedete na snímky.
+### Je podporováno importování externích formátů do prezentace (PDF/HTML → PPTX)?
+Ano. Můžete přidat [PDF pages and HTML content](/slides/cs/php-java/import-presentation/) do prezentace a převést je na snímky.

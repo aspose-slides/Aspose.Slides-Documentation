@@ -1,118 +1,117 @@
 ---
-title: مرور ویژگی‌ها
+title: "نمای کلی ویژگی‌ها"
 type: docs
 weight: 10
 url: /fa/java/features-overview/
 keywords:
-- ویژگی‌ها
-- پلتفرم‌های پشتیبانی‌شده
-- قالب فایل
-- تبدیل
-- رندر
-- چاپ
-- قالب‌بندی
-- پاورپوینت
-- سند باز
-- ارائه
-- جاوا
-- Aspose.Slides
+- "ویژگی‌ها"
+- "پلتفرم‌های پشتیبانی‌شده"
+- "قالب فایل"
+- "تبدیل"
+- "رندرینگ"
+- "قالب‌بندی"
+- "PowerPoint"
+- "OpenDocument"
+- "ارائه"
+- "Java"
+- "Aspose.Slides"
 description: "Aspose.Slides for Java را کشف کنید: یک API قدرتمند برای ایجاد، ویرایش، خودکارسازی و تبدیل ارائه‌های PowerPoint و OpenDocument به‌صورت کارآمد."
 ---
 ## **پلتفرم‌های پشتیبانی‌شده**
-Aspose.Slides for Java supports the most popular development and deployment platforms.
+Aspose.Slides for Java از محبوب‌ترین پلتفرم‌های توسعه و استقرار پشتیبانی می‌کند.
 
-|**Feature**|**Description**|
+|**ویژگی**|**شرح**|
 | :- | :- |
-|Desktop Applications|Aspose.Slides for Java می‌تواند برای توسعه برنامه‌های Windows Forms استفاده شود|
-|Enterprise Web Applications|استفاده از Aspose.Slides for Java به ساخت برنامه‌های وب هدفمند کمک می‌کند. همچنین پشتیبانی از استفاده Aspose.Slides for Java با PHP فراهم شده است.|
-|Linux/Unix|Aspose.Slides for Java یک API مستقل از پلتفرم است و می‌تواند در محیط‌های لینوکس و یونیکس کار کند.|
+|برنامه‌های دسکتاپ|Aspose.Slides for Java می‌تواند برای توسعه برنامه‌های Windows Forms استفاده شود|
+|برنامه‌های وب سازمانی|استفاده از Aspose.Slides for Java به ساخت برنامه‌های وب هدفمند کمک می‌کند. پشتیبانی از استفاده Aspose.Slides for Java با PHP نیز فراهم شده است.|
+|Linux/Unix|Aspose.Slides for Java یک API مستقل از پلتفرم است و می‌تواند در محیط‌های Linux و Unix کار کند.|
 
 ## **قالب‌های فایل و تبدیل‌ها**
-Aspose.Slides for Java supports most of the Microsoft PowerPoint document formats and exports them to popular formats used widely by organizations.
+Aspose.Slides for Java اکثر قالب‌های اسناد Microsoft PowerPoint را پشتیبانی می‌کند و آنها را به قالب‌های محبوب مورد استفاده سازمان‌ها صادر می‌نماید.
 
-|**Feature**|**Description**|
+|**ویژگی**|**شرح**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/fa/java/microsoft-powerpoint-ppt/)|Aspose.Slides for Java سریع‌ترین پردازش را برای این قالب سند ارائه ارائه می‌دهد.|
-|[PresentationML (PPTX, XML)](/slides/fa/java/presentationml-pptx-xml/)|Aspose.Slides for Java از پردازش قالب ارائه OOXML (همچنین به عنوان PresentationML یا PPTX شناخته می‌شود) پشتیبانی می‌کند.|
-|[PPT to PPTX conversion](/slides/fa/java/ppt-to-pptx-conversion/)|Aspose.Slides for Java از تبدیل PPT به PPTX پشتیبانی می‌کند.|
-|[Portable Document Format (PDF)](/slides/fa/java/developer-guide/)|قالب‌های فایل پشتیبانی‌شده می‌توانند به اسناد Adobe Portable Document Format (PDF) با یک روش صادر شوند.|
-|[XML Parser Specification (XPS)](/slides/fa/java/xml-parser-specification-xps/)|تمام قالب‌های فایل پشتیبانی‌شده می‌توانند به اسناد XML Parser Specification (XPS) با یک روش صادر شوند.|
-|[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/fa/java/convert-powerpoint-to-tiff/)|قالب‌های فایل ارائه پشتیبانی‌شده توسط Aspose.Slides for Java می‌توانند به Tagged Image File Format (TIFF) نیز صادر شوند.|
+|[Microsoft PowerPoint (PPT)](/slides/fa/java/microsoft-powerpoint-ppt/)|Aspose.Slides for Java سریع‌ترین پردازش را برای این قالب اسناد ارائه می‌دهد.|
+|[PresentationML (PPTX, XML)](/slides/fa/java/presentationml-pptx-xml/)|Aspose.Slides for Java پردازش قالب ارائه OOXML (که به عنوان PresentationML یا PPTX نیز شناخته می‌شود) را پشتیبانی می‌کند.|
+|[PPT to PPTX conversion](/slides/fa/java/ppt-to-pptx-conversion/)|Aspose.Slides for Java تبدیل از PPT به PPTX را پشتیبانی می‌کند.|
+|[Portable Document Format (PDF)](/slides/fa/java/developer-guide/)|قالب‌های فایل پشتیبانی‌شده می‌توانند با یک متد به اسناد Adobe Portable Document Format (PDF) صادر شوند.|
+|[XML Parser Specification (XPS)](/slides/fa/java/xml-parser-specification-xps/)|تمام قالب‌های فایل پشتیبانی‌شده می‌توانند با یک متد به اسناد XML Parser Specification (XPS) صادر شوند.|
+|[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/fa/java/convert-powerpoint-to-tiff/)|قالب‌های فایل ارائه پشتیبانی‌شده توسط Aspose.Slides for Java همچنین می‌توانند به Tagged Image File Format (TIFF) صادر شوند.|
 |[ODP to PPTX Conversion](https://docs.aspose.com/slides/fa/java/convert-odp-to-pptx/)|Aspose.Slides for Java بارگذاری OpenDocument Presentation (ODP) و تبدیل آن به PPTX را پشتیبانی می‌کند.|
 |[Presentation To HTML Conversion](https://docs.aspose.com/slides/fa/java/convert-powerpoint-to-html/)|Aspose.Slides for Java تبدیل PresentationEx به قالب HTML را پشتیبانی می‌کند.|
 
-## **رندر ارائه**
-Aspose .Slides for Java supports high fidelity rendering of slides in the presentations to various graphics formats:
+## **رندرینگ ارائه**
+Aspose.Slides for Java رندرینگ با دقت بالا از اسلایدهای ارائه به قالب‌های گرافیکی مختلف را پشتیبانی می‌کند:
 
-|**Feature**|**Description**|
+|**ویژگی**|**شرح**|
 | :- | :- |
-|Supported Image Formats|با استفاده از Aspose.Slides for Java، می‌توانید نه تنها اسلایدهای ارائه، بلکه تصاویر موجود در اسلایدها را به قالب‌های گرافیکی محبوب مانند TIFF، PNG، BMP، JPEG، GIF و متافایل‌ها رندر کنید.|
-|SVG Format|Aspose.Slides for Java یک روش داخلی برای صادر کردن اسلایدهای ارائه به قالب Scalable Vector Graphics (SVG) فراهم می‌کند.|
+|قالب‌های تصویر پشتیبانی‌شده|با استفاده از Aspose.Slides for Java می‌توانید نه تنها اسلایدهای ارائه، بلکه تصاویر روی اسلایدها را به قالب‌های گرافیکی محبوب مانند TIFF، PNG، BMP، JPEG، GIF و متافایل‌ها رندر کنید.|
+|قالب SVG|Aspose.Slides for Java متد داخلی برای صادرات اسلایدهای ارائه به قالب Scalable Vector Graphics (SVG) فراهم می‌کند.|
 
 ## **ویژگی‌های محتوا**
-Aspose.Slides for Java enables you to access, modify or create almost all the possible contents of presentations.
+Aspose.Slides for Java به شما امکان دسترسی، اصلاح یا ایجاد تقریباً تمام محتویات ممکن ارائه‌ها را می‌دهد.
 
-|**Feature**|**Description**|
+|**ویژگی**|**شرح**|
 | :- | :- |
-|Master Slides|اسلایدهای مستر چیدمان اسلایدهای عادی را تعریف می‌کنند. Aspose.Slides for Java به شما امکان دسترسی و ویرایش اسلایدهای مستر یک ارائه را می‌دهد.|
-|Normal Slides|با استفاده از Aspose.Slides for Java می‌توانید نه تنها اسلایدهای جدید با انواع مختلف ایجاد کنید، بلکه به اسلایدهای موجود دسترسی و آنها را ویرایش کنید.|
-|Cloning / Copying Slides|Aspose.Slides for Java روش‌هایی برای کلون یا کپی اسلایدهای موجود نه تنها درون یک ارائه، بلکه از یک ارائه به ارائه دیگر ارائه می‌دهد. از آنجا که یک اسلاید چیدمان خود را از اسلاید مستر به ارث می‌برد، روش‌های داخلی کلونینگ به‌طور خودکار مستر را هنگام کلونینگ کپی می‌کنند.|
-|Managing Slides sections|امکان سازماندهی اسلایدها در بخش‌های مختلف داخل ارائه فراهم شده است.|
-|Place Holders and Text Holders|دسترسی به مکان‌نگهدارها و متن‌نگهدارها در یک اسلاید. علاوه بر این، می‌توانید اسلایدی با متن‌نگهدارها از ابتدا با استفاده از روش مناسب ایجاد کنید.|
-|Header and Footers|Aspose.Slides for Java همچنین امکان مدیریت سرصفحه/پاصفحه در اسلایدها را فراهم می‌کند.|
-|Notes in Slides|با Aspose.Slides for Java می‌توانید نه تنها دسترسی و ویرایش یادداشت‌های مرتبط با یک اسلاید را داشته باشید، بلکه یادداشت‌ها را اضافه کنید.|
-|Finding a Shape|می‌توانید با استفاده از متن جایگزین مرتبط با شکل، شکل خاصی را در اسلاید پیدا کنید.|
-|Backgrounds|Aspose.Slides for Java به شما امکان کار با پس‌زمینه مرتبط با اسلاید مستر یا عادی را می‌دهد.|
-|Text Boxes|جعبه‌های متن می‌توانند از ابتدا ایجاد شوند. جعبه‌های متن موجود می‌توانند دسترسی پیدا کنند و متن آنها بدون از دست رفتن قالب‌بندی اصلی ویرایش شود.|
-|Rectangle Shapes|اشکال مستطیل می‌توانند توسط Aspose.Slides for Java ایجاد یا ویرایش شوند.|
-|Poly Line Shapes|اشکال خط چند نقطه‌ای نیز می‌توانند توسط Aspose.Slides for Java ایجاد یا ویرایش شوند.|
-|Ellipse Shapes|اشکال بیضی نیز توسط Aspose.Slides for Java ایجاد یا ویرایش می‌شوند.|
-|Group Shapes|Aspose.Slides for Java از اشکال گروهی پشتیبانی می‌کند.|
-|Auto Shapes|اشکال خودکار نیز توسط Aspose.Slides for Java پشتیبانی می‌شوند.|
-|SmartArt|پشتیبانی از اشکال SmartArt موجود در MS PowerPoint.|
-|Charts|پشتیبانی از نمودارهای MSO که توسط PowerPoint پشتیبانی می‌شوند.|
-|Picture Frames|تصاویر در فریم‌های تصویر توسط Aspose.Slides for Java مدیریت می‌شوند.|
-|Audio Frames|فایل‌های صوتی می‌توانند در فریم‌های صوتی به‌صورت لینک‌دار یا جاسازی‌شده در اسلایدها قرار گیرند.|
-|Video Frames|فایل‌های ویدئویی در فریم‌های ویدئویی توسط Aspose.Slides for Java مدیریت می‌شوند. پشتیبانی از ویدئوی لینک‌دار و جاسازی‌شده موجود است.|
-|OLE Frame|اشیاء OLE توسط Aspose.Slides for Java در فریم‌های OLE مدیریت می‌شوند.|
-|ActiveX Controls|پشتیبانی از کنترل‌های ActiveX موجود است.|
-|VBA Macros|پشتیبانی از مدیریت ماکروهای VBA داخل ارائه.|
-|Tables|جدول‌ها در اسلایدها نیز توسط Aspose.Slides for Java پشتیبانی می‌شوند.|
-|Text Frame|متن مرتبط با هر شکل می‌تواند از طریق قاب متن مرتبط با آن شکل دسترسی پیدا کند.|
-|Text Scanning|متن در یک ارائه می‌تواند در سطح ارائه یا اسلاید از طریق روش‌های اسکن داخلی اسکن شود.|
-|Animations|انیمیشن‌ها می‌توانند به اشکال اعمال شوند.|
-|Slide Shows|نمایش اسلایدها و انتقال‌های اسلاید پشتیبانی می‌شوند.|
+|اسلایدهای مستر|اسلایدهای مستر چیدمان اسلایدهای معمولی را تعریف می‌کنند. Aspose.Slides for Java به شما امکان دسترسی و اصلاح اسلایدهای مستر یک ارائه را می‌دهد.|
+|اسلایدهای معمولی|با استفاده از Aspose.Slides for Java می‌توانید اسلایدهای جدید با انواع مختلف ایجاد کنید و همچنین اسلایدهای موجود را دسترسی و اصلاح کنید.|
+|کلونینگ / کپی‌برداری اسلایدها|Aspose.Slides for Java متدهایی برای کلون یا کپی اسلایدهای موجود نه تنها درون یک ارائه، بلکه از یک ارائه به ارائه دیگر فراهم می‌کند. از آنجا که یک اسلاید چیدمان خود را از اسلاید مستر ارث می‌برد، متدهای داخلی کلونینگ به‌طور خودکار مستر را هنگام کلونینگ کپی می‌کنند.|
+|مدیریت بخش‌های اسلاید|قابلیت سازماندهی اسلایدها در بخش‌های مختلف داخل ارائه.|
+|محل‌نگه‌دارها و نگه‌دارهای متنی|دسترسی به محل‌نگه‌دارها و نگه‌دارهای متنی در یک اسلاید. علاوه بر این، می‌توانید با استفاده از متد مناسب از صفر یک اسلاید با نگه‌دارهای متنی ایجاد کنید.|
+|سرصفحه‌ها و پاورقی‌ها|Aspose.Slides for Java همچنین مدیریت سرصفحه‌ها / پاورقی‌ها در اسلایدها را تسهیل می‌کند.|
+|یادداشت‌ها در اسلایدها|با Aspose.Slides for Java می‌توانید نه تنها یادداشت‌های مرتبط با یک اسلاید را دسترسی و اصلاح کنید، بلکه یادداشت نیز اضافه کنید.|
+|یافتن شکل|می‌توانید یک شکل خاص را در اسلاید با استفاده از متن جایگزین مرتبط با آن شکل پیدا کنید.|
+|پس‌زمینه‌ها|Aspose.Slides for Java به شما امکان کار با پس‌زمینه مرتبط با اسلاید مستر یا معمولی را می‌دهد.|
+|جعبه‌های متنی|جعبه‌های متنی می‌توانند از صفر ساخته شوند. جعبه‌های متنی موجود می‌توانند دسترسی شوند و متن آن‌ها بدون از دست رفتن قالب اصلی متن اصلاح شود.|
+|شکل‌های مستطیلی|شکل‌های مستطیلی می‌توانند توسط Aspose.Slides for Java ایجاد یا اصلاح شوند.|
+|شکل‌های خطی چندضلعی|شکل‌های خطی چندضلعی نیز می‌توانند توسط Aspose.Slides for Java ایجاد یا اصلاح شوند.|
+|شکل‌های بیضوی|شکل‌های بیضوی نیز توسط Aspose.Slides for Java ایجاد یا اصلاح می‌شوند.|
+|گروه شکل‌ها|Aspose.Slides for Java از گروه شکل‌ها پشتیبانی می‌کند.|
+|شکل‌های خودکار|شکل‌های خودکار نیز توسط Aspose.Slides for Java پشتیبانی می‌شوند.|
+|SmartArt|پشتیبانی از شکل‌های SmartArt موجود در MS PowerPoint.|
+|نمودارها|پشتیبانی از نمودارهای MSO که توسط PowerPoint پشتیبانی می‌شوند.|
+|فریم‌های تصویر|تصاویر در فریم‌های تصویر با استفاده از Aspose.Slides for Java مدیریت می‌شوند.|
+|فریم‌های صدا|فایل‌های صدا می‌توانند در فریم‌های صدا به صورت پیوندی یا جاسازی‌شده روی اسلایدها قرار گیرند توسط Aspose.Slides for Java.|
+|فریم‌های ویدئو|فایل‌های ویدئویی در فریم‌های ویدئو توسط Aspose.Slides for Java مدیریت می‌شوند. پشتیبانی از ویدئوهای پیوندی و جاسازی‌شده موجود است.|
+|فریم OLE|اشیاء OLE در فریم‌های OLE توسط Aspose.Slides for Java مدیریت می‌شوند.|
+|کنترل‌های ActiveX|پشتیبانی از کنترل‌های ActiveX موجود است.|
+|ماکروهای VBA|پشتیبانی از مدیریت ماکروهای VBA داخل ارائه.|
+|جداول|جداول در اسلایدها نیز توسط Aspose.Slides for Java پشتیبانی می‌شوند.|
+|فریم متنی|متن مرتبط با هر شکل می‌تواند از طریق فریم متنی مرتبط با آن شکل دسترسی یابد.|
+|اسکن متن|متن در یک ارائه می‌تواند در سطح ارائه یا اسلاید توسط متدهای اسکن داخلی اسکن شود.|
+|انیمیشن‌ها|انیمیشن‌ها می‌توانند بر روی شکل‌ها اعمال شوند.|
+|نمایش اسلاید|نمایش اسلایدها و انتقال‌های اسلاید پشتیبانی می‌شوند.|
 
 ## **ویژگی‌های قالب‌بندی**
-It is possible to format text and shapes on slides in a presentation document using Aspose.Slides for Java.
+قابلیت قالب‌بندی متن و شکل‌ها در اسلایدهای یک سند ارائه با استفاده از Aspose.Slides for Java وجود دارد.
 
-|**Feature**|**Description**|
+|**ویژگی**|**شرح**|
 | :- | :- |
-|Text Formatting|<p>در Aspose.Slides for Java، متن از طریق قاب‌های متنی که به اشکال مرتبط هستند مدیریت می‌شود. بنابراین، متن با استفاده از پاراگراف‌ها و بخش‌های مرتبط با قاب‌های متن قالب‌بندی می‌شود. عناصر متنی زیر قابل قالب‌بندی هستند.</p><p>- نوع قلم.</p><p>- اندازه قلم.</p><p>- رنگ قلم.</p><p>- سایه‌های قلم.</p><p>- ترازبندی پاراگراف.</p><p>- نقاط بولت پاراگراف.</p><p>- جهت‌گیری پاراگراف.</p>|
-|Shape Formatting|<p>در Aspose.Slides for Java، عنصر اصلی یک اسلاید، شکل است. عناصر شکل زیر می‌توانند با استفاده از Aspose.Slides for Java قالب‌بندی شوند:</p><p>- موقعیت</p><p>- اندازه</p><p>- خط</p><p>- پرکننده (از جمله الگو، گرادیان و تک‌رنگ).</p><p>- متن</p><p>- تصویر</p>|
+|قالب‌بندی متن|<p>در Aspose.Slides for Java، متن از طریق فریم‌های متنی مرتبط با شکل‌ها مدیریت می‌شود. بنابراین متن با استفاده از پاراگراف‌ها و بخش‌های مرتبط با فریم‌های متنی قالب‌بندی می‌شود. عناصر متنی زیر می‌توانند قالب‌بندی شوند.</p><p>- نوع قلم.</p><p>- اندازه قلم.</p><p>- رنگ قلم.</p><p>- سایه‌های قلم.</p><p>- تراز پاراگراف.</p><p>- نقطه‌گذاری پاراگراف.</p><p>- جهت‌گیری پاراگراف.</p>|
+|قالب‌بندی شکل|<p>در Aspose.Slides for Java، عنصر پایه یک اسلاید، شکل است. عناصر شکل زیر می‌توانند با استفاده از Aspose.Slides for Java قالب‌بندی شوند:</p><p>- موقعیت</p><p>- اندازه</p><p>- خط</p><p>- پرکن (از جمله الگو، گرادیان و ثابت).</p><p>- متن</p><p>- تصویر</p>|
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**آیا برای کارکرد کتابخانه لازم است Microsoft PowerPoint را روی سرور/کامپیوتر نصب کنم؟**
+### آیا برای کارکرد کتابخانه لازم است Microsoft PowerPoint را روی سرور/کامپیوتر نصب کنم؟
 
-خیر. PowerPoint مورد نیاز نیست؛ Aspose.Slides یک موتور مستقل برای ایجاد، ویرایش، تبدیل و رندر ارائه‌ها است.
+خیر. نیاز به PowerPoint نیست؛ Aspose.Slides یک موتور مستقل برای ایجاد، ویرایش، تبدیل و رندرینگ ارائه‌ها است.
 
-**چگونه Multithreading کار می‌کند؟ آیا پردازش می‌تواند هم‌زمان باشد؟**
+### مولتی‌تردینگ چگونه کار می‌کند؟ آیا می‌توان پردازش را موازی‌سازی کرد؟
 
-این ایمن است که اسناد مختلف را در نخ‌های جداگانه پردازش کنید؛ شیء [ارائه](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) نمی‌تواند همزمان توسط [چندین نخ](/slides/fa/java/multithreading/) استفاده شود.
+امن است که اسناد مختلف را در تردهای متفاوت پردازش کنید؛ شیء [presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) یکباره نباید توسط [multiple threads](/slides/fa/java/multithreading/) همزمان استفاده شود.
 
-**آیا رمزهای عبور فایل و رمزنگاری پشتیبانی می‌شوند؟**
+### آیا پاسوردهای فایل و رمزنگاری پشتیبانی می‌شوند؟
 
-بله. [می‌توانید](/slides/fa/java/password-protected-presentation/) ارائه‌های رمزگذاری‌شده را باز کنید، رمز عبور باز کردن و نوشتن را تنظیم یا حذف کنید و وضعیت حفاظت را بررسی کنید.
+بله. می‌توانید ارائه‌های رمزگذاری‌شده را باز کنید، پاسورد باز کردن و نوشتن را تنظیم یا حذف کنید و وضعیت حفاظت را بررسی کنید. ([You can](/slides/fa/java/password-protected-presentation/))
 
-**آیا نیاز است به بسته‌های قلم در کانتینرهای لینوکس توجه داشته باشم؟**
+### آیا در کانتینرهای لینوکس باید به بسته‌های قلم توجه داشته باشم؟
 
-بله. توصیه می‌شود بسته‌های قلم عمومی را نصب کنید و/یا به‌صورت صریح [مشخص کردن پوشه‌های قلم](/slides/fa/java/custom-font/) را در برنامه خود انجام دهید تا از جایگزینی‌های غیرمنتظره جلوگیری شود.
+بله. نصب بسته‌های قلم رایج و/یا صراحتاً [specify font directories](/slides/fa/java/custom-font/) در برنامه شما توصیه می‌شود تا از جایگزینی‌های ناخواسته جلوگیری شود.
 
-**آیا در نسخه ارزیابی محدودیتی وجود دارد؟**
+### آیا نسخه ارزیابی محدودیت دارد؟
 
-در [حالت ارزیابی](/slides/fa/java/licensing/)، یک واترمارک به خروجی اضافه می‌شود و برخی محدودیت‌ها اعمال می‌شود؛ یک [مجوز موقت 30 روزه](https://purchase.aspose.com/temporary-license/) برای تست کامل ویژگی‌ها موجود است.
+در [evaluation mode](/slides/fa/java/licensing/) یک واترمارک به خروجی اضافه می‌شود و محدودیت‌هایی اعمال می‌شود؛ یک [30-day temporary license](https://purchase.aspose.com/temporary-license/) برای آزمون کامل ویژگی‌ها در دسترس است.
 
-**آیا وارد کردن قالب‌های خارجی به یک ارائه (PDF/HTML → PPTX) پشتیبانی می‌شود؟**
+### آیا وارد کردن قالب‌های خارجی به ارائه (PDF/HTML → PPTX) پشتیبانی می‌شود؟
 
-بله. می‌توانید [صفحات PDF و محتوای HTML](/slides/fa/java/import-presentation/) را به یک ارائه اضافه کنید و آنها را به اسلایدها تبدیل کنید.
+بله. می‌توانید [PDF pages and HTML content](/slides/fa/java/import-presentation/) را به یک ارائه اضافه کنید و آنها را به اسلاید تبدیل کنید.

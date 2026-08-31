@@ -1,112 +1,104 @@
 ---
-title: Funkciók áttekintése
+title: "Funkciók áttekintése"
 type: docs
 weight: 20
 url: /hu/php-java/features-overview/
 keywords:
-- funkciók
-- támogatott platformok
-- fájlformátum
-- konvertálás
-- renderelés
-- nyomtatás
-- formázás
-- PowerPoint
-- OpenDocument
-- prezentáció
-- PHP
-- Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for PHP via Java-t: egy hatékony API-t a PowerPoint és OpenDocument prezentációk készítéséhez, szerkesztéséhez, automatizálásához és konvertálásához."
+- "funkciók"
+- "támogatott platformok"
+- "fájlformátum"
+- "konverzió"
+- "renderelés"
+- "formázás"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentáció"
+- "PHP"
+- "Aspose.Slides"
+description: "Fedezze fel az Aspose.Slides for PHP via Java-t: egy erőteljes API-t, amely hatékonyan képes PowerPoint és OpenDocument prezentációk létrehozására, szerkesztésére, automatizálására és konvertálására."
 ---
 ## **Támogatott platformok**
-Aspose.Slides for PHP via Java egy platformfüggetlen API. Bármilyen platformon (Windows, Linux, macOS stb.) használható, ahol a PHP 7 vagy újabb verziója telepítve van. Az Oracle JDK 7 vagy újabb szintén követelmény.
+Aspose.Slides for PHP via Java egy platformfüggetlen API. Bármilyen platformon (Windows, Linux, macOS stb.) használható, ahol PHP 7 vagy újabb telepítve van. Az Oracle JDK 7 vagy újabb szintén kötelező.
 
-## **Fájlformátumok és átalakítások**
-Aspose.Slides for PHP via Java a legtöbb PowerPoint dokumentumformátumot támogatja. Lehetővé teszi, hogy ezeket a szervezetek által használt és megosztott népszerű formátumokba exportálja. Tekintse meg a részleteket:
+## **Fájlformátumok és konverziók**
+Aspose.Slides for PHP via Java a legtöbb PowerPoint dokumentumformátumot támogatja. Lehetővé teszi azok exportálását a szervezetek által használt és megosztott népszerű fájlformátumokba is. Tekintse meg az alábbi részleteket:
 
 |**Funkció**|**Leírás**|
 | :- | :- |
 |Microsoft PowerPoint (PPT)|Aspose.Slides for PHP via Java a leggyorsabb feldolgozást biztosít ehhez a prezentációs dokumentumformátumhoz.|
-|PPT to PPTX conversion|Aspose.Slides for PHP via Java támogatja a PPT‑ről PPTX‑re történő konverziót.|
-|Portable Document Format (PDF)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot az Adobe Portable Document Format (PDF) dokumentumokká.|
-|XML Parser Specification (XPS)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot XML Parser Specification (XPS) dokumentumokká.|
+|PPT to PPTX conversion|Aspose.Slides for PHP via Java támogatja a PPT → PPTX konverziót.|
+|Portable Document Format (PDF)|Egyetlen módszerrel exportálhatja az összes támogatott fájlformátumot Adobe Portable Document Format (PDF) dokumentumokká.|
+|XML Parser Specification (XPS)|Egyetlen módszerrel exportálhatja az összes támogatott fájlformátumot XML Parser Specification (XPS) dokumentumokká.|
 |Tagged Image File Format (TIFF)|Exportálhatja az összes támogatott prezentációs fájlformátumot Tagged Image File Format (TIFF) formátumba.|
-|PPTX To HTML Conversion|Aspose.Slides for PHP via Java támogatja a PresentationEx HTML formátumba történő átalakítását.|
+|PPTX To HTML Conversion|Az Aspose.Slides for PHP via Java támogatja a PresentationEx HTML formátumba történő konvertálását.|
 
 ## **Prezentáció renderelése**
-Aspose.Slides for PHP via Java magas hűségű renderelést biztosít a diák különböző grafikus formátumokra való átalakításához. Tekintse meg a részleteket:
+Az Aspose.Slides for PHP via Java magas hűségű renderelést biztosít a prezentációk diáinak különböző grafikus formátumokba. Tekintse meg az alábbi részleteket:
 
 |**Funkció**|**Leírás**|
 | :- | :- |
-|Java Supported Image Formats|Az Aspose.Slides for PHP via Java segítségével a prezentáció diái és a diákon lévő képek renderelhetők a Java által támogatott összes grafikus formátumban, például TIFF, PNG, BMP, JPEG, GIF.|
-|SVG Format|Az Aspose.Slides for PHP via Java beépített metódusokat kínál, amelyekkel a prezentáció diáit Scalable Vector Graphics (SVG) formátumba exportálhatja.|
-|Presentation Printing|Az Aspose.Slides for PHP via Java legújabb verziói beépített nyomtatási metódusokat biztosítanak különböző beállításokkal.|
+|Java Supported Image Formats|Az Aspose.Slides for PHP via Java segítségével renderelhet prezentációs diákat és a diákon lévő képeket az összes Java által támogatott grafikus formátumba, például TIFF, PNG, BMP, JPEG, GIF.|
+|SVG Format|Az Aspose.Slides for PHP via Java beépített módszereket is biztosít, amelyekkel a prezentációs diák exportálhatók Scalable Vector Graphics (SVG) formátumba.|
 
 ## **Tartalmi funkciók**
-Aspose.Slides for PHP via Java lehetővé teszi a prezentáció dokumentumok szinte minden elemének vagy tartalmának elérését, módosítását vagy létrehozását. Tekintse meg a részleteket:
+Az Aspose.Slides for PHP via Java lehetővé teszi a prezentációs dokumentumok szinte minden elemének vagy tartalmának elérését, módosítását vagy létrehozását. Tekintse meg az alábbi részleteket:
 
 |**Funkció**|**Leírás**|
 | :- | :- |
-|Master Slides|A master diák definiálják a normál diák elrendezését. Az Aspose.Slides for PHP via Java lehetővé teszi a master diák elérését és módosítását a prezentációkban.|
-|Normal Slides|Az Aspose.Slides for PHP via Java segítségével különböző típusú új diák hozhatók létre; emellett elérheti és módosíthatja a már létező diákat a prezentációkban.|
-|Cloning / Copying Slides|Az Aspose.Slides for PHP via Java beépített metódusai lehetővé teszik egy meglévő dia klónozását vagy másolását egy prezentáción belül, valamint más prezentációkba való átmásolását. Mivel egy dia az elrendezését a master diától örökli, a beépített klónozási metódusok automatikusan másolják a mastert.|
-|Managing Slides sections|Metódusok a diák különböző szekciókba rendezésére a prezentáción belül.|
-|Place Holders and Text Holders|Elérheti a helyőrzőket és szöveghelyekről beszélő elemeket egy dián. Ezen kívül a megfelelő metódussal teljesen új diát hozhat létre szöveghelyekkel.|
-|Header and Footers|Az Aspose.Slides for PHP via Java megkönnyíti a fejléc/lábléc kezelését a diákon.|
-|Notes in Slides|Az Aspose.Slides for PHP via Java segítségével elérheti és módosíthatja a diákhoz tartozó jegyzeteket, valamint új jegyzeteket is hozzáadhat.|
-|Finding a Shape|Egy adott alakzatot a hozzá tartozó alternatív szöveg alapján is megtalálhatja egy dián.|
-|Backgrounds|Az Aspose.Slides for PHP via Java lehetővé teszi a háttérrel kapcsolatos munkát, legyen szó master vagy normál diáról.|
-|Text Boxes|Szövegdobozok hozhatók létre a semmiből, meglévő szövegdobozok elérhetők, és a szövegek módosíthatók az eredeti formázás megtartása mellett.|
-|Rectangle Shapes|Téglalap alakzatok létrehozhatók vagy módosíthatók az Aspose.Slides for PHP via Java segítségével.|
-|Poly Line Shapes|Polivonalis vonal alakzatok létrehozhatók vagy módosíthatók.|
-|Ellipse Shapes|Ellipszis alakzatok létrehozhatók vagy módosíthatók.|
-|Group Shapes|Aspose.Slides for PHP via Java támogatja a csoportos alakzatokat.|
-|Auto Shapes|Aspose.Slides for PHP via Java támogatja az automatikus alakzatokat.|
+|Master Slides|A mesterdiák határozzák meg a normál diák elrendezését. Az Aspose.Slides for PHP via Java lehetővé teszi a mesterdiák elérését és módosítását a prezentációs dokumentumokban.|
+|Normal Slides|Az Aspose.Slides for PHP via Java segítségével különböző típusú új diák hozhatók létre; a meglévő diákhoz is hozzáférhet és módosíthatja őket a prezentációkban.|
+|Cloning / Copying Slides|Az Aspose.Slides for PHP via Java beépített módszereket biztosít, amelyekkel meglévő diák klónozhatók vagy másolhatók egy prezentáción belül. A klónozott és másolt diák egy másik prezentációba is átvihetők. Mivel egy dia a mesterdiától örökli az elrendezést, a beépített klónozási módszerek automatikusan átmásolják a mestert klónozáskor.|
+|Managing Slides sections|Módszerek a diák különböző szekciókba szervezésére egy prezentáción belül.|
+|Place Holders and Text Holders|Hozzáférhet a helyőrzőkhöz és szöveghelyekhez egy dián. Továbbá egy diát helyőrzőkkel hozhat létre az elejétől a megfelelő módszerrel.|
+|Header and Footers|Az Aspose.Slides for PHP via Java megkönnyíti a fejlécek/láblécek kezelését a diákon.|
+|Notes in Slides|Az Aspose.Slides for PHP via Java segítségével hozzáférhet és módosíthatja a diához tartozó jegyzeteket, valamint új jegyzeteket adhat hozzá.|
+|Finding a Shape|Alternatív szöveg alapján is megtalálhat egy adott alakzatot egy dián.|
+|Backgrounds|Lehetővé teszi a háttérrel kapcsolatos műveleteket, amelyek egy mester vagy normál diához kapcsolódnak egy prezentációban.|
+|Text Boxes|Szövegdobozok hozhatók létre az elejétől. Hozzáférhet a meglévő szövegdobozokhoz, illetve módosíthatja azok szövegét az eredeti formázás megőrzése mellett.|
+|Rectangle Shapes|Létrehozhat vagy módosíthat téglalap alakzatokat az Aspose.Slides for PHP via Java segítségével.|
+|Poly Line Shapes|Létrehozhat vagy módosíthat vonallánc alakzatokat az Aspose.Slides for PHP via Java segítségével.|
+|Ellipse Shapes|Létrehozhat vagy módosíthat ellipszis alakzatokat az Aspose.Slides for PHP via Java segítségével.|
+|Group Shapes|Az Aspose.Slides for PHP via Java támogatja a csoportos alakzatokat.|
+|Auto Shapes|Az Aspose.Slides for PHP via Java támogatja az automatikus alakzatokat.|
 |SmartArt|Az Aspose.Slides for PHP via Java támogatja a SmartArt alakzatokat a MS PowerPointban.|
-|Charts|Az Aspose.Slides for PHP via Java támogatja az MSO diagramokat a PowerPointban.|
-|Shapes Serialization|Az Aspose.Slides for PHP via Java számos alakzatot támogat. Ha egy alakzat nem támogatott, egy sorosítási metódus segítségével sorosítható egy meglévő diákról, majd a továbbiakban igény szerint felhasználható.|
-|Picture Frames|Képek kezelése képkeretekben az Aspose.Slides for PHP via Java segítségével.|
-|Audio Frames|Hangfájlok linkelhetők vagy beágyazhatók hangkeretekbe a diákon.|
-|Video Frames|Videofájlok kezelése videokeretekben; az Aspose.Slides for PHP via Java támogatja a linkelt és beágyazott videókat is.|
-|OLE Frame|OLE objektumok kezelése OLE keretekben.|
-|Tables|Az Aspose.Slides for PHP via Java táblázatokat támogat a diákon.|
-|ActiveX Controls|ActiveX vezérlők támogatása.|
-|VBA Macros|VBA makrók kezelése a prezentációkban.|
-|Text Frame|Bármely alakzathoz tartozó szöveg elérhető a szövegkeretén keresztül.|
-|Text Scanning|Beépített beolvasási metódusokkal szöveget kereshet a prezentációban vagy egyenként a diákon.|
-|Animations|Animációk alkalmazhatók alakzatokra.|
+|Charts|Az Aspose.Slides for PHP via Java támogatja a MSO diagramokat a PowerPointban.|
+|Shapes Serialization|Az Aspose.Slides for PHP via Java számos alakzatot támogat. Ha egy alakzatot nem támogat, használhat egy sorosítási módszert, amellyel az adott alakzatot egy meglévő diáról szériázhatja. Így később a saját igényei szerint felhasználhatja.|
+|Picture Frames|Kezelheti a képeket a képkockákban az Aspose.Slides for PHP via Java segítségével.|
+|Audio Frames|Az Aspose.Slides for PHP via Java lehetővé teszi audio fájlok hivatkozását vagy beágyazását hangkeretekbe a diákon.|
+|Video Frames|Kezelheti a videófájlokat videokeretekben. Az Aspose.Slides for PHP via Java támogatja a linkelt és beágyazott videókat is.|
+|OLE Frame|Kezelheti az OLE objektumokat OLE keretekben az Aspose.Slides for PHP via Java segítségével.|
+|Tables|Az Aspose.Slides for PHP via Java támogatja a táblázatokat a diákon.|
+|ActiveX Controls|Támogatás az ActiveX vezérlők számára.|
+|VBA Macros|Támogatja a VBA makrók kezelését a prezentációkon belül.|
+|Text Frame|Hozzáférhet a szöveghez bármely alakzattal a hozzá tartozó szövegkeretén keresztül.|
+|Text Scanning|Beépített szkennelési módszerekkel szkennelheti a szöveget a prezentáció szintjén vagy a dián.|
+|Animations|Alkalmazhat animációkat alakzatokra.|
 |Slide Shows|Az Aspose.Slides for PHP via Java támogatja a diavetítéseket és diaátmeneteket.|
 
 ## **Formázási funkciók**
-Az Aspose.Slides for PHP via Java segítségével szövegeket és alakzatokat formázhat a diákon. Tekintse meg a részleteket:
+Az Aspose.Slides for PHP via Java segítségével a szövegeket és alakzatokat a prezentációk diáin formázhatja. Tekintse meg az alábbi részleteket:
 
 |**Funkció**|**Leírás**|
 | :- | :- |
-|Text Formatting|<p>Az Aspose.Slides for PHP via Java‑ben a szövegeket az alakzatokhoz tartozó szövegkeretekben kezelheti. Így a szövegeket a szövegkeretekhez kapcsolódó bekezdések és részek segítségével formázhatja. Ezek a szövegelemek formázhatók az Aspose.Slides for PHP via Java‑lel.</p><p>- Betűtípus típusa</p><p>- Betűméret</p><p>- Betűszín</p><p>- Betűárnyalatok</p><p>- Bekezdés igazítása</p><p>- Bekezdés felsorolás</p><p>- Bekezdés orientációja</p>|
-|Shape Formatting|<p>Az Aspose.Slides for PHP via Java‑ben egy dia alapvető eleme egy alakzat. Az alábbiakat formázhatja az alakzatoknál:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (beleértve a mintát, a színátmenetet, a szilárd kitöltést)</p><p>- Szöveg</p><p>- Kép</p>|
+|Text Formatting|<p>Az Aspose.Slides for PHP via Java segítségével a szövegeket a alakzatokhoz tartozó szövegkereteken keresztül kezelheti. Így a szövegeket a szövegkeretekhez tartozó bekezdésekkel és részekkel formázhatja. Ezeket a szövegelemeket az Aspose.Slides for PHP via Java formázhatja.</p><p>- Betűtípus</p><p>- Betűméret</p><p>- Betűszín</p><p>- Betűárnyalatok</p><p>- Bekezdés igazítás</p><p>- Bekezdés felsorolás</p><p>- Bekezdés tájolás</p>|
+|Shape Formatting|<p>Az Aspose.Slides for PHP via Java-ben a dia alapvető eleme egy alakzat. Ezeket az alakzat elemeket az Aspose.Slides for PHP via Java-vel formázhatja:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (beleértve a mintát, színátmenetet, egyszínűt)</p><p>- Szöveg</p><p>- Kép</p>|
 
 ## **GYIK**
 
-**Szükség van Microsoft PowerPoint telepítésére a szerveren/PC‑n a könyvtár működéséhez?**
-
+### Szükséges-e a Microsoft PowerPoint telepítése a szerveren/PC-n a könyvtár működéséhez?
 Nem. A PowerPoint nem szükséges; az Aspose.Slides egy önálló motor a prezentációk létrehozásához, szerkesztéséhez, konvertálásához és rendereléséhez.
 
-**Hogyan működik a többmagos feldolgozás? Párhuzamosítható a feldolgozás?**
+### Hogyan működik a több szálas feldolgozás? Lehet-e párhuzamosan feldolgozni?
+Biztonságos különböző dokumentumokat külön szálakon feldolgozni; ugyanazt a [prezentáció](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumot nem szabad [több szálon](/slides/hu/php-java/multithreading/) egyszerre használni.
 
-Biztonságos különböző dokumentumok külön szálakon történő feldolgozása; ugyanazt a [prezentáció](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumot nem szabad [több szál](/slides/hu/php-java/multithreading/) egyszerre használni.
+### Támogatottak-e a fájl jelszavak és titkosítás?
+Igen. [Megnyithat](/slides/hu/php-java/password-protected-presentation/) titkosított prezentációkat, beállíthat vagy eltávolíthat nyitási és írási jelszót, valamint ellenőrizheti a védelmi állapotot.
 
-**Támogatottak-e a fájl jelszavak és a titkosítás?**
+### Kell-e foglalkoznom a betűcsomagokkal Linux konténerekben?
+Igen. Ajánlott a gyakori betűcsomagok telepítése és/vagy a [betűkészlet könyvtárak megadása](/slides/hu/php-java/custom-font/) az alkalmazásában, hogy elkerülje a váratlan helyettesítéseket.
 
-Igen. [Megnyithat](/slides/hu/php-java/password-protected-presentation/) titkosított prezentációkat, beállíthat vagy eltávolíthat megnyitási és írási jelszót, valamint ellenőrizheti a védelem állapotát.
+### Vannak korlátozások az értékelő verzióban?
+Az [értékelő módban](/slides/hu/php-java/licensing/) vízjel kerül hozzáadásra a kimenethez, és bizonyos korlátozások érvényesek; egy [30 napos ideiglenes licenc](https://purchase.aspose.com/temporary-license/) érhető el a teljes funkciók teszteléséhez.
 
-**Figyelni kell a betűkészletek csomagjaira Linux konténerekben?**
-
-Igen. Ajánlott általános betűkészlet‑csomagokat telepíteni, illetve kifejezetten [specifikálja a betűtípus könyvtárakat](/slides/hu/php-java/custom-font/) az alkalmazásában, hogy elkerülje a nem várt helyettesítéseket.
-
-**Vannak korlátozások az értékelő verzióban?**
-
-Az [értékelő mód](/slides/hu/php-java/licensing/) esetén vízjel kerül a kimenetre, és bizonyos korlátozások érvényesek; egy [30 napos ideiglenes licenc](https://purchase.aspose.com/temporary-license/) áll rendelkezésre a teljes funkcionalitás teszteléséhez.
-
-**Támogatott-e külső formátumok importálása egy prezentációba (PDF/HTML → PPTX)?**
-
-Igen. [PDF oldalak és HTML tartalom](/slides/hu/php-java/import-presentation/) adható egy prezentációhoz, amelyet diáká alakíthat.
+### Támogatott-e külső formátumok importálása egy prezentációba (PDF/HTML → PPTX)?
+Igen. [PDF oldalakat és HTML tartalmat](/slides/hu/php-java/import-presentation/) adhat hozzá egy prezentációhoz, amelyek diákká alakulnak.

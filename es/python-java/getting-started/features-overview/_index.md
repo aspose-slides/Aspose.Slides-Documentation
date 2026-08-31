@@ -1,73 +1,71 @@
 ---
-title: Descripción General de Características
+title: Resumen de características
 type: docs
 weight: 20
 url: /es/python-java/features-overview/
 ---
+## **Plataformas compatibles**
+Aspose.Slides for Python via Java es una API independiente de la plataforma. Puede usarse en cualquier plataforma (Windows, Linux, macOS, etc.) donde esté instalado Python 3.7 o superior. JDK 8 o superior es otro requisito.
 
-## **Plataformas Soportadas**
-Aspose.Slides para Python a través de Java es una API independiente de la plataforma. Se puede utilizar en cualquier plataforma (Windows, Linux, MacOS, etc.) donde esté instalado Python 3.7 o superior. JDK 8 o superior es otro requisito.
+## **Formatos de archivo y conversiones**
+Aspose.Slides for Python via Java admite la mayoría de los formatos de documentos de PowerPoint. También le permite exportarlos a los formatos de archivo populares que las organizaciones utilizan y comparten entre sí. Consulte estos detalles:
 
-## **Formatos de Archivo y Conversiones**
-Aspose.Slides para Python a través de Java soporta la mayoría de los formatos de documentos de PowerPoint. También te permite exportarlos a los formatos de archivo populares que utilizan y comparten las organizaciones. Revisa estos detalles:
-
-|**Característica**|**Descripción**|
+|**Funcionalidad**|**Descripción**|
 | :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides para Python a través de Java proporciona el procesamiento más rápido para este formato de documento de presentación.|
-|Conversión de PPT a PPTX|Aspose.Slides para Python a través de Java soporta la conversión de PPT a PPTX.|
-|Formato de Documento Portable (PDF)|Puedes exportar todos los formatos de archivo soportados a documentos en formato Adobe Portable Document Format (PDF) con un solo método.|
-|Especificación de Analizador XML (XPS)|Puedes exportar todos los formatos de archivo soportados a documentos en la Especificación de Analizador XML (XPS) con un solo método.|
-|Formato de Archivo de Imagen Etiquetada (TIFF)|Puedes exportar todos los formatos de archivo de presentación soportados a Formato de Archivo de Imagen Etiquetada (TIFF).|
-|Conversión de PPTX a HTML|Aspose.Slides para Python a través de Java soporta la conversión de PresentationEx a formato HTML.|
+|Microsoft PowerPoint (PPT)|Aspose.Slides for Python via Java ofrece el procesamiento más rápido para este formato de documento de presentación.|
+|Conversión de PPT a PPTX|Aspose.Slides for Python via Java admite la conversión de PPT a PPTX|
+|Formato de documento portátil (PDF)|Puede exportar todos los formatos de archivo admitidos a documentos Adobe Portable Document Format (PDF) con un único método.|
+|Especificación del analizador XML (XPS)|Puede exportar todos los formatos de archivo admitidos a documentos XML Parser Specification (XPS) con un único método.|
+|Formato de archivo de imagen etiquetado (TIFF)|Puede exportar todos los formatos de archivo de presentación admitidos a Tagged Image File Format (TIFF).|
+|Conversión de PPTX a HTML|Aspose.Slides for Python via Java admite la conversión de PresentationEx a formato HTML.|
 
-## **Renderizado e Impresión**
-Aspose.Slides para Python a través de Java soporta el renderizado de alta fidelidad de las diapositivas en diferentes formatos gráficos. Revisa estos detalles:
+## **Renderizado de presentaciones**
+Aspose.Slides for Python via Java admite el renderizado de alta fidelidad de diapositivas en presentaciones a diferentes formatos gráficos. Consulte estos detalles:
 
-|**Característica**|**Descripción**|
+|**Funcionalidad**|**Descripción**|
 | :- | :- |
-|Formatos de Imagen Soportados por Java|Usando Aspose.Slides para Python a través de Java, puedes renderizar diapositivas de presentación e imágenes en las diapositivas a todos los formatos gráficos soportados por Java, como TIFF, PNG, BMP, JPEG, GIF.|
-|Formato SVG|Aspose.Slides para Python a través de Java también proporciona métodos incorporados que permiten exportar diapositivas de presentación a formatos de Gráficos Vectoriales Escalables (SVG).|
-|Impresión de Presentaciones|Las últimas versiones de Aspose.Slides para Python a través de Java proporcionan métodos de impresión incorporados con diferentes opciones.|
+|Formatos de imagen compatibles con Java|Con Aspose.Slides for Python via Java, puede renderizar diapositivas de presentación e imágenes en las diapositivas a todos los formatos gráficos compatibles con Java, como TIFF, PNG, BMP, JPEG, GIF.|
+|Formato SVG|Aspose.Slides for Python via Java también proporciona métodos incorporados que le permiten exportar diapositivas de presentación a formatos Scalable Vector Graphics (SVG).|
 
-## **Características de Contenido**
-Aspose.Slides para Python a través de Java te permite acceder, modificar o crear casi todos los elementos o contenidos de documentos de presentación. Revisa estos detalles:
+## **Características de contenido**
+Aspose.Slides for Python via Java le permite acceder, modificar o crear casi todos los elementos o contenidos de los documentos de presentación. Consulte estos detalles:
 
-|**Característica**|**Descripción**|
+|**Funcionalidad**|**Descripción**|
 | :- | :- |
-|Diapositivas Maestras|Las diapositivas maestras definen el diseño de las diapositivas normales. Aspose.Slides para Python a través de Java te permite acceder y modificar las Diapositivas Maestras de los documentos de presentación.|
-|Diapositivas Normales|Con Aspose.Slides para Python a través de Java, puedes crear nuevas diapositivas de diferentes tipos; también puedes acceder y modificar las diapositivas existentes en las presentaciones.|
-|Clonación / Copia de Diapositivas|Hay métodos incorporados proporcionados por Aspose.Slides para Python a través de Java que te permiten clonar o copiar diapositivas existentes dentro de una presentación. También puedes usar las diapositivas copiadas y clonadas de una presentación a otra. Dado que una diapositiva hereda su diseño de la diapositiva maestra, los métodos de clonación incorporados copian automáticamente la maestra al clonar.|
-|Gestión de Secciones de Diapositivas|Métodos para organizar diapositivas en diferentes secciones dentro de una presentación.|
-|Marcadores de Posición y Marcadores de Texto|Puedes acceder a los marcadores de posición y a los marcadores de texto en una diapositiva. Además, puedes crear una diapositiva con marcadores de texto desde cero usando el método apropiado.|
-|Encabezados y Pies de Página|Aspose.Slides para Python a través de Java facilita el manejo de encabezados/pies de página en las diapositivas.|
-|Notas en Diapositivas|Con Aspose.Slides para Python a través de Java, puedes acceder y modificar notas asociadas con una diapositiva y también añadir nuevas notas.|
-|Encontrar una Forma|También puedes encontrar una forma particular de una diapositiva usando el texto alternativo asociado con la forma.|
-|Fondos|Aspose.Slides para Python a través de Java te permite trabajar con fondos asociados con una diapositiva maestra o normal en una presentación.|
-|Cuadros de Texto|Los cuadros de texto pueden ser creados desde cero. Puedes acceder a cuadros de texto existentes. También puedes modificar sus textos sin perder el formato de texto original.|
-|Formas Rectangulares|Puedes crear o modificar formas rectangulares con Aspose.Slides para Python a través de Java.|
-|Formas de Línea Poligonal|Puedes crear o modificar formas de línea poligonal con Aspose.Slides para Python a través de Java.|
-|Formas Elípticas|Puedes crear o modificar formas elípticas con Aspose.Slides para Python a través de Java.|
-|Formas Agrupadas|Aspose.Slides para Python a través de Java soporta formas agrupadas.|
-|Formas Automáticas|Aspose.Slides para Python a través de Java soporta formas automáticas.|
-|SmartArt|Aspose.Slides para Python a través de Java proporciona soporte para formas SmartArt en MS PowerPoint.|
-|Gráficos|Aspose.Slides para Python a través de Java proporciona soporte para gráficos MSO en PowerPoint.|
-|Serialización de Formas|Aspose.Slides para Python a través de Java soporta un gran número de formas. Cuando Aspose.Slides para Python a través de Java no tiene soporte para una forma, puedes utilizar un método de serialización a través del cual puedes serializar esa forma desde una diapositiva existente. De esta manera, puedes usar la forma según tus requisitos.|
-|Marcos de Imagen|Puedes gestionar imágenes en marcos de imagen con Aspose.Slides para Python a través de Java.|
-|Marcos de Audio|Puedes vincular o incrustar archivos de audio en marcos de audio en las diapositivas con Aspose.Slides para Python a través de Java.|
-|Marcos de Video|Puedes manejar archivos de video en marcos de video. Aspose.Slides para Python a través de Java también proporciona soporte para videos vinculados e incrustados.|
-|Marco OLE|Puedes gestionar objetos OLE en marcos OLE con Aspose.Slides para Python a través de Java.|
-|Tablas|Aspose.Slides para Python a través de Java soporta tablas en las diapositivas.|
-|Controles ActiveX|Soporte para controles ActiveX.|
+|Diapositivas master|Las diapositivas master definen el diseño de las diapositivas normales. Aspose.Slides for Python via Java le permite acceder y modificar las diapositivas master de los documentos de presentación|
+|Diapositivas normales|Con Aspose.Slides for Python via Java, puede crear nuevas diapositivas de diferentes tipos; también puede acceder y modificar diapositivas existentes en las presentaciones|
+|Clonación / Copia de diapositivas|Hay métodos incorporados proporcionados por Aspose.Slides for Python via Java que le permiten clonar o copiar diapositivas existentes dentro de una presentación. También puede usar diapositivas copiadas y clonadas de una presentación a otra. Dado que una diapositiva hereda su diseño de la diapositiva master, los métodos de clonación incorporados copian automáticamente el master al clonar|
+|Gestión de secciones de diapositivas|Métodos para organizar diapositivas en diferentes secciones dentro de una presentación|
+|Marcadores de posición y marcadores de texto|Puede acceder a los marcadores de posición y marcadores de texto en una diapositiva. Además, puede crear una diapositiva con marcadores de texto desde cero usando el método apropiado|
+|Encabezados y pies de página|Aspose.Slides for Python via Java facilita la gestión de encabezados/pies de página en las diapositivas|
+|Notas en diapositivas|Con Aspose.Slides for Python via Java, puede acceder y modificar las notas asociadas a una diapositiva y también añadir nuevas notas|
+|Búsqueda de una forma|También puede encontrar una forma concreta en una diapositiva utilizando el texto alternativo asociado a la forma|
+|Fondos|Aspose.Slides for Python via Java le permite trabajar con fondos asociados a una diapositiva master o normal en una presentación|
+|Cuadros de texto|Los cuadros de texto pueden crearse desde cero. Puede acceder a los cuadros de texto existentes. También puede modificar sus textos sin perder el formato original|
+|Formas rectangulares|Puede crear o modificar formas rectangulares con Aspose.Slides for Python via Java|
+|Formas de polilínea|Puede crear o modificar formas de polilínea con Aspose.Slides for Python via Java|
+|Formas elípticas|Puede crear o modificar formas elípticas con Aspose.Slides for Python via Java|
+|Formas agrupadas|Aspose.Slides for Python via Java admite formas agrupadas|
+|Autoformas|Aspose.Slides for Python via Java admite autoformas|
+|SmartArt|Aspose.Slides for Python via Java proporciona soporte para formas SmartArt en MS PowerPoint|
+|Gráficos|Aspose.Slides for Python via Java proporciona soporte para gráficos MSO en PowerPoint|
+|Serialización de formas|Aspose.Slides for Python via Java admite un gran número de formas. Cuando Aspose.Slides for Python via Java no admite una forma, puede utilizar un método de serialización mediante el cual puede serializar esa forma a partir de una diapositiva existente. De este modo, puede usar la forma posteriormente según sus requisitos|
+|Marcos de imagen|Puede gestionar imágenes en marcos de imagen con Aspose.Slides for Python via Java|
+|Marcos de audio|Puede enlazar o incrustar archivos de audio en marcos de audio en las diapositivas con Aspose.Slides for Python via Java|
+|Marcos de video|Puede manejar archivos de video en marcos de video. Aspose.Slides for Python via Java también proporciona soporte para videos vinculados e incrustados|
+|Marco OLE|Puede gestionar objetos OLE en marcos OLE con Aspose.Slides for Python via Java|
+|Tablas|Aspose.Slides for Python via Java admite tablas en diapositivas|
+|Controles ActiveX|Soporte para controles ActiveX|
 |Macros VBA|Soporte para gestionar macros VBA dentro de presentaciones.|
-|Marco de Texto|Puedes acceder al texto con cualquier forma a través del marco de texto asociado a esa forma.|
-|Escaneo de Texto|Puedes escanear texto en una presentación a nivel de presentación o de diapositiva a través de métodos de escaneo incorporados.|
-|Animaciones|Puedes aplicar animaciones a las formas.|
-|Presentaciones|Aspose.Slides para Python a través de Java soporta presentaciones y transiciones de diapositivas.|
+|Marco de texto|Puede acceder al texto de cualquier forma a través del marco de texto asociado a esa forma|
+|Escaneo de texto|Puede escanear texto en una presentación a nivel de presentación o de diapositiva mediante métodos de escaneo incorporados.|
+|Animaciones|Puede aplicar animaciones a las formas|
+|Presentaciones de diapositivas|Aspose.Slides for Python via Java admite presentaciones de diapositivas y transiciones de diapositivas|
 
-## **Características de Formateo**
-Con Aspose.Slides para Python a través de Java, puedes formatear textos y formas en las diapositivas de las presentaciones. Revisa estos detalles:
+## **Funciones de formato**
+Con Aspose.Slides for Python via Java, puede dar formato a textos y formas en diapositivas de presentaciones. Consulte estos detalles:
 
-|**Característica**|**Descripción**|
+|**Funcionalidad**|**Descripción**|
 | :- | :- |
-|Formateo de Texto|<p>En Aspose.Slides para Python a través de Java, puedes gestionar textos a través de los marcos de texto asociados con las formas. Por lo tanto, puedes formatear textos utilizando los párrafos y porciones asociadas con los marcos de texto. Estos elementos de texto pueden ser formateados a través de Aspose.Slides para Python a través de Java.</p><p>- Tipo de Fuente</p><p>- Tamaño de Fuente</p><p>- Color de Fuente</p><p>- Sombras de Fuente</p><p>- Alineación de Párrafo</p><p>- Viñetas de Párrafo</p><p>- Orientación de Párrafo</p>|
-|Formateo de Formas|<p>En Aspose.Slides para Python a través de Java, el elemento básico de una diapositiva es una forma. Puedes formatear estos elementos de forma con Aspose.Slides para Python a través de Java:</p><p>- Posición</p><p>- Tamaño</p><p>- Línea</p><p>- Relleno (incluyendo Patrón, Gradiente, Sólido)</p><p>- Texto</p><p>- Imagen</p>|
+|Formato de texto|<p>En Aspose.Slides for Python via Java, puede gestionar textos a través de los marcos de texto asociados a las formas. Por lo tanto, puede dar formato a los textos usando los párrafos y porciones asociados a los marcos de texto. Estos elementos de texto pueden formatearse mediante Aspose.Slides for Python via Java.</p><p>- Tipo de fuente</p><p>- Tamaño de fuente</p><p>- Color de fuente</p><p>- Sombras de fuente</p><p>- Alineación de párrafo</p><p>- Viñetas de párrafo</p><p>- Orientación de párrafo</p>|
+|Formato de forma|<p>En Aspose.Slides for Python via Java, el elemento básico de una diapositiva es una forma. Puede formatear estos elementos de forma con Aspose.Slides for Python via Java:</p><p>- Posición</p><p>- Tamaño</p><p>- Línea</p><p>- Relleno (incluyendo Patrón, Degradado, Sólido)</p><p>- Texto</p><p>- Imagen</p>|
