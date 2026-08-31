@@ -23,7 +23,7 @@ description: "See why Aspose.Slides is a better choice than the free Open XML SD
 
 This article explains when developers might choose Open XML SDK or Aspose.Slides for working with presentation documents. It describes Open XML SDK as a library for manipulating OOXML packages and their underlying XML elements, while Aspose.Slides is presented as a presentation processing library with a high-level object model and support for many PowerPoint-related tasks.
 
-The article compares both options by supported formats, programming model, rendering and printing capabilities, platform support, and common use cases. It also clarifies that Open XML SDK may be suitable for basic PPTX operations or direct access to OOXML elements, while Aspose.Slides is more appropriate for complex presentation tasks such as working with multiple PowerPoint formats, copying or cloning shapes, replacing text, applying animations, and converting presentations to PDF, TIFF, or XPS.
+The article compares both options by supported formats, programming model, rendering, platform support, and common use cases. It also clarifies that Open XML SDK may be suitable for basic PPTX operations or direct access to OOXML elements, while Aspose.Slides is more appropriate for complex presentation tasks such as working with multiple PowerPoint formats, copying or cloning shapes, replacing text, applying animations, and converting presentations to PDF, TIFF, or XPS.
 
 ## **What Is Open XML SDK?**
 Sometimes, we get this question: *Why should we use Aspose products rather than the free Open XML SDK?* 
@@ -39,7 +39,7 @@ Aspose.Slides is a class library that allows applications to perform these prese
 
 - Programming with a presentation object model.
 
-- High quality conversions involving all the popular supported PowerPoint presentation formats, including conversion to PDF, XPS, TIFF and printing.
+- High quality conversions involving all the popular supported PowerPoint presentation formats, including conversion to PDF, XPS, and TIFF.
 
 - Generating slide thumbnails in well-known formats such as PNG, JPEG and BMP alongside slide exporting to SVG.
 
@@ -60,7 +60,7 @@ This table compares Open XML SDK capabilities and features with Aspose.Slides.
 |<p>High-level programming with a Presentation Document Object Model (DOM): </p><p>- Find and replace texts.</p><p>- Assemble slides in presentations.</p>|No|Yes|
 |Detailed programming with a document object model; access to individual elements and formatting such as TextHolders, TextFrames, Paragraphs and Portions.|Yes|Yes|
 |Low-level direct and full access to the underlying XML elements and attributes such as relationship identifiers, list identifiers of an OOXML document.|Yes|No|
-|<p>Rendering and Printing:</p><p>- Render presentations to PDF, PDF Notes, XPS, TIFF images.</p><p>- Render slide thumbnails to PNG, JPEG, BMP, SVG and TIFF.</p><p>- Specify image resolution, quality, compression and other options.</p><p>- Print presentations using the .NET printing infrastructure. The component has built-in print method to print the presentations as shown in Print Preview of MS PowerPoint.</p>|No|Yes|
+|<p>Presentation Rendering:</p><p>- Render presentations to PDF, PDF Notes, XPS, TIFF images.</p><p>- Render slide thumbnails to PNG, JPEG, BMP, SVG and TIFF.</p><p>- Specify image resolution, quality, compression and other options.</p>|No|Yes|
 |Supported platforms|Windows, .NET|Windows, Linux, Java, .NET, Mono|
 
 ## **Conclusion**

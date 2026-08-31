@@ -9,7 +9,6 @@ keywords:
 - file format
 - conversion
 - rendering
-- printing
 - formatting
 - PowerPoint
 - OpenDocument
