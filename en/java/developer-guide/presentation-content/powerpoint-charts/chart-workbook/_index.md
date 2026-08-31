@@ -54,7 +54,7 @@ try {
 
 ### **Validate Chart Layout After Workbook Modification**
 
-When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This inconsistency can cause `chart.validateChartLayout()` to throw an `ArgumentOutOfRangeException` (parameter: index). To avoid the exception, clear the existing series and categories **before** writing the updated workbook back to the chart.
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This inconsistency can cause [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) to throw an `ArgumentOutOfRangeException` (parameter: index). To avoid the exception, clear the existing series and categories **before** writing the updated workbook back to the chart.
 
 ```java
 // After modifying the workbook stream (e.g., using Aspose.Cells)
@@ -64,14 +64,12 @@ byte[] updatedWorkbook = baos.toByteArray();
 chart.getChartData().getSeries().clear();
 chart.getChartData().getCategories().clear();
 
-// Write the updated workbook back to the chart.
 chart.getChartData().writeWorkbookStream(updatedWorkbook);
 
-// Now validation succeeds.
 chart.validateChartLayout();
 ```
 
-Clearing the collections ensures that the chart data structure aligns with the new workbook, allowing `validateChartLayout()` to complete without errors.
+Clearing the collections ensures that the chart data structure aligns with the new workbook, allowing `validateChartLayout` to complete without errors.
 
 ## **Set a Workbook Cell as a Chart Data Label**
 

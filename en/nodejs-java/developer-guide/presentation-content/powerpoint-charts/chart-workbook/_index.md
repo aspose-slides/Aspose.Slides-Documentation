@@ -54,6 +54,25 @@ try {
 }
 ```
 
+### **Validate Chart Layout After Workbook Modification**
+
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart.
+
+```javascript
+// After modifying the workbook stream (e.g., using Aspose.Cells)
+var updatedWorkbook = chartData.readWorkbookStream();
+
+// Clear existing data references.
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+Clearing the collections ensures that the chart data structure is consistent with the new workbook, allowing `validateChartLayout` to complete without errors.
+
 ## **Set WorkBook Cell as Chart DataLabel**
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
