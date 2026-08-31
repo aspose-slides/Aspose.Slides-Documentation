@@ -42,16 +42,17 @@ Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/sli
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <system/io/memory_stream.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace System::IO;
 
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
-auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto chart = System::ExplicitCast<Chart>(pres->get_Slide(0)->get_Shape(0));
 auto data = chart->get_ChartData();
 
-System::SharedPtr<System::IO::MemoryStream> stream = data->ReadWorkbookStream();
+auto = data->ReadWorkbookStream();
 data->get_Series()->Clear();
 data->get_Categories()->Clear();
 
@@ -59,48 +60,27 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-This C++ code demonstrates the operation to set a chart data workbook:
+### **Validate Chart Layout After Workbook Modification**
 
-``` cpp
-#include <DOM/Chart/ChartType.h>
-#include <DOM/Chart/IChartData.h>
-#include <DOM/Chart/IChartDataWorkbook.h>
-#include <DOM/Chart/IChartSeries.h>
-#include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/Chart/IChartSeriesGroup.h>
-#include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
-#include <system/io/file.h>
-#include <system/io/memory_stream.h>
-#include <system/smart_ptr.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Charts;
-using namespace Aspose::Slides::Export;
-using namespace System;
-using namespace System::IO;
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart.
 
-auto pres = MakeObject<Presentation>(u"Test.pptx");
+```cpp
+// After modifying the workbook stream (e.g., using Aspose.Cells)
+auto updatedWorkbook = chartData->ReadWorkbookStream();
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 500.0f, 400.0f);
-chart->get_ChartData()->get_ChartDataWorkbook()->Clear(0);
+// Clear existing data references.
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
 
-// Read the workbook prepared in Excel (or in Aspose.Cells) and set it as the chart data workbook.
-auto workbookData = File::ReadAllBytes(u"a1.xlsx");
-auto workbookStream = MakeObject<MemoryStream>(workbookData);
+updatedWorkbook->set_Position(0);
+chartData->WriteWorkbookStream(updatedWorkbook);
 
-chart->get_ChartData()->WriteWorkbookStream(workbookStream);
-
-chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$B$9");
-auto series = chart->get_ChartData()->get_Series()->idx_get(0);
-series->get_ParentSeriesGroup()->set_IsColorVaried(true);
-pres->Save(u"response2.pptx", SaveFormat::Pptx);
+chart->ValidateChartLayout();
 ```
 
-## **Set a WorkBook Cell as a Chart Data Label**
+Clearing the collections ensures that the chart data structure is consistent with the new workbook, allowing `ValidateChartLayout` to complete without errors.
+
+## **Set a Workbook Cell as a Chart Data Label**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 1. Get a slide's reference through its index.
