@@ -60,6 +60,7 @@ Use the articles below for complete JavaScript examples and format-specific opti
 | PPT/PPTX/ODP to TIFF | Save a presentation as a multi-page TIFF file for printing, scanning, fax, or archival workflows. | [Convert PowerPoint to TIFF](/slides/nodejs-java/convert-powerpoint-to-tiff/) |
 | PPT/PPTX/ODP to TIFF with notes | Save slides with speaker notes to TIFF. | [Convert PowerPoint to TIFF with Notes](/slides/nodejs-java/convert-powerpoint-to-tiff-with-notes/) |
 | PPT/PPTX to Markdown | Extract presentation content into Markdown for documentation and text-based workflows. | [Convert PowerPoint to Markdown](/slides/nodejs-java/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP to XML | Create a text-based PowerPoint XML Presentation for inspection, comparison, troubleshooting, or XML-based workflows. | [Convert PowerPoint to XML](/slides/nodejs-java/convert-powerpoint-to-xml/) |
 | PPT/PPTX to animated GIF | Create an animated GIF from slides. | [Convert PowerPoint to Animated GIF](/slides/nodejs-java/convert-powerpoint-to-animated-gif/) |
 | PPT/PPTX to video | Build a video export workflow from presentation slides. | [Convert PowerPoint to Video](/slides/nodejs-java/convert-powerpoint-to-video/) |
 | Presentation to XAML | Export slides to XAML for JavaScript or Java UI scenarios. | [Export Presentations to XAML](/slides/nodejs-java/export-to-xaml/) |
@@ -88,26 +89,26 @@ HTML and HTML5 export are useful for browser viewing, web publishing, and lightw
 
 ## **FAQ**
 
-### Do I need Microsoft PowerPoint to convert presentations?
+**Do I need Microsoft PowerPoint to convert presentations?**
 
 No. Aspose.Slides for Node.js via Java is a standalone library and does not require Microsoft PowerPoint or Office automation.
 
-### Can I batch convert many presentations?
+**Can I batch convert many presentations?**
 
 Yes. Load each presentation, save it to the required format, and dispose of the presentation object after processing. For parallel processing, use separate presentation instances and follow the [multithreading](/slides/nodejs-java/multithreading/) guidance.
 
-### Can I export only selected slides?
+**Can I export only selected slides?**
 
 Yes. Several export methods allow you to pass slide indexes or render individual slides, depending on the output format. See the dedicated article for the target format.
 
-### Can I include hidden slides when exporting to PDF or XPS?
+**Can I include hidden slides when exporting to PDF or XPS?**
 
 Yes. Use the hidden-slide export settings described in the [PDF](/slides/nodejs-java/convert-powerpoint-to-pdf/) and [XPS](/slides/nodejs-java/convert-powerpoint-to-xps/) conversion articles.
 
-### Can I create PDF/A output?
+**Can I create PDF/A output?**
 
 Yes. PDF compliance settings are available for PDF export. See [Convert PowerPoint to PDF](/slides/nodejs-java/convert-powerpoint-to-pdf/) for details.
 
-### How are fonts handled during conversion?
+**How are fonts handled during conversion?**
 
 Aspose.Slides can use embedded fonts, font fallback, and font substitution settings. See [Embedded Font](/slides/nodejs-java/embedded-font/), [Fallback Font](/slides/nodejs-java/fallback-font/), and [Font Substitution](/slides/nodejs-java/font-substitution/).
