@@ -8,157 +8,288 @@ keywords:
 - кадр изображения
 - добавить кадр изображения
 - создать кадр изображения
-- добавить изображение
-- создать изображение
+- встроенное изображение
+- связанное изображение
 - извлечь изображение
 - растровое изображение
-- векторное изображение
-- обрезать изображение
-- обрезанная область
-- свойство StretchOff
+- SVG‑изображение
+- обрезка изображения
+- удалить обрезанные области
+- сжатие изображения
+- StretchOffset
 - форматирование кадра изображения
-- свойства кадра изображения
-- относительный масштаб
+- относительное масштабирование
 - эффект изображения
 - соотношение сторон
-- прозрачность изображения
 - PowerPoint
 - OpenDocument
 - презентация
 - PHP
 - Aspose.Slides
-description: "Добавляйте кадры изображений в презентации PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java. Оптимизируйте рабочий процесс и улучшайте дизайн слайдов."
+description: "Создавайте, форматируйте, привязывайте, обрезайте, извлекайте и сжимайте кадры изображений в презентациях с помощью Aspose.Slides для PHP через Java."
 ---
-## **Введение**
+## **Обзор**
 
-Кадр изображения — это фигура, содержащая изображение, похожая на картину в раме. 
+Кадр изображения — это объект формы слайда, отображающий изображение. В Aspose.Slides ресурс изображения и форма, которая его отображает, являются отдельными объектами: [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) владеет встроенными ресурсами изображений через свою [ImageCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/imagecollection/), а [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/) управляет положением изображения, размером, форматированием линии, вращением, обрезкой, эффектами изображения и другими настройками уровня кадра.
 
-Вы можете добавить изображение на слайд через кадр изображения. Таким образом, вы форматируете изображение, форматируя кадр изображения.
+Это разделение полезно, когда одно и то же изображение показывается более одного раза. Добавьте изображение в презентацию один раз, сохраните возвращённый [PPImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ppimage/), и используйте этот ресурс изображения при создании кадров.
 
-{{% alert  title="Tip" color="primary" %}} 
+Кадры изображения могут содержать растровые изображения, такие как PNG или JPEG, и векторные SVG‑изображения. Они также могут ссылаться на связанные изображения вместо хранения байтов изображения в презентации. Выбор влияет на портативность, размер файла, извлечение и поведение экспорта, поэтому полезно решить, как изображение должно храниться, перед применением форматирования или оптимизации.
 
-Aspose предоставляет бесплатные конвертеры — [JPEG в PowerPoint](https://products.aspose.app/slides/ru/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/ru/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений. 
+## **Добавление и форматирование встроенного изображения**
 
-{{% /alert %}} 
+Для встроенного изображения добавьте данные изображения в презентацию и создайте кадр изображения с помощью [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapecollection/addpictureframe/). Изображение становится частью пакета презентации, поэтому презентация остаётся самодостаточной при перемещении на другой компьютер.
 
-## **Создание кадра изображения**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).  
-2. Получите ссылку на слайд по его индексу.  
-3. Создайте объект [PPImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ppimage/) путем добавления изображения в [ImageCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/imagecollection/), связанную с объектом презентации, которое будет использоваться для заполнения фигуры.  
-4. Укажите ширину и высоту изображения.  
-5. Создайте [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/) на основе ширины и высоты изображения через метод `addPictureFrame`, доступный у объекта shape, ассоциированного с указанным слайдом.  
-6. Добавьте кадр изображения (содержащий картинку) на слайд.  
-7. Сохраните изменённую презентацию в файл PPTX.  
-
-Этот PHP‑код показывает, как создать кадр изображения:
+Следующий пример добавляет JPEG‑изображение, создаёт кадр с исходными размерами изображения и применяет форматирование линии и вращение:
 
 ```php
-  # Создаёт экземпляр класса Presentation, представляющего файл PPTX
-  $pres = new Presentation();
-  try {
-    # Получает первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Создаёт экземпляр класса Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Добавляет кадр изображения с высотой и шириной, соответствующими изображению
-    $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Сохраняет файл PPTX на диск
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{% alert color="warning" %}} 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-Кадры изображения позволяют быстро создавать слайды презентации на основе изображений. При сочетании кадра изображения с параметрами сохранения Aspose.Slides вы можете управлять операциями ввода/вывода для конвертации изображений из одного формата в другой. Возможно, вам будет интересна следующая информация: конвертировать [изображение в JPG](https://products.aspose.com/slides/ru/php-java/conversion/image-to-jpg/); конвертировать [JPG в изображение](https://products.aspose.com/slides/ru/php-java/conversion/jpg-to-image/); конвертировать [JPG в PNG](https://products.aspose.com/slides/ru/php-java/conversion/jpg-to-png/), конвертировать [PNG в JPG](https://products.aspose.com/slides/ru/php-java/conversion/png-to-jpg/); конвертировать [PNG в SVG](https://products.aspose.com/slides/ru/php-java/conversion/png-to-svg/), конвертировать [SVG в PNG](https://products.aspose.com/slides/ru/php-java/conversion/svg-to-png/). 
-
-{{% /alert %}}
-
-## **Создание кадра изображения с относительным масштабом**
-
-Изменяя относительное масштабирование изображения, вы можете создать более сложный кадр изображения. 
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).  
-2. Получите ссылку на слайд по его индексу.  
-3. Добавьте изображение в коллекцию изображений презентации.  
-4. Создайте объект [PPImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ppimage/) путем добавления изображения в [ImageCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/imagecollection/), связанную с объектом презентации, которое будет использоваться для заполнения фигуры.  
-5. Укажите относительные ширину и высоту изображения в кадре изображения.  
-6. Сохраните изменённую презентацию в файл PPTX.  
-
-Этот PHP‑код показывает, как создать кадр изображения с относительным масштабом:
-
-```php
-  # Создаёт экземпляр класса Presentation, представляющего PPTX
-  $pres = new Presentation();
-  try {
-    # Получает первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Создаёт экземпляр класса Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Добавляет кадр изображения с высотой и шириной, эквивалентными изображению
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Устанавливает относительный масштаб ширины и высоты
-    $pf->setRelativeScaleHeight(0.8);
-    $pf->setRelativeScaleWidth(1.35);
-    # Сохраняет файл PPTX на диск
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Извлечение растровых изображений из кадров изображения**
-
-Вы можете извлечь растровые изображения из объектов [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/) и сохранить их в PNG, JPG и других форматах. Пример кода ниже демонстрирует, как извлечь изображение из документа «sample.pptx» и сохранить его в формате PNG.
-
-```php
-  $presentation = new Presentation("sample.pptx");
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-    $firstShape = $firstSlide->getShapes()->get_Item(0);
-    if (java_instanceof($firstShape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-      $pictureFrame = $firstShape;
-      try {
-        $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
-        $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
-      } finally {
-        if (!java_is_null($slideImage)) {
-          $slideImage->dispose();
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
         }
-      }
     }
-  } catch (JavaException $e) {
-  } finally {
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
+    $pictureFrame->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $pictureFrame->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $pictureFrame->getLineFormat()->setWidth(3);
+    $pictureFrame->setRotation(15);
+
+    $presentation->save("picture-frame.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Извлечение SVG‑изображений из кадров изображения**
+Кадр изображения управляет отображаемой геометрией; изменение размера кадра не меняет оригинальные пиксельные размеры, хранящиеся во встроенном ресурсе изображения. Это различие становится важным при последующей обрезке или сжатии изображения.
 
-Когда презентация содержит SVG‑графику, размещённую внутри фигур [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/), Aspose.Slides for PHP via Java позволяет получить оригинальные векторные изображения с полной точностью. Перебирая коллекцию фигур слайда, можно определить каждый [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/), проверить, содержит ли соответствующий [PPImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ppimage/) SVG‑контент, и затем сохранить это изображение на диск или в поток в его нативном формате SVG.
+## **Использование относительного масштабирования**
 
-Следующий пример кода демонстрирует, как извлечь SVG‑изображение из кадра изображения:
+[PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/) предоставляет возможность относительного масштабирования ширины и высоты кадра через [setRelativeScaleWidth](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/setrelativescalewidth/) и [setRelativeScaleHeight](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Значение `1.0` соответствует 100 % оригинального размера изображения. Относительное масштабирование удобно, когда процесс требует сохранять соотношение с размером исходного изображения вместо ручного расчёта конечных размеров.
 
 ```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
+    }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $image);
+    $pictureFrame->setRelativeScaleWidth(1.35);
+    $pictureFrame->setRelativeScaleHeight(0.8);
+
+    $presentation->save("relative-scale.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Относительное масштабирование изменяет настройки масштаба кадра; оно не переобразует и не сжимает встроенное изображение.
+
+## **Встроенные и связанные изображения**
+
+Встроенное изображение хранит данные изображения внутри презентации и поэтому является самым безопасным выбором с точки зрения портативности и предсказуемого рендеринга. Связанное изображение хранит внешний путь через метод [Picture::setLinkPathLong](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picture/setlinkpathlong/) вместо встраивания данных изображения тем же способом.
+
+Связанные изображения могут уменьшить объём данных изображения, хранимых в PPTX, но они вводят внешнюю зависимость. Связанный файл должен оставаться доступным приложению, которое открывает или рендерит презентацию. Если путь изменится, файл будет перемещён или ресурс станет недоступен, связанное изображение может не отображаться должным образом. Для презентаций, которые необходимо отправлять по электронной почте, архивировать или рендерить в изолированных средах, встроенные изображения обычно более надёжны.
+
+### **Добавление связанного изображения**
+
+Следующий пример создаёт кадр изображения и указывает его на локальный файл изображения. Он касается только связывания изображений; связывание видео — отдельный медиа‑процесс, намеренно не смешанный в данном примере.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, null);
+    $linkedImageFile = new Java("java.io.File", "linked-image.jpg");
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong($linkedImageFile->getAbsolutePath());
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Используйте ссылки, когда намеренно управлять внешними файлами. Не применяйте их просто как замену сжатию: небольшая PPTX с повреждёнными зависимостями изображений обычно менее полезна, чем более крупная самодостаточная презентация.
+
+## **Извлечение изображений из кадров**
+
+Перед извлечением изображения из существующей презентации проверьте, что форма действительно является [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/) и содержит встроенное изображение. Связанные кадры изображений могут не содержать байтов изображения, которые можно извлечь тем же способом.
+
+### **Извлечение растрового изображения**
+
+Современный API изображений использует [IImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/iimage/) напрямую. Следующий пример находит первое встроенное растровое изображение на слайде и сохраняет его как PNG:
+
+```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("sample.pptx");
-
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-        $svgImage = $shape->getPictureFormat()->getPicture()->getImage()->getSvgImage();
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
 
-        if ($svgImage !== null) {
-            file_put_contents("output.svg", $svgImage->getSvgData());
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        if (java_is_null($embeddedImage) || !java_is_null($embeddedImage->getSvgImage())) {
+            continue;
+        }
+
+        $rasterImage = $embeddedImage->getImage();
+        try {
+            $rasterImage->save("extracted-image.png", ImageFormat::Png);
+        } finally {
+            if (!java_is_null($rasterImage)) {
+                $rasterImage->dispose();
+            }
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Сохранение через [IImage::save](https://reference.aspose.com/slides/ru/php-java/aspose.slides/iimage/#save) преобразует извлечённое изображение в запрашиваемый формат вывода. Если вам нужны закодированные байты, хранящиеся в презентации, а не конвертированный растровый файл, используйте бинарные данные ресурса изображения.
+
+### **Извлечение SVG‑изображения**
+
+Для SVG‑картинки объект [PPImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ppimage/) предоставляет объект [SvgImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgimage/). Это позволяет получить SVG‑данные напрямую без предварительной растеризации изображения.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (!java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            continue;
+        }
+
+        $embeddedImage = $shape->getPictureFormat()->getPicture()->getImage();
+        $svgImage = java_is_null($embeddedImage) ? null : $embeddedImage->getSvgImage();
+        if ($svgImage === null || java_is_null($svgImage)) {
+            continue;
+        }
+
+        $outputStream = new Java("java.io.FileOutputStream", "extracted-image.svg");
+        try {
+            $outputStream->write($svgImage->getSvgData());
+        } finally {
+            $outputStream->close();
+        }
+        break;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Сохранение SVG‑контента как SVG сохраняет векторный источник внутри презентации. Растровый экспорт, такой как PNG или JPEG, обязательно преобразует векторный контент в пиксели. Экспорт слайдов в PDF или SVG также является операцией рендеринга, поэтому экспортированная графика не должна рассматриваться как побайтная копия оригинального встроенного SVG; используйте данные [SvgImage::getSvgData](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgimage/getsvgdata/) при необходимости самого векторного ресурса.
+
+## **Обрезка изображения**
+
+Обрезка изменяет часть изображения, видимую внутри кадра. Значения обрезки в [PictureFillFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/) задаются в процентах от размеров исходного изображения. Обрезка изначально не удаляет скрытые пиксели из встроенного изображения; она лишь изменяет видимую область.
+
+Следующий пример безопасно находит кадр изображения и применяет значения обрезки:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("sample.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $pictureFrame->getPictureFormat()->setCropLeft(23.6);
+        $pictureFrame->getPictureFormat()->setCropRight(21.5);
+        $pictureFrame->getPictureFormat()->setCropTop(3);
+        $pictureFrame->getPictureFormat()->setCropBottom(31);
+        $presentation->save("cropped-image.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Поскольку скрытые данные изображения всё ещё присутствуют, обрезку можно изменить позже без потери оригинальных пикселей. Если размер файла важнее обратимости, обрезанные области могут быть физически удалены, как описано в следующем разделе.
+
+## **Удаление данных обрезанных изображений**
+
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) удаляет данные изображения за пределами текущего прямоугольника обрезки и возвращает полученный ресурс изображения. Это может уменьшить размер файла, но представляет собой разрушительную оптимизацию: после сохранения презентации удалённые пиксели больше недоступны для последующей операции «отобрезки».
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("cropped-image.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
+
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
+
+    if ($pictureFrame !== null) {
+        $croppedImage = $pictureFrame->getPictureFormat()->deletePictureCroppedAreas();
+        if (!java_is_null($croppedImage)) {
+            $presentation->save("cropped-data-removed.pptx", SaveFormat::Pptx);
         }
     }
 } finally {
@@ -166,372 +297,204 @@ try {
 }
 ```
 
-## **Получение прозрачности изображения**
+Метод может добавить новый ресурс изображения в презентацию. Если оригинальное изображение также используется другими кадрами, эти кадры всё равно нуждаются в своём существующем ресурсе, поэтому удаление обрезанных областей не обязательно уменьшает общее количество изображений. Обрезка контента WMF или EMF этим методом растеризует полученный результат в PNG.
 
-Aspose.Slides позволяет получить эффект прозрачности, применённый к изображению. Этот PHP‑код демонстрирует операцию:
+## **Сжатие растровых изображений**
 
-```php
-  $presentation = new Presentation("Test.pptx");
-  $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-  $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-  foreach($imageTransform as $effect) {
-    if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-      $alphaModulateFixed = $effect;
-      $transparencyValue = 100 - $alphaModulateFixed->getAmount();
-      echo("Picture transparency: " . $transparencyValue);
-    }
-  }
-```
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) уменьшает разрешение растрового изображения относительно размера, в котором картинка отображается. Он также может удалить обрезанные области в той же операции. Метод возвращает `true`, когда изображение было изменено в размере или обрезано, и `false`, когда изменений не требовалось.
 
-## **Получение яркости и контраста изображения**
-
-Aspose.Slides позволяет получить параметры яркости и контраста, применённые к изображению. Класс [Luminance](https://reference.aspose.com/slides/ru/php-java/aspose.slides/luminance/) представляет этот эффект преобразования изображения.
-
-Этот PHP‑код демонстрирует, как получить настройки яркости и контраста из кадра изображения:
+Используйте предопределённое значение [PicturesCompression](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturescompression/) при достаточном стандартном целевом разрешении:
 
 ```php
-  $presentation = new Presentation("sample.pptx");
+use aspose\slides\PicturesCompression;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-    $pictureFrame = $shape;
-
-    $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-    $imageTransformCount = java_values($imageTransform->size());
-    for ($index = 0; $index < $imageTransformCount; $index++) {
-      $effect = $imageTransform->get_Item($index);
-      if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
-        $luminance = $effect->getEffective();
-        $brightness = java_values($luminance->getBrightness());
-        $contrast = java_values($luminance->getContrast());
-
-        echo("Brightness: " . $brightness . PHP_EOL);
-        echo("Contrast: " . $contrast . PHP_EOL);
-      }
-    }
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **Форматирование кадра изображения**
-
-Aspose.Slides предоставляет множество параметров форматирования, которые можно применить к кадру изображения. Используя эти параметры, вы можете изменить кадр изображения в соответствии с конкретными требованиями.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).  
-2. Получите ссылку на слайд по его индексу.  
-3. Создайте объект [PPImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ppimage/) путем добавления изображения в [ImageCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/imagecollection/), связанную с объектом презентации, которое будет использоваться для заполнения фигуры.  
-4. Укажите ширину и высоту изображения.  
-5. Создайте `PictureFrame` на основе ширины и высоты изображения через метод [addPictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapecollection/addpictureframe/), доступный у объекта [ShapeCollection](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapecollection/) ассоциированного со слайдом.  
-6. Добавьте кадр изображения (содержащий картинку) на слайд.  
-7. Установите цвет линии кадра изображения.  
-8. Установите ширину линии кадра изображения.  
-9. Поверните кадр изображения, задав ему положительное или отрицательное значение.  
-   * Положительное значение вращает изображение по часовой стрелке.  
-   * Отрицательное значение вращает изображение против часовой стрелки.  
-10. Добавьте кадр изображения (содержащий картинку) на слайд.  
-11. Сохраните изменённую презентацию в файл PPTX.  
-
-Этот PHP‑код демонстрирует процесс форматирования кадра изображения:
-
-```php
-  # Создаёт экземпляр класса Presentation, представляющего PPTX
-  $pres = new Presentation();
-  try {
-    # Получает первый слайд
-    $sld = $pres->getSlides()->get_Item(0);
-    # Создаёт экземпляр класса Image
-    $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    # Добавляет кадр изображения с высотой и шириной, эквивалентными изображению
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    # Применяет некоторое форматирование к PictureFrameEx
-    $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pf->getLineFormat()->setWidth(20);
-    $pf->setRotation(45);
-    # Записывает файл PPTX на диск
-    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose недавно разработал [бесплатный Collage Maker](https://products.aspose.app/slides/ru/collage). Если вам нужно [объединить JPG/JPEG](https://products.aspose.app/slides/ru/collage/jpg) или PNG‑изображения, [создать сетку из фотографий](https://products.aspose.app/slides/ru/collage/photo-grid), вы можете воспользоваться этим сервисом. 
-
-{{% /alert %}}
-
-## **Добавление изображения в виде ссылки**
-
-Чтобы уменьшить размер презентации, вы можете добавлять изображения (или видео) через ссылки вместо встраивания файлов непосредственно в презентацию. Этот PHP‑код показывает, как добавить изображение и видео в заполнитель:
-
-```php
-  $presentation = new Presentation("input.pptx");
-  try {
-    $shapesToRemove = new Java("java.util.ArrayList");
-    $shapesCount = $presentation->getSlides()->get_Item(0)->getShapes()->size();
-    for($i = 0; $i < java_values($shapesCount) ; $i++) {
-      $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item($i);
-      if (java_is_null($autoShape->getPlaceholder())) {
-        continue;
-      }
-      switch ($autoShape->getPlaceholder()->getType()) {
-        case PlaceholderType::Picture :
-          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
-          $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $shapesToRemove->add($autoShape);
-          break;
-        case PlaceholderType::Media :
-          $videoFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addVideoFrame($autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), "");
-          $videoFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-          $videoFrame->setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-          $shapesToRemove->add($autoShape);
-          break;
-      }
-    }
-    foreach($shapesToRemove as $shape) {
-      $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
-    }
-    $presentation->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Обрезка изображений**
-
-Этот PHP‑код показывает, как обрезать существующее изображение на слайде:
-
-```php
-  $pres = new Presentation();
-  # Создаёт новый объект изображения
-  try {
-    $picture;
-    $image = Images->fromFile($imagePath);
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Добавляет кадр изображения на слайд
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
-    # Обрезает изображение (в процентах)
-    $picFrame->getPictureFormat()->setCropLeft(23.6);
-    $picFrame->getPictureFormat()->setCropRight(21.5);
-    $picFrame->getPictureFormat()->setCropTop(3);
-    $picFrame->getPictureFormat()->setCropBottom(31);
-    # Сохраняет результат
-    $pres->save($outPptxFile, SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Удаление обрезанных областей кадра изображения**
-
-Если необходимо удалить обрезанные области изображения, находящегося в кадре, используйте метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas). Этот метод возвращает обрезанное изображение или оригинальное, если обрезка не требуется.
-
-Этот PHP‑код демонстрирует операцию:
-
-```php
-  $presentation = new Presentation("PictureFrameCrop.pptx");
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    # Получает PictureFrame с первого слайда
-    $picFrame = $slide->getShapes()->get_Item(0);
-    # Удаляет обрезанные области изображения PictureFrame и возвращает обрезанное изображение
-    $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
-    # Сохраняет результат
-    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-Метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) добавляет обрезанное изображение в коллекцию изображений презентации. Если изображение используется только в обработанном [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/), это может уменьшить размер презентации. В противном случае количество изображений в результирующей презентации увеличится.
-
-Метод конвертирует метафайлы WMF/EMF в растровое PNG‑изображение при операции обрезки. 
-
-{{% /alert %}}
-
-## **Сжатие изображений**
-
-Вы можете сжать изображение в презентации, используя метод [PictureFillFormat::compressImage()](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_). Этот метод сжимает изображение, уменьшая его размер в зависимости от размеров фигуры и указанного разрешения, с опцией удаления обрезанных областей.
-
-Он регулирует размер и разрешение изображения аналогично функции PowerPoint **Picture Format → Compress Pictures → Resolution**.
-
-Ниже приведены примеры PHP, демонстрирующие сжатие изображения в презентации путем указания целевого разрешения и, при желании, удаления обрезанных областей:
-
-```php
-$presentation = new Presentation("demo.pptx");
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # Сжимает изображение с целевым разрешением 150 DPI (веб‑разрешение) и удаляет обрезанные области.
-    $result = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
-
-    # Проверяет результат сжатия.
-    if ($result) {
-        echo "Image successfully compressed.";
-    } else {
-        echo "Image compression failed or no changes were necessary.";
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
     }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $compressed = $pictureFrame->getPictureFormat()->compressImage(true, PicturesCompression::Dpi150);
+        echo $compressed ? "The image was compressed." : "No compression was necessary.";
+        $presentation->save("compressed-image.pptx", SaveFormat::Pptx);
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-Или указав пользовательское значение DPI напрямую:
+Можно передать пользовательское положительное значение DPI вместо предопределённого, когда требуется конкретный целевой размер.
+
+Сжатие предназначено для растровых изображений. SVG‑ и метафайлы не уменьшаются этим растровым процессом сжатия. Также помните, что более низкое разрешение и удалённые обрезанные области нельзя восстановить из оптимизированной презентации. Выбирайте целевое разрешение, исходя из максимального размера, при котором изображение будет фактически просматриваться или экспортироваться, а не применяйте самый низкий DPI глобально.
+
+## **Проверка эффектов изображения**
+
+Эффекты изображения хранятся в картинке, используемой кадром. Коллекция трансформаций изображения может содержать эффекты, такие как фиксированная альфа‑модуляция для прозрачности и яркость/контраст для светлоты. Пример ниже безопасно читает оба типа эффектов из первого кадра изображения на слайде:
 
 ```php
-$presentation = new Presentation("demo.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = $slide->getShapes()->get_Item(0);
+    $pictureFrame = null;
+    $shapeCount = java_values($slide->getShapes()->size());
 
-    # Сжимает изображение до 150 DPI (веб-разрешение), удаляя обрезанные области.
-    $pictureFrame->getPictureFormat()->compressImage(true, 150.0);
+    for ($index = 0; $index < $shapeCount; $index++) {
+        $shape = $slide->getShapes()->get_Item($index);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+            $pictureFrame = $shape;
+            break;
+        }
+    }
 
-    $presentation->save("CompressedImage.pptx", SaveFormat::Pptx);
+    if ($pictureFrame !== null) {
+        $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
+        $effectCount = java_values($imageTransform->size());
+
+        for ($index = 0; $index < $effectCount; $index++) {
+            $effect = $imageTransform->get_Item($index);
+
+            if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
+                $transparency = 100 - java_values($effect->getAmount());
+                echo "Transparency: " . $transparency . PHP_EOL;
+            }
+
+            if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
+                $luminance = $effect->getEffective();
+                echo "Brightness: " . java_values($luminance->getBrightness()) . PHP_EOL;
+                echo "Contrast: " . java_values($luminance->getContrast()) . PHP_EOL;
+            }
+        }
+    }
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Эти эффекты изменяют способ рендеринга изображения в кадре; они не переписывают оригинальные байты встроенного изображения.
 
-Метод преобразует изображение в более низкое разрешение, исходя из размеров фигуры и заданного DPI. Обрезанные области также могут быть удалены для оптимизации размера файла.  
-Если изображение является метафайлом (WMF/EMF) или SVG, сжатие применено не будет. Кроме того, качество JPEG сохраняется или слегка снижается в зависимости от разрешения, аналогично тому, как PowerPoint обрабатывает JPEG‑изображения высокого разрешения. 
+## **Блокировка геометрии кадра изображения**
 
-{{% /alert %}}
-
-## **Блокировка соотношения сторон**
-
-Если требуется, чтобы форма, содержащая изображение, сохраняла своё соотношение сторон даже после изменения размеров изображения, используйте метод [setAspectRatioLocked](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) для установки параметра *Lock Aspect Ratio*.
-
-Этот PHP‑код показывает, как заблокировать соотношение сторон формы:
+Настройки [PictureFrameLock](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframelock/) управляют тем, какие операции редактирования отключены для кадра изображения. Например, [setAspectRatioLocked](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) сохраняет пропорции формы при её изменении размеров.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
-    $emptySlide = $pres->getSlides()->addEmptySlide($layout);
-    $picture;
-    $image = Images->fromFile("image.png");
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.jpg");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    # установить сохранение соотношения сторон формы при изменении размеров
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 100, $image->getWidth(), $image->getHeight(), $image);
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("locked-picture-frame.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Блокировка применяется к форме кадра изображения. Она не заставляет исходное изображение переобразовываться или постоянно изменяться до тех же пропорций.
 
-Параметр *Lock Aspect Ratio* сохраняет только соотношение сторон формы, а не изображения, которое она содержит. 
+## **Регулировка значений StretchOffset**
 
-{{% /alert %}}
+Когда режим заливки изображения установлен в растяжение, значения stretch‑offset в [PictureFillFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/) определяют прямоугольник заливки относительно ограничивающего окна кадра. Положительные проценты создают отступ от кромки, отрицательные — выступ.
 
-## **Использование свойства StretchOff**
-
-С помощью методов [setStretchOffsetLeft](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/setstretchoffsetleft/), [setStretchOffsetTop](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/setstretchoffsettop/), [setStretchOffsetRight](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/setstretchoffsetright/) и [setStretchOffsetBottom](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/setstretchoffsetbottom/) класса [PictureFillFormat](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/) можно задать прямоугольник заполнения.
-
-Когда для изображения задаётся растягивание, исходный прямоугольник масштабируется, чтобы вписаться в указанный прямоугольник заполнения. Каждая сторона прямоугольника заполнения определяется процентным смещением от соответствующей стороны ограничивающего прямоугольника формы. Положительный процент задаёт внутреннее смещение, отрицательный — внешнее.  
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/).  
-2. Получите ссылку на слайд по его индексу.  
-3. Добавьте прямоугольник `AutoShape`.  
-4. Создайте изображение.  
-5. Установите тип заливки формы.  
-6. Установите режим заливки изображения формы.  
-7. Добавьте изображение для заливки формы.  
-8. Укажите смещения изображения от соответствующей стороны ограничивающего прямоугольника формы.  
-9. Сохраните изменённую презентацию в файл PPTX.  
-
-Этот PHP‑код демонстрирует процесс, в котором используется свойство StretchOff:
+Это отличается от обрезки. Значения обрезки выбирают, какая часть исходного изображения видна; stretch‑offset меняет прямоугольник, в который растягивается видимая заливка изображения.
 
 ```php
-  # Создаёт экземпляр класса Presentation, представляющего PPTX файл
-  $pres = new Presentation();
-  try {
-    # Получает первый слайд
-    $slide = $pres->getSlides()->get_Item(0);
-    # Создаёт экземпляр класса ImageEx
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceImage = Images::fromFile("photo.png");
     try {
-      $picture = $pres->getImages()->addImage($image);
+        $image = $presentation->getImages()->addImage($sourceImage);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($sourceImage)) {
+            $sourceImage->dispose();
+        }
     }
-    # Добавляет AutoShape с типом Rectangle
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Устанавливает тип заливки формы
-    $aShape->getFillFormat()->setFillType(FillType::Picture);
-    # Устанавливает режим заливки изображения формы
-    $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    # Устанавливает изображение для заливки формы
-    $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    # Задает смещения изображения от соответствующей стороны ограничивающего прямоугольника формы
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
-    $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
-    # Записывает файл PPTX на диск
-    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, $image);
+    $pictureFrame->getPictureFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $pictureFrame->getPictureFormat()->setStretchOffsetLeft(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetRight(12);
+    $pictureFrame->getPictureFormat()->setStretchOffsetTop(8);
+    $pictureFrame->getPictureFormat()->setStretchOffsetBottom(8);
+
+    $presentation->save("stretch-offsets.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+Используйте stretch‑offset для размещения заливки. Применяйте свойства обрезки, когда цель — скрыть края исходного изображения.
 
-**Как узнать, какие форматы изображений поддерживаются для PictureFrame?**
+## **Соображения по хранению, размеру файлов и экспорту**
 
-Aspose.Slides поддерживает как растровые изображения (PNG, JPEG, BMP, GIF и т.д.), так и векторные (например, SVG) через объект изображения, назначенный [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/). Список поддерживаемых форматов, как правило, совпадает с возможностями механизма конвертации слайдов и изображений.
+Основные компромиссы проще управлять, когда хранение изображений и форматирование кадра рассматриваются независимо:
 
-**Как добавление десятков больших изображений отразится на размере и производительности PPTX?**
+- **Встроенные изображения** делают презентацию самодостаточной и являются наиболее надёжными для совместного использования и серверного рендеринга, но крупные растровые изображения увеличивают размер PPTX и потребление памяти.
+- **Связанные изображения** позволяют уменьшить размер пакета, однако презентация зависит от доступности внешних файлов по сохранённым путям или локациям.
+- **Обрезка** изначально неразрушительна. Скрытые пиксели остаются встроенными до тех пор, пока обрезанные области явно не удаляются или не удаляются при сжатии.
+- **Сжатие** может существенно уменьшить размер файла для слишком больших растровых изображений, но теряется исходное разрешение. Его следует применять после того, как известен конечный размер изображения на слайде.
+- **SVG‑изображения** следует оставлять в формате SVG, когда важна векторная точность. Извлекайте встроенный SVG напрямую, когда нужен сам векторный ресурс. Растровый экспорт слайдов всегда преобразует отрисованный слайд в пиксели.
+- **Повторяющиеся изображения** следует переиспользовать, используя уже существующий ресурс [PPImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ppimage/), вместо многократной загрузки одного и того же файла в процесс работы с презентацией.
 
-Встраивание больших изображений увеличивает размер файла и потребление памяти; использование ссылок на изображения помогает снизить размер презентации, но требует доступности внешних файлов. Aspose.Slides предоставляет возможность добавлять изображения по ссылке для уменьшения размера файла.
+Для крупных презентаций оптимизацию изображений обычно эффективнее проводить выборочно: хранить логотипы и схемы как векторный контент, сжимать фотографии в соответствии с их реальным размером отображения, удалять обрезанные пиксели только когда дальнейшее редактирование не требуется, и избегать внешних ссылок, если только управление зависимостями не является частью стратегии развертывания.
 
-**Как заблокировать объект изображения от случайного перемещения/изменения размера?**
+## **Часто задаваемые вопросы**
 
-Используйте [блокировки фигур](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/getpictureframelock/) для [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/) (например, отключить перемещение или изменение размера). Механизм блокировки поддерживается для различных типов фигур, включая [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/).
+**В чем разница между кадром изображения и ресурсом изображения?**
 
-**Сохраняется ли векторная точность SVG при экспорте презентации в PDF/изображения?**
+[PPImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ppimage/) представляет ресурс изображения, ассоциированный с презентацией. [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/) — это форма на слайде, отображающая изображение и хранящая настройки уровня кадра, такие как размер, вращение, значения обрезки, эффекты и блокировки.
 
-Aspose.Slides позволяет извлечь SVG из [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/) в оригинальном векторном виде. При [экспорте в PDF](/slides/ru/php-java/convert-powerpoint-to-pdf/) или [растровые форматы](/slides/ru/php-java/convert-powerpoint-to-png/) результат может быть растрирован в зависимости от настроек экспорта; факт сохранения оригинального SVG как вектора подтверждается поведением извлечения.
+**Стоит ли внедрять или связывать изображения?**
+
+Внедряйте изображения, когда презентация должна быть портативной, архивируемой или рендериться без доступа к внешним ресурсам. Связывайте изображения только тогда, когда намеренно хранить файлы изображений вне PPTX и внешние расположения могут быть надёжно поддержаны.
+
+**Уменьшает ли обрезка размер файла PPTX?**
+
+Не сама по себе. Обычные настройки обрезки скрывают части исходного изображения, но сохраняют пиксели. Используйте [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) или сжатие изображения с удалением обрезанных областей, когда эти пиксели можно безвозвратно удалить.
+
+**Можно ли восстановить качество изображения после сжатия?**
+
+Нет. Сжатие может уменьшить хранённое растровое разрешение, а удаление обрезанных областей отбрасывает данные изображения. Храните оригинальный исходный файл вне презентации, если позже может потребоваться редактирование в высоком разрешении.
+
+**Как следует работать с SVG‑изображениями?**
+
+Оставляйте SVG‑контент в виде SVG, когда важна векторная точность. Встроенный [SvgImage](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgimage/) можно извлечь напрямую. Рендеринг слайда в растровый формат, такой как PNG или JPEG, растеризует SVG как часть изображения слайда.
+
+**Как избежать небезопасных приведения типов при чтении существующих слайдов?**
+
+Проверьте тип формы перед использованием членов, специфичных для кадра изображения. Проверка `java_instanceof` против [PictureFrame](https://reference.aspose.com/slides/ru/php-java/aspose.slides/pictureframe/) предотвращает недопустимые приведения и позволяет коду корректно обрабатывать слайды, не содержащие кадры изображений.

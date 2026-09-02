@@ -1,541 +1,467 @@
 ---
-title: จัดการกรอบรูปในงานนำเสนอด้วย Java
-linktitle: กรอบรูป
+title: จัดการกรอบรูปภาพในงานนำเสนอโดยใช้ Java
+linktitle: กรอบรูปภาพ
 type: docs
 weight: 10
 url: /th/java/picture-frame/
 keywords:
-- กรอบรูป
-- เพิ่มกรอบรูป
-- สร้างกรอบรูป
-- เพิ่มภาพ
-- สร้างภาพ
+- กรอบรูปภาพ
+- เพิ่มกรอบรูปภาพ
+- สร้างกรอบรูปภาพ
+- ภาพฝัง
+- ภาพเชื่อมโยง
 - สกัดภาพ
-- ภาพเรสเตอร์
-- ภาพเวกเตอร์
+- ภาพแรสเตอร์
+- ภาพ SVG
 - ครอบภาพ
-- พื้นที่ที่ครอป
-- คุณสมบัติ StretchOff
-- การจัดรูปแบบกรอบรูป
-- คุณสมบัติกรอบรูป
+- ลบพื้นที่ที่ครอบ
+- บีบอัดภาพ
+- StretchOffset
+- การจัดรูปแบบกรอบรูปภาพ
 - สเกลสัมพัทธ์
 - เอฟเฟกต์ภาพ
-- อัตราส่วน
-- ความโปร่งใสของภาพ
+- อัตราส่วนภาพ
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "เพิ่มกรอบรูปในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for Java. ทำให้กระบวนการทำงานของคุณเป็นระเบียบและเสริมการออกแบบสไลด์."
+description: "สร้าง, จัดรูปแบบ, เชื่อมโยง, ครอบ, สกัด, และบีบอัดกรอบรูปภาพในงานนำเสนอด้วย Aspose.Slides สำหรับ Java."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-กรอบรูปเป็นรูปร่างที่บรรจุภาพ—เหมือนรูปภาพในกรอบ  
+กรอบรูปภาพเป็นรูปร่างบนสไลด์ที่แสดงภาพ ใน Aspose.Slides แหล่งข้อมูลภาพและรูปร่างที่แสดงภาพเป็นออบเจ็กต์แยกกัน: a [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) มีแหล่งข้อมูลภาพที่ฝังอยู่ผ่าน [IImageCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimagecollection/), ในขณะที่ [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/) ควบคุมตำแหน่งของภาพ, ขนาด, การจัดรูปแบบเส้น, การหมุน, การครอบ, เอฟเฟกต์รูปภาพ, และการตั้งค่าระดับกรอบอื่น ๆ
 
-คุณสามารถเพิ่มรูปภาพลงในสไลด์ผ่านกรอบรูปได้ วิธีนี้คุณสามารถจัดรูปแบบภาพโดยการจัดรูปแบบกรอบรูป  
+การแยกนี้มีประโยชน์เมื่อภาพเดียวกันต้องแสดงหลายครั้ง เพิ่มภาพลงในงานนำเสนอเพียงครั้งเดียว เก็บ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) ที่คืนค่าไว้ และใช้แหล่งภาพนั้นเมื่อสร้างกรอบรูปภาพ
 
-{{% alert  title="เคล็ดลับ" color="primary" %}} 
-Aspose ให้บริการตัวแปลงฟรี—[JPEG to PowerPoint](https://products.aspose.app/slides/th/import/jpg-to-ppt) และ [PNG to PowerPoint](https://products.aspose.app/slides/th/import/png-to-ppt)—ซึ่งช่วยให้ผู้ใช้สร้างงานนำเสนอได้อย่างรวดเร็วจากภาพ  
-{{% /alert %}} 
+กรอบรูปภาพสามารถบรรจุภาพแรสเตอร์ เช่น PNG หรือ JPEG และภาพเวกเตอร์ SVG ได้ นอกจากนี้ยังสามารถอ้างอิงถึงภาพที่เชื่อมโยงแทนการเก็บไบต์ของภาพในงานนำเสนอ ตัวเลือกนี้มีผลต่อความพกพา, ขนาดไฟล์, การสกัดและพฤติกรรมการส่งออก ดังนั้นจึงควรตัดสินใจว่าจะเก็บภาพอย่างไรก่อนที่จะทำการจัดรูปแบบหรือเพิ่มประสิทธิภาพ
 
-## **สร้างกรอบรูป**
+## **เพิ่มและจัดรูปแบบภาพฝัง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. สร้างอ็อบเจกต์ [IPPImage]() โดยเพิ่มรูปภาพไปยัง [IImagescollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/IImageCollection) ที่เชื่อมโยงกับวัตถุการนำเสนอซึ่งจะใช้เพื่อเติมรูปร่าง  
-4. ระบุความกว้างและความสูงของภาพ  
-5. สร้าง [PictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/PictureFrame) ตามความกว้างและความสูงของภาพผ่านเมธอด `AddPictureFrame` ที่เปิดให้ใช้โดยอ็อบเจกต์ shape ที่เชื่อมโยงกับสไลด์ที่อ้างถึง  
-6. เพิ่มกรอบรูป (ที่บรรจุภาพ) ลงในสไลด์  
-7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+สำหรับภาพฝัง ให้เพิ่มข้อมูลภาพลงในงานนำเสนอและสร้างกรอบรูปด้วย [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). ภาพจะกลายเป็นส่วนหนึ่งของแพ็กเกจงานนำเสนอ ดังนั้นงานนำเสนอจะคงเป็นแบบอิสระเมื่อนำไปยังคอมพิวเตอร์เครื่องอื่น
+
+ตัวอย่างต่อไปนี้เพิ่มภาพ JPEG, สร้างกรอบที่มีขนาดตามมิติเดิมของภาพ, และใช้การจัดรูปแบบเส้นและการหมุน:
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // ดึงสไลด์แรก
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // สร้างอินสแตนซ์ของคลาส Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // เพิ่มกรอบรูปด้วยความสูงและความกว้างที่เทียบเท่าของรูปภาพ
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // บันทึกไฟล์ PPTX ลงดิสก์
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import java.awt.Color;
 
-{{% alert color="warning" %}} 
-กรอบรูปช่วยให้คุณสร้างสไลด์งานนำเสนอจากภาพได้อย่างรวดเร็ว เมื่อคุณใช้กรอบรูปร่วมกับตัวเลือกการบันทึกของ Aspose.Slides คุณสามารถจัดการการทำงานแบบอินพุต/เอาต์พุตเพื่อแปลงภาพจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง คุณอาจต้องการดูหน้าเหล่านี้: แปลง [image to JPG](https://products.aspose.com/slides/th/java/conversion/image-to-jpg/); แปลง [JPG to image](https://products.aspose.com/slides/th/java/conversion/jpg-to-image/); แปลง [JPG to PNG](https://products.aspose.com/slides/th/java/conversion/jpg-to-png/), แปลง [PNG to JPG](https://products.aspose.com/slides/th/java/conversion/png-to-jpg/); แปลง [PNG to SVG](https://products.aspose.com/slides/th/java/conversion/png-to-svg/), แปลง [SVG to PNG](https://products.aspose.com/slides/th/java/conversion/svg-to-png/)  
-{{% /alert %}} 
-
-## **สร้างกรอบรูปด้วยสเกลสัมพัทธ์**
-
-โดยการปรับสเกลสัมพัทธ์ของภาพ คุณสามารถสร้างกรอบรูปที่ซับซ้อนยิ่งขึ้นได้  
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มรูปภาพไปยังคอลเล็กชันรูปภาพของงานนำเสนอ  
-4. สร้างอ็อบเจกต์ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPPImage) โดยเพิ่มรูปภาพไปยัง [IImagescollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/IImageCollection) ที่เชื่อมโยงกับวัตถุการนำเสนอซึ่งจะใช้เพื่อเติมรูปร่าง  
-5. ระบุความกว้างและความสูงสัมพัทธ์ของภาพในกรอบรูป  
-6. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
-
-```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // ดึงสไลด์แรก
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // สร้างอินสแตนซ์ของคลาส Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // เพิ่มกรอบรูปด้วยความสูงและความกว้างที่เทียบเท่าของรูปภาพ
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // ตั้งค่าสเกลสัมพัทธ์ของความกว้างและความสูง
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // บันทึกไฟล์ PPTX ลงดิสก์
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **สกัดภาพเรสเตอร์จากกรอบรูป**
-
-คุณสามารถสกัดภาพเรสเตอร์จากอ็อบเจกต์ [PictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/PictureFrame) แล้วบันทึกเป็น PNG, JPG หรือรูปแบบอื่น ๆ ตัวอย่างโค้ดด้านล่างแสดงวิธีสกัดภาพจากเอกสาร “sample.pptx” และบันทึกเป็นรูปแบบ PNG  
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **สกัดภาพ SVG จากกรอบรูป**
-
-เมื่อการนำเสนอมีกราฟิก SVG อยู่ภายในรูปร่าง [PictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/pictureframe/) Aspose.Slides for Java จะให้คุณดึงภาพเวกเตอร์ดั้งเดิมพร้อมความแม่นยำเต็มที่ ด้วยการวนผ่านคอลเล็กชันรูปร่างของสไลด์ คุณสามารถระบุแต่ละ [PictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/pictureframe/), ตรวจสอบว่า [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) มีเนื้อหา SVG หรือไม่ แล้วบันทึกภาพนั้นลงดิสก์หรือสตรีมในรูปแบบ SVG ดั้งเดิม  
-
-ตัวอย่างโค้ดต่อไปนี้สาธิตวิธีสกัดภาพ SVG จากกรอบรูป  
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **รับค่าความโปร่งใสของภาพ**
+กรอบรูปภาพควบคุมรูปทรงที่แสดง; การเปลี่ยนขนาดกรอบจะไม่เปลี่ยนมิติพิกเซลเดิมที่เก็บอยู่ในแหล่งภาพฝัง การแยกนี้สำคัญเมื่อทำการครอบหรือบีบอัดภาพในภายหลัง
 
-Aspose.Slides ให้คุณดึงเอ็ฟเฟ็กต์ความโปร่งใสที่ใช้กับภาพได้ โค้ด Java ด้านล่างแสดงการทำงานนี้  
+## **ใช้การปรับสเกลสัมพัทธ์**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **รับค่าความสว่างและความคอนทราสต์ของภาพ**
-
-Aspose.Slides ให้คุณดึงเอ็ฟเฟ็กต์ความสว่างและความคอนทราสต์ที่ใช้กับภาพได้ อินเทอร์เฟซ [ILuminance](https://reference.aspose.com/slides/th/java/com.aspose.slides/iluminance/) แทนการแปลงภาพนี้  
-
-โค้ด Java ด้านล่างแสดงวิธีดึงค่าความสว่างและความคอนทราสต์จากกรอบรูป  
+[IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/) เปิดเผยการสเกลความกว้างและความสูงแบบสัมพัทธ์สำหรับกรอบผ่าน [setRelativeScaleWidth](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) และ [setRelativeScaleHeight](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). ค่า `1.0` หมายถึง 100% ของขนาดภาพต้นฉบับ การสเกลสัมพัทธ์มีประโยชน์เมื่อเวิร์กโฟลว์ต้องรักษาความสัมพันธ์กับขนาดภาพต้นฉบับแทนการคำนวณขนาดสุดท้ายด้วยตนเอง
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **การจัดรูปแบบกรอบรูป**
+การสเกลสัมพัทธ์เปลี่ยนการตั้งค่าสเกลของกรอบ; มันไม่ทำการรีซampled หรือบีบอัดภาพฝัง
 
-Aspose.Slides มีตัวเลือกการจัดรูปแบบหลายอย่างที่สามารถนำไปใช้กับกรอบรูปได้ ด้วยตัวเลือกเหล่านี้คุณสามารถปรับกรอบรูปให้ตรงตามความต้องการเฉพาะได้  
+## **ภาพฝังและภาพเชื่อมโยง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. สร้างอ็อบเจกต์ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPPImage) โดยเพิ่มรูปภาพไปยัง [IImagescollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/IImageCollection) ที่เชื่อมโยงกับวัตถุการนำเสนอซึ่งจะใช้เพื่อเติมรูปร่าง  
-4. ระบุความกว้างและความสูงของภาพ  
-5. สร้าง `PictureFrame` ตามความกว้างและความสูงของภาพผ่านเมธอด [AddPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) ที่เปิดให้ใช้โดยอ็อบเจกต์ [IShapes](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShapeCollection) ที่เชื่อมโยงกับสไลด์ที่อ้างถึง  
-6. เพิ่มกรอบรูป (ที่บรรจุภาพ) ลงในสไลด์  
-7. ตั้งค่าสีเส้นของกรอบรูป  
-8. ตั้งค่าความกว้างของเส้นกรอบรูป  
-9. หมุนกรอบรูปโดยระบุค่าบวกหรือค่าลบ  
-   * ค่าบวกจะหมุนภาพตามเข็มนาฬิกา  
-   * ค่าลบจะหมุนภาพทวนเข็มนาฬิกา  
-10. เพิ่มกรอบรูป (ที่บรรจุภาพ) ลงในสไลด์  
-11. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+ภาพฝังเก็บข้อมูลภาพภายในงานนำเสนอและเป็นตัวเลือกที่ปลอดภัยที่สุดสำหรับความพกพาและการเรนเดอร์ที่คาดการณ์ได้ ภาพเชื่อมโยงเก็บตำแหน่งภายนอกผ่านวิธี [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) แทนการฝังข้อมูลภาพในลักษณะเดียวกัน
+
+ภาพเชื่อมโยงสามารถลดปริมาณข้อมูลภาพที่จัดเก็บใน PPTX ได้ แต่จะสร้างการพึ่งพาภายนอก ไฟล์ที่เชื่อมโยงต้องสามารถเข้าถึงได้โดยแอปพลิเคชันที่เปิดหรือเรนเดอร์งานนำเสนอ หากเส้นทางเปลี่ยน, ไฟล์ถูกย้าย, หรือทรัพยากรไม่พร้อมใช้งาน ภาพเชื่อมโยงอาจไม่แสดงตามที่คาดหวัง สำหรับงานนำเสนอที่ต้องส่งอีเมล, เก็บถาวร, หรือเรนเดอร์ในสภาพแวดล้อมแยกเดี่ยว ภาพฝังมักจะเชื่อถือได้มากกว่า
+
+### **เพิ่มภาพเชื่อมโยง**
+
+ตัวอย่างต่อไปนี้สร้างกรอบรูปภาพและชี้ไปที่ไฟล์ภาพในเครื่อง มุ่งเน้นเฉพาะการเชื่อมโยงภาพ; การเชื่อมโยงวิดีโอเป็นเวิร์กโฟลว์สื่อแยกต่างหากและไม่ได้รวมอยู่ในตัวอย่างนี้
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรก
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // สร้างอินสแตนซ์ของคลาส Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // เพิ่มกรอบรูปด้วยความสูงและความกว้างที่เทียบเท่าของรูปภาพ
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // ใช้การจัดรูปแบบบางอย่างกับ PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // บันทึกไฟล์ PPTX ลงดิสก์
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="เคล็ดลับ" color="primary" %}}
-Aspose เพิ่งพัฒนา [Collage Maker ฟรี](https://products.aspose.app/slides/th/collage) หากคุณต้องการ [รวม JPG/JPEG](https://products.aspose.app/slides/th/collage/jpg) หรือ PNG, หรือ [สร้างกริดจากรูปถ่าย](https://products.aspose.app/slides/th/collage/photo-grid) คุณสามารถใช้บริการนี้ได้  
-{{% /alert %}}
+ใช้ลิงก์เมื่อการจัดการไฟล์ภายนอกเป็นเจตนา ไม่ควรใช้เป็นตัวแทนการบีบอัด: PPTX เล็กที่มีการเชื่อมโยงภาพเสียหายมักจะใช้งานได้น้อยกว่า presentation ขนาดใหญ่ที่เป็นอิสระ
 
-## **เพิ่มภาพเป็นลิงก์**
+## **สกัดภาพจากกรอบรูปภาพ**
 
-เพื่อหลีกเลี่ยงขนาดงานนำเสนอที่ใหญ่เกินไป คุณสามารถเพิ่มภาพ (หรือวิดีโอ) ผ่านลิงก์แทนการฝังไฟล์โดยตรงในงานนำเสนอ โค้ด Java ด้านล่างแสดงวิธีเพิ่มภาพและวิดีโอลงใน placeholder  
+ก่อนสกัดภาพจากงานนำเสนอที่มีอยู่ ตรวจสอบว่ารูปร่างเป็น [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/) จริงและว่ามันมีภาพฝังอยู่หรือไม่ กรอบรูปภาพเชื่อมโยงอาจไม่มีไบต์ของภาพที่สามารถสกัดได้ในลักษณะเดียวกัน
+
+### **สกัดภาพแรสเตอร์**
+
+API ภาพสมัยใหม่ใช้ [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/) โดยตรงและไม่จำเป็นต้องใช้ wrapper ของ Java ที่เก่า ตัวอย่างต่อไปนี้ค้นหาภาพแรสเตอร์ฝังแรกบนสไลด์และบันทึกเป็น PNG:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-
-                shapesToRemove.add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-
-                shapesToRemove.add(autoShape);
-                break;
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
         }
-    }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
+
+การบันทึกผ่าน [IImage.save](https://reference.aspose.com/slides/th/java/com.aspose.slides/iimage/#save-java.lang.String-int-) จะเปลี่ยนภาพที่สกัดเป็นรูปแบบผลลัพธ์ที่ร้องขอ หากต้องการไบต์ที่เข้ารหัสเก็บไว้ในงานนำเสนอแทนไฟล์แรสเตอร์ที่แปลงแล้ว ให้ใช้ข้อมูลไบต์ของแหล่งภาพแทน
+
+### **สกัดภาพ SVG**
+
+สำหรับภาพ SVG, [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) เปิดเผยอ็อบเจ็กต์ [ISvgImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/isvgimage/). สิ่งนี้ทำให้คุณดึงข้อมูล SVG โดยตรงแทนการแปลงภาพเป็นแรสเตอร์ก่อน
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+การเก็บเนื้อหา SVG เป็น SVG จะรักษาแหล่งเวกเตอร์ภายในงานนำเสนอ การส่งออกเป็นแรสเตอร์ เช่น PNG หรือ JPEG จำเป็นต้องเรนเดอร์เนื้อหาเวกเตอร์นั้นเป็นพิกเซล การส่งออกสไลด์เป็น PDF หรือ SVG ก็เป็นกระบวนการเรนเดอร์ ดังนั้นกราฟิกที่ส่งออกไม่ควรถูกมองว่าเป็นสำเนาไบต์ต่อไบต์ของ SVG ฝัง; ใช้ข้อมูลจาก [ISvgImage.getSvgData](https://reference.aspose.com/slides/th/java/com.aspose.slides/isvgimage/#getSvgData--) เมื่อจำเป็นต้องใช้แหล่งเวกเตอร์ดั้งเดิม
 
 ## **ครอบภาพ**
 
-โค้ด Java ด้านล่างแสดงวิธีครอบภาพที่มีอยู่บนสไลด์  
+การครอบเปลี่ยนส่วนของภาพที่มองเห็นได้ภายในกรอบ ค่าครอบบน [IPictureFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/) เป็นเปอร์เซ็นต์ของมิติภาพต้นฉบับ การครอบไม่ได้ลบพิกเซลที่ซ่อนอยู่จากภาพฝัง; มันเพียงแค่เปลี่ยนพื้นที่ที่มองเห็น
+
+ตัวอย่างต่อไปนี้ค้นหากรอบรูปภาพอย่างปลอดภัยและใช้ค่าครอบ:
 
 ```java
-Presentation pres = new Presentation();
-// สร้างอ็อบเจกต์ภาพใหม่
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
+import com.aspose.slides.*;
 
-    // เพิ่ม PictureFrame ไปยังสไลด์
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // ครอบภาพ (ค่าร้อยละ)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // บันทึกผลลัพธ์
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **ลบพื้นที่ที่ถูกครอปจากกรอบรูป**
-
-หากต้องการลบพื้นที่ที่ถูกครอปของภาพที่อยู่ในกรอบรูป คุณสามารถใช้เมธอด [deletePictureCroppedAreas()](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) เมธอดนี้จะคืนค่าภาพที่ครอปแล้วหรือภาพต้นฉบับหากการครอปไม่จำเป็น  
-
-โค้ด Java ด้านล่างสาธิตการทำงานนี้  
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // ดึง PictureFrame จากสไลด์แรก
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // ลบพื้นที่ที่ถูกครอปของภาพใน PictureFrame และคืนค่าภาพที่ถูกครอป
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // บันทึกผลลัพธ์
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="บันทึก" color="warning" %}} 
-เมธอด [deletePictureCroppedAreas()](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) จะเพิ่มภาพที่ครอปแล้วเข้าไปในคอลเล็กชันรูปภาพของงานนำเสนอ หากภาพถูกใช้เฉพาะใน [PictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/pictureframe/) ที่ประมวลผล วิธีนี้สามารถลดขนาดงานนำเสนอได้ มิฉะนั้นจำนวนภาพในงานนำเหตุผลที่ได้จะเพิ่มขึ้น  
-
-เมธอดนี้แปลงไฟล์เมตาฟายล์ WMF/EMF เป็นภาพ PNG แบบเรสเตอร์ในขั้นตอนการครอป  
-{{% /alert %}}
-
-## **บีบอัดภาพ**
-
-คุณสามารถบีบอัดรูปในงานนำเสนอโดยใช้เมธอด [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) เมธอดนี้บีบอัดภาพโดยลดขนาดตามขนาดรูปร่างและความละเอียดที่ระบุ พร้อมตัวเลือกให้ลบพื้นที่ที่ครอป  
-
-มันปรับขนาดและความละเอียดของรูปคล้ายกับฟีเจอร์ **Picture Format → Compress Pictures → Resolution** ของ PowerPoint  
-
-ตัวอย่าง Java ด้านล่างแสดงวิธีบีบอัดภาพในงานนำเสนอโดยกำหนดความละเอียดเป้าหมายและเลือกลบพื้นที่ที่ครอปหรือไม่  
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // บีบอัดภาพด้วยความละเอียดเป้าหมาย 150 DPI (ความละเอียดเว็บ) และลบพื้นที่ที่ถูกครอป
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // ตรวจสอบผลของการบีบอัด
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
     }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-หรือใช้ค่าความละเอียด DPI ที่กำหนดเองโดยตรง  
+เนื่องจากข้อมูลภาพที่ซ่อนยังคงอยู่ การครอบสามารถเปลี่ยนแปลงได้ภายหลังโดยไม่สูญเสียพิกเซลดั้งเดิม หากขนาดไฟล์เป็นปัจจัยสำคัญกว่าความสามารถย้อนกลับ พื้นที่ที่ครอบแล้วสามารถลบออกอย่างจริงจังตามที่อธิบายในส่วนต่อไป
+
+## **ลบข้อมูลภาพที่ครอบแล้ว**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) จะลบข้อมูลภาพที่อยู่นอกสี่เหลี่ยมครอบปัจจุบันและคืนแหล่งภาพผลลัพธ์ สิ่งนี้สามารถลดขนาดไฟล์ได้ แต่เป็นการเพิ่มประสิทธิภาพที่ทำลาย: หลังจากบันทึกงานนำเสนอ พิกเซลที่ถูกลบจะไม่สามารถกู้คืนสำหรับการยกเลิกครอบในภายหลัง
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // บีบอัดภาพเป็น 150 DPI (ความละเอียดเว็บ) โดยลบพื้นที่ที่ถูกครอปออก.
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="บันทึก" color="warning" %}} 
-เมธอดนี้แปลงภาพเป็นความละเอียดต่ำกว่าโดยอิงตามขนาดของรูปร่างและ DPI ที่ให้ไว้ สามารถลบพื้นที่ที่ครอปเพื่อเพิ่มประสิทธิภาพขนาดไฟล์ได้  
-หากภาพเป็นเมตาฟายล์ (WMF/EMF) หรือ SVG การบีบอัดจะไม่ถูกนำไปใช้ อีกทั้งคุณภาพ JPEG จะถูกเก็บรักษาหรือปรับลดเล็กน้อยตามความละเอียดเช่นเดียวกับการจัดการของ PowerPoint  
-{{% /alert %}}
+วิธีการนี้อาจเพิ่มแหล่งภาพใหม่ลงในงานนำเสนอ หากภาพต้นฉบับยังถูกใช้โดยกรอบรูปภาพอื่น ๆ กรอบเหล่านั้นยังคงต้องการแหล่งเดิมของตน ดังนั้นการลบพื้นที่ที่ครอบไม่จำเป็นต้องลดจำนวนภาพทั้งหมด การครอบเนื้อหา WMF หรือ EMF ด้วยวิธีนี้จะทำให้ผลลัพธ์ที่ครอบถูกแปลงเป็น PNG
 
-## **ล็อกอัตราส่วน**
+## **บีบอัดภาพแรสเตอร์**
 
-หากต้องการให้รูปร่างที่บรรจุภาพคงอัตราส่วนเดิมแม้เปลี่ยนขนาดภาพ คุณสามารถใช้เมธอด [setAspectRatioLocked](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) เพื่อตั้งค่าการ *Lock Aspect Ratio*  
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) ลดความละเอียดของภาพแรสเตอร์สัมพันธ์กับขนาดที่ภาพแสดง มันยังสามารถลบพื้นที่ที่ครอบในขั้นตอนเดียวได้ เมธอดจะคืนค่า `true` เมื่อภาพถูกปรับขนาดหรือครอบและ `false` เมื่อไม่มีการเปลี่ยนแปลงใด ๆ จำเป็น
 
-โค้ด Java ด้านล่างแสดงวิธีล็อกอัตราส่วนของรูปร่าง  
+ใช้ค่า [PicturesCompression](https://reference.aspose.com/slides/th/java/com.aspose.slides/picturescompression/) ล่วงหน้าหากความละเอียดเป้าหมายมาตรฐานเพียงพอ:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // ตั้งค่ารูปร่างให้รักษาอัตราส่วนเมื่อปรับขนาด
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+สามารถส่งค่าความละเอียด DPI บวกแบบกำหนดเองแทนค่าล่วงหน้าได้เมื่อจำเป็นต้องการเป้าหมายเฉพาะ
+
+การบีบอัดตั้งใจสำหรับภาพแรสเตอร์ SVG และเนื้อหาเมตาฟายล์ไม่ถูกลดโดยกระบวนการบีบอัดแรสเตอร์นี้ นอกจากนี้อย่าลืมว่าความละเอียดต่ำและการลบพื้นที่ที่ครอบไม่สามารถกู้คืนจากงานนำเสนอที่เพิ่มประสิทธิภาพแล้ว เลือกความละเอียดเป้าหมายโดยอิงจากขนาดสูงสุดที่ภาพจะถูกดูหรือส่งออกจริง ๆ แทนการกำหนด DPI ต่ำสุดทั่วทั้งงานนำเสนอ
+
+## **ตรวจสอบเอฟเฟกต์ภาพ**
+
+เอฟเฟกต์รูปภาพถูกเก็บบนภาพที่ใช้โดยกรอบ คอลเลกชันการแปลงภาพสามารถมีเอฟเฟกต์เช่นการปรับค่าแอลฟ่าคงที่สำหรับความโปร่งใสและความสว่างของลูมินานซ์ ตัวอย่างด้านล่างอ่านเอฟเฟกต์ทั้งสองประเภทจากกรอบรูปภาพแรกบนสไลด์อย่างปลอดภัย:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (IImageTransformOperation effect : imageTransform) {
+            if (effect instanceof IAlphaModulateFixed) {
+                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
+                float transparency = 100 - alphaModulateFixed.getAmount();
+                System.out.println("Transparency: " + transparency);
+            }
+
+            if (effect instanceof ILuminance) {
+                ILuminance luminanceEffect = (ILuminance) effect;
+                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
+                System.out.println("Brightness: " + luminance.getBrightness());
+                System.out.println("Contrast: " + luminance.getContrast());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+เอฟเฟกต์เหล่านี้เปลี่ยนวิธีการเรนเดอร์ภาพในกรอบ; พวกมันไม่เขียนทับไบต์ของภาพฝังดั้งเดิม
+
+## **ล็อกเรขาคณิตของกรอบรูปภาพ**
+
+การตั้งค่า [IPictureFrameLock](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframelock/) ควบคุมว่าการดำเนินการแก้ไขใดบ้างที่ถูกปิดใช้งานสำหรับกรอบรูปภาพ ตัวอย่างเช่น [setAspectRatioLocked](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) จะรักษาอัตราส่วนของรูปร่างขณะปรับขนาด
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="บันทึก" color="warning" %}} 
-การตั้งค่า *Lock Aspect Ratio* นี้จะรักษาอัตราส่วนของรูปร่างเท่านั้น ไม่รวมถึงภาพที่บรรจุอยู่ภายใน  
-{{% /alert %}}
+การล็อกนี้ใช้กับรูปร่างกรอบรูปภาพ ไม่ได้บังคับให้ภาพต้นฉบับถูกรีแซมพลหรือเปลี่ยนอัตราส่วนอย่างถาวร
 
-## **ใช้คุณสมบัติ StretchOff**
+## **ปรับค่า StretchOffset**
 
-โดยใช้คุณสมบัติ [StretchOffsetLeft](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) และ [StretchOffsetBottom](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) จากอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPictureFillFormat) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPictureFillFormat) คุณสามารถกำหนดสี่เหลี่ยมเติมได้  
+เมื่อโหมดการเติมรูปภาพเป็น stretch, ค่าระยะ offset บน [IPictureFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/) กำหนดสี่เหลี่ยมเติมสัมพันธ์กับกล่องขอบของกรอบรูปภาพ เปอร์เซ็นต์บวกสร้างการเว้นจากขอบ, ส่วนเปอร์เซ็นต์ลบสร้างการขยายออก
 
-เมื่อกำหนดการยืดสำหรับภาพ สี่เหลี่ยมต้นฉบับจะถูกสเกลให้พอดีกับสี่เหลี่ยมเติมที่ระบุ แต่ละขอบของสี่เหลี่ยมเติมถูกกำหนดด้วยออฟเซ็ตเปอร์เซ็นต์จากขอบที่สอดคล้องของกล่องขอบเขตรูปร่าง ออฟเซ็ตเปอร์เซ็นต์บวกแสดงการเว้นระยะในขณะออฟเซ็ตเปอร์เซ็นต์ลบแสดงการขยายออก  
-
-1. สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เพิ่ม `AutoShape` แบบสี่เหลี่ยม  
-4. สร้างภาพ  
-5. ตั้งค่าประเภทการเติมของรูปร่าง  
-6. ตั้งค่าโหมดการเติมรูปของรูปร่าง  
-7. เพิ่มภาพเพื่อเติมรูปร่าง  
-8. ระบุออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องขอบเขตรูปร่าง  
-9. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+นี่แตกต่างจากการครอบ ค่าครอบเลือกส่วนของภาพต้นฉบับที่จะแสดง, ส่วน offset จะเปลี่ยนสี่เหลี่ยมที่ภาพเติมจะถูกยืดออก
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // ดึงสไลด์แรก
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // สร้างอินสแตนซ์ของคลาส ImageEx
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // เพิ่ม AutoShape ตั้งค่าเป็นสี่เหลี่ยม
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // ตั้งค่าชนิดการเติมของรูปร่าง
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // ตั้งค่าโหมดการเติมรูปภาพของรูปร่าง
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // ตั้งค่าภาพเพื่อเติมรูปร่าง
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // ระบุออฟเซ็ตของภาพจากขอบที่สอดคล้องของกล่องขอบเขตรูปร่าง
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    //บันทึกไฟล์ PPTX ลงดิสก์
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+ใช้ offset สำหรับการวางเติม ใช้คุณสมบัติการครอบเมื่อเป้าหมายคือซ่อนขอบของภาพต้นฉบับ
+
+## **การจัดเก็บ, ขนาดไฟล์, และการพิจารณาการส่งออก**
+
+การตัดสินใจหลักเป็นเรื่องง่ายขึ้นเมื่อการจัดเก็บภาพและการจัดรูปแบบกรอบรูปภาพแยกกัน:
+
+- **ภาพฝัง** ทำให้งานนำเสนอเป็นแบบอิสระและเชื่อถือได้ที่สุดสำหรับการแชร์และการเรนเดอร์บนเซิร์ฟเวอร์, แต่ภาพแรสเตอร์ขนาดใหญ่จะเพิ่มขนาด PPTX และการใช้หน่วยความจำ
+- **ภาพเชื่อมโยง** สามารถทำให้แพ็กเกจมีขนาดเล็กลง, แต่งานนำเข้าพึ่งพาไฟล์ภายนอกที่ต้องคงอยู่ที่เส้นทางหรือสถานที่ที่จัดเก็บไว้
+- **การครอบ** เริ่มต้นเป็นแบบไม่ทำลาย พิกเซลที่ซ่อนไว้ยังคงฝังอยู่จนกว่าจะมีการลบพื้นที่ที่ครอบอย่างชัดเจนหรือระหว่างการบีบอัด
+- **การบีบอัด** สามารถลดขนาดไฟล์ได้อย่างมากสำหรับภาพแรสเตอร์ที่ใหญ่เกินขนาด, แต่จะทำให้ความละเอียดต้นฉบับสูญเสีย ควรทำหลังจากที่知ขนาดบนสไลด์ที่ต้องการแสดงแล้ว
+- **ภาพ SVG** ควรคงเป็น SVG เมื่อการรักษาเวกเตอร์สำคัญ สกัด SVG ฝังโดยตรงเมื่อคุณต้องการแหล่งเวกเตอร์เอง การส่งออกสไลด์เป็นแรสเตอร์จะเปลี่ยนสไลด์ที่เรนเดอร์เป็นพิกเซลเสมอ
+- **ภาพที่ใช้ซ้ำ** ควรใช้แหล่ง [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) ที่มีอยู่แล้วเมื่อเป็นไปได้ แทนการโหลดไฟล์เดียวกันหลายครั้งเข้าสู่เวิร์กโฟลว์งานนำเสนอ
+
+สำหรับงานนำเสนอขนาดใหญ่ การเพิ่มประสิทธิภาพภาพมักจะได้ผลดีที่สุดเมื่อทำแบบเลือกเฉพาะ: เก็บโลโก้และไดอะแกรมเป็นเนื้อหาเวกเตอร์, บีบอัดภาพถ่ายตามขนาดการแสดงจริง, ลบพิกเซลที่ครอบเมื่อไม่มีการแก้ไขต่อไป, และหลีกเลี่ยงลิงก์ภายนอกเว้นแต่การจัดการการพึ่งพาจะเป็นส่วนหนึ่งของการออกแบบการนำส่ง
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบได้ว่ารูปแบบภาพใดบ้างที่รองรับสำหรับ PictureFrame?**  
-Aspose.Slides รองรับทั้งภาพเรสเตอร์ (PNG, JPEG, BMP, GIF ฯลฯ) และภาพเวกเตอร์ (เช่น SVG) ผ่านอ็อบเจกต์ภาพที่กำหนดให้กับ [PictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/pictureframe/) รายชื่อรูปแบบที่รองรับมักสอดคล้องกับความสามารถของเอนจินการแปลงสไลด์และภาพ
+**ความแตกต่างระหว่างกรอบรูปภาพและแหล่งภาพคืออะไร?**
 
-**การเพิ่มรูปภาพจำนวนมากขนาดใหญ่จะส่งผลต่อขนาดและประสิทธิภาพของไฟล์ PPTX อย่างไร?**  
-การฝังรูปภาพขนาดใหญ่จะเพิ่มขนาดไฟล์และการใช้หน่วยความจำ; การลิงก์รูปภาพช่วยลดขนาดงานนำเสนอแต่ต้องให้ไฟล์ภายนอกยังคงเข้าถึงได้ Aspose.Slides มีความสามารถในการเพิ่มรูปภาพโดยลิงก์เพื่อประหยัดขนาดไฟล์
+[IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) แทนแหล่งภาพที่เชื่อมโยงกับงานนำเสนอ ส่วน [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/) เป็นรูปร่างบนสไลด์ที่แสดงภาพและเก็บเรขาคณิตระดับกรอบและการจัดรูปแบบ เช่น ขนาด, การหมุน, ค่าครอบ, เอฟเฟกต์, และล็อก
 
-**ฉันจะล็อกอ็อบเจกต์ภาพไม่ให้ถูกย้ายหรือปรับขนาดโดยไม่ได้ตั้งใจได้อย่างไร?**  
-ใช้ [shape locks](https://reference.aspose.com/slides/th/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) สำหรับ [PictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/pictureframe/) (เช่น ปิดการย้ายหรือปรับขนาด) กลไกการล็อกนี้อธิบายไว้สำหรับรูปร่างในบทความการป้องกันแยกต่างหาก [/slides/th/java/applying-protection-to-presentation/] และรองรับหลายประเภทรูปร่างรวมถึง [PictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/pictureframe/)
+**ควรฝังหรือเชื่อมโยงภาพ?**
 
-**ความแม่นยำของเวกเตอร์ SVG จะถูกเก็บรักษาเมื่อส่งออกงานนำเสนอเป็น PDF/รูปภาพหรือไม่?**  
-Aspose.Slides สามารถสกัด SVG จาก [PictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/pictureframe/) ได้เป็นเวกเตอร์ดั้งเดิม เมื่อ [ส่งออกเป็น PDF](/slides/th/java/convert-powerpoint-to-pdf/) หรือ [รูปแบบเรสเตอร์](/slides/th/java/convert-powerpoint-to-png/) ผลลัพธ์อาจถูกเรสเตอร์ขึ้นขึ้นอยู่กับการตั้งค่าการส่งออก; ความจริงว่า SVG ดั้งเดิมถูกเก็บเป็นเวกเตอร์จะได้รับการยืนยันจากพฤติกรรมการสกัด  
+ฝังภาพเมื่อจำเป็นต้องการความพกพา, การเก็บถาวร, หรือการเรนเดอร์โดยไม่มีแหล่งภายนอก เชื่อมโยงภาพเฉพาะเมื่อตั้งใจเก็บไฟล์ภาพอยู่นอก PPTX และสามารถรักษาตำแหน่งภายนอกได้อย่างน่าเชื่อถือ
 
+**การครอบลดขนาดไฟล์ PPTX หรือไม่?**
+
+ไม่โดยตรง การตั้งค่าครอบปกติจะซ่อนไฟล์ภาพส่วนที่ไม่ได้ใช้แต่ยังคงเก็บพิกเซลไว้ ใช้ [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) หรือการบีบอุ่นพร้อมการลบพื้นที่ที่ครอบเมื่อพิกเซลเหล่านั้นสามารถลบได้โดยถาวร
+
+**ฉันสามารถกู้คืนคุณภาพภาพหลังบีบอัดได้หรือไม่?**
+
+ไม่ การบีบอัดอาจลดความละเอียดแรสเตอร์ที่เก็บไว้และการลบพื้นที่ที่ครอบจะทำให้ข้อมูลภาพหายไป เก็บภาพต้นฉบับอยู่ภายนอกงานนำเสนอหากอาจต้องการการแก้ไขความละเอียดสูงในภายหลัง
+
+**ควรจัดการภาพ SVG อย่างไร?**
+
+เก็บเนื้อหา SVG เป็น SVG เมื่อความแม่นยำของเวกเตอร์สำคัญ สามารถสกัด [ISvgImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/isvgimage/) ฝังได้โดยตรง การเรนเดอร์สไลด์เป็นรูปแบบแรสเตอร์เช่น PNG หรือ JPEG จะทำให้ SVG ถูกแปลงเป็นพิกเซล
+
+**ฉันจะหลีกเลี่ยงการแคสที่ไม่ปลอดภัยเมื่ออ่านสไลด์ที่มีอยู่ได้อย่างไร?**
+
+ตรวจสอบประเภทรูปร่างก่อนใช้สมาชิกเฉพาะกรอบรูปภาพ การตรวจสอบ `instanceof` กับ [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/) จะหลีกเลี่ยงการแคสที่ไม่ถูกต้องและให้โค้ดจัดการสไลด์ที่ไม่มีกรอบรูปภาพได้อย่างเหมาะสม

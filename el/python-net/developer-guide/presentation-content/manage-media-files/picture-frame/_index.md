@@ -1,6 +1,6 @@
 ---
-title: Πρόσθεση πλαισίων εικόνας σε παρουσιάσεις με Python
-linktitle: Πλαίσιο εικόνας
+title: Διαχείριση Πλαισίων Εικόνας σε Παρουσιάσεις με Python
+linktitle: Πλαίσιο Εικόνας
 type: docs
 weight: 10
 url: /el/python-net/picture-frame/
@@ -8,473 +8,358 @@ keywords:
 - πλαίσιο εικόνας
 - προσθήκη πλαισίου εικόνας
 - δημιουργία πλαισίου εικόνας
-- προσθήκη εικόνας
-- δημιουργία εικόνας
+- ενσωματωμένη εικόνα
+- συνδεδεμένη εικόνα
 - εξαγωγή εικόνας
-- ραστερ εικόνας
-- διανυσματική εικόνα
+- εικόνα raster
+- εικόνα SVG
 - περικοπή εικόνας
-- περικομμένη περιοχή
-- ιδιότητα StretchOff
+- διαγραφή περικομμένων περιοχών
+- συμπίεση εικόνας
+- StretchOffset
 - μορφοποίηση πλαισίου εικόνας
-- ιδιότητες πλαισίου εικόνας
 - σχετική κλίμακα
 - εφέ εικόνας
 - αναλογία διαστάσεων
-- διαφάνεια εικόνας
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Προσθέστε πλαίσια εικόνας σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides for Python μέσω .NET. Βελτιώστε τη ροή εργασίας σας και ενισχύστε το σχεδιασμό των διαφανειών."
+description: "Δημιουργία, μορφοποίηση, σύνδεση, περικοπή, εξαγωγή και συμπίεση πλαισίων εικόνας σε παρουσιάσεις με Aspose.Slides για Python μέσω .NET."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Τα πλαίσια εικόνας στο Aspose.Slides for Python σάς επιτρέπουν να προσθέτετε και να διαχειρίζεστε ραστερ και διάνυσμα εικόνες ως ενσωματωμένα σχήματα διαφάνειας. Μπορείτε να εισάγετε εικόνες από αρχεία ή ροές, να τις τοποθετήσετε και να αλλάξετε το μέγεθός τους με ακριβείς συντεταγμένες, να εφαρμόσετε περιστροφή, να ορίσετε διαφάνεια και να ελέγξετε τη σειρά z μαζί με άλλα σχήματα. Το API υποστηρίζει επίσης περικοπή, διατήρηση αναλογιών, ορισμό περιθωρίων και εφέ, και αντικατάσταση της υποκείμενης εικόνας χωρίς να ξαναχτίσετε τη διάταξη. Επειδή τα πλαίσια εικόνας συμπεριφέρονται όπως τα κανονικά σχήματα, μπορείτε να προσθέτετε κινούμενα σχέδια, υπερσυνδέσμους και εναλλακτικό κείμενο, καθιστώντας εύκολο το δημιουργία οπτικά πλούσιων, προσβάσιμων παρουσιάσεων.
+Ένα πλαίσιο εικόνας είναι ένα σχήμα διαφάνειας που εμφανίζει μια εικόνα. Στο Aspose.Slides, ο πόρος εικόνας και το σχήμα που την εμφανίζει είναι ξεχωριστά αντικείμενα: ένα [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) κατέχει ενσωματωμένους πόρους εικόνας μέσω του [ImageCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/imagecollection/), ενώ ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) ελέγχει τη θέση, το μέγεθος, τη μορφοποίηση γραμμής, την περιστροφή, το περικοπή, τα εφέ εικόνας και άλλες ρυθμίσεις επιπέδου πλαισίου.
 
-## **Δημιουργία πλαισίων εικόνας**
+Αυτή η διάσπαση είναι χρήσιμη όταν η ίδια εικόνα εμφανίζεται περισσότερες από μία φορές. Προσθέστε την εικόνα στην παρουσίαση μία φορά, διατηρήστε το επιστρεφόμενο [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/), και χρησιμοποιήστε αυτόν τον πόρο εικόνας όταν δημιουργείτε πλαίσια εικόνας.
 
-Αυτή η ενότητα δείχνει πώς να εισάγετε μια εικόνα σε μια διαφάνεια δημιουργώντας ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) με το Aspose.Slides for Python. Θα μάθετε πώς να φορτώνετε την εικόνα, να τη τοποθετείτε ακριβώς στη διαφάνεια και να ελέγχετε το μέγεθος και τη μορφοποίηση της.
+Τα πλαίσια εικόνας μπορούν να περιέχουν raster εικόνες όπως PNG ή JPEG και vector εικόνες SVG. Μπορούν επίσης να αναφέρονται σε συνδεδεμένες εικόνες αντί να αποθηκεύουν τα bytes της εικόνας στην παρουσίαση. Η επιλογή επηρεάζει τη φορητότητα, το μέγεθος αρχείου, την εξαγωγή και τη συμπεριφορά εξαγωγής, οπότε είναι χρήσιμο να αποφασίσετε πώς θα αποθηκευτεί η εικόνα πριν εφαρμόσετε μορφοποίηση ή βελτιστοποίηση.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-2. Λάβετε μια διαφάνεια με βάση το ευρετήριο της.
-3. Δημιουργήστε ένα [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/) προσθέτοντας την εικόνα στη [ImageCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/imagecollection/) της παρουσίασης. Αυτή η εικόνα θα χρησιμοποιηθεί για γέμισμα του σχήματος.
-4. Ορίστε το πλάτος και το ύψος του πλαισίου.
-5. Δημιουργήστε ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) με αυτό το μέγεθος χρησιμοποιώντας τη μέθοδο [add_picture_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_picture_frame/).
-6. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
+## **Προσθήκη και μορφοποίηση ενσωματωμένης εικόνας**
 
-Ο παρακάτω κώδικας Python δείχνει πώς να δημιουργήσετε ένα πλαίσιο εικόνας:
+Για ενσωματωμένη εικόνα, προσθέστε τα δεδομένα εικόνας στην παρουσίαση και δημιουργήστε ένα πλαίσιο εικόνας με [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_picture_frame/). Η εικόνα γίνεται μέρος του πακέτου παρουσίασης, έτσι η παρουσίαση παραμένει αυτόνομη όταν μεταφέρεται σε άλλο υπολογιστή.
 
-```py
-import aspose.slides as slides
-
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation για την αναπαράσταση ενός αρχείου PPTX.
-with slides.Presentation() as presentation:
-    # Λάβετε την πρώτη διαφάνεια.
-    slide = presentation.slides[0]
-
-    # Προσθέστε την εικόνα στην παρουσίαση.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Προσθέστε ένα πλαίσιο εικόνας με μέγεθος ίσο με της εικόνας.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # Αποθηκεύστε την παρουσίαση ως PPTX.
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-Τα πλαίσια εικόνας σάς επιτρέπουν να δημιουργείτε γρήγορα διαφάνειες παρουσίασης από εικόνες. Όταν συνδυάζετε τα πλαίσια εικόνας με τις επιλογές αποθήκευσης του Aspose.Slides, μπορείτε να ελέγχετε τις λειτουργίες I/O για μετατροπή εικόνων από τη μια μορφή στην άλλη. Μπορείτε να δείτε αυτές τις σελίδες: μετατροπή [image to JPG](https://products.aspose.com/slides/el/python-net/conversion/image-to-jpg/); μετατροπή [JPG to image](https://products.aspose.com/slides/el/python-net/conversion/jpg-to-image/); μετατροπή [JPG to PNG](https://products.aspose.com/slides/el/python-net/conversion/jpg-to-png/); μετατροπή [PNG to JPG](https://products.aspose.com/slides/el/python-net/conversion/png-to-jpg/); μετατροπή [PNG to SVG](https://products.aspose.com/slides/el/python-net/conversion/png-to-svg/); μετατροπή [SVG to PNG](https://products.aspose.com/slides/el/python-net/conversion/svg-to-png/).
-{{% /alert %}}
-
-## **Δημιουργία πλαισίων εικόνας με σχετική κλίμακα**
-
-Αυτή η ενότητα δείχνει πώς να τοποθετήσετε μια εικόνα σε σταθερό μέγεθος και στη συνέχεια να εφαρμόσετε κλιμάκωση με ποσοστό ανεξάρτητα στο πλάτος και το ύψος της. Επειδή τα ποσοστά μπορεί να διαφέρουν, η αναλογία διαστάσεων μπορεί να αλλάξει. Η κλιμάκωση γίνεται σε σχέση με τις αρχικές διαστάσεις της εικόνας.
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-2. Λάβετε μια διαφάνεια με βάση το ευρετήριο της.
-3. Δημιουργήστε ένα [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/) προσθέτοντας την εικόνα στη [ImageCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/imagecollection/) της παρουσίασης.
-4. Προσθέστε ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) στη διαφάνεια.
-5. Ορίστε το σχετικό πλάτος και ύψος του πλαισίου εικόνας.
-6. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
-
-Ο παρακάτω κώδικας Python δείχνει πώς να δημιουργήσετε ένα πλαίσιο εικόνας με σχετική κλιμάκωση:
-
-```py
-import aspose.slides as slides
-
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation για την αναπαράσταση ενός αρχείου PPTX.
-with slides.Presentation() as presentation:
-    # Λάβετε την πρώτη διαφάνεια.
-    slide = presentation.slides[0]
-
-    # Προσθέστε την εικόνα στη συλλογή εικόνων της παρουσίασης.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Προσθέστε ένα πλαίσιο εικόνας στη διαφάνεια.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # Ορίστε το σχετικό πλάτος και ύψος κλιμάκωσης.
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # Αποθηκεύστε την παρουσίαση.
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Εξαγωγή ραστών εικόνων από πλαίσια εικόνας**
-
-Μπορείτε να εξάγετε ραστές εικόνες από αντικείμενα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) και να τις αποθηκεύσετε σε PNG, JPG και άλλες μορφές. Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε μια εικόνα από το έγγραφο «sample.pptx» και να την αποθηκεύσετε σε μορφή PNG.
+Το παρακάτω παράδειγμα προσθέτει μια εικόνα JPEG, δημιουργεί ένα πλαίσιο στις φυσικές διαστάσεις της εικόνας και εφαρμόζει μορφοποίηση γραμμής και περιστροφή:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **Εξαγωγή SVG εικόνων από πλαίσια εικόνας**
-
-Όταν μια παρουσίαση περιέχει SVG γραφικά ενσωματωμένα σε σχήματα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/), το Aspose.Slides for Python via .NET σας επιτρέπει να ανακτήσετε τις αρχικές διανυσματικές εικόνες με πλήρη πιστότητα. Διασχίζοντας τη συλλογή σχημάτων της διαφάνειας, μπορείτε να εντοπίσετε κάθε [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/), να ελέγξετε αν το υποκείμενο [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/) περιέχει περιεχόμενο SVG και μετά να αποθηκεύσετε αυτή την εικόνα στο δίσκο ή σε ροή στην γνήσια μορφή SVG.
-
-Ο παρακάτω κώδικας δείχνει πώς να εξάγετε μια SVG εικόνα από ένα πλαίσιο εικόνας:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **Λήψη διαφάνειας εικόνας**
-
-Το Aspose.Slides σάς επιτρέπει να ανακτήσετε το εφέ διαφάνειας που έχει εφαρμοστεί σε μια εικόνα. Αυτός ο κώδικας Python δείχνει τη λειτουργία:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-Όλα τα εφέ που εφαρμόζονται σε εικόνες μπορούν να βρεθούν στο [aspose.slides.effects](https://reference.aspose.com/slides/el/python-net/aspose.slides.effects/).
-{{% /alert %}}
-
-## **Λήψη φωτεινότητας και αντίθεσης εικόνας**
-
-Το Aspose.Slides σάς επιτρέπει να ανακτήσετε το εφέ φωτεινότητας και αντίθεσης που έχει εφαρμοστεί σε μια εικόνα. Η κλάση [Luminance](https://reference.aspose.com/slides/el/python-net/aspose.slides.effects/luminance/) αντιπροσωπεύει αυτό το εφέ μετασχηματισμού εικόνας.
-
-Αυτός ο κώδικας Python δείχνει πώς να λάβετε τις ρυθμίσεις φωτεινότητας και αντίθεσης από ένα πλαίσιο εικόνας:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **Μορφοποίηση πλαισίου εικόνας**
-
-Το Aspose.Slides παρέχει πολλές επιλογές μορφοποίησης που μπορείτε να εφαρμόσετε σε ένα πλαίσιο εικόνας. Με αυτές τις επιλογές, μπορείτε να προσαρμόσετε το πλαίσιο ώστε να ανταποκρίνεται σε συγκεκριμένες απαιτήσεις.
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-2. Λάβετε μια διαφάνεια με βάση το ευρετήριο της.
-3. Δημιουργήστε ένα [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/) προσθέτοντας την εικόνα στη [ImageCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/imagecollection/) της παρουσίασης. Αυτή η εικόνα θα χρησιμοποιηθεί για γέμισμα του σχήματος.
-4. Ορίστε το πλάτος και το ύψος του πλαισίου.
-5. Δημιουργήστε ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) με αυτό το μέγεθος χρησιμοποιώντας τη μέθοδο [add_picture_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_picture_frame/) του slide.
-6. Ορίστε το χρώμα γραμμής του πλαισίου εικόνας.
-7. Ορίστε το πάχος γραμμής του πλαισίου εικόνας.
-8. Περιστρέψτε το πλαίσιο εικόνας παρέχοντας θετική (δεξιόστροφα) ή αρνητική (αριστερόστροφα) τιμή.
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Ο παρακάτω κώδικας Python δείχνει τη διαδικασία μορφοποίησης πλαισίου εικόνας:
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation για την αναπαράσταση ενός αρχείου PPTX.
 with slides.Presentation() as presentation:
-    # Λάβετε την πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
-    # Προσθέστε την εικόνα στη συλλογή εικόνων της παρουσίασης.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # Προσθέστε ένα πλαίσιο εικόνας με μέγεθος ίσο με της εικόνας.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # Εφαρμόστε μορφοποίηση στο πλαίσιο εικόνας.
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # Αποθηκεύστε την παρουσίαση ως PPTX.
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Η Aspose έχει αναπτύξει ένα δωρεάν [Collage Maker](https://products.aspose.app/slides/el/collage). Αν χρειάζεστε να [συγχωνεύσετε JPG/JPEG](https://products.aspose.app/slides/el/collage/jpg) ή PNG εικόνες, ή να [δημιουργήσετε πλέγματα φωτογραφιών](https://products.aspose.app/slides/el/collage/photo-grid), μπορείτε να χρησιμοποιήσετε αυτήν την υπηρεσία.
-{{% /alert %}}
+Το πλαίσιο εικόνας ελέγχει τη γεωμετρία που εμφανίζεται· η αλλαγή του μεγέθους του πλαισίου δεν αλλάζει τις αρχικές διαστάσεις pixel που αποθηκεύονται στον ενσωματωμένο πόρο εικόνας. Αυτή η διάκριση γίνεται σημαντική όταν περικόπτουμε ή συμπιέζουμε μια εικόνα αργότερα.
 
-## **Προσθήκη εικόνων ως συνδέσμους**
+## **Χρήση σχετικής κλίμακας**
 
-Για να διατηρήσετε τα αρχεία παρουσίασης μικρά, μπορείτε να προσθέσετε εικόνες ή βίντεο μέσω συνδέσμων αντί να ενσωματώνετε τα αρχεία απευθείας στις παρουσιάσεις. Ο παρακάτω κώδικας Python δείχνει πώς να εισάγετε μια εικόνα και ένα βίντεο σε έναν σύμβολο κράτησης θέσης:
+[PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) εκθέτει τις ιδιότητες [relative_scale_width](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/relative_scale_width/) και [relative_scale_height](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/relative_scale_height/) για το πλαίσιο. Μια τιμή του `1.0` αντιστοιχεί στο 100 % του αρχικού μεγέθους εικόνας. Η σχετική κλίμακα είναι χρήσιμη όταν μια ροή εργασίας πρέπει να διατηρήσει τη σχέση με το μέγεθος της πηγαίας εικόνας αντί να υπολογίζει τα τελικά διαστάσεων χειροκίνητα.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Η σχετική κλίμακα αλλάζει τις ρυθμίσεις κλίμακας του πλαισίου· δεν επαναδειγματοληπτεί ή συμπιέζει την ενσωματωμένη εικόνα.
+
+## **Ενσωματωμένες και συνδεδεμένες εικόνες**
+
+Μια ενσωματωμένη εικόνα αποθηκεύει τα δεδομένα εικόνας μέσα στην παρουσίαση και είναι επομένως η πιο ασφαλής επιλογή για φορητότητα και προβλέψιμη απόδοση. Μια συνδεδεμένη εικόνα αποθηκεύει μια εξωτερική τοποθεσία μέσω της διαδρομής σύνδεσης [Picture](https://reference.aspose.com/slides/el/python-net/aspose.slides/picture/) αντί να ενσωματώνει τα δεδομένα εικόνας με τον ίδιο τρόπο.
+
+Οι συνδεδεμένες εικόνες μπορούν να μειώσουν την ποσότητα δεδομένων εικόνας που αποθηκεύεται στο PPTX, αλλά εισάγουν εξωτερική εξάρτηση. Το συνδεδεμένο αρχείο πρέπει να παραμένει προσβάσιμο στην εφαρμογή που ανοίγει ή αποδίδει την παρουσίαση. Εάν η διαδρομή αλλάξει, το αρχείο μετακινηθεί ή ο πόρος δεν είναι διαθέσιμος, η συνδεδεμένη εικόνα μπορεί να μην εμφανιστεί όπως αναμένεται. Για παρουσιάσεις που πρέπει να σταλούν μέσω email, να αρχειοθετηθούν ή να αποδοθούν σε απομονωμένα περιβάλλοντα, οι ενσωματωμένες εικόνες είναι συνήθως πιο αξιόπιστες.
+
+### **Προσθήκη συνδεδεμένης εικόνας**
+
+Το παρακάτω παράδειγμα δημιουργεί ένα πλαίσιο εικόνας και το κατευθύνει σε ένα τοπικό αρχείο εικόνας. Ασχολείται μόνο με τη σύνδεση εικόνας· η σύνδεση βίντεο είναι ξεχωριστή ροή πολυμέσων και σκόπιμα δεν συγχωνεύεται σε αυτό το παράδειγμα.
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Χρησιμοποιήστε συνδέσμους όταν η διαχείριση εξωτερικών αρχείων είναι σκόπιμη. Μην τους χρησιμοποιείτε μόνο ως υποκατάσταση της συμπίεσης: ένα μικρό PPTX με σπασμένες εξαρτήσεις εικόνας είναι συνήθως λιγότερο χρήσιμο από μια μεγαλύτερη αυτόνομη παρουσίαση.
+
+## **Εξαγωγή εικόνων από πλαίσια εικόνας**
+
+Πριν εξάγετε μια εικόνα από μια υπάρχουσα παρουσίαση, ελέγξτε ότι ένα σχήμα είναι πραγματικά ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) και ότι περιέχει ενσωματωμένη εικόνα. Τα συνδεδεμένα πλαίσια εικόνας ενδέχεται να μην περιέχουν bytes εικόνας που μπορούν να εξαχθούν με τον ίδιο τρόπο.
+
+### **Εξαγωγή raster εικόνας**
+
+Το σύγχρονο API εικόνας χρησιμοποιεί άμεσα το [IImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/iimage/). Το παρακάτω παράδειγμα εντοπίζει την πρώτη ενσωματωμένη raster εικόνα σε μια διαφάνεια και την αποθηκεύει ως PNG:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **Περικοπή εικόνων**
+Η αποθήκευση μέσω του [IImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/iimage/) μετατρέπει την εξαγόμενη εικόνα στη ζητούμενη μορφή εξόδου. Εάν χρειάζεστε τα κωδικοποιημένα bytes που αποθηκεύονται στην παρουσίαση αντί για ένα μετατρεπόμενο raster αρχείο, χρησιμοποιήστε την ιδιότητα [PPImage.binary_data](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/binary_data/) αντί αυτής.
 
-Σε αυτήν την ενότητα, θα μάθετε πώς να περικόψετε την ορατή περιοχή μιας εικόνας μέσα σε πλαίσιο εικόνας χωρίς να αλλάξετε το αρχείο προέλευσης. Θα μάθετε επίσης τη βασική μέθοδο για την εφαρμογή περιθωρίων περικοπής ώστε να δημιουργήσετε μια καθαρή, εστιασμένη σύνθεση απευθείας στη διαφάνεια.
+### **Εξαγωγή SVG εικόνας**
 
-Ο παρακάτω κώδικας Python δείχνει πώς να περικόψετε μια εικόνα σε μια διαφάνεια:
+Για μια SVG εικόνα, το [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/) εκθέτει ένα αντικείμενο [SvgImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/svgimage/). Αυτό σας επιτρέπει να ανακτήσετε τα δεδομένα SVG απευθείας αντί να ραστερινίσετε την εικόνα πρώτα.
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+Η διατήρηση του περιεχομένου SVG ως SVG διατηρεί την vector πηγή μέσα στην παρουσίαση. Οι εξαγωγές raster όπως PNG ή JPEG υποχρεωτικά αποδίδουν αυτό το vector περιεχόμενο σε pixel. Η εξαγωγή διαφανειών σε PDF ή SVG είναι επίσης μια διαδικασία απόδοσης, επομένως τα εξαγόμενα γραφικά δεν πρέπει να θεωρούνται ακριβείς αντιγραφές byte‑by‑byte του αρχικού ενσωματωμένου SVG· χρησιμοποιήστε το ενσωματωμένο [SvgImage.svg_data](https://reference.aspose.com/slides/el/python-net/aspose.slides/svgimage/svg_data/) όταν απαιτείται ο ίδιος ο vector πόρος.
+
+## **Περικοπή εικόνας**
+
+Η περικοπή αλλάζει ποιο τμήμα μιας εικόνας είναι ορατό μέσα στο πλαίσιο. Οι τιμές περικοπής στο [PictureFillFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/) είναι ποσοστά των διαστάσεων της πηγαίας εικόνας. Η περικοπή δεν διαγράφει αρχικά τα κρυμμένα pixel από την ενσωματωμένη εικόνα· αλλάζει μόνο την ορατή περιοχή.
+
+Το παρακάτω παράδειγμα εντοπίζει με ασφάλεια ένα πλαίσιο εικόνας και εφαρμόζει τιμές περικοπής:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Επειδή τα κρυμμένα δεδομένα εικόνας παραμένουν, η περικοπή μπορεί να αλλάξει αργότερα χωρίς απώλεια των αρχικών pixel. Εάν το μέγεθος αρχείου έχει μεγαλύτερη σημασία από την αναστρέψιμη επεξεργασία, οι περικομμένες περιοχές μπορούν να αφαιρεθούν φυσικά όπως περιγράφεται στην επόμενη ενότητα.
+
+## **Αφαίρεση δεδομένων περικομμένης εικόνας**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) αφαιρεί τα δεδομένα εικόνας εκτός του τρέχοντος περιοριστικού τετραγώνου και επιστρέφει τον προκύπτοντα πόρο εικόνας. Αυτό μπορεί να μειώσει το μέγεθος του αρχείου, αλλά είναι μια καταστροφική βελτιστοποίηση: μετά την αποθήκευση της παρουσίασης, τα αφαιρεμένα pixel δεν είναι πλέον διαθέσιμα για μεταγενέστερη ενέργεια "αποπερικοπής".
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Η μέθοδος μπορεί να προσθέσει έναν νέο πόρο εικόνας στην παρουσίαση. Εάν η αρχική εικόνα χρησιμοποιείται επίσης από άλλα πλαίσια εικόνας, τα πλαίσια αυτά εξακολουθούν να χρειάζονται τον υπάρχοντα πόρο τους, έτσι η διαγραφή περικομμένων περιοχών δεν μειώνει απαραίτητα τον συνολικό αριθμό εικόνων. Η περικοπή περιεχομένου WMF ή EMF με αυτή τη μέθοδο ραστερινίζει το αποτέλεσμα σε PNG.
+
+## **Συμπίεση raster εικόνων**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/compress_image/) μειώνει την ανάλυση raster εικόνας σε σχέση με το μέγεθος στο οποίο η εικόνα εμφανίζεται. Μπορεί επίσης να αφαιρέσει περικομμένες περιοχές στην ίδια λειτουργία. Η μέθοδος επιστρέφει `True` όταν η εικόνα έχει αλλαγή μεγέθους ή περικοπεί και `False` όταν δεν χρειάστηκε αλλαγή.
+
+Χρησιμοποιήστε μια προ‑καθορισμένη τιμή [PicturesCompression](https://reference.aspose.com/slides/el/python-net/aspose.slides.export/picturescompression/) όταν μια τυπική στόχευση ανάλυσης είναι επαρκής:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Μπορείτε να περάσετε μια προσαρμοσμένη θετική τιμή DPI αντί για μια τιμή enum όταν απαιτείται συγκεκριμένος στόχος.
+
+Η συμπίεση απευθύνεται σε raster εικόνες. Το περιεχόμενο SVG και metafile δεν μειώνεται από αυτή τη διαδικασία raster συμπίεσης. Επίσης, θυμηθείτε ότι η χαμηλότερη ανάλυση και η διαγραφή των περικομμένων περιοχών δεν μπορούν να ανακτηθούν από τη βελτιστοποιημένη παρουσίαση. Επιλέξτε στόχο ανάλυσης με βάση το μεγαλύτερο μέγεθος στο οποίο η εικόνα θα προβάλλεται ή θα εξαχθεί, αντί να εφαρμόζετε το χαμηλότερο DPI παγκοσμίως.
+
+## **Έλεγχος εφέ εικόνας**
+
+Τα εφέ εικόνας αποθηκεύονται στην εικόνα που χρησιμοποιείται από το πλαίσιο. Η συλλογή μετασχηματισμών εικόνας μπορεί να περιέχει εφέ όπως σταθερή αλφα διαμόρφωση για διαφάνεια και φωτεινότητα (luminance) για φωτεινότητα και αντίθεση. Το παρακάτω παράδειγμα διαβάζει με ασφάλεια και τα δύο είδη εφέ από το πρώτο πλαίσιο εικόνας σε μια διαφάνεια:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        for effect in picture_frame.picture_format.picture.image_transform:
+            if isinstance(effect, slides.effects.AlphaModulateFixed):
+                transparency = 100 - effect.amount
+                print("Transparency: " + str(transparency))
+
+            if isinstance(effect, slides.effects.Luminance):
+                luminance = effect.get_effective()
+                print("Brightness: " + str(luminance.brightness))
+                print("Contrast: " + str(luminance.contrast))
+```
+
+[AlphaModulateFixed](https://reference.aspose.com/slides/el/python-net/aspose.slides.effects/alphamodulatefixed/) και [Luminance](https://reference.aspose.com/slides/el/python-net/aspose.slides.effects/luminance/) αλλάζουν τον τρόπο απόδοσης της εικόνας στο πλαίσιο· δεν επανεγγράφουν τα αρχικά ενσωματωμένα bytes εικόνας.
+
+## **Κλείδωμα γεωμετρίας πλαισίου εικόνας**
+
+Οι ρυθμίσεις του [PictureFrameLock](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframelock/) ελέγχουν ποιες λειτουργίες επεξεργασίας είναι απενεργοποιημένες για ένα πλαίσιο εικόνας. Για παράδειγμα, η ιδιότητα [aspect_ratio_locked](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) διατηρεί τις αναλογίες του σχήματος ενώ αυτό αλλάζει μέγεθος.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Προσθέστε την εικόνα στη συλλογή εικόνων της παρουσίασης.
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # Προσθέστε ένα πλαίσιο εικόνας στη διαφάνεια.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # Περικόψτε την εικόνα (τιμές σε ποσοστό).
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # Αποθηκεύστε το αποτέλεσμα.
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Διαγραφή περικομμένων περιοχών εικόνων**
-
-Αν θέλετε να διαγράψετε τις περικομμένες περιοχές μιας εικόνας σε ένα πλαίσιο, χρησιμοποιήστε τη μέθοδο [delete_picture_cropped_areas](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/). Αυτή η μέθοδος επιστρέφει την περικομμένη εικόνα, ή την αρχική εικόνα εάν δεν απαιτείται περικοπή.
-
-Ο παρακάτω κώδικας Python δείχνει τη λειτουργία:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # Λάβετε το PictureFrame από την πρώτη διαφάνεια.
-    picture_frame = slides.shape[0]
-
-    # Λάβετε το PictureFrame από την πρώτη διαφάνεια.
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # Αποθηκεύστε το αποτέλεσμα.
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-Η μέθοδος [delete_picture_cropped_areas](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) προσθέτει την περικομμένη εικόνα στη συλλογή εικόνων της παρουσίασης. Αν η εικόνα χρησιμοποιείται μόνο στο επεξεργασμένο [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/), αυτό μπορεί να μειώσει το μέγεθος της παρουσίασης· αλλιώς, ο αριθμός των εικόνων στην τελική παρουσίαση μπορεί να αυξηθεί.
-
-Κατά τη διάρκεια της περικοπής, αυτή η μέθοδος μετατρέπει αρχεία WMF/EMF σε ραστερ εικόνα PNG.
-{{% /alert %}}
-
-## **Συμπίεση εικόνων**
-
-Μπορείτε να συμπιέσετε μια εικόνα σε μια παρουσίαση χρησιμοποιώντας τη μέθοδο [PictureFillFormat.compress_image](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/compress_image/). Η μέθοδος αυτή μειώνει το μέγεθος μιας εικόνας με βάση το μέγεθος του σχήματος και την καθορισμένη ανάλυση, με δυνατότητα διαγραφής των περικομμένων περιοχών.
-
-Ρυθμίζει το μέγεθος και την ανάλυση της εικόνας παρόμοια με τη λειτουργία **Picture Format → Compress Pictures → Resolution** του PowerPoint.
-
-Τα παρακάτω παραδείγματα Python δείχνουν πώς να συμπιέσετε μια εικόνα σε μια παρουσίαση ορίζοντας στοχευμένη ανάλυση και προαιρετικά αφαιρώντας τις περικομμένες περιοχές:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Συμπιέστε την εικόνα με στοχευμένη ανάλυση 150 DPI (ανάλυση Web) και αφαιρέστε τις περικομμένες περιοχές.
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # Ελέγξτε το αποτέλεσμα της συμπίεσης.
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Ή χρησιμοποιώντας άμεσα μια προσαρμοσμένη τιμή DPI:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Συμπιέστε την εικόνα σε 150 DPI (ανάλυση ιστού), αφαιρώντας τις περικομμένες περιοχές.
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-Η μέθοδος μετατρέπει την εικόνα σε χαμηλότερη ανάλυση με βάση το μέγεθος του σχήματος και το παρεχόμενο DPI. Οι περικομμένες περιοχές μπορούν επίσης να διαγραφούν για βελτιστοποίηση του μεγέθους του αρχείου.
-Αν η εικόνα είναι μετααρχείο (WMF/EMF) ή SVG, η συμπίεση δεν θα εφαρμοστεί. Επίσης, η ποιότητα JPEG διατηρείται ή μειώνεται ελαφρώς ανάλογα με την ανάλυση, όπως συμβαίνει στο PowerPoint με υψηλής ανάλυσης JPEG.
-{{% /alert %}}
-
-## **Κλείδωμα αναλογίας διαστάσεων**
-
-Αν θέλετε ένα σχήμα που περιέχει εικόνα να διατηρεί την αναλογία του μετά την αλλαγή των διαστάσεων της εικόνας, ορίστε την ιδιότητα [aspect_ratio_locked](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) σε `True`.
-
-Ο παρακάτω κώδικας Python δείχνει πώς να κλειδώσετε την αναλογία διαστάσεων ενός σχήματος:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # Κλειδώστε την αναλογία διαστάσεων κατά την αλλαγή μεγέθους.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Αυτή η ρύθμιση *Lock Aspect Ratio* διατηρεί μόνο την αναλογία του σχήματος, όχι την αναλογία της εικόνας που περιέχει.
-{{% /alert %}}
+Το κλείδωμα εφαρμόζεται στο σχήμα του πλαισίου εικόνας. Δεν αναγκάζει την πηγαία εικόνα να επαναδειγματοληπτεί ή να αλλάξει μόνιμα στην ίδια αναλογία διαστάσεων.
 
-## **Χρήση ιδιοτήτων Stretch Offset**
+## **Ρύθμιση τιμών StretchOffset**
 
-Χρησιμοποιώντας τις ιδιότητες `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right` και `stretch_offset_bottom` της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/), μπορείτε να ορίσετε ένα ορθογώνιο γεμίσματος.
+Όταν η λειτουργία γεμίσματος εικόνας είναι stretch, οι τιμές stretch‑offset στο [PictureFillFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/) ορίζουν το γεμιστικό ορθογώνιο σχετικά με το όριο του πλαισίου εικόνας. Τα θετικά ποσοστά δημιουργούν εσωτερική απόσταση από την άκρη, ενώ τα αρνητικά ποσοστά δημιουργούν εξωτερική απόσταση.
 
-Όταν καθορίζεται τράνσος για μια εικόνα, το πηγαίο ορθογώνιο κλιμακώνεται ώστε να ταιριάζει στο ορθογώνιο γεμίσματος. Κάθε άκρη του ορθογωνίου γεμίσματος ορίζεται με ποσοστιαία μετατόπιση από την αντίστοιχη άκρη του περιοριστικού πλαισίου του σχήματος. Θετικό ποσοστό δηλώνει εσωτερική μετατόπιση, αρνητικό ποσοστό εξωτερική.
- 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-2. Λάβετε μια αναφορά σε διαφάνεια με βάση το ευρετήριο της.
-3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/).
-4. Ορίστε τον τύπο γεμίσματος του σχήματος.
-5. Ορίστε τη λειτουργία γεμίσματος εικόνας του σχήματος.
-6. Φορτώστε μια εικόνα.
-7. Εκχωρήστε την εικόνα για γέμισμα του σχήματος.
-8. Ορίστε τις μετατοπίσεις εικόνας από τις αντίστοιχες άκρες του περιοριστικού πλαισίου του σχήματος.
-9. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
+Αυτό διαφέρει από την περικοπή. Οι τιμές περικοπής επιλέγουν ποιο τμήμα της πηγαίας εικόνας είναι ορατό· οι stretch offsets αλλάζουν το ορθογώνιο στο οποίο τεντώνεται το ορατό γεμάτο εικόνας.
 
-Ο παρακάτω κώδικας Python δείχνει πώς να χρησιμοποιήσετε τις ιδιότητες Stretch Offset:
-
-```py
+```python
 import aspose.slides as slides
 
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
 with slides.Presentation() as presentation:
-    # Λάβετε την πρώτη διαφάνεια.
     slide = presentation.slides[0]
 
-    # Προσθέστε ένα AutoShape τύπου Rectangle.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Ορίστε τον τύπο γεμίσματος του σχήματος.
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # Ορίστε τη λειτουργία γεμίσματος εικόνας του σχήματος.
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # Φορτώστε την εικόνα και προσθέστε τη στην παρουσίαση.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # Αναθέστε την εικόνα για γέμισμα του σχήματος.
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # Ορίστε τις μετατοπίσεις της εικόνας από τις αντίστοιχες άκρες του περιοριστικού πλαισίου του σχήματος.
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # Αποθηκεύστε το αρχείο PPTX στο δίσκο.
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Tip" color="primary" %}}
-Η Aspose παρέχει δωρεάν μετατροπείς—[JPEG to PowerPoint](https://products.aspose.app/slides/el/import/jpg-to-ppt) και [PNG to PowerPoint](https://products.aspose.app/slides/el/import/png-to-ppt)—που σας επιτρέπουν να δημιουργήσετε γρήγορα παρουσιάσεις από εικόνες.
-{{% /alert %}}
+Χρησιμοποιήστε stretch offsets για τοποθέτηση γεμίσματος. Χρησιμοποιήστε τις ιδιότητες περικοπής όταν ο στόχος είναι η απόκρυψη των άκρων της πηγαίας εικόνας.
+
+## **Αποθήκευση, μέγεθος αρχείου και εκτιμήσεις εξαγωγής**
+
+Οι κύριες ανταλλαγές είναι πιο εύκολα διαχειρίσιμες όταν η αποθήκευση εικόνας και η μορφοποίηση πλαισίου εικόνας αντιμετωπίζονται ξεχωριστά:
+
+- **Ενσωματωμένες εικόνες** κάνουν την παρουσίαση αυτόνομη και είναι οι πιο αξιόπιστες για κοινή χρήση και απόδοση από διακομιστή, αλλά οι μεγάλες raster εικόνες αυξάνουν το μέγεθος του PPTX και τη χρήση μνήμης.
+- **Συνδεδεμένες εικόνες** μπορούν να διατηρήσουν το πακέτο μικρότερο, αλλά η παρουσίαση εξαρτάται από τα εξωτερικά αρχεία που πρέπει να παραμείνουν διαθέσιμα στις αποθηκευμένες διαδρομές ή τοποθεσίες.
+- **Περικοπή** είναι αρχικά μη καταστροφική. Τα κρυφά pixel παραμένουν ενσωματωμένα μέχρι οι περικομμένες περιοχές να διαγραφούν ρητά ή να αφαιρεθούν κατά τη συμπίεση.
+- **Συμπίεση** μπορεί να μειώσει το μέγεθος του αρχείου σημαντικά για υπερμεγέθεις raster εικόνες, αλλά θυσιάζει την ανάλυση πηγής. Πρέπει να εφαρμοστεί μετά τον καθορισμό του επιθυμητού μεγέθους στο slide.
+- **SVG εικόνες** πρέπει να παραμείνουν ως SVG όταν η διατήρηση vector είναι σημαντική. Εξάγετε το ενσωματωμένο SVG απευθείας όταν χρειάζεστε τον ίδιο τον vector πόρο. Οι raster εξαγωγές διαφανειών πάντα μετατρέπουν το αποδοθέν slide σε pixel.
+- **Επαναλαμβανόμενες εικόνες** πρέπει να επαναχρησιμοποιούν έναν υπάρχοντα πόρο [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/) όταν είναι δυνατόν αντί να φορτώνουν ξανά το ίδιο αρχείο στη ροή παρουσίασης.
+
+Για μεγάλες παρουσιάσεις, η βελτιστοποίηση εικόνας είναι συνήθως πιο αποτελεσματική όταν πραγματοποιείται επιλεκτικά: διατηρήστε λογότυπα και διαγράμματα ως vector περιεχόμενο, συμπιέστε φωτογραφίες ανάλογα με το πραγματικό τους μέγεθος προβολής, αφαιρέστε τα περικομμένα pixel μόνο όταν δεν απαιτείται μεταγενέστερη επεξεργασία και αποφύγετε εξωτερικές συνδέσεις εκτός εάν η διαχείριση εξαρτήσεων είναι μέρος του σχεδίου ανάπτυξης.
 
 ## **Συχνές ερωτήσεις**
 
-**Πώς μπορώ να μάθω ποιες μορφές εικόνας υποστηρίζονται για το PictureFrame;**
+**Ποια είναι η διαφορά μεταξύ πλαισίου εικόνας και πόρου εικόνας;**
 
-Το Aspose.Slides υποστηρίζει τόσο ραστές εικόνες (PNG, JPEG, BMP, GIF κ.λπ.) όσο και διανυσματικές εικόνες (π.χ., SVG) μέσω του αντικειμένου εικόνας που αντιστοιχίζεται σε ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/). Η λίστα υποστηριζόμενων μορφών γενικά επικαλύπτεται με τις δυνατότητες του μηχανήματος μετατροπής διαφάνειας και εικόνας.
+Ένα [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/) αντιπροσωπεύει έναν πόρο εικόνας που σχετίζεται με την παρουσίαση. Ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) είναι ένα σχήμα σε μια διαφάνεια που εμφανίζει μια εικόνα και αποθηκεύει γεωμετρία και μορφοποίηση επιπέδου πλαισίου όπως μέγεθος, περιστροφή, τιμές περικοπής, εφέ και κλειδώματα.
 
-**Πώς θα επηρεάσει η προσθήκη δεκάδων μεγάλων εικόνων το μέγεθος και την απόδοση του PPTX;**
+**Πρέπει να ενσωματώνω ή να συνδέω εικόνες;**
 
-Η ενσωμάτωση μεγάλων εικόνων αυξάνει το μέγεθος του αρχείου και τη χρήση μνήμης· η σύνδεση εικόνων βοηθά στη μείωση του μεγέθους της παρουσίασης, αλλά απαιτεί τα εξωτερικά αρχεία να παραμείνουν προσβάσιμα. Το Aspose.Slides παρέχει τη δυνατότητα προσθήκης εικόνων μέσω συνδέσμου για μείωση του μεγέθους του αρχείου.
+Ενσωματώστε εικόνες όταν η παρουσίαση πρέπει να είναι φορητή, αρχειοθετημένη ή αποδοθεί χωρίς πρόσβαση σε εξωτερικούς πόρους. Συνδέστε εικόνες μόνο όταν η διατήρηση των αρχείων εικόνας εκτός του PPTX είναι σκόπιμη και οι εξωτερικές τοποθεσίες μπορούν να διατηρηθούν αξιόπιστα.
 
-**Πώς μπορώ να κλειδώσω ένα αντικείμενο εικόνας από ακούσιες μετακινήσεις/αλλαγές μεγέθους;**
+**Μειώνει η περικοπή το μέγεθος του PPTX;**
 
-Χρησιμοποιήστε τα [shape locks](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/picture_frame_lock/) για ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) (π.χ., απενεργοποίηση μετακίνησης ή αλλαγής μεγέθους). Ο μηχανισμός κλειδώματος περιγράφεται για σχήματα σε ξεχωριστό άρθρο [protection article](/slides/el/python-net/applying-protection-to-presentation/) και υποστηρίζεται για διάφορους τύπους σχημάτων, συμπεριλαμβανομένων των [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/).
+Όχι από μόνη της. Οι κανονικές ρυθμίσεις περικοπής κρύβουν τμήματα της πηγαίας εικόνας αλλά διατηρούν τα υποκείμενα pixel. Χρησιμοποιήστε [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) ή τη συμπίεση εικόνας με αφαίρεση περικομμένων περιοχών όταν αυτά τα pixel μπορούν να απορριφθούν μόνιμα.
 
-**Διατηρείται η πιστότητα του διανυσματικού SVG κατά την εξαγωγή μιας παρουσίασης σε PDF/εικόνες;**
+**Μπορώ να επαναφέρω την ποιότητα εικόνας μετά τη συμπίεση;**
 
-Το Aspose.Slides επιτρέπει την εξαγωγή ενός SVG από ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) ως το αρχικό διανύσματος. Όταν [εξάγετε σε PDF](/slides/el/python-net/convert-powerpoint-to-pdf/) ή σε [ραντεσκοποιημένες μορφές](/slides/el/python-net/convert-powerpoint-to-png/), το αποτέλεσμα μπορεί να ραστεροποιηθεί ανάλογα με τις ρυθμίσεις εξαγωγής· το γεγονός ότι το αρχικό SVG αποθηκεύεται ως διάνυσμα επιβεβαιώνεται από τη συμπεριφορά εξαγωγής.
+Όχι. Η συμπίεση μπορεί να μειώσει την αποθηκευμένη raster ανάλυση, και η αφαίρεση περικομμένων περιοχών διαγράφει δεδομένα εικόνας. Διατηρήστε την αρχική πηγαία εικόνα εκτός της παρουσίασης εάν απαιτείται μελλοντική επεξεργασία υψηλής ανάλυσης.
+
+**Πώς πρέπει να διαχειρίζομαι τις SVG εικόνες;**
+
+Διατηρήστε το περιεχόμενο SVG ως SVG όταν η ακεραιότητα vector έχει σημασία. Το ενσωματωμένο [SvgImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/svgimage/) μπορεί να εξαχθεί απευθείας. Η απόδοση μιας διαφάνειας σε raster μορφή όπως PNG ή JPEG ραστερινίζει το SVG ως μέρος της εικόνας της διαφάνειας.
+
+**Πώς μπορώ να αποφύγω μη ασφαλείς μετατροπές τύπου όταν διαβάζω υπάρχουσες διαφάνειες;**
+
+Ελέγξτε τον τύπο του σχήματος πριν χρησιμοποιήσετε μέλη συγκεκριμένα για picture‑frame. Η χρήση του `isinstance(shape, slides.PictureFrame)` αποτρέπει μη έγκυρες μετατροπές και επιτρέπει στον κώδικα να χειριστεί διαφάνειες που δεν περιέχουν picture frames.

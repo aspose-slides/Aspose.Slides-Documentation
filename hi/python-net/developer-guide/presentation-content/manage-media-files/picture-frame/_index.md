@@ -1,479 +1,365 @@
 ---
-title: Python के साथ प्रस्तुतियों में चित्र फ्रेम जोड़ें
-linktitle: चित्र फ़्रेम
+title: Python के साथ प्रस्तुतियों में पिक्चर फ्रेम को प्रबंधित करें
+linktitle: पिक्चर फ्रेम
 type: docs
 weight: 10
 url: /hi/python-net/picture-frame/
 keywords:
-- चित्र फ़्रेम
-- चित्र फ़्रेम जोड़ें
-- चित्र फ़्रेम बनाएं
-- चित्र जोड़ें
-- चित्र बनाएं
-- चित्र निकालें
-- रैस्टर छवि
-- वेक्टर छवि
+- पिक्चर फ्रेम
+- पिक्चर फ्रेम जोड़ें
+- पिक्चर फ्रेम बनाएं
+- एम्बेडेड छवि
+- लिंक्ड छवि
+- छवि निकालें
+- रेस्टर छवि
+- SVG छवि
 - छवि क्रॉप करें
-- क्रॉप किया गया क्षेत्र
-- StretchOff प्रॉपर्टी
-- चित्र फ्रेम स्वरूपण
-- चित्र फ्रेम गुण
+- क्रॉप किए क्षेत्रों को हटाएं
+- छवि संकुचित करें
+- StretchOffset
+- पिक्चर फ्रेम फ़ॉर्मेटिंग
 - सापेक्ष स्केल
 - छवि प्रभाव
 - आस्पेक्ट अनुपात
-- छवि पारदर्शिता
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET के साथ PowerPoint और OpenDocument प्रस्तुतियों में चित्र फ्रेम जोड़ें। अपने कार्यप्रवाह को सरल बनाएं और स्लाइड डिज़ाइनों को सुधारें।"
+description: "Aspose.Slides for Python via .NET के साथ प्रस्तुतियों में पिक्चर फ्रेम को बनाएं, फ़ॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें और संकुचित करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-Aspose.Slides for Python में चित्र फ्रेम आपको रैस्टर और वेक्टर छवियों को मूल स्लाइड आकारों के रूप में रखने और प्रबंधित करने की अनुमति देते हैं। आप फ़ाइलों या स्ट्रीम से चित्र सम्मिलित कर सकते हैं, सटीक निर्देशांक के साथ उनका स्थान तथा आकार बदल सकते हैं, घूर्णन लागू कर सकते हैं, पारदर्शिता सेट कर सकते हैं, और अन्य आकारों के साथ z‑order को नियंत्रित कर सकते हैं। API क्रॉपिंग, अनुपात बनाए रखना, बॉर्डर और प्रभाव सेट करने, तथा लेआउट को पुनः बनाए बिना मूल छवि को बदलने का समर्थन भी करती है। क्योंकि चित्र फ्रेम सामान्य आकारों की तरह व्यवहार करते हैं, आप एनीमेशन, हाइपरलिंक और अल्ट टेक्स्ट जोड़ सकते हैं, जिससे दृश्य रूप से समृद्ध, सुलभ प्रस्तुतियाँ बनाना सरल हो जाता है।
+एक पिक्चर फ्रेम एक स्लाइड आकार है जो छवि को प्रदर्शित करता है। Aspose.Slides में, छवि संसाधन और वह आकार जो इसे प्रदर्शित करता है अलग-अलग वस्तुएँ हैं: एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) अपने [ImageCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/imagecollection/) के माध्यम से एम्बेडेड छवि संसाधनों का मालिक होता है, जबकि एक [PictureFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframe/) छवि की स्थिति, आकार, रेखा स्वरूपण, घुमाव, क्रॉपिंग, पिक्चर इफ़ेक्ट्स और अन्य फ्रेम‑स्तर सेटिंग्स को नियंत्रित करता है।
 
-## **चित्र फ्रेम बनाएं**
+यह विभाजन उपयोगी है जब समान छवि एक से अधिक बार दिखायी जाती है। छवि को प्रस्तुति में एक बार जोड़ें, लौटाई गई [PPImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ppimage/) को रखें, और पिक्चर फ्रेम बनाते समय उस छवि संसाधन का उपयोग करें।
 
-यह अनुभाग दिखाता है कि Aspose.Slides for Python के साथ एक स्लाइड में चित्र सम्मिलित करने के लिए एक [PictureFrame] बनाकर कैसे किया जाता है। आप सीखेंगे कि छवि को लोड करना, उसे स्लाइड पर सटीक रूप से रखना, और उसके आकार तथा स्वरूप को नियंत्रित करना।
+पिक्चर फ्रेम PNG या JPEG जैसे रास्टर इमेज और SVG जैसे वेक्टर इमेज दोनों रख सकते हैं। वे प्रस्तुति में छवि बाइट्स को संग्रहीत करने के बजाय लिंक्ड इमेज का भी संदर्भ दे सकते हैं। यह विकल्प पोर्टेबिलिटी, फ़ाइल आकार, निष्कर्षण और निर्यात व्यवहार को प्रभावित करता है, इसलिए स्वरूपण या अनुकूलन लागू करने से पहले यह तय करना उपयोगी है कि छवि कैसे संग्रहीत की जानी चाहिए।
 
-1. एक [Presentation] वर्ग की इंस्टेंस बनाएं।
-2. इंडेक्स द्वारा एक स्लाइड प्राप्त करें।
-3. छवि को प्रस्तुति के [ImageCollection] में जोड़कर एक [PPImage] बनाएं। यह छवि आकार को भरने के लिए उपयोग की जाएगी।
-4. फ़्रेम की चौड़ाई और ऊँचाई निर्दिष्ट करें।
-5. उस आकार का एक [PictureFrame] बनाने के लिए [add_picture_frame] मेथड का उपयोग करें।
-6. प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+## **एंबेडेड छवि जोड़ें और स्वरूपित करें**
 
-निम्नलिखित Python कोड दिखाता है कि कैसे एक चित्र फ्रेम बनाया जाता है:
+एक एम्बेडेड छवि के लिए, छवि डेटा को प्रस्तुति में जोड़ें और [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_picture_frame/) का उपयोग करके पिक्चर फ्रेम बनाएँ। छवि प्रस्तुति पैकेज का हिस्सा बन जाती है, इसलिए प्रस्तुति को दूसरे कंप्यूटर पर ले जाने पर भी वह स्व‑निहित रहती है।
 
-```py
-import aspose.slides as slides
-
-# PPTX फ़ाइल को दर्शाने के लिए Presentation क्लास का उदाहरण बनाएं।
-with slides.Presentation() as presentation:
-    # पहली स्लाइड प्राप्त करें।
-    slide = presentation.slides[0]
-
-    # छवि को प्रस्तुति में जोड़ें।
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # छवि के आकार के अनुसार एक चित्र फ़्रेम जोड़ें।
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # प्रस्तुति को PPTX के रूप में सहेजें।
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-चित्र फ्रेम आपको छवियों से जल्दी प्रस्तुति स्लाइड बनाने की अनुमति देते हैं। जब आप चित्र फ्रेम को Aspose.Slides सहेजने विकल्पों के साथ संयोजित करते हैं, तो आप छवियों को एक स्वरूप से दूसरे स्वरूप में बदलने के लिए I/O संचालन नियंत्रित कर सकते हैं। आप इन पृष्ठों को देख सकते हैं: convert [छवि को JPG](https://products.aspose.com/slides/hi/python-net/conversion/image-to-jpg/); convert [JPG को छवि](https://products.aspose.com/slides/hi/python-net/conversion/jpg-to-image/); convert [JPG को PNG](https://products.aspose.com/slides/hi/python-net/conversion/jpg-to-png/); convert [PNG को JPG](https://products.aspose.com/slides/hi/python-net/conversion/png-to-jpg/); convert [PNG को SVG](https://products.aspose.com/slides/hi/python-net/conversion/png-to-svg/); convert [SVG को PNG](https://products.aspose.com/slides/hi/python-net/conversion/svg-to-png/)।
-{{% /alert %}}
-
-## **सापेक्ष स्केल के साथ चित्र फ्रेम बनाएं**
-
-यह अनुभाग दर्शाता है कि कैसे एक स्थिर आकार पर छवि रखी जाये और फिर उसकी चौड़ाई तथा ऊँचाई पर स्वतंत्र रूप से प्रतिशत‑आधारित स्केल लागू किया जाये। प्रतिशत अलग‑अलग होने पर अनुपात बदल सकता है। स्केलिंग छवि के मूल आयामों के सापेक्ष की जाती है।
-
-1. एक [Presentation] वर्ग की इंस्टेंस बनाएं।
-2. इंडेक्स द्वारा एक स्लाइड प्राप्त करें।
-3. छवि को प्रस्तुति के [ImageCollection] में जोड़कर एक [PPImage] बनाएं।
-4. स्लाइड में एक [PictureFrame] जोड़ें।
-5. चित्र फ्रेम की सापेक्ष चौड़ाई और ऊँचाई सेट करें।
-6. प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-निम्नलिखित Python कोड दिखाता है कि कैसे सापेक्ष स्केल के साथ एक चित्र फ्रेम बनाया जाता है:
-
-```py
-import aspose.slides as slides
-
-# PPTX फ़ाइल को प्रतिनिधित्व करने के लिए Presentation क्लास का उदाहरण बनाएं।
-with slides.Presentation() as presentation:
-    # पहली स्लाइड प्राप्त करें।
-    slide = presentation.slides[0]
-
-    # छवि को प्रस्तुति की इमेज कलेक्शन में जोड़ें।
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # स्लाइड में एक चित्र फ़्रेम जोड़ें।
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # सापेक्ष स्केल की चौड़ाई और ऊँचाई सेट करें।
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # प्रस्तुति को सहेजें।
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **चित्र फ्रेम से रैस्टर छवियों को निकालें**
-
-आप [PictureFrame] ऑब्जेक्ट से रैस्टर छवियों को निकाल सकते हैं और उन्हें PNG, JPG और अन्य स्वरूपों में सहेज सकते हैं। नीचे दिया गया कोड उदाहरण दिखाता है कि कैसे "sample.pptx" दस्तावेज़ से एक छवि निकाली जाए और PNG स्वरूप में सहेजी जाए।
+निम्नलिखित उदाहरण JPEG छवि जोड़ता है, छवि के मूल आयामों पर एक फ्रेम बनाता है, और रेखा स्वरूपण तथा घुमाव लागू करता है:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **चित्र फ्रेम से SVG छवियों को निकालें**
-
-जब किसी प्रस्तुति में [PictureFrame] आकारों के अंदर रखे गए SVG ग्राफ़िक्स होते हैं, तो Aspose.Slides for Python via .NET आपको मूल वेक्टर छवियों को पूर्ण सटीकता के साथ प्राप्त करने की अनुमति देता है। स्लाइड की आकार संग्रह को पार करके आप प्रत्येक [PictureFrame] को पहचान सकते हैं, जांच सकते हैं कि अंतर्निहित [PPImage] में SVG सामग्री है या नहीं, और फिर उस छवि को डिस्क या स्ट्रीम में उसकी मूल SVG स्वरूप में सहेज सकते हैं।
-
-निम्नलिखित कोड उदाहरण दिखाता है कि कैसे एक चित्र फ्रेम से SVG छवि निकाली जाये:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **छवि की पारदर्शिता प्राप्त करें**
-
-Aspose.Slides आपको छवि पर लागू पारदर्शिता प्रभाव को प्राप्त करने की अनुमति देता है। यह Python कोड इस संचालन को प्रदर्शित करता है:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-छवियों पर लागू सभी प्रभाव [aspose.slides.effects](https://reference.aspose.com/slides/hi/python-net/aspose.slides.effects/) में पाए जा सकते हैं।
-{{% /alert %}}
-
-## **छवि की चमक और कंट्रास्ट प्राप्त करें**
-
-Aspose.Slides आपको छवि पर लागू चमक और कंट्रास्ट प्रभाव को प्राप्त करने की अनुमति देता है। [Luminance] क्लास इस छवि रूपांतरण प्रभाव को दर्शाती है।
-
-यह Python कोड दिखाता है कि कैसे एक चित्र फ्रेम से चमक और कंट्रास्ट सेटिंग्स प्राप्त की जाएँ:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **चित्र फ्रेम स्वरूपण**
-
-Aspose.Slides कई स्वरूपण विकल्प प्रदान करता है जिन्हें आप एक चित्र फ्रेम पर लागू कर सकते हैं। इन विकल्पों के साथ, आप विशिष्ट आवश्यकताओं को पूरा करने के लिए एक चित्र फ्रेम को समायोजित कर सकते हैं।
-
-1. एक [Presentation] वर्ग की इंस्टेंस बनाएं।
-2. इंडेक्स द्वारा एक स्लाइड प्राप्त करें।
-3. छवि को प्रस्तुति के [ImageCollection] में जोड़कर एक [PPImage] बनाएं। यह छवि आकार को भरने के लिए उपयोग की जाएगी।
-4. फ़्रेम की चौड़ाई और ऊँचाई निर्दिष्ट करें।
-5. स्लाइड के [add_picture_frame] मेथड का उपयोग करके उस आकार का एक [PictureFrame] बनाएं।
-6. चित्र फ्रेम की रेखा का रंग सेट करें।
-7. चित्र फ्रेम की रेखा की चौड़ाई सेट करें।
-8. एक सकारात्मक (घड़ी की दिशा) या नकारात्मक (घड़ी के विपरीत) मान प्रदान करके चित्र फ्रेम को घुमाएँ।
-9. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-निम्नलिखित Python कोड चित्र फ्रेम स्वरूपण प्रक्रिया को प्रदर्शित करता है:
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# PPTX फ़ाइल को दर्शाने के लिए Presentation क्लास का उदाहरण बनाएं।
 with slides.Presentation() as presentation:
-    # पहली स्लाइड प्राप्त करें।
     slide = presentation.slides[0]
 
-    # छवि को प्रस्तुति की इमेज कलेक्शन में जोड़ें।
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # छवि के आकार के अनुसार एक चित्र फ़्रेम जोड़ें।
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # चित्र फ़्रेम पर स्वरूपण लागू करें।
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # प्रस्तुति को PPTX के रूप में सहेजें।
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose ने एक मुफ्त [Collage Maker](https://products.aspose.app/slides/hi/collage) विकसित किया है। यदि आपको [JPG/JPEG को मिलाएँ](https://products.aspose.app/slides/hi/collage/jpg) या PNG छवियों को मिलाना, या [फ़ोटो ग्रिड बनाएँ](https://products.aspose.app/slides/hi/collage/photo-grid) की आवश्यकता है, तो आप इस सेवा का उपयोग कर सकते हैं।
-{{% /alert %}}
+पिक्चर फ्रेम प्रदर्शित जियामिति को नियंत्रित करता है; फ्रेम का आकार बदलने से एम्बेडेड छवि संसाधन में संग्रहीत मूल पिक्सेल आयाम नहीं बदलते। यह अंतर बाद में छवि को क्रॉप या संकुचित करने पर महत्वपूर्ण हो जाता है।
 
-## **लिंक के रूप में छवियों को जोड़ें**
+## **सापेक्ष स्केल का उपयोग करें**
 
-प्रस्तुति फ़ाइलों को छोटा रखने के लिए, आप फ़ाइलों को सीधे एम्बेड करने के बजाय लिंक के माध्यम से छवियों या वीडियो को जोड़ सकते हैं। निम्नलिखित Python कोड दिखाता है कि कैसे एक प्लेसहोल्डर में एक छवि और एक वीडियो सम्मिलित किया जाये:
+[PictureFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframe/) [relative_scale_width](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframe/relative_scale_width/) और [relative_scale_height](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframe/relative_scale_height/) को फ्रेम के लिए उजागर करता है। `1.0` का मान मूल चित्र आकार का 100% दर्शाता है। सापेक्ष स्केल तब उपयोगी होता है जब किसी वर्कफ़्लो को स्रोत छवि आकार के साथ संबंध बनाए रखना आवश्यक हो, न कि अंतिम आयामों की मैन्युअल गणना।
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+सापेक्ष स्केल फ्रेम के स्केल सेटिंग्स को बदलता है; यह एम्बेडेड छवि को री‑सैंपल या संकुचित नहीं करता।
+
+## **एम्बेडेड और लिंक्ड इमेजेज**
+
+एक एम्बेडेड चित्र प्रस्तुति के अंदर छवि डेटा संग्रहीत करता है और इसलिए पोर्टेबिलिटी और पूर्वानुमानित रेंडरिंग के लिए सबसे सुरक्षित विकल्प है। एक लिंक्ड चित्र बाहरी स्थान को [Picture](https://reference.aspose.com/slides/hi/python-net/aspose.slides/picture/) लिंक पाथ के माध्यम से संग्रहीत करता है, बजाय उसी तरीके से छवि डेटा एम्बेड करने के।
+
+लिंक्ड इमेजेज PPTX में संग्रहीत छवि डेटा की मात्रा को कम कर सकते हैं, लेकिन वे एक बाहरी निर्भरता पेश करते हैं। लिंक्ड फ़ाइल को उस एप्लिकेशन के लिए सुलभ रहना चाहिए जो प्रस्तुति को खोलता या रेंडर करता है। यदि पाथ बदलता है, फ़ाइल स्थानांतरित हो जाती है, या संसाधन उपलब्ध नहीं है, तो लिंक्ड चित्र उम्मीद के मुताबिक प्रदर्शित नहीं हो सकता। उन प्रस्तुतियों के लिए जिन्हें ईमेल, आर्काइव या अलग‑अलग वातावरण में रेंडर किया जाना आवश्यक है, एम्बेडेड इमेजेज सामान्यतः अधिक भरोसेमंद होते हैं।
+
+### **लिंक्ड इमेज जोड़ें**
+
+निम्नलिखित उदाहरण एक पिक्चर फ्रेम बनाता है और उसे स्थानीय इमेज फ़ाइल की ओर इंगित करता है। यह केवल इमेज लिंकिंग से निपटता है; वीडियो लिंकिंग एक अलग मीडिया वर्कफ़्लो है और जानबूझकर इस उदाहरण में मिश्रित नहीं किया गया है।
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+बाहरी फ़ाइल प्रबंधन इरादे से होने पर लिंक का उपयोग करें। उन्हें केवल संकुचन के विकल्प के रूप में न प्रयोग करें: टूटी हुई इमेज निर्भरताओं वाला छोटा PPTX आमतौर पर बड़े स्व‑निहित प्रस्तुति से कम उपयोगी होता है।
+
+## **पिक्चर फ्रेम से इमेज निकालें**
+
+मौजूदा प्रस्तुति से इमेज निकालने से पहले जांचें कि आकार वास्तव में एक [PictureFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframe/) है और उसमें एम्बेडेड इमेज है। लिंक्ड पिक्चर फ्रेम में वह इमेज बाइट्स नहीं हो सकते जो उसी तरह निकाले जा सकें।
+
+### **रेस्टर इमेज निकालें**
+
+आधुनिक इमेज API सीधे [IImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/) का उपयोग करता है। निम्नलिखित उदाहरण स्लाइड पर पहली एम्बेडेड रेस्टर तस्वीर को खोजता है और उसे PNG के रूप में सहेजता है:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
 
     for shape in slide.shapes:
-        if shape.placeholder is None:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.X, shape.Y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **छवियों को क्रॉप करें**
+[IImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/) के माध्यम से सहेजने से निकाली गई इमेज को अनुरोधित आउटपुट फ़ॉर्मेट में परिवर्तित किया जाता है। यदि आप प्रस्तुति में संग्रहीत एन्कोडेड बाइट्स की आवश्यकता रखते हैं न कि परिवर्तित रेस्टर फ़ाइल की, तो इसके बजाय [PPImage.binary_data](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ppimage/binary_data/) प्रॉपर्टी का उपयोग करें।
 
-इस अनुभाग में, आप सीखेंगे कि कैसे एक चित्र फ्रेम के भीतर छवि के दिखाए जाने वाले क्षेत्र को स्रोत फ़ाइल को बदले बिना क्रॉप किया जाए। आप स्लाइड पर सीधे एक साफ़, केंद्रित संरचना बनाने के लिए क्रॉपिंग मार्जिन लागू करने की बुनियादी विधि भी सीखेंगे।
+### **SVG इमेज निकालें**
 
-निम्नलिखित Python कोड दिखाता है कि स्लाइड पर छवि को कैसे क्रॉप किया जाये:
+एक SVG चित्र के लिए, [PPImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ppimage/) एक [SvgImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/) ऑब्जेक्ट उजागर करता है। यह आपको पहले चित्र को रास्टराइज़ किए बिना सीधे SVG डेटा प्राप्त करने की अनुमति देता है।
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+SVG सामग्री को SVG ही रखने से प्रस्तुति के भीतर वेक्टर स्रोत संरक्षित रहता है। PNG या JPEG जैसे रेस्टर निर्यात अनिवार्य रूप से उस वेक्टर सामग्री को पिक्सेल में बदलते हैं। PDF या SVG स्लाइड निर्यात भी एक रेंडरिंग ऑपरेशन है, इसलिए निर्यातित ग्राफ़िक्स को मूल एम्बेडेड SVG की बाइट‑फ़ॉर‑बाइट कॉपी मानना नहीं चाहिए; जब मूल वेक्टर संसाधन की आवश्यकता हो तो एम्बेडेड [SvgImage.svg_data](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/svg_data/) का उपयोग करें।
+
+## **इमेज को क्रॉप करें**
+
+क्रॉपिंग फ्रेम के भीतर इमेज के किस भाग को दिखाया जाए, बदलता है। [PictureFillFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/picturefillformat/) पर क्रॉप मान स्रोत इमेज आयामों के प्रतिशत होते हैं। क्रॉपिंग प्रारम्भिक रूप से एम्बेडेड इमेज से छिपे पिक्सेल को नहीं हटाता; यह केवल दिखाने योग्य क्षेत्र को बदलता है।
+
+निम्नलिखित उदाहरण सुरक्षित रूप से एक पिक्चर फ्रेम खोजता है और क्रॉप मान लागू करता है:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+क्योंकि छिपा इमेज डेटा अभी भी मौजूद है, क्रॉप को बाद में मूल पिक्सेल खोए बिना बदला जा सकता है। यदि फ़ाइल आकार पुनरावर्तनीयता से अधिक महत्वपूर्ण है, तो अगली सेक्शन में वर्णित अनुसार क्रॉप किए क्षेत्रों को शारीरिक रूप से हटाया जा सकता है।
+
+## **क्रॉप किए इमेज डेटा को हटाएँ**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/hi/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) वर्तमान क्रॉप आयत के बाहर के इमेज डेटा को हटाता है और परिणामी इमेज संसाधन लौटाता है। यह फ़ाइल आकार को कम कर सकता है, लेकिन यह एक विनाशकारी अनुकूलन है: प्रस्तुति सहेजने के बाद हटाए गए पिक्सेल बाद में अनक्रॉप ऑपरेशन के लिए उपलब्ध नहीं रहते।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+यह विधि प्रस्तुति में एक नया इमेज संसाधन जोड़ सकती है। यदि मूल इमेज अन्य पिक्चर फ्रेम द्वारा भी उपयोग की जाती है, तो उन फ्रेमों को अभी भी अपना मौजूदा संसाधन चाहिए रहेगा, इसलिए क्रॉप किए क्षेत्रों को हटाना आवश्यक नहीं कि कुल इमेजों की संख्या घटाए। इस विधि से WMF या EMF सामग्री को क्रॉप करने से क्रॉप परिणाम PNG में रास्टराइज़ हो जाता है।
+
+## **रेस्टर इमेज को संकुचित करें**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/hi/python-net/aspose.slides/picturefillformat/compress_image/) चित्र के प्रदर्शित आकार के संबंध में रेस्टर इमेज रिज़ॉल्यूशन को कम करता है। यह एक ही ऑपरेशन में क्रॉप किए क्षेत्रों को भी हटा सकता है। यह विधि तब `True` लौटाती है जब इमेज का आकार बदल दिया गया हो या क्रॉप किया गया हो और उस समय `False` लौटाती है जब कोई बदलाव आवश्यक नहीं था।
+
+जब एक मानक लक्ष्य रिज़ॉल्यूशन पर्याप्त हो तो एक पूर्वनिर्धारित [PicturesCompression](https://reference.aspose.com/slides/hi/python-net/aspose.slides.export/picturescompression/) मान का उपयोग करें:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+जब विशिष्ट लक्ष्य आवश्यक हो तो enum मान के बजाय एक कस्टम सकारात्मक DPI मान पास किया जा सकता है।
+
+संकुचन रेस्टर इमेजेज के लिए अभिप्रेत है। SVG और मेटा फ़ाइल सामग्री इस रेस्टर संकुचन वर्कफ़्लो से नहीं घटती है। साथ ही याद रखें कि कम रिज़ॉल्यूशन और हटाए गए क्रॉपेड क्षेत्रों को अनुकूलित प्रस्तुति से पुनः प्राप्त नहीं किया जा सकता। सबसे बड़े आकार के आधार पर लक्ष्य रिज़ॉल्यूशन चुनें जिस पर इमेज वास्तव में देखी या निर्यात की जाएगी, बजाय वैश्विक रूप से सबसे कम DPI लागू करने के।
+
+## **इमेज इफ़ेक्ट्स की जाँच करें**
+
+पिक्चर इफ़ेक्ट्स फ्रेम द्वारा उपयोग किए गए पिक्चर पर संग्रहीत होते हैं। इमेज ट्रांसफ़ॉर्म कलेक्शन में ट्रांस्पेरेन्सी के लिए फिक्स्ड अल्फा मोड्यूलेशन और ब्राइटनेस व कॉन्ट्रास्ट के लिए ल्यूमिनेंस जैसे इफ़ेक्ट्स शामिल हो सकते हैं। नीचे दिया गया उदाहरण स्लाइड पर पहले पिक्चर फ्रेम से दोनों प्रकार के इफ़ेक्ट्स को सुरक्षित रूप से पढ़ता है:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        for effect in picture_frame.picture_format.picture.image_transform:
+            if isinstance(effect, slides.effects.AlphaModulateFixed):
+                transparency = 100 - effect.amount
+                print("Transparency: " + str(transparency))
+
+            if isinstance(effect, slides.effects.Luminance):
+                luminance = effect.get_effective()
+                print("Brightness: " + str(luminance.brightness))
+                print("Contrast: " + str(luminance.contrast))
+```
+
+[AlphaModulateFixed](https://reference.aspose.com/slides/hi/python-net/aspose.slides.effects/alphamodulatefixed/) और [Luminance](https://reference.aspose.com/slides/hi/python-net/aspose.slides.effects/luminance/) फ्रेम में इमेज के रेंडरिंग को बदलते हैं; वे मूल एम्बेडेड इमेज बाइट्स को पुनः नहीं लिखते।
+
+## **पिक्चर फ्रेम जियोमेट्री को लॉक करें**
+
+[PictureFrameLock](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframelock/) सेटिंग्स यह नियंत्रित करती हैं कि पिक्चर फ्रेम के लिए कौन से संपादन ऑपरेशन निष्क्रिय हैं। उदाहरण के लिए, [aspect_ratio_locked](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) प्रॉपर्टी आकार बदलते समय आकार के अनुपात को बनाए रखती है।
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # छवि को प्रस्तुति की इमेज कलेक्शन में जोड़ें।
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # स्लाइड में एक चित्र फ़्रेम जोड़ें।
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # छवि को क्रॉप करें (प्रतिशत मान)।
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # परिणाम सहेजें।
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **छवियों के क्रॉप किए गए क्षेत्रों को हटाएँ**
-
-यदि आप फ़्रेम में छवि के क्रॉप किए गए क्षेत्रों को हटाना चाहते हैं, तो [delete_picture_cropped_areas] मेथड का उपयोग करें। यह मेथड क्रॉप की गई छवि को लौटाता है, या यदि कोई क्रॉपिंग आवश्यक नहीं है तो मूल छवि को।
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # पहली स्लाइड से PictureFrame प्राप्त करें।
-    picture_frame = slides.shape[0]
-
-    # पहली स्लाइड से PictureFrame प्राप्त करें।
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # परिणाम सहेजें।
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-[delete_picture_cropped_areas] मेथड क्रॉप की गई छवि को प्रस्तुति के इमेज कलेक्शन में जोड़ता है। यदि छवि केवल प्रोसेस्ड [PictureFrame] में उपयोग हुई है, तो यह प्रस्तुति का आकार घटा सकता है; अन्यथा, परिणामी प्रस्तुति में छवियों की संख्या बढ़ सकती है।
-
-क्रॉपिंग के दौरान, यह मेथड WMF/EMF मेटा‑फ़ाइलों को रैस्टर PNG छवि में परिवर्तित करता है।
-{{% /alert %}}
-
-## **छवियों को संपीड़ित करें**
-
-आप प्रस्तुति में एक चित्र को [PictureFillFormat.compress_image] मेथड का उपयोग करके संपीड़ित कर सकते हैं।
-यह मेथड आकार और निर्दिष्ट रिज़ॉल्यूशन के आधार पर छवि का आकार घटाकर, विकल्प के साथ क्रॉप किए गए क्षेत्रों को हटाकर छवि को संपीड़ित करता है।
-
-यह चित्र का आकार और रिज़ॉल्यूशन PowerPoint की **Picture Format -> Compress Pictures -> Resolution** सुविधा के समान समायोजित करता है।
-
-निम्नलिखित Python उदाहरण दिखाते हैं कि कैसे लक्ष्य रिज़ॉल्यूशन निर्दिष्ट करके और वैकल्पिक रूप से क्रॉप किए गए क्षेत्रों को हटाकर प्रस्तुति में छवि को संपीड़ित किया जाये:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # 150 DPI (वेब रिज़ॉल्यूशन) के लक्ष्य रिज़ॉल्यूशन के साथ छवि को संपीड़ित करें और क्रॉप किए गए क्षेत्रों को हटाएँ।
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # संपीड़न के परिणाम की जाँच करें।
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-या सीधे एक कस्टम DPI मान का उपयोग करके:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # 150 DPI (वेब रिज़ॉल्यूशन) पर छवि को संपीड़ित करें, क्रॉप किए गए क्षेत्रों को हटाते हुए।
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-यह मेथड आकार और प्रदान किए गये DPI के आधार पर छवि को निम्न रिज़ॉल्यूशन में परिवर्तित करता है। फ़ाइल आकार को अनुकूलित करने के लिए क्रॉप किए गए क्षेत्रों को भी हटाया जा सकता है।
-यदि छवि WMF/EMF जैसी मेटा‑फ़ाइल या SVG है, तो संपीड़न लागू नहीं किया जाएगा। साथ ही, JPEG गुणवत्ता को रिज़ॉल्यूशन के अनुसार बरकरार रखा जाता है या हल्के से घटाया जाता है, ठीक उसी तरह जैसे PowerPoint उच्च‑रिज़ॉल्यूशन JPEG को संभालता है।
-{{% /alert %}}
-
-## **आस्पेक्ट रेशियो को लॉक करें**
-
-यदि आप चाहते हैं कि कोई आकार जो छवि रखता है, छवि के आयाम बदलने के बाद भी अपना आस्पेक्ट रेशियो बनाए रखे, तो [aspect_ratio_locked] प्रॉपर्टी को `True` सेट करें।
-
-निम्नलिखित Python कोड दिखाता है कि कैसे एक आकार का आस्पेक्ट रेशियो लॉक किया जाये:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.CUSTOM)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # आकार बदलते समय आस्पेक्ट अनुपात को लॉक करें।
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-यह *Lock Aspect Ratio* सेटिंग केवल आकार का आस्पेक्ट रेशियो सुरक्षित रखती है, भीतर की छवि का नहीं।
-{{% /alert %}}
+लॉक पिक्चर फ्रेम आकार पर लागू होता है। यह स्रोत इमेज को री‑सैंपल या स्थायी रूप से समान अनुपात में बदलने के लिए बाध्य नहीं करता।
 
-## **Stretch Offset गुणों का उपयोग करें**
+## **StretchOffset मान समायोजित करें**
 
-[PictureFillFormat] क्लास की `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right`, और `stretch_offset_bottom` प्रॉपर्टी का उपयोग करके आप एक फ़िल रेक्टैंगल परिभाषित कर सकते हैं।
+जब पिक्चर फ़िल मोड स्ट्रेच हो, तो [PictureFillFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/picturefillformat/) पर स्ट्रेच‑ऑफ़सेट मान पिक्चर फ्रेम के बाउंडिंग बॉक्स के सापेक्ष फ़िल आयत को परिभाषित करते हैं। सकारात्मक प्रतिशत किनारे से अंदर की ओर इन्सेट बनाते हैं, जबकि नकारात्मक प्रतिशत बाहर की ओर आउटसेट बनाते हैं।
 
-जब किसी छवि के लिए स्ट्रेचिंग निर्दिष्ट की जाती है, तो स्रोत रेक्टैंगल को फ़िल रेक्टैंगल में फिट करने के लिए स्केल किया जाता है। फ़िल रेक्टैंगल का प्रत्येक किनारा आकार के बाउंडिंग बॉक्स के संबंधित किनारे से प्रतिशत ऑफ़सेट द्वारा परिभाषित होता है। एक सकारात्मक प्रतिशत इनसेट को दर्शाता है, जबकि एक नकारात्मक प्रतिशत आउटसेट को दर्शाता है।
+यह क्रॉपिंग से अलग है। क्रॉप मान स्रोत इमेज के किस भाग को दिखाया जाए चुनते हैं; स्ट्रेच ऑफ़सेट दृश्यमान पिक्चर फ़िल को जिस आयत में स्ट्रेच किया जाता है, उसे बदलते हैं।
 
-1. एक [Presentation] वर्ग की इंस्टेंस बनाएं।
-2. इंडेक्स द्वारा एक स्लाइड का रेफ़रेंस प्राप्त करें।
-3. एक आयताकार [AutoShape] जोड़ें।
-4. आकार का फ़िल प्रकार सेट करें।
-5. आकार का पिक्चर फ़िल मोड सेट करें।
-6. एक छवि लोड करें।
-7. छवि को आकार को भरने के लिए सौंपें।
-8. आकार के बाउंडिंग बॉक्स के संबंधित किनारों से छवि ऑफ़सेट निर्दिष्ट करें।
-9. प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-निम्नलिखित Python कोड दिखाता है कि कैसे Stretch Offset गुणों का उपयोग किया जाये:
-
-```py
+```python
 import aspose.slides as slides
 
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
 with slides.Presentation() as presentation:
-    # पहली स्लाइड प्राप्त करें।
     slide = presentation.slides[0]
 
-    # एक आयताकार AutoShape जोड़ें।
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # आकार का फ़िल प्रकार सेट करें।
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # आकार का पिक्चर फ़िल मोड सेट करें।
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # छवि को लोड करें और प्रस्तुति में जोड़ें।
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # आकार को भरने के लिए छवि असाइन करें।
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # आकार के बाउंडिंग बॉक्स के संबंधित किनारों से छवि ऑफ़सेट निर्दिष्ट करें।
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # PPTX फ़ाइल को डिस्क में सहेजें।
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Aspose मुफ्त कन्वर्टर्स—[JPEG को PowerPoint में](https://products.aspose.app/slides/hi/import/jpg-to-ppt) और [PNG को PowerPoint में](https://products.aspose.app/slides/hi/import/png-to-ppt)—प्रदान करता है, जिससे आप छवियों से जल्दी प्रस्तुति बना सकते हैं।
-{{% /alert %}}
+फ़िल प्लेसमेंट के लिए स्ट्रेच ऑफ़सेट का उपयोग करें। स्रोत‑इमेज किनारों को छिपाने के लक्ष्य के लिए क्रॉप प्रॉपर्टीज़ का उपयोग करें।
 
-## **प्रश्नोत्तर**
+## **स्टोरेज, फ़ाइल आकार, और निर्यात पर विचार**
 
-**मैं कैसे पता कर सकता हूँ कि PictureFrame के लिए कौन से छवि स्वरूप समर्थित हैं?**
+मुख्य ट्रेडऑफ़ को प्रबंधित करना आसान होता है जब इमेज स्टोरेज और पिक्चर‑फ़्रेम फ़ॉर्मेटिंग को अलग‑अलग माना जाता है:
 
-Aspose.Slides रैस्टर छवियों (PNG, JPEG, BMP, GIF आदि) और वेक्टर छवियों (जैसे SVG) को उस छवि ऑब्जेक्ट के माध्यम से समर्थन करता है जो एक [PictureFrame] को असाइन किया जाता है। समर्थित स्वरूपों की सूची आमतौर पर स्लाइड और इमेज कन्वर्ज़न इंजन की क्षमताओं के साथ ओवरलैप करती है।
+- **Embedded images** प्रस्तुति को स्व‑निहित बनाते हैं और साझा करने और सर्वर‑साइड रेंडरिंग के लिए सबसे विश्वसनीय होते हैं, लेकिन बड़े रेस्टर इमेजेज PPTX आकार और मेमोरी उपयोग बढ़ाते हैं।
+- **Linked images** पैकेज को छोटा रख सकते हैं, लेकिन प्रस्तुति बाहरी फ़ाइलों पर निर्भर करती है कि वे संग्रहीत पाथ या स्थानों पर उपलब्ध रहें।
+- **Cropping** प्रारम्भ में गैर‑विनाशकारी है। छिपे पिक्सेल तब तक एम्बेडेड रहते हैं जब तक कि क्रॉप किए क्षेत्रों को स्पष्ट रूप से हटाया न जाए या संकुचन के दौरान हटाया न जाए।
+- **Compression** बड़े रेस्टर इमेजेज के लिए फ़ाइल आकार को उल्लेखनीय रूप से कम कर सकता है, लेकिन यह स्रोत रिज़ॉल्यूशन से समझौता करता है। इसे स्लाइड पर इच्छित आकार ज्ञात होने के बाद लागू किया जाना चाहिए।
+- **SVG images** को तब SVG ही रहना चाहिए जब वेक्टर संरक्षण महत्वपूर्ण हो। जब आपको वेक्टर संसाधन स्वयं चाहिए तो एम्बेडेड SVG को सीधे निकालें। रेस्टर स्लाइड निर्यात हमेशा रेंडर की गई स्लाइड को पिक्सेल में परिवर्तित करते हैं।
+- **Repeated images** को संभव होने पर मौजूदा [PPImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ppimage/) संसाधन का पुनः उपयोग करना चाहिए, न कि एक ही फ़ाइल को बार‑बार प्रस्तुति वर्कफ़्लो में लोड करना।
 
-**बड़े आकार की कई छवियों को जोड़ने से PPTX का आकार और प्रदर्शन पर क्या प्रभाव पड़ता है?**
+बड़ी प्रस्तुतियों के लिए, इमेज अनुकूलन आमतौर पर तब सबसे प्रभावी होता है जब चयनात्मक रूप से किया जाए: लोगो और आरेख को वेक्टर सामग्री के रूप में रखें, फ़ोटोग्राफ़ को उनकी वास्तविक प्रदर्शित आकार के अनुसार संकुचित करें, केवल तब क्रॉप किए पिक्सेल हटाएँ जब बाद में संपादन आवश्यक न हो, और बाहरी लिंक से बचें जब तक कि निर्भरता प्रबंधन डिप्लॉयमेंट डिज़ाइन का हिस्सा न हो।
 
-बड़ी छवियों को एम्बेड करने से फ़ाइल आकार और मेमोरी उपयोग बढ़ता है; छवियों को लिंक करने से प्रस्तुति का आकार कम रहता है, लेकिन बाहरी फ़ाइलें सुलभ रहनी चाहिए। Aspose.Slides लिंक के द्वारा छवियों को जोड़ने की सुविधा देता है जिससे फ़ाइल आकार कम किया जा सके।
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं छवि ऑब्जेक्ट को आकस्मिक मूव/रीसाइज़ से कैसे लॉक कर सकता हूँ?**
+**पिक्चर फ्रेम और इमेज रिसोर्स में क्या अंतर है?**
 
-एक [PictureFrame] के लिए [shape locks](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframe/picture_frame_lock/) का उपयोग करें (जैसे मूविंग या रिसाइज़िंग को निष्क्रिय करना)। लॉकिंग तंत्र को अलग [protection article](/slides/hi/python-net/applying-protection-to-presentation/) में वर्णित किया गया है और विभिन्न आकार प्रकारों, सहित [PictureFrame], के लिए समर्थित है।
+एक [PPImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ppimage/) प्रस्तुति से जुड़ा इमेज रिसोर्स दर्शाता है। एक [PictureFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframe/) स्लाइड पर एक आकार है जो इमेज प्रदर्शित करता है और फ़्रेम‑स्तर जियोमेट्री और फ़ॉर्मेटिंग जैसे आकार, घुमाव, क्रॉप मान, इफ़ेक्ट्स और लॉक संग्रहीत करता है।
 
-**क्या SVG वेक्टर फ़िडेलिटी PDF/छवियों में निर्यात करते समय संरक्षित रहती है?**
+**क्या मुझे इमेजेज एम्बेड करनी चाहिए या लिंक?**
 
-Aspose.Slides आपको एक [PictureFrame] से मूल वेक्टर के रूप में SVG निकालने की अनुमति देता है। जब PDF (/slides/hi/python-net/convert-powerpoint-to-pdf/) या रैस्टर स्वरूपों (/slides/hi/python-net/convert-powerpoint-to-png/) में निर्यात किया जाता है, तो परिणाम निर्यात सेटिंग्स पर निर्भर करके रैस्टर हो सकता है; मूल SVG को वेक्टर के रूप में संग्रहीत रखने की पुष्टि निकालने के व्यवहार से होती है।
+इमेजेज को एम्बेड करें जब प्रस्तुति को पोर्टेबल, आर्काइव्ड या बाहरी संसाधनों तक पहुँच के बिना रेंडर किया जाना हो। इमेजेज को लिंक करें केवल तभी जब PPTX के बाहर इमेज फ़ाइलें रखना इरादतन हो और बाहरी स्थानों को विश्वसनीय रूप से बनाए रखा जा सकता हो।
+
+**क्या क्रॉपिंग PPTX फ़ाइल आकार को कम करती है?**
+
+स्वयं में नहीं। सामान्य क्रॉप सेटिंग्स स्रोत इमेज के भागों को छिपाती हैं लेकिन अंतर्निहित पिक्सेल को रखती हैं। जब उन पिक्सेल को स्थायी रूप से हटाया जा सकता हो तो [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/hi/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) या क्रॉप्ड‑एरिया हटाने के साथ इमेज संकुचन का उपयोग करें।
+
+**क्या संकुचन के बाद इमेज गुणवत्ता को पुनः प्राप्त किया जा सकता है?**
+
+नहीं। संकुचन संग्रहीत रेस्टर रिज़ॉल्यूशन को घटा सकता है, और क्रॉप्ड क्षेत्रों को हटाने से इमेज डेटा मिट जाता है। यदि बाद में उच्च‑रिज़ॉल्यूशन संपादन की आवश्यकता हो तो मूल स्रोत इमेज को प्रस्तुति के बाहर रखें।
+
+**SVG इमेजेज को कैसे संभालना चाहिए?**
+
+जब वेक्टर विश्वसनीयता महत्वपूर्ण हो तो SVG सामग्री को SVG ही रखें। एम्बेडेड [SvgImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/) को सीधे निकाला जा सकता है। स्लाइड को PNG या JPEG जैसे रेस्टर फ़ॉर्मेट में रेंडर करने से SVG स्लाइड इमेज का हिस्सा बन कर रास्टराइज़ हो जाता है।
+
+**मौजूदा स्लाइड पढ़ते समय असुरक्षित कास्ट से कैसे बचें?**
+
+पिक्चर‑फ़्रेम‑विशिष्ट सदस्यों का उपयोग करने से पहले आकार प्रकार जाँचें। `isinstance(shape, slides.PictureFrame)` का उपयोग करने से अमान्य कास्ट से बचा जा सकता है और कोड उन स्लाइडों को संभाल सकता है जिनमें पिक्चर फ्रेम नहीं होते।

@@ -1,500 +1,392 @@
 ---
-title: ".NET में प्रस्तुतियों में पिक्चर फ्रेम प्रबंधित करें"
-linktitle: "पिक्चर फ्रेम"
+title: .NET में प्रस्तुतियों में Picture Frames प्रबंधित करें
+linktitle: चित्र फ्रेम
 type: docs
 weight: 10
 url: /hi/net/picture-frame/
 keywords:
-- "पिक्चर फ्रेम"
-- "पिक्चर फ्रेम जोड़ें"
-- "पिक्चर फ्रेम बनाएं"
-- "छवि जोड़ें"
-- "छवि बनाएं"
-- "छवि निकालें"
-- "रास्टर छवि"
-- "वेक्टर छवि"
-- "छवि को क्रॉप करें"
-- "क्रॉप किया गया क्षेत्र"
-- "StretchOff प्रॉपर्टी"
-- "पिक्चर फ्रेम फॉर्मेटिंग"
-- "पिक्चर फ्रेम प्रॉपर्टीज़"
-- "सापेक्ष स्केल"
-- "छवि प्रभाव"
-- "आस्पेक्ट अनुपात"
-- "छवि पारदर्शिता"
-- "PowerPoint"
-- "OpenDocument"
-- "प्रेजेंटेशन"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET के साथ PowerPoint और OpenDocument प्रस्तुतियों में पिक्चर फ्रेम जोड़ें। अपने कार्यप्रवाह को सुव्यवस्थित करें और स्लाइड डिज़ाइनों को बेहतर बनाएं।"
+- चित्र फ्रेम
+- चित्र फ्रेम जोड़ें
+- चित्र फ्रेम बनाएँ
+- एम्बेडेड इमेज
+- लिंक्ड इमेज
+- इमेज निकालें
+- रेस्टर इमेज
+- SVG इमेज
+- इमेज क्रॉप करें
+- क्रॉप्ड क्षेत्रों को हटाएँ
+- इमेज संपीड़ित करें
+- StretchOffset
+- चित्र फ्रेम फ़ॉर्मेटिंग
+- सापेक्ष स्केल
+- इमेज इफ़ेक्ट
+- अस्पेक्ट रेशियो
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET के लिए Aspose.Slides के साथ प्रस्तुतियों में चित्र फ्रेम बनाएं, फ़ॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें और संपीड़ित करें।"
 ---
 ## **परिचय**
 
-एक पिक्चर फ्रेम वह आकार है जो एक छवि शामिल करता है— यह फ्रेम में तस्वीर जैसा है।
+एक picture frame एक slide shape है जो एक image दिखाता है। Aspose.Slides में, image resource और उसे दिखाने वाला shape अलग-अलग objects हैं: एक [प्रस्तुति](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) अपनी [Images](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/images/) collection के माध्यम से एम्बेडेड image resources का स्वामित्व रखता है, जबकि एक [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) image की position, size, line formatting, rotation, cropping, picture effects, और अन्य frame‑level settings को नियंत्रित करता है।
 
-आप एक पिक्चर फ्रेम के माध्यम से स्लाइड में छवि जोड़ सकते हैं। इस प्रकार, आप पिक्चर फ्रेम को फॉर्मेट करके छवि को फॉर्मेट कर सकते हैं।
+यह विभाजन तब उपयोगी होता है जब एक ही image को एक से अधिक बार दिखाया जाता है। image को प्रस्तुति में एक बार जोड़ें, लौटाए गए [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) को रखें, और picture frames बनाते समय उसी image resource का उपयोग करें।
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose मुफ्त कन्वर्टर प्रदान करता है—[JPEG to PowerPoint](https://products.aspose.app/slides/hi/import/jpg-to-ppt) और [PNG to PowerPoint](https://products.aspose.app/slides/hi/import/png-to-ppt)—जो लोगों को छवियों से जल्दी प्रेजेंटेशन बनाने की सुविधा देता है। 
-{{% /alert %}} 
+Picture frames PNG या JPEG जैसे raster images और SVG जैसे vector images को रख सकते हैं। वे presentation में image bytes को संग्रहीत करने के बजाय linked images का भी संदर्भ ले सकते हैं। यह चयन portability, file size, extraction, और export behavior को प्रभावित करता है, इसलिए formatting या optimization लागू करने से पहले यह तय करना उपयोगी है कि image को कैसे संग्रहीत किया जाए।
 
-## **पिक्चर फ्रेम बनाएं**
+## **एक एम्बेडेड छवि जोड़ें और स्वरूपित करें**
 
-1. एक [Presentation ](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का इंस्टेंस बनाएं। 
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंज़ प्राप्त करें। 
-3. एक [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage) ऑब्जेक्ट बनाएं, प्रस्तुति ऑब्जेक्ट से जुड़े [IImagescollection](https://reference.aspose.com/slides/hi/net/aspose.slides/iimagecollection) में एक छवि जोड़कर, जिसका उपयोग आकार को भरने के लिए किया जाएगा। 
-4. छवि की चौड़ाई और ऊँचाई निर्दिष्ट करें। 
-5. एक [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe) बनाएं, छवि की चौड़ाई और ऊँचाई के आधार पर, `AddPictureFrame` मेथड के द्वारा जो रेफ़रेंस्ड स्लाइड से जुड़े shape ऑब्जेक्ट द्वारा उजागर किया गया है। 
-6. स्लाइड में एक पिक्चर फ्रेम (जिसमें चित्र है) जोड़ें। 
-7. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+एक एम्बेडेड image के लिए, image डेटा को प्रस्तुति में जोड़ें और [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addpictureframe/) के साथ एक picture frame बनाएं। image प्रस्तुति पैकेज का हिस्सा बन जाता है, इसलिए प्रस्तुति को दूसरी कंप्यूटर पर ले जाने पर भी वह self‑contained रहता है।
 
-यह C# कोड दिखाता है कि पिक्चर फ्रेम कैसे बनाएं:
+निम्न उदाहरण JPEG image जोड़ता है, image के मूल dimensions पर एक फ्रेम बनाता है, और line formatting तथा rotation लागू करता है:
 
-```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-using (Presentation pres = new Presentation())
-{
-    // पहली स्लाइड प्राप्त करता है
-    ISlide slide = pres.Slides[0];
+```csharp
+using System.Drawing;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // एक छवि लोड करता है और उसे प्रस्तुति की इमेज कलेक्शन में जोड़ता है
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // उसी ऊँचाई और चौड़ाई के साथ एक पिक्चर फ्रेम जोड़ता है
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // पिक्चर फ्रेम पर कुछ फॉर्मेटिंग लागू करता है
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // प्रेजेंटेशन को PPTX फ़ाइल में लिखता है
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="warning" %}} 
-पिक्चर फ्रेम आपको छवियों के आधार पर शीघ्रता से प्रेजेंटेशन स्लाइड बनाने की अनुमति देते हैं। जब आप पिक्चर फ्रेम को Aspose.Slides की सेव ऑप्शन के साथ मिलाते हैं, तो आप इनपुट/आउटपुट ऑपरेशन को नियंत्रित कर एक फॉर्मेट से दूसरे फॉर्मेट में छवियों को परिवर्तित कर सकते हैं। आप इन पृष्ठों को देखना चाह सकते हैं: convert [image to JPG](https://products.aspose.com/slides/hi/net/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/hi/net/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/hi/net/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/hi/net/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/hi/net/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/hi/net/conversion/svg-to-png/). 
-{{% /alert %}}
-
-## **सापेक्ष स्केल के साथ पिक्चर फ्रेम बनाएं**
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation) क्लास का इंस्टेंस बनाएं। 
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंज़ प्राप्त करें। 
-3. प्रस्तुति की इमेज कलेक्शन में एक छवि जोड़ें। 
-4. एक [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage) ऑब्जेक्ट बनाएं, प्रस्तुति ऑब्जेक्ट से जुड़े [IImagescollection](https://reference.aspose.com/slides/hi/net/aspose.slides/iimagecollection) में एक छवि जोड़कर, जिसका उपयोग आकार को भरने के लिए किया जाएगा। 
-5. पिक्चर फ्रेम में छवि की सापेक्ष चौड़ाई और ऊँचाई निर्दिष्ट करें। 
-6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह C# कोड दिखाता है कि सापेक्ष स्केल के साथ पिक्चर फ्रेम कैसे बनाएं:
-
-```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-using (Presentation presentation = new Presentation())
-{
-    // एक छवि लोड करता है और उसे प्रस्तुति की इमेज कलेक्शन में जोड़ता है
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // स्लाइड में एक पिक्चर फ्रेम जोड़ता है
-    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // सापेक्ष स्केल की चौड़ाई और ऊँचाई सेट करता है
-    pictureFrame.RelativeScaleHeight = 0.8f;
-    pictureFrame.RelativeScaleWidth = 1.35f;
-
-    // प्रेजेंटेशन को सहेजता है
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **पिक्चर फ्रेम से रास्टर छवियों को निकालें**
-
-आप [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe) ऑब्जेक्ट से रास्टर छवियों को निकाल सकते हैं और उन्हें PNG, JPG और अन्य फॉर्मेट में सहेज सकते हैं। नीचे दिया गया कोड उदाहरण दर्शाता है कि दस्तावेज़ “sample.pptx” से एक छवि को निकालकर PNG फॉर्मेट में कैसे सहेजा जाए।
-
-```c#
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
-
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
-        image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
-```
-
-## **पिक्चर फ्रेम से SVG छवियों को निकालें**
-
-जब किसी प्रस्तुति में [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe/) आकार के भीतर SVG ग्राफ़िक्स रखे होते हैं, तो Aspose.Slides for .NET आपको मूल वेक्टर छवियों को पूरी शुद्धता के साथ पुनः प्राप्त करने देता है। स्लाइड की shape कलेक्शन को पार करते हुए, आप प्रत्येक [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe/) की पहचान कर सकते हैं, जांच सकते हैं कि अंतर्निहित [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) में SVG कंटेंट है या नहीं, और फिर उस छवि को उसके मूल SVG फॉर्मेट में डिस्क या स्ट्रीम में सहेज सकते हैं।
-
-नीचे दिया गया कोड उदाहरण दर्शाता है कि पिक्चर फ्रेम से SVG छवि को कैसे निकालें:
-
-```cs
-using var presentation = new Presentation("sample.pptx");
-
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
+
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
+```
+
+picture frame प्रदर्शित geometry को नियंत्रित करता है; फ्रेम आकार बदलने से एम्बेडेड image resource में संग्रहीत मूल pixel dimensions नहीं बदलते। यह अंतर बाद में image को crop या compress करने पर महत्वपूर्ण हो जाता है।
+
+## **सापेक्ष स्केल का उपयोग करें**
+
+[IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) फ्रेम के लिए relative width और height scaling प्रदान करता है। `1.0` का मान मूल picture size के 100 % के बराबर है। Relative scale तब उपयोगी होता है जब workflow को source image size के साथ अनुपात बनाए रखना पड़ता है, न कि अंतिम dimensions को मैन्युअली गणना करना।
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
+
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
+```
+
+Relative scale फ्रेम की scale settings बदलता है; यह एम्बेडेड image को resample या compress नहीं करता।
+
+## **एम्बेडेड और लिंक्ड इमेजेज**
+
+एक एम्बेडेड picture image डेटा को प्रस्तुति के अंदर संग्रहीत करता है और इस कारण portability और predictable rendering के लिए सबसे सुरक्षित विकल्प है। एक लिंक्ड picture [ISlidesPicture](https://reference.aspose.com/slides/hi/net/aspose.slides/islidespicture/) लिंक पथ के माध्यम से बाहरी स्थान को संदर्भित करता है, न कि image डेटा को उसी तरह embed करता है।
+
+लिंक्ड इमेजेज PPTX में संग्रहीत image डेटा की मात्रा को कम कर सकते हैं, लेकिन वे एक बाहरी निर्भरता पेश करते हैं। लिंक्ड फ़ाइल को उस application के लिए उपलब्ध रहना चाहिए जो प्रस्तुति को खोलता या render करता है। यदि path बदलता है, फ़ाइल मूव हो जाती है, या resource अनुपलब्ध हो जाता है, तो लिंक्ड picture अपेक्षित रूप से नहीं दिखेगा। उन प्रस्तुतियों के लिए जिन्हें ईमेल, आर्काइव, या isolated environments में render करना है, एम्बेडेड इमेजेज आमतौर पर अधिक भरोसेमंद होते हैं।
+
+### **एक लिंक्ड इमेज जोड़ें**
+
+निम्न उदाहरण एक picture frame बनाता है और उसे एक स्थानीय image फ़ाइल की ओर पॉइंट करता है। यह केवल image linking को ही दर्शाता है; video linking एक अलग media workflow है और जानबूझकर इस उदाहरण में सम्मिलित नहीं किया गया है।
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+बाहरी फ़ाइल प्रबंधन इरादतन होने पर लिंक का उपयोग करें। उन्हें केवल compression के विकल्प के रूप में प्रयोग न करें: एक छोटा PPTX जिसमें टूटे हुए image dependencies हों, आमतौर पर एक बड़े self‑contained प्रस्तुति से कम उपयोगी होता है।
+
+## **Picture Frames से इमेजेज निकालें**
+
+किसी मौजूदा प्रस्तुति से image निकालने से पहले, यह जांचें कि shape वास्तव में एक [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) है और उसमें एम्बेडेड image मौजूद है। लिंक्ड picture frames में वह image bytes नहीं हो सकते जिन्हें उसी तरह निकाल सकें।
+
+### **एक Raster Image निकालें**
+
+आधुनिक image API सीधे [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) का उपयोग करता है और पुराने system‑image wrapper की आवश्यकता नहीं होती। निम्न उदाहरण पहले एम्बेडेड raster picture को slide पर खोजता है और उसे PNG के रूप में सहेजता है:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
+    if (shape is not IPictureFrame pictureFrame)
     {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
+        continue;
+    }
+
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
+
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
+}
+```
+
+[IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) के माध्यम से सहेजना extracted image को अनुरोधित output format में बदल देता है। यदि आपको presentation में संग्रहीत encoded bytes चाहिए, न कि रूपांतरित raster फ़ाइल, तो image resource के binary डेटा का उपयोग करें।
+
+### **एक SVG Image निकालें**
+
+एक SVG picture के लिए, [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) एक [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) object उजागर करता है। यह आपको SVG डेटा को सीधे प्राप्त करने देता है, बिना पहले picture को rasterize किए।
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
+{
+    if (shape is not IPictureFrame pictureFrame)
+    {
+        continue;
+    }
+
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
+    {
+        continue;
+    }
+
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
+}
+```
+
+SVG को SVG के रूप में रखना presentation के भीतर vector source को संरक्षित करता है। PNG या JPEG जैसे raster export को वह vector content को pixels में render करना पड़ता है। PDF या SVG slide export भी एक rendering प्रक्रिया है, इसलिए एक्सपोर्ट किए गए graphics को मूल एम्बेडेड SVG की बाइट‑फॉर‑बाइट कॉपी नहीं माना जाना चाहिए; जब मूल vector resource की आवश्यकता हो तो एम्बेडेड [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) डेटा का उपयोग करें।
+
+## **एक Image को Crop करें**
+
+Cropping फ्रेम के अंदर image के कौन से भाग दिखेंगे, इसे बदलता है। [IPictureFillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/) पर crop values source image dimensions के प्रतिशत होते हैं। Cropping प्रारम्भ में एम्बेडेड image से छिपे हुए pixels को हटाता नहीं है; यह केवल दृश्य क्षेत्र को बदलता है।
+
+निम्न उदाहरण एक picture frame को सुरक्षित रूप से ढूँढता है और crop values लागू करता है:
+
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
+}
+```
+
+क्योंकि छिपा हुआ image डेटा अभी भी मौजूद है, crop को बाद में मूल pixels खोए बिना बदला जा सकता है। यदि फाइल आकार अधिक महत्वपूर्ण है और reversibility की आवश्यकता नहीं है, तो अगले खंड में वर्णित अनुसार cropped regions को शारीरिक रूप से हटाया जा सकता है।
+
+## **क्रॉप्ड Image डेटा हटाएँ**
+
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) वर्तमान crop rectangle के बाहर की image डेटा को हटाता है और resultant image resource लौटाता है। यह फाइल आकार को कम कर सकता है, लेकिन यह एक destructive optimization है: प्रस्तुति सेव होने के बाद हटाए गए pixels बाद में uncrop ऑपरेशन के लिए उपलब्ध नहीं रहते।
+
+```csharp
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
     }
 }
 ```
 
-## **छवि की पारदर्शिता प्राप्त करें**
+इस method से प्रस्तुति में एक नया image resource जुड़ सकता है। यदि मूल image को अन्य picture frames भी उपयोग कर रहे हैं, तो उन frames को अभी भी अपने मौजूदा resource की आवश्यकता होगी, इसलिए cropped areas को हटाना जरूरी नहीं कि कुल image संख्या को घटाए। WMF या EMF content को इस method से crop करने पर परिणाम PNG में rasterize हो जाता है।
 
-Aspose.Slides आपको छवि पर लागू पारदर्शिता प्रभाव को प्राप्त करने देता है। यह C# कोड इस ऑपरेशन को दर्शाता है:
+## **Raster Image को Compress करें**
 
-```c#
-using (var presentation = new Presentation("Test.pptx"))
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/compressimage/) raster image resolution को उस size के सापेक्ष घटाता है जिस पर picture प्रदर्शित होती है। यह उसी ऑपरेशन में cropped regions को भी हटा सकता है। यह method तब `true` लौटाता है जब image को resized या cropped किया गया हो और `false` जब कोई बदलाव आवश्यक न हो।
+
+एक मानक target resolution पर्याप्त होने पर पूर्वपरिभाषित [PicturesCompression](https://reference.aspose.com/slides/hi/net/aspose.slides.export/picturescompression/) मान का उपयोग करें:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
+}
+```
+
+यदि कोई विशिष्ट target चाहिए तो enum मान के बजाय एक कस्टम सकारात्मक DPI मान पास किया जा सकता है।
+
+Compression raster image के लिए अभिप्रेत है। SVG और metafile सामग्री इस raster compression workflow द्वारा नहीं घटती। यह भी याद रखें कि कम resolution और हटाए गए cropped regions को अनुकूलित प्रस्तुति से पुनः प्राप्त नहीं किया जा सकता। लक्ष्य resolution को उस अधिकतम size के आधार पर चुनें जिस पर image वास्तव में देखी या एक्सपोर्ट की जाएगी, न कि वैश्विक रूप से सबसे कम DPI लागू करके।
+
+## **Image Effects की निरीक्षण करें**
+
+Picture effects frame द्वारा उपयोग किए गए picture पर संग्रहीत होते हैं। image transform collection में transparency के लिए fixed alpha modulation और brightness‑contrast के लिए luminance जैसे प्रभाव हो सकते हैं। नीचे दिया गया उदाहरण पहले picture frame से दोनों प्रकार के प्रभावों को सुरक्षित रूप से पढ़ता है:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
+{
+    foreach (var effect in pictureFrame.PictureFormat.Picture.ImageTransform)
     {
         if (effect is IAlphaModulateFixed alphaModulateFixed)
         {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
+            var transparency = 100 - alphaModulateFixed.Amount;
+            Console.WriteLine("Transparency: " + transparency);
         }
-    }
-}
-```
 
-## **छवि की चमक और कंट्रास्ट प्राप्त करें**
-
-Aspose.Slides आपको छवि पर लागू चमक और कंट्रास्ट प्रभाव को प्राप्त करने देता है। [ILuminance](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iluminance/) इंटरफ़ेस इस छवि ट्रांसफ़ॉर्म प्रभाव का प्रतिनिधित्व करता है।
-
-यह C# कोड दिखाता है कि पिक्चर फ्रेम से चमक और कंट्रास्ट सेटिंग्स कैसे प्राप्त करें:
-
-```csharp
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
-
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
         if (effect is ILuminance luminanceEffect)
         {
             var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
-
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
+            Console.WriteLine("Brightness: " + luminance.Brightness);
+            Console.WriteLine("Contrast: " + luminance.Contrast);
         }
     }
 }
 ```
 
-{{% alert color="primary" %}} 
-छवियों पर लागू सभी प्रभाव [Aspose.Slides.Effects](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/) में पाए जा सकते हैं। 
-{{% /alert %}}
+ये प्रभाव frame में image के render होने के तरीके को बदलते हैं; वे मूल एम्बेडेड image bytes को पुनः लिखते नहीं हैं।
 
-## **पिक्चर फ्रेम फॉर्मेटिंग**
+## **Picture Frame Geometry को लॉक करें**
 
-Aspose.Slides पिक्चर फ्रेम पर लागू करने के लिए कई फॉर्मेटिंग विकल्प प्रदान करता है। इन विकल्पों का उपयोग करके, आप पिक्चर फ्रेम को विशिष्ट आवश्यकताओं के अनुरूप बदल सकते हैं।
-
-1. एक [Presentation](http://www.aspose.com/api/net/slides/hi/aspose.slides/) क्लास का इंस्टेंस बनाएं। 
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंज़ प्राप्त करें। 
-3. एक [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage) ऑब्जेक्ट बनाएं, प्रस्तुति ऑब्जेक्ट से जुड़े [IImagescollection](https://reference.aspose.com/slides/hi/net/aspose.slides/iimagecollection) में एक छवि जोड़कर, जिसका उपयोग आकार को भरने के लिए किया जाएगा। 
-4. छवि की चौड़ाई और ऊँचाई निर्दिष्ट करें। 
-5. [AddPictureFrame](http://www.aspose.com/api/net/slides/hi/aspose.slides/ishapecollection/methods/addpictureframe) मेथड के द्वारा `PictureFrame` बनाएं, जो रेफ़रेंस्ड स्लाइड से जुड़े [IShapes](http://www.aspose.com/api/net/slides/hi/aspose.slides/ishapecollection) ऑब्जेक्ट द्वारा उजागर किया गया है। 
-6. स्लाइड में पिक्चर फ्रेम (जिसमें चित्र है) जोड़ें। 
-7. पिक्चर फ्रेम की लाइन रंग सेट करें। 
-8. पिक्चर फ्रेम की लाइन चौड़ाई सेट करें। 
-9. पिक्चर फ्रेम को सकारात्मक या नकारात्मक मान देकर घुमाएँ। 
-   * सकारात्मक मान छवि को घड़ी की दिशा में घुमाता है। 
-   * नकारात्मक मान छवि को घड़ी के विपरीत दिशा में घुमाता है। 
-10. पिक्चर फ्रेम (जिसमें चित्र है) को स्लाइड में जोड़ें। 
-11. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
-
-यह C# कोड पिक्चर फ्रेम फॉर्मेटिंग प्रक्रिया को दर्शाता है:
-
-```c#
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाता है
-using (Presentation presentation = new Presentation())
-{
-    // पहली स्लाइड प्राप्त करता है
-    ISlide slide = presentation.Slides[0];
-
-    // एक छवि लोड करता है और उसे प्रस्तुति की इमेज कलेक्शन में जोड़ता है
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // छवि की समान ऊँचाई और चौड़ाई के साथ एक पिक्चर फ्रेम जोड़ता है
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // पिक्चर फ्रेम पर कुछ फॉर्मेटिंग लागू करता है
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // प्रेजेंटेशन को PPTX फ़ाइल में लिखता है
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="primary" %}}
-Aspose ने हाल ही में एक [free Collage Maker](https://products.aspose.app/slides/hi/collage) विकसित किया है। यदि आपको कभी [JPG/JPEG](https://products.aspose.app/slides/hi/collage/jpg) या PNG छवियों को मिलाना हो, या [फ़ोटो ग्रिड](https://products.aspose.app/slides/hi/collage/photo-grid) बनाना हो, तो आप इस सेवा का उपयोग कर सकते हैं। 
-{{% /alert %}}
-
-## **एक छवि को लिंक के रूप में जोड़ें**
-
-प्रस्तुति का आकार कम रखने के लिए, आप फ़ाइलों को सीधे एम्बेड करने की बजाय लिंक द्वारा छवियां (या वीडियो) जोड़ सकते हैं। यह C# कोड दर्शाता है कि प्लेसहोल्डर में छवि और वीडियो कैसे जोड़ें:
-
-```c#
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
-    }
-
-    foreach (var shape in shapesToRemove)
-    {
-        presentation.Slides[0].Shapes.Remove(shape);
-    }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
-```
-
-## **छवियों को क्रॉप करें**
-
-यह C# कोड दर्शाता है कि स्लाइड पर मौजूद छवि को कैसे क्रॉप किया जाए:
-
-```c#
-using (Presentation presentation = new Presentation())
-{
-    // एक नया इमेज ऑब्जेक्ट बनाता है
-    IImage image = Images.FromFile(imagePath);
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // स्लाइड में एक पिक्चर फ्रेम जोड़ता है
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // छवि को क्रॉप करता है (प्रतिशत मान)
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // परिणाम को सहेजता है
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **पिक्चर फ्रेम के क्रॉप किए गए क्षेत्रों को हटाएं**
-
-यदि आप फ्रेम में मौजूद छवि के क्रॉप किए गए क्षेत्रों को हटाना चाहते हैं, तो आप [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) मेथड का उपयोग कर सकते हैं। यह मेथड क्रॉप की गई छवि या मूल छवि लौटाता है यदि क्रॉपिंग आवश्यक नहीं है।
-
-यह C# कोड इस ऑपरेशन को दर्शाता है:
-
-```c#
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // पहली स्लाइड से पिक्चर फ्रेम प्राप्त करता है
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // पिक्चर फ्रेम इमेज के क्रॉप किए गए क्षेत्रों को हटाता है और क्रॉप की गई इमेज लौटाता है
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // परिणाम सहेजता है
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) मेथड क्रॉप की गई छवि को प्रस्तुति इमेज कलेक्शन में जोड़ता है। यदि छवि केवल प्रोसेस किए गए [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe/) में उपयोग की गई है, तो यह सेटअप प्रस्तुति का आकार कम कर सकता है। अन्यथा, परिणामी प्रस्तुति में छवियों की संख्या बढ़ जाएगी। 
-
-यह मेथड क्रॉपिंग ऑपरेशन में WMF/EMF मे टा फ़ाइलों को रास्टर PNG छवि में बदल देता है। 
-{{% /alert %}}
-
-## **छवियों को संकुचित करें**
-
-आप प्रस्तुति में पिक्चर को [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/compressimage/) मेथड का उपयोग करके संकुचित कर सकते हैं। यह मेथड आकार और निर्दिष्ट रेज़ोल्यूशन के आधार पर छवि के आकार को कम करके संकुचन करता है, और चयनित होने पर क्रॉप किए गए क्षेत्रों को हटाने का विकल्प भी देता है। 
-
-यह PowerPoint के **Picture Format → Compress Pictures → Resolution** फीचर के समान है।
-
-निम्न C# उदाहरण दिखाते हैं कि लक्ष्य रेज़ोल्यूशन निर्दिष्ट करके और वैकल्पिक रूप से क्रॉप किए गए क्षेत्रों को हटाकर प्रस्तुति में छवि को कैसे संकुचित करें:
+[IPictureFrameLock](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframelock/) सेटिंग्स यह नियंत्रित करती हैं कि picture frame के कौन से editing operations अक्षम हों। उदाहरण के लिये, aspect‑ratio lock आकार बदलते समय shape के अनुपात को बरकरार रखता है।
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 150 DPI (वेब रिज़ॉल्यूशन) के लक्ष्य रिज़ॉल्यूशन के साथ छवि को संकुचित करें और क्रॉप किए गए क्षेत्रों को हटाएं।
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // संकुचन के परिणाम की जाँच करें।
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-या सीधे कस्टम DPI मान का उपयोग करके:
+लॉक picture frame shape पर लागू होता है। यह source image को resample या स्थायी रूप से समान aspect ratio में बदलता नहीं है।
+
+## **StretchOffset मानों को समायोजित करें**
+
+जब picture fill mode stretch हो, तो [IPictureFillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/) पर stretch‑offset मान picture frame की bounding box के सापेक्ष fill rectangle को परिभाषित करते हैं। सकारात्मक प्रतिशत किनारे से एक inset बनाते हैं, जबकि नकारात्मक प्रतिशत एक outset बनाते हैं।
+
+यह cropping से अलग है। Crop values यह चुनते हैं कि source image का कौन सा भाग दिखे; stretch offsets वह rectangle बदलते हैं जिसमें दृश्य picture fill को stretch किया जाता है।
 
 ```csharp
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // छवि को 150 DPI (वेब रिज़ॉल्यूशन) पर संकुचित करें, क्रॉप किए गए क्षेत्रों को हटाते हुए।
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
-}
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-यह मेथड आकार और प्रदान किए गए DPI के आधार पर छवि को कम रेज़ोल्यूशन में बदल देता है। फ़ाइल आकार को अनुकूलित करने के लिए क्रॉप किए गए क्षेत्रों को भी हटाया जा सकता है। यदि छवि एक मेटाफाइल (WMF/EMF) या SVG है, तो संकुचन लागू नहीं होगा। साथ ही, JPEG की क्वालिटी रेज़ोल्यूशन के अनुसार बरकरार रहती है या थोड़ी घटती है, जैसा कि PowerPoint उच्च‑रेज़ोल्यूशन JPEG को संभालता है। 
-{{% /alert %}}
+fill placement के लिए stretch offsets का उपयोग करें। जब लक्ष्य source‑image किनारों को छिपाना हो तो crop properties का उपयोग करें।
 
-## **लॉक एस्पेक्ट रेशियो**
+## **स्टोरेज, फाइल साइज, और एक्सपोर्ट विचार**
 
-यदि आप चाहते हैं कि छवि वाले आकार को बदलने के बाद भी उसका एस्पेक्ट रेशियो बना रहे, तो आप [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframelock/aspectratiolocked/) प्रॉपर्टी का उपयोग करके *Lock Aspect Ratio* सेटिंग सेट कर सकते हैं। 
+जब image स्टोरेज और picture‑frame formatting को अलग‑अलग माना जाता है तो मुख्य trade‑offs को प्रबंधित करना सरल हो जाता है:
 
-यह C# कोड दिखाता है कि आकार के एस्पेक्ट रेशियो को कैसे लॉक करें:
+- **Embedded images** प्रस्तुति को self‑contained बनाते हैं और शेयरिंग तथा server‑side rendering के लिये सबसे भरोसेमंद होते हैं, लेकिन बड़े raster images PPTX आकार और मेमोरी उपयोग को बढ़ाते हैं।
+- **Linked images** पैकेज को छोटा रख सकते हैं, लेकिन प्रस्तुति को बाहरी फ़ाइलों की उपलब्धता पर निर्भर बनाते हैं।
+- **Cropping** प्रारम्भ में non‑destructive होता है। छिपे हुए pixels तब तक एम्बेडेड रहते हैं जब तक cropped areas को स्पष्ट रूप से delete या compression के दौरान हटाया न जाए।
+- **Compression** अत्यधिक बड़े raster images के फाइल आकार को काफी घटा सकता है, लेकिन यह source resolution की कीमत पर होता है। इसे स्लाइड पर वास्तविक आकार ज्ञात होने के बाद लागू करना चाहिए।
+- **SVG images** को तब तक SVG के रूप में रखें जब तक vector preservation महत्वपूर्ण न हो। जब आपको स्वयं vector resource चाहिए तो एम्बेडेड SVG को सीधे निकालें। Raster slide exports हमेशा rendered slide को pixels में बदलते हैं।
+- **Repeated images** को संभव हो तो मौजूदा [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) resource को पुनः उपयोग करें, बजाय प्रत्येक बार वही फ़ाइल प्रस्तुति workflow में लोड करने के।
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
-
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // रिसाइज़ करने पर आकार का आस्पेक्ट रेशियो बनाये रखने के लिए सेट करता है
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-यह *Lock Aspect Ratio* सेटिंग केवल आकार के एस्पेक्ट रेशियो को संरक्षित करती है, न कि उसके भीतर मौजूद छवि को। 
-{{% /alert %}}
-
-## **StretchOff प्रॉपर्टी का उपयोग करें**
-
-[StretchOffsetLeft](https://reference.aspose.com/slides/hi/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/hi/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight](https://reference.aspose.com/slides/hi/net/aspose.slides/picturefillformat/properties/stretchoffsetright) और [StretchOffsetBottom](https://reference.aspose.com/slides/hi/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) प्रॉपर्टी को [IPictureFillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat) इंटरफ़ेस और [PictureFillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/picturefillformat) क्लास से उपयोग करके आप एक फ़िल रेक्टेंगल निर्दिष्ट कर सकते हैं। 
-
-जब किसी छवि के लिए स्ट्रेचिंग निर्दिष्ट की जाती है, तो स्रोत रेक्टेंगल को निर्दिष्ट फ़िल रेक्टेंगल में फिट होने के लिए स्केल किया जाता है। फ़िल रेक्टेंगल के प्रत्येक किनारे को आकार की बाउंडिंग बॉक्स के संबंधित किनारे से प्रतिशत ऑफ़सेट द्वारा परिभाषित किया जाता है। सकारात्मक प्रतिशत इन्सेट को दर्शाता है जबकि नकारात्मक प्रतिशत आउटसेट को। 
-
-1. एक [Presentation](http://www.aspose.com/api/net/slides/hi/aspose.slides/) क्लास का इंस्टेंस बनाएं। 
-2. इंडेक्स के माध्यम से स्लाइड का रेफ़रेंज़ प्राप्त करें। 
-3. एक रेक्टेंगल `AutoShape` जोड़ें। 
-4. एक छवि बनाएं। 
-5. आकार का फ़िल टाइप सेट करें। 
-6. आकार का पिक्चर फ़िल मोड सेट करें। 
-7. आकार को भरने के लिए सेट इमेज जोड़ें। 
-8. आकार की बाउंडिंग बॉक्स के संबंधित किनारे से इमेज ऑफ़सेट निर्दिष्ट करें 
-9. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें। 
-
-यह C# कोड दर्शाता है कि StretchOff प्रॉपर्टी का उपयोग कैसे किया जाता है:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-
-    // आकार बॉडी में प्रत्येक किनारे से छवि को स्ट्रेच करने के लिए सेट करता है
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
-}
-```
+बड़े presentations के लिये, image optimization सामान्यतया तब सबसे प्रभावी होती है जब चयनित रूप से किया जाए: logos और diagrams को vector सामग्री के रूप में रखें, photographs को उनके वास्तविक display size के अनुसार compress करें, cropped pixels को केवल तब हटाएँ जब बाद में editing आवश्यक न हो, और बाहरी लिंक को तब तक न अपनाएँ जब तक dependency management deployment design का हिस्सा न हो।
 
 ## **FAQ**
 
-**मैं कैसे पता कर सकता हूँ कि पिक्चर फ्रेम के लिए कौन से इमेज फॉर्मेट सपोर्टेड हैं?**
+**एक picture frame और एक image resource में क्या अंतर है?**
 
-Aspose.Slides रास्टर इमेज (PNG, JPEG, BMP, GIF, आदि) और वेक्टर इमेज (जैसे SVG) दोनों को सपोर्ट करता है, जो [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe/) को असाइन किए गए इमेज ऑब्जेक्ट के माध्यम से उपलब्ध होते हैं। समर्थित फॉर्मेट की सूची आमतौर पर स्लाइड और इमेज कन्वर्ज़न इंजन की क्षमताओं के साथ ओवरलैप करती है। 
+एक [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) प्रस्तुति से जुड़ा image resource दर्शाता है। एक [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) slide पर वह shape है जो image दिखाता है और फ्रेम‑level geometry तथा formatting जैसे size, rotation, crop values, effects, और locks को संग्रहीत करता है।
 
-**कई बड़ी छवियों को जोड़ने से PPTX आकार और प्रदर्शन पर क्या प्रभाव पड़ेगा?**
+**मुझे image को embed करना चाहिए या link करना चाहिए?**
 
-बड़ी छवियों को एम्बेड करने से फ़ाइल आकार और मेमोरी उपयोग बढ़ता है; लिंक की गई छवियां फ़ाइल आकार को कम रखती हैं लेकिन बाहरी फ़ाइलों की उपलब्धता आवश्यक बनाती हैं। Aspose.Slides लिंक द्वारा छवि जोड़ने की सुविधा देता है जिससे फ़ाइल आकार घटाया जा सके। 
+जब प्रस्तुति को portable, archived, या बाहरी resources के बिना render करना आवश्यक हो तो image को embed करें। बाहरी फ़ाइलों को बाहर रखने का इरादा हो और वह स्थान विश्वसनीय रूप से बनाए रखे जा सकें तभी image को link करें।
 
-**मैं कैसे किसी इमेज ऑब्जेक्ट को आकस्मिक मूव/रीसाइज़ से लॉक कर सकता हूँ?**
+**क्या cropping PPTX फाइल साइज को कम करता है?**
 
-[PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe/) (उदाहरण के लिए, मूव या रीसाइज़ को डिसेबल) के लिए आप [shape locks](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe/pictureframelock/) का उपयोग कर सकते हैं। लॉकिंग मैकेनिज़्म को आकारों के लिए अलग [protection article](/slides/hi/net/applying-protection-to-presentation/) में वर्णित किया गया है और यह विभिन्न आकार प्रकारों, जिसमें [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe/) भी शामिल है, के लिए समर्थित है। 
+स्वयं नहीं। सामान्य crop सेटिंग्स source image के भाग को छुपाती हैं लेकिन अंतर्निहित pixels को रखती हैं। जब उन pixels को स्थायी रूप से हटाया जा सकता हो तो [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) या crop‑area removal के साथ image compression का उपयोग करें।
 
-**क्या SVG वेक्टर फ़िडेलिटी को PDF/इमेज में एक्सपोर्ट करने पर संरक्षित रखा जाता है?**
+**क्या मैं compression के बाद image की गुणवत्ता पुनः प्राप्त कर सकता हूँ?**
 
-Aspose.Slides आपको एक [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/pictureframe/) से मूल वेक्टर के रूप में SVG निकालने देता है। जब आप [PDF में एक्सपोर्ट](/slides/hi/net/convert-powerpoint-to-pdf/) या [रास्टर फॉर्मेट्स](/slides/hi/net/convert-powerpoint-to-png/) में निर्यात करते हैं, तो सेटिंग्स के अनुसार परिणाम रास्टराइज़ हो सकता है; मूल SVG के वेक्टर रूप में संग्रहित रहने की पुष्टि एक्सट्रैक्शन व्यवहार से होती है।
+नहीं। Compression संग्रहीत raster resolution को घटा देता है, और cropped regions को हटाने से image डेटा हट जाता है। यदि बाद में उच्च‑resolution editing की सम्भावना हो तो मूल source image को प्रस्तुति के बाहर रखें।
+
+**SVG images को कैसे संभालना चाहिए?**
+
+जब vector fidelity मायने रखती है तो SVG सामग्री को SVG के रूप में रखें। एम्बेडेड [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) को सीधे निकाल सकते हैं। स्लाइड को PNG या JPEG जैसे raster format में render करने से SVG को pixels में बदल दिया जाता है।
+
+**मैं existing slides पढ़ते समय unsafe casts से कैसे बचूँ?**
+
+shape type को उपयोग करने से पहले जांचें। [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) के साथ pattern matching या shape collection को उस interface द्वारा फ़िल्टर करने से invalid casts से बचा जा सकता है और कोड उन slides को संभाल सकता है जिनमें picture frames नहीं होते।

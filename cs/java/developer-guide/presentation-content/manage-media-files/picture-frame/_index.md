@@ -1,562 +1,467 @@
 ---
-title: Spravovat obrázkové rámečky v prezentacích pomocí Javy
-linktitle: Obrázkový rámeček
+title: Spravovat rámy obrázků v prezentacích pomocí Javy
+linktitle: Rám obrázku
 type: docs
 weight: 10
 url: /cs/java/picture-frame/
 keywords:
-- obrázkový rámeček
-- přidat obrázkový rámeček
-- vytvořit obrázkový rámeček
-- přidat obrázek
-- vytvořit obrázek
+- rám obrázku
+- přidat rám obrázku
+- vytvořit rám obrázku
+- vložený obrázek
+- propojený obrázek
 - extrahovat obrázek
 - rastrový obrázek
-- vektorový obrázek
-- oříznout obrázek
-- oříznutá oblast
-- vlastnost StretchOff
-- formátování obrázkového rámečku
-- vlastnosti obrázkového rámečku
+- SVG obrázek
+- ořez obrázku
+- odstranit oříznuté oblasti
+- komprimovat obrázek
+- StretchOffset
+- formátování rámu obrázku
 - relativní měřítko
 - efekt obrázku
 - poměr stran
-- průhlednost obrázku
 - PowerPoint
 - OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-description: "Přidejte obrázkové rámečky do prezentací PowerPoint a OpenDocument pomocí Aspose.Slides pro Javu. Zjednodušte svůj pracovní postup a vylepšete návrh snímků."
+description: "Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte rámy obrázků v prezentacích pomocí Aspose.Slides pro Javu."
 ---
-## **Úvod**
+## **Přehled**
 
-Obrázkový rámeček je tvar, který obsahuje obrázek – je to jako obrázek v rámečku.  
+Rám obrazu je tvar snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, oddělené objekty: [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím svého [IImageCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimagecollection/), zatímco [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) řídí pozici obrázku, velikost, formátování čáry, otočení, ořez, efekty obrázku a další nastavení na úrovni rámu.
 
-Můžete přidat obrázek na snímek pomocí obrázkového rámečku. Tímto způsobem můžete formátovat obrázek úpravou rámečku.  
+Díky tomuto oddělení je užitečné, když se stejný obrázek zobrazuje vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/), a použijte tento zdroj obrázku při vytváření rámců obrázků.
 
-{{% alert title="Tip" color="primary" %}} 
+Rámce obrázků mohou obsahovat rastrové obrázky, například PNG nebo JPEG, a vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo ukládání bajtů obrázku v prezentaci. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je vhodné rozhodnout, jak má být obrázek uložen, ještě před aplikací formátování nebo optimalizace.
 
-Aspose poskytuje zdarma konvertory —[JPEG do PowerPoint](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG do PowerPoint](https://products.aspose.app/slides/cs/import/png-to-ppt) —které umožňují rychle vytvářet prezentace z obrázků.  
+## **Přidání a formátování vloženého obrázku**
 
-{{% /alert %}} 
+Pro vložený obrázek přidejte data obrázku do prezentace a vytvořte rámec obrázku pomocí [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná při přesunu na jiný počítač.
 
-## **Vytvořit obrázkový rámeček**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).  
-2. Získejte referenci na snímek pomocí jeho indexu.  
-3. Vytvořte objekt [IPPImage]() přidáním obrázku do [IImagescollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IImageCollection) přidružené k objektu prezentace, který bude použit k vyplnění tvaru.  
-4. Zadejte šířku a výšku obrázku.  
-5. Vytvořte [PictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/PictureFrame) na základě šířky a výšky obrázku pomocí metody `AddPictureFrame` vystavené objektem tvaru přidruženým k odkazovanému snímku.  
-6. Přidejte obrázkový rámeček (obsahující obrázek) na snímek.  
-7. Uložte upravenou prezentaci jako soubor PPTX.  
-
-Tento Java kód ukazuje, jak vytvořit obrázkový rámeček:  
+Následující příklad přidává JPEG obrázek, vytvoří rámec v nativních rozměrech obrázku a aplikuje formátování čáry a otočení:
 
 ```java
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-try {
-    // Získá první snímek
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Vytvoří instanci třídy Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Přidá obrázkový rámeček s ekvivalentní výškou a šířkou obrázku
-    sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Zapíše soubor PPTX na disk
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+import com.aspose.slides.*;
+import java.awt.Color;
 
-{{% alert color="warning" %}} 
-
-Obrázkové rámečky vám umožňují rychle vytvářet snímky prezentace na základě obrázků. Když kombinujete obrázkový rámeček s možnostmi ukládání Aspose.Slides, můžete manipulovat s operacemi vstupu/výstupu a převádět obrázky z jednoho formátu do druhého. Můžete si prohlédnout následující stránky: převést [obrázek na JPG](https://products.aspose.com/slides/cs/java/conversion/image-to-jpg/); převést [JPG na obrázek](https://products.aspose.com/slides/cs/java/conversion/jpg-to-image/); převést [JPG na PNG](https://products.aspose.com/slides/cs/java/conversion/jpg-to-png/), převést [PNG na JPG](https://products.aspose.com/slides/cs/java/conversion/png-to-jpg/); převést [PNG na SVG](https://products.aspose.com/slides/cs/java/conversion/png-to-svg/), převést [SVG na PNG](https://products.aspose.com/slides/cs/java/conversion/svg-to-png/).  
-
-{{% /alert %}} 
-
-## **Vytvořit obrázkový rámeček s relativním měřítkem**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).  
-2. Získejte referenci na snímek pomocí jeho indexu.  
-3. Přidejte obrázek do kolekce obrázků prezentace.  
-4. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPPImage) přidáním obrázku do [IImagescollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IImageCollection) přidružené k objektu prezentace, který bude použit k vyplnění tvaru.  
-5. Zadejte relativní šířku a výšku obrázku v obrázkovém rámečku.  
-6. Uložte upravenou prezentaci jako soubor PPTX.  
-
-Tento Java kód ukazuje, jak vytvořit obrázkový rámeček s relativním měřítkem:  
-
-```java
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-try {
-    // Získá první snímek
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Vytvoří instanci třídy Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    
-    // Přidá obrázkový rámeček s výškou a šířkou ekvivalentní obrázku
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Nastavení relativního měřítka výšky a šířky
-    pf.setRelativeScaleHeight(0.8f);
-    pf.setRelativeScaleWidth(1.35f);
-    
-    // Zapíše soubor PPTX na disk
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Extrahovat rastrové obrázky z obrázkových rámečků**
-
-Můžete extrahovat rastrové obrázky z objektů [PictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/PictureFrame) a uložit je jako PNG, JPG a další formáty. Níže uvedený příklad kódu demonstruje, jak extrahovat obrázek z dokumentu **sample.pptx** a uložit jej ve formátu PNG.  
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-    IShape firstShape = firstSlide.getShapes().get_Item(0);
-
-    if (firstShape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) firstShape;
-        try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
-    }
-} catch (IOException e) {
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Extrahovat SVG obrázky z obrázkových rámečků**
-
-Když prezentace obsahuje SVG grafiku umístěnou uvnitř tvarů [PictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pictureframe/), Aspose.Slides pro Java umožňuje získat původní vektorové obrázky s plnou věrností. Procházením kolekce tvarů snímku můžete identifikovat každý [PictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pictureframe/), zkontrolovat, zda podkladový [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/) obsahuje SVG obsah, a poté tento obrázek uložit na disk nebo do proudu v jeho nativním SVG formátu.  
-
-Následující ukázka kódu demonstruje, jak extrahovat SVG obrázek z obrázkového rámečku:  
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame) {
-        IPictureFrame pictureFrame = (IPictureFrame) shape;
-        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
-} catch (IOException e) {
-    System.out.println(e.getMessage());
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Získat průhlednost obrázku**
+Rámec obrázku řídí zobrazovanou geometrii; změna velikosti rámce nemění původní rozměry pixelů uložené ve vloženém zdroji obrázku. Toto rozlišení se stává důležitým při ořezu nebo kompresi obrázku později.
 
-Aspose.Slides umožňuje získat efekt průhlednosti aplikovaný na obrázek. Tento Java kód demonstruje operaci:  
+## **Použití relativního měřítka**
 
-```java
-Presentation presentation = new Presentation("Test.pptx");
-
-var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var effect : imageTransform) {
-    if (effect instanceof IAlphaModulateFixed) {
-        var alphaModulateFixed = (IAlphaModulateFixed) effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        System.out.println("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Získat jas a kontrast obrázku**
-
-Aspose.Slides umožňuje získat efekt jasu a kontrastu aplikovaný na obrázek. Rozhraní [ILuminance](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iluminance/) představuje tento transformační efekt obrázku.  
-
-Tento Java kód ukazuje, jak získat nastavení jasu a kontrastu z obrázkového rámečku:  
+[IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) poskytuje relativní škálování šířky a výšky rámce prostřednictvím [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když pracovní postup potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame) shape;
 
-    IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (IImageTransformOperation effect : imageTransform) {
-        if (effect instanceof ILuminance) {
-            ILuminanceEffectiveData luminance = ((ILuminance) effect).getEffective();
-            float brightness = luminance.getBrightness();
-            float contrast = luminance.getContrast();
-
-            System.out.println("Brightness: " + brightness);
-            System.out.println("Contrast: " + contrast);
-        }
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
     }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(1.35f);
+    pictureFrame.setRelativeScaleHeight(0.8f);
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Formátování obrázkového rámečku**
+Relativní měřítko mění nastavení měřítka rámce; neprovádí resampling ani kompresi vloženého obrázku.
 
-Aspose.Slides poskytuje řadu možností formátování, které lze použít na obrázkový rámeček. Pomocí těchto možností můžete upravit rámeček tak, aby splňoval konkrétní požadavky.  
+## **Vložené a propojené obrázky**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).  
-2. Získejte referenci na snímek pomocí jeho indexu.  
-3. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPPImage) přidáním obrázku do [IImagescollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IImageCollection) přidružené k objektu prezentace, který bude použit k vyplnění tvaru.  
-4. Zadejte šířku a výšku obrázku.  
-5. Vytvořte `PictureFrame` na základě šířky a výšky obrázku pomocí metody [AddPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) vystavené objektu [IShapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShapeCollection) přidruženému k odkazovanému snímku.  
-6. Přidejte obrázkový rámeček (obsahující obrázek) na snímek.  
-7. Nastavte barvu čáry obrázkového rámečku.  
-8. Nastavte šířku čáry obrázkového rámečku.  
-9. Otočte obrázkový rámeček zadáním kladné nebo záporné hodnoty.  
-   * Kladná hodnota otáčí obrázek po směru hodinových ručiček.  
-   * Záporná hodnota otáčí obrázek proti směru hodinových ručiček.  
-10. Přidejte obrázkový rámeček (obsahující obrázek) na snímek.  
-11. Uložte upravenou prezentaci jako soubor PPTX.  
+Vložený obrázek ukládá data obrázku uvnitř prezentace a je proto nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění metodou [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) místo vložení dat obrázku stejným způsobem.
 
-Tento Java kód demonstruje proces formátování obrázkového rámečku:  
+Propojené obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj není dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které musí být posílány emailem, archivovány nebo vykreslovány v izolovaném prostředí, jsou vložené obrázky obvykle spolehlivější.
+
+### **Přidání propojeného obrázku**
+
+Následující příklad vytvoří rámec obrázku a nasměruje jej na lokální soubor obrázku. Zabývá se pouze propojováním obrázků; propojování videí je samostatný multimediální workflow a je úmyslně nezahrnuto v tomto příkladu.
 
 ```java
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.File;
+
+Presentation presentation = new Presentation();
 try {
-    // Získá první snímek
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Vytvoří instanci třídy Image
-    IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
-    
-    // Přidá obrázkový rámeček s výškou a šířkou ekvivalentní obrázku
-    IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    
-    // Aplikuje určité formátování na PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    
-    // Zapíše soubor PPTX na disk
-    pres.save("RectPicFrame.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+    File linkedImageFile = new File("linked-image.jpg");
+    String linkPath = linkedImageFile.getAbsolutePath();
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
+Používejte odkazy, když je externí správa souborů zamýšlená. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s nefunkčními závislostmi obrázků je obvykle méně užitečný než větší samostatná prezentace.
 
-Aspose nedávno vyvinul [bezplatný Collage Maker](https://products.aspose.app/slides/cs/collage). Pokud potřebujete [sloučit JPG/JPEG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG obrázky, [vytvořit mřížky z fotografií](https://products.aspose.app/slides/cs/collage/photo-grid), můžete použít tuto službu.  
+## **Extrahování obrázků z rámců obrázků**
 
-{{% /alert %}}
+Před extrahováním obrázku z existující prezentace zkontrolujte, že tvar je skutečně [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) a že obsahuje vložený obrázek. Propojené rámce obrázků nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
 
-## **Přidat obrázek jako odkaz**
+### **Extrahování rastrového obrázku**
 
-Aby se předešlo velké velikosti prezentace, můžete přidávat obrázky (nebo videa) pomocí odkazů místo vkládání souborů přímo do prezentace. Tento Java kód ukazuje, jak přidat obrázek a video do zástupce:  
+Moderní API pro obrázky používá přímo [IImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/) a nevyžaduje starší Java obal pro obrázky. Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
 
 ```java
-Presentation presentation = new Presentation("input.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
-    int shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    for (int i = 0; i < shapesCount; i++)
-    {
-        IShape autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-
-        if (autoShape.getPlaceholder() == null)
-        {
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
             continue;
         }
 
-        switch (autoShape.getPlaceholder().getType())
-        {
-            case PlaceholderType.Picture:
-                IPictureFrame pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle,
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
 
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+        IImage rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-                shapesToRemove.add(autoShape);
-                break;
+Ukládání pomocí [IImage.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/#save-java.lang.String-int-) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete zakódované bajty uložené v prezentaci místo konvertovaného rastrového souboru, použijte binární data zdroje obrázku.
 
-            case PlaceholderType.Media:
-                IVideoFrame videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(
-                        autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+### **Extrahování SVG obrázku**
 
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong(
-                        "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+Pro SVG obrázek [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/) poskytuje objekt [ISvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku nejdříve.
 
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-                shapesToRemove.add(autoShape);
-                break;
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IPictureFrame)) {
+            continue;
+        }
+
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        IPPImage embeddedImage = pictureFrame.getPictureFormat().getPicture().getImage();
+        ISvgImage svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
+        }
+
+        byte[] svgData = svgImage.getSvgData();
+        FileOutputStream outputStream = new FileOutputStream("extracted-image.svg");
+        try {
+            outputStream.write(svgData);
+        } finally {
+            outputStream.close();
+        }
+        break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Uchování SVG obsahu jako SVG zachovává vektorový zdroj uvnitř prezentace. Rasterové exporty jako PNG nebo JPEG nutně vykreslují tento vektorový obsah do pixelů. Export snímku do PDF nebo SVG je také operace vykreslení, takže exportovaná grafika by neměla být považována za bit‑po‑bitu kopii původního vloženého SVG; použijte vložená data [ISvgImage.getSvgData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/#getSvgData--) , pokud je vyžadován samotný vektorový zdroj.
+
+## **Ořez obrázku**
+
+Ořez mění, která část obrázku je viditelná uvnitř rámce. Hodnoty ořezu na [IPictureFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořez původně nesmaže skryté pixely ze vloženého obrázku; pouze mění viditelnou oblast.
+
+Následující příklad bezpečně najde rámec obrázku a aplikuje hodnoty ořezu:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
         }
     }
 
-    for (IShape shape : shapesToRemove)
-    {
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(23.6f);
+        pictureFrame.getPictureFormat().setCropRight(21.5f);
+        pictureFrame.getPictureFormat().setCropTop(3f);
+        pictureFrame.getPictureFormat().setCropBottom(31f);
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx);
     }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Oříznout obrázky**
-
-Tento Java kód ukazuje, jak oříznout existující obrázek na snímku:  
-
-```java
-Presentation pres = new Presentation();
-// Vytvoří nový objekt obrázku
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Přidá PictureFrame na snímek
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 100, 100, 420, 250, picture);
-
-    // Ořízne obrázek (procentuální hodnoty)
-    picFrame.getPictureFormat().setCropLeft(23.6f);
-    picFrame.getPictureFormat().setCropRight(21.5f);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-
-    // Uloží výsledek
-    pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Odstranit oříznuté oblasti obrázku**
-
-Pokud chcete odstranit oříznuté oblasti obrázku obsaženého v rámečku, můžete použít metodu [deletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--). Tato metoda vrátí oříznutý obrázek nebo původní obrázek, pokud oříznutí není potřeba.  
-
-Tento Java kód demonstruje operaci:  
-
-```java
-Presentation presentation = new Presentation("PictureFrameCrop.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Získá PictureFrame z prvního snímku
-    IPictureFrame picFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Smaže oříznuté oblasti obrázku PictureFrame a vrátí oříznutý obrázek
-    IPPImage croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-
-    // Uloží výsledek
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-{{% alert title="POZNÁMKA" color="warning" %}} 
-
-Metoda [deletePictureCroppedAreas()](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) přidává oříznutý obrázek do kolekce obrázků prezentace. Pokud je obrázek použit pouze v zpracovaném [PictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pictureframe/), tato úprava může snížit velikost prezentace. V opačném případě se počet obrázků ve výsledné prezentaci zvýší.  
-
-Metoda během ořezávání převádí WMF/EMF meta‑soubory na rastrový PNG obrázek.  
-
-{{% /alert %}}
-
-## **Komprimovat obrázky**
-
-Můžete komprimovat obrázek v prezentaci pomocí metody [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-). Tato metoda komprimuje obrázek snížením jeho velikosti na základě velikosti tvaru a zadaného rozlišení, s možností smazat oříznuté oblasti.  
-
-Upravuje velikost a rozlišení obrázku podobně jako funkce PowerPointu **Picture Format → Compress Pictures → Resolution**.  
-
-Následující Java příklady ukazují, jak komprimovat obrázek v prezentaci zadáním cílového rozlišení a volitelným odstraněním oříznutých oblastí:  
-
-```java
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
-
-    // Komprimuje obrázek s cílovým rozlišením 150 DPI (webové rozlišení) a odstraní oříznuté oblasti.
-    boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
-
-    // Zkontroluje výsledek komprese.
-    if (result) {
-        System.out.println("Image successfully compressed.");
-    } else {
-        System.out.println("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Nebo přímo s vlastním DPI:  
+Protože skrytá data obrázku stále existují, lze ořez později změnit bez ztráty původních pixelů. Pokud je velikost souboru důležitější než možnost vrácení, lze oříznuté oblasti fyzicky odstranit, jak je popsáno v následující sekci.
+
+## **Odstranění oříznutých dat obrázku**
+
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací výsledný zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace nejsou odstraněné pixely k dispozici pro pozdější operaci „uncrop“.
 
 ```java
-Presentation presentation = new Presentation("demo.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("cropped-image.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
+    IPictureFrame pictureFrame = null;
 
-    // Komprimuje obrázek na 150 DPI (webové rozlišení), odstraňuje oříznuté oblasti.
-    pictureFrame.getPictureFormat().compressImage(true, 150f);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        IPPImage croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="POZNÁMKA" color="warning" %}} 
+Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek také používán jinými rámy obrázků, tyto rámce stále potřebují svůj existující zdroj, takže mazání ořezaných oblastí nemusí nutně snížit celkový počet obrázků. Ořez WMF nebo EMF obsahu touto metodou rasterizuje ořezaný výsledek do PNG.
 
-Metoda převádí obrázek na nižší rozlišení na základě velikosti tvaru a zadaného DPI. Oříznuté oblasti mohou být také smazány pro optimalizaci velikosti souboru.  
-Pokud je obrázek meta‑soubor (WMF/EMF) nebo SVG, komprese se neuplatní. Kvalita JPEG je zachována nebo mírně snížena podle rozlišení, podobně jako PowerPoint zachází s vysokým rozlišením JPEG.  
+## **Komprese rastrových obrázků**
 
-{{% /alert %}}
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) snižuje rozlišení rastrového obrázku vzhledem k velikosti, ve které je obrázek zobrazen. Může také v rámci stejné operace odstranit oříznuté oblasti. Metoda vrací `true`, pokud byl obrázek upraven nebo oříznut, a `false`, pokud nebyla nutná žádná změna.
 
-## **Zamknout poměr stran**
-
-Pokud chcete, aby tvar obsahující obrázek zachoval svůj poměr stran i po změně rozměrů obrázku, můžete použít metodu [setAspectRatioLocked](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) k nastavení volby *Lock Aspect Ratio*.  
-
-Tento Java kód ukazuje, jak zamknout poměr stran tvaru:  
+Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/java/com.aspose.slides/picturescompression/) , když je dostačující standardní cílové rozlišení:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.getSlides().addEmptySlide(layout);
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+import com.aspose.slides.*;
 
-    // nastavit tvar tak, aby zachoval poměr stran při změně velikosti
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        boolean compressed = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
+        System.out.println(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Vlastní kladná hodnota DPI může být předána místo předdefinované hodnoty, pokud je vyžadován konkrétní cíl.
+
+Kompresie je určena pro rastrové obrázky. SVG a metafile obsah není tímto rastrovým kompresním workflow zmenšován. Také si pamatujte, že nižší rozlišení a smazané oříznuté oblasti nelze z optimalizované prezentace obnovit. Vyberte cílové rozlišení na základě největší velikosti, při které bude obrázek skutečně zobrazen nebo exportován, místo globálního použití nejnižšího DPI.
+
+## **Kontrola efektů obrázku**
+
+Efekty obrázku jsou uloženy na obrázku použitým v rámci. Kolekce transformací obrázku může obsahovat efekty jako pevná alfa modulace pro průhlednost a luminanci pro jas a kontrast. Následující příklad bezpečně čte oba druhy efektů z prvního rámce obrázku na snímku:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IPictureFrame) {
+            pictureFrame = (IPictureFrame) shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (IImageTransformOperation effect : imageTransform) {
+            if (effect instanceof IAlphaModulateFixed) {
+                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
+                float transparency = 100 - alphaModulateFixed.getAmount();
+                System.out.println("Transparency: " + transparency);
+            }
+
+            if (effect instanceof ILuminance) {
+                ILuminance luminanceEffect = (ILuminance) effect;
+                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
+                System.out.println("Brightness: " + luminance.getBrightness());
+                System.out.println("Contrast: " + luminance.getContrast());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Tyto efekty mění způsob, jak je obrázek vykreslen v rámci; nepřepisují původní vložené bajty obrázku.
+
+## **Uzamčení geometrie rámce obrázku**
+
+Nastavení [IPictureFrameLock](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframelock/) řídí, které operace úprav jsou pro rámec obrázku zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) zachovává proporce tvaru při jeho změně velikosti.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert title="POZNÁMKA" color="warning" %}} 
+Zámek se vztahuje na tvar rámce obrázku. Nevyžaduje, aby byl zdrojový obrázek resamplován nebo trvale změněn na stejný poměr stran.
 
-Nastavení *Lock Aspect Ratio* zachovává pouze poměr stran tvaru, ne samotného obrázku, který obsahuje.  
+## **Úprava hodnot StretchOffset**
 
-{{% /alert %}}
+Když je režim výplně obrázku stretch, hodnoty stretch‑offset na [IPictureFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/) definují výplňový obdélník relativně k ohraničujícímu rámečku rámce obrázku. Kladná procenta vytvářejí vnitřní odsazení od okraje, zatímco záporná procenta vytvářejí vnější odsazení.
 
-## **Použít vlastnost StretchOff**
-
-Použitím vlastností [StretchOffsetLeft](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) a [StretchOffsetBottom](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) z rozhraní [IPictureFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPictureFillFormat) a třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPictureFillFormat) můžete určit výplňový obdélník.  
-
-Když je pro obrázek zadáno natažení, zdrojový obdélník se přepočítá tak, aby zaplnil určený výplňový obdélník. Každý okraj výplňového obdélníku je definován procentuálním posunem od odpovídajícího okraje ohraničujícího rámečku tvaru. Kladné procento udává odsazení dovnitř, záporné procento pak vystoupení ven.  
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).  
-2. Získejte referenci na snímek pomocí jeho indexu.  
-3. Přidejte obdélník `AutoShape`.  
-4. Vytvořte obrázek.  
-5. Nastavte typ výplně tvaru.  
-6. Nastavte režim výplně obrázkem.  
-7. Přidejte nastavený obrázek k výplni tvaru.  
-8. Zadejte posuny obrázku od odpovídajících okrajů ohraničujícího rámečku tvaru.  
-9. Uložte upravenou prezentaci jako soubor PPTX.  
-
-Tento Java kód demonstruje proces, kde je použita vlastnost StretchOff:  
+To se liší od ořezu. Hodnoty ořezu vybírají, která část zdrojového obrázku je viditelná; stretch offsety mění obdélník, do kterého je viditelná výplň obrázku roztahována.
 
 ```java
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-try {
-    // Získá první snímek
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Vytvoří instanci třídy ImageEx
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        sourceImage.dispose();
     }
 
-    // Přidá AutoShape nastavený na obdélník
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch);
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetRight(12f);
+    pictureFrame.getPictureFormat().setStretchOffsetTop(8f);
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(8f);
 
-    // Nastaví typ výplně tvaru
-    aShape.getFillFormat().setFillType(FillType.Picture);
-
-    // Nastaví režim výplně obrázkem tvaru
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-
-    // Nastaví obrázek pro výplň tvaru
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-    // Určuje posuny obrázku od odpovídajícího okraje ohraničujícího rámečku tvaru
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
-    //Zapíše soubor PPTX na disk
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Používejte stretch offsety pro umístění výplně. Používejte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
+
+## **Úvahy o úložišti, velikosti souboru a exportu**
+
+Hlavní kompromisy se snáze řídí, když jsou úložiště obrázků a formátování rámců obrázků řešeny odděleně:
+
+- **Vložené obrázky** dělají prezentaci samostatnou a jsou nejspolehlivější pro sdílení a serverové vykreslování, ale velké rastrové obrázky zvyšují velikost PPTX a spotřebu paměti.
+- **Propojené obrázky** mohou udržet balíček menší, ale prezentace závisí na tom, že externí soubory zůstanou dostupné na uložených cestách nebo umístěních.
+- **Ořez** je zpočátku nedestruktivní. Skryté pixely zůstávají vložené, dokud nejsou oříznuté oblasti explicitně smazány nebo odstraněny během komprese.
+- **Kompresí** lze výrazně snížit velikost souboru u příliš velkých rastrových obrázků, avšak za cenu ztráty původního rozlišení. Měla by být použita po určení zamýšlené velikosti na snímku.
+- **SVG obrázky** by měly zůstat jako SVG, pokud je důležitá zachování vektoru. Vložené SVG extrahujte přímo, když potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
+- **Opakované obrázky** by měly opakovaně využívat existující zdroj [IPPImage], pokud je to možné, místo opakovaného načítání stejného souboru do pracovního postupu prezentace.
+
+U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když se provádí selektivně: uchovávejte loga a diagramy jako vektorový obsah, komprimujte fotografie podle jejich skutečné zobrazovací velikosti, odstraňujte oříznuté pixely pouze pokud není potřeba pozdější úprava, a vyhýbejte se externím odkazům, pokud správa závislostí není součástí návrhu nasazení.
 
 ## **Často kladené otázky**
 
-**Jak zjistit, které formáty obrázků jsou podporovány pro PictureFrame?**  
+**Jaký je rozdíl mezi rámcem obrázku a zdrojem obrázku?**
 
-Aspose.Slides podporuje jak rastrové obrázky (PNG, JPEG, BMP, GIF atd.), tak vektorové obrázky (například SVG) prostřednictvím objektu obrázku přiřazeného k [PictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pictureframe/). Seznam podporovaných formátů obecně překrývá možnosti motoru pro konverzi snímků a obrázků.  
+[IPPImage] představuje zdroj obrázku spojený s prezentací. [IPictureFrame] je tvar na snímku, který zobrazuje obrázek a ukládá geometrii a formátování na úrovni rámce, jako jsou velikost, otočení, hodnoty ořezu, efekty a zámky.
 
-**Jaký vliv bude mít přidání desítek velkých obrázků na velikost a výkon PPTX?**  
+**Mám obrázky vkládat nebo propojovat?**
 
-Vkládání velkých obrázků zvyšuje velikost souboru a spotřebu paměti; propojování na obrázky pomáhá udržet velikost prezentace nízkou, ale vyžaduje, aby externí soubory zůstaly dostupné. Aspose.Slides poskytuje možnost přidávat obrázky jako odkazy pro snížení velikosti souboru.  
+Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslovaná bez přístupu k externím zdrojům. Propojujte obrázky pouze pokud je úmyslné mít soubory obrázků mimo PPTX a externí umístění lze spolehlivě udržovat.
 
-**Jak mohu zamknout objekt obrázku před neúmyslným přesouváním/změnou velikosti?**  
+**Snižuje ořez velikost souboru PPTX?**
 
-Použijte [uzamykání tvarů](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) pro [PictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pictureframe/) (např. zakázání přesunu nebo změny velikosti). Mechanismus uzamykání je popsán pro tvary v samostatném [článku o ochraně](/slides/cs/java/applying-protection-to-presentation/) a je podporován pro různé typy tvarů, včetně [PictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pictureframe/).  
+Nebyl vynuceně. Normální nastavení ořezu skryje části zdrojového obrázku, ale podkladové pixely zůstávají. Použijte [IPictureFillFormat.deletePictureCroppedAreas] nebo kompresi obrázku s odstraňováním oříznutých oblastí, pokud lze tyto pixely trvale odstranit.
 
-**Zůstane zachována vektorová věrnost SVG při exportu prezentace do PDF/obrázků?**  
+**Mohu po kompresi obnovit kvalitu obrázku?**
 
-Aspose.Slides umožňuje extrahovat SVG z [PictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pictureframe/) jako původní vektor. Při [exportu do PDF](/slides/cs/java/convert-powerpoint-to-pdf/) nebo [rasterových formátů](/slides/cs/java/convert-powerpoint-to-png/) může být výsledek rasterizován podle nastavení exportu; fakt, že původní SVG je uložen jako vektor, je potvrzen chováním extrakce.
+Ne. Komprese může snížit uložené rastrové rozlišení a odstraňování oříznutých oblastí zahazuje data obrázku. Ponechte původní zdrojový obrázek mimo prezentaci, pokud by pozdější úpravy ve vysokém rozlišení mohly být potřeba.
+
+**Jak by měly být zpracovány SVG obrázky?**
+
+Uchovávejte SVG obsah jako SVG, pokud záleží na vektorové věrnosti. Vložený [ISvgImage] lze extrahovat přímo. Vykreslení snímku do rastrového formátu, jako je PNG nebo JPEG, rasterizuje SVG jako součást obrázku snímku.
+
+**Jak se mohu vyhnout nebezpečným přetypováním při čtení existujících snímků?**
+
+Zkontrolujte typ tvaru před použitím členů specifických pro rámce obrázků. Kontrola `instanceof` vůči [IPictureFrame] zabrání neplatným přetypováním a umožní kódu zpracovat snímky, které neobsahují rámce obrázků.

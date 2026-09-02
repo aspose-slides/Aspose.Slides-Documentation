@@ -1,5 +1,5 @@
 ---
-title: Управление рамками изображений в презентациях с использованием JavaScript
+title: Управление рамками изображений в презентациях с помощью JavaScript
 linktitle: Рамка изображения
 type: docs
 weight: 10
@@ -8,528 +8,475 @@ keywords:
 - рамка изображения
 - добавить рамку изображения
 - создать рамку изображения
-- добавить изображение
-- создать изображение
+- встроенное изображение
+- связанное изображение
 - извлечь изображение
 - растровое изображение
-- векторное изображение
+- SVG‑изображение
 - обрезать изображение
-- обрезанная область
-- свойство StretchOff
+- удалить обрезанные области
+- сжать изображение
+- StretchOffset
 - форматирование рамки изображения
-- свойства рамки изображения
 - относительный масштаб
 - эффект изображения
 - соотношение сторон
-- прозрачность изображения
 - PowerPoint
 - OpenDocument
 - презентация
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Добавьте рамки изображений в презентации PowerPoint и OpenDocument с помощью Aspose.Slides для Node.js через Java. Упростите рабочий процесс и улучшите дизайн слайдов."
+description: "Создавайте, форматируйте, связывайте, обрезайте, извлекайте и сжимайте рамки изображений в презентациях с помощью Aspose.Slides для Node.js через Java."
 ---
-## **Введение**
+## **Обзор**
 
-Рамка изображения — это фигура, содержащая изображение, похожая на картину в рамке. 
+Рамка изображения — это элемент слайда, отображающий изображение. В Aspose.Slides ресурс изображения и элемент, который его отображает, являются отдельными объектами: [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/) владеет встроенными ресурсами изображений через свою [ImageCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagecollection/), тогда как [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/) управляет положением изображения, размером, форматированием линий, вращением, обрезкой, эффектами изображения и другими параметрами уровня рамки.
 
-Вы можете добавить изображение на слайд через рамку изображения. Таким образом, вы форматируете изображение, форматируя рамку изображения.
+Это разделение полезно, когда одно и то же изображение отображается более одного раза. Добавьте изображение в презентацию один раз, сохраните полученный [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/), и используйте этот ресурс изображения при создании рамок изображения.
 
-{{% alert  title="Tip" color="primary" %}} 
+Рамки изображения могут содержать растровые изображения, такие как PNG или JPEG, и векторные SVG‑изображения. Они также могут ссылаться на связанные изображения вместо того, чтобы хранить байты изображения в презентации. Выбор влияет на переносимость, размер файла, извлечение и поведение экспорта, поэтому полезно решить, как изображение должно храниться, прежде чем применять форматирование или оптимизацию.
 
-Aspose предоставляет бесплатные конвертеры — [JPEG в PowerPoint](https://products.aspose.app/slides/ru/import/jpg-to-ppt) и [PNG в PowerPoint](https://products.aspose.app/slides/ru/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений. 
+## **Добавление и форматирование встроенного изображения**
 
-{{% /alert %}} 
+Для встроенного изображения добавьте данные изображения в презентацию и создайте рамку изображения с помощью [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-). Изображение становится частью пакета презентации, поэтому презентация остаётся автономной при перемещении на другой компьютер.
 
-## **Создание рамки изображения**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу. 
-3. Создайте объект `PPImage`, добавив изображение в [ImagesCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ImageCollection), связанную с объектом презентации, которая будет использована для заполнения фигуры.
-4. Укажите ширину и высоту изображения.
-5. Создайте [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PictureFrame) на основе ширины и высоты изображения через метод `addPictureFrame`, предоставляемый объектом shape, связанным с указанным слайдом.
-6. Добавьте рамку изображения (содержащую картину) на слайд.
-7. Запишите изменённую презентацию в файл PPTX.
-
-Этот JavaScript‑код показывает, как создать рамку изображения:
+Следующий пример добавляет PNG‑изображение, создаёт рамку с оригинальными размерами изображения и применяет форматирование линий и вращение:
 
 ```javascript
-// Создает экземпляр класса Presentation, представляющего файл PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Получает первый слайд
-    var sld = pres.getSlides().get_Item(0);
-    // Создает экземпляр класса Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Добавляет рамку изображения с эквивалентной высотой и шириной изображения
-    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Записывает файл PPTX на диск
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Рамки изображения позволяют быстро создавать слайды презентаций на основе изображений. Комбинируя рамку изображения с параметрами сохранения Aspose.Slides, вы можете управлять вводом/выводом для конвертации изображений из одного формата в другой.
-
-## **Создание рамки изображения с относительным масштабом**
-
-Изменяя относительное масштабирование изображения, можно создать более сложную рамку изображения. 
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу. 
-3. Добавьте изображение в коллекцию изображений презентации.
-4. Создайте объект [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PPImage), добавив изображение в [ImagesCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ImageCollection), связанную с объектом презентации, которая будет использована для заполнения фигуры.
-5. Укажите относительную ширину и высоту изображения в рамке изображения.
-6. Запишите изменённую презентацию в файл PPTX.
-
-Этот JavaScript‑код показывает, как создать рамку изображения с относительным масштабом:
-
-```javascript
-// Создает экземпляр класса Presentation, представляющего PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Получает первый слайд
-    var sld = pres.getSlides().get_Item(0);
-    // Создает экземпляр класса Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Добавляет рамку изображения с высотой и шириной, эквивалентными изображению
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Устанавливает относительный масштаб ширины и высоты
-    pf.setRelativeScaleHeight(0.8);
-    pf.setRelativeScaleWidth(1.35);
-    // Записывает файл PPTX на диск
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Извлечение растровых изображений из рамок изображения**
-
-Вы можете извлекать растровые изображения из объектов [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PictureFrame) и сохранять их в формате PNG, JPG и других. Пример кода ниже демонстрирует, как извлечь изображение из документа «sample.pptx» и сохранить его в формате PNG.
-
-```javascript
-var presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-    var firstShape = firstSlide.getShapes().get_Item(0);
-    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-        var pictureFrame = firstShape;
-        try {
-            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
-    }
-} catch (e) {console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Извлечение SVG‑изображений из рамок изображения**
-
-Когда презентация содержит SVG‑графику, помещённую внутри фигур [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/), Aspose.Slides for Node.js via Java позволяет получить оригинальные векторные изображения с полной точностью. Путём обхода коллекции фигур слайда можно определить каждый [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/), проверить, содержит ли связанный [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/) SVG‑контент, и затем сохранить это изображение на диск или в поток в его изначальном формате SVG.
-
-Следующий пример кода демонстрирует, как извлечь SVG‑изображение из рамки изображения:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    var shape = slide.getShapes().get_Item(0);
-
-    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
-
-        if (svgImage) {
-            fs.writeFileSync("output.svg", svgImage.getSvgData());
-        }
-    }
-} catch (e) {
-    console.log(e);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Получение прозрачности изображения**
-
-Aspose.Slides позволяет получить эффект прозрачности, применённый к изображению. Этот JavaScript‑код демонстрирует операцию:
-
-```javascript
-var presentation = new aspose.slides.Presentation("Test.pptx");
-var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-for (var i = 0; i < imageTransform.size(); i++) {
-    var effect = imageTransform.get_Item(i);
-    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-        var alphaModulateFixed = effect;
-        var transparencyValue = 100 - alphaModulateFixed.getAmount();
-        console.log("Picture transparency: " + transparencyValue);
-    }
-}
-```
-
-## **Получение яркости и контрастности изображения**
-
-Aspose.Slides позволяет получить эффекты яркости и контрастности, применённые к изображению. Класс [Luminance](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/luminance/) представляет этот трансформационный эффект изображения.
-
-Этот JavaScript‑код демонстрирует, как получить настройки яркости и контрастности из рамки изображения:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-
+const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const shape = slide.getShapes().get_Item(0);
-    const pictureFrame = shape;
 
-    const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (let i = 0; i < imageTransform.size(); i++) {
-        const effect = imageTransform.get_Item(i);
-        if (java.instanceOf(effect, "com.aspose.slides.Luminance")) {
-            const luminance = effect.getEffective();
-            const brightness = luminance.getBrightness();
-            const contrast = luminance.getContrast();
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-            console.log("Brightness: " + brightness);
-            console.log("Contrast: " + contrast);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
+    pictureFrame.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    pictureFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pictureFrame.getLineFormat().setWidth(3);
+    pictureFrame.setRotation(15);
+
+    presentation.save("picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Рамка изображения управляет отображаемой геометрией; изменение размера рамки не меняет оригинальные пиксельные размеры, хранящиеся во встроенном ресурсе изображения. Это различие становится важным при последующей обрезке или сжатии изображения.
+
+## **Использование относительного масштаба**
+
+[PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/) предоставляет относительное масштабирование ширины и высоты для рамки через [setRelativeScaleWidth](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) и [setRelativeScaleHeight](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-). Значение `1.0` соответствует 100 % оригинального размера изображения. Относительный масштаб полезен, когда рабочий процесс требует сохранения отношения к размеру исходного изображения вместо ручного расчёта окончательных размеров.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, image);
+    pictureFrame.setRelativeScaleWidth(java.newFloat(1.35));
+    pictureFrame.setRelativeScaleHeight(java.newFloat(0.8));
+
+    presentation.save("relative-scale.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Относительный масштаб изменяет настройки масштаба рамки; он не пересамплирует и не сжимает встроенное изображение.
+
+## **Встроенные и связанные изображения**
+
+Встроенное изображение хранит данные изображения внутри презентации и поэтому является самым надёжным вариантом с точки зрения переносимости и предсказуемого рендеринга. Связанное изображение хранит внешний путь через метод [Picture.setLinkPathLong](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) вместо внедрения данных изображения тем же способом.
+
+Связанные изображения могут уменьшить объём данных изображения, хранящихся в PPTX, но они вводят внешнюю зависимость. Связанный файл должен оставаться доступным для приложения, открывающего или рендерящего презентацию. Если путь изменится, файл будет перемещён или ресурс недоступен, связанное изображение может не отображаться как ожидалось. Для презентаций, которые необходимо отправлять по электронной почте, архивировать или рендерить в изолированных средах, встроенные изображения обычно более надёжны.
+
+### **Добавление связанного изображения**
+
+Следующий пример создаёт рамку изображения и указывает её на локальный файл изображения. Он работает только с привязкой изображений; привязка видео — отдельный медиаворкфлоу и намеренно не смешана в этом примере.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 320, 180, null);
+    const linkPath = path.resolve("image.png");
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong(linkPath);
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Используйте ссылки, когда управление внешними файлами намеренно. Не используйте их просто как замену сжатию: небольшой PPTX с нарушенными зависимостями изображений обычно менее полезен, чем более крупная автономная презентация.
+
+## **Извлечение изображений из рамок изображения**
+
+Прежде чем извлекать изображение из существующей презентации, проверьте, что элемент действительно является [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/) и содержит встроенное изображение. Связанные рамки изображения могут не содержать байтов изображения, которые можно извлечь тем же способом.
+
+### **Извлечение растрового изображения**
+
+Современный API изображений использует [IImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/iimage/) напрямую. Следующий пример находит первое встроенное растровое изображение на слайде и сохраняет его как PNG:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            continue;
         }
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        if (embeddedImage == null || embeddedImage.getSvgImage() != null) {
+            continue;
+        }
+
+        const rasterImage = embeddedImage.getImage();
+        try {
+            rasterImage.save("extracted-image.png", aspose.slides.ImageFormat.Png);
+        } finally {
+            rasterImage.dispose();
+        }
+        break;
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Форматирование рамки изображения**
+Сохранение через [IImage.save](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/iimage/#save) преобразует извлечённое изображение в запрошенный формат вывода. Если вам нужны исходные закодированные байты, хранящиеся в презентации, а не преобразованный растровый файл, используйте бинарные данные ресурса изображения.
 
-Aspose.Slides предоставляет множество параметров форматирования, которые можно применить к рамке изображения. С помощью этих параметров вы можете изменить рамку изображения так, чтобы она соответствовала конкретным требованиям.
+### **Извлечение SVG‑изображения**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу. 
-3. Создайте объект [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PPImage), добавив изображение в [ImagesCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ImageCollection), связанную с объектом презентации, которая будет использована для заполнения фигуры.
-4. Укажите ширину и высоту изображения.
-5. Создайте `PictureFrame` на основе ширины и высоты изображения через метод [addPictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) объекта [Shapes](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ShapeCollection), связанного с указанным слайдом.
-6. Добавьте рамку изображения (содержащую картину) на слайд.
-7. Установите цвет линии рамки изображения.
-8. Установите толщину линии рамки изображения.
-9. Поверните рамку изображения, задав ей положительное или отрицательное значение.  
-   * Положительное значение вращает изображение по часовой стрелке.  
-   * Отрицательное значение вращает изображение против часовой стрелки.
-10. Добавьте рамку изображения (содержащую картину) на слайд.
-11. Запишите изменённую презентацию в файл PPTX.
-
-Этот JavaScript‑код демонстрирует процесс форматирования рамки изображения:
+Для SVG‑изображения объект [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/) предоставляет объект [SvgImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/svgimage/). Это позволяет получить данные SVG напрямую, не растрируя изображение сначала.
 
 ```javascript
-// Создает экземпляр класса Presentation, представляющего PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Получает первый слайд
-    var sld = pres.getSlides().get_Item(0);
-    // Создает экземпляр класса Image
-    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-    // Добавляет рамку изображения с высотой и шириной, эквивалентными изображению
-    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-    // Применяет некоторое форматирование к PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pf.getLineFormat().setWidth(20);
-    pf.setRotation(45);
-    // Записывает файл PPTX на диск
-    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const slide = presentation.getSlides().get_Item(0);
 
-{{% alert title="Tip" color="primary" %}}
-
-Aspose недавно разработала [бесплатный Collage Maker](https://products.aspose.app/slides/ru/collage). Если вам нужно [объединить JPG/JPEG](https://products.aspose.app/slides/ru/collage/jpg) или PNG‑изображения, [создать сетки из фотографий](https://products.aspose.app/slides/ru/collage/photo-grid), вы можете воспользоваться этим сервисом. 
-
-{{% /alert %}}
-
-## **Добавление изображения как ссылки**
-
-Чтобы избежать большого размера презентаций, вы можете добавлять изображения (или видео) через ссылки вместо встраивания файлов непосредственно в презентацию. Этот JavaScript‑код показывает, как добавить изображение и видео в заполнитель:
-
-```javascript
-var presentation = new aspose.slides.Presentation("input.pptx");
-try {
-    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-    for (var i = 0; i < shapesCount; i++) {
-        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-        if (autoShape.getPlaceholder() == null) {
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
             continue;
         }
-        switch (autoShape.getPlaceholder().getType()) {
-            case aspose.slides.PlaceholderType.Picture :
-                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                shapesToRemove.add(autoShape);
-                break;
-            case aspose.slides.PlaceholderType.Media :
-                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                shapesToRemove.add(autoShape);
-                break;
+
+        const embeddedImage = shape.getPictureFormat().getPicture().getImage();
+        const svgImage = embeddedImage != null ? embeddedImage.getSvgImage() : null;
+        if (svgImage == null) {
+            continue;
         }
+
+        fs.writeFileSync("extracted-image.svg", svgImage.getSvgData());
+        break;
     }
-    for (var i = 0; i < shapesToRemove.length; i++) {
-        var shape = shapesToRemove.get_Item(i);
-        presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    }
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Сохранение содержимого SVG как SVG сохраняет векторный источник внутри презентации. Растровые экспорты, такие как PNG или JPEG, обязаны рендерить этот вектор в пиксели. Экспорт слайдов в PDF или SVG также является операцией рендеринга, поэтому экспортированная графика не должна рассматриваться как побайтная копия оригинального встроенного SVG; используйте данные [SvgImage.getSvgData](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/svgimage/#getSvgData--) встроенного SVG, когда требуется именно векторный ресурс.
 
 ## **Обрезка изображения**
 
-Этот JavaScript‑код показывает, как обрезать существующее изображение на слайде:
+Обрезка изменяет, какая часть изображения видна внутри рамки. Значения обрезки на [PictureFillFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/) задаются в процентах от размеров исходного изображения. Обрезка изначально не удаляет скрытые пиксели из встроенного изображения; она только меняет видимую область.
+
+Следующий пример безопасно находит рамку изображения и применяет значения обрезки:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
-// Создает новый объект изображения
-try {
-    var picture;
-    var image = aspose.slides.Images.fromFile(imagePath);
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Добавляет рамку изображения на слайд
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-    // Обрезает изображение (значения в процентах)
-    picFrame.getPictureFormat().setCropLeft(23.6);
-    picFrame.getPictureFormat().setCropRight(21.5);
-    picFrame.getPictureFormat().setCropTop(3);
-    picFrame.getPictureFormat().setCropBottom(31);
-    // Сохраняет результат
-    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-## **Удаление обрезанных областей изображения**
-
-Если нужно удалить обрезанные области изображения, содержащегося в рамке, вы можете воспользоваться методом [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--). Этот метод возвращает обрезанное изображение либо оригинальное изображение, если обрезка не требуется.
-
-```javascript
-var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Получает рамку изображения с первого слайда
-    var picFrame = slide.getShapes().get_Item(0);
-    // Удаляет обрезанные области изображения рамки и возвращает обрезанное изображение
-    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-    // Сохраняет результат
-    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-Метод [deletePictureCroppedAreas()](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) добавляет обрезанное изображение в коллекцию изображений презентации. Если изображение используется только в обработанном [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/), такая настройка может уменьшить размер презентации. В противном случае количество изображений в результирующей презентации увеличится.
-
-Метод конвертирует метафайлы WMF/EMF в растровое PNG‑изображение в процессе обрезки. 
-
-{{% /alert %}}
-
-## **Сжатие изображений**
-
-Вы можете сжать изображение в презентации с помощью метода [PictureFillFormat.compressImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-). Этот метод сжимает изображение, уменьшая его размер в зависимости от размеров фигуры и заданного разрешения, с опцией удаления обрезанных областей.
-
-Он корректирует размер и разрешение изображения аналогично функции PowerPoint **Picture Format → Compress Pictures → Resolution**.
-
-Следующие примеры JavaScript демонстрируют, как сжать изображение в презентации, указав целевое разрешение и при желании удалив обрезанные области:
-
-```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
+    let pictureFrame = null;
 
-    // Сжимает изображение с целевым разрешением 150 DPI (веб-разрешение) и удаляет обрезанные области.
-    const result = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
-
-    // Проверяет результат сжатия.
-    if (result) {
-        console.log("Image successfully compressed.");
-    } else {
-        console.log("Image compression failed or no changes were necessary.");
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
     }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        pictureFrame.getPictureFormat().setCropLeft(java.newFloat(23.6));
+        pictureFrame.getPictureFormat().setCropRight(java.newFloat(21.5));
+        pictureFrame.getPictureFormat().setCropTop(java.newFloat(3));
+        pictureFrame.getPictureFormat().setCropBottom(java.newFloat(31));
+        presentation.save("cropped-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Или используя другое предустановленное значение DPI:
+Поскольку скрытые данные изображения всё ещё присутствуют, обрезку можно изменить позже, не теряя оригинальные пиксели. Если размер файла важнее обратимости, обрезанные регионы можно физически удалить, как описано в следующем разделе.
+
+## **Удаление данных обрезанных изображений**
+
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) удаляет данные изображения за пределами текущего прямоугольника обрезки и возвращает полученный ресурс изображения. Это может уменьшить размер файла, но является деструктивной оптимизацией: после сохранения презентации удалённые пиксели более недоступны для последующей операции «отвёртки» обрезки.
 
 ```javascript
-const presentation = new aspose.slides.Presentation("demo.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
-    const pictureFrame = slide.getShapes().get_Item(0);
+    let pictureFrame = null;
 
-    // Сжимает изображение до 96 DPI (разрешение для email), удаляя обрезанные области.
-    pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi96);
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
 
-    presentation.save("CompressedImage.pptx", aspose.slides.SaveFormat.Pptx);
+    if (pictureFrame != null) {
+        const croppedImage = pictureFrame.getPictureFormat().deletePictureCroppedAreas();
+        if (croppedImage != null) {
+            presentation.save("cropped-data-removed.pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Метод может добавить новый ресурс изображения в презентацию. Если оригинальное изображение также используется другими рамками, эти рамки всё равно нуждаются в своём текущем ресурсе, поэтому удаление обрезанных областей не обязательно уменьшает общее количество изображений. Обрезка содержимого WMF или EMF этим методом растрирует результат обрезки в PNG.
 
-Метод конвертирует изображение в более низкое разрешение, исходя из размеров фигуры и указанного DPI. Обрезанные области также могут быть удалены для оптимизации размера файла.
-Если изображение является метафайлом (WMF/EMF) или SVG, сжатие не будет применено. Кроме того, качество JPEG сохраняется или слегка снижается в зависимости от разрешения, аналогично тому, как PowerPoint обрабатывает JPEG‑изображения высокого разрешения.
+## **Сжатие растровых изображений**
 
-{{% /alert %}}
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) уменьшает разрешение растрового изображения относительно размера, в котором изображение отображается. Он также может удалять обрезанные регионы в той же операции. Метод возвращает `true`, когда изображение было изменено по размеру или обрезано, и `false`, когда изменение не требовалось.
 
-## **Блокировка пропорций**
-
-Если необходимо, чтобы фигура, содержащая изображение, сохраняла свои пропорции даже после изменения размеров изображения, используйте метод [setAspectRatioLocked](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) для установки параметра *Lock Aspect Ratio*.
-
-Этот JavaScript‑код показывает, как заблокировать пропорции фигуры:
+Используйте предопределённое значение [PicturesCompression](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturescompression/), когда стандартное целевое разрешение достаточно:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-    var emptySlide = pres.getSlides().addEmptySlide(layout);
-    var picture;
-    var image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
         }
     }
-    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-    // установить фигуру так, чтобы сохранялось соотношение сторон при изменении размеров
+
+    if (pictureFrame != null) {
+        const compressed = pictureFrame.getPictureFormat().compressImage(true, aspose.slides.PicturesCompression.Dpi150);
+        console.log(compressed ? "The image was compressed." : "No compression was necessary.");
+        presentation.save("compressed-image.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Можно передать пользовательское положительное значение DPI вместо предопределённого, когда требуется конкретная цель.
+
+Сжатие предназначено для растровых изображений. SVG и метафайлы не уменьшаются этим растровым процессом сжатия. Также помните, что более низкое разрешение и удалённые обрезанные регионы нельзя восстановить из оптимизированной презентации. Выбирайте целевое разрешение, исходя из максимального размера, при котором изображение будет действительно просматриваться или экспортироваться, а не применяйте минимальный DPI глобально.
+
+## **Проверка эффектов изображения**
+
+Эффекты изображения хранятся в изображении, используемом рамкой. Коллекция трансформов изображения может содержать эффекты, такие как фиксированная альфа‑модуляция для прозрачности и яркость/контраст для светимости. Пример ниже безопасно читает оба типа эффектов из первой рамки изображения на слайде:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let pictureFrame = null;
+
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        const shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+            pictureFrame = shape;
+            break;
+        }
+    }
+
+    if (pictureFrame != null) {
+        const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+        for (let i = 0; i < imageTransform.size(); i++) {
+            const effect = imageTransform.get_Item(i);
+            if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
+                const transparency = 100 - effect.getAmount();
+                console.log("Transparency: " + transparency);
+            }
+
+            if (java.instanceOf(effect, "com.aspose.slides.ILuminance")) {
+                const luminance = effect.getEffective();
+                console.log("Brightness: " + luminance.getBrightness());
+                console.log("Contrast: " + luminance.getContrast());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Эти эффекты меняют способ рендеринга изображения в рамке; они не переписывают оригинальные байты встроенного изображения.
+
+## **Блокировка геометрии рамки изображения**
+
+Настройки [PictureFrameLock](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframelock/) управляют тем, какие операции редактирования отключены для рамки изображения. Например, [setAspectRatioLocked](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) сохраняет пропорции формы при её изменении размеров.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image);
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch (e) {console.log(e);
+
+    presentation.save("locked-picture-frame.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+Блокировка применяется к форме рамки изображения. Она не заставляет исходное изображение быть пересамплировано или навсегда изменено до тех же пропорций.
 
-Параметр *Lock Aspect Ratio* сохраняет только пропорции самой фигуры, а не изображения, которое она содержит.
+## **Настройка значений StretchOffset**
 
-{{% /alert %}}
+Когда режим заливки изображения установлен в «stretch», значения stretch‑offset на [PictureFillFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/) определяют прямоугольник заливки относительно ограничивающего прямоугольника рамки изображения. Положительные проценты создают отступ от края, а отрицательные — выступ.
 
-## **Использование свойства StretchOff**
-
-С помощью методов [setStretchOffsetLeft](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [setStretchOffsetTop](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [setStretchOffsetRight](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) и [setStretchOffsetBottom](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) класса [PictureFillFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PictureFillFormat) вы можете задать прямоугольник заполнения.
-
-При указании растягивания для изображения исходный прямоугольник масштабируется до указанных размеров заполнения. Каждая грань прямоугольника заполнения определяется процентным смещением от соответствующей грани ограничивающего прямоугольника фигуры. Положительный процент задаёт внутренняя отступ, отрицательный — наружный отступ.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Добавьте прямоугольник `AutoShape`. 
-4. Создайте изображение.
-5. Установите тип заливки фигуры.
-6. Установите режим заливки изображения.
-7. Добавьте изображение для заполнения фигуры.
-8. Укажите смещения изображения от соответствующей грани ограничивающего прямоугольника фигуры.
-9. Запишите изменённую презентацию в файл PPTX.
-
-Этот JavaScript‑код демонстрирует процесс использования свойства StretchOff:
+Это отличается от обрезки. Значения обрезки выбирают, какая часть исходного изображения видима; смещения stretch изменяют прямоугольник, в который видимая заливка изображения растягивается.
 
 ```javascript
-// Создает экземпляр класса Presentation, представляющего файл PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Получает первый слайд
-    var slide = pres.getSlides().get_Item(0);
-    // Создает экземпляр класса ImageEx
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
+    const slide = presentation.getSlides().get_Item(0);
+
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("image.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) {
-            image.dispose();
-        }
+        sourceImage.dispose();
     }
-    // Добавляет AutoShape с типом Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Устанавливает тип заливки фигуры
-    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-    // Устанавливает режим заливки изображения фигуры
-    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-    // Устанавливает изображение для заполнения фигуры
-    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-    // Указывает смещения изображения от соответствующей грани ограничивающего прямоугольника фигуры
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    // Записывает файл PPTX на диск
-    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 400, 300, image);
+    pictureFrame.getPictureFormat().setPictureFillMode(java.newByte(aspose.slides.PictureFillMode.Stretch));
+    pictureFrame.getPictureFormat().setStretchOffsetLeft(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetRight(java.newFloat(12));
+    pictureFrame.getPictureFormat().setStretchOffsetTop(java.newFloat(8));
+    pictureFrame.getPictureFormat().setStretchOffsetBottom(java.newFloat(8));
+
+    presentation.save("stretch-offsets.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Используйте смещения stretch для размещения заливки. Используйте свойства обрезки, когда цель — скрыть края исходного изображения.
+
+## **Хранение, размер файла и соображения по экспорту**
+
+Основные компромиссы легче управлять, когда хранение изображений и форматирование рамок изображения рассматриваются отдельно:
+
+- **Встроенные изображения** делают презентацию автономной и являются наиболее надёжными для совместного использования и серверного рендеринга, но крупные растровые изображения увеличивают размер PPTX и потребление памяти.
+- **Связанные изображения** позволяют сократить размер пакета, однако презентация зависит от доступности внешних файлов по сохранённым путям или местоположениям.
+- **Обрезка** изначально не является разрушительной. Скрытые пиксели остаются встроенными, пока обрезанные области явно не удалены или не удалены во время сжатия.
+- **Сжатие** может значительно уменьшить размер файла для слишком больших растровых изображений, но снижает исходное разрешение. Его следует применять после определения окончательного размера изображения на слайде.
+- **SVG‑изображения** следует сохранять как SVG, когда важна векторная целостность. Извлекайте встроенный SVG напрямую, когда нужен сам векторный ресурс. Экспорт слайдов в растровый формат всегда преобразует отрисованный слайд в пиксели.
+- **Повторяющиеся изображения** следует переиспользовать существующий ресурс [PPImage], когда это возможно, вместо многократной загрузки одного и того же файла в рабочий процесс презентации.
+
+Для крупных презентаций оптимизацию изображений обычно наиболее эффективно выполнять выборочно: сохраняйте логотипы и схемы как векторный контент, сжимайте фотографии в соответствии с их реальным размером отображения, удаляйте обрезанные пиксели только когда последующее редактирование не требуется, и избегайте внешних ссылок, если только управление зависимостями не является частью стратегии развертывания.
 
 ## **FAQ**
 
-**Как узнать, какие форматы изображений поддерживаются для PictureFrame?**
+**В чём разница между рамкой изображения и ресурсом изображения?**
 
-Aspose.Slides поддерживает как растровые изображения (PNG, JPEG, BMP, GIF и т.д.), так и векторные изображения (например, SVG) через объект изображения, назначенный [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/). Список поддерживаемых форматов, как правило, совпадает с возможностями движка конвертации слайдов и изображений.
+[PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/) представляет ресурс изображения, связанный с презентацией. [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/) — это элемент на слайде, который отображает изображение и хранит параметры уровня рамки, такие как размер, вращение, значения обрезки, эффекты и блокировки.
 
-**Как добавление десятков крупных изображений скажется на размере и производительности PPTX?**
+**Стоит ли внедрять или связывать изображения?**
 
-Встраивание больших изображений увеличивает размер файла и потребление памяти; использование ссылок на изображения помогает сократить размер презентации, но требует доступности внешних файлов. Aspose.Slides предоставляет возможность добавлять изображения по ссылке для уменьшения размера файла.
+Внедряйте изображения, когда презентация должна быть переносимой, архивируемой или рендериться без доступа к внешним ресурсам. Связывайте изображения только тогда, когда намеренно хранить файлы изображений вне PPTX и внешние расположения могут поддерживаться надёжно.
 
-**Как заблокировать объект изображения от случайного перемещения/изменения размера?**
+**Уменьшает ли обрезка размер файла PPTX?**
 
-Используйте [блокировки фигур](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/getpictureframelock/) для [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/) (например, отключить перемещение или изменение размера). Механизм блокировки поддерживается для различных типов фигур, включая [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/).
+Не сама по себе. Обычные настройки обрезки скрывают части исходного изображения, но сохраняют подлежащие пиксели. Используйте [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) или сжатие изображения с удалением обрезанных областей, когда эти пиксели могут быть удалены безвозвратно.
 
-**Сохраняется ли векторная точность SVG при экспорте презентации в PDF/изображения?**
+**Можно ли восстановить качество изображения после сжатия?**
 
-Aspose.Slides позволяет извлекать SVG из [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/) в виде оригинального вектора. При [экспорте в PDF](/slides/ru/nodejs-java/convert-powerpoint-to-pdf/) или в [растровые форматы](/slides/ru/nodejs-java/convert-powerpoint-to-png/) результат может быть растровым в зависимости от настроек экспорта; факт сохранения оригинального SVG как вектора подтверждается поведением извлечения.
+Нет. Сжатие может уменьшить сохранённое растровое разрешение, а удаление обрезанных областей удаляет данные изображения. Держите оригинальное исходное изображение вне презентации, если позже может понадобиться редактирование в высоком разрешении.
+
+**Как следует обращаться с SVG‑изображениями?**
+
+Сохраняйте содержимое SVG как SVG, когда важна векторная точность. Встроенный [SvgImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/svgimage/) можно извлечь напрямую. Рендеринг слайда в растровый формат, такой как PNG или JPEG, растрирует SVG как часть изображения слайда.
+
+**Как избежать небезопасных приведения типов при чтении существующих слайдов?**
+
+Проверьте тип элемента перед использованием членов, специфичных для рамки изображения. Проверка `java.instanceOf` относительно [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/) избегает недопустимых приводов и позволяет коду корректно обрабатывать слайды без рамок изображения.

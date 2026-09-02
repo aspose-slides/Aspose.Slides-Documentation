@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Quadros de Imagem em Apresentações usando C++
+title: Gerenciar Quadros de Imagem em Apresentações Usando C++
 linktitle: Quadro de Imagem
 type: docs
 weight: 10
@@ -8,497 +8,577 @@ keywords:
 - quadro de imagem
 - adicionar quadro de imagem
 - criar quadro de imagem
-- adicionar imagem
-- criar imagem
+- imagem incorporada
+- imagem vinculada
 - extrair imagem
 - imagem raster
-- imagem vetorial
+- imagem SVG
 - recortar imagem
-- área recortada
-- propriedade StretchOff
+- excluir áreas recortadas
+- compactar imagem
+- StretchOffset
 - formatação de quadro de imagem
-- propriedades de quadro de imagem
 - escala relativa
 - efeito de imagem
-- proporção de aspecto
-- transparência de imagem
+- proporção
 - PowerPoint
 - OpenDocument
 - apresentação
 - C++
 - Aspose.Slides
-description: "Adicione quadros de imagem a apresentações PowerPoint e OpenDocument com Aspose.Slides para C++. Simplifique seu fluxo de trabalho e melhore o design dos slides."
+description: "Criar, formatar, vincular, recortar, extrair e compactar quadros de imagem em apresentações com Aspose.Slides para C++."
 ---
-## **Introdução**
+## **Visão geral**
 
-Um quadro de imagem é uma forma que contém uma imagem — é como uma foto dentro de uma moldura.  
+Um quadro de imagem é uma forma de slide que exibe uma imagem. No Aspose.Slides, o recurso de imagem e a forma que a exibe são objetos separados: um [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/) possui recursos de imagem incorporados por meio de sua [coleção de imagens](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_images/), enquanto um [IPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframe/) controla a posição, o tamanho, a formatação de linha, rotação, recorte, efeitos de imagem e outras configurações ao nível do quadro.
 
-Você pode adicionar uma imagem a um slide por meio de um quadro de imagem. Dessa forma, você formata a imagem formatando o quadro de imagem.
+Essa separação é útil quando a mesma imagem é exibida mais de uma vez. Adicione a imagem à apresentação uma única vez, mantenha o [IPPImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ippimage/) retornado e use esse recurso de imagem ao criar quadros de imagem.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose fornece conversores gratuitos—[JPEG para PowerPoint](https://products.aspose.app/slides/pt/import/jpg-to-ppt) e [PNG para PowerPoint](https://products.aspose.app/slides/pt/import/png-to-ppt)—que permitem criar apresentações rapidamente a partir de imagens. 
-{{% /alert %}} 
+Os quadros de imagem podem conter imagens raster, como PNG ou JPEG, e imagens vetoriais SVG. Eles também podem referir‑se a imagens vinculadas em vez de armazenar os bytes da imagem na apresentação. A escolha afeta portabilidade, tamanho de arquivo, extração e comportamento de exportação, portanto é útil decidir como a imagem deve ser armazenada antes de aplicar formatação ou otimização.
 
-## **Criar um Quadro de Imagem**
+## **Adicionar e formatar uma imagem incorporada**
 
-1. Crie uma instância da [classe Presentation](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.presentation).
-2. Obtenha a referência de um slide através do seu índice. 
-3. Crie um objeto [IPPImage](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_p_p_image) adicionando uma imagem à [IImagescollection](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_image_collection) associada ao objeto de apresentação que será usado para preencher a forma.
-4. Especifique a largura e a altura da imagem.
-5. Crie um [PictureFrame](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.picture_frame) baseado na largura e altura da imagem através do método `AddPictureFrame` exposto pelo objeto de forma associado ao slide referenciado.
-6. Adicione um quadro de imagem (contendo a foto) ao slide.
-7. Grave a apresentação modificada como um arquivo PPTX.
+Para uma imagem incorporada, adicione os dados da imagem à apresentação e crie um quadro de imagem com [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/shapecollection/addpictureframe/). A imagem passa a fazer parte do pacote da apresentação, de modo que a apresentação permanece autocontida quando é movida para outro computador.
 
-Este código C++ mostra como criar um quadro de imagem:
-
-```c++
-// O caminho para o diretório de documentos.
-const String outPath = u"../out/PictureFrameFormatting_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// Carrega a apresentação desejada
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Acessa o primeiro slide
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Carrega a imagem que será adicionada à coleção de imagens da apresentação
-// Obtém a imagem
-auto image = Images::FromFile(filePath);
-
-// Adiciona uma imagem à coleção de imagens da apresentação
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Adiciona um quadro de imagem ao slide
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Define a largura e altura da escala relativa
-pf->set_RelativeScaleHeight(0.8);
-pf->set_RelativeScaleWidth(1.35);
-// Aplica alguma formatação ao Quadro de Imagem
-pf->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-pf->get_LineFormat()->set_Width ( 20);
-pf->set_Rotation( 45);
-
-// Grava o arquivo PPTX no disco
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert color="warning" %}} 
-Quadros de imagem permitem criar rapidamente slides de apresentação baseados em imagens. Quando você combina quadro de imagem com as opções de salvamento do Aspose.Slides, pode manipular operações de entrada/saída para converter imagens de um formato para outro. Você pode querer ver estas páginas: converter [imagem para JPG](https://products.aspose.com/slides/pt/cpp/conversion/image-to-jpg/); converter [JPG para imagem](https://products.aspose.com/slides/pt/cpp/conversion/jpg-to-image/); converter [JPG para PNG](https://products.aspose.com/slides/pt/cpp/conversion/jpg-to-png/), converter [PNG para JPG](https://products.aspose.com/slides/pt/cpp/conversion/png-to-jpg/); converter [PNG para SVG](https://products.aspose.com/slides/pt/cpp/conversion/png-to-svg/), converter [SVG para PNG](https://products.aspose.com/slides/pt/cpp/conversion/svg-to-png/). 
-{{% /alert %}}
-
-## **Criar um Quadro de Imagem com Escala Relativa**
-
-Alterando a escala relativa de uma imagem, você pode criar um quadro de imagem mais complexo. 
-
-1. Crie uma instância da [classe Presentation](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.presentation).
-2. Obtenha a referência de um slide através do seu índice. 
-3. Adicione uma imagem à coleção de imagens da apresentação.
-4. Crie um objeto [IPPImage](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_p_p_image) adicionando uma imagem à [IImagescollection](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_image_collection) associada ao objeto de apresentação que será usado para preencher a forma.
-5. Especifique a largura e altura relativas da imagem no quadro de imagem.
-6. Grave a apresentação modificada como um arquivo PPTX.
-
-Este código C++ mostra como criar um quadro de imagem com escala relativa:
-
-```c++
-// O caminho para o diretório de documentos.
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// Carrega a apresentação desejada
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Acessa o primeiro slide
-SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// Carrega a imagem a ser adicionada à coleção de imagens da apresentação
-// Obtém a imagem
-auto image = Images::FromFile(filePath);
-
-// Adiciona uma imagem à coleção de imagens da apresentação
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Adiciona um quadro de imagem ao slide
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Define a largura e altura da escala relativa
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-// Grava o arquivo PPTX no disco
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Extrair Imagens Rasterizadas de Quadros de Imagem**
-
-Você pode extrair imagens rasterizadas de objetos [PictureFrame](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.picture_frame) e salvá-las em PNG, JPG e outros formatos. O exemplo de código abaixo demonstra como extrair uma imagem do documento "sample.pptx" e salvá-la no formato PNG.
-
-```c++
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstSlide = presentation->get_Slide(0);
-auto firstShape = firstSlide->get_Shape(0);
-    
-if (ObjectExt::Is<IPictureFrame>(firstShape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(firstShape);
-    auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SystemImage();
-
-    image->Save(u"slide_1_shape_1.png", ImageFormat::get_Png());
-}
-
-presentation->Dispose();
-```
-
-## **Extrair Imagens SVG de Quadros de Imagem**
-
-Quando uma apresentação contém gráficos SVG colocados dentro de formas [PictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pictureframe/), o Aspose.Slides para C++ permite recuperar as imagens vetoriais originais com total fidelidade. Percorrendo a coleção de formas do slide, você pode identificar cada [PictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pictureframe/), verificar se o [IPPImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ippimage/) subjacente contém conteúdo SVG e então salvar essa imagem no disco ou em um fluxo no formato SVG nativo.
-
-O exemplo de código a seguir demonstra como extrair uma imagem SVG de um quadro de imagem:
+O exemplo a seguir adiciona uma imagem JPEG, cria um quadro nas dimensões nativas da imagem e aplica formatação de linha e rotação:
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <drawing/color.h>
 
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-if (ObjectExt::Is<IPictureFrame>(shape))
-{
-    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-    auto svgImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SvgImage();
-    if (svgImage != nullptr)
-    {
-        File::WriteAllText(u"output.svg", svgImage->get_SvgContent());
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Obter Transparência de uma Imagem**
-
-Aspose.Slides permite obter o efeito de transparência aplicado a uma imagem. Este código C++ demonstra a operação:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(presentation->get_Slide(0)->get_Shape(0));
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<IAlphaModulateFixed>(effect))
-    {
-        float transparencyValue = 100.0f - (System::ExplicitCast<IAlphaModulateFixed>(effect))->get_Amount();
-        System::Console::WriteLine(System::String(u"Picture transparency: ") + transparencyValue);
-    }
-}
-```
-
-{{% alert color="primary" %}} 
-Todos os efeitos aplicados a imagens podem ser encontrados em [Aspose::Slides::Effects](https://reference.aspose.com/slides/pt/cpp/aspose.slides.effects/). 
-{{% /alert %}}
-
-## **Obter Brilho e Contraste de uma Imagem**
-
-Aspose.Slides permite obter o efeito de brilho e contraste aplicado a uma imagem. A interface [ILuminance](https://reference.aspose.com/slides/pt/cpp/aspose.slides.effects/iluminance/) representa esse efeito de transformação de imagem.
-
-Este código C++ demonstra como obter as configurações de brilho e contraste de um quadro de imagem:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-
-auto shape = slide->get_Shape(0);
-auto pictureFrame = System::ExplicitCast<IPictureFrame>(shape);
-
-auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-for (auto&& effect : imageTransform)
-{
-    if (System::ObjectExt::Is<ILuminance>(effect))
-    {
-        auto luminance = System::ExplicitCast<ILuminance>(effect)->GetEffective();
-        auto brightness = luminance->get_Brightness();
-        auto contrast = luminance->get_Contrast();
-
-        Console::WriteLine(System::String(u"Brightness: ") + brightness);
-        Console::WriteLine(System::String(u"Contrast: ") + contrast);
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Formatação de Quadro de Imagem**
-
-Aspose.Slides oferece muitas opções de formatação que podem ser aplicadas a um quadro de imagem. Usando essas opções, você pode alterar um quadro de imagem para que atenda a requisitos específicos.
-
-1. Crie uma instância da [classe Presentation](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.presentation).
-2. Obtenha a referência de um slide através do seu índice. 
-3. Crie um objeto [IPPImage](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_p_p_image) adicionando uma imagem à [IImagescollection](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_image_collection) associada ao objeto de apresentação que será usado para preencher a forma.
-4. Especifique a largura e a altura da imagem.
-5. Crie um `PictureFrame` baseado na largura e altura da imagem através do método [AddPictureFrame](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) exposto pelo objeto [IShapes](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_shape_collection) associado ao slide referenciado.
-6. Adicione o quadro de imagem (contendo a foto) ao slide.
-7. Defina a cor da linha do quadro de imagem.
-8. Defina a espessura da linha do quadro de imagem.
-9. Gire o quadro de imagem atribuindo-lhe um valor positivo ou negativo.
-   * Um valor positivo gira a imagem no sentido horário. 
-   * Um valor negativo gira a imagem no sentido anti-horário.
-10. Adicione o quadro de imagem (contendo a foto) ao slide.
-11. Grave a apresentação modificada como um arquivo PPTX.
-
-Este código C++ demonstra o processo de formatação de quadro de imagem:
-
-```c++
-// O caminho para o diretório de documentos.
-const String outPath = u"../out/AddRelativeScaleHeightPictureFrame_out.pptx";
-const String filePath = u"../templates/Tulips.jpg";
-
-// Carrega a apresentação desejada
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// Acessa o primeiro slide
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-// Carrega a imagem a ser adicionada à coleção de imagens da apresentação
-// Obtém a imagem
-auto image = Images::FromFile(filePath);
-
-// Adiciona uma imagem à coleção de imagens da apresentação
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-// Adiciona um quadro de imagem ao slide
-SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
-
-// Define a largura e altura da escala relativa
-pf->set_RelativeScaleHeight (0.8);
-pf->set_RelativeScaleWidth(1.35);
-
-//Grava o arquivo PPTX no disco
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{% alert title="Tip" color="primary" %}}
-
-A Aspose desenvolveu recentemente um [Collage Maker gratuito](https://products.aspose.app/slides/pt/collage). Se você precisar [mesclar JPG/JPEG](https://products.aspose.app/slides/pt/collage/jpg) ou imagens PNG, [criar grades a partir de fotos](https://products.aspose.app/slides/pt/collage/photo-grid), pode usar este serviço. 
-{{% /alert %}}
-
-## **Adicionar uma Imagem como Link**
-
-Para evitar tamanhos grandes de apresentação, você pode adicionar imagens (ou vídeos) por meio de links em vez de incorporar os arquivos diretamente nas apresentações. Este código C++ mostra como adicionar uma imagem e um vídeo em um marcador de posição:
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"input.pptx");
-auto shapesToRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IShape>>>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-
-for (auto& autoShape : shapes)
-{
-    if (autoShape->get_Placeholder() == nullptr)
-        continue;
-
-    switch (autoShape->get_Placeholder()->get_Type())
-    {
-        case Aspose::Slides::PlaceholderType::Picture:
-        {
-            auto pictureFrame = shapes->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), nullptr);
-            pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-
-        case Aspose::Slides::PlaceholderType::Media:
-        {
-            auto videoFrame = shapes->AddVideoFrame(autoShape->get_X(), autoShape->get_Y(), autoShape->get_Width(), autoShape->get_Height(), u"");
-            videoFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-            videoFrame->set_LinkPathLong(u"https://youtu.be/t_1LYZ102RA");
-            shapesToRemove->Add(autoShape);
-            break;
-        }
-    }
-}
-
-for (auto& shape : shapesToRemove)
-{
-    shapes->Remove(shape);
-}
-
-presentation->Save(u"output.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Recortar Imagens**
-
-Este código C++ mostra como recortar uma imagem existente em um slide: 
-
-```cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::Drawing;
-    
-auto presentation = System::MakeObject<Presentation>();
-// Cria novo objeto de imagem
-auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
 
-// Adds a PictureFrame to a Slide
-auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
-
-// Crops the image (percentage values)
-picFrame->get_PictureFormat()->set_CropLeft(23.6f);
-picFrame->get_PictureFormat()->set_CropRight(21.5f);
-picFrame->get_PictureFormat()->set_CropTop(3.0f);
-picFrame->get_PictureFormat()->set_CropBottom(31.0f);
-
-// Saves the result
-presentation->Save(outPptxFile, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Excluir Áreas Recortadas de uma Imagem**
-
-Se você quiser excluir as áreas recortadas de uma imagem contida em um quadro, pode usar o método [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/). Este método devolve a imagem recortada ou a imagem original se o recorte for desnecessário.
-
-Este código C++ demonstra a operação: 
-
-```c++
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"PictureFrameCrop.pptx");
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// Obtém o PictureFrame do primeiro slide
-System::SharedPtr<IPictureFrame> picFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
-
-// Exclui áreas recortadas da imagem do PictureFrame e retorna a imagem recortada
-System::SharedPtr<IPPImage> croppedImage = picFrame->get_PictureFormat()->DeletePictureCroppedAreas();
-
-// Salva o resultado
-presentation->Save(u"PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-O método [IPictureFillFormat::DeletePictureCroppedAreas()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) adiciona a imagem recortada à coleção de imagens da apresentação. Se a imagem for usada somente no [PictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pictureframe/) processado, essa configuração pode reduzir o tamanho da apresentação. Caso contrário, o número de imagens na apresentação resultante aumentará.
-
-Este método converte arquivos metafile WMF/EMF em imagens PNG rasterizadas na operação de recorte. 
-{{% /alert %}}
-
-## **Compactar Imagens**
-
-Você pode compactar uma imagem em uma apresentação usando o método [IPictureFillFormat::CompressImage()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipicturefillformat/compressimage/).  
-Ele ajusta o tamanho e a resolução da imagem de forma semelhante ao recurso **Picture Format -> Compress Pictures -> Resolution** do PowerPoint.
-
-Os exemplos C++ a seguir demonstram como compactar uma imagem em uma apresentação especificando uma resolução-alvo e, opcionalmente, removendo áreas recortadas:
-
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Compacta a imagem com uma resolução-alvo de 150 DPI (resolução da Web) e remove áreas recortadas.
-bool result = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-// Verifica o resultado da compactação.
-if (result)
-{
-    System::Console::WriteLine(u"Image successfully compressed.");
-}
-else
-{
-    System::Console::WriteLine(u"Image compression failed or no changes were necessary.");
-}
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
+pictureFrame->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+pictureFrame->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+pictureFrame->get_LineFormat()->set_Width(3.0);
+pictureFrame->set_Rotation(15.0f);
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Ou usando diretamente um valor DPI personalizado:
+O quadro de imagem controla a geometria exibida; alterar o tamanho do quadro não altera as dimensões de pixel originais armazenadas no recurso de imagem incorporado. Essa distinção torna‑se importante ao recortar ou comprimir uma imagem posteriormente.
 
-```c++
-auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+## **Usar escala relativa**
+
+[IPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframe/) expõe escalonamento relativo de largura e altura para o quadro. Um valor de `1.0` corresponde a 100 % do tamanho original da imagem. A escala relativa é útil quando um fluxo de trabalho precisa preservar a relação com o tamanho da imagem fonte em vez de calcular as dimensões finais manualmente.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
-auto pictureFrame = System::AsCast<IPictureFrame>(slide->get_Shape(0));
 
-// Compacta a imagem para 150 DPI (resolução web), removendo áreas recortadas.
-pictureFrame->get_PictureFormat()->CompressImage(true, 150.0f);
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-presentation->Save(u"CompressedImage.pptx", SaveFormat::Pptx);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, image);
+pictureFrame->set_RelativeScaleWidth(1.35f);
+pictureFrame->set_RelativeScaleHeight(0.8f);
+
+presentation->Save(u"relative-scale.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-O método converte a imagem para uma resolução inferior com base no tamanho da forma e no DPI fornecido. Regiões recortadas também podem ser excluídas para otimizar o tamanho do arquivo.  
-Se a imagem for um metafile (WMF/EMF) ou SVG, a compressão não será aplicada. Além disso, a qualidade JPEG é preservada ou ligeiramente reduzida com base na resolução, de forma semelhante ao tratamento de JPEGs de alta resolução pelo PowerPoint. 
-{{% /alert %}}
+A escala relativa altera as configurações de escala do quadro; não reamostra nem comprime a imagem incorporada.
 
-## **Bloquear Proporção de Aspecto**
+## **Imagens incorporadas e vinculadas**
 
-Se você quiser que uma forma contendo uma imagem mantenha sua proporção de aspecto mesmo após alterar as dimensões da imagem, pode usar o método [set_AspectRatioLocked()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) para definir a configuração *Lock Aspect Ratio*. 
+Uma imagem incorporada armazena os dados da imagem dentro da apresentação e, portanto, é a escolha mais segura para portabilidade e renderização previsível. Uma imagem vinculada armazena um caminho externo por meio do link [ISlidesPicture](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islidespicture/) em vez de incorporar os dados da imagem da mesma forma.
 
-Este código C++ mostra como bloquear a proporção de aspecto de uma forma:
+Imagens vinculadas podem reduzir a quantidade de dados de imagem armazenados no PPTX, mas introduzem uma dependência externa. O arquivo vinculado deve permanecer acessível ao aplicativo que abre ou renderiza a apresentação. Se o caminho mudar, o arquivo for movido ou o recurso ficar indisponível, a imagem vinculada pode não ser exibida como esperado. Para apresentações que precisam ser enviadas por e‑mail, arquivadas ou renderizadas em ambientes isolados, imagens incorporadas são geralmente mais confiáveis.
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+### **Adicionar uma imagem vinculada**
 
-System::SharedPtr<ILayoutSlide> layout = pres->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);
-System::SharedPtr<ISlide> emptySlide = pres->get_Slides()->AddEmptySlide(layout);
+O exemplo a seguir cria um quadro de imagem e o aponta para um arquivo de imagem local. Ele trata apenas de vinculação de imagem; a vinculação de vídeo é um fluxo de mídia separado e está intencionalmente fora deste exemplo.
 
-System::SharedPtr<IImage> image = Images::FromFile(u"image.png");
-System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
 
-System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// define que a forma deve preservar a proporção ao redimensionar
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 320, 180, nullptr);
+auto linkPath = Path::GetFullPath(u"linked-image.jpg");
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(linkPath);
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Use links quando a gestão de arquivos externos for intencional. Não os use apenas como substituto para compressão: um PPTX pequeno com dependências de imagem quebradas costuma ser menos útil que uma apresentação maior e autocontida.
+
+## **Extrair imagens de quadros de imagem**
+
+Antes de extrair uma imagem de uma apresentação existente, verifique se uma forma é realmente um [IPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframe/) e se contém uma imagem incorporada. Quadros de imagem vinculados podem não conter bytes de imagem que possam ser extraídos da mesma forma.
+
+### **Extrair uma imagem raster**
+
+A API moderna de imagens usa [IImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iimage/) diretamente. O exemplo a seguir encontra a primeira imagem raster incorporada em um slide e a salva como PNG:
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr || embeddedImage->get_SvgImage() != nullptr)
+    {
+        continue;
+    }
+
+    auto rasterImage = embeddedImage->get_Image();
+    rasterImage->Save(u"extracted-image.png", ImageFormat::Png);
+    break;
+}
+
+presentation->Dispose();
+```
+
+Salvar através de [IImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iimage/) converte a imagem extraída para o formato de saída solicitado. Se precisar dos bytes codificados armazenados na apresentação em vez de um arquivo raster convertido, use os dados binários do recurso de imagem.
+
+### **Extrair uma imagem SVG**
+
+Para uma imagem SVG, o [IPPImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ippimage/) expõe um objeto [ISvgImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/isvgimage/). Isso permite recuperar os dados SVG diretamente em vez de rasterizar a imagem primeiro.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IPictureFrame>(shape))
+    {
+        continue;
+    }
+
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto embeddedImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+    if (embeddedImage == nullptr)
+    {
+        continue;
+    }
+
+    auto svgImage = embeddedImage->get_SvgImage();
+    if (svgImage == nullptr)
+    {
+        continue;
+    }
+
+    File::WriteAllBytes(u"extracted-image.svg", svgImage->get_SvgData());
+    break;
+}
+
+presentation->Dispose();
+```
+
+Manter o conteúdo SVG como SVG preserva a fonte vetorial dentro da apresentação. Exportações raster, como PNG ou JPEG, necessariamente renderizam esse conteúdo vetorial em pixels. Exportar slides como PDF ou SVG também é uma operação de renderização, portanto os gráficos exportados não devem ser tratados como uma cópia byte a byte do SVG incorporado original; use os dados do [ISvgImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/isvgimage/) incorporado quando o recurso vetorial original for necessário.
+
+## **Recortar uma imagem**
+
+O recorte altera qual parte da imagem fica visível dentro do quadro. Os valores de recorte em [IPictureFillFormat](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipicturefillformat/) são percentuais das dimensões da imagem fonte. O recorte inicialmente não exclui os pixels ocultos da imagem incorporada; apenas altera a região visível.
+
+O exemplo a seguir localiza um quadro de imagem com segurança e aplica valores de recorte:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    pictureFrame->get_PictureFormat()->set_CropLeft(23.6f);
+    pictureFrame->get_PictureFormat()->set_CropRight(21.5f);
+    pictureFrame->get_PictureFormat()->set_CropTop(3.0f);
+    pictureFrame->get_PictureFormat()->set_CropBottom(31.0f);
+    presentation->Save(u"cropped-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Como os dados da imagem oculta ainda estão presentes, o recorte pode ser alterado posteriormente sem perder os pixels originais. Se o tamanho do arquivo for mais importante que a reversibilidade, as áreas recortadas podem ser removidas fisicamente, conforme descrito na seção seguinte.
+
+## **Remover dados de imagem recortados**
+
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) remove os dados de imagem fora do retângulo de recorte atual e devolve o recurso de imagem resultante. Isso pode reduzir o tamanho do arquivo, mas é uma otimização destrutiva: após a apresentação ser salva, os pixels removidos não estão mais disponíveis para uma operação de desfazer recorte.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"cropped-image.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto croppedImage = pictureFrame->get_PictureFormat()->DeletePictureCroppedAreas();
+    if (croppedImage != nullptr)
+    {
+        presentation->Save(u"cropped-data-removed.pptx", SaveFormat::Pptx);
+    }
+}
+
+presentation->Dispose();
+```
+
+O método pode adicionar um novo recurso de imagem à apresentação. Se a imagem original também for usada por outros quadros de imagem, esses quadros ainda precisarão de seu recurso existente, de modo que a exclusão de áreas recortadas não reduz necessariamente o número total de imagens. Recortar conteúdo WMF ou EMF com este método rasteriza o resultado recortado para PNG.
+
+## **Comprimir imagens raster**
+
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipicturefillformat/compressimage/) reduz a resolução da imagem raster em relação ao tamanho no qual a imagem é exibida. Também pode remover regiões recortadas na mesma operação. O método devolve `true` quando a imagem foi redimensionada ou recortada e `false` quando nenhuma alteração foi necessária.
+
+Use um valor predefinido de [PicturesCompression](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/picturescompression/) quando uma resolução alvo padrão for suficiente:
+
+```cpp
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/PicturesCompression.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto compressed = pictureFrame->get_PictureFormat()->CompressImage(true, PicturesCompression::Dpi150);
+    Console::WriteLine(compressed ? String(u"The image was compressed.") : String(u"No compression was necessary."));
+    presentation->Save(u"compressed-image.pptx", SaveFormat::Pptx);
+}
+
+presentation->Dispose();
+```
+
+Um valor DPI positivo personalizado pode ser passado em vez de um valor enum quando um alvo específico for requerido.
+
+A compressão destina‑se a imagens raster. Conteúdo SVG e metafile não é reduzido por esse fluxo de compressão raster. Também lembre‑se de que resolução menor e regiões recortadas excluídas não podem ser recuperadas da apresentação otimizada. Escolha a resolução alvo com base no maior tamanho no qual a imagem será realmente visualizada ou exportada, em vez de aplicar o DPI mais baixo globalmente.
+
+## **Inspecionar efeitos de imagem**
+
+Os efeitos de imagem são armazenados na imagem usada pelo quadro. A coleção de transformações de imagem pode conter efeitos como modulação alfa fixa para transparência e luminância para brilho e contraste. O exemplo abaixo lê com segurança ambos os tipos de efeitos do primeiro quadro de imagem em um slide:
+
+```cpp
+#include <DOM/Effects/IAlphaModulateFixed.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/Effects/ILuminance.h>
+#include <DOM/Effects/ILuminanceEffectiveData.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IPictureFrame> pictureFrame;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IPictureFrame>(shape))
+    {
+        pictureFrame = ExplicitCast<IPictureFrame>(shape);
+        break;
+    }
+}
+
+if (pictureFrame != nullptr)
+{
+    auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
+
+    for (auto&& effect : imageTransform)
+    {
+        if (ObjectExt::Is<IAlphaModulateFixed>(effect))
+        {
+            auto alphaModulateFixed = ExplicitCast<IAlphaModulateFixed>(effect);
+            auto transparency = 100.0f - alphaModulateFixed->get_Amount();
+            Console::WriteLine(String(u"Transparency: ") + transparency);
+        }
+
+        if (ObjectExt::Is<ILuminance>(effect))
+        {
+            auto luminanceEffect = ExplicitCast<ILuminance>(effect);
+            auto luminance = luminanceEffect->GetEffective();
+            Console::WriteLine(String(u"Brightness: ") + luminance->get_Brightness());
+            Console::WriteLine(String(u"Contrast: ") + luminance->get_Contrast());
+        }
+    }
+}
+
+presentation->Dispose();
+```
+
+Esses efeitos alteram a forma como a imagem é renderizada no quadro; não reescrevem os bytes da imagem incorporada original.
+
+## **Bloquear a geometria do quadro de imagem**
+
+As configurações de [IPictureFrameLock](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframelock/) controlam quais operações de edição ficam desabilitadas para um quadro de imagem. Por exemplo, o [aspect-ratio lock](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) preserva as proporções da forma enquanto ela é redimensionada.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto sourceImage = Images::FromFile(u"photo.jpg");
+auto image = presentation->get_Images()->AddImage(sourceImage);
+
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 100, image->get_Width(), image->get_Height(), image);
 pictureFrame->get_PictureFrameLock()->set_AspectRatioLocked(true);
+
+presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
-Esta configuração *Lock Aspect Ratio* preserva apenas a proporção da forma e não da imagem que ela contém. 
-{{% /alert %}}
+O bloqueio se aplica à forma do quadro de imagem. Não força a imagem fonte a ser remostrada ou permanentemente alterada para a mesma proporção.
 
-## **Usar a Propriedade StretchOff**
+## **Ajustar os valores StretchOffset**
 
-Usando as propriedades [StretchOffsetLeft](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.picture_fill_format#ad730bf8db88f47979d84643eb30d1471), [StretchOffsetTop](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.picture_fill_format#aa512e1f022e9c7ff83e9c51ba100709a), [StretchOffsetRight](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.picture_fill_format#ac3597692f9b7e3327d0f4a4169a53127) e [StretchOffsetBottom](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.picture_fill_format#a72acf6945f372a5729c0b760f4a5dc39) da interface [IPictureFillFormat](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_picture_fill_format) e da classe [PictureFillFormat](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.picture_fill_format), você pode especificar um retângulo de preenchimento. 
+Quando o modo de preenchimento da imagem é *stretch*, os valores stretch‑offset em [IPictureFillFormat](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipicturefillformat/) definem o retângulo de preenchimento relativo à caixa delimitadora do quadro de imagem. Percentuais positivos criam um recuo a partir de uma borda, enquanto percentuais negativos criam um deslocamento para fora.
 
-Quando o alongamento de uma imagem é especificado, um retângulo de origem é dimensionado para caber no retângulo de preenchimento especificado. Cada borda do retângulo de preenchimento é definida por um deslocamento percentual a partir da borda correspondente da caixa delimitadora da forma. Um percentual positivo indica um recuo. Um percentual negativo indica um afastamento.
+Isso difere do recorte. Valores de recorte selecionam qual parte da imagem fonte fica visível; stretch offsets alteram o retângulo no qual o preenchimento da imagem visível é esticado.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.presentation).
-2. Obtenha a referência de um slide através do seu índice.
-3. Adicione um retângulo `AutoShape`. 
-4. Crie uma imagem.
-5. Defina o tipo de preenchimento da forma.
-6. Defina o modo de preenchimento de imagem da forma.
-7. Adicione uma imagem definida para preencher a forma.
-8. Especifique os deslocamentos da imagem a partir da borda correspondente da caixa delimitadora da forma
-9. Grave a apresentação modificada como um arquivo PPTX.
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
 
-Este código C++ demonstra um processo em que a propriedade StretchOff é usada:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
-auto slide = pres->get_Slide(0);
-auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-// Define a imagem esticada a partir de cada lado no corpo da forma
-auto pictureFormat = pictureFrame->get_PictureFormat();
-pictureFormat->set_PictureFillMode(PictureFillMode::Stretch);
-pictureFormat->set_StretchOffsetLeft(24.0f);
-pictureFormat->set_StretchOffsetRight(24.0f);
-pictureFormat->set_StretchOffsetTop(24.0f);
-pictureFormat->set_StretchOffsetBottom(24.0f);
+auto sourceImage = Images::FromFile(u"photo.png");
+auto image = presentation->get_Images()->AddImage(sourceImage);
 
-pres->Save(u"imageStretch.pptx", SaveFormat::Pptx);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10, 10, 400, 300, image);
+pictureFrame->get_PictureFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+pictureFrame->get_PictureFormat()->set_StretchOffsetLeft(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetRight(12.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetTop(8.0f);
+pictureFrame->get_PictureFormat()->set_StretchOffsetBottom(8.0f);
+
+presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **FAQ**
+Use stretch offsets para posicionamento de preenchimento. Use propriedades de recorte quando o objetivo for ocultar as bordas da imagem fonte.
 
-**Como posso descobrir quais formatos de imagem são suportados para PictureFrame?**
+## **Armazenamento, tamanho de arquivo e considerações de exportação**
 
-Aspose.Slides suporta tanto imagens raster (PNG, JPEG, BMP, GIF, etc.) quanto imagens vetoriais (por exemplo, SVG) por meio do objeto de imagem atribuído a um [PictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pictureframe/). A lista de formatos suportados geralmente se sobrepõe às capacidades do motor de conversão de slides e imagens.
+Os principais trade‑offs são mais fáceis de gerenciar quando o armazenamento de imagens e a formatação de quadros de imagem são tratados separadamente:
 
-**Como a adição de dezenas de imagens grandes afetará o tamanho e o desempenho do PPTX?**
+- **Imagens incorporadas** tornam a apresentação autocontida e são as mais confiáveis para compartilhamento e renderização no servidor, porém imagens raster grandes aumentam o tamanho do PPTX e o uso de memória.
+- **Imagens vinculadas** podem manter o pacote menor, mas a apresentação depende de arquivos externos que permaneçam disponíveis nos caminhos ou locais armazenados.
+- **Recorte** é inicialmente não destrutivo. Os pixels ocultos permanecem incorporados até que áreas recortadas sejam explicitamente excluídas ou removidas durante a compressão.
+- **Compressão** pode reduzir substancialmente o tamanho do arquivo para imagens raster excessivamente grandes, mas sacrifica a resolução fonte. Deve ser aplicada após o tamanho final na slide ser conhecido.
+- **Imagens SVG** devem permanecer como SVG quando a preservação vetorial for importante. Extraia o SVG incorporado diretamente quando precisar do recurso vetorial em si. Exportações raster de slides sempre convertem o slide renderizado em pixels.
+- **Imagens repetidas** devem reutilizar um recurso [IPPImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ippimage/) existente sempre que possível, ao invés de carregar o mesmo arquivo repetidamente no fluxo de trabalho da apresentação.
 
-Incorporar imagens grandes aumenta o tamanho do arquivo e o uso de memória; vincular imagens ajuda a reduzir o tamanho da apresentação, mas exige que os arquivos externos permaneçam acessíveis. Aspose.Slides oferece a capacidade de adicionar imagens por link para reduzir o tamanho do arquivo.
+Para apresentações grandes, a otimização de imagens costuma ser mais eficaz quando realizada seletivamente: mantenha logotipos e diagramas como conteúdo vetorial, comprima fotografias de acordo com seu tamanho real de exibição, remova pixels recortados somente quando a edição posterior não for necessária e evite links externos, salvo se a gestão de dependências fizer parte do design de implantação.
 
-**Como posso bloquear um objeto de imagem para evitar movimentos/redimensionamentos acidentais?**
+## **Perguntas frequentes**
 
-Use [shape locks](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pictureframe/get_pictureframelock/) para um [PictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pictureframe/) (por exemplo, desabilitar mover ou redimensionar). O mecanismo de bloqueio é descrito para formas em um [artigo de proteção](/slides/pt/cpp/applying-protection-to-presentation/) separado e é suportado para vários tipos de forma, incluindo [PictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pictureframe/).
+**Qual é a diferença entre um quadro de imagem e um recurso de imagem?**
 
-**A fidelidade vetorial do SVG é preservada ao exportar uma apresentação para PDF/imagens?**
+Um [IPPImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ippimage/) representa um recurso de imagem associado à apresentação. Um [IPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframe/) é uma forma em um slide que exibe uma imagem e armazena geometria e formatação ao nível do quadro, como tamanho, rotação, valores de recorte, efeitos e bloqueios.
 
-Aspose.Slides permite extrair um SVG de um [PictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pictureframe/) como o vetor original. Ao [exportar para PDF](/slides/pt/cpp/convert-powerpoint-to-pdf/) ou [formatos raster](/slides/pt/cpp/convert-powerpoint-to-png/), o resultado pode ser rasterizado dependendo das configurações de exportação; o fato de o SVG original ser armazenado como vetor é confirmado pelo comportamento de extração.
+**Devo incorporar ou vincular imagens?**
+
+Incorpore imagens quando a apresentação precisar ser portátil, arquivada ou renderizada sem acesso a recursos externos. Vincule imagens somente quando manter os arquivos de imagem fora do PPTX for intencional e os locais externos puderem ser mantidos de forma confiável.
+
+**O recorte reduz o tamanho do arquivo PPTX?**
+
+Não, por si só. Configurações de recorte normais ocultam partes da imagem fonte, mas mantêm os pixels subjacentes. Use [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) ou compressão de imagem com remoção de áreas recortadas quando esses pixels puderem ser descartados permanentemente.
+
+**Posso restaurar a qualidade da imagem após a compressão?**
+
+Não. A compressão pode reduzir a resolução raster armazenada e a remoção de regiões recortadas descarta dados da imagem. Mantenha a imagem fonte original fora da apresentação se edições posteriores em alta resolução forem necessárias.
+
+**Como devo tratar imagens SVG?**
+
+Mantenha o conteúdo SVG como SVG quando a fidelidade vetorial for importante. O [ISvgImage](https://reference.aspose.com/slides/pt/cpp/aspose.slides/isvgimage/) incorporado pode ser extraído diretamente. Renderizar um slide em formato raster, como PNG ou JPEG, rasteriza o SVG como parte da imagem do slide.
+
+**Como evitar casts inseguros ao ler slides existentes?**
+
+Verifique o tipo da forma antes de usar membros específicos de quadros de imagem. Teste a forma com [IPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframe/) antes de aplicar um cast em tempo de execução e atribua o resultado do cast a uma variável local antes de acessar membros específicos de quadros de imagem.
