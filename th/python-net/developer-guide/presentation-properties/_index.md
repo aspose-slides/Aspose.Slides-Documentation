@@ -8,53 +8,52 @@ keywords:
 - คุณสมบัติ PowerPoint
 - คุณสมบัติการนำเสนอ
 - คุณสมบัติเอกสาร
-- คุณสมบัติในตัว
-- คุณสมบัติแบบกำหนดเอง
+- คุณสมบัติมาตรฐาน
+- คุณสมบัติที่กำหนดเอง
 - คุณสมบัติขั้นสูง
-- จัดการคุณสมบัติ
+- การจัดการคุณสมบัติ
 - แก้ไขคุณสมบัติ
 - ข้อมูลเมตาเอกสาร
-- แก้ไขข้อมูลเมตา
-- ภาษาการตรวจสอบ
-- ภาษาพื้นฐาน
+- แก้ไขเมตาดาต้า
+- ภาษาตรวจสอบการพิสูจน์อักษร
+- ภาษาตั้งค่าเริ่มต้น
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "ควบคุมคุณสมบัติการนำเสนอใน Aspose.Slides สำหรับ Python ผ่าน .NET และทำให้การค้นหา การสร้างแบรนด์ และกระบวนการทำงานในไฟล์ PowerPoint ของคุณเป็นระเบียบและมีประสิทธิภาพ"
+description: "ควบคุมคุณสมบัติการนำเสนอใน Aspose.Slides for Python via .NET และเพิ่มประสิทธิภาพการค้นหา การสร้างแบรนด์และกระบวนการทำงานในไฟล์ PowerPoint ของคุณ."
 ---
 ## **บทนำ**
 
-Aspose.Slides รองรับคุณสมบัติของเอกสารสองประเภท: **Built-in** และ **Custom**. ทั้งสองประเภทของคุณสมบัตินี้สามารถเข้าถึงและจัดการได้อย่างง่ายดายโดยใช้ Aspose.Slides API.
+Aspose.Slides รองรับคุณสมบัติของเอกสารสองประเภท: **Built-in** และ **Custom**. ทั้งสองประเภทนี้สามารถเข้าถึงและจัดการได้อย่างง่ายดายโดยใช้ Aspose.Slides API.
 
-Aspose.Slides ให้คุณทำงานกับคุณสมบัติของเอกสารการนำเสนอผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/) คลาสนี้จะคืนค่าอินสแตนซ์โดยคุณสมบัติ [Presentation.document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/document_properties/). ตัวอย่างต่อไปนี้แสดงวิธีอ่าน, แก้ไข, และจัดการคุณสมบัติเหล่านี้.
+Aspose.Slides อนุญาตให้คุณทำงานกับคุณสมบัติของเอกสารงานนำเสนอผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/). ตัวอย่างของคลาสนี้จะถูกส่งคืนโดยคุณสมบัติ [Presentation.document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/document_properties/). ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข, และจัดการคุณสมบัติเหล่านี้.
 
-{{% alert color="primary" %}} 
-โปรดทราบว่าคุณไม่สามารถตั้งค่าต่าง ๆ ให้กับฟิลด์ **Application** และ **Producer** ได้ เนื่องจาก Aspose Ltd. และ Aspose.Slides for Python via .NET x.x.x จะถูกแสดงในฟิลด์เหล่านี้.
+{{% alert color="info" title="Note" %}}
+โปรดทราบว่าคุณไม่สามารถกำหนดค่าให้กับฟิลด์ **Application** และ **Producer** ได้ เนื่องจาก Aspose Ltd. และ Aspose.Slides for Python via .NET x.x.x จะถูกแสดงในฟิลด์เหล่านี้.
 {{% /alert %}} 
 
-## **จัดการคุณสมบัติการนำเสนอ**
+## **จัดการคุณสมบัติงานนำเสนอ**
 
-Microsoft PowerPoint มีฟีเจอร์เพื่อเพิ่มคุณสมบัติบางอย่างลงในไฟล์การนำเสนอ คุณสมบัติเเหล่านี้ทำให้สามารถจัดเก็บข้อมูลที่มีประโยชน์ไว้พร้อมกับเอกสาร (ไฟล์การนำเสนอ) มีคุณสมบัติของเอกสารสองประเภทดังต่อไปนี้
+Microsoft PowerPoint มีฟีเจอร์ในการเพิ่มคุณสมบัติบางอย่างลงในไฟล์งานนำเสนอ คุณสมบัติของเอกสารเหล่านี้ช่วยให้สามารถเก็บข้อมูลที่เป็นประโยชน์ร่วมกับเอกสาร (ไฟล์งานนำเสนอ) มีสองประเภทของคุณสมบัติเอกสารดังต่อไปนี้
 
-- คุณสมบัติที่กำหนดโดยระบบ (Built-in) คุณสมบัติ
-- คุณสมบัติที่ผู้ใช้กำหนด (Custom) คุณสมบัติ
+- คุณสมบัติที่กำหนดโดยระบบ (Built-in)
+- คุณสมบัติที่กำหนดโดยผู้ใช้ (Custom)
 
-**Built-in** properties มีข้อมูลทั่วไปเกี่ยวกับเอกสาร เช่น ชื่อเอกสาร, ชื่อผู้เขียน, สถิติของเอกสาร เป็นต้น. **Custom** properties คือคุณสมบัติที่ผู้ใช้กำหนดเป็นคู่ **Name/Value**, โดยทั้งชื่อและค่าจะถูกกำหนดโดยผู้ใช้. โดยใช้ Aspose.Slides for Python via .NET นักพัฒนาสามารถเข้าถึงและแก้ไขค่าของคุณสมบัติ built-in รวมถึง custom ได้. Microsoft PowerPoint 2007 ให้คุณจัดการคุณสมบัติของไฟล์การนำเสนอได้ เพียงคลิกไอคอน Office แล้วเลือกเมนู **Prepare | Properties | Advanced Properties** ของ Microsoft PowerPoint 2007. หลังจากคุณเลือกเมนู **Advanced Properties** จะปรากฏหน้าต่างที่ให้คุณจัดการคุณสมบัติของไฟล์ PowerPoint. ใน **Properties Dialog** คุณจะเห็นหลายแท็บเช่น **General, Summary, Statistics, Contents and Custom**. แท็บเหล่านี้ทั้งหมดช่วยให้กำหนดค่าข้อมูลที่แตกต่างกันที่เกี่ยวกับไฟล์ PowerPoint. แท็บ **Custom** ใช้สำหรับจัดการคุณสมบัติ custom ของไฟล์ PowerPoint.
+**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for Python via .NET, developers can access and modify the values of built-in properties as well as custom properties. Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Prepare | Properties | Advanced Properties** menu item of the Microsoft PowerPoint 2007. After you select **Advanced Properties** menu item, a dialog would appear allowing you to manage the document properties of the PowerPoint file. In the **Properties Dialog**, you can see that there are many tab pages like **General, Summary, Statistics, Contents and Custom**. All these tab pages allow configuring different kinds of information related to the PowerPoint files. **Custom** tab is used to manage the custom properties of the PowerPoint files.
 
 ## **เข้าถึงคุณสมบัติ Built-in**
-
-คุณสมบัติเหล่านี้ที่เปิดเผยโดยอ็อบเจกต์ **IDocumentProperties** ประกอบด้วย: **Creator(Author)**, **Description**, **Keywords**, **Created** (วันที่สร้าง), **Modified** (วันที่แก้ไข), **Printed** (วันที่พิมพ์ครั้งล่าสุด), **LastModifiedBy**, **Keywords**, **SharedDoc** (แชร์ระหว่างผู้ผลิตต่าง ๆ?), **PresentationFormat**, **Subject** และ **Title**  
+These properties as exposed by **IDocumentProperties** object include: **Creator(Author)**, **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 ```py
 import aspose.slides as slides
 
 # สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงการนำเสนอ
-with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
-    # สร้างการอ้างอิงถึงอ็อบเจกต์ที่เชื่อมโยงกับ Presentation
+with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
+    # สร้างการอ้างอิงไปยังอ็อบเจกต์ที่เชื่อมโยงกับ Presentation
     documentProperties = pres.document_properties
 
-    # แสดงคุณสมบัติในตัว
+    # แสดงคุณสมบัติ builtin
     print("category : " + documentProperties.category)
     print("Current Status : " + documentProperties.content_status)
     print("Creation Date : " + str(documentProperties.created_time))
@@ -73,43 +72,45 @@ with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
 
 ## **แก้ไขคุณสมบัติ Built-in**
 
-การแก้ไขคุณสมบัติ built-in ของไฟล์การนำเสนอเป็นเรื่องง่ายเทียบเท่ากับการเข้าถึงคุณสมบัตินั้น คุณสามารถกำหนดค่าเป็นสตริงให้กับคุณสมบัติใดก็ได้ที่ต้องการและค่าจะถูกแก้ไข... ในตัวอย่างด้านล่าง เราได้สาธิตวิธีการแก้ไขคุณสมบัติเบื้องต้นของเอกสารในไฟล์การนำเสนอ.  
+Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated that how we can modify the built-in document properties of the presentation file.
+
 ```py
 import aspose.slides as slides
 
 # สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึง Presentation
-with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
-    # สร้างการอ้างอิงถึงอ็อบเจกต์ที่เชื่อมโยงกับ Presentation
+with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
+    # สร้างการอ้างอิงไปยังอ็อบเจกต์ที่เชื่อมโยงกับ Presentation
     documentProperties = presentation.document_properties
 
-    # ตั้งค่าคุณสมบัติในตัว
+    # ตั้งค่าคุณสมบัติ builtin
     documentProperties.author = "Aspose.Slides for .NET"
     documentProperties.title = "Modifying Presentation Properties"
     documentProperties.subject = "Aspose Subject"
     documentProperties.comments = "Aspose Description"
     documentProperties.manager = "Aspose Manager"
 
-    # บันทึกการนำเสนอของคุณลงไฟล์
+    # บันทึกการนำเสนอของคุณลงในไฟล์
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เพิ่มคุณสมบัติ Custom ของการนำเสนอ**
+## **เพิ่มคุณสมบัติการนำเสนอแบบกำหนดเอง**
 
-Aspose.Slides for Python via .NET ยังอนุญาตให้ผู้พัฒนาสามารถเพิ่มค่าที่กำหนดเองสำหรับคุณสมบัติของเอกสารการนำเสนอ ตัวอย่างด้านล่างแสดงวิธีตั้งค่าคุณสมบัติ custom สำหรับการนำเสนอ.  
+Aspose.Slides for Python via .NET also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
+
 ```py
 import aspose.slides as slides
 
 # สร้างอินสแตนซ์ของคลาส Presentation
 with slides.Presentation() as presentation:
-    # ดึงคุณสมบัติเอกสาร
+    # ดึงคุณสมบัติของเอกสาร
     documentProperties = presentation.document_properties
 
-    # เพิ่มคุณสมบัติแบบกำหนดเอง
+    # เพิ่มคุณสมบัติกำหนดเอง
     documentProperties.set_custom_property_value("New Custom", 12)
     documentProperties.set_custom_property_value("My Nam", "Mudassir")
     documentProperties.set_custom_property_value("Custom", 124)
 
-    # ดึงชื่อคุณสมบัติที่ตำแหน่งเฉพาะ
+    # ดึงชื่อคุณสมบัติที่ตำแหน่งดัชนีเฉพาะ
     getPropertyName = documentProperties.get_custom_property_name(2)
 
     # ลบคุณสมบัติที่เลือก
@@ -119,38 +120,44 @@ with slides.Presentation() as presentation:
     presentation.save("CustomDocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เข้าถึงและแก้ไขคุณสมบัติ Custom**
+## **เข้าถึงและแก้ไขคุณสมบัติกำหนดเอง**
 
-Aspose.Slides for Python via .NET ยังอนุญาตให้ผู้พัฒนาสามารถเข้าถึงค่าของคุณสมบัติ custom ตัวอย่างด้านล่างแสดงวิธีการเข้าถึงและแก้ไขคุณสมบัติ custom ทั้งหมดสำหรับการนำเสนอ.  
+Aspose.Slides for Python via .NET also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
+
 ```py
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์ PPTX
-with slides.Presentation(path + "AccessModifyingProperties.pptx") as presentation:
+# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึง PPTX
+with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
     # สร้างการอ้างอิงไปยังอ็อบเจกต์ document_properties ที่เชื่อมโยงกับ Presentation
     documentProperties = presentation.document_properties
 
-    # เข้าถึงและแก้ไขคุณสมบัติแบบกำหนดเอง
+    # เข้าถึงและแก้ไขคุณสมบัติกำหนดเอง
     for i in range(documentProperties.count_of_custom_properties):
-        # แสดงชื่อและค่าของคุณสมบัติแบบกำหนดเอง
-        print("Custom Property Name : " + documentProperties.get_custom_property_name(i))
-        print("Custom Property Value : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
+        property_name = documentProperties.get_custom_property_name(i)
 
-        # แก้ไขค่าของคุณสมบัติแบบกำหนดเอง
-        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "New Value " + str(i + 1))
-    # บันทึกการนำเสนอของคุณลงไฟล์
+        # แสดงชื่อและค่าของคุณสมบัติกำหนดเอง
+        property_value = [""]
+        documentProperties.get_custom_property_value(property_name, property_value)
+        print("Custom Property Name : " + property_name)
+        print("Custom Property Value : " + property_value[0])
+
+        # แก้ไขค่าของคุณสมบัติกำหนดเอง
+        documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
+    # บันทึกการนำเสนอของคุณลงในไฟล์
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+`get_custom_property_value` returns the value through the one-element list passed as its second argument, and the stored value is cast to the type of the element already in that list. The example above uses `[""]`, so it reads string properties; to read a property stored as a number, pass a numeric placeholder such as `[0]`—otherwise the call raises an `InvalidCastException`.
+
 ## **ตั้งค่าภาษา Proofing**
 
-Aspose.Slides มีคุณสมบัติ `Language_Id` (เปิดเผยโดยคลาส [PortionFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/)) เพื่อให้คุณตั้งค่าภาษา Proofing สำหรับเอกสาร PowerPoint ภาษา Proofing คือภาษาที่จะทำการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint.  
+Aspose.Slides provides the `Language_Id` property (exposed by the [PortionFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
 
-โค้ด Python นี้แสดงวิธีตั้งค่าภาษา Proofing สำหรับ PowerPoint:  
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
+with slides.Presentation("SetProofingLanguage.pptx") as pres:
     auto_shape = pres.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
     paragraph.portions.clear()
@@ -162,7 +169,7 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
     portion_format.east_asian_font = font
     portion_format.latin_font = font
 
-    # ตั้งค่า Id ของภาษาตรวจสอบ
+    # ตั้งค่า Id ของภาษาตรวจสอบการพิสูจน์
     portion_format.language_id = "zh-CN"
     new_portion.text = "1。"
 
@@ -171,7 +178,8 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
 
 ## **ตั้งค่าภาษาเริ่มต้น**
 
-โค้ด Python นี้แสดงวิธีตั้งค่าภาษาเริ่มต้นสำหรับการนำเสนอ PowerPoint ทั้งหมด:  
+This Python code shows you how to set the default language for an entire PowerPoint presentation:
+
 ```python
 import aspose.slides as slides
 
@@ -188,17 +196,20 @@ with slides.Presentation(load_options) as pres:
 
 ## **ตัวอย่างสด**
 
-ลองใช้แอปออนไลน์ [**Aspose.Slides Metadata**](https://products.aspose.app/slides/th/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติของเอกสารผ่าน Aspose.Slides API:  
+Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/th/metadata) online app to see how to work with document properties via Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/th/metadata)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะลบคุณสมบัติ built-in จากการนำเสนอได้อย่างไร?**  
-คุณสมบัติ built-in เป็นส่วนสำคัญของการนำเสนอและไม่สามารถลบออกได้ทั้งหมด อย่างไรก็ตามคุณสามารถเปลี่ยนค่าเหล่านั้นหรือกำหนดเป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาต.
+**How can I remove a built-in property from a presentation?**
 
-**เกิดอะไรขึ้นหากฉันเพิ่มคุณสมบัติ custom ที่มีอยู่แล้ว?**  
-หากคุณเพิ่มคุณสมบัติ custom ที่มีอยู่แล้ว ค่าที่มีอยู่จะถูกเขียนทับด้วยค่าที่ใหม่ คุณไม่จำเป็นต้องลบหรือเช็กคุณสมบัติก่อน เนื่องจาก Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ.
+Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
 
-**ฉันสามารถเข้าถึงคุณสมบัติการนำเสนอโดยไม่ต้องโหลดการนำเสนอเต็มรูปแบบได้หรือไม่?**  
-ใช่, คุณสามารถเข้าถึงคุณสมบัติการนำเสนอโดยไม่ต้องโหลดเต็มรูปแบบโดยใช้เมธอด [get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) จากคลาส [PresentationFactory](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/) จากนั้นใช้เมธอด [read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/) ของคลาส [PresentationInfo](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/) เพื่ออ่านคุณสมบัติอย่างมีประสิทธิภาพ ประหยัดหน่วยความจำและเพิ่มประสิทธิภาพ.
+**What happens if I add a custom property that already exists?**
+
+If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
+
+**Can I access presentation properties without fully loading the presentation?**
+
+Yes. Use [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) and then [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/th/python-net/examine-presentation/) for a complete reporting example and format-specific limitations.

@@ -1,11 +1,10 @@
 ---
-title: プレゼンテーションの検査
+title: JavaScript でプレゼンテーション情報の取得と更新
+linktitle: プレゼンテーション情報
 type: docs
 weight: 30
 url: /ja/nodejs-java/examine-presentation/
 keywords:
-- PowerPoint
-- プレゼンテーション
 - プレゼンテーション形式
 - プレゼンテーションプロパティ
 - ドキュメントプロパティ
@@ -13,105 +12,200 @@ keywords:
 - プロパティ読み取り
 - プロパティ変更
 - プロパティ修正
-- PPTX
-- PPT
+- プロパティ更新
+- PPTX の検査
+- PPT の検査
+- ODP の検査
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Node.js
 - JavaScript
-- Node
-description: "Node で PowerPoint プレゼンテーションのプロパティを読み取り・変更"
+- Aspose.Slides
+description: "JavaScript を使用して PowerPoint および OpenDocument プレゼンテーションのスライド、構造、メタデータを調査し、より迅速な洞察と賢いコンテンツ監査を実現します。"
 ---
+## **概要**
 
-Aspose.Slides for Node.js via Java を使用すると、プレゼンテーションを調べてそのプロパティを確認し、動作を理解できます。
+Aspose.Slides はプレゼンテーションの形式を識別し、完全なプレゼンテーションオブジェクトモデルを作成せずにドキュメント メタデータを読み取ることができます。これは、ファイルを分類したり、インベントリを作成したり、プレゼンテーションの内容を読み込んで処理するかどうかを判断する前にプロパティを検査したりする場合に便利です。
 
-{{% alert title="Info" color="info" %}} 
+この記事では、[PresentationFactory](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationfactory/) と [PresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/) を使用した軽量な検査と、[DocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/) を使用した対象を絞った更新について示します。
 
-ここで使用する操作に必要なプロパティとメソッドは、[PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo) と [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) クラスに含まれています。
+## **プレゼンテーション形式の確認**
 
-{{% /alert %}} 
+[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) を使用して、[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスを作成せずにファイルを検査できます。[PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/getloadformat/) メソッドは、PPTX、PPT、ODP など検出された形式を報告します。
 
-## **プレゼンテーションの形式を確認する**
-
-プレゼンテーションを操作する前に、現在の形式（PPT、PPTX、ODP など）が何であるかを確認したくなることがあります。
-
-プレゼンテーションをロードせずに形式を確認できます。以下の JavaScript コードをご覧ください：
 ```javascript
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-console.log(info.getLoadFormat());// PPTX形式
-var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-console.log(info2.getLoadFormat());// PPT形式
-var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-console.log(info3.getLoadFormat());// ODP形式
+const aspose = require("aspose.slides.via.java");
+
+const fileNames = ["pres.pptx", "pres.ppt", "pres.odp"];
+
+for (const fileName of fileNames) {
+    const presentationInfo = aspose.PresentationFactory.getInstance().getPresentationInfo(fileName);
+    const loadFormat = presentationInfo.getLoadFormat();
+    let formatName = `Other (${loadFormat})`;
+
+    if (loadFormat === aspose.LoadFormat.Pptx) {
+        formatName = "PPTX";
+    } else if (loadFormat === aspose.LoadFormat.Ppt) {
+        formatName = "PPT";
+    } else if (loadFormat === aspose.LoadFormat.Odp) {
+        formatName = "ODP";
+    }
+
+    console.log(`${fileName}: ${formatName}`);
+}
 ```
 
+## **軽量プレゼンテーション・インベントリの構築**
 
-## **プレゼンテーションのプロパティを取得する**
+多数のプレゼンテーション ファイルを処理する場合、検証、インデックス作成、または文書管理システム向けのコンパクトなインベントリが必要になることがあります。このシナリオでは、[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) を使用して [PresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/) オブジェクトを取得し、続いて [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) を呼び出してドキュメント メタデータを読み取ります。このアプローチでは、[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスを作成したり、完全なプレゼンテーション オブジェクトモデルを走査したりする必要はありません。
 
-この JavaScript コードは、プレゼンテーションのプロパティ（プレゼンテーションに関する情報）を取得する方法を示しています：
+[DocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/) が提供する拡張プロパティは、次のインベントリ値を返します。
+
+| メソッド | インベントリ 値 |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getSlides) | スライドの総数。 |
+| [getHiddenSlides](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getHiddenSlides) | 非表示スライドの数。 |
+| [getNotes](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getNotes) | ノートが含まれるスライドの数。 |
+| [getParagraphs](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getParagraphs) | 利用可能な場合の段落の総数。 |
+| [getWords](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getWords) | 単語の総数。 |
+| [getMultimediaClips](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getMultimediaClips) | オーディオおよびビデオ クリップの総数。 |
+
+以下の例は、[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) オブジェクトを作成せずにこれらの値を読み取り、コンパクトなインベントリを出力します。また、[DocumentProperties.getHeadingPairs](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getHeadingPairs) と [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getTitlesOfParts) を組み合わせて、フォント、テーマ、スライド タイトルなどのコンテンツ グループを表示します。
+
 ```javascript
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-var props = info.readDocumentProperties();
-console.log(props.getCreatedTime());
-console.log(props.getSubject());
-console.log(props.getTitle());
-// ..
+const path = require("path");
+const aspose = require("aspose.slides.via.java");
+
+const filePath = "sample.pptx";
+const presentationInfo = aspose.PresentationFactory.getInstance().getPresentationInfo(filePath);
+const documentProperties = presentationInfo.readDocumentProperties();
+
+const loadFormat = presentationInfo.getLoadFormat();
+let formatName = `Other (${loadFormat})`;
+
+if (loadFormat === aspose.LoadFormat.Pptx) {
+    formatName = "PPTX";
+} else if (loadFormat === aspose.LoadFormat.Ppt) {
+    formatName = "PPT";
+} else if (loadFormat === aspose.LoadFormat.Odp) {
+    formatName = "ODP";
+}
+
+console.log(`File: ${path.basename(filePath)}`);
+console.log(`Format: ${formatName}`);
+console.log(`Title: ${documentProperties.getTitle()}`);
+console.log(`Author: ${documentProperties.getAuthor()}`);
+console.log("Statistics:");
+console.log(`  Slides: ${documentProperties.getSlides()}`);
+console.log(`  Hidden slides: ${documentProperties.getHiddenSlides()}`);
+console.log(`  Slides with notes: ${documentProperties.getNotes()}`);
+console.log(`  Paragraphs: ${documentProperties.getParagraphs()}`);
+console.log(`  Words: ${documentProperties.getWords()}`);
+console.log(`  Multimedia clips: ${documentProperties.getMultimediaClips()}`);
+
+const headingPairs = documentProperties.getHeadingPairs() || [];
+const titlesOfParts = documentProperties.getTitlesOfParts() || [];
+let partIndex = 0;
+
+if (headingPairs.length === 0 || titlesOfParts.length === 0) {
+    console.log("Content groups: not available");
+} else {
+    console.log("Content groups:");
+
+    for (const headingPair of headingPairs) {
+        const partCount = headingPair.getCount();
+        console.log(`  ${headingPair.getName()} (${partCount})`);
+
+        for (let partOffset = 0; partOffset < partCount && partIndex < titlesOfParts.length; partOffset++) {
+            console.log(`    - ${titlesOfParts[partIndex]}`);
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.length) {
+        console.log("  Other parts:");
+
+        while (partIndex < titlesOfParts.length) {
+            console.log(`    - ${titlesOfParts[partIndex]}`);
+            partIndex++;
+        }
+    }
+}
 ```
 
+各 [HeadingPair](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/headingpair/) は、[HeadingPair.getName](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/headingpair/#getName) によってグループ名を提供し、[HeadingPair.getCount](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/headingpair/#getCount) によってそのグループ内の項目数を提供します。[DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getTitlesOfParts) はフラットで順序付けされた配列を返すため、各 HeadingPair で指定された連続タイトル数だけを消費します。
 
-DocumentProperties クラスの [プロパティ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) を確認したくなるかもしれません。
+### **保存されたメタデータと形式の制限**
 
-## **プレゼンテーションのプロパティを更新する**
+[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) が返すインベントリ プロパティは、ソース ドキュメントで利用可能なメタデータを反映します。Aspose.Slides はこの呼び出しのためにプレゼンテーション オブジェクトモデルをロードして走査し、これらの値を再計算しません。欠落しているプロパティはデフォルト値で表され、最後にファイルを保存したアプリケーションがドキュメント プロパティを更新しなかった場合、保存された値は古くなる可能性があります。
 
-Aspose.Slides は、プレゼンテーションのプロパティを変更できる [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) メソッドを提供しています。
+- **PPTX:** この形式は、スライド、ノート、非表示スライド、段落、単語、マルチメディアのカウント、およびヘッディング ペアとパート タイトルの拡張ドキュメント プロパティを提供します。利用可能性は、ドキュメント作成者がどのプロパティを書き込んだかに依存します。
+- **PPT:** バイナリ形式は対応するドキュメント要約プロパティを格納できます。プロパティが存在しない、または作成者によって更新されていない場合、Aspose.Slides はスライドから計算せずに保存された値またはデフォルト値を返します。
+- **ODP:** OpenDocument メタデータはページ、段落、単語数などの一般的なドキュメント統計を提供しますが、これらの値はすべての PowerPoint 固有の拡張プロパティにマッピングされません。非表示スライド、ノートスライド、マルチメディア、ヘッディング ペア、パート タイトルのメタデータは利用できない場合があり、インベントリ プロパティはデフォルト値を返すことがあります。ゼロ値や空配列を、対応するコンテンツが存在しないという決定的な証拠として扱わないでください。
 
-以下に示すようなドキュメントプロパティを持つ PowerPoint プレゼンテーションがあるとします。
+インベントリや事前チェックには軽量メタデータ アプローチを使用してください。結果がインメモリの変更を反映する必要がある場合や、実際のプレゼンテーション コンテンツを検証する必要がある場合は、プレゼンテーションをロードしてライブ オブジェクトモデルを検査してください。
 
-![PowerPoint プレゼンテーションの元のドキュメントプロパティ](input_properties.png)
+## **プレゼンテーション プロパティの更新**
 
-このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示しています：
+[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) が返すプロパティは、[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスを作成せずに変更できます。変更は [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/updatedocumentproperties/) で適用し、[PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/writebindedpresentation/) でバインドされたプレゼンテーションを書き出します。
+
+以下の画像は元のドキュメント プロパティを示しています。
+
+![PowerPoint プレゼンテーションの元のドキュメント プロパティ](input_properties.png)
+
+以下の例はタイトルと最終保存時刻を変更し、結果を新しいファイルに書き出します。
+
 ```javascript
-let fileName = "sample.pptx";
+const aspose = require("aspose.slides.via.java");
+const java = require("java");
 
-let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
+const sourceFile = "sample.pptx";
+const outputFile = "sample_with_updated_properties.pptx";
+const presentationInfo = aspose.PresentationFactory.getInstance().getPresentationInfo(sourceFile);
+const documentProperties = presentationInfo.readDocumentProperties();
 
-let properties = info.readDocumentProperties();
-properties.setTitle("My title");
-properties.setLastSavedTime(java.newInstanceSync("java.util.Date"));
+documentProperties.setTitle("Quarterly sales report");
+documentProperties.setLastSavedTime(java.newInstanceSync("java.util.Date"));
 
-info.updateDocumentProperties(properties);
-info.writeBindedPresentation(fileName);
+presentationInfo.updateDocumentProperties(documentProperties);
+const outputStream = java.newInstanceSync("java.io.FileOutputStream", outputFile);
+try {
+    presentationInfo.writeBindedPresentation(outputStream);
+} finally {
+    outputStream.close();
+}
 ```
 
+以下の画像は更新されたドキュメント プロパティを示しています。
 
-ドキュメントプロパティを変更した結果は以下のとおりです。
-
-![PowerPoint プレゼンテーションの変更後のドキュメントプロパティ](output_properties.png)
+![PowerPoint プレゼンテーションの変更後ドキュメント プロパティ](output_properties.png)
 
 ## **便利なリンク**
 
-プレゼンテーションとそのセキュリティ属性に関する詳細情報を得るには、以下のリンクが役立つかもしれません：
+関連するセキュリティチェックや保護設定については、次の記事をご覧ください。
 
-- [プレゼンテーションが暗号化されているかどうかの確認](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [プレゼンテーションが書き込み保護（読み取り専用）されているかどうかの確認](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [プレゼンテーションをロードする前にパスワードで保護されているかどうかの確認](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [プレゼンテーションを保護するために使用されたパスワードの確認](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [プレゼンテーションのパスワード保護](/slides/ja/nodejs-java/password-protected-presentation/)
+- [プレゼンテーションの書き込み保護](/slides/ja/nodejs-java/write-protected-presentation/)
 
 ## **FAQ**
 
-**フォントが埋め込まれているか、どのフォントが埋め込まれているかをどう確認できますか？**
+**フォントが埋め込まれているか、どのフォントが埋め込まれているかを確認するにはどうすればよいですか？**
 
-プレゼンテーションレベルで [embedded-font information](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) を探し、次にそれらのエントリを [実際にコンテンツで使用されているフォント](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getfonts/) の集合と比較して、レンダリングに重要なフォントを特定します。
+プレゼンテーションをロードし、[Presentation.getFontsManager](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getfontsmanager/) を使用します。[FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) で埋め込まれたフォントを取得し、[FontsManager.getFonts](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/fontsmanager/getfonts/) でプレゼンテーションで使用されているフォントを取得します。両方の結果を比較して、レンダリングに必要だが埋め込まれていないフォントを特定します。
 
-**ファイルに非表示スライドがあるか、またその数をすばやく確認する方法は？**
+**ファイルに非表示スライドがあるかどうか、またその数をすぐに知るにはどうすればよいですか？**
 
-[slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) を反復処理し、各スライドの [visibility flag](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/gethidden/) を確認します。
+保存されたドキュメント メタデータが十分であれば、[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) と [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) を介して [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#getHiddenSlides) を読み取ります。これは軽量インベントリに適しています。プレゼンテーションがメモリ上で変更されている場合、保存されたメタデータが欠落または古くなる可能性があるため、[Presentation.getSlides](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getslides/) を走査し、各スライドの [Slide.getHidden](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/gethidden/) メソッドで確認してください。
 
-**カスタムスライドサイズと向きが使用されているか、デフォルトと異なるかを検出できますか？**
+**カスタムスライド サイズと向きが使用されているか、デフォルトと異なるかを検出できますか？**
 
-はい。現在の [slide size](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslidesize/) と向きを標準のプリセットと比較します。これにより、印刷やエクスポート時の動作を予測できます。
+はい。プレゼンテーションをロードし、[Presentation.getSlideSize](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getslidesize/) を呼び出します。[SlideSize.getType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slidesize/gettype/)、[SlideSize.getSize](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slidesize/getsize/)、[SlideSize.getOrientation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slidesize/getorientation/) を使用して現在の設定を期待されるプリセットや寸法と比較します。
 
-**チャートが外部データソースを参照しているかどうかをすばやく確認する方法はありますか？**
+**チャートが外部データ ソースを参照しているかどうかをすぐに確認する方法はありますか？**
 
-はい。すべての [charts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) を走査し、各々の [data source](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) を確認して、データが内部かリンクベースか、破損したリンクがあるかどうかを記録します。
+はい。各 [Chart](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chart/) を見つけ、[ChartData.getDataSourceType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) を呼び出します。外部ブックの場合は、[ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) を呼び出します。データ ソースの種類とパスで外部参照が識別できますが、対象が利用可能かどうかは別途リソース チェックが必要です。
 
-**レンダリングや PDF エクスポートを遅くする可能性のある「重い」スライドをどのように評価できますか？**
+**レンダリングや PDF 書き出しを遅くする可能性のある「重い」スライドを評価する方法はありますか？**
 
-各スライドについてオブジェクト数を集計し、大きな画像、透過、影、アニメーション、マルチメディアなどを調べます。おおまかな複雑度スコアを付与し、パフォーマンス上のボトルネックになり得る箇所を示します。
+単一の複雑度プロパティは存在しません。[Presentation.getSlides](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getslides/) と各スライドの [BaseSlide.getShapes](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/baseslide/#getShapes) コレクションを走査します。シェイプ数や大きな画像、エフェクト、アニメーション、マルチメディアの有無をスクリーニング信号として使用し、代表的なレンダリングまたはエクスポートを測定して、スライドを確実なパフォーマンス ボトルネックとして扱うかどうかを判断します。

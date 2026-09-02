@@ -13,109 +13,207 @@ keywords:
 - změnit vlastnosti
 - upravit vlastnosti
 - aktualizovat vlastnosti
-- prozkoumat PPTX
-- prozkoumat PPT
-- prozkoumat ODP
+- zkoumat PPTX
+- zkoumat PPT
+- zkoumat ODP
 - PowerPoint
 - OpenDocument
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí Javy pro rychlejší poznatky a chytřejší audity obsahu."
+description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí Javy pro rychlejší poznatky a inteligentnější audity obsahu."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak prozkoumat informace o prezentaci v Aspose.Slides. Vysvětluje, jak určit aktuální formát prezentace bez načtení celé souboru, přečíst její vlastnosti dokumentu a v případě potřeby tyto vlastnosti aktualizovat.
+Aspose.Slides může identifikovat formát prezentace a přečíst její metadata dokumentu, aniž by vytvářel kompletní objektový model prezentace. To je užitečné, když potřebujete klasifikovat soubory, vytvořit inventář nebo prověřit vlastnosti před tím, než se rozhodnete načíst a zpracovat obsah prezentace.
 
-Příklady jsou založeny na API [PresentationInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentationinfo/) a [DocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/documentproperties/) a demonstrují typické operace pro práci s metadaty prezentace.
+Tento článek demonstruje lehkou inspekci pomocí [PresentationFactory](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentationfactory/) a [IPresentationInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentationinfo/), a také cílené aktualizace pomocí [IDocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/).
 
 ## **Zkontrolovat formát prezentace**
 
-Před prací s prezentací možná budete chtít zjistit, v jakém formátu (PPT, PPTX, ODP a dalších) je prezentace momentálně uložena.
-
-Formát prezentace můžete zkontrolovat bez načítání samotné prezentace. Viz následující Java kód:
+Použijte [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) pro inspekci souboru bez vytvoření instance [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Metoda [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentationinfo/#getLoadFormat--) uvádí detekovaný formát, například PPTX, PPT nebo ODP.
 
 ```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-System.out.println(info.getLoadFormat()); // PPTX
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
 
-IPresentationInfo info2 = PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-System.out.println(info2.getLoadFormat()); // PPT
+String[] fileNames = { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-System.out.println(info3.getLoadFormat()); // ODP
+for (String fileName : fileNames) {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(fileName);
+    int loadFormat = presentationInfo.getLoadFormat();
+    String formatName = "Other (" + loadFormat + ")";
+
+    if (loadFormat == LoadFormat.Pptx) {
+        formatName = "PPTX";
+    } else if (loadFormat == LoadFormat.Ppt) {
+        formatName = "PPT";
+    } else if (loadFormat == LoadFormat.Odp) {
+        formatName = "ODP";
+    }
+
+    System.out.println(fileName + ": " + formatName);
+}
 ```
 
-## **Získat vlastnosti prezentace**
+## **Vytvořit lehký inventář prezentací**
 
-Tento Java kód ukazuje, jak získat vlastnosti prezentace (informace o prezentaci):
+Když zpracováváte mnoho souborů prezentací, můžete potřebovat kompaktní inventář pro validaci, indexaci nebo systém správy dokumentů. V tomto scénáři použijte [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) pro získání objektu [IPresentationInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentationinfo/) a poté zavolejte [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) pro přečtení metadat dokumentu. Tento přístup nevytváří instanci [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) ani nevyžaduje procházení kompletním objektním modelem prezentace.
+
+Rozšířené vlastnosti poskytované rozhraním [IDocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/) poskytují následující hodnoty inventáře:
+
+| Metoda | Inventární hodnota |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getSlides--) | Celkový počet snímků. |
+| [getHiddenSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | Počet skrytých snímků. |
+| [getNotes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getNotes--) | Počet snímků, které obsahují poznámky. |
+| [getParagraphs](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getParagraphs--) | Celkový počet odstavců, pokud jsou dostupné. |
+| [getWords](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getWords--) | Celkový počet slov. |
+| [getMultimediaClips](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | Celkový počet audio a video klipů. |
+
+Následující příklad načte tyto hodnoty bez vytvoření objektu [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a vytiskne kompaktní inventář. Také kombinuje [getHeadingPairs](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getHeadingPairs--) s [getTitlesOfParts](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) pro zobrazení skupin obsahu, jako jsou písma, motivy a názvy snímků.
 
 ```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-IDocumentProperties props = info.readDocumentProperties();
-System.out.println(props.getCreatedTime());
-System.out.println(props.getSubject());
-System.out.println(props.getTitle());
-// .. 
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IHeadingPair;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.Paths;
+
+String filePath = "sample.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
+
+int loadFormat = presentationInfo.getLoadFormat();
+String formatName = "Other (" + loadFormat + ")";
+
+if (loadFormat == LoadFormat.Pptx) {
+    formatName = "PPTX";
+} else if (loadFormat == LoadFormat.Ppt) {
+    formatName = "PPT";
+} else if (loadFormat == LoadFormat.Odp) {
+    formatName = "ODP";
+}
+
+System.out.println("File: " + Paths.get(filePath).getFileName());
+System.out.println("Format: " + formatName);
+System.out.println("Title: " + documentProperties.getTitle());
+System.out.println("Author: " + documentProperties.getAuthor());
+System.out.println("Statistics:");
+System.out.println("  Slides: " + documentProperties.getSlides());
+System.out.println("  Hidden slides: " + documentProperties.getHiddenSlides());
+System.out.println("  Slides with notes: " + documentProperties.getNotes());
+System.out.println("  Paragraphs: " + documentProperties.getParagraphs());
+System.out.println("  Words: " + documentProperties.getWords());
+System.out.println("  Multimedia clips: " + documentProperties.getMultimediaClips());
+
+IHeadingPair[] headingPairs = documentProperties.getHeadingPairs();
+String[] titlesOfParts = documentProperties.getTitlesOfParts();
+headingPairs = headingPairs != null ? headingPairs : new IHeadingPair[0];
+titlesOfParts = titlesOfParts != null ? titlesOfParts : new String[0];
+int partIndex = 0;
+
+if (headingPairs.length == 0 || titlesOfParts.length == 0) {
+    System.out.println("Content groups: not available");
+} else {
+    System.out.println("Content groups:");
+
+    for (IHeadingPair headingPair : headingPairs) {
+        System.out.println("  " + headingPair.getName() + " (" + headingPair.getCount() + ")");
+
+        for (int partOffset = 0; partOffset < headingPair.getCount() && partIndex < titlesOfParts.length; partOffset++) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.length) {
+        System.out.println("  Other parts:");
+
+        while (partIndex < titlesOfParts.length) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+}
 ```
 
-Můžete se také podívat na [vlastnosti ve třídě DocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) .
+Každý [IHeadingPair](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iheadingpair/) poskytuje název skupiny a počet položek v této skupině. Metoda [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) vrací ploché, uspořádané pole, takže je třeba spotřebovat počet po sobě jdoucích názvů určených každým párem záhlaví.
+
+### **Uložená metadata a omezení formátu**
+
+Vlastnosti inventáře vrácené metodou [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) odrážejí metadata dostupná ve zdrojovém dokumentu. Aspose.Slides nenačítá ani neprochází objektovým modelem prezentace pro přepočet těchto hodnot pro toto volání. Chybějící vlastnosti jsou reprezentovány výchozími hodnotami a uložené hodnoty mohou být zastaralé, pokud aplikace, která soubor naposledy uložila, neaktualizovala jeho vlastnosti dokumentu.
+
+- **PPTX:** Formát poskytuje rozšířené vlastnosti dokumentu pro počty snímků, poznámek, skrytých snímků, odstavců, slov a multimédií, stejně jako páry záhlaví a názvy částí. Dostupnost závisí na tom, které vlastnosti byly zápisem vytvořitele dokumentu.
+- **PPT:** Binární formát může ukládat odpovídající vlastnosti souhrnu dokumentu. Pokud je vlastnost nepřítomna nebo nebyla aktualizována tvůrcem dokumentu, Aspose.Slides vrátí její uloženou nebo výchozí hodnotu místo výpočtu z snímků.
+- **ODP:** Metadata OpenDocument poskytují obecnou statistiku dokumentu, jako je počet stránek, odstavců a slov, ale tyto hodnoty neodpovídají každé rozšířené vlastnosti specifické pro PowerPoint. Metadata skrytých snímků, poznámek, multimédií, páry záhlaví a názvy částí mohou být nedostupné a inventární vlastnosti mohou vracet výchozí hodnoty. Nevnímejte nulovou hodnotu nebo prázdné pole jako autoritativní důkaz, že odpovídající obsah chybí.
+
+Používejte lehký přístup k metadatům pro inventáře a předběžné kontroly. Načtěte prezentaci a prohlédněte si její živý objektový model, pokud výsledek musí odrážet změny v paměti nebo pokud potřebujete ověřit skutečný obsah prezentace.
 
 ## **Aktualizovat vlastnosti prezentace**
 
-Aspose.Slides poskytuje metodu [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) , která umožňuje provádět změny ve vlastnostech prezentace.
+Vlastnosti vrácené metodou [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) lze také změnit bez vytvoření instance [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Aplikujte změny pomocí [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) a poté zapište svázanou prezentaci pomocí [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-).
 
-Předpokládejme, že máme PowerPointovou prezentaci s následujícími vlastnostmi dokumentu.
+Následující obrázek zobrazuje původní vlastnosti dokumentu PowerPoint prezentace.
 
-![Původní vlastnosti dokumentu PowerPointové prezentace](input_properties.png)
+![Původní vlastnosti dokumentu PowerPoint prezentace](input_properties.png)
 
-Tento příklad kódu ukazuje, jak upravit některé vlastnosti prezentace:
+Následující příklad změní název a čas posledního uložení a zapíše výsledek do nového souboru:
 
 ```java
-String fileName = "sample.pptx";
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.Date;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
+String sourceFile = "sample.pptx";
+String outputFile = "sample_with_updated_properties.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(sourceFile);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
 
-IDocumentProperties properties = info.readDocumentProperties();
-properties.setTitle("My title");
-properties.setLastSavedTime(new Date());
+documentProperties.setTitle("Quarterly sales report");
+documentProperties.setLastSavedTime(new Date());
 
-info.updateDocumentProperties(properties);
-info.writeBindedPresentation(fileName);
+presentationInfo.updateDocumentProperties(documentProperties);
+try (OutputStream outputStream = new FileOutputStream(outputFile)) {
+    presentationInfo.writeBindedPresentation(outputStream);
+}
 ```
 
-Výsledky změny vlastností dokumentu jsou zobrazeny níže.
+Následující obrázek zobrazuje změněné vlastnosti dokumentu PowerPoint prezentace.
 
-![Změněné vlastnosti dokumentu PowerPointové prezentace](output_properties.png)
+![Změněné vlastnosti dokumentu PowerPoint prezentace](output_properties.png)
 
 ## **Užitečné odkazy**
 
-Pro získání dalších informací o prezentaci a jejích bezpečnostních atributech vám mohou být užitečné následující odkazy:
+Pro související bezpečnostní kontroly a nastavení ochrany viz následující články:
 
-- [Kontrola, zda je prezentace šifrována](https://docs.aspose.com/slides/cs/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kontrola, zda je prezentace chráněna před zápisem (pouze ke čtení)](https://docs.aspose.com/slides/cs/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kontrola, zda je prezentace chráněna heslem před načtením](https://docs.aspose.com/slides/cs/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Potvrzení hesla použitého k ochraně prezentace](https://docs.aspose.com/slides/cs/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Prezentace chráněné heslem](/slides/cs/androidjava/password-protected-presentation/)
+- [Prezentace chráněné zápisem](/slides/cs/androidjava/write-protected-presentation/)
 
 ## **Často kladené otázky**
 
-**Jak mohu zkontrolovat, zda jsou písma vložena a která to jsou?**
+**Jak mohu zkontrolovat, zda jsou písma vložena a která jsou to?**
 
-Vyhledejte [informace o vložených písmech](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) na úrovni prezentace a porovnejte je se seznamem [písmen skutečně použitých v obsahu](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsmanager/#getFonts--) pro určení, která písma jsou klíčová pro vykreslování.
+Načtěte prezentaci a použijte [Presentation.getFontsManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getFontsManager--). Zavolejte [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) pro získání vložených písem a [IFontsManager.getFonts](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) pro získání písem použité v prezentaci. Porovnejte oba výsledky a najděte písma, která jsou potřebná pro vykreslení, ale nejsou vložena.
 
 **Jak mohu rychle zjistit, zda soubor obsahuje skryté snímky a kolik jich je?**
 
-Procházejte [kolekci snímků](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidecollection/) a kontrolujte u každého snímku jeho [vlajku viditelnosti](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slide/#getHidden--).
+Když jsou uložená metadata dokumentu dostatečná, přečtěte [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) přes [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) a [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--). To je vhodné pro lehký inventář. Pokud byla prezentace upravena v paměti, uložená metadata mohou chybět nebo být zastaralá, nebo pokud potřebujete ověřit aktuální hodnoty, projděte [Presentation.getSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getSlides--) a u každého snímku zkontrolujte metodu [ISlide.getHidden](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getHidden--).
 
-**Mohu zjistit, zda je použita vlastní velikost a orientace snímku a zda se liší od výchozích hodnot?**
+**Mohu zjistit, zda je použita vlastní velikost snímku a orientace, a zda se liší od výchozích hodnot?**
 
-Ano. Porovnejte aktuální [velikost snímku](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getSlideSize--) a orientaci se standardními předvolbami; to pomáhá předvídat chování při tisku a exportu.
+Ano. Načtěte prezentaci a zavolejte [Presentation.getSlideSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getSlideSize--). Použijte [ISlideSize.getType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidesize/#getSize--) a [ISlideSize.getOrientation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidesize/#getOrientation--) pro porovnání aktuálního nastavení s očekávaným přednastavením a rozměry.
 
-**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí datové zdroje?**
+**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí zdroje dat?**
 
-Ano. Procházejte všechny [grafy](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chart/), zkontrolujte jejich [datový zdroj](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) a zaznamenejte, zda jsou data interní nebo založená na odkazu, včetně případných poškozených odkazů.
+Ano. Najděte každý [Chart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chart/) a zavolejte [IChartData.getDataSourceType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--). Pro externí sešit zavolejte [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--). Typ zdroje dat a cesta identifikují externí odkaz, ale ověření dostupnosti cíle vyžaduje samostatnou kontrolu zdroje.
 
 **Jak mohu posoudit „těžké“ snímky, které mohou zpomalit vykreslování nebo export do PDF?**
 
-Pro každý snímek spočítejte počet objektů a hledejte velké obrázky, průhlednost, stíny, animace a multimédia; přiřaďte přibližné skóre složitosti a označte potenciální úzká místa výkonu.
+Neexistuje jediná vlastnost komplexnosti. Projděte [Presentation.getSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getSlides--) a kolekci [IBaseSlide.getShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseslide/#getShapes--) každého snímku. Použijte počet tvarů a přítomnost velkých obrázků, efektů, animací nebo multimédií jako signály pro výběr a před provedením měření představte reprezentativní vykreslení nebo export, než snímek označíte za potvrzený úzký profil výkonu.

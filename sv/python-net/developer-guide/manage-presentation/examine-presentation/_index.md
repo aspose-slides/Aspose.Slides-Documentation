@@ -13,111 +13,169 @@ keywords:
 - ändra egenskaper
 - modifiera egenskaper
 - uppdatera egenskaper
-- granska PPTX
-- granska PPT
-- granska ODP
+- undersöka PPTX
+- undersöka PPT
+- undersöka ODP
 - PowerPoint
 - OpenDocument
 - presentation
 - Python
 - Aspose.Slides
-description: "Utforska bilder, struktur och metadata i PowerPoint- och OpenDocument-presentationer med Python för snabbare insikter och smartare innehållsgranskningar."
+description: "Utforska bildspel, struktur och metadata i PowerPoint- och OpenDocument-presentationer med Python för snabbare insikter och smartare innehållsgranskning."
 ---
 ## **Översikt**
 
-Den här artikeln visar hur du granskar presentationsinformation i Aspose.Slides. Den förklarar hur du fastställer ett presentations nuvarande format utan att ladda hela filen, läser dess dokumentegenskaper och uppdaterar dessa egenskaper vid behov.
+Aspose.Slides kan identifiera ett presentationsformat och läsa dess dokumentmetadata utan att skapa ett komplett presentationsobjektmodell. Detta är användbart när du måste klassificera filer, bygga ett register eller inspektera egenskaper innan du bestämmer dig för att ladda och bearbeta presentationsinnehållet.
 
-Exemplen är baserade på API:erna [PresentationInfo](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/) och [DocumentProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/) och demonstrerar typiska operationer för att arbeta med presentationsmetadata.
+Denna artikel visar lättviktig inspektion via [PresentationFactory](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationfactory/) och [PresentationInfo](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/), samt målinriktade uppdateringar via [DocumentProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/).
 
 ## **Kontrollera ett presentationsformat**
 
-Innan du arbetar med en presentation kan du vilja ta reda på vilket format (PPT, PPTX, ODP och andra) presentationen för närvarande har.
+Använd [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationfactory/get_presentation_info/) för att inspektera en fil utan att skapa en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑instans. Egendomen [PresentationInfo.load_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/load_format/) rapporterar det upptäckta formatet, t.ex. PPTX, PPT eller ODP.
 
-Du kan kontrollera en presentations format utan att ladda presentationen. Se denna Python-kod:
-
-```py
+```python
 import aspose.slides as slides
 
-info1 = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print(info1.load_format, info1.load_format == slides.LoadFormat.PPTX)
+file_names = ["pres.pptx", "pres.ppt", "pres.odp"]
 
-info2 = slides.PresentationFactory.instance.get_presentation_info("pres.odp")
-print(info2.load_format, info2.load_format == slides.LoadFormat.ODP)
-
-info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
-print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
+for file_name in file_names:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_name)
+    print(f"{file_name}: {presentation_info.load_format}")
 ```
 
-## **Hämta presentationsegenskaper**
+## **Bygg ett lättviktigt presentationsregister**
 
-Den här Python-koden visar hur du hämtar presentationsegenskaper (information om presentationen):
+När du behandlar många presentationsfiler kan du behöva ett kompakt register för validering, indexering eller ett dokumenthanteringssystem. I detta scenario, använd [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationfactory/get_presentation_info/) för att erhålla ett [PresentationInfo](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/)‑objekt, och anropa sedan [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/read_document_properties/) för att läsa dokumentmetadata. Detta tillvägagångssätt skapar inte en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑instans och kräver inte att du traverserar hela presentationsobjektmodellen.
 
-```py
+De utökade egenskaperna som exponeras av [DocumentProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/) tillhandahåller följande registervärden:
+
+| Egendom | Registervärde |
+| --- | --- |
+| [slides](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/slides/sv/) | Totalt antal bildspel. |
+| [hidden_slides](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/hidden_slides/) | Antal dolda bildspel. |
+| [notes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/notes/) | Antal bildspel som innehåller anteckningar. |
+| [paragraphs](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/paragraphs/) | Totalt antal stycken, om tillgängligt. |
+| [words](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/words/) | Totalt antal ord. |
+| [multimedia_clips](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/multimedia_clips/) | Totalt antal ljud‑ och videoklipp. |
+
+Följande exempel läser dessa värden utan att skapa ett [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑objekt och skriver ut ett kompakt register. Det kombinerar också [heading_pairs](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/heading_pairs/) med [titles_of_parts](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/titles_of_parts/) för att visa innehållsgrupper såsom teckensnitt, teman och bildspeltitlar.
+
+```python
+import os
 import aspose.slides as slides
 
-info = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-props = info.read_document_properties()
-print(props.created_time)
-print(props.subject)
-print(props.title)
+file_path = "sample.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+document_properties = presentation_info.read_document_properties()
+
+print(f"File: {os.path.basename(file_path)}")
+print(f"Format: {presentation_info.load_format}")
+print(f"Title: {document_properties.title}")
+print(f"Author: {document_properties.author}")
+print("Statistics:")
+print(f"  Slides: {document_properties.slides}")
+print(f"  Hidden slides: {document_properties.hidden_slides}")
+print(f"  Slides with notes: {document_properties.notes}")
+print(f"  Paragraphs: {document_properties.paragraphs}")
+print(f"  Words: {document_properties.words}")
+print(f"  Multimedia clips: {document_properties.multimedia_clips}")
+
+heading_pairs = document_properties.heading_pairs or []
+titles_of_parts = document_properties.titles_of_parts or []
+part_index = 0
+
+if not heading_pairs or not titles_of_parts:
+    print("Content groups: not available")
+else:
+    print("Content groups:")
+
+    for heading_pair in heading_pairs:
+        print(f"  {heading_pair.name} ({heading_pair.count})")
+
+        for _ in range(heading_pair.count):
+            if part_index >= len(titles_of_parts):
+                break
+
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
+
+    if part_index < len(titles_of_parts):
+        print("  Other parts:")
+
+        while part_index < len(titles_of_parts):
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
 ```
 
-Du kanske vill se [egenskaperna under klassen DocumentProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/#properties) .
+Varje [HeadingPair](https://reference.aspose.com/slides/sv/python-net/aspose.slides/headingpair/) levererar ett gruppnamn och antalet objekt i den gruppen. [DocumentProperties.titles_of_parts](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/titles_of_parts/) är en platt, ordnad samling, så konsumera antalet på varandra följande titlar som anges av varje rubrikpar.
+
+### **Lagrad metadata och formatbegränsningar**
+
+De registeregenskaper som returneras av [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/read_document_properties/) speglar metadata som finns i källdokumentet. Aspose.Slides läser inte och traverserar inte presentationsobjektmodellen för att omberäkna dessa värden för detta anrop. Saknade egenskaper representeras av standardvärden, och lagrade värden kan vara föråldrade om programmet som senast sparade filen inte uppdaterade dess dokumentegenskaper.
+
+- **PPTX:** Formatet tillhandahåller utökade dokumentegenskaper för bildspel, anteckning, dolda bildspel, stycke, ord och multimediantal, samt rubrikpar och deltitlar. Tillgängligheten beror på vilka egenskaper som skrevs av dokumentproducenten.
+- **PPT:** Det binära formatet kan lagra motsvarande dokument‑sammanfattningsegenskaper. Om en egenskap saknas eller inte uppdaterades av dokumentproducenten, returnerar Aspose.Slides dess lagrade eller standardvärde i stället för att beräkna det från bildspelen.
+- **ODP:** OpenDocument-metadata ger allmänna dokumentstatistik, såsom sida-, stycke- och ordantal, men dessa värden matchar inte varje PowerPoint‑specifik utökad egenskap. Metadata för dolda bildspel, antecknings‑bildspel, multimedia, rubrikpar och deltitlar kan vara otillgängliga, och registeregenskaperna kan returnera standardvärden. Betrakta inte ett nollvärde eller en tom samling som bevis på att motsvarande innehåll saknas.
+
+Använd den lättviktiga metadata‑metoden för register och preliminära kontroller. Ladda presentationen och inspektera dess levande objektmodell när resultatet måste spegla förändringar i minnet eller när du behöver verifiera det faktiska presentationsinnehållet.
 
 ## **Uppdatera presentationsegenskaper**
 
-Aspose.Slides tillhandahåller metoden [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) som låter dig göra ändringar i presentationsegenskaper.
+De egenskaper som returneras av [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/read_document_properties/) kan också ändras utan att skapa en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑instans. Tillämpa ändringarna med [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/update_document_properties/), och skriv sedan den bundna presentationen med [PresentationInfo.write_binded_presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/write_binded_presentation/).
 
-Låt oss säga att vi har en PowerPoint-presentation med dokumentegenskaperna som visas nedan.
+Följande bild visar de ursprungliga dokumentegenskaperna.
 
-![Originala dokumentegenskaper för PowerPoint-presentationen](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
-Detta kodexempel visar hur du redigerar vissa presentationsegenskaper:
+Följande exempel ändrar titel och senast sparad tid och skriver resultatet till en ny fil:
 
-```py
-file_name = "sample.pptx"
+```python
+import datetime
+import aspose.slides as slides
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+source_file = "sample.pptx"
+output_file = "sample_with_updated_properties.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(source_file)
+document_properties = presentation_info.read_document_properties()
 
-properties = info.read_document_properties()
-properties.title = "My title"
-properties.last_saved_time = datetime.now()
+document_properties.title = "Quarterly sales report"
+document_properties.last_saved_time = datetime.datetime.now(datetime.timezone.utc)
 
-info.update_document_properties(properties)
-info.write_binded_presentation(file_name)
+presentation_info.update_document_properties(document_properties)
+
+with open(output_file, "wb") as output_stream:
+    presentation_info.write_binded_presentation(output_stream)
 ```
 
-Resultaten av att ändra dokumentegenskaperna visas nedan.
+Följande bild visar de uppdaterade dokumentegenskaperna.
 
-![Ändrade dokumentegenskaper för PowerPoint-presentationen](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **Användbara länkar**
 
-För att få mer information om en presentation och dess säkerhetsattribut kan du finna dessa länkar användbara:
+För relaterade säkerhetskontroller och skyddsinställningar, se följande artiklar:
 
-- [Kontrollera om en presentation är krypterad](https://docs.aspose.com/slides/sv/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kontrollera om en presentation är skrivskyddad (endast läsning)](https://docs.aspose.com/slides/sv/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kontrollera om en presentation är lösenordsskyddad innan den laddas](https://docs.aspose.com/slides/sv/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bekräfta lösenordet som används för att skydda en presentation](https://docs.aspose.com/slides/sv/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/sv/python-net/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/sv/python-net/write-protected-presentation/)
 
 ## **FAQ**
 
-**Hur kan jag kontrollera om typsnitt är inbäddade och vilka de är?**
+**Hur kan jag kontrollera om teckensnitt är inbäddade och vilka de är?**
 
-Leta efter [information om inbäddade typsnitt](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) på presentationsnivå, jämför sedan dessa poster med mängden [typsnitt som faktiskt används i innehållet](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_fonts/) för att identifiera vilka typsnitt som är kritiska för rendering.
+Läs in presentationen och använd [Presentation.fonts_manager](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/fonts_manager/). Anropa [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) för att erhålla de inbäddade teckensnitten och [FontsManager.get_fonts](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_fonts/) för att få teckensnitten som används av presentationen. Jämför de två resultaten för att hitta teckensnitt som krävs för rendering men som inte är inbäddade.
 
-**Hur kan jag snabbt avgöra om filen har dolda bilder och hur många?**
+**Hur kan jag snabbt avgöra om filen har dolda bildspel och hur många?**
 
-Iterera genom [slide collection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/) och inspektera varje bilds [visibility flag](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slide/hidden/).
+När lagrad dokumentmetadata är tillräcklig, läs [DocumentProperties.hidden_slides](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/hidden_slides/) via [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationfactory/get_presentation_info/) och [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/read_document_properties/). Detta är lämpligt för ett lättviktigt register. Om presentationen har ändrats i minnet, kan den lagrade metadata saknas eller vara föråldrad, eller så behöver du verifiera levande värden genom att iterera genom [Presentation.slides](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/slides/sv/) och inspektera varje bildspels [Slide.hidden](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slide/hidden/)‑egenskap istället.
 
-**Kan jag upptäcka om anpassad bildstorlek och orientering används, och om de skiljer sig från standardvärdena?**
+**Kan jag upptäcka om en anpassad bildstorlek och orientering används, och om de skiljer sig från standardinställningarna?**
 
-Ja. Jämför den aktuella [slide size](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/slide_size/) och orienteringen med standardinställningarna; detta hjälper dig förutse beteendet vid utskrift och export.
+Ja. Läs in presentationen och läs [Presentation.slide_size](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/slide_size/). Inspektera [SlideSize.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidesize/type/), [SlideSize.size](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidesize/size/) och [SlideSize.orientation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidesize/orientation/) för att jämföra de aktuella inställningarna med den förväntade förinställningen och dimensionerna.
 
 **Finns det ett snabbt sätt att se om diagram refererar till externa datakällor?**
 
-Ja. Gå igenom alla [charts](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chart/), kontrollera deras [data source](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdata/data_source_type/), och notera om data är intern eller länkbaserad, inklusive eventuella brutna länkar.
+Ja. Lokalisera varje [Chart](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chart/) och inspektera [ChartData.data_source_type](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdata/data_source_type/). För ett externt kalkylblad, läs [ChartData.external_workbook_path](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Datakälltyp och sökväg identifierar en extern referens, men att verifiera om målet är tillgängligt kräver en separat resurstillgångskontroll.
 
-**Hur kan jag bedöma 'tunga' bilder som kan sakta rendering eller PDF-export?**
+**Hur kan jag bedöma “tunga” bildspel som kan sakta ner rendering eller PDF‑export?**
 
-För varje bild räknar du objekt och letar efter stora bilder, transparens, skuggor, animationer och multimedia; tilldela ett ungefärligt komplexitetspoäng för att flagga potentiella prestandaproblem.
+Det finns ingen enda komplexitetsegenskap. Traversera [Presentation.slides](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/slides/sv/) och varje bildspels [BaseSlide.shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/baseslide/shapes/)‑samling. Använd antalet former och närvaron av stora bilder, effekter, animationer eller multimedia som screeningsindikatorer, och mät en representativ rendering eller export innan du betraktar ett bildspel som en bekräftad prestandaflaskhals.

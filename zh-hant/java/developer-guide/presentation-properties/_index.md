@@ -24,43 +24,45 @@ keywords:
 - Aspose.Slides
 description: "在 Aspose.Slides for Java 中掌握簡報屬性，並在您的 PowerPoint 與 OpenDocument 檔案中簡化搜尋、品牌化與工作流程。"
 ---
-## **介紹**
+## **簡介**
 
-Aspose.Slides 支援兩種文件屬性類型：**Built-in** 和 **Custom**。這兩種屬性類型均可透過 Aspose.Slides API 輕鬆存取與管理。
+Aspose.Slides 支援兩種文件屬性類型：**內建**和**自訂**。這兩種屬性類型都可以透過 Aspose.Slides API 輕鬆存取和管理。
 
-Aspose.Slides 允許您透過 [IDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/idocumentproperties/) 介面來處理簡報文件屬性。此介面的實例由 [Presentation.getDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getDocumentProperties--) 方法回傳。以下範例說明如何讀取、修改與管理這些屬性。
+Aspose.Slides 讓您可以透過 [IDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/idocumentproperties/) 介面處理簡報文件屬性。此介面的實例由 [Presentation.getDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getDocumentProperties--) 方法傳回。以下範例示範如何讀取、修改與管理這些屬性。
 
-{{% alert color="primary" %}} 
-請注意，**Application** 與 **Producer** 欄位無法修改，這兩個欄位始終會顯示 "Aspose Ltd." 與 "Aspose.Slides for Java x.x.x"。
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+請注意 **Application** 與 **AppVersion** 欄位無法修改。Aspose.Slides 會在每次儲存時重新寫入它們，因此已儲存的簡報總是顯示「Aspose.Slides for Java」以及產生該檔案的程式庫版本。任何傳遞給 `setNameOfApplication` 的值都會在寫入簡報時被捨棄。
+{{% /alert %}}
 
 ## **PowerPoint 中的文件屬性**
 
-Microsoft PowerPoint 2007 允許管理簡報檔案的文件屬性。您只需要點選 Office 圖示，然後在 Microsoft PowerPoint 2007 中選取 **Prepare | Properties | Advanced Properties** 功能表項目，如下所示：
+Microsoft PowerPoint 2007 允許管理簡報檔案的文件屬性。您只需要點擊 Office 圖示，然後選取 **Prepare | Properties | Advanced Properties** 功能表項目，如下所示：
 
-|**選取 Advanced Properties 功能表項目**|** |
+|**選取「進階屬性」功能表項目**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
+|![待辦: 圖像說明文字](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-選取 **Advanced Properties** 功能表項目後，會出現一個對話方塊，允許您如圖所示管理 PowerPoint 檔案的文件屬性：
+選取 **Advanced Properties** 功能表項目後，會出現以下對話方塊，讓您管理 PowerPoint 檔案的文件屬性：
 
-|**屬性對話方塊**|** |
+|**屬性對話框**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
+|![待辦: 圖像說明文字](https://i.imgur.com/LibmdQd.jpg)| |
 
-在上述 **Properties Dialog** 中，您可以看到多個分頁，如 **General**、**Summary**、**Statistics**、**Contents** 與 **Custom**。所有這些分頁皆可設定與 PowerPoint 檔案相關的各種資訊。**Custom** 分頁則用於管理 PowerPoint 檔案的自訂屬性。
+在上述 **屬性對話框** 中，您可以看到許多分頁，例如 **General**、**Summary**、**Statistics**、**Contents** 與 **Custom**。所有這些分頁都允許配置與 PowerPoint 檔案相關的不同資訊。**Custom** 分頁用於管理 PowerPoint 檔案的自訂屬性。
 
 ### 使用 Aspose.Slides for Java 處理文件屬性
 
-正如前述，Aspose.Slides for Java 支援 **Built-in** 與 **Custom** 兩種文件屬性。因此開發人員可以透過 Aspose.Slides for Java API 取得兩種屬性。Aspose.Slides for Java 提供了 [IDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/idocumentproperties) 類別，透過 **Presentation.DocumentProperties** 屬性取得與簡報檔案關聯的文件屬性。
+如前所述，Aspose.Slides for Java 支援兩種文件屬性：**內建**與**自訂**屬性。因此，開發人員可以使用 Aspose.Slides for Java API 存取這兩種屬性。Aspose.Slides for Java 提供了 [IDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/idocumentproperties) 類別，透過 **Presentation.DocumentProperties** 屬性代表與簡報檔案相關的文件屬性。
 
-開發人員可以使用由 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation) 物件所公開的 **IDocumentProperties** 屬性，依下列方式存取簡報檔案的文件屬性：
+開發人員可以使用由 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation) 物件公開的 **IDocumentProperties** 屬性來存取簡報檔案的文件屬性，如下所示：
 
 ## **存取內建屬性**
 
-這些屬性由 [IDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/idocumentproperties) 物件提供，包括：**Creator** (Author)、**Description**、**Keywords** **Created** (Creation Date)、**Modified** Modification Date、**Printed** Last Print Date、**LastModifiedBy**、**Keywords**、**SharedDoc** (Is shared between different producers?)、**PresentationFormat**、**Subject** 與 **Title**
+由 [IDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/idocumentproperties) 物件公開的這些屬性包括：**Creator**（作者）、**Description**、**Keywords**、**Created**（建立日期）、**Modified**（修改日期）、**Printed**（最近列印日期）、**LastModifiedBy**、**SharedDoc**（是否在不同製作者之間共享？）、**PresentationFormat**、**Subject** 與 **Title**。
 
 ```java
+import com.aspose.slides.*;
+
 // 實例化代表簡報的 Presentation 類別
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -89,9 +91,11 @@ try {
 
 ## **修改內建屬性**
 
-修改簡報檔案的內建屬性與存取它們同樣簡單。只要將字串值指派給任意想要的屬性，即可完成修改。以下範例示範如何使用 Aspose.Slides for Java 修改簡報檔案的內建文件屬性。
+修改簡報檔案的內建屬性和存取它們一樣簡單。您只需將字串值指派給任何想要的屬性，即可修改該屬性值。以下範例示範如何使用 Aspose.Slides for Java 修改簡報的內建文件屬性。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // 建立與 Presentation 相關聯的 IDocumentProperties 物件的參考
@@ -111,17 +115,19 @@ try {
 }
 ```
 
-此範例會修改簡報的內建屬性，結果如下面所示：
+此範例會修改簡報的內建屬性，修改後的結果如下所示：
 
 |**修改後的內建文件屬性**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+|![待辦: 圖像說明文字](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **新增自訂文件屬性**
 
-Aspose.Slides for Java 亦允許開發人員為簡報的文件屬性新增自訂值。以下範例示範如何為簡報設定自訂屬性。
+Aspose.Slides for Java 也允許開發人員為簡報文件屬性新增自訂值。以下範例會新增三個自訂屬性，然後查詢索引 2 處的名稱並移除該屬性，最終儲存的簡報會保留兩個自訂屬性。自訂屬性會依字母順序排列，而非加入的順序。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // 取得文件屬性
@@ -135,7 +141,7 @@ try {
     // 取得特定索引處的屬性名稱
     String getPropertyName = dProps.getCustomPropertyName(2);
     
-    // 移除所選屬性
+    // 移除選取的屬性
     dProps.removeCustomProperty(getPropertyName);
     
     // 儲存簡報
@@ -147,13 +153,15 @@ try {
 
 |**已新增的自訂文件屬性**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+|![待辦: 圖像說明文字](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **存取與修改自訂屬性**
 
-Aspose.Slides for Java 亦允許開發人員存取自訂屬性的值。以下範例示範如何存取並修改簡報的所有自訂屬性。
+Aspose.Slides for Java 也允許開發人員存取自訂屬性的值。以下範例示範如何存取與修改簡報的所有自訂屬性。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // 建立與 Presentation 相關聯的 DocumentProperties 物件的參考
@@ -176,27 +184,29 @@ try {
 }
 ```
 
-此範例會修改 [PPTX ](https://docs.fileformat.com/presentation/pptx/)簡報的自訂屬性。下圖分別顯示修改前與修改後的簡報自訂屬性：
+此範例會修改 [PPTX](https://docs.fileformat.com/presentation/pptx/) 簡報的自訂屬性。以下圖示分別顯示修改前與修改後的自訂屬性：
 
 |**修改前的自訂屬性**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
+|![待辦: 圖像說明文字](https://i.imgur.com/Ze7YHvi.jpg)| |
 
 |**修改後的自訂屬性**|** |
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
+|![待辦: 圖像說明文字](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **進階文件屬性**
 
-{{% alert color="primary" %}} 
-已在 [IPresentationInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo) 中加入新方法 [ReadDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--)、[UpdateDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)、以及 [WriteBindedPresentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-)；[IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) 屬性設定器的邏輯亦已變更。
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+已在 [IPresentationInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo) 中加入新方法 [ReadDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--)、[UpdateDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)、[WriteBindedPresentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-)，且 [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) 屬性設定器的邏輯已變更。
+{{% /alert %}}
 
-兩個新方法 [ReadDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) 與 [UpdateDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) 已加入至 [IPresentationInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo) 介面。它們提供快速存取文件屬性的方式，且可在不載入整個簡報的情況下變更與更新屬性。
+兩個新方法 [ReadDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) 與 [UpdateDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) 已加入 [IPresentationInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPresentationInfo) 介面。它們提供快速存取文件屬性的功能，且可在不載入完整簡報的情況下變更與更新屬性。
 
-典型情境為載入屬性、變更某些值，然後更新文件，可依下列方式實作：
+典型情境是載入屬性、變更某些值，然後更新文件，可依下列方式實作：
 
 ```java
+import com.aspose.slides.*;
+
 // 讀取簡報資訊
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
@@ -212,9 +222,11 @@ info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-另一種方式是將特定簡報的屬性作為範本，來更新其他簡報的屬性：
+另一種方式是將特定簡報的屬性作為範本，套用到其他簡報：
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -227,12 +239,16 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
+    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -241,10 +257,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-也可以從頭建立新的範本，然後用來更新多個簡報：
+也可從頭建立新範本，然後用於更新多個簡報：
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -255,14 +273,7 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
-{
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
     toUpdate.writeBindedPresentation(path);
@@ -271,11 +282,15 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 
 ## **設定校對語言**
 
-Aspose.Slides 提供由 PortionFormat 類別所公開的 LanguageId 屬性，讓您為 PowerPoint 文件設定校對語言。校對語言即是 PowerPoint 進行拼寫與文法檢查時所使用的語言。
+Aspose.Slides 提供 LanguageId 屬性（由 PortionFormat 類別公開），可讓您為 PowerPoint 文件設定校對語言。校對語言是 PowerPoint 會檢查拼寫與文法的語言。
 
-此 Java 程式碼示範如何為 PowerPoint 設定校對語言：xxx 為什麼 Java PortionFormat 類別缺少 LanguageId？
+以下 Java 程式碼示範如何為 PowerPoint 設定校對語言：
 
 ```java
+import com.aspose.slides.*;
+
+String pptxFileName = "presentation.pptx";
+
 Presentation pres = new Presentation(pptxFileName);
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -291,7 +306,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // 設定校對語言的 Id
+    portionFormat.setLanguageId("zh-CN"); // 設定校對語言的 ID
 
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
@@ -302,19 +317,21 @@ try {
 
 ## **設定預設語言**
 
-此 Java 程式碼示範如何為整個 PowerPoint 簡報設定預設語言：
+以下 Java 程式碼示範如何為整個 PowerPoint 簡報設定預設語言：
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
 Presentation pres = new Presentation(loadOptions);
 try {
-    // 新增一個帶有文字的矩形形狀
+    // 新增一個帶文字的矩形形狀
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
 
-    // 檢查第一段文字的語言
+    // 檢查第一個段落的語言
     System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
 } finally {
     if (pres != null) pres.dispose();
@@ -323,20 +340,20 @@ try {
 
 ## **即時範例**
 
-嘗試線上應用程式 [**Aspose.Slides Metadata**](https://products.aspose.app/slides/zh-hant/metadata) 以了解如何透過 Aspose.Slides API 處理文件屬性：
+嘗試線上應用程式 [**Aspose.Slides Metadata**](https://products.aspose.app/slides/zh-hant/metadata) 來瞭解如何透過 Aspose.Slides API 操作文件屬性：
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/zh-hant/metadata)
+[![檢視與編輯 PowerPoint 中繼資料](slides-metadata.png)](https://products.aspose.app/slides/zh-hant/metadata)
 
-## ***常見問題**
+## **常見問題**
 
 **如何從簡報中移除內建屬性？**
 
-內建屬性是簡報不可分割的一部份，無法完全移除。您只能變更其值，或在該屬性允許的情況下將其設為空字串。
+內建屬性是簡報的組成部分，無法完全移除。然而，您可以更改其值，或在該屬性允許的情況下將其設為空白。
 
-**如果新增已存在的自訂屬性會發生什麼事？**
+**如果新增的自訂屬性已經存在會發生什麼事？**
 
-若新增的自訂屬性已經存在，系統會以新值覆寫原有值。您不必先移除或檢查該屬性，Aspose.Slides 會自動更新屬性的值。
+如果新增的自訂屬性已存在，其原有的值會被新值覆寫。您不需要事先移除或檢查該屬性，Aspose.Slides 會自動更新屬性的值。
 
 **我可以在不完整載入簡報的情況下存取簡報屬性嗎？**
 
-可以。您可以透過 [PresentationFactory](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentationfactory/) 類別的 `getPresentationInfo` 方法取得簡報資訊，然後使用 [IPresentationInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentationinfo/) 介面的 `readDocumentProperties` 方法有效地讀取屬性，從而節省記憶體並提升效能。
+可以。使用 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-)，然後呼叫 [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) 即可在不建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 實例的情況下讀取已存儲的文件中繼資料。請參閱 [Build a Lightweight Presentation Inventory](/slides/zh-hant/java/examine-presentation/) 以取得完整的報告範例與格式特定限制。

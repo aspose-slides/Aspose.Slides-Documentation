@@ -1,124 +1,195 @@
 ---
-title: ".NET でプレゼンテーション情報を取得および更新"
-linktitle: "プレゼンテーション情報"
+title: .NET でプレゼンテーション情報の取得と更新
+linktitle: プレゼンテーション情報
 type: docs
 weight: 30
 url: /ja/net/examine-presentation/
 keywords:
-- "プレゼンテーション形式"
-- "プレゼンテーション プロパティ"
-- "ドキュメント プロパティ"
-- "プロパティ取得"
-- "プロパティ読み取り"
-- "プロパティ変更"
-- "プロパティ修正"
-- "プロパティ更新"
-- "PPTX を検査"
-- "PPT を検査"
-- "ODP を検査"
-- "PowerPoint"
-- "OpenDocument"
-- "プレゼンテーション"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: ".NET を使用して PowerPoint および OpenDocument のプレゼンテーションのスライド、構造、メタデータを調査し、迅速な洞察と賢いコンテンツ監査を実現します。"
+- プレゼンテーション形式
+- プレゼンテーション プロパティ
+- ドキュメント プロパティ
+- プロパティ取得
+- プロパティ読み取り
+- プロパティ変更
+- プロパティ修正
+- プロパティ更新
+- PPTX の検査
+- PPT の検査
+- ODP の検査
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET を使用して PowerPoint と OpenDocument プレゼンテーションのスライド、構造、メタデータを調査し、迅速なインサイトと賢いコンテンツ監査を実現します。"
 ---
+## **概要**
 
-Aspose.Slides for .NET を使用すると、プレゼンテーションを調査してプロパティを確認し、その動作を理解できます。 
+Aspose.Slides は、プレゼンテーションの形式を識別し、完全なプレゼンテーション オブジェクト モデルを作成せずにドキュメント メタデータを読み取ることができます。これは、ファイルを分類したり、インベントリを作成したり、プレゼンテーションの内容を読み込んで処理するかどうかを決定する前にプロパティを検査したりする際に便利です。
 
-{{% alert title="Info" color="info" %}} 
-
-ここで使用される操作に必要なプロパティとメソッドを含むクラスは、[PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo) と [DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/) です。
-
-{{% /alert %}} 
+この記事では、[PresentationFactory](https://reference.aspose.com/slides/ja/net/aspose.slides/presentationfactory/) と [IPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/) を使用した軽量検査、および [IDocumentProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/) を使用した対象更新を示します。
 
 ## **プレゼンテーション形式の確認**
 
-プレゼンテーションを操作する前に、現在の形式（PPT、PPTX、ODP など）が何かを確認したくなることがあります。
+[PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/presentationfactory/getpresentationinfo/) を使用して、[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) インスタンスを作成せずにファイルを検査します。[IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/loadformat/) プロパティは、PPTX、PPT、ODP など検出された形式を報告します。
 
-プレゼンテーションをロードせずに形式を確認できます。以下の C# コードをご覧ください：
-```c#
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
-Console.WriteLine(info.LoadFormat); // PPTX形式
+```csharp
+using System;
+using Aspose.Slides;
 
-IPresentationInfo info2 = PresentationFactory.Instance.GetPresentationInfo("pres.ppt");
-Console.WriteLine(info2.LoadFormat); // PPT形式
+var fileNames = new[] { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres.odp");
-Console.WriteLine(info3.LoadFormat); // ODP形式
+foreach (var fileName in fileNames)
+{
+    var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(fileName);
+    Console.WriteLine($"{fileName}: {presentationInfo.LoadFormat}");
+}
 ```
 
+## **軽量プレゼンテーションインベントリの構築**
 
-## **プレゼンテーションプロパティの取得**
+多数のプレゼンテーション ファイルを処理する場合、検証、インデックス作成、または文書管理システム用のコンパクトなインベントリが必要になることがあります。このシナリオでは、[PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/presentationfactory/getpresentationinfo/) を使用して [IPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/) オブジェクトを取得し、次に [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/readdocumentproperties/) を呼び出してドキュメント メタデータを読み取ります。このアプローチは、[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) インスタンスを作成したり、完全なプレゼンテーション オブジェクト モデルを走査したりする必要がありません。
 
-この C# コードは、プレゼンテーションのプロパティ（プレゼンテーションに関する情報）を取得する方法を示しています：
-```c#
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
-IDocumentProperties props = info.ReadDocumentProperties();
-Console.WriteLine(props.CreatedTime);
-Console.WriteLine(props.Subject);
-Console.WriteLine(props.Title);
-// .. 
+[IDocumentProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/) が提供する拡張プロパティは、以下のインベントリ値を示します。
+
+| プロパティ | インベントリ値 |
+| --- | --- |
+| [Slides](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/slides/ja/) | スライドの総数。 |
+| [HiddenSlides](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/hiddenslides/) | 非表示スライドの数。 |
+| [Notes](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/notes/) | ノートが含まれるスライドの数。 |
+| [Paragraphs](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/paragraphs/) | 利用可能な場合の段落総数。 |
+| [Words](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/words/) | 単語の総数。 |
+| [MultimediaClips](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/multimediaclips/) | オーディオおよびビデオクリップの総数。 |
+
+以下の例は、これらの値を [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) オブジェクトを作成せずに読み取り、コンパクトなインベントリを出力します。また、[HeadingPairs](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/headingpairs/) と [TitlesOfParts](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/titlesofparts/) を組み合わせて、フォント、テーマ、スライド タイトルなどのコンテンツ グループを表示します。
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+var filePath = "sample.pptx";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+var documentProperties = presentationInfo.ReadDocumentProperties();
+
+Console.WriteLine($"File: {Path.GetFileName(filePath)}");
+Console.WriteLine($"Format: {presentationInfo.LoadFormat}");
+Console.WriteLine($"Title: {documentProperties.Title}");
+Console.WriteLine($"Author: {documentProperties.Author}");
+Console.WriteLine("Statistics:");
+Console.WriteLine($"  Slides: {documentProperties.Slides}");
+Console.WriteLine($"  Hidden slides: {documentProperties.HiddenSlides}");
+Console.WriteLine($"  Slides with notes: {documentProperties.Notes}");
+Console.WriteLine($"  Paragraphs: {documentProperties.Paragraphs}");
+Console.WriteLine($"  Words: {documentProperties.Words}");
+Console.WriteLine($"  Multimedia clips: {documentProperties.MultimediaClips}");
+
+var headingPairs = documentProperties.HeadingPairs ?? Array.Empty<IHeadingPair>();
+var titlesOfParts = documentProperties.TitlesOfParts ?? Array.Empty<string>();
+var partIndex = 0;
+
+if (headingPairs.Length == 0 || titlesOfParts.Length == 0)
+{
+    Console.WriteLine("Content groups: not available");
+}
+else
+{
+    Console.WriteLine("Content groups:");
+
+    foreach (var headingPair in headingPairs)
+    {
+        Console.WriteLine($"  {headingPair.Name} ({headingPair.Count})");
+
+        for (var partOffset = 0; partOffset < headingPair.Count && partIndex < titlesOfParts.Length; partOffset++)
+        {
+            Console.WriteLine($"    - {titlesOfParts[partIndex]}");
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.Length)
+    {
+        Console.WriteLine("  Other parts:");
+
+        while (partIndex < titlesOfParts.Length)
+        {
+            Console.WriteLine($"    - {titlesOfParts[partIndex]}");
+            partIndex++;
+        }
+    }
+}
 ```
 
+各 [IHeadingPair](https://reference.aspose.com/slides/ja/net/aspose.slides/iheadingpair/) はグループ名とそのグループ内の項目数を提供します。[IDocumentProperties.TitlesOfParts](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/titlesofparts/) はフラットで順序付けられた配列であるため、各ヘッディング ペアで指定された連続タイトル数だけ消費します。
 
-[DocumentProperties のプロパティ](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties) を確認したい場合があります。
+### **保存されたメタデータと形式の制限**
+
+[IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/readdocumentproperties/) が返すインベントリ プロパティは、ソース ドキュメントで利用可能なメタデータを反映します。Aspose.Slides はこの呼び出しのためにプレゼンテーション オブジェクト モデルをロードおよび走査してこれらの値を再計算しません。欠落しているプロパティはデフォルト値で表され、最後にファイルを保存したアプリケーションがドキュメント プロパティを更新していない場合、保存された値は古くなる可能性があります。
+
+- **PPTX:** この形式は、スライド、ノート、非表示スライド、段落、単語、マルチメディアのカウント、およびヘッディング ペアとパート タイトルの拡張ドキュメントプロパティを提供します。利用可能性は、ドキュメント作成者が書き込んだプロパティに依存します。
+- **PPT:** バイナリ形式は、対応するドキュメント要約プロパティを保存できます。プロパティが存在しない、または作成者によって更新されていない場合、Aspose.Slides はスライドから計算するのではなく、保存されている値またはデフォルト値を返します。
+- **ODP:** OpenDocument のメタデータは、ページ、段落、単語数などの一般的なドキュメント統計情報を提供しますが、これらの値はすべての PowerPoint 固有の拡張プロパティに対応しているわけではありません。非表示スライド、ノートスライド、マルチメディア、ヘッディング ペア、パート タイトルのメタデータが利用できない場合があり、インベントリ プロパティはデフォルト値を返すことがあります。ゼロ値や空配列を、該当コンテンツが存在しないことの権威ある証拠とみなさないでください。
+
+インベントリや予備チェックには軽量メタデータ アプローチを使用してください。結果がメモリ内の変更を反映する必要がある場合や、実際のプレゼンテーション コンテンツを検証する必要がある場合は、プレゼンテーションをロードしてライブ オブジェクト モデルを検査してください。
 
 ## **プレゼンテーションプロパティの更新**
 
-Aspose.Slides は、プレゼンテーションのプロパティを変更できる [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) メソッドを提供します。
+[IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/readdocumentproperties/) が返すプロパティは、[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) インスタンスを作成せずに変更することもできます。変更は [IPresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/updatedocumentproperties/) で適用し、その後 [IPresentationInfo.WriteBindedPresentation](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/writebindedpresentation/) でバインドされたプレゼンテーションを書き出します。
 
-以下に、ドキュメントプロパティが示された PowerPoint プレゼンテーションがあるとします。
+以下の画像は元のドキュメント プロパティを示しています。
 
 ![PowerPoint プレゼンテーションの元のドキュメントプロパティ](input_properties.png)
 
-このコード例では、いくつかのプレゼンテーションプロパティを編集する方法を示しています：
-```c#
-string fileName = "sample.pptx";
+以下の例はタイトルと最終保存時刻を変更し、結果を新しいファイルに書き出します。
 
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-IDocumentProperties properties = info.ReadDocumentProperties();
-properties.Title = "My title";
-properties.LastSavedTime = DateTime.Now;
+var sourceFile = "sample.pptx";
+var outputFile = "sample_with_updated_properties.pptx";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(sourceFile);
+var documentProperties = presentationInfo.ReadDocumentProperties();
 
-info.UpdateDocumentProperties(properties);
-info.WriteBindedPresentation(fileName);
+documentProperties.Title = "Quarterly sales report";
+documentProperties.LastSavedTime = DateTime.UtcNow;
+
+presentationInfo.UpdateDocumentProperties(documentProperties);
+using var outputStream = File.Create(outputFile);
+presentationInfo.WriteBindedPresentation(outputStream);
 ```
 
+以下の画像は更新されたドキュメント プロパティを示しています。
 
-ドキュメントプロパティを変更した結果は以下の通りです。
-
-![PowerPoint プレゼンテーションの変更後ドキュメントプロパティ](output_properties.png)
+![PowerPoint プレゼンテーションの変更されたドキュメントプロパティ](output_properties.png)
 
 ## **便利なリンク**
 
-プレゼンテーションおよびそのセキュリティ属性に関する詳細情報は、以下のリンクが役立ちます：
+関連するセキュリティチェックと保護設定については、次の記事をご参照ください。
 
-- [プレゼンテーションが暗号化されているかの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [プレゼンテーションが書き込み保護（読み取り専用）かの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [ロード前にプレゼンテーションがパスワードで保護されているかの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [プレゼンテーションを保護するために使用されたパスワードの確認](https://docs.aspose.com/slides/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [プレゼンテーションのパスワード保護](/slides/ja/net/password-protected-presentation/)
+- [プレゼンテーションの書き込み保護](/slides/ja/net/write-protected-presentation/)
 
-## **よくある質問**
+## **FAQ**
 
-**フォントが埋め込まれているか、どのフォントかをどうやって確認できますか？**
+**フォントが埋め込まれているか、どのフォントが埋め込まれているかを確認する方法は？**
 
-プレゼンテーションレベルで[埋め込みフォント情報](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) を確認し、そのエントリを[コンテンツ全体で実際に使用されているフォント](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/) の集合と比較して、レンダリングに重要なフォントを特定します。
+プレゼンテーションをロードし、[Presentation.FontsManager](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/fontsmanager/) を使用します。[FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsmanager/getembeddedfonts/) で埋め込まれたフォントを取得し、[FontsManager.GetFonts](https://reference.aspose.com/slides/ja/net/aspose.slides/fontsmanager/getfonts/) でプレゼンテーションで使用されているフォントを取得します。両者を比較して、レンダリングに必要だが埋め込まれていないフォントを特定します。
 
-**ファイルに非表示スライドがあるか、数はどれくらいかをすぐに確認する方法は？**
+**ファイルに非表示スライドがあるかどうか、そしてその数をすばやく確認する方法は？**
 
-[スライド コレクション](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) を反復し、各スライドの[可視性フラグ](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/) を確認します。
+保存されたドキュメント メタデータが十分である場合、[PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/presentationfactory/getpresentationinfo/) と [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/readdocumentproperties/) を通じて [IDocumentProperties.HiddenSlides](https://reference.aspose.com/slides/ja/net/aspose.slides/idocumentproperties/hiddenslides/) を読み取ります。これは軽量インベントリに適しています。メモリ上でプレゼンテーションが変更されている場合や、ライブ 値を確認する必要がある場合は、[Presentation.Slides](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slides/ja/) を走査し、各スライドの [Slide.Hidden](https://reference.aspose.com/slides/ja/net/aspose.slides/slide/hidden/) プロパティをチェックしてください。
 
-**カスタム スライド サイズと向きが使用されているか、デフォルトと異なるかどうかを検出できますか？**
+**カスタム スライド サイズや向きが使用されているか、デフォルトと異なるかを検出できますか？**
 
-はい。現在の[スライド サイズ](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) と向きを標準プリセットと比較します。これにより、印刷やエクスポート時の動作を予測できます。
+はい。プレゼンテーションをロードし、[Presentation.SlideSize](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slidesize/) を読み取ります。[ISlideSize.Type](https://reference.aspose.com/slides/ja/net/aspose.slides/islidesize/type/)、[ISlideSize.Size](https://reference.aspose.com/slides/ja/net/aspose.slides/islidesize/size/)、[ISlideSize.Orientation](https://reference.aspose.com/slides/ja/net/aspose.slides/islidesize/orientation/) を調べて、現在の設定が期待されるプリセットや寸法と一致しているか比較します。
 
-**チャートが外部データ ソースを参照しているかどうかを素早く確認する方法はありますか？**
+**チャートが外部データ ソースを参照しているかどうかをすばやく確認する方法は？**
 
-はい。すべての[チャート](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/) を走査し、各[データ ソース](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) を確認して、データが内部かリンクベースか、壊れたリンクがあるかどうかを把握します。
+はい。各 [Chart](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/chart/) を特定し、[ChartData.DataSourceType](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/chartdata/datasourcetype/) をチェックします。外部ブックの場合は、[ChartData.ExternalWorkbookPath](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/chartdata/externalworkbookpath/) を読み取ります。データ ソース タイプとパスが外部参照を示しますが、対象の利用可能性は別途リソース チェックが必要です。
 
-**レンダリングや PDF エクスポートを遅くする可能性のある「重い」スライドを評価するにはどうすればよいですか？**
+**レンダリングや PDF エクスポートを遅くする可能性のある「重い」スライドを評価する方法は？**
 
-各スライドについてオブジェクト数を集計し、大きな画像、透過、影、アニメーション、マルチメディアなどをチェックします。概算の複雑度スコアを付けて、パフォーマンス上のボトルネックとなり得る箇所を特定します。
+単一の複雑度プロパティはありません。[Presentation.Slides](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slides/ja/) と各スライドの [IBaseSlide.Shapes](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseslide/shapes/) コレクションを走査します。形状の数や大きな画像、エフェクト、アニメーション、マルチメディアの有無を指標として使用し、代表的なレンダリングまたはエクスポート時間を測定して、スライドを実際のパフォーマンス ボトルネックとして確認してください。

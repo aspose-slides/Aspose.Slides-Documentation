@@ -1,5 +1,5 @@
 ---
-title: PHP'de Sunum Özelliklerini Yönetme
+title: PHP'de Sunum Özelliklerini Yönet
 linktitle: Sunum Özellikleri
 type: docs
 weight: 70
@@ -12,70 +12,70 @@ keywords:
 - özel özellikler
 - gelişmiş özellikler
 - özellikleri yönet
-- özellikleri değiştir
-- belge üst verileri
-- üst verileri düzenle
-- düzeltme dili
+- özellikleri değiştirme
+- belge meta verileri
+- meta verileri düzenle
+- denetleme dili
 - varsayılan dil
 - PowerPoint
 - OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java içinde sunum özelliklerini ustalaştırın ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaştırmayı ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for PHP via Java ile sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
 ---
 ## **Giriş**
 
-Aspose.Slides iki tür belge özelliğini destekler: **Yerleşik** ve **Özel**. Bu özellik türlerinin her ikisine de Aspose.Slides API’si ile kolayca erişebilir ve yönetebilirsiniz.
+Aspose.Slides iki tür belge özelliğini destekler: **Yerleşik** ve **Özel**. Bu özellik türlerinin her ikisine de Aspose.Slides API'si kullanılarak kolayca erişebilir ve yönetebilirsiniz.
 
-Aspose.Slides, sunum belge özellikleriyle **[DocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/)** sınıfı aracılığıyla çalışmanıza olanak tanır. Bu sınıfın bir örneği, **[Presentation::getDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getDocumentProperties)** yöntemi ile döndürülür. Aşağıdaki örnekler, bu özellikleri okuma, değiştirme ve yönetme yollarını gösterir.
+Aspose.Slides, belge özellikleriyle [DocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/) sınıfı aracılığıyla çalışmanıza olanak tanır. Bu sınıfın bir örneği, [Presentation::getDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getDocumentProperties) yöntemiyle döndürülür. Aşağıdaki örnekler, bu özellikleri okuma, değiştirme ve yönetme yollarını gösterir.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Lütfen **Application** ve **AppVersion** alanlarının değiştirilemeyeceğini unutmayın. Aspose.Slides her kaydetmede bu alanları yeniden yazar, bu yüzden kaydedilen sunum her zaman "Aspose.Slides for PHP via Java" ve onu oluşturan kütüphanenin sürümünü bildirir. `setNameOfApplication`'a geçirilen herhangi bir değer sunum yazıldığında göz ardı edilir.
+{{% /alert %}}
 
-Lütfen **Application** ve **Producer** alanlarının değiştirilemeyeceğini, bu alanların her zaman "Aspose Ltd." ve "Aspose.Slides for PHP via Java x.x.x" değerlerini göstereceğini unutmayın.
+## **Sunum Özelliklerini Yönet**
 
-{{% /alert %}} 
-
-## **Sunum Özelliklerini Yönetme**
-
-Microsoft PowerPoint, sunum dosyalarına bazı özellikler ekleme özelliği sağlar. Bu belge özellikleri, belgelerle (sunum dosyaları) birlikte faydalı bilgilerin saklanmasına olanak tanır. İki tür belge özelliği vardır:
+Microsoft PowerPoint, sunum dosyalarına bazı özellikler ekleme özelliği sağlar. Bu belge özellikleri, belgelerle (sunum dosyaları) birlikte bazı faydalı bilgilerin saklanmasına olanak tanır. İki çeşit belge özelliği vardır:
 
 - Sistem Tanımlı (Yerleşik) Özellikler
 - Kullanıcı Tanımlı (Özel) Özellikler
 
-**Yerleşik** özellikler, belge başlığı, yazar adı, belge istatistikleri gibi genel bilgileri içerir. **Özel** özellikler ise kullanıcılar tarafından **Ad/Değer** çiftleri şeklinde tanımlanan, hem adın hem de değerin kullanıcı tarafından belirlendiği özelliklerdir. Aspose.Slides for PHP via Java kullanarak, geliştiriciler hem yerleşik hem de özel özelliklerin değerlerine erişebilir ve bunları değiştirebilir.
+**Yerleşik** özellikler, belge başlığı, yazar adı, belge istatistikleri gibi genel bilgileri içerir. **Özel** özellikler ise kullanıcılar tarafından **Ad/Değer** çiftleri olarak tanımlanan özelliklerdir; hem ad hem de değer kullanıcı tarafından belirlenir. Aspose.Slides for PHP via Java kullanarak, geliştiriciler yerleşik ve özel özelliklerin değerlerine erişebilir ve bunları değiştirebilir.
 
-## **PowerPoint’te Belge Özellikleri**
+## **PowerPoint'te Belge Özellikleri**
 
-Microsoft PowerPoint 2007, sunum dosyalarının belge özelliklerini yönetmeye olanak tanır. Tek yapmanız gereken Office simgesine tıklamak ve **Prepare | Properties | Advanced Properties** menü öğesini seçmektir; aşağıda gösterildiği gibi:
+Microsoft PowerPoint 2007, sunum dosyalarının belge özelliklerini yönetmeye izin verir. Tek yapmanız gereken Office simgesine tıklamak ve ardından **Prepare | Properties | Advanced Properties** menü öğesini seçmektir; aşağıda gösterildiği gibi:
 
-|**Gelişmiş Özellikler menü öğesini seçme**|** **|
+|**Gelişmiş Özellikler menü öğesini seçme**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-**Gelişmiş Özellikler** menü öğesini seçtikten sonra, aşağıdaki şekildeki gibi PowerPoint dosyasının belge özelliklerini yönetmenizi sağlayan bir iletişim kutusu açılır:
 
-|**Özellikler İletişim Kutusu**|** **|
+**Advanced Properties** menü öğesini seçtikten sonra, aşağıdaki şekilde PowerPoint dosyasının belge özelliklerini yönetmenize olanak tanıyan bir iletişim kutusu görüntülenir:
+
+|**Özellikler İletişim Kutusu**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-Yukarıdaki **Özellikler İletişim Kutusu**’nda, **Genel**, **Özet**, **İstatistikler**, **İçerikler** ve **Özel** gibi birçok sekme sayfası gördüğünüzü fark edeceksiniz. Bu sekme sayfaları, PowerPoint dosyalarıyla ilgili farklı türde bilgilerin yapılandırılmasına izin verir. **Özel** sekmesi, PowerPoint dosyalarının özel özelliklerini yönetmek için kullanılır.
+
+Yukarıdaki **Özellikler İletişim Kutusu**'nda, **General**, **Summary**, **Statistics**, **Contents** ve **Custom** gibi birçok sekme sayfası olduğunu görebilirsiniz. Bu sekme sayfaları, PowerPoint dosyalarıyla ilgili farklı bilgi türlerini yapılandırmanıza izin verir. **Custom** sekmesi, PowerPoint dosyalarının özel özelliklerini yönetmek için kullanılır.
 
 ### Aspose.Slides for PHP via Java ile Belge Özellikleriyle Çalışma
 
-Daha önce belirttiğimiz gibi Aspose.Slides for PHP via Java, **Yerleşik** ve **Özel** olmak üzere iki tür belge özelliğini destekler. Böylece geliştiriciler, Aspose.Slides for PHP via Java API’si sayesinde her iki tür özelliğe de erişebilir. Aspose.Slides for PHP via Java, **Presentation.DocumentProperties** özelliği aracılığıyla bir sunum dosyasına ilişkin belge özelliklerini temsil eden **[DocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties)** sınıfını sunar.
+Daha önce belirttiğimiz gibi Aspose.Slides for PHP via Java, **Yerleşik** ve **Özel** olmak üzere iki tür belge özelliğini destekler. Bu nedenle geliştiriciler, Aspose.Slides for PHP via Java API'si kullanarak her iki özellik türüne de erişebilir. Aspose.Slides for PHP via Java, **Presentation.DocumentProperties** özelliği aracılığıyla bir sunum dosyasına ilişkin belge özelliklerini temsil eden bir [DocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties) sınıfı sağlar.
 
-Geliştiriciler, **[Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation)** nesnesinin sunduğu **DocumentProperties** özelliğini kullanarak aşağıda açıklandığı gibi sunum dosyalarının belge özelliklerine erişebilir:
+Geliştiriciler, aşağıda açıklandığı gibi sunum dosyalarının belge özelliklerine erişmek için [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation) nesnesinin sunduğu **DocumentProperties** özelliğini kullanabilirler:
 
 ## **Yerleşik Özelliklere Erişim**
 
-**[DocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties)** nesnesi tarafından sunulan bu özellikler şunlardır: **Creator** (Yazar), **Description**, **Keywords**, **Created** (Oluşturulma Tarihi), **Modified** (Değiştirilme Tarihi), **Printed** (Son Yazdırma Tarihi), **LastModifiedBy**, **SharedDoc** (Farklı üreticiler arasında paylaşılıyor mu?), **PresentationFormat**, **Subject** ve **Title**.
+[DocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties) nesnesi tarafından sunulan bu özellikler şunlardır: **Creator** (Yazar), **Description**, **Keywords**, **Created** (Oluşturma Tarihi), **Modified** (Değiştirme Tarihi), **Printed** (Son Yazdırma Tarihi), **LastModifiedBy**, **SharedDoc** (Farklı üreticiler arasında paylaşılıyor mu?), **PresentationFormat**, **Subject** ve **Title**.
 
 ```php
-  # Sunumu temsil eden Presentation sınıfının bir örneğini oluştur
+  # Sunumu temsil eden Presentation sınıfını örnekleyin
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Presentation ile ilişkili IDocumentProperties nesnesine bir referans oluştur
+    # Presentation ile ilişkilendirilmiş IDocumentProperties nesnesine bir referans oluşturun
     $dp = $pres->getDocumentProperties();
-    # Yerleşik özellikleri görüntüle
+    # Yerleşik özellikleri göster
     echo("Category : " . $dp->getCategory());
     echo("Current Status : " . $dp->getContentStatus());
     echo("Creation Date : " . $dp->getCreatedTime());
@@ -99,12 +99,12 @@ Geliştiriciler, **[Presentation](https://reference.aspose.com/slides/tr/php-jav
 
 ## **Yerleşik Özellikleri Değiştirme**
 
-Sunum dosyalarının yerleşik özelliklerini değiştirmek, onlara erişmek kadar basittir. İstediğiniz herhangi bir özelliğe bir dize değeri atayabilir ve özellik değeri güncellenir. Aşağıda verilen örnekte, Aspose.Slides for PHP via Java kullanarak sunum dosyasının yerleşik belge özelliklerini nasıl değiştirebileceğimizi gösteriyoruz.
+Yerleşik özellikleri değiştirmek, onlara erişmek kadar basittir. İstediğiniz bir özelliğe bir dize değer atamanız yeterlidir; böylece özellik değeri güncellenir. Aşağıdaki örnekte, Aspose.Slides for PHP via Java kullanarak bir sunum dosyasının yerleşik belge özelliklerini nasıl değiştirebileceğimizi gösteriyoruz.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Presentation ile ilişkili IDocumentProperties nesnesine bir referans oluştur
+    # Presentation ile ilişkilendirilmiş IDocumentProperties nesnesine bir referans oluştur
     $dp = $pres->getDocumentProperties();
     # Yerleşik özellikleri ayarla
     $dp->setAuthor("Aspose.Slides for PHP via Java");
@@ -123,28 +123,28 @@ Sunum dosyalarının yerleşik özelliklerini değiştirmek, onlara erişmek kad
 
 Bu örnek, aşağıda gösterildiği gibi değiştirilen yerleşik özellikleri sunar:
 
-|**Değiştirme Sonrası Yerleşik Belge Özellikleri**|** **|
+|**Değiştirmeden Sonra Yerleşik Belge Özellikleri**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Özel Belge Özellikleri Ekleme**
 
-Aspose.Slides for PHP via Java, geliştiricilerin sunum belge özellikleri için özel değerler eklemesine de izin verir. Aşağıdaki örnek, bir sunum için özel özelliklerin nasıl ayarlanacağını gösterir.
+Aspose.Slides for PHP via Java ayrıca geliştiricilerin sunum belge özellikleri için özel değerler eklemesine olanak tanır. Aşağıdaki örnek, bir sunum için özel özelliklerin nasıl ayarlanacağını gösterir.
 
 ```php
   $pres = new Presentation();
   try {
     # Belge Özelliklerini Alıyor
     $dProps = $pres->getDocumentProperties();
-    # Özel özellikler ekliyor
+    # Özel özellikler ekleme
     $dProps->set_Item("New Custom", 12);
     $dProps->set_Item("My Name", "Mudassir");
     $dProps->set_Item("Custom", 124);
-    # Belirli bir indekste özellik adını alıyor
+    # Belirli bir indeksteki özellik adını alıyor
     $getPropertyName = $dProps->getCustomPropertyName(2);
-    # Seçilen özelliği kaldırıyor
+    # Seçilen özelliği kaldırma
     $dProps->removeCustomProperty($getPropertyName);
-    # Sunumu kaydediyor
+    # Sunumu kaydetme
     $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -153,22 +153,22 @@ Aspose.Slides for PHP via Java, geliştiricilerin sunum belge özellikleri için
   }
 ```
 
-|**Eklenen Özel Belge Özellikleri**|** **|
+|**Eklenen Özel Belge Özellikleri**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Özel Özelliklere Erişme ve Değiştirme**
+## **Özel Özelliklere Erişim ve Değiştirme**
 
-Aspose.Slides for PHP via Java, geliştiricilerin özel özelliklerin değerlerine erişmesini de sağlar. Aşağıda, bir sunum için tüm bu özel özelliklere nasıl erişebileceğinizi ve değiştirebileceğinizi gösteren bir örnek bulunmaktadır.
+Aspose.Slides for PHP via Java ayrıca geliştiricilerin özel özelliklerin değerlerine erişmesini sağlar. Aşağıdaki örnek, bir sunum için bu özel özelliklerin nasıl erişilip değiştirilebileceğini gösterir.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Presentation ile ilişkili DocumentProperties nesnesine bir referans oluştur
+    # Presentation ile ilişkilendirilmiş DocumentProperties nesnesine bir referans oluştur
     $dp = $pres->getDocumentProperties();
     # Özel özelliklere eriş ve değiştir
     for($i = 0; $i < java_values($dp->getCountOfCustomProperties()) ; $i++) {
-      # Özel özelliklerin adlarını ve değerlerini görüntüle
+      # Özel özelliklerin adlarını ve değerlerini göster
       echo("Custom Property Name : " . $dp->getCustomPropertyName($i));
       echo("Custom Property Value : " . $dp->get_Item($dp->getCustomPropertyName($i)));
       # Özel özelliklerin değerlerini değiştir
@@ -183,32 +183,30 @@ Aspose.Slides for PHP via Java, geliştiricilerin özel özelliklerin değerleri
   }
 ```
 
-Bu örnek, **[PPTX ](https://docs.fileformat.com/presentation/pptx/)** sunumunun özel özelliklerini değiştirir. Aşağıdaki görseller, değiştirme öncesi ve sonrası sunum özel özelliklerini gösterir:
+Bu örnek, bir [PPTX](https://docs.fileformat.com/presentation/pptx/) sunumunun özel özelliklerini değiştirir. Aşağıdaki görseller, değişiklik öncesi ve sonrası sunumun özel özelliklerini gösterir:
 
-|**Değiştirme Öncesi Özel Özellikler**|** **|
+|**Değiştirmeden Önceki Özel Özellikler**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Değiştirme Sonrası Özel Özellikler**|** **|
+|**Değiştirmeden Sonraki Özel Özellikler**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Gelişmiş Belge Özellikleri**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Yeni yöntemler [readDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) ve [writeBindedPresentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation), [PresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo) sınıfına eklendi; ayrıca [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#setLastSavedTime) özelliğinin ayarlayıcısının mantığı değiştirildi.
+{{% /alert %}}
 
-Yeni yöntemler **[readDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#readDocumentProperties)**, **[updateDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties)** ve **[writeBindedPresentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation)**, **[PresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo)** sınıfına eklenmiştir; **[DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#setLastSavedTime)** özelliği ayarlayıcısının mantığı değiştirilmiştir.
+İki yeni yöntem [readDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) ve [updateDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties), [PresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo) sınıfına eklendi. Bu yöntemler, belge özelliklerine hızlı erişim sağlar ve tüm sunumu yüklemeden özellikleri değiştirme ve güncelleme imkanı tanır.
 
-{{% /alert %}} 
-
-Yeni eklenen iki yöntem **[readDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#readDocumentProperties)** ve **[updateDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties)**, **[PresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo)** sınıfına eklenmiştir. Bu yöntemler, belge özelliklerine hızlı erişim sağlar ve tüm bir sunumu yüklemeden özellikleri değiştirmeye ve güncellemeye imkan tanır.
-
-Tipik senaryo: özellikleri yükle, bir değeri değiştir ve belgeyi güncelle. Aşağıdaki şekilde uygulanabilir:
+Tipik senaryo: özellikleri yükle, bir değeri değiştir ve belgeyi güncelle; aşağıdaki gibi uygulanabilir:
 
 ```php
   # sunumun bilgilerini oku
   $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
-  # mevcut özellikleri al
+  # geçerli özellikleri elde et
   $props = $info->readDocumentProperties();
   # Yazar ve Başlık alanlarının yeni değerlerini ayarla
   $props->setAuthor("New Author");
@@ -218,7 +216,7 @@ Tipik senaryo: özellikleri yükle, bir değeri değiştir ve belgeyi güncelle.
   $info->writeBindedPresentation("presentation.pptx");
 ```
 
-Belirli bir sunumun özelliklerini şablon olarak kullanarak diğer sunumlardaki özellikleri güncellemenin bir başka yolu da vardır:
+Belirli bir sunumun özelliklerini şablon olarak kullanıp diğer sunumlardaki özellikleri güncellemenin başka bir yolu da vardır:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("template.pptx");
@@ -257,14 +255,14 @@ Sıfırdan yeni bir şablon oluşturulabilir ve ardından birden fazla sunumu g�
   updateByTemplate("doc3.ppt", $template);
 ```
 
-## **Düzeltme Dili Ayarlama**
+## **Denetleme Dilini Ayarlama**
 
-Aspose.Slides, PowerPoint belgesi için düzeltme dilini ayarlamanıza olanak tanıyan **LanguageId** özelliğini (**PortionFormat** sınıfı tarafından ortaya konur) sağlar. Düzeltme dili, PowerPoint’te yazım ve dilbilgisi denetiminin yapıldığı dildir.
+Aspose.Slides, PowerPoint belgesi için denetleme dilini ayarlamanıza olanak tanıyan LanguageId özelliğini (PortionFormat sınıfı tarafından sunulur) sağlar. Denetleme dili, PowerPoint içinde yazım ve dilbilgisi denetiminin yapıldığı dildir.
 
-Bu PHP kodu, bir PowerPoint için düzeltme dilinin nasıl ayarlanacağını gösterir: xxx Why is LanguageId missing from Java PortionFormat class?
+Bu PHP kodu, bir PowerPoint için denetleme dilinin nasıl ayarlanacağını gösterir: xxx Why is LanguageId missing from Java PortionFormat class?
 
 ```php
-  $pres = new Presentation($pptxFileName);
+  $pres = new Presentation("Presentation.pptx");
   try {
     $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
@@ -272,10 +270,10 @@ Bu PHP kodu, bir PowerPoint için düzeltme dilinin nasıl ayarlanacağını gö
     $newPortion = new Portion();
     $font = new FontData("SimSun");
     $portionFormat = $newPortion->getPortionFormat();
-    $portionFormat::setComplexScriptFont($font);
-    $portionFormat::setEastAsianFont($font);
-    $portionFormat::setLatinFont($font);
-    $portionFormat::setLanguageId("zh-CN");// düzeltme dilinin kimliğini ayarla
+    $portionFormat->setComplexScriptFont($font);
+    $portionFormat->setEastAsianFont($font);
+    $portionFormat->setLatinFont($font);
+    $portionFormat->setLanguageId("zh-CN"); // denetleme dilinin kimliğini ayarla
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);
@@ -286,19 +284,19 @@ Bu PHP kodu, bir PowerPoint için düzeltme dilinin nasıl ayarlanacağını gö
   }
 ```
 
-## **Varsayılan Dil Ayarlama**
+## **Varsayılan Dili Ayarlama**
 
-Bu PHP kodu, tüm bir PowerPoint sunumu için varsayılan dilin nasıl ayarlanacağını gösterir:
+Bu PHP kodu, bir PowerPoint sunumunun tümü için varsayılan dilin nasıl ayarlanacağını gösterir:
 
 ```php
   $loadOptions = new LoadOptions();
   $loadOptions->setDefaultTextLanguage("en-US");
   $pres = new Presentation($loadOptions);
   try {
-    # Yeni bir dikdörtgen şekli ve metin ekler
+    # Yeni bir dikdörtgen şekil ekle ve metin ekle
     $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 50);
     $shp->getTextFrame()->setText("New Text");
-    # İlk bölümün dilini kontrol eder
+    # İlk bölüm dilini kontrol eder
     echo($shp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getLanguageId());
   } finally {
     if (!java_is_null($pres)) {
@@ -309,20 +307,20 @@ Bu PHP kodu, tüm bir PowerPoint sunumu için varsayılan dilin nasıl ayarlanac
 
 ## **Canlı Örnek**
 
-Belge özellikleriyle Aspose.Slides API’si üzerinden nasıl çalışılacağını görmek için çevrimiçi **[Aspose.Slides Metadata](https://products.aspose.app/slides/tr/metadata)** uygulamasını deneyin:
+Aspose.Slides API'siyle belge özellikleriyle nasıl çalışılacağını görmek için çevrimiçi uygulama **Aspose.Slides Metadata**'yı deneyin:
 
-[![PowerPoint Metadata’ı Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/tr/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/tr/metadata)
 
 ## **SSS**
 
-**Bir yerleşik özelliği sunumdan nasıl kaldırabilirim?**
+**Bir sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
 
-Yerleşik özellikler sunumun bütünleşik bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli bir özellik izin veriyorsa değerini değiştirebilir veya boş bir değere ayarlayabilirsiniz.
+Yerleşik özellikler sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Bununla birlikte, belirli bir özelliğin izin verdiği durumlarda değerini değiştirebilir veya boş bırakabilirsiniz.
 
-**Zaten var olan bir özel özelliği eklersem ne olur?**
+**Var olan bir özel özelliği eklersem ne olur?**
 
-Zaten var olan bir özel özelliği eklerseniz, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak değeri günceller.
+Var olan bir özel özelliği eklediğinizde, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden silmeniz veya kontrol etmeniz gerekmez; Aspose.Slides özelliğin değerini otomatik olarak günceller.
 
-**Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
+**Sunum özelliklerine, sunumu tam olarak yüklemeden erişebilir miyim?**
 
-Evet, **[PresentationFactory](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationfactory/)** sınıfının `getPresentationInfo` yöntemini kullanarak sunumu tamamen yüklemeden özelliklere erişebilirsiniz. Ardından, **[PresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/)** sınıfının `readDocumentProperties` yöntemini kullanarak özellikleri verimli bir şekilde okuyabilir, bellek tasarrufu sağlayabilir ve performansı artırabilirsiniz.
+Evet. Öncelikle [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationfactory/) ardından da [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#readDocumentProperties) kullanarak bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneği oluşturmadan saklanan belge meta verilerini okuyabilirsiniz. Tam bir raporlama örneği ve format‑özel sınırlamalar için [/slides/tr/php-java/examine-presentation/](/slides/tr/php-java/examine-presentation/) bölümüne bakın.

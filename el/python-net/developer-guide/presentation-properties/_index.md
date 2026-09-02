@@ -1,58 +1,56 @@
 ---
-title: Διαχείριση Ιδιοτήτων Παρουσίασης με Python
+title: Διαχειριστείτε Ιδιότητες Παρουσίασης με Python
 linktitle: Ιδιότητες Παρουσίασης
 type: docs
 weight: 70
 url: /el/python-net/presentation-properties/
 keywords:
-- Ιδιότητες PowerPoint
-- Ιδιότητες παρουσίασης
-- Ιδιότητες εγγράφου
-- Ενσωματωμένες ιδιότητες
-- Προσαρμοσμένες ιδιότητες
-- Προηγμένες ιδιότητες
-- Διαχείριση ιδιοτήτων
-- Τροποποίηση ιδιοτήτων
-- Μεταδεδομένα εγγράφου
-- Επεξεργασία μεταδεδομένων
-- Γλώσσα ελέγχου ορθογραφίας
-- Προεπιλεγμένη γλώσσα
+- ιδιότητες PowerPoint
+- ιδιότητες παρουσίασης
+- ιδιότητες εγγράφου
+- ενσωματωμένες ιδιότητες
+- προσαρμοσμένες ιδιότητες
+- προηγμένες ιδιότητες
+- διαχείριση ιδιοτήτων
+- τροποποίηση ιδιοτήτων
+- μεταδεδομένα εγγράφου
+- επεξεργασία μεταδεδομένων
+- γλώσσα ελέγχου ορθογραφίας
+- προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
-- Παρουσίαση
+- παρουσίαση
 - Python
 - Aspose.Slides
-description: "Κατακτήστε τις ιδιότητες παρουσίασης στο Aspose.Slides for Python via .NET και απλοποιήστε την αναζήτηση, την εμπορική επωνυμία και τη ροή εργασίας στα αρχεία PowerPoint σας."
+description: "Διαχειριστείτε αποτελεσματικά τις ιδιότητες παρουσίασης στο Aspose.Slides for Python via .NET και βελτιστοποιήστε την αναζήτηση, το branding και τη ροή εργασίας στα αρχεία PowerPoint σας."
 ---
 ## **Εισαγωγή**
 
-Το Aspose.Slides υποστηρίζει δύο τύπους ιδιοτήτων εγγράφου: **Built-in** και **Custom**. Και οι δύο τύποι ιδιοτήτων μπορούν να προσπελαστούν και να διαχειριστούν εύκολα χρησιμοποιώντας το API του Aspose.Slides.
+Το Aspose.Slides υποστηρίζει δύο τύπους ιδιοτήτων εγγράφου: **Ενσωματωμένες** και **Προσαρμοσμένες**. Και οι δύο αυτοί τύποι ιδιοτήτων μπορούν να προσπελαστούν και να διαχειριστούν εύκολα χρησιμοποιώντας το API του Aspose.Slides.
 
-Το Aspose.Slides σας επιτρέπει να εργάζεστε με τις ιδιότητες εγγράφου παρουσίασης μέσω της κλάσης [DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/) . Μια παρουσίαση αυτής της κλάσης επιστρέφεται από την ιδιότητα [Presentation.document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/document_properties/) . Τα παρακάτω παραδείγματα δείχνουν πώς να διαβάσετε, να τροποποιήσετε και να διαχειριστείτε αυτές τις ιδιότητες.
+Το Aspose.Slides σάς επιτρέπει να εργάζεστε με τις ιδιότητες εγγράφου παρουσίασης μέσω της κλάσης [DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/) . Μια εμφάνιση αυτής της κλάσης επιστρέφεται από την ιδιότητα [Presentation.document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/document_properties/) . Τα παρακάτω παραδείγματα δείχνουν πώς να διαβάσετε, να τροποποιήσετε και να διαχειριστείτε αυτές τις ιδιότητες.
 
-{{% alert color="primary" %}} 
-Παρακαλούμε σημειώστε ότι δεν μπορείτε να ορίσετε τιμές στα πεδία **Application** και **Producer**, επειδή το Aspose Ltd. και το Aspose.Slides for Python via .NET x.x.x θα εμφανίζονται σε αυτά τα πεδία.
+{{% alert color="info" title="Note" %}}
+Παρακαλούμε σημειώστε ότι δεν μπορείτε να ορίσετε τιμές στα πεδία **Application** και **Producer**, επειδή η Aspose Ltd. και το Aspose.Slides for Python via .NET x.x.x θα εμφανίζονται σε αυτά τα πεδία.
 {{% /alert %}} 
 
 ## **Διαχείριση Ιδιοτήτων Παρουσίασης**
 
-Το Microsoft PowerPoint παρέχει μια δυνατότητα για προσθήκη ορισμένων ιδιοτήτων στα αρχεία παρουσίασης. Αυτές οι ιδιότητες εγγράφου επιτρέπουν την αποθήκευση χρήσιμων πληροφοριών μαζί με τα έγγραφα (αρχεία παρουσίασης). Υπάρχουν δύο είδη ιδιοτήτων εγγράφου ως εξής
+Το Microsoft PowerPoint παρέχει μια λειτουργία για την προσθήκη ορισμένων ιδιοτήτων στα αρχεία παρουσίασης. Αυτές οι ιδιότητες εγγράφου επιτρέπουν την αποθήκευση χρήσιμων πληροφοριών μαζί με τα έγγραφα (αρχεία παρουσίασης). Υπάρχουν δύο είδη ιδιοτήτων εγγράφου ως εξής
 
-- System Defined (Built-in) Properties
-- User Defined (Custom) Properties
+- Προκαθορισμένες (Built-in) Ιδιότητες
+- Προσαρμοσμένες (Custom) Ιδιότητες
 
-Οι **Built-in** ιδιότητες περιέχουν γενικές πληροφορίες για το έγγραφο όπως τίτλος εγγράφου, όνομα συγγραφέα, στατιστικά του εγγράφου κλπ. Οι **Custom** ιδιότητες είναι εκείνες που ορίζονται από τους χρήστες ως ζεύγη **Name/Value**, όπου τόσο το όνομα όσο και η τιμή καθορίζονται από το χρήστη. Χρησιμοποιώντας το Aspose.Slides for Python via .NET, οι προγραμματιστές μπορούν να προσπελάσουν και να τροποποιήσουν τις τιμές των ενσωματωμένων ιδιοτήτων καθώς και των προσαρμοσμένων ιδιοτήτων. Το Microsoft PowerPoint 2007 επιτρέπει τη διαχείριση των ιδιοτήτων εγγράφου των αρχείων παρουσίασης. Το μόνο που χρειάζεται να κάνετε είναι να κάνετε κλικ στο εικονίδιο Office και έπειτα στο στοιχείο μενού **Prepare | Properties | Advanced Properties** του Microsoft PowerPoint 2007. Αφού επιλέξετε το στοιχείο μενού **Advanced Properties**, θα εμφανιστεί ένας διάλογος που σας επιτρέπει να διαχειριστείτε τις ιδιότητες εγγράφου του αρχείου PowerPoint. Στον **Properties Dialog**, μπορείτε να δείτε ότι υπάρχουν πολλές καρτέλες όπως **General, Summary, Statistics, Contents and Custom**. Όλες αυτές οι καρτέλες επιτρέπουν τη διαμόρφωση διαφορετικών τύπων πληροφοριών σχετικών με τα αρχεία PowerPoint. Η καρτέλα **Custom** χρησιμοποιείται για τη διαχείριση των προσαρμοσμένων ιδιοτήτων των αρχείων PowerPoint.
+**Ενσωματωμένες** ιδιότητες περιέχουν γενικές πληροφορίες για το έγγραφο όπως ο τίτλος του εγγράφου, το όνομα του δημιουργού, στατιστικά του εγγράφου κλπ. **Προσαρμοσμένες** ιδιότητες είναι αυτές που ορίζονται από τους χρήστες ως ζεύγη **Όνομα/Τιμή**, όπου τόσο το όνομα όσο και η τιμή καθορίζονται από τον χρήστη. Χρησιμοποιώντας το Aspose.Slides for Python via .NET, οι προγραμματιστές μπορούν να προσπελάσουν και να τροποποιήσουν τις τιμές των ενσωματωμένων ιδιοτήτων καθώς και των προσαρμοσμένων ιδιοτήτων. Το Microsoft PowerPoint 2007 επιτρέπει τη διαχείριση των ιδιοτήτων εγγράφου των αρχείων παρουσίασης. Το μόνο που χρειάζεται να κάνετε είναι να κάνετε κλικ στο εικονίδιο του Office και στη συνέχεια στο στοιχείο μενού **Prepare | Properties | Advanced Properties** του Microsoft PowerPoint 2007. Αφού επιλέξετε το στοιχείο μενού **Advanced Properties**, θα εμφανιστεί ένας διάλογος που σας επιτρέπει να διαχειριστείτε τις ιδιότητες εγγράφου του αρχείου PowerPoint. Στο **Properties Dialog**, μπορείτε να δείτε ότι υπάρχουν πολλές καρτέλες όπως **General, Summary, Statistics, Contents and Custom**. Όλες αυτές οι καρτέλες επιτρέπουν τη διαμόρφωση διαφορετικών ειδών πληροφοριών σχετικών με τα αρχεία PowerPoint. Η καρτέλα **Custom** χρησιμοποιείται για τη διαχείριση των προσαρμοσμένων ιδιοτήτων των αρχείων PowerPoint.
 
-## **Πρόσβαση σε Built-in Ιδιότητες**
-
-Αυτές οι ιδιότητες, όπως εκτίθενται από το αντικείμενο **IDocumentProperties**, περιλαμβάνουν: **Creator(Author)**, **Description**, **Keywords**, **Created** (Ημερομηνία Δημιουργίας), **Modified** (Ημερομηνία Τροποποίησης), **Printed** (Ημερομηνία Τελευταίας Εκτύπωσης), **LastModifiedBy**, **Keywords**, **SharedDoc** (Κοινή χρήση μεταξύ διαφορετικών παραγωγών;), **PresentationFormat**, **Subject** και **Title**.
-
+## **Πρόσβαση σε Ενσωματωμένες Ιδιότητες**
+Αυτές οι ιδιότητες, όπως εκτίθενται από το αντικείμενο **IDocumentProperties**, περιλαμβάνουν: **Creator(Author)**, **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** και **Title**
 ```py
 import aspose.slides as slides
 
-# Δημιουργία του αντικειμένου Presentation που αντιπροσωπεύει την παρουσίαση
-with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
-    # Δημιουργία αναφοράς σε αντικείμενο που σχετίζεται με την Presentation
+# Δημιουργία της κλάσης Presentation που αντιπροσωπεύει την παρουσίαση
+with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
+    # Δημιουργία αναφοράς στο αντικείμενο που σχετίζεται με την Presentation
     documentProperties = pres.document_properties
 
     # Εμφάνιση των ενσωματωμένων ιδιοτήτων
@@ -72,16 +70,16 @@ with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
     print("Title : " + documentProperties.title)
 ```
 
-## **Τροποποίηση Built-in Ιδιοτήτων**
+## **Τροποποίηση Ενσωματωμένων Ιδιοτήτων**
 
-Η τροποποίηση των ενσωματωμένων ιδιοτήτων των αρχείων παρουσίασης είναι εξίσου εύκολη με την πρόσβαση σε αυτές. Μπορείτε απλώς να αναθέσετε μια τιμή συμβολοσειράς σε οποιαδήποτε επιθυμητή ιδιότητα και η τιμή της ιδιότητας θα τροποποιηθεί. Στο παρακάτω παράδειγμα, δείξαμε πώς μπορούμε να τροποποιήσουμε τις ενσωματωμένες ιδιότητες εγγράφου του αρχείου παρουσίασης.
+Η τροποποίηση των ενσωματωμένων ιδιοτήτων των αρχείων παρουσίασης είναι τόσο εύκολη όσο η πρόσβαση σε αυτές. Απλώς εκχωρείτε μια συμβολοσειρά σε οποιαδήποτε επιθυμητή ιδιότητα και η τιμή της ιδιότητας θα τροποποιηθεί. Στο παρακάτω παράδειγμα, δείξαμε πώς μπορούμε να τροποποιήσουμε τις ενσωματωμένες ιδιότητες εγγράφου του αρχείου παρουσίασης.
 
 ```py
 import aspose.slides as slides
 
 # Δημιουργία της κλάσης Presentation που αντιπροσωπεύει την Presentation
-with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
-    # Δημιουργία αναφοράς σε αντικείμενο που σχετίζεται με την Presentation
+with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
+    # Δημιουργία αναφοράς στο αντικείμενο που σχετίζεται με την Presentation
     documentProperties = presentation.document_properties
 
     # Ορισμός των ενσωματωμένων ιδιοτήτων
@@ -91,20 +89,20 @@ with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
     documentProperties.comments = "Aspose Description"
     documentProperties.manager = "Aspose Manager"
 
-    # Αποθήκευση της παρουσίασης σε αρχείο
+    # Αποθήκευση της παρουσίασής σας σε αρχείο
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Προσθήκη Προσαρμοσμένων Ιδιοτήτων Παρουσίασης**
 
-Το Aspose.Slides for Python via .NET επιτρέπει επίσης στους προγραμματιστές να προσθέσουν προσαρμοσμένες τιμές για τις ιδιότητες εγγράφου παρουσίασης. Ένα παράδειγμα δίνεται παρακάτω που δείχνει πώς να ορίσετε τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
+Το Aspose.Slides for Python via .NET επιτρέπει επίσης στους προγραμματιστές να προσθέσουν προσαρμοσμένες τιμές για τις ιδιότητες εγγράφου παρουσίασης. Παρακάτω δίνεται ένα παράδειγμα που δείχνει πώς να ορίσετε τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
 
 ```py
 import aspose.slides as slides
 
 # Δημιουργία της κλάσης Presentation
 with slides.Presentation() as presentation:
-    # Λήψη ιδιοτήτων εγγράφου
+    # Λήψη Ιδιοτήτων Εγγράφου
     documentProperties = presentation.document_properties
 
     # Προσθήκη προσαρμοσμένων ιδιοτήτων
@@ -124,38 +122,44 @@ with slides.Presentation() as presentation:
 
 ## **Πρόσβαση και Τροποποίηση Προσαρμοσμένων Ιδιοτήτων**
 
-Το Aspose.Slides for Python via .NET επιτρέπει επίσης στους προγραμματιστές να προσπελάσουν τις τιμές των προσαρμοσμένων ιδιοτήτων. Ένα παράδειγμα δίνεται παρακάτω που δείχνει πώς μπορείτε να προσπελάσετε και να τροποποιήσετε όλες αυτές τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
+Το Aspose.Slides for Python via .NET επιτρέπει επίσης στους προγραμματιστές να προσπελάσουν τις τιμές των προσαρμοσμένων ιδιοτήτων. Παρακάτω δίνεται ένα παράδειγμα που δείχνει πώς μπορείτε να προσπελάσετε και να τροποποιήσετε όλες αυτές τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
 
 ```py
 import aspose.slides as slides
 
 # Δημιουργία της κλάσης Presentation που αντιπροσωπεύει το PPTX
-with slides.Presentation(path + "AccessModifyingProperties.pptx") as presentation:
-    # Δημιουργία αναφοράς σε αντικείμενο document_properties που σχετίζεται με την Presentation
+with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
+    # Δημιουργία αναφοράς στο αντικείμενο document_properties που σχετίζεται με την Presentation
     documentProperties = presentation.document_properties
 
     # Πρόσβαση και τροποποίηση προσαρμοσμένων ιδιοτήτων
     for i in range(documentProperties.count_of_custom_properties):
+        property_name = documentProperties.get_custom_property_name(i)
+
         # Εμφάνιση ονομάτων και τιμών προσαρμοσμένων ιδιοτήτων
-        print("Custom Property Name : " + documentProperties.get_custom_property_name(i))
-        print("Custom Property Value : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
+        property_value = [""]
+        documentProperties.get_custom_property_value(property_name, property_value)
+        print("Custom Property Name : " + property_name)
+        print("Custom Property Value : " + property_value[0])
 
         # Τροποποίηση τιμών προσαρμοσμένων ιδιοτήτων
-        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "New Value " + str(i + 1))
+        documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
     # Αποθήκευση της παρουσίασής σας σε αρχείο
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+`get_custom_property_value` επιστρέφει την τιμή μέσω της λίστας μονού στοιχείου που περνιέται ως δεύτερο όρισμα, και η αποθηκευμένη τιμή μετατρέπεται στον τύπο του στοιχείου που ήδη υπάρχει στη λίστα. Το παραπάνω παράδειγμα χρησιμοποιεί `[""]`, επομένως διαβάζει ιδιότητες τύπου συμβολοσειράς· για να διαβάσετε μια ιδιότητα αποθηκευμένη ως αριθμός, περάστε έναν αριθμητικό υπόδειγμα όπως `[0]`· διαφορετικά η κλήση θα προκαλέσει `InvalidCastException`.
+
 ## **Ορισμός Γλώσσας Ελέγχου Ορθογραφίας**
 
-Το Aspose.Slides παρέχει την ιδιότητα `Language_Id` (εκτεθειμένη από την κλάση [PortionFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/)) για να σας επιτρέψει να ορίσετε τη γλώσσα ελέγχου ορθογραφίας για ένα έγγραφο PowerPoint. Η γλώσσα ελέγχου είναι η γλώσσα στην οποία ελέγχονται η ορθογραφία και η γραμματική στο PowerPoint.
+Το Aspose.Slides παρέχει την ιδιότητα `Language_Id` (εκτεθειμένη από την κλάση [PortionFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/)) για να σας επιτρέψει να ορίσετε τη γλώσσα ελέγχου ορθογραφίας για ένα έγγραφο PowerPoint. Η γλώσσα ελέγχου ορθογραφίας είναι η γλώσσα για την οποία ελέγχονται η ορθογραφία και η γραμματική στο PowerPoint.
 
-Αυτός ο κώδικας Python σας δείχνει πώς να ορίσετε τη γλώσσα ελέγχου ορθογραφίας για ένα PowerPoint:
+Αυτός ο κώδικας Python δείχνει πώς να ορίσετε τη γλώσσα ελέγχου ορθογραφίας για ένα PowerPoint:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
+with slides.Presentation("SetProofingLanguage.pptx") as pres:
     auto_shape = pres.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
     paragraph.portions.clear()
@@ -167,7 +171,7 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
     portion_format.east_asian_font = font
     portion_format.latin_font = font
 
-    # ορίστε το Id μιας γλώσσας ελέγχου
+    # ορίστε το Id μιας γλώσσας ελέγχου ορθογραφίας
     portion_format.language_id = "zh-CN"
     new_portion.text = "1。"
 
@@ -176,7 +180,7 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
 
 ## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
-Αυτός ο κώδικας Python σας δείχνει πώς να ορίσετε την προεπιλεγμένη γλώσσα για ολόκληρη την παρουσίαση PowerPoint:
+Αυτός ο κώδικας Python δείχνει πώς να ορίσετε τη προεπιλεγμένη γλώσσα για ολόκληρη μια παρουσίαση PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -194,20 +198,20 @@ with slides.Presentation(load_options) as pres:
 
 ## **Ζωντανό Παράδειγμα**
 
-Δοκιμάστε την online εφαρμογή [**Aspose.Slides Metadata**](https://products.aspose.app/slides/el/metadata) για να δείτε πώς να εργαστείτε με ιδιότητες εγγράφου μέσω του API του Aspose.Slides:
+Δοκιμάστε την εφαρμογή online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/el/metadata) για να δείτε πώς να δουλέψετε με τις ιδιότητες εγγράφου μέσω του API του Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/el/metadata)
+[![Προβολή & Επεξεργασία Μεταδεδομένων PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/el/metadata)
 
 ## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να αφαιρέσω μια built-in ιδιότητα από μια παρουσίαση;**
+**Πώς μπορώ να αφαιρέσω μια ενσωματωμένη ιδιότητα από μια παρουσίαση;**
 
-Οι built-in ιδιότητες είναι αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν εντελώς. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις θέσετε σε κενό εφόσον το επιτρέπει η συγκεκριμένη ιδιότητα.
+Οι ενσωματωμένες ιδιότητες αποτελούν αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν εντελώς. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις ορίσετε κενές εφόσον το επιτρέπει η συγκεκριμένη ιδιότητα.
 
-**Τι συμβαίνει αν προσθέσω μια προσαρμοσμένη ιδιότητα που ήδη υπάρχει;**
+**Τι συμβαίνει αν προσθέσω μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη;**
 
-Αν προσθέσετε μια προσαρμοσμένη ιδιότητα που ήδη υπάρχει, η υπάρχουσα τιμή της θα αντικατασταθεί με τη νέα. Δεν χρειάζεται να αφαιρέσετε ή να ελέγξετε την ιδιότητα εκ των προτέρων, καθώς το Aspose.Slides ενημερώνει αυτόματα την τιμή της ιδιότητας.
+Αν προσθέσετε μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη, η υπάρχουσα τιμή της θα αντικατασταθεί με τη νέα. Δεν χρειάζεται να αφαιρέσετε ή να ελέγξετε την ιδιότητα εκ των προτέρων, καθώς το Aspose.Slides ενημερώνει αυτόματα την τιμή της ιδιότητας.
 
 **Μπορώ να προσπελάσω τις ιδιότητες παρουσίασης χωρίς να φορτώσω πλήρως την παρουσίαση;**
 
-Ναι, μπορείτε να προσπελάσετε τις ιδιότητες παρουσίασης χωρίς να φορτώσετε πλήρως την παρουσίαση χρησιμοποιώντας τη μέθοδο [get_presentation_info](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationfactory/get_presentation_info/) από την κλάση [PresentationFactory](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationfactory/). Στη συνέχεια, χρησιμοποιήστε τη μέθοδο [read_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/read_document_properties/) που παρέχεται από την κλάση [PresentationInfo](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/) για να διαβάσετε τις ιδιότητες αποδοτικά, εξοικονομώντας μνήμη και βελτιώνοντας την απόδοση.
+Ναι. Χρησιμοποιήστε [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationfactory/get_presentation_info/) και στη συνέχεια [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/read_document_properties/) για να διαβάσετε τα αποθηκευμένα μεταδεδομένα εγγράφου χωρίς να δημιουργήσετε μια εμφάνιση [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/). Δείτε [Build a Lightweight Presentation Inventory](/slides/el/python-net/examine-presentation/) για ένα πλήρες παράδειγμα αναφοράς και περιορισμούς ανά μορφή.

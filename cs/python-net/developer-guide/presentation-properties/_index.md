@@ -10,7 +10,7 @@ keywords:
 - Vlastnosti dokumentu
 - Vestavěné vlastnosti
 - Vlastní vlastnosti
-- Rozšířené vlastnosti
+- Pokročilé vlastnosti
 - Správa vlastností
 - Úprava vlastností
 - Metadata dokumentu
@@ -22,35 +22,35 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Ovládejte vlastnosti prezentace v Aspose.Slides pro Python via .NET a zefektivněte vyhledávání, značkování a pracovní postup ve vašich souborech PowerPoint."
+description: "Ovládněte vlastnosti prezentace v Aspose.Slides for Python via .NET a zefektivněte vyhledávání, brandování a pracovní tok ve vašich souborech PowerPoint."
 ---
 ## **Úvod**
 
-Aspose.Slides podporuje dva typy vlastností dokumentu: **Vestavěné** a **Vlastní**. Oba tyto typy vlastností lze snadno získat a spravovat pomocí API Aspose.Slides.
+Aspose.Slides podporuje dva typy vlastností dokumentu: **Built-in** a **Custom**. Oba typy vlastností lze snadno získat a spravovat pomocí Aspose.Slides API.
 
-Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace prostřednictvím třídy [DocumentProperties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/documentproperties/) . Instance této třídy je vrácena vlastností [Presentation.document_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/document_properties/) . Následující příklady ukazují, jak tyto vlastnosti číst, upravovat a spravovat.
+Aspose.Slides vám umožňuje pracovat s vlastnostmi prezentace prostřednictvím třídy [DocumentProperties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/documentproperties/). Instance této třídy je vrácena vlastností [Presentation.document_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/document_properties/). Následující příklady ukazují, jak číst, měnit a spravovat tyto vlastnosti.
 
-{{% alert color="primary" %}} 
-Všimněte si, že nemůžete nastavit hodnoty pro pole **Application** a **Producer**, protože se v nich zobrazí Aspose Ltd. a Aspose.Slides for Python via .NET x.x.x.
+{{% alert color="info" title="Poznámka" %}}
+Upozorňujeme, že hodnoty polí **Application** a **Producer** nemůžete nastavit, protože v těchto polích bude zobrazeno “Aspose Ltd.” a “Aspose.Slides for Python via .NET x.x.x”.
 {{% /alert %}} 
 
-## **Správa vlastností prezentace**
+## **Spravovat vlastnosti prezentace**
 
-Microsoft PowerPoint poskytuje funkci pro přidání některých vlastností do souborů prezentací. Tyto vlastnosti dokumentu umožňují uložit užitečné informace společně s dokumenty (soubory prezentací). Existují dva typy vlastností dokumentu jako následuje
+Microsoft PowerPoint poskytuje funkci pro přidání některých vlastností do souborů prezentace. Tyto vlastnosti umožňují uložit užitečné informace spolu s dokumenty (souborami prezentace). Existují dva typy vlastností dokumentu:
 
-- Systémově definované (Vestavěné) vlastnosti
-- Uživatelem definované (Vlastní) vlastnosti
+- System Defined (Built-in) Properties
+- User Defined (Custom) Properties
 
-**Vestavěné** vlastnosti obsahují obecné informace o dokumentu, jako je název dokumentu, jméno autora, statistiky dokumentu a tak dál. **Vlastní** vlastnosti jsou takové, které jsou definovány uživateli jako páry **Název/Hodnota**, kde jak název, tak hodnota jsou definovány uživatelem. Pomocí Aspose.Slides for Python via .NET mohou vývojáři přistupovat a upravovat hodnoty vestavěných i vlastních vlastností. Microsoft PowerPoint 2007 umožňuje spravovat vlastnosti dokumentu souborů prezentací. Vše, co musíte udělat, je kliknout na ikonu Office a poté na položku nabídky **Prepare | Properties | Advanced Properties** v Microsoft PowerPoint 2007. Po výběru položky **Advanced Properties** se objeví dialogové okno, které vám umožní spravovat vlastnosti dokumentu souboru PowerPoint. V **Properties Dialog** můžete vidět mnoho záložek jako **General, Summary, Statistics, Contents** a **Custom**. Všechny tyto záložky umožňují konfigurovat různé druhy informací souvisejících se soubory PowerPoint. Záložka **Custom** se používá ke správě vlastních vlastností souborů PowerPoint.
+**Built-in** vlastnosti obsahují obecné informace o dokumentu, jako je název dokumentu, jméno autora, statistiky dokumentu a podobně. **Custom** vlastnosti jsou definovány uživateli jako páry **Název/Hodnota**, kde oba název i hodnota jsou určeny uživatelem. Pomocí Aspose.Slides for Python via .NET mohou vývojáři získávat a měnit hodnoty vestavěných i vlastních vlastností. Microsoft PowerPoint 2007 umožňuje spravovat vlastnosti dokumentu souborů prezentace. Stačí kliknout na ikonu Office a následně na položku **Prepare | Properties | Advanced Properties** v Microsoft PowerPoint 2007. Po výběru položky **Advanced Properties** se zobrazí dialog, který umožňuje spravovat vlastnosti PowerPoint souboru. V **Properties Dialog** vidíte několik záložek, jako **General, Summary, Statistics, Contents** a **Custom**. Všechny tyto záložky umožňují konfigurovat různé typy informací souvisejících s PowerPoint soubory. Záložka **Custom** slouží k správě vlastních vlastností PowerPoint souborů.
 
 ## **Přístup k vestavěným vlastnostem**
-Tyto vlastnosti, jak je vystavuje objekt **IDocumentProperties**, zahrnují: **Creator(Author)**, **Description**, **Keywords**, **Created** (Datum vytvoření), **Modified** (Datum úpravy), **Printed** (Datum posledního tisku), **LastModifiedBy**, **Keywords**, **SharedDoc** (Je sdílen mezi různými producenty?), **PresentationFormat**, **Subject** a **Title**
+Tyto vlastnosti, které jsou vystaveny objektem **IDocumentProperties**, zahrnují: **Creator(Author)**, **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** a **Title**
 ```py
 import aspose.slides as slides
 
 # Vytvořte instanci třídy Presentation, která představuje prezentaci
-with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
-    # Vytvořte odkaz na objekt spojený s prezentací
+with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
+    # Vytvořte odkaz na objekt spojený s Presentation
     documentProperties = pres.document_properties
 
     # Zobrazte vestavěné vlastnosti
@@ -70,16 +70,16 @@ with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
     print("Title : " + documentProperties.title)
 ```
 
-## **Úprava vestavěných vlastností**
+## **Upravit vestavěné vlastnosti**
 
-Úprava vestavěných vlastností souborů prezentace je tak snadná jako jejich získání. Jednoduše přiřadíte řetězcovou hodnotu libovolné požadované vlastnosti a hodnota vlastnosti bude upravena. V níže uvedeném příkladu jsme demonstrovali, jak můžeme upravit vestavěné vlastnosti dokumentu souboru prezentace.
+Úprava vestavěných vlastností souborů prezentace je stejně snadná jako jejich získání. Stačí přiřadit řetězcovou hodnotu libovolné požadované vlastnosti a hodnota se upraví. V níže uvedeném příkladu demonstrujeme, jak lze upravit vestavěné vlastnosti dokumentu prezentace.
 
 ```py
 import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation, která představuje prezentaci
-with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
-    # Vytvořte odkaz na objekt spojený s prezentací
+# Instancujte třídu Presentation, která představuje Presentation
+with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
+    # Vytvořte odkaz na objekt spojený s Presentation
     documentProperties = presentation.document_properties
 
     # Nastavte vestavěné vlastnosti
@@ -89,13 +89,13 @@ with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
     documentProperties.comments = "Aspose Description"
     documentProperties.manager = "Aspose Manager"
 
-    # Uložte prezentaci do souboru
+    # Uložte svou prezentaci do souboru
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidání vlastních vlastností prezentace**
+## **Přidat vlastní vlastnosti prezentace**
 
-Aspose.Slides for Python via .NET také umožňuje vývojářům přidat vlastní hodnoty pro vlastnosti dokumentu prezentace. Níže je uveden příklad, který ukazuje, jak nastavit vlastní vlastnosti pro prezentaci.
+Aspose.Slides for Python via .NET také umožňuje vývojářům přidávat vlastní hodnoty pro vlastnosti dokumentu prezentace. Níže je uveden příklad, který ukazuje, jak nastavit vlastní vlastnosti pro prezentaci.
 
 ```py
 import aspose.slides as slides
@@ -122,38 +122,44 @@ with slides.Presentation() as presentation:
 
 ## **Přístup a úprava vlastních vlastností**
 
-Aspose.Slides for Python via .NET také umožňuje vývojářům přistupovat k hodnotám vlastních vlastností. Níže je uveden příklad, který ukazuje, jak můžete přistupovat a upravovat všechny tyto vlastní vlastnosti pro prezentaci.
+Aspose.Slides for Python via .NET také umožňuje vývojářům získat hodnoty vlastních vlastností. Níže je uveden příklad, který ukazuje, jak můžete získat a upravit všechny tyto vlastní vlastnosti pro prezentaci.
 
 ```py
 import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-with slides.Presentation(path + "AccessModifyingProperties.pptx") as presentation:
-    # Vytvořte odkaz na objekt document_properties spojený s prezentací
+# Vytvořte instanci třídy Presentation, která představuje PPTX
+with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
+    # Vytvořte odkaz na objekt document_properties spojený s Presentation
     documentProperties = presentation.document_properties
 
     # Přístup a úprava vlastních vlastností
     for i in range(documentProperties.count_of_custom_properties):
+        property_name = documentProperties.get_custom_property_name(i)
+
         # Zobrazení názvů a hodnot vlastních vlastností
-        print("Custom Property Name : " + documentProperties.get_custom_property_name(i))
-        print("Custom Property Value : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
+        property_value = [""]
+        documentProperties.get_custom_property_value(property_name, property_value)
+        print("Custom Property Name : " + property_name)
+        print("Custom Property Value : " + property_value[0])
 
         # Úprava hodnot vlastních vlastností
-        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "New Value " + str(i + 1))
-    # Uložte prezentaci do souboru
+        documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
+    # Uložte svou prezentaci do souboru
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nastavení jazyka kontroly pravopisu**
+`get_custom_property_value` vrací hodnotu prostřednictvím jednoprvkového seznamu předaného jako druhý argument a uložená hodnota je převedena na typ prvku, který je již v tomto seznamu. Výše uvedený příklad používá `[""]`, takže čte řetězcové vlastnosti; pro čtení vlastnosti uložené jako číslo předáte číselný zástupce, například `[0]` — v opačném případě volání vyvolá `InvalidCastException`.
 
-Aspose.Slides poskytuje vlastnost `Language_Id` (vystavovanou třídou [PortionFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/portionformat/) ), která vám umožní nastavit jazyk kontroly pravopisu pro PowerPoint dokument. Jazyk kontroly pravopisu je jazyk, pro který se v PowerPointu kontroluje pravopis a gramatika.
+## **Nastavit jazyk kontroly pravopisu**
+
+Aspose.Slides poskytuje vlastnost `Language_Id` (vystavenou třídou [PortionFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/portionformat/)), která umožňuje nastavit jazyk kontroly pravopisu pro PowerPoint dokument. Jazyk kontroly pravopisu je jazyk, pro který jsou v PowerPointu kontrolovány pravopis a gramatika.
 
 Tento Python kód ukazuje, jak nastavit jazyk kontroly pravopisu pro PowerPoint:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
+with slides.Presentation("SetProofingLanguage.pptx") as pres:
     auto_shape = pres.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
     paragraph.portions.clear()
@@ -165,14 +171,14 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
     portion_format.east_asian_font = font
     portion_format.latin_font = font
 
-    # nastavte Id jazyka kontroly pravopisu
+    # nastavit Id jazyka kontroly pravopisu
     portion_format.language_id = "zh-CN"
     new_portion.text = "1。"
 
     paragraph.portions.add(new_portion)
 ```
 
-## **Nastavení výchozího jazyka**
+## **Nastavit výchozí jazyk**
 
 Tento Python kód ukazuje, jak nastavit výchozí jazyk pro celou PowerPoint prezentaci:
 
@@ -192,7 +198,7 @@ with slides.Presentation(load_options) as pres:
 
 ## **Živý příklad**
 
-Vyzkoušejte [**Aspose.Slides Metadata**](https://products.aspose.app/slides/cs/metadata) online aplikaci, abyste viděli, jak pracovat s vlastnostmi dokumentu pomocí API Aspose.Slides:
+Vyzkoušejte online aplikaci [**Aspose.Slides Metadata**](https://products.aspose.app/slides/cs/metadata) a zjistěte, jak pracovat s vlastnostmi dokumentu pomocí Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/cs/metadata)
 
@@ -200,12 +206,12 @@ Vyzkoušejte [**Aspose.Slides Metadata**](https://products.aspose.app/slides/cs/
 
 **Jak mohu odstranit vestavěnou vlastnost z prezentace?**
 
-Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete však změnit jejich hodnoty nebo je nastavit na prázdné, pokud to konkrétní vlastnost umožňuje.
+Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete je však změnit nebo nastavit na prázdnou hodnotu, pokud to konkrétní vlastnost umožňuje.
 
-**Co se stane, pokud přidám vlastní vlastnost, která již existuje?**
+**Co se stane, když přidám vlastní vlastnost, která již existuje?**
 
-Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost předem odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
+Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost předtím odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
 
-**Mohu přistupovat k vlastnostem prezentace bez úplného načtení prezentace?**
+**Mohu získat přístup k vlastnostem prezentace, aniž bych načetl celou prezentaci?**
 
-Ano, můžete přistupovat k vlastnostem prezentace bez úplného načtení prezentace pomocí metody [get_presentation_info](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationfactory/get_presentation_info/) ze třídy [PresentationFactory](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationfactory/) . Poté využijte metodu [read_document_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/read_document_properties/) poskytovanou třídou [PresentationInfo](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/) k efektivnímu načtení vlastností, čímž šetříte paměť a zvyšujete výkon.
+Ano. Použijte [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationfactory/get_presentation_info/) a následně [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/read_document_properties/) k načtení uložených metadat dokumentu bez vytvoření instance [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/). Viz [Build a Lightweight Presentation Inventory](/slides/cs/python-net/examine-presentation/) pro kompletní příklad reportování a omezení specifická pro formát.

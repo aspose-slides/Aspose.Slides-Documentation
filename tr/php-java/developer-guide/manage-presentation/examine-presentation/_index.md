@@ -1,11 +1,11 @@
 ---
-title: PHP'de Sunum Bilgilerini Getirme ve Güncelleme
+title: "PHP'de Sunum Bilgilerini Al ve Güncelle"
 linktitle: Sunum Bilgileri
 type: docs
 weight: 30
 url: /tr/php-java/examine-presentation/
 keywords:
-- sunum biçimi
+- sunum formatı
 - sunum özellikleri
 - belge özellikleri
 - özellikleri al
@@ -21,102 +21,197 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve üst verileri keşfedin; daha hızlı içgörüler ve daha akıllı içerik denetimleri sağlayın."
+description: "Aspose.Slides for PHP kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve meta verileri keşfedin; daha hızlı içgörüler ve daha akıllı içerik denetimleri sağlayın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde sunum bilgilerini nasıl inceleyeceğinizi gösterir. Tam dosyayı yüklemeden bir sunumun geçerli biçimini nasıl belirleyeceğinizi, belge özelliklerini okuyacağınızı ve gerektiğinde bu özellikleri nasıl güncelleyeceğinizi açıklar.
+Aspose.Slides, bir sunumun formatını belirleyebilir ve tam bir sunum nesne modeli oluşturmadan belge meta verilerini okuyabilir. Bu, dosyaları sınıflandırmanız, bir envanter oluşturmanız veya sunum içeriğini yükleyip işlemeye karar vermeden önce özellikleri incelemeniz gerektiğinde faydalıdır.
 
-Örnekler, [PresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/) ve [DocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/) API'lerine dayanır ve sunum üst verileriyle çalışmak için tipik operasyonları gösterir.
+Bu makale, [PresentationFactory](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationfactory/) ve [PresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/) aracılığıyla hafif denetimi, ayrıca [DocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/) aracılığıyla hedeflenmiş güncellemeleri gösterir.
 
-## **Sunum Biçimini Kontrol Et**
+## **Sunum Formatını Kontrol Etme**
 
-Bir sunum üzerinde çalışmadan önce, sunumun şu anda hangi formatta (PPT, PPTX, ODP ve diğerleri) olduğunu öğrenmek isteyebilirsiniz.
-
-Sunumun biçimini, sunumu yüklemeden kontrol edebilirsiniz. Aşağıdaki PHP koduna bakın:
+[PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationfactory/) kullanarak bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneği oluşturmadan bir dosyayı inceleyebilirsiniz. [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#getLoadFormat) yöntemi, PPTX, PPT veya ODP gibi tespit edilen formatı raporlar.
 
 ```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  echo($info->getLoadFormat());// PPTX
+use aspose\slides\LoadFormat;
+use aspose\slides\PresentationFactory;
 
-  $info2 = PresentationFactory->getInstance()->getPresentationInfo("pres.ppt");
-  echo($info2->getLoadFormat());// PPT
+$fileNames = ["pres.pptx", "pres.ppt", "pres.odp"];
 
-  $info3 = PresentationFactory->getInstance()->getPresentationInfo("pres.odp");
-  echo($info3->getLoadFormat());// ODP
+foreach ($fileNames as $fileName) {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($fileName);
+    $loadFormat = java_values($presentationInfo->getLoadFormat());
+    $formatName = "Other (" . $loadFormat . ")";
 
+    if ($loadFormat === LoadFormat::Pptx) {
+        $formatName = "PPTX";
+    } elseif ($loadFormat === LoadFormat::Ppt) {
+        $formatName = "PPT";
+    } elseif ($loadFormat === LoadFormat::Odp) {
+        $formatName = "ODP";
+    }
 
+    echo $fileName . ": " . $formatName . PHP_EOL;
+}
 ```
 
-## **Sunum Özelliklerini Al**
+## **Hafif Bir Sunum Envanteri Oluşturma**
 
-Bu PHP kodu, sunum özelliklerini (sunum hakkındaki bilgileri) nasıl alacağınızı gösterir:
+Birçok sunum dosyasını işlediğinizde, doğrulama, indeksleme veya bir belge yönetim sistemi için kompakt bir envantere ihtiyaç duyabilirsiniz. Bu senaryoda, [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationfactory/) kullanarak bir [PresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/) nesnesi elde edin ve ardından [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#readDocumentProperties) çağırarak belge meta verilerini okuyun. Bu yaklaşım bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneği oluşturmaz ve tam sunum nesne modelini dolaşmanızı gerektirmez.
+
+[DocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/) tarafından sunulan genişletilmiş özellikler aşağıdaki envanter değerlerini sağlar:
+
+| Yöntem | Envanter değeri |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getSlides) | Toplam slayt sayısı. |
+| [getHiddenSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getHiddenSlides) | Gizli slayt sayısı. |
+| [getNotes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getNotes) | Not içeren slayt sayısı. |
+| [getParagraphs](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getParagraphs) | Mevcut olduğunda toplam paragraf sayısı. |
+| [getWords](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getWords) | Toplam kelime sayısı. |
+| [getMultimediaClips](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getMultimediaClips) | Toplam ses ve video klip sayısı. |
+
+Aşağıdaki örnek bu değerleri bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) nesnesi oluşturmadan okur ve kompakt bir envanter yazdırır. Ayrıca [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getHeadingPairs) ile [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getTitlesOfParts) birleştirilerek yazı tipleri, temalar ve slayt başlıkları gibi içerik grupları görüntülenir.
 
 ```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  $props = $info->readDocumentProperties();
-  echo($props->getCreatedTime());
-  echo($props->getSubject());
-  echo($props->getTitle());
-  # ..
+use aspose\slides\LoadFormat;
+use aspose\slides\PresentationFactory;
+
+$filePath = "sample.pptx";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+$documentProperties = $presentationInfo->readDocumentProperties();
+
+$loadFormat = java_values($presentationInfo->getLoadFormat());
+$formatName = "Other (" . $loadFormat . ")";
+
+if ($loadFormat === LoadFormat::Pptx) {
+    $formatName = "PPTX";
+} elseif ($loadFormat === LoadFormat::Ppt) {
+    $formatName = "PPT";
+} elseif ($loadFormat === LoadFormat::Odp) {
+    $formatName = "ODP";
+}
+
+echo "File: " . basename($filePath) . PHP_EOL;
+echo "Format: " . $formatName . PHP_EOL;
+echo "Title: " . java_values($documentProperties->getTitle()) . PHP_EOL;
+echo "Author: " . java_values($documentProperties->getAuthor()) . PHP_EOL;
+echo "Statistics:" . PHP_EOL;
+echo "  Slides: " . java_values($documentProperties->getSlides()) . PHP_EOL;
+echo "  Hidden slides: " . java_values($documentProperties->getHiddenSlides()) . PHP_EOL;
+echo "  Slides with notes: " . java_values($documentProperties->getNotes()) . PHP_EOL;
+echo "  Paragraphs: " . java_values($documentProperties->getParagraphs()) . PHP_EOL;
+echo "  Words: " . java_values($documentProperties->getWords()) . PHP_EOL;
+echo "  Multimedia clips: " . java_values($documentProperties->getMultimediaClips()) . PHP_EOL;
+
+$headingPairs = $documentProperties->getHeadingPairs();
+$titlesOfParts = $documentProperties->getTitlesOfParts();
+
+if (java_is_null($headingPairs) || java_is_null($titlesOfParts)) {
+    echo "Content groups: not available" . PHP_EOL;
+} else {
+    $headingPairs = java_values($headingPairs);
+    $titlesOfParts = java_values($titlesOfParts);
+    $partIndex = 0;
+
+    if (count($headingPairs) === 0 || count($titlesOfParts) === 0) {
+        echo "Content groups: not available" . PHP_EOL;
+    } else {
+        echo "Content groups:" . PHP_EOL;
+
+        foreach ($headingPairs as $headingPair) {
+            $partCount = java_values($headingPair->getCount());
+            echo "  " . java_values($headingPair->getName()) . " (" . $partCount . ")" . PHP_EOL;
+
+            for ($partOffset = 0; $partOffset < $partCount && $partIndex < count($titlesOfParts); $partOffset++) {
+                echo "    - " . $titlesOfParts[$partIndex] . PHP_EOL;
+                $partIndex++;
+            }
+        }
+
+        if ($partIndex < count($titlesOfParts)) {
+            echo "  Other parts:" . PHP_EOL;
+
+            while ($partIndex < count($titlesOfParts)) {
+                echo "    - " . $titlesOfParts[$partIndex] . PHP_EOL;
+                $partIndex++;
+            }
+        }
+    }
+}
 ```
 
-[DocumentProperties sınıfı altındaki özellikleri](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#DocumentProperties--) görmek isteyebilirsiniz.
+Her [HeadingPair](https://reference.aspose.com/slides/tr/php-java/aspose.slides/headingpair/) bir grup adı ve o gruptaki öğe sayısını sağlar. [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getTitlesOfParts) düz, sıralı bir dizi döndürdüğü için, her başlık çiftinin belirttiği ardışık başlık sayısını tüketin.
 
-## **Sunum Özelliklerini Güncelle**
+### **Depolanmış Meta Veriler ve Format Kısıtlamaları**
 
-Aspose.Slides, sunum özelliklerinde değişiklik yapmanızı sağlayan [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) yöntemini sunar.
+[PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#readDocumentProperties) tarafından döndürülen envanter özellikleri, kaynak belgede mevcut meta verilere dayanır. Aspose.Slides, bu çağrı için bu değerleri yeniden hesaplamak amacıyla sunum nesne modelini yükleyip dolaşmaz. Eksik özellikler varsayılan değerlerle temsil edilir ve saklanan değerler, dosyayı son kaydeden uygulama belge özelliklerini güncellememişse eski olabilir.
 
-Aşağıda gösterilen belge özelliklerine sahip bir PowerPoint sunumu olduğunu varsayalım.
+- **PPTX:** Format, slayt, not, gizli‑slayt, paragraf, kelime ve multimedya sayımları ile başlık çiftleri ve bölüm başlıkları için genişletilmiş belge özellikleri sağlar. Kullanılabilirlik, belge üreticisinin hangi özellikleri yazdığına bağlıdır.
+- **PPT:** İkili format, karşılık gelen belge‑özet özelliklerini depolayabilir. Bir özellik eksikse veya belge üreticisi tarafından yenilenmemişse, Aspose.Slides bu özelliği slaytlardan hesaplamak yerine saklanan veya varsayılan değerini döndürür.
+- **ODP:** OpenDocument meta verileri, sayfa, paragraf ve kelime sayısı gibi genel belge istatistikleri sunar, ancak bu değerler her PowerPoint‑özel genişletilmiş özelliğe eşlenmez. Gizli‑slayt, not‑slaytı, multimedya, başlık‑çifti ve bölüm‑başlığı meta verileri mevcut olmayabilir ve envanter özellikleri varsayılan değer döndürebilir. Sıfır değeri veya boş diziyi, ilgili içeriğin yok olduğunun kesin kanıtı olarak değerlendirmeyin.
+
+Envanter ve ön kontrol amaçları için hafif meta veri yaklaşımını kullanın. Sonuçların bellek içi değişiklikleri yansıtması gerektiğinde veya gerçek sunum içeriğini doğrulamanız gerektiğinde sunumu yükleyin ve canlı nesne modelini inceleyin.
+
+## **Sunum Özelliklerini Güncelleme**
+
+[PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#readDocumentProperties) tarafından döndürülen özellikler, bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneği oluşturmadan da değiştirilebilir. Değişiklikleri [PresentationInfo::updateDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#updateDocumentProperties) ile uygulayın ve ardından bağlanmış sunumu [PresentationInfo::writeBindedPresentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#writeBindedPresentation) ile yazın.
+
+Aşağıdaki resim orijinal belge özelliklerini gösterir.
 
 ![PowerPoint sunumunun orijinal belge özellikleri](input_properties.png)
 
-Bu kod örneği, bazı sunum özelliklerini nasıl düzenleyeceğinizi gösterir:
+Aşağıdaki örnek başlığı ve son‑kaydetme zamanını değiştirir ve sonucu yeni bir dosyaya yazar:
 
 ```php
-$fileName = "sample.pptx";
+use aspose\slides\PresentationFactory;
 
-$info = PresentationFactory::getInstance()->getPresentationInfo($fileName);
+$sourceFile = "sample.pptx";
+$outputFile = "sample_with_updated_properties.pptx";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($sourceFile);
+$documentProperties = $presentationInfo->readDocumentProperties();
 
-$properties = $info->readDocumentProperties();
-$properties->setTitle("My title");
-$properties->setLastSavedTime(new Java("java.util.Date"));
+$documentProperties->setTitle("Quarterly sales report");
+$documentProperties->setLastSavedTime(new Java("java.util.Date"));
 
-$info->updateDocumentProperties($properties);
-$info->writeBindedPresentation($fileName);
+$presentationInfo->updateDocumentProperties($documentProperties);
+$outputStream = new Java("java.io.FileOutputStream", $outputFile);
+try {
+    $presentationInfo->writeBindedPresentation($outputStream);
+} finally {
+    $outputStream->close();
+}
 ```
 
-Belge özelliklerini değiştirme sonuçları aşağıda gösterilmiştir.
+Aşağıdaki resim güncellenmiş belge özelliklerini gösterir.
 
-![PowerPoint sunumunun değiştirilmiş belge özellikleri](output_properties.png)
+![PowerPoint sunumunun değiştirilen belge özellikleri](output_properties.png)
 
-## **Faydalı Bağlantılar**
+## **Yararlı Bağlantılar**
 
-Bir sunum ve güvenlik özellikleri hakkında daha fazla bilgi almak için aşağıdaki bağlantılar faydalı olabilir:
+İlgili güvenlik kontrolleri ve koruma ayarları için aşağıdaki makalelere bakın:
 
-- [Sunumun Şifrelenip Şifrelenmediğini Kontrol Etme](https://docs.aspose.com/slides/tr/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Sunumun Yazma Koruması (salt okunur) olup olmadığını kontrol etme](https://docs.aspose.com/slides/tr/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Sunumu yüklemeden önce şifre korumalı olup olmadığını kontrol etme](https://docs.aspose.com/slides/tr/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Sunumu korumak için kullanılan şifreyi doğrulama](https://docs.aspose.com/slides/tr/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Parola ile Sunumları Koru](/slides/tr/php-java/password-protected-presentation/)
+- [Yazma Korumasıyla Sunumlar](/slides/tr/php-java/write-protected-presentation/)
 
 ## **SSS**
 
-**Yazı tiplerinin gömülü olup olmadığını ve hangi yazı tiplerinin gömülü olduğunu nasıl kontrol edebilirim?**
+**Yazı tiplerinin gömülü olup olmadığını ve hangileri olduğunu nasıl kontrol edebilirim?**
 
-Sunum düzeyinde [gömülü-yazı tipi bilgisi](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/getembeddedfonts/) arayın, ardından bu girişleri [içerik boyunca gerçekten kullanılan yazı tipleri](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/getfonts/) kümesiyle karşılaştırarak hangi yazı tiplerinin render için kritik olduğunu belirleyin.
+Sunumu yükleyin ve [Presentation::getFontsManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getFontsManager) kullanın. Gömülü yazı tiplerini elde etmek için [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts), sunum tarafından kullanılan yazı tiplerini elde etmek için ise [FontsManager::getFonts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/#getFonts) çağırın. İki sonucu karşılaştırarak render için gerekli ancak gömülmemiş yazı tiplerini bulabilirsiniz.
 
 **Dosyanın gizli slaytları olup olmadığını ve kaç tane olduğunu hızlıca nasıl öğrenebilirim?**
 
-[slayt koleksiyonu](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/) üzerinden döngü kurun ve her slaytın [visibility flag](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/gethidden/) özelliğini inceleyin.
+Depolanmış belge meta verileri yeterli olduğunda, [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationfactory/) ve [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationinfo/#readDocumentProperties) aracılığıyla [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/documentproperties/#getHiddenSlides) okuyun. Bu, hafif bir envanter için uygundur. Sunum bellek içinde değiştirilmişse, saklanan meta veri eksik veya eski olabilir; bu durumda canlı değerleri doğrulamak için [Presentation::getSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getSlides) üzerinden döngü yapıp her slaytın [Slide::getHidden](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getHidden) yöntemini inceleyin.
 
-**Özel slayt boyutu ve yönünün kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**
+**Özel slayt boyutu ve yöneliminin kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını nasıl tespit edebilirim?**
 
-Evet. Mevcut [slayt boyutunu](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/getslidesize/) ve yönünü standart ön ayarlarla karşılaştırın; bu, yazdırma ve dışa aktarma davranışını öngörmeye yardımcı olur.
+Evet. Sunumu yükleyin ve [Presentation::getSlideSize](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getSlideSize) çağırın. Mevcut ayarları beklenen ön ayar ve boyutlarla karşılaştırmak için [SlideSize::getType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidesize/#getType), [SlideSize::getSize](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidesize/#getSize) ve [SlideSize::getOrientation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidesize/#getOrientation) kullanın.
 
-**Grafiklerin harici veri kaynaklarına referans verip vermediğini hızlı bir şekilde görmek mümkün mü?**
+**Grafiklerin dış veri kaynaklarına başvurup başvurmadığını hızlıca görebilir miyim?**
 
-Evet. Tüm [grafikleri](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/), [veri kaynağını](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/getdatasourcetype/) kontrol edin ve verinin içsel mi yoksa bağlantı temelli mi olduğunu, kırık bağlantılar dahil, not edin.
+Evet. Her bir [Chart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/) bulun ve [ChartData::getDataSourceType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/#getDataSourceType) çağır. Dış bir çalışma kitabı için [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/#getExternalWorkbookPath) çağır. Veri kaynağı türü ve yolu dış başvuruyu gösterir, ancak hedefin mevcut olup olmadığını doğrulamak ayrı bir kaynak kontrolü gerektirir.
 
-**Render veya PDF dışa aktarmayı yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
+**Render veya PDF dışa aktarımını yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
 
-Her slayt için nesne sayılarını sayın ve büyük görüntüler, şeffaflık, gölgeler, animasyonlar ve multimedya öğeleri arayın; potansiyel performans darboğazlarını işaretlemek için kaba bir karmaşıklık puanı atayın.
+Tek bir karmaşıklık özelliği yoktur. [Presentation::getSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getSlides) ve her slaydın [BaseSlide::getShapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslide/#getShapes) koleksiyonunu dolaşın. Şekil sayısı, büyük resimler, efektler, animasyonlar veya multimedya varlığı gibi sinyallerle tarama yapın ve bir slaydın performans darboğazı olduğunu doğrulamak için temsilci bir render veya dışa aktarma ölçümü alın.

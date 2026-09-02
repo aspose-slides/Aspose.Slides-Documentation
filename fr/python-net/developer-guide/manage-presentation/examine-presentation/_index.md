@@ -6,11 +6,11 @@ weight: 30
 url: /fr/python-net/examine-presentation/
 keywords:
 - format de présentation
-- propriétés de la présentation
-- propriétés du document
+- propriétés de présentation
+- propriétés de document
 - obtenir les propriétés
 - lire les propriétés
-- modifier les propriétés
+- changer les propriétés
 - modifier les propriétés
 - mettre à jour les propriétés
 - examiner PPTX
@@ -21,106 +21,161 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Explorez les diapositives, la structure et les métadonnées des présentations PowerPoint et OpenDocument à l'aide de Python pour des analyses plus rapides et des audits de contenu plus intelligents."
+description: "Explorez les diapositives, la structure et les métadonnées des présentations PowerPoint et OpenDocument en utilisant Python pour obtenir des informations plus rapides et des audits de contenu plus intelligents."
 ---
+## **Vue d'ensemble**
 
-Aspose.Slides pour Python via .NET vous permet d'examiner une présentation afin d'en connaître les propriétés et de comprendre son comportement. 
+Aspose.Slides peut identifier le format d’une présentation et lire ses métadonnées de document sans créer un modèle complet d’objet de présentation. Cette fonctionnalité est utile lorsque vous devez classer des fichiers, établir un inventaire ou inspecter des propriétés avant de décider de charger et de traiter le contenu de la présentation.
 
-{{% alert title="Info" color="info" %}} 
-
-Les classes [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) et [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) contiennent les propriétés et les méthodes utilisées dans les opérations présentées ici.
-
-{{% /alert %}} 
+Cet article montre comment réaliser une inspection légère grâce à [PresentationFactory](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationfactory/) et [PresentationInfo](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/), ainsi que des mises à jour ciblées via [DocumentProperties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/).
 
 ## **Vérifier le format d'une présentation**
 
-Avant de travailler sur une présentation, vous pouvez vouloir savoir dans quel format (PPT, PPTX, ODP, etc.) elle se trouve actuellement.
+Utilisez [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationfactory/get_presentation_info/) pour inspecter un fichier sans créer une instance de [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/). La propriété [PresentationInfo.load_format](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/load_format/) indique le format détecté, tel que PPTX, PPT ou ODP.
 
-Vous pouvez vérifier le format d'une présentation sans la charger. Voir ce code Python :
-```py
+```python
 import aspose.slides as slides
 
-info1 = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print(info1.load_format, info1.load_format == slides.LoadFormat.PPTX)
+file_names = ["pres.pptx", "pres.ppt", "pres.odp"]
 
-info2 = slides.PresentationFactory.instance.get_presentation_info("pres.odp")
-print(info2.load_format, info2.load_format == slides.LoadFormat.ODP)
-
-info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
-print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
+for file_name in file_names:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_name)
+    print(f"{file_name}: {presentation_info.load_format}")
 ```
 
+## **Construire un inventaire de présentations léger**
 
-## **Obtenir les propriétés de la présentation**
+Lorsque vous traitez de nombreux fichiers de présentation, il peut être nécessaire de disposer d’un inventaire compact pour la validation, l’indexation ou un système de gestion documentaire. Dans ce scénario, utilisez [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationfactory/get_presentation_info/) pour obtenir un objet [PresentationInfo](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/), puis appelez [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/read_document_properties/) pour lire les métadonnées du document. Cette approche ne crée pas d’instance de [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) et ne nécessite pas de parcourir le modèle complet d’objet de la présentation.
 
-Ce code Python vous montre comment obtenir les propriétés de la présentation (informations sur la présentation) :
-```py
+Les propriétés étendues exposées par [DocumentProperties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/) fournissent les valeurs d’inventaire suivantes :
+
+| Propriété | Valeur d'inventaire |
+| --- | --- |
+| [slides](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/slides/fr/) | Nombre total de diapositives. |
+| [hidden_slides](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/hidden_slides/) | Nombre de diapositives masquées. |
+| [notes](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/notes/) | Nombre de diapositives contenant des notes. |
+| [paragraphs](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/paragraphs/) | Nombre total de paragraphes, lorsqu’ils sont disponibles. |
+| [words](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/words/) | Nombre total de mots. |
+| [multimedia_clips](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/multimedia_clips/) | Nombre total de clips audio et vidéo. |
+
+L’exemple suivant lit ces valeurs sans créer d’objet [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) et affiche un inventaire compact. Il combine également [heading_pairs](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/heading_pairs/) avec [titles_of_parts](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/titles_of_parts/) pour présenter des groupes de contenu tels que les polices, les thèmes et les titres de diapositives.
+
+```python
+import os
 import aspose.slides as slides
 
-info = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-props = info.read_document_properties()
-print(props.created_time)
-print(props.subject)
-print(props.title)
+file_path = "sample.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+document_properties = presentation_info.read_document_properties()
+
+print(f"File: {os.path.basename(file_path)}")
+print(f"Format: {presentation_info.load_format}")
+print(f"Title: {document_properties.title}")
+print(f"Author: {document_properties.author}")
+print("Statistics:")
+print(f"  Slides: {document_properties.slides}")
+print(f"  Hidden slides: {document_properties.hidden_slides}")
+print(f"  Slides with notes: {document_properties.notes}")
+print(f"  Paragraphs: {document_properties.paragraphs}")
+print(f"  Words: {document_properties.words}")
+print(f"  Multimedia clips: {document_properties.multimedia_clips}")
+
+heading_pairs = document_properties.heading_pairs or []
+titles_of_parts = document_properties.titles_of_parts or []
+part_index = 0
+
+if not heading_pairs or not titles_of_parts:
+    print("Content groups: not available")
+else:
+    print("Content groups:")
+
+    for heading_pair in heading_pairs:
+        print(f"  {heading_pair.name} ({heading_pair.count})")
+
+        for _ in range(heading_pair.count):
+            if part_index >= len(titles_of_parts):
+                break
+
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
+
+    if part_index < len(titles_of_parts):
+        print("  Other parts:")
+
+        while part_index < len(titles_of_parts):
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
 ```
 
+Chaque [HeadingPair](https://reference.aspose.com/slides/fr/python-net/aspose.slides/headingpair/) fournit un nom de groupe et le nombre d’éléments dans ce groupe. [DocumentProperties.titles_of_parts](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/titles_of_parts/) est une collection plate et ordonnée, il suffit donc de consommer le nombre de titres consécutifs indiqué par chaque paire d’en-tête.
 
-Vous pouvez également consulter les [propriétés de la classe DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/#properties).
+### **Métadonnées stockées et limitations de format**
+
+Les propriétés d’inventaire renvoyées par [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/read_document_properties/) reflètent les métadonnées présentes dans le document source. Aspose.Slides ne charge pas et ne parcourt pas le modèle d’objet de la présentation pour recalculer ces valeurs lors de cet appel. Les propriétés manquantes sont représentées par des valeurs par défaut, et les valeurs stockées peuvent être obsolètes si l’application qui a enregistré le fichier en dernier n’a pas mis à jour ses propriétés de document.
+
+- **PPTX :** Le format fournit des propriétés de document étendues pour le nombre de diapositives, de notes, de diapositives masquées, de paragraphes, de mots et de médias, ainsi que pour les paires d’en-têtes et les titres de parties. Leur disponibilité dépend des propriétés écrites par le producteur du document.
+- **PPT :** Le format binaire peut stocker les propriétés de résumé de document correspondantes. Si une propriété est absente ou n’a pas été rafraîchie par le producteur du document, Aspose.Slides renvoie sa valeur stockée ou la valeur par défaut au lieu de la calculer à partir des diapositives.
+- **ODP :** Les métadonnées OpenDocument fournissent des statistiques générales (pages, paragraphes, mots), mais ces valeurs ne correspondent pas à toutes les propriétés étendues spécifiques à PowerPoint. Les métadonnées concernant les diapositives masquées, les notes, les médias, les paires d’en‑tête et les titres de parties peuvent être indisponibles, et les propriétés d’inventaire peuvent renvoyer des valeurs par défaut. Ne considérez pas une valeur zéro ou une collection vide comme une preuve définitive de l’absence du contenu correspondant.
+
+Utilisez l’approche métadonnées légères pour les inventaires et les vérifications préliminaires. Chargez la présentation et inspectez son modèle d’objet en mémoire lorsque le résultat doit refléter les modifications en cours ou lorsque vous devez vérifier le contenu réel de la présentation.
 
 ## **Mettre à jour les propriétés de la présentation**
 
-Aspose.Slides fournit la méthode [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) qui permet de modifier les propriétés d'une présentation.
+Les propriétés renvoyées par [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/read_document_properties/) peuvent également être modifiées sans créer d’instance de [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/). Appliquez les changements avec [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/update_document_properties/), puis écrivez la présentation liée avec [PresentationInfo.write_binded_presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/write_binded_presentation/).
 
-Imaginons que nous ayons une présentation PowerPoint avec les propriétés de document illustrées ci‑dessous.
+L’image suivante montre les propriétés du document d’origine.
 
-![Original document properties of the PowerPoint presentation](input_properties.png)
+![Propriétés du document d'origine de la présentation PowerPoint](input_properties.png)
 
-Cet exemple de code montre comment modifier certaines propriétés de la présentation :
-```py
-file_name = "sample.pptx"
+L’exemple suivant modifie le titre et la date de dernière sauvegarde et écrit le résultat dans un nouveau fichier :
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+```python
+import datetime
+import aspose.slides as slides
 
-properties = info.read_document_properties()
-properties.title = "My title"
-properties.last_saved_time = datetime.now()
+source_file = "sample.pptx"
+output_file = "sample_with_updated_properties.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(source_file)
+document_properties = presentation_info.read_document_properties()
 
-info.update_document_properties(properties)
-info.write_binded_presentation(file_name)
+document_properties.title = "Quarterly sales report"
+document_properties.last_saved_time = datetime.datetime.now(datetime.timezone.utc)
+
+presentation_info.update_document_properties(document_properties)
+
+with open(output_file, "wb") as output_stream:
+    presentation_info.write_binded_presentation(output_stream)
 ```
 
+L’image suivante montre les propriétés du document mises à jour.
 
-Les résultats de la modification des propriétés de document sont présentés ci‑dessous.
-
-![Changed document properties of the PowerPoint presentation](output_properties.png)
+![Propriétés du document modifiées de la présentation PowerPoint](output_properties.png)
 
 ## **Liens utiles**
 
-Pour obtenir davantage d'informations sur une présentation et ses attributs de sécurité, ces liens peuvent vous être utiles :
+Pour les vérifications de sécurité associées et les paramètres de protection, consultez les articles suivants :
 
-- [Vérifier si une présentation est chiffrée](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Vérifier si une présentation est protégée en écriture (lecture seule)](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Vérifier si une présentation est protégée par mot de passe avant son chargement](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Confirmer le mot de passe utilisé pour protéger une présentation](https://docs.aspose.com/slides/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/fr/python-net/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/fr/python-net/write-protected-presentation/)
 
 ## **FAQ**
 
 **Comment vérifier si les polices sont incorporées et lesquelles ?**
 
-Recherchez les [informations sur les polices incorporées](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) au niveau de la présentation, puis comparez ces entrées avec l’ensemble des [polices réellement utilisées dans le contenu](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_fonts/) pour identifier les polices essentielles au rendu.
+Chargez la présentation et utilisez [Presentation.fonts_manager](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/fonts_manager/). Appelez [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/fr/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) pour obtenir les polices incorporées et [FontsManager.get_fonts](https://reference.aspose.com/slides/fr/python-net/aspose.slides/fontsmanager/get_fonts/) pour obtenir les polices utilisées par la présentation. Comparez les deux résultats pour identifier les polices nécessaires au rendu mais non incorporées.
 
 **Comment savoir rapidement si le fichier contient des diapositives masquées et combien ?**
 
-Parcourez la [collection de diapositives](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) et inspectez le [drapeau de visibilité](https://reference.aspose.com/slides/python-net/aspose.slides/slide/hidden/) de chaque diapositive.
+Lorsque les métadonnées du document stockées sont suffisantes, lisez [DocumentProperties.hidden_slides](https://reference.aspose.com/slides/fr/python-net/aspose.slides/documentproperties/hidden_slides/) via [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationfactory/get_presentation_info/) et [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/read_document_properties/). Cette méthode convient pour un inventaire léger. Si la présentation a été modifiée en mémoire, les métadonnées stockées peuvent être manquantes ou obsolètes ; parcourez alors [Presentation.slides](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/slides/fr/) et inspectez la propriété [Slide.hidden](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slide/hidden/) de chaque diapositive.
 
-**Puis‑je détecter si une taille ou une orientation de diapositive personnalisée est utilisée, et si elle diffère des paramètres par défaut ?**
+**Puis‑je détecter si une taille de diapositive personnalisée et une orientation sont utilisées, et si elles diffèrent des valeurs par défaut ?**
 
-Oui. Comparez la [taille de diapositive actuelle](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slide_size/) et son orientation avec les préréglages standards ; cela permet d’anticiper le comportement lors de l’impression ou de l’exportation.
+Oui. Chargez la présentation et lisez [Presentation.slide_size](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/slide_size/). Vérifiez [SlideSize.type](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidesize/type/), [SlideSize.size](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidesize/size/) et [SlideSize.orientation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidesize/orientation/) pour comparer les paramètres actuels avec les paramètres prédéfinis attendus.
 
-**Existe‑t‑il un moyen rapide de voir si des graphiques font référence à des sources de données externes ?**
+**Existe‑t‑il un moyen rapide de voir si les graphiques font référence à des sources de données externes ?**
 
-Oui. Parcourez tous les [graphiques](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), vérifiez leur [source de données](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) et notez si les données sont internes ou liées, y compris les liens cassés.
+Oui. Localisez chaque [Chart](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chart/) et inspectez [ChartData.data_source_type](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/data_source_type/). Pour un classeur externe, lisez [ChartData.external_workbook_path](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Le type de source de données et le chemin identifient une référence externe, mais la vérification de la disponibilité de la cible nécessite un contrôle de ressource distinct.
 
-**Comment évaluer les diapositives « lourdes » qui peuvent ralentir le rendu ou l’exportation PDF ?**
+**Comment évaluer les « diapositives lourdes » qui peuvent ralentir le rendu ou l’exportation PDF ?**
 
-Pour chaque diapositive, comptez les objets et repérez les images volumineuses, les transparences, les ombres, les animations et les contenus multimédias ; attribuez un score de complexité approximatif afin d’identifier les points de performance potentiels.
+Il n’existe pas de propriété unique de complexité. Parcourez [Presentation.slides](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/slides/fr/) et la collection [BaseSlide.shapes](https://reference.aspose.com/slides/fr/python-net/aspose.slides/baseslide/shapes/) de chaque diapositive. Utilisez le nombre de formes et la présence d’images volumineuses, d’effets, d’animations ou de médias comme indicateurs de filtrage, et mesurez un rendu ou une exportation représentative avant de considérer une diapositive comme un goulot d’étranglement confirmé.

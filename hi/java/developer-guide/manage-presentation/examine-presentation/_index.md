@@ -1,5 +1,5 @@
 ---
-title: Java में प्रस्तुति जानकारी प्राप्त करें और अपडेट करें
+title: Java में प्रस्तुति जानकारी प्राप्त करें और अद्यतन करें
 linktitle: प्रस्तुति जानकारी
 type: docs
 weight: 30
@@ -12,109 +12,207 @@ keywords:
 - गुण पढ़ें
 - गुण बदलें
 - गुण संशोधित करें
-- गुण अपडेट करें
-- PPTX जाँचें
-- PPT जाँचें
-- ODP जाँचें
+- गुण अद्यतन करें
+- PPTX का परीक्षण करें
+- PPT का परीक्षण करें
+- ODP का परीक्षण करें
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडेटा का अन्वेषण करें, जिससे तेज़ अंतर्दृष्टि और अधिक बुद्धिमान सामग्री ऑडिट प्राप्त हों।"
+description: "Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडेटा का पता लगाएँ, तेज़ अंतर्दृष्टि और बुद्धिमान सामग्री ऑडिट्स के लिए।"
 ---
 ## **अवलोकन**
 
-यह लेख दिखाता है कि Aspose.Slides में प्रस्तुति सूचना की जाँच कैसे करें। यह समझाता है कि पूरी फ़ाइल लोड किए बिना प्रस्तुति के वर्तमान फ़ॉर्मेट का निर्धारण कैसे किया जाए, उसके दस्तावेज़ गुण पढ़े जाएँ, और आवश्यकता पड़ने पर उन गुणों को अपडेट किया जाए।
+Aspose.Slides प्रस्तुति के फ़ॉर्मेट की पहचान कर सकता है और संपूर्ण प्रस्तुति ऑब्जेक्ट मॉडल बनाए बिना उसके दस्तावेज़ मेटाडेटा को पढ़ सकता है। यह तब उपयोगी होता है जब आपको फ़ाइलों को वर्गीकृत करने, इन्वेंट्री बनाने, या गुणों की जांच करने की आवश्यकता होती है, इससे पहले कि आप तय करें कि प्रस्तुति की सामग्री को लोड और प्रोसेस किया जाए।
 
-उदाहरण [PresentationInfo](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentationinfo/) और [DocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/documentproperties/) API पर आधारित हैं और प्रस्तुति मेटाडेटा के साथ काम करने के सामान्य कार्यों को प्रदर्शित करते हैं।
+यह लेख हल्की जाँच को [PresentationFactory](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentationfactory/) और [IPresentationInfo](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentationinfo/) के माध्यम से, तथा लक्षित अपडेट को [IDocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/) के माध्यम से प्रदर्शित करता है।
 
-## **प्रस्तुति फ़ॉर्मेट जाँचें**
+## **प्रस्तुति फ़ॉर्मेट की जाँच**
 
-प्रस्तुति पर काम करने से पहले, आप यह जानना चाहते हो सकते हैं कि वर्तमान में प्रस्तुति किस फ़ॉर्मेट (PPT, PPTX, ODP, आदि) में है।
-
-आप प्रस्तुति को लोड किए बिना उसकी फ़ॉर्मेट जाँच सकते हैं। इस जावा कोड को देखें:
+फ़ाइल को बिना [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) उदाहरण बनाए [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) का उपयोग करके निरीक्षण करें। [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) मेथड पता लगाए गए फ़ॉर्मेट की रिपोर्ट करता है, जैसे PPTX, PPT, या ODP।
 
 ```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-System.out.println(info.getLoadFormat()); // PPTX
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
 
-IPresentationInfo info2 = PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-System.out.println(info2.getLoadFormat()); // PPT
+String[] fileNames = { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-System.out.println(info3.getLoadFormat()); // ODP
+for (String fileName : fileNames) {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(fileName);
+    int loadFormat = presentationInfo.getLoadFormat();
+    String formatName = "Other (" + loadFormat + ")";
+
+    if (loadFormat == LoadFormat.Pptx) {
+        formatName = "PPTX";
+    } else if (loadFormat == LoadFormat.Ppt) {
+        formatName = "PPT";
+    } else if (loadFormat == LoadFormat.Odp) {
+        formatName = "ODP";
+    }
+
+    System.out.println(fileName + ": " + formatName);
+}
 ```
 
-## **प्रस्तुति गुण प्राप्त करें**
+## **हल्का प्रस्तुति इन्वेंट्री बनाएं**
 
-यह जावा कोड आपको दिखाता है कि कैसे प्रस्तुति गुण (प्रस्तुति की जानकारी) प्राप्त करें:
+जब आप कई प्रस्तुति फ़ाइलों को प्रोसेस करते हैं, तो सत्यापन, अनुक्रमण या दस्तावेज़‑प्रबंधन प्रणाली के लिए एक संक्षिप्त इन्वेंट्री की आवश्यकता हो सकती है। इस स्थिति में, [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) का उपयोग करके एक [IPresentationInfo](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentationinfo/) ऑब्जेक्ट प्राप्त करें, और फिर [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) को कॉल करके दस्तावेज़ मेटाडेटा पढ़ें। यह दृष्टिकोण [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) ऑब्जेक्ट नहीं बनाता और संपूर्ण प्रस्तुति ऑब्जेक्ट मॉडल को पार नहीं करता।
+
+[IDocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/) द्वारा उजागर विस्तारित गुण निम्नलिखित इन्वेंट्री मान प्रदान करते हैं:
+
+| विधि | इन्वेंट्री मान |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getSlides--) | स्लाइड्स की कुल संख्या। |
+| [getHiddenSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | छिपी हुई स्लाइड्स की संख्या। |
+| [getNotes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getNotes--) | नोट्स वाली स्लाइड्स की संख्या। |
+| [getParagraphs](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getParagraphs--) | उपलब्ध होने पर पैराग्राफ़ की कुल संख्या। |
+| [getWords](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getWords--) | शब्दों की कुल संख्या। |
+| [getMultimediaClips](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | ऑडियो और वीडियो क्लिप्स की कुल संख्या। |
+
+निम्नलिखित उदाहरण इन मानों को बिना [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) ऑब्जेक्ट बनाए पढ़ता है और एक संक्षिप्त इन्वेंट्री प्रिंट करता है। यह [getHeadingPairs](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) को [getTitlesOfParts](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) के साथ मिलाकर फ़ॉन्ट्स, थीम्स और स्लाइड शीर्षकों जैसे सामग्री समूह प्रदर्शित करता है।
 
 ```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-IDocumentProperties props = info.readDocumentProperties();
-System.out.println(props.getCreatedTime());
-System.out.println(props.getSubject());
-System.out.println(props.getTitle());
-// ...
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IHeadingPair;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.Paths;
+
+String filePath = "sample.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
+
+int loadFormat = presentationInfo.getLoadFormat();
+String formatName = "Other (" + loadFormat + ")";
+
+if (loadFormat == LoadFormat.Pptx) {
+    formatName = "PPTX";
+} else if (loadFormat == LoadFormat.Ppt) {
+    formatName = "PPT";
+} else if (loadFormat == LoadFormat.Odp) {
+    formatName = "ODP";
+}
+
+System.out.println("File: " + Paths.get(filePath).getFileName());
+System.out.println("Format: " + formatName);
+System.out.println("Title: " + documentProperties.getTitle());
+System.out.println("Author: " + documentProperties.getAuthor());
+System.out.println("Statistics:");
+System.out.println("  Slides: " + documentProperties.getSlides());
+System.out.println("  Hidden slides: " + documentProperties.getHiddenSlides());
+System.out.println("  Slides with notes: " + documentProperties.getNotes());
+System.out.println("  Paragraphs: " + documentProperties.getParagraphs());
+System.out.println("  Words: " + documentProperties.getWords());
+System.out.println("  Multimedia clips: " + documentProperties.getMultimediaClips());
+
+IHeadingPair[] headingPairs = documentProperties.getHeadingPairs();
+String[] titlesOfParts = documentProperties.getTitlesOfParts();
+headingPairs = headingPairs != null ? headingPairs : new IHeadingPair[0];
+titlesOfParts = titlesOfParts != null ? titlesOfParts : new String[0];
+int partIndex = 0;
+
+if (headingPairs.length == 0 || titlesOfParts.length == 0) {
+    System.out.println("Content groups: not available");
+} else {
+    System.out.println("Content groups:");
+
+    for (IHeadingPair headingPair : headingPairs) {
+        System.out.println("  " + headingPair.getName() + " (" + headingPair.getCount() + ")");
+
+        for (int partOffset = 0; partOffset < headingPair.getCount() && partIndex < titlesOfParts.length; partOffset++) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.length) {
+        System.out.println("  Other parts:");
+
+        while (partIndex < titlesOfParts.length) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+}
 ```
 
-आप [DocumentProperties के अंतर्गत गुण](https://reference.aspose.com/slides/hi/java/com.aspose.slides/documentproperties/#DocumentProperties--) वर्ग देखना चाह सकते हैं।
+प्रत्येक [IHeadingPair](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iheadingpair/) समूह का नाम और उस समूह में आइटम्स की संख्या प्रदान करता है। [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) एक सपाट, क्रमबद्ध एरे लौटाता है, इसलिए प्रत्येक हेडिंग पेयर द्वारा निर्दिष्ट क्रमिक शीर्षकों की संख्या को उपभोग करें।
 
-## **प्रस्तुति गुण अद्यतन करें**
+### **सहेजे गए मेटाडेटा और फ़ॉर्मेट सीमाएँ**
 
-Aspose.Slides [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) मेथड प्रदान करता है जो आपको प्रस्तुति गुणों में परिवर्तन करने की अनुमति देता है।
+[IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) द्वारा लौटाए गए इन्वेंट्री गुण स्रोत दस्तावेज़ में उपलब्ध मेटाडेटा को दर्शाते हैं। Aspose.Slides इस कॉल के लिए इन मानों को पुनः गणना करने हेतु प्रस्तुति ऑब्जेक्ट मॉडल को लोड या पार नहीं करता। अनुपलब्ध गुणों को डिफ़ॉल्ट मानों से दर्शाया जाता है, और संग्रहीत मान पुराने हो सकते हैं यदि अंतिम बार फ़ाइल सहेजने वाले अनुप्रयोग ने अपने दस्तावेज़ गुणों को अपडेट नहीं किया था।
 
-मान लीजिए हमारे पास नीचे दिखाए गए दस्तावेज़ गुणों वाली एक PowerPoint प्रस्तुति है।
+- **PPTX:** फ़ॉर्मेट स्लाइड, नोट, छिपी‑स्लाइड, पैराग्राफ, शब्द और मल्टीमीडिया गिनती के लिये विस्तारित दस्तावेज़ गुण प्रदान करता है, साथ ही हेडिंग पेयर्स और भाग शीर्षक। उपलब्धता इस पर निर्भर करती है कि दस्तावेज़ निर्माता ने कौन से गुण लिखे हैं।
+- **PPT:** बाइनरी फ़ॉर्मेट संबंधित दस्तावेज़‑समरी गुण संग्रहीत कर सकता है। यदि कोई गुण अनुपलब्ध है या निर्माता ने उसे रीफ़्रेश नहीं किया, तो Aspose.Slides उसका संग्रहीत या डिफ़ॉल्ट मान लौटाता है, न कि स्लाइड्स से गणना किया हुआ मान।
+- **ODP:** OpenDocument मेटाडेटा सामान्य दस्तावेज़ आँकड़े जैसे पृष्ठ, पैराग्राफ और शब्द गिनती प्रदान करता है, लेकिन ये मान हर PowerPoint‑विशिष्ट विस्तारित गुण से मेल नहीं खाते। छिपी‑स्लाइड, नोट‑स्लाइड, मल्टीमीडिया, हेडिंग‑पेयर और भाग‑शीर्षक मेटाडेटा अनुपलब्ध हो सकता है, और इन्वेंट्री गुण डिफ़ॉल्ट मान लौटाएंगे। शून्य मान या ख़ाली एरे को यह प्रमाण न मानें कि संबंधित सामग्री अनुपस्थित है।
 
-![PowerPoint प्रस्तुति के मूल दस्तावेज़ गुण](input_properties.png)
+इन्वेंट्री और प्रारम्भिक जाँच के लिये हल्की मेटाडेटा पद्धति का उपयोग करें। जब परिणाम को मेमोरी में हुए बदलावों को प्रतिबिंबित करना हो या वास्तविक प्रस्तुति सामग्री को सत्यापित करना हो, तब प्रस्तुति को लोड करके उसके लाइव ऑब्जेक्ट मॉडल की जाँच करें।
 
-यह कोड उदाहरण दिखाता है कि कैसे कुछ प्रस्तुति गुण संपादित करें:
+## **प्रस्तुति गुण अपडेट करें**
+
+[IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) द्वारा लौटाए गए गुणों को भी बिना [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) उदाहरण बनाए बदला जा सकता है। परिवर्तन को [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) के साथ लागू करें, और फिर बंधित प्रस्तुति को [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-) से लिखें।
+
+निम्नलिखित चित्र मूल दस्तावेज़ गुणों को दर्शाता है।
+
+![PowerPoint प्रस्तुति की मूल दस्तावेज़ गुण](input_properties.png)
+
+निम्नलिखित उदाहरण शीर्षक और अंतिम‑सहेजा समय बदलता है और परिणाम को नई फ़ाइल में लिखता है:
 
 ```java
-String fileName = "sample.pptx";
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.Date;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
+String sourceFile = "sample.pptx";
+String outputFile = "sample_with_updated_properties.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(sourceFile);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
 
-IDocumentProperties properties = info.readDocumentProperties();
-properties.setTitle("My title");
-properties.setLastSavedTime(new Date());
+documentProperties.setTitle("Quarterly sales report");
+documentProperties.setLastSavedTime(new Date());
 
-info.updateDocumentProperties(properties);
-info.writeBindedPresentation(fileName);
+presentationInfo.updateDocumentProperties(documentProperties);
+try (OutputStream outputStream = new FileOutputStream(outputFile)) {
+    presentationInfo.writeBindedPresentation(outputStream);
+}
 ```
 
-दस्तावेज़ गुणों को बदलने के परिणाम नीचे दिखाए गए हैं।
+निम्नलिखित चित्र अपडेट किए गए दस्तावेज़ गुणों को दर्शाता है।
 
-![PowerPoint प्रस्तुति के बदले हुए दस्तावेज़ गुण](output_properties.png)
+![PowerPoint प्रस्तुति के अपडेट किए गए दस्तावेज़ गुण](output_properties.png)
 
 ## **उपयोगी लिंक**
 
-प्रस्तुति और उसकी सुरक्षा विशेषताओं के बारे में अधिक जानकारी के लिए, आप इन लिंक को उपयोगी पा सकते हैं:
+संबंधित सुरक्षा जाँच और सुरक्षा सेटिंग्स के लिये देखें:
 
-- [जाँचें कि क्या प्रस्तुति एन्क्रिप्टेड है](https://docs.aspose.com/slides/hi/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [जाँचें कि क्या प्रस्तुति लिखित-रक्षित (केवल-पढ़ने योग्य) है](https://docs.aspose.com/slides/hi/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [जाँचें कि क्या प्रस्तुति को लोड करने से पहले पासवर्ड से सुरक्षित किया गया है](https://docs.aspose.com/slides/hi/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [प्रस्तुति को सुरक्षित करने के लिए उपयोग किए गए पासवर्ड की पुष्टि करना](https://docs.aspose.com/slides/hi/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [प्रेज़ेंटेशन को पासवर्ड‑प्रोटेक्ट करें](/slides/hi/java/password-protected-presentation/)
+- [प्रेज़ेंटेशन को लिखने‑से‑प्रोटेक्ट करें](/slides/hi/java/write-protected-presentation/)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे जाँच सकता हूँ कि फ़ॉन्ट एम्बेडेड हैं और कौन‑से हैं?**
+**मैं कैसे जाँचूं कि फोंट एम्बेडेड हैं और कौन से हैं?**
 
-प्रस्तुति स्तर पर [एंबेडेड फ़ॉन्ट जानकारी](https://reference.aspose.com/slides/hi/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) देखें, फिर उन प्रविष्टियों की तुलना [सामग्री में वास्तविक रूप से प्रयुक्त फ़ॉन्ट्स](https://reference.aspose.com/slides/hi/java/com.aspose.slides/fontsmanager/#getFonts--) के सेट से करें ताकि यह पहचाना जा सके कि रेंडरिंग के लिए किन फ़ॉन्ट्स का महत्व है।
+प्रेज़ेंटेशन लोड करें और [Presentation.getFontsManager](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getFontsManager--) का उपयोग करें। एम्बेडेड फोंट प्राप्त करने के लिये [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) को कॉल करें और प्रस्तुति द्वारा उपयोग किए गए फोंट प्राप्त करने के लिये [IFontsManager.getFonts](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ifontsmanager/#getFonts--) को कॉल करें। दो परिणामों की तुलना करके उन फोंट्स को पहचानें जो रेंडरिंग के लिये आवश्यक हैं लेकिन एम्बेडेड नहीं हैं।
 
-**मैं जल्दी से कैसे जान सकता हूँ कि फ़ाइल में छिपे स्लाइड्स हैं और उनकी संख्या क्या है?**
+**मैं जल्दी से कैसे पता करूं कि फ़ाइल में छिपी हुई स्लाइड्स हैं और कितनी?**
 
-फ़ाइल में [स्लाइड संग्रह](https://reference.aspose.com/slides/hi/java/com.aspose.slides/slidecollection/) को इटररेट करें और प्रत्येक स्लाइड के [दृश्यता फ़्लैग](https://reference.aspose.com/slides/hi/java/com.aspose.slides/slide/#getHidden--) को जांचें।
+जब संग्रहीत दस्तावेज़ मेटाडेटा पर्याप्त हो, तो [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) और [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) के माध्यम से [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) पढ़ें। यह हल्की इन्वेंट्री के लिये उपयुक्त है। यदि प्रस्तुति मेमोरी में संशोधित हुई है, तो संग्रहीत मेटाडेटा अनुपलब्ध या पुराना हो सकता है, या लाइव मानों की जाँच की आवश्यकता हो, तो [Presentation.getSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getSlides--) को इटरेट करें और प्रत्येक स्लाइड के [ISlide.getHidden](https://reference.aspose.com/slides/hi/java/com.aspose.slides/islide/#getHidden--) मेथड को देखें।
 
-**क्या मैं पता लगा सकता हूँ कि कस्टम स्लाइड आकार और अभिविन्यास उपयोग किए गए हैं, और क्या वे डिफ़ॉल्ट से अलग हैं?**
+**क्या मैं पता कर सकता हूँ कि कस्टम स्लाइड आकार और अभिविन्यास उपयोग में है, और क्या वह डिफ़ॉल्ट से अलग है?**
 
-हां। वर्तमान [स्लाइड आकार](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getSlideSize--) और अभिविन्यास की मानक प्रीसेट्स से तुलना करें; यह प्रिंटिंग और निर्यात के व्यवहार का अनुमान लगाने में मदद करता है।
+हां। प्रस्तुति लोड करें और [Presentation.getSlideSize](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getSlideSize--) को कॉल करें। वर्तमान सेटिंग्स को अपेक्षित प्रीसेट और आयामों से तुलना करने के लिये [ISlideSize.getType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/hi/java/com.aspose.slides/islidesize/#getSize--), और [ISlideSize.getOrientation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/islidesize/#getOrientation--) का उपयोग करें।
 
-**क्या चार्ट्स बाहरी डेटा स्रोतों को रेफ़र कर रहे हैं, यह देखना जल्दी संभव है?**
+**क्या चार्ट्स बाहरी डेटा स्रोतों का संदर्भ देते हैं, यह जल्दी से देखने का कोई तरीका है?**
 
-हां। सभी [चार्ट्स](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chart/) को ट्रैवर्स करें, उनके [डेटा स्रोत](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chartdata/#getDataSourceType--) की जाँच करें, और नोट करें कि डेटा अंतर्निहित है या लिंक‑आधारित, जिसमें टूटे हुए लिंक भी शामिल हैं।
+हां। प्रत्येक [Chart](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chart/) को locate करें और [IChartData.getDataSourceType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdata/#getDataSourceType--) को कॉल करें। बाहरी वर्कबुक के लिये, [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) को कॉल करें। डेटा स्रोत प्रकार और पथ बाहरी संदर्भ को पहचानते हैं, लेकिन लक्ष्य की उपलब्धता सत्यापित करने के लिये अलग संसाधन जाँच आवश्यक है।
 
-**मैं कैसे 'भारी' स्लाइड्स का मूल्यांकन कर सकता हूँ जो रेंडरिंग या PDF निर्यात को धीमा कर सकती हैं?**
+**मैं 'हेवी' स्लाइड्स का आकलन कैसे करूँ जो रेंडरिंग या PDF निर्यात को धीमा कर सकती हैं?**
 
-प्रत्येक स्लाइड के लिए, ऑब्जेक्ट गणना करें और बड़े इमेज, ट्रांसपैरेंसी, शैडो, एनीमेशन तथा मल्टीमीडिया देखें; संभावित प्रदर्शन समस्याओं को चिन्हित करने के लिए एक मोटा जटिलता स्कोर असाइन करें।
+कोई एकल जटिलता गुण नहीं है। [Presentation.getSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getSlides--) को पार करें और प्रत्येक स्लाइड के [IBaseSlide.getShapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ibaseslide/#getShapes--) संग्रह को देखें। आकार‑गणना, बड़े इमेजेज, इफ़ेक्ट्स, एनीमेशन या मल्टीमीडिया की उपस्थिति को स्क्रीनिंग संकेत के रूप में उपयोग करें, और किसी स्लाइड को पुष्टि करने से पहले प्रतिनिधि रेंडर या निर्यात मापें।

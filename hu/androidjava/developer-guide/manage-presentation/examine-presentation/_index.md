@@ -1,6 +1,6 @@
 ---
-title: "Prezentáció információk lekérése és frissítése Androidon"
-linktitle: "Prezentáció információk"
+title: Prezentáció információinak lekérése és frissítése Androidon
+linktitle: Prezentáció információk
 type: docs
 weight: 30
 url: /hu/androidjava/examine-presentation/
@@ -22,95 +22,194 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Fedezze fel a diák, a szerkezet és a metaadatok a PowerPoint és OpenDocument prezentációkban Java használatával, a gyorsabb betekintés és az intelligensebb tartalom-ellenőrzés érdekében."
+description: "Fedezze fel a diák, a struktúra és a metaadatok elemzését PowerPoint és OpenDocument prezentációkban Java használatával a gyorsabb betekintés és intelligensebb tartalomelemzés érdekében."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan ellenőrizhetők a prezentációs információk az Aspose.Slides-ban. Ismerteti, hogyan határozható meg egy prezentáció aktuális formátuma a teljes fájl betöltése nélkül, hogyan olvashatók a dokumentum tulajdonságai, és hogyan frissíthetők ezek a tulajdonságok szükség esetén.
+Az Aspose.Slides képes azonosítani egy prezentáció formátumát, és beolvasni a dokumentum metaadatait anélkül, hogy teljes prezentációs objektummodellt hozna létre. Ez akkor hasznos, ha fájlokat kell osztályozni, leltárt felépíteni, vagy a tulajdonságokat ellenőrizni szeretné, mielőtt eldöntené, hogy betölti-e és feldolgozza-e a prezentáció tartalmát.
 
-A példák a [PresentationInfo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationinfo/) és a [DocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/documentproperties/) API-kon alapulnak, és tipikus műveleteket mutatnak be a prezentáció metaadataival való munka során.
+Ez a cikk bemutatja a könnyű ellenőrzést a [PresentationFactory](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationfactory/) és a [IPresentationInfo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationinfo/) segítségével, valamint a célzott frissítéseket a [IDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/) használatával.
 
 ## **Ellenőrizze a prezentáció formátumát**
 
-Mielőtt a prezentációval dolgozna, előfordulhat, hogy szeretné megtudni, milyen formátumban (PPT, PPTX, ODP és egyéb) van a prezentáció jelenleg.
-
-A prezentáció formátumát betöltés nélkül is ellenőrizheti. Tekintse meg ezt a Java kódot:
+Használja a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) a fájl ellenőrzéséhez anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt hozna létre. Az [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationinfo/#getLoadFormat--) metódus jelzi a felismert formátumot, például PPTX, PPT vagy ODP.
 
 ```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-System.out.println(info.getLoadFormat()); // PPTX
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
 
-IPresentationInfo info2 = PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-System.out.println(info2.getLoadFormat()); // PPT
+String[] fileNames = { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-System.out.println(info3.getLoadFormat()); // ODP
+for (String fileName : fileNames) {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(fileName);
+    int loadFormat = presentationInfo.getLoadFormat();
+    String formatName = "Other (" + loadFormat + ")";
+
+    if (loadFormat == LoadFormat.Pptx) {
+        formatName = "PPTX";
+    } else if (loadFormat == LoadFormat.Ppt) {
+        formatName = "PPT";
+    } else if (loadFormat == LoadFormat.Odp) {
+        formatName = "ODP";
+    }
+
+    System.out.println(fileName + ": " + formatName);
+}
 ```
 
-## **A prezentáció tulajdonságainak lekérése**
+## **Készítsen könnyű prezentációs leltárt**
 
-Ez a Java kód bemutatja, hogyan lehet lekérni a prezentáció tulajdonságait (információk a prezentációról):
+Amikor sok prezentációs fájlt dolgoz fel, előfordulhat, hogy egy kompakt leltárra van szüksége érvényesítéshez, indexeléshez vagy dokumentumkezelő rendszerhez. Ebben a helyzetben használja a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) metódust egy [IPresentationInfo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationinfo/) objektum előállításához, majd hívja a [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) metódust a dokumentum metaadatainak beolvasásához. Ez a megközelítés nem hoz létre [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt, és nem igényli a teljes prezentációs objektummodell bejárását.
+
+Az [IDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/) által nyújtott kiterjesztett tulajdonságok a következő leltárértékeket biztosítják:
+
+| Módszer | Leltár értéke |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getSlides--) | Az összes dia száma. |
+| [getHiddenSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | A rejtett diák száma. |
+| [getNotes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getNotes--) | Azoknak a diákoknak a száma, amelyek tartalmaznak jegyzeteket. |
+| [getParagraphs](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getParagraphs--) | Az összes bekezdés száma, ha elérhető. |
+| [getWords](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getWords--) | Az összes szó száma. |
+| [getMultimediaClips](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | Az összes hang- és videoklip száma. |
+
+A következő példa beolvassa ezeket az értékeket anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) objektumot hozna létre, és egy kompakt leltárt nyomtat ki. Emellett egyesíti a [getHeadingPairs](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getHeadingPairs--) és a [getTitlesOfParts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) hívásokat, hogy megjelenítse a tartalmi csoportokat, mint például a betűkészletek, témák és dia címek.
 
 ```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-IDocumentProperties props = info.readDocumentProperties();
-System.out.println(props.getCreatedTime());
-System.out.println(props.getSubject());
-System.out.println(props.getTitle());
-// ...
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IHeadingPair;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.Paths;
+
+String filePath = "sample.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
+
+int loadFormat = presentationInfo.getLoadFormat();
+String formatName = "Other (" + loadFormat + ")";
+
+if (loadFormat == LoadFormat.Pptx) {
+    formatName = "PPTX";
+} else if (loadFormat == LoadFormat.Ppt) {
+    formatName = "PPT";
+} else if (loadFormat == LoadFormat.Odp) {
+    formatName = "ODP";
+}
+
+System.out.println("File: " + Paths.get(filePath).getFileName());
+System.out.println("Format: " + formatName);
+System.out.println("Title: " + documentProperties.getTitle());
+System.out.println("Author: " + documentProperties.getAuthor());
+System.out.println("Statistics:");
+System.out.println("  Slides: " + documentProperties.getSlides());
+System.out.println("  Hidden slides: " + documentProperties.getHiddenSlides());
+System.out.println("  Slides with notes: " + documentProperties.getNotes());
+System.out.println("  Paragraphs: " + documentProperties.getParagraphs());
+System.out.println("  Words: " + documentProperties.getWords());
+System.out.println("  Multimedia clips: " + documentProperties.getMultimediaClips());
+
+IHeadingPair[] headingPairs = documentProperties.getHeadingPairs();
+String[] titlesOfParts = documentProperties.getTitlesOfParts();
+headingPairs = headingPairs != null ? headingPairs : new IHeadingPair[0];
+titlesOfParts = titlesOfParts != null ? titlesOfParts : new String[0];
+int partIndex = 0;
+
+if (headingPairs.length == 0 || titlesOfParts.length == 0) {
+    System.out.println("Content groups: not available");
+} else {
+    System.out.println("Content groups:");
+
+    for (IHeadingPair headingPair : headingPairs) {
+        System.out.println("  " + headingPair.getName() + " (" + headingPair.getCount() + ")");
+
+        for (int partOffset = 0; partOffset < headingPair.getCount() && partIndex < titlesOfParts.length; partOffset++) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.length) {
+        System.out.println("  Other parts:");
+
+        while (partIndex < titlesOfParts.length) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+}
 ```
 
-Érdekelheti a [DocumentProperties osztályban található tulajdonságok](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) listája.
+Minden [IHeadingPair](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iheadingpair/) egy csoportnevet és a csoportban lévő elemek számát adja meg. Az [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) egy lapos, rendezett tömböt ad vissza, ezért a fejlécpárok által meghatározott egymást követő címek számát kell felhasználni.
 
-## **A prezentáció tulajdonságainak frissítése**
+### **Tárolt metaadatok és formátumkorlátozások**
 
-Az Aspose.Slides biztosítja a [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) metódust, amely lehetővé teszi a prezentáció tulajdonságainak módosítását.
+Az [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) által visszaadott leltártulajdonságok tükrözik a forrásdokumentumban elérhető metaadatokat. Az Aspose.Slides nem tölti be és nem járja be a prezentációs objektummodellt, hogy újraszámolja ezeket az értékeket a hívás során. Hiányzó tulajdonságok alapértelmezett értékekkel jelennek meg, és a tárolt értékek elavulhatnak, ha az utoljára fájlt mentő alkalmazás nem frissítette a dokumentumtulajdonságokat.
 
-Tegyük fel, hogy van egy PowerPoint prezentáció, amelynek dokumentumtulajdonságai az alább láthatók.
+- **PPTX:** A formátum kiterjesztett dokumentumtulajdonságokat biztosít a diák, jegyzetek, rejtett diák, bekezdések, szavak és multimédia számához, valamint a cípsor párokhoz és a részcímekhez. Az elérhetőség attól függ, mely tulajdonságokat írta a dokumentum előállítója.
+- **PPT:** A bináris formátum képes tárolni a megfelelő dokumentum-összefoglaló tulajdonságokat. Ha egy tulajdonság hiányzik vagy nem frissítette a dokumentum előállítója, az Aspose.Slides a tárolt vagy alapértelmezett értéket adja vissza a diák alapján történő újraszámolás helyett.
+- **ODP:** Az OpenDocument metaadatok általános dokumentumstatisztikákat biztosítanak, például oldal-, bekezdés- és szószámot, de ezek az értékek nem térnek le minden PowerPoint-specifikus kiterjesztett tulajdonságra. A rejtett dia, a jegyzetdia, a multimédia, a cípsor-pár és a részcím metaadatok előfordulhatnak, vagy hiányozhatnak, és a leltártulajdonságok alapértelmezett értékkel térhetnek vissza. Ne tekintsen egy null értéket vagy egy üres tömböt autoritatív bizonyítéknak arra, hogy a megfelelő tartalom hiányzik.
 
-![A PowerPoint prezentáció eredeti dokumentumtulajdonságai](input_properties.png)
+Használja a könnyű metaadat-megoldást leltárakhoz és előzetes ellenőrzésekhez. Töltse be a prezentációt, és ellenőrizze annak élő objektummodelljét, ha az eredménynek tükröznie kell a memóriában történt változásokat, vagy ha a tényleges prezentációs tartalmat kell ellenőrizni.
 
-Ez a kódrészlet bemutatja, hogyan szerkeszthet néhány prezentációs tulajdonságot:
+## **Frissítse a prezentáció tulajdonságait**
+
+Az [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) által visszaadott tulajdonságok szintén módosíthatók anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt hoznának létre. Alkalmazza a változtatásokat az [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) segítségével, majd írja ki a kötött prezentációt az [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-) metódussal.
+
+![Az eredeti dokumentum tulajdonságai a PowerPoint prezentációban](input_properties.png)
+
+A következő példa módosítja a címet és az utolsó mentés időpontját, majd az eredményt egy új fájlba írja:
 
 ```java
-String fileName = "sample.pptx";
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.Date;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
+String sourceFile = "sample.pptx";
+String outputFile = "sample_with_updated_properties.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(sourceFile);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
 
-IDocumentProperties properties = info.readDocumentProperties();
-properties.setTitle("My title");
-properties.setLastSavedTime(new Date());
+documentProperties.setTitle("Quarterly sales report");
+documentProperties.setLastSavedTime(new Date());
 
-info.updateDocumentProperties(properties);
-info.writeBindedPresentation(fileName);
+presentationInfo.updateDocumentProperties(documentProperties);
+try (OutputStream outputStream = new FileOutputStream(outputFile)) {
+    presentationInfo.writeBindedPresentation(outputStream);
+}
 ```
 
-A dokumentumtulajdonságok módosításának eredményei az alább láthatók.
-
-![A PowerPoint prezentáció módosított dokumentumtulajdonságai](output_properties.png)
+![Módosított dokumentum tulajdonságok a PowerPoint prezentációban](output_properties.png)
 
 ## **Hasznos hivatkozások**
 
-A prezentációval és annak biztonsági attribútumaival kapcsolatos további információkért hasznosak lehetnek ezek a hivatkozások:
+A kapcsolódó biztonsági ellenőrzések és védelmi beállítások tekintetében tekintse meg a következő cikkeket:
 
-- [Ellenőrzés, hogy a prezentáció titkosított-e](https://docs.aspose.com/slides/hu/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Ellenőrzés, hogy a prezentáció írásvédett (csak olvasható)](https://docs.aspose.com/slides/hu/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Ellenőrzés, hogy a prezentáció jelszóval védett-e a betöltés előtt](https://docs.aspose.com/slides/hu/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [A prezentáció védésére használt jelszó megerősítése](https://docs.aspose.com/slides/hu/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/hu/androidjava/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/hu/androidjava/write-protected-presentation/)
 
 ## **GYIK**
 
-**Hogyan ellenőrizhetem, hogy a betűkészletek be vannak-e ágyazva, és melyek azok?**  
-Keresse meg a [beágyazott betűkészletek információját](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) a prezentáció szintjén, majd hasonlítsa össze ezeket a [ténylegesen a tartalomban használt betűkészletekkel](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsmanager/#getFonts--) annak érdekében, hogy azonosítsa, mely betűkészletek kritikusak a megjelenítéshez.
+**Hogyan ellenőrizhetem, hogy a betűkészletek be vannak-e ágyazva, és melyek azok?**
 
-**Hogyan tudom gyorsan megállapítani, hogy a fájl rejtett diákot tartalmaz-e, és ha igen, hány darabot?**  
-Iteráljon a [dia gyűjteményen](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidecollection/) és ellenőrizze minden dia [láthatósági jelzőjét](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slide/#getHidden--).
+Töltse be a prezentációt, és használja a [Presentation.getFontsManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getFontsManager--) metódust. Hívja a [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) metódust a beágyazott betűkészletekhez, valamint a [IFontsManager.getFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) metódust a prezentáció által használt betűkészletekhez. Hasonlítsa össze a két eredményt annak meghatározásához, hogy mely betűkészletek szükségesek a megjelenítéshez, de nincsenek beágyazva.
 
-**Felismerhető-e, hogy egyedi dia méret és tájolás van-e használatban, és eltérnek-e az alapértelmezettektől?**  
-Igen. Hasonlítsa össze a jelenlegi [dia méretet](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getSlideSize--) és tájolást a szabványos előbeállításokkal; ez segít előre jelezni a nyomtatási és exportálási viselkedést.
+**Hogyan tudom gyorsan megmondani, hogy a fájl tartalmaz-e rejtett diát, és ha igen, hány darabot?**
 
-**Van gyors módja annak, hogy megállapítsam, a diagramok külső adatforrásokra hivatkoznak-e?**  
-Igen. Járja be az összes [diagramot](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/chart/), ellenőrizze azok [adatforrását](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/chartdata/#getDataSourceType--), és vegye észre, hogy az adat belső vagy hivatkozáson alapul-e, beleértve a hibás hivatkozásokat is.
+Amikor a tárolt dokumentum metaadatai elegendőek, olvassa a [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) értéket a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) és az [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) segítségével. Ez alkalmas egy könnyű leltárra. Ha a prezentáció memóriában módosult, a tárolt metaadatok hiányozhatnak vagy elavulhatnak, vagy ha élő értékeket akar ellenőrizni, járja be a [Presentation.getSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getSlides--) elemeit, és minden dia [ISlide.getHidden](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/#getHidden--) metódusát vizsgálja.
 
-**Hogyan értékelhetem a 'nehéz' diákokat, amelyek lassíthatják a renderelést vagy a PDF exportot?**  
-Minden diánál számolja meg az objektumok darabszámát, és keressen nagy képeket, átlátszóságot, árnyékokat, animációkat és multimédiát; adjon hozzá egy durva komplexitási pontszámot, hogy jelölje a lehetséges teljesítménybeli problémákat.
+**Felderíthetem-e, hogy egyedi diamenet és tájolás van-e használatban, és eltérnek-e az alapértelmezettektől?**
+
+Igen. Töltse be a prezentációt, és hívja a [Presentation.getSlideSize](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getSlideSize--) metódust. Használja az [ISlideSize.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidesize/#getSize--) és [ISlideSize.getOrientation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidesize/#getOrientation--) metódusokat a jelenlegi beállítások összehasonlításához az elvárt előre beállított értékekkel és méretekkel.
+
+**Van gyors módja annak, hogy megtudjam, a diagramok külső adatforrásokra hivatkoznak-e?**
+
+Igen. Keresse meg minden [Chart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/chart/) elemet, és hívja a [IChartData.getDataSourceType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--) metódust. Külső munkafüzet esetén hívja a [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) metódust. Az adatforrás típusa és az útvonal jelzi a külső hivatkozást, de annak elérhetőségét külön erőforrás‑ellenőrzéssel kell megvizsgálni.
+
+**Hogyan értékelhetem a 'nehéz' diákokat, amelyek lassíthatják a renderelést vagy a PDF‑exportálást?**
+
+Nincs egyetlen összetettségi tulajdonság sem. Járja be a [Presentation.getSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getSlides--) elemeit, valamint minden dia [IBaseSlide.getShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/#getShapes--) gyűjteményét. Használja a forma‑számokat és a nagy képek, effektusok, animációk vagy multimédia jelenlétét szűrőjelzőként, és mérjen egy reprezentatív renderelést vagy exportálást, mielőtt a diát végleges teljesítménybottleneck‑nek tekintené.

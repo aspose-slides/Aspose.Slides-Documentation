@@ -5,17 +5,17 @@ type: docs
 weight: 70
 url: /id/php-java/presentation-properties/
 keywords:
-- properti PowerPoint
+- Properti PowerPoint
 - properti presentasi
 - properti dokumen
 - properti bawaan
-- properti kustom
+- properti khusus
 - properti lanjutan
 - kelola properti
 - modifikasi properti
 - metadata dokumen
 - edit metadata
-- bahasa proofing
+- bahasa pemeriksaan
 - bahasa default
 - PowerPoint
 - OpenDocument
@@ -26,54 +26,56 @@ description: "Kuasai properti presentasi dalam Aspose.Slides untuk PHP via Java 
 ---
 ## **Pendahuluan**
 
-Aspose.Slides mendukung dua jenis properti dokumen: **Bawaan** dan **Kustom**. Kedua jenis properti ini dapat dengan mudah diakses dan dikelola menggunakan API Aspose.Slides.
+Aspose.Slides mendukung dua jenis properti dokumen: **Built-in** dan **Custom**. Kedua jenis properti ini dapat dengan mudah diakses dan dikelola menggunakan API Aspose.Slides.
 
-Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui kelas [DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties/) . Sebuah instance kelas ini dikembalikan oleh metode [Presentation::getDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getDocumentProperties) . Contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti-properti tersebut.
+Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui kelas [DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties/) . Sebuah instance dari kelas ini dikembalikan oleh metode [Presentation::getDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getDocumentProperties) . Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti ini.
 
-{{% alert color="primary" %}} 
-Harap dicatat bahwa bidang **Application** dan **Producer** tidak dapat diubah, karena bidang tersebut akan selalu menampilkan "Aspose Ltd." dan "Aspose.Slides for PHP via Java x.x.x".
+{{% alert color="info" title="Catatan" %}}
+Harap dicatat bahwa bidang **Application** dan **AppVersion** tidak dapat diubah. Aspose.Slides menulis ulang mereka pada setiap penyimpanan, sehingga presentasi yang disimpan selalu melaporkan "Aspose.Slides for PHP via Java" dan versi pustaka yang menghasilkan. Nilai apa pun yang diberikan ke `setNameOfApplication` dibuang saat presentasi ditulis.
 {{% /alert %}} 
 
 ## **Kelola Properti Presentasi**
 
 Microsoft PowerPoint menyediakan fitur untuk menambahkan beberapa properti ke file presentasi. Properti dokumen ini memungkinkan informasi berguna disimpan bersama dokumen (file presentasi). Ada dua jenis properti dokumen sebagai berikut
 
-- Properti yang Ditentukan Sistem (Bawaan)
-- Properti yang Ditentukan Pengguna (Kustom)
+- Properti Sistem (Built-in)  
+- Properti Pengguna (Custom)  
 
-Properti **Bawaan** berisi informasi umum tentang dokumen seperti judul dokumen, nama penulis, statistik dokumen, dan sebagainya. Properti **Kustom** adalah properti yang didefinisikan oleh pengguna sebagai pasangan **Nama/Nilai**, di mana nama dan nilai ditentukan oleh pengguna. Menggunakan Aspose.Slides for PHP via Java, pengembang dapat mengakses dan memodifikasi nilai properti bawaan maupun properti kustom.
+**Built-in** properti berisi informasi umum tentang dokumen seperti judul dokumen, nama penulis, statistik dokumen, dan sebagainya. **Custom** properti adalah properti yang didefinisikan oleh pengguna sebagai pasangan **Name/Value**, di mana baik nama maupun nilai ditentukan oleh pengguna. Menggunakan Aspose.Slides untuk PHP via Java, pengembang dapat mengakses dan memodifikasi nilai properti built-in serta properti custom.
 
 ## **Properti Dokumen di PowerPoint**
 
-Microsoft PowerPoint 2007 memungkinkan pengelolaan properti dokumen file presentasi. Yang perlu Anda lakukan hanyalah mengklik ikon Office dan selanjutnya **Prepare | Properties | Advanced Properties** pada Microsoft PowerPoint 2007 seperti yang ditunjukkan di bawah:
+Microsoft PowerPoint 2007 memungkinkan pengelolaan properti dokumen file presentasi. Yang perlu Anda lakukan adalah mengklik ikon Office dan selanjutnya memilih menu **Prepare | Properties | Advanced Properties** di Microsoft PowerPoint 2007 seperti yang ditunjukkan di bawah ini:
 
 |**Memilih menu Advanced Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-Setelah Anda memilih menu **Advanced Properties**, sebuah dialog akan muncul yang memungkinkan Anda mengelola properti dokumen file PowerPoint seperti yang ditunjukkan pada gambar berikut:
+
+Setelah Anda memilih menu **Advanced Properties**, sebuah dialog akan muncul memungkinkan Anda mengelola properti dokumen file PowerPoint seperti yang ditunjukkan di bawah ini:
 
 |**Dialog Properti**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-Pada **Dialog Properti** di atas, Anda dapat melihat banyak tab seperti **General**, **Summary**, **Statistics**, **Contents**, dan **Custom**. Semua tab ini memungkinkan konfigurasi berbagai jenis informasi terkait file PowerPoint. Tab **Custom** digunakan untuk mengelola properti kustom file PowerPoint.
 
-### Bekerja dengan Properti Dokumen Menggunakan Aspose.Slides for PHP via Java
+Pada **Dialog Properti** di atas, Anda dapat melihat bahwa ada banyak halaman tab seperti **General**, **Summary**, **Statistics**, **Contents**, dan **Custom**. Semua halaman tab ini memungkinkan konfigurasi berbagai jenis informasi terkait file PowerPoint. Tab **Custom** digunakan untuk mengelola properti custom file PowerPoint.
 
-Seperti yang dijelaskan sebelumnya, Aspose.Slides for PHP via Java mendukung dua jenis properti dokumen, yaitu properti **Bawaan** dan **Kustom**. Jadi, pengembang dapat mengakses kedua jenis properti tersebut dengan menggunakan API Aspose.Slides for PHP via Java. Aspose.Slides for PHP via Java menyediakan kelas [DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties) yang mewakili properti dokumen yang terkait dengan file presentasi melalui properti **Presentation.DocumentProperties**.
+## **Bekerja dengan Properti Dokumen Menggunakan Aspose.Slides untuk PHP via Java**
 
-Pengembang dapat menggunakan properti **DocumentProperties** yang diekspor oleh objek [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation) untuk mengakses properti dokumen file presentasi seperti dijelaskan di bawah:
+Seperti yang kami jelaskan sebelumnya, Aspose.Slides untuk PHP via Java mendukung dua jenis properti dokumen, yaitu properti **Built-in** dan **Custom**. Jadi, pengembang dapat mengakses kedua jenis properti tersebut menggunakan API Aspose.Slides untuk PHP via Java. Aspose.Slides untuk PHP via Java menyediakan kelas [DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties) yang mewakili properti dokumen yang terkait dengan file presentasi melalui properti **Presentation.DocumentProperties**.
 
-## **Akses Properti Bawaan**
+Pengembang dapat menggunakan properti **DocumentProperties** yang diekspos oleh objek [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation) untuk mengakses properti dokumen file presentasi seperti dijelaskan di bawah ini:
 
-Properti yang diekspor oleh objek [DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties) meliputi: **Creator** (Penulis), **Description**, **Keywords**, **Created** (Tanggal Pembuatan), **Modified** (Tanggal Modifikasi), **Printed** (Tanggal Cetak Terakhir), **LastModifiedBy**, **Keywords**, **SharedDoc** (Apakah dibagikan antara produsen yang berbeda?), **PresentationFormat**, **Subject**, dan **Title**
+## **Akses Properti Built-in**
+
+Properti-properti yang diekspos oleh objek [DocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties) meliputi: **Creator** (Penulis), **Description**, **Keywords**, **Created** (Tanggal Pembuatan), **Modified** (Tanggal Modifikasi), **Printed** (Tanggal Cetak Terakhir), **LastModifiedBy**, **SharedDoc** (Apakah dibagikan antar produsen berbeda?), **PresentationFormat**, **Subject**, dan **Title**.
 
 ```php
-  # Membuat instance kelas Presentation yang mewakili presentasi
+  # Membuat instance kelas Presentation yang merepresentasikan presentasi
   $pres = new Presentation("Presentation.pptx");
   try {
     # Membuat referensi ke objek IDocumentProperties yang terkait dengan Presentation
     $dp = $pres->getDocumentProperties();
-    # Menampilkan properti bawaan
+    # Menampilkan properti built-in
     echo("Category : " . $dp->getCategory());
     echo("Current Status : " . $dp->getContentStatus());
     echo("Creation Date : " . $dp->getCreatedTime());
@@ -95,22 +97,22 @@ Properti yang diekspor oleh objek [DocumentProperties](https://reference.aspose.
   }
 ```
 
-## **Modifikasi Properti Bawaan**
+## **Modifikasi Properti Built-in**
 
-Memodifikasi properti bawaan file presentasi semudah mengaksesnya. Anda cukup menetapkan nilai string ke properti yang diinginkan dan nilai properti akan dimodifikasi. Pada contoh di bawah, kami mendemonstrasikan cara memodifikasi properti dokumen bawaan file presentasi menggunakan Aspose.Slides for PHP via Java.
+Memodifikasi properti built-in file presentasi semudah mengaksesnya. Anda cukup menetapkan nilai string ke properti yang diinginkan dan nilai properti tersebut akan diubah. Pada contoh di bawah, kami menunjukkan cara memodifikasi properti dokumen built-in file presentasi menggunakan Aspose.Slides untuk PHP via Java.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
     # Membuat referensi ke objek IDocumentProperties yang terkait dengan Presentation
     $dp = $pres->getDocumentProperties();
-    # Mengatur properti bawaan
+    # Mengatur properti built-in
     $dp->setAuthor("Aspose.Slides for PHP via Java");
     $dp->setTitle("Modifying Presentation Properties");
     $dp->setSubject("Aspose Subject");
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
-    # Simpan presentasi Anda ke sebuah file
+    # Simpan presentasi Anda ke file
     $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -119,15 +121,15 @@ Memodifikasi properti bawaan file presentasi semudah mengaksesnya. Anda cukup me
   }
 ```
 
-Contoh ini memodifikasi properti bawaan presentasi yang dapat dilihat seperti berikut:
+Contoh ini memodifikasi properti built-in presentasi yang dapat dilihat seperti di bawah ini:
 
-|**Properti dokumen bawaan setelah modifikasi**|** |
+|**Properti dokumen Built-in setelah modifikasi**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **Menambahkan Properti Dokumen Kustom**
+## **Menambahkan Properti Dokumen Custom**
 
-Aspose.Slides for PHP via Java juga memungkinkan pengembang menambahkan nilai kustom untuk properti dokumen presentasi. Contoh di bawah menunjukkan cara mengatur properti kustom untuk sebuah presentasi.
+Aspose.Slides untuk PHP via Java juga memungkinkan pengembang menambahkan nilai custom untuk properti Dokumen presentasi. Contoh diberikan di bawah yang menunjukkan cara menetapkan properti custom untuk sebuah presentasi.
 
 ```php
   $pres = new Presentation();
@@ -151,13 +153,13 @@ Aspose.Slides for PHP via Java juga memungkinkan pengembang menambahkan nilai ku
   }
 ```
 
-|**Properti Dokumen Kustom Ditambahkan**|** |
+|**Properti Dokumen Custom Ditambahkan**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Akses dan Modifikasi Properti Kustom**
+## **Akses dan Modifikasi Properti Custom**
 
-Aspose.Slides for PHP via Java juga memungkinkan pengembang mengakses nilai properti kustom. Contoh di bawah menunjukkan cara mengakses dan memodifikasi semua properti kustom untuk sebuah presentasi.
+Aspose.Slides untuk PHP via Java juga memungkinkan pengembang mengakses nilai properti custom. Contoh diberikan di bawah yang menunjukkan cara mengakses dan memodifikasi semua properti custom tersebut untuk sebuah presentasi.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -172,7 +174,7 @@ Aspose.Slides for PHP via Java juga memungkinkan pengembang mengakses nilai prop
       # Memodifikasi nilai properti kustom
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
-    # Simpan presentasi Anda ke sebuah file
+    # Simpan presentasi Anda ke file
     $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -181,28 +183,28 @@ Aspose.Slides for PHP via Java juga memungkinkan pengembang mengakses nilai prop
   }
 ```
 
-Contoh ini memodifikasi properti kustom dari [PPTX](https://docs.fileformat.com/presentation/pptx/) presentasi. Gambar berikut menunjukkan properti kustom presentasi sebelum dan sesudah modifikasi:
+Contoh ini memodifikasi properti custom dari presentasi [PPTX](https://docs.fileformat.com/presentation/pptx/). Gambar berikut menunjukkan properti custom presentasi sebelum dan sesudah modifikasi:
 
-|**Properti Kustom Sebelum Modifikasi**|** |
+|**Properti Custom sebelum Modifikasi**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Properti Kustom Setelah Modifikasi**|** |
+|**Properti Custom setelah Modifikasi**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Properti Dokumen Lanjutan**
 
-{{% alert color="primary" %}} 
-Metode baru [readDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties), dan [writeBindedPresentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) telah ditambahkan ke [PresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo), logika setter properti [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties/#setLastSavedTime) telah diubah.
+{{% alert color="info" title="Catatan" %}}
+Metode baru [readDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties), dan [writeBindedPresentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) telah ditambahkan ke [PresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo), logika penyetel properti [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/id/php-java/aspose.slides/documentproperties/#setLastSavedTime) telah diubah.
 {{% /alert %}} 
 
-Dua metode baru [readDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) dan [updateDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) telah ditambahkan ke kelas [PresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo). Mereka menyediakan akses cepat ke properti dokumen dan memungkinkan mengubah serta memperbarui properti tanpa memuat seluruh presentasi.
+Kedua metode baru [readDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) dan [updateDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) telah ditambahkan ke kelas [PresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/PresentationInfo). Mereka menyediakan akses cepat ke properti dokumen dan memungkinkan mengubah serta memperbarui properti tanpa memuat seluruh presentasi.
 
-Skenario tipikal memuat properti, mengubah beberapa nilai, dan memperbarui dokumen dapat diimplementasikan dengan cara berikut:
+Skenario umum memuat properti, mengubah beberapa nilai, dan memperbarui dokumen dapat diimplementasikan dengan cara berikut:
 
 ```php
-  # baca info presentasi
+  # baca informasi presentasi
   $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
   # dapatkan properti saat ini
   $props = $info->readDocumentProperties();
@@ -214,7 +216,7 @@ Skenario tipikal memuat properti, mengubah beberapa nilai, dan memperbarui dokum
   $info->writeBindedPresentation("presentation.pptx");
 ```
 
-Ada cara lain untuk menggunakan properti sebuah presentasi tertentu sebagai templat untuk memperbarui properti pada presentasi lain:
+Ada cara lain untuk menggunakan properti dari presentasi tertentu sebagai templat untuk memperbarui properti di presentasi lain:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("template.pptx");
@@ -253,14 +255,14 @@ Templat baru dapat dibuat dari awal dan kemudian digunakan untuk memperbarui beb
   updateByTemplate("doc3.ppt", $template);
 ```
 
-## **Atur Bahasa Proofing**
+## **Atur Bahasa Pemeriksaan**
 
-Aspose.Slides menyediakan properti LanguageId (diekspos oleh kelas PortionFormat) untuk memungkinkan Anda mengatur bahasa proofing untuk dokumen PowerPoint. Bahasa proofing adalah bahasa yang akan diperiksa ejaan dan tata bahasanya dalam PowerPoint.
+Aspose.Slides menyediakan properti LanguageId (diekspose oleh kelas PortionFormat) untuk memungkinkan Anda mengatur bahasa pemeriksaan untuk dokumen PowerPoint. Bahasa pemeriksaan adalah bahasa yang spellings dan tata bahasa di PowerPointnya akan diperiksa.
 
-Kode PHP ini menunjukkan cara mengatur bahasa proofing untuk PowerPoint: xxx Mengapa LanguageId tidak ada pada kelas Java PortionFormat?
+Kode PHP ini menunjukkan cara mengatur bahasa pemeriksaan untuk PowerPoint: xxx Mengapa LanguageId tidak ada di kelas Java PortionFormat?
 
 ```php
-  $pres = new Presentation($pptxFileName);
+  $pres = new Presentation("Presentation.pptx");
   try {
     $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
@@ -268,10 +270,10 @@ Kode PHP ini menunjukkan cara mengatur bahasa proofing untuk PowerPoint: xxx Men
     $newPortion = new Portion();
     $font = new FontData("SimSun");
     $portionFormat = $newPortion->getPortionFormat();
-    $portionFormat::setComplexScriptFont($font);
-    $portionFormat::setEastAsianFont($font);
-    $portionFormat::setLatinFont($font);
-    $portionFormat::setLanguageId("zh-CN");// atur Id bahasa proofing
+    $portionFormat->setComplexScriptFont($font);
+    $portionFormat->setEastAsianFont($font);
+    $portionFormat->setLatinFont($font);
+    $portionFormat->setLanguageId("zh-CN");// atur Id bahasa pemeriksaan
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);
@@ -311,14 +313,14 @@ Coba aplikasi online [**Aspose.Slides Metadata**](https://products.aspose.app/sl
 
 ## **FAQ**
 
-**Bagaimana cara menghapus properti bawaan dari sebuah presentasi?**
+**Bagaimana cara menghapus properti built-in dari sebuah presentasi?**
 
-Properti bawaan merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau menetapkannya menjadi kosong jika properti tersebut mengizinkannya.
+Properti built-in merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika properti tersebut memperbolehkan.
 
-**Apa yang terjadi jika saya menambahkan properti kustom yang sudah ada?**
+**Apa yang terjadi jika saya menambahkan properti custom yang sudah ada?**
 
-Jika Anda menambahkan properti kustom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut terlebih dahulu, karena Aspose.Slides secara otomatis memperbarui nilai properti.
+Jika Anda menambahkan properti custom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut terlebih dahulu, karena Aspose.Slides secara otomatis memperbarui nilai properti.
 
-**Dapatkah saya mengakses properti presentasi tanpa memuat seluruh presentasi?**
+**Apakah saya dapat mengakses properti presentasi tanpa memuat seluruh presentasi?**
 
-Ya, Anda dapat mengakses properti presentasi tanpa memuat seluruh presentasi dengan menggunakan metode `getPresentationInfo` dari kelas [PresentationFactory](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationfactory/) . Kemudian, manfaatkan metode `readDocumentProperties` yang disediakan oleh kelas [PresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationinfo/) untuk membaca properti secara efisien, menghemat memori dan meningkatkan kinerja.
+Ya. Gunakan [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationfactory/) lalu [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationinfo/#readDocumentProperties) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Lihat [Build a Lightweight Presentation Inventory](/slides/id/php-java/examine-presentation/) untuk contoh pelaporan lengkap dan batasan khusus format.

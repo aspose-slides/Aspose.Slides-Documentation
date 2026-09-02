@@ -1,6 +1,6 @@
 ---
-title: Recupera e Aggiorna le Informazioni della Presentazione in C++
-linktitle: Informazioni sulla Presentazione
+title: Recuperare e aggiornare le informazioni della presentazione in C++
+linktitle: Informazioni sulla presentazione
 type: docs
 weight: 30
 url: /it/cpp/examine-presentation/
@@ -21,101 +21,197 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Esplora diapositive, struttura e metadati nelle presentazioni PowerPoint e OpenDocument usando C++ per approfondimenti più rapidi e audit di contenuti più intelligenti."
+description: "Esplora diapositive, struttura e metadati nelle presentazioni PowerPoint e OpenDocument utilizzando C++ per ottenere approfondimenti più rapidi e audit dei contenuti più intelligenti."
 ---
 ## **Panoramica**
 
-Questo articolo mostra come ispezionare le informazioni di una presentazione in Aspose.Slides. Spiega come determinare il formato corrente di una presentazione senza caricare l’intero file, leggere le sue proprietà documentali e aggiornare tali proprietà quando necessario.
+Aspose.Slides può identificare il formato di una presentazione e leggere i metadati del documento senza creare un modello completo di oggetti della presentazione. Questo è utile quando è necessario classificare i file, creare un inventario o ispezionare le proprietà prima di decidere se caricare ed elaborare il contenuto della presentazione.
 
-Gli esempi si basano sulle API [PresentationInfo](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentationinfo/) e [DocumentProperties](https://reference.aspose.com/slides/it/cpp/aspose.slides/documentproperties/) e dimostrano le operazioni tipiche per lavorare con i metadati di una presentazione.
+Questo articolo dimostra l'ispezione leggera tramite [PresentationFactory](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentationfactory/) e [IPresentationInfo](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationinfo/), nonché aggiornamenti mirati tramite [IDocumentProperties](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/).
 
-## **Verificare il Formato di una Presentazione**
+## **Verifica il formato di una presentazione**
 
-Prima di lavorare su una presentazione, potresti voler scoprire in quale formato (PPT, PPTX, ODP e altri) si trovi al momento.
+Utilizza [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) per ispezionare un file senza creare un'istanza di [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/). Il metodo [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationinfo/get_loadformat/) restituisce il formato rilevato, ad esempio PPTX, PPT o ODP.
 
-Puoi verificare il formato di una presentazione senza caricare la presentazione. Vedi questo codice C++:
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <LoadFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
 
-``` cpp
-auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
-// PPTX
-Console::WriteLine(ObjectExt::ToString(info->get_LoadFormat()));
+using namespace Aspose::Slides;
+using namespace System;
 
-auto info2 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.ppt");
-// PPT
-Console::WriteLine(ObjectExt::ToString(info2->get_LoadFormat()));
+auto fileNames = MakeArray<String>({u"pres.pptx", u"pres.ppt", u"pres.odp"});
 
-auto info3 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.odp");
-// ODP
-Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
+for (const auto& fileName : fileNames)
+{
+    auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
+    Console::WriteLine(String::Format(u"{0}: {1}", fileName, ObjectExt::ToString(presentationInfo->get_LoadFormat())));
+}
 ```
 
-## **Ottenere le Proprietà della Presentazione**
+## **Crea un inventario leggero delle presentazioni**
 
-Questo codice C++ mostra come ottenere le proprietà della presentazione (informazioni sulla presentazione):
+Quando elabori molti file di presentazione, potresti aver bisogno di un inventario compatto per convalida, indicizzazione o un sistema di gestione dei documenti. In questo scenario, utilizza [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) per ottenere un oggetto [IPresentationInfo](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationinfo/), e quindi chiama [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) per leggere i metadati del documento. Questo approccio non crea un'istanza di [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) né richiede di attraversare l'intero modello di oggetti della presentazione.
 
-``` cpp
-auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
-auto props = info->ReadDocumentProperties();
-Console::WriteLine(ObjectExt::ToString(props->get_CreatedTime()));
-Console::WriteLine(props->get_Subject());
-Console::WriteLine(props->get_Title());
-// .. 
+Le proprietà estese esposte da [IDocumentProperties](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/) forniscono i seguenti valori di inventario:
+
+| Metodo | Valore dell'inventario |
+| --- | --- |
+| [get_Slides](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_slides/) | Numero totale di diapositive. |
+| [get_HiddenSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) | Numero di diapositive nascoste. |
+| [get_Notes](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_notes/) | Numero di diapositive che contengono note. |
+| [get_Paragraphs](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | Numero totale di paragrafi, se disponibile. |
+| [get_Words](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_words/) | Numero totale di parole. |
+| [get_MultimediaClips](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | Numero totale di clip audio e video. |
+
+Il seguente esempio legge questi valori senza creare un oggetto [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) e stampa un inventario compatto. Combina inoltre [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_headingpairs/) con [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) per visualizzare gruppi di contenuti come caratteri, temi e titoli delle diapositive.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IHeadingPair.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <LoadFormat.h>
+#include <system/console.h>
+#include <system/io/path.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto filePath = String(u"sample.pptx");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(filePath);
+auto documentProperties = presentationInfo->ReadDocumentProperties();
+
+Console::WriteLine(String::Format(u"File: {0}", Path::GetFileName(filePath)));
+Console::WriteLine(String::Format(u"Format: {0}", ObjectExt::ToString(presentationInfo->get_LoadFormat())));
+Console::WriteLine(String::Format(u"Title: {0}", documentProperties->get_Title()));
+Console::WriteLine(String::Format(u"Author: {0}", documentProperties->get_Author()));
+Console::WriteLine(u"Statistics:");
+Console::WriteLine(String::Format(u"  Slides: {0}", documentProperties->get_Slides()));
+Console::WriteLine(String::Format(u"  Hidden slides: {0}", documentProperties->get_HiddenSlides()));
+Console::WriteLine(String::Format(u"  Slides with notes: {0}", documentProperties->get_Notes()));
+Console::WriteLine(String::Format(u"  Paragraphs: {0}", documentProperties->get_Paragraphs()));
+Console::WriteLine(String::Format(u"  Words: {0}", documentProperties->get_Words()));
+Console::WriteLine(String::Format(u"  Multimedia clips: {0}", documentProperties->get_MultimediaClips()));
+
+auto headingPairs = documentProperties->get_HeadingPairs();
+auto titlesOfParts = documentProperties->get_TitlesOfParts();
+auto partIndex = 0;
+
+if (headingPairs == nullptr || titlesOfParts == nullptr || headingPairs->get_Length() == 0 || titlesOfParts->get_Length() == 0)
+{
+    Console::WriteLine(u"Content groups: not available");
+}
+else
+{
+    Console::WriteLine(u"Content groups:");
+
+    for (const auto& headingPair : headingPairs)
+    {
+        auto partCount = headingPair->get_Count();
+        Console::WriteLine(String::Format(u"  {0} ({1})", headingPair->get_Name(), partCount));
+
+        for (auto partOffset = 0; partOffset < partCount && partIndex < titlesOfParts->get_Length(); partOffset++)
+        {
+            Console::WriteLine(String::Format(u"    - {0}", titlesOfParts[partIndex]));
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts->get_Length())
+    {
+        Console::WriteLine(u"  Other parts:");
+
+        while (partIndex < titlesOfParts->get_Length())
+        {
+            Console::WriteLine(String::Format(u"    - {0}", titlesOfParts[partIndex]));
+            partIndex++;
+        }
+    }
+}
 ```
 
-## **Aggiornare le Proprietà della Presentazione**
+Ogni [IHeadingPair](https://reference.aspose.com/slides/it/cpp/aspose.slides/iheadingpair/) fornisce un nome di gruppo tramite [IHeadingPair::get_Name](https://reference.aspose.com/slides/it/cpp/aspose.slides/iheadingpair/get_name/) e il numero di elementi in quel gruppo tramite [IHeadingPair::get_Count](https://reference.aspose.com/slides/it/cpp/aspose.slides/iheadingpair/get_count/). [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) restituisce un array piatto e ordinato, quindi consuma il numero di titoli consecutivi specificato da ciascuna coppia di intestazione.
 
-Aspose.Slides fornisce il metodo [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) che consente di modificare le proprietà della presentazione.
+### **Metadati memorizzati e limitazioni del formato**
 
-Supponiamo di avere una presentazione PowerPoint con le proprietà del documento riportate di seguito.
+Le proprietà di inventario restituite da [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) riflettono i metadati disponibili nel documento di origine. Aspose.Slides non carica e attraversa il modello di oggetti della presentazione per ricalcolare questi valori per questa chiamata. Le proprietà mancanti sono rappresentate da valori predefiniti e i valori memorizzati possono essere obsoleti se l'applicazione che ha salvato per ultima il file non ha aggiornato le proprietà del documento.
+
+- **PPTX:** Il formato fornisce proprietà di documento estese per conteggi di diapositive, note, diapositive nascoste, paragrafi, parole e contenuti multimediali, nonché coppie di intestazioni e titoli delle parti. La disponibilità dipende dalle proprietà scritte dal produttore del documento.
+- **PPT:** Il formato binario può memorizzare le corrispondenti proprietà di riepilogo del documento. Se una proprietà è assente o non è stata aggiornata dal produttore del documento, Aspose.Slides restituisce il valore memorizzato o predefinito anziché calcolarlo dalle diapositive.
+- **ODP:** I metadati OpenDocument forniscono statistiche generali del documento, come conteggi di pagine, paragrafi e parole, ma questi valori non corrispondono a tutte le proprietà estese specifiche di PowerPoint. I metadati di diapositive nascoste, diapositive con note, multimediali, coppie di intestazioni e titoli delle parti potrebbero non essere disponibili, e le proprietà di inventario potrebbero restituire valori predefiniti. Non considerare un valore zero o un array vuoto come prova definitiva dell'assenza del contenuto corrispondente.
+
+Utilizza il metodo dei metadati leggeri per inventari e controlli preliminari. Carica la presentazione e ispeziona il suo modello di oggetti live quando il risultato deve riflettere le modifiche in memoria o quando è necessario verificare il contenuto effettivo della presentazione.
+
+## **Aggiorna le proprietà della presentazione**
+
+Le proprietà restituite da [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) possono anche essere modificate senza creare un'istanza di [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/). Applica le modifiche con [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/), quindi scrivi la presentazione legata con [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/).
+
+L'immagine seguente mostra le proprietà originali del documento della presentazione PowerPoint.
 
 ![Proprietà originali del documento della presentazione PowerPoint](input_properties.png)
 
-Questo esempio di codice mostra come modificare alcune proprietà della presentazione:
+L'esempio seguente modifica il titolo e l'ora dell'ultimo salvataggio e scrive il risultato in un nuovo file:
 
 ```cpp
-auto fileName = u"sample.pptx";
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/date_time.h>
+#include <system/string.h>
 
-auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
+using namespace Aspose::Slides;
+using namespace System;
 
-auto properties = info->ReadDocumentProperties();
-properties->set_Title(u"My title");
-properties->set_LastSavedTime(DateTime::get_Now());
+auto sourceFile = String(u"sample.pptx");
+auto outputFile = String(u"sample_with_updated_properties.pptx");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(sourceFile);
+auto documentProperties = presentationInfo->ReadDocumentProperties();
 
-info->UpdateDocumentProperties(properties);
-info->WriteBindedPresentation(fileName);
+documentProperties->set_Title(u"Quarterly sales report");
+documentProperties->set_LastSavedTime(DateTime::get_UtcNow());
+
+presentationInfo->UpdateDocumentProperties(documentProperties);
+presentationInfo->WriteBindedPresentation(outputFile);
 ```
 
-Il risultato della modifica delle proprietà del documento è mostrato di seguito.
+L'immagine seguente mostra le proprietà del documento modificate della presentazione PowerPoint.
 
-![Proprietà modificate del documento della presentazione PowerPoint](output_properties.png)
+![Proprietà del documento modificate della presentazione PowerPoint](output_properties.png)
 
-## **Link Utili**
+## **Link utili**
 
-Per ottenere maggiori informazioni su una presentazione e sui suoi attributi di sicurezza, potresti trovare utili questi link:
+Per controlli di sicurezza correlati e impostazioni di protezione, consulta i seguenti articoli:
 
-- [Verifica se una Presentazione è Cifrata](https://docs.aspose.com/slides/it/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Verifica se una Presentazione è Protetta da Scrittura (sola lettura)](https://docs.aspose.com/slides/it/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Verifica se una Presentazione è Protetta da Password Prima di Caricarla](https://docs.aspose.com/slides/it/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Conferma la Password Usata per Proteggere una Presentazione](https://docs.aspose.com/slides/it/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Presentazioni protette da password](/slides/it/cpp/password-protected-presentation/)
+- [Presentazioni protette in scrittura](/slides/it/cpp/write-protected-presentation/)
 
 ## **FAQ**
 
-**Come posso verificare se i font sono incorporati e quali sono?**
+**Come posso verificare se i caratteri sono incorporati e quali sono?**
 
-Cerca le informazioni sui [font incorporati](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/getembeddedfonts/) a livello di presentazione, quindi confronta tali voci con l’insieme dei [font effettivamente utilizzati nel contenuto](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/getfonts/) per identificare quali font sono critici per il rendering.
+Carica la presentazione e usa [Presentation::get_FontsManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_fontsmanager/). Chiama [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/getembeddedfonts/) per ottenere i caratteri incorporati e [FontsManager::GetFonts](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/getfonts/) per ottenere i caratteri utilizzati dalla presentazione. Confronta i due risultati per individuare i caratteri richiesti per il rendering ma non incorporati.
 
 **Come posso capire rapidamente se il file contiene diapositive nascoste e quante?**
 
-Itera attraverso la [collezione di diapositive](https://reference.aspose.com/slides/it/cpp/aspose.slides/slidecollection/) e controlla il [flag di visibilità](https://reference.aspose.com/slides/it/cpp/aspose.slides/slide/get_hidden/) di ciascuna diapositiva.
+Quando i metadati del documento memorizzati sono sufficienti, leggi [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/it/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) tramite [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) e [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/). Questo è adatto per un inventario leggero. Se la presentazione è stata modificata in memoria, i metadati memorizzati potrebbero mancare o essere obsoleti, oppure è necessario verificare i valori live; in tal caso, itera attraverso [Presentation::get_Slides](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_slides/) e controlla il metodo [Slide::get_Hidden](https://reference.aspose.com/slides/it/cpp/aspose.slides/slide/get_hidden/) di ciascuna diapositiva.
 
-**Posso rilevare se sono utilizzate dimensioni e orientamento personalizzati per le diapositive e se differiscono dai valori predefiniti?**
+**Posso rilevare se è utilizzata una dimensione e un'orientazione di diapositiva personalizzate e se differiscono dalle impostazioni predefinite?**
 
-Sì. Confronta le [dimensioni e l’orientamento attuali della diapositiva](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_slidesize/) con le impostazioni standard; questo aiuta a prevedere il comportamento durante la stampa e l’esportazione.
+Sì. Carica la presentazione e leggi [Presentation::get_SlideSize](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_slidesize/). Esamina [ISlideSize::get_Type](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidesize/get_type/), [ISlideSize::get_Size](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidesize/get_size/) e [ISlideSize::get_Orientation](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidesize/get_orientation/) per confrontare le impostazioni correnti con quelle predefinite e le dimensioni attese.
 
 **Esiste un modo rapido per vedere se i grafici fanno riferimento a fonti dati esterne?**
 
-Sì. Percorri tutti i [grafici](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chart/), verifica la loro [fonte dati](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) e annota se i dati sono interni o basati su collegamenti, includendo eventuali collegamenti interrotti.
+Sì. Individua ogni [Chart](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chart/) e controlla [ChartData::get_DataSourceType](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartdata/get_datasourcetype/). Per una cartella di lavoro esterna, leggi [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Il tipo di fonte dati e il percorso identificano un riferimento esterno, ma verificare la disponibilità del file di destinazione richiede un controllo di risorse separato.
 
-**Come posso valutare le diapositive “pesanti” che potrebbero rallentare il rendering o l’esportazione PDF?**
+**Come posso valutare le diapositive “pesanti” che potrebbero rallentare il rendering o l'esportazione in PDF?**
 
-Per ogni diapositiva, conta gli oggetti e cerca immagini di grandi dimensioni, trasparenze, ombre, animazioni e contenuti multimediali; assegna un punteggio di complessità approssimativo per segnalare potenziali colli di bottiglia delle prestazioni.
+Non esiste una singola proprietà di complessità. Scorri [Presentation::get_Slides](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_slides/) e la collezione [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/it/cpp/aspose.slides/ibaseslide/get_shapes/) di ciascuna diapositiva. Usa il conteggio delle forme e la presenza di immagini di grandi dimensioni, effetti, animazioni o contenuti multimediali come segnali di screening, e misura un rendering o un'esportazione rappresentativa prima di considerare una diapositiva un vero collo di bottiglia di prestazioni.

@@ -1,122 +1,215 @@
 ---
-title: ดึงและอัปเดตข้อมูลการนำเสนอใน PHP
-linktitle: ข้อมูลการนำเสนอ
+title: ดึงและอัปเดตข้อมูลงานนำเสนอใน PHP
+linktitle: ข้อมูลงานนำเสนอ
 type: docs
 weight: 30
 url: /th/php-java/examine-presentation/
 keywords:
-- รูปแบบการนำเสนอ
-- คุณสมบัติการนำเสนอ
+- รูปแบบงานนำเสนอ
+- คุณสมบัติงานนำเสนอ
 - คุณสมบัติเอกสาร
 - รับคุณสมบัติ
 - อ่านคุณสมบัติ
-- เปลี่ยนแปลงคุณสมบัติ
-- ปรับแก้คุณสมบัติ
+- เปลี่ยนคุณสมบัติ
+- แก้ไขคุณสมบัติ
 - อัปเดตคุณสมบัติ
 - ตรวจสอบ PPTX
 - ตรวจสอบ PPT
 - ตรวจสอบ ODP
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "สำรวจสไลด์ โครงสร้าง และเมตาดาต้าในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ PHP เพื่อให้ได้ข้อมูลเชิงลึกที่รวดเร็วและการตรวจสอบเนื้อหาที่ชาญฉลาดยิ่งขึ้น"
+description: "สำรวจสไลด์ โครงสร้างและเมตาดาทาในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ PHP เพื่อให้ได้ข้อมูลเชิงลึกที่รวดเร็วและการตรวจสอบเนื้อหาที่ฉลาดขึ้น"
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีตรวจสอบข้อมูลการนำเสนอใน Aspose.Slides ซึ่งอธิบายวิธีกำหนดรูปแบบปัจจุบันของการนำเสนอโดยไม่ต้องโหลดไฟล์เต็มอ่านคุณสมบัติของเอกสารและอัปเดตคุณสมบัติเหล่านั้นเมื่อต้องการ
+Aspose.Slides สามารถระบุรูปแบบของงานนำเสนอและอ่านเมทาดาทาเอกสารโดยไม่ต้องสร้างโมเดลอ็อบเจกต์ของงานนำเสนอทั้งหมด ซึ่งมีประโยชน์เมื่อคุณต้องการจัดประเภทไฟล์ สร้างรายการสินค้าคงคลัง หรือสอบถามคุณสมบัติก่อนตัดสินใจว่าจะโหลดและประมวลผลเนื้อหางานนำเสนอหรือไม่.
 
-ตัวอย่างเหล่านี้อ้างอิงจาก API [PresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/) และ [DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/) และแสดงการดำเนินการทั่วไปสำหรับทำงานกับเมตาดาต้าการนำเสนอ
+บทความนี้แสดงการตรวจสอบแบบเบาโดยใช้ [PresentationFactory](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/) และ [PresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/), รวมถึงการอัปเดตที่เจาะจงผ่าน [DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/).
 
-## **ตรวจสอบรูปแบบการนำเสนอ**
+## **ตรวจสอบรูปแบบงานนำเสนอ**
 
-ก่อนจะทำงานกับการนำเสนอ คุณอาจต้องการทราบว่าการนำเสนออยู่ในรูปแบบใด (PPT, PPTX, ODP และอื่น ๆ) ในขณะนี้
-
-คุณสามารถตรวจสอบรูปแบบของการนำเสนอโดยไม่ต้องโหลดการนำเสนอได้ ดูโค้ด PHP นี้:
+ใช้ [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/) เพื่อตรวจสอบไฟล์โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/). วิธีการ [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#getLoadFormat) รายงานรูปแบบที่ตรวจพบ เช่น PPTX, PPT หรือ ODP.
 
 ```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  echo($info->getLoadFormat());// PPTX
+use aspose\slides\LoadFormat;
+use aspose\slides\PresentationFactory;
 
-  $info2 = PresentationFactory->getInstance()->getPresentationInfo("pres.ppt");
-  echo($info2->getLoadFormat());// PPT
+$fileNames = ["pres.pptx", "pres.ppt", "pres.odp"];
 
-  $info3 = PresentationFactory->getInstance()->getPresentationInfo("pres.odp");
-  echo($info3->getLoadFormat());// ODP
+foreach ($fileNames as $fileName) {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($fileName);
+    $loadFormat = java_values($presentationInfo->getLoadFormat());
+    $formatName = "Other (" . $loadFormat . ")";
 
+    if ($loadFormat === LoadFormat::Pptx) {
+        $formatName = "PPTX";
+    } elseif ($loadFormat === LoadFormat::Ppt) {
+        $formatName = "PPT";
+    } elseif ($loadFormat === LoadFormat::Odp) {
+        $formatName = "ODP";
+    }
 
+    echo $fileName . ": " . $formatName . PHP_EOL;
+}
 ```
 
-## **รับคุณสมบัติการนำเสนอ**
+## **สร้างรายการสินค้าคงคลังงานนำเสนอแบบเบา**
 
-โค้ด PHP นี้แสดงวิธีการรับคุณสมบัติการนำเสนอ (ข้อมูลเกี่ยวกับการนำเสนอ):
+เมื่อต้องประมวลผลไฟล์งานนำเสนอจำนวนมาก คุณอาจต้องการรายการสินค้าคงคลังแบบกะทัดรัดสำหรับการตรวจสอบ การทำดัชนี หรือระบบการจัดการเอกสาร ในกรณีนี้ ให้ใช้ [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/) เพื่อรับวัตถุ [PresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/) จากนั้นเรียก [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#readDocumentProperties) เพื่ออ่านเมตาดาทาเอกสาร วิธีนี้จะไม่สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) หรือจำเป็นต้องเดินผ่านโมเดลอ็อบเจกต์ของงานนำเสนอทั้งหมด.
+
+คุณสมบัติขยายที่เปิดเผยโดย [DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/) ให้ค่ารายการสินค้าคงคลังต่อไปนี้:
+
+| วิธีการ | ค่ารายการสินค้าคงคลัง |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getSlides) | จำนวนสไลด์ทั้งหมด. |
+| [getHiddenSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getHiddenSlides) | จำนวนสไลด์ที่ซ่อนอยู่. |
+| [getNotes](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getNotes) | จำนวนสไลด์ที่มีบันทึกหมายเหตุ. |
+| [getParagraphs](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getParagraphs) | จำนวนย่อหน้าทั้งหมด (เมื่อมีข้อมูล). |
+| [getWords](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getWords) | จำนวนคำทั้งหมด. |
+| [getMultimediaClips](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getMultimediaClips) | จำนวนคลิปเสียงและวิดีโอทั้งหมด. |
+
+ตัวอย่างต่อไปนี้อ่านค่าดังกล่าวโดยไม่สร้างอ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) และพิมพ์รายการสินค้าคงคลังแบบกะทัดรัด นอกจากนี้ยังผสาน [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getHeadingPairs) กับ [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getTitlesOfParts) เพื่อแสดงกลุ่มเนื้อหาเช่น ฟอนต์ ธีม และชื่อสไลด์.
 
 ```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  $props = $info->readDocumentProperties();
-  echo($props->getCreatedTime());
-  echo($props->getSubject());
-  echo($props->getTitle());
-  # ..
+use aspose\slides\LoadFormat;
+use aspose\slides\PresentationFactory;
+
+$filePath = "sample.pptx";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+$documentProperties = $presentationInfo->readDocumentProperties();
+
+$loadFormat = java_values($presentationInfo->getLoadFormat());
+$formatName = "Other (" . $loadFormat . ")";
+
+if ($loadFormat === LoadFormat::Pptx) {
+    $formatName = "PPTX";
+} elseif ($loadFormat === LoadFormat::Ppt) {
+    $formatName = "PPT";
+} elseif ($loadFormat === LoadFormat::Odp) {
+    $formatName = "ODP";
+}
+
+echo "File: " . basename($filePath) . PHP_EOL;
+echo "Format: " . $formatName . PHP_EOL;
+echo "Title: " . java_values($documentProperties->getTitle()) . PHP_EOL;
+echo "Author: " . java_values($documentProperties->getAuthor()) . PHP_EOL;
+echo "Statistics:" . PHP_EOL;
+echo "  Slides: " . java_values($documentProperties->getSlides()) . PHP_EOL;
+echo "  Hidden slides: " . java_values($documentProperties->getHiddenSlides()) . PHP_EOL;
+echo "  Slides with notes: " . java_values($documentProperties->getNotes()) . PHP_EOL;
+echo "  Paragraphs: " . java_values($documentProperties->getParagraphs()) . PHP_EOL;
+echo "  Words: " . java_values($documentProperties->getWords()) . PHP_EOL;
+echo "  Multimedia clips: " . java_values($documentProperties->getMultimediaClips()) . PHP_EOL;
+
+$headingPairs = $documentProperties->getHeadingPairs();
+$titlesOfParts = $documentProperties->getTitlesOfParts();
+
+if (java_is_null($headingPairs) || java_is_null($titlesOfParts)) {
+    echo "Content groups: not available" . PHP_EOL;
+} else {
+    $headingPairs = java_values($headingPairs);
+    $titlesOfParts = java_values($titlesOfParts);
+    $partIndex = 0;
+
+    if (count($headingPairs) === 0 || count($titlesOfParts) === 0) {
+        echo "Content groups: not available" . PHP_EOL;
+    } else {
+        echo "Content groups:" . PHP_EOL;
+
+        foreach ($headingPairs as $headingPair) {
+            $partCount = java_values($headingPair->getCount());
+            echo "  " . java_values($headingPair->getName()) . " (" . $partCount . ")" . PHP_EOL;
+
+            for ($partOffset = 0; $partOffset < $partCount && $partIndex < count($titlesOfParts); $partOffset++) {
+                echo "    - " . $titlesOfParts[$partIndex] . PHP_EOL;
+                $partIndex++;
+            }
+        }
+
+        if ($partIndex < count($titlesOfParts)) {
+            echo "  Other parts:" . PHP_EOL;
+
+            while ($partIndex < count($titlesOfParts)) {
+                echo "    - " . $titlesOfParts[$partIndex] . PHP_EOL;
+                $partIndex++;
+            }
+        }
+    }
+}
 ```
 
-คุณอาจต้องการดู [คุณสมบัติต่าง ๆ ภายใต้ DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#DocumentProperties--) class.
+แต่ละ [HeadingPair](https://reference.aspose.com/slides/th/php-java/aspose.slides/headingpair/) จะให้ชื่อกลุ่มและจำนวนรายการในกลุ่มนั้น [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getTitlesOfParts) คืนค่าเป็นอาร์เรย์แบนเรียงลำดับ ดังนั้นจึงใช้จำนวนชื่อที่ต่อเนื่องตามที่กำหนดโดยแต่ละ heading pair.
 
-## **อัปเดตคุณสมบัติการนำเสนอ**
+### **เมตาดาทาที่บันทึกและข้อจำกัดของรูปแบบ**
 
-Aspose.Slides มีเมธอด [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) ที่ช่วยให้คุณสามารถเปลี่ยนแปลงคุณสมบัติการนำเสนอได้
+คุณสมบัติรายการสินค้าคงคลังที่ส่งกลับโดย [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#readDocumentProperties) สะท้อนเมตาดาทาที่มีอยู่ในเอกสารต้นทาง Aspose.Slides ไม่ได้โหลดและเดินผ่านโมเดลอ็อบเจกต์ของงานนำเสนอเพื่อคำนวณค่าเหล่านี้ใหม่สำหรับการเรียกนี้ คุณสมบัติที่ขาดจะถูกแทนด้วยค่าเริ่มต้น และค่าที่บันทึกอาจล้าสมัยหากแอปพลิเคชันที่บันทึกไฟล์ครั้งสุดท้ายไม่ได้อัปเดตเมตาดาทาเอกสาร
 
-สมมติว่าเรามีการนำเสนอ PowerPoint ที่มีคุณสมบัติเอกสารแสดงดังต่อไปนี้
+- **PPTX:** รูปแบบนี้ให้คุณสมบัติเอกสารขยายสำหรับจำนวนสไลด์, หมายเหตุ, สไลด์ที่ซ่อน, ย่อหน้า, คำ, และมัลติมีเดีย รวมถึง heading pairs และ part titles ความพร้อมใช้งานขึ้นกับว่าผู้ผลิตเอกสารได้เขียนคุณสมบัติเหล่านี้หรือไม่.
+- **PPT:** รูปแบบไบนารีสามารถเก็บคุณสมบัติสรุปเอกสารที่สอดคล้องกันได้ หากคุณสมบัติเช่นนั้นไม่มีหรือไม่ได้รับการรีเฟรชโดยผู้ผลิตเอกสาร Aspose.Slides จะคืนค่าที่บันทึกหรือค่าเริ่มต้นแทนการคำนวณจากสไลด์.
+- **ODP:** เมตาดาทา OpenDocument ให้สถิติโดยรวมของเอกสารเช่นจำนวนหน้า, ย่อหน้า, และคำ แต่ค่าดังกล่าวไม่สอดคล้องกับคุณสมบัติขยายของ PowerPoint ทั้งหมด เมตาดาทาเช่น hidden-slide, notes-slide, multimedia, heading-pair, และ part-title อาจไม่มีให้บริการ และคุณสมบัติรายการสินค้าคงคลังอาจคืนค่าเริ่มต้น อย่าพิจารณาค่าศูนย์หรืออาร์เรย์ว่างเป็นหลักฐานที่แน่นอนว่าเนื้อหาที่สอดคล้องไม่มีอยู่.
 
-![คุณสมบัติเ�เอกสารต้นฉบับของการนำเสนอ PowerPoint](input_properties.png)
+ใช้วิธีเมตาดาทาแบบเบาสำหรับการสร้างรายการสินค้าคงคลังและการตรวจสอบขั้นต้น โหลดงานนำเสนอและตรวจสอบโมเดลอ็อบเจกต์แบบเรียลไทม์เมื่อผลลัพธ์ต้องสะท้อนการเปลี่ยนแปลงในหน่วยความจำหรือเมื่อคุณต้องการยืนยันเนื้อหาจริงของงานนำเสนอ.
 
-ตัวอย่างโค้ดนี้แสดงวิธีการแก้ไขคุณสมบัติการนำเสนอบางส่วน:
+## **อัปเดตคุณสมบัติงานนำเสนอ**
+
+คุณสมบัติที่ส่งกลับโดย [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#readDocumentProperties) สามารถเปลี่ยนแปลงได้โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ใช้การเปลี่ยนแปลงด้วย [PresentationInfo::updateDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#updateDocumentProperties) จากนั้นเขียนงานนำเสนอที่ผูกไว้ด้วย [PresentationInfo::writeBindedPresentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#writeBindedPresentation).
+
+ภาพต่อไปนี้แสดงคุณสมบัติเอกสารดั้งเดิมของงานนำเสนอ PowerPoint.
+
+![คุณสมบัติเอกสารดั้งเดิมของงานนำเสนอ PowerPoint](input_properties.png)
+
+ตัวอย่างต่อไปนี้เปลี่ยนชื่อเรื่องและเวลาบันทึกครั้งสุดท้ายและเขียนผลลัพธ์ไปยังไฟล์ใหม่:
 
 ```php
-$fileName = "sample.pptx";
+use aspose\slides\PresentationFactory;
 
-$info = PresentationFactory::getInstance()->getPresentationInfo($fileName);
+$sourceFile = "sample.pptx";
+$outputFile = "sample_with_updated_properties.pptx";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($sourceFile);
+$documentProperties = $presentationInfo->readDocumentProperties();
 
-$properties = $info->readDocumentProperties();
-$properties->setTitle("My title");
-$properties->setLastSavedTime(new Java("java.util.Date"));
+$documentProperties->setTitle("Quarterly sales report");
+$documentProperties->setLastSavedTime(new Java("java.util.Date"));
 
-$info->updateDocumentProperties($properties);
-$info->writeBindedPresentation($fileName);
+$presentationInfo->updateDocumentProperties($documentProperties);
+$outputStream = new Java("java.io.FileOutputStream", $outputFile);
+try {
+    $presentationInfo->writeBindedPresentation($outputStream);
+} finally {
+    $outputStream->close();
+}
 ```
 
-ผลลัพธ์ของการเปลี่ยนแปลงคุณสมบัติเอกสารจะแสดงด้านล่าง
-
-![คุณสมบัติเอกสารที่เปลี่ยนแปลงของการนำเสนอ PowerPoint](output_properties.png)
+![คุณสมบัติเอกสารที่เปลี่ยนแปลงของงานนำเสนอ PowerPoint](output_properties.png)
 
 ## **ลิงก์ที่เป็นประโยชน์**
 
-หากต้องการข้อมูลเพิ่มเติมเกี่ยวกับการนำเสนอและคุณลักษณะความปลอดภัยของมัน คุณอาจพบว่าลิงก์เหล่านี้เป็นประโยชน์:
+สำหรับการตรวจสอบความปลอดภัยที่เกี่ยวข้องและการตั้งค่าการปกป้อง ดูบทความต่อไปนี้:
 
-- [ตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่](https://docs.aspose.com/slides/th/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [ตรวจสอบว่าการนำเสนอถูกป้องกันการเขียน (อ่านอย่างเดียว) หรือไม่](https://docs.aspose.com/slides/th/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [ตรวจสอบว่าการนำเสนอถูกป้องกันด้วยรหัสผ่านก่อนโหลดหรือไม่](https://docs.aspose.com/slides/th/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [ยืนยันรหัสผ่านที่ใช้ป้องกันการนำเสนอ](https://docs.aspose.com/slides/th/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [การปกป้องงานนำเสนอด้วยรหัสผ่าน](/slides/th/php-java/password-protected-presentation/)
+- [การปกป้องงานนำเสนอจากการเขียน](/slides/th/php-java/write-protected-presentation/)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบว่าแบบอักษรถูกฝังและเป็นแบบไหนได้อย่างไร?**
+**ฉันจะตรวจสอบได้อย่างไรว่าฟอนต์ถูกฝังและมีฟอนต์ใดบ้าง?**
 
-มองหาข้อมูลแบบอักษรที่ฝังอยู่ระดับการนำเสนอ จากนั้นเปรียบเทียบรายการนั้นกับชุดแบบอักษรที่ใช้จริงในเนื้อหาเพื่อระบุว่าแบบอักษรใดสำคัญต่อการเรนเดอร์
+โหลดงานนำเสนอและใช้ [Presentation::getFontsManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getFontsManager). เรียก [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) เพื่อรับฟอนต์ที่ฝังอยู่และ [FontsManager::getFonts](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsmanager/#getFonts) เพื่อรับฟอนต์ที่ใช้งานในงานนำเสนอ เปรียบเทียบผลลัพธ์สองชุดเพื่อหาฟอนต์ที่จำเป็นสำหรับการเรนเดอร์แต่ไม่ได้ฝังอยู่.
 
-**ฉันจะตรวจสอบอย่างรวดเร็วว่าไฟล์มีสไลด์ที่ซ่อนอยู่และจำนวนเท่าไหร่?**
+**ฉันจะตรวจสอบอย่างรวดเร็วได้หรือไม่ว่าไฟล์มีสไลด์ที่ซ่อนอยู่หรือไม่และจำนวนเท่าไหร่?**
 
-วนลูปผ่าน [slide collection](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidecollection/) และตรวจสอบแต่ละสไลด์ของ [visibility flag](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/gethidden/)
+เมื่อเมตาดาทาเอกสารที่เก็บไว้เพียงพอ ให้อ่าน [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#getHiddenSlides) ผ่าน [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/) และ [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#readDocumentProperties). วิธีนี้เหมาะสำหรับการสร้างรายการสินค้าคงคลังแบบเบา หากงานนำเสนอถูกแก้ไขในหน่วยความจำ เมตาดาทาที่เก็บอาจหายหรือล้าสมัย หรือคุณต้องการตรวจสอบค่าจริง ให้วนผ่าน [Presentation::getSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getSlides) และตรวจสอบแต่ละสไลด์ด้วยวิธี [Slide::getHidden](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#getHidden) แทน.
 
-**ฉันสามารถตรวจจับว่ามีการใช้ขนาดและการวางแนวสไลด์กำหนดเองหรือไม่ และว่ามีความแตกต่างจากค่าเริ่มต้นหรือไม่?**
+**ฉันสามารถตรวจจับได้หรือไม่ว่ามีการใช้ขนาดและแนวตั้งของสไลด์ที่กำหนดเองหรือไม่ และว่ามันแตกต่างจากค่าเริ่มต้นหรือไม่?**
 
-ได้เลย. เปรียบเทียบ [slide size](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/getslidesize/) และการวางแนวปัจจุบันกับค่ามาตรฐาน ช่วยคาดการณ์พฤติกรรมสำหรับการพิมพ์และการส่งออก
+ได้. โหลดงานนำเสนอและเรียก [Presentation::getSlideSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getSlideSize). ใช้ [SlideSize::getType](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidesize/#getType), [SlideSize::getSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidesize/#getSize) และ [SlideSize::getOrientation](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidesize/#getOrientation) เพื่อเปรียบเทียบการตั้งค่าปัจจุบันกับค่าที่คาดหวังและมิติที่กำหนดไว้.
 
-**มีวิธีรวดเร็วในการดูว่าชาร์ตอ้างอิงแหล่งข้อมูลภายนอกหรือไม่?**
+**มีวิธีที่รวดเร็วในการดูว่ากราฟอ้างอิงแหล่งข้อมูลภายนอกหรือไม่?**
 
-ได้. ไปตาม [charts](https://reference.aspose.com/slides/th/php-java/aspose.slides/chart/) ทั้งหมด ตรวจสอบ [data source](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdata/getdatasourcetype/) ของพวกมัน และบันทึกว่าข้อมูลเป็นภายในหรือเชื่อมโยง รวมถึงลิงก์ที่เสีย
+ได้. ค้นหาแต่ละ [Chart](https://reference.aspose.com/slides/th/php-java/aspose.slides/chart/) แล้วเรียก [ChartData::getDataSourceType](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdata/#getDataSourceType). สำหรับสมุดงานภายนอก ให้เรียก [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdata/#getExternalWorkbookPath). ประเภทแหล่งข้อมูลและเส้นทางบ่งชี้การอ้างอิงภายนอก แต่การตรวจสอบว่ากลุ่มเป้าหมายพร้อมใช้งานหรือไม่ต้องทำการตรวจสอบแหล่งทรัพยากรแยกต่างหาก.
 
-**ฉันจะประเมินสไลด์ 'หนัก' ที่อาจทำให้การเรนเดอร์หรือการส่งออกเป็น PDF ช้าได้อย่างไร?**
+**ฉันจะประเมินสไลด์ 'หนัก' ที่อาจทำให้การเรนเดอร์หรือการส่งออกเป็น PDF ช้าลงได้อย่างไร?**
 
-สำหรับแต่ละสไลด์ ให้นับจำนวนอ็อบเจกต์และตรวจหาภาพขนาดใหญ่ ความโปร่งใส เงา แอนิเมชัน และมัลติมีเดีย; กำหนดคะแนนความซับซ้อนโดยประมาณเพื่อระบุตำแหน่งที่อาจทำให้ประสิทธิภาพลดลง
+ไม่มีคุณสมบัติจำนวนความซับซ้อนเพียงอย่างเดียว ให้เดินผ่าน [Presentation::getSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getSlides) และคอลเลกชัน [BaseSlide::getShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/#getShapes) ของแต่ละสไลด์ ใช้จำนวนรูปร่างและการมีภาพขนาดใหญ่, เอฟเฟกต์, แอนิเมชัน หรือมัลติมีเดียเป็นสัญญาณคัดกรอง และทำการวัดการเรนเดอร์หรือการส่งออกตัวอย่างก่อนพิจารณาสไลด์เป็นคอขวดประสิทธิภาพที่ยืนยันแล้ว.

@@ -7,7 +7,7 @@ url: /hu/cpp/presentation-properties/
 keywords:
 - PowerPoint tulajdonságok
 - prezentáció tulajdonságok
-- dokumentumtulajdonságok
+- dokumentum tulajdonságok
 - beépített tulajdonságok
 - egyéni tulajdonságok
 - haladó tulajdonságok
@@ -15,52 +15,61 @@ keywords:
 - tulajdonságok módosítása
 - dokumentum metaadatok
 - metaadatok szerkesztése
-- helyesírás-ellenőrzési nyelv
+- ellenőrző nyelv
 - alapértelmezett nyelv
 - PowerPoint
 - OpenDocument
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Kezelje a prezentáció tulajdonságait az Aspose.Slides for C++ segítségével, és egyszerűsítse a keresést, a márkaépítést és a munkafolyamatot PowerPoint és OpenDocument fájljaiban."
+description: "Mesteri szinten kezeli a prezentációtulajdonságokat az Aspose.Slides for C++-ban, és egyszerűsíti a keresést, a márkázást és a munkafolyamatot a PowerPoint és OpenDocument fájljaiban."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides két típusú dokumentumtulajdonságot támogat: **Beépített** és **Egyéni**. Mindkét tulajdonságtípust könnyen el lehet érni és kezelni az Aspose.Slides API segítségével.
+Az Aspose.Slides két típusú dokumentumtulajdonságot támogat: **Beépített** és **Egyéni**. Mindkét tulajdonságtípust egyszerűen el lehet érni és kezelni az Aspose.Slides API-val.
 
-Az Aspose.Slides lehetővé teszi a prezentáció dokumentumtulajdonságokkal való munkát a [IDocumentProperties](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_document_properties) interfészen keresztül. Ennek az interfésznek egy példánya a [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_documentproperties/) metódussal érhető vissza. Az alábbi példák bemutatják, hogyan kell olvasni, módosítani és kezelni ezeket a tulajdonságokat.
+Az Aspose.Slides lehetővé teszi, hogy a prezentáció dokumentumtulajdonságokkal a [IDocumentProperties](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_document_properties) interfészen keresztül dolgozzon. Ennek az interfésznek egy példányát a [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_documentproperties/) metódus adja vissza. A következő példák bemutatják, hogyan lehet ezeket a tulajdonságokat olvasni, módosítani és kezelni.
 
-{{% alert color="primary" %}} 
-Kérjük, vegye figyelembe, hogy a **Application** és **Producer** mezők értékét nem állíthatja be, mert az Aspose Ltd. és az Aspose.Slides for C++ x.x.x jelenik meg ezeken a mezőkön. 
+{{% alert color="info" title="Megjegyzés" %}}
+Kérjük, vegye figyelembe, hogy a **Application** és **Producer** mezőkben nem állíthat be értékeket, mivel az Aspose Ltd. és az Aspose.Slides for C++ x.x.x jelenik meg ezekben a mezőkben.
 {{% /alert %}} 
 
-## **Prezentáció tulajdonságainak kezelése**
+## **A prezentáció tulajdonságainak kezelése**
 
-A Microsoft PowerPoint egy olyan funkciót biztosít, amely lehetővé teszi néhány tulajdonság hozzáadását a prezentáció fájlokhoz. Ezek a dokumentumtulajdonságok hasznos információkat tárolnak a dokumentumokkal (prezentáció fájlokkal) együtt. Kétféle dokumentumtulajdonság létezik:
+A Microsoft PowerPoint lehetőséget biztosít, hogy néhány tulajdonságot hozzáadjon a prezentációfájlokhoz. Ezek a dokumentumtulajdonságok hasznos információk tárolását teszik lehetővé a dokumentumokkal (prezentációfájlokkal) együtt. Kétféle dokumentumtulajdonság létezik:
 
 - Rendszer által definiált (Beépített) tulajdonságok
 - Felhasználó által definiált (Egyéni) tulajdonságok
 
-A **Beépített** tulajdonságok általános információkat tartalmaznak a dokumentumról, például a dokumentum címét, a szerző nevét, statisztikákat stb. A **Egyéni** tulajdonságok a felhasználó által definiált **Név/Érték** párok, ahol mind a név, mind az érték felhasználó által meghatározott. Az Aspose.Slides for C++ segítségével a fejlesztők hozzáférhetnek és módosíthatják a beépített és az egyéni tulajdonságok értékeit is. A Microsoft PowerPoint 2007 lehetővé teszi a prezentáció fájlok dokumentumtulajdonságainak kezelését. Ehhez csak kattintson az Office ikonra, majd a **Prepare | Properties | Advanced Properties** menüpontra a Microsoft PowerPoint 2007-ben. A **Advanced Properties** menüpont kiválasztása után megjelenik egy párbeszédpanel, amely lehetővé teszi a PowerPoint fájl dokumentumtulajdonságainak kezelését. A **Properties Dialog** ablakban több lapfül látható, mint például **General**, **Summary**, **Statistics**, **Contents** és **Custom**. Ezek a lapok különféle információk konfigurálását teszik lehetővé a PowerPoint fájlokhoz. A **Custom** lap a PowerPoint fájlok egyéni tulajdonságainak kezelésére szolgál.
+A **Beépített** tulajdonságok általános információkat tartalmaznak a dokumentumról, például a dokumentum címét, a szerző nevét, a dokumentum statisztikáit stb. A **Egyéni** tulajdonságok olyan párok, amelyeket a felhasználók **Név/Érték** párokként definiálnak, ahol a név és az érték is a felhasználó által kerül megadásra. Az Aspose.Slides for C++ használatával a fejlesztők hozzáférhetnek és módosíthatják a beépített és az egyéni tulajdonságok értékeit egyaránt. A Microsoft PowerPoint 2007 lehetővé teszi a prezentációfájlok dokumentumtulajdonságainak kezelését. Ehhez csak a Office ikonra kell kattintani, majd a **Prepare | Properties | Advanced Properties** menüpontot a Microsoft PowerPoint 2007-ben. A **Advanced Properties** menüpont kiválasztása után egy párbeszédablak jelenik meg, amely lehetővé teszi a PowerPoint fájl dokumentumtulajdonságainak kezelését. A **Properties Dialog** ablakban számos lap található, például **General**, **Summary**, **Statistics**, **Contents** és **Custom**. Ezek a lapok különféle információk konfigurálását teszik lehetővé a PowerPoint fájlokkal kapcsolatban. A **Custom** lapot az egyéni tulajdonságok kezelése céljából használják.
 
 ## **Beépített tulajdonságok elérése**
 
-Az **IDocumentProperties** objektum által biztosított tulajdonságok: **Creator(Author)**, **Description**, **KeyWords**, **Created** (Létrehozás dátuma), **Modified** (Módosítás dátuma), **Printed** (Utolsó nyomtatás dátuma), **LastModifiedBy**, **Keywords**, **SharedDoc** (Meg van osztva különböző producerek között?), **PresentationFormat**, **Subject** és **Title**.
+Az **IDocumentProperties** objektum által szolgáltatott ezek a tulajdonságok a következőket tartalmazzák: **Creator(Author)**, **Description**, **Keywords**, **Created** (Létrehozás dátuma), **Modified** (Módosítás dátuma), **Printed** (Utolsó nyomtatás dátuma), **LastModifiedBy**, **Keywords**, **SharedDoc** (Megosztott különböző készítők között?), **PresentationFormat**, **Subject** és **Title**
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessBuiltinProperties-AccessBuiltinProperties.cpp" >}}
 
 ## **Beépített tulajdonságok módosítása**
 
-A prezentáció fájlok beépített tulajdonságainak módosítása ugyanolyan egyszerű, mint azok elérése. Egyszerűen egy karakterlánc értéket adhat bármely kívánt tulajdonsághoz, és a tulajdonság értéke módosul. Az alább található példában bemutatjuk, hogyan módosítható egy prezentáció fájl beépített dokumentumtulajdonságai.
+A prezentációfájlok beépített tulajdonságainak módosítása ugyanolyan egyszerű, mint azok elérése. Egyszerűen hozzárendelhet egy karakterlánc értéket bármely kívánt tulajdonsághoz, és a tulajdonság értéke módosul. Az alábbi példában bemutattuk, hogyan lehet a prezentációfájl beépített dokumentumtulajdonságait módosítani.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-UpdatePresentationProperties-UpdatePresentationProperties.cpp" >}}
 
 ## **Egyéni prezentációtulajdonságok hozzáadása**
 
-Az Aspose.Slides for C++ lehetővé teszi a fejlesztők számára, hogy egyéni értékeket adjanak a prezentáció dokumentumtulajdonságaihoz. Az alábbi példa bemutatja, hogyan állíthatók be egyéni tulajdonságok egy prezentációhoz.
+Az Aspose.Slides for C++ szintén lehetővé teszi a fejlesztők számára, hogy egyéni értékeket adjanak a prezentáció dokumentumtulajdonságaihoz. Az alábbi példa bemutatja, hogyan állítható be egyéni tulajdonság egy prezentációhoz.
 
 ``` cpp
-// Példányosítja a Presentation osztályt
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Példányosítsa a Presentation osztályt
 auto presentation = System::MakeObject<Presentation>();
 
 // Dokumentumtulajdonságok lekérése
@@ -71,10 +80,10 @@ documentProperties->idx_set(u"New Custom", ObjectExt::Box<int32_t>(12));
 documentProperties->idx_set(u"My Name", ObjectExt::Box<String>(u"Mudassir"));
 documentProperties->idx_set(u"Custom", ObjectExt::Box<int32_t>(124));
 
-// Tulajdonság nevének lekérése egy adott indexnél
+// Tulajdonság neve lekérése adott indexen
 String getPropertyName = documentProperties->GetCustomPropertyName(2);
 
-// Kijelölt tulajdonság eltávolítása
+// Kiválasztott tulajdonság eltávolítása
 documentProperties->RemoveCustomProperty(getPropertyName);
 
 // Prezentáció mentése
@@ -83,18 +92,30 @@ presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
 
 ## **Egyéni tulajdonságok elérése és módosítása**
 
-Az Aspose.Slides for C++ lehetővé teszi a fejlesztők számára, hogy hozzáférjenek az egyéni tulajdonságok értékeihez. Az alábbi példa bemutatja, hogyan érheti el és módosíthatja ezeket az egyéni tulajdonságokat egy prezentációban.
+Az Aspose.Slides for C++ továbbá lehetővé teszi a fejlesztők számára, hogy hozzáférjenek az egyéni tulajdonságok értékeihez. Az alábbi példa bemutatja, hogyan érhetők el és módosíthatók a prezentáció egyéni tulajdonságai.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessModifyingProperties-AccessModifyingProperties.cpp" >}}
 
-## **Helyesírás-ellenőrzési nyelv beállítása**
+## **Ellenőrző nyelv beállítása**
 
-Az Aspose.Slides a [LanguageId](https://reference.aspose.com/slides/hu/cpp/aspose.slides/baseportionformat/set_languageid/) tulajdonságot (amit a [PortionFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/portionformat/) osztály biztosít) teszi elérhetővé, hogy beállíthassa a helyesírás-ellenőrzési nyelvet egy PowerPoint dokumentumhoz. A helyesírás-ellenőrzési nyelv az a nyelv, amelynek helyesírását és nyelvtanát a PowerPoint ellenőrzi.
+Az Aspose.Slides a [LanguageId](https://reference.aspose.com/slides/hu/cpp/aspose.slides/baseportionformat/set_languageid/) tulajdonságot (amelyet a [PortionFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/portionformat/) osztály biztosít) kínálja, hogy beállíthassa a helyesírás-ellenőrzés nyelvét egy PowerPoint dokumentumhoz. A helyesírás-ellenőrzés nyelve az a nyelv, amelynek helyesírását és nyelvtanát a PowerPoint ellenőrzi.
 
-Ez a C++ kód megmutatja, hogyan állítható be a helyesírás-ellenőrzési nyelv egy PowerPoint fájlhoz:
+Ez a C++ kód megmutatja, hogyan állítható be a helyesírás-ellenőrzés nyelve egy PowerPointhoz:
 
 ```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
+#include <DOM/AutoShape.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IFontData.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"sample.pptx");
 System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
 
 System::SharedPtr<IParagraph> paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
@@ -110,7 +131,7 @@ portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
 portionFormat->set_LanguageId(u"zh-CN");
-// set the Id of a proofing language
+// állítsa be a helyesírási nyelv azonosítóját
 
 newPortion->set_Text(u"1。");
 portions->Add(newPortion);
@@ -121,12 +142,25 @@ portions->Add(newPortion);
 Ez a C++ kód megmutatja, hogyan állítható be az alapértelmezett nyelv egy teljes PowerPoint prezentációhoz:
 
 ```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
 
-// Új téglalap alakzat szöveggel
+// Hozzáad egy új téglalap alakzatot szöveggel
 System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
 System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
 textFrame->set_Text(u"New Text");
@@ -137,20 +171,20 @@ System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_Port
 
 ## **Élő példa**
 
-Próbálja ki a [**Aspose.Slides Metadata**](https://products.aspose.app/slides/hu/metadata) online alkalmazást, hogy lássa, hogyan dolgozhat a dokumentumtulajdonságokkal az Aspose.Slides API segítségével:
+Próbálja ki az [**Aspose.Slides Metadata**](https://products.aspose.app/slides/hu/metadata) online alkalmazást, hogy lássa, hogyan dolgozhat a dokumentumtulajdonságokkal az Aspose.Slides API-n keresztül:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/hu/metadata)
 
-## ***GYIK**
+## **GYIK**
 
 **Hogyan távolíthatok el egy beépített tulajdonságot egy prezentációból?**
 
-A beépített tulajdonságok a prezentáció szerves részei, és nem távolíthatók el teljesen. Azonban megváltoztathatja az értéküket, vagy ha a konkrét tulajdonság engedélyezi, üresre állíthatja őket.
+A beépített tulajdonságok a prezentáció szerves részei, ezért nem távolíthatók el teljesen. Azonban megváltoztathatja az értékeket, vagy ha az adott tulajdonság megengedi, üresre állíthatja őket.
 
 **Mi történik, ha már létező egyéni tulajdonságot adok hozzá?**
 
-Ha már létező egyéni tulajdonságot ad hozzá, a meglévő érték felül lesz írva az új értékkel. Nem szükséges előtte eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti a tulajdonság értékét.
+Ha már létező egyéni tulajdonságot ad hozzá, annak meglévő értéke felül lesz írva az újjal. Nem kell előre eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti a tulajdonság értékét.
 
 **Elérhetem a prezentáció tulajdonságait anélkül, hogy teljesen betölteném a prezentációt?**
 
-Igen, a prezentáció tulajdonságait anélkül is elérheti, hogy teljesen betöltené a prezentációt, a `GetPresentationInfo` metódus használatával a [PresentationFactory](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentationfactory/) osztályból. Ezután a [IPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/) interfész `ReadDocumentProperties` metódusát használva hatékonyan olvashatja a tulajdonságokat, ami memóriát takarít meg és javítja a teljesítményt.
+Igen. Használja a [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) és ezután az [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) metódusokat a tárolt dokumentummetaadatok olvasásához anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt hozna létre. Lásd a [Build a Lightweight Presentation Inventory](/slides/hu/cpp/examine-presentation/) cikket a teljes jelentési példához és a formátum-specifikus korlátozásokhoz.

@@ -5,75 +5,75 @@ type: docs
 weight: 70
 url: /cs/php-java/presentation-properties/
 keywords:
-- Vlastnosti PowerPointu
-- Vlastnosti prezentace
-- Vlastnosti dokumentu
-- Vestavěné vlastnosti
-- Vlastní vlastnosti
-- Rozšířené vlastnosti
-- Spravovat vlastnosti
-- Upravit vlastnosti
-- Metadata dokumentu
-- Upravit metadata
-- Jazyk kontroly pravopisu
-- Výchozí jazyk
+- vlastnosti PowerPointu
+- vlastnosti prezentace
+- vlastnosti dokumentu
+- vestavěné vlastnosti
+- vlastní vlastnosti
+- pokročilé vlastnosti
+- správa vlastností
+- úprava vlastností
+- metadata dokumentu
+- úprava metadat
+- jazyk pravopisu
+- výchozí jazyk
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Zvládněte vlastnosti prezentace v Aspose.Slides pro PHP přes Java a zjednodušte vyhledávání, brandování a workflow ve vašich souborech PowerPoint a OpenDocument."
+description: "Ovládněte vlastnosti prezentace v Aspose.Slides pro PHP přes Java a zefektivněte vyhledávání, brandování a pracovní postup ve vašich souborech PowerPoint a OpenDocument."
 ---
 ## **Úvod**
 
-Aspose.Slides podporuje dva typy vlastností dokumentu: **Built-in** a **Custom**. Oba tyto typy vlastností lze snadno přistupovat a spravovat pomocí API Aspose.Slides.
+Aspose.Slides podporuje dva typy vlastností dokumentu: **Built-in** a **Custom**. Oba tyto typy vlastností lze snadno získat a spravovat pomocí API Aspose.Slides.
 
-Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace prostřednictvím třídy [DocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties/). Instanci této třídy vrací metoda [Presentation::getDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getDocumentProperties). Následující příklady ukazují, jak číst, upravovat a spravovat tyto vlastnosti.
+Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace prostřednictvím třídy [DocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties/) . Instance této třídy je vrácena metodou [Presentation::getDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getDocumentProperties) . Následující příklady ukazují, jak číst, upravovat a spravovat tyto vlastnosti.
 
-{{% alert color="primary" %}} 
-Upozorňujeme, že pole **Application** a **Producer** nelze upravit, protože tato pole vždy zobrazí „Aspose Ltd.“ a „Aspose.Slides for PHP via Java x.x.x“.
+{{% alert color="info" title="Note" %}}
+Všimněte si, že pole **Application** a **AppVersion** nelze upravit. Aspose.Slides je přepíše při každém uložení, takže uložená prezentace vždy uvádí „Aspose.Slides for PHP via Java“ a verzi knihovny, která ji vytvořila. Jakákoli hodnota předaná metodě `setNameOfApplication` je při zápisu prezentace zahozena.
 {{% /alert %}} 
 
 ## **Správa vlastností prezentace**
 
-Microsoft PowerPoint poskytuje funkci pro přidání některých vlastností do souborů prezentací. Tyto vlastnosti dokumentu umožňují uložit užitečné informace spolu s dokumenty (soubory prezentací). Existují dva typy vlastností dokumentu, jak následuje:
+Microsoft PowerPoint poskytuje funkci pro přidání některých vlastností do souborů prezentace. Tyto vlastnosti dokumentu umožňují uložit užitečné informace spolu s dokumenty (soubory prezentace). Existují dva typy vlastností dokumentu:
 
-- Systémové definované (Built-in) vlastnosti
+- Systémově definované (Built-in) vlastnosti
 - Uživatelsky definované (Custom) vlastnosti
 
-**Built-in** vlastnosti obsahují obecné informace o dokumentu, jako je název dokumentu, jméno autora, statistika dokumentu a podobně. **Custom** vlastnosti jsou ty, které uživatelé definují jako páry **Název/Hodnota**, kde jak název, tak hodnota jsou definovány uživatelem. Pomocí Aspose.Slides pro PHP přes Java mohou vývojáři přistupovat a upravovat hodnoty vestavěných i uživatelských vlastností.
+**Built-in** vlastnosti obsahují obecné informace o dokumentu, jako je název dokumentu, jméno autora, statistiky dokumentu a podobně. **Custom** vlastnosti jsou ty, které uživatelé definují jako páry **Name/Value**, kde jak název, tak hodnota jsou definovány uživatelem. Pomocí Aspose.Slides for PHP via Java mohou vývojáři přistupovat k hodnotám vestavěných i vlastních vlastností a měnit je.
 
 ## **Vlastnosti dokumentu v PowerPointu**
 
-Microsoft PowerPoint 2007 umožňuje spravovat vlastnosti dokumentu souborů prezentací. Vše, co musíte udělat, je kliknout na ikonu Office a následně na položku nabídky **Prepare | Properties | Advanced Properties** v Microsoft PowerPoint 2007, jak je znázorněno níže:
+Microsoft PowerPoint 2007 umožňuje spravovat vlastnosti dokumentu souborů prezentace. Stačí kliknout na ikonu Office a dále na položku nabídky **Prepare | Properties | Advanced Properties** v Microsoft PowerPoint 2007, jak je ukázáno níže:
 
-|**Výběr položky nabídky Advanced Properties**|** |
+|**Výběr položky nabídky Pokročilé vlastnosti**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-Po výběru položky **Advanced Properties** se zobrazí dialogové okno, které vám umožní spravovat vlastnosti dokumentu souboru PowerPoint, jak je znázorněno níže na obrázku:
+Po výběru položky **Advanced Properties** se zobrazí dialog, který umožňuje spravovat vlastnosti dokumentu souboru PowerPoint, jak je znázorněno na obrázku níže:
 
-|**Dialog Vlastnosti**|** |
+|**Dialog Vlastností**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
 
-V výše uvedeném **Dialogu Vlastnosti** můžete vidět, že existuje mnoho záložek, jako **General**, **Summary**, **Statistics**, **Contents** a **Custom**. Všechny tyto záložky umožňují konfigurovat různé typy informací souvisejících se soubory PowerPoint. Záložka **Custom** slouží ke správě uživatelských vlastností souborů PowerPoint.
+V tomto **Dialogu Vlastností** můžete vidět mnoho záložek, jako **General**, **Summary**, **Statistics**, **Contents** a **Custom**. Všechny tyto záložky umožňují konfigurovat různé typy informací souvisejících se soubory PowerPoint. Záložka **Custom** slouží k správě vlastních vlastností souborů PowerPoint.
 
-Práce s vlastnostmi dokumentu pomocí Aspose.Slides pro PHP přes Java
+## **Práce s vlastnostmi dokumentu pomocí Aspose.Slides for PHP via Java**
 
-Jak jsme již dříve popsali, Aspose.Slides pro PHP přes Java podporuje dva typy vlastností dokumentu, a to **Built-in** a **Custom** vlastnosti. Vývojáři tak mohou přistupovat k oběma typům vlastností pomocí API Aspose.Slides pro PHP přes Java. Aspose.Slides pro PHP přes Java poskytuje třídu [DocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties), která představuje vlastnosti dokumentu spojené se souborem prezentace prostřednictvím vlastnosti **Presentation.DocumentProperties**.
+Jak jsme již dříve popsali, Aspose.Slides for PHP via Java podporuje dva typy vlastností dokumentu, které jsou **Built-in** a **Custom**. Vývojáři tedy mohou přistupovat k oběma typům vlastností pomocí API Aspose.Slides for PHP via Java. Aspose.Slides for PHP via Java poskytuje třídu [DocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties) , která představuje vlastnosti dokumentu spojené se souborem prezentace prostřednictvím vlastnosti **Presentation.DocumentProperties**.
 
-Vývojáři mohou použít vlastnost **DocumentProperties**, kterou vystavuje objekt [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation), k přístupu k vlastnostem dokumentu souborů prezentací, jak je popsáno níže:
+Vývojáři mohou použít vlastnost **DocumentProperties**, kterou exponuje objekt [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation) , k přístupu k vlastnostem dokumentu souborů prezentace, jak je popsáno níže:
 
-## **Přístup k vestavěným vlastnostem**
+## **Přístup k vestavěným (Built-in) vlastnostem**
 
-Tyto vlastnosti, které vystavuje objekt [DocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties), zahrnují: **Creator** (Autor), **Description**, **Keywords**, **Created** (Datum vytvoření), **Modified** (Datum úpravy), **Printed** (Datum posledního tisku), **LastModifiedBy**, **Keywords**, **SharedDoc** (Je sdílen mezi různými producenty?), **PresentationFormat**, **Subject** a **Title**.
+Tyto vlastnosti, které jsou vystaveny objektem [DocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties) , zahrnují: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** a **Title**.
 
 ```php
   # Vytvořte instanci třídy Presentation, která představuje prezentaci
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Vytvořte odkaz na objekt IDocumentProperties spojený s prezentací
+    # Vytvořte odkaz na objekt IDocumentProperties přidružený k prezentaci
     $dp = $pres->getDocumentProperties();
     # Zobrazte vestavěné vlastnosti
     echo("Category : " . $dp->getCategory());
@@ -97,14 +97,14 @@ Tyto vlastnosti, které vystavuje objekt [DocumentProperties](https://reference.
   }
 ```
 
-## **Upravit vestavěné vlastnosti**
+## **Úprava vestavěných (Built-in) vlastností**
 
-Úprava vestavěných vlastností souborů prezentací je tak snadná jako jejich přístup. Jednoduše přiřadíte řetězcovou hodnotu k libovolné požadované vlastnosti a hodnota vlastnosti bude upravena. V níže uvedeném příkladu jsme ukázali, jak můžeme upravit vestavěné vlastnosti dokumentu souboru prezentace pomocí Aspose.Slides pro PHP přes Java.
+Úprava vestavěných vlastností souborů prezentace je tak snadná jako k nim přístup. Jednoduše přiřadíte řetězcovou hodnotu k požadované vlastnosti a hodnota vlastnosti bude změněna. V níže uvedeném příkladu jsme ukázali, jak lze pomocí Aspose.Slides for PHP via Java upravit vestavěné vlastnosti dokumentu prezentace.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Vytvořte odkaz na objekt IDocumentProperties spojený s prezentací
+    # Vytvořte odkaz na objekt IDocumentProperties přidružený k prezentaci
     $dp = $pres->getDocumentProperties();
     # Nastavte vestavěné vlastnosti
     $dp->setAuthor("Aspose.Slides for PHP via Java");
@@ -112,7 +112,7 @@ Tyto vlastnosti, které vystavuje objekt [DocumentProperties](https://reference.
     $dp->setSubject("Aspose Subject");
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
-    # Uložte prezentaci do souboru
+    # Uložte svou prezentaci do souboru
     $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -121,15 +121,15 @@ Tyto vlastnosti, které vystavuje objekt [DocumentProperties](https://reference.
   }
 ```
 
-Tento příklad upravuje vestavěné vlastnosti prezentace, které lze zobrazit níže:
+Tento příklad upravuje vestavěné vlastnosti prezentace, což lze vidět na následujícím obrázku:
 
-|**Vestavěné vlastnosti dokumentu po úpravě**|** |
+|**Vlastnosti vestavěného dokumentu po úpravě**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **Přidat uživatelské vlastnosti dokumentu**
+## **Přidání vlastních (Custom) vlastností dokumentu**
 
-Aspose.Slides pro PHP přes Java také umožňuje vývojářům přidat vlastní hodnoty pro vlastnosti dokumentu prezentace. Níže je uveden příklad, který ukazuje, jak nastavit vlastní vlastnosti pro prezentaci.
+Aspose.Slides for PHP via Java také umožňuje vývojářům přidat vlastní hodnoty pro vlastnosti dokumentu prezentace. Níže je uveden příklad, který ukazuje, jak nastavit vlastní vlastnosti pro prezentaci.
 
 ```php
   $pres = new Presentation();
@@ -144,7 +144,7 @@ Aspose.Slides pro PHP přes Java také umožňuje vývojářům přidat vlastní
     $getPropertyName = $dProps->getCustomPropertyName(2);
     # Odstranění vybrané vlastnosti
     $dProps->removeCustomProperty($getPropertyName);
-    # Uložení prezentace
+    # Ukládání prezentace
     $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -153,28 +153,28 @@ Aspose.Slides pro PHP přes Java také umožňuje vývojářům přidat vlastní
   }
 ```
 
-|**Přidány vlastní vlastnosti dokumentu**|** |
+|**Přidané vlastní (Custom) vlastnosti dokumentu**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Přístup a úprava vlastních vlastností**
+## **Přístup a úprava vlastních (Custom) vlastností**
 
-Aspose.Slides pro PHP přes Java také umožňuje vývojářům přistupovat k hodnotám vlastních vlastností. Níže je uveden příklad, který ukazuje, jak můžete přistupovat a upravovat všechny tyto vlastní vlastnosti pro prezentaci.
+Aspose.Slides for PHP via Java také umožňuje vývojářům přistupovat k hodnotám vlastních vlastností. Níže je uveden příklad, který ukazuje, jak můžete přistupovat a upravovat všechny tyto vlastní vlastnosti pro prezentaci.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Vytvořte odkaz na objekt DocumentProperties spojený s prezentací
+    # Vytvořte odkaz na objekt DocumentProperties přidružený k prezentaci
     $dp = $pres->getDocumentProperties();
-    # Přístup k vlastním vlastnostem a jejich úprava
+    # Přístup a úprava vlastních vlastností
     for($i = 0; $i < java_values($dp->getCountOfCustomProperties()) ; $i++) {
       # Zobrazte názvy a hodnoty vlastních vlastností
       echo("Custom Property Name : " . $dp->getCustomPropertyName($i));
       echo("Custom Property Value : " . $dp->get_Item($dp->getCustomPropertyName($i)));
-      # Upravte hodnoty vlastních vlastností
+      # Upravení hodnot vlastních vlastností
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
-    # Uložte prezentaci do souboru
+    # Uložte svou prezentaci do souboru
     $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -183,7 +183,7 @@ Aspose.Slides pro PHP přes Java také umožňuje vývojářům přistupovat k h
   }
 ```
 
-Tento příklad upravuje vlastní vlastnosti [PPTX](https://docs.fileformat.com/presentation/pptx/) prezentace. Následující obrázky ukazují vlastní vlastnosti prezentace před a po úpravě:
+Tento příklad upravuje vlastní vlastnosti [PPTX ](https://docs.fileformat.com/presentation/pptx/)prezentace. Následující obrázky ukazují vlastní vlastnosti prezentace před a po úpravě:
 
 |**Vlastní vlastnosti před úpravou**|** |
 | :- | :- |
@@ -193,30 +193,30 @@ Tento příklad upravuje vlastní vlastnosti [PPTX](https://docs.fileformat.com/
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
-## **Rozšířené vlastnosti dokumentu**
+## **Pokročilé vlastnosti dokumentu**
 
-{{% alert color="primary" %}} 
-Byly přidány nové metody [readDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) a [writeBindedPresentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) do třídy [PresentationInfo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo), logika setteru vlastnosti [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties/#setLastSavedTime) byla změněna.
+{{% alert color="info" title="Note" %}}
+Byly přidány nové metody [readDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) a [writeBindedPresentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) do třídy [PresentationInfo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo) , logika setteru vlastnosti [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties/#setLastSavedTime) byla změněna.
 {{% /alert %}} 
 
-Do třídy [PresentationInfo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo) byly přidány dvě nové metody [readDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) a [updateDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties). Poskytují rychlý přístup k vlastnostem dokumentu a umožňují měnit a aktualizovat vlastnosti bez načítání celé prezentace.
+Tyto dvě nové metody [readDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) a [updateDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) byly přidány do třídy [PresentationInfo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo) . Poskytují rychlý přístup k vlastnostem dokumentu a umožňují měnit a aktualizovat vlastnosti bez načtení celé prezentace.
 
-Typický scénář načtení vlastností, změny některé hodnoty a aktualizace dokumentu lze implementovat následujícím způsobem:
+Typický scénář načtení vlastností, změna některé hodnoty a aktualizace dokumentu lze implementovat následujícím způsobem:
 
 ```php
-  # načíst informace o prezentaci
+  # načtěte informace o prezentaci
   $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
-  # získat aktuální vlastnosti
+  # získejte aktuální vlastnosti
   $props = $info->readDocumentProperties();
-  # nastavit nové hodnoty polí Autor a Název
+  # nastavte nové hodnoty polí Author a Title
   $props->setAuthor("New Author");
   $props->setTitle("New Title");
-  # aktualizovat prezentaci s novými hodnotami
+  # aktualizujte prezentaci s novými hodnotami
   $info->updateDocumentProperties($props);
   $info->writeBindedPresentation("presentation.pptx");
 ```
 
-Existuje další způsob, jak použít vlastnosti konkrétní prezentace jako šablonu pro aktualizaci vlastností v jiných prezentacích:
+Dalším způsobem je použít vlastnosti konkrétní prezentace jako šablonu pro aktualizaci vlastností v dalších prezentacích:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("template.pptx");
@@ -238,7 +238,7 @@ Existuje další způsob, jak použít vlastnosti konkrétní prezentace jako š
 
 ```
 
-Nová šablona může být vytvořena od nuly a poté použita k aktualizaci více prezentací:
+Novou šablonu lze vytvořit od začátku a poté použít k aktualizaci více prezentací:
 
 ```php
   $template = new DocumentProperties();
@@ -255,14 +255,14 @@ Nová šablona může být vytvořena od nuly a poté použita k aktualizaci ví
   updateByTemplate("doc3.ppt", $template);
 ```
 
-## **Nastavit jazyk kontroly pravopisu**
+## **Nastavení jazykové kontroly**
 
-Aspose.Slides poskytuje vlastnost LanguageId (vystavenou třídou PortionFormat), která vám umožňuje nastavit jazyk kontroly pravopisu pro dokument PowerPoint. Jazyk kontroly pravopisu je jazyk, pro který jsou v PowerPointu kontrolovány pravopis a gramatika.
+Aspose.Slides poskytuje vlastnost LanguageId (exponovanou třídou PortionFormat), která umožňuje nastavit jazykovou kontrolu pro dokument PowerPoint. Jazyková kontrola je jazyk, pro který jsou ve PowerPointu kontrolovány pravopis a gramatika.
 
-Tento PHP kód ukazuje, jak nastavit jazyk kontroly pravopisu pro PowerPoint: xxx Proč v Java třídě PortionFormat chybí LanguageId?
+Tento PHP kód ukazuje, jak nastavit jazykovou kontrolu pro PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
 
 ```php
-  $pres = new Presentation($pptxFileName);
+  $pres = new Presentation("Presentation.pptx");
   try {
     $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
@@ -270,10 +270,10 @@ Tento PHP kód ukazuje, jak nastavit jazyk kontroly pravopisu pro PowerPoint: xx
     $newPortion = new Portion();
     $font = new FontData("SimSun");
     $portionFormat = $newPortion->getPortionFormat();
-    $portionFormat::setComplexScriptFont($font);
-    $portionFormat::setEastAsianFont($font);
-    $portionFormat::setLatinFont($font);
-    $portionFormat::setLanguageId("zh-CN");// nastavit Id jazykové kontroly pravopisu
+    $portionFormat->setComplexScriptFont($font);
+    $portionFormat->setEastAsianFont($font);
+    $portionFormat->setLatinFont($font);
+    $portionFormat->setLanguageId("zh-CN");// nastavte Id jazykové kontroly
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);
@@ -284,7 +284,7 @@ Tento PHP kód ukazuje, jak nastavit jazyk kontroly pravopisu pro PowerPoint: xx
   }
 ```
 
-## **Nastavit výchozí jazyk**
+## **Nastavení výchozího jazyka**
 
 Tento PHP kód ukazuje, jak nastavit výchozí jazyk pro celou prezentaci PowerPoint:
 
@@ -307,7 +307,7 @@ Tento PHP kód ukazuje, jak nastavit výchozí jazyk pro celou prezentaci PowerP
 
 ## **Živý příklad**
 
-Vyzkoušejte online aplikaci [**Aspose.Slides Metadata**](https://products.aspose.app/slides/cs/metadata) a uvidíte, jak pracovat s vlastnostmi dokumentu pomocí API Aspose.Slides:
+Vyzkoušejte online aplikaci [**Aspose.Slides Metadata**](https://products.aspose.app/slides/cs/metadata) a zjistěte, jak pracovat s vlastnostmi dokumentu pomocí Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/cs/metadata)
 
@@ -315,12 +315,12 @@ Vyzkoušejte online aplikaci [**Aspose.Slides Metadata**](https://products.aspos
 
 **Jak mohu odebrat vestavěnou vlastnost z prezentace?**
 
-Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete však změnit jejich hodnoty nebo je nastavit na prázdnou, pokud to konkrétní vlastnost umožňuje.
+Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete však jejich hodnoty změnit nebo je nastavit na prázdné, pokud to konkrétní vlastnost umožňuje.
 
 **Co se stane, když přidám vlastní vlastnost, která již existuje?**
 
-Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost nejprve odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
+Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte ji předtím odstraňovat ani kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
 
-**Mohu získat přístup k vlastnostem prezentace bez úplného načtení prezentace?**
+**Mohu přistupovat k vlastnostem prezentace bez úplného načtení prezentace?**
 
-Ano, můžete přistupovat k vlastnostem prezentace bez úplného načtení prezentace pomocí metody `getPresentationInfo` ze třídy [PresentationFactory](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentationfactory/). Poté použijte metodu `readDocumentProperties` poskytovanou třídou [PresentationInfo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentationinfo/) pro efektivní načtení vlastností, čímž šetříte paměť a zvyšujete výkon.
+Ano. Použijte [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentationfactory/) a poté [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentationinfo/#readDocumentProperties) k načtení uložených metadat dokumentu bez vytvoření instance [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) . Viz [Build a Lightweight Presentation Inventory](/slides/cs/php-java/examine-presentation/) pro kompletní příklad reportingu a omezení specifických formátů.

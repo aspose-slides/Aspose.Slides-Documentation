@@ -1,123 +1,181 @@
 ---
-title: Ανάκτηση και Ενημέρωση Πληροφοριών Παρουσίασης σε Python
-linktitle: Πληροφορίες Παρουσίασης
+title: "Ανάκτηση και Ενημέρωση Πληροφοριών Παρουσίασης σε Python"
+linktitle: "Πληροφορίες Παρουσίασης"
 type: docs
 weight: 30
 url: /el/python-net/examine-presentation/
 keywords:
-- μορφή παρουσίασης
-- ιδιότητες παρουσίασης
-- ιδιότητες εγγράφου
-- λήψη ιδιοτήτων
-- ανάγνωση ιδιοτήτων
-- αλλαγή ιδιοτήτων
-- τροποποίηση ιδιοτήτων
-- ενημέρωση ιδιοτήτων
-- εξέταση PPTX
-- εξέταση PPT
-- εξέταση ODP
-- PowerPoint
-- OpenDocument
-- παρουσίαση
-- Python
-- Aspose.Slides
-description: "Εξερευνήστε τις διαφάνειες, τη δομή και τα μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας Python για ταχύτερη κατανόηση και πιο έξυπνες αξιολογήσεις περιεχομένου."
+- "μορφή παρουσίασης"
+- "ιδιότητες παρουσίασης"
+- "ιδιότητες εγγράφου"
+- "λήψη ιδιοτήτων"
+- "ανάγνωση ιδιοτήτων"
+- "αλλαγή ιδιοτήτων"
+- "τροποποίηση ιδιοτήτων"
+- "ενημέρωση ιδιοτήτων"
+- "εξέταση PPTX"
+- "εξέταση PPT"
+- "εξέταση ODP"
+- "PowerPoint"
+- "OpenDocument"
+- "παρουσίαση"
+- "Python"
+- "Aspose.Slides"
+description: "Εξερευνήστε τις διαφάνειες, τη δομή και τα μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας Python για πιο γρήγορες γνώσεις και πιο έξυπνους ελέγχους περιεχομένου."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να επιθεωρήσετε τις πληροφορίες παρουσίασης στο Aspose.Slides. Εξηγεί πώς να προσδιορίσετε τη τρέχουσα μορφή μιας παρουσίασης χωρίς να φορτώσετε το πλήρες αρχείο, να διαβάσετε τις ιδιότητες εγγράφου της και να ενημερώσετε αυτές τις ιδιότητες όταν χρειάζεται.
+Το Aspose.Slides μπορεί να εντοπίσει τη μορφή μιας παρουσίασης και να διαβάσει τα μεταδεδομένα του εγγράφου χωρίς να δημιουργήσει ένα πλήρες αντικειμενοστραφές μοντέλο παρουσίασης. Αυτό είναι χρήσιμο όταν πρέπει να ταξινομήσετε αρχεία, να δημιουργήσετε μια απογραφή ή να ελέγξετε ιδιότητες πριν αποφασίσετε αν θα φορτώσετε και θα επεξεργαστείτε το περιεχόμενο της παρουσίασης.
 
-Τα παραδείγματα βασίζονται στα API [PresentationInfo](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/) και [DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/) και δείχνουν τυπικές λειτουργίες για την εργασία με τα μεταδεδομένα παρουσίασης.
+Αυτό το άρθρο δείχνει ελαφριά επιθεώρηση μέσω [PresentationFactory](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationfactory/) και [PresentationInfo](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/), καθώς και στοχευμένες ενημερώσεις μέσω [DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/).
 
 ## **Έλεγχος Μορφής Παρουσίασης**
 
-Πριν εργαστείτε σε μια παρουσίαση, ίσως θέλετε να μάθετε σε ποια μορφή (PPT, PPTX, ODP και άλλες) βρίσκεται η παρουσίαση αυτή τη στιγμή.
+Χρησιμοποιήστε [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationfactory/get_presentation_info/) για να επιθεωρήσετε ένα αρχείο χωρίς να δημιουργήσετε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/). Η ιδιότητα [PresentationInfo.load_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/load_format/) αναφέρει τη ανιχνευθείσα μορφή, όπως PPTX, PPT ή ODP.
 
-Μπορείτε να ελέγξετε τη μορφή μιας παρουσίασης χωρίς να την φορτώσετε. Δείτε αυτόν τον κώδικα Python:
-
-```py
+```python
 import aspose.slides as slides
 
-info1 = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print(info1.load_format, info1.load_format == slides.LoadFormat.PPTX)
+file_names = ["pres.pptx", "pres.ppt", "pres.odp"]
 
-info2 = slides.PresentationFactory.instance.get_presentation_info("pres.odp")
-print(info2.load_format, info2.load_format == slides.LoadFormat.ODP)
-
-info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
-print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
+for file_name in file_names:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_name)
+    print(f"{file_name}: {presentation_info.load_format}")
 ```
 
-## **Λήψη Ιδιοτήτων Παρουσίασης**
+## **Δημιουργία Ελαφράς Απογραφής Παρουσίασης**
 
-Αυτός ο κώδικας Python σας δείχνει πώς να λάβετε τις ιδιότητες της παρουσίασης (πληροφορίες σχετικά με την παρουσίαση):
+Όταν επεξεργάζεστε πολλά αρχεία παρουσίασης, μπορεί να χρειαστείτε μια συμπαγή απογραφή για επικύρωση, ευρετηρίαση ή σύστημα διαχείρισης εγγράφων. Σε αυτό το σενάριο, χρησιμοποιήστε [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationfactory/get_presentation_info/) για να λάβετε ένα αντικείμενο [PresentationInfo](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/), και κατόπιν καλέστε [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/read_document_properties/) για να διαβάσετε τα μεταδεδομένα του εγγράφου. Αυτή η προσέγγιση δεν δημιουργεί ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) ούτε απαιτεί να διασχίσετε το πλήρες αντικειμενοστραφές μοντέλο της παρουσίασης.
 
-```py
+Οι επεκτατές ιδιότητες που αποκαλύπτονται από το [DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/) παρέχουν τις ακόλουθες τιμές απογραφής:
+
+| Ιδιότητα | Τιμή απογραφής |
+| --- | --- |
+| [slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/slides/el/) | Συνολικός αριθμός διαφανειών. |
+| [hidden_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/hidden_slides/) | Αριθμός κρυφών διαφανειών. |
+| [notes](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/notes/) | Αριθμός διαφανειών που περιέχουν σημειώσεις. |
+| [paragraphs](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/paragraphs/) | Συνολικός αριθμός παραγράφων, εφόσον είναι διαθέσιμος. |
+| [words](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/words/) | Συνολικός αριθμός λέξεων. |
+| [multimedia_clips](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/multimedia_clips/) | Συνολικός αριθμός ηχητικών και βίντεο κλιπ. |
+
+Το παρακάτω παράδειγμα διαβάζει αυτές τις τιμές χωρίς να δημιουργεί ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και εκτυπώνει μια συμπαγή απογραφή. Συνδυάζει επίσης το [heading_pairs](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/heading_pairs/) με τα [titles_of_parts](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/titles_of_parts/) για να εμφανίσει ομάδες περιεχομένου όπως γραμματοσειρές, θέματα και τίτλους διαφανειών.
+
+```python
+import os
 import aspose.slides as slides
 
-info = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-props = info.read_document_properties()
-print(props.created_time)
-print(props.subject)
-print(props.title)
+file_path = "sample.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+document_properties = presentation_info.read_document_properties()
+
+print(f"File: {os.path.basename(file_path)}")
+print(f"Format: {presentation_info.load_format}")
+print(f"Title: {document_properties.title}")
+print(f"Author: {document_properties.author}")
+print("Statistics:")
+print(f"  Slides: {document_properties.slides}")
+print(f"  Hidden slides: {document_properties.hidden_slides}")
+print(f"  Slides with notes: {document_properties.notes}")
+print(f"  Paragraphs: {document_properties.paragraphs}")
+print(f"  Words: {document_properties.words}")
+print(f"  Multimedia clips: {document_properties.multimedia_clips}")
+
+heading_pairs = document_properties.heading_pairs or []
+titles_of_parts = document_properties.titles_of_parts or []
+part_index = 0
+
+if not heading_pairs or not titles_of_parts:
+    print("Content groups: not available")
+else:
+    print("Content groups:")
+
+    for heading_pair in heading_pairs:
+        print(f"  {heading_pair.name} ({heading_pair.count})")
+
+        for _ in range(heading_pair.count):
+            if part_index >= len(titles_of_parts):
+                break
+
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
+
+    if part_index < len(titles_of_parts):
+        print("  Other parts:")
+
+        while part_index < len(titles_of_parts):
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
 ```
 
-Μπορείτε να δείτε τις [ιδιότητες στην κλάση DocumentProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/#properties).
+Κάθε [HeadingPair](https://reference.aspose.com/slides/el/python-net/aspose.slides/headingpair/) παρέχει ένα όνομα ομάδας και τον αριθμό των στοιχείων σε αυτήν την ομάδα. Το [DocumentProperties.titles_of_parts](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/titles_of_parts/) είναι μια επίπεδη, διατεταγμένη συλλογή, έτσι καταναλώνετε τον αριθμό των διαδοχικών τίτλων που ορίζονται από κάθε heading pair.
+
+### **Αποθηκευμένα Μεταδεδομένα και Περιορισμοί Μορφής**
+
+Οι ιδιότητες απογραφής που επιστρέφει το [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/read_document_properties/) αντικατοπτρίζουν τα μεταδεδομένα που είναι διαθέσιμα στο πηγαίο έγγραφο. Το Aspose.Slides δεν φορτώνει και δεν διασχίζει το μοντέλο αντικειμένων παρουσίασης για να επαναϋπολογίσει αυτές τις τιμές για αυτήν την κλήση. Οι ελλιπείς ιδιότητες παρουσιάζονται με προεπιλεγμένες τιμές, και οι αποθηκευμένες τιμές μπορεί να είναι παλιές εάν η εφαρμογή που αποθήκευσε τελευταία το αρχείο δεν ενημέρωσε τις ιδιότητες εγγράφου.
+
+- **PPTX:** Η μορφή παρέχει επεκτατικές ιδιότητες εγγράφου για μετρήσεις διαφάνειας, σημειώσεων, κρυφών διαφανειών, παραγράφων, λέξεων και πολυμέσων, καθώς και heading pairs και titles of parts. Η διαθεσιμότητα εξαρτάται από το ποιες ιδιότητες έγραψε ο δημιουργός του εγγράφου.
+- **PPT:** Η δυαδική μορφή μπορεί να αποθηκεύσει αντίστοιχες ιδιότητες σύνοψης εγγράφου. Εάν μια ιδιότητα λείπει ή δεν ανανεώθηκε από τον δημιουργό, το Aspose.Slides επιστρέφει την αποθηκευμένη ή προεπιλεγμένη τιμή αντί να την υπολογίσει από τις διαφάνειες.
+- **ODP:** Τα μεταδεδομένα OpenDocument παρέχουν γενικά στατιστικά εγγράφου, όπως αριθμό σελίδων, παραγράφων και λέξεων, αλλά αυτές οι τιμές δεν αντιστοιχούν σε κάθε PowerPoint‑συγκεκριμένη επεκτατική ιδιότητα. Τα μεταδεδομένα κρυφών διαφανειών, σημειώσεων, πολυμεσικών, heading‑pair και part‑title μπορεί να μην είναι διαθέσιμα, και οι ιδιότητες απογραφής μπορεί να επιστρέψουν προεπιλεγμένες τιμές. Μην θεωρείτε μηδενική τιμή ή κενή συλλογή ως αποδεικτικό ότι το αντίστοιχο περιεχόμενο λείπει.
+
+Χρησιμοποιήστε την ελαφριά προσέγγιση μεταδεδομένων για απογραφές και προκαταρκτικούς ελέγχους. Φορτώστε την παρουσίαση και ελέγξτε το ζωντανό μοντέλο αντικειμένων όταν το αποτέλεσμα πρέπει να αντανακλά αλλαγές στη μνήμη ή όταν χρειάζεται επαλήθευση του πραγματικού περιεχομένου της παρουσίασης.
 
 ## **Ενημέρωση Ιδιοτήτων Παρουσίασης**
 
-Το Aspose.Slides παρέχει τη μέθοδο [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) που σας επιτρέπει να κάνετε αλλαγές στις ιδιότητες της παρουσίασης.
+Οι ιδιότητες που επιστρέφει το [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/read_document_properties/) μπορούν επίσης να τροποποιηθούν χωρίς τη δημιουργία ενός αντικειμένου [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/). Εφαρμόστε τις αλλαγές με το [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/update_document_properties/), και κατόπιν γράψτε την δεσμευμένη παρουσίαση με το [PresentationInfo.write_binded_presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/write_binded_presentation/).
 
-Ας πούμε ότι έχουμε μια παρουσίαση PowerPoint με τις ιδιότητες εγγράφου που φαίνονται παρακάτω.
+Η ακόλουθη εικόνα δείχνει τις αρχικές ιδιότητες εγγράφου της παρουσίασης PowerPoint.
 
 ![Αρχικές ιδιότητες εγγράφου της παρουσίασης PowerPoint](input_properties.png)
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να επεξεργαστείτε ορισμένες ιδιότητες παρουσίασης:
+Το παρακάτω παράδειγμα τροποποιεί τον τίτλο και την ώρα τελευταίας αποθήκευσης και γράφει το αποτέλεσμα σε νέο αρχείο:
 
-```py
-file_name = "sample.pptx"
+```python
+import datetime
+import aspose.slides as slides
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+source_file = "sample.pptx"
+output_file = "sample_with_updated_properties.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(source_file)
+document_properties = presentation_info.read_document_properties()
 
-properties = info.read_document_properties()
-properties.title = "My title"
-properties.last_saved_time = datetime.now()
+document_properties.title = "Quarterly sales report"
+document_properties.last_saved_time = datetime.datetime.now(datetime.timezone.utc)
 
-info.update_document_properties(properties)
-info.write_binded_presentation(file_name)
+presentation_info.update_document_properties(document_properties)
+
+with open(output_file, "wb") as output_stream:
+    presentation_info.write_binded_presentation(output_stream)
 ```
 
-Τα αποτελέσματα της αλλαγής των ιδιοτήτων εγγράφου εμφανίζονται παρακάτω.
+Η ακόλουθη εικόνα δείχνει τις αλλαγμένες ιδιότητες εγγράφου της παρουσίασης PowerPoint.
 
 ![Αλλαγμένες ιδιότητες εγγράφου της παρουσίασης PowerPoint](output_properties.png)
 
 ## **Χρήσιμοι Σύνδεσμοι**
 
-Για περισσότερες πληροφορίες σχετικά με μια παρουσίαση και τα χαρακτηριστικά ασφαλείας της, μπορεί να βρείτε χρήσιμο αυτούς τους συνδέσμους:
+Για σχετικούς ελέγχους ασφαλείας και ρυθμίσεις προστασίας, δείτε τα παρακάτω άρθρα:
 
-- [Έλεγχος αν μια παρουσίαση είναι κρυπτογραφημένη](https://docs.aspose.com/slides/el/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Έλεγχος αν μια παρουσίαση προστατεύεται από εγγραφή (μόνο για ανάγνωση)](https://docs.aspose.com/slides/el/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Έλεγχος αν μια παρουσίαση είναι προστατευμένη με κωδικό πριν τη φόρτωση](https://docs.aspose.com/slides/el/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Επιβεβαίωση του κωδικού που χρησιμοποιήθηκε για την προστασία μιας παρουσίασης](https://docs.aspose.com/slides/el/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/el/python-net/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/el/python-net/write-protected-presentation/)
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να ελέγξω αν οι γραμματοσειρές είναι ενσωματωμένες και ποιες είναι;**
 
-Αναζητήστε τις [πληροφορίες ενσωματωμένων γραμματοσειρών](https://reference.aspose.com/slides/el/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) στο επίπεδο της παρουσίασης, έπειτα συγκρίνετε αυτές τις καταχωρήσεις με το σύνολο των [γραμματοσειρών που χρησιμοποιούνται πραγματικά σε όλο το περιεχόμενο](https://reference.aspose.com/slides/el/python-net/aspose.slides/fontsmanager/get_fonts/) για να εντοπίσετε ποιες γραμματοσειρές είναι κρίσιμες για την απόδοση.
+Φορτώστε την παρουσίαση και χρησιμοποιήστε το [Presentation.fonts_manager](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/fonts_manager/). Καλέστε το [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/el/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) για να αποκτήσετε τις ενσωματωμένες γραμματοσειρές και το [FontsManager.get_fonts](https://reference.aspose.com/slides/el/python-net/aspose.slides/fontsmanager/get_fonts/) για να λάβετε τις γραμματοσειρές που χρησιμοποιεί η παρουσίαση. Συγκρίνετε τα δύο αποτελέσματα για να βρείτε γραμματοσειρές που απαιτούνται για την απόδοση αλλά δεν είναι ενσωματωμένες.
 
 **Πώς μπορώ γρήγορα να διαπιστώ αν το αρχείο έχει κρυφές διαφάνειες και πόσες;**
 
-Διέλθετε τη [συλλογή διαφανειών](https://reference.aspose.com/slides/el/python-net/aspose.slides/slidecollection/) και ελέγξτε τη [σημαία ορατότητας](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/hidden/) κάθε διαφάνειας.
+Όταν τα αποθηκευμένα μεταδεδομένα εγγράφου είναι επαρκή, διαβάστε το [DocumentProperties.hidden_slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/documentproperties/hidden_slides/) μέσω του [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationfactory/get_presentation_info/) και του [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/read_document_properties/). Αυτό είναι κατάλληλο για ελαφριά απογραφή. Εάν η παρουσίαση έχει τροποποιηθεί στη μνήμη, τα αποθηκευμένα μεταδεδομένα μπορεί να λείπουν ή να είναι παλιά, ή αν χρειάζεται επαλήθευση ζωνών τιμών, περάστε από τις [Presentation.slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/slides/el/) και ελέγξτε την ιδιότητα [Slide.hidden](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/hidden/) κάθε διαφάνειας.
 
-**Μπορώ να εντοπίσω αν χρησιμοποιείται προσαρμοσμένο μέγεθος και προσανατολισμός διαφάνειας, και αν διαφέρουν από τις προεπιλογές;**
+**Μπορώ να εντοπίσω αν χρησιμοποιούνται προσαρμοσμένο μέγεθος διαφάνειας και προσανατολισμός, και αν διαφέρουν από τις προεπιλογές;**
 
-Ναι. Συγκρίνετε το τρέχον [μέγεθος διαφάνειας](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/slide_size/) και προσανατολισμό με τις τυπικές προεπιλογές· αυτό βοηθά στην πρόβλεψη της συμπεριφοράς για εκτύπωση και εξαγωγή.
+Ναι. Φορτώστε την παρουσίαση και διαβάστε το [Presentation.slide_size](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/slide_size/). Ελέγξτε το [SlideSize.type](https://reference.aspose.com/slides/el/python-net/aspose.slides/slidesize/type/), το [SlideSize.size](https://reference.aspose.com/slides/el/python-net/aspose.slides/slidesize/size/) και το [SlideSize.orientation](https://reference.aspose.com/slides/el/python-net/aspose.slides/slidesize/orientation/) για να συγκρίνετε τις τρέχουσες ρυθμίσεις με τις αναμενόμενες προεπιλογές και διαστάσεις.
 
-**Υπάρχει γρήγορος τρόπος να διαπιστώ αν τα γραφήματα αναφέρονται σε εξωτερικές πηγές δεδομένων;**
+**Υπάρχει γρήγορος τρόπος να δω αν τα διαγράμματα αναφέρονται σε εξωτερικές πηγές δεδομένων;**
 
-Ναι. Περιηγηθείτε σε όλα τα [γράφημα](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/), ελέγξτε την [πηγή δεδομένων](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/data_source_type/), και σημειώστε αν τα δεδομένα είναι εσωτερικά ή βασισμένα σε σύνδεσμο, συμπεριλαμβανομένων τυχόν σπασμένων συνδέσμων.
+Ναι. Εντοπίστε κάθε [Chart](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/) και ελέγξτε το [ChartData.data_source_type](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/data_source_type/). Για εξωτερικό βιβλίο εργασίας, διαβάστε το [ChartData.external_workbook_path](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Ο τύπος πηγής δεδομένων και η διαδρομή προσδιορίζουν μια εξωτερική αναφορά, αλλά η επαλήθευση της διαθεσιμότητας του στόχου απαιτεί ξεχωριστό έλεγχο πόρων.
 
-**Πώς μπορώ να αξιολογήσω τις «βαριές» διαφάνειες που μπορεί να επιβραδύνουν την απόδοση ή την εξαγωγή PDF;**
+**Πώς μπορώ να αξιολογήσω τις «βαριές» διαφάνειες που μπορεί να επιβραδύνουν την απόδοση ή την εξαγωγή σε PDF;**
 
-Για κάθε διαφάνεια, μετρήστε τον αριθμό των αντικειμένων και ψάξτε για μεγάλες εικόνες, διαφάνειες, σκιές, κινούμενα σχέδια και πολυμέσα· δώστε μια κατά προσέγγιση βαθμολογία πολυπλοκότητας ώστε να επισημάνετε πιθανά σημεία επιβάρυνσης απόδοσης.
+Δεν υπάρχει μια ενιαία ιδιότητα πολυπλοκότητας. Διασχίστε τις [Presentation.slides](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/slides/el/) και τη συλλογή [BaseSlide.shapes](https://reference.aspose.com/slides/el/python-net/aspose.slides/baseslide/shapes/) κάθε διαφάνειας. Χρησιμοποιήστε μετρήσεις σχήματος και την παρουσία μεγάλων εικόνων, εφέ, κινούμενων γραφικών ή πολυμέσων ως σήματα φιλτραρίσματος, και εκτελέστε μια αντιπροσωπευτική απόδοση ή εξαγωγή πριν θεωρήσετε μια διαφάνεια ως επιβεβαιωμένο σημάδι επιβράδυνσης απόδοσης.

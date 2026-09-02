@@ -1,5 +1,6 @@
 ---
-title: Präsentationseigenschaften
+title: Präsentationseigenschaften in JavaScript verwalten
+linktitle: Präsentationseigenschaften
 type: docs
 weight: 70
 url: /de/nodejs-java/presentation-properties/
@@ -7,67 +8,76 @@ keywords:
 - PowerPoint-Eigenschaften
 - Präsentationseigenschaften
 - Dokumenteigenschaften
-- Eingebaute Eigenschaften
+- Integrierte Eigenschaften
 - Benutzerdefinierte Eigenschaften
 - Erweiterte Eigenschaften
+- Eigenschaften verwalten
 - Eigenschaften ändern
-- Dokumentmetadaten
+- Dokument-Metadaten
 - Metadaten bearbeiten
+- Korrektursprache
+- Standardsprache
 - PowerPoint
+- OpenDocument
 - Präsentation
 - Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
-description: "PowerPoint-Präsentationseigenschaften in JavaScript verwalten"
+- Aspose.Slides
+description: "Beherrschen Sie Präsentationseigenschaften in Aspose.Slides für Node.js via Java und optimieren Sie Suche, Markenauftritt und Arbeitsabläufe in Ihren PowerPoint- und OpenDocument-Dateien."
 ---
+## **Einleitung**
 
-{{% alert color="primary" %}} 
+Aspose.Slides unterstützt zwei Arten von Dokumenteigenschaften: **Built-in** und **Custom**. Beide Eigenschaftstypen können leicht über die Aspose.Slides‑API zugegriffen und verwaltet werden.
 
-Microsoft PowerPoint bietet eine Funktion, um einigen Eigenschaften zu den Präsentationsdateien hinzuzufügen. Diese Dokumenteigenschaften ermöglichen es, nützliche Informationen zusammen mit den Dokumenten (Präsentationsdateien) zu speichern. Es gibt zwei Arten von Dokumenteigenschaften:
+Aspose.Slides ermöglicht die Arbeit mit Präsentations‑Dokumenteigenschaften über die [DocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/documentproperties/)‑Klasse. Eine Instanz dieser Klasse wird von der [Presentation.getDocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/#getDocumentProperties)‑Methode zurückgegeben. Die folgenden Beispiele zeigen, wie diese Eigenschaften gelesen, geändert und verwaltet werden können.
 
-- Systemdefinierte (eingebaute) Eigenschaften
-- Benutzerdefinierte (eigene) Eigenschaften
-
-**Eingebaute** Eigenschaften enthalten allgemeine Informationen über das Dokument, wie Dokumenttitel, Autorname, Dokumentstatistiken usw. **Eigene** Eigenschaften sind solche, die von den Benutzern als **Name/Wert**‑Paare definiert werden, wobei sowohl Name als auch Wert vom Benutzer festgelegt werden. Mit Aspose.Slides für Node.js via Java können Entwickler sowohl die Werte eingebauter Eigenschaften als auch eigener Eigenschaften abrufen und ändern.
-
+{{% alert color="info" title="Hinweis" %}}
+Bitte beachten Sie, dass die Felder **Application** und **AppVersion** nicht geändert werden können. Aspose.Slides überschreibt sie bei jedem Speichern, sodass eine gespeicherte Präsentation immer "Aspose.Slides for Node.js via Java" und die Version der Bibliothek, die sie erzeugt hat, meldet. Jeder an `setNameOfApplication` übergebene Wert wird beim Schreiben der Präsentation verworfen.
 {{% /alert %}} 
+
+## **Präsentationseigenschaften verwalten**
+
+Microsoft PowerPoint bietet eine Funktion, um einige Eigenschaften zu den Präsentationsdateien hinzuzufügen. Diese Dokumenteigenschaften ermöglichen es, nützliche Informationen zusammen mit den Dokumenten (Präsentationsdateien) zu speichern. Es gibt zwei Arten von Dokumenteigenschaften:
+
+- Systemdefinierte (Built-in) Eigenschaften
+- Benutzerdefinierte (Custom) Eigenschaften
+
+**Built-in**‑Eigenschaften enthalten allgemeine Informationen über das Dokument wie Dokumenttitel, Autorenname, Dokumentstatistiken usw. **Custom**‑Eigenschaften sind solche, die von den Benutzern als **Name/Wert**‑Paare definiert werden, wobei sowohl Name als auch Wert vom Benutzer festgelegt werden. Mit Aspose.Slides für Node.js via Java können Entwickler die Werte integrierter Eigenschaften sowie benutzerdefinierter Eigenschaften abrufen und ändern.
 
 ## **Dokumenteigenschaften in PowerPoint**
 
-Microsoft PowerPoint 2007 ermöglicht die Verwaltung der Dokumenteigenschaften von Präsentationsdateien. Alles, was Sie tun müssen, ist das Office‑Symbol anzuklicken und anschließend den Menüpunkt **Prepare | Properties | Advanced Properties** von Microsoft PowerPoint 2007 wie unten gezeigt auszuwählen:
+Microsoft PowerPoint 2007 ermöglicht das Verwalten der Dokumenteigenschaften von Präsentationsdateien. Klicken Sie einfach auf das Office‑Symbol und anschließend auf **Prepare | Properties | Advanced Properties** im Menü von Microsoft PowerPoint 2007, wie unten gezeigt:
 
-{{% alert color="primary" %}} 
-
-Bitte beachten Sie, dass Sie keine Werte für die Felder **Application** und **Producer** festlegen können, da Aspose Ltd. und Aspose.Slides for Node.js via Java x.x.x in diesen Feldern angezeigt werden.
-
-{{% /alert %}} 
-
-|**Selecting Advanced Properties menu item**|** |
+|**Auswahl des Menüpunkts Erweiterte Eigenschaften**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-Nach dem Auswählen des Menüpunktes **Advanced Properties** erscheint ein Dialog, der die Verwaltung der Dokumenteigenschaften der PowerPoint‑Datei ermöglicht, wie in der nachfolgenden Abbildung dargestellt:
+Nach dem Auswählen des Menüpunkts **Advanced Properties** erscheint ein Dialog, der Ihnen das Verwalten der Dokumenteigenschaften der PowerPoint‑Datei ermöglicht, wie in der nachfolgenden Abbildung dargestellt:
 
 |**Eigenschaftendialog**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-Im obigen **Eigenschaftendialog** sehen Sie viele Registerkarten wie **General**, **Summary**, **Statistics**, **Contents** und **Custom**. Alle diese Registerkarten ermöglichen die Konfiguration verschiedener Informationen zu den PowerPoint‑Dateien. Die Registerkarte **Custom** wird verwendet, um die eigenen Eigenschaften der PowerPoint‑Dateien zu verwalten.
+Im obigen **Eigenschaftendialog** sehen Sie viele Registerkarten wie **General**, **Summary**, **Statistics**, **Contents** und **Custom**. Alle diese Registerkarten erlauben die Konfiguration verschiedener Informationen zu den PowerPoint‑Dateien. Die Registerkarte **Custom** wird verwendet, um die benutzerdefinierten Eigenschaften der PowerPoint‑Dateien zu verwalten.
 
-Arbeiten mit Dokumenteigenschaften mit Aspose.Slides für Node.js via Java
+### Arbeiten mit Dokumenteigenschaften mit Aspose.Slides für Node.js via Java
 
-Wie bereits beschrieben unterstützt Aspose.Slides für Node.js via Java zwei Arten von Dokumenteigenschaften, nämlich **Built-in** und **Custom** Eigenschaften. Entwickler können beide Arten von Eigenschaften über die Aspose.Slides für Node.js via Java API verwenden. Aspose.Slides für Node.js via Java stellt die Klasse [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties) bereit, die die Dokumenteigenschaften einer Präsentationsdatei über die Eigenschaft **Presentation.DocumentProperties** repräsentiert.
+Wie bereits beschrieben, unterstützt Aspose.Slides für Node.js via Java zwei Arten von Dokumenteigenschaften: **Built-in** und **Custom**. Entwickler können beide Arten von Eigenschaften über die Aspose.Slides‑API nutzen. Aspose.Slides für Node.js via Java stellt die Klasse [DocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/documentproperties) bereit, die die Dokumenteigenschaften einer Präsentationsdatei über die **Presentation.DocumentProperties**‑Eigenschaft repräsentiert.
 
-Entwickler können die Eigenschaft **DocumentProperties**, die vom Objekt [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) bereitgestellt wird, verwenden, um auf die Dokumenteigenschaften von Präsentationsdateien zuzugreifen, wie unten beschrieben:
+Entwickler können die **DocumentProperties**‑Eigenschaft, die vom [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation)‑Objekt bereitgestellt wird, nutzen, um die Dokumenteigenschaften der Präsentationsdateien wie unten beschrieben abzurufen:
 
-## **Zugriff auf eingebaute Eigenschaften**
+## **Zugriff auf **Built-in** Eigenschaften**
 
-Diese vom Objekt [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties) bereitgestellten Eigenschaften umfassen: **Creator** (Autor), **Description**, **Keywords**, **Created** (Erstellungsdatum), **Modified** (Änderungsdatum), **Printed** (Datum des letzten Drucks), **LastModifiedBy**, **Keywords**, **SharedDoc** (Wird zwischen verschiedenen Produzenten geteilt?), **PresentationFormat**, **Subject** und **Title**
+Diese über das [DocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/documentproperties)‑Objekt bereitgestellten Eigenschaften umfassen: **Creator** (Autor), **Description**, **Keywords**, **Created** (Erstellungsdatum), **Modified** (Änderungsdatum), **Printed** (Letztes Druckdatum), **LastModifiedBy**, **Keywords**, **SharedDoc** (Wird zwischen verschiedenen Produzenten geteilt?), **PresentationFormat**, **Subject** und **Title**.
+
 ```javascript
-// Instanziieren Sie die Presentation-Klasse, die die Präsentation darstellt
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Instanziiere die Presentation-Klasse, die die Präsentation darstellt
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Erstellen Sie eine Referenz zum IDocumentProperties-Objekt, das mit der Präsentation verknüpft ist
+    // Erstelle eine Referenz zum IDocumentProperties-Objekt, das mit der Präsentation verknüpft ist
     var dp = pres.getDocumentProperties();
-    // Anzeigen der eingebauten Eigenschaften
+    // Zeige die integrierten Eigenschaften an
     console.log("Category : " + dp.getCategory());
     console.log("Current Status : " + dp.getContentStatus());
     console.log("Creation Date : " + dp.getCreatedTime());
@@ -89,11 +99,14 @@ try {
 }
 ```
 
+## **Integrierte Eigenschaften ändern**
 
-## **Einbaute Eigenschaften ändern**
+Das Ändern integrierter Eigenschaften von Präsentationsdateien ist genauso einfach wie ihr Zugriff. Sie können einfach einem gewünschten Property einen String‑Wert zuweisen und der Property‑Wert wird geändert. Im nachfolgenden Beispiel zeigen wir, wie die integrierten Dokumenteigenschaften einer Präsentationsdatei mit Aspose.Slides für Node.js via Java geändert werden können.
 
-Das Ändern der eingebauten Eigenschaften von Präsentationsdateien ist genauso einfach wie ihr Zugriff. Sie können einfach einen Zeichenfolgenwert einer gewünschten Eigenschaft zuweisen und der Eigenschaftswert wird geändert. Im nachstehenden Beispiel zeigen wir, wie die eingebauten Dokumenteigenschaften einer Präsentationsdatei mit Aspose.Slides für Node.js via Java geändert werden können.
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // Erstelle eine Referenz zum IDocumentProperties-Objekt, das mit der Präsentation verknüpft ist
@@ -113,30 +126,33 @@ try {
 }
 ```
 
+Dieses Beispiel ändert die integrierten Eigenschaften der Präsentation, wie unten dargestellt:
 
-Dieses Beispiel ändert die eingebauten Eigenschaften der Präsentation, wie unten dargestellt:
-
-|**Eingebaute Dokumenteigenschaften nach Änderung**|** |
+|**Integrierte Dokumenteigenschaften nach Änderung**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **Eigene Dokumenteigenschaften hinzufügen**
+## **Benutzerdefinierte Dokumenteigenschaften hinzufügen**
 
-Aspose.Slides für Node.js via Java ermöglicht Entwicklern außerdem das Hinzufügen benutzerdefinierter Werte zu den Dokumenteigenschaften einer Präsentation. Ein Beispiel unten zeigt, wie benutzerdefinierte Eigenschaften für eine Präsentation festgelegt werden.
+Aspose.Slides für Node.js via Java ermöglicht es Entwicklern zudem, benutzerdefinierte Werte für Präsentations‑Dokumenteigenschaften hinzuzufügen. Das folgende Beispiel zeigt, wie benutzerdefinierte Eigenschaften für eine Präsentation gesetzt werden können.
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
-    // Dokumenteigenschaften abrufen
+    // Abrufen der Dokumenteigenschaften
     var dProps = pres.getDocumentProperties();
-    // Benutzerdefinierte Eigenschaften hinzufügen
+    // Hinzufügen benutzerdefinierter Eigenschaften
     dProps.set_Item("New Custom", 12);
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
-    // Eigenschaftsnamen an bestimmtem Index abrufen
+    // Abrufen des Eigenschaftsnamens an einem bestimmten Index
     var getPropertyName = dProps.getCustomPropertyName(2);
-    // Ausgewählte Eigenschaft entfernen
+    // Entfernen der ausgewählten Eigenschaft
     dProps.removeCustomProperty(getPropertyName);
-    // Präsentation speichern
+    // Speichern der Präsentation
     pres.save("CustomDemo.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -145,25 +161,28 @@ try {
 }
 ```
 
-
 |**Hinzugefügte benutzerdefinierte Dokumenteigenschaften**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Zugriff auf und Änderung benutzerdefinierter Eigenschaften**
+## **Zugriff auf und Ändern benutzerdefinierter Eigenschaften**
 
-Aspose.Slides für Node.js via Java erlaubt Entwicklern außerdem den Zugriff auf die Werte benutzerdefinierter Eigenschaften. Ein Beispiel unten zeigt, wie Sie auf alle diese benutzerdefinierten Eigenschaften einer Präsentation zugreifen und sie ändern können.
+Aspose.Slides für Node.js via Java ermöglicht es Entwicklern außerdem, die Werte benutzerdefinierter Eigenschaften abzurufen. Das folgende Beispiel zeigt, wie Sie alle diese benutzerdefinierten Eigenschaften einer Präsentation abrufen und ändern können.
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Erstelle eine Referenz zum DocumentProperties-Objekt, das mit der Präsentation verknüpft ist
+    // Erstelle eine Referenz zum DocumentProperties-Objekt, das mit der Präsentation verbunden ist
     var dp = pres.getDocumentProperties();
-    // Greife auf benutzerdefinierte Eigenschaften zu und modifiziere sie
+    // Zugriff auf und Ändern benutzerdefinierter Eigenschaften
     for (var i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // Zeige Namen und Werte der benutzerdefinierten Eigenschaften an
+        // Zeige Namen und Werte benutzerdefinierter Eigenschaften an
         console.log("Custom Property Name : " + dp.getCustomPropertyName(i));
         console.log("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
-        // Werte der benutzerdefinierten Eigenschaften ändern
+        // Ändere Werte benutzerdefinierter Eigenschaften
         dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     // Speichere deine Präsentation in einer Datei
@@ -175,13 +194,11 @@ try {
 }
 ```
 
-
-Dieses Beispiel ändert die benutzerdefinierten Eigenschaften der [PPTX ](https://docs.fileformat.com/presentation/pptx/)Präsentation. Die folgenden Abbildungen zeigen die benutzerdefinierten Eigenschaften der Präsentation vor und nach der Änderung:
+Dieses Beispiel ändert die benutzerdefinierten Eigenschaften der [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Präsentation. Die nachfolgenden Abbildungen zeigen die benutzerdefinierten Eigenschaften vor und nach der Änderung:
 
 |**Benutzerdefinierte Eigenschaften vor Änderung**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
-
 
 |**Benutzerdefinierte Eigenschaften nach Änderung**|** |
 | :- | :- |
@@ -189,28 +206,42 @@ Dieses Beispiel ändert die benutzerdefinierten Eigenschaften der [PPTX ](https:
 
 ## **Erweiterte Dokumenteigenschaften**
 
-{{% alert color="primary" %}} 
-
-Neue Methoden [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), und [WriteBindedPresentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) wurden zu [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo) hinzugefügt, die Logik des Property‑Setters [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) wurde geändert.
-
+{{% alert color="info" title="Hinweis" %}}
+Neue Methoden [ReadDocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), und [WriteBindedPresentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) wurden zu [PresentationInfo](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/PresentationInfo) hinzugefügt, die Logik des Setters für die Eigenschaft [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) wurde geändert.
 {{% /alert %}} 
 
-Die beiden neuen Methoden [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) und [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) wurden zur Klasse [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo) hinzugefügt. Sie ermöglichen einen schnellen Zugriff auf Dokumenteigenschaften und erlauben das Ändern und Aktualisieren von Eigenschaften, ohne die gesamte Präsentation zu laden.
+Die beiden neuen Methoden [ReadDocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) und [UpdateDocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) wurden zur Klasse [PresentationInfo](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/PresentationInfo) hinzugefügt. Sie ermöglichen einen schnellen Zugriff auf Dokumenteigenschaften und erlauben das Ändern und Aktualisieren von Eigenschaften, ohne die gesamte Präsentation zu laden.
 
-Ein typisches Szenario, bei dem die Eigenschaften geladen, ein Wert geändert und das Dokument aktualisiert wird, lässt sich wie folgt umsetzen:
+Das typische Szenario, bei dem die Eigenschaften geladen, ein Wert geändert und das Dokument aktualisiert wird, lässt sich wie folgt umsetzen:
+
 ```javascript
-// Lese die Informationen der Präsentation
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// lese die Informationen der Präsentation
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
+// erhalte die aktuellen Eigenschaften
 var props = info.readDocumentProperties();
+// setze die neuen Werte der Felder Author und Title
 props.setAuthor("New Author");
 props.setTitle("New Title");
+// aktualisiere die Präsentation mit neuen Werten
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-
 Eine weitere Möglichkeit besteht darin, die Eigenschaften einer bestimmten Präsentation als Vorlage zu verwenden, um Eigenschaften in anderen Präsentationen zu aktualisieren:
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+function updateByTemplate(path, template) {
+    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 var template = info.readDocumentProperties();
 template.setAuthor("Template Author");
@@ -227,6 +258,9 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateByTemplate(path, template) 
 {
     var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
@@ -235,9 +269,18 @@ function updateByTemplate(path, template)
 }
 ```
 
+Eine neue Vorlage kann von Grund auf erstellt und dann verwendet werden, um mehrere Präsentationen zu aktualisieren:
 
-Eine neue Vorlage kann von Grund auf erstellt und anschließend verwendet werden, um mehrere Präsentationen zu aktualisieren:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+function updateByTemplate(path, template) {
+    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
+
 var template = new aspose.slides.DocumentProperties();
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -253,6 +296,9 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateByTemplate(path, template) 
 {
     var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
@@ -261,14 +307,17 @@ function updateByTemplate(path, template)
 }
 ```
 
+## **Rechtschreibsprache festlegen**
 
-## **Rechtschreibprüfungssprache festlegen**
+Aspose.Slides stellt die Eigenschaft LanguageId (bereitgestellt durch die Klasse PortionFormat) bereit, um die Rechtschreibsprache für ein PowerPoint‑Dokument festzulegen. Die Rechtschreibsprache ist die Sprache, für die Rechtschreibung und Grammatik im PowerPoint geprüft werden.
 
-Aspose.Slides stellt die Eigenschaft LanguageId (bereitgestellt von der Klasse PortionFormat) zur Verfügung, mit der Sie die Rechtschreibprüfungssprache für ein PowerPoint‑Dokument festlegen können. Die Rechtschreibprüfungssprache ist die Sprache, für die Rechtschreibung und Grammatik in PowerPoint geprüft werden.
+Dieser JavaScript‑Code zeigt, wie die Rechtschreibsprache für ein PowerPoint‑Dokument gesetzt wird: xxx Warum fehlt LanguageId in der JavaScript‑PortionFormat‑Klasse?
 
-Dieser JavaScript‑Code zeigt, wie Sie die Rechtschreibprüfungssprache für ein PowerPoint festlegen: xxx Warum fehlt LanguageId in der JavaScript‑Klasse PortionFormat?
 ```javascript
-var pres = new aspose.slides.Presentation(pptxFileName);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
     var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
@@ -289,11 +338,14 @@ try {
 }
 ```
 
+## **Standard‑Sprache festlegen**
 
-## **Standardsprache festlegen**
+Dieser JavaScript‑Code zeigt, wie die Standardsprache für eine gesamte PowerPoint‑Präsentation gesetzt wird:
 
-Dieser JavaScript‑Code zeigt, wie Sie die Standardsprache für eine gesamte PowerPoint‑Präsentation festlegen können:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 var pres = new aspose.slides.Presentation(loadOptions);
@@ -310,23 +362,22 @@ try {
 }
 ```
 
+## **Live‑Beispiel**
 
-## **Live-Beispiel**
+Probieren Sie die Online‑App [**Aspose.Slides Metadata**](https://products.aspose.app/slides/de/metadata) aus, um zu sehen, wie Sie über die Aspose.Slides‑API mit Dokumenteigenschaften arbeiten können:
 
-Probieren Sie die Online‑App [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) aus, um zu sehen, wie Sie über die Aspose.Slides‑API mit Dokumenteigenschaften arbeiten können:
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/de/metadata)
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+## **FAQ**
 
-## ***FAQ**
+**Wie kann ich eine integrierte Eigenschaft aus einer Präsentation entfernen?**
 
-**Wie kann ich eine eingebaute Eigenschaft aus einer Präsentation entfernen?**
-
-Eingebaute Eigenschaften sind ein integraler Bestandteil der Präsentation und können nicht vollständig entfernt werden. Sie können jedoch deren Werte ändern oder sie, sofern die jeweilige Eigenschaft dies zulässt, auf leer setzen.
+Integrierte Eigenschaften sind ein fester Bestandteil der Präsentation und können nicht vollständig entfernt werden. Sie können jedoch ihre Werte ändern oder, sofern die jeweilige Eigenschaft dies zulässt, auf einen leeren Wert setzen.
 
 **Was passiert, wenn ich eine bereits vorhandene benutzerdefinierte Eigenschaft hinzufüge?**
 
-Wenn Sie eine bereits vorhandene benutzerdefinierte Eigenschaft hinzufügen, wird ihr vorhandener Wert durch den neuen überschrieben. Sie müssen die Eigenschaft nicht vorher entfernen oder prüfen, da Aspose.Slides den Wert der Eigenschaft automatisch aktualisiert.
+Wird eine bereits vorhandene benutzerdefinierte Eigenschaft hinzugefügt, wird ihr vorhandener Wert durch den neuen überschrieben. Ein vorheriges Entfernen oder Überprüfen der Eigenschaft ist nicht nötig, da Aspose.Slides den Wert automatisch aktualisiert.
 
 **Kann ich auf Präsentationseigenschaften zugreifen, ohne die gesamte Präsentation zu laden?**
 
-Ja, Sie können auf Präsentationseigenschaften zugreifen, ohne die gesamte Präsentation zu laden, indem Sie die Methode `getPresentationInfo` der Klasse [PresentationFactory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/) verwenden. Anschließend nutzen Sie die Methode `readDocumentProperties` der Klasse [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationinfo/), um die Eigenschaften effizient zu lesen, Speicher zu sparen und die Leistung zu verbessern.
+Ja. Verwenden Sie [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) und anschließend [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/), um gespeicherte Dokumentmetadaten zu lesen, ohne ein [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Objekt zu erstellen. Siehe [Build a Lightweight Presentation Inventory](/slides/de/nodejs-java/examine-presentation/) für ein vollständiges Berichtbeispiel und formatspezifische Einschränkungen.

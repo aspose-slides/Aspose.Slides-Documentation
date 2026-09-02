@@ -1,12 +1,12 @@
 ---
-title: Truy xuất và Cập nhật Thông tin Bản trình bày trong Java
-linktitle: Thông tin Bản trình bày
+title: Truy xuất và Cập nhật Thông tin Bản trình chiếu trong Java
+linktitle: Thông tin Bản trình chiếu
 type: docs
 weight: 30
 url: /vi/java/examine-presentation/
 keywords:
-- định dạng bản trình bày
-- thuộc tính bản trình bày
+- định dạng bản trình chiếu
+- thuộc tính bản trình chiếu
 - thuộc tính tài liệu
 - lấy thuộc tính
 - đọc thuộc tính
@@ -18,103 +18,201 @@ keywords:
 - kiểm tra ODP
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Khám phá các slide, cấu trúc và siêu dữ liệu trong các bản trình bày PowerPoint và OpenDocument bằng Java để có những hiểu biết nhanh hơn và kiểm tra nội dung thông minh hơn."
+description: "Khám phá slide, cấu trúc và siêu dữ liệu trong các bản trình chiếu PowerPoint và OpenDocument bằng Java để có được những hiểu biết nhanh hơn và kiểm toán nội dung thông minh hơn."
 ---
 ## **Tổng quan**
 
-Bài viết này hướng dẫn cách kiểm tra thông tin bản trình bày trong Aspose.Slides. Nó giải thích cách xác định định dạng hiện tại của bản trình bày mà không cần tải toàn bộ tệp, đọc các thuộc tính tài liệu của nó và cập nhật các thuộc tính đó khi cần.  
+Aspose.Slides có thể xác định định dạng của một bản trình chiếu và đọc siêu dữ liệu tài liệu mà không cần tạo mô hình đối tượng bản trình chiếu đầy đủ. Điều này hữu ích khi bạn cần phân loại tệp, xây dựng một danh mục, hoặc kiểm tra các thuộc tính trước khi quyết định có tải và xử lý nội dung bản trình chiếu hay không.
 
-Các ví dụ dựa trên API [PresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationinfo/) và [DocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/documentproperties/) và minh họa các thao tác điển hình khi làm việc với siêu dữ liệu bản trình bày.
+Bài viết này trình bày cách kiểm tra nhẹ bằng [PresentationFactory](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationfactory/) và [IPresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/), cũng như cách cập nhật có mục tiêu thông qua [IDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/).
 
-## **Kiểm tra định dạng bản trình bày**
+## **Kiểm tra định dạng bản trình chiếu**
 
-Trước khi làm việc với một bản trình bày, bạn có thể muốn biết định dạng (PPT, PPTX, ODP và các định dạng khác) hiện tại của bản trình bày.  
-
-Bạn có thể kiểm tra định dạng của bản trình bày mà không tải bản trình bày. Xem đoạn mã Java sau:
+Sử dụng [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) để kiểm tra tệp mà không tạo một đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) nào. Phương thức [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) báo cáo định dạng đã phát hiện, chẳng hạn PPTX, PPT hoặc ODP.
 
 ```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-System.out.println(info.getLoadFormat()); // PPTX
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
 
-IPresentationInfo info2 = PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-System.out.println(info2.getLoadFormat()); // PPT
+String[] fileNames = { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-System.out.println(info3.getLoadFormat()); // ODP
+for (String fileName : fileNames) {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(fileName);
+    int loadFormat = presentationInfo.getLoadFormat();
+    String formatName = "Other (" + loadFormat + ")";
+
+    if (loadFormat == LoadFormat.Pptx) {
+        formatName = "PPTX";
+    } else if (loadFormat == LoadFormat.Ppt) {
+        formatName = "PPT";
+    } else if (loadFormat == LoadFormat.Odp) {
+        formatName = "ODP";
+    }
+
+    System.out.println(fileName + ": " + formatName);
+}
 ```
 
-## **Lấy thuộc tính bản trình bày**
+## **Xây dựng danh mục bản trình chiếu nhẹ**
 
-Đoạn mã Java này cho bạn cách lấy các thuộc tính của bản trình bày (thông tin về bản trình bày):
+Khi bạn xử lý nhiều tệp bản trình chiếu, bạn có thể cần một danh mục gọn gàng cho việc xác thực, lập chỉ mục, hoặc hệ thống quản lý tài liệu. Trong trường hợp này, sử dụng [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) để nhận một đối tượng [IPresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/), sau đó gọi [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) để đọc siêu dữ liệu tài liệu. Cách tiếp cận này không tạo một đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và cũng không yêu cầu bạn phải duyệt toàn bộ mô hình đối tượng bản trình chiếu.
+
+Các thuộc tính mở rộng được cung cấp bởi [IDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/) cung cấp các giá trị kiểm kê sau:
+
+| Phương thức | Giá trị kiểm kê |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getSlides--) | Tổng số slide. |
+| [getHiddenSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | Số slide ẩn. |
+| [getNotes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getNotes--) | Số slide có ghi chú. |
+| [getParagraphs](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getParagraphs--) | Tổng số đoạn văn, nếu có. |
+| [getWords](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getWords--) | Tổng số từ. |
+| [getMultimediaClips](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | Tổng số đoạn video và âm thanh. |
+
+Ví dụ dưới đây đọc các giá trị này mà không tạo đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và in ra một danh mục gọn. Nó cũng kết hợp [getHeadingPairs](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) với [getTitlesOfParts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) để hiển thị các nhóm nội dung như phông chữ, chủ đề và tiêu đề slide.
 
 ```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-IDocumentProperties props = info.readDocumentProperties();
-System.out.println(props.getCreatedTime());
-System.out.println(props.getSubject());
-System.out.println(props.getTitle());
-// .. 
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IHeadingPair;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.Paths;
+
+String filePath = "sample.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
+
+int loadFormat = presentationInfo.getLoadFormat();
+String formatName = "Other (" + loadFormat + ")";
+
+if (loadFormat == LoadFormat.Pptx) {
+    formatName = "PPTX";
+} else if (loadFormat == LoadFormat.Ppt) {
+    formatName = "PPT";
+} else if (loadFormat == LoadFormat.Odp) {
+    formatName = "ODP";
+}
+
+System.out.println("File: " + Paths.get(filePath).getFileName());
+System.out.println("Format: " + formatName);
+System.out.println("Title: " + documentProperties.getTitle());
+System.out.println("Author: " + documentProperties.getAuthor());
+System.out.println("Statistics:");
+System.out.println("  Slides: " + documentProperties.getSlides());
+System.out.println("  Hidden slides: " + documentProperties.getHiddenSlides());
+System.out.println("  Slides with notes: " + documentProperties.getNotes());
+System.out.println("  Paragraphs: " + documentProperties.getParagraphs());
+System.out.println("  Words: " + documentProperties.getWords());
+System.out.println("  Multimedia clips: " + documentProperties.getMultimediaClips());
+
+IHeadingPair[] headingPairs = documentProperties.getHeadingPairs();
+String[] titlesOfParts = documentProperties.getTitlesOfParts();
+headingPairs = headingPairs != null ? headingPairs : new IHeadingPair[0];
+titlesOfParts = titlesOfParts != null ? titlesOfParts : new String[0];
+int partIndex = 0;
+
+if (headingPairs.length == 0 || titlesOfParts.length == 0) {
+    System.out.println("Content groups: not available");
+} else {
+    System.out.println("Content groups:");
+
+    for (IHeadingPair headingPair : headingPairs) {
+        System.out.println("  " + headingPair.getName() + " (" + headingPair.getCount() + ")");
+
+        for (int partOffset = 0; partOffset < headingPair.getCount() && partIndex < titlesOfParts.length; partOffset++) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.length) {
+        System.out.println("  Other parts:");
+
+        while (partIndex < titlesOfParts.length) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+}
 ```
 
-Bạn có thể muốn xem [các thuộc tính trong lớp DocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/documentproperties/#DocumentProperties--) .
+Mỗi [IHeadingPair](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iheadingpair/) cung cấp một tên nhóm và số mục trong nhóm đó. [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) trả về một mảng phẳng, có thứ tự, vì vậy hãy tiêu thụ số tiêu đề liên tiếp được chỉ định bởi mỗi cặp tiêu đề.
 
-## **Cập nhật thuộc tính bản trình bày**
+### **Siêu dữ liệu đã lưu và các giới hạn định dạng**
 
-Aspose.Slides cung cấp phương thức [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) cho phép bạn thực hiện các thay đổi đối với thuộc tính của bản trình bày.  
+Các thuộc tính kiểm kê trả về bởi [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) phản ánh siêu dữ liệu có trong tài liệu nguồn. Aspose.Slides không tải và duyệt mô hình đối tượng bản trình chiếu để tính lại các giá trị này cho lần gọi này. Các thuộc tính thiếu được biểu diễn bằng giá trị mặc định, và các giá trị đã lưu có thể lỗi thời nếu ứng dụng lưu tệp lần cuối không cập nhật các thuộc tính tài liệu.
 
-Giả sử chúng ta có một bản trình bày PowerPoint với các thuộc tính tài liệu như dưới đây.
+- **PPTX:** Định dạng cung cấp các thuộc tính tài liệu mở rộng cho số lượng slide, ghi chú, slide ẩn, đoạn văn, từ và đa phương tiện, cũng như cặp tiêu đề và tiêu đề phần. Tính khả dụng phụ thuộc vào các thuộc tính mà nhà tạo tài liệu đã ghi.
+- **PPT:** Định dạng nhị phân có thể lưu các thuộc tính tóm tắt tài liệu tương ứng. Nếu một thuộc tính thiếu hoặc không được nhà tạo tài liệu cập nhật, Aspose.Slides sẽ trả về giá trị đã lưu hoặc giá trị mặc định thay vì tính toán lại từ các slide.
+- **ODP:** Siêu dữ liệu OpenDocument cung cấp các thống kê chung của tài liệu, chẳng hạn như số trang, đoạn văn và từ, nhưng các giá trị này không tương ứng với mọi thuộc tính mở rộng đặc thù của PowerPoint. Siêu dữ liệu slide ẩn, slide ghi chú, đa phương tiện, cặp tiêu đề và tiêu đề phần có thể không có, và các thuộc tính kiểm kê có thể trả về giá trị mặc định. Không nên coi giá trị 0 hoặc mảng trống là bằng chứng chắc chắn rằng nội dung tương ứng không tồn tại.
 
-![Thuộc tính tài liệu gốc của bản trình bày PowerPoint](input_properties.png)
+Sử dụng cách tiếp cận siêu dữ liệu nhẹ cho các danh mục và kiểm tra sơ bộ. Tải bản trình chiếu và kiểm tra mô hình đối tượng trực tiếp khi kết quả phải phản ánh các thay đổi trong bộ nhớ hoặc khi bạn cần xác minh nội dung thực tế của bản trình chiếu.
 
-Ví dụ mã này cho bạn cách chỉnh sửa một số thuộc tính của bản trình bày:
+## **Cập nhật thuộc tính bài thuyết trình**
+
+Các thuộc tính trả về bởi [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) cũng có thể được thay đổi mà không tạo một đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) nào. Áp dụng các thay đổi bằng [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), sau đó ghi bản trình chiếu đã ràng buộc bằng [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-).
+
+Hình ảnh dưới đây hiển thị các thuộc tính tài liệu gốc.
+
+![Thuộc tính tài liệu gốc của bản trình chiếu PowerPoint](input_properties.png)
+
+Ví dụ dưới đây thay đổi tiêu đề và thời gian lưu cuối cùng và ghi kết quả ra một tệp mới:
 
 ```java
-String fileName = "sample.pptx";
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.Date;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
+String sourceFile = "sample.pptx";
+String outputFile = "sample_with_updated_properties.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(sourceFile);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
 
-IDocumentProperties properties = info.readDocumentProperties();
-properties.setTitle("My title");
-properties.setLastSavedTime(new Date());
+documentProperties.setTitle("Quarterly sales report");
+documentProperties.setLastSavedTime(new Date());
 
-info.updateDocumentProperties(properties);
-info.writeBindedPresentation(fileName);
+presentationInfo.updateDocumentProperties(documentProperties);
+try (OutputStream outputStream = new FileOutputStream(outputFile)) {
+    presentationInfo.writeBindedPresentation(outputStream);
+}
 ```
 
-Kết quả của việc thay đổi các thuộc tính tài liệu được hiển thị dưới đây.
+Hình ảnh dưới đây hiển thị các thuộc tính tài liệu đã được cập nhật.
 
-![Thuộc tính tài liệu đã thay đổi của bản trình bày PowerPoint](output_properties.png)
+![Thuộc tính tài liệu đã thay đổi của bản trình chiếu PowerPoint](output_properties.png)
 
 ## **Liên kết hữu ích**
 
-Để lấy thêm thông tin về bản trình bày và các thuộc tính bảo mật của nó, bạn có thể thấy các liên kết sau hữu ích:
+Đối với các kiểm tra bảo mật liên quan và cài đặt bảo vệ, xem các bài viết sau:
 
-- [Kiểm tra xem một bản trình bày có được mã hoá hay không](https://docs.aspose.com/slides/vi/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kiểm tra xem một bản trình bày có được bảo vệ ghi (chỉ đọc) hay không](https://docs.aspose.com/slides/vi/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kiểm tra xem một bản trình bày có được bảo vệ bằng mật khẩu trước khi tải hay không](https://docs.aspose.com/slides/vi/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Xác nhận mật khẩu đã dùng để bảo vệ một bản trình bày](https://docs.aspose.com/slides/vi/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Bảo vệ bài thuyết trình bằng mật khẩu](/slides/vi/java/password-protected-presentation/)
+- [Bảo vệ ghi cho bài thuyết trình](/slides/vi/java/write-protected-presentation/)
 
 ## **Câu hỏi thường gặp**
 
-**Làm thế nào để tôi kiểm tra xem các phông chữ có được nhúng không và chúng là những phông chữ nào?**
+**Làm thế nào để kiểm tra liệu phông chữ có được nhúng hay không và chúng là những phông nào?**
 
-Tìm [thông tin phông chữ nhúng](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) ở mức độ bản trình bày, sau đó so sánh các mục này với tập hợp [phông chữ thực tế được sử dụng trong nội dung](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsmanager/#getFonts--) để xác định những phông chữ nào là quan trọng cho việc hiển thị.
+Tải bản trình chiếu và sử dụng [Presentation.getFontsManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getFontsManager--). Gọi [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) để lấy các phông chữ đã nhúng và [IFontsManager.getFonts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsmanager/#getFonts--) để lấy các phông chữ được bản trình chiếu sử dụng. So sánh hai kết quả để tìm các phông chữ cần để render nhưng chưa được nhúng.
 
-**Làm sao tôi có thể nhanh chóng xác định xem tệp có các slide ẩn và có bao nhiêu không?**
+**Làm sao tôi có thể nhanh chóng xác định liệu tệp có slide ẩn và có bao nhiêu?**
 
-Duyệt qua [bộ sưu tập slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidecollection/) và kiểm tra [cờ hiển thị](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slide/#getHidden--) của mỗi slide.
+Khi siêu dữ liệu tài liệu đã lưu đủ, đọc [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) thông qua [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) và [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--). Cách này thích hợp cho danh mục nhẹ. Nếu bản trình chiếu đã bị sửa đổi trong bộ nhớ, siêu dữ liệu đã lưu có thể thiếu hoặc lỗi thời, hoặc bạn cần xác minh giá trị thực tế, hãy duyệt [Presentation.getSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlides--) và kiểm tra phương thức [ISlide.getHidden](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#getHidden--) của mỗi slide.
 
-**Tôi có thể phát hiện xem kích thước và độ hướng slide tùy chỉnh có được sử dụng không, và chúng có khác so với mặc định không?**
+**Tôi có thể phát hiện xem có sử dụng kích thước và định hướng slide tùy chỉnh không, và chúng có khác so với mặc định không?**
 
-Có. So sánh [kích thước slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlideSize--) hiện tại và độ hướng với các cài đặt chuẩn; điều này giúp dự đoán hành vi khi in và xuất.
+Có. Tải bản trình chiếu và gọi [Presentation.getSlideSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlideSize--). Sử dụng [ISlideSize.getType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidesize/#getSize--), và [ISlideSize.getOrientation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidesize/#getOrientation--) để so sánh các cài đặt hiện tại với preset và kích thước mặc định.
 
-**Có cách nhanh để kiểm tra xem biểu đồ có tham chiếu tới nguồn dữ liệu bên ngoài không?**
+**Có cách nhanh để xem biểu đồ có tham chiếu tới nguồn dữ liệu bên ngoài không?**
 
-Có. Duyệt qua tất cả [biểu đồ](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chart/), kiểm tra [nguồn dữ liệu](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chartdata/#getDataSourceType--) của chúng và ghi chú xem dữ liệu là nội bộ hay dựa trên liên kết, bao gồm cả các liên kết bị phá vỡ.
+Có. Tìm mỗi [Chart](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chart/) và gọi [IChartData.getDataSourceType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#getDataSourceType--). Đối với workbook bên ngoài, gọi [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--). Loại nguồn dữ liệu và đường dẫn xác định một tham chiếu bên ngoài, nhưng kiểm tra tính khả dụng của mục tiêu yêu cầu một bước kiểm tra tài nguyên riêng.
 
 **Làm sao tôi có thể đánh giá các slide 'nặng' có thể làm chậm việc render hoặc xuất PDF?**
 
-Đối với mỗi slide, đếm số lượng đối tượng và tìm các hình ảnh lớn, độ trong suốt, bóng đổ, hoạt ảnh và đa phương tiện; gán một điểm độ phức tạp sơ bộ để đánh dấu các điểm nóng tiềm năng về hiệu năng.
+Không có thuộc tính độ phức tạp duy nhất. Duyệt [Presentation.getSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlides--) và bộ sưu tập [IBaseSlide.getShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/#getShapes--) của mỗi slide. Sử dụng số lượng shape và sự hiện diện của hình ảnh lớn, hiệu ứng, hoạt ảnh hoặc đa phương tiện như các tín hiệu sàng lọc, và đo một lần render hoặc export đại diện trước khi xác định một slide là nút thắt hiệu suất đã chắc chắn.
