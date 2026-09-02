@@ -1,307 +1,259 @@
 ---
-title: Lấy Thuộc tính Hiệu quả của Hình dạng từ Bản trình chiếu bằng Python
+title: Lấy Thuộc tính Hiệu quả của Hình từ Bài thuyết trình trong Python
 linktitle: Thuộc tính Hiệu quả
 type: docs
 weight: 50
 url: /vi/python-net/shape-effective-properties/
 keywords:
-- thuộc tính hình dạng
+- thuộc tính hình
 - thuộc tính máy ảnh
 - bộ ánh sáng
-- độ nghiêng hình dạng
+- hình chạm góc
 - khung văn bản
 - kiểu văn bản
 - chiều cao phông chữ
-- định dạng tô
+- định dạng tô màu
 - PowerPoint
-- bản trình chiếu
+- bài thuyết trình
 - Python
 - Aspose.Slides
-description: "Khám phá cách Aspose.Slides cho Python thông qua .NET tính toán và áp dụng các thuộc tính hình dạng hiệu quả để hiển thị PowerPoint một cách chính xác."
+description: "Tìm hiểu cách sử dụng Aspose.Slides cho Python thông qua .NET để phân biệt định dạng hình cục bộ, kế thừa và hiệu quả trong các bài thuyết trình PowerPoint."
 ---
-## **Tổng quan**
+## **Hiểu Thuộc tính Cục bộ, Kế thừa và Hiệu quả**
 
-Chủ đề này giải thích sự khác biệt giữa các thuộc tính **cục bộ** và **hiệu quả**. Giá trị cục bộ là các giá trị được đặt trực tiếp tại một mức định dạng cụ thể, chẳng hạn:
+Định dạng PowerPoint có thể đến từ nhiều nơi. Giá trị được lưu trữ trực tiếp trên một đối tượng là **giá trị cục bộ** của nó. Nếu giá trị đó không được đặt, PowerPoint sẽ xem các nguồn định dạng cha, chẳng hạn như mặc định đoạn văn, kiểu văn bản, bố cục hoặc slide mẫu, chủ đề, hoặc mặc định ở mức bài thuyết trình. Những giá trị đó là **giá trị kế thừa**. Giá trị còn lại sau khi toàn bộ chuỗi phân cấp được giải quyết là **giá trị hiệu quả**, giá trị này được sử dụng để hiển thị đối tượng.
 
-1. Thuộc tính phần trong một slide.  
-2. Kiểu văn bản hình dạng nguyên mẫu trên bố cục hoặc slide mẫu, khi hình dạng khung văn bản của phần có một kiểu.  
-3. Cài đặt văn bản toàn cục trong một bản trình chiếu.
+Ví dụ, một phần văn bản có thể không xác định chiều cao phông chữ của riêng mình. **font_height** cục bộ của nó là `float("nan")`, nghĩa là “không được đặt ở đây.” Phần văn bản có thể kế thừa chiều cao từ đoạn văn, kiểu văn bản mặc định của bài thuyết trình, hoặc nguồn áp dụng khác. Gọi [get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iportionformat/get_effective/) trên định dạng phần sẽ trả về chiều cao đã được giải quyết cuối cùng.
 
-Giá trị cục bộ có thể được định nghĩa hoặc không ở bất kỳ mức nào. Khi Aspose.Slides cần định dạng cuối cùng “được hiển thị”, nó giải quyết chuỗi kế thừa và trả về các giá trị **hiệu quả**. Bạn có thể lấy chúng bằng cách gọi phương thức `get_effective` trên đối tượng định dạng cục bộ.
+Sử dụng hai loại dữ liệu định dạng cho các mục đích khác nhau:
 
-Ví dụ sau cho thấy cách lấy giá trị hiệu quả. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) có khung văn bản và ít nhất một phần.
+- Đọc hoặc thay đổi một đối tượng định dạng cục bộ, chẳng hạn như [IPortionFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iportionformat/), khi bạn cần kiểm soát nơi giá trị được định nghĩa.
+- Đọc một đối tượng dữ liệu hiệu quả, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iportionformateffectivedata/), khi bạn cần kết quả cuối cùng đã được hiển thị. Dữ liệu hiệu quả chỉ đọc.
 
-```py
+## **So sánh Giá trị Cục bộ, Kế thừa và Hiệu quả**
+
+Ví dụ hoàn chỉnh dưới đây tạo một hình và áp dụng chiều cao phông chữ ở mức bài thuyết trình, đoạn văn và phần. Mỗi bước in ra các giá trị được định nghĩa ở các mức đó và giá trị hiệu quả tương ứng cho cùng một phần văn bản. Nó cũng minh họa vì sao dữ liệu hiệu quả phải được đọc lại sau khi thay đổi định dạng.
+
+```python
+import math
+
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
 
-    local_text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = local_text_frame_format.get_effective()
+def format_local_value(value):
+    return "<not set>" if math.isnan(value) else str(value)
 
-    paragraph = shape.text_frame.paragraphs[0]
-    portion = paragraph.portions[0]
-    local_portion_format = portion.portion_format
-    effective_portion_format = local_portion_format.get_effective()
-```
 
-{{% alert color="primary" %}}
-Dữ liệu định dạng hiệu quả đại diện cho định dạng hiện tại đã được tính toán sau khi áp dụng kế thừa. Trong triển khai hiện tại, một số đối tượng dữ liệu hiệu quả, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iportionformateffectivedata/), có thể được lưu trong bộ nhớ đệm nội bộ. Gọi lại `get_effective` sau khi thay đổi định dạng cha hoặc kế thừa có thể làm mới dữ liệu đã được lưu, và một đối tượng đã lấy trước đó có thể không còn đại diện cho trạng thái ban đầu. Nếu bạn cần bảo tồn các giá trị hiệu quả để sử dụng lại sau này, hãy sao chép các thuộc tính cần thiết, chẳng hạn như chiều cao phông chữ, màu nền, kiểu phông hoặc căn chỉnh, vào đối tượng dữ liệu của riêng bạn.
-{{% /alert %}}
+def print_font_heights(caption, presentation, paragraph, portion):
+    presentation_value = presentation.default_text_style.get_level(0).default_portion_format.font_height
+    paragraph_value = paragraph.paragraph_format.default_portion_format.font_height
+    local_value = portion.portion_format.font_height
 
-## **Lấy Thuộc tính Hiệu quả của Máy ảnh**
+    # Đọc dữ liệu hiệu quả sau các thay đổi trước đó.
+    effective_value = portion.portion_format.get_effective().font_height
 
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu quả của máy ảnh. Kiểu [ICameraEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/icameraeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính máy ảnh hiệu quả. Một thể hiện của [ICameraEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/icameraeffectivedata/) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị hiệu quả cho [ThreeDFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/threedformat/).
+    print(caption)
+    print("  Presentation default: " + format_local_value(presentation_value))
+    print("  Paragraph default:    " + format_local_value(paragraph_value))
+    print("  Portion local:        " + format_local_value(local_value))
+    print("  Portion effective:    " + str(effective_value))
 
-Mẫu mã sau cho thấy cách lấy các thuộc tính hiệu quả cho máy ảnh. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    camera = three_d_effective_data.camera
-
-    camera_type = camera.camera_type
-    field_of_view_angle = camera.field_of_view_angle
-    zoom = camera.zoom
-
-    print("= Effective camera properties =")
-    print("Type: " + str(camera_type))
-    print("Field of view: " + str(field_of_view_angle))
-    print("Zoom: " + str(zoom))
-```
-
-## **Lấy Thuộc tính Hiệu quả của Bộ ánh sáng**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu quả của bộ ánh sáng. Kiểu [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ilightrigeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính bộ ánh sáng hiệu quả. Một thể hiện của [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ilightrigeffectivedata/) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị hiệu quả cho [ThreeDFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/threedformat/).
-
-Mẫu mã sau cho thấy cách lấy các thuộc tính hiệu quả cho bộ ánh sáng. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    light_rig = three_d_effective_data.light_rig
-
-    light_type = light_rig.light_type
-    direction = light_rig.direction
-
-    print("= Effective light rig properties =")
-    print("Type: " + str(light_type))
-    print("Direction: " + str(direction))
-```
-
-## **Lấy Thuộc tính Hiệu quả của Độ nghiêng Hình dạng**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu quả của độ nghiêng hình dạng. Kiểu [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ishapebeveleffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính relief mặt cho một hình dạng. Một thể hiện của [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ishapebeveleffectivedata/) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị hiệu quả cho [ThreeDFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/threedformat/).
-
-Mẫu mã sau cho thấy cách lấy các thuộc tính hiệu quả cho cạnh nghiêng trên của một hình dạng. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    top_bevel = three_d_effective_data.bevel_top
-
-    bevel_type = top_bevel.bevel_type
-    bevel_width = top_bevel.width
-    bevel_height = top_bevel.height
-
-    print("= Effective shape's top face relief properties =")
-    print("Type: " + str(bevel_type))
-    print("Width: " + str(bevel_width))
-    print("Height: " + str(bevel_height))
-```
-
-## **Lấy Thuộc tính Hiệu quả của Khung Văn bản**
-
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu quả của một khung văn bản. Kiểu [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/itextframeformateffectivedata/) chứa các thuộc tính định dạng khung văn bản hiệu quả.
-
-Mẫu mã sau cho thấy cách lấy các thuộc tính định dạng khung văn bản hiệu quả. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) có khung văn bản.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = text_frame_format.get_effective()
-
-    anchoring_type = effective_text_frame_format.anchoring_type
-    autofit_type = effective_text_frame_format.autofit_type
-    text_vertical_type = effective_text_frame_format.text_vertical_type
-    margin_left = effective_text_frame_format.margin_left
-    margin_top = effective_text_frame_format.margin_top
-    margin_right = effective_text_frame_format.margin_right
-    margin_bottom = effective_text_frame_format.margin_bottom
-
-    print("Anchoring type: " + str(anchoring_type))
-    print("Autofit type: " + str(autofit_type))
-    print("Text vertical type: " + str(text_vertical_type))
-    print("Margins")
-    print("   Left: " + str(margin_left))
-    print("   Top: " + str(margin_top))
-    print("   Right: " + str(margin_right))
-    print("   Bottom: " + str(margin_bottom))
-```
-
-## **Lấy Thuộc tính Hiệu quả của Kiểu Văn bản**
-
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu quả của một kiểu văn bản. Kiểu [ITextStyleEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/itextstyleeffectivedata/) chứa các thuộc tính kiểu văn bản hiệu quả.
-
-Mẫu mã sau cho thấy cách lấy các thuộc tính kiểu văn bản hiệu quả. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) có khung văn bản.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    text_frame_format = shape.text_frame.text_frame_format
-    text_style = text_frame_format.text_style
-    effective_text_style = text_style.get_effective()
-    level_count = 9
-
-    for level_index in range(level_count):
-        effective_style_level = effective_text_style.get_level(level_index)
-        depth = effective_style_level.depth
-        indent = effective_style_level.indent
-        alignment = effective_style_level.alignment
-        font_alignment = effective_style_level.font_alignment
-
-        print("= Effective paragraph formatting for style level #" + str(level_index) + " =")
-
-        print("Depth: " + str(depth))
-        print("Indent: " + str(indent))
-        print("Alignment: " + str(alignment))
-        print("Font alignment: " + str(font_alignment))
-```
-
-## **Lấy Giá trị Chiều cao Phông chữ Hiệu quả**
-
-Sử dụng Aspose.Slides, bạn có thể lấy chiều cao phông chữ hiệu quả. Đoạn mã sau minh họa cách chiều cao phông chữ hiệu quả của một phần thay đổi sau khi các giá trị chiều cao phông chữ cục bộ được đặt ở các mức cấu trúc bản trình chiếu khác nhau.
-
-```py
-import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
-    auto_shape.add_text_frame("")
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 80, False)
+    text_frame = shape.add_text_frame("Effective formatting")
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
 
-    paragraph = auto_shape.text_frame.paragraphs[0]
-    paragraph.portions.clear()
+    # Xác định các giá trị kế thừa ở hai mức khác nhau.
+    presentation.default_text_style.get_level(0).default_portion_format.font_height = 20
+    paragraph.paragraph_format.default_portion_format.font_height = 28
 
-    first_portion = slides.Portion("Sample text with first portion")
-    second_portion = slides.Portion(" and second portion.")
+    print_font_heights("The portion inherits from the paragraph", presentation, paragraph, portion)
 
-    paragraph.portions.add(first_portion)
-    paragraph.portions.add(second_portion)
+    # Giá trị cục bộ trên phần sẽ ghi đè cả hai giá trị kế thừa.
+    portion.portion_format.font_height = 36
+    print_font_heights("A local value overrides inherited values", presentation, paragraph, portion)
 
-    print("Effective font height just after creation:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Thay đổi giá trị kế thừa sẽ không ghi đè giá trị cục bộ hiện có.
+    paragraph.paragraph_format.default_portion_format.font_height = 30
+    print_font_heights("The local value still has priority", presentation, paragraph, portion)
 
-    default_text_style_level = presentation.default_text_style.get_level(0)
-    default_text_style_level.default_portion_format.font_height = 24
+    # Xóa giá trị cục bộ. Phần bây giờ lại kế thừa từ đoạn văn.
+    portion.portion_format.font_height = float("nan")
+    print_font_heights("The local value is cleared", presentation, paragraph, portion)
 
-    print("Effective font height after setting the presentation default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Xóa giá trị đoạn văn. Mặc định của bài thuyết trình bây giờ cung cấp kết quả.
+    paragraph.paragraph_format.default_portion_format.font_height = float("nan")
+    print_font_heights("The paragraph value is cleared", presentation, paragraph, portion)
 
-    paragraph.paragraph_format.default_portion_format.font_height = 40
-
-    print("Effective font height after setting paragraph default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    first_portion.portion_format.font_height = 55
-
-    print("Effective font height after setting portion #0 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    second_portion.portion_format.font_height = 18
-
-    print("Effective font height after setting portion #1 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    presentation.save("SetLocalFontHeightValues.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("effective-properties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Lấy Định dạng Điền Hiệu quả cho Bảng**
+Độ ưu tiên trong ví dụ này là định dạng cục bộ của phần, sau đó là định dạng đoạn, rồi đến mặc định của bài thuyết trình. Các đối tượng khác có thể có chuỗi kế thừa khác, nhưng nguyên tắc vẫn giống: một giá trị cụ thể hơn sẽ thắng, và [get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iportionformat/get_effective/) trả về kết quả cuối cùng.
 
-Sử dụng Aspose.Slides, bạn có thể lấy định dạng điền hiệu quả cho các phần khác nhau của bảng. Kiểu [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ifillformateffectivedata/) chứa các thuộc tính định dạng điền hiệu quả. Định dạng ô có ưu tiên cao hơn định dạng hàng, định dạng hàng có ưu tiên cao hơn định dạng cột, và định dạng cột có ưu tiên cao hơn định dạng toàn bảng.
+## **Lấy Thuộc tính Văn bản Hiệu quả**
 
-Do đó, các thuộc tính của [ICellFormatEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/icellformateffectivedata/) được sử dụng để vẽ ô bảng. Mẫu mã sau cho thấy cách lấy định dạng điền hiệu quả cho các phần khác nhau của bảng. Nó giả định rằng hình dạng đầu tiên trên slide đầu tiên là một [Table](https://reference.aspose.com/slides/vi/python-net/aspose.slides/table/).
+Định dạng văn bản được chia thành nhiều đối tượng:
 
-```py
+- [ITextFrameFormat.get_effective()](https://reference.aspose.com/slides/vi/python-net/aspose.slides/itextframeformat/get_effective/) giải quyết các thuộc tính khung văn bản như lề, neo, tự động vừa, và hướng văn bản dọc.
+- [ITextStyle.get_effective()](https://reference.aspose.com/slides/vi/python-net/aspose.slides/itextstyle/get_effective/) giải quyết định dạng đoạn văn cho mỗi mức độ kiểu văn bản.
+- [IParagraphFormat.get_effective()](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iparagraphformat/get_effective/) giải quyết các thuộc tính đoạn văn như căn chỉnh, thụt lề và dấu đầu dòng.
+- [IPortionFormat.get_effective()](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iportionformat/get_effective/) giải quyết các thuộc tính ký tự như chiều cao phông, kiểu chữ, màu, in đậm và in nghiêng.
+
+Đối với ví dụ tiếp theo, tệp `text-formatting.pptx` phải chứa ít nhất một slide và một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/) có khung văn bản không rỗng. AutoShape có thể xuất hiện ở bất kỳ vị trí nào trong bộ sưu tập hình; mã sẽ tìm một đối tượng phù hợp và kiểm tra trước khi sử dụng.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    table = presentation.slides[0].shapes[0]
-    first_row = table.rows[0]
-    first_column = table.columns[0]
-    first_cell = first_row[0]
 
-    table_format_effective = table.table_format.get_effective()
-    row_format_effective = first_row.row_format.get_effective()
-    column_format_effective = first_column.column_format.get_effective()
-    cell_format_effective = first_cell.cell_format.get_effective()
+def has_non_empty_text(shape):
+    if not isinstance(shape, slides.AutoShape):
+        return False
+    if shape.text_frame is None:
+        return False
+    if shape.text_frame.paragraphs.count == 0:
+        return False
+    return shape.text_frame.paragraphs[0].portions.count > 0
 
-    table_fill_format_effective = table_format_effective.fill_format
-    row_fill_format_effective = row_format_effective.fill_format
-    column_fill_format_effective = column_format_effective.fill_format
-    cell_fill_format_effective = cell_format_effective.fill_format
+
+with slides.Presentation("text-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
+
+    shape = None
+    for candidate in presentation.slides[0].shapes:
+        if has_non_empty_text(candidate):
+            shape = candidate
+            break
+
+    if shape is None:
+        raise RuntimeError("The first slide must contain an AutoShape with non-empty text.")
+
+    text_frame = shape.text_frame
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+
+    text_frame_effective = text_frame.text_frame_format.get_effective()
+    paragraph_effective = paragraph.paragraph_format.get_effective()
+    portion_effective = portion.portion_format.get_effective()
+
+    print("Text frame margins:")
+    print("  Left: " + str(text_frame_effective.margin_left))
+    print("  Top: " + str(text_frame_effective.margin_top))
+    print("  Right: " + str(text_frame_effective.margin_right))
+    print("  Bottom: " + str(text_frame_effective.margin_bottom))
+    print("Paragraph alignment: " + str(paragraph_effective.alignment))
+    print("Font height: " + str(portion_effective.font_height))
+    print("Bold: " + str(portion_effective.font_bold))
+
+    effective_text_style = text_frame.text_frame_format.text_style.get_effective()
+    for level in range(9):
+        level_effective = effective_text_style.get_level(level)
+        print("Level " + str(level) + " indent: " + str(level_effective.indent))
 ```
 
-## **Câu hỏi thường gặp**
+## **Lấy Thuộc tính 3D Hiệu quả**
 
-**`get_effective` có trả về một ảnh chụp nhanh không?**
+[IThreeDFormat.get_effective()](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ithreedformat/get_effective/) trả về một đối tượng [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ithreedformateffectivedata/) nhóm tất cả các cài đặt 3D đã được giải quyết. Các thuộc tính [camera](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ithreedformateffectivedata/camera/), [light_rig](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ithreedformateffectivedata/light_rig/), [bevel_top](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ithreedformateffectivedata/bevel_top/) và [bevel_bottom](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ithreedformateffectivedata/bevel_bottom/) hiển thị dữ liệu hiệu quả tương ứng. Đọc các cài đặt liên quan này cùng nhau giúp dễ hiểu hơn về diện mạo 3D cuối cùng của một hình.
 
-Không phải lúc nào cũng vậy. Dữ liệu hiệu quả đại diện cho định dạng đã được tính toán sau khi áp dụng kế thừa, nhưng một số đối tượng dữ liệu hiệu quả có thể được lưu trong bộ nhớ đệm nội bộ. Một cuộc gọi `get_effective` tiếp theo có thể tính lại định dạng và làm mới dữ liệu đã lưu, vì vậy một đối tượng đã lấy trước đó không nên được coi là một ảnh chụp cố định.
+Đối với ví dụ này, tệp `shape-3d.pptx` phải chứa ít nhất một hình trên slide đầu tiên. Áp dụng cài đặt camera 3D, ánh sáng hoặc bevel cho hình đó nếu bạn muốn đầu ra chứa các giá trị khác với mặc định.
 
-**Khi nào tôi nên đọc lại các thuộc tính hiệu quả?**
+```python
+import aspose.slides as slides
 
-Gọi lại `get_effective` sau khi thay đổi định dạng cục bộ, kiểu cha, định dạng bố cục, định dạng mẫu hoặc các mặc định ở mức bản trình chiếu. Lần gọi tiếp theo sẽ đánh giá lại cây định dạng và trả về kết quả hiệu quả hiện tại.
 
-**Việc thay đổi hoặc xoá một slide bố cục/mẫu có ảnh hưởng đến các thuộc tính hiệu quả đã được lấy không?**
+with slides.Presentation("shape-3d.pptx") as presentation:
+    if presentation.slides.count == 0 or presentation.slides[0].shapes.count == 0:
+        raise RuntimeError("The first slide must contain a shape.")
 
-Có, nhưng thay đổi sẽ được phản ánh ở lần gọi `get_effective` tiếp theo. Nếu nguồn định dạng cha bị thay đổi hoặc xoá, dữ liệu hiệu quả đã lấy trước có thể trở nên lỗi thời. Khi `get_effective` được gọi lại, Aspose.Slides sẽ đánh giá lại cây định dạng và các phông chữ, màu sắc, kích thước hoặc các giá trị khác có thể thay đổi.
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective = shape.three_d_format.get_effective()
 
-**Tôi có thể sửa đổi giá trị thông qua các đối tượng dữ liệu hiệu quả không?**
+    print("Camera:")
+    print("  Type: " + str(three_d_effective.camera.camera_type))
+    print("  Field of view: " + str(three_d_effective.camera.field_of_view_angle))
+    print("  Zoom: " + str(three_d_effective.camera.zoom))
 
-Không. Các đối tượng dữ liệu hiệu quả chỉ cung cấp các giá trị đã tính toán. Thực hiện thay đổi trong các đối tượng định dạng cục bộ, sau đó lấy lại các giá trị hiệu quả.
+    print("Light rig:")
+    print("  Type: " + str(three_d_effective.light_rig.light_type))
+    print("  Direction: " + str(three_d_effective.light_rig.direction))
 
-**Nếu một thuộc tính không được đặt ở cấp hình dạng, cũng không ở bố cục/mẫu, cũng không ở cài đặt toàn cục thì sao?**
+    print("Top bevel:")
+    print("  Type: " + str(three_d_effective.bevel_top.bevel_type))
+    print("  Width: " + str(three_d_effective.bevel_top.width))
+    print("  Height: " + str(three_d_effective.bevel_top.height))
+```
 
-Giá trị hiệu quả được xác định bởi cơ chế mặc định, bao gồm các mặc định của PowerPoint và Aspose.Slides. Giá trị đã được giải quyết này sẽ trở thành một phần của dữ liệu hiệu quả hiện tại.
+## **Lấy Định dạng Bảng Hiệu quả**
 
-**Từ một giá trị phông chữ hiệu quả, tôi có thể biết được cấp độ nào đã cung cấp kích thước hoặc kiểu chữ không?**
+Định dạng bảng có thể đến từ kiểu bảng và từ các định dạng áp dụng cho toàn bộ bảng, một cột, một hàng, hoặc một ô riêng lẻ. Khi có xung đột giữa các fill được xác định rõ ràng, độ ưu tiên là ô, hàng, cột, rồi đến toàn bảng. Định dạng hiệu quả của một ô là định dạng cuối cùng được dùng để vẽ ô đó.
 
-Không trực tiếp. Dữ liệu hiệu quả chỉ trả về giá trị cuối cùng. Để tìm nguồn, hãy kiểm tra các giá trị cục bộ ở mức phần, đoạn, khung văn bản và các kiểu văn bản ở mức bố cục, mẫu và bản trình chiếu để xem nơi xuất hiện định nghĩa rõ ràng đầu tiên.
+Đối với ví dụ này, tệp `table-formatting.pptx` phải chứa ít nhất một bảng trên slide đầu tiên. Bảng phải có ít nhất một hàng và một cột. Mã sẽ tìm một [Table](https://reference.aspose.com/slides/vi/python-net/aspose.slides/table/) thay vì giả định rằng `shapes[0]` là một bảng.
 
-**Tại sao các giá trị hiệu quả đôi khi trông giống hệt với giá trị cục bộ?**
+```python
+import aspose.slides as slides
 
-Bởi vì giá trị cục bộ đã trở thành giá trị cuối cùng (không cần kế thừa ở mức cao hơn). Trong những trường hợp đó, giá trị hiệu quả trùng khớp với giá trị cục bộ.
 
-**Khi nào tôi nên sử dụng thuộc tính hiệu quả, và khi nào chỉ làm việc với các thuộc tính cục bộ?**
+with slides.Presentation("table-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
 
-Sử dụng dữ liệu hiệu quả khi bạn cần kết quả “được hiển thị” sau khi tất cả các kế thừa đã được áp dụng, chẳng hạn để đồng bộ màu sắc, thụt lề hoặc kích thước. Nếu bạn cần bảo tồn các giá trị này bất kể những thay đổi định dạng sau này, hãy sao chép các thuộc tính cần thiết vào đối tượng riêng của bạn. Nếu bạn muốn thay đổi định dạng ở một mức cụ thể, hãy sửa các thuộc tính cục bộ và sau đó, nếu cần, đọc lại dữ liệu hiệu quả để xác minh kết quả.
+    table = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.Table):
+            table = shape
+            break
+
+    if table is None:
+        raise RuntimeError("The first slide must contain a table.")
+
+    if table.rows.count == 0 or table.columns.count == 0:
+        raise RuntimeError("The table must contain at least one cell.")
+
+    table_effective = table.table_format.get_effective()
+    row_effective = table.rows[0].row_format.get_effective()
+    column_effective = table.columns[0].column_format.get_effective()
+    cell_effective = table.rows[0][0].cell_format.get_effective()
+
+    print("Table fill: " + str(table_effective.fill_format.fill_type))
+    print("Row fill: " + str(row_effective.fill_format.fill_type))
+    print("Column fill: " + str(column_effective.fill_format.fill_type))
+    print("Final cell fill: " + str(cell_effective.fill_format.fill_type))
+```
+
+Nếu bạn cần màu thay vì chỉ loại fill, trước hết kiểm tra [fill_type](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ifillformateffectivedata/fill_type/) đã hiệu quả, sau đó đọc thuộc tính áp dụng cho loại đó, ví dụ, [solid_fill_color](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) cho fill đặc.
+
+## **Đọc lại Dữ liệu Hiệu quả Sau Khi Thay đổi**
+
+Dữ liệu hiệu quả mô tả chuỗi định dạng tại thời điểm nó được giải quyết. Gọi lại `get_effective` sau khi thay đổi bất cứ thứ gì có thể tham gia vào chuỗi đó, bao gồm:
+
+- định dạng cục bộ của đối tượng;
+- mặc định đoạn hoặc khung văn bản;
+- kiểu bảng, bảng, cột, hàng hoặc định dạng ô;
+- định dạng bố cục hoặc slide mẫu;
+- dữ liệu chủ đề hoặc mặc định ở mức bài thuyết trình;
+- bố cục hoặc mẫu được gán cho một slide.
+
+Không giữ một đối tượng dữ liệu hiệu quả như một bản sao cố định. Aspose.Slides có thể lưu cache một số dữ liệu hiệu quả nội bộ, và một lời gọi `get_effective` sau này có thể làm mới dữ liệu đó. Nếu bạn cần so sánh giá trị trước và sau khi thay đổi, sao chép các giá trị vô hướng cần thiết, chẳng hạn như chiều cao phông, màu, căn chỉnh hoặc độ rộng bevel, vào các biến của riêng bạn trước khi thực hiện thay đổi.
+
+Để thay đổi một giá trị, cập nhật đối tượng định dạng cục bộ thích hợp rồi gọi `get_effective` để xác nhận kết quả. Các đối tượng dữ liệu hiệu quả tự chúng là chỉ đọc.
+
+## **FAQ**
+
+**Làm sao tôi có thể biết mức nào đã cung cấp giá trị hiệu quả?**
+
+Dữ liệu hiệu quả chỉ chứa giá trị cuối cùng, không phải nguồn gốc của nó. Kiểm tra các đối tượng cục bộ áp dụng từ mức cụ thể nhất ra ngoài. Đối với văn bản, điều này có thể bao gồm phần, đoạn, khung văn bản, bố cục, mẫu, chủ đề và mặc định của bài thuyết trình. Các giá trị chưa xác định như `float("nan")` hoặc `None` cho biết việc tìm kiếm tiếp tục ở mức khác.
+
+**Điều gì xảy ra khi không có mức nào định nghĩa thuộc tính?**
+
+Aspose.Slides sẽ giải quyết mặc định phù hợp của PowerPoint hoặc thư viện. Giá trị đã giải quyết sẽ xuất hiện trong dữ liệu hiệu quả ngay cả khi không có đối tượng cục bộ nào xác định rõ ràng nó.
+
+**Tại sao đôi khi giá trị hiệu quả lại bằng giá trị cục bộ?**
+
+Giá trị cục bộ đã thắng trong tính toán kế thừa. Điều này là bình thường khi thuộc tính được đặt rõ ràng trên đối tượng và không có quy tắc cụ thể hơn nào ghi đè lên nó.
+
+**Khi nào tôi nên sử dụng dữ liệu cục bộ thay vì dữ liệu hiệu quả?**
+
+Sử dụng dữ liệu cục bộ để kiểm tra hoặc chỉnh sửa một mức định dạng cụ thể. Sử dụng dữ liệu hiệu quả khi bạn cần kết quả cuối cùng sau khi kế thừa, quy tắc chủ đề và các kiểu áp dụng đã được giải quyết. **Ví dụ so sánh đầy đủ** (#compare-local-inherited-and-effective-values) trình bày cả hai trong cùng một quy trình làm việc.

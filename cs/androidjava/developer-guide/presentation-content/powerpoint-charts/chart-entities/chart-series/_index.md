@@ -1,359 +1,391 @@
 ---
-title: Správa datových řad grafu v prezentacích pro Android
-linktitle: Datové řady
+title: Správa datových sérií grafu v prezentacích na Androidu
+linktitle: Datové série
 type: docs
 url: /cs/androidjava/chart-series/
 keywords:
-- řada grafu
-- překrytí řady
-- barva řady
-- barva kategorie
-- název řady
+- série grafu
+- překrytí sérií
+- barva série
+- název série
 - datový bod
-- mezera řady
+- buňka sešitu
+- mezera série
+- záporná hodnota
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se spravovat řady grafu na Androidu pro PowerPoint (PPT/PPTX) s praktickými ukázkami kódu v Javě a osvědčenými postupy pro vylepšení vašich datových prezentací."
+description: "Naučte se, jak spravovat série grafu, datové body, buňky sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích na Androidu."
 ---
 ## **Přehled**
 
-Tento článek popisuje roli [ChartSeries](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chartseries/) v Aspose.Slides, se zaměřením na to, jak jsou data strukturována a vizualizována v prezentacích. Tyto objekty poskytují základní prvky, které definují jednotlivé sady datových bodů, kategorie a parametry vzhledu v grafu. Prací s [ChartSeries](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chartseries/) mohou vývojáři snadno integrovat podkladové zdroje dat a mít plnou kontrolu nad tím, jak jsou informace zobrazovány, což vede k dynamickým, na datech založeným prezentacím, které jasně předávají postřehy a analýzy.
+Graf ukládá svá vykreslená data do sešitu s daty grafu. [IChartSeries](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/) představuje jednu sadu souvisejících hodnot a každý [IChartDataPoint](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/) v sérii odkazuje na jednu nebo více buněk sešitu. Objekty [IChartCategory](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartcategory/) poskytují popisky nebo hodnoty seskupení sdílené sériemi. Název série, kategorie a hodnoty bodů jsou proto spojeny s objekty [IChartDataCell](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatacell/) místo toho, aby byly uloženy jen jako zobrazovaný text.
 
-Řada je řádek nebo sloupec čísel vykreslených v grafu.
+Pro typický kategoriální graf výchozí sešit používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) jsou založeny na nule. Toto uspořádání je užitečné, když vytváříte graf s výchozími daty, ale nepředpokládejte, že každý existující graf jej používá. Pro načtenou prezentaci si před změnou hodnot v sešitu prohlédněte buňky, na které odkazují série, kategorie a datové body.
+
+Nastavení grafu mají tři různé úrovně:
+
+- Nastavení na úrovni série, např. [IChartSeries.getFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#getFormat--), poskytují výchozí vzhled pro všechny body v jedné sérii.
+- Nastavení datového bodu, např. [IChartDataPoint.getFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), přepisují vzhled série pro jeden bod.
+- Nastavení skupiny se vztahují na kompatibilní série, které patří do stejné [IChartSeriesGroup](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseriesgroup/). Přistupujte ke skupině pomocí [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) , když potřebujete nastavit možnosti jako překrytí či šířku mezery.
+
+Když není nastaven žádný explicitní výplň bodu nebo série, určuje automatický vzhled styl a motiv grafu. Když jsou přítomna jak formátování série, tak bodu, má přednost formátování bodu.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Nastavení překrytí řady grafu**
+## **Nastavení překrytí série grafu**
 
-Metodou [IChartSeries.getOverlap](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#getOverlap--) můžete určit, jak moc se mají sloupce a tyčové grafy překrývat v 2D grafu (rozsah: -100 až 100). Tato vlastnost se vztahuje na všechny řady nadřazené skupiny řad: jedná se o projekci příslušné skupinové vlastnosti. Proto je tato vlastnost jen pro čtení.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#getOverlap--) udává, jak moc se překrývají pruhy nebo sloupce v 2D grafu, v rozmezí od -100 do 100 procent. Jedná se o jen‑čtení projekci nastavení na rodičovskou skupinu sérií. Použijte [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) k aktualizaci všech kompatibilních sérií v této skupině. Tato možnost se vztahuje na typy grafů zobrazujících seskupené pruhy nebo sloupce; neovlivní nesouvisející skupiny sérií v kombinovaném grafu.
 
-Použijte zápis `getParentSeriesGroup().setOverlap()` pro nastavení požadované hodnoty překrytí.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Přidejte seskupený sloupcový graf na snímek.
-1. Získejte první řadu grafu.
-1. Získejte `ParentSeriesGroup` řady a nastavte požadovanou hodnotu překrytí.
-1. Uložte upravenou prezentaci do souboru PPTX.
-
-Tento Java kód ukazuje, jak nastavit překrytí pro řadu grafu:
+Následující příklad nastavuje překrytí pro skupinu, která obsahuje první sérii:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Přidá graf
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // Nastaví překrytí řady
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // Zapíše soubor prezentace na disk
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Nový graf obsahuje ukázkové série, kategorie a hodnoty.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Změna barvy řady**
-Aspose.Slides for Android via Java umožňuje změnit barvu řady tímto způsobem:
+Výsledek:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Přidejte graf na snímek.
-1. Získejte řadu, jejíž barvu chcete změnit.
-1. Nastavte požadovaný typ výplně a barvu výplně.
-1. Uložte upravenou prezentaci.
+![The series overlap](series_overlap.png)
 
-Tento Java kód ukazuje, jak změnit barvu řady:
+## **Změna barvy výplně série**
 
-```java
-Presentation pres = new Presentation("test.pptx");
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+Použijte [IChartSeries.getFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#getFormat--) k nastavení výchozí výplně pro celou sérii. Pokud má bod již explicitní výplň, jeho nastavení [IChartDataPoint.getFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) přepisuje výplň série pro tento bod.
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Změna barvy kategorie řady**
-Aspose.Slides for Android via Java umožňuje změnit barvu kategorie řady tímto způsobem:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Přidejte graf na snímek.
-1. Získejte kategorii řady, jejíž barvu chcete změnit.
-1. Nastavte požadovaný typ výplně a barvu výplně.
-1. Uložte upravenou prezentaci.
-
-Tento kód v Javě ukazuje, jak změnit barvu kategorie řady:
+Následující příklad aplikuje plnou modrou výplň na první sérii:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Změna názvu řady**
-
-Ve výchozím nastavení jsou názvy legendy pro graf obsahem buněk nad každým sloupcem nebo řádkem dat.
-
-V našem příkladu (ukázkový obrázek),
-
-* sloupce jsou *Series 1, Series 2,* a *Series 3*;
-* řádky jsou *Category 1, Category 2, Category 3,* a *Category 4*.
-
-Aspose.Slides for Android via Java umožňuje aktualizovat nebo změnit název řady v jejích datech grafu a legendě.
-
-Tento Java kód ukazuje, jak změnit název řady v datech grafu `ChartDataWorkbook`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Tento Java kód ukazuje, jak změnit název řady v legendě pomocí `Series`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Nastavení výplně barvy řady grafu**
-
-Aspose.Slides for Android via Java umožňuje nastavit automatickou výplň barvy pro řady grafu v oblasti vykreslování tímto způsobem:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte graf s výchozími daty na základě požadovaného typu (v níže uvedeném příkladu jsme použili `ChartType.ClusteredColumn`).
-1. Získejte řadu grafu a nastavte výplň barvy na Automatic.
-1. Uložte prezentaci do souboru PPTX.
-
-Tento Java kód ukazuje, jak nastavit automatickou výplň barvy pro řadu grafu:
-
-```java
-Presentation pres = new Presentation();
-try {
-    // Vytvoří seskupený sloupcový graf
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // Nastaví výplň řady na automatickou
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // Zapíše soubor prezentace na disk
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Nastavení invertované výplně barvy pro řadu grafu**
-Aspose.Slides umožňuje nastavit invertovanou výplň barvy pro řady grafu v oblasti vykreslování tímto způsobem:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte graf s výchozími daty na základě požadovaného typu (v níže uvedeném příkladu jsme použili `ChartType.ClusteredColumn`).
-1. Získejte řadu grafu a nastavte výplň barvy na invert.
-1. Uložte prezentaci do souboru PPTX.
-
-Tento Java kód demonstruje operaci:
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // Přidá nové řady a kategorie
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // Vezme první řadu grafu a vyplní její data.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Nastavení invertování řady při záporné hodnotě**
-Aspose.Slides umožňuje nastavit invertování pomocí vlastností `IChartDataPoint.InvertIfNegative` a `ChartDataPoint.InvertIfNegative`. Když je invertování nastaveno pomocí těchto vlastností, datový bod invertuje své barvy při záporné hodnotě.
+Výsledek:
 
-Tento Java kód demonstruje operaci:
+![The color of the series](series_color.png)
+
+## **Změna názvu série**
+
+Název série je uložen v sešitu s daty grafu a běžně se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro seskupený sloupcový graf je buňka B1 v řádku 0, sloupci 1 a obsahuje název první série. Pojmenované konstanty v následujícím příkladu tuto strukturu explicitně ukazují:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Vymazání konkrétních dat bodu**
-Aspose.Slides for Android via Java umožňuje vymazat data `DataPoints` pro konkrétní řadu grafu tímto způsobem:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Získejte odkaz na graf podle jeho indexu.
-4. Procházejte všechny `DataPoints` grafu a nastavte `XValue` a `YValue` na null.
-5. Vymažte všechny `DataPoints` pro konkrétní řadu grafu.
-6. Uložte upravenou prezentaci do souboru PPTX.
-
-Tento Java kód demonstruje operaci:
+Můžete také aktualizovat buňku, na kterou již odkazuje [IChartSeries.getName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#getName--). Tento přístup se vyhýbá předpokladu konkrétního řádku a sloupce v existujícím grafu:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Výsledek:
+
+![The series name](series_name.png)
+
+## **Získání automatické barvy výplně série**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) vrací barvu vypočtenou z indexu série a stylu grafu jako celočíselnou hodnotu Android ARGB. Toto je barva použita, když výplň série nebyla explicitně definována. Volání metody načte vypočtenou barvu; nepřiřazuje novou výplň.
+
+Následující příklad vypisuje automatické celočíselné hodnoty barvy pro každou výchozí sérii:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        int automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Přesné celočíselné hodnoty závisí na stylu grafu a motivu.
+
+## **Nastavení invertované barvy výplně pro sérii grafu**
+
+Pro pruhové, sloupcové a bublinové série může [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) zobrazit záporné hodnoty s jinou výplní. Nastavte běžnou výplň série na plnou, povolte inverzi a přiřaďte barvu záporných hodnot pomocí [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Záporná čísla zůstávají v sešitu beze změny; mění se pouze jejich barva při zobrazení.
+
+Následující příklad nahradí výchozí data grafu jednou sérií. Řádek 0 listu obsahuje název série, sloupec 0 obsahuje názvy kategorií a sloupec 1 obsahuje hodnoty:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Nastavení šířky mezery řady**
-Aspose.Slides for Android via Java umožňuje nastavit šířku mezery řady pomocí vlastnosti **`GapWidth`** tímto způsobem:
+Výsledek:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Získejte první snímek.
-1. Přidejte graf s výchozími daty.
-1. Získejte libovolnou řadu grafu.
-1. Nastavte vlastnost `GapWidth`.
-1. Uložte upravenou prezentaci do souboru PPTX.
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Tento kód v Javě ukazuje, jak nastavit šířku mezery řady:
+Inverzi můžete povolit pro jeden bod pomocí [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). V následujícím příkladu je inverze pro sérii zakázána a povolena pouze pro vybraný bod. Bod je také přiřazen zápornou hodnotou, aby byl efekt viditelný:
 
 ```java
-// Vytvoří prázdnou prezentaci
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    // Přistupuje k prvnímu snímku prezentace
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Přidá graf s výchozími daty
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // Nastaví index listu dat grafu
-    int defaultWorksheetIndex = 0;
-    
-    // Získá list dat grafu
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Přidá řady
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Přidá kategorie
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Vybere druhou řadu grafu
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Vyplní data řady
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Nastaví hodnotu GapWidth
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // Uloží prezentaci na disk
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Vymazání konkrétní hodnoty datového bodu**
 
-**Existuje limit počtu řad, které může jediný graf obsahovat?**
+Aby byl jeden bod prázdný aniž by se odstranily ostatní body, nastavte jeho podkladovou buňku v sešitu na `null`. Pro sloupcový graf je vykreslená hodnota dostupná přes [IChartDataPoint.getValue](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Datový bod zůstává na stejné pozici kategorie, ale graf s ohledem na nastavení prázdných hodnot považuje jeho hodnotu za prázdnou.
 
-Aspose.Slides nekladá žádný pevný limit na počet řad, které můžete přidat. Praktický limit určuje čitelnost grafu a paměť dostupná vaší aplikaci.
+Následující příklad vymaže jen druhý bod v první sérii:
 
-**Co když jsou sloupce v klastru příliš blízko u sebe nebo příliš daleko od sebe?**
+```java
+import com.aspose.slides.*;
 
-Upravte nastavení `GapWidth` pro danou řadu (nebo její nadřazenou skupinu řad). Zvýšením hodnoty zvětšíte odstup mezi sloupci, snížením jej přiblížíte.
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Rozptylové grafy používají samostatné buňky X a Y a bublinové grafy také buňku velikosti. Vymažte pouze buňku, která představuje hodnotu, kterou chcete odstranit. Nevolajte [IChartDataPointCollection.clear](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) pokud chcete zachovat ostatní body, protože tato metoda odstraní každý datový bod ze sbírky.
+
+## **Nastavení šířky mezery série**
+
+Šířka mezery je prostor mezi sousedními seskupeními pruhů nebo sloupců, vyjádřený jako procento šířky pruhu nebo sloupce. Stejně jako překrytí patří k rodičovské skupině sérií, nikoli k jedné sérii. Zavolejte [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) jednou pro skupinu. Větší hodnota vytvoří více prostoru mezi seskupeními; menší hodnota je učiní hustšími.
+
+Následující příklad změní šířku mezery a uloží jen konečnou prezentaci:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Výsledek:
+
+![The gap width](gap_width.png)
+
+## **Často kladené otázky**
+
+**Které typy grafů podporují datové série?**
+
+Všechny typy grafů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/) používají data grafu, ale jejich série nemají vždy stejnou strukturu hodnot nebo nastavení. Například kategoriální grafy používají kategorie a hodnoty, rozptylové grafy používají hodnoty X a Y a bublinové grafy přidávají velikosti bublin. Použijte metodu tvorby datových bodů, která odpovídá typu série. Možnosti jako překrytí a šířka mezery se vztahují jen na kompatibilní pruhové nebo sloupcové skupiny.
+
+**Co je skupina sérií grafu?**
+
+[IChartSeriesGroup](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseriesgroup/) obsahuje kompatibilní série, které sdílejí nastavení vykreslování úrovně skupiny. Kombinovaný graf může obsahovat více než jednu skupinu, takže změna skupiny dosažené přes jednu sérii nemusí nutně změnit všechny série v grafu.
+
+**Obsahuje nově vytvořený graf výchozí data?**
+
+Ano. Ve výchozím nastavení [IShapeCollection.addChart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) vytváří ukázkové série, kategorie a hodnoty. Můžete tyto buňky upravit nebo vymazat jak kolekce sérií, tak kategorií před přidáním zcela vlastního datového souboru. Přetížená metoda může také vytvořit graf bez výchozích dat.
+
+**Jak jsou objekty grafu spojeny s buňkami sešitu?**
+
+Názvy sérií, popisky kategorií a hodnoty datových bodů odkazují na buňky v [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Při vytváření vlastních dat udržujte řádky kategorií a řádky hodnot sérií zarovnané tak, aby každý bod byl vykreslen pod zamýšlenou kategorií.
+
+**Jak vymazat jeden bod místo celé série?**
+
+Nastavte příslušnou buňku s hodnotou na `null`, aby bod zůstal na pozici kategorie jako prázdný bod. Použijte [IChartDataPointCollection.clear](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) jen tehdy, když chcete odstranit všechny body z této série. Pokud také odstraňujete kategorie, aktualizujte každou sérii, aby jejich hodnoty zůstaly zarovnané s kolekcí kategorií.
+
+**Jak se zobrazují prázdné body?**
+
+Výsledek závisí na typu grafu a hodnotě nastavené pomocí [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Podporované grafy mohou zobrazovat prázdná místa jako mezery, jako nulové hodnoty nebo spojením sousedních bodů. Vyberte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci.
+
+**Jak jsou formátovány záporné hodnoty?**
+
+U podporovaných pruhových, sloupcových a bublinových sérií zavolejte [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) a nastavte barvu vrácenou metodou [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Chování pro jednotlivý bod můžete přepsat pomocí [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Tyto metody ovlivňují formátování, nikoli uložené číselné hodnoty.
+
+**Které formátování má přednost, když je formátována i série i bod?**
+
+Explicitní formátování datového bodu má přednost pro tento bod. Ostatní body nadále používají explicitní formát série nebo, pokud není formát série definován, automatický styl a motiv grafu. Nastavení skupiny, jako jsou překrytí a šířka mezery, řídí rozvržení a nejsou přepisem formátování na úrovni bodu.
+
+**Existuje limit, kolik sérií může graf obsahovat?**
+
+Aspose.Slides neukládá samostatný pevný limit počtu sérií. V praxi o praktickém limitu rozhodují omezení souboru prezentace, dostupná paměť, čas vykreslování a čitelnost grafu.
+
+**Co změnit, když jsou sloupce příliš blízko u sebe nebo příliš daleko?**
+
+Zavolejte [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) na odpovídající rodičovské skupině sérií. Zvyšte hodnotu pro rozšíření prostoru mezi seskupeními nebo ji snižte, aby se seskupení přiblížila.

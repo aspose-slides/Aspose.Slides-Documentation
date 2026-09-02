@@ -1,315 +1,357 @@
 ---
-title: Lấy Thuộc tính Hiệu lực của Hình dạng từ Bản trình bày trong C++
+title: Lấy Thuộc tính Hiệu lực của Hình từ Bản trình chiếu trong C++
 linktitle: Thuộc tính Hiệu lực
 type: docs
 weight: 50
 url: /vi/cpp/shape-effective-properties/
 keywords:
-- thuộc tính hình dạng
-- thuộc tính camera
-- hệ thống ánh sáng
-- hình dạng bevel
+- thuộc tính hình
+- thuộc tính máy ảnh
+- bộ ánh sáng
+- hình bevel
 - khung văn bản
 - kiểu văn bản
 - chiều cao phông chữ
-- định dạng đổ màu
+- định dạng tô đầy
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - C++
 - Aspose.Slides
-description: "Khám phá cách Aspose.Slides cho C++ tính toán và áp dụng các thuộc tính hình dạng hiệu lực để render PowerPoint một cách chính xác."
+description: "Tìm hiểu cách sử dụng Aspose.Slides cho C++ để phân biệt định dạng hình cục bộ, kế thừa và hiệu lực trong các bản trình chiếu PowerPoint."
 ---
-## **Tổng quan**
+## **Hiểu về Thuộc tính Cục bộ, Kế thừa và Hiệu lực**
 
-Chủ đề này giải thích sự khác biệt giữa các thuộc tính **cục bộ** và **hiệu lực**. Giá trị cục bộ là các giá trị được đặt trực tiếp ở một mức định dạng cụ thể, chẳng hạn như:
+Định dạng PowerPoint có thể đến từ nhiều nguồn. Giá trị được lưu trực tiếp trên một đối tượng là **giá trị cục bộ**. Nếu giá trị đó không được đặt, PowerPoint sẽ tìm các nguồn định dạng cha, chẳng hạn như mặc định đoạn văn, kiểu văn bản, bố cục hoặc slide master, chủ đề, hoặc mặc định cấp trình chiếu. Những giá trị đó là **giá trị kế thừa**. Giá trị còn lại sau khi toàn bộ phân cấp được giải quyết là **giá trị hiệu lực** — giá trị được dùng để hiển thị đối tượng.
 
-1. Thuộc tính phần trên một slide.
-1. Kiểu văn bản hình dạng mẫu trên bố cục hoặc slide chủ, khi hình dạng khung văn bản của phần có một kiểu.
-1. Cài đặt văn bản toàn cục trong một bản trình bày.
+Ví dụ, một phần văn bản có thể không xác định chiều cao phông chữ của riêng mình. Giá trị cục bộ [chiều cao phông chữ](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/) của nó sẽ là `std::numeric_limits<float>::quiet_NaN()`, có nghĩa là “không được đặt ở đây”. Phần này có thể kế thừa chiều cao từ đoạn văn, kiểu văn bản mặc định của trình chiếu, hoặc nguồn áp dụng khác. Gọi [GetEffective](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportionformat/) trên định dạng phần sẽ trả về chiều cao đã được giải quyết cuối cùng.
 
-Giá trị cục bộ có thể được xác định hoặc bỏ qua ở bất kỳ mức nào. Khi Aspose.Slides cần định dạng cuối cùng "như đã hiển thị", nó giải quyết chuỗi kế thừa và trả về các giá trị **hiệu lực**. Bạn có thể lấy chúng bằng cách gọi phương thức `GetEffective` trên đối tượng định dạng cục bộ.
+Sử dụng hai loại dữ liệu định dạng cho các mục đích khác nhau:
 
-Ví dụ sau đây cho thấy cách lấy các giá trị hiệu lực. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) có khung văn bản và ít nhất một phần.
+- Đọc hoặc thay đổi một đối tượng định dạng cục bộ, chẳng hạn như [IPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportionformat/), khi bạn cần kiểm soát nơi một giá trị được định nghĩa.
+- Đọc một đối tượng dữ liệu hiệu lực, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportionformateffectivedata/), khi bạn cần kết quả cuối cùng đã được hiển thị. Dữ liệu hiệu lực chỉ đọc.
+
+## **So sánh Giá trị Cục bộ, Kế thừa và Hiệu lực**
+
+Ví dụ đầy đủ sau tạo một hình và áp dụng chiều cao phông chữ ở các mức trình chiếu, đoạn văn và phần. Mỗi bước in ra các giá trị được định nghĩa ở các mức đó và giá trị hiệu lực kết quả cho cùng một phần văn bản. Nó cũng minh họa tại sao dữ liệu hiệu lực phải được đọc lại sau khi thay đổi định dạng.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <cmath>
+#include <limits>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 500.0f, 80.0f, false);
+auto textFrame = shape->AddTextFrame(u"Effective formatting");
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
+
+// Định nghĩa các giá trị kế thừa ở hai mức độ khác nhau.
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(20.0f);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(28.0f);
+
+auto formatLocalValue = [](float value) -> System::String
+{
+    return std::isnan(value) ? System::String(u"<not set>") : System::ObjectExt::ToString(value);
+};
+
+auto printFontHeights = [&](System::String caption)
+{
+    auto presentationValue = presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->get_FontHeight();
+    auto paragraphValue = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FontHeight();
+    auto localValue = portion->get_PortionFormat()->get_FontHeight();
+
+    // Đọc dữ liệu hiệu lực sau các thay đổi trước đó.
+    auto effectiveValue = portion->get_PortionFormat()->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(caption);
+    System::Console::WriteLine(System::String(u"  Presentation default: ") + formatLocalValue(presentationValue));
+    System::Console::WriteLine(System::String(u"  Paragraph default:    ") + formatLocalValue(paragraphValue));
+    System::Console::WriteLine(System::String(u"  Portion local:        ") + formatLocalValue(localValue));
+    System::Console::WriteLine(System::String(u"  Portion effective:    ") + effectiveValue);
+};
+
+printFontHeights(u"The portion inherits from the paragraph");
+
+// Giá trị cục bộ trên phần ghi đè cả hai giá trị kế thừa.
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+printFontHeights(u"A local value overrides inherited values");
+
+// Thay đổi một giá trị kế thừa không ghi đè giá trị cục bộ hiện có.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(30.0f);
+printFontHeights(u"The local value still has priority");
+
+// Xóa giá trị cục bộ. Phần hiện nay lại kế thừa từ đoạn văn.
+portion->get_PortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The local value is cleared");
+
+// Xóa giá trị đoạn văn. Mặc định trình chiếu bây giờ cung cấp kết quả.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The paragraph value is cleared");
+
+presentation->Save(u"effective-properties.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Ưu tiên trong ví dụ này là định dạng cục bộ của phần, sau đó là định dạng đoạn văn, cuối cùng là mặc định trình chiếu. Các đối tượng khác có thể có chuỗi kế thừa khác, nhưng nguyên tắc vẫn giống: giá trị cụ thể hơn sẽ thắng, và [GetEffective](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportionformat/) trả về kết quả cuối cùng.
+
+## **Lấy Thuộc tính Văn bản Hiệu lực**
+
+Định dạng văn bản được chia thành nhiều đối tượng:
+
+- [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/) giải quyết các thuộc tính khung văn bản như lề, neo, tự động vừa, và hướng văn bản dọc.
+- [ITextStyle::GetEffective](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextstyle/) giải quyết định dạng đoạn văn cho mỗi cấp độ kiểu văn bản.
+- [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/) giải quyết các thuộc tính đoạn văn như căn chỉnh, thụt lề và dấu đầu dòng.
+- [IPortionFormat::GetEffective](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportionformat/) giải quyết các thuộc tính ký tự như chiều cao phông chữ, họ phông, màu, in đậm và in nghiêng.
+
+Đối với ví dụ tiếp theo, tệp `text-formatting.pptx` phải chứa ít nhất một slide và một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) có khung văn bản không rỗng. IAutoShape có thể xuất hiện ở bất kỳ vị trí nào trong bộ sưu tập hình; mã sẽ tìm một đối tượng phù hợp và xác thực nó trước khi sử dụng.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"text-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
+
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<IAutoShape> shape;
+
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+{
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
+
+    if (!System::ObjectExt::Is<IAutoShape>(candidate))
+        continue;
+
+    auto autoShape = System::ExplicitCast<IAutoShape>(candidate);
+    auto candidateTextFrame = autoShape->get_TextFrame();
+
+    if (candidateTextFrame == nullptr || candidateTextFrame->get_Paragraphs()->get_Count() == 0)
+        continue;
+
+    if (candidateTextFrame->get_Paragraph(0)->get_Portions()->get_Count() == 0)
+        continue;
+
+    shape = autoShape;
+    break;
+}
+
+if (shape == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain an IAutoShape with non-empty text.");
 
 auto textFrame = shape->get_TextFrame();
-auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
 
-auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
-auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+auto textFrameEffective = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraphEffective = paragraph->get_ParagraphFormat()->GetEffective();
+auto portionEffective = portion->get_PortionFormat()->GetEffective();
 
-presentation->Dispose();
-```
+System::Console::WriteLine(u"Text frame margins:");
+System::Console::WriteLine(System::String(u"  Left: ") + textFrameEffective->get_MarginLeft());
+System::Console::WriteLine(System::String(u"  Top: ") + textFrameEffective->get_MarginTop());
+System::Console::WriteLine(System::String(u"  Right: ") + textFrameEffective->get_MarginRight());
+System::Console::WriteLine(System::String(u"  Bottom: ") + textFrameEffective->get_MarginBottom());
+System::Console::WriteLine(System::String(u"Paragraph alignment: ") + System::ObjectExt::ToString(paragraphEffective->get_Alignment()));
+System::Console::WriteLine(System::String(u"Font height: ") + portionEffective->get_FontHeight());
+System::Console::WriteLine(System::String(u"Bold: ") + System::ObjectExt::ToString(portionEffective->get_FontBold()));
 
-{{% alert color="primary" %}}
-Dữ liệu định dạng hiệu lực đại diện cho định dạng hiện tại đã được tính toán sau khi áp dụng kế thừa. Trong triển khai hiện tại, một số đối tượng dữ liệu hiệu lực, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportionformateffectivedata/), có thể được lưu trong bộ nhớ đệm nội bộ. Gọi lại `GetEffective` sau khi thay đổi định dạng cha hoặc kế thừa có thể làm mới dữ liệu được lưu, và đối tượng đã lấy trước đó có thể không còn đại diện cho trạng thái trước. Nếu bạn cần lưu trữ các giá trị hiệu lực để sử dụng lại sau, sao chép các thuộc tính cần thiết, như chiều cao phông chữ, màu nền, kiểu phông chữ hoặc căn chỉnh, vào đối tượng dữ liệu của riêng bạn.
-{{% /alert %}}
-
-## **Lấy Thuộc tính Hiệu lực của Camera**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của một camera. Giao diện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icameraeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính camera hiệu lực. Một thể hiện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icameraeffectivedata/) được hiển thị thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformat/).
-
-Mẫu mã sau đây cho thấy cách lấy các thuộc tính hiệu lực cho camera. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto camera = threeDEffectiveData->get_Camera();
-
-System::Console::WriteLine(u"= Effective camera properties =");
-auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
-System::Console::WriteLine(System::String(u"Type: ") + cameraType);
-
-auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
-System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
-
-auto cameraZoom = camera->get_Zoom();
-System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
-
-presentation->Dispose();
-```
-
-## **Lấy Thuộc tính Hiệu lực của Light Rig**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của một light rig. Giao diện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilightrigeffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính light rig hiệu lực. Một thể hiện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilightrigeffectivedata/) được hiển thị thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformat/).
-
-Mẫu mã sau đây cho thấy cách lấy các thuộc tính hiệu lực cho light rig. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto lightRig = threeDEffectiveData->get_LightRig();
-
-System::Console::WriteLine(u"= Effective light rig properties =");
-auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
-System::Console::WriteLine(System::String(u"Type: ") + lightType);
-
-auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
-System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
-
-presentation->Dispose();
-```
-
-## **Lấy Thuộc tính Hiệu lực của Bevel Shape**
-
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của bevel hình dạng. Giao diện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapebeveleffectivedata/) đại diện cho một đối tượng bất biến chứa các thuộc tính relief mặt cho một hình dạng. Một thể hiện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapebeveleffectivedata/) được hiển thị thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformateffectivedata/), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformat/).
-
-Mẫu mã sau đây cho thấy cách lấy các thuộc tính hiệu lực cho bevel trên của một hình dạng. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto bevelTop = threeDEffectiveData->get_BevelTop();
-
-System::Console::WriteLine(u"= Effective shape's top face relief properties =");
-auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
-System::Console::WriteLine(System::String(u"Type: ") + bevelType);
-
-auto bevelWidth = bevelTop->get_Width();
-System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
-
-auto bevelHeight = bevelTop->get_Height();
-System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
-
-presentation->Dispose();
-```
-
-## **Lấy Thuộc tính Hiệu lực của Text Frame**
-
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu lực của một khung văn bản. Giao diện [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformateffectivedata/) chứa các thuộc tính định dạng khung văn bản hiệu lực.
-
-Mẫu mã sau đây cho thấy cách lấy các thuộc tính định dạng khung văn bản hiệu lực. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) có khung văn bản.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-
-auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
-
-auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
-System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
-
-auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
-System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
-
-auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
-System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
-
-System::Console::WriteLine(u"Margins");
-auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
-System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
-
-auto marginTop = effectiveTextFrameFormat->get_MarginTop();
-System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
-
-auto marginRight = effectiveTextFrameFormat->get_MarginRight();
-System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
-
-auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
-System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
-
-presentation->Dispose();
-```
-
-## **Lấy Thuộc tính Hiệu lực của Text Style**
-
-Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu lực của một kiểu văn bản. Giao diện [ITextStyleEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextstyleeffectivedata/) chứa các thuộc tính kiểu văn bản hiệu lực.
-
-Mẫu mã sau đây cho thấy cách lấy các thuộc tính kiểu văn bản hiệu lực. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) có khung văn bản.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
-int levelCount = 9;
-
-for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+auto effectiveTextStyle = textFrame->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+for (int level = 0; level < 9; ++level)
 {
-    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
-
-    auto depth = effectiveStyleLevel->get_Depth();
-    auto indent = effectiveStyleLevel->get_Indent();
-    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
-    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
-
-    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
-    System::Console::WriteLine(System::String(u"Depth: ") + depth);
-    System::Console::WriteLine(System::String(u"Indent: ") + indent);
-    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
-    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+    auto levelEffective = effectiveTextStyle->GetLevel(level);
+    System::Console::WriteLine(System::String(u"Level ") + level + u" indent: " + levelEffective->get_Indent());
 }
 
 presentation->Dispose();
 ```
 
-## **Lấy Giá trị Chiều cao Phông chữ Hiệu lực**
+## **Lấy Thuộc tính 3D Hiệu lực**
 
-Sử dụng Aspose.Slides, bạn có thể lấy chiều cao phông chữ hiệu lực. Đoạn mã sau minh họa cách chiều cao phông chữ hiệu lực của một phần thay đổi sau khi các giá trị chiều cao phông chữ cục bộ được đặt ở các mức cấu trúc bản trình bày khác nhau.
+[IThreeDFormat::GetEffective](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformat/) trả về một đối tượng [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ithreedformateffectivedata/) nhóm tất cả các cài đặt 3D đã được giải quyết. Dữ liệu [camera](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icameraeffectivedata/), [light rig](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ilightrigeffectivedata/), [top bevel](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapebeveleffectivedata/) và [bottom bevel](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapebeveleffectivedata/) hiển thị các cài đặt hiệu lực tương ứng. Đọc các cài đặt liên quan này cùng nhau giúp dễ hiểu hơn về ngoại hình 3D cuối cùng của một hình.
+
+Đối với ví dụ này, tệp `shape-3d.pptx` phải chứa ít nhất một hình trên slide đầu tiên. Áp dụng cấu hình camera, ánh sáng hoặc bevel 3D cho hình đó nếu bạn muốn đầu ra chứa các giá trị khác với mặc định.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"shape-3d.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0 || presentation->get_Slide(0)->get_Shapes()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The first slide must contain a shape.");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto threeDEffective = shape->get_ThreeDFormat()->GetEffective();
+
+System::Console::WriteLine(u"Camera:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_Camera()->get_CameraType()));
+System::Console::WriteLine(System::String(u"  Field of view: ") + threeDEffective->get_Camera()->get_FieldOfViewAngle());
+System::Console::WriteLine(System::String(u"  Zoom: ") + threeDEffective->get_Camera()->get_Zoom());
+
+System::Console::WriteLine(u"Light rig:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_LightType()));
+System::Console::WriteLine(System::String(u"  Direction: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_Direction()));
+
+System::Console::WriteLine(u"Top bevel:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_BevelTop()->get_BevelType()));
+System::Console::WriteLine(System::String(u"  Width: ") + threeDEffective->get_BevelTop()->get_Width());
+System::Console::WriteLine(System::String(u"  Height: ") + threeDEffective->get_BevelTop()->get_Height());
+
+presentation->Dispose();
+```
+
+## **Lấy Định dạng Bảng Hiệu lực**
+
+Định dạng bảng có thể đến từ kiểu bảng và từ các định dạng áp dụng cho toàn bộ bảng, cột, hàng hoặc ô riêng lẻ. Khi có xung đột giữa các fill được xác định rõ ràng, thứ tự ưu tiên là ô, hàng, cột, rồi toàn bộ bảng. Định dạng hiệu lực của một ô là định dạng cuối cùng được dùng để vẽ ô đó.
+
+Đối với ví dụ này, tệp `table-formatting.pptx` phải chứa ít nhất một bảng trên slide đầu tiên. Bảng phải có ít nhất một hàng và một cột. Mã sẽ tìm một [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/) thay vì giả định rằng hình đầu tiên là một bảng.
+
+```cpp
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"table-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
 
 auto slide = presentation->get_Slide(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
-autoShape->AddTextFrame(u"");
+System::SharedPtr<ITable> table;
 
-auto textFrame = autoShape->get_TextFrame();
-auto paragraph = textFrame->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-portions->Clear();
-
-auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
-auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
-
-portions->Add(firstPortion);
-portions->Add(secondPortion);
-
-System::Console::WriteLine(u"Effective font height just after creation:");
-auto firstPortionFormat = firstPortion->get_PortionFormat();
-auto secondPortionFormat = secondPortion->get_PortionFormat();
-
-auto printEffectiveFontHeights = [&]()
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
 {
-    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
-    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
 
-    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
-    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
-};
+    if (System::ObjectExt::Is<ITable>(candidate))
+    {
+        table = System::ExplicitCast<ITable>(candidate);
+        break;
+    }
+}
 
-printEffectiveFontHeights();
+if (table == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain a table.");
 
-presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+if (table->get_Rows()->get_Count() == 0 || table->get_Columns()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The table must contain at least one cell.");
 
-System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
-printEffectiveFontHeights();
+auto tableEffective = table->get_TableFormat()->GetEffective();
+auto rowEffective = table->get_Row(0)->get_RowFormat()->GetEffective();
+auto columnEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective();
+auto cellEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective();
 
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
-
-System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
-printEffectiveFontHeights();
-
-firstPortionFormat->set_FontHeight(55.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
-printEffectiveFontHeights();
-
-secondPortionFormat->set_FontHeight(18.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
-printEffectiveFontHeights();
-
-presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Lấy Định dạng Đổ màu Hiệu lực cho Bảng**
-
-Sử dụng Aspose.Slides, bạn có thể lấy định dạng đổ màu hiệu lực cho các phần khác nhau của bảng. Giao diện [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifillformateffectivedata/) chứa các thuộc tính định dạng đổ màu hiệu lực. Định dạng ô có ưu tiên cao hơn định dạng hàng, định dạng hàng có ưu tiên cao hơn định dạng cột, và định dạng cột có ưu tiên cao hơn định dạng toàn bảng.
-
-Do đó, các thuộc tính của [ICellFormatEffectiveData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icellformateffectivedata/) được sử dụng để vẽ ô bảng. Mẫu mã sau đây cho thấy cách lấy định dạng đổ màu hiệu lực cho các phần khác nhau của bảng. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/).
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
-
-auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
-auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
-auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
-auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+System::Console::WriteLine(System::String(u"Table fill: ") + System::ObjectExt::ToString(tableEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Row fill: ") + System::ObjectExt::ToString(rowEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Column fill: ") + System::ObjectExt::ToString(columnEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Final cell fill: ") + System::ObjectExt::ToString(cellEffective->get_FillFormat()->get_FillType()));
 
 presentation->Dispose();
 ```
 
-## **Câu hỏi thường gặp**
+Nếu bạn cần màu thay vì chỉ loại fill, trước tiên kiểm tra [FillType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifillformateffectivedata/) hiệu lực, sau đó đọc thuộc tính tương ứng với loại đó — ví dụ, [SolidFillColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifillformateffectivedata/) cho fill đặc.
 
-**`GetEffective` có trả về một ảnh chụp nhanh không?**
+## **Đọc lại Dữ liệu Hiệu lực Sau Khi Thay đổi**
 
-Không phải luôn luôn. Dữ liệu hiệu lực đại diện cho định dạng đã được tính toán sau khi áp dụng kế thừa, nhưng một số đối tượng dữ liệu hiệu lực có thể được lưu trong bộ nhớ đệm nội bộ. Lần gọi `GetEffective` tiếp theo có thể tính lại định dạng và làm mới dữ liệu được lưu, vì vậy đối tượng đã lấy trước đó không nên được coi là một ảnh chụp dài hạn.
+Dữ liệu hiệu lực mô tả phân cấp định dạng tại thời điểm nó được giải quyết. Gọi `GetEffective` lại sau khi thay đổi bất kỳ yếu tố nào có thể tham gia vào phân cấp đó, bao gồm:
 
-**Khi nào tôi nên đọc lại các thuộc tính hiệu lực?**
+- định dạng cục bộ của đối tượng;
+- mặc định đoạn văn hoặc khung văn bản;
+- kiểu bảng, bảng, cột, hàng hoặc định dạng ô;
+- định dạng bố cục hoặc slide master;
+- dữ liệu chủ đề hoặc mặc định cấp trình chiếu;
+- bố cục hoặc master được gán cho một slide.
 
-Gọi lại `GetEffective` sau khi thay đổi định dạng cục bộ, kiểu cha, định dạng bố cục, định dạng master hoặc các mặc định ở mức bản trình bày. Lần gọi tiếp theo sẽ đánh giá lại cây định dạng và trả về kết quả hiệu lực hiện tại.
+Không giữ một đối tượng dữ liệu hiệu lực như một ảnh chụp nhanh vĩnh viễn. Aspose.Slides có thể lưu một số dữ liệu hiệu lực trong bộ nhớ đệm nội bộ, và một lời gọi `GetEffective` sau này có thể làm mới dữ liệu đó. Nếu bạn cần so sánh các giá trị trước và sau khi thay đổi, sao chép các giá trị vô hướng bạn cần — chẳng hạn như chiều cao phông, màu, căn chỉnh hoặc độ rộng bevel — vào các biến của riêng bạn trước khi thực hiện thay đổi.
 
-**Việc thay đổi hoặc xoá một slide bố cục/master có ảnh hưởng đến các thuộc tính hiệu lực đã được lấy trước không?**
+Để thay đổi một giá trị, cập nhật đối tượng định dạng cục bộ thích hợp rồi gọi `GetEffective` để xác minh kết quả. Các đối tượng dữ liệu hiệu lực tự chúng chỉ đọc.
 
-Có, nhưng thay đổi sẽ được phản ánh trong lần gọi `GetEffective` tiếp theo. Nếu nguồn định dạng cha được thay đổi hoặc xoá, dữ liệu hiệu lực đã lấy trước có thể lỗi thời. Khi `GetEffective` được gọi lại, Aspose.Slides sẽ đánh giá lại cây định dạng và các phông chữ, màu sắc, kích thước hoặc các giá trị khác có thể thay đổi.
+## **FAQ**
 
-**Tôi có thể sửa đổi giá trị thông qua các đối tượng dữ liệu hiệu lực không?**
+**Làm sao tôi biết cấp độ nào đã cung cấp giá trị hiệu lực?**
 
-Không. Các đối tượng dữ liệu hiệu lực chỉ cung cấp các giá trị đã được tính toán. Thực hiện các thay đổi trong các đối tượng định dạng cục bộ, sau đó lại lấy các giá trị hiệu lực.
+Dữ liệu hiệu lực chỉ chứa giá trị cuối cùng, không kèm nguồn gốc. Kiểm tra các đối tượng cục bộ áp dụng từ cấp độ cụ thể nhất ra bên ngoài. Đối với văn bản, điều này có thể bao gồm phần, đoạn, khung văn bản, bố cục, master, chủ đề và mặc định trình chiếu. Các giá trị không xác định như `std::numeric_limits<float>::quiet_NaN()` hoặc `nullptr` cho biết việc tìm kiếm sẽ tiếp tục ở cấp độ khác.
 
-**Điều gì xảy ra nếu một thuộc tính không được đặt ở mức hình dạng, cũng không ở bố cục/master, cũng không trong cài đặt toàn cục?**
+**Điều gì xảy ra khi không có cấp độ nào định nghĩa thuộc tính?**
 
-Giá trị hiệu lực sẽ được xác định bởi cơ chế mặc định, bao gồm các giá trị mặc định của PowerPoint và Aspose.Slides. Giá trị đã giải quyết đó sẽ trở thành một phần của dữ liệu hiệu lực hiện tại.
+Aspose.Slides sẽ giải quyết giá trị mặc định thích hợp của PowerPoint hoặc thư viện. Giá trị đã giải quyết đó sẽ xuất hiện trong dữ liệu hiệu lực mặc dù không có đối tượng cục bộ nào xác định rõ ràng.
 
-**Từ một giá trị phông chữ hiệu lực, tôi có thể biết mức nào đã cung cấp kích thước hoặc kiểu chữ không?**
+**Tại sao một giá trị hiệu lực đôi khi bằng giá trị cục bộ?**
 
-Không trực tiếp. Dữ liệu hiệu lực chỉ trả về giá trị cuối cùng. Để tìm nguồn, kiểm tra các giá trị cục bộ ở mức phần, đoạn, khung văn bản và các kiểu văn bản ở bố cục, master và mức bản trình bày để xem định nghĩa rõ ràng đầu tiên xuất hiện ở đâu.
+Giá trị cục bộ đã thắng trong phép tính kế thừa. Điều này xảy ra khi thuộc tính được đặt rõ ràng trên đối tượng và không có quy tắc cụ thể hơn nào ghi đè nó.
 
-**Tại sao các giá trị hiệu lực đôi khi trông giống hệt với các giá trị cục bộ?**
+**Khi nào tôi nên sử dụng dữ liệu cục bộ thay vì dữ liệu hiệu lực?**
 
-Bởi vì giá trị cục bộ cuối cùng đã là giá trị cuối cùng (không cần kế thừa từ mức cao hơn). Trong trường hợp này, giá trị hiệu lực trùng với giá trị cục bộ.
-
-**Khi nào tôi nên sử dụng các thuộc tính hiệu lực, và khi nào chỉ làm việc với các thuộc tính cục bộ?**
-
-Sử dụng dữ liệu hiệu lực khi bạn cần kết quả "như đã hiển thị" sau khi áp dụng toàn bộ kế thừa, chẳng hạn để đồng bộ màu sắc, lề hoặc kích thước. Nếu bạn cần giữ lại các giá trị này bất kể các thay đổi định dạng sau này, sao chép các thuộc tính cần thiết vào đối tượng của riêng bạn. Nếu bạn cần thay đổi định dạng ở một mức cụ thể, chỉnh sửa các thuộc tính cục bộ và sau đó, nếu cần, đọc lại dữ liệu hiệu lực để xác nhận kết quả.
+Sử dụng dữ liệu cục bộ để kiểm tra hoặc chỉnh sửa một mức định dạng cụ thể. Sử dụng dữ liệu hiệu lực khi bạn cần kết quả cuối cùng sau khi kế thừa, quy tắc chủ đề và các kiểu áp dụng đã được giải quyết. Ví dụ so sánh đầy đủ ([compare-local-inherited-and-effective-values](#compare-local-inherited-and-effective-values)) minh họa cả hai trong cùng một quy trình.

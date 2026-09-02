@@ -1,5 +1,5 @@
 ---
-title: .NET에서 프레젠테이션의 차트 데이터 시리즈 관리
+title: .NET에서 프레젠테이션 차트 데이터 시리즈 관리
 linktitle: 데이터 시리즈
 type: docs
 url: /ko/net/chart-series/
@@ -16,42 +16,49 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "실용적인 코드 예제와 모범 사례를 통해 PowerPoint(PPT/PPTX)용 C#에서 차트 시리즈를 관리하고 데이터 프레젠테이션을 향상시키는 방법을 배웁니다."
+description: "C#를 사용하여 프레젠테이션에서 차트 시리즈, 데이터 포인트, 워크북 셀, 서식, 겹침, 간격 너비 및 음수 값을 관리하는 방법을 배웁니다."
 ---
 ## **개요**
 
-이 문서에서는 Aspose.Slides for .NET에서 [ChartSeries](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/chartseries/)의 역할을 설명하며, 프레젠테이션 내에서 데이터가 어떻게 구조화되고 시각화되는지에 중점을 둡니다. 이러한 객체는 차트 내에서 개별 데이터 포인트 집합, 카테고리 및 외관 매개변수를 정의하는 기본 요소를 제공합니다. [ChartSeries](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/chartseries/)를 사용하면 개발자가 기본 데이터 소스를 원활하게 통합하고 정보 표시 방식을 완벽히 제어할 수 있어, 통찰과 분석을 명확히 전달하는 동적이고 데이터 기반의 프레젠테이션을 만들 수 있습니다.
+차트는 플롯된 데이터를 차트 데이터 워크북에 저장합니다. [IChartSeries](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/)는 관련 값 집합을 나타내며, 시리즈의 각 [IChartDataPoint](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdatapoint/)은 하나 이상의 워크북 셀을 가리킵니다. [IChartCategory](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartcategory/) 개체는 시리즈가 공유하는 레이블 또는 그룹화 값을 제공합니다. 따라서 시리즈 이름, 카테고리 및 포인트 값은 표시 텍스트만으로 저장되지 않고 [IChartDataCell](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdatacell/) 개체와 연결됩니다.
 
-시리즈는 차트에 플롯되는 행 또는 열의 숫자 집합입니다.
+일반적인 카테고리 차트의 경우, 기본 워크북은 행 0을 시리즈 이름에, 열 0을 카테고리 이름에 사용하고, 나머지 셀을 시리즈 값에 사용합니다. [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdataworkbook/getcell/)에 전달되는 워크시트, 행 및 열 인덱스는 0부터 시작합니다. 이 레이아웃은 기본 데이터를 사용해 차트를 만들 때 유용하지만, 모든 기존 차트가 이를 사용한다는 가정은 하지 마세요. 로드된 프레젠테이션의 경우, 워크북 값을 변경하기 전에 시리즈, 카테고리 및 데이터 포인트가 참조하는 셀을 검사하세요.
 
-![차트 시리즈 파워포인트](chart-series-powerpoint.png)
+차트 설정에는 세 가지 범위가 있습니다:
+
+- 시리즈 수준 설정, 예를 들어 [IChartSeries.Format](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/format/)는 하나의 시리즈에 속한 모든 포인트의 기본 모양을 제공합니다.
+- 데이터 포인트 설정, 예를 들어 [IChartDataPoint.Format](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdatapoint/format/)는 하나의 포인트에 대해 시리즈 모양을 재정의합니다.
+- 그룹 설정은 동일한 [IChartSeriesGroup](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseriesgroup/)에 속한 호환 시리즈에 적용됩니다. 겹침이나 간격 너비와 같은 옵션을 설정해야 할 때는 [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/parentseriesgroup/)을 통해 그룹에 접근하세요.
+
+명시적인 포인트 또는 시리즈 채우기가 설정되지 않은 경우, 차트 스타일과 테마가 자동 모양을 결정합니다. 시리즈와 포인트 서식이 모두 존재하면 포인트 서식이 해당 포인트에 우선합니다.
+
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **차트 시리즈 겹침 설정**
 
-[IChartSeriesOverlap](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/properties/overlap) 속성은 -100에서 100까지의 범위를 지정하여 2D 차트에서 막대와 열이 겹치는 방식을 제어합니다. 이 속성은 개별 차트 시리즈가 아니라 시리즈 그룹에 연관되어 있으므로 시리즈 수준에서는 읽기 전용입니다. 겹침 값을 구성하려면 `ParentSeriesGroup.Overlap` 읽기/쓰기 속성을 사용하십시오. 이 속성은 해당 그룹의 모든 시리즈에 지정된 겹침을 적용합니다.
+[IChartSeries.Overlap](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/overlap/)은 2D 차트에서 막대 또는 열이 겹치는 정도를 -100%에서 100%까지 보고합니다. 이는 상위 시리즈 그룹에 대한 설정을 읽기 전용으로 투영한 것입니다. [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseriesgroup/overlap/)을 설정하면 해당 그룹의 모든 호환 시리즈가 업데이트됩니다. 이 옵션은 그룹화된 막대 또는 열을 표시하는 차트 유형에 적용되며, 조합 차트의 무관한 시리즈 그룹에는 영향을 주지 않습니다.
 
-아래는 프레젠테이션을 생성하고, 클러스터형 열 차트를 추가하고, 첫 번째 차트 시리즈에 접근하여 겹침 설정을 구성한 다음 결과를 PPTX 파일로 저장하는 C# 예제입니다:
+다음 예제는 첫 번째 시리즈가 포함된 그룹의 겹침을 설정합니다:
 
 ```cs
-sbyte overlap = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const sbyte overlapPercent = 30;
 
-    // 기본 데이터로 클러스터형 열 차트를 추가합니다.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    IChartSeries series = chart.ChartData.Series[0];
-    if (series.Overlap == 0)
-    {
-        // 시리즈 겹침을 설정합니다.
-        series.ParentSeriesGroup.Overlap = overlap;
-    }
+// 새 차트에는 샘플 시리즈, 카테고리 및 값이 포함되어 있습니다.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 프레젠테이션 파일을 디스크에 저장합니다.
-    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.Overlap = overlapPercent;
+
+presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
 결과:
@@ -60,28 +67,29 @@ using (Presentation presentation = new Presentation())
 
 ## **시리즈 채우기 색상 변경**
 
-Aspose.Slides를 사용하면 차트 시리즈의 채우기 색상을 손쉽게 사용자 정의할 수 있어 특정 데이터 포인트를 강조하고 시각적으로 매력적인 차트를 만들 수 있습니다. 이는 다양한 채우기 유형, 색상 설정 및 기타 고급 스타일 옵션을 지원하는 [IFormat](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/iformat/) 객체를 통해 구현됩니다. 슬라이드에 차트를 추가하고 원하는 시리즈에 접근한 후 해당 시리즈를 가져와 적절한 채우기 색상을 적용하면 됩니다. 단색 채우기 외에도 그라디언트나 패턴 채우기를 활용하여 디자인 유연성을 높일 수 있습니다. 요구 사항에 맞게 색상을 설정한 후 프레젠테이션을 저장하면 업데이트된 모양이 최종 적용됩니다.
+[IChartSeries.Format](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/format/)을 사용하여 전체 시리즈의 기본 채우기를 설정합니다. 포인트에 명시적인 채우기가 이미 지정된 경우, 해당 포인트의 [IChartDataPoint.Format](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdatapoint/format/) 설정이 시리즈 채우기를 재정의합니다.
 
-다음 C# 코드 예제는 첫 번째 시리즈의 색상을 변경하는 방법을 보여줍니다:
+다음 예제는 첫 번째 시리즈에 단색 파란색 채우기를 적용합니다:
 
 ```cs
-Color seriesColor = Color.Blue;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-    // 기본 데이터로 클러스터형 열 차트를 추가합니다.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // 첫 번째 시리즈의 색상을 설정합니다.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 프레젠테이션 파일을 디스크에 저장합니다.
-    presentation.Save("series_color.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
 결과:
@@ -90,48 +98,51 @@ using (Presentation presentation = new Presentation())
 
 ## **시리즈 이름 변경**
 
-Aspose.Slides는 차트 시리즈 이름을 쉽게 수정할 수 있는 방법을 제공하여 데이터를 명확하고 의미 있게 라벨링할 수 있습니다. 차트 데이터의 해당 워크시트 셀에 접근함으로써 개발자는 데이터 표시 방식을 맞춤 설정할 수 있습니다. 이러한 수정은 데이터 컨텍스트에 따라 시리즈 이름을 업데이트하거나 명확히 해야 할 때 특히 유용합니다. 시리즈 이름을 변경한 후에는 프레젠테이션을 저장하여 변경 사항을 유지할 수 있습니다.
-
-아래는 이 과정을 실제로 보여주는 C# 코드 스니펫입니다.
+시리즈 이름은 차트 데이터 워크북에 저장되며 일반적으로 범례에 표시됩니다. 클러스터드 열 차트에 대해 기본 워크북이 생성될 때, 셀 B1(행 0, 열 1)은 첫 번째 시리즈의 이름을 포함합니다. 다음 예제의 명명된 상수는 해당 구조를 명시합니다:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-    // 기본 데이터로 클러스터형 열 차트를 추가합니다.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // 첫 번째 시리즈의 이름을 설정합니다.
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 프레젠테이션 파일을 디스크에 저장합니다.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesNameCell = workbook.GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-다음 C# 코드는 시리즈 이름을 변경하는 대체 방법을 보여줍니다:
+또한 [IChartSeries.Name](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/name/)이 이미 참조하고 있는 셀을 업데이트할 수 있습니다. 이 방법은 기존 차트에서 특정 행과 열을 가정하는 것을 피합니다:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-    // 기본 데이터로 클러스터형 열 차트를 추가합니다.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // 첫 번째 시리즈의 이름을 설정합니다.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Name.AsCells[0].Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 프레젠테이션 파일을 디스크에 저장합니다.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var seriesNameCell = series.Name.AsCells[firstNameCellIndex];
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
 결과:
@@ -140,173 +151,231 @@ using (Presentation presentation = new Presentation())
 
 ## **자동 시리즈 채우기 색상 가져오기**
 
-Aspose.Slides for .NET을 사용하면 플롯 영역 내 차트 시리즈의 자동 채우기 색상을 가져올 수 있습니다. [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 클래스의 인스턴스를 만든 후, 인덱스로 원하는 슬라이드에 대한 참조를 얻고, 원하는 유형(`ChartType.ClusteredColumn` 등)의 차트를 추가합니다. 차트의 시리즈에 접근하면 자동 채우기 색상을 얻을 수 있습니다.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/)은 시리즈 인덱스와 차트 스타일에서 계산된 색상을 반환합니다. 이는 시리즈 채우기가 명시적으로 정의되지 않았을 때 사용되는 색상입니다. 메서드를 호출하면 계산된 색상이 반환되며, 새로운 채우기가 할당되는 것은 아닙니다.
 
-아래 C# 코드는 이 과정을 자세히 보여줍니다.
+다음 예제는 각 기본 시리즈의 자동 색상을 출력합니다:
 
 ```cs
-using (Presentation presentation = new Presentation())
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+const int firstSlideIndex = 0;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var seriesCount = chart.ChartData.Series.Count;
+for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    ISlide slide = presentation.Slides[0];
-
-    // 기본 데이터로 클러스터형 열 차트를 추가합니다.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        // 시리즈의 자동 채우기 색상을 가져옵니다.
-        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
-        Console.WriteLine($"Series {i} color: {color.Name}");
-    }
+    var series = chart.ChartData.Series[seriesIndex];
+    var automaticColor = series.GetAutomaticSeriesColor();
+    Console.WriteLine($"Series {seriesIndex}: {automaticColor.Name}");
 }
 ```
 
-출력:
+기본 차트 스타일에 대한 예제 출력:
+
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **차트 시리즈에 반전 채우기 색상 설정**
+정확한 색상은 차트 스타일 및 테마에 따라 달라집니다.
 
-데이터 시리즈에 양수와 음수가 모두 포함된 경우, 모든 열이나 막대를 동일한 색상으로만 색칠하면 차트를 읽기 어렵게 만들 수 있습니다. Aspose.Slides for .NET을 사용하면 반전 채우기 색상을 지정할 수 있습니다—즉, 0 이하인 데이터 포인트에 자동으로 적용되는 별도의 채우기로, 음수 값을 한 눈에 돋보이게 합니다. 이 섹션에서는 해당 옵션을 활성화하고 적절한 색상을 선택한 뒤 업데이트된 프레젠테이션을 저장하는 방법을 배웁니다.
+## **차트 시리즈에 대한 반전 채우기 색상 설정**
 
-다음 코드 예제는 해당 동작을 보여줍니다:
+막대, 열 및 버블 시리즈의 경우, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/invertifnegative/)를 사용하면 음수 값을 다른 채우기로 표시할 수 있습니다. 일반 시리즈 채우기를 단색으로 설정하고, 반전을 활성화한 다음, [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/)을 통해 음수 색상을 지정하세요. 워크북의 음수 값은 변경되지 않으며, 표시 색상만 변경됩니다.
+
+다음 예제는 기본 차트 데이터를 하나의 시리즈로 교체합니다. 워크시트 행 0에는 시리즈 이름이, 열 0에는 카테고리 이름이, 열 1에는 값이 포함됩니다:
 
 ```cs
-Color inverColor = Color.Red;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+
+var categoryNames = new[] { "Category 1", "Category 2", "Category 3" };
+var seriesValues = new[] { -20, 50, -30 };
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var categoryIndex = 0; categoryIndex < categoryNames.Length; categoryIndex++)
 {
-    ISlide slide = presentation.Slides[0];
+    var dataRowIndex = firstDataRowIndex + categoryIndex;
+    var categoryName = categoryNames[categoryIndex];
+    var seriesValue = seriesValues[categoryIndex];
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+    var categoryCell = workbook.GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+    chartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // 새 카테고리를 추가합니다.
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
-
-    // 새 시리즈를 추가합니다.
-    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // 시리즈 데이터를 채웁니다.
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
-    // 시리즈의 색상 설정을 지정합니다.
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-
-    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertIfNegative = true;
+series.InvertedSolidFillColor.Color = Color.Red;
+
+presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
 결과:
 
 ![반전된 단색 채우기 색상](inverted_solid_fill_color.png)
 
-전체 시리즈가 아니라 단일 데이터 포인트에 대해서도 채우기 색상을 반전시킬 수 있습니다. 원하는 `IChartDataPoint`에 접근하여 해당 `InvertIfNegative` 속성을 true로 설정하면 됩니다.
-
-다음 코드 예제는 이를 수행하는 방법을 보여줍니다:
+또한 [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdatapoint/invertifnegative/)를 통해 하나의 포인트에만 반전을 활성화할 수 있습니다. 다음 예제에서는 시리즈에 대한 반전이 비활성화되고 선택한 포인트에만 활성화됩니다. 포인트에 음수 값을 할당하여 효과를 확인합니다:
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-    chart.ChartData.Series.Clear();
-    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 인덱스 2에 해당하는 데이터 포인트가 음수인 경우 색상을 반전시킵니다.
-    series.InvertIfNegative = false;
-    series.DataPoints[2].InvertIfNegative = true;
-                
-    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertedSolidFillColor.Color = Color.Red;
+series.InvertIfNegative = false;
+
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = negativeValue;
+dataPoint.InvertIfNegative = true;
+
+presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
 ## **특정 데이터 포인트 값 지우기**
 
-때때로 차트에 테스트 값, 이상치 또는 오래된 항목이 포함되어 전체 시리즈를 다시 만들지 않고도 제거해야 할 경우가 있습니다. Aspose.Slides for .NET을 사용하면 인덱스로 원하는 데이터 포인트를 지정하여 내용을 지우고, 즉시 플롯을 새로 고쳐 남은 포인트가 이동하고 축이 자동으로 재조정되도록 할 수 있습니다.
+하나의 포인트를 빈 상태로 만들고 다른 포인트를 유지하려면 해당 백업 워크북 셀을 `null`로 설정합니다. 열 차트의 경우 플롯된 값은 [IChartDataPoint.YValue](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdatapoint/yvalue/)를 통해 확인할 수 있습니다. 데이터 포인트는 동일한 카테고리 위치에 남아 있지만 차트는 해당 값을 차트의 빈값 설정에 따라 빈 것으로 처리합니다.
 
-다음 코드 예제는 해당 동작을 보여줍니다:
+다음 예제는 첫 번째 시리즈의 두 번째 포인트만 지웁니다:
 
 ```cs
-using (Presentation presentation = new Presentation("test_chart.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = (IChart)slide.Shapes[0];
-    IChartSeries series = chart.ChartData.Series[0];
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    foreach (IChartDataPoint dataPoint in series.DataPoints)
-    {
-        dataPoint.XValue.AsCell.Value = null;
-        dataPoint.YValue.AsCell.Value = null;
-    }
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
 
-    series.DataPoints.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var series = chart.ChartData.Series[firstSeriesIndex];
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = null;
+
+presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-## **시리즈 갭 폭 설정**
+산점도 차트는 별도의 X 및 Y 셀을 사용하고, 버블 차트는 크기 셀도 사용합니다. 제거하려는 값에 해당하는 셀만 비우세요. 다른 포인트를 유지하려면 [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdatapointcollection/clear/)을 호출하지 마세요. 해당 메서드는 컬렉션의 모든 데이터 포인트를 제거합니다.
 
-갭 폭은 인접한 열이나 막대 사이의 빈 공간 양을 제어합니다—갭이 넓을수록 개별 카테고리가 강조되고, 갭이 좁을수록 더 조밀하고 컴팩트한 모습을 제공합니다. Aspose.Slides for .NET을 통해 전체 시리즈에 대해 이 매개변수를 정밀 조정함으로써, 기본 데이터를 변경하지 않고도 프레젠테이션에 필요한 정확한 시각적 균형을 얻을 수 있습니다.
+## **시리즈 간격 너비 설정**
 
-다음 코드 예제는 시리즈의 갭 폭을 설정하는 방법을 보여줍니다:
+간격 너비는 인접한 막대 또는 열 클러스터 사이의 공간을 막대 또는 열 너비의 백분율로 나타낸 것입니다. 겹침과 마찬가지로, 이는 개별 시리즈가 아닌 상위 시리즈 그룹에 속합니다. 그룹에 대해 한 번만 [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseriesgroup/gapwidth/)을 설정하면 됩니다. 값이 클수록 클러스터 사이의 간격이 넓어지고, 값이 작을수록 더 촘촘해집니다.
+
+다음 예제는 간격 너비를 변경하고 최종 프레젠테이션만 저장합니다:
 
 ```cs
-ushort gapWidth = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// 빈 프레젠테이션을 생성합니다.
-using (Presentation presentation = new Presentation())
-{
-    // 첫 번째 슬라이드에 접근합니다.
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int gapWidthPercent = 30;
 
-    // 기본 데이터가 있는 차트를 추가합니다.
-    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // 프레젠테이션을 디스크에 저장합니다.
-    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-    // GapWidth 값을 설정합니다.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.ParentSeriesGroup.GapWidth = gapWidth;
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 
-    // 프레젠테이션을 디스크에 저장합니다.
-    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
-}
+presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
 결과:
 
-![갭 폭](gap_width.png)
+![간격 너비](gap_width.png)
 
-## **자주 묻는 질문**
+## **FAQ**
 
-**하나의 차트가 포함할 수 있는 시리즈 수에 제한이 있나요?**
+**어떤 차트 유형이 데이터 시리즈를 지원하나요?**
 
-Aspose.Slides는 추가할 수 있는 시리즈 수에 고정된 제한을 두지 않습니다. 실제 제한은 차트 가독성 및 애플리케이션이 사용할 수 있는 메모리에 따라 결정됩니다.
+[ChartType](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/charttype/) 열거형으로 표시되는 모든 차트 유형은 차트 데이터를 사용하지만, 시리즈마다 값 구조나 설정이 동일하지는 않습니다. 예를 들어 카테고리 차트는 카테고리와 값을 사용하고, 산점도 차트는 X와 Y 값을 사용하며, 버블 차트는 버블 크기를 추가합니다. 시리즈 유형에 맞는 데이터 포인트 생성 메서드를 사용하세요. 겹침 및 간격 너비와 같은 옵션은 호환되는 막대 또는 열 그룹에만 적용됩니다.
 
-**클러스터 내 열이 너무 가깝거나 너무 멀리 떨어져 있으면 어떻게 하나요?**
+**차트 시리즈 그룹이란 무엇인가요?**
 
-`GapWidth` 설정을 해당 시리즈(또는 상위 시리즈 그룹)에서 조정하십시오. 값을 늘리면 열 사이의 공간이 넓어지고, 값을 감소하면 열이 더 가까워집니다.
+[IChartSeriesGroup](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseriesgroup/)은 그룹 수준 플롯 설정을 공유하는 호환 시리즈를 포함합니다. 조합 차트는 둘 이상의 그룹을 포함할 수 있으므로, 하나의 시리즈를 통해 접근한 그룹을 변경한다고 해서 차트의 모든 시리즈가 변경되는 것은 아닙니다.
+
+**새로 만든 차트에 기본 데이터가 포함되어 있나요?**
+
+예. 기본적으로 [IShapeCollection.AddChart](https://reference.aspose.com/slides/ko/net/aspose.slides/ishapecollection/addchart/)는 샘플 시리즈, 카테고리 및 값을 생성합니다. 해당 셀을 편집하거나 시리즈와 카테고리 컬렉션을 모두 지운 뒤 완전히 사용자 정의된 데이터 세트를 추가할 수 있습니다. 오버로드를 사용하면 기본 데이터 없이 차트를 만들 수도 있습니다.
+
+**차트 객체는 워크북 셀과 어떻게 연결되나요?**
+
+시리즈 이름, 카테고리 레이블 및 데이터 포인트 값은 [IChartDataWorkbook](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdataworkbook/)의 셀을 참조합니다. 참조된 셀을 변경하면 해당 차트 요소가 업데이트됩니다. 사용자 정의 데이터를 만들 때는 카테고리 행과 시리즈‑값 행이 정렬되어 각 포인트가 의도한 카테고리 아래에 플롯되도록 하세요.
+
+**전체 시리즈가 아닌 하나의 포인트만 어떻게 삭제하나요?**
+
+해당 값 셀을 `null`로 설정하면 포인트의 카테고리 위치는 유지하면서 빈 포인트가 됩니다. 전체 시리즈를 삭제하려는 경우에만 [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdatapointcollection/clear/)을 사용하세요. 카테고리도 함께 삭제한다면 모든 시리즈를 업데이트하여 값이 카테고리 컬렉션과 정렬되도록 해야 합니다.
+
+**빈 포인트는 어떻게 표시되나요?**
+
+결과는 차트 유형과 [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichart/displayblanksas/) 설정에 따라 달라집니다. 지원되는 차트는 빈 값을 간격, 0값 또는 인접 포인트 연결로 표시할 수 있습니다. 프레젠테이션에서 누락된 데이터의 의미에 맞는 설정을 선택하세요.
+
+**음수 값은 어떻게 서식이 지정되나요?**
+
+지원되는 막대, 열 및 버블 시리즈의 경우 [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/invertifnegative/)를 활성화하고 [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/)를 설정하세요. 개별 포인트에 대해서는 [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartdatapoint/invertifnegative/)로 동작을 재정의할 수 있습니다. 이러한 속성은 서식에 영향을 주며, 저장된 숫자 값 자체는 변하지 않습니다.
+
+**시리즈와 포인트 모두 서식이 지정된 경우 어느 것이 우선인가요?**
+
+명시적인 데이터 포인트 서식이 해당 포인트에 우선합니다. 다른 포인트는 명시적인 시리즈 서식이나, 시리즈 서식이 정의되지 않은 경우 자동 차트 스타일 및 테마를 사용합니다. 겹침 및 간격 너비와 같은 그룹 속성은 레이아웃을 제어하며, 포인트 수준 서식 재정의와는 별개입니다.
+
+**차트에 포함될 수 있는 시리즈 수에 제한이 있나요?**
+
+Aspose.Slides에는 별도의 고정 시리즈 수 제한이 없습니다. 실제 제한은 프레젠테이션 파일 제한, 사용 가능한 메모리, 렌더링 시간 및 차트 가독성 등에 따라 결정됩니다.
+
+**열이 너무 가깝거나 멀리 떨어져 있을 때는 무엇을 변경해야 하나요?**
+
+적절한 상위 시리즈 그룹에서 [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/ichartseriesgroup/gapwidth/)를 설정하세요. 값을 늘리면 클러스터 사이의 간격이 넓어지고, 값을 줄이면 클러스터가 서로 가까워집니다.

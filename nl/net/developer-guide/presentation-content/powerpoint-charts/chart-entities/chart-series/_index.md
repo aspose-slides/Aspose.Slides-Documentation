@@ -1,312 +1,382 @@
 ---
-title: Beheer grafiekgegevensseries in presentaties in .NET
-linktitle: Gegevensseries
+title: Beheer diagramgegevensseries in presentaties in .NET
+linktitle: Gegevensreeksen
 type: docs
 url: /nl/net/chart-series/
 keywords:
-- grafiekserie
-- serie-overlap
-- serie-kleur
-- categorie-kleur
-- serie-naam
-- datumpunt
-- serie-gap
+- grafiekreeks
+- reeks overlap
+- reeks kleur
+- categorie kleur
+- reeksnaam
+- datapunt
+- reeks afstand
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe je grafiekseries beheert in C# voor PowerPoint (PPT/PPTX) met praktische codevoorbeelden en best practices om je gegevenspresentaties te verbeteren."
+description: "Leer hoe u diagramreeksen, datapunt, werkboekcellen, opmaak, overlap, gatbreedte en negatieve waarden in presentaties kunt beheren met C#."
 ---
 ## **Overzicht**
 
-Dit artikel beschrijft de rol van [ChartSeries](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/chartseries/) in Aspose.Slides voor .NET, met focus op hoe gegevens worden gestructureerd en gevisualiseerd binnen presentaties. Deze objecten vormen de basis elementen die individuele sets van gegevenspunten, categorieën en weergave‑parameters in een diagram definiëren. Door met [ChartSeries](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/chartseries/) te werken, kunnen ontwikkelaars onderliggende gegevensbronnen naadloos integreren en volledige controle behouden over hoe informatie wordt weergegeven, wat resulteert in dynamische, data‑gedreven presentaties die inzichten en analyses helder overbrengen.
+Een diagram slaat zijn gepresenteerde gegevens op in een chart‑data‑werkboek. Een [IChartSeries](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/) vertegenwoordigt één set verwante waarden, en elk [IChartDataPoint](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatapoint/) in de serie verwijst naar een of meer werkboek‑cellen. [IChartCategory](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartcategory/)‑objecten bieden de labels of groeperingswaarden die door de series worden gedeeld. De serienaam, categorieën en puntwaarden zijn daarom gekoppeld aan [IChartDataCell](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/)‑objecten in plaats van alleen als weergavetekst te worden opgeslagen.
 
-Een serie is een rij of kolom met getallen die in een grafiek worden weergegeven.
+Voor een typische categorie‑diagram gebruikt het standaard‑werkboek rij 0 voor serinnamen, kolom 0 voor categorienamen, en de resterende cellen voor serie‑waarden. Werkblad‑, rij‑ en kolomindexen die worden doorgegeven aan [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/getcell/) zijn nul‑gebaseerd. Deze indeling is handig wanneer u een diagram met standaardgegevens maakt, maar ga er niet van uit dat elk bestaand diagram deze indeling hanteert. Voor een geladen presentatie, inspecteer de cellen die worden gerefereerd door de series, categorieën en datapunten voordat u werkboek‑waarden wijzigt.
+
+Diagraminstellingen hebben drie verschillende scopes:
+
+- Instellingen op serieniveau, zoals [IChartSeries.Format](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/format/), bepalen het standaard‑uiterlijk voor alle punten in één serie.
+- Instellingen per datapunt, zoals [IChartDataPoint.Format](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatapoint/format/), overschrijven het serie‑uiterlijk voor één punt.
+- Groepsinstellingen gelden voor compatibele series die behoren tot dezelfde [IChartSeriesGroup](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseriesgroup/). Benader de groep via [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/parentseriesgroup/) wanneer u opties wilt instellen zoals overlap of tussenruimtepuntbreedte.
+
+Wanneer er geen expliciete punt‑ of series‑vulling is ingesteld, bepalen de diagramstijl en het thema het automatische uiterlijk. Wanneer zowel serie‑ als punt‑opmaak aanwezig zijn, heeft de punt‑opmaak voorrang voor dat punt.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Instellen van de overlap van de grafiekserie**
+## **Overlap van de diagramserie instellen**
 
-De [IChartSeriesOverlap](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/properties/overlap) eigenschap bepaalt hoe balken en kolommen overlappen in een 2D‑diagram door een bereik van -100 tot 100 op te geven. Omdat deze eigenschap gekoppeld is aan de serie‑groep en niet aan individuele grafiekseries, is hij alleen‑lezen op serieniveau. Om overlappingswaarden te configureren, gebruik je de `ParentSeriesGroup.Overlap` lees‑/schrijf‑eigenschap, die de opgegeven overlap toepast op alle series in die groep.
+[IChartSeries.Overlap](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/overlap/) geeft aan hoeveel balken of kolommen overlappen in een 2D‑diagram, van -100 tot 100 procent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende seriegroep. Stel [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseriesgroup/overlap/) in om elke compatibele serie in die groep bij te werken. Deze optie is van toepassing op diagramtypen die gegroepeerde balken of kolommen weergeven; hij beïnvloedt geen niet‑gerelateerde seriegroepen in een combinatiediagram.
 
-Hieronder staat een C#‑voorbeeld dat laat zien hoe je een presentatie maakt, een gegroepeerde kolomgrafiek toevoegt, de eerste grafiekserie benadert, de overlap‑instelling configureert en vervolgens het resultaat opslaat als een PPTX‑bestand:
+Het volgende voorbeeld stelt de overlap in voor de groep die de eerste serie bevat:
 
 ```cs
-sbyte overlap = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const sbyte overlapPercent = 30;
 
-    // Voeg een gegroepeerde kolomgrafiek toe met standaardgegevens.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    IChartSeries series = chart.ChartData.Series[0];
-    if (series.Overlap == 0)
-    {
-        // Stel de overlap van de serie in.
-        series.ParentSeriesGroup.Overlap = overlap;
-    }
+// Het nieuwe diagram bevat voorbeeldseries, categorieën en waarden.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Sla het presentatiebestand op naar schijf.
-    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.Overlap = overlapPercent;
+
+presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![De overlap van de series](series_overlap.png)
+![Overlap van de serie](series_overlap.png)
 
-## **Wijzig de vulkleur van de serie**
+## **Verander de vulkleur van de serie**
 
-Aspose.Slides maakt het eenvoudig om de vulkleuren van grafiekseries aan te passen, waardoor je specifieke gegevenspunten kunt accentueren en visueel aantrekkelijke diagrammen kunt creëren. Dit gebeurt via het [IFormat](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/iformat/) object, dat diverse vultypes, kleurconfiguraties en andere geavanceerde stijlopties ondersteunt. Nadat je een grafiek aan een dia hebt toegevoegd en de gewenste serie hebt benaderd, haal je de serie op en pas je de juiste vulkleur toe. Naast effen vullingen kun je ook verlopen of patroonvullingen gebruiken voor extra ontwerp‑flexibiliteit. Zodra je de kleuren volgens je vereisten hebt ingesteld, sla je de presentatie op om de bijgewerkte weergave te bevestigen.
+Gebruik [IChartSeries.Format](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/format/) om de standaardvulling voor een volledige serie in te stellen. Als een punt al een expliciete vulling heeft, overschrijft de [IChartDataPoint.Format](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatapoint/format/)‑instelling de serievulling voor dat punt.
 
-Het volgende C#‑codevoorbeeld toont hoe je de kleur van de eerste serie wijzigt:
+Het volgende voorbeeld past een effen blauwe vulling toe op de eerste serie:
 
 ```cs
-Color seriesColor = Color.Blue;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-    // Voeg een gegroepeerde kolomgrafiek toe met standaardgegevens.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Stel de kleur van de eerste serie in.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Sla het presentatiebestand op naar schijf.
-    presentation.Save("series_color.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
 ![De kleur van de serie](series_color.png)
 
-## **Wijzig de naam van de serie**
+## **Verander de serienaam**
 
-Aspose.Slides biedt een eenvoudige manier om de namen van grafiekseries te wijzigen, waardoor het makkelijker wordt om gegevens duidelijk en betekenisvol te labelen. Door de relevante werkbladcel in de diagramgegevens te benaderen, kunnen ontwikkelaars aanpassen hoe de data wordt gepresenteerd. Deze wijziging is vooral nuttig wanneer serienamen moeten worden bijgewerkt of verduidelijkt op basis van de context van de gegevens. Na het hernoemen van de serie kan de presentatie worden opgeslagen om de wijzigingen te bewaren.
-
-Hieronder staat een C#‑codefragment dat dit proces in actie laat zien.
+Een serienaam wordt opgeslagen in het chart‑data‑werkboek en wordt normaal weergegeven in de legenda. In het standaard‑werkboek dat wordt aangemaakt voor een gegroepeerde kolom‑diagram, bevindt cel B1 zich op rij 0, kolom 1 en bevat de naam van de eerste serie. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-    // Voeg een gegroepeerde kolomgrafiek toe met standaardgegevens.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Stel de naam van de eerste serie in.
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Sla het presentatiebestand op naar schijf.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesNameCell = workbook.GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-Het volgende C#‑codevoorbeeld laat een alternatieve manier zien om de serienaam te wijzigen:
+U kunt ook de cel bijwerken die al wordt gerefereerd door [IChartSeries.Name](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/name/). Deze benadering voorkomt dat u een specifieke rij en kolom in een bestaand diagram aanneemt:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-    // Voeg een gegroepeerde kolomgrafiek toe met standaardgegevens.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Stel de naam van de eerste serie in.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Name.AsCells[0].Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Sla het presentatiebestand op naar schijf.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var seriesNameCell = series.Name.AsCells[firstNameCellIndex];
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
 ![De serienaam](series_name.png)
 
-## **Haal de automatische vulkleur van de serie op**
+## **Haal de automatische serievulkleur op**
 
-Aspose.Slides voor .NET stelt je in staat de automatische vulkleur voor grafiekseries binnen een plot‑gebied op te halen. Nadat je een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse hebt gemaakt, kun je de gewenste dia op index verkrijgen en een diagram toevoegen met het type dat je verkiest (bijvoorbeeld `ChartType.ClusteredColumn`). Door de series in het diagram te benaderen, kun je de automatische vulkleur verkrijgen.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) retourneert de kleur die wordt berekend op basis van de seriële index en de diagramstijl. Dit is de kleur die wordt gebruikt wanneer de serievulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; het wijst geen nieuwe vulling toe.
 
-De C#‑code hieronder toont dit proces gedetailleerd.
+Het volgende voorbeeld drukt de automatische kleur af van elke standaardserie:
 
 ```cs
-using (Presentation presentation = new Presentation())
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+const int firstSlideIndex = 0;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var seriesCount = chart.ChartData.Series.Count;
+for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    ISlide slide = presentation.Slides[0];
-
-    // Voeg een gegroepeerde kolomgrafiek toe met standaardgegevens.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        // Haal de vulkleur van de serie op.
-        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
-        Console.WriteLine($"Series {i} color: {color.Name}");
-    }
+    var series = chart.ChartData.Series[seriesIndex];
+    var automaticColor = series.GetAutomaticSeriesColor();
+    Console.WriteLine($"Series {seriesIndex}: {automaticColor.Name}");
 }
 ```
 
-Uitvoer:
+Voorbeeldoutput voor de standaard diagramstijl:
+
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **Stel omgekeerde vulkleur in voor een grafiekserie**
+De exacte kleuren zijn afhankelijk van de diagramstijl en het thema.
 
-Wanneer je gegevensserie zowel positieve als negatieve waarden bevat, kan het kleuren van elke kolom of balk op dezelfde manier het diagram moeilijk leesbaar maken. Aspose.Slides voor .NET laat je een omgekeerde vulkleur toewijzen — een aparte vulkleur die automatisch wordt toegepast op datapunten die onder nul liggen — zodat negatieve waarden in één oogopslag opvallen. In dit gedeelte leer je hoe je die optie inschakelt, een geschikte kleur kiest en de bijgewerkte presentatie opslaat.
+## **Stel de omgekeerde vulkleur in voor een diagramserie**
 
-Het volgende code‑voorbeeld demonstreert de werking:
+Voor balk‑, kolom‑ en bubbel‑series kan [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/invertifnegative/) negatieve waarden weergeven met een andere vulling. Stel de reguliere serievulling in op effen, schakel inversie in, en wijs de negatieve‑waarde‑kleur toe via [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Negatieve getallen blijven ongewijzigd in het werkboek; alleen hun weergavekleur verandert.
+
+Het volgende voorbeeld vervangt de standaard diagramgegevens door één serie. Werkbladrij 0 bevat de serienaam, kolom 0 bevat categorienamen, en kolom 1 bevat de waarden:
 
 ```cs
-Color inverColor = Color.Red;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+
+var categoryNames = new[] { "Category 1", "Category 2", "Category 3" };
+var seriesValues = new[] { -20, 50, -30 };
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var categoryIndex = 0; categoryIndex < categoryNames.Length; categoryIndex++)
 {
-    ISlide slide = presentation.Slides[0];
+    var dataRowIndex = firstDataRowIndex + categoryIndex;
+    var categoryName = categoryNames[categoryIndex];
+    var seriesValue = seriesValues[categoryIndex];
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+    var categoryCell = workbook.GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+    chartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // Voeg nieuwe categorieën toe.
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
-
-    // Voeg een nieuwe serie toe.
-    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // Vul de seriedata.
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
-    // Stel de kleurinstellingen voor de serie in.
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-
-    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertIfNegative = true;
+series.InvertedSolidFillColor.Color = Color.Red;
+
+presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
 ![De omgekeerde effen vulkleur](inverted_solid_fill_color.png)
 
-Je kunt de vulkleur voor één enkel datumpunt in plaats van de hele serie omkeren. Benader simpelweg het gewenste `IChartDataPoint` en stel de `InvertIfNegative` eigenschap in op true.
-
-Het volgende code‑voorbeeld laat zien hoe je dit doet:
+U kunt inversie inschakelen voor één punt via [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). In het volgende voorbeeld is inversie uitgeschakeld voor de serie en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt tevens een negatieve waarde zodat het effect zichtbaar is:
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-    chart.ChartData.Series.Clear();
-    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Keer de kleur om wanneer het datumpunt op index 2 negatief is.
-    series.InvertIfNegative = false;
-    series.DataPoints[2].InvertIfNegative = true;
-                
-    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertedSolidFillColor.Color = Color.Red;
+series.InvertIfNegative = false;
+
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = negativeValue;
+dataPoint.InvertIfNegative = true;
+
+presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **Wis specifieke waarden van datapunten**
+## **Wis een specifieke datapuntwaarde**
 
-Soms bevat een diagram testwaarden, uitschieters of verouderde items die je moet verwijderen zonder de hele serie opnieuw op te bouwen. Aspose.Slides voor .NET laat je elk datumpunt op index richten, de inhoud ervan wissen en de plot direct vernieuwen zodat de resterende punten verschuiven en de assen automatisch opnieuw schalen.
+Om één punt leeg te maken zonder de andere punten te verwijderen, stelt u de onderliggende werkboekcel in op `null`. Voor een kolom‑diagram is de getoonde waarde beschikbaar via [IChartDataPoint.YValue](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatapoint/yvalue/). Het datapunt blijft op dezelfde categoriep
+positie, maar het diagram behandelt de waarde als leeg volgens de instellingen voor lege waarden van het diagram.
 
-Het volgende code‑voorbeeld toont de bewerking:
+Het volgende voorbeeld wist alleen het tweede punt in de eerste serie:
 
 ```cs
-using (Presentation presentation = new Presentation("test_chart.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = (IChart)slide.Shapes[0];
-    IChartSeries series = chart.ChartData.Series[0];
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    foreach (IChartDataPoint dataPoint in series.DataPoints)
-    {
-        dataPoint.XValue.AsCell.Value = null;
-        dataPoint.YValue.AsCell.Value = null;
-    }
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
 
-    series.DataPoints.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var series = chart.ChartData.Series[firstSeriesIndex];
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = null;
+
+presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-## **Instellen van de gatbreedte van de serie**
+Scatter‑diagrammen gebruiken aparte X‑ en Y‑cellen, en bubbel‑diagrammen gebruiken ook een grootte‑cel. Wis alleen de cel die de waarde vertegenwoordigt die u wilt verwijderen. Roep [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatapointcollection/clear/) niet aan wanneer u de andere punten wilt behouden, omdat die methode elk datapunt uit de collectie verwijdert.
 
-De gatbreedte bepaalt de hoeveelheid lege ruimte tussen aangrenzende kolommen of balken — grotere gaten benadrukken afzonderlijke categorieën, terwijl kleinere gaten een dichter, compacter uiterlijk geven. Met Aspose.Slides voor .NET kun je deze parameter voor een volledige serie fijn afstellen, zodat je precies de visuele balans verkrijgt die je presentatie vereist zonder de onderliggende gegevens te wijzigen.
+## **Stel de gatbreedte van de serie in**
 
-Het volgende code‑voorbeeld laat zien hoe je de gatbreedte voor een serie instelt:
+De gatbreedte is de ruimte tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de balk‑ of kolombreedte. Net als overlap behoort deze tot de bovenliggende seriegroep in plaats van tot één serie. Stel [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) één keer in voor de groep. Een hogere waarde creëert meer ruimte tussen clusters; een lagere waarde maakt ze dichter bij elkaar.
+
+Het volgende voorbeeld wijzigt de gatbreedte en slaat alleen de definitieve presentatie op:
 
 ```cs
-ushort gapWidth = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Maak een lege presentatie.
-using (Presentation presentation = new Presentation())
-{
-    // Benader de eerste dia.
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int gapWidthPercent = 30;
 
-    // Voeg een diagram toe met standaardgegevens.
-    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Sla de presentatie op naar schijf.
-    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-    // Stel de GapWidth‑waarde in.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.ParentSeriesGroup.GapWidth = gapWidth;
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 
-    // Sla de presentatie op naar schijf.
-    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
-}
+presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
 ![De gatbreedte](gap_width.png)
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Is er een limiet aan hoeveel series een enkele grafiek kan bevatten?**
+**Welke diagramtypen ondersteunen dataseries?**
 
-Aspose.Slides legt geen vaste limiet op aan het aantal series dat je toevoegt. De praktische grens wordt bepaald door de leesbaarheid van het diagram en door het beschikbare geheugen van je applicatie.
+Alle diagramtypen die worden weergegeven door de enumeratie [ChartType](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/charttype/) gebruiken diagramgegevens, maar hun series hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categorie‑diagrammen gebruiken categorieën en waarden, spreidingsdiagrammen gebruiken X‑ en Y‑waarden, en bubbel‑diagrammen voegen bubbelgroottes toe. Gebruik de methode voor het maken van datapunt die overeenkomt met het serietype. Opties zoals overlap en gatbreedte gelden alleen voor compatibele balk‑ of kolomgroepen.
 
-**Wat als de kolommen binnen een cluster te dicht bij elkaar of te ver uit elkaar staan?**
+**Wat is een diagramserie‑groep?**
 
-Pas de `GapWidth` instelling voor die serie (of de bovenliggende serie‑groep) aan. Een hogere waarde vergroot de ruimte tussen kolommen, een lagere waarde brengt ze dichter bij elkaar.
+Een [IChartSeriesGroup](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseriesgroup/) bevat compatibele series die groeps‑niveau plotinstellingen delen. Een combinatiediagram kan meer dan één groep bevatten, dus het wijzigen van de groep die via één serie wordt bereikt, verandert niet per se alle series in het diagram.
+
+**Bevat een nieuw aangemaakt diagram standaardgegevens?**
+
+Ja. Standaard maakt [IShapeCollection.AddChart](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/addchart/) voorbeeldseries, -categorieën en -waarden aan. U kunt die cellen bewerken of zowel de serie‑ als categoricollecties wissen voordat u een volledig aangepaste gegevensset toevoegt. Een overload kan ook een diagram maken zonder standaardgegevens.
+
+**Hoe zijn diagramobjecten verbonden met werkboekcellen?**
+
+Serienamen, categorielabels en datapunt‑waarden refereren naar cellen in een [IChartDataWorkbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/). Het wijzigen van een gerefereerde cel werkt het overeenkomstige diagramonderdeel bij. Wanneer u aangepaste gegevens opbouwt, houdt u de categorierijen en seriewaardrijen op één lijn zodat elk punt onder de beoogde categorie wordt geplot.
+
+**Hoe wis ik één punt in plaats van de hele serie?**
+
+Stel de betreffende waardecel in op `null` om de categorielocatie van het punt te behouden als een leeg punt. Gebruik [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatapointcollection/clear/) alleen wanneer u alle punten uit die serie wilt verwijderen. Als u ook categorieën verwijdert, werk dan elke serie bij zodat hun waarden uitgelijnd blijven met de categorieverzameling.
+
+**Hoe worden lege punten weergegeven?**
+
+Het resultaat hangt af van het diagramtype en [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichart/displayblanksas/). Ondersteunde diagrammen kunnen lege punten weergeven als gaten, als nul‑waarden, of door aangrenzende punten te verbinden. Kies de instelling die past bij de betekenis van ontbrekende gegevens in uw presentatie.
+
+**Hoe worden negatieve waarden opgemaakt?**
+
+Voor ondersteunde balk‑, kolom‑ en bubbel‑series, schakelt u [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/invertifnegative/) in en stelt u [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) in. U kunt het gedrag voor een individueel punt overschrijven met [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Deze eigenschappen beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
+
+**Welke opmaak heeft voorrang wanneer zowel een serie als een punt zijn opgemaakt?**
+
+Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete serie‑opmaak gebruiken of, wanneer de serie‑opmaak niet is gedefinieerd, de automatische diagramstijl en het thema. Groep‑eigenschappen zoals overlap en gatbreedte bepalen de lay‑out en vormen geen overschrijvingen op puntniveau.
+
+**Is er een limiet aan het aantal series dat een diagram kan bevatten?**
+
+Aspose.Slides legt geen aparte vaste limiet op voor het aantal series. In de praktijk bepalen de beperkingen van het presentatie‑bestand, beschikbaar geheugen, render‑tijd en leesbaarheid van het diagram een nuttige limiet.
+
+**Wat moet ik aanpassen wanneer kolommen te dicht bij elkaar staan of te ver uit elkaar staan?**
+
+Stel [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) in op de juiste bovenliggende seriegroep. Verhoog de waarde om de ruimte tussen clusters te vergroten, of verlaag deze om de clusters dichter bij elkaar te brengen.

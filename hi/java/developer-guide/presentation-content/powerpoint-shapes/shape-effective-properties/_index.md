@@ -1,331 +1,299 @@
 ---
-title: जावा में प्रस्तुतियों से Shape प्रभावी गुण प्राप्त करें
-linktitle: प्रभावी प्रॉपर्टीज़
+title: जावा में प्रस्तुतियों से आकार के प्रभावी गुण प्राप्त करें
+linktitle: प्रभावी गुण
 type: docs
 weight: 50
 url: /hi/java/shape-effective-properties/
 keywords:
-- shape प्रॉपर्टीज़
-- कैमरा प्रॉपर्टीज़
-- लाइट रिग
-- बीवेल Shape
+- आकार गुण
+- कैमरा गुण
+- प्रकाश व्यवस्था
+- बिवेल आकार
 - टेक्स्ट फ्रेम
-- टेक्स्ट स्टाइल
+- टेक्स्ट शैली
 - फ़ॉन्ट ऊँचाई
-- फ़िल फ़ॉर्मेट
+- भराव स्वरूप
 - PowerPoint
-- प्रेजेंटेशन
+- प्रस्तुति
 - Java
 - Aspose.Slides
-description: "जावा के लिए Aspose.Slides कैसे सटीक PowerPoint रेंडरिंग के लिए प्रभावी Shape प्रॉपर्टीज़ की गणना और लागू करता है, इस बारे में जानें।"
+description: "जावा के लिए Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में स्थानीय, विरासत और प्रभावी आकार फ़ॉर्मेटिंग को कैसे अलग करें, सीखें।"
 ---
-## **अवलोकन**
+## **स्थानीय, विरासत और प्रभावी गुण समझें**
 
-यह विषय **स्थानीय** और **प्रभावी** प्रॉपर्टियों के बीच अंतर को समझाता है। स्थानीय मान वे मान हैं जो किसी विशिष्ट फॉर्मेटिंग स्तर पर सीधे सेट किए जाते हैं, जैसे:
+PowerPoint फ़ॉर्मेटिंग कई स्थानों से आ सकती है। किसी ऑब्जेक्ट पर सीधे संग्रहीत मान उसका **स्थानीय मान** है। यदि वह मान सेट नहीं है, तो PowerPoint पैराग्राफ डिफ़ॉल्ट, टेक्स्ट स्टाइल, लेआउट या मास्टर स्लाइड, थीम, या प्रेजेंटेशन‑स्तर डिफ़ॉल्ट जैसे पैरेंट फ़ॉर्मेटिंग स्रोतों को देखता है। इन मानों को **विरासत मान** कहा जाता है। पूरी पदानुक्रम को हल करने के बाद जो मान बचता है वह **प्रभावी मान** है—ऑब्जेक्ट को रेंडर करने के लिए उपयोग किया जाने वाला मान।
 
-1. स्लाइड पर भाग की प्रॉपर्टी।
-2. लेआउट या मास्टर स्लाइड पर प्रोटोटाइप शAPE टेक्स्ट स्टाइल्स, जब भाग के टेक्स्ट फ़्रेम शAPE में एक हो।
-3. प्रस्तुति में वैश्विक टेक्स्ट सेटिंग्स।
+उदाहरण के लिए, किसी टेक्स्ट पोर्शन में फ़ॉन्ट ऊँचाई परिभाषित नहीं हो सकती। उसका स्थानीय [getFontHeight](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ibaseportionformat/#getFontHeight--) मान `Float.NaN` होता है, जिसका अर्थ है “यहाँ सेट नहीं है।” पोर्शन अपनी पैराग्राफ, प्रेजेंटेशन के डिफ़ॉल्ट टेक्स्ट स्टाइल, या अन्य उपयुक्त स्रोत से ऊँचाई विरासत में ले सकता है। पोर्शन फ़ॉर्मेट पर [getEffective](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iportionformat/#getEffective--) को कॉल करने से अंतिम हल की गई ऊँचाई मिलती है।
 
-स्थानीय मान को किसी भी स्तर पर परिभाषित या छोड़ दिया जा सकता है। जब Aspose.Slides को अंतिम "जैसे दिखाया गया" फॉर्मेटिंग चाहिए होती है, तो यह विरासत श्रृंखला को हल करती है और **प्रभावी** मान लौटाती है। आप इन्हें स्थानीय फ़ॉर्मेट ऑब्जेक्ट पर `getEffective` मेथड को कॉल करके प्राप्त कर सकते हैं।
+दो प्रकार के फ़ॉर्मेटिंग डेटा का विभिन्न उद्देश्यों के लिए उपयोग करें:
 
-निम्नलिखित उदाहरण दिखाता है कि प्रभावी मान कैसे प्राप्त करें। यह मानता है कि पहली स्लाइड पर पहला शAPE एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) है जिसमें एक टेक्स्ट फ़्रेम और कम से कम एक भाग है।
+- स्थानीय फ़ॉर्मेट ऑब्जेक्ट, जैसे [IPortionFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iportionformat/), पढ़ें या बदलें, जब आपको यह नियंत्रित करना हो कि मान कहाँ परिभाषित है।
+- प्रभावी डेटा ऑब्जेक्ट, जैसे [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iportionformateffectivedata/), पढ़ें, जब आपको अंतिम, रेंडर किया गया परिणाम चाहिए। प्रभावी डेटा केवल पढ़ने‑के‑लिए है।
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+## **स्थानीय, विरासत और प्रभावी मानों की तुलना करें**
 
-    ITextFrameFormat localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.getEffective();
-
-    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = paragraph.getPortions().get_Item(0);
-    IPortionFormat localPortionFormat = portion.getPortionFormat();
-    IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.getEffective();
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}}
-प्रभावी फ़ॉर्मेटिंग डेटा वह वर्तमान गणना किया गया फ़ॉर्मेटिंग दर्शाता है जो विरासत लागू होने के बाद होता है। वर्तमान कार्यान्वयन में, कुछ प्रभावी डेटा ऑब्जेक्ट्स, जैसे कि [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IPortionFormatEffectiveData), को आंतरिक रूप से कैश किया जा सकता है। पैरेंट या विरासत फ़ॉर्मेटिंग को बदलने के बाद फिर से `getEffective` कॉल करने से कैश्ड डेटा रीफ़्रेश हो सकता है, और पहले प्राप्त ऑब्जेक्ट अब पहले की स्थिति को दर्शा नहीं सकता। यदि आपको बाद में पुनः उपयोग के लिए प्रभावी मान सुरक्षित रखने की आवश्यकता है, तो आवश्यक प्रॉपर्टीज़ जैसे फ़ॉन्ट ऊँचाई, भरने का रंग, फ़ॉन्ट शैली, या संरेखण को अपने डेटा ऑब्जेक्ट में कॉपी करें।
-{{% /alert %}}
-
-## **कैमरा के प्रभावी प्रॉपर्टीज़ प्राप्त करें**
-
-Aspose.Slides आपको कैमरा की प्रभावी प्रॉपर्टीज़ प्राप्त करने की अनुमति देता है। इंटरफ़ेस [ICameraEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ICameraEffectiveData) एक अपरिवर्तनीय ऑब्जेक्ट दर्शाता है जिसमें प्रभावी कैमरा प्रॉपर्टीज़ होती हैं। एक [ICameraEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ICameraEffectiveData) इंस्टेंस को [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormatEffectiveData) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormat) के लिए प्रभावी मान प्रदान करता है।
+निम्न पूर्ण उदाहरण एक शAPE बनाता है और प्रेजेंटेशन, पैराग्राफ और पोर्शन स्तर पर फ़ॉन्ट ऊँचाइयाँ लागू करता है। प्रत्येक चरण उन स्तरों पर परिभाषित मानों और उसी टेक्स्ट पोर्शन के परिणामस्वरूप प्रभावी मान को प्रिंट करता है। यह यह भी दर्शाता है कि फ़ॉर्मेटिंग परिवर्तन के बाद प्रभावी डेटा को फिर से पढ़ना क्यों आवश्यक है।
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
-    int cameraType = cameraEffectiveData.getCameraType();
-    double fieldOfViewAngle = cameraEffectiveData.getFieldOfViewAngle();
-    double zoom = cameraEffectiveData.getZoom();
+import com.aspose.slides.*;
 
-    System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + cameraType);
-    System.out.println("Field of view: " + fieldOfViewAngle);
-    System.out.println("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
-}
-```
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+            ITextFrame textFrame = shape.addTextFrame("Effective formatting");
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-## **लाइट रिग की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
+            // दो विभिन्न स्तरों पर विरासत मान निर्धारित करें।
+            presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-Aspose.Slides आपको लाइट रिग की प्रभावी प्रॉपर्टीज़ प्राप्त करने की अनुमति देता है। इंटरफ़ेस [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ILightRigEffectiveData) एक अपरिवर्तनीय ऑब्जेक्ट दर्शाता है जिसमें प्रभावी लाइट रिग प्रॉपर्टीज़ होती हैं। एक [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ILightRigEffectiveData) इंस्टेंस को [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormatEffectiveData) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormat) के लिए प्रभावी मान प्रदान करता है।
+            printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
-    int lightType = lightRigEffectiveData.getLightType();
-    int direction = lightRigEffectiveData.getDirection();
+            // पोर्शन पर स्थानीय मान दोनों विरासत मानों को अधिच्छादित करता है।
+            portion.getPortionFormat().setFontHeight(36);
+            printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-    System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + lightType);
-    System.out.println("Direction: " + direction);
-} finally {
-    presentation.dispose();
-}
-```
+            // विरासत मान को बदलने से मौजूदा स्थानीय मान नहीं बदलता।
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+            printFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-## **बीवेल आकार की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
+            // स्थानीय मान को साफ़ करें। पोर्शन अब फिर से पैराग्राफ से विरासत में लेता है।
+            portion.getPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-Aspose.Slides आपको शAPE बीवेल की प्रभावी प्रॉपर्टीज़ प्राप्त करने की अनुमति देता है। इंटरफ़ेस [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShapeBevelEffectiveData) एक अपरिवर्तनीय ऑब्जेक्ट दर्शाता है जिसमें शAPE के लिए प्रभावी फेस-रिलिफ़ प्रॉपर्टीज़ होती हैं। एक [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShapeBevelEffectiveData) इंस्टेंस को [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormatEffectiveData) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormat) के लिए प्रभावी मान प्रदान करता है।
+            // पैराग्राफ मान को साफ़ करें। प्रस्तुति का डिफ़ॉल्ट अब परिणाम प्रदान करता है।
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    IShapeBevelEffectiveData bevelTop = threeDEffectiveData.getBevelTop();
-    int bevelType = bevelTop.getBevelType();
-    double bevelWidth = bevelTop.getWidth();
-    double bevelHeight = bevelTop.getHeight();
-
-    System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + bevelType);
-    System.out.println("Width: " + bevelWidth);
-    System.out.println("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **टेक्स्ट फ्रेम की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
-
-Aspose.Slides का उपयोग करके, आप टेक्स्ट फ्रेम की प्रभावी प्रॉपर्टीज़ प्राप्त कर सकते हैं। इंटरफ़ेस [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextFrameFormatEffectiveData) में प्रभावी टेक्स्ट फ्रेम फ़ॉर्मेटिंग प्रॉपर्टीज़ शामिल हैं।
-
-निम्नलिखित कोड नमूना दिखाता है कि प्रभावी टेक्स्ट फ्रेम फ़ॉर्मेटिंग प्रॉपर्टीज़ कैसे प्राप्त करें। यह मानता है कि पहली स्लाइड पर पहला शAPE एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) है जिसमें एक टेक्स्ट फ़्रेम है।
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.getEffective();
-    int anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    int autofitType = effectiveTextFrameFormat.getAutofitType();
-    int textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    double marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    double marginTop = effectiveTextFrameFormat.getMarginTop();
-    double marginRight = effectiveTextFrameFormat.getMarginRight();
-    double marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    System.out.println("Anchoring type: " + anchoringType);
-    System.out.println("Autofit type: " + autofitType);
-    System.out.println("Text vertical type: " + textVerticalType);
-    System.out.println("Margins");
-    System.out.println("   Left: " + marginLeft);
-    System.out.println("   Top: " + marginTop);
-    System.out.println("   Right: " + marginRight);
-    System.out.println("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **टेक्स्ट स्टाइल की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
-
-Aspose.Slides का उपयोग करके, आप टेक्स्ट स्टाइल की प्रभावी प्रॉपर्टीज़ प्राप्त कर सकते हैं। इंटरफ़ेस [ITextStyleEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextStyleEffectiveData) में प्रभावी टेक्स्ट स्टाइल प्रॉपर्टीज़ शामिल हैं।
-
-निम्नलिखित कोड नमूना दिखाता है कि प्रभावी टेक्स्ट स्टाइल प्रॉपर्टीज़ कैसे प्राप्त करें। यह मानता है कि पहली स्लाइड पर पहला शAPE एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) है जिसमें एक टेक्स्ट फ़्रेम है।
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-    
-    ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    int levelCount = 9;
-
-    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
-    {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        int depth = effectiveStyleLevel.getDepth();
-        double indent = effectiveStyleLevel.getIndent();
-        int alignment = effectiveStyleLevel.getAlignment();
-        int fontAlignment = effectiveStyleLevel.getFontAlignment();
-        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        System.out.println("Depth: " + depth);
-        System.out.println("Indent: " + indent);
-        System.out.println("Alignment: " + alignment);
-        System.out.println("Font alignment: " + fontAlignment);
+            presentation.save("effective-properties.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-} finally {
-    presentation.dispose();
+
+    private static void printFontHeights(String caption, Presentation presentation, IParagraph paragraph, IPortion portion) {
+        float presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+        float paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+        float localValue = portion.getPortionFormat().getFontHeight();
+
+        // पिछले परिवर्तनों के बाद प्रभावी डेटा पढ़ें।
+        float effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+        System.out.println(caption);
+        System.out.println("  Presentation default: " + formatLocalValue(presentationValue));
+        System.out.println("  Paragraph default:    " + formatLocalValue(paragraphValue));
+        System.out.println("  Portion local:        " + formatLocalValue(localValue));
+        System.out.println("  Portion effective:    " + effectiveValue);
+    }
+
+    private static String formatLocalValue(float value) {
+        return Float.isNaN(value) ? "<not set>" : Float.toString(value);
+    }
 }
 ```
 
-## **प्रभावी फ़ॉन्ट ऊँचाई मान प्राप्त करें**
+इस उदाहरण में प्राथमिकता पोर्शन स्थानीय फ़ॉर्मेटिंग, फिर पैराग्राफ फ़ॉर्मेटिंग, फिर प्रेजेंटेशन डिफ़ॉल्ट है। अन्य ऑब्जेक्ट्स की विरासत श्रृंखलाएँ अलग हो सकती हैं, लेकिन सिद्धांत समान है: अधिक विशिष्ट स्पष्ट मान जीतता है, और [getEffective](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iportionformat/#getEffective--) अंतिम परिणाम लौटाता है।
 
-Aspose.Slides का उपयोग करके, आप प्रभावी फ़ॉन्ट ऊँचाई प्राप्त कर सकते हैं। निम्नलिखित कोड दर्शाता है कि विभिन्न प्रस्तुति संरचना स्तरों पर स्थानीय फ़ॉन्ट ऊँचाई मान सेट करने के बाद भाग की प्रभावी फ़ॉन्ट ऊँचाई कैसे बदलती है।
+## **प्रभावी टेक्स्ट गुण प्राप्त करें**
+
+टेक्स्ट फ़ॉर्मेटिंग कई ऑब्जेक्ट्स में विभाजित होती है:
+
+- [ITextFrameFormat.getEffective()](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframeformat/#getEffective--) मार्जिन, एंकरिंग, ऑटॉफिट और वर्टिकल टेक्स्ट दिशा जैसे टेक्स्ट‑फ़्रेम गुणों को हल करता है।
+- [ITextStyle.getEffective()](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextstyle/#getEffective--) प्रत्येक टेक्स्ट स्टाइल स्तर के लिए पैराग्राफ फ़ॉर्मेटिंग को हल करता है।
+- [IParagraphFormat.getEffective()](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#getEffective--) संरेखण, इंडेंटेशन और बुलेट जैसे पैराग्राफ गुणों को हल करता है।
+- [IPortionFormat.getEffective()](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iportionformat/#getEffective--) फ़ॉन्ट ऊँचाई, टाइपफेस, रंग, बोल्ड और इटैलिक जैसे कैरेक्टर गुणों को हल करता है।
+
+अगले उदाहरण के लिए, `text-formatting.pptx` में कम से कम एक स्लाइड और एक [AutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/autoshape/) जिसमें गैर‑खाली टेक्स्ट फ़्रेम हो, होना चाहिए। AutoShape शAPE संग्रह में किसी भी स्थान पर हो सकता है; कोड उपयुक्त ऑब्जेक्ट खोजता है और उपयोग से पहले उसकी पुष्टि करता है।
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+import com.aspose.slides.*;
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("text-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-    IPortion firstPortion = new Portion("Sample text with first portion");
-    IPortion secondPortion = new Portion(" and second portion.");
+            IAutoShape shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+            if (shape == null) {
+                throw new IllegalStateException("The first slide must contain an AutoShape with non-empty text.");
+            }
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
+            ITextFrame textFrame = shape.getTextFrame();
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height just after creation:");
-    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextFrameFormatEffectiveData textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+            IParagraphFormatEffectiveData paragraphEffective = paragraph.getParagraphFormat().getEffective();
+            IPortionFormatEffectiveData portionEffective = portion.getPortionFormat().getEffective();
 
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+            System.out.println("Text frame margins:");
+            System.out.println("  Left: " + textFrameEffective.getMarginLeft());
+            System.out.println("  Top: " + textFrameEffective.getMarginTop());
+            System.out.println("  Right: " + textFrameEffective.getMarginRight());
+            System.out.println("  Bottom: " + textFrameEffective.getMarginBottom());
+            System.out.println("Paragraph alignment: " + paragraphEffective.getAlignment());
+            System.out.println("Font height: " + portionEffective.getFontHeight());
+            System.out.println("Bold: " + portionEffective.getFontBold());
 
-    System.out.println("Effective font height after setting the presentation default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextStyleEffectiveData effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+            for (int level = 0; level < 9; level++) {
+                IParagraphFormatEffectiveData levelEffective = effectiveTextStyle.getLevel(level);
+                System.out.println("Level " + level + " indent: " + levelEffective.getIndent());
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    private static IAutoShape findAutoShapeWithText(ISlide slide) {
+        for (IShape candidate : slide.getShapes()) {
+            if (candidate instanceof IAutoShape && hasNonEmptyText((IAutoShape)candidate)) {
+                return (IAutoShape)candidate;
+            }
+        }
+        return null;
+    }
 
-    System.out.println("Effective font height after setting paragraph default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    System.out.println("Effective font height after setting portion #0 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height after setting portion #1 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+    private static boolean hasNonEmptyText(IAutoShape shape) {
+        if (shape.getTextFrame() == null) {
+            return false;
+        }
+        if (shape.getTextFrame().getParagraphs().getCount() == 0) {
+            return false;
+        }
+        return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
+    }
 }
 ```
 
-## **टेबल के लिए प्रभावी फ़िल फॉर्मेट प्राप्त करें**
+## **प्रभावी 3D गुण प्राप्त करें**
 
-Aspose.Slides में, आप विभिन्न टेबल भागों के लिए प्रभावी फ़िल फ़ॉर्मेटिंग प्राप्त कर सकते हैं। इंटरफ़ेस [IFillFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IFillFormatEffectiveData) में प्रभावी फ़िल फ़ॉर्मेटिंग प्रॉपर्टीज़ शामिल हैं। सेल फ़ॉर्मेटिंग का प्राथमिकता रो फ़ॉर्मेटिंग से अधिक है, रो फ़ॉर्मेटिंग का कॉलम फ़ॉर्मेटिंग से अधिक, और कॉलम फ़ॉर्मेटिंग का पूरे टेबल फ़ॉर्मेटिंग से अधिक है।
+[IThreeDFormat.getEffective()](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ithreedformat/#getEffective--) एक [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ithreedformateffectivedata/) ऑब्जेक्ट लौटाता है जो सभी हल की गई 3D सेटिंग्स को समूहित करता है। इसके [getCamera](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ithreedformateffectivedata/#getCamera--), [getLightRig](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ithreedformateffectivedata/#getLightRig--), [getBevelTop](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ithreedformateffectivedata/#getBevelTop--), और [getBevelBottom](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ithreedformateffectivedata/#getBevelBottom--) मेथड्स संबंधित प्रभावी डेटा को उजागर करते हैं। इन संबंधित सेटिंग्स को साथ में पढ़ने से शAPE के अंतिम 3D रूप को समझना आसान हो जाता है।
 
-परिणामस्वरूप, टेबल सेल को ड्रॉ करने के लिए [ICellFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ICellFormatEffectiveData) प्रॉपर्टीज़ का उपयोग किया जाता है। निम्नलिखित कोड नमूना दिखाता है कि विभिन्न टेबल भागों के लिए प्रभावी फ़िल फ़ॉर्मेटिंग कैसे प्राप्त करें। यह मानता है कि पहली स्लाइड पर पहला शAPE एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITable) है।
+इस उदाहरण के लिए, `shape-3d.pptx` में पहली स्लाइड पर कम से कम एक शAPE होना चाहिए। यदि आप डिफ़ॉल्ट के अलावा किसी मान को देखना चाहते हैं तो उस शAPE पर 3D कैमरा, लाइटिंग या बेवल सेटिंग लागू करें।
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    ITable table = (ITable)slide.getShapes().get_Item(0);
-    
-    ITableFormatEffectiveData tableFormatEffective = table.getTableFormat().getEffective();
-    IRowFormatEffectiveData rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    IColumnFormatEffectiveData columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    ICellFormatEffectiveData cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+import com.aspose.slides.*;
 
-    IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.getFillFormat();
-} finally {
-    presentation.dispose();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("shape-3d.pptx");
+        try {
+            if (presentation.getSlides().size() == 0 || presentation.getSlides().get_Item(0).getShapes().size() == 0) {
+                throw new IllegalStateException("The first slide must contain a shape.");
+            }
+
+            IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+            IThreeDFormatEffectiveData threeDEffective = shape.getThreeDFormat().getEffective();
+
+            System.out.println("Camera:");
+            System.out.println("  Type: " + threeDEffective.getCamera().getCameraType());
+            System.out.println("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+            System.out.println("  Zoom: " + threeDEffective.getCamera().getZoom());
+
+            System.out.println("Light rig:");
+            System.out.println("  Type: " + threeDEffective.getLightRig().getLightType());
+            System.out.println("  Direction: " + threeDEffective.getLightRig().getDirection());
+
+            System.out.println("Top bevel:");
+            System.out.println("  Type: " + threeDEffective.getBevelTop().getBevelType());
+            System.out.println("  Width: " + threeDEffective.getBevelTop().getWidth());
+            System.out.println("  Height: " + threeDEffective.getBevelTop().getHeight());
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **प्रभावी तालिका फ़ॉर्मेटिंग प्राप्त करें**
 
-**`getEffective` एक स्नैपशॉट वापस करता है?**
+तालिका फ़ॉर्मेटिंग तालिका शैली और पूरी तालिका, कॉलम, पंक्ति या व्यक्तिगत सेल पर लागू फ़ॉर्मेट्स से आ सकती है। स्पष्ट रूप से परिभाषित फ़िल्स के बीच संघर्ष में प्राथमिकता सेल, पंक्ति, कॉलम, और फिर पूरी तालिका की होती है। किसी सेल का प्रभावी फ़ॉर्मेट वह अंतिम फ़ॉर्मेट है जो सेल को ड्रॉ करने के लिए उपयोग किया जाता है।
 
-हमेशा नहीं। प्रभावी डेटा वह गणना किया गया फ़ॉर्मेटिंग दर्शाता है जो विरासत लागू होने के बाद प्राप्त होता है, लेकिन कुछ प्रभावी डेटा ऑब्जेक्ट्स को आंतरिक रूप से कैश किया जा सकता है। आगे का `getEffective` कॉल फ़ॉर्मेटिंग को पुनः गणना कर सकता है और कैश्ड डेटा को रीफ़्रेश कर सकता है, इसलिए पहले प्राप्त किए गए ऑब्जेक्ट को स्थायी स्नैपशॉट के रूप में नहीं माना जाना चाहिए।
+इस उदाहरण के लिए, `table-formatting.pptx` में पहली स्लाइड पर कम से कम एक तालिका होनी चाहिए। तालिका में कम से कम एक पंक्ति और एक कॉलम होना चाहिए। कोड एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itable/) को खोजता है, यह मानते हुए कि `getShapes().get_Item(0)` तालिका है, यह न मानकर।
 
-**मुझे प्रभावी प्रॉपर्टीज़ फिर से कब पढ़नी चाहिए?**
+```java
+import com.aspose.slides.*;
 
-स्थानीय फ़ॉर्मेटिंग, पैरेंट स्टाइल्स, लेआउट फ़ॉर्मेटिंग, मास्टर फ़ॉर्मेटिंग या प्रेज़ेंटेशन-स्तर के डिफॉल्ट बदलने के बाद फिर से `getEffective` कॉल करें। अगला कॉल फ़ॉर्मेटिंग पदानुक्रम का पुनर्मूल्यांकन करता है और वर्तमान प्रभावी परिणाम लौटाता है।
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("table-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-**क्या लेआउट/मास्टर स्लाइड को बदलना या हटाना उन प्रभावी प्रॉपर्टीज़ को प्रभावित करता है जो पहले ही प्राप्त की गई हैं?**
+            ITable table = findTable(presentation.getSlides().get_Item(0));
+            if (table == null) {
+                throw new IllegalStateException("The first slide must contain a table.");
+            }
+            if (table.getRows().size() == 0 || table.getColumns().size() == 0) {
+                throw new IllegalStateException("The table must contain at least one cell.");
+            }
 
-हाँ, लेकिन परिवर्तन अगली `getEffective` कॉल पर दिखाया जाता है। यदि पैरेंट फ़ॉर्मेटिंग स्रोत बदलता या हटता है, तो पहले प्राप्त किया गया प्रभावी डेटा पुराना हो सकता है। जब `getEffective` फिर से कॉल किया जाता है, तो Aspose.Slides फ़ॉर्मेटिंग ट्री का पुनर्मूल्यांकन करता है और परिणामस्वरूप फ़ॉन्ट, रंग, आकार या अन्य मान बदल सकते हैं।
+            ITableFormatEffectiveData tableEffective = table.getTableFormat().getEffective();
+            IRowFormatEffectiveData rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+            IColumnFormatEffectiveData columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+            ICellFormatEffectiveData cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
 
-**क्या मैं प्रभावी डेटा ऑब्जेक्ट्स के माध्यम से मानों को संशोधित कर सकता हूँ?**
+            System.out.println("Table fill: " + tableEffective.getFillFormat().getFillType());
+            System.out.println("Row fill: " + rowEffective.getFillFormat().getFillType());
+            System.out.println("Column fill: " + columnEffective.getFillFormat().getFillType());
+            System.out.println("Final cell fill: " + cellEffective.getFillFormat().getFillType());
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-नहीं। प्रभावी डेटा ऑब्जेक्ट्स गणना किए गए मान प्रदान करते हैं। स्थानीय फ़ॉर्मेटिंग ऑब्जेक्ट्स में परिवर्तन करें, और फिर प्रभावी मानों को फिर से प्राप्त करें।
+    private static ITable findTable(ISlide slide) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ITable) {
+                return (ITable)shape;
+            }
+        }
+        return null;
+    }
+}
+```
 
-**यदि कोई प्रॉपर्टी शAPE स्तर पर, न लेआउट/मास्टर में, न ही वैश्विक सेटिंग्स में सेट नहीं है तो क्या होता है?**
+यदि आपको केवल फ़िल टाइप नहीं बल्कि रंग चाहिए, तो पहले प्रभावी [getFillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ifillformateffectivedata/#getFillType--) की जांच करें, और फिर उस टाइप के अनुरूप मेथड पढ़ें—उदाहरण के लिए, सॉलिड फ़िल के लिए [getSolidFillColor](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ifillformateffectivedata/#getSolidFillColor--)।
 
-प्रभावी मान डिफ़ॉल्ट मेकेनिज़्म द्वारा निर्धारित किया जाता है, जिसमें PowerPoint और Aspose.Slides के डिफ़ॉल्ट शामिल होते हैं। वह समाधान किया गया मान वर्तमान प्रभावी डेटा का हिस्सा बन जाता है।
+## **परिवर्तनों के बाद प्रभावी डेटा को पुनः पढ़ें**
 
-**क्या प्रभावी फ़ॉन्ट मान से मैं बता सकता हूँ कि आकार या फ़ॉन्ट किस स्तर से आया है?**
+प्रभावी डेटा वह फ़ॉर्मेटिंग पदानुक्रम दर्शाता है जो उस समय हल किया गया था। किसी भी चीज़ को बदलने के बाद `getEffective` को फिर से कॉल करें जो उस पदानुक्रम में भाग लेती है, जिसमें शामिल हैं:
 
-सीधे नहीं। प्रभावी डेटा अंतिम मान लौटाता है। स्रोत पता करने के लिए, भाग, पैराग्राफ, टेक्स्ट फ्रेम, और लेआउट, मास्टर तथा प्रेज़ेंटेशन स्तर पर टेक्स्ट स्टाइल्स में स्थानीय मानों की जाँच करें कि पहला स्पष्ट परिभाषा कहाँ है।
+- ऑब्जेक्ट का स्थानीय फ़ॉर्मेट;
+- पैराग्राफ या टेक्स्ट‑फ़्रेम डिफ़ॉल्ट;
+- तालिका शैली, तालिका, कॉलम, पंक्ति या सेल फ़ॉर्मेट;
+- लेआउट या मास्टर स्लाइड फ़ॉर्मेट;
+- थीम डेटा या प्रेजेंटेशन‑स्तर डिफ़ॉल्ट;
+- स्लाइड को असाइन किया गया लेआउट या मास्टर।
 
-**कभी-कभी प्रभावी मान स्थानीय मानों से समान क्यों दिखते हैं?**
+एक प्रभावी डेटा ऑब्जेक्ट को स्थायी स्नैपशॉट के रूप में न रखें। Aspose.Slides कुछ प्रभावी डेटा को आंतरिक रूप से कैश कर सकता है, और बाद का `getEffective` कॉल वह डेटा रीफ़्रेश कर सकता है। यदि आपको परिवर्तन से पहले और बाद के मानों की तुलना करनी है, तो आवश्यक स्केलर मानों—जैसे फ़ॉन्ट ऊँचाई, रंग, संरेखण या बेवल चौड़ाई—को बदलाव करने से पहले अपनी स्वयं की वेरिएबल्स में कॉपी कर लें।
 
-क्योंकि स्थानीय मान अंत में अंतिम हो जाता है (उच्च स्तर की विरासत की आवश्यकता नहीं थी)। ऐसे मामलों में, प्रभावी मान स्थानीय मान के समान होता है।
+किसी मान को बदलने के लिए, उपयुक्त स्थानीय फ़ॉर्मेट ऑब्जेक्ट को अपडेट करें और फिर `getEffective` को कॉल करके परिणाम सत्यापित करें। प्रभावी डेटा ऑब्जेक्ट स्वयं केवल‑पढ़ने‑के‑लिए होते हैं।
 
-**मुझे प्रभावी प्रॉपर्टीज़ कब उपयोग करनी चाहिए, और कब केवल स्थानीय प्रॉपर्टीज़ के साथ काम करना चाहिए?**
+## **FAQ**
 
-सभी विरासत लागू होने के बाद "जैसे प्रदर्शित हुआ" परिणाम चाहिए हो तो प्रभावी डेटा का उपयोग करें, जैसे रंग, इन्डेंट या आकार को संरेखित करने के लिए। यदि आपको बाद में फ़ॉर्मेटिंग बदलने के बावजूद उन मानों को सुरक्षित रखना है, तो आवश्यक प्रॉपर्टीज़ को अपने ऑब्जेक्ट में कॉपी करें। यदि आपको किसी विशिष्ट स्तर पर फ़ॉर्मेटिंग बदलनी है, तो स्थानीय प्रॉपर्टीज़ को संशोधित करें और फिर, यदि आवश्यक हो, परिणाम सत्यापित करने के लिए प्रभावी डेटा को फिर से पढ़ें।
+**मैं कैसे पता करूँ कि कौन सा स्तर प्रभावी मान प्रदान करता है?**
+
+प्रभावी डेटा अंतिम मान रखता है, उसके स्रोत को नहीं। सबसे विशिष्ट स्तर से बाहर की ओर लागू स्थानीय ऑब्जेक्ट्स का निरीक्षण करें। टेक्स्ट के लिए यह पोर्शन, पैराग्राफ, टेक्स्ट फ्रेम, लेआउट, मास्टर, थीम और प्रेजेंटेशन डिफ़ॉल्ट शामिल कर सकता है। अपरिभाषित मान जैसे `Float.NaN` या `null` संकेत देते हैं कि खोज अगले स्तर पर जारी रहती है।
+
+**जब कोई स्तर किसी प्रॉपर्टी को परिभाषित नहीं करता तो क्या होता है?**
+
+Aspose.Slides उपयुक्त PowerPoint या लाइब्रेरी डिफ़ॉल्ट को हल करता है। वह हल किया गया मान प्रभावी डेटा में दिखाई देता है, भले ही किसी स्थानीय ऑब्जेक्ट ने इसे स्पष्ट रूप से परिभाषित न किया हो।
+
+**कभी कभी प्रभावी मान स्थानीय मान के बराबर क्यों होता है?**
+
+स्थानीय मान ने विरासत गणना में जीत हासिल की हो। यह तब अपेक्षित है जब प्रॉपर्टी ऑब्जेक्ट पर स्पष्ट रूप से सेट की गई हो और कोई अधिक विशिष्ट नियम उसे ओवरराइड न करता हो।
+
+**कब मुझे प्रभावी डेटा के बजाय स्थानीय डेटा उपयोग करना चाहिए?**
+
+स्थानीय डेटा का उपयोग किसी विशिष्ट फ़ॉर्मेटिंग स्तर को निरीक्षण या संपादित करने के लिए करें। प्रभावी डेटा का उपयोग तब करें जब आपको विरासत, थीम नियम और लागू स्टाइल्स के बाद अंतिम रूप चाहिए। [पूर्ण तुलना उदाहरण](#compare-local-inherited-and-effective-values) दोनों को एक ही वर्कफ़्लो में प्रदर्शित करता है।

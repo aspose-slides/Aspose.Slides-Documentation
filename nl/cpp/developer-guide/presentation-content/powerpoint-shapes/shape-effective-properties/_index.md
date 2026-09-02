@@ -1,5 +1,5 @@
 ---
-title: Haal effectieve vormeigenschappen op uit presentaties in C++
+title: Effectieve vormeigenschappen ophalen uit presentaties in C++
 linktitle: Effectieve eigenschappen
 type: docs
 weight: 50
@@ -7,309 +7,351 @@ url: /nl/cpp/shape-effective-properties/
 keywords:
 - vormeigenschappen
 - camera-eigenschappen
-- lichtinstallatie
-- bevelvorm
-- tekstkader
+- lichtrig
+- schuine rand vorm
+- tekstframe
 - tekststijl
 - letterhoogte
-- opvulopmaak
+- vulformaat
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Ontdek hoe Aspose.Slides voor C++ effectieve vormeigenschappen berekent en toepast voor nauwkeurige PowerPoint-weergave."
+description: "Leer hoe u Aspose.Slides voor C++ kunt gebruiken om lokale, geërfde en effectieve vormopmaak te onderscheiden in PowerPoint-presentaties."
 ---
-## **Overzicht**
+## **Begrijp lokale, geërfde en effectieve eigenschappen**
 
-Dit onderwerp legt het verschil uit tussen **lokale** en **effectieve** eigenschappen. Lokale waarden zijn waarden die direct op een specifiek opmaakniveau worden ingesteld, zoals:
+PowerPoint-opmaak kan uit verschillende bronnen komen. De waarde die rechtstreeks op een object wordt opgeslagen is zijn **lokale waarde**. Als die waarde niet is ingesteld, kijkt PowerPoint naar de opmaakbronnen van de bovenliggende objecten, zoals een alinea‑standaard, een tekststijl, een lay‑out of masterdia, een thema, of standaardinstellingen op presentatieniveau. Die waarden zijn **geërfde waarden**. De waarde die overblijft nadat de volledige hiërarchie is opgelost, is de **effectieve waarde** — de waarde die wordt gebruikt om het object weer te geven.
 
-1. Portioneigenschappen op een dia.
-1. Prototype‑vormtekstopmaakstijlen op een lay-out of masterslide, wanneer de vorm van het tekstkader van de portion er een heeft.
-1. Globale tekstopmaakinstellingen in een presentatie.
+Bijvoorbeeld, een tekstdelen kan zijn eigen lettergrootte niet definiëren. Zijn lokale [letterhoogte](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibaseportionformat/) is dan `std::numeric_limits<float>::quiet_NaN()`, wat betekent "niet hier ingesteld". Het deel kan een hoogte erven van zijn alinea, de standaardtekststijl van de presentatie, of een andere toepasselijke bron. Het aanroepen van [GetEffective](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportionformat/) op het deel‑format geeft de uiteindelijk opgeloste hoogte terug.
 
-Lokale waarden kunnen op elk niveau worden gedefinieerd of weggelaten. Wanneer Aspose.Slides de uiteindelijke “zoals weergegeven” opmaak nodig heeft, lost het de erfelijkheidsketen op en retourneert **effectieve** waarden. Je kunt ze verkrijgen door de `GetEffective`‑methode aan te roepen op het lokale opmaakobject.
+Gebruik de twee soorten opmaakdata voor verschillende doeleinden:
 
-Het volgende voorbeeld laat zien hoe je effectieve waarden krijgt. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) is met een tekstkader en ten minste één portion.
+- Lees of wijzig een lokaal opmaakobject, zoals [IPortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportionformat/), wanneer je moet bepalen waar een waarde is gedefinieerd.
+- Lees een effectief data‑object, zoals [IPortionFormatEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportionformateffectivedata/), wanneer je het uiteindelijke, gerenderde resultaat nodig hebt. Effectieve data is alleen‑lezen.
+
+## **Vergelijk lokale, geërfde en effectieve waarden**
+
+Het volgende volledige voorbeeld maakt een vorm aan en past letterhoogtes toe op presentatie‑, alinea‑ en deel‑niveau. Elke stap drukt de op die niveaus gedefinieerde waarden af en de resulterende effectieve waarde voor hetzelfde tekstdelen. Het laat ook zien waarom effectieve data opnieuw moet worden gelezen na opmaakwijzigingen.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <cmath>
+#include <limits>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 500.0f, 80.0f, false);
+auto textFrame = shape->AddTextFrame(u"Effective formatting");
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
+
+// Definieer geërfde waarden op twee verschillende niveaus.
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(20.0f);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(28.0f);
+
+auto formatLocalValue = [](float value) -> System::String
+{
+    return std::isnan(value) ? System::String(u"<not set>") : System::ObjectExt::ToString(value);
+};
+
+auto printFontHeights = [&](System::String caption)
+{
+    auto presentationValue = presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->get_FontHeight();
+    auto paragraphValue = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FontHeight();
+    auto localValue = portion->get_PortionFormat()->get_FontHeight();
+
+    // Lees effectieve data na de voorgaande wijzigingen.
+    auto effectiveValue = portion->get_PortionFormat()->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(caption);
+    System::Console::WriteLine(System::String(u"  Presentation default: ") + formatLocalValue(presentationValue));
+    System::Console::WriteLine(System::String(u"  Paragraph default:    ") + formatLocalValue(paragraphValue));
+    System::Console::WriteLine(System::String(u"  Portion local:        ") + formatLocalValue(localValue));
+    System::Console::WriteLine(System::String(u"  Portion effective:    ") + effectiveValue);
+};
+
+printFontHeights(u"The portion inherits from the paragraph");
+
+// Een lokale waarde op het deel overschrijft beide geërfde waarden.
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+printFontHeights(u"A local value overrides inherited values");
+
+// Het wijzigen van een geërfde waarde overschrijft geen bestaande lokale waarde.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(30.0f);
+printFontHeights(u"The local value still has priority");
+
+// Wis de lokale waarde. Het deel erft nu opnieuw van de alinea.
+portion->get_PortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The local value is cleared");
+
+// Wis de alinea‑waarde. De presentatiestandaard levert nu het resultaat.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The paragraph value is cleared");
+
+presentation->Save(u"effective-properties.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+De prioriteit in dit voorbeeld is eerst lokale opmaak van het deel, daarna alinea‑opmaak, en daarna de standaard van de presentatie. Andere objecten kunnen verschillende erfenisketens hebben, maar het principe is hetzelfde: een meer specifieke expliciete waarde heeft voorrang, en [GetEffective](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportionformat/) geeft het uiteindelijke resultaat terug.
+
+## **Haal effectieve tekst‑eigenschappen op**
+
+Tekstopmaak is verdeeld over verschillende objecten:
+
+- [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframeformat/) lost tekst‑frame‑eigenschappen op zoals marges, verankering, autofit en verticale tekstrichting.
+- [ITextStyle::GetEffective](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextstyle/) lost alinea‑opmaak op voor elk tekststijlniveau.
+- [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraphformat/) lost alinea‑eigenschappen op zoals uitlijning, inspringing en opsommingstekens.
+- [IPortionFormat::GetEffective](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportionformat/) lost teken‑eigenschappen op zoals letterhoogte, lettertype, kleur, vet en cursief.
+
+Voor het volgende voorbeeld moet `text-formatting.pptx` minstens één dia en één [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) bevatten met een niet‑lege tekst‑frame. De IAutoShape kan zich op elke positie in de vormcollectie bevinden; de code zoekt naar een geschikt object en valideert dit vóór gebruik.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"text-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
+
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<IAutoShape> shape;
+
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+{
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
+
+    if (!System::ObjectExt::Is<IAutoShape>(candidate))
+        continue;
+
+    auto autoShape = System::ExplicitCast<IAutoShape>(candidate);
+    auto candidateTextFrame = autoShape->get_TextFrame();
+
+    if (candidateTextFrame == nullptr || candidateTextFrame->get_Paragraphs()->get_Count() == 0)
+        continue;
+
+    if (candidateTextFrame->get_Paragraph(0)->get_Portions()->get_Count() == 0)
+        continue;
+
+    shape = autoShape;
+    break;
+}
+
+if (shape == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain an IAutoShape with non-empty text.");
 
 auto textFrame = shape->get_TextFrame();
-auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
 
-auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
-auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+auto textFrameEffective = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraphEffective = paragraph->get_ParagraphFormat()->GetEffective();
+auto portionEffective = portion->get_PortionFormat()->GetEffective();
 
-presentation->Dispose();
-```
+System::Console::WriteLine(u"Text frame margins:");
+System::Console::WriteLine(System::String(u"  Left: ") + textFrameEffective->get_MarginLeft());
+System::Console::WriteLine(System::String(u"  Top: ") + textFrameEffective->get_MarginTop());
+System::Console::WriteLine(System::String(u"  Right: ") + textFrameEffective->get_MarginRight());
+System::Console::WriteLine(System::String(u"  Bottom: ") + textFrameEffective->get_MarginBottom());
+System::Console::WriteLine(System::String(u"Paragraph alignment: ") + System::ObjectExt::ToString(paragraphEffective->get_Alignment()));
+System::Console::WriteLine(System::String(u"Font height: ") + portionEffective->get_FontHeight());
+System::Console::WriteLine(System::String(u"Bold: ") + System::ObjectExt::ToString(portionEffective->get_FontBold()));
 
-{{% alert color="primary" %}}
-Effectieve opmaakgegevens vertegenwoordigen de momenteel berekende opmaak nadat erfelijkheid is toegepast. In de huidige implementatie kunnen sommige effectieve gegevensobjecten, zoals [IPortionFormatEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iportionformateffectivedata/), intern worden gecached. Het opnieuw aanroepen van `GetEffective` na het wijzigen van bovenliggende of geërfde opmaak kan de cache vernieuwen, en een eerder verkregen object vertegenwoordigt mogelijk niet langer de eerdere toestand. Als je effectieve waarden later opnieuw wilt gebruiken, kopieer dan de benodigde eigenschappen, zoals letterhoogte, opvulkleur, lettertype‑stijl of uitlijning, naar je eigen gegevensobject.
-{{% /alert %}}
-
-## **Effectieve eigenschappen van een camera ophalen**
-
-Aspose.Slides stelt je in staat om effectieve eigenschappen van een camera op te halen. De interface [ICameraEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icameraeffectivedata/) vertegenwoordigt een onveranderlijk object dat effectieve camera‑eigenschappen bevat. Een instantie van [ICameraEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icameraeffectivedata/) wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ithreedformateffectivedata/), die effectieve waarden levert voor [IThreeDFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ithreedformat/).
-
-Het volgende codevoorbeeld toont hoe je effectieve eigenschappen voor de camera kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto camera = threeDEffectiveData->get_Camera();
-
-System::Console::WriteLine(u"= Effective camera properties =");
-auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
-System::Console::WriteLine(System::String(u"Type: ") + cameraType);
-
-auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
-System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
-
-auto cameraZoom = camera->get_Zoom();
-System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
-
-presentation->Dispose();
-```
-
-## **Effectieve eigenschappen van een lichtinstallatie ophalen**
-
-Aspose.Slides stelt je in staat om effectieve eigenschappen van een lichtinstallatie op te halen. De interface [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilightrigeffectivedata/) vertegenwoordigt een onveranderlijk object dat effectieve lichtinstallatie‑eigenschappen bevat. Een instantie van [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilightrigeffectivedata/) wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ithreedformateffectivedata/), die effectieve waarden levert voor [IThreeDFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ithreedformat/).
-
-Het volgende codevoorbeeld toont hoe je effectieve eigenschappen voor de lichtinstallatie kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto lightRig = threeDEffectiveData->get_LightRig();
-
-System::Console::WriteLine(u"= Effective light rig properties =");
-auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
-System::Console::WriteLine(System::String(u"Type: ") + lightType);
-
-auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
-System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
-
-presentation->Dispose();
-```
-
-## **Effectieve eigenschappen van een bevelvorm ophalen**
-
-Aspose.Slides stelt je in staat om effectieve eigenschappen van een bevelvorm op te halen. De interface [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapebeveleffectivedata/) vertegenwoordigt een onveranderlijk object dat effectieve face‑relief‑eigenschappen voor een vorm bevat. Een instantie van [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapebeveleffectivedata/) wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ithreedformateffectivedata/), die effectieve waarden levert voor [IThreeDFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ithreedformat/).
-
-Het volgende codevoorbeeld toont hoe je effectieve eigenschappen voor het bovenste bevel van een vorm kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto bevelTop = threeDEffectiveData->get_BevelTop();
-
-System::Console::WriteLine(u"= Effective shape's top face relief properties =");
-auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
-System::Console::WriteLine(System::String(u"Type: ") + bevelType);
-
-auto bevelWidth = bevelTop->get_Width();
-System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
-
-auto bevelHeight = bevelTop->get_Height();
-System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
-
-presentation->Dispose();
-```
-
-## **Effectieve eigenschappen van een tekstkader ophalen**
-
-Met Aspose.Slides kun je effectieve eigenschappen van een tekstkader ophalen. De interface [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframeformateffectivedata/) bevat effectieve tekstkader‑opmaak‑eigenschappen.
-
-Het volgende codevoorbeeld toont hoe je effectieve tekstkader‑opmaak‑eigenschappen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) met een tekstkader is.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-
-auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
-
-auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
-System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
-
-auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
-System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
-
-auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
-System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
-
-System::Console::WriteLine(u"Margins");
-auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
-System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
-
-auto marginTop = effectiveTextFrameFormat->get_MarginTop();
-System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
-
-auto marginRight = effectiveTextFrameFormat->get_MarginRight();
-System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
-
-auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
-System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
-
-presentation->Dispose();
-```
-
-## **Effectieve eigenschappen van een tekststijl ophalen**
-
-Met Aspose.Slides kun je effectieve eigenschappen van een tekststijl ophalen. De interface [ITextStyleEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextstyleeffectivedata/) bevat effectieve tekststijl‑eigenschappen.
-
-Het volgende codevoorbeeld toont hoe je effectieve tekststijl‑eigenschappen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) met een tekstkader is.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
-int levelCount = 9;
-
-for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+auto effectiveTextStyle = textFrame->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+for (int level = 0; level < 9; ++level)
 {
-    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
-
-    auto depth = effectiveStyleLevel->get_Depth();
-    auto indent = effectiveStyleLevel->get_Indent();
-    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
-    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
-
-    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
-    System::Console::WriteLine(System::String(u"Depth: ") + depth);
-    System::Console::WriteLine(System::String(u"Indent: ") + indent);
-    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
-    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+    auto levelEffective = effectiveTextStyle->GetLevel(level);
+    System::Console::WriteLine(System::String(u"Level ") + level + u" indent: " + levelEffective->get_Indent());
 }
 
 presentation->Dispose();
 ```
 
-## **De effectieve letterhoogte ophalen**
+## **Haal effectieve 3D‑eigenschappen op**
 
-Met Aspose.Slides kun je de effectieve letterhoogte ophalen. De volgende code demonstreert hoe de effectieve letterhoogte van een portion verandert nadat lokale letterhoogte‑waarden op verschillende presentatiestructuurniveaus zijn ingesteld.
+[IThreeDFormat::GetEffective](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ithreedformat/) retourneert één [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ithreedformateffectivedata/) object dat alle opgeloste 3D‑instellingen groepeert. De [camera](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icameraeffectivedata/), [licht‑rig](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilightrigeffectivedata/), [boven‑schuine rand](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapebeveleffectivedata/) en [onder‑schuine rand](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapebeveleffectivedata/) gegevens tonen de overeenkomstige effectieve instellingen. Het gezamenlijk lezen van deze gerelateerde instellingen maakt het makkelijker om het uiteindelijke 3D‑uiterlijk van een vorm te begrijpen.
+
+Voor dit voorbeeld moet `shape-3d.pptx` minstens één vorm op de eerste dia bevatten. Pas 3D‑camera-, verlichtings‑ of schuine‑rand‑instellingen toe op die vorm als je wilt dat de output waarden bevat die afwijken van de standaardwaarden.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"shape-3d.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0 || presentation->get_Slide(0)->get_Shapes()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The first slide must contain a shape.");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto threeDEffective = shape->get_ThreeDFormat()->GetEffective();
+
+System::Console::WriteLine(u"Camera:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_Camera()->get_CameraType()));
+System::Console::WriteLine(System::String(u"  Field of view: ") + threeDEffective->get_Camera()->get_FieldOfViewAngle());
+System::Console::WriteLine(System::String(u"  Zoom: ") + threeDEffective->get_Camera()->get_Zoom());
+
+System::Console::WriteLine(u"Light rig:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_LightType()));
+System::Console::WriteLine(System::String(u"  Direction: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_Direction()));
+
+System::Console::WriteLine(u"Top bevel:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_BevelTop()->get_BevelType()));
+System::Console::WriteLine(System::String(u"  Width: ") + threeDEffective->get_BevelTop()->get_Width());
+System::Console::WriteLine(System::String(u"  Height: ") + threeDEffective->get_BevelTop()->get_Height());
+
+presentation->Dispose();
+```
+
+## **Haal effectieve tabelopmaak op**
+
+Tabelopmaak kan afkomstig zijn van de tabelstijl en van opmaak die wordt toegepast op de hele tabel, een kolom, een rij of een individuele cel. Bij conflicten tussen expliciet gedefinieerde vullingen is de prioriteit cel, rij, kolom en daarna de hele tabel. De effectieve opmaak van een cel is de uiteindelijke opmaak die wordt gebruikt om die cel te tekenen.
+
+Voor dit voorbeeld moet `table-formatting.pptx` minstens één tabel op de eerste dia bevatten. De tabel moet minstens één rij en één kolom hebben. De code zoekt naar een [ITable](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itable/) in plaats van ervan uit te gaan dat de eerste vorm een tabel is.
+
+```cpp
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"table-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
 
 auto slide = presentation->get_Slide(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
-autoShape->AddTextFrame(u"");
+System::SharedPtr<ITable> table;
 
-auto textFrame = autoShape->get_TextFrame();
-auto paragraph = textFrame->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-portions->Clear();
-
-auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
-auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
-
-portions->Add(firstPortion);
-portions->Add(secondPortion);
-
-System::Console::WriteLine(u"Effective font height just after creation:");
-auto firstPortionFormat = firstPortion->get_PortionFormat();
-auto secondPortionFormat = secondPortion->get_PortionFormat();
-
-auto printEffectiveFontHeights = [&]()
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
 {
-    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
-    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
 
-    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
-    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
-};
+    if (System::ObjectExt::Is<ITable>(candidate))
+    {
+        table = System::ExplicitCast<ITable>(candidate);
+        break;
+    }
+}
 
-printEffectiveFontHeights();
+if (table == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain a table.");
 
-presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+if (table->get_Rows()->get_Count() == 0 || table->get_Columns()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The table must contain at least one cell.");
 
-System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
-printEffectiveFontHeights();
+auto tableEffective = table->get_TableFormat()->GetEffective();
+auto rowEffective = table->get_Row(0)->get_RowFormat()->GetEffective();
+auto columnEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective();
+auto cellEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective();
 
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
-
-System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
-printEffectiveFontHeights();
-
-firstPortionFormat->set_FontHeight(55.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
-printEffectiveFontHeights();
-
-secondPortionFormat->set_FontHeight(18.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
-printEffectiveFontHeights();
-
-presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Effectieve opvulling van een tabel ophalen**
-
-Met Aspose.Slides kun je effectieve opvul‑opmaak voor verschillende tabelonderdelen ophalen. De interface [IFillFormatEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifillformateffectivedata/) bevat effectieve opvul‑opmaak‑eigenschappen. Cel‑opmaak heeft hogere prioriteit dan rij‑opmaak, rij‑opmaak heeft hogere prioriteit dan kolom‑opmaak, en kolom‑opmaak heeft hogere prioriteit dan opmaak van de volledige tabel.
-
-Als gevolg daarvan worden de eigenschappen van [ICellFormatEffectiveData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icellformateffectivedata/) gebruikt om de tabelcel te tekenen. Het volgende codevoorbeeld toont hoe je effectieve opvul‑opmaak voor verschillende tabelonderdelen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [ITable](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itable/) is.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
-
-auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
-auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
-auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
-auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+System::Console::WriteLine(System::String(u"Table fill: ") + System::ObjectExt::ToString(tableEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Row fill: ") + System::ObjectExt::ToString(rowEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Column fill: ") + System::ObjectExt::ToString(columnEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Final cell fill: ") + System::ObjectExt::ToString(cellEffective->get_FillFormat()->get_FillType()));
 
 presentation->Dispose();
 ```
+
+Als je de kleur nodig hebt in plaats van alleen het vultype, controleer dan eerst de effectieve [FillType](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifillformateffectivedata/), en lees vervolgens de eigenschap die bij dat type hoort — bijvoorbeeld [SolidFillColor](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifillformateffectivedata/) voor een effen vulling.
+
+## **Lees effectieve data opnieuw na wijzigingen**
+
+Effectieve data beschrijft de opmaakhiërarchie op het moment dat deze wordt opgelost. Roep `GetEffective` opnieuw aan nadat je iets hebt gewijzigd dat aan die hiërarchie kan deelnemen, inclusief:
+
+- de lokale opmaak van het object;
+- alinea‑ of tekst‑frame‑standaardinstellingen;
+- een tabel‑stijl, tabel, kolom, rij of cel‑opmaak;
+- lay‑out‑ of master‑dia‑opmaak;
+- themagegevens of standaardinstellingen op presentatieniveau;
+- de lay‑out of master die aan een dia is toegewezen.
+
+Bewaar een effectief data‑object niet als een permanente snapshot. Aspose.Slides kan sommige effectieve data intern cachen, en een latere `GetEffective`‑aanroep kan die data vernieuwen. Als je waarden vóór en na een wijziging moet vergelijken, kopieer dan de scalare waarden die je nodig hebt — zoals een letterhoogte, kleur, uitlijning of schuine‑rand‑breedte — naar je eigen variabelen voordat je de wijziging uitvoert.
+
+Om een waarde te wijzigen, werk je het juiste lokale opmaakobject bij en roep je vervolgens `GetEffective` aan om het resultaat te verifiëren. Effectieve data‑objecten zelf zijn alleen‑lezen.
 
 ## **FAQ**
 
-**Geeft `GetEffective` een momentopname terug?**
+**Hoe kan ik zien welk niveau een effectieve waarde heeft geleverd?**
 
-Niet altijd. Effectieve gegevens vertegenwoordigen de berekende opmaak nadat erfelijkheid is toegepast, maar sommige effectieve gegevensobjecten kunnen intern worden gecached. Een volgende `GetEffective`‑aanroep kan de opmaak opnieuw berekenen en de cache vernieuwen, zodat een eerder verkregen object niet moet worden beschouwd als een duurzame momentopname.
+Effectieve data bevat de uiteindelijke waarde, niet de bron ervan. Inspecteer de toepasselijke lokale objecten van het meest specifieke niveau naar buiten. Voor tekst kan dit het deel, de alinea, het tekst‑frame, de lay‑out, de master, het thema en de standaardinstellingen van de presentatie omvatten. Niet‑gedefinieerde waarden zoals `std::numeric_limits<float>::quiet_NaN()` of `nullptr` geven aan dat de zoektocht doorgaat naar een ander niveau.
 
-**Wanneer moet ik effectieve eigenschappen opnieuw uitlezen?**
+**Wat gebeurt er als geen niveau een eigenschap definieert?**
 
-Roep `GetEffective` opnieuw aan nadat je lokale opmaak, bovenliggende stijlen, lay‑out‑opmaak, master‑opmaak of presentatieniveau‑standaardinstellingen hebt gewijzigd. De volgende aanroep herziet de opmaakhiërarchie en retourneert het huidige effectieve resultaat.
+Aspose.Slides lost de juiste PowerPoint‑ of bibliotheek‑standaard op. Die opgeloste waarde verschijnt in de effectieve data, zelfs al definieert geen lokaal object deze expliciet.
 
-**Heeft het wijzigen of verwijderen van een lay‑out/master‑dia invloed op reeds opgehaalde effectieve eigenschappen?**
+**Waarom is een effectieve waarde soms gelijk aan de lokale waarde?**
 
-Ja, maar de wijziging wordt pas zichtbaar bij de volgende `GetEffective`‑aanroep. Als een bovenliggende opmaakbron wordt gewijzigd of verwijderd, kan eerder verkregen effectieve data verouderd zijn. Zodra `GetEffective` opnieuw wordt aangeroepen, evalueert Aspose.Slides de opmaakboom opnieuw en kunnen lettertypen, kleuren, groottes of andere waarden wijzigen.
+De lokale waarde heeft de erfenisberekening gewonnen. Dit is te verwachten wanneer de eigenschap expliciet op het object is ingesteld en geen specifiekere regel deze overschrijft.
 
-**Kan ik waarden wijzigen via effectieve gegevensobjecten?**
+**Wanneer moet ik lokale data gebruiken in plaats van effectieve data?**
 
-Nee. Effectieve gegevensobjecten geven alleen berekende waarden weer. Breng wijzigingen aan in de lokale opmaakobjecten en haal vervolgens de effectieve waarden opnieuw op.
-
-**Wat gebeurt er als een eigenschap niet is ingesteld op vormniveau, noch in de lay‑out/master, noch in de globale instellingen?**
-
-De effectieve waarde wordt bepaald door het standaardmechanisme, dat zowel PowerPoint‑ als Aspose.Slides‑standaardwaarden omvat. Die opgeloste waarde wordt onderdeel van de huidige effectieve data.
-
-**Kan ik aan een effectieve letterwaarde afleiden op welk niveau de grootte of het lettertype is ingesteld?**
-
-Niet rechtstreeks. Effectieve data geven alleen de uiteindelijke waarde terug. Om de bron te vinden, controleer je lokale waarden op portion‑, alinea‑, tekstkader‑ en tekststijlniveau op de lay‑out, master en presentatieniveau om te zien waar de eerste expliciete definitie voorkomt.
-
-**Waarom lijken effectieve waarden soms identiek aan de lokale waarden?**
-
-Omdat de lokale waarde uiteindelijk de definitieve bleek te zijn (er was geen hogere‑niveau erfelijkheid nodig). In dat geval komt de effectieve waarde overeen met de lokale waarde.
-
-**Wanneer moet ik effectieve eigenschappen gebruiken en wanneer moet ik alleen met lokale werken?**
-
-Gebruik effectieve data wanneer je het “zoals weergegeven” resultaat nodig hebt na het toepassen van alle erfelijkheid, bijvoorbeeld om kleuren, inspringen of groottes uit te lijnen. Als je deze waarden wilt behouden, ongeacht latere opmaakwijzigingen, kopieer je de benodigde eigenschappen naar je eigen object. Als je op een specifiek niveau wilt aanpassen, wijzig dan de lokale eigenschappen en lees vervolgens, indien nodig, de effectieve data opnieuw om het resultaat te verifiëren.
+Gebruik lokale data om een specifiek opmaakniveau te inspecteren of te bewerken. Gebruik effectieve data wanneer je de uiteindelijke weergave nodig hebt na erfenis, themaregels en toepasselijke stijlen. Het [volledige vergelijkingsvoorbeeld](#compare-local-inherited-and-effective-values) toont beide in dezelfde workflow.

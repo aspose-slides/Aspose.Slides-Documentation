@@ -1,340 +1,295 @@
 ---
-title: รับคุณสมบัติรูปร่างที่มีผลจากงานพรีเซนเทชั่นใน JavaScript
+title: รับคุณสมบัติรูปทรงที่มีผลจากการนำเสนอใน JavaScript
 linktitle: คุณสมบัติที่มีผล
 type: docs
 weight: 50
 url: /th/nodejs-java/shape-effective-properties/
 keywords:
-- คุณสมบัติรูปร่าง
+- คุณสมบัติรูปทรง
 - คุณสมบัติกล้อง
 - ระบบแสง
-- รูปร่างบีเวล
+- รูปทรงบเวล
 - กรอบข้อความ
 - สไตล์ข้อความ
-- ความสูงฟอนต์
+- ความสูงของฟอนต์
 - รูปแบบการเติม
 - PowerPoint
 - การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ค้นพบว่า Aspose.Slides สำหรับ Node.js ผ่าน Java คำนวณและใช้คุณสมบัติรูปร่างที่มีผลเพื่อการเรนเดอร์ PowerPoint อย่างแม่นยำ"
+description: "เรียนรู้วิธีใช้ Aspose.Slides สำหรับ Node.js ผ่าน Java เพื่อแยกแยะการจัดรูปแบบรูปทรงที่ท้องถิ่น, สืบทอด, และมีผลในงานนำเสนอ PowerPoint"
 ---
-## **ภาพรวม**
+## **ทำความเข้าใจค่าคุณสมบัติท้องถิ่น, สืบทอด, และผลลัพธ์ที่มีผล**
 
-หัวข้อนี้อธิบายความแตกต่างระหว่างคุณสมบัติ **local** และ **effective** ค่าท้องถิ่นคือค่าที่ตั้งโดยตรงที่ระดับการจัดรูปแบบเฉพาะ เช่น:
+รูปแบบของ PowerPoint สามารถมาจากหลายที่ ค่า ที่เก็บโดยตรงบนอ็อบเจ็กต์คือ **ค่าท้องถิ่น** หากค่านั้นไม่ได้ตั้งค่า PowerPoint จะตรวจสอบแหล่งรูปแบบของพาเรนต์ เช่น ค่าตั้งต้นของย่อหน้า, สไตล์ข้อความ, รูปแบบเลเอาต์หรือมาสเตอร์สไลด์, ธีม, หรือค่าตั้งต้นระดับการนำเสนอ ค่าต่าง ๆ เหล่านั้นคือ **ค่าที่สืบทอด** ค่าที่เหลืออยู่หลังจากการแก้ลำดับชั้นทั้งหมดเรียบร้อยคือ **ค่าที่มีผล** — ค่าที่ใช้ในการแสดงอ็อบเจ็กต์
 
-1. คุณสมบัติส่วน (portion) บนสไลด์.  
-1. สไตล์ข้อความของรูปร่างต้นแบบบนเลย์เอาต์หรือสไลด์มาสเตอร์, เมื่อรูปแบบกรอบข้อความของส่วนมีสไตล์หนึ่ง.  
-1. การตั้งค่าข้อความระดับทั่วโลกในงานพรีเซนเทชั่น.  
+ตัวอย่างเช่น ส่วนของข้อความอาจไม่ได้กำหนดความสูงของฟอนต์ของตนเอง ค่าท้องถิ่นของ [getFontHeight](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/portionformat/#getFontHeight) จะเป็น `NaN` ซึ่งหมายถึง “ไม่ได้ตั้งค้าที่นี่” ส่วนข้อความนี้สามารถสืบทอดความสูงจากย่อหน้า, สไตล์ข้อความตั้งต้นของการนำเสนอ, หรือแหล่งอื่น ๆ ที่เกี่ยวข้อง การเรียก [getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/portionformat/#getEffective) บนรูปแบบ Portion จะคืนค่าความสูงที่ได้แก้ไขแล้ว
 
-ค่าท้องถิ่นสามารถกำหนดหรือไม่กำหนดได้ที่ทุกระดับ เมื่อ Aspose.Slides ต้องการการจัดรูปแบบขั้นสุดท้าย “as rendered” มันจะแก้ไขห่วงโซ่การสืบทอดและส่งคืนค่ **effective** คุณสามารถรับค่าเหล่านี้ได้โดยเรียกเมธอด `getEffective` บนวัตถุรูปแบบท้องถิ่น
+ใช้ข้อมูลการจัดรูปแบบสองประเภทนี้เพื่อวัตถุประสงค์ที่แตกต่างกัน:
 
-ตัวอย่างต่อไปนี้แสดงวิธีการรับค่าที่ **effective** โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) ที่มีกรอบข้อความและมีอย่างน้อยหนึ่งส่วน.
+- อ่านหรือเปลี่ยนอ็อบเจ็กต์รูปแบบท้องถิ่น เช่น [PortionFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/portionformat/) เมื่อคุณต้องการควบคุมว่าค่าอยู่ที่ไหน
+- อ่าน **ข้อมูลที่มีผล** ที่คืนมาจาก `PortionFormat.getEffective` เมื่อคุณต้องการผลลัพธ์ที่แสดงขั้นสุดท้าย ข้อมูลที่มีผลเป็นแบบอ่านอย่างเดียว
+
+ก่อนเรียกตัวอย่าง, [install Aspose.Slides for Node.js via Java](/slides/th/nodejs-java/installation/).
+
+## **เปรียบเทียบค่าท้องถิ่น, สืบทอด, และผลลัพธ์ที่มีผล**
+
+ตัวอย่างเต็มต่อไปนี้สร้างรูปทรงและกำหนดความสูงของฟอนต์ที่ระดับการนำเสนอ, ย่อหน้า, และส่วนของข้อความ แต่ละขั้นตอนพิมพ์ค่าที่กำหนดในแต่ละระดับและค่าที่มีผลที่ได้จากส่วนข้อความเดียวกัน นอกจากนี้ยังแสดงว่าทำไมต้องอ่านข้อมูลที่มีผลใหม่หลังจากการเปลี่ยนแปลงรูปแบบ
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+function formatLocalValue(value) {
+    return Number.isNaN(value) ? "<not set>" : value.toString();
+}
+
+function printFontHeights(caption, presentation, paragraph, portion) {
+    const presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+    const paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+    const localValue = portion.getPortionFormat().getFontHeight();
+
+    // อ่านข้อมูลที่มีผลหลังจากการเปลี่ยนแปลงก่อนหน้า.
+    const effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+    console.log(caption);
+    console.log("  Presentation default: " + formatLocalValue(presentationValue));
+    console.log("  Paragraph default:    " + formatLocalValue(paragraphValue));
+    console.log("  Portion local:        " + formatLocalValue(localValue));
+    console.log("  Portion effective:    " + effectiveValue);
+}
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 500, 80, false);
+    const textFrame = shape.addTextFrame("Effective formatting");
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+    // กำหนดค่าที่สืบทอดที่สองระดับแตกต่างกัน.
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
-    let effectivePortionFormat = localPortionFormat.getEffective();
+    printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
+
+    // ค่าท้องถิ่นบนส่วนข้อความจะทับค่าที่สืบทอดทั้งสองค่า.
+    portion.getPortionFormat().setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
+
+    // การเปลี่ยนค่าที่สืบทอดจะไม่ทับค่าท้องถิ่นที่มีอยู่.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+    printFontHeights("The local value still has priority", presentation, paragraph, portion);
+
+    // ลบค่าท้องถิ่นออก ส่วนข้อความจะสืบทอดจากย่อหน้าอีกครั้ง.
+    portion.getPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The local value is cleared", presentation, paragraph, portion);
+
+    // ลบค่าของย่อออก ค่าตั้งต้นของการนำเสนอจะให้ผลลัพธ์แทน.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
+
+    presentation.save("effective-properties.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-ข้อมูลการจัดรูปแบบที่ **effective** แสดงถึงการจัดรูปแบบที่คำนวณแล้วในปัจจุบันหลังจากที่มีการใช้การสืบทอด ในการทำงานปัจจุบันบางวัตถุข้อมูล **effective** อาจถูกเก็บไว้ในแคชภายใน การเรียก `getEffective` อีกครั้งหลังจากเปลี่ยนการจัดรูปแบบของพาเรนต์หรือการสืบทอดสามารถรีเฟรชข้อมูลที่แคชไว้ได้ และวัตถุที่ได้รับมาก่อนหน้านี้อาจไม่แสดงสถานะเดิมอีกต่อไป หากคุณต้องการเก็บค่าที่ **effective** เพื่อใช้ในภายหลัง ให้คัดลอกคุณสมบัติที่ต้องการ เช่น ความสูงของฟอนต์, สีเติม, สไตล์ฟอนต์ หรือการจัดแนว ไปยังออบเจกต์ข้อมูลของคุณเอง.
-{{% /alert %}}
+ความสำคัญในตัวอย่างนี้คือรูปแบบท้องถิ่นของส่วนข้อความ, ตามด้วยรูปแบบของย่อหน้า, แล้วตามด้วยค่าตั้งต้นของการนำเสนอ อ็อบเจ็กต์อื่น ๆ อาจมีโซ่การสืบทอดที่ต่างกัน แต่หลักการเดียวกัน: ค่าที่ระบุอย่างเฉพาะเจาะจงมากกว่าจะชนะ, และ [getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/portionformat/#getEffective) จะคืนผลลัพธ์ขั้นสุดท้าย
 
-## **รับคุณสมบัติ Effective ของกล้อง**
+## **รับคุณสมบัติข้อความที่มีผล**
 
-Aspose.Slides ให้คุณรับคุณสมบัติที่ **effective** ของกล้อง วัตถุข้อมูลกล้องที่ **effective** จะมีคุณสมบัติของกล้องที่ไม่สามารถเปลี่ยนแปลงได้และจะถูกเปิดเผยผ่านค่าที่ **effective** ที่ส่งคืนสำหรับ [ThreeDFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/).
+การจัดรูปแบบข้อความถูกแบ่งออกเป็นหลายอ็อบเจ็กต์:
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการรับคุณสมบัติที่ **effective** สำหรับกล้อง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกมีการจัดรูปแบบ 3D.
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframeformat/#getEffective) แก้ไขคุณสมบัติกรอบข้อความเช่น ระยะขอบ, การยึด, การปรับอัตโนมัติ, และทิศทางข้อความแนวตั้ง
+- [TextStyle.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textstyle/#getEffective) แก้ไขรูปแบบย่อหน้าสำหรับแต่ละระดับของสไตล์ข้อความ
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/paragraphformat/#getEffective) แก้ไขคุณสมบัติกย่อหน้าเช่น การจัดแนว, การเยื้อง, และสัญลักษณ์หัวข้อ
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/portionformat/#getEffective) แก้ไขคุณสมบัติตัวอักษรเช่น ความสูงของฟอนต์, แบบอักษร, สี, ตัวหนา, และตัวเอียง
+
+สำหรับตัวอย่างต่อไป, `text-formatting.pptx` ต้องมีอย่างน้อยหนึ่งสไลด์และหนึ่ง [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) ที่มีกรอบข้อความที่ไม่ว่างเปล่า AutoShape สามารถอยู่ในตำแหน่งใดก็ได้ในคอลเลกชันของรูปทรง; โค้ดจะค้นหาอ็อบเจ็กต์ที่เหมาะสมและตรวจสอบก่อนใช้งาน
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let camera = threeDEffectiveData.getCamera();
-    let cameraType = camera.getCameraType();
-    let fieldOfViewAngle = camera.getFieldOfViewAngle();
-    let zoom = camera.getZoom();
-
-    console.log("= Effective camera properties =");
-    console.log("Type: " + cameraType);
-    console.log("Field of view: " + fieldOfViewAngle);
-    console.log("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
+function hasNonEmptyText(shape) {
+    if (shape.getTextFrame() == null) {
+        return false;
+    }
+    if (shape.getTextFrame().getParagraphs().getCount() === 0) {
+        return false;
+    }
+    return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
 }
-```
 
-## **รับคุณสมบัติ Effective ของ Light Rig**
-
-Aspose.Slides ให้คุณรับคุณสมบัติที่ **effective** ของ Light Rig วัตถุข้อมูล Light Rig ที่ **effective** จะมีคุณสมบัติของ Light Rig ที่ไม่สามารถเปลี่ยนแปลงได้และจะถูกเปิดเผยผ่านค่าที่ **effective** ที่ส่งคืนสำหรับ [ThreeDFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/).
-
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการรับคุณสมบัติที่ **effective** สำหรับ Light Rig โดยสมมติว่ารูปร่างแรกบนสไลด์แรกมีการจัดรูปแบบ 3D.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let lightRig = threeDEffectiveData.getLightRig();
-    let lightType = lightRig.getLightType();
-    let direction = lightRig.getDirection();
-
-    console.log("= Effective light rig properties =");
-    console.log("Type: " + lightType);
-    console.log("Direction: " + direction);
-} finally {
-    presentation.dispose();
+function findAutoShapeWithText(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const candidate = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(candidate, "com.aspose.slides.AutoShape") && hasNonEmptyText(candidate)) {
+            return candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **รับคุณสมบัติ Effective ของ Bevel Shape**
-
-Aspose.Slides ให้คุณรับคุณสมบัติที่ **effective** ของ bevel รูปร่าง วัตถุข้อมูล bevel ที่ **effective** จะมีคุณสมบัติการยกหน้า (face‑relief) ที่ไม่สามารถเปลี่ยนแปลงได้สำหรับรูปร่างและจะถูกเปิดเผยผ่านค่าที่ **effective** ที่ส่งคืนสำหรับ [ThreeDFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/).
-
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการรับคุณสมบัติที่ **effective** สำหรับ bevel บนสุดของรูปร่าง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกมีการจัดรูปแบบ 3D.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("text-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let bevelTop = threeDEffectiveData.getBevelTop();
-    let bevelType = bevelTop.getBevelType();
-    let bevelWidth = bevelTop.getWidth();
-    let bevelHeight = bevelTop.getHeight();
+    const shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+    if (shape == null) {
+        throw new Error("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + bevelType);
-    console.log("Width: " + bevelWidth);
-    console.log("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
+    const textFrame = shape.getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-## **รับคุณสมบัติ Effective ของ Text Frame**
+    const textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+    const paragraphEffective = paragraph.getParagraphFormat().getEffective();
+    const portionEffective = portion.getPortionFormat().getEffective();
 
-โดยใช้ Aspose.Slides คุณสามารถรับคุณสมบัติที่ **effective** ของกรอบข้อความ วัตถุข้อมูลที่ส่งคืนจะประกอบด้วยคุณสมบัติการจัดรูปแบบของ Text Frame
+    console.log("Text frame margins:");
+    console.log("  Left: " + textFrameEffective.getMarginLeft());
+    console.log("  Top: " + textFrameEffective.getMarginTop());
+    console.log("  Right: " + textFrameEffective.getMarginRight());
+    console.log("  Bottom: " + textFrameEffective.getMarginBottom());
+    console.log("Paragraph alignment: " + paragraphEffective.getAlignment());
+    console.log("Font height: " + portionEffective.getFontHeight());
+    console.log("Bold: " + portionEffective.getFontBold());
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการรับคุณสมบัติการจัดรูปแบบของ Text Frame ที่ **effective** โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) ที่มีกรอบข้อความ.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = textFrameFormat.getEffective();
-    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    let autofitType = effectiveTextFrameFormat.getAutofitType();
-    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    let marginTop = effectiveTextFrameFormat.getMarginTop();
-    let marginRight = effectiveTextFrameFormat.getMarginRight();
-    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    console.log("Anchoring type: " + anchoringType);
-    console.log("Autofit type: " + autofitType);
-    console.log("Text vertical type: " + textVerticalType);
-    console.log("Margins");
-    console.log("   Left: " + marginLeft);
-    console.log("   Top: " + marginTop);
-    console.log("   Right: " + marginRight);
-    console.log("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **รับคุณสมบัติ Effective ของ Text Style**
-
-โดยใช้ Aspose.Slides คุณสามารถรับคุณสมบัติที่ **effective** ของสไตล์ข้อความ วัตถุข้อมูลที่ส่งคืนจะประกอบด้วยคุณสมบัติของ Text Style
-
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการรับคุณสมบัติของ Text Style ที่ **effective** โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) ที่มีกรอบข้อความ.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    let levelCount = 9;
-
-    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        let depth = effectiveStyleLevel.getDepth();
-        let indent = effectiveStyleLevel.getIndent();
-        let alignment = effectiveStyleLevel.getAlignment();
-        let fontAlignment = effectiveStyleLevel.getFontAlignment();
-
-        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        console.log("Depth: " + depth);
-        console.log("Indent: " + indent);
-        console.log("Alignment: " + alignment);
-        console.log("Font alignment: " + fontAlignment);
+    const effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+    for (let level = 0; level < 9; level++) {
+        const levelEffective = effectiveTextStyle.getLevel(level);
+        console.log("Level " + level + " indent: " + levelEffective.getIndent());
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **รับค่าความสูงฟอนต์ Effective**
+## **รับคุณสมบัติ 3D ที่มีผล**
 
-โดยใช้ Aspose.Slides คุณสามารถรับความสูงฟอนต์ที่ **effective** ตัวอย่างโค้ดต่อไปนี้แสดงการเปลี่ยนแปลงความสูงฟอนต์ที่ **effective** ของส่วนหลังจากที่ตั้งค่าความสูงฟอนต์ท้องถิ่นในระดับโครงสร้างพรีเซนเทชั่นต่าง ๆ
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/#getEffective) คืนอ็อบเจ็กต์ข้อมูลที่มีผลหนึ่งตัวซึ่งรวมการตั้งค่า 3D ทั้งหมดที่แก้ไขแล้ว วิธีการ [getCamera](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/#getCamera), [getLightRig](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/#getLightRig), [getBevelTop](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/#getBevelTop), และ [getBevelBottom](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/threedformat/#getBevelBottom) เปิดเผยข้อมูลที่มีผลที่สอดคล้องกัน การอ่านการตั้งค่าเหล่านี้ร่วมกันทำให้เข้าใจลักษณะ 3D ที่สุดของรูปทรงได้ง่ายขึ้น
+
+สำหรับตัวอย่างนี้, `shape-3d.pptx` ต้องมีอย่างน้อยหนึ่งรูปทรงบนสไลด์แรก ของคุณอาจเพิ่มการตั้งค่ากล้อง 3D, แสง, หรือ bevel ให้กับรูปทรงนั้นหากต้องการให้ผลลัพธ์มีค่าที่แตกต่างจากค่าเริ่มต้น
 
 ```javascript
-let presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("shape-3d.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    if (presentation.getSlides().size() === 0 || presentation.getSlides().get_Item(0).getShapes().size() === 0) {
+        throw new Error("The first slide must contain a shape.");
+    }
 
-    let shapeType = aspose.slides.ShapeType.Rectangle;
-    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const threeDEffective = shape.getThreeDFormat().getEffective();
 
-    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+    console.log("Camera:");
+    console.log("  Type: " + threeDEffective.getCamera().getCameraType());
+    console.log("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+    console.log("  Zoom: " + threeDEffective.getCamera().getZoom());
 
-    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
-    let secondPortion = new aspose.slides.Portion(" and second portion.");
+    console.log("Light rig:");
+    console.log("  Type: " + threeDEffective.getLightRig().getLightType());
+    console.log("  Direction: " + threeDEffective.getLightRig().getDirection());
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
-
-    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting the presentation default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    let saveFormat = aspose.slides.SaveFormat.Pptx;
-    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
+    console.log("Top bevel:");
+    console.log("  Type: " + threeDEffective.getBevelTop().getBevelType());
+    console.log("  Width: " + threeDEffective.getBevelTop().getWidth());
+    console.log("  Height: " + threeDEffective.getBevelTop().getHeight());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **รับรูปแบบการเติม Effective สำหรับตาราง**
+## **รับการจัดรูปแบบตารางที่มีผล**
 
-โดยใช้ Aspose.Slides คุณสามารถรับการจัดรูปแบบการเติมที่ **effective** สำหรับส่วนต่าง ๆ ของตาราง วัตถุข้อมูลที่ส่งคืนจะประกอบด้วยคุณสมบัติการเติม การจัดรูปแบบของเซลล์มีลำดับความสำคัญสูงกว่าการจัดรูปแบบของแถว การจัดรูปแบบของแถวมีลำดับความสำคัญสูงกว่าการจัดรูปแบบของคอลัมน์ และการจัดรูปแบบของคอลัมน์มีลำดับความสำคัญสูงกว่าการจัดรูปแบบของตารางทั้งหมด
+การจัดรูปแบบตารางสามารถมาจากสไตล์ของตารางและจากรูปแบบที่นำไปใช้กับตารางทั้งหมด, คอลัมน์, แถว, หรือเซลล์แต่ละเซลล์ สำหรับความขัดแย้งของการเติมสีที่กำหนดโดยชัดเจน ความสำคัญคือ เซลล์, แถว, คอลัมน์, และสุดท้ายคือทั้งตาราง รูปแบบที่มีผลของเซลล์คือรูปแบบสุดท้ายที่ใช้วาดเซลล์นั้น
 
-ผลลัพธ์คือคุณสมบัติการเติมของเซลล์ที่ **effective** จะถูกใช้ในการวาดเซลล์ตาราง ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการรับการเติมที่ **effective** สำหรับส่วนต่าง ๆ ของตาราง โดยสมมติว่ารูปร่างแรกบนสไลด์แรกเป็น [Table](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/table/).
+สำหรับตัวอย่างนี้, `table-formatting.pptx` ต้องมีอย่างน้อยหนึ่งตารางบนสไลด์แรก ตารางต้องมีอย่างน้อยหนึ่งแถวและหนึ่งคอลัมน์ โค้ดจะค้นหา [Table](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/table/) แทนการสมมติว่า `getShapes().get_Item(0)` คือ ตาราง
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function findTable(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.Table")) {
+            return shape;
+        }
+    }
+    return null;
+}
+
+const presentation = new aspose.slides.Presentation("table-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let table = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let tableFormatEffective = table.getTableFormat().getEffective();
-    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+    const table = findTable(presentation.getSlides().get_Item(0));
+    if (table == null) {
+        throw new Error("The first slide must contain a table.");
+    }
+    if (table.getRows().size() === 0 || table.getColumns().size() === 0) {
+        throw new Error("The table must contain at least one cell.");
+    }
 
-    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    const tableEffective = table.getTableFormat().getEffective();
+    const rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    const columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    const cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    console.log("Table fill: " + tableEffective.getFillFormat().getFillType());
+    console.log("Row fill: " + rowEffective.getFillFormat().getFillType());
+    console.log("Column fill: " + columnEffective.getFillFormat().getFillType());
+    console.log("Final cell fill: " + cellEffective.getFillFormat().getFillType());
 } finally {
     presentation.dispose();
 }
 ```
+
+หากคุณต้องการสีมากกว่าชนิดการเติม, ให้ตรวจสอบ [getFillType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fillformat/#getFillType) ก่อน, แล้วจึงอ่านเมธอดที่สอดคล้องกับชนิดนั้น — ตัวอย่างเช่น [getSolidFillColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fillformat/#getSolidFillColor) สำหรับการเติมแบบสีทึบ
+
+## **อ่านข้อมูลที่มีผลใหม่หลังจากการเปลี่ยนแปลง**
+
+ข้อมูลที่มีผลอธิบายลำดับชั้นของรูปแบบในขณะนั้นเมื่อถูกแก้ไข ให้เรียก `getEffective` อีกครั้งหลังจากเปลี่ยนแปลงสิ่งใดที่อาจมีส่วนร่วมในลำดับชั้นนั้น, รวมถึง:
+
+- การจัดรูปแบบท้องถิ่นของอ็อบเจ็กต์
+- ค่าตั้งต้นของย่อหน้า หรือกรอบข้อความ
+- สไตล์ตาราง, ตาราง, คอลัมน์, แถว, หรือรูปแบบเซลล์
+- การจัดรูปแบบของเลเอาต์หรือมาสเตอร์สไลด์
+- ข้อมูลธีมหรือค่าตั้งต้นระดับการนำเสนอ
+- เลเอาต์หรือมาสเตอร์ที่กำหนดให้กับสไลด์
+
+ห้ามเก็บอ็อบเจ็กต์ข้อมูลที่มีผลเป็นสแนปช็อตถาวร Aspose.Slides อาจแคชข้อมูลที่มีผลบางส่วนภายใน, และการเรียก `getEffective` ครั้งต่อมาสามารถรีเฟรชข้อมูลนั้นได้ หากต้องการเปรียบเทียบค่าก่อนและหลังการเปลี่ยนแปลง, ให้คัดลอกค่ามาตรฐานที่ต้องการ เช่น ความสูงของฟอนต์, สี, การจัดแนว, หรือความกว้างของ bevel ไปยังตัวแปรของคุณเองก่อนทำการเปลี่ยนแปลง
+
+เพื่อเปลี่ยนค่า, ให้อัปเดตอ็อบเจ็กต์รูปแบบท้องถิ่นที่เหมาะสมแล้วเรียก `getEffective` เพื่อตรวจสอบผลลัพธ์ ข้อมูลที่มีผลเองเป็นแบบอ่านอย่างเดียว
 
 ## **FAQ**
 
-**`getEffective` คืนสแนปช็อตหรือไม่?**
+**ฉันจะบอกได้อย่างไรว่าระดับใดให้ค่าที่มีผล?**
 
-ไม่เสมอไป ข้อมูล **effective** แสดงถึงการจัดรูปแบบที่คำนวณแล้วหลังจากการสืบทอด แต่บางวัตถุข้อมูล **effective** อาจถูกแคชภายใน การเรียก `getEffective` อีกครั้งอาจทำให้คำนวณใหม่และรีเฟรชแคช ดังนั้นวัตถุที่ได้รับก่อนหน้านี้ไม่ควรถือเป็นสแนปช็อตคงที่
+ข้อมูลที่มีผลบรรจุค่าขั้นสุดท้าย, ไม่ได้บอกแหล่งที่มา ตรวจสอบอ็อบเจ็กต์ท้องถิ่นที่เกี่ยวข้องจากระดับที่เจาะจงที่สุดออกไปเป็นระดับที่กว้างกว่า สำหรับข้อความอาจรวมถึงส่วนของข้อความ, ย่อหน้า, กรอบข้อความ, เลเอาต์, มาสเตอร์, ธีม, และค่าตั้งต้นของการนำเสนอ ค่าที่ไม่ได้กำหนดเช่น `NaN` หรือ `null` แสดงว่าการค้นหายังดำเนินต่อไปที่ระดับอื่น
 
-**ควรอ่านคุณสมบัติที่ **effective** อีกครั้งเมื่อใด?**
+**จะเกิดอะไรขึ้นเมื่อไม่มีระดับใดกำหนดคุณสมบัตินั้น?**
 
-ให้เรียก `getEffective` อีกครั้งหลังจากเปลี่ยนการจัดรูปแบบท้องถิ่น, สไตล์ของพาเรนต์, การจัดรูปแบบของเลย์เอาต์, การจัดรูปแบบของมาสเตอร์ หรือค่าดีฟอลต์ระดับพรีเซนเทชั่น การเรียกครั้งถัดไปจะประเมินลำดับการจัดรูปแบบใหม่และคืนผลลัพธ์ **effective** ปัจจุบัน
+Aspose.Slides จะเลือกใช้ค่าตั้งต้นของ PowerPoint หรือไลบรารีที่เหมาะสม ค่าที่ถูกแก้ไขนั้นจะปรากฏในข้อมูลที่มีผลแม้ว่าจะไม่มีอ็อบเจ็กต์ท้องถิ่นใดกำหนดโดยตรง
 
-**การเปลี่ยนหรือเอาเลย์เอาต์/มาสเตอร์ออกจะมีผลต่อคุณสมบัติที่ **effective** ที่เคยดึงแล้วหรือไม่?**
+**ทำไมค่าที่มีผลบางครั้งจึงเท่ากับค่าท้องถิ่น?**
 
-มีผล แต่จะปรากฏในการเรียก `getEffective` ครั้งต่อไป หากแหล่งข้อมูลการจัดรูปแบบของพาเรนต์ถูกเปลี่ยนหรือเอาออก ข้อมูล **effective** ที่เคยได้อาจล้าสมัย เมื่อเรียก `getEffective` ใหม่ Aspose.Slides จะประเมินต้นไม้การจัดรูปแบบใหม่และค่าฟอนต์, สี, ขนาด หรือค่าอื่น ๆ อาจเปลี่ยนแปลง
+ค่าท้องถิ่นชนะการคำนวณการสืบทอด นี่เป็นผลตามปกติเมื่อคุณสมบัตินั้นถูกตั้งค่าอย่างชัดเจนบนอ็อบเจ็กต์และไม่มีกฎที่เจาะจงมากกว่านั้นมากำหนดให้ทับ
 
-**สามารถแก้ไขค่าได้ผ่านวัตถุข้อมูล **effective** หรือไม่?**
+**เมื่อใดควรใช้ข้อมูลท้องถิ่นแทนข้อมูลที่มีผล?**
 
-ไม่ได้ วัตถุข้อมูล **effective** เปิดเผยค่าเฉพาะที่คำนวณแล้ว ให้ทำการเปลี่ยนแปลงในวัตถุการจัดรูปแบบท้องถิ่น แล้วดึงค่าที่ **effective** อีกครั้ง
-
-**ถ้าคุณสมบัติไม่ได้ตั้งค่าที่ระดับรูปร่าง, เลย์เอาต์/มาสเตอร์ หรือการตั้งค่าทั่วโลก จะเกิดอะไรขึ้น?**
-
-ค่าที่ **effective** จะถูกกำหนดโดยกลไกค่าเริ่มต้น ซึ่งรวมถึงค่าเริ่มต้นของ PowerPoint และ Aspose.Slides ค่าที่ได้จะเป็นส่วนหนึ่งของข้อมูล **effective** ปัจจุบัน
-
-**จากค่าฟอนต์ที่ **effective** ฉันจะทราบได้หรือไม่ว่ามาจากระดับใด?**
-
-ไม่ได้โดยตรง ข้อมูล **effective** ให้ค่าป Finale เพื่อหาที่มาคุณต้องตรวจสอบค่าท้องถิ่นที่ portion, paragraph, text frame, แล้วตรวจสอบสไตล์ข้อความที่เลย์เอาต์, มาสเตอร์, และระดับพรีเซนเทชั่น เพื่อดูว่าการกำหนดแรกที่พบอยู่ที่ระดับใด
-
-**ทำไมค่าที่ **effective** บางครั้งดูเหมือนกับค่าท้องถิ่น?**
-
-เพราะค่าท้องถิ่นนั้นกลายเป็นค่าต่องสุดท้าย (ไม่มีการสืบทอดจากระดับที่สูงกว่า) ในกรณีนั้นค่าที่ **effective** จะแมทช์ค่าท้องถิ่น
-
-**ควรใช้คุณสมบัติที่ **effective** เมื่อไหร่ และควรใช้ค่าท้องถิ่นเมื่อไหร่?**
-
-ใช้ข้อมูล **effective** เมื่อคุณต้องการผลลัพธ์ “as rendered” หลังจากการสืบทอดทั้งหมด เช่น การจับคู่สี, ระยะเยื้อง, หรือขนาด หากต้องการเก็บค่าดังกล่าวไว้แม้จะมีการเปลี่ยนแปลงการจัดรูปแบบในภายหลัง ให้คัดลอกคุณสมบัติที่ต้องการไปยังออบเจกต์ของคุณเอง หากต้องการเปลี่ยนการจัดรูปแบบที่ระดับใดระดับหนึ่ง ให้แก้ไขค่าท้องถิ่นและจากนั้น (หากต้องการ) อ่านข้อมูล **effective** อีกครั้งเพื่อยืนยันผลลัพธ์.
+ใช้ข้อมูลท้องถิ่นเมื่อต้องการตรวจสอบหรือแก้ไขระดับการจัดรูปแบบเฉพาะ ใช้ข้อมูลที่มีผลเมื่อคุณต้องการผลลัพธ์ขั้นสุดท้ายหลังจากการสืบทอด, กฎธีม, และสไตล์ที่เกี่ยวข้องถูกแก้ไขแล้ว [ตัวอย่างเปรียบเทียบอย่างครบถ้วน](#compare-local-inherited-and-effective-values) แสดงให้เห็นทั้งสองแบบในขั้นตอนทำงานเดียวกัน.
