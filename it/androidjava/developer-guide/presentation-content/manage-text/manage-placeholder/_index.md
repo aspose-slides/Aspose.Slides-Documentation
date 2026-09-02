@@ -8,131 +8,370 @@ keywords:
 - segnaposto
 - segnaposto di testo
 - segnaposto immagine
-- segnaposto di grafico
+- segnaposto grafico
+- segnaposto di contenuto
 - testo di prompt
 - PowerPoint
-- OpenDocument
 - presentazione
 - Android
 - Java
 - Aspose.Slides
-description: "Gestisci facilmente i segnaposto in Aspose.Slides per Android via Java: sostituisci il testo, personalizza i prompt e imposta la trasparenza delle immagini in PowerPoint e OpenDocument."
+description: "Impara a ispezionare e modificare i segnaposto di testo, immagine, grafico e contenuto e a comprendere l'eredità dei segnaposto con Aspose.Slides per Android tramite Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides ti consente di gestire i segnaposto delle presentazioni in modo programmatico. Questo articolo spiega come trovare i segnaposto nelle diapositive e modificarne il testo, impostare un testo di prompt personalizzato per i layout dei segnaposto e regolare la trasparenza di un’immagine usata come sfondo del segnaposto. Include anche una breve FAQ che chiarisce la differenza tra segnaposto di base e forma locale, spiega come le modifiche ai segnaposto possono essere applicate tramite layout o master, e indica la gestione dei segnaposto di intestazione e piè di pagina.
+Un segnaposto è una forma che riserva una posizione per un particolare tipo di contenuto in un modello di presentazione. Esempi comuni sono segnaposti per titolo, corpo, immagine, grafico e contenuto generico. A differenza di una forma ordinaria, un segnaposto può ereditare la sua posizione, dimensione, formattazione e altre impostazioni da una diapositiva di layout o da una diapositiva master.
 
-## **Modifica testo in un segnaposto**
-Utilizzando [Aspose.Slides per Android via Java](/slides/it/androidjava/), puoi trovare e modificare i segnaposto nelle diapositive delle presentazioni. Aspose.Slides ti permette di apportare modifiche al testo di un segnaposto.
+Aspose.Slides espone le informazioni sui segnaposto tramite il metodo [IShape.getPlaceholder](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishape/). Il metodo restituisce un oggetto [IPlaceholder](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholder/) o `null` per una forma normale. Utilizzare [IPlaceholder.getType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholder/) per determinare cosa il segnaposto è destinato a contenere.
 
-**Prerequisito**: Hai bisogno di una presentazione che contenga un segnaposto. Puoi creare una tale presentazione nell’app standard Microsoft PowerPoint.
+L'interfaccia della forma rimane importante dopo aver conosciuto il tipo di segnaposto:
 
-Ecco come usare Aspose.Slides per sostituire il testo nel segnaposto di quella presentazione:
+- Un segnaposto vuoto di testo, immagine, grafico o contenuto è comunemente rappresentato da un [IAutoShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iautoshape/).
+- Un segnaposto immagine popolato può essere rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ipictureframe/).
+- Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ichart/).
+- Un segnaposto di contenuto può contenere diversi tipi di contenuto. Controllare sia [IPlaceholder.getType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholder/) sia l'interfaccia della forma a runtime invece di presumere che ogni segnaposto sia un [IAutoShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iautoshape/).
 
-1. Istanzia la classe [`Presentation`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/Presentation) e passa la presentazione come argomento.  
-2. Ottieni un riferimento a una diapositiva tramite il suo indice.  
-3. Itera attraverso le forme per individuare il segnaposto.  
-4. Esegui il cast della forma segnaposto a un [`AutoShape`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AutoShape) e modifica il testo usando il [`TextFrame`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/TextFrame) associato al [`AutoShape`](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/AutoShape).  
-5. Salva la presentazione modificata.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholder/) descrive il ruolo di un segnaposto; non garantisce il tipo di forma a runtime. Utilizzare sempre un controllo del tipo prima di accedere a membri specifici di testo, immagine, grafico, tabella o media.
+{{% /alert %}}
 
-Questo codice Java mostra come cambiare il testo in un segnaposto:
+## **Comprendere l'Ereditarietà dei Segnaposto**
+
+I segnaposto formano una gerarchia:
+
+1. Una diapositiva master definisce stili riutilizzabili e, in alcuni casi, segnaposti a livello master.
+2. Una diapositiva layout definisce la disposizione usata da una o più diapositive normali e può ereditare dal master.
+3. Una diapositiva normale contiene i segnaposto per quella diapositiva e può ereditare dal suo layout.
+
+Chiamare [IShape.getBasePlaceholder](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishape/) per spostarsi un livello più in alto in questa gerarchia. Un segnaposto di diapositiva normalmente restituisce il suo segnaposto di layout; un segnaposto di layout può restituire il suo segnaposto master. Il metodo restituisce `null` quando la forma non ha un segnaposto base.
+
+Il seguente esempio elenca i segnaposto nella prima diapositiva e segnala i loro segnaposto base:
 
 ```java
-// Istanzia una classe Presentation
-Presentation pres = new Presentation("ReplacingText.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Accede alla prima diapositiva
-    ISlide sld = pres.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
 
-    // Itera attraverso le forme per trovare il segnaposto
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp.getPlaceholder() != null) {
-            // Modifica il testo in ogni segnaposto
-            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
+        byte placeholderType = placeholder.getType();
+        String typeName = shape.getClass().getSimpleName();
+        String slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape interface: " + typeName;
+        System.out.println(slidePlaceholderMessage);
+
+        IShape layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            IPlaceholder layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            Byte layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            String layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            System.out.println(layoutPlaceholderMessage);
+
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                IPlaceholder masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                Byte masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                String masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                System.out.println(masterPlaceholderMessage);
+            }
         }
     }
-
-    // Salva la presentazione su disco
-    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Imposta testo di prompt in un segnaposto**
-I layout standard e predefiniti contengono testi di prompt per i segnaposto come ***Fare clic per aggiungere un titolo*** o ***Fare clic per aggiungere un sottotitolo***. Con Aspose.Slides, puoi inserire i tuoi testi di prompt preferiti nei layout dei segnaposto.
+Modificare un segnaposto su una diapositiva normale crea o modifica un'override locale per quella diapositiva. Modificare il layout o il master correlato può influenzare tutte le diapositive che ereditano ancora quella impostazione. Una forma locale ordinaria non ha un segnaposto base e non inizia a ereditare solo perché occupa le stesse coordinate.
 
-Questo codice Java mostra come impostare il testo di prompt in un segnaposto:
+## **Modificare il Testo in un Segnaposto**
+
+I segnaposto titolo, titolo centrato, sottotitolo, corpo e testo supportano normalmente il testo. Verificare la presenza di [IAutoShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iautoshape/) prima di utilizzare il suo [getTextFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iautoshape/) metodo.
+
+Questo esempio aggiorna il primo segnaposto titolo nella prima diapositiva e salva il risultato:
 
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Itera attraverso la diapositiva
-    {
-        if (shape.getPlaceholder() != null && shape instanceof AutoShape)
-        {
-            String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint visualizza "Click to add title"
-            {
-                text = "Add Title";
-            }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Aggiunge il sottotitolo
-            {
-                text = "Add Subtitle";
-            }
+import com.aspose.slides.*;
 
-            ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Placeholder with text: " + text);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape titleShape = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            titleShape = autoShape;
+            break;
         }
     }
 
-    pres.save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+    if (titleShape == null) {
+        throw new IllegalStateException("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Imposta trasparenza immagine del segnaposto**
+Questo modello evita il cast di segnaposto immagine, grafico, tabella o media a [IAutoShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iautoshape/). Identifica inoltre il segnaposto per scopo invece di fare affidamento su un indice di forma fragile.
 
-Aspose.Slides ti consente di impostare la trasparenza dell’immagine di sfondo in un segnaposto di testo. Regolando la trasparenza dell’immagine in tale cornice, puoi far risaltare il testo o l’immagine (a seconda dei colori del testo e dell’immagine).
+## **Impostare il Testo di Prompt in un Layout**
 
-Questo codice Java mostra come impostare la trasparenza per lo sfondo di un’immagine (all’interno di una forma):
+Il testo di prompt è l'istruzione di progettazione visualizzata in un segnaposto vuoto, ad esempio *Fare clic per aggiungere il titolo*. Impostare un testo di prompt personalizzato sul segnaposto del layout anziché tentare di accedervi tramite la raccolta di forme di una diapositiva normale. Accedere al layout tramite [ISlide.getLayoutSlide](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/islide/) e iterare sulla raccolta restituita da [ILayoutSlide.getShapes](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibaseslide/).
+
+Il seguente esempio modifica i prompt di titolo e sottotitolo nel layout usato dalla prima diapositiva:
 
 ```java
-Presentation presentation = new Presentation("example.pptx");
+import com.aspose.slides.*;
 
-IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getSlides().get_Item(0).getLayoutSlide();
 
-IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (int i = 0; i < operationCollection.size(); i++)
-{
-    if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
-    {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
-        float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Current transparency value: " + currentValue);
+    for (IShape shape : layoutSlide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
 
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            autoShape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType == PlaceholderType.Subtitle) {
+            autoShape.getTextFrame().setText("Enter a subtitle or reporting period");
+        }
     }
-}
 
-presentation.save("example_out.pptx", SaveFormat.Pptx);
+    presentation.save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Il testo di prompt non è contenuto di una diapositiva normale. È destinato ai segnaposto vuoti in applicazioni di modifica come PowerPoint. Una volta che un utente o un programma fornisce contenuto reale, il prompt non è più visualizzato. Modificare un prompt non sostituisce inoltre il testo esistente sulle diapositive che usano il layout.
+
+## **Aggiornare un Segnaposto Immagine**
+
+Ci sono due casi da gestire:
+
+- Se il segnaposto immagine è già popolato e rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ipictureframe/), sostituire l'immagine tramite [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ipicturefillformat/) e [ISlidesPicture.setImage](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/islidespicture/).
+- Se è ancora un segnaposto vuoto, aggiungere un frame immagine alle coordinate del segnaposto con [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishapecollection/) e rimuovere il segnaposto vuoto.
+
+Il prossimo esempio supporta entrambi i casi e salva la presentazione:
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("picture-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape picturePlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
+    }
+
+    if (picturePlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a picture placeholder.");
+    }
+
+    IPPImage image;
+    try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+        image = presentation.getImages().addImage(imageStream);
+    }
+
+    if (picturePlaceholder instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) picturePlaceholder;
+        pictureFrame.getPictureFormat().getPicture().setImage(image);
+    } else {
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, picturePlaceholder.getX(), picturePlaceholder.getY(), picturePlaceholder.getWidth(), picturePlaceholder.getHeight(), image);
+        slide.getShapes().remove(picturePlaceholder);
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+La sostituzione creata per un segnaposto vuoto è un frame immagine locale, non un nuovo segnaposto, perché [IShape.getPlaceholder](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishape/) non fornisce un setter. Mantiene la posizione riservata ma non eredita più il comportamento specifico del segnaposto. Se mantenere la relazione del segnaposto è essenziale, preparare e popolare prima il segnaposto in PowerPoint, quindi aggiornare il [IPictureFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ipictureframe/) risultante con Aspose.Slides.
+
+Per la trasparenza dell'immagine, il ritaglio e altri effetti specifici dell'immagine, vedere [Manage Picture Frames](/slides/it/androidjava/picture-frame/). Quelle operazioni appartengono al frame immagine o al riempimento immagine, non ai metadati del segnaposto.
+
+## **Lavorare con Segnaposti Grafico e Contenuto**
+
+Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ichart/). Questo esempio trova tale grafico sia per tipo di segnaposto sia per interfaccia a runtime, ne modifica il titolo e salva il file:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart placeholderChart = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IChart)) {
+            continue;
+        }
+
+        IChart chart = (IChart) shape;
+        IPlaceholder placeholder = chart.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Chart) {
+            placeholderChart = chart;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new IllegalStateException("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Un segnaposto di contenuto generico di solito ha [PlaceholderType.Object](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholdertype/). In PowerPoint agisce come avviatore per diversi tipi di contenuto, inclusi grafici, tabelle, diagrammi, immagini e media. Dopo che è stato popolato, ispezionare l'interfaccia della forma reale per capire cosa contiene. I layout specializzati possono anche esporre [PlaceholderType.Chart](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholdertype/), o [PlaceholderType.Diagram](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholdertype/).
+
+Aspose.Slides non converte un segnaposto [IAutoShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iautoshape/) vuoto in un [IChart](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ichart/) semplicemente modificando [IPlaceholder.getType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/placeholder/); il tipo non può essere cambiato tramite l'interfaccia. Per riempire programmaticamente un'area grafico o contenuto vuota, aggiungere l'oggetto richiesto alle coordinate del segnaposto e poi rimuovere il segnaposto vuoto. Il seguente esempio lo fa per un grafico:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("content-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape targetPlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Chart || placeholderType == PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a chart or content placeholder.");
+    }
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, targetPlaceholder.getX(), targetPlaceholder.getY(), targetPlaceholder.getWidth(), targetPlaceholder.getHeight());
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    slide.getShapes().remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Il grafico aggiunto è un grafico locale ordinario. Occupta l'area del segnaposto ma non eredita dal segnaposto del layout. Utilizzare gli articoli dedicati alla [chart management articles](/slides/it/androidjava/powerpoint-charts/) quando è necessario sostituire le sue categorie, serie o dati della cartella di lavoro.
+
+## **Esempio Completo: Aggiornare Testo o Contenuto Immagine**
+
+Il seguente esempio end-to-end apre un modello, ricerca nella prima diapositiva un segnaposto titolo o immagine, verifica i tipi di segnaposto e forma, aggiorna il contenuto appropriato e salva l'output. L'esempio evita deliberatamente di presumere un indice di forma o di castare ogni segnaposto alla stessa interfaccia.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean updated = false;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if ((placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) && shape instanceof IAutoShape) {
+            IAutoShape titleShape = (IAutoShape) shape;
+            titleShape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType == PlaceholderType.Picture) {
+            IPPImage image;
+            try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+                image = presentation.getImages().addImage(imageStream);
+            }
+
+            if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                pictureFrame.getPictureFormat().getPicture().setImage(image);
+            } else {
+                slide.getShapes().addPictureFrame(ShapeType.Rectangle, shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), image);
+                slide.getShapes().remove(shape);
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new IllegalStateException("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **FAQ**
 
-**Che cos’è un segnaposto di base e in che modo differisce da una forma locale su una diapositiva?**
+**Che cos'è un segnaposto base?**
 
-Un segnaposto di base è la forma originale su un layout o master da cui la forma della diapositiva eredita—tipo, posizione e parte della formattazione provengono da esso. Una forma locale è indipendente; se non esiste un segnaposto di base, l’ereditarietà non si applica.
+Un segnaposto base è la forma corrispondente sul layout o master da cui un altro segnaposto eredita. Utilizzare [IShape.getBasePlaceholder](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishape/) per recuperarlo. Una forma locale ordinaria restituisce `null` perché non fa parte della gerarchia dei segnaposti.
 
-**Come posso aggiornare tutti i titoli o le didascalie in un’intera presentazione senza iterare su ogni diapositiva?**
+**Posso cambiare tutti i titoli delle diapositive modificando un segnaposto di layout?**
 
-Modifica il segnaposto corrispondente sul layout o sul master. Le diapositive basate su quei layout/master erediteranno automaticamente la modifica.
+È possibile modificare la formattazione o il testo di prompt ereditati tramite un layout, ma il contenuto del titolo esistente è memorizzato sulle diapositive normali. Per sostituire il testo reale del titolo in tutta la presentazione, iterare sulle diapositive e aggiornare ogni segnaposto titolo.
 
-**Come controllo i segnaposto standard di intestazione/piè di pagina—data & ora, numero diapositiva e testo del piè di pagina?**
+**Come gestisco i segnaposto data, numero diapositiva, intestazione e piè di pagina?**
 
-Usa i gestori HeaderFooter allo scopo appropriato (diapositive normali, layout, master, note/handout) per attivare o disattivare quei segnaposto e impostarne il contenuto.
+Utilizzare i gestori di intestazione e piè di pagina nello scopo appropriato (diapositiva, layout, master, note o dispense). Vedere [Manage Presentation Header and Footer](/slides/it/androidjava/presentation-header-and-footer/) per esempi completi.

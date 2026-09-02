@@ -1,116 +1,289 @@
 ---
-title: مدیریت جای‌گیرها در ارائه‌ها با پایتون
-linktitle: مدیریت جای‌گیرها
+title: مدیریت Placeholderها در Python
+linktitle: مدیریت Placeholderها
 type: docs
 weight: 10
 url: /fa/python-net/manage-placeholder/
 keywords:
-- جای‌گیر
-- جای‌گیر متن
-- جای‌گیر تصویر
-- جای‌گیر نمودار
+- محل‌نگهدار
+- محل‌نگهدار متن
+- محل‌نگهدار تصویر
+- محل‌نگهدار نمودار
+- محل‌نگهدار محتوا
 - متن راهنما
-- PowerPoint
+- پاورپوینت
 - ارائه
-- Python
+- پایتون
 - Aspose.Slides
-description: "به‌سادگی جای‌گیرها را در Aspose.Slides برای پایتون از طریق .NET مدیریت کنید: متن را جایگزین کنید، راهنماها را سفارشی کنید و شفافیت تصویر را در PowerPoint و OpenDocument تنظیم نمایید."
+description: "یاد بگیرید چگونه placeholderهای متن، تصویر، نمودار و محتوا را بررسی و ویرایش کنید و ارث‌بری placeholderها را با Aspose.Slides برای پایتون از طریق .NET درک نمایید."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-Aspose.Slides به شما امکان می‌دهد متغیرهای نگهدارنده ارائه را به‌صورت برنامه‌نویسی مدیریت کنید. این مقاله توضیح می‌دهد چگونه متغیرهای نگهدارنده را در اسلایدها پیدا کنید و متن آن‌ها را تغییر دهید، متن راهنمای سفارشی برای طرح‌های جای‌گیر تنظیم کنید و شفافیت تصویری که به‌عنوان پس‌زمینه متغیر نگهدارنده استفاده می‌شود را تنظیم کنید. همچنین شامل یک بخش پرسش و پاسخ کوتاه است که تفاوت بین متغیرهای پایه و اشکال محلی را روشن می‌کند، نحوه اعمال تغییرات متغیرهای نگهدارنده از طریق طرح‌ها یا مسترها را شرح می‌دهد و به مدیریت متغیرهای سرصفحه و پاورپیرامید اشاره می‌کند.
+یک placeholder شکل است که برای یک نوع خاص از محتوا در قالب ارائه یک موقعیت را رزرو می‌کند. مثال‌های رایج شامل placeholderهای عنوان، بدنه، تصویر، نمودار و placeholderهای محتوای عمومی هستند. برخلاف یک شکل معمولی، یک placeholder می‌تواند موقعیت، اندازه، قالب‌بندی و سایر تنظیمات خود را از اسلاید چیدمان یا اسلاید اصلی به ارث برد.
 
-## **تغییر متن در جای‌گیرها**
+Aspose.Slides اطلاعات placeholder را از طریق ویژگی [Shape.placeholder](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/placeholder/) در دسترس قرار می‌دهد. این ویژگی یک شیء [Placeholder](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholder/) یا `None` برای یک شکل معمولی برمی‌گرداند. برای تعیین آنچه placeholder قرار است شامل شود از [Placeholder.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholder/type/) استفاده کنید.
 
-با استفاده از Aspose.Slides برای Python می‌توانید جای‌گیرها را در اسلایدهای یک ارائه پیدا کنید و آن‌ها را تغییر دهید. Aspose.Slides به شما امکان می‌دهد متن یک جای‌گیر را اصلاح کنید.
+کلاس شکل همچنان پس از دانستن نوع placeholder مهم است:
 
-**پیش‌نیاز:** شما به ارائه‌ای نیاز دارید که شامل یک جای‌گیر باشد. می‌توانید چنین ارائه‌ای را در Microsoft PowerPoint ایجاد کنید.
+- یک placeholder خالی متن، تصویر، نمودار یا محتوا معمولاً توسط یک [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) نشان داده می‌شود.
+- یک placeholder تصویر پرشده می‌تواند توسط یک [PictureFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pictureframe/) نمایان شود.
+- یک placeholder نمودار پرشده می‌تواند توسط یک [Chart](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/) نمایش داده شود.
+- یک placeholder محتوا می‌تواند چندین نوع محتوا را در خود داشته باشد. به جای فرض اینکه هر placeholder یک [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) است، هم [Placeholder.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholder/type/) و هم کلاس شکل در زمان اجرا را بررسی کنید.
 
-این روش استفاده از Aspose.Slides برای جایگزینی متن در یک جای‌گیر است:
+{{% alert color="warning" title="Warning" %}}
+[Placeholder.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholder/type/) نقش یک placeholder را توصیف می‌کند؛ اما کلاس شکل در زمان اجرا را تضمین نمی‌کند. همیشه قبل از دسترسی به اعضای متن، تصویر، نمودار، جدول یا رسانه نوع را بررسی کنید.
+{{% /alert %}}
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید و ارائه را به عنوان آرگومان پاس دهید.
-1. با استفاده از ایندکس آن، به اسلاید مورد نظر دسترسی پیدا کنید.
-1. در میان اشکال مرور کنید تا جای‌گیر را پیدا کنید.
-1. متن را با استفاده از [TextFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/textframe/) مرتبط با [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) تغییر دهید.
-1. ارائه اصلاح‌شده را ذخیره کنید.
+## **درک ارث‌بری Placeholder**
 
-این کد Python نشان می‌دهد چگونه متن در یک جای‌گیر را تغییر دهید:
+Placeholderها سلسله‌مراتی تشکیل می‌دهند:
+
+1. یک اسلاید اصلی استایل‌های قابل استفاده مجدد و در برخی موارد placeholderهای سطح‑مستر را تعریف می‌کند.
+2. یک اسلاید چیدمان چیدمانی را که توسط یک یا چند اسلاید معمولی استفاده می‌شود تعریف می‌کند و می‌تواند از مستر ارث ببرد.
+3. یک اسلاید معمولی placeholderهای خود را دارد و می‌تواند از چیدمان خود ارث ببرد.
+
+برای حرکت یک سطح بالاتر در این سلسله‌مرات، [Shape.get_base_placeholder](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/get_base_placeholder/) را فراخوانی کنید. یک placeholder اسلاید معمولاً placeholder چیدمان خود را برمی‌گرداند؛ یک placeholder چیدمان می‌تواند placeholder مستر خود را برگرداند. این متد وقتی شکل پایه‌ای ندارد `None` برمی‌گرداند.
+
+مثال زیر placeholderهای اسلاید اول را فهرست می‌کند و placeholderهای پایهٔ آن‌ها را گزارش می‌دهد:
 
 ```python
 import aspose.slides as slides
 
-# نمونه‌سازی کلاس Presentation.
-with slides.Presentation("ReplacingText.pptx") as presentation:
-    # دسترسی به اولین اسلاید.
+with slides.Presentation("template.pptx") as presentation:
     slide = presentation.slides[0]
 
-    # مرور اشکال برای یافتن جای‌گیرها.
     for shape in slide.shapes:
-        if shape.placeholder is not None:
-            # تغییر متن در هر جای‌گیر.
-            shape.text_frame.text = "This is Placeholder"
+        if shape.placeholder is None:
+            continue
 
-    # ذخیرهٔ ارائه در دیسک.
-    presentation.save("ReplacingText_out.pptx", slides.export.SaveFormat.PPTX)
+        placeholder_type = shape.placeholder.type
+        type_name = type(shape).__name__
+        print(f"Slide placeholder: {placeholder_type}; shape class: {type_name}")
+
+        layout_placeholder = shape.get_base_placeholder()
+        if layout_placeholder is not None:
+            layout_placeholder_type = layout_placeholder.placeholder.type if layout_placeholder.placeholder is not None else None
+            print(f"  Layout placeholder: {layout_placeholder_type}")
+
+            master_placeholder = layout_placeholder.get_base_placeholder()
+            if master_placeholder is not None:
+                master_placeholder_type = master_placeholder.placeholder.type if master_placeholder.placeholder is not None else None
+                print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-## **تنظیم متن راهنما برای یک جای‌گیر**
+ویرایش یک placeholder در اسلاید معمولی باعث ایجاد یا تغییر یک لغو محلی برای آن اسلاید می‌شود. ویرایش چیدمان یا مستر مرتبط می‌تواند بر تمام اسلایدهایی که هنوز آن تنظیم را ارث می‌برند تأثیر بگذارد. یک شکل معمولی محلی پایهٔ placeholder ندارد و صرفاً به دلیل داشتن همان مختصات، ارث‌بری آغاز نمی‌شود.
 
-طرح‌های استاندارد و پیش‌ساخته شامل متن راهنمایی جای‌گیر مانند **Click to add a title** یا **Click to add a subtitle** هستند. با Aspose.Slides می‌توانید این راهنماها را با متن دلخواه خود در طرح‌های جای‌گیر جایگزین کنید.
+## **تغییر متن در Placeholder**
 
-مثال Python زیر نشان می‌دهد چگونه متن راهنمایی برای یک جای‌گیر تنظیم شود:
+placeholderهای عنوان، centered‑title، subtitle، body و متن معمولاً از متن پشتیبانی می‌کنند. پیش از استفاده از ویژگی [text_frame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/text_frame/) حتماً بررسی کنید که شکل یک [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) است.
+
+این مثال ابتدا عنوان اولین placeholder در اسلاید اول را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌نماید:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("PromptText.pptx") as presentation:
+with slides.Presentation("template.pptx") as presentation:
     slide = presentation.slides[0]
+    title_shape = None
 
-    # مرور اشکال برای یافتن جای‌گیرها.
-    for shape in slide.slide.shapes:
-        if shape.placeholder is not None and type(shape) is slides.AutoShape:
-            if shape.placeholder.type == slides.PlaceholderType.CENTERED_TITLE:
-                text = "Add Title"
-            elif shape.placeholder.type == slides.PlaceholderType.SUBTITLE:
-                text = "Add Subtitle"
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
 
-            shape.text_frame.text = text
-            print(f"Placeholder with text: {text}")
+        placeholder_type = shape.placeholder.type
+        if placeholder_type in (slides.PlaceholderType.TITLE, slides.PlaceholderType.CENTERED_TITLE):
+            title_shape = shape
+            break
 
-    presentation.save("PromptText_out.pptx", slides.export.SaveFormat.PPTX)
+    if title_shape is None:
+        raise RuntimeError("The first slide does not contain a title placeholder.")
+
+    title_shape.text_frame.text = "Quarterly Business Review"
+    presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنظیم شفافیت تصویر در یک جای‌گیر**
+این الگو از برخورد با placeholderهای تصویر، نمودار، جدول یا رسانه به عنوان اشیای [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) جلوگیری می‌کند و به‌جای وابستگی به ایندکس ناپایدار، placeholder را بر اساس هدفش شناسایی می‌نماید.
 
-Aspose.Slides به شما امکان می‌دهد شفافیت تصویر پس‌زمینه در یک جای‌گیر متن را تنظیم کنید. با تنظیم شفافیت تصویر در همان فریم، می‌توانید متن یا تصویر را برجسته کنید، بسته به رنگ‌های آن‌ها.
+## **تنظیم متن راهنمایی در Layout**
 
-مثال Python زیر نشان می‌دهد چگونه شفافیت پس‌زمینه تصویر داخل یک شکل تنظیم شود:
+متن راهنمایی (Prompt text) دستور طراحی زمان اجرا است که در یک placeholder خالی نمایش داده می‌شود، مانند *Click to add title*. متن راهنمای سفارشی را بر روی placeholder چیدمان تنظیم کنید نه این‌که سعی کنید از طریق مجموعهٔ شکلهای اسلاید معمولی به آن دسترسی پیدا کنید. چیدمان را از طریق [Slide.layout_slide](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/layout_slide/) دریافت کنید و بر روی [LayoutSlide.shapes](https://reference.aspose.com/slides/fa/python-net/aspose.slides/baseslide/shapes/) پیمایش کنید.
+
+مثال زیر متن‌های راهنمای عنوان و زیرعنوان را در چیدمانی که توسط اسلاید اول استفاده می‌شود تغییر می‌دهد:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation("template.pptx") as presentation:
+    layout_slide = presentation.slides[0].layout_slide
 
-    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-    auto_shape.fill_format.fill_type = slides.FillType.PICTURE
+    for shape in layout_slide.shapes:
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
 
-    with open("image.png", "rb") as image_stream:
-        auto_shape.fill_format.picture_fill_format.picture.image = presentation.images.add_image(image_stream)
-        auto_shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-        auto_shape.fill_format.picture_fill_format.picture.image_transform.add_alpha_modulate_fixed_effect(75)
+        placeholder_type = shape.placeholder.type
+
+        if placeholder_type in (slides.PlaceholderType.TITLE, slides.PlaceholderType.CENTERED_TITLE):
+            shape.text_frame.text = "Enter a concise slide title"
+        elif placeholder_type == slides.PlaceholderType.SUBTITLE:
+            shape.text_frame.text = "Enter a subtitle or reporting period"
+
+    presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **سوالات متداول**
+متن راهنمایی محتوی اسلاید معمولی نیست؛ برای placeholderهای خالی در برنامه‌های ویرایشی مانند PowerPoint طراحی شده است. وقتی کاربر یا برنامه محتوا واقعی را فراهم می‌کند، متن راهنمای دیگر نمایش داده نمی‌شود. تغییر راهنمایی متن موجود در اسلایدهای استفاده‌کننده از چیدمان را جایگزین نمی‌کند.
 
-**متغیر پایه چیست و چگونه با یک شکل محلی در اسلاید متفاوت است؟**
+## **به‌روزرسانی یک Picture Placeholder**
 
-متغیر پایه، شکل اصلی در یک طرح یا مستر است که شکل اسلاید از آن ویژگی‌ها—نوع، موقعیت و برخی قالب‌بندی‌ها—را به ارث می‌برد. شکل محلی مستقل است؛ اگر متغیر پایه‌ای وجود نداشته باشد، ارث‌بری اعمال نمی‌شود.
+دو حالت برای پردازش وجود دارد:
 
-**چگونه می‌توان تمام عناوین یا توضیحات را در یک ارائه به‌روزرسانی کرد بدون اینکه بر هر اسلاید تکرار شود؟**
+- اگر picture placeholder قبلاً پر شده باشد و توسط یک [PictureFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pictureframe/) نشان داده می‌شود، تصویر را از طریق [PictureFillFormat.picture](https://reference.aspose.com/slides/fa/python-net/aspose.slides/picturefillformat/picture/) و [Picture.image](https://reference.aspose.com/slides/fa/python-net/aspose.slides/picture/image/) جایگزین کنید.
+- اگر هنوز یک placeholder خالی است، یک picture frame را در مختصات placeholder با استفاده از [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/add_picture_frame/) اضافه کنید و placeholder خالی را حذف کنید.
 
-متغیر مربوطه را در طرح یا مستر ویرایش کنید. اسلایدهای مبتنی بر آن طرح/مستر به‌صورت خودکار تغییرات را به ارث می‌برند.
+مثال بعدی هر دو حالت را پشتیبانی می‌کند و ارائه را ذخیره می‌نماید:
 
-**چگونه می‌توان متغیرهای استاندارد سرصفحه/پاورپیرامید—تاریخ و زمان، شماره اسلاید و متن پاورپیرامید—را کنترل کرد؟**
+```python
+import aspose.slides as slides
 
-از مدیرهای HeaderFooter در سطح مناسب (اسلایدهای عادی، طرح‌ها، مستر، یادداشت‌ها/پیشنویس‌ها) استفاده کنید تا این متغیرها را فعال یا غیرفعال کنید و محتوای آن‌ها را تنظیم نمایید.
+with slides.Presentation("picture-template.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_placeholder = None
+
+    for shape in slide.shapes:
+        if shape.placeholder is not None and shape.placeholder.type == slides.PlaceholderType.PICTURE:
+            picture_placeholder = shape
+            break
+
+    if picture_placeholder is None:
+        raise RuntimeError("The first slide does not contain a picture placeholder.")
+
+    with open("replacement.png", "rb") as image_stream:
+        image_bytes = image_stream.read()
+
+    image = presentation.images.add_image(image_bytes)
+
+    if isinstance(picture_placeholder, slides.PictureFrame):
+        picture_placeholder.picture_format.picture.image = image
+    else:
+        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, picture_placeholder.x, picture_placeholder.y, picture_placeholder.width, picture_placeholder.height, image)
+        slide.shapes.remove(picture_placeholder)
+
+    presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+جایگزینی که برای یک placeholder خالی ساخته می‌شود، یک picture frame محلی است، نه یک placeholder جدید، زیرا [Shape.placeholder](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/placeholder/) فقط‑خواندنی است. این کار موقعیت رزرو شده را حفظ می‌کند اما دیگر رفتار خاص placeholder را به ارث نمی‌برد. اگر حفظ رابطهٔ placeholder ضروری است، ابتدا در PowerPoint placeholder را آماده و پر کنید، سپس با Aspose.Slides [PictureFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pictureframe/) حاصل را به‌روزرسانی کنید.
+
+برای شفافیت تصویر، برش و سایر افکت‌های خاص تصویر به مقالهٔ [Manage Picture Frames](/slides/fa/python-net/picture-frame/) مراجعه کنید. این عملیات مربوط به picture frame یا picture fill است، نه به متادادهٔ placeholder.
+
+## **کار با Chart و Content Placeholderها**
+
+یک chart placeholder پرشده می‌تواند توسط یک [Chart](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/) نمایش داده شود. این مثال چنین نموداری را هم بر اساس نوع placeholder و هم بر اساس کلاس زمان اجرا می‌یابد، عنوان آن را تغییر می‌دهد و فایل را ذخیره می‌کند:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("chart-template.pptx") as presentation:
+    slide = presentation.slides[0]
+    placeholder_chart = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, charts.Chart) and shape.placeholder is not None and shape.placeholder.type == slides.PlaceholderType.CHART:
+            placeholder_chart = shape
+            break
+
+    if placeholder_chart is None:
+        raise RuntimeError("The first slide does not contain a populated chart placeholder.")
+
+    placeholder_chart.has_title = True
+    placeholder_chart.chart_title.add_text_frame_for_overriding("Quarterly Revenue")
+    presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+یک placeholder محتوای کلی معمولاً دارای [PlaceholderType.OBJECT](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholdertype/) است. در PowerPoint به‌عنوان راه‌اندازی‌کننده‌ای برای چندین نوع محتوا، از جمله نمودارها، جداول، دیاگرام‌ها، تصاویر و رسانه‌ها عمل می‌کند. پس از پر شدن، کلاس شکل واقعی را بررسی کنید تا متوجه شوید چه چیزی در آن وجود دارد. چیدمان‌های تخصصی می‌توانند همچنین [PlaceholderType.CHART](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholdertype/)، [PlaceholderType.TABLE](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholdertype/)، [PlaceholderType.PICTURE](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholdertype/)، [PlaceholderType.MEDIA](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholdertype/)، یا [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholdertype/) را در بر داشته باشند.
+
+Aspose.Slides یک [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) خالی را صرف تغییر [Placeholder.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/placeholder/type/) به یک [Chart](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/) تبدیل نمی‌کند؛ این ویژگی فقط‑خواندنی است. برای پر کردن برنامه‌ای یک ناحیهٔ خالی نمودار یا محتوا، شیء مورد نیاز را در مختصات placeholder اضافه کنید و سپس placeholder خالی را حذف کنید. مثال زیر این کار را برای یک نمودار انجام می‌دهد:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("content-template.pptx") as presentation:
+    slide = presentation.slides[0]
+    target_placeholder = None
+
+    for shape in slide.shapes:
+        if shape.placeholder is None:
+            continue
+
+        if shape.placeholder.type in (slides.PlaceholderType.CHART, slides.PlaceholderType.OBJECT):
+            target_placeholder = shape
+            break
+
+    if target_placeholder is None:
+        raise RuntimeError("The first slide does not contain a chart or content placeholder.")
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, target_placeholder.x, target_placeholder.y, target_placeholder.width, target_placeholder.height)
+    chart.has_title = True
+    chart.chart_title.add_text_frame_for_overriding("Quarterly Revenue")
+    slide.shapes.remove(target_placeholder)
+    presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
+```
+
+نمودار اضافه شده یک نمودار محلی عادی است. این نمودار ناحیهٔ placeholder را اشغال می‌کند اما از placeholder چیدمان ارث نمی‌برد. برای جایگزینی دسته‌بندی‌ها، سری‌ها یا داده‌های کاربرگ آن، از مقالات ویژهٔ مدیریت نمودارهای PowerPoint در [chart management articles](/slides/fa/python-net/powerpoint-charts/) استفاده کنید.
+
+## **مثال کامل: به‌روزرسانی متن یا محتوی تصویر**
+
+مثال پایان‑به‑پایان زیر یک قالب را باز می‌کند، اسلاید اول را برای پیدا کردن یک placeholder عنوان یا تصویر جستجو می‌کند، نوع placeholder و شکل را بررسی می‌کند، محتوی مناسب را به‌روزرسانی می‌کند و خروجی را ذخیره می‌نماید. این مثال عمداً از فرض وجود ایندکس شکل یا رفتار یکسان تمام placeholderها اجتناب می‌کند.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    updated = False
+
+    for shape in slide.shapes:
+        if shape.placeholder is None:
+            continue
+
+        placeholder_type = shape.placeholder.type
+
+        if placeholder_type in (slides.PlaceholderType.TITLE, slides.PlaceholderType.CENTERED_TITLE) and isinstance(shape, slides.AutoShape):
+            shape.text_frame.text = "Quarterly Business Review"
+            updated = True
+            break
+
+        if placeholder_type == slides.PlaceholderType.PICTURE:
+            with open("replacement.png", "rb") as image_stream:
+                image_bytes = image_stream.read()
+
+            image = presentation.images.add_image(image_bytes)
+
+            if isinstance(shape, slides.PictureFrame):
+                shape.picture_format.picture.image = image
+            else:
+                slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, image)
+                slide.shapes.remove(shape)
+
+            updated = True
+            break
+
+    if not updated:
+        raise RuntimeError("No supported title or picture placeholder was found on the first slide.")
+
+    presentation.save("placeholder-content-updated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **سؤالات متداول**
+
+**Placeholder پایه چیست؟**
+
+Placeholder پایه، شکل متناظر موجود در چیدمان یا مستری است که از آن placeholder دیگر ارث می‌برد. برای دریافت آن از [Shape.get_base_placeholder](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/get_base_placeholder/) استفاده کنید. یک شکل محلی عادی `None` برمی‌گرداند زیرا بخشی از سلسله‌مرات placeholder نیست.
+
+**آیا می‌توانم تمام عناوین اسلایدها را با ویرایش یک placeholder در layout تغییر دهم؟**
+
+می‌توانید قالب‌بندی یا متن راهنمای ارث‌برده را از طریق layout تغییر دهید، اما محتوای عنوان موجود در اسلایدهای معمولی ذخیره شده است. برای جایگزینی واقعی متن عنوان در سراسر ارائه، بر روی اسلایدها پیمایش کنید و هر placeholder عنوان را به‌روزرسانی کنید.
+
+**چگونه می‌توانم placeholderهای تاریخ، شماره اسلاید، سرآیند و پانویس را مدیریت کنم؟**
+
+از مدیران سرآیند و پانویس در سطح اسلاید، layout، master، notes یا handout استفاده کنید. برای مثال‌های کامل به مقالهٔ [Manage Presentation Header and Footer](/slides/fa/python-net/presentation-header-and-footer/) مراجعه کنید.

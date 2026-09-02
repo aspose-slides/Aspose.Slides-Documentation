@@ -1,126 +1,506 @@
 ---
-title: Gerenciar Marcadores de Posição de Apresentação em C++
-linktitle: Gerenciar Marcadores de Posição
+title: "Gerenciar placeholders de apresentação em C++"
+linktitle: "Gerenciar placeholders"
 type: docs
 weight: 10
 url: /pt/cpp/manage-placeholder/
 keywords:
-- marcador de posição
-- marcador de posição de texto
-- marcador de posição de imagem
-- marcador de posição de gráfico
-- texto de sugestão
-- PowerPoint
-- OpenDocument
-- apresentação
-- C++
-- Aspose.Slides
-description: "Gerencie marcadores de posição no Aspose.Slides para C++ de forma simples: substitua texto, personalize sugestões e defina transparência de imagem no PowerPowerPoint e OpenDocument."
+- "marcador de posição"
+- "marcador de texto"
+- "marcador de imagem"
+- "marcador de gráfico"
+- "marcador de conteúdo"
+- "texto de sugestão"
+- "PowerPoint"
+- "apresentação"
+- "C++"
+- "Aspose.Slides"
+description: "Aprenda como inspecionar e editar marcadores de texto, imagem, gráfico e conteúdo e entender a herança de marcadores com Aspose.Slides para C++."
 ---
 ## **Visão geral**
 
-Aspose.Slides permite que você gerencie marcadores de posição de apresentações programaticamente. Este artigo explica como encontrar marcadores de posição nos slides e alterar seu texto, definir texto de sugestão personalizado para layouts de marcadores de posição e ajustar a transparência de uma imagem usada como plano de fundo de um marcador de posição. Também inclui um breve FAQ que esclarece a diferença entre marcadores de posição base e formas locais, explica como as alterações de marcadores de posição podem ser aplicadas por meio de layouts ou mestres, e aponta para o gerenciamento de marcadores de posição de cabeçalho e rodapé.
+Um placeholder é uma forma que reserva uma posição para um determinado tipo de conteúdo em um modelo de apresentação. Exemplos comuns são título, corpo, imagem, gráfico e placeholders de conteúdo de uso geral. Diferente de uma forma comum, um placeholder pode herdar sua posição, tamanho, formatação e outras configurações de um slide de layout ou slide mestre.
 
-## **Alterar texto em um marcador de posição**
-Usando [Aspose.Slides for C++](/slides/pt/cpp/), você pode encontrar e modificar marcadores de posição nos slides de apresentações. Aspose.Slides permite que você faça alterações no texto de um marcador de posição.
+Aspose.Slides expõe as informações de placeholder através do método [IShape::get_Placeholder](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/get_placeholder/). O método devolve um objeto [IPlaceholder](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iplaceholder/) ou `nullptr` para uma forma normal. Use [IPlaceholder::get_Type](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iplaceholder/get_type/) para determinar o que o placeholder deve conter.
 
-**Pré-requisito**: Você precisa de uma apresentação que contenha um marcador de posição. Você pode criar essa apresentação no aplicativo Microsoft PowerPoint padrão.
+A interface da forma ainda é importante depois de conhecer o tipo de placeholder:
 
-É assim que você usa Aspose.Slides para substituir o texto no marcador de posição nessa apresentação:
+- Um placeholder vazio de texto, imagem, gráfico ou conteúdo costuma ser representado por um [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/).
+- Um placeholder de imagem preenchido pode ser representado por um [IPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframe/).
+- Um placeholder de gráfico preenchido pode ser representado por um [IChart](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichart/).
+- Um placeholder de conteúdo pode conter vários tipos de conteúdo. Verifique tanto [IPlaceholder::get_Type](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iplaceholder/get_type/) quanto a interface da forma em tempo de execução em vez de assumir que todo placeholder é um [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/).
 
-1. Instancie a classe [`Presentation`](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.presentation/) e passe a apresentação como argumento.
-2. Obtenha uma referência ao slide através de seu índice.
-3. Itere pelas formas para encontrar o marcador de posição.
-4. Converta a forma do marcador de posição para um [`AutoShape`](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.auto_shape/) e altere o texto usando o [`TextFrame`](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.text_frame/) associado ao [`AutoShape`](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.auto_shape/).
-5. Salve a apresentação modificada.
+{{% alert color="warning" title="Aviso" %}}
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iplaceholder/get_type/) descreve o papel de um placeholder; ele não garante o tipo da forma em tempo de execução. Sempre faça uma verificação de tipo antes de acessar membros específicos de texto, imagem, gráfico, tabela ou mídia.
+{{% /alert %}}
 
-Este código C++ mostra como alterar o texto em um marcador de posição:
+## **Entender a herança de placeholders**
+
+Os placeholders formam uma hierarquia:
+
+1. Um slide mestre define estilos reutilizáveis e, em alguns casos, placeholders de nível mestre.
+2. Um slide de layout define o arranjo usado por um ou mais slides normais e pode herdar do mestre.
+3. Um slide normal contém os placeholders desse slide e pode herdar do seu layout.
+
+Chame [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/getbaseplaceholder/) para subir um nível nessa hierarquia. Um placeholder de slide normalmente devolve seu placeholder de layout; um placeholder de layout pode devolver seu placeholder mestre. O método devolve `nullptr` quando a forma não possui placeholder base.
+
+O exemplo a seguir lista os placeholders do primeiro slide e relata seus placeholders base:
 
 ```c++
-// O caminho para o diretório de documentos.
-const String outPath = u"../out/ReplacingText_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/type_info.h>
 
+using namespace Aspose::Slides;
+using namespace System;
 
-// Carrega a apresentação desejada
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Acessa o primeiro slide
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+for (auto&& shape : slide->get_Shapes())
+{
+    auto placeholder = shape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
 
-// Acessa o primeiro e segundo marcador de posição no slide e faz cast para AutoShape
-SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
-SharedPtr<AutoShape> ashp = ExplicitCast<Aspose::Slides::AutoShape>(shape);
+    auto placeholderType = placeholder->get_Type();
+    auto typeName = shape->GetType().get_Name();
+    Console::WriteLine(u"Slide placeholder: {0}; shape interface: {1}", placeholderType, typeName);
 
-SharedPtr<ITextFrame> textframe = ashp->get_TextFrame();
+    auto layoutPlaceholder = shape->GetBasePlaceholder();
+    if (layoutPlaceholder != nullptr)
+    {
+        auto layoutPlaceholderInfo = layoutPlaceholder->get_Placeholder();
+        if (layoutPlaceholderInfo != nullptr)
+        {
+            auto layoutPlaceholderType = layoutPlaceholderInfo->get_Type();
+            Console::WriteLine(u"  Layout placeholder: {0}", layoutPlaceholderType);
+        }
 
-textframe->set_Text(u"This is Placeholder");
-	
-// Salva a apresentação no disco
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+        auto masterPlaceholder = layoutPlaceholder->GetBasePlaceholder();
+        if (masterPlaceholder != nullptr)
+        {
+            auto masterPlaceholderInfo = masterPlaceholder->get_Placeholder();
+            if (masterPlaceholderInfo != nullptr)
+            {
+                auto masterPlaceholderType = masterPlaceholderInfo->get_Type();
+                Console::WriteLine(u"  Master placeholder: {0}", masterPlaceholderType);
+            }
+        }
+    }
+}
 ```
 
-## **Definir texto de sugestão em um marcador de posição**
-Os layouts padrão e pré-construídos contêm textos de sugestão de marcador de posição, como ***Click to add a title*** ou ***Click to add a subtitle***. Usando Aspose.Slides, você pode inserir seus próprios textos de sugestão nos layouts de marcadores de posição.
+Editar um placeholder em um slide normal cria ou altera uma sobrescrita local para esse slide. Editar o layout ou mestre relacionado pode afetar todos os slides que ainda herdam essa configuração. Uma forma local comum não tem placeholder base e não começa a herdar apenas por ocupar as mesmas coordenadas.
 
-Este código C++ mostra como definir o texto de sugestão em um marcador de posição:
+## **Alterar texto em um placeholder**
+
+Placeholders de título, título centralizado, subtítulo, corpo e texto normalmente suportam texto. Verifique se é um [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/) antes de usar seu método [get_TextFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/get_textframe/).
+
+Este exemplo atualiza o primeiro placeholder de título no primeiro slide e salva o resultado:
 
 ```c++
-const System::String templatePath = u"../templates/Presentation2.pptx";
-    
-auto pres = System::MakeObject<Presentation>(templatePath);
-auto slide = pres->get_Slides()->idx_get(0);
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
 
-for (auto& shape : slide->get_Shapes())
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IAutoShape> titleShape;
+
+for (auto&& shape : slide->get_Shapes())
 {
-    if (shape->get_Placeholder() != NULL)
+    if (!ObjectExt::Is<IAutoShape>(shape))
     {
-        System::String text = u"";
-        if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // Quando não há texto nele, o PowerPoint exibe "Clique para adicionar título". 
-        {
-            text = u"Click to add title";
-        }
-        else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // Faz a mesma coisa para subtítulo.
-        {
-            text = u"Click to add subtitle";
-        }
-        System::Console::WriteLine(u"Placeholder : {0}", text);
+        continue;
+    }
+
+    auto autoShape = ExplicitCast<IAutoShape>(shape);
+    auto placeholder = autoShape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
+
+    auto placeholderType = placeholder->get_Type();
+    if (placeholderType == PlaceholderType::Title || placeholderType == PlaceholderType::CenteredTitle)
+    {
+        titleShape = autoShape;
+        break;
     }
 }
 
-pres->Save(u"../out/Placeholders_PromptText.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+if (titleShape == nullptr)
+{
+    throw InvalidOperationException(u"The first slide does not contain a title placeholder.");
+}
+
+titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
+presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-## **Definir transparência da imagem do marcador de posição**
+Esse padrão evita converter placeholders de imagem, gráfico, tabela ou mídia para [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/). Ele também identifica o placeholder pelo propósito em vez de depender de um índice de forma frágil.
 
-Aspose.Slides permite definir a transparência da imagem de fundo em um marcador de posição de texto. Ajustando a transparência da imagem nesse quadro, você pode fazer com que o texto ou a imagem se destaquem (dependendo das cores do texto e da imagem).
+## **Definir texto de sugestão em um layout**
 
-Este código C++ mostra como definir a transparência para o fundo da imagem (dentro de uma forma):
+O texto de sugestão é a instrução exibida em tempo de design em um placeholder vazio, como *Clique para adicionar título*. Defina texto de sugestão personalizado no placeholder do layout em vez de tentar alcançá‑lo através da coleção de formas de um slide normal. Acesse o layout por meio de [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islide/get_layoutslide/) e itere sobre [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ibaseslide/get_shapes/).
+
+O exemplo a seguir altera as sugestões de título e subtítulo no layout usado pelo primeiro slide:
 
 ```c++
-auto presentation = System::MakeObject<Presentation>();
-    
-auto autoShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
-    
-auto fillFormat = autoShape->get_FillFormat();
-fillFormat->set_FillType(Aspose::Slides::FillType::Picture);
-fillFormat->get_PictureFillFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.png")));
+#include <DOM/IAutoShape.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
 
-auto pictureFillFormat = fillFormat->get_PictureFillFormat();
-pictureFillFormat->set_PictureFillMode(Aspose::Slides::PictureFillMode::Stretch);
-pictureFillFormat->get_Picture()->get_ImageTransform()->AddAlphaModulateFixedEffect(75.0f);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto layoutSlide = presentation->get_Slide(0)->get_LayoutSlide();
+
+for (auto&& shape : layoutSlide->get_Shapes())
+{
+    if (!ObjectExt::Is<IAutoShape>(shape))
+    {
+        continue;
+    }
+
+    auto autoShape = ExplicitCast<IAutoShape>(shape);
+    auto placeholder = autoShape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
+
+    switch (placeholder->get_Type())
+    {
+        case PlaceholderType::Title:
+        case PlaceholderType::CenteredTitle:
+            autoShape->get_TextFrame()->set_Text(u"Enter a concise slide title");
+            break;
+        case PlaceholderType::Subtitle:
+            autoShape->get_TextFrame()->set_Text(u"Enter a subtitle or reporting period");
+            break;
+        default:
+            break;
+    }
+}
+
+presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
+```
+
+O texto de sugestão não é conteúdo de slide normal. Ele destina‑se a placeholders vazios em aplicativos de edição como o PowerPoint. Quando o usuário ou programa fornece conteúdo real, a sugestão deixa de ser exibida. Alterar uma sugestão também não substitui o texto existente nos slides que usam o layout.
+
+## **Atualizar um placeholder de imagem**
+
+Existem dois casos a tratar:
+
+- Se o placeholder de imagem já estiver preenchido e for representado por um [IPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframe/), substitua a imagem através de [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipicturefillformat/get_picture/) e [ISlidesPicture::set_Image](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islidespicture/set_image/).
+- Se ainda for um placeholder vazio, adicione um frame de imagem nas coordenadas do placeholder com [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishapecollection/addpictureframe/) e remova o placeholder vazio.
+
+O próximo exemplo trata ambos os casos e salva a apresentação:
+
+```c++
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"picture-template.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IShape> picturePlaceholder;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    auto placeholder = shape->get_Placeholder();
+    if (placeholder != nullptr && placeholder->get_Type() == PlaceholderType::Picture)
+    {
+        picturePlaceholder = shape;
+        break;
+    }
+}
+
+if (picturePlaceholder == nullptr)
+{
+    throw InvalidOperationException(u"The first slide does not contain a picture placeholder.");
+}
+
+auto imageBytes = File::ReadAllBytes(u"replacement.png");
+auto image = presentation->get_Images()->AddImage(imageBytes);
+
+if (ObjectExt::Is<IPictureFrame>(picturePlaceholder))
+{
+    auto pictureFrame = ExplicitCast<IPictureFrame>(picturePlaceholder);
+    pictureFrame->get_PictureFormat()->get_Picture()->set_Image(image);
+}
+else
+{
+    auto x = picturePlaceholder->get_X();
+    auto y = picturePlaceholder->get_Y();
+    auto width = picturePlaceholder->get_Width();
+    auto height = picturePlaceholder->get_Height();
+    auto shapes = slide->get_Shapes();
+    shapes->AddPictureFrame(ShapeType::Rectangle, x, y, width, height, image);
+    shapes->Remove(picturePlaceholder);
+}
+
+presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
+```
+
+A substituição criada para um placeholder vazio é um frame de imagem local, não um novo placeholder, porque [IShape::get_Placeholder](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/get_placeholder/) é somente leitura. Ela mantém a posição reservada, mas não herda mais o comportamento específico de placeholder. Se manter a relação de placeholder for essencial, prepare e preencha o placeholder no PowerPoint primeiro e, depois, atualize o [IPictureFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipictureframe/) resultante com Aspose.Slides.
+
+Para transparência de imagem, recorte e outros efeitos específicos de imagem, veja [Gerenciar frames de imagem](/slides/pt/cpp/picture-frame/). Essas operações pertencem ao frame de imagem ou ao preenchimento da imagem, não aos metadados do placeholder.
+
+## **Trabalhar com placeholders de gráfico e conteúdo**
+
+Um placeholder de gráfico preenchido pode ser representado por um [IChart](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichart/). Este exemplo localiza tal gráfico tanto pelo tipo de placeholder quanto pela interface em tempo de execução, altera seu título e salva o arquivo:
+
+```c++
+#include <DOM/IChart.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"chart-template.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IChart> placeholderChart;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IChart>(shape))
+    {
+        continue;
+    }
+
+    auto chart = ExplicitCast<IChart>(shape);
+    auto placeholder = chart->get_Placeholder();
+    if (placeholder != nullptr && placeholder->get_Type() == PlaceholderType::Chart)
+    {
+        placeholderChart = chart;
+        break;
+    }
+}
+
+if (placeholderChart == nullptr)
+{
+    throw InvalidOperationException(u"The first slide does not contain a populated chart placeholder.");
+}
+
+placeholderChart->set_HasTitle(true);
+placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenue");
+presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
+```
+
+Um placeholder de conteúdo geral costuma ter [PlaceholderType::Object](https://reference.aspose.com/slides/pt/cpp/aspose.slides/placeholdertype/). No PowerPoint ele funciona como um lançador para vários tipos de conteúdo, incluindo gráficos, tabelas, diagramas, imagens e mídia. Após ser preenchido, inspecione a interface real da forma para descobrir o que contém. Layouts especializados também podem expor [PlaceholderType::Chart](https://reference.aspose.com/slides/pt/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/pt/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/pt/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/pt/cpp/aspose.slides/placeholdertype/), ou [PlaceholderType::Diagram](https://reference.aspose.com/slides/pt/cpp/aspose.slides/placeholdertype/).
+
+Aspose.Slides não converte um placeholder vazio de [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/) em um [IChart](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/ichart/) apenas alterando [IPlaceholder::get_Type](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iplaceholder/get_type/); o tipo é somente leitura. Para preencher programaticamente um gráfico ou área de conteúdo vazia, adicione o objeto necessário nas coordenadas do placeholder e então remova o placeholder vazio. O exemplo a seguir faz isso para um gráfico:
+
+```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"content-template.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IShape> targetPlaceholder;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    auto placeholder = shape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
+
+    auto placeholderType = placeholder->get_Type();
+    if (placeholderType == PlaceholderType::Chart || placeholderType == PlaceholderType::Object)
+    {
+        targetPlaceholder = shape;
+        break;
+    }
+}
+
+if (targetPlaceholder == nullptr)
+{
+    throw InvalidOperationException(u"The first slide does not contain a chart or content placeholder.");
+}
+
+auto x = targetPlaceholder->get_X();
+auto y = targetPlaceholder->get_Y();
+auto width = targetPlaceholder->get_Width();
+auto height = targetPlaceholder->get_Height();
+auto shapes = slide->get_Shapes();
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, x, y, width, height);
+chart->set_HasTitle(true);
+chart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenue");
+shapes->Remove(targetPlaceholder);
+presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
+```
+
+O gráfico adicionado é um gráfico local comum. Ele ocupa a área do placeholder, mas não herda do placeholder do layout. Use os artigos dedicados à [gerência de gráficos](/slides/pt/cpp/powerpoint-charts/) quando precisar substituir categorias, séries ou dados da planilha.
+
+## **Exemplo completo: atualizar conteúdo de texto ou imagem**
+
+O exemplo a seguir, de ponta a ponta, abre um modelo, procura no primeiro slide por um placeholder de título ou imagem, verifica os tipos de placeholder e de forma, atualiza o conteúdo apropriado e salva o resultado. O exemplo evita deliberadamente assumir um índice de forma ou converter todos os placeholders para a mesma interface.
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto updated = false;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    auto placeholder = shape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
+
+    auto placeholderType = placeholder->get_Type();
+
+    if ((placeholderType == PlaceholderType::Title || placeholderType == PlaceholderType::CenteredTitle) && ObjectExt::Is<IAutoShape>(shape))
+    {
+        auto titleShape = ExplicitCast<IAutoShape>(shape);
+        titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
+        updated = true;
+        break;
+    }
+
+    if (placeholderType == PlaceholderType::Picture)
+    {
+        auto imageBytes = File::ReadAllBytes(u"replacement.png");
+        auto image = presentation->get_Images()->AddImage(imageBytes);
+
+        if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            pictureFrame->get_PictureFormat()->get_Picture()->set_Image(image);
+        }
+        else
+        {
+            auto x = shape->get_X();
+            auto y = shape->get_Y();
+            auto width = shape->get_Width();
+            auto height = shape->get_Height();
+            auto shapes = slide->get_Shapes();
+            shapes->AddPictureFrame(ShapeType::Rectangle, x, y, width, height, image);
+            shapes->Remove(shape);
+        }
+
+        updated = true;
+        break;
+    }
+}
+
+if (!updated)
+{
+    throw InvalidOperationException(u"No supported title or picture placeholder was found on the first slide.");
+}
+
+presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**O que é um marcador de posição base e como ele difere de uma forma local em um slide?**
+**O que é um placeholder base?**
 
-Um marcador de posição base é a forma original em um layout ou mestre da qual a forma do slide herda—tipo, posição e algumas formatações provêm dele. Uma forma local é independente; se não houver um marcador de posição base, a herança não se aplica.
+Um placeholder base é a forma correspondente no layout ou no mestre a partir da qual outro placeholder herda. Use [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/getbaseplaceholder/) para recuperá‑lo. Uma forma local comum devolve `nullptr` porque não faz parte da hierarquia de placeholders.
 
-**Como posso atualizar todos os títulos ou legendas em toda a apresentação sem iterar sobre cada slide?**
+**Posso alterar todos os títulos dos slides editando um placeholder de layout?**
 
-Edite o marcador de posição correspondente no layout ou no mestre. Slides baseados nesses layouts/nesse mestre herdarão a alteração automaticamente.
+É possível mudar a formatação herdada ou o texto de sugestão através de um layout, mas o conteúdo real dos títulos está armazenado nos slides normais. Para substituir o texto de título em toda a apresentação, itere sobre os slides e atualize cada placeholder de título.
 
-**Como controlo os marcadores de posição padrão de cabeçalho/rodapé — data e hora, número do slide e texto do rodapé?**
+**Como gerencio placeholders de data, número do slide, cabeçalho e rodapé?**
 
-Use os gerenciadores HeaderFooter no escopo apropriado (slides normais, layouts, mestre, notas/folhetos) para ativar ou desativar esses marcadores de posição e definir seu conteúdo.
+Use os gerenciadores de cabeçalho e rodapé no escopo apropriado (slide, layout, mestre, notas ou folhetos). Consulte [Gerenciar cabeçalho e rodapé da apresentação](/slides/pt/cpp/presentation-header-and-footer/) para exemplos completos.
