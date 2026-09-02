@@ -1,5 +1,5 @@
 ---
-title: Aplicar animaciones de forma en presentaciones con Python
+title: Aplicar animaciones de formas en presentaciones con Python
 linktitle: Animación de forma
 type: docs
 weight: 60
@@ -22,445 +22,367 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Descubra cómo crear y personalizar animaciones de forma en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para Python mediante .NET. ¡Destáquese!"
+description: "Aprenda cómo añadir, inspeccionar y personalizar animaciones de formas, temporizaciones, sonidos, comportamiento después de la animación y texto animado con Aspose.Slides para Python a través de .NET."
 ---
+## **Resumen**
 
-Las animaciones son efectos visuales que pueden aplicarse a textos, imágenes, formas o [gráficos](/slides/es/python-net/animated-charts/). Dan vida a las presentaciones o a sus componentes. 
+Aspose.Slides for Python via .NET representa las animaciones de diapositivas como efectos en una línea de tiempo de diapositiva. Un efecto tiene una forma objetivo, un tipo y subtipo de animación, un desencadenador, ajustes de temporización y propiedades opcionales como sonido o comportamiento después de la animación.
 
-## **¿Por qué usar animaciones en presentaciones?**
+La línea de tiempo contiene dos tipos de secuencias:
 
-Al usar animaciones, puedes 
-* controlar el flujo de información
-* enfatizar puntos importantes
-* aumentar el interés o la participación de tu audiencia
-* hacer que el contenido sea más fácil de leer, asimilar o procesar
-* atraer la atención de tus lectores o espectadores a partes importantes en una presentación
+- La **secuencia principal** se reproduce al avanzar la diapositiva.
+- Una **secuencia interactiva** comienza cuando se hace clic en su forma desencadenadora.
 
-PowerPoint ofrece muchas opciones y herramientas para animaciones y efectos de animación en las categorías de **entrada**, **salida**, **énfasis** y **trayectorias de movimiento**. 
+Dado que los cuadros de texto, imágenes, gráficos, tablas y otros objetos de diapositiva implementan [IShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/ishape/), utilizas el mismo método [Sequence.add_effect](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/sequence/add_effect/) para la mayor parte del contenido de la diapositiva. Los efectos disponibles se enumeran en la enumeración [EffectType](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effecttype/).
 
-## **Animaciones en Aspose.Slides**
+## **Agregar animaciones a formas**
 
-* Aspose.Slides proporciona las clases y tipos que necesitas para trabajar con animaciones bajo el espacio de nombres [Aspose.Slides.Animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/), 
-* Aspose.Slides ofrece más de **150 efectos de animación** bajo la enumeración [EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/). Estos efectos son esencialmente los mismos (o equivalentes) que se usan en PowerPoint. 
+Para agregar una animación, obtén la secuencia principal de la diapositiva y llama a [Sequence.add_effect](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/sequence/add_effect/) con la forma objetivo, el tipo de efecto, el subtipo y el desencadenador. Para un efecto que comienza cuando se hace clic en otra forma, crea una secuencia interactiva cuyo desencadenador sea esa otra forma.
 
-## **Aplicar animación a TextBox**
+El siguiente ejemplo crea ambos tipos de animación y guarda el resultado en `shape-animations.pptx`.
 
-Aspose.Slides para Python a través de .NET te permite aplicar animación al texto en una forma. 
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). 
-2. Obtén la referencia de una diapositiva mediante su índice. 
-3. Añade un `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). 
-4. Añade texto a `IAutoShape.TextFrame`. 
-5. Obtén una secuencia principal de efectos. 
-6. Añade un efecto de animación a [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). 
-7. Establece la propiedad `TextAnimation.BuildType` al valor de la enumeración `BuildType`. 
-8. Guarda la presentación en disco como un archivo PPTX. 
-
-Este código Python muestra cómo aplicar el efecto `Fade` a AutoShape y establecer la animación de texto al valor *By 1st Level Paragraphs*:
 ```python
 import aspose.slides as slides
 
-# Instancia una clase de presentación que representa un archivo de presentación.
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-    
-    # Agrega una nueva AutoShape con texto
-    autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
 
-    textFrame = autoShape.text_frame
-    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Obtiene la secuencia principal de la diapositiva.
-    sequence = sld.timeline.main_sequence
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Click to animate this shape"
 
-    # Agrega el efecto de animación Fade a la forma
-    effect = sequence.add_effect(autoShape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    main_sequence = slide.timeline.main_sequence
+    entrance_effect = main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    entrance_effect.timing.duration = 1.5
 
-    # Animar el texto de la forma por párrafos de primer nivel
-    effect.text_animation.build_type = slides.animation.BuildType.BY_LEVEL_PARAGRAPHS1
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
 
-    # Guarda el archivo PPTX en disco
-    pres.save("AnimText_out.pptx", slides.export.SaveFormat.PPTX)
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+El desencadenador controla cuándo comienza un efecto:
 
-{{%  alert color="primary"  %}} 
-Además de aplicar animaciones al texto, también puedes aplicar animaciones a un solo [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/). Consulta [**Animated Text**](/slides/es/python-net/animated-text/).
-{{% /alert %}} 
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effecttriggertype/) espera un clic en la secuencia principal, o un clic en la forma desencadenadora en una secuencia interactiva.
+- [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effecttriggertype/) comienza con el efecto precedente.
+- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effecttriggertype/) comienza cuando finaliza el efecto precedente.
 
-## **Aplicar animación a PictureFrame**
+Para animar una imagen, un gráfico u otro tipo de forma, pasa ese objeto a [Sequence.add_effect](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/sequence/add_effect/) en lugar de `target_shape`. Para opciones de agrupación específicas de gráficos, consulta [Animated Charts](/slides/es/python-net/animated-charts/).
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). 
-2. Obtén la referencia de una diapositiva mediante su índice. 
-3. Añade o obtén un [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) en la diapositiva. 
-4. Obtén la secuencia principal de efectos. 
-5. Añade un efecto de animación a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/). 
-6. Guarda la presentación en disco como un archivo PPTX. 
+## **Leer animaciones de formas**
 
-Este código Python muestra cómo aplicar el efecto `Fly` a un marco de imagen:
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
+Usa [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) cuando conozcas la forma objetivo. Para inspeccionar cada efecto, itera a través de la secuencia principal y de cada secuencia interactiva. La iteración evita suponer que una secuencia contiene un efecto en el índice `0`.
 
+El siguiente ejemplo crea una forma con efectos de secuencia principal e interactiva, obtiene los efectos que apuntan a la forma y luego itera a través de cada secuencia en la diapositiva.
 
-# Instancia una clase de presentación que representa un archivo de presentación.
-with slides.Presentation() as pres:
-    # Carga la imagen que se añadirá a la colección de imágenes de la presentación
-    img = draw.Bitmap("aspose-logo.jpg")
-    image = pres.images.add_image(img)
-
-    # Añade un marco de imagen a la diapositiva
-    picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-    # Obtiene la secuencia principal de la diapositiva.
-    sequence = pres.slides[0].timeline.main_sequence
-
-    # Añade el efecto de animación Volar desde la izquierda al marco de imagen
-    effect = sequence.add_effect(picFrame, slides.animation.EffectType.FLY,  
-        slides.animation.EffectSubtype.LEFT, 
-        slides.animation.EffectTriggerType.ON_CLICK)
-
-    # Guarda el archivo PPTX en disco
-    pres.save("AnimImage_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Aplicar animación a Shape**
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). 
-2. Obtén la referencia de una diapositiva mediante su índice. 
-3. Añade un `rectangle` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/). 
-4. Añade un `Bevel` [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) (cuando se hace clic en este objeto, se reproduce la animación). 
-5. Crea una secuencia de efectos en la forma bevel. 
-6. Crea un `UserPath` personalizado. 
-7. Añade comandos para mover al `UserPath`. 
-8. Guarda la presentación en disco como un archivo PPTX. 
-
-Este código Python muestra cómo aplicar el efecto `PathFootball` (ruta de fútbol) a una forma:
-```python
-import aspose.slides.animation as anim
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Instancia una clase Presentation que representa un archivo PPTX
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-
-    # Crea el efecto PathFootball para una forma existente desde cero.
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 250, 25)
-
-    ashp.add_text_frame("Animated TextBox")
-
-    # Agrega el efecto de animación PathFootBall.
-    pres.slides[0].timeline.main_sequence.add_effect(ashp, 
-        anim.EffectType.PATH_FOOTBALL,
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.AFTER_PREVIOUS)
-
-    # Crea algún tipo de "botón".
-    shapeTrigger = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.BEVEL, 10, 10, 20, 20)
-
-    # Crea una secuencia de efectos para el botón.
-    seqInter = pres.slides[0].timeline.interactive_sequences.add(shapeTrigger)
-
-    # Crea una ruta de usuario personalizada. Nuestro objeto se moverá solo después de que se haga clic en el botón.
-    fxUserPath = seqInter.add_effect(ashp, 
-        anim.EffectType.PATH_USER, 
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.ON_CLICK)
-
-    # Agrega comandos para mover ya que la ruta creada está vacía.
-    motionBhv = fxUserPath.behaviors[0]
-
-    pts = [draw.PointF(0.076, 0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, True)
-    pts = [draw.PointF(-0.076, -0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, False)
-    motionBhv.path.add(anim.MotionCommandPathType.END, None, anim.MotionPathPointsType.AUTO, False)
-
-    # Escribe el archivo PPTX en disco
-    pres.save("AnimExample_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Obtener los efectos de animación aplicados a Shape**
-
-Los siguientes ejemplos muestran cómo usar el método `get_effects_by_shape` de la clase [Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) para obtener todos los efectos de animación aplicados a una forma. 
-
-**Ejemplo 1: Obtener efectos de animación aplicados a una forma en una diapositiva normal**
-
-Anteriormente, aprendiste cómo añadir efectos de animación a formas en presentaciones de PowerPoint. El siguiente código de ejemplo muestra cómo obtener los efectos aplicados a la primera forma en la primera diapositiva normal de la presentación `AnimExample_out.pptx`.
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimExample_out.pptx") as presentation:
-    first_slide = presentation.slides[0]
 
-    # Obtiene la secuencia principal de animación de la diapositiva.
-    sequence = first_slide.timeline.main_sequence
+def print_sequence(label, sequence):
+    print(f"  {label}: {sequence.count} effect(s)")
 
-    # Obtiene la primera forma en la primera diapositiva.
-    shape = first_slide.shapes[0]
+    for effect in sequence:
+        target_name = "unknown" if effect.target_shape is None else effect.target_shape.name
+        effect_description = f"{effect.type.name} {effect.subtype.name}; target: {target_name}; trigger: {effect.timing.trigger_type.name}"
+        print(f"    {effect_description}")
 
-    # Obtiene los efectos de animación aplicados a la forma.
-    shape_effects = sequence.get_effects_by_shape(shape)
 
-    if len(shape_effects) > 0:
-        print("The shape", shape.name, "has", len(shape_effects), "animation effects.")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Animated shape"
+
+    main_sequence = slide.timeline.main_sequence
+    main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
+
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    target_effects = main_sequence.get_effects_by_shape(target_shape)
+    print(f"The main sequence contains {len(target_effects)} effect(s) for {target_shape.name}.")
+
+    print_sequence("Main sequence", main_sequence)
+
+    for interactive_index, sequence in enumerate(slide.timeline.interactive_sequences, start=1):
+        trigger_name = "unknown" if sequence.trigger_shape is None else sequence.trigger_shape.name
+        sequence_label = f"Interactive sequence {interactive_index}, trigger: {trigger_name}"
+        print_sequence(sequence_label, sequence)
 ```
 
+Si solo necesitas los efectos para una forma, primero identifica la forma por nombre, tipo de marcador de posición u otra propiedad estable; luego llama a [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). No asumas que la forma en el índice `0` sea siempre el objeto deseado.
 
-**Ejemplo 2: Obtener todos los efectos de animación, incluidos los heredados de los marcadores de posición**
+## **Trabajar con efectos de marcadores de posición heredados**
 
-Si una forma en una diapositiva normal tiene marcadores de posición que están en la diapositiva de diseño y/o en la diapositiva maestra, y se han añadido efectos de animación a esos marcadores de posición, entonces todos los efectos de la forma se reproducirán durante la presentación, incluidos los heredados de los marcadores de posición. 
+Un marcador de posición en una diapositiva normal puede heredar el comportamiento de animación del marcador de posición correspondiente en su diapositiva de diseño y en la diapositiva maestra. [Shape.get_base_placeholder](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/get_base_placeholder/) devuelve ese marcador de posición padre, o `None` cuando no existe padre.
 
-Supongamos que tenemos un archivo de presentación PowerPoint `sample.pptx` con una diapositiva que contiene solo una forma de pie de página con el texto "Made with Aspose.Slides" y al que se le ha aplicado el efecto **Random Bars**. 
-![Animación de forma de diapositiva](slide-shape-animation.png)
+En la presentación de ejemplo siguiente, el pie de página tiene **Random Bars** en la diapositiva normal, **Split** en la diapositiva de diseño y **Fly In** en la diapositiva maestra.
 
-Supongamos también que el efecto **Split** se aplica al marcador de posición de pie de página en la diapositiva **layout**. 
-![Animación de forma del diseño](layout-shape-animation.png)
+![Efecto de animación del pie de página en la diapositiva normal](slide-shape-animation.png)
 
-Y finalmente, el efecto **Fly In** se aplica al marcador de posición de pie de página en la diapositiva **master**. 
-![Animación de forma maestra](master-shape-animation.png)
+![Efecto de animación del pie de página en la diapositiva de diseño](layout-shape-animation.png)
 
-El siguiente código de ejemplo muestra cómo usar el método `get_base_placeholder` de la clase [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) para acceder a los marcadores de posición de la forma y obtener los efectos de animación aplicados a la forma de pie de página, incluidos los heredados de los marcadores de posición ubicados en las diapositivas de diseño y maestra.
-```py
+![Efecto de animación del pie de página en la diapositiva maestra](master-shape-animation.png)
+
+El siguiente ejemplo construye la propia jerarquía de marcadores de posición. Añade efectos a un marcador de posición maestro, a un marcador de posición de diseño y al marcador de posición correspondiente en una diapositiva normal. Cada llamada a [Shape.get_base_placeholder](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/get_base_placeholder/) se verifica antes de usar la forma devuelta.
+
+```python
 import aspose.slides as slides
 
-def print_effects(effects):
+
+def find_placeholder_with_base(slide):
+    for shape in slide.shapes:
+        if shape.get_base_placeholder() is not None:
+            return shape
+
+    return None
+
+
+def print_effects(source, effects):
+    print(f"{source}: {len(effects)} effect(s)")
+
     for effect in effects:
-        print(effect.type.name, effect.subtype.name)
+        print(f"  {effect.type.name} {effect.subtype.name}")
+
+
+with slides.Presentation() as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_placeholder = layout_slide.placeholder_manager.add_text_placeholder(100, 100, 400, 80)
+    layout_slide.timeline.main_sequence.add_effect(layout_placeholder, slides.animation.EffectType.SPLIT, slides.animation.EffectSubtype.VERTICAL_IN, slides.animation.EffectTriggerType.ON_CLICK)
+
+    master_placeholder = layout_placeholder.get_base_placeholder()
+    if master_placeholder is not None:
+        master_sequence = layout_slide.master_slide.timeline.main_sequence
+        master_sequence.add_effect(master_placeholder, slides.animation.EffectType.FLY, slides.animation.EffectSubtype.BOTTOM, slides.animation.EffectTriggerType.ON_CLICK)
+
+    slide = presentation.slides.add_empty_slide(layout_slide)
+    slide_placeholder = find_placeholder_with_base(slide)
+
+    if slide_placeholder is None:
+        raise RuntimeError("The slide does not contain a placeholder linked to its layout slide.")
+
+    slide.timeline.main_sequence.add_effect(slide_placeholder, slides.animation.EffectType.RANDOM_BARS, slides.animation.EffectSubtype.HORIZONTAL, slides.animation.EffectTriggerType.ON_CLICK)
+    print_effects("Normal slide", slide.timeline.main_sequence.get_effects_by_shape(slide_placeholder))
+
+    base_layout_placeholder = slide_placeholder.get_base_placeholder()
+    if base_layout_placeholder is not None:
+        print_effects("Layout slide", layout_slide.timeline.main_sequence.get_effects_by_shape(base_layout_placeholder))
+
+        base_master_placeholder = base_layout_placeholder.get_base_placeholder()
+        if base_master_placeholder is not None:
+            print_effects("Master slide", layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(base_master_placeholder))
+
+    presentation.save("placeholder-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+## **Cambiar la sincronización de la animación**
 
-    # Obtiene los efectos de animación de la forma en la diapositiva normal.
-    shape = slide.shapes[0]
-    shape_effects = slide.timeline.main_sequence.get_effects_by_shape(shape)
+El cuadro de diálogo **Timing** de PowerPoint se corresponde con las propiedades de [Timing](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/).
 
-    # Obtiene los efectos de animación del marcador de posición en la diapositiva de diseño.
-    layout_shape = shape.get_base_placeholder()
-    layout_shape_effects = slide.layout_slide.timeline.main_sequence.get_effects_by_shape(layout_shape)
+![Cuadro de diálogo Timing de PowerPoint para un efecto de animación](shape-animation.png)
 
-    # Obtiene los efectos de animación del marcador de posición en la diapositiva maestra.
-    master_shape = layout_shape.get_base_placeholder()
-    master_shape_effects = slide.layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(master_shape)
+- **Start** se corresponde con [Timing.trigger_type](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/trigger_type/).
+- **Duration** se corresponde con [Timing.duration](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/duration/), en segundos.
+- **Delay** se corresponde con [Timing.trigger_delay_time](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/trigger_delay_time/), en segundos.
+- **Repeat** se corresponde con [Timing.repeat_count](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/repeat_until_next_click/) o [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
+- **Rewind when done playing** se corresponde con [Timing.rewind](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/rewind/).
 
-    print("Main sequence of shape effects:")
-    print_effects(master_shape_effects)
-    print_effects(layout_shape_effects)
-    print_effects(shape_effects)
-```
+Este ejemplo independiente añade un efecto, cambia su temporización mediante el objeto devuelto por [Sequence.add_effect](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/sequence/add_effect/) y guarda el resultado. Mantener la referencia al [Effect](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effect/) devuelto evita un índice de colección innecesario.
 
-
-Salida:
-```text
-Main sequence of shape effects:
-FLY BOTTOM
-SPLIT VERTICAL_IN
-RANDOM_BARS HORIZONTAL
-```
-
-
-## **Cambiar propiedades de tiempo del efecto de animación**
-
-Aspose.Slides para Python a través de .NET permite cambiar las propiedades de tiempo de un efecto de animación. 
-
-Este es el panel de tiempo de animación en Microsoft PowerPoint:
-![Panel de tiempo de animación](shape-animation.png)
-
-Estas son las correspondencias entre el tiempo de PowerPoint y las propiedades `Effect.Timing`:
-- La lista desplegable **Start** del tiempo de PowerPoint coincide con la propiedad [Effect.Timing.TriggerType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttriggertype/). 
-- El **Duration** del tiempo de PowerPoint coincide con la propiedad `Effect.Timing.Duration`. La duración de una animación (en segundos) es el tiempo total que tarda la animación en completar un ciclo. 
-- El **Delay** del tiempo de PowerPoint coincide con la propiedad `Effect.Timing.TriggerDelayTime`. 
-
-Así es como cambias las propiedades de tiempo del efecto:
-1. [Apply](#apply-animation-to-shape) o recupera el efecto de animación. 
-2. Establece nuevos valores para las propiedades `Effect.Timing` que necesites. 
-3. Guarda el archivo PPTX modificado. 
-
-Este código Python demuestra la operación:
 ```python
 import aspose.slides as slides
 
-# Instancia una clase de presentación que representa un archivo de presentación.
-with slides.Presentation("AnimExample_out.pptx") as pres:
-    # Obtiene la secuencia principal de la diapositiva.
-    sequence = pres.slides[0].timeline.main_sequence
 
-    # Obtiene el primer efecto de la secuencia principal.
-    effect = sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Timed animation"
 
-    # Cambia el TriggerType del efecto para iniciar al hacer clic
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
     effect.timing.trigger_type = slides.animation.EffectTriggerType.ON_CLICK
-
-    # Cambia la duración del efecto
-    effect.timing.duration = 3
-
-    # Cambia el TriggerDelayTime del efecto
+    effect.timing.duration = 2.0
     effect.timing.trigger_delay_time = 0.5
+    effect.timing.repeat_until_next_click = False
+    effect.timing.repeat_until_end_slide = False
+    effect.timing.repeat_count = 2.0
+    effect.timing.rewind = True
 
-    # Guarda el archivo PPTX en disco
-    pres.save("AnimExample_changed.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Utiliza un modo de repetición de forma intencionada. Combinar un recuento de repeticiones con una bandera “until” puede producir resultados confusos en distintos visores. Al cambiar los modos de repetición, establece [Timing.repeat_until_next_click](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/repeat_until_next_click/) y [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) antes de [Timing.repeat_count](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/timing/repeat_count/), ya que establecer cualquiera de esas banderas también modifica el modo de repetición activo.
 
-## **Sonido del efecto de animación**
+## **Agregar y extraer sonidos de animación**
 
-Aspose.Slides proporciona estas propiedades para permitir trabajar con sonidos en efectos de animación: 
-- `sound`
-- `stop_previous_sound`
+Un efecto de animación puede referenciar audio incrustado mediante [Effect.sound](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effect/stop_previous_sound/) indica a un efecto que detenga el audio iniciado por un efecto anterior.
 
-### **Agregar sonido al efecto de animación**
+### **Agregar un sonido a un efecto**
 
-Este código Python muestra cómo añadir un sonido al efecto de animación y detenerlo cuando comienza el siguiente efecto:
+El siguiente ejemplo asume un archivo de audio local llamado `animation-sound.wav`. Crea dos efectos, incrusta ese archivo como sonido del primer efecto y configura el segundo efecto para detener el sonido. Utiliza los objetos devueltos por [Sequence.add_effect](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/sequence/add_effect/), por lo que no se requiere un índice de secuencia.
+
 ```python
 import aspose.slides as slides
 
-with Presentation("AnimExample_out.pptx") as pres:
-    # Añade audio a la colección de audio de la presentación
-    effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
 
-    first_slide = pres.slides[0]
-
-    # Obtiene la secuencia principal de la diapositiva.
-    sequence = first_slide.timeline.main_sequence
-
-    # Obtiene el primer efecto de la secuencia principal
-    first_effect = sequence[0]
-
-    # Comprueba si el efecto no tiene sonido
-    if not first_effect.stop_previous_sound and first_effect.sound is None:
-        # Añade sonido al primer efecto
-        first_effect.sound = effect_sound
-
-    # Obtiene la primera secuencia interactiva de la diapositiva.
-    interactive_sequence = first_slide.timeline.interactive_sequences[0]
-
-    # Establece la bandera "Stop previous sound" del efecto
-    interactive_sequence[0].stop_previous_sound = True
-
-    # Escribe el archivo PPTX en disco
-    pres.save("AnimExample_Sound_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-### **Extraer sonido del efecto de animación**
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). 
-2. Obtén la referencia de una diapositiva mediante su índice. 
-3. Obtén la secuencia principal de efectos. 
-4. Extrae el `sound` incrustado en cada efecto de animación. 
-
-Este código Python muestra cómo extraer el sonido incrustado en un efecto de animación:
-```python
-import aspose.slides as slides
-
-# Instancia una clase de presentación que representa un archivo de presentación.
-with slides.Presentation("EffectSound.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 100, 240, 80)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 400, 100, 240, 80)
+    first_shape.text_frame.text = "Starts sound"
+    second_shape.text_frame.text = "Stops sound"
 
-    # Obtiene la secuencia principal de la diapositiva.
     sequence = slide.timeline.main_sequence
+    first_effect = sequence.add_effect(first_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    second_effect = sequence.add_effect(second_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
 
+    with open("animation-sound.wav", "rb") as audio_file:
+        effect_sound = presentation.audios.add_audio(audio_file.read())
+
+    first_effect.sound = effect_sound
+    second_effect.stop_previous_sound = True
+
+    presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Extraer sonidos de efecto incrustados**
+
+El siguiente ejemplo asume una presentación local llamada `presentation-with-animation-sounds.pptx`. Examina tanto las secuencias principales como las interactivas y escribe cada sonido de efecto incrustado en el directorio `extracted-animation-sounds`. La extensión se selecciona a partir del tipo MIME de audio expuesto por [Audio.content_type](https://reference.aspose.com/slides/es/python-net/aspose.slides/audio/content_type/).
+
+```python
+import os
+
+import aspose.slides as slides
+
+
+def get_audio_extension(content_type):
+    normalized_type = "" if content_type is None else content_type.lower()
+
+    if normalized_type == "audio/mpeg":
+        return ".mp3"
+    if normalized_type == "audio/mp4":
+        return ".m4a"
+    if normalized_type == "audio/ogg":
+        return ".ogg"
+    if normalized_type in ("audio/wav", "audio/x-wav"):
+        return ".wav"
+
+    return ".bin"
+
+
+def save_sounds(sequence, output_directory, sound_index):
     for effect in sequence:
         if effect.sound is None:
             continue
 
-        # Extrae el sonido del efecto en una matriz de bytes
-        audio = effect.sound.binary_data
+        extension = get_audio_extension(effect.sound.content_type)
+        output_path = os.path.join(output_directory, f"effect-sound-{sound_index}{extension}")
+        with open(output_path, "wb") as output_file:
+            output_file.write(bytes(effect.sound.binary_data))
+        sound_index += 1
+
+    return sound_index
+
+
+input_path = "presentation-with-animation-sounds.pptx"
+output_directory = "extracted-animation-sounds"
+
+os.makedirs(output_directory, exist_ok=True)
+
+with slides.Presentation(input_path) as presentation:
+    sound_index = 1
+
+    for slide in presentation.slides:
+        sound_index = save_sounds(slide.timeline.main_sequence, output_directory, sound_index)
+
+        for sequence in slide.timeline.interactive_sequences:
+            sound_index = save_sounds(sequence, output_directory, sound_index)
+
+print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
+Para objetos de audio grandes, utiliza [Audio.get_stream](https://reference.aspose.com/slides/es/python-net/aspose.slides/audio/get_stream/) y copia el flujo a un archivo en lugar de cargar todo el objeto en una matriz de bytes.
 
-## **Después de la animación**
+## **Establecer el comportamiento después de la animación**
 
-Aspose.Slides para .NET permite cambiar la propiedad After animation de un efecto de animación. 
+La opción **After animation** controla qué ocurre con una forma después de que su efecto finaliza.
 
-Este es el panel de efecto de animación después y el menú ampliado en Microsoft PowerPoint:
-![Panel de efecto de animación después](shape-after-animation.png)
+![Cuadro de opciones de efecto de PowerPoint que muestra la configuración After animation](shape-after-animation.png)
 
-La lista desplegable **After animation** del efecto PowerPoint coincide con estas propiedades:
-- La propiedad `after_animation_type` que describe el tipo de After animation:
-  * PowerPoint **More Colors** coincide con el tipo [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/);
-  * PowerPoint **Don't Dim** coincide con el tipo [DO_NOT_DIM](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/) (tipo predeterminado);
-  * PowerPoint **Hide After Animation** coincide con el tipo [HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/);
-  * PowerPoint **Hide on Next Mouse Click** coincide con el tipo [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/);
-- La propiedad `after_animation_color` que define un formato de color para la animación posterior. Esta propiedad funciona en conjunto con el tipo [COLOR](https://reference.aspose.com/slides/python-net/aspose.slides.animation/afteranimationtype/). Si cambias el tipo a otro, el color de la animación posterior se borrará. 
+La enumeración [AfterAnimationType](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/afteranimationtype/) permite dejar la forma sin cambios, cambiar su color, ocultarla después de la animación o ocultarla al siguiente clic. Cuando el tipo es [AfterAnimationType.COLOR](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/afteranimationtype/), también establece [Effect.after_animation_color](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effect/after_animation_color/).
 
-Este código Python muestra cómo cambiar un efecto de animación posterior:
+Este ejemplo independiente crea un efecto, establece su comportamiento después de la animación mediante el objeto de efecto devuelto y guarda el resultado.
+
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancia una clase de presentación que representa un archivo de presentación
-with slides.Presentation("AnimImage_out.pptx") as pres:
-    first_slide = pres.slides[0]
 
-    # Obtiene el primer efecto de la secuencia principal
-    first_effect = first_slide.timeline.main_sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Dim after animation"
 
-    # Cambia el tipo de animación posterior a Color
-    first_effect.after_animation_type = AfterAnimationType.COLOR
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.after_animation_type = slides.animation.AfterAnimationType.COLOR
+    effect.after_animation_color.color = draw.Color.light_gray
 
-    # Establece el color de atenuación de la animación posterior
-    first_effect.after_animation_color.color = Color.alice_blue
-
-    # Guarda el archivo PPTX en disco
-    pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Cambiar el tipo fuera de [AfterAnimationType.COLOR](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/afteranimationtype/) borra la configuración del color después de la animación.
 
 ## **Animar texto**
 
-Aspose.Slides proporciona estas propiedades para trabajar con el bloque *Animate text* de un efecto de animación:
-- `animate_text_type` que describe el tipo de animación de texto del efecto. El texto de la forma puede animarse:
-  * Todo a la vez ([ALL_AT_ONCE](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) tipo)
-  * Por palabra ([BY_WORD](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) tipo)
-  * Por letra ([BY_LETTER](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animatetexttype/) tipo)
-- `delay_between_text_parts` establece un retraso entre las partes del texto animado (palabras o letras). Un valor positivo especifica el porcentaje de duración del efecto. Un valor negativo especifica el retraso en segundos. 
+La animación de texto tiene dos controles relacionados:
 
-Así es como puedes cambiar las propiedades *Animate text* del efecto:
-1. [Apply](#apply-animation-to-shape) o recupera el efecto de animación. 
-2. Establece la propiedad `build_type` al valor [AS_ONE_OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides.animation/buildtype/) para desactivar el modo de animación *By Paragraphs*. 
-3. Establece nuevos valores para las propiedades `animate_text_type` y `delay_between_text_parts`. 
-4. Guarda el archivo PPTX modificado. 
+- [TextAnimation.build_type](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/textanimation/build_type/) controla si los párrafos aparecen juntos o por nivel de párrafo.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effect/animate_text_type/) controla si el texto aparece de una sola vez, por palabra o por letra. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/effect/delay_between_text_parts/) establece el retardo entre palabras o letras. Un valor positivo es un porcentaje de la duración del efecto; un valor negativo es un retardo en segundos.
 
-Este código Python demuestra la operación:
+El siguiente ejemplo independiente anima las palabras en un cuadro de texto. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/buildtype/) desactiva la construcción párrafo a párrafo para que la configuración de palabra se aplique a todo el marco de texto.
+
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimTextBox_out.pptx") as pres:
-    first_slide = pres.slides[0]
 
-    # Obtiene el primer efecto de la secuencia principal
-    first_effect = first_slide.timeline.main_sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 560, 100)
+    text_box.text_frame.text = "Aspose.Slides animates this sentence word by word."
 
-    # Cambia el tipo de animación de texto del efecto a "Como un solo objeto"
-    first_effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+    effect = slide.timeline.main_sequence.add_effect(text_box, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+    effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
+    effect.delay_between_text_parts = 20.0
 
-    # Cambia el tipo de animación del texto del efecto a "Por palabra"
-    first_effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
-
-    # Establece el retraso entre palabras al 20% de la duración del efecto
-    first_effect.delay_between_text_parts = 20
-
-    # Guarda el archivo PPTX en disco
-    pres.save("AnimTextBox_AnimateText.pptx", slides.export.SaveFormat.PPTX)
-
+    presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Para construir un cuadro de texto por párrafo, establece [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/buildtype/) (u otro nivel de párrafo). Para dirigir un único párrafo con su propio efecto, utiliza la sobrecarga de [Sequence.add_effect](https://reference.aspose.com/slides/es/python-net/aspose.slides.animation/sequence/add_effect/) que acepta un [IParagraph](https://reference.aspose.com/slides/es/python-net/aspose.slides/iparagraph/). Consulta [Animated Text](/slides/es/python-net/animated-text/) para ejemplos a nivel de párrafo.
+
+## **Notas de exportación y compatibilidad**
+
+- Guardar en PPT o PPTX preserva el modelo de animación, pero la reproducción final está controlada por el visor de presentaciones.
+- PDF y las imágenes estáticas no reproducen animaciones. Utiliza la [exportación a HTML5](/slides/es/python-net/export-to-html5/), GIF animado o la [conversión a vídeo](/slides/es/python-net/convert-powerpoint-to-video/) cuando la salida debe mostrar movimiento.
+- Para HTML5, habilita [Html5Options.animate_shapes](https://reference.aspose.com/slides/es/python-net/aspose.slides.export/html5options/animate_shapes/) y, cuando sea necesario, [Html5Options.animate_transitions](https://reference.aspose.com/slides/es/python-net/aspose.slides.export/html5options/animate_transitions/).
+- La renderización de vídeo admite muchos efectos de entrada, énfasis, salida y rutas de movimiento, pero no todos los efectos de PowerPoint están soportados. Consulta la lista actual de [animaciones y efectos compatibles](/slides/es/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) y prueba las presentaciones críticas con la versión de Aspose.Slides que vayas a usar.
+- Los efectos personalizados avanzados y los efectos importados de otros formatos de presentación pueden preservarse en el archivo pero renderizarse de forma distinta en PowerPoint, HTML5 o vídeo. Valida el resultado exportado en lugar de confiar solo en el nombre del efecto.
 
 ## **Preguntas frecuentes**
 
-**¿Cómo puedo asegurar que las animaciones se conserven al publicar la presentación en la web?**
+**¿Por qué una animación aparece en PowerPoint pero no en un PDF?**
 
-[Exportar a HTML5](/slides/es/python-net/export-to-html5/) y habilitar las [opciones](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) responsables de las animaciones de [forma](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_shapes/) y [transición](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/animate_transitions/). El HTML plano no reproduce animaciones de diapositivas, mientras que HTML5 sí. 
+PDF es un formato estático, por lo que las animaciones y transiciones de diapositivas no se reproducen. Exporta a HTML5, GIF animado o vídeo cuando se debe conservar el movimiento.
 
-**¿Cómo afecta cambiar el orden z (orden de capas) de las formas a la animación?**
+**¿Por qué un efecto se reproduce de forma diferente en un vídeo?**
 
-El orden de animación y el orden de dibujo son independientes: un efecto controla el momento y el tipo de aparición/desaparición, mientras que el [z-order](https://reference.aspose.com/slides/python-net/aspose.slides/shape/z_order_position/) determina qué cubre a qué. El resultado visible se define por su combinación. (Este es el comportamiento general de PowerPoint; el modelo de efectos y formas de Aspose.Slides sigue la misma lógica.) 
+La exportación a vídeo renderiza las animaciones en lugar de almacenar el comportamiento original de PowerPoint. Algunos efectos avanzados no son compatibles o se aproximan. Revisa la tabla de efectos compatibles y prueba la presentación real antes de su uso en producción.
 
-**¿Existen limitaciones al convertir animaciones a video para ciertos efectos?**
+**¿Mover una forma hacia adelante o hacia atrás cambia el orden de su animación?**
 
-En general, [las animaciones son compatibles](/slides/es/python-net/convert-powerpoint-to-video/), pero en casos raros o con efectos específicos pueden renderizarse de manera diferente. Se recomienda probar con los efectos que uses y con la versión de la biblioteca.
+No. El z‑order de la forma controla la superposición, mientras que el orden de la secuencia y los desencadenadores controlan la reproducción de la animación. Modifica la línea de tiempo si necesitas un orden de reproducción distinto.

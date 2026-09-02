@@ -1,475 +1,388 @@
 ---
-title: ใช้ภาพเคลื่อนไหวของรูปร่างในงานนำเสนอด้วย Python
-linktitle: ภาพเคลื่อนไหวของรูปร่าง
+title: ใช้การเคลื่อนไหวของรูปร่างในงานนำเสนอด้วย Python
+linktitle: การเคลื่อนไหวของรูปร่าง
 type: docs
 weight: 60
 url: /th/python-net/shape-animation/
 keywords:
 - รูปร่าง
-- ภาพเคลื่อนไหว
+- การเคลื่อนไหว
 - เอฟเฟกต์
-- รูปร่างที่เคลื่อนไหว
-- ข้อความที่เคลื่อนไหว
-- เพิ่มภาพเคลื่อนไหว
-- รับภาพเคลื่อนไหว
-- ดึงภาพเคลื่อนไหว
+- รูปร่างเคลื่อนไหว
+- ข้อความเคลื่อนไหว
+- เพิ่มการเคลื่อนไหว
+- รับการเคลื่อนไหว
+- สกัดการเคลื่อนไหว
 - เพิ่มเอฟเฟกต์
 - รับเอฟเฟกต์
-- ดึงเอฟเฟกต์
-- เสียงของเอฟเฟกต์
-- ใช้ภาพเคลื่อนไหว
+- สกัดเอฟเฟกต์
+- เสียงเอฟเฟกต์
+- ประยุกต์ใช้การเคลื่อนไหว
 - PowerPoint
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "ค้นพบวิธีการสร้างและปรับแต่งภาพเคลื่อนไหวของรูปร่างในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for Python via .NET ให้โดดเด่น!"
+description: "เรียนรู้วิธีเพิ่ม, ตรวจสอบ, และปรับแต่งการเคลื่อนไหวของรูปร่าง, การตั้งเวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความเคลื่อนไหวด้วย Aspose.Slides for Python ผ่าน .NET."
 ---
-## **บทนำ**
+## **Overview**
 
-ภาพเคลื่อนไหวเป็นเอฟเฟกต์ภาพที่สามารถนำไปใช้กับข้อความ, รูปภาพ, รูปร่าง, หรือ [แผนภูมิ](/slides/th/python-net/animated-charts/). พวกมันทำให้การนำเสนอหรือส่วนประกอบของมันมีชีวิตชีวา. 
+Aspose.Slides for Python ผ่าน .NET แสดงการเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์. เอฟเฟกต์หนึ่งมีรูปร่างเป้าหมาย, ประเภทและชนิดย่อยของการเคลื่อนไหว, ตัวกระตุ้น, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่น เสียงหรือพฤติกรรมหลังการเคลื่อนไหว.
 
-## **ทำไมต้องใช้ภาพเคลื่อนไหวในงานนำเสนอ?**
+ไทม์ไลน์มีสองประเภทของลำดับ:
 
-การใช้ภาพเคลื่อนไหวคุณสามารถ 
+- **ลำดับหลัก** ทำงานเมื่อสไลด์เลื่อนไปข้างหน้า.
+- **ลำดับเชิงโต้ตอบ** เริ่มเมื่อรูปร่างตัวกระตุ้นถูกคลิก.
 
-* ควบคุมการไหลของข้อมูล
-* เน้นจุดสำคัญ
-* เพิ่มความสนใจหรือการมีส่วนร่วมของผู้ฟัง
-* ทำให้เนื้อหาง่ายต่อการอ่านหรือทำความเข้าใจหรือประมวลผล
-* ดึงความสนใจของผู้อ่านหรือผู้ชมไปยังส่วนสำคัญในงานนำเสนอ
+เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตารางและอ็อบเจกต์สไลด์อื่น ๆ implements [IShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/ishape/), คุณจะใช้เมธอด [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) เดียวกันสำหรับเนื้อหาสไลด์ส่วนใหญ่. เอฟเฟกต์ที่มีอยู่รายการไว้ใน enumeration [EffectType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttype/).
 
-PowerPoint มีตัวเลือกและเครื่องมือหลายอย่างสำหรับภาพเคลื่อนไหวและเอฟเฟกต์ภาพเคลื่อนไหวในหมวด **entrance**, **exit**, **emphasis**, และ **motion paths**. 
+## **Add Shape Animations**
 
-## **ภาพเคลื่อนไหวใน Aspose.Slides**
+เพื่อเพิ่มการเคลื่อนไหว, ดึงลำดับหลักของสไลด์และเรียก [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) พร้อมกับรูปร่างเป้าหมาย, ประเภทเอฟเฟกต์, ชนิดย่อย, และตัวกระตุ้น. สำหรับเอฟเฟกต์ที่เริ่มเมื่อรูปร่างอื่นถูกคลิก, สร้างลำดับเชิงโต้ตอบที่ตัวกระตุ้นคือรูปร่างนั้น.
 
-* Aspose.Slides มีคลาสและประเภทที่จำเป็นสำหรับทำงานกับภาพเคลื่อนไหวภายใต้เนมสเปซ [Aspose.Slides.Animation](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/) 
-* Aspose.Slides มีเอฟเฟกต์ภาพเคลื่อนไหวกว่า **150** ภายใต้ enumeration [EffectType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttype/). เอฟเฟกต์เหล่านี้โดยพื้นฐานแล้วเหมือนกับ (หรือเทียบเท่า) กับเอฟเฟกต์ที่ใช้ใน PowerPoint.
-
-## **ใช้ภาพเคลื่อนไหวกับ TextBox**
-
-Aspose.Slides for Python via .NET ให้คุณใช้ภาพเคลื่อนไหวกับข้อความในรูปร่าง. 
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/). 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน. 
-3. เพิ่ม `rectangle` [IAutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/iautoshape/). 
-4. เพิ่มข้อความไปยัง `IAutoShape.TextFrame`. 
-5. รับลำดับหลักของเอฟเฟกต์. 
-6. เพิ่มเอฟเฟกต์ภาพเคลื่อนไหวให้กับ [IAutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/iautoshape/). 
-7. ตั้งค่าคุณสมบัติ `TextAnimation.BuildType` ให้เป็นค่าจาก enumeration `BuildType`. 
-8. บันทึกการนำเสนอไปยังดิสก์เป็นไฟล์ PPTX. 
-
-โค้ด Python นี้แสดงวิธีการใช้เอฟเฟกต์ `Fade` กับ AutoShape และตั้งค่าการเคลื่อนไหวของข้อความเป็นค่า *By 1st Level Paragraphs* :
+ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวทั้งสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`.
 
 ```python
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงไฟล์การนำเสนอ.
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-    
-    # เพิ่ม AutoShape ใหม่พร้อมข้อความ
-    autoShape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 100)
 
-    textFrame = autoShape.text_frame
-    textFrame.text = "First paragraph \nSecond paragraph \n Third paragraph"
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # รับลำดับหลักของสไลด์.
-    sequence = sld.timeline.main_sequence
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Click to animate this shape"
 
-    # เพิ่มเอฟเฟกต์ภาพเคลื่อนไหว Fade ให้กับรูปร่าง
-    effect = sequence.add_effect(autoShape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    main_sequence = slide.timeline.main_sequence
+    entrance_effect = main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    entrance_effect.timing.duration = 1.5
 
-    # ทำให้ข้อความของรูปร่างเคลื่อนไหวตามย่อหน้าอันดับแรก
-    effect.text_animation.build_type = slides.animation.BuildType.BY_LEVEL_PARAGRAPHS1
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
 
-    # บันทึกไฟล์ PPTX ไปยังดิสก์
-    pres.save("AnimText_out.pptx", slides.export.SaveFormat.PPTX)
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{%  alert color="primary"  %}} 
+ตัวกระตุ้นกำหนดว่าเอฟเฟกต์จะเริ่มเมื่อใด:
 
-นอกจากนี้ยังสามารถใช้ภาพเคลื่อนไหวกับ [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/iparagraph/) เดียวได้ ดูที่ [**Animated Text**](/slides/th/python-net/animated-text/).
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) รอการคลิกในลำดับหลัก, หรือรอการคลิกบนรูปร่างตัวกระตุ้นในลำดับเชิงโต้ตอบ.
+- [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) เริ่มพร้อมกับเอฟเฟกต์ก่อนหน้า.
+- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าจบ.
 
-{{% /alert %}} 
+เพื่อทำให้รูปภาพ, แผนภูมิ, หรือรูปร่างประเภทอื่นเคลื่อนไหว, ส่งอ็อบเจกต์นั้นไปยัง [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) แทน `target_shape`. สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ, ดู [Animated Charts](/slides/th/python-net/animated-charts/).
 
-## **ใช้ภาพเคลื่อนไหวกับ PictureFrame**
+## **Read Shape Animations**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/). 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน. 
-3. เพิ่มหรือรับ [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/) บนสไลด์. 
-4. รับลำดับหลักของเอฟเฟกต์. 
-5. เพิ่มเอฟเฟกต์ภาพเคลื่อนไหวให้กับ [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/). 
-6. บันทึกการนำเสนอเป็นไฟล์ PPTX. 
+ใช้ [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) เมื่อคุณรู้รูปร่างเป้าหมาย. เพื่อตรวจสอบทุกเอฟเฟกต์, วนผ่านลำดับหลักและลำดับเชิงโต้ตอบทุกลำดับ. การวนลูปช่วยหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟกต์ที่ดัชนี `0`.
 
-โค้ด Python นี้แสดงวิธีการใช้เอฟเฟกต์ `Fly` กับ picture frame:
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-
-# สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงไฟล์การนำเสนอ.
-with slides.Presentation() as pres:
-    # โหลดรูปภาพเพื่อเพิ่มในคอลเลกชันรูปภาพของการนำเสนอ
-    img = draw.Bitmap("aspose-logo.jpg")
-    image = pres.images.add_image(img)
-
-    # เพิ่ม picture frame ไปยังสไลด์
-    picFrame = pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-    # รับลำดับหลักของสไลด์.
-    sequence = pres.slides[0].timeline.main_sequence
-
-    # เพิ่มเอฟเฟกต์ภาพเคลื่อนไหว Fly จากด้านซ้ายให้กับ picture frame
-    effect = sequence.add_effect(picFrame, slides.animation.EffectType.FLY,  
-        slides.animation.EffectSubtype.LEFT, 
-        slides.animation.EffectTriggerType.ON_CLICK)
-
-    # บันทึกไฟล์ PPTX ไปยังดิสก์
-    pres.save("AnimImage_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **ใช้ภาพเคลื่อนไหวกับ Shape**
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/). 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน. 
-3. เพิ่ม `rectangle` [IAutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/iautoshape/). 
-4. เพิ่ม `Bevel` [IAutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/iautoshape/) (เมื่อคลิกอ็อบเจกต์นี้ ภาพเคลื่อนไหวก็จะเล่น). 
-5. สร้างลำดับของเอฟเฟกต์บนรูปร่าง bevel. 
-6. สร้าง `UserPath` แบบกำหนดเอง. 
-7. เพิ่มคำสั่งเพื่อเคลื่อนที่ไปยัง `UserPath`. 
-8. บันทึกการนำเสนอเป็นไฟล์ PPTX. 
-
-โค้ด Python นี้แสดงวิธีการใช้เอฟเฟกต์ `PathFootball` (path football) กับ shape:
-
-```python
-import aspose.slides.animation as anim
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์ PPTX
-with slides.Presentation() as pres:
-    sld = pres.slides[0]
-
-    # สร้างเอฟเฟกต์ PathFootball สำหรับรูปร่างที่มีอยู่จากศูนย์.
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 250, 25)
-
-    ashp.add_text_frame("Animated TextBox")
-
-    # เพิ่มเอฟเฟกต์ภาพเคลื่อนไหว PathFootBall.
-    pres.slides[0].timeline.main_sequence.add_effect(ashp, 
-        anim.EffectType.PATH_FOOTBALL,
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.AFTER_PREVIOUS)
-
-    # สร้างบางประเภทของ "button".
-    shapeTrigger = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.BEVEL, 10, 10, 20, 20)
-
-    # สร้างลำดับของเอฟเฟกต์สำหรับปุ่ม.
-    seqInter = pres.slides[0].timeline.interactive_sequences.add(shapeTrigger)
-
-    # สร้าง user path แบบกำหนดเอง วัตถุของเราจะเคลื่อนที่หลังจากคลิกปุ่มเท่านั้น.
-    fxUserPath = seqInter.add_effect(ashp, 
-        anim.EffectType.PATH_USER, 
-        anim.EffectSubtype.NONE, 
-        anim.EffectTriggerType.ON_CLICK)
-
-    # เพิ่มคำสั่งการเคลื่อนที่เนื่องจาก path ที่สร้างว่างเปล่า.
-    motionBhv = fxUserPath.behaviors[0]
-
-    pts = [draw.PointF(0.076, 0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, True)
-    pts = [draw.PointF(-0.076, -0.59)]
-    motionBhv.path.add(anim.MotionCommandPathType.LINE_TO, pts, anim.MotionPathPointsType.AUTO, False)
-    motionBhv.path.add(anim.MotionCommandPathType.END, None, anim.MotionPathPointsType.AUTO, False)
-
-    # เขียนไฟล์ PPTX ไปยังดิสก์
-    pres.save("AnimExample_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **รับเอฟเฟ็กต์ภาพเคลื่อนไหวที่ใช้กับ Shape**
-
-ตัวอย่างต่อไปนี้แสดงวิธีการใช้เมธอด `get_effects_by_shape` จากคลาส [Sequence](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/) เพื่อรับเอฟเฟ็กต์ภาพเคลื่อนไหวทั้งหมดที่ใช้กับรูปร่าง.
-
-**ตัวอย่างที่ 1: รับเอฟเฟ็กต์ภาพเคลื่อนไหวที่ใช้กับรูปร่างบนสไลด์ปกติ**
-
-ก่อนหน้านี้คุณได้เรียนรู้วิธีการเพิ่มเอฟเฟ็กต์ภาพเคลื่อนไหวให้กับรูปร่างในงานนำเสนอ PowerPoint ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการรับเอฟเฟ็กต์ที่ใช้กับรูปร่างแรกบนสไลด์ปกติแรกในงานนำเสนอ `AnimExample_out.pptx`.
+ตัวอย่างต่อไปนี้สร้างรูปร่างที่มีเอฟเฟกต์ในลำดับหลักและเชิงโต้ตอบ, ดึงเอฟเฟกต์ที่เป้าหมายเป็นรูปร่างนั้น, แล้ววนผ่านทุกลำดับบนสไลด์.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AnimExample_out.pptx") as presentation:
-    first_slide = presentation.slides[0]
 
-    # รับลำดับภาพเคลื่อนไหวหลักของสไลด์.
-    sequence = first_slide.timeline.main_sequence
+def print_sequence(label, sequence):
+    print(f"  {label}: {sequence.count} effect(s)")
 
-    # รับรูปร่างแรกบนสไลด์แรก.
-    shape = first_slide.shapes[0]
+    for effect in sequence:
+        target_name = "unknown" if effect.target_shape is None else effect.target_shape.name
+        effect_description = f"{effect.type.name} {effect.subtype.name}; target: {target_name}; trigger: {effect.timing.trigger_type.name}"
+        print(f"    {effect_description}")
 
-    # รับเอฟเฟกต์ภาพเคลื่อนไหวที่ใช้กับรูปร่าง.
-    shape_effects = sequence.get_effects_by_shape(shape)
 
-    if len(shape_effects) > 0:
-        print("The shape", shape.name, "has", len(shape_effects), "animation effects.")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    target_shape.text_frame.text = "Animated shape"
+
+    main_sequence = slide.timeline.main_sequence
+    main_sequence.add_effect(target_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    trigger_shape = slide.shapes.add_auto_shape(slides.ShapeType.BEVEL, 20, 20, 100, 40)
+    trigger_shape.text_frame.text = "Move"
+
+    interactive_sequence = slide.timeline.interactive_sequences.add(trigger_shape)
+    interactive_sequence.add_effect(target_shape, slides.animation.EffectType.PATH_FOOTBALL, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+
+    target_effects = main_sequence.get_effects_by_shape(target_shape)
+    print(f"The main sequence contains {len(target_effects)} effect(s) for {target_shape.name}.")
+
+    print_sequence("Main sequence", main_sequence)
+
+    for interactive_index, sequence in enumerate(slide.timeline.interactive_sequences, start=1):
+        trigger_name = "unknown" if sequence.trigger_shape is None else sequence.trigger_shape.name
+        sequence_label = f"Interactive sequence {interactive_index}, trigger: {trigger_name}"
+        print_sequence(sequence_label, sequence)
 ```
 
-**ตัวอย่างที่ 2: รับเอฟเฟ็กต์ภาพเคลื่อนไหวทั้งหมด รวมถึงที่สืบทอดจาก placeholder**
+หากคุณต้องการเอฟเฟกต์สำหรับรูปร่างเดียว, ให้ระบุรูปร่างด้วยชื่อ, ประเภท placeholder, หรือคุณสมบัติคงที่อื่น; จากนั้นเรียก [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). อย่าสันนิษฐานว่ารูปร่างที่ดัชนี `0` always เป็นอ็อบเจกต์ที่ต้องการ.
 
-หากรูปร่างบนสไลด์ปกติมี placeholder ที่อยู่บน layout slide หรือ master slide และมีการเพิ่มเอฟเฟ็กต์ภาพเคลื่อนไหวให้กับ placeholder เหล่านั้น เมื่อทำการแสดงสไลด์ เอฟเฟ็กต์ทั้งหมดของรูปร่างจะเล่นรวมถึงที่สืบทอดจาก placeholder
+## **Work with Inherited Placeholder Effects**
 
-สมมติว่าเรามีไฟล์การนำเสนอ PowerPoint `sample.pptx` ที่มีสไลด์หนึ่งที่มีเพียงรูปร่างส่วนท้ายที่มีข้อความ "Made with Aspose.Slides" และมีเอฟเฟ็กต์ **Random Bars** ถูกใช้กับรูปร่างนั้น.
+Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก placeholder ที่สอดคล้องบนสไลด์เลเยาต์และมาสเตอร์. [Shape.get_base_placeholder](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/get_base_placeholder/) คืนค่า placeholder พาเรนต์นั้น, หรือ `None` หากไม่มีพาเรนต์.
 
-![Slide shape animation effect](slide-shape-animation.png)
+ในตัวอย่างงานนำเสนอต่อไปนี้, ส่วนท้ายมี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลเยาต์, และ **Fly In** บนสไลด์มาสเตอร์.
 
-ให้ถือว่ามีเอฟเฟ็กต์ **Split** ถูกใช้กับ placeholder ของส่วนท้ายบน **layout** slide.
+![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์ปกติ](slide-shape-animation.png)
 
-![Layout shape animation effect](layout-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์เลเยาต์](layout-shape-animation.png)
 
-และสุดท้ายมีเอฟเฟ็กต์ **Fly In** ถูกใช้กับ placeholder ของส่วนท้ายบน **master** slide.
+![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์มาสเตอร์](master-shape-animation.png)
 
-![Master shape animation effect](master-shape-animation.png)
+ตัวอย่างต่อไปนี้สร้างลำดับชั้นของ placeholder ด้วยตนเอง. มันเพิ่มเอฟเฟกต์ให้กับ placeholder บนมาสเตอร์, placeholder บนเลเยาต์, และ placeholder ที่สอดคล้องบนสไลด์ปกติ. การเรียกทุกครั้งที่ [Shape.get_base_placeholder](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/get_base_placeholder/) จะตรวจสอบก่อนนำรูปร่างที่คืนค่าไปใช้.
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการใช้เมธอด `get_base_placeholder` จากคลาส [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/) เพื่อเข้าถึง placeholder ของรูปร่างและรับเอฟเฟ็กต์ภาพเคลื่อนไหวที่ใช้กับรูปร่างส่วนท้าย รวมถึงที่สืบทอดจาก placeholder ที่อยู่บน layout และ master slide.
-
-```py
+```python
 import aspose.slides as slides
 
-def print_effects(effects):
+
+def find_placeholder_with_base(slide):
+    for shape in slide.shapes:
+        if shape.get_base_placeholder() is not None:
+            return shape
+
+    return None
+
+
+def print_effects(source, effects):
+    print(f"{source}: {len(effects)} effect(s)")
+
     for effect in effects:
-        print(effect.type.name, effect.subtype.name)
+        print(f"  {effect.type.name} {effect.subtype.name}")
+
+
+with slides.Presentation() as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    layout_placeholder = layout_slide.placeholder_manager.add_text_placeholder(100, 100, 400, 80)
+    layout_slide.timeline.main_sequence.add_effect(layout_placeholder, slides.animation.EffectType.SPLIT, slides.animation.EffectSubtype.VERTICAL_IN, slides.animation.EffectTriggerType.ON_CLICK)
+
+    master_placeholder = layout_placeholder.get_base_placeholder()
+    if master_placeholder is not None:
+        master_sequence = layout_slide.master_slide.timeline.main_sequence
+        master_sequence.add_effect(master_placeholder, slides.animation.EffectType.FLY, slides.animation.EffectSubtype.BOTTOM, slides.animation.EffectTriggerType.ON_CLICK)
+
+    slide = presentation.slides.add_empty_slide(layout_slide)
+    slide_placeholder = find_placeholder_with_base(slide)
+
+    if slide_placeholder is None:
+        raise RuntimeError("The slide does not contain a placeholder linked to its layout slide.")
+
+    slide.timeline.main_sequence.add_effect(slide_placeholder, slides.animation.EffectType.RANDOM_BARS, slides.animation.EffectSubtype.HORIZONTAL, slides.animation.EffectTriggerType.ON_CLICK)
+    print_effects("Normal slide", slide.timeline.main_sequence.get_effects_by_shape(slide_placeholder))
+
+    base_layout_placeholder = slide_placeholder.get_base_placeholder()
+    if base_layout_placeholder is not None:
+        print_effects("Layout slide", layout_slide.timeline.main_sequence.get_effects_by_shape(base_layout_placeholder))
+
+        base_master_placeholder = base_layout_placeholder.get_base_placeholder()
+        if base_master_placeholder is not None:
+            print_effects("Master slide", layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(base_master_placeholder))
+
+    presentation.save("placeholder-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
-```py
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
 
-    # รับเอฟเฟกต์ภาพเคลื่อนไหวของรูปร่างบนสไลด์ปกติ.
-    shape = slide.shapes[0]
-    shape_effects = slide.timeline.main_sequence.get_effects_by_shape(shape)
+## **Change Animation Timing**
 
-    # รับเอฟเฟกต์ภาพเคลื่อนไหวของ placeholder บนสไลด์ layout.
-    layout_shape = shape.get_base_placeholder()
-    layout_shape_effects = slide.layout_slide.timeline.main_sequence.get_effects_by_shape(layout_shape)
+กล่องโต้ตอบ **Timing** ของ PowerPoint แมพกับคุณสมบัติของ [Timing](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/).
 
-    # รับเอฟเฟกต์ภาพเคลื่อนไหวของ placeholder บนสไลด์ master.
-    master_shape = layout_shape.get_base_placeholder()
-    master_shape_effects = slide.layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(master_shape)
+![กล่องโต้ตอบ Timing ของ PowerPoint สำหรับเอฟเฟกต์การเคลื่อนไหว](shape-animation.png)
 
-    print("Main sequence of shape effects:")
-    print_effects(master_shape_effects)
-    print_effects(layout_shape_effects)
-    print_effects(shape_effects)
-```
+- **Start** แมพกับ [Timing.trigger_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/trigger_type/).
+- **Duration** แมพกับ [Timing.duration](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/duration/), หน่วยเป็นวินาที.
+- **Delay** แมพกับ [Timing.trigger_delay_time](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/trigger_delay_time/), หน่วยเป็นวินาที.
+- **Repeat** แมพกับ [Timing.repeat_count](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_next_click/), หรือ [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
+- **Rewind when done playing** แมพกับ [Timing.rewind](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/rewind/).
 
-Output:
-```text
-Main sequence of shape effects:
-FLY BOTTOM
-SPLIT VERTICAL_IN
-RANDOM_BARS HORIZONTAL
-```
-
-## **เปลี่ยนคุณสมบัติ Timing ของเอฟเฟ็กต์ภาพเคลื่อนไหว**
-
-Aspose.Slides for Python via .NET ให้คุณเปลี่ยนคุณสมบัติ Timing ของเอฟเฟ็กต์ภาพเคลื่อนไหว.
-
-นี่คือแผง Animation Timing ใน Microsoft PowerPoint:
-
-![example1_image](shape-animation.png)
-
-นี่คือความสัมพันธ์ระหว่าง PowerPoint Timing และคุณสมบัติ `Effect.Timing`:
-
-- ตัวเลือกดรอปดาวน์ **Start** ของ PowerPoint ตรงกับคุณสมบัติ [Effect.Timing.TriggerType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/). 
-- ตัวเลือกดรอปดาวน์ **Duration** ของ PowerPoint ตรงกับคุณสมบัติ `Effect.Timing.Duration`. ระยะเวลาของภาพเคลื่อนไหว (เป็นวินาที) คือเวลารวมที่ภาพเคลื่อนไหวใช้ในการทำรอบหนึ่ง. 
-- ตัวเลือกดรอปดาวน์ **Delay** ของ PowerPoint ตรงกับคุณสมบัติ `Effect.Timing.TriggerDelayTime`. 
-
-นี่คือวิธีการเปลี่ยนคุณสมบัติ Effect Timing:
-
-1. [Apply](#apply-animation-to-shape) หรือรับเอฟเฟ็กต์ภาพเคลื่อนไหว. 
-2. ตั้งค่าค่าใหม่สำหรับคุณสมบัติ `Effect.Timing` ที่ต้องการ. 
-3. บันทึกไฟล์ PPTX ที่แก้ไขแล้ว.
+ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์, เปลี่ยนเวลาผ่านอ็อบเจกต์ที่คืนจาก [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/), และบันทึกผลลัพธ์. การเก็บอ้างอิง [Effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/) ที่คืนมาตรหากไม่ต้องการดัชนีคอลเลกชันที่ไม่จำเป็น.
 
 ```python
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงไฟล์การนำเสนอ.
-with slides.Presentation("AnimExample_out.pptx") as pres:
-    # รับลำดับหลักของสไลด์.
-    sequence = pres.slides[0].timeline.main_sequence
 
-    # รับเอฟเฟกต์แรกของลำดับหลัก.
-    effect = sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Timed animation"
 
-    # เปลี่ยน TriggerType ของเอฟเฟกต์ให้เริ่มเมื่อคลิก
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
     effect.timing.trigger_type = slides.animation.EffectTriggerType.ON_CLICK
-
-    # เปลี่ยน Duration ของเอฟเฟกต์
-    effect.timing.duration = 3
-
-    # เปลี่ยน TriggerDelayTime ของเอฟเฟกต์
+    effect.timing.duration = 2.0
     effect.timing.trigger_delay_time = 0.5
+    effect.timing.repeat_until_next_click = False
+    effect.timing.repeat_until_end_slide = False
+    effect.timing.repeat_count = 2.0
+    effect.timing.rewind = True
 
-    # บันทึกไฟล์ PPTX ไปยังดิสก์
-    pres.save("AnimExample_changed.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เสียงของเอฟเฟ็กต์ภาพเคลื่อนไหว**
+ใช้โหมด repeat หนึ่งอย่างเจตนา. การผสาน repeat count กับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในผู้ชมที่ต่างกัน. เมื่อเปลี่ยนโหมด repeat, ให้ตั้งค่า [Timing.repeat_until_next_click](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_next_click/) และ [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) ก่อน [Timing.repeat_count](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_count/), เนื่องจากการตั้งค่าแฟล็กใดแฟล็กหนึ่งจะเปลี่ยนโหมด repeat ที่ใช้งานอยู่.
 
-Aspose.Slides ให้คุณสมบัติเหล่านี้เพื่อทำงานกับเสียงในเอฟเฟ็กต์ภาพเคลื่อนไหว: 
+## **Add and Extract Animation Sounds**
 
-- `sound`
-- `stop_previous_sound`
+เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงฝังผ่าน [Effect.sound](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/stop_previous_sound/) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า.
 
-### **เพิ่มเสียงให้กับเอฟเฟ็กต์ภาพเคลื่อนไหว**
+### **Add a Sound to an Effect**
 
-โค้ด Python นี้แสดงวิธีการเพิ่มเสียงให้กับเอฟเฟ็กต์ภาพเคลื่อนไหวและหยุดเสียงเมื่อเอฟเฟ็กต์ถัดไปเริ่มทำงาน:
+ตัวอย่างต่อไปนี้คาดว่าจะมีไฟล์เสียงโลคัลชื่อ `animation-sound.wav`. มันสร้างสองเอฟเฟกต์, ฝังไฟล์นั้นเป็นเสียงให้กับเอฟเฟกต์แรก, และกำหนดให้เอฟเฟกต์ที่สองหยุดเสียง. ตัวอย่างใช้อ็อบเจกต์ที่คืนจาก [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/), ดังนั้นไม่ต้องระบุดัชนีลำดับ.
 
 ```python
 import aspose.slides as slides
 
-with Presentation("AnimExample_out.pptx") as pres:
-    # เพิ่มเสียงไปยังคอลเลกชันเสียงของการนำเสนอ
-    effect_sound = pres.audios.add_audio(open("sampleaudio.wav", "rb").read())
 
-    first_slide = pres.slides[0]
-
-    # รับลำดับหลักของสไลด์.
-    sequence = first_slide.timeline.main_sequence
-
-    # รับเอฟเฟกต์แรกของลำดับหลัก
-    first_effect = sequence[0]
-
-    # ตรวจสอบว่าเอฟเฟกต์ไม่มีเสียง
-    if not first_effect.stop_previous_sound and first_effect.sound is None:
-        # เพิ่มเสียงให้กับเอฟเฟกต์แรก
-        first_effect.sound = effect_sound
-
-    # รับลำดับเชิงโต้ตอบแรกของสไลด์.
-    interactive_sequence = first_slide.timeline.interactive_sequences[0]
-
-    # ตั้งค่าสถานะ "Stop previous sound" ของเอฟเฟกต์
-    interactive_sequence[0].stop_previous_sound = True
-
-    # เขียนไฟล์ PPTX ไปยังดิสก์
-    pres.save("AnimExample_Sound_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-### **ดึงเสียงของเอฟเฟ็กต์ภาพเคลื่อนไหว**
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/). 
-2. รับอ้างอิงของสไลด์ผ่านดัชนี. 
-3. รับลำดับหลักของเอฟเฟ็กต์. 
-4. ดึง `sound` ที่ฝังอยู่ในแต่ละเอฟเฟ็กต์ภาพเคลื่อนไหว. 
-
-โค้ด Python นี้แสดงวิธีการดึงเสียงที่ฝังอยู่ในเอฟเฟ็กต์ภาพเคลื่อนไหว:
-
-```python
-import aspose.slides as slides
-
-# สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงไฟล์การนำเสนอ.
-with slides.Presentation("EffectSound.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 100, 240, 80)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 400, 100, 240, 80)
+    first_shape.text_frame.text = "Starts sound"
+    second_shape.text_frame.text = "Stops sound"
 
-    # รับลำดับหลักของสไลด์.
     sequence = slide.timeline.main_sequence
+    first_effect = sequence.add_effect(first_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    second_effect = sequence.add_effect(second_shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
 
+    with open("animation-sound.wav", "rb") as audio_file:
+        effect_sound = presentation.audios.add_audio(audio_file.read())
+
+    first_effect.sound = effect_sound
+    second_effect.stop_previous_sound = True
+
+    presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Extract Embedded Effect Sounds**
+
+ตัวอย่างต่อไปนี้คาดว่าจะมีงานนำเสนอโลคัลชื่อ `presentation-with-animation-sounds.pptx`. มันสแกนทั้งลำดับหลักและเชิงโต้ตอบและเขียนเสียงเอฟเฟกต์ฝังทั้งหมดไปยังไดเรกทอรี `extracted-animation-sounds`. ส่วนขยายไฟล์เลือกจาก MIME type ของเสียงที่เปิดเผยโดย [Audio.content_type](https://reference.aspose.com/slides/th/python-net/aspose.slides/audio/content_type/).
+
+```python
+import os
+
+import aspose.slides as slides
+
+
+def get_audio_extension(content_type):
+    normalized_type = "" if content_type is None else content_type.lower()
+
+    if normalized_type == "audio/mpeg":
+        return ".mp3"
+    if normalized_type == "audio/mp4":
+        return ".m4a"
+    if normalized_type == "audio/ogg":
+        return ".ogg"
+    if normalized_type in ("audio/wav", "audio/x-wav"):
+        return ".wav"
+
+    return ".bin"
+
+
+def save_sounds(sequence, output_directory, sound_index):
     for effect in sequence:
         if effect.sound is None:
             continue
 
-        # ดึงเสียงของเอฟเฟกต์เป็นอาร์เรย์ไบต์
-        audio = effect.sound.binary_data
+        extension = get_audio_extension(effect.sound.content_type)
+        output_path = os.path.join(output_directory, f"effect-sound-{sound_index}{extension}")
+        with open(output_path, "wb") as output_file:
+            output_file.write(bytes(effect.sound.binary_data))
+        sound_index += 1
+
+    return sound_index
+
+
+input_path = "presentation-with-animation-sounds.pptx"
+output_directory = "extracted-animation-sounds"
+
+os.makedirs(output_directory, exist_ok=True)
+
+with slides.Presentation(input_path) as presentation:
+    sound_index = 1
+
+    for slide in presentation.slides:
+        sound_index = save_sounds(slide.timeline.main_sequence, output_directory, sound_index)
+
+        for sequence in slide.timeline.interactive_sequences:
+            sound_index = save_sounds(sequence, output_directory, sound_index)
+
+print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
-## **หลังการเคลื่อนไหว**
+สำหรับอ็อบเจกต์เสียงขนาดใหญ่, ใช้ [Audio.get_stream](https://reference.aspose.com/slides/th/python-net/aspose.slides/audio/get_stream/) และคัดลอกจากสตรีมไปยังไฟล์แทนที่จะโหลดอ็อบเจกต์ทั้งหมดเป็นอาร์เรย์ไบต์.
 
-Aspose.Slides for .NET ให้คุณเปลี่ยนคุณสมบัติ After animation ของเอฟเฟ็กต์ภาพเคลื่อนไหว.
+## **Set After-Animation Behavior**
 
-นี่คือแผง Animation Effect และเมนูขยายใน Microsoft PowerPoint:
+ตัวเลือก **After animation** กำหนดว่ารูปร่างจะทำอะไรหลังจากเอฟเฟกต์สิ้นสุด.
 
-![example1_image](shape-after-animation.png)
+![กล่องโต้ตอบ Effect Options ของ PowerPoint ที่แสดงการตั้งค่า After animation](shape-after-animation.png)
 
-ตัวเลือกดรอปดาวน์ **After animation** ของ PowerPoint ตรงกับคุณสมบัติดังนี้: 
+enumeration [AfterAnimationType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/) รองรับการทิ้งรูปร่างไว้ไม่เปลี่ยนแปลง, เปลี่ยนสี, ซ่อนหลังการเคลื่อนไหว, หรือซ่อนเมื่อคลิกครั้งถัดไป. เมื่อประเภทเป็น [AfterAnimationType.COLOR](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/), ให้ตั้งค่า [Effect.after_animation_color](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/after_animation_color/) ด้วย.
 
-- คุณสมบัติ `after_animation_type` ที่อธิบายประเภทของ After animation :
-  * **More Colors** ของ PowerPoint ตรงกับประเภท [COLOR](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/);
-  * **Don't Dim** ของ PowerPoint ตรงกับประเภท [DO_NOT_DIM](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/) (ประเภท After animation เริ่มต้น);
-  * **Hide After Animation** ของ PowerPoint ตรงกับประเภท [HIDE_AFTER_ANIMATION](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/);
-  * **Hide on Next Mouse Click** ของ PowerPoint ตรงกับประเภท [HIDE_ON_NEXT_MOUSE_CLICK](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/);
-- คุณสมบัติ `after_animation_color` ที่กำหนดรูปแบบสีของ After animation. คุณสมบัตินี้ทำงานร่วมกับประเภท [COLOR](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/). หากเปลี่ยนประเภทเป็นค่าอื่น สีของ After animation จะถูกล้าง.
+ตัวอย่างอิสระนี้สร้างเอฟเฟกต์, ตั้งค่าพฤติกรรม after‑animation ผ่านอ็อบเจกต์เอฟเฟกต์ที่คืน, และบันทึกผลลัพธ์.
 
-โค้ด Python นี้แสดงวิธีการเปลี่ยนเอฟเฟ็กต์ After animation:
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
+    shape.text_frame.text = "Dim after animation"
+
+    effect = slide.timeline.main_sequence.add_effect(shape, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.after_animation_type = slides.animation.AfterAnimationType.COLOR
+    effect.after_animation_color.color = draw.Color.light_gray
+
+    presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
+```
+
+การเปลี่ยนประเภทออกจาก [AfterAnimationType.COLOR](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/) จะเคลียร์การตั้งค่าสี after‑animation.
+
+## **Animate Text**
+
+การเคลื่อนไหวของข้อความมีการควบคุมสองอย่างที่เกี่ยวข้อง:
+
+- [TextAnimation.build_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/textanimation/build_type/) ควบคุมว่ากย่อหน้าจะแสดงพร้อมกันหรือแยกตามระดับกย่อหน้า.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/animate_text_type/) ควบคุมว่าข้อความปรากฏทั้งหมดพร้อมกัน, แยกตามคำ, หรือแยกตามตัวอักษร. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/delay_between_text_parts/) ตั้งค่าการหน่วงระหว่างคำหรืออักษร. ค่าเป็นบวกหมายถึงเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าเป็นลบหมายถึงการหน่วงเวลาเป็นวินาที.
+
+ตัวอย่างอิสระต่อไปนี้ทำให้คำในกล่องข้อความเคลื่อนไหว. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/buildtype/) ปิดการสร้างตามกย่อหน้าเพื่อให้การตั้งค่าคำใช้กับเฟรมข้อความทั้งหมด.
 
 ```python
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงไฟล์การนำเสนอ
-with slides.Presentation("AnimImage_out.pptx") as pres:
-    first_slide = pres.slides[0]
 
-    # รับเอฟเฟกต์แรกของลำดับหลัก
-    first_effect = first_slide.timeline.main_sequence[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 560, 100)
+    text_box.text_frame.text = "Aspose.Slides animates this sentence word by word."
 
-    # เปลี่ยนประเภท After animation เป็น Color
-    first_effect.after_animation_type = AfterAnimationType.COLOR
+    effect = slide.timeline.main_sequence.add_effect(text_box, slides.animation.EffectType.FADE, slides.animation.EffectSubtype.NONE, slides.animation.EffectTriggerType.ON_CLICK)
+    effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+    effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
+    effect.delay_between_text_parts = 20.0
 
-    # ตั้งค่าสีของ After animation dim
-    first_effect.after_animation_color.color = Color.alice_blue
-
-    # เขียนไฟล์ PPTX ไปยังดิสก์
-    pres.save("AnimImage_AfterAnimation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เคลื่อนไหวข้อความ**
+เพื่อสร้างกล่องข้อความตามกย่อหน้า, ตั้งค่า [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/buildtype/) (หรือระดับกย่อหน้าอื่น). เพื่อกำหนดกย่อหน้าเดี่ยวด้วยเอฟเฟกต์ของมันเอง, ใช้ overload ของ [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) ที่รับ [IParagraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/iparagraph/). ดู [Animated Text](/slides/th/python-net/animated-text/) สำหรับตัวอย่างระดับกย่อหน้า.
 
-Aspose.Slides ให้คุณสมบัติเหล่านี้เพื่อทำงานกับบล็อก *Animate text* ของเอฟเฟ็กต์ภาพเคลื่อนไหว:
+## **Export and Compatibility Notes**
 
-- `animate_text_type` ที่อธิบายประเภทการเคลื่อนไหวข้อความของเอฟเฟ็กต์. ข้อความในรูปร่างสามารถเคลื่อนไหวได้:
-  - ทั้งหมดพร้อมกัน ([ALL_AT_ONCE](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/animatetexttype/) type)
-  - ตามคำ ([BY_WORD](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/animatetexttype/) type)
-  - ตามตัวอักษร ([BY_LETTER](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/animatetexttype/) type)
-- `delay_between_text_parts` ตั้งค่าการหน่วงเวลาระหว่างส่วนของข้อความที่เคลื่อนไหว (คำหรืออักษร). ค่าเป็นบวกระบุเปอร์เซ็นต์ของระยะเวลาเอฟเฟ็กต์, ค่าเป็นลบระบุหน่วงเวลาเป็นวินาที.
+- การบันทึกเป็น PPT หรือ PPTX รักษาโมเดลการเคลื่อนไหว, แต่การเล่นขั้นสุดท้ายถูกควบคุมโดยโปรแกรมแสดงงานนำเสนอ.
+- PDF และรูปภาพคงที่จะไม่เล่นการเคลื่อนไหว. ใช้ [HTML5 export](/slides/th/python-net/export-to-html5/), GIF ที่เคลื่อนไหว, หรือ [video conversion](/slides/th/python-net/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว.
+- สำหรับ HTML5, เปิดใช้ [Html5Options.animate_shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/html5options/animate_shapes/) และเมื่อต้องการ, [Html5Options.animate_transitions](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/html5options/animate_transitions/).
+- การแปลงเป็นวิดีโอสนับสนุนเอฟเฟกต์การเข้าสู่, เน้น, ออกจาก, และเส้นทางการเคลื่อนไหวหลายแบบ, แต่ไม่รองรับเอฟเฟกต์ PowerPoint ทุกแบบ. ตรวจสอบ [supported animations and effects](/slides/th/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบงานนำเสนอที่สำคัญกับเวอร์ชัน Aspose.Slides ที่คุณใช้.
+- เอฟเฟกต์ที่กำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบงานนำเสนออื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลแตกต่างกันใน PowerPoint, HTML5, หรือวิดีโอ. ตรวจสอบผลลัพธ์ที่ส่งออกแทนการพึ่งพาชื่อเอฟเฟกต์อย่างเดียว.
 
-นี่คือวิธีการเปลี่ยนคุณสมบัติ Effect Animate text:
+## **FAQ**
 
-1. [Apply](#apply-animation-to-shape) หรือรับเอฟเฟ็กต์ภาพเคลื่อนไหว. 
-2. ตั้งค่าคุณสมบัติ `build_type` เป็นค่า [AS_ONE_OBJECT](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/buildtype/) เพื่อปิดโหมดการเคลื่อนไหว *By Paragraphs*. 
-3. ตั้งค่าที่ใหม่สำหรับคุณสมบัติ `animate_text_type` และ `delay_between_text_parts`. 
-4. บันทึกไฟล์ PPTX ที่แก้ไขแล้ว.
+**ทำไมเอฟเฟกต์จึงปรากฏใน PowerPoint แต่ไม่แสดงใน PDF?**
 
-```python
-import aspose.slides as slides
+PDF เป็นรูปแบบคงที่, ดังนั้นการเคลื่อนไหวและการเปลี่ยนสไลด์จะไม่เล่น. ส่งออกเป็น HTML5, GIF ที่เคลื่อนไหว, หรือวิดีโอเมื่อจำเป็นต้องรักษาการเคลื่อนไหว.
 
-with slides.Presentation("AnimTextBox_out.pptx") as pres:
-    first_slide = pres.slides[0]
+**ทำไมเอฟเฟกต์จึงทำงานต่างกันในวิดีโอ?**
 
-    # รับเอฟเฟกต์แรกของลำดับหลัก
-    first_effect = first_slide.timeline.main_sequence[0]
+การส่งออกวิดีโอเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมเดิมของ PowerPoint. เอฟเฟกต์ขั้นสูงบางอย่างอาจไม่สนับสนุนหรือถูกประมาณค่า. ตรวจสอบตารางเอฟเฟกต์ที่สนับสนุนและทดสอบงานนำเสนอจริงก่อนการใช้งานจริง.
 
-    # เปลี่ยนประเภทการเคลื่อนไหวของข้อความของเอฟเฟกต์เป็น "As One Object"
-    first_effect.text_animation.build_type = slides.animation.BuildType.AS_ONE_OBJECT
+**การย้ายรูปร่างไปข้างหน้าหรือถอยหลังจะเปลี่ยนลำดับการเคลื่อนไหวหรือไม่?**
 
-    # เปลี่ยนประเภทการเคลื่อนไหวข้อความของเอฟเฟกต์เป็น "By word"
-    first_effect.animate_text_type = slides.animation.AnimateTextType.BY_WORD
-
-    # ตั้งค่าการหน่วงระหว่างคำเป็น 20% ของระยะเวลาเอฟเฟกต์
-    first_effect.delay_between_text_parts = 20
-
-    # เขียนไฟล์ PPTX ไปยังดิสก์
-    pres.save("AnimTextBox_AnimateText.pptx", slides.export.SaveFormat.PPTX)
-
-```
-
-## **คำถามที่พบบ่อย**
-
-**ทำอย่างไรจึงจะทำให้ภาพเคลื่อนไหวคงอยู่เมื่อนำเสนอไปยังเว็บ?**
-
-[Export to HTML5](/slides/th/python-net/export-to-html5/) และเปิดใช้งาน [options](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/html5options/) ที่รับผิดชอบการเคลื่อนไหวของ [shape](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/html5options/animate_shapes/) และ [transition](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/html5options/animate_transitions/). HTML ธรรมดาไม่เล่นภาพเคลื่อนไหวของสไลด์, แต่ HTML5 ทำได้.
-
-**การเปลี่ยนลำดับชั้น (z-order) ของรูปร่างส่งผลต่อการเคลื่อนไหวอย่างไร?**
-
-ลำดับการเคลื่อนไหวและลำดับการวาดเป็นเรื่องอิสระ: เอฟเฟกต์จะควบคุมเวลาและประเภทของการปรากฏ/หายไป, ส่วน [z-order](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/z_order_position/) จะกำหนดว่าอะไรบังอะไร ผลลัพธ์ที่มองเห็นได้ถูกกำหนดโดยการผสมผสานของทั้งสอง (นี่คือพฤติกรรมทั่วไปของ PowerPoint; โมเดลเอฟเฟ็กต์และรูปร่างของ Aspose.Slides ทำตามตรรกะเดียวกัน).
-
-**มีข้อจำกัดใดบ้างเมื่อแปลงภาพเคลื่อนไหวเป็นวิดีโอสำหรับเอฟเฟ็กต์บางอย่าง?**
-
-โดยทั่วไป [animations are supported](/slides/th/python-net/convert-powerpoint-to-video/), แต่ในบางกรณีหรือเอฟเฟ็กต์ที่เฉพาะเจาะจงอาจถูกเรนเดอร์ต่างกัน แนะนำให้ทดสอบกับเอฟเฟ็กต์ที่คุณใช้และกับเวอร์ชันของไลบรารี.
+ไม่. Z‑order ของรูปร่างควบคุมการทับซ้อน, ส่วนลำดับของลำดับและตัวกระตุ้นควบคุมการเล่นการเคลื่อนไหว. ปรับไทม์ไลน์หากต้องการลำดับการเล่นที่ต่างกัน.

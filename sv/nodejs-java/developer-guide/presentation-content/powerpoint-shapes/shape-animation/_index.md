@@ -10,10 +10,10 @@ keywords:
 - effekt
 - animerad form
 - animerad text
-- lägg till animation
+- lägga till animation
 - hämta animation
 - extrahera animation
-- lägg till effekt
+- lägga till effekt
 - hämta effekt
 - extrahera effekt
 - effektljud
@@ -23,447 +23,453 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Upptäck hur du skapar och anpassar formanimationer i PowerPoint-presentationer med JavaScript och Aspose.Slides för Node.js via Java. Stick ut!"
+description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, timing, ljud, beteende efter animation samt animerad text med Aspose.Slides för Node.js via Java."
 ---
-## **Introduktion**
+## **Översikt**
 
-Animationer är visuella effekter som kan tillämpas på texter, bilder, former eller [diagram](/slides/sv/nodejs-java/animated-charts/). De ger liv åt presentationer eller dess beståndsdelar.
+Aspose.Slides för Node.js via Java representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och undertyp, en trigger, tidsinställningar och valfria egenskaper såsom ljud eller beteende efter animationen.
 
-## **Varför använda animationer i presentationer?**
+Tidslinjen innehåller två typer av sekvenser:
 
-* styr informationens flöde
-* betona viktiga punkter
-* öka intresse eller deltagande bland din publik
-* göra innehållet lättare att läsa, assimilera eller bearbeta
-* rikta läsarnas eller tittarnas uppmärksamhet till viktiga delar i en presentation
+- **huvudsekvensen** spelas när bilden avancerar.
+- En **interaktiv sekvens** startas när dess triggerform klickas.
 
-PowerPoint erbjuder många alternativ och verktyg för animationer och animationseffekter inom kategorierna **entré**, **utgång**, **betoning** och **rörelsespår**.
+Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt är [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/)-objekt använder du samma [Sequence.addEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sequence/#addEffect)-metod för det mesta av bildinnehållet. De tillgängliga effekterna listas i uppräkningen [EffectType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effecttype/).
 
-## **Animationer i Aspose.Slides**
+## **Lägg till formanimationer**
 
-* Aspose.Slides tillhandahåller de klasser och typer du behöver för att arbeta med animationer i `Aspose.Slides.Animation`‑namnrymden,
-* Aspose.Slides tillhandahåller över **150 animationseffekter** under [EffectType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effecttype)‑enumerationen. Dessa effekter är i princip samma (eller motsvarande) effekter som används i PowerPoint.
+För att lägga till en animation hämtar du bildens huvudsekvens och anropar [Sequence.addEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sequence/#addEffect) med målformen, effekt‑typen, undertypen och triggern. För en effekt som startas när en annan form klickas skapar du en interaktiv sekvens vars trigger är den andra formen.
 
-## **Tillämpa animation på TextBox**
-
-Aspose.Slides för Node.js via Java låter dig tillämpa animation på texten i en form.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Hämta en slidreferens via dess index.
-3. Lägg till en `rectangle` [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape).
-4. Lägg till text med [AutoShape.addTextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-).
-5. Hämta huvudsekvensen av effekter.
-6. Lägg till en animationseffekt till [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape).
-7. Anropa `TextAnimation.setBuildType`‑metoden med värdet från `BuildType`‑enumerationen.
-8. Skriv presentationen till disk som en PPTX‑fil.
-
-Den här Javascript‑koden visar hur du applicerar `Fade`‑effekten på AutoShape och sätter textanimationen till *By 1st Level Paragraphs*-värdet:
+Följande exempel skapar båda typerna av animation och sparar resultatet till `shape-animations.pptx`.
 
 ```javascript
-// Instansierar en presentationsklass som representerar en presentationsfil.
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    // Lägger till en ny AutoShape med text
-    var autoShape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 100);
-    var textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
-    // Hämtar huvudsekvensen för bilden.
-    var sequence = sld.getTimeline().getMainSequence();
-    // Lägger till Fade‑animationseffekt till formen
-    var effect = sequence.addEffect(autoShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // Animera formens text efter första nivåns stycken
-    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.ByLevelParagraphs1);
-    // Spara PPTX‑filen till disk
-    pres.save(path + "AnimText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Click to animate this shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    const entranceEffect = mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    entranceEffect.getTiming().setDuration(java.newFloat(1.5));
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    presentation.save("shape-animations.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert color="primary"  %}} 
+Triggern bestämmer när en effekt startar:
 
-Förutom att applicera animationer på text kan du också applicera animationer på ett enskilt [Paragraph](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph). Se [**Animerad text**](/slides/sv/nodejs-java/animated-text/).
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effecttriggertype/#OnClick) väntar på ett klick i huvudsekvensen, eller på ett klick på triggerformen i en interaktiv sekvens.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) startar med den föregående effekten.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) startar när den föregående effekten slutar.
 
-{{% /alert %}} 
+För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [Sequence.addEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sequence/#addEffect) i stället för `targetShape`. För diagramspecifika grupperingalternativ, se [Animated Charts](/slides/sv/nodejs-java/animated-charts/).
 
-## **Tillämpa animation på PictureFrame**
+## **Läs formanimationer**
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Hämta en slides referens via dess index.
-3. Lägg till eller hämta en [PictureFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/pictureframe) på bilden.
-4. Hämta huvudsekvensen av effekter.
-5. Lägg till en animationseffekt till [PictureFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/pictureframe).
-6. Skriv presentationen till disk som en PPTX‑fil.
+Använd [Sequence.getEffectsByShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sequence/#getEffectsByShape) när du känner till målformen. För att inspektera varje effekt, iterera över huvudsekvensen och varje interaktiv sekvens. Iteration undviker antagandet att en sekvens innehåller en effekt på index `0`.
 
-Den här Javascript‑koden visar hur du applicerar `Fly`‑effekten på en bildram:
+Följande exempel skapar en form med huvud‑ och interaktiva effekter, hämtar de effekter som riktar sig mot formen och itererar sedan över varje sekvens på bilden.
 
 ```javascript
-// Instansierar en presentationsklass som representerar en presentationsfil.
-var pres = new aspose.slides.Presentation();
-try {
-    // Ladda bild som ska läggas till i presentationens bildsamling
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
         }
     }
-    // Lägger till bildram på bilden
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, picture);
-    // Hämtar huvudsekvensen för bilden.
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // Lägger till Fly‑från‑vänster‑animationseffekt till bildramen
-    var effect = sequence.addEffect(picFrame, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Left, aspose.slides.EffectTriggerType.OnClick);
-    // Spara PPTX‑filen till disk
-    pres.save(path + "AnimImage_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    return String(value);
+}
+
+function printSequence(label, sequence) {
+    console.log(`  ${label}: ${sequence.getCount()} effect(s)`);
+
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+        const targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        const triggerName = getEnumName(aspose.slides.EffectTriggerType, effect.getTiming().getTriggerType());
+        console.log(`    ${typeName} ${subtypeName}; target: ${targetName}; trigger: ${triggerName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Animated shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const targetEffects = mainSequence.getEffectsByShape(targetShape);
+    console.log(`The main sequence contains ${targetEffects.length} effect(s) for ${targetShape.getName()}.`);
+
+    printSequence("Main sequence", mainSequence);
+
+    const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+    for (let i = 0; i < interactiveSequences.getCount(); i++) {
+        const sequence = interactiveSequences.get_Item(i);
+        const triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+        printSequence(`Interactive sequence ${i + 1}, trigger: ${triggerName}`, sequence);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Tillämpa animation på Shape**
+Om du bara behöver effekterna för en form, identifiera först formen efter namn, platshållartyp eller annan stabil egenskap; anropa sedan [Sequence.getEffectsByShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sequence/#getEffectsByShape). Anta inte att [ShapeCollection.get_Item](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/#get_Item) på index `0` alltid är det avsedda objektet.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
-2. Hämta en slides referens via dess index.
-3. Lägg till en `rectangle` [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape).
-4. Lägg till en `Bevel` [AutoShape] (när detta objekt klickas spelas animationen).
-5. Skapa en sekvens av effekter på bevelformen.
-6. Skapa en anpassad `UserPath`.
-7. Lägg till kommandon för att flytta till `UserPath`.
-8. Skriv presentationen till disk som en PPTX‑fil.
+## **Arbeta med ärvda platshållareffekter**
 
-Den här Javascript‑koden visar hur du applicerar `PathFootball`‑effekten på en form:
+En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på layout‑ och masternivå. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/#getBasePlaceholder) returnerar den överordnade platshållaren, eller `null` när ingen förälder finns.
+
+I den följande exempelpresentationen har sidfoten **Random Bars** på den normala bilden, **Split** på layout‑bilden och **Fly In** på mastern.
+
+![Footer animation effect on the normal slide](slide-shape-animation.png)
+
+![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
+
+![Footer placeholder animation effect on the master slide](master-shape-animation.png)
+
+Det nästa exemplet använder en platshållar‑hierarki från en ny presentation. Det lägger till effekter på en master‑platshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [Shape.getBasePlaceholder](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/#getBasePlaceholder) kontrolleras innan den returnerade formen används.
 
 ```javascript
-// Instansiera en Presentation-klass som representerar en PPTX-fil.
-var pres = new aspose.slides.Presentation();
-try {
-    var sld = pres.getSlides().get_Item(0);
-    // Skapar PathFootball-effekt för befintlig form från början.
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-    // Lägger till PathFootBall-animations­effekten
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
-    // Skapar någon form av "knapp".
-    var shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 10, 10, 20, 20);
-    // Skapar en sekvens av effekter för den här knappen.
-    var seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-    // Skapar en anpassad användarstig. Vårt objekt kommer bara att flyttas efter att knappen har klickats.
-    var fxUserPath = seqInter.addEffect(ashp, aspose.slides.EffectType.PathUser, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // Lägger till kommandon för rörelse eftersom den skapade stigen är tom.
-    var motionBhv = fxUserPath.getBehaviors().get_Item(0);
-    var pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", 0.076, 0.59)]);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-    pts[0] = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(-0.076), java.newFloat(-0.59));
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
-    // Skriver PPTX-filen till disk
-    pres.save("AnimExample_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function findPlaceholderWithBase(baseSlide, expectedBase) {
+    const shapes = baseSlide.getShapes();
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const basePlaceholder = shape.getBasePlaceholder();
+
+        if (basePlaceholder == null) {
+            continue;
+        }
+
+        if (expectedBase == null || basePlaceholder.getPlaceholder().getType() === expectedBase.getPlaceholder().getType()) {
+            return shape;
+        }
     }
+
+    return null;
 }
-```
 
-## **Hämta animationseffekterna som tillämpats på Shape**
-
-Följande exempel visar hur du använder `getEffectsByShape`‑metoden från [Sequence](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sequence/)‑klassen för att hämta alla animationseffekter som har tillämpats på en form.
-
-**Exempel 1: Hämta animationseffekter som tillämpats på en form på en normal slide**
-
-Tidigare lärde du dig hur man lägger till animationseffekter på former i PowerPoint‑presentationer. Följande exempel kod visar hur du hämtar effekterna som tillämpats på den första formen på den första normala bilden i presentationen `AnimExample_out.pptx`.
-
-```javascript
-var presentation = new aspose.slides.Presentation("AnimExample_out.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-
-    // Hämtar huvudanimationssekvensen för bilden.
-    var sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Hämtar den första formen på den första bilden.
-    var shape = firstSlide.getShapes().get_Item(0);
-
-    // Hämtar animationseffekter som tillämpats på formen.
-    var shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0) {
-        console.log("The shape", shape.getName(), "has", shapeEffects.length, "animation effects.");
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
+        }
     }
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+
+    return String(value);
 }
-```
 
-**Exempel 2: Hämta alla animationseffekter, inklusive de som är ärvda från platshållare**
+function printEffects(source, effects) {
+    console.log(`${source}: ${effects.length} effect(s)`);
 
-Om en form på en normal bild har platshållare som finns på layout‑bilden och/eller huvudd bilden, och animationseffekter har lagts till dessa platshållare, så kommer alla effekter för formen att spelas upp under bildspelet, inklusive de som är ärvda från platshållarna.
-
-Låt oss säga att vi har en PowerPoint‑presentation `sample.pptx` med en bild som bara innehåller en sidfotform med texten "Made with Aspose.Slides" och **Random Bars**‑effekten är tillämpad på formen.
-
-![Slide shape animation effect](slide-shape-animation.png)
-
-Antag också att **Split**‑effekten är tillämpad på sidfotens platshållare på **layout**‑bilden.
-
-![Layout shape animation effect](layout-shape-animation.png)
-
-Och slutligen är **Fly In**‑effekten tillämpad på sidfotens platshållare på **master**‑bilden.
-
-![Master shape animation effect](master-shape-animation.png)
-
-Följande exempel kod visar hur du använder `getBasePlaceholder`‑metoden från [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/)‑klassen för att komma åt formens platshållare och hämta animationseffekterna som tillämpats på sidfotformen, inklusive de som är ärvda från platshållare på layout‑ och master‑bilderna.
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-var slide = presentation.getSlides().get_Item(0);
-
-// Get animation effects of the shape on the normal slide.
-var shape = slide.getShapes().get_Item(0);
-var shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// Get animation effects of the placeholder on the layout slide.
-var layoutShape = shape.getBasePlaceholder();
-var layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// Get animation effects of the placeholder on the master slide.
-var masterShape = layoutShape.getBasePlaceholder();
-var masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-console.log("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-```js
-function printEffects(effects) {
     for (const effect of effects) {
-        console.log("Type:", effect.getType() + ", subtype:", effect.getSubtype());
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        console.log(`  ${typeName} ${subtypeName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const layoutSlide = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
+    const layoutPlaceholder = findPlaceholderWithBase(layoutSlide, null);
+
+    if (layoutPlaceholder == null) {
+        throw new Error("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    const masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+    layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Bottom, aspose.slides.EffectTriggerType.OnClick);
+    layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, aspose.slides.EffectType.Split, aspose.slides.EffectSubtype.VerticalIn, aspose.slides.EffectTriggerType.OnClick);
+
+    const slide = presentation.getSlides().addEmptySlide(layoutSlide);
+    const slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+    if (slidePlaceholder == null) {
+        throw new Error("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, aspose.slides.EffectType.RandomBars, aspose.slides.EffectSubtype.Horizontal, aspose.slides.EffectTriggerType.OnClick);
+    printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+    const baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+    if (baseLayoutPlaceholder != null) {
+        printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+        const baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+        if (baseMasterPlaceholder != null) {
+            printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+        }
+    }
+
+    presentation.save("placeholder-animations.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Flyg, Botten
-Type: 134, subtype: 45            // Split, VertikalIn
-Type: 126, subtype: 22            // RandomBars, Horisontell
-```
+## **Ändra animationstiming**
 
-## **Ändra tidsinställningarna för animationseffekter**
+PowerPoint‑dialogen **Timing** motsvarar egenskaperna i [Timing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/).
 
-Aspose.Slides för Node.js via Java låter dig ändra tidsegenskaperna för en animationseffekt.
+![PowerPoint Timing dialog for an animation effect](shape-animation.png)
 
-Detta är panelen Animation Timing i Microsoft PowerPoint:
+- **Start** motsvarar [Timing.getTriggerType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#getTriggerType).
+- **Duration** motsvarar [Timing.getDuration](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#getDuration), i sekunder.
+- **Delay** motsvarar [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#getTriggerDelayTime), i sekunder.
+- **Repeat** motsvarar [Timing.getRepeatCount](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) eller [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Rewind when done playing** motsvarar [Timing.getRewind](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#getRewind).
 
-![example1_image](shape-animation.png)
-
-Detta är motsvarigheterna mellan PowerPoint Timing och [Effect.Timing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Effect#getTiming--)‑egenskaper:
-
-- PowerPoint Timing **Start**‑rullgardinslistan motsvarar [Effect.Timing.TriggerType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Timing#getTriggerType--)‑egenskapen.
-- PowerPoint Timing **Duration** motsvarar [Effect.Timing.Duration](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Timing#getDuration--)‑egenskapen. Tidslängden för en animation (i sekunder) är den totala tid det tar för animationen att genomföra en cykel.
-- PowerPoint Timing **Delay** motsvarar [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Timing#getTriggerDelayTime--)‑egenskapen.
-
-Så här ändrar du egenskaperna för Effect Timing:
-
-1. [Tillämpa](#apply-animation-to-shape) eller hämta animationseffekten.
-2. Ställ in nya värden för de [Effect.Timing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Effect#getTiming--)‑egenskaper du behöver.
-3. Spara den ändrade PPTX‑filen.
+Detta fristående exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [Sequence.addEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sequence/#addEffect) och sparar resultatet. Att behålla den returnerade [Effect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/)-referensen undviker ett onödigt samla‑index.
 
 ```javascript
-// Instansierar en presentationsklass som representerar en presentationsfil.
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Hämtar huvudsekvensen för bilden.
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // Hämtar den första effekten i huvudsekvensen.
-    var effect = sequence.get_Item(0);
-    // Ändrar effektens TriggerType till att starta vid klick
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Timed animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
     effect.getTiming().setTriggerType(aspose.slides.EffectTriggerType.OnClick);
-    // Ändrar effektens varaktighet
-    effect.getTiming().setDuration(3.0);
-    // Ändrar effektens TriggerDelayTime
-    effect.getTiming().setTriggerDelayTime(0.5);
-    // Sparar PPTX-filen till disk
-    pres.save("AnimExample_changed.pptx", aspose.slides.SaveFormat.Pptx);
+    effect.getTiming().setDuration(java.newFloat(2.0));
+    effect.getTiming().setTriggerDelayTime(java.newFloat(0.5));
+    effect.getTiming().setRepeatUntilNextClick(false);
+    effect.getTiming().setRepeatUntilEndSlide(false);
+    effect.getTiming().setRepeatCount(java.newFloat(2.0));
+    effect.getTiming().setRewind(true);
+
+    presentation.save("shape-animation-timing.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ljud för animationseffekt**
+Använd ett upprepningsläge avsiktligt. Att kombinera ett upprepningsantal med ett ”tills‑”‑flagga kan ge förvirrande resultat i olika visare. När du ändrar upprepningslägen, anropa först [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) och [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) innan du anropar [Timing.setRepeatCount](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/timing/#setRepeatCount), eftersom att sätta någon av flaggorna även ändrar det aktiva upprepningsläget.
 
-Aspose.Slides tillhandahåller dessa egenskaper för att låta dig arbeta med ljud i animationseffekter: 
+## **Lägg till och extrahera animationsljud**
 
-- [setSound(IAudio value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
+En animationseffekt kan referera inbäddat ljud via [Effect.getSound](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setStopPreviousSound) talar om för en effekt att stoppa ljud som startats av en tidigare effekt.
 
-### **Lägg till ljud för animationseffekt**
+### **Lägg till ett ljud i en effekt**
 
-Den här Javascript‑koden visar hur du lägger till ett ljud för en animationseffekt och stoppar det när nästa effekt startar:
+Följande exempel förutsätter en lokal ljudfil med namn `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [Sequence.addEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sequence/#addEffect), så inget sekvensindex krävs.
 
 ```javascript
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const fs = require("fs");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lägger till ljud i presentationens ljudsamling
-    var effectSound = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "sampleaudio.wav")));
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Hämtar huvudsekvensen för bilden.
-    var sequence = firstSlide.getTimeline().getMainSequence();
-    // Hämtar den första effekten i huvudsekvensen
-    var firstEffect = sequence.get_Item(0);
-    // Kontrollerar om effekten har "Inget ljud"
-    if ((!firstEffect.getStopPreviousSound()) && (firstEffect.getSound() == null)) {
-        // Lägger till ljud för den första effekten
-        firstEffect.setSound(effectSound);
-    }
-    // Hämtar den första interaktiva sekvensen för bilden.
-    var interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
-    // Sätter flaggan "Stoppa tidigare ljud" för effekten
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-    // Skriver PPTX-filen till disk
-    pres.save("AnimExample_Sound_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const firstShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 100, 240, 80);
+    const secondShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 400, 100, 240, 80);
+    firstShape.addTextFrame("Starts sound");
+    secondShape.addTextFrame("Stops sound");
+
+    const sequence = slide.getTimeline().getMainSequence();
+    const firstEffect = sequence.addEffect(firstShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    const secondEffect = sequence.addEffect(secondShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const audioData = java.newArray("byte", Array.from(fs.readFileSync("animation-sound.wav")));
+    const effectSound = presentation.getAudios().addAudio(audioData);
+    firstEffect.setSound(effectSound);
+    secondEffect.setStopPreviousSound(true);
+
+    presentation.save("shape-animation-sound.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Extrahera ljud för animationseffekt**
+### **Extrahera inbäddade effektljud**
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/).
-2. Hämta en slides referens via dess index. 
-3. Hämta huvudsekvensen av effekter. 
-4. Extrahera den [setSound(IAudio value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-) som är inbäddad i varje animationseffekt.
-
-Den här Javascript‑koden visar hur du extraherar ljudet som är inbäddat i en animationseffekt:
+Följande exempel förutsätter en lokal presentation med namn `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [Audio.getContentType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audio/#getContentType).
 
 ```javascript
-// Instansierar en presentationsklass som representerar en presentationsfil.
-var presentation = new aspose.slides.Presentation("EffectSound.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Hämtar huvudsekvensen för bilden.
-    var sequence = slide.getTimeline().getMainSequence();
-    for (var i = 0; i < sequence.getCount(); i++) {
-        var effect = sequence.get_Item(i);
+const fs = require("fs");
+const path = require("path");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getAudioExtension(contentType) {
+    const normalizedType = contentType == null ? "" : contentType.toLowerCase();
+
+    if (normalizedType === "audio/mpeg") {
+        return ".mp3";
+    }
+
+    if (normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if (normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if (normalizedType === "audio/wav" || normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds(sequence, outputDirectory, soundIndex) {
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+
         if (effect.getSound() == null) {
             continue;
         }
-        // Extraherar effektens ljud i en byte-array
-        var audio = effect.getSound().getBinaryData();
+
+        const extension = getAudioExtension(effect.getSound().getContentType());
+        const outputPath = path.join(outputDirectory, `effect-sound-${soundIndex}${extension}`);
+        fs.writeFileSync(outputPath, Buffer.from(effect.getSound().getBinaryData()));
+        soundIndex++;
     }
+
+    return soundIndex;
+}
+
+const outputDirectory = "extracted-animation-sounds";
+fs.mkdirSync(outputDirectory, { recursive: true });
+
+const presentation = new aspose.slides.Presentation("presentation-with-animation-sounds.pptx");
+try {
+    let soundIndex = 1;
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+        const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+        for (let sequenceIndex = 0; sequenceIndex < interactiveSequences.getCount(); sequenceIndex++) {
+            soundIndex = saveSounds(interactiveSequences.get_Item(sequenceIndex), outputDirectory, soundIndex);
+        }
+    }
+
+    console.log(`Extracted ${soundIndex - 1} sound file(s) to ${path.resolve(outputDirectory)}.`);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Efter animation**
+För stora ljudobjekt, använd [Audio.getStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/audio/#getStream) och kopiera strömmen till en fil i stället för att ladda hela objektet i en byte‑array.
 
-Aspose.Slides för Node.js via Java låter dig ändra After animation‑egenskapen för en animationseffekt.
+## **Ställ in beteende efter animation**
 
-Detta är panelen Animation Effect och den utökade menyn i Microsoft PowerPoint:
+Alternativet **After animation** styr vad som händer med en form efter att dess effekt är klar.
 
-![example1_image](shape-after-animation.png)
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-PowerPoint Effect **After animation**‑rullgardinslistan motsvarar dessa egenskaper: 
+[AfterAnimationType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/afteranimationtype/)-uppräkningen stödjer att låta formen förbli oförändrad, ändra dess färg, dölja den efter animationen eller dölja den vid nästa klick. När typen är [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/afteranimationtype/#Color) sätt även [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#getAfterAnimationColor).
 
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setAfterAnimationType-int-) metoden som beskriver typen för After animation;
-  * PowerPoint **More Colors** motsvarar typen [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/afteranimationtype/#Color);
-  * PowerPoint **Don't Dim**‑listobjektet motsvarar typen [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/afteranimationtype/#DoNotDim) (standard typ för efteranimation);
-  * PowerPoint **Hide After Animation**‑objektet motsvarar typen [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/afteranimationtype/#HideAfterAnimation);
-  * PowerPoint **Hide on Next Mouse Click**‑objektet motsvarar typen [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick);
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setAfterAnimationColor-aspose.slides.IColorFormat-) metoden som definierar ett färgformat för efteranimation. Denna metod fungerar tillsammans med typen [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/afteranimationtype/#Color). Om du ändrar typen till en annan kommer färgen för efteranimation att rensas.
+Detta fristående exempel skapar en effekt, sätter dess efter‑animationsbeteende via det returnerade effekt‑objektet och sparar resultatet.
 
 ```javascript
-// Instansierar en presentationsklass som representerar en presentationsfil
-var pres = new aspose.slides.Presentation("AnimImage_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Hämtar den första effekten i huvudsekvensen
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // Ändrar efteranimationstypen till Color
-    firstEffect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
-    // Sätter färgen för efteranimationens dimning
-    firstEffect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    // Skriver PPTX-filen till disk
-    pres.save("AnimImage_AfterAnimation.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Dim after animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
+    effect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    presentation.save("shape-animation-after-effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Att ändra typen från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/afteranimationtype/#Color) rensar färginställningen för efter‑animationen.
 
 ## **Animera text**
 
-Aspose.Slides tillhandahåller dessa egenskaper för att låta dig arbeta med en animationseffekts *Animate text*-block:
+Textanimation har två relaterade kontroller:
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) som beskriver en animate text‑typ för effekten. Formtexten kan animeras:
-  - Alla på en gång ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/animatetexttype/#AllAtOnce) typ)
-  - Ord för ord ([AnimateTextType.ByWord](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/animatetexttype/#ByWord) typ)
-  - Bokstav för bokstav ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/animatetexttype/#ByLetter) typ)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) sätter en fördröjning mellan de animerade textdelarna (ord eller bokstäver). Ett positivt värde anger procenten av effektens varaktighet. Ett negativt värde anger fördröjning i sekunder.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textanimation/#getBuildType) styr om stycken visas tillsammans eller stycke för stycke.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#getAnimateTextType) styr om text visas på en gång, ord för ord eller bokstav för bokstav. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentandel av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
 
-Så här kan du ändra egenskaperna för Effect Animate text:
-
-1. [Tillämpa](#apply-animation-to-shape) eller hämta animationseffekten.
-2. Använd [setBuildType(int value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textanimation/#setBuildType-int-)‑metoden med värdet [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/buildtype/#AsOneObject) för att inaktivera *By Paragraphs*-animationsläget.
-3. Ställ in nya värden för [setAnimateTextType(int value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) och [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-)‑egenskaperna.
-4. Spara den ändrade PPTX‑filen.
+Följande fristående exempel animerar orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/buildtype/#AsOneObject) inaktiverar byggande stycke för stycke så att ordinställningen gäller hela textramen.
 
 ```javascript
-// Instansierar en presentationsklass som representerar en presentationsfil.
-var pres = new aspose.slides.Presentation("AnimTextBox_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Hämtar den första effekten i huvudsekvensen
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // Ändrar effektens textanimeringstyp till "Som ett objekt"
-    firstEffect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
-    // Ändrar effektens animera text-typ till "Ord för ord"
-    firstEffect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
-    // Ställer in fördröjningen mellan ord till 20 % av effektens varaktighet
-    firstEffect.setDelayBetweenTextParts(20.0);
-    // Skriver PPTX-filen till disk
-    pres.save("AnimTextBox_AnimateText.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 560, 100);
+    textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(textBox, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
+    effect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
+    effect.setDelayBetweenTextParts(java.newFloat(20.0));
+
+    presentation.save("animated-text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+För att bygga en textruta stycke för stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (eller en annan stycknivå). För att rikta en enskild paragraf med sin egen effekt, använd [Sequence.addEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/sequence/#addEffect)-överlagringen som accepterar ett [Paragraph](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/paragraph/). Se [Animated Text](/slides/sv/nodejs-java/animated-text/) för exempel på stycknivå.
+
+## **Export och kompatibilitetsnoteringar**
+
+- Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutliga uppspelningen styrs av presentationsvisaren.
+- PDF och statiska bilder spelar inte upp animationer. Använd [HTML5 export](/slides/sv/nodejs-java/export-to-html5/), animerad GIF eller [videokonvertering](/slides/sv/nodejs-java/convert-powerpoint-to-video/) när utdata måste visa rörelse.
+- För HTML5, aktivera [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/html5options/#setAnimateShapes) och, vid behov, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).
+- Videorendering stödjer många vanliga ingångs‑, betoning‑, utgångs‑ och rörelse‑banefeekter, men inte varje PowerPoint‑effekt stöds. Kontrollera de aktuella [supported animations and effects](/slides/sv/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med den version av Aspose.Slides du använder.
+- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet istället för att enbart förlita dig på effektens namn.
+
 ## **FAQ**
 
-**Hur kan jag säkerställa att animationer bevaras när presentationen publiceras på webben?**
+**Varför visas en animation i PowerPoint men inte i en PDF?**
 
-[Exportera till HTML5](/slides/sv/nodejs-java/export-to-html5/) och aktivera de [alternativ](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/html5options/) som ansvarar för [form](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/html5options/setanimateshapes/) och [övergång](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/html5options/setanimatetransitions/) animationer. Vanlig HTML spelar inte upp bildanimationer, medan HTML5 gör det.
+PDF är ett statiskt format, så animationer och bildövergångar spelas inte upp. Exportera till HTML5, animerad GIF eller video när rörelse måste bevaras.
 
-**Hur påverkar ändring av z-ordning (lagerordning) för former animationen?**
+**Varför spelas en effekt annorlunda i en video?**
 
-Animation‑ och ritordning är oberoende: en effekt styr tidpunkten och typen av framträde/försvinnande, medan [z-ordning](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/getzorderposition/) bestämmer vad som täcker vad. Det synliga resultatet definieras av deras kombination. (Detta är den generella PowerPoint‑beteendet; Aspose.Slides modell för effekter‑och‑former följer samma logik.)
+Videoexport renderar animationer i stället för att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen över stödjade effekter och testa den faktiska presentationen innan produktionsanvändning.
 
-**Finns det begränsningar vid konvertering av animationer till video för vissa effekter?**
+**Ändrar en flyttning av en form framåt eller bakåt dess animationsordning?**
 
-I allmänhet [animationer stöds](/slides/sv/nodejs-java/convert-powerpoint-to-video/), men sällsynta fall eller specifika effekter kan renderas annorlunda. Det rekommenderas att testa med de effekter du använder och med den biblioteksversion du har.
+Nej. Formens z‑ordning styr överlappning, medan sekvensordning och triggers styr animationsuppspelning. Ändra tidslinjen om du behöver en annan uppspelningsordning.

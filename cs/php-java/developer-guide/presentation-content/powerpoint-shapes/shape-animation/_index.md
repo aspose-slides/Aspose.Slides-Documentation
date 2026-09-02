@@ -1,6 +1,6 @@
 ---
 title: Použití animací tvarů v prezentacích pomocí PHP
-linktitle: Animace tvaru
+linktitle: Animace tvarů
 type: docs
 weight: 60
 url: /cs/php-java/shape-animation/
@@ -22,467 +22,499 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Objevte, jak vytvořit a přizpůsobit animace tvarů v PowerPoint prezentacích pomocí Aspose.Slides pro PHP via Java. Vynikněte!"
+description: "Naučte se, jak přidávat, kontrolovat a přizpůsobovat animace tvarů, načasování, zvuky, chování po animaci a animovaný text pomocí Aspose.Slides pro PHP prostřednictvím Java."
 ---
-## **Úvod**
+## **Přehled**
 
-Animace jsou vizuální efekty, které lze použít na texty, obrázky, tvary nebo [grafy](https://docs.aspose.com/slides/cs/php-java/animated-charts/). Oživí prezentace nebo jejich jednotlivé části.
+Aspose.Slides for PHP via Java představuje animace snímků jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení načasování a volitelné vlastnosti jako zvuk nebo chování po animaci.
 
-## **Proč používat animace v prezentacích?**
+Časová osa obsahuje dva typy sekvencí:
 
-Pomocí animací můžete  
+- **Hlavní sekvence** se přehrává při postupu snímku.
+- **Interaktivní sekvence** se spustí, když je kliknuto na její spouštěcí tvar.
 
-* řídit tok informací  
-* zdůraznit důležité body  
-* zvýšit zájem nebo zapojení publika  
-* učinit obsah snáze čitelným nebo stravitelným  
-* upoutat pozornost čtenářů či diváků na důležité části v prezentaci  
+Protože textová pole, obrázky, grafy, tabulky a jiné objekty snímku jsou tvary, používáte stejnou metodu [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) pro většinu obsahu snímku. Dostupné efekty jsou uvedeny ve třídě [EffectType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttype/).
 
-PowerPoint nabízí mnoho možností a nástrojů pro animace a animační efekty v kategoriích **vstup**, **odchod**, **zdůraznění** a **cesty pohybu**.  
+## **Přidání animací tvarů**
 
-## **Animace v Aspose.Slides**
+Chcete-li přidat animaci, získejte hlavní sekvenci snímku a zavolejte [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který se spustí po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejíž spouštěč je tento jiný tvar.
 
-* Aspose.Slides poskytuje třídy a typy potřebné pro práci s animacemi v namespace `Aspose.Slides.Animation`,  
-* Aspose.Slides nabízí více než **150 animačních efektů** v enumeraci [EffectType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttype). Tyto efekty jsou v podstatě stejné (nebo ekvivalentní) jako efekty v PowerPointu.  
-
-## **Použít animaci na TextBox**
-
-Aspose.Slides for PHP via Java umožňuje aplikovat animaci na text ve tvaru.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).  
-2. Získejte odkaz na snímek podle jeho indexu.  
-3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).  
-4. Přidejte text do [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/#getTextFrame) objektu `AutoShape`.  
-5. Získejte hlavní sekvenci efektů.  
-6. Přidejte animační efekt k [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).  
-7. Použijte metodu `TextAnimation.setBuildType` a hodnotu z enumerace `BuildType`.  
-8. Uložte prezentaci na disk jako soubor PPTX.  
-
-Tento PHP kód ukazuje, jak aplikovat efekt `Fade` na AutoShape a nastavit animaci textu na hodnotu *By 1st Level Paragraphs*:
+Následující příklad vytvoří oba typy animací a uloží výsledek do `shape-animations.pptx`.
 
 ```php
-  # Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # Přidá nový AutoShape s textem
-    $autoShape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 100);
-    $textFrame = $autoShape->getTextFrame();
-    $textFrame->setText("First paragraph \nSecond paragraph \n Third paragraph");
-    # Získá hlavní sekvenci snímku.
-    $sequence = $sld->getTimeline()->getMainSequence();
-    # Přidá efekt Fade animace k tvaru
-    $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubType::None, EffectTriggerType::OnClick);
-    # Animuje text tvaru pomocí 1. úrovně odstavců
-    $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
-    # Uloží soubor PPTX na disk
-    $pres->save($path . "AnimText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{%  alert color="primary"  %}} 
-
-Kromě aplikace animací na text můžete také použít animace na jednotlivý [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/). Viz [**Animovaný text**](/slides/cs/php-java/animated-text/).  
-
-{{% /alert %}} 
-
-## **Použít animaci na PictureFrame**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).  
-2. Získejte odkaz na snímek podle jeho indexu.  
-3. Přidejte nebo získejte [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe) na snímku.  
-4. Získejte hlavní sekvenci efektů.  
-5. Přidejte animační efekt k [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe).  
-6. Uložte prezentaci na disk jako soubor PPTX.  
-
-Tento PHP kód ukazuje, jak aplikovat efekt `Fly` na rámeček obrázku:
-
-```php
-  # Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
-  $pres = new Presentation();
-  try {
-    # Načte obrázek, který bude přidán do kolekce obrázků prezentace
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Přidá rámeček obrázku na snímek
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $picture);
-    # Získá hlavní sekvenci snímku.
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # Přidá efekt Fly zleva animace k rámečku obrázku
-    $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
-    # Uloží soubor PPTX na disk
-    $pres->save($path . "AnimImage_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Použít animaci na Shape**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).  
-2. Získejte odkaz na snímek podle jeho indexu.  
-3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).  
-4. Přidejte zkosený [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) (při kliknutí na tento objekt se spustí animace).  
-5. Vytvořte sekvenci efektů pro zkosený tvar.  
-6. Vytvořte vlastní `UserPath`.  
-7. Přidejte příkazy pro pohyb po `UserPath`.  
-8. Uložte prezentaci na disk jako soubor PPTX.  
-
-Tento PHP kód ukazuje, jak aplikovat efekt `PathFootball` (cesta fotbal) na tvar:
-
-```php
-  # Vytvoří instanci třídy Presentation, která představuje soubor PPTX.
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # Vytvoří efekt PathFootball pro existující tvar od začátku.
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-    $ashp->addTextFrame("Animated TextBox");
-    # Přidá animaci PathFootBall.
-    $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # Vytvoří nějaký "button".
-    $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-    # Vytvoří sekvenci efektů pro toto tlačítko.
-    $seqInter = $pres->getSlides()->get_Item(0)->getTimeline()->getInteractiveSequences()->add($shapeTrigger);
-    # Vytvoří vlastní uživatelskou cestu. Náš objekt bude přesunut až po kliknutí na tlačítko.
-    $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubType::None, EffectTriggerType::OnClick);
-    # Přidá příkazy pro pohyb, protože vytvořená cesta je prázdná.
-    $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
-    $pts = new Point2DFloat[1];
-    $pts[0] = new Point2DFloat(0.076, 0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
-    $pts[0] = new Point2DFloat(-0.076, -0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
-    $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
-    # Zapíše soubor PPTX na disk
-    $pres->save("AnimExample_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Získat animační efekty aplikované na Shape**
-
-Následující příklady ukazují, jak použít metodu `getEffectsByShape` ze třídy [Sequence](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/) k získání všech animačních efektů aplikovaných na tvar.
-
-**Příklad 1: Získat animační efekty aplikované na tvar na běžném snímku**
-
-Dříve jste se naučili, jak přidávat animační efekty k tvarům v PowerPoint prezentacích. Následující ukázkový kód ukazuje, jak získat efekty aplikované na první tvar na prvním běžném snímku v prezentaci `AnimExample_out.pptx`.
-
-```php
-  $Array = new java_class("java.lang.reflect.Array");
-  $presentation = new Presentation("AnimExample_out.pptx");
-
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-
-    # Získá hlavní animační sekvenci snímku.
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-
-    # Získá první tvar na prvním snímku.
-    $shape = $firstSlide->getShapes()->get_Item(0);
-
-    # Získá animační efekty aplikované na tvar.
-    $shapeEffects = $sequence->getEffectsByShape($shape);
-
-    if (java_values($Array->getLength($shapeEffects)) > 0) {
-      echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-**Příklad 2: Získat všechny animační efekty, včetně těch zděděných z placeholderů**
-
-Pokud má tvar na běžném snímku placeholdery, které jsou součástí rozložení nebo hlavní šablony, a na tyto placeholdery byly přidány animační efekty, pak se během prezentace přehrají všechny efekty tvaru, včetně těch zděděných z placeholderů.
-
-Předpokládejme, že máme soubor PowerPoint prezentace `sample.pptx` s jedním snímkem obsahujícím pouze tvar zápatí s textem „Made with Aspose.Slides“ a na tento tvar je aplikován efekt **Random Bars**.
-
-![Slide shape animation effect](slide-shape-animation.png)
-
-Dále předpokládejme, že na placeholder zápatí v **rozložení** je aplikován efekt **Split**.
-
-![Layout shape animation effect](layout-shape-animation.png)
-
-A nakonec je na placeholder zápatí v **hlavní** šabloně aplikován efekt **Fly In**.
-
-![Master shape animation effect](master-shape-animation.png)
-
-Níže je ukázkový kód, který používá metodu `getBasePlaceholder` ze třídy [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/) k přístupu k placeholderům tvaru a získání animačních efektů aplikovaných na tvar zápatí, včetně těch zděděných z placeholderů umístěných v rozložení a hlavní šabloně.
-
-```php
-$presentation = new Presentation("sample.pptx");
-
-$slide = $presentation->getSlides()->get_Item(0);
-
-// Získá animační efekty tvaru na běžném snímku.
-$shape = $slide->getShapes()->get_Item(0);
-$shapeEffects = $slide->getTimeline()->getMainSequence()->getEffectsByShape($shape);
-
-// Get animation effects of the placeholder on the layout slide.
-$layoutShape = $shape->getBasePlaceholder();
-$layoutShapeEffects = $slide->getLayoutSlide()->getTimeline()->getMainSequence()->getEffectsByShape($layoutShape);
-
-// Get animation effects of the placeholder on the master slide.
-$masterShape = $layoutShape->getBasePlaceholder();
-$masterShapeEffects = $slide->getLayoutSlide()->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($masterShape);
-
-echo "Main sequence of shape effects:" . PHP_EOL;
-printEffects($masterShapeEffects);
-printEffects($layoutShapeEffects);
-printEffects($shapeEffects);
-
-$presentation->dispose();
-```
-```php
-function printEffects($effects) {
-    foreach ($effects as $effect) {
-        echo "Type: " . $effect->getType() . ", subtype: " . $effect->getSubtype() . PHP_EOL;
-    }
-}
-```
-
-Výstup:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Fly, Bottom
-Type: 134, subtype: 45            // Split, VerticalIn
-Type: 126, subtype: 22            // RandomBars, Horizontal
-```
-
-## **Změna časování animačního efektu**
-
-Aspose.Slides for PHP via Java umožňuje měnit vlastnosti Timing animačního efektu.
-
-Toto je panel **Animation Timing** v Microsoft PowerPoint:
-
-![example1_image](shape-animation.png)
-
-Tyto odpovídají mezi PowerPoint Timing a [Effect Timing](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#getTiming) vlastnostmi:
-
-- Rozbalovací seznam **Start** v PowerPoint Timing odpovídá metodě [Timing::getTriggerType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/#getTriggerType).  
-- **Duration** v PowerPoint Timing odpovídá metodě [Timing::getDuration](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/#getDuration). Délka animace (v sekundách) je celkový čas potřebný k dokončení jednoho cyklu.  
-- **Delay** v PowerPoint Timing odpovídá metodě [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/#getTriggerDelayTime).  
-
-Takto měníte vlastnosti Effect Timing:
-
-1. [Apply](#apply-animation-to-shape) nebo získejte animační efekt.  
-2. Nastavte nové hodnoty pomocí metody [Effect::getTiming](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#getTiming).  
-3. Uložte upravený soubor PPTX.  
-
-Tento PHP kód demonstruje operaci:
-
-```php
-  # Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # Získá hlavní sekvenci snímku.
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # Získá první efekt hlavní sekvence.
-    $effect = $sequence->get_Item(0);
-    # Změní TriggerType efektu na spuštění kliknutím
-    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
-    # Změní dobu trvání efektu
-    $effect->getTiming()->setDuration(3.0);
-    # Změní TriggerDelayTime efektu
-    $effect->getTiming()->setTriggerDelayTime(0.5);
-    # Uloží soubor PPTX na disk
-    $pres->save("AnimExample_changed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Zvuk animačního efektu**
-
-Aspose.Slides poskytuje následující metody pro práci se zvuky v animačních efektech:  
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#setStopPreviousSound-boolean-)  
-
-### **Přidat zvuk animačního efektu**
-
-Tento PHP kód ukazuje, jak přidat zvuk animačního efektu a zastavit jej, když začne další efekt:
-
-```php
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # Přidá audio do kolekce audio prezentace
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+$presentation = new Presentation();
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "sampleaudio.wav"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $effectSound = $pres->getAudios()->addAudio($bytes);
-
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Získá hlavní sekvenci snímku.
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-    # Získá první efekt hlavní sekvence
-    $firstEffect = $sequence->get_Item(0);
-    # Kontroluje efekt pro "No Sound"
-    if (java_is_null(!$firstEffect->getStopPreviousSound() && $firstEffect->getSound())) {
-      # Přidá zvuk pro první efekt
-      $firstEffect->setSound($effectSound);
-    }
-    # Získá první interaktivní sekvenci snímku.
-    $interactiveSequence = $firstSlide->getTimeline()->getInteractiveSequences()->get_Item(0);
-    # Nastaví příznak efektu "Stop previous sound"
-    $interactiveSequence->get_Item(0)->setStopPreviousSound(true);
-    # Zapíše soubor PPTX na disk
-    $pres->save("AnimExample_Sound_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-### **Extrahovat zvuk animačního efektu**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).  
-2. Získejte odkaz na snímek podle jeho indexu.  
-3. Získejte hlavní sekvenci efektů.  
-4. Extrahujte vložený [setSound(IAudio value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) zvuk z každého animačního efektu.  
-
-Tento PHP kód ukazuje, jak extrahovat zvuk vložený do animačního efektu:
-
-```php
-  # Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
-  $presentation = new Presentation("EffectSound.pptx");
-  try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # Získá hlavní sekvenci snímku.
+
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Click to animate this shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $entranceEffect = $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $entranceEffect->getTiming()->setDuration(1.5);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $presentation->save("shape-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Spouštěč určuje, kdy efekt začne:
+
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttriggertype/) čeká na kliknutí v hlavní sekvenci nebo na kliknutí na spouštěcí tvar v interaktivní sekvenci.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttriggertype/) začíná spolu s předchozím efektem.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttriggertype/) začíná po dokončení předchozího efektu.
+
+Chcete-li animovat obrázek, graf nebo jiný typ tvaru, předávejte tento objekt metodě [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) místo `$targetShape`. Pro možnost seskupování specifické pro grafy viz [Animated Charts](/slides/cs/php-java/animated-charts/).
+
+## **Čtení animací tvarů**
+
+Použijte [Sequence::getEffectsByShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/geteffectsbyshape/) když znáte cílový tvar. Pro prohlédnutí každého efektu enumerujte hlavní sekvenci i všechny interaktivní sekvence. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
+
+Následující příklad vytvoří tvar s efekty v hlavní i interaktivní sekvenci, získá efekty cílící na tvar a poté enumeruje každou sekvenci na snímku.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function printSequence($label, $sequence)
+{
+    $effectCount = java_values($sequence->getCount());
+
+    echo "  " . $label . ": " . $effectCount . " effect(s)" . PHP_EOL;
+
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $targetShape = $effect->getTargetShape();
+        $targetName = java_is_null($targetShape) ? "unknown" : java_values($targetShape->getName());
+        $effectType = java_values($effect->getType());
+        $effectSubtype = java_values($effect->getSubtype());
+        $triggerType = java_values($effect->getTiming()->getTriggerType());
+        echo "    type: " . $effectType . "; subtype: " . $effectSubtype . "; target: " . $targetName . "; trigger: " . $triggerType . PHP_EOL;
+    }
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Animated shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $targetEffects = $mainSequence->getEffectsByShape($targetShape);
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo "The main sequence contains " . java_values($Array->getLength($targetEffects)) . " effect(s) for " . java_values($targetShape->getName()) . "." . PHP_EOL;
+
+    printSequence("Main sequence", $mainSequence);
+
+    $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+    $interactiveCount = java_values($interactiveSequences->getCount());
+    for ($interactiveIndex = 0; $interactiveIndex < $interactiveCount; $interactiveIndex++) {
+        $sequence = $interactiveSequences->get_Item($interactiveIndex);
+        $sequenceTrigger = $sequence->getTriggerShape();
+        $triggerName = java_is_null($sequenceTrigger) ? "unknown" : java_values($sequenceTrigger->getName());
+        printSequence("Interactive sequence " . ($interactiveIndex + 1) . ", trigger: " . $triggerName, $sequence);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pokud potřebujete efekty jen pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupného objektu nebo jiné stabilní vlastnosti; pak zavolejte [Sequence::getEffectsByShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/geteffectsbyshape/). Nepředpokládejte, že [ShapeCollection::get_Item](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/get_item/) na indexu `0` je vždy požadovaný objekt.
+
+## **Práce s děděnými efekty zástupných objektů**
+
+Zástupný objekt na normálním snímku může dědit chování animace z odpovídajícího zástupného objektu na rozložení snímku a hlavním snímku. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getbaseplaceholder/) vrací tento nadřazený zástupný objekt nebo `null`, pokud neexistuje.
+
+V následujícím ukázkovém souboru má zápatí **Random Bars** na normálním snímku, **Split** na rozložení snímku a **Fly In** na hlavním snímku.
+
+![Efekt animace zápatí na normálním snímku](slide-shape-animation.png)
+
+![Efekt animace zástupného objektu zápatí na rozložení snímku](layout-shape-animation.png)
+
+![Efekt animace zástupného objektu zápatí na předloze snímku](master-shape-animation.png)
+
+Další příklad používá hierarchii zástupných objektů z nové prezentace. Přidává efekty k hlavnímu zástupnému objektu, k zástupnému objektu rozložení a k odpovídajícímu zástupnému objektu na normálním snímku. Každé volání [Shape::getBasePlaceholder](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getbaseplaceholder/) je před použitím vráceného tvaru ověřeno.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+function findLayoutPlaceholderWithBase($layoutSlide)
+{
+    $shapes = $layoutSlide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (!java_is_null($shape->getBasePlaceholder())) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function findSlidePlaceholderWithBase($slide, $expectedBase)
+{
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $basePlaceholder = $shape->getBasePlaceholder();
+        if (!java_is_null($basePlaceholder) && java_values($basePlaceholder->equals($expectedBase))) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function printEffects($source, $effects)
+{
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo $source . ": " . java_values($Array->getLength($effects)) . " effect(s)" . PHP_EOL;
+
+    foreach ($effects as $effect) {
+        echo "  type: " . java_values($effect->getType()) . "; subtype: " . java_values($effect->getSubtype()) . PHP_EOL;
+    }
+}
+
+$presentation = new Presentation();
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+    $layoutPlaceholder = findLayoutPlaceholderWithBase($layoutSlide);
+
+    if ($layoutPlaceholder === null) {
+        throw new RuntimeException("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    $masterPlaceholder = $layoutPlaceholder->getBasePlaceholder();
+    $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->addEffect($masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+    $layoutSlide->getTimeline()->getMainSequence()->addEffect($layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+    $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $slidePlaceholder = findSlidePlaceholderWithBase($slide, $layoutPlaceholder);
+
+    if ($slidePlaceholder === null) {
+        throw new RuntimeException("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    $slide->getTimeline()->getMainSequence()->addEffect($slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+    printEffects("Normal slide", $slide->getTimeline()->getMainSequence()->getEffectsByShape($slidePlaceholder));
+
+    $baseLayoutPlaceholder = $slidePlaceholder->getBasePlaceholder();
+    if (!java_is_null($baseLayoutPlaceholder)) {
+        printEffects("Layout slide", $layoutSlide->getTimeline()->getMainSequence()->getEffectsByShape($baseLayoutPlaceholder));
+
+        $baseMasterPlaceholder = $baseLayoutPlaceholder->getBasePlaceholder();
+        if (!java_is_null($baseMasterPlaceholder)) {
+            printEffects("Master slide", $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($baseMasterPlaceholder));
+        }
+    }
+
+    $presentation->save("placeholder-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Změna načasování animace**
+
+Dialog **Timing** v PowerPointu mapuje na vlastnosti třídy [Timing](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/).
+
+![Dialog načasování PowerPointu pro efekt animace](shape-animation.png)
+
+- **Start** mapuje na [Timing::getTriggerType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/gettriggertype/).
+- **Duration** mapuje na [Timing::getDuration](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getduration/), v sekundách.
+- **Delay** mapuje na [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/gettriggerdelaytime/), v sekundách.
+- **Repeat** mapuje na [Timing::getRepeatCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrepeatuntilnextclick/) nebo [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrepeatuntilendslide/).
+- **Rewind when done playing** mapuje na [Timing::getRewind](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrewind/).
+
+Tento samostatný příklad přidá efekt, změní jeho načasování pomocí objektu vráceného metodou [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) a uloží výsledek. Uchování reference na vrácený [Effect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/) zabraňuje zbytečnému indexování kolekce.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Timed animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
+    $effect->getTiming()->setDuration(2.0);
+    $effect->getTiming()->setTriggerDelayTime(0.5);
+    $effect->getTiming()->setRepeatUntilNextClick(false);
+    $effect->getTiming()->setRepeatUntilEndSlide(false);
+    $effect->getTiming()->setRepeatCount(2.0);
+    $effect->getTiming()->setRewind(true);
+
+    $presentation->save("shape-animation-timing.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Používejte jeden režim opakování úmyslně. Kombinace počtu opakování s příznakem „until“ může v různých prohlížečích vést ke zmateným výsledkům. Při změně režimu opakování nastavte [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/setrepeatuntilnextclick/) a [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/setrepeatuntilendslide/) před [Timing::setRepeatCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/setrepeatcount/), protože nastavení některého z příznaků také mění aktivní režim opakování.
+
+## **Přidání a extrakce zvuků animace**
+
+Animovaný efekt může odkazovat na vložený zvuk pomocí [Effect::getSound](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getsound/). [Effect::setStopPreviousSound](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/setstopprevioussound/) říká efektu, aby zastavil zvuk zahájený předchozím efektem.
+
+### **Přidání zvuku k efektu**
+
+Následující příklad očekává lokální zvukový soubor s názvem `animation-sound.wav`. Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nakonfiguruje druhý efekt tak, aby zvuk zastavil. Používá objekty vrácené metodou [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/), takže není potřeba index sekvence.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$Files = new JavaClass("java.nio.file.Files");
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 100, 240, 80);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 400, 100, 240, 80);
+    $firstShape->addTextFrame("Starts sound");
+    $secondShape->addTextFrame("Stops sound");
+
     $sequence = $slide->getTimeline()->getMainSequence();
-    foreach($sequence as $effect) {
-      if (java_is_null($effect->getSound())) {
-        continue;
-      }
-      # Extrahuje zvuk efektu do pole bajtů
-      $audio = $effect->getSound()->getBinaryData();
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $firstEffect = $sequence->addEffect($firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $secondEffect = $sequence->addEffect($secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $baseDirectory = getcwd();
+    $audioPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "animation-sound.wav"))->toPath();
+    $audioData = $Files->readAllBytes($audioPath);
+    $effectSound = $presentation->getAudios()->addAudio($audioData);
+    $firstEffect->setSound($effectSound);
+    $secondEffect->setStopPreviousSound(true);
+
+    $presentation->save($baseDirectory . DIRECTORY_SEPARATOR . "shape-animation-sound.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Po animaci**
+### **Extrahování vložených zvuků efektu**
 
-Aspose.Slides for PHP via Java umožňuje měnit vlastnost **After animation** animačního efektu.
-
-Toto je panel **Animation Effect** a rozšířené menu v Microsoft PowerPoint:
-
-![example1_image](shape-after-animation.png)
-
-Rozbalovací seznam **After animation** v PowerPoint odpovídá těmto metodám:  
-
-- metoda [setAfterAnimationType(int value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#setAfterAnimationType) popisuje typ po‑animace:  
-  * **More Colors** v PowerPoint odpovídá typu [AfterAnimationType::Color](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/#Color);  
-  * **Don't Dim** odpovídá typu [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/#DoNotDim) (výchozí typ);  
-  * **Hide After Animation** odpovídá typu [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation);  
-  * **Hide on Next Mouse Click** odpovídá typu [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick);  
-- metoda [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#setAfterAnimationColor) definuje formát barvy po‑animace. Tato metoda funguje ve spojení s typem [AfterAnimationType::Color](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/#Color). Pokud typ změníte na jiný, barva po‑animace bude vymazána.  
-
-Tento PHP kód ukazuje, jak změnit efekt po‑animace:
+Následující příklad očekává lokální prezentaci s názvem `presentation-with-animation-sounds.pptx`. Prohledá jak hlavní, tak interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je vybrána podle MIME typu zvuku, který poskytuje [Audio::getContentType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/audio/getcontenttype/).
 
 ```php
-  # Vytvoří instanci třídy prezentace, která představuje soubor prezentace
-  $pres = new Presentation("AnimImage_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Získá první efekt hlavní sekvence
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # Změní typ po‑animace na Barvu
-    $firstEffect->setAfterAnimationType(AfterAnimationType::Color);
-    # Nastaví barvu ztmavení po‑animace
-    $firstEffect->getAfterAnimationColor()->setColor(java("java.awt.Color")->BLUE);
-    # Zapíše soubor PPTX na disk
-    $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+function getAudioExtension($contentType)
+{
+    $normalizedType = strtolower($contentType === null ? "" : java_values($contentType));
+
+    if ($normalizedType === "audio/mpeg") {
+        return ".mp3";
     }
-  }
+
+    if ($normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if ($normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if ($normalizedType === "audio/wav" || $normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds($sequence, $outputDirectory, $soundIndex)
+{
+    $effectCount = java_values($sequence->getCount());
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $sound = $effect->getSound();
+        if (java_is_null($sound)) {
+            continue;
+        }
+
+        $extension = getAudioExtension($sound->getContentType());
+        $outputPath = $outputDirectory->resolve("effect-sound-" . $soundIndex . $extension);
+        $outputStream = new Java("java.io.FileOutputStream", $outputPath->toFile());
+        try {
+            $outputStream->write($sound->getBinaryData());
+        } finally {
+            $outputStream->close();
+        }
+        $soundIndex++;
+    }
+
+    return $soundIndex;
+}
+
+$baseDirectory = getcwd();
+$inputPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "presentation-with-animation-sounds.pptx"))->toPath();
+$outputDirectoryName = $baseDirectory . DIRECTORY_SEPARATOR . "extracted-animation-sounds";
+if (!is_dir($outputDirectoryName)) {
+    mkdir($outputDirectoryName, 0777, true);
+}
+$outputDirectory = (new Java("java.io.File", $outputDirectoryName))->toPath();
+
+$presentation = new Presentation($inputPath->toString());
+try {
+    $soundIndex = 1;
+
+    $slides = $presentation->getSlides();
+    $slideCount = java_values($slides->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $slides->get_Item($slideIndex);
+        $soundIndex = saveSounds($slide->getTimeline()->getMainSequence(), $outputDirectory, $soundIndex);
+
+        $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+        $interactiveCount = java_values($interactiveSequences->getCount());
+        for ($sequenceIndex = 0; $sequenceIndex < $interactiveCount; $sequenceIndex++) {
+            $sequence = $interactiveSequences->get_Item($sequenceIndex);
+            $soundIndex = saveSounds($sequence, $outputDirectory, $soundIndex);
+        }
+    }
+
+    echo "Extracted " . ($soundIndex - 1) . " sound file(s) to " . java_values($outputDirectory->toAbsolutePath()->toString()) . "." . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Animovat text**
+Pro velké zvukové objekty použijte [Audio::getStream](https://reference.aspose.com/slides/cs/php-java/aspose.slides/audio/getstream/) a zkopírujte stream do souboru místo načítání celého objektu do pole bajtů.
 
-Aspose.Slides poskytuje následující metody pro práci s blokem *Animate text* animačního efektu:  
+## **Nastavení chování po animaci**
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#setAnimateTextType) popisuje typ animace textu. Text tvaru může být animován:  
-  - Vše najednou ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/cs/php-java/aspose.slides/animatetexttype/#AllAtOnce))  
-  - Po slovech ([AnimateTextType::ByWord](https://reference.aspose.com/slides/cs/php-java/aspose.slides/animatetexttype/#ByWord))  
-  - Po písmenech ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/cs/php-java/aspose.slides/animatetexttype/#ByLetter))  
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#setDelayBetweenTextParts) nastavuje zpoždění mezi částmi animovaného textu (slovy nebo písmeny). Kladná hodnota udává procento trvání efektu, záporná hodnota udává zpoždění v sekundách.  
+Možnost **After animation** určuje, co se stane s tvarem po dokončení jeho efektu.
 
-Takto můžete změnit vlastnosti Effect Animate text:
+![Dialog možností efektu PowerPointu zobrazující nastavení Po animaci](shape-after-animation.png)
 
-1. [Apply](#apply-animation-to-shape) nebo získejte animační efekt.  
-2. Použijte metodu [setBuildType(int value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textanimation/#setBuildType) a hodnotu [BuildType::AsOneObject](https://reference.aspose.com/slides/cs/php-java/aspose.slides/buildtype/#AsOneObject) pro vypnutí režimu *By Paragraphs*.  
-3. Nastavte nové hodnoty pomocí metod [setAnimateTextType(int value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#setAnimateTextType) a [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/#setDelayBetweenTextParts).  
-4. Uložte upravený soubor PPTX.  
+Třída [AfterAnimationType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/) podporuje ponechání tvaru beze změny, změnu jeho barvy, skrytí po animaci nebo skrytí při dalším kliknutí. Když je typ [AfterAnimationType::Color](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/), nastavte také [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getafteranimationcolor/).
 
-Tento PHP kód demonstruje operaci:
+Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a výsledek uloží.
 
 ```php
-  # Vytvoří instanci třídy prezentace, která představuje soubor prezentace.
-  $pres = new Presentation("AnimTextBox_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Získá první efekt hlavní sekvence
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # Změní typ textové animace efektu na "As One Object"
-    $firstEffect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
-    # Změní typ animace textu efektu na "By word"
-    $firstEffect->setAnimateTextType(AnimateTextType::ByWord);
-    # Nastaví zpoždění mezi slovy na 20% trvání efektu
-    $firstEffect->setDelayBetweenTextParts(20.0);
-    # Zapíše soubor PPTX na disk
-    $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\AfterAnimationType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Dim after animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->setAfterAnimationType(AfterAnimationType::Color);
+    $effect->getAfterAnimationColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+
+    $presentation->save("shape-animation-after-effect.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Často kladené otázky**
+Změna typu od [AfterAnimationType::Color](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/) vymaže nastavení barvy po animaci.
 
-**Jak mohu zajistit, že se animace zachovají při publikování prezentace na web?**
+## **Animace textu**
 
-[Exportovat do HTML5](/slides/cs/php-java/export-to-html5/) a povolit [možnosti](https://reference.aspose.com/slides/cs/php-java/aspose.slides/html5options/) zodpovědné za animace [tvarů](https://reference.aspose.com/slides/cs/php-java/aspose.slides/html5options/setanimateshapes/) a [přechodů](https://reference.aspose.com/slides/cs/php-java/aspose.slides/html5options/setanimatetransitions/). Běžné HTML animace nespuští, HTML5 ano.  
+Animace textu má dva související ovladače:
 
-**Jak ovlivňuje změna z‑orderu (pořadí vrstev) tvarů animaci?**
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textanimation/getbuildtype/) určuje, zda se odstavce zobrazí najednou nebo po odstavcích.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getanimatetexttype/) určuje, zda se text zobrazí najednou, po slovech nebo po písmenkách. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getdelaybetweentextparts/) nastavuje prodlevu mezi slovy nebo písmeny. Kladná hodnota představuje procento trvání efektu; záporná hodnota je prodleva v sekundách.
 
-Pořadí animace a kreslení jsou nezávislé: efekt řídí časování a typ objevení/odstranění, zatímco [z‑order](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getzorderposition/) určuje, co co překrývá. Viditelný výsledek je definován jejich kombinací. (Jedná se o obecné chování PowerPointu; model Aspose.Slides efekty‑a‑tvary funguje podle stejné logiky.)  
+Následující samostatný příklad animuje slova v textovém poli. [BuildType::AsOneObject](https://reference.aspose.com/slides/cs/php-java/aspose.slides/buildtype/) vypíná budování po odstavcích, takže nastavení pro slova platí pro celý textový rámec.
 
-**Existují omezení při převodu animací do videa pro některé efekty?**
+```php
+use aspose\slides\AnimateTextType;
+use aspose\slides\BuildType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-Obecně jsou [animace podporovány](/slides/cs/php-java/convert-powerpoint-to-video/), ale v rizikových případech nebo u specifických efektů může dojít k odlišnému vykreslení. Doporučujeme testovat s konkrétními efekty a verzí knihovny.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 560, 100);
+    $textBox->addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
+    $effect->setAnimateTextType(AnimateTextType::ByWord);
+    $effect->setDelayBetweenTextParts(20.0);
+
+    $presentation->save("animated-text.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pro budování textového pole po odstavcích nastavte [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/cs/php-java/aspose.slides/buildtype/) (nebo jinou úroveň odstavce). Pro cílení na jednotlivý odstavec s vlastním efektem použijte přetíženou metodu [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) přijímající [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/). Viz [Animated Text](/slides/cs/php-java/animated-text/) pro příklady na úrovni odstavců.
+
+## **Export a poznámky o kompatibilitě**
+
+- Ukládání do PPT nebo PPTX zachovává model animace, ale finální přehrávání řídí prohlížeč prezentací.
+- PDF a statické obrázky neumožňují přehrávání animací. Použijte [HTML5 export](/slides/cs/php-java/export-to-html5/), animovaný GIF nebo [konverzi videa](/slides/cs/php-java/convert-powerpoint-to-video/), když výstup musí ukazovat pohyb.
+- Pro HTML5 povolte [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/html5options/setanimateshapes/) a podle potřeby také [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/html5options/setanimatetransitions/).
+- Renderování videa podporuje mnoho běžných vstupních, důrazových, výstupních a pohybových efektů, ale ne každý efekt PowerPointu je podporován. Zkontrolujte aktuální [supported animations and effects](/slides/cs/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s vaší cílovou verzí Aspose.Slides.
+- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale vykreslují se odlišně v PowerPointu, HTML5 nebo videu. Ověřte exportovaný výsledek místo spoléhaní se jen na název efektu.
+
+## **Časté otázky**
+
+**Proč se animace zobrazí v PowerPointu, ale ne v PDF?**
+
+PDF je statický formát, takže animace a přechody snímků se nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, když je nutné zachovat pohyb.
+
+**Proč se efekt v videu přehrává odlišně?**
+
+Export do videa renderuje animace místo uložení původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prohlédněte si tabulku podporovaných efektů a otestujte skutečnou prezentaci před nasazením do výroby.
+
+**Mění změna pořadí tvaru (vpřed/vzad) pořadí jeho animace?**
+
+Ne. Z‑order tvaru řídí překrývání, zatímco pořadí sekvence a spouštěče řídí přehrávání animace. Změňte časovou osu, pokud potřebujete jiný pořadí přehrávání.

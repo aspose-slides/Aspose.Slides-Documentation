@@ -1,5 +1,5 @@
 ---
-title: Áp dụng Hoạt ảnh Hình dạng trong Bài thuyết trình trên Android
+title: Áp dụng Hoạt ảnh Hình dạng trong Bản trình bày trên Android
 linktitle: Hoạt ảnh Hình dạng
 type: docs
 weight: 60
@@ -19,487 +19,469 @@ keywords:
 - âm thanh hiệu ứng
 - áp dụng hoạt ảnh
 - PowerPoint
-- bài thuyết trình
+- bản trình bày
 - Android
 - Java
 - Aspose.Slides
-description: "Khám phá cách tạo và tùy chỉnh hoạt ảnh hình dạng trong các bài thuyết trình PowerPoint với Aspose.Slides cho Android qua Java. Nổi bật!"
+description: "Tìm hiểu cách thêm, kiểm tra và tùy chỉnh các hoạt ảnh hình dạng, thời gian, âm thanh, hành vi sau hoạt ảnh và văn bản hoạt ảnh với Aspose.Slides cho Android qua Java."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Animations là các hiệu ứng hình ảnh có thể áp dụng cho văn bản, hình ảnh, hình dạng, hoặc [charts](https://docs.aspose.com/slides/vi/androidjava/animated-charts/). Chúng mang lại sức sống cho bài thuyết trình hoặc các thành phần của nó.
+Aspose.Slides for Android qua Java đại diện cho các hoạt ảnh slide dưới dạng hiệu ứng trong một dòng thời gian slide. Một hiệu ứng có hình dạng mục tiêu, một loại và phụ loại hoạt ảnh, một trình kích hoạt, các cài đặt thời gian, và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau hoạt ảnh.
 
-## **Tại sao nên sử dụng hoạt ảnh trong bài thuyết trình?**
+Dòng thời gian chứa hai loại chuỗi:
 
-Sử dụng hoạt ảnh, bạn có thể 
+- **Chuỗi chính** phát khi slide tiến tới.
+- Một **chuỗi tương tác** bắt đầu khi hình dạng kích hoạt của nó được nhấp.
 
-* kiểm soát luồng thông tin
-* nhấn mạnh các điểm quan trọng
-* tăng sự hứng thú hoặc tham gia của khán giả
-* làm cho nội dung dễ đọc, tiếp thu hoặc xử lý hơn
-* thu hút sự chú ý của người đọc hoặc người xem đến các phần quan trọng trong bài thuyết trình
+Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác triển khai [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/), bạn sử dụng cùng một phương thức [ISequence.addEffect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) cho hầu hết nội dung slide. Các hiệu ứng có sẵn được liệt kê trong lớp [EffectType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/effecttype/).
 
-PowerPoint cung cấp nhiều tùy chọn và công cụ cho hoạt ảnh và các hiệu ứng hoạt ảnh trong các danh mục **entrance**, **exit**, **emphasis**, và **motion paths**.
+## **Thêm Hoạt Ảnh Cho Hình Dạng**
 
-## **Hoạt ảnh trong Aspose.Slides**
+Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [ISequence.addEffect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) với hình dạng mục tiêu, loại hiệu ứng, phụ loại và trình kích hoạt. Đối với một hiệu ứng bắt đầu khi một hình dạng khác được nhấp, tạo một chuỗi tương tác có trình kích hoạt là hình dạng đó.
 
-* Aspose.Slides cung cấp các lớp và kiểu bạn cần để làm việc với hoạt ảnh trong namespace `Aspose.Slides.Animation`,
-* Aspose.Slides cung cấp hơn **150 hiệu ứng hoạt ảnh** trong enumeration [EffectType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/effecttype). Các hiệu ứng này về cơ bản là các hiệu ứng tương tự (hoặc tương đương) được sử dụng trong PowerPoint.
-
-## **Áp dụng hoạt ảnh cho TextBox**
-
-Aspose.Slides for Android via Java cho phép bạn áp dụng hoạt ảnh cho văn bản trong một shape.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Thêm một `rectangle` [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape).
-4. Thêm văn bản vào [IAutoShape.TextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-).
-5. Lấy chuỗi chính của các hiệu ứng.
-6. Thêm một hiệu ứng hoạt ảnh vào [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape).
-7. Đặt thuộc tính `TextAnimation.BuildType` thành giá trị từ enumeration `BuildType`.
-8. Ghi bài thuyết trình ra đĩa dưới dạng tệp PPTX.
-
-Đoạn mã Java sau cho bạn thấy cách áp dụng hiệu ứng `Fade` cho AutoShape và đặt hoạt ảnh văn bản thành giá trị *By 1st Level Paragraphs*:
+Ví dụ sau tạo cả hai loại hoạt ảnh và lưu kết quả vào `shape-animations.pptx`.
 
 ```java
-// Khởi tạo lớp trình chiếu đại diện cho tệp trình chiếu.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Thêm AutoShape mới với văn bản
-    IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+public class AddShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
 
-    ITextFrame textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Click to animate this shape");
 
-    // Lấy chuỗi chính của slide.
-    ISequence sequence = sld.getTimeline().getMainSequence();
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            IEffect entranceEffect = mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            entranceEffect.getTiming().setDuration(1.5f);
 
-    // Thêm hiệu ứng hoạt ảnh Fade cho shape
-    IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // Hoạt ảnh văn bản shape theo các đoạn mức 1
-    effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Lưu tệp PPTX lên đĩa
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert color="primary"  %}} 
-
-Ngoài việc áp dụng hoạt ảnh cho văn bản, bạn cũng có thể áp dụng hoạt ảnh cho một [Paragraph] đơn lẻ. Xem [**Animated Text**](/slides/vi/androidjava/animated-text/).
-
-{{% /alert %}} 
-
-## **Áp dụng hoạt ảnh cho PictureFrame**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Thêm hoặc lấy một [PictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pictureframe) trên slide.
-4. Lấy chuỗi chính của các hiệu ứng.
-5. Thêm một hiệu ứng hoạt ảnh vào [PictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pictureframe).
-6. Ghi bài thuyết trình ra đĩa dưới dạng tệp PPTX.
-
-Đoạn mã Java sau cho bạn thấy cách áp dụng hiệu ứng `Fly` cho một picture frame:
-
-```java
-// Khởi tạo lớp trình chiếu đại diện cho tệp trình chiếu.
-Presentation pres = new Presentation();
-try {
-    // Tải hình ảnh để thêm vào bộ sưu tập hình ảnh của trình chiếu
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Thêm khung ảnh vào slide
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
-
-    // Lấy chuỗi chính của slide.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-
-    // Thêm hiệu ứng hoạt ảnh Fly từ trái vào khung ảnh
-    IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // Lưu tệp PPTX lên đĩa
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Áp dụng hoạt ảnh cho Shape**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Thêm một `rectangle` [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape).
-4. Thêm một `Bevel` [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape) (khi đối tượng này được nhấp, hoạt ảnh sẽ được phát).
-5. Tạo một chuỗi các hiệu ứng trên shape bevel.
-6. Tạo một `UserPath` tùy chỉnh.
-7. Thêm các lệnh để di chuyển tới `UserPath`.
-8. Ghi bài thuyết trình ra đĩa dưới dạng tệp PPTX.
-
-Đoạn mã Java sau cho bạn thấy cách áp dụng hiệu ứng `PathFootball` (đường bóng đá) cho một shape:
-
-```java
-// Khởi tạo một lớp Presentation đại diện cho tệp PPTX.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Tạo hiệu ứng PathFootball cho shape hiện có từ đầu.
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-
-    // Thêm hiệu ứng hoạt ảnh PathFootBall
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
-            EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // Tạo một loại "button" nào đó.
-    IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // Tạo một chuỗi hiệu ứng cho nút này.
-    ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-
-     // Tạo một đường dẫn người dùng tùy chỉnh. Đối tượng của chúng ta sẽ di chuyển chỉ sau khi nút được nhấp.
-    IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-     // Thêm các lệnh di chuyển vì đường dẫn đã tạo hiện vẫn rỗng.
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
-
-    Point2D.Float[] pts = new Point2D.Float[1];
-    pts[0] = new Point2D.Float(0.076f, 0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new Point2D.Float(-0.076f, -0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-     // Ghi tệp PPTX lên đĩa
-    pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Lấy các hiệu ứng hoạt ảnh đã áp dụng cho Shape**
-
-Các ví dụ sau cho bạn thấy cách sử dụng phương thức `getEffectsByShape` từ interface [ISequence](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isequence/) để lấy tất cả các hiệu ứng hoạt ảnh đã áp dụng cho một shape.
-
-**Ví dụ 1: Lấy hiệu ứng hoạt ảnh đã áp dụng cho shape trên slide bình thường**
-
-Trước đây, bạn đã học cách thêm hiệu ứng hoạt ảnh vào các shape trong bài thuyết trình PowerPoint. Đoạn mã mẫu dưới đây cho bạn thấy cách lấy các hiệu ứng đã áp dụng cho shape đầu tiên trên slide bình thường đầu tiên trong bài thuyết trình `AnimExample_out.pptx`.
-
-```java
-Presentation presentation = new Presentation("AnimExample_out.pptx");
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-
-    // Lấy chuỗi hoạt ảnh chính của slide.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Lấy shape đầu tiên trên slide đầu tiên.
-    IShape shape = firstSlide.getShapes().get_Item(0);
-
-    // Lấy các hiệu ứng hoạt ảnh đã áp dụng cho shape.
-    IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0)
-        System.out.println("The shape " + shape.getName() + " has " + shapeEffects.length + " animation effects.");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-**Ví dụ 2: Lấy tất cả hiệu ứng hoạt ảnh, bao gồm những hiệu ứng được kế thừa từ placeholders**
-
-Nếu một shape trên slide bình thường có các placeholder nằm trên slide bố cục và/hoặc slide chủ, và các hiệu ứng hoạt ảnh đã được thêm vào những placeholder này, thì tất cả các hiệu ứng của shape sẽ được phát trong buổi trình chiếu, bao gồm cả những hiệu ứng được kế thừa từ các placeholder.
-
-Giả sử chúng ta có một tệp PowerPoint `sample.pptx` với một slide chỉ chứa một shape footer có văn bản "Made with Aspose.Slides" và hiệu ứng **Random Bars** được áp dụng cho shape.
-
-![Hiệu ứng hoạt ảnh shape trên slide](slide-shape-animation.png)
-
-Giả sử thêm hiệu ứng **Split** được áp dụng cho placeholder footer trên slide **layout**.
-
-![Hiệu ứng hoạt ảnh shape layout](layout-shape-animation.png)
-
-Và cuối cùng, hiệu ứng **Fly In** được áp dụng cho placeholder footer trên slide **master**.
-
-![Hiệu ứng hoạt ảnh shape master](master-shape-animation.png)
-
-Đoạn mã mẫu dưới đây cho bạn thấy cách sử dụng phương thức `getBasePlaceholder` từ interface [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) để truy cập các placeholder của shape và lấy các hiệu ứng hoạt ảnh đã áp dụng cho shape footer, bao gồm những hiệu ứng được kế thừa từ các placeholder nằm trên slide bố cục và slide chủ.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Get animation effects of the shape on the normal slide.
-IShape shape = slide.getShapes().get_Item(0);
-IEffect[] shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// Get animation effects of the placeholder on the layout slide.
-IShape layoutShape = shape.getBasePlaceholder();
-IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// Get animation effects of the placeholder on the master slide.
-IShape masterShape = layoutShape.getBasePlaceholder();
-IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-```java
-static void printEffects(IEffect[] effects)
-{
-    for (IEffect effect : effects)
-    {
-        String typeName = EffectType.getName(EffectType.class, effect.getType());
-        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
-
-        System.out.println(typeName + " " + subtypeName);
+            presentation.save("shape-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+Trình kích hoạt kiểm soát thời điểm một hiệu ứng bắt đầu:
 
-## **Thay đổi thuộc tính thời gian của hiệu ứng hoạt ảnh**
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/effecttriggertype/#OnClick) chờ một cú nhấp trong chuỗi chính, hoặc một cú nhấp vào hình dạng kích hoạt trong một chuỗi tương tác.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) bắt đầu cùng với hiệu ứng trước đó.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) bắt đầu khi hiệu ứng trước đó kết thúc.
 
-Aspose.Slides for Android via Java cho phép bạn thay đổi các thuộc tính Timing của một hiệu ứng hoạt ảnh.
+Để tạo hoạt ảnh cho hình ảnh, biểu đồ hoặc loại hình dạng khác, truyền đối tượng đó vào [ISequence.addEffect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) thay vì `targetShape`. Đối với các tùy chọn nhóm đặc thù cho biểu đồ, xem [Animated Charts](/slides/vi/androidjava/animated-charts/).
 
-Đây là bảng Animation Timing trong Microsoft PowerPoint:
+## **Đọc Hoạt Ảnh Hình Dạng**
 
-![Cửa sổ Animation Timing trong Microsoft PowerPoint](shape-animation.png)
+Sử dụng [ISequence.getEffectsByShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) khi bạn biết hình dạng mục tiêu. Để kiểm tra mọi hiệu ứng, liệt kê chuỗi chính và mọi chuỗi tương tác. Việc liệt kê tránh giả định rằng một chuỗi chứa hiệu ứng ở chỉ mục `0`.
 
-Đây là các tương quan giữa PowerPoint Timing và các thuộc tính [Effect.Timing](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IEffect#getTiming--) :
-
-- Danh sách thả xuống PowerPoint Timing **Start** tương ứng với thuộc tính [Effect.Timing.TriggerType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITiming#getTriggerType--) .
-- PowerPoint Timing **Duration** tương ứng với thuộc tính [Effect.Timing.Duration](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITiming#getDuration--) . Thời lượng của một hoạt ảnh (theo giây) là tổng thời gian mà hoạt ảnh cần để hoàn thành một chu kỳ.
-- PowerPoint Timing **Delay** tương ứng với thuộc tính [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--) .
-
-Đây là cách bạn thay đổi các thuộc tính Timing của Effect:
-
-1. [Apply](#apply-animation-to-shape) hoặc lấy hiệu ứng hoạt ảnh.
-2. Đặt các giá trị mới cho các thuộc tính [Effect.Timing](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IEffect#getTiming--) mà bạn cần.
-3. Lưu tệp PPTX đã chỉnh sửa.
-
-Đoạn mã Java sau minh họa thao tác:
+Ví dụ sau tạo một hình dạng có hiệu ứng chuỗi chính và chuỗi tương tác, nhận các hiệu ứng mục tiêu hình dạng, và sau đó liệt kê mọi chuỗi trên slide.
 
 ```java
-// Khởi tạo một lớp Presentation đại diện cho tệp trình chiếu.
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Lấy chuỗi chính của slide.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
+import com.aspose.slides.*;
 
-    // Lấy hiệu ứng đầu tiên của chuỗi chính.
-    IEffect effect = sequence.get_Item(0);
+public class ReadShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Animated shape");
 
-    // Thay đổi TriggerType của hiệu ứng để bắt đầu khi click
-    effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Thay đổi Duration của hiệu ứng
-    effect.getTiming().setDuration(3f);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // Thay đổi TriggerDelayTime của hiệu ứng
-    effect.getTiming().setTriggerDelayTime(0.5f);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Lưu tệp PPTX lên đĩa
-    pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+            IEffect[] targetEffects = mainSequence.getEffectsByShape(targetShape);
+            System.out.println("The main sequence contains " + targetEffects.length + " effect(s) for " + targetShape.getName() + ".");
 
-## **Âm thanh hiệu ứng hoạt ảnh**
+            printSequence("Main sequence", mainSequence);
 
-Aspose.Slides cung cấp các thuộc tính sau để cho phép bạn làm việc với âm thanh trong các hiệu ứng hoạt ảnh: 
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)
-
-### **Thêm âm thanh cho hiệu ứng hoạt ảnh**
-
-Đoạn mã Java sau cho bạn thấy cách thêm âm thanh cho một hiệu ứng hoạt ảnh và dừng nó khi hiệu ứng tiếp theo bắt đầu:
-
-```java
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Thêm âm thanh vào bộ sưu tập âm thanh của trình chiếu
-    IAudio effectSound = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("sampleaudio.wav")));
-
-    ISlide firstSlide = pres.getSlides().get_Item(0);
-
-    // Lấy chuỗi chính của slide.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Lấy hiệu ứng đầu tiên của chuỗi chính
-    IEffect firstEffect = sequence.get_Item(0);
-
-    // Kiểm tra hiệu ứng cho "No Sound"
-    if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
-    {
-        // Thêm âm thanh cho hiệu ứng đầu tiên
-        firstEffect.setSound(effectSound);
+            int interactiveIndex = 1;
+            for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                String triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+                String sequenceLabel = "Interactive sequence " + interactiveIndex + ", trigger: " + triggerName;
+                printSequence(sequenceLabel, sequence);
+                interactiveIndex++;
+            }
+        } finally {
+            presentation.dispose();
+        }
     }
 
-    // Lấy chuỗi tương tác đầu tiên của slide.
-    ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
+    private static void printSequence(String label, ISequence sequence) {
+        System.out.println("  " + label + ": " + sequence.getCount() + " effect(s)");
 
-    // Đặt cờ "Stop previous sound" cho hiệu ứng
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-
-    // Ghi tệp PPTX lên đĩa
-    pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Trích xuất âm thanh của hiệu ứng hoạt ảnh**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó. 
-3. Lấy chuỗi chính của các hiệu ứng. 
-4. Trích xuất thuộc tính [setSound(IAudio value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) được nhúng vào mỗi hiệu ứng hoạt ảnh.
-
-Đoạn mã Java sau cho bạn thấy cách trích xuất âm thanh được nhúng trong một hiệu ứng hoạt ảnh:
-
-```java
-// Khởi tạo một lớp Presentation đại diện cho tệp trình chiếu.
-Presentation presentation = new Presentation("EffectSound.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Lấy chuỗi chính của slide.
-    ISequence sequence = slide.getTimeline().getMainSequence();
-
-    for (IEffect effect : sequence)
-    {
-        if (effect.getSound() == null)
-            continue;
-
-        // Trích xuất âm thanh của hiệu ứng thành mảng byte
-        byte[] audio = effect.getSound().getBinaryData();
+        for (IEffect effect : sequence) {
+            String targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            String triggerName = EffectTriggerType.getName(EffectTriggerType.class, effect.getTiming().getTriggerType());
+            String effectDescription = typeName + " " + subtypeName + "; target: " + targetName + "; trigger: " + triggerName;
+            System.out.println("    " + effectDescription);
+        }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Sau hoạt ảnh**
+Nếu bạn chỉ cần các hiệu ứng cho một hình dạng, trước tiên xác định hình dạng bằng tên, loại placeholder, hoặc thuộc tính ổn định khác; sau đó gọi [ISequence.getEffectsByShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Đừng giả định rằng [IShapeCollection.get_Item](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) ở chỉ mục `0` luôn là đối tượng mong muốn.
 
-Aspose.Slides for Android via Java cho phép bạn thay đổi thuộc tính After animation của một hiệu ứng hoạt ảnh.
+## **Làm việc với Hiệu Ứng Placeholder Kế Thừa**
 
-Đây là bảng Animation Effect và menu mở rộng trong Microsoft PowerPoint:
+Một placeholder trên slide bình thường có thể kế thừa hành vi hoạt ảnh từ placeholder tương ứng trên slide bố cục và slide chủ. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) trả về placeholder cha đó, hoặc `null` khi không có cha.
 
-![Cửa sổ Animation Effect trong Microsoft PowerPoint](shape-after-animation.png)
+Trong bản trình bày mẫu dưới đây, phần chân trang có **Random Bars** trên slide bình thường, **Split** trên slide bố cục, và **Fly In** trên slide chủ.
 
-Danh sách thả xuống PowerPoint Effect **After animation** tương ứng với các thuộc tính sau: 
+![Hiệu ứng hoạt ảnh chân trang trên slide bình thường](slide-shape-animation.png)
 
-- Thuộc tính [setAfterAnimationType(int value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#setAfterAnimationType-int-) mô tả loại After animation :
-  * PowerPoint **More Colors** tương ứng với loại [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/afteranimationtype/#Color) ;
-  * PowerPoint **Don't Dim** tương ứng với loại [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/afteranimationtype/#DoNotDim) (loại after animation mặc định) ;
-  * PowerPoint **Hide After Animation** tương ứng với loại [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/afteranimationtype/#HideAfterAnimation) ;
-  * PowerPoint **Hide on Next Mouse Click** tương ứng với loại [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick) ;
-- Thuộc tính [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) định dạng màu sau hoạt ảnh. Thuộc tính này hoạt động cùng với loại [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/afteranimationtype/#Color). Nếu bạn thay đổi loại sang một loại khác, màu sau hoạt ảnh sẽ bị xóa.
+![Hiệu ứng hoạt ảnh placeholder chân trang trên slide bố cục](layout-shape-animation.png)
 
-Đoạn mã Java sau cho bạn thấy cách thay đổi một hiệu ứng after animation:
+![Hiệu ứng hoạt ảnh placeholder chân trang trên slide chủ](master-shape-animation.png)
+
+Ví dụ tiếp theo sử dụng một hệ thống placeholder từ một bản trình bày mới. Nó thêm hiệu ứng vào một placeholder chủ, một placeholder bố cục, và placeholder tương ứng trên một slide bình thường. Mọi lời gọi tới [IShape.getBasePlaceholder](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) đều được kiểm tra trước khi sử dụng hình dạng trả về.
 
 ```java
-// Khởi tạo một lớp Presentation đại diện cho tệp trình chiếu
-Presentation pres = new Presentation("AnimImage_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Lấy hiệu ứng đầu tiên của chuỗi chính
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class InheritedPlaceholderAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+            IShape layoutPlaceholder = findPlaceholderWithBase(layoutSlide);
 
-    // Thay đổi loại after animation thành Color
-    firstEffect.setAfterAnimationType(AfterAnimationType.Color);
+            if (layoutPlaceholder == null) {
+                throw new IllegalStateException("The layout slide does not contain a placeholder linked to its master slide.");
+            }
 
-    // Đặt màu dim cho after animation
-    firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+            layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-    // Ghi tệp PPTX lên đĩa
-    pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            ISlide slide = presentation.getSlides().addEmptySlide(layoutSlide);
+            IShape slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+            if (slidePlaceholder == null) {
+                throw new IllegalStateException("The slide does not contain a placeholder linked to its layout slide.");
+            }
+
+            slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+            printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+            IShape baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+            if (baseLayoutPlaceholder != null) {
+                printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+                IShape baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+                if (baseMasterPlaceholder != null) {
+                    printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+                }
+            }
+
+            presentation.save("placeholder-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static IShape findPlaceholderWithBase(ILayoutSlide layoutSlide) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            if (shape.getBasePlaceholder() != null) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static IShape findPlaceholderWithBase(ISlide slide, IShape expectedBase) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape.getBasePlaceholder() == expectedBase) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static void printEffects(String source, IEffect[] effects) {
+        System.out.println(source + ": " + effects.length + " effect(s)");
+
+        for (IEffect effect : effects) {
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            System.out.println("  " + typeName + " " + subtypeName);
+        }
+    }
 }
 ```
 
-## **Hoạt ảnh văn bản**
+## **Thay Đổi Thời Gian Hoạt Ảnh**
 
-Aspose.Slides cung cấp các thuộc tính sau để cho phép bạn làm việc với khối *Animate text* của một hiệu ứng hoạt ảnh:
+Hộp thoại **Timing** của PowerPoint ánh xạ tới các thuộc tính của [ITiming](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/).
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) mô tả loại animate text của hiệu ứng. Văn bản của shape có thể được hoạt ảnh:
-  - Cả một lúc ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/animatetexttype/#AllAtOnce) type)
-  - Theo từ ([AnimateTextType.ByWord](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/animatetexttype/#ByWord) type)
-  - Theo ký tự ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/animatetexttype/#ByLetter) type)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) đặt độ trễ giữa các phần văn bản được hoạt ảnh (từ hoặc ký tự). Giá trị dương chỉ tỷ lệ phần trăm thời gian hiệu ứng. Giá trị âm chỉ thời gian trễ tính bằng giây.
+![Hộp thoại Timing của PowerPoint cho một hiệu ứng hoạt ảnh](shape-animation.png)
 
-Đây là cách bạn có thể thay đổi các thuộc tính Animate text của Effect:
+- **Start** ánh xạ tới [ITiming.getTriggerType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#getTriggerType--).
+- **Duration** ánh xạ tới [ITiming.getDuration](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#getDuration--), tính bằng giây.
+- **Delay** ánh xạ tới [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), tính bằng giây.
+- **Repeat** ánh xạ tới [ITiming.getRepeatCount](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), hoặc [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Rewind when done playing** ánh xạ tới [ITiming.getRewind](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#getRewind--).
 
-1. [Apply](#apply-animation-to-shape) hoặc lấy hiệu ứng hoạt ảnh.
-2. Đặt thuộc tính [setBuildType(int value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextanimation/#setBuildType-int-) thành giá trị [BuildType.AsOneObject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/buildtype/#AsOneObject) để tắt chế độ *By Paragraphs*.
-3. Đặt các giá trị mới cho các thuộc tính [setAnimateTextType(int value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) và [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-).
-4. Lưu tệp PPTX đã chỉnh sửa.
-
-Đoạn mã Java sau minh họa thao tác:
+Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó thông qua đối tượng trả về bởi [ISequence.addEffect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), và lưu kết quả. Giữ tham chiếu [IEffect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/) trả về tránh việc sử dụng chỉ mục bộ sưu tập không cần thiết.
 
 ```java
-// Khởi tạo một lớp Presentation đại diện cho tệp trình chiếu.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Lấy hiệu ứng đầu tiên của chuỗi chính
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class ChangeAnimationTiming {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Timed animation");
 
-    // Thay đổi loại Text animation của hiệu ứng thành "As One Object"
-    firstEffect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            effect.getTiming().setDuration(2.0f);
+            effect.getTiming().setTriggerDelayTime(0.5f);
+            effect.getTiming().setRepeatUntilNextClick(false);
+            effect.getTiming().setRepeatUntilEndSlide(false);
+            effect.getTiming().setRepeatCount(2.0f);
+            effect.getTiming().setRewind(true);
 
-    // Thay đổi loại Animate text của hiệu ứng thành "By word"
-    firstEffect.setAnimateTextType(AnimateTextType.ByWord);
-
-    // Đặt độ trễ giữa các từ là 20% thời lượng hiệu ứng
-    firstEffect.setDelayBetweenTextParts(20f);
-
-    // Ghi tệp PPTX lên đĩa
-    pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            presentation.save("shape-animation-timing.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
 
-## **Câu hỏi thường gặp**
+Công sử dụng một chế độ lặp duy nhất một cách có chủ ý. Kết hợp số lần lặp với cờ “until” có thể tạo ra kết quả khó hiểu trong các trình xem khác nhau. Khi thay đổi chế độ lặp, đặt [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) và [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) trước [ITiming.setRepeatCount](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), vì việc đặt bất kỳ cờ nào cũng sẽ thay đổi chế độ lặp hiện hành.
 
-**Làm sao để đảm bảo hoạt ảnh được giữ nguyên khi xuất bản bài thuyết trình lên web?**
+## **Thêm và Trích Xuất Âm Thanh Hoạt Ảnh**
 
-[Export to HTML5](/slides/vi/androidjava/export-to-html5/) và bật các [options](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/html5options/) chịu trách nhiệm cho hoạt ảnh [shape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) và [transition](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-). HTML thuần không phát hoạt ảnh slide, trong khi HTML5 có.
+Một hiệu ứng hoạt ảnh có thể tham chiếu âm thanh nhúng qua [IEffect.getSound](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) cho phép một hiệu ứng dừng âm thanh đã được bắt đầu bởi hiệu ứng trước.
 
-**Thay đổi thứ tự z-order (thứ tự lớp) của các shape ảnh hưởng như thế nào đến hoạt ảnh?**
+### **Thêm Âm Thanh Vào Hiệu Ứng**
 
-Thứ tự hoạt ảnh và thứ tự vẽ là độc lập: một hiệu ứng kiểm soát thời gian và kiểu xuất hiện/biến mất, trong khi [z-order](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/shape/#getZOrderPosition--) quyết định phần nào che phần nào. Kết quả hiển thị được xác định bởi sự kết hợp của chúng. (Đây là hành vi chung của PowerPoint; mô hình effects-and-shapes của Aspose.Slides tuân theo logic này.)
+Ví dụ sau yêu cầu một tệp âm thanh cục bộ có tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng tệp đó làm âm thanh cho hiệu ứng đầu tiên, và cấu hình hiệu ứng thứ hai để dừng âm thanh. Nó sử dụng các đối tượng trả về bởi [ISequence.addEffect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), vì vậy không cần chỉ mục chuỗi.
 
-**Có hạn chế nào khi chuyển đổi hoạt ảnh sang video cho một số hiệu ứng không?**
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-Nhìn chung, [animations are supported](/slides/vi/androidjava/convert-powerpoint-to-video/), nhưng trong một số trường hợp hiếm hoặc với các hiệu ứng cụ thể có thể được render khác nhau. Bạn nên kiểm thử với các hiệu ứng bạn dùng và với phiên bản thư viện hiện tại.
+public class AddAnimationSound {
+    public static void main(String[] args) throws IOException {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+            IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+            firstShape.addTextFrame("Starts sound");
+            secondShape.addTextFrame("Stops sound");
+
+            ISequence sequence = slide.getTimeline().getMainSequence();
+            IEffect firstEffect = sequence.addEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect secondEffect = sequence.addEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+            byte[] audioData = Files.readAllBytes(Paths.get("animation-sound.wav"));
+            IAudio effectSound = presentation.getAudios().addAudio(audioData);
+            firstEffect.setSound(effectSound);
+            secondEffect.setStopPreviousSound(true);
+
+            presentation.save("shape-animation-sound.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+### **Trích Xuất Âm Thanh Nhúng Của Hiệu Ứng**
+
+Ví dụ sau yêu cầu một bản trình bày cục bộ có tên `presentation-with-animation-sounds.pptx`. Nó quét cả chuỗi chính và chuỗi tương tác và ghi mỗi âm thanh hiệu ứng nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn dựa trên loại MIME âm thanh được cung cấp bởi [IAudio.getContentType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iaudio/#getContentType--).
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+public class ExtractAnimationSounds {
+    public static void main(String[] args) throws IOException {
+        Path inputPath = Paths.get("presentation-with-animation-sounds.pptx");
+        Path outputDirectory = Paths.get("extracted-animation-sounds");
+
+        Files.createDirectories(outputDirectory);
+
+        Presentation presentation = new Presentation(inputPath.toString());
+        try {
+            int soundIndex = 1;
+
+            for (ISlide slide : presentation.getSlides()) {
+                soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+                for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                    soundIndex = saveSounds(sequence, outputDirectory, soundIndex);
+                }
+            }
+
+            System.out.println("Extracted " + (soundIndex - 1) + " sound file(s) to " + outputDirectory.toAbsolutePath() + ".");
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static int saveSounds(ISequence sequence, Path outputDirectory, int soundIndex) throws IOException {
+        for (IEffect effect : sequence) {
+            if (effect.getSound() == null) {
+                continue;
+            }
+
+            String extension = getAudioExtension(effect.getSound().getContentType());
+            Path outputPath = outputDirectory.resolve("effect-sound-" + soundIndex + extension);
+            Files.write(outputPath, effect.getSound().getBinaryData());
+            soundIndex++;
+        }
+
+        return soundIndex;
+    }
+
+    private static String getAudioExtension(String contentType) {
+        String normalizedType = contentType == null ? "" : contentType.toLowerCase(Locale.ROOT);
+
+        if (normalizedType.equals("audio/mpeg")) {
+            return ".mp3";
+        }
+
+        if (normalizedType.equals("audio/mp4")) {
+            return ".m4a";
+        }
+
+        if (normalizedType.equals("audio/ogg")) {
+            return ".ogg";
+        }
+
+        if (normalizedType.equals("audio/wav") || normalizedType.equals("audio/x-wav")) {
+            return ".wav";
+        }
+
+        return ".bin";
+    }
+}
+```
+
+Đối với các đối tượng âm thanh lớn, sử dụng [IAudio.getStream](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iaudio/#getStream--) và sao chép luồng tới tệp thay vì tải toàn bộ đối tượng vào mảng byte.
+
+## **Đặt Hành Vi Sau Hoạt Ảnh**
+
+Tuỳ chọn **After animation** kiểm soát những gì xảy ra với một hình dạng sau khi hiệu ứng của nó kết thúc.
+
+![Hộp thoại Tùy chọn Hiệu Ứng của PowerPoint hiển thị cài đặt After animation](shape-after-animation.png)
+
+Lớp [AfterAnimationType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/afteranimationtype/) hỗ trợ giữ nguyên hình dạng, thay đổi màu của nó, ẩn nó sau hoạt ảnh, hoặc ẩn nó khi nhấp lần tiếp theo. Khi loại là [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/afteranimationtype/#Color), cũng đặt [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) .
+
+Ví dụ độc lập này tạo một hiệu ứng, đặt hành vi sau hoạt ảnh của nó thông qua đối tượng hiệu ứng trả về, và lưu kết quả.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+public class SetAfterAnimationBehavior {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Dim after animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.setAfterAnimationType(AfterAnimationType.Color);
+            effect.getAfterAnimationColor().setColor(Color.LTGRAY);
+
+            presentation.save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Thay đổi loại khỏi [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/afteranimationtype/#Color) sẽ xóa cài đặt màu sau hoạt ảnh.
+
+## **Hoạt Ảnh Văn Bản**
+
+Hoạt ảnh văn bản có hai điều khiển liên quan:
+
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextanimation/#getBuildType--) kiểm soát việc các đoạn văn xuất hiện cùng nhau hay theo cấp độ đoạn.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) kiểm soát việc văn bản xuất hiện toàn bộ, theo từ, hoặc theo ký tự. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ theo giây.
+
+Ví dụ độc lập sau hoạt ảnh các từ trong một hộp văn bản. [BuildType.AsOneObject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/buildtype/#AsOneObject) tắt việc xây dựng theo đoạn, vì vậy cài đặt từ sẽ áp dụng cho toàn bộ khung văn bản.
+
+```java
+import com.aspose.slides.*;
+
+public class AnimateTextByWord {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+            textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            effect.setAnimateTextType(AnimateTextType.ByWord);
+            effect.setDelayBetweenTextParts(20.0f);
+
+            presentation.save("animated-text.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Để xây dựng một hộp văn bản theo đoạn, đặt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (hoặc cấp độ đoạn khác). Để mục tiêu một đoạn duy nhất với hiệu ứng riêng, sử dụng phương thức overload [ISequence.addEffect](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) chấp nhận một [IParagraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/). Xem [Animated Text](/slides/vi/androidjava/animated-text/) để biết các ví dụ mức đoạn.
+
+## **Ghi Xuất và Ghi Chú Tương Thích**
+
+- Lưu dưới dạng PPT hoặc PPTX giữ nguyên mô hình hoạt ảnh, nhưng việc phát cuối cùng được điều khiển bởi trình xem bản trình bày.
+- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/androidjava/export-to-html5/), GIF hoạt ảnh, hoặc [video conversion](/slides/vi/androidjava/convert-powerpoint-to-video/) khi đầu ra phải hiển thị chuyển động.
+- Đối với HTML5, bật [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) và, khi cần, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+- Kết xuất video hỗ trợ nhiều hiệu ứng vào, nhấn mạnh, thoát và đường chuyển động phổ biến, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra [supported animations and effects](/slides/vi/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) hiện tại và thử nghiệm các bản trình bày quan trọng với phiên bản Aspose.Slides mục tiêu của bạn.
+- Các hiệu ứng tùy chỉnh nâng cao và các hiệu ứng nhập khẩu từ các định dạng bản trình bày khác có thể được giữ trong tệp nhưng hiển thị khác nhau trong PowerPoint, HTML5, hoặc video. Xác thực kết quả đã xuất thay vì chỉ dựa vào tên hiệu ứng.
+
+## **FAQ**
+
+**Why does an animation appear in PowerPoint but not in a PDF?**
+
+PDF là định dạng tĩnh, vì vậy các hoạt ảnh và chuyển tiếp slide không được phát. Xuất sang HTML5, GIF hoạt ảnh, hoặc video khi cần giữ chuyển động.
+
+**Why does an effect play differently in a video?**
+
+Xuất video render các hoạt ảnh thay vì lưu giữ hành vi PowerPoint gốc. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ được xấp xỉ. Xem bảng hiệu ứng được hỗ trợ và kiểm thử bản trình chiếu thực tế trước khi sử dụng trong sản xuất.
+
+**Does moving a shape forward or backward change its animation order?**
+
+Không. Thứ tự z-order của hình dạng chỉ kiểm soát việc chồng lấn, trong khi thứ tự chuỗi và trình kích hoạt kiểm soát việc phát hoạt ảnh. Thay đổi dòng thời gian nếu bạn cần một thứ tự phát khác.

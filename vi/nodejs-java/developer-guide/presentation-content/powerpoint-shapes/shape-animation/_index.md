@@ -1,6 +1,6 @@
 ---
-title: Áp dụng Hoạt ảnh Hình dạng trong Bản trình bày bằng JavaScript
-linktitle: Hoạt ảnh Hình dạng
+title: Áp dụng hoạt ảnh hình dạng trong bản trình chiếu bằng JavaScript
+linktitle: Hoạt ảnh hình dạng
 type: docs
 weight: 60
 url: /vi/nodejs-java/shape-animation/
@@ -8,8 +8,8 @@ keywords:
 - hình dạng
 - hoạt ảnh
 - hiệu ứng
-- hình dạng hoạt ảnh
-- văn bản hoạt ảnh
+- hình dạng động
+- văn bản động
 - thêm hoạt ảnh
 - lấy hoạt ảnh
 - trích xuất hoạt ảnh
@@ -19,459 +19,457 @@ keywords:
 - âm thanh hiệu ứng
 - áp dụng hoạt ảnh
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Khám phá cách tạo và tùy chỉnh hoạt ảnh hình dạng trong các bản trình bày PowerPoint bằng JavaScript và Aspose.Slides cho Node.js via Java. Nổi bật hơn!"
+description: "Tìm hiểu cách thêm, kiểm tra và tùy chỉnh hoạt ảnh hình dạng, thời gian, âm thanh, hành vi sau hoạt ảnh và văn bản động với Aspose.Slides cho Node.js thông qua Java."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Hoạt ảnh là các hiệu ứng hình ảnh có thể được áp dụng cho văn bản, hình ảnh, hình dạng hoặc [charts](/slides/vi/nodejs-java/animated-charts/). Chúng mang lại sức sống cho các bản trình bày hoặc các thành phần của chúng.
+Aspose.Slides for Node.js via Java biểu diễn hoạt ảnh slide dưới dạng các hiệu ứng trong dòng thời gian của slide. Một hiệu ứng có hình dạng mục tiêu, loại và phụ loại hoạt ảnh, bộ kích hoạt, cài đặt thời gian, và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau khi hoạt ảnh kết thúc.
 
-## **Tại sao nên sử dụng hoạt ảnh trong bản trình bày?**
+Dòng thời gian chứa hai loại chuỗi:
 
-Sử dụng hoạt ảnh, bạn có thể 
+- **chuỗi chính** chạy khi slide tiến lên.
+- **chuỗi tương tác** bắt đầu khi hình dạng kích hoạt của nó được nhấp.
 
-* kiểm soát luồng thông tin
-* nhấn mạnh các điểm quan trọng
-* tăng sự quan tâm hoặc tham gia của khán giả
-* làm cho nội dung dễ đọc, tiếp thu hoặc xử lý hơn
-* thu hút sự chú ý của người đọc hoặc người xem tới các phần quan trọng trong bản trình bày
+Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác là các đối tượng [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/), bạn sử dụng cùng một phương thức [Sequence.addEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/#addEffect) cho hầu hết nội dung slide. Các hiệu ứng khả dụng được liệt kê trong enumeration [EffectType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effecttype/).
 
-PowerPoint cung cấp nhiều tùy chọn và công cụ cho các hoạt ảnh và hiệu ứng hoạt ảnh trong các danh mục **entrance**, **exit**, **emphasis** và **motion paths**. 
+## **Thêm Hoạt Ảnh cho Hình Dạng**
 
-## **Hoạt ảnh trong Aspose.Slides**
+Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [Sequence.addEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/#addEffect) với hình dạng mục tiêu, loại hiệu ứng, phụ loại và bộ kích hoạt. Đối với một hiệu ứng bắt đầu khi một hình dạng khác được nhấp, tạo một chuỗi tương tác mà bộ kích hoạt là hình dạng đó.
 
-* Aspose.Slides cung cấp các lớp và kiểu bạn cần để làm việc với hoạt ảnh dưới không gian tên `Aspose.Slides.Animation`,
-* Aspose.Slides cung cấp hơn **150 animation effects** dưới enumeration [EffectType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effecttype). Những hiệu ứng này về cơ bản là các hiệu ứng tương đương được sử dụng trong PowerPoint.
-
-## **Áp dụng hoạt ảnh cho TextBox**
-
-Aspose.Slides for Node.js via Java cho phép bạn áp dụng hoạt ảnh cho văn bản trong một shape.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Thêm một `rectangle` [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape).
-4. Thêm văn bản bằng [AutoShape.addTextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-).
-5. Lấy một chuỗi hiệu ứng chính.
-6. Thêm một hiệu ứng hoạt ảnh vào [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape).
-7. Gọi phương thức `TextAnimation.setBuildType` với giá trị từ enumeration `BuildType`.
-8. Ghi bản trình bày ra đĩa dưới dạng file PPTX.
-
-Đoạn mã Javascript này cho bạn thấy cách áp dụng hiệu ứng `Fade` cho AutoShape và đặt hoạt ảnh văn bản thành giá trị *By 1st Level Paragraphs*:
+Ví dụ sau tạo cả hai loại hoạt ảnh và lưu kết quả vào `shape-animations.pptx`.
 
 ```javascript
-// Tạo một lớp presentation đại diện cho một tệp trình chiếu.
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    // Thêm AutoShape mới với văn bản
-    var autoShape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 100);
-    var textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
-    // Lấy chuỗi chính của slide.
-    var sequence = sld.getTimeline().getMainSequence();
-    // Thêm hiệu ứng hoạt ảnh Fade vào shape
-    var effect = sequence.addEffect(autoShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // Hoạt ảnh văn bản shape theo các đoạn văn cấp 1
-    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.ByLevelParagraphs1);
-    // Lưu tệp PPTX vào đĩa
-    pres.save(path + "AnimText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Click to animate this shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    const entranceEffect = mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    entranceEffect.getTiming().setDuration(java.newFloat(1.5));
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    presentation.save("shape-animations.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert color="primary"  %}} 
+Bộ kích hoạt quyết định khi nào một hiệu ứng bắt đầu:
 
-Ngoài việc áp dụng hoạt ảnh cho văn bản, bạn cũng có thể áp dụng hoạt ảnh cho một [Paragraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph) đơn lẻ. Xem [**Animated Text**](/slides/vi/nodejs-java/animated-text/).
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effecttriggertype/#OnClick) chờ một lần nhấp trong chuỗi chính, hoặc một lần nhấp trên hình dạng kích hoạt trong chuỗi tương tác.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) bắt đầu cùng với hiệu ứng trước đó.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) bắt đầu khi hiệu ứng trước đó kết thúc.
 
-{{% /alert %}} 
+Để hoạt ảnh một hình ảnh, biểu đồ, hoặc một loại hình dạng khác, truyền đối tượng đó vào [Sequence.addEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/#addEffect) thay vì `targetShape`. Đối với các tùy chọn nhóm đặc thù cho biểu đồ, xem [Animated Charts](/slides/vi/nodejs-java/animated-charts/).
 
-## **Áp dụng hoạt ảnh cho PictureFrame**
+## **Đọc Hoạt Ảnh của Hình Dạng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Thêm hoặc lấy một [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe) trên slide.
-4. Lấy chuỗi hiệu ứng chính.
-5. Thêm một hiệu ứng hoạt ảnh vào [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe).
-6. Ghi bản trình bày ra đĩa dưới dạng file PPTX.
+Sử dụng [Sequence.getEffectsByShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/#getEffectsByShape) khi bạn biết hình dạng mục tiêu. Để kiểm tra mọi hiệu ứng, duyệt chuỗi chính và mọi chuỗi tương tác. Việc duyệt giúp tránh giả định rằng một chuỗi chứa hiệu ứng tại chỉ mục `0`.
 
-Đoạn mã Javascript này cho bạn thấy cách áp dụng hiệu ứng `Fly` cho một picture frame:
+Ví dụ sau tạo một hình dạng có hiệu ứng chuỗi‑chính và chuỗi‑tương tác, lấy các hiệu ứng mục tiêu hình dạng, và sau đó duyệt mọi chuỗi trên slide.
 
 ```javascript
-// Tạo một lớp presentation đại diện cho một tệp trình chiếu.
-var pres = new aspose.slides.Presentation();
-try {
-    // Tải hình ảnh để thêm vào bộ sưu tập hình ảnh của bản trình bày
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
         }
     }
-    // Thêm khung hình ảnh vào slide
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, picture);
-    // Lấy chuỗi chính của slide.
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // Thêm hiệu ứng hoạt ảnh Fly từ Trái vào khung hình ảnh
-    var effect = sequence.addEffect(picFrame, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Left, aspose.slides.EffectTriggerType.OnClick);
-    // Lưu tệp PPTX vào đĩa
-    pres.save(path + "AnimImage_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    return String(value);
+}
+
+function printSequence(label, sequence) {
+    console.log(`  ${label}: ${sequence.getCount()} effect(s)`);
+
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+        const targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        const triggerName = getEnumName(aspose.slides.EffectTriggerType, effect.getTiming().getTriggerType());
+        console.log(`    ${typeName} ${subtypeName}; target: ${targetName}; trigger: ${triggerName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Animated shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const targetEffects = mainSequence.getEffectsByShape(targetShape);
+    console.log(`The main sequence contains ${targetEffects.length} effect(s) for ${targetShape.getName()}.`);
+
+    printSequence("Main sequence", mainSequence);
+
+    const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+    for (let i = 0; i < interactiveSequences.getCount(); i++) {
+        const sequence = interactiveSequences.get_Item(i);
+        const triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+        printSequence(`Interactive sequence ${i + 1}, trigger: ${triggerName}`, sequence);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Áp dụng hoạt ảnh cho Shape**
+Nếu bạn chỉ cần các hiệu ứng cho một hình dạng, trước tiên xác định hình dạng bằng tên, kiểu placeholder hoặc thuộc tính ổn định khác; sau đó gọi [Sequence.getEffectsByShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/#getEffectsByShape). Đừng giả định rằng [ShapeCollection.get_Item](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/#get_Item) tại chỉ mục `0` luôn là đối tượng mong muốn.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Thêm một `rectangle` [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape).
-4. Thêm một `Bevel` [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape) (khi đối tượng này được nhấn, hoạt ảnh sẽ được phát).
-5. Tạo một chuỗi hiệu ứng trên shape bevel.
-6. Tạo một `UserPath` tuỳ chỉnh.
-7. Thêm các lệnh di chuyển vào `UserPath`.
-8. Ghi bản trình bày ra đĩa dưới dạng file PPTX.
+## **Làm Việc với Hiệu Ứng Placeholder Kế Thừa**
 
-Đoạn mã Javascript này cho bạn thấy cách áp dụng hiệu ứng `PathFootball` (đường chạy bóng đá) cho một shape:
+Một placeholder trên slide thường có thể kế thừa hành vi hoạt ảnh từ placeholder tương ứng trên slide bố cục và slide mẫu. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getBasePlaceholder) trả về placeholder cha đó, hoặc `null` khi không có cha.
+
+Trong bản trình diễn mẫu sau, footer có **Random Bars** trên slide thường, **Split** trên slide bố cục, và **Fly In** trên slide mẫu.
+
+![Hiệu ứng hoạt ảnh footer trên slide thường](slide-shape-animation.png)
+
+![Hiệu ứng hoạt ảnh placeholder footer trên slide bố cục](layout-shape-animation.png)
+
+![Hiệu ứng hoạt ảnh placeholder footer trên slide mẫu](master-shape-animation.png)
+
+Ví dụ tiếp theo sử dụng một hiearchy placeholder từ một bản trình chiếu mới. Nó thêm hiệu ứng vào placeholder mẫu, placeholder bố cục, và placeholder tương ứng trên slide thường. Mọi lần gọi [Shape.getBasePlaceholder](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getBasePlaceholder) đều được kiểm tra trước khi sử dụng hình dạng trả về.
 
 ```javascript
-// Tạo một lớp Presentation đại diện cho tệp PPTX.
-var pres = new aspose.slides.Presentation();
-try {
-    var sld = pres.getSlides().get_Item(0);
-    // Tạo hiệu ứng PathFootball cho shape hiện có từ đầu.
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-    // Thêm hiệu ứng hoạt ảnh PathFootBall
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
-    // Tạo một loại "nút" nào đó.
-    var shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 10, 10, 20, 20);
-    // Tạo một chuỗi hiệu ứng cho nút này.
-    var seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-    // Tạo một đường dẫn người dùng tùy chỉnh. Đối tượng của chúng ta sẽ chỉ di chuyển sau khi nút được nhấn.
-    var fxUserPath = seqInter.addEffect(ashp, aspose.slides.EffectType.PathUser, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // Thêm các lệnh di chuyển vì đường dẫn đã tạo hiện đang trống.
-    var motionBhv = fxUserPath.getBehaviors().get_Item(0);
-    var pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", 0.076, 0.59)]);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-    pts[0] = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(-0.076), java.newFloat(-0.59));
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
-    // Ghi tệp PPTX ra đĩa
-    pres.save("AnimExample_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function findPlaceholderWithBase(baseSlide, expectedBase) {
+    const shapes = baseSlide.getShapes();
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const basePlaceholder = shape.getBasePlaceholder();
+
+        if (basePlaceholder == null) {
+            continue;
+        }
+
+        if (expectedBase == null || basePlaceholder.getPlaceholder().getType() === expectedBase.getPlaceholder().getType()) {
+            return shape;
+        }
     }
+
+    return null;
 }
-```
 
-## **Lấy các hiệu ứng hoạt ảnh đã áp dụng cho Shape**
-
-Các ví dụ dưới đây cho bạn thấy cách sử dụng phương thức `getEffectsByShape` từ lớp [Sequence](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/) để lấy tất cả các hiệu ứng hoạt ảnh đã được áp dụng cho một shape.
-
-**Ví dụ 1: Lấy các hiệu ứng hoạt ảnh được áp dụng cho một shape trên slide bình thường**
-
-Trước đó, bạn đã học cách thêm hiệu ứng hoạt ảnh vào các shape trong bản trình bày PowerPoint. Đoạn mã mẫu sau cho bạn thấy cách lấy các hiệu ứng được áp dụng cho shape đầu tiên trên slide bình thường đầu tiên trong bản trình bày `AnimExample_out.pptx`.
-
-```javascript
-var presentation = new aspose.slides.Presentation("AnimExample_out.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-
-    // Lấy chuỗi hoạt ảnh chính của slide.
-    var sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Lấy shape đầu tiên trên slide đầu tiên.
-    var shape = firstSlide.getShapes().get_Item(0);
-
-    // Lấy các hiệu ứng hoạt ảnh được áp dụng cho shape.
-    var shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0) {
-        console.log("The shape", shape.getName(), "has", shapeEffects.length, "animation effects.");
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
+        }
     }
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+
+    return String(value);
 }
-```
 
-**Ví dụ 2: Lấy tất cả các hiệu ứng hoạt ảnh, bao gồm cả những hiệu ứng được kế thừa từ placeholder**
+function printEffects(source, effects) {
+    console.log(`${source}: ${effects.length} effect(s)`);
 
-Nếu một shape trên slide bình thường có các placeholder nằm trên layout slide và/hoặc master slide, và các hiệu ứng hoạt ảnh đã được thêm vào những placeholder này, thì tất cả các hiệu ứng của shape sẽ được phát trong quá trình trình chiếu, bao gồm cả những hiệu ứng được kế thừa.
-
-Giả sử chúng ta có một file PowerPoint `sample.pptx` với một slide chỉ chứa một shape footer có văn bản "Made with Aspose.Slides" và hiệu ứng **Random Bars** đã được áp dụng cho shape này.
-
-![Hiệu ứng hoạt ảnh shape trên slide](slide-shape-animation.png)
-
-Giả sử nữa rằng hiệu ứng **Split** đã được áp dụng cho placeholder footer trên **layout** slide.
-
-![Hiệu ứng hoạt ảnh shape trên layout](layout-shape-animation.png)
-
-Và cuối cùng, hiệu ứng **Fly In** đã được áp dụng cho placeholder footer trên **master** slide.
-
-![Hiệu ứng hoạt ảnh shape trên master](master-shape-animation.png)
-
-Đoạn mã mẫu sau cho bạn thấy cách sử dụng phương thức `getBasePlaceholder` từ lớp [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) để truy cập các placeholder của shape và lấy các hiệu ứng hoạt ảnh đã áp dụng cho shape footer, bao gồm cả những hiệu ứng được kế thừa từ placeholder nằm trên layout và master slide.
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-var slide = presentation.getSlides().get_Item(0);
-
-// Get animation effects of the shape on the normal slide.
-var shape = slide.getShapes().get_Item(0);
-var shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// Get animation effects of the placeholder on the layout slide.
-var layoutShape = shape.getBasePlaceholder();
-var layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// Get animation effects of the placeholder on the master slide.
-var masterShape = layoutShape.getBasePlaceholder();
-var masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-console.log("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-```js
-function printEffects(effects) {
     for (const effect of effects) {
-        console.log("Type:", effect.getType() + ", subtype:", effect.getSubtype());
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        console.log(`  ${typeName} ${subtypeName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const layoutSlide = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
+    const layoutPlaceholder = findPlaceholderWithBase(layoutSlide, null);
+
+    if (layoutPlaceholder == null) {
+        throw new Error("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    const masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+    layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Bottom, aspose.slides.EffectTriggerType.OnClick);
+    layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, aspose.slides.EffectType.Split, aspose.slides.EffectSubtype.VerticalIn, aspose.slides.EffectTriggerType.OnClick);
+
+    const slide = presentation.getSlides().addEmptySlide(layoutSlide);
+    const slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+    if (slidePlaceholder == null) {
+        throw new Error("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, aspose.slides.EffectType.RandomBars, aspose.slides.EffectSubtype.Horizontal, aspose.slides.EffectTriggerType.OnClick);
+    printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+    const baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+    if (baseLayoutPlaceholder != null) {
+        printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+        const baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+        if (baseMasterPlaceholder != null) {
+            printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+        }
+    }
+
+    presentation.save("placeholder-animations.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Bay, Dưới
-Type: 134, subtype: 45            // Tách, Dọc Vào
-Type: 126, subtype: 22            // Ruy-băng Ngẫu nhiên, Ngang
-```
+## **Thay Đổi Thời Gian Hoạt Ảnh**
 
-## **Thay đổi thuộc tính Timing của hiệu ứng hoạt ảnh**
+Hộp thoại **Timing** của PowerPoint tương ứng với các thuộc tính của [Timing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/).
 
-Aspose.Slides for Node.js via Java cho phép bạn thay đổi các thuộc tính Timing của một hiệu ứng hoạt ảnh.
+![Hộp thoại Timing của PowerPoint cho một hiệu ứng hoạt ảnh](shape-animation.png)
 
-Đây là bảng Animation Timing trong Microsoft PowerPoint:
+- **Start** tương ứng với [Timing.getTriggerType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#getTriggerType).
+- **Duration** tương ứng với [Timing.getDuration](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#getDuration) (giây).
+- **Delay** tương ứng với [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) (giây).
+- **Repeat** tương ứng với [Timing.getRepeatCount](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) hoặc [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Rewind when done playing** tương ứng với [Timing.getRewind](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#getRewind).
 
-![example1_image](shape-animation.png)
-
-Đây là các tương quan giữa PowerPoint Timing và các thuộc tính [Effect.Timing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Effect#getTiming--) :
-
-- Danh sách thả xuống PowerPoint Timing **Start** tương ứng với thuộc tính [Effect.Timing.TriggerType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Timing#getTriggerType--).
-- PowerPoint Timing **Duration** tương ứng với thuộc tính [Effect.Timing.Duration](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Timing#getDuration--). Thời lượng của một hoạt ảnh (giây) là tổng thời gian hoạt ảnh hoàn thành một chu kỳ.
-- PowerPoint Timing **Delay** tương ứng với thuộc tính [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Timing#getTriggerDelayTime--).
-
-Cách thay đổi các thuộc tính Timing của Effect:
-
-1. [Apply](#apply-animation-to-shape) hoặc lấy hiệu ứng hoạt ảnh.
-2. Đặt các giá trị mới cho các thuộc tính [Effect.Timing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Effect#getTiming--) mà bạn cần.
-3. Lưu file PPTX đã sửa đổi.
-
-Đoạn mã Javascript này minh họa thao tác:
+Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó qua đối tượng trả về bởi [Sequence.addEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/#addEffect), và lưu kết quả. Giữ tham chiếu đến [Effect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/) trả về giúp tránh việc truy cập chỉ mục bộ sưu tập không cần thiết.
 
 ```javascript
-// Tạo một lớp presentation đại diện cho một tệp trình chiếu.
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lấy chuỗi chính của slide.
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // Lấy hiệu ứng đầu tiên của chuỗi chính.
-    var effect = sequence.get_Item(0);
-    // Thay đổi TriggerType của hiệu ứng để bắt đầu khi nhấn
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Timed animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
     effect.getTiming().setTriggerType(aspose.slides.EffectTriggerType.OnClick);
-    // Thay đổi Duration của hiệu ứng
-    effect.getTiming().setDuration(3.0);
-    // Thay đổi TriggerDelayTime của hiệu ứng
-    effect.getTiming().setTriggerDelayTime(0.5);
-    // Lưu tệp PPTX vào đĩa
-    pres.save("AnimExample_changed.pptx", aspose.slides.SaveFormat.Pptx);
+    effect.getTiming().setDuration(java.newFloat(2.0));
+    effect.getTiming().setTriggerDelayTime(java.newFloat(0.5));
+    effect.getTiming().setRepeatUntilNextClick(false);
+    effect.getTiming().setRepeatUntilEndSlide(false);
+    effect.getTiming().setRepeatCount(java.newFloat(2.0));
+    effect.getTiming().setRewind(true);
+
+    presentation.save("shape-animation-timing.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Âm thanh cho hiệu ứng hoạt ảnh**
+Sử dụng một chế độ lặp lại duy nhất. Kết hợp số lần lặp với cờ “until” có thể tạo ra kết quả khó hiểu trên các trình xem khác nhau. Khi thay đổi chế độ lặp, đặt [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) và [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) trước [Timing.setRepeatCount](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/timing/#setRepeatCount), vì việc thiết lập bất kỳ cờ nào cũng sẽ thay đổi chế độ lặp hiện tại.
 
-Aspose.Slides cung cấp các thuộc tính sau để cho phép bạn làm việc với âm thanh trong hiệu ứng hoạt ảnh: 
+## **Thêm và Trích Xuất Âm Thanh cho Hiệu Ứng**
 
-- [setSound(IAudio value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
+Một hiệu ứng hoạt ảnh có thể tham chiếu tới âm thanh nhúng thông qua [Effect.getSound](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setStopPreviousSound) cho phép hiệu ứng dừng âm thanh đã được khởi động bởi hiệu ứng trước.
 
-### **Thêm âm thanh cho hiệu ứng hoạt ảnh**
+### **Thêm Âm Thanh vào Hiệu Ứng**
 
-Đoạn mã Javascript này cho bạn thấy cách thêm âm thanh cho một hiệu ứng hoạt ảnh và dừng nó khi hiệu ứng tiếp theo bắt đầu:
+Ví dụ sau yêu cầu một tệp âm thanh cục bộ tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng tệp đó làm âm thanh cho hiệu ứng đầu tiên, và cấu hình hiệu ứng thứ hai để dừng âm thanh. Ví dụ sử dụng các đối tượng trả về bởi [Sequence.addEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/#addEffect), vì vậy không cần chỉ mục chuỗi.
 
 ```javascript
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const fs = require("fs");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Thêm âm thanh vào bộ sưu tập âm thanh của bản trình bày
-    var effectSound = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "sampleaudio.wav")));
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Lấy chuỗi chính của slide.
-    var sequence = firstSlide.getTimeline().getMainSequence();
-    // Lấy hiệu ứng đầu tiên của chuỗi chính
-    var firstEffect = sequence.get_Item(0);
-    // Kiểm tra hiệu ứng cho "Không có âm thanh"
-    if ((!firstEffect.getStopPreviousSound()) && (firstEffect.getSound() == null)) {
-        // Thêm âm thanh cho hiệu ứng đầu tiên
-        firstEffect.setSound(effectSound);
-    }
-    // Lấy chuỗi tương tác đầu tiên của slide.
-    var interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
-    // Đặt cờ "Stop previous sound" cho hiệu ứng
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-    // Lưu tệp PPTX vào đĩa
-    pres.save("AnimExample_Sound_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const firstShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 100, 240, 80);
+    const secondShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 400, 100, 240, 80);
+    firstShape.addTextFrame("Starts sound");
+    secondShape.addTextFrame("Stops sound");
+
+    const sequence = slide.getTimeline().getMainSequence();
+    const firstEffect = sequence.addEffect(firstShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    const secondEffect = sequence.addEffect(secondShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const audioData = java.newArray("byte", Array.from(fs.readFileSync("animation-sound.wav")));
+    const effectSound = presentation.getAudios().addAudio(audioData);
+    firstEffect.setSound(effectSound);
+    secondEffect.setStopPreviousSound(true);
+
+    presentation.save("shape-animation-sound.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Trích xuất âm thanh từ hiệu ứng hoạt ảnh**
+### **Trích Xuất Âm Thanh Nhúng của Hiệu Ứng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/).
-2. Lấy tham chiếu slide thông qua chỉ mục của nó. 
-3. Lấy chuỗi hiệu ứng chính. 
-4. Trích xuất [setSound(IAudio value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-) đã được nhúng vào mỗi hiệu ứng hoạt ảnh.
-
-Đoạn mã Javascript này cho bạn thấy cách trích xuất âm thanh được nhúng trong một hiệu ứng hoạt ảnh:
+Ví dụ sau yêu cầu một bản trình chiếu cục bộ tên `presentation-with-animation-sounds.pptx`. Nó duyệt cả chuỗi chính và chuỗi tương tác và ghi mỗi âm thanh hiệu ứng nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn dựa trên MIME type của âm thanh được cung cấp bởi [Audio.getContentType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audio/#getContentType).
 
 ```javascript
-// Tạo một lớp presentation đại diện cho tệp trình chiếu.
-var presentation = new aspose.slides.Presentation("EffectSound.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Lấy chuỗi chính của slide.
-    var sequence = slide.getTimeline().getMainSequence();
-    for (var i = 0; i < sequence.getCount(); i++) {
-        var effect = sequence.get_Item(i);
+const fs = require("fs");
+const path = require("path");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getAudioExtension(contentType) {
+    const normalizedType = contentType == null ? "" : contentType.toLowerCase();
+
+    if (normalizedType === "audio/mpeg") {
+        return ".mp3";
+    }
+
+    if (normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if (normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if (normalizedType === "audio/wav" || normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds(sequence, outputDirectory, soundIndex) {
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+
         if (effect.getSound() == null) {
             continue;
         }
-        // Trích xuất âm thanh của hiệu ứng thành mảng byte
-        var audio = effect.getSound().getBinaryData();
+
+        const extension = getAudioExtension(effect.getSound().getContentType());
+        const outputPath = path.join(outputDirectory, `effect-sound-${soundIndex}${extension}`);
+        fs.writeFileSync(outputPath, Buffer.from(effect.getSound().getBinaryData()));
+        soundIndex++;
     }
+
+    return soundIndex;
+}
+
+const outputDirectory = "extracted-animation-sounds";
+fs.mkdirSync(outputDirectory, { recursive: true });
+
+const presentation = new aspose.slides.Presentation("presentation-with-animation-sounds.pptx");
+try {
+    let soundIndex = 1;
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+        const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+        for (let sequenceIndex = 0; sequenceIndex < interactiveSequences.getCount(); sequenceIndex++) {
+            soundIndex = saveSounds(interactiveSequences.get_Item(sequenceIndex), outputDirectory, soundIndex);
+        }
+    }
+
+    console.log(`Extracted ${soundIndex - 1} sound file(s) to ${path.resolve(outputDirectory)}.`);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Sau khi hoạt ảnh**
+Đối với các đối tượng âm thanh lớn, sử dụng [Audio.getStream](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/audio/#getStream) và sao chép luồng vào tệp thay vì tải toàn bộ đối tượng vào mảng byte.
 
-Aspose.Slides for Node.js via Java cho phép bạn thay đổi thuộc tính After animation của một hiệu ứng hoạt ảnh.
+## **Đặt Hành Vi Sau Khi Hoạt Ảnh Kết Thúc**
 
-Đây là bảng Animation Effect và menu mở rộng trong Microsoft PowerPoint:
+Tùy chọn **After animation** kiểm soát những gì xảy ra với một hình dạng sau khi hiệu ứng của nó kết thúc.
 
-![example1_image](shape-after-animation.png)
+![Hộp thoại PowerPoint Effect Options hiển thị cài đặt After animation](shape-after-animation.png)
 
-Danh sách thả xuống PowerPoint Effect **After animation** tương ứng với các thuộc tính sau: 
+Enumeration [AfterAnimationType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/afteranimationtype/) hỗ trợ giữ nguyên hình dạng, thay đổi màu, ẩn nó sau hoạt ảnh, hoặc ẩn nó ở lần nhấp tiếp theo. Khi loại là [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/afteranimationtype/#Color), cũng phải đặt [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#getAfterAnimationColor).
 
-- Phương thức [setAfterAnimationType(int value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setAfterAnimationType-int-) mô tả kiểu After animation;
-  * **More Colors** của PowerPoint tương ứng với kiểu [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/afteranimationtype/#Color);
-  * **Don't Dim** của PowerPoint tương ứng với kiểu [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/afteranimationtype/#DoNotDim) (kiểu after animation mặc định);
-  * **Hide After Animation** tương ứng với kiểu [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/afteranimationtype/#HideAfterAnimation);
-  * **Hide on Next Mouse Click** tương ứng với kiểu [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick);
-- Phương thức [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setAfterAnimationColor-aspose.slides.IColorFormat-) định nghĩa định dạng màu after animation. Phương thức này hoạt động cùng với kiểu [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/afteranimationtype/#Color). Nếu bạn thay đổi kiểu sang một kiểu khác, màu after animation sẽ bị xóa.
-
-Đoạn mã Javascript này cho bạn thấy cách thay đổi một hiệu ứng after animation:
+Ví dụ độc lập này tạo một hiệu ứng, đặt hành vi after‑animation thông qua đối tượng hiệu ứng trả về, và lưu kết quả.
 
 ```javascript
-// Tạo một lớp presentation đại diện cho tệp trình chiếu
-var pres = new aspose.slides.Presentation("AnimImage_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Lấy hiệu ứng đầu tiên của chuỗi chính
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // Thay đổi loại after animation thành Color
-    firstEffect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
-    // Đặt màu dim cho after animation
-    firstEffect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    // Ghi tệp PPTX vào đĩa
-    pres.save("AnimImage_AfterAnimation.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Dim after animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
+    effect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    presentation.save("shape-animation-after-effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Hoạt ảnh văn bản**
+Thay đổi loại khỏi [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/afteranimationtype/#Color) sẽ xóa cài đặt màu after‑animation.
 
-Aspose.Slides cung cấp các thuộc tính sau để cho phép bạn làm việc với khối *Animate text* của một hiệu ứng hoạt ảnh:
+## **Hoạt Ảnh Văn Bản**
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) mô tả kiểu animate text của hiệu ứng. Văn bản của shape có thể được hoạt ảnh:
-  - Toàn bộ một lúc ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/animatetexttype/#AllAtOnce) type)
-  - Theo từ ([AnimateTextType.ByWord](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/animatetexttype/#ByWord) type)
-  - Theo ký tự ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/animatetexttype/#ByLetter) type)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) đặt độ trễ giữa các phần văn bản được hoạt ảnh (từ hoặc ký tự). Giá trị dương chỉ phần trăm thời lượng hiệu ứng, giá trị âm chỉ thời gian trễ tính bằng giây.
+Hoạt ảnh văn bản có hai điều khiển liên quan:
 
-Cách thay đổi các thuộc tính Animate text của Effect:
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textanimation/#getBuildType) điều khiển việc các đoạn văn xuất hiện cùng nhau hay theo mức đoạn.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#getAnimateTextType) điều khiển việc văn bản xuất hiện một lúc, theo từ hoặc theo ký tự. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ tính bằng giây.
 
-1. [Apply](#apply-animation-to-shape) hoặc lấy hiệu ứng hoạt ảnh.
-2. Đặt phương thức [setBuildType(int value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textanimation/#setBuildType-int-) thành giá trị [BuildType.AsOneObject](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/buildtype/#AsOneObject) để tắt chế độ *By Paragraphs*.
-3. Đặt các giá trị mới cho các thuộc tính [setAnimateTextType(int value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) và [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-).
-4. Lưu file PPTX đã sửa đổi.
-
-Đoạn mã Javascript này minh họa thao tác:
+Ví dụ độc lập sau hoạt ảnh các từ trong một hộp văn bản. [BuildType.AsOneObject](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/buildtype/#AsOneObject) vô hiệu hoá việc xây dựng theo đoạn, để thiết lập từ áp dụng cho toàn bộ khung văn bản.
 
 ```javascript
-// Tạo một lớp presentation đại diện cho một tệp trình chiếu.
-var pres = new aspose.slides.Presentation("AnimTextBox_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Lấy hiệu ứng đầu tiên của chuỗi chính
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // Thay đổi kiểu hoạt ảnh văn bản của hiệu ứng thành "As One Object"
-    firstEffect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
-    // Thay đổi kiểu Animate text của hiệu ứng thành "By word"
-    firstEffect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
-    // Đặt độ trễ giữa các từ là 20% thời lượng hiệu ứng
-    firstEffect.setDelayBetweenTextParts(20.0);
-    // Ghi tệp PPTX vào đĩa
-    pres.save("AnimTextBox_AnimateText.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 560, 100);
+    textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(textBox, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
+    effect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
+    effect.setDelayBetweenTextParts(java.newFloat(20.0));
+
+    presentation.save("animated-text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Để xây dựng hộp văn bản theo đoạn, đặt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (hoặc mức đoạn khác). Để mục tiêu một đoạn riêng biệt với hiệu ứng riêng, dùng overload của [Sequence.addEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/#addEffect) chấp nhận một [Paragraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/). Xem [Animated Text](/slides/vi/nodejs-java/animated-text/) để biết các ví dụ mức đoạn.
 
-**Làm sao tôi có thể đảm bảo các hoạt ảnh được giữ lại khi xuất bản bản trình bày lên web?**
+## **Xuất và Ghi Chú Tương Thích**
 
-[Export to HTML5](/slides/vi/nodejs-java/export-to-html5/) và bật các [options](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/html5options/) chịu trách nhiệm cho hoạt ảnh [shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/html5options/setanimateshapes/) và [transition](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/html5options/setanimatetransitions/). HTML thuần không phát hoạt ảnh slide, trong khi HTML5 có.
+- Lưu dưới dạng PPT hoặc PPTX giữ nguyên mô hình hoạt ảnh, nhưng việc phát lại cuối cùng phụ thuộc vào trình xem bản trình chiếu.
+- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/nodejs-java/export-to-html5/), GIF động, hoặc [video conversion](/slides/vi/nodejs-java/convert-powerpoint-to-video/) khi đầu ra cần hiển thị chuyển động.
+- Đối với HTML5, bật [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/html5options/#setAnimateShapes) và, khi cần, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).
+- Kết xuất video hỗ trợ nhiều hiệu ứng nhập, nhấn mạnh, thoát và đường chuyển động phổ biến, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra bảng [supported animations and effects](/slides/vi/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) hiện tại và thử nghiệm các bản trình chiếu quan trọng với phiên bản Aspose.Slides bạn sẽ sử dụng.
+- Các hiệu ứng tùy chỉnh nâng cao và các hiệu ứng được nhập từ định dạng bản trình chiếu khác có thể được lưu trong tệp nhưng hiển thị khác nhau trong PowerPoint, HTML5 hoặc video. Hãy xác thực kết quả xuất thay vì chỉ dựa vào tên hiệu ứng.
 
-**Thay đổi thứ tự lớp (z-order) của các shape ảnh hưởng như thế nào tới hoạt ảnh?**
+## **Câu Hỏi Thường Gặp**
 
-Thứ tự hoạt ảnh và thứ tự vẽ là độc lập: một hiệu ứng điều khiển thời gian và kiểu xuất hiện/biến mất, trong khi [z-order](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/getzorderposition/) xác định lớp nào bao phủ lớp nào. Kết quả hiển thị được xác định bởi sự kết hợp của chúng. (Đây là hành vi chung của PowerPoint; mô hình effects-and-shapes của Aspose.Slides tuân theo cùng logic.)
+**Tại sao một hoạt ảnh xuất hiện trong PowerPoint mà không xuất hiện trong PDF?**
 
-**Có hạn chế nào khi chuyển đổi hoạt ảnh sang video cho một số hiệu ứng không?**
+PDF là định dạng tĩnh, vì vậy hoạt ảnh và chuyển đổi slide không được phát. Xuất sang HTML5, GIF động, hoặc video khi cần giữ chuyển động.
 
-Nhìn chung, [animations are supported](/slides/vi/nodejs-java/convert-powerpoint-to-video/), nhưng trong một số trường hợp hiếm hoặc với các hiệu ứng cụ thể có thể được render khác nhau. Bạn nên kiểm tra với các hiệu ứng bạn sử dụng và với phiên bản thư viện hiện tại.
+**Tại sao một hiệu ứng lại phát khác nhau trong video?**
+
+Xuất video render hoạt ảnh thay vì lưu nguyên hành vi PowerPoint. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ được ước tính. Kiểm tra bảng hiệu ứng hỗ trợ và thử nghiệm bản trình chiếu thực tế trước khi đưa vào sản xuất.
+
+**Việc di chuyển một hình dạng lên phía trước hoặc phía sau có thay đổi thứ tự hoạt ảnh không?**
+
+Không. Z‑order của hình dạng chỉ điều khiển chồng lấp, còn thứ tự chuỗi và bộ kích hoạt điều khiển thứ tự phát hoạt ảnh. Thay đổi dòng thời gian nếu bạn cần một thứ tự phát khác.

@@ -22,467 +22,553 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Ontdek hoe u vormanimaties kunt maken en aanpassen in PowerPoint‑presentaties met Aspose.Slides voor C++. Val op!"
+description: "Leer hoe u vormanimaties, timing, geluiden, gedrag na animatie en geanimeerde tekst kunt toevoegen, inspecteren en aanpassen met Aspose.Slides voor C++."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Animaties zijn visuele effecten die toegepast kunnen worden op tekst, afbeeldingen, vormen of [grafieken](/slides/nl/cpp/animated-charts/). Ze geven leven aan presentaties of hun onderdelen. 
+Aspose.Slides for C++ vertegenwoordigt dia‑animaties als effecten in een dia‑tijdlijn. Een effect heeft een doelvorm, een animatietype en subtype, een trigger, timing‑instellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
 
-## **Waarom animaties gebruiken in presentaties?**
+De tijdlijn bevat twee soorten reeksen:
 
-Met animaties kun je 
+- De **hoofdreeks** speelt af terwijl de dia vordert.
+- Een **interactieve reeks** start wanneer de trigger‑vorm wordt aangeklikt.
 
-* de informatiestroom beheersen
-* belangrijke punten benadrukken
-* interesse of deelname van je publiek vergroten
-* de inhoud makkelijker leesbaar, begrijpelijk of verwerkbaar maken
-* de aandacht van lezers of kijkers richten op belangrijke delen in een presentatie
+Omdat tekstvakken, afbeeldingen, grafieken, tabellen en andere dia‑objecten [IShape] implementeren, gebruik je dezelfde [ISequence::AddEffect]-methode voor de meeste dia‑inhoud. De beschikbare effecten staan opgesomd in de enumeratie [EffectType].
 
-PowerPoint biedt vele opties en hulpmiddelen voor animaties en animatie‑effecten in de categorieën **invoer**, **verwijdering**, **accent**, en **bewegingspaden**. 
+## **Vormanimaties Toevoegen**
 
-## **Animaties in Aspose.Slides**
+Om een animatie toe te voegen, haal je de hoofdreeks van de dia op en roep je [ISequence::AddEffect] aan met de doelvorm, het effecttype, subtype en trigger. Voor een effect dat start wanneer een andere vorm wordt aangeklikt, maak je een interactieve reeks waarvan de trigger die andere vorm is.
 
-* Aspose.Slides levert de klassen en types die je nodig hebt om met animaties te werken onder de [Aspose.Slides.Animation](https://reference.aspose.com/slides/nl/cpp/namespace/aspose.slides.animation) namespace,
-* Aspose.Slides biedt meer dan **150 animatie‑effecten** via de [EffectType](https://reference.aspose.com/slides/nl/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) enumeratie. Deze effecten zijn in wezen dezelfde (of equivalente) effecten die in PowerPoint worden gebruikt.
+Het volgende voorbeeld maakt beide soorten animatie en slaat het resultaat op in `shape-animations.pptx`.
 
-## **Animatie toepassen op een TextBox**
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Aspose.Slides for C++ maakt het mogelijk om animatie toe te passen op de tekst in een vorm. 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation/) klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een `rectangle` [IAutoShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_auto_shape) toe. 
-4. Voeg tekst toe aan [IAutoShape.TextFrame](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3).
-5. Haal de hoofdreeks van effecten op.
-6. Voeg een animatie‑effect toe aan [IAutoShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_auto_shape). 
-7. Stel de eigenschap [TextAnimation.BuildType](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) in op de waarde uit de [BuildType Enumeratie](https://reference.aspose.com/slides/nl/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7).
-8. Schrijf de presentatie naar schijf als een PPTX‑bestand.
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Deze C++‑code laat zien hoe je het `Fade`‑effect toepast op AutoShape en de tekstanimatie instelt op de *By 1st Level Paragraphs*‑waarde:
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Click to animate this shape");
 
-```c++
-// Instantiëert een presentatie‑klasse die een presentatiedocument vertegenwoordigt.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+auto entranceEffect = mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+entranceEffect->get_Timing()->set_Duration(1.5f);
 
-System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
 
-// Voegt een nieuwe AutoShape met tekst toe
-System::SharedPtr<IAutoShape> autoShape =
-    sld->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 100.0f);
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
 
-System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
-textFrame->set_Text(u"First paragraph \nSecond paragraph \n Third paragraph");
-
-// Haalt de hoofdreeks van de dia op.
-System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
-
-// Voegt een Fade‑animatie‑effect toe aan de vorm
-System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slides::Animation::EffectType::Fade,
-    Aspose::Slides::Animation::EffectSubtype::None, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Animeert de vormtekst per alinea op het eerste niveau
-effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
-
-// Sla het PPTX‑bestand op schijf
-pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{%  alert color="primary"  %}} 
-
-Naast het toepassen van animaties op tekst, kun je ook animaties toepassen op een enkel [Paragraph](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_paragraph). Zie [**Geanimeerde tekst**](/slides/nl/cpp/animated-text/).
-
-{{% /alert %}} 
-
-## **Animatie toepassen op een PictureFrame**
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation/) klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een [PictureFrame](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_picture_frame) toe of haal er een op van de dia. 
-4. Haal de hoofdreeks van effecten op.
-5. Voeg een animatie‑effect toe aan de [PictureFrame](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_picture_frame).
-6. Schrijf de presentatie naar schijf als een PPTX‑bestand.
-
-Deze C++‑code toont hoe je het `Fly`‑effect toepast op een afbeelding‑frame:
-
-```c++
-// Instantieert een presentatie‑klasse die een presentatiedocument vertegenwoordigt.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-// Laad afbeelding die wordt toegevoegd aan de afbeeldingscollectie van de presentatie
-System::SharedPtr<IImage> img = Images::FromFile(u"aspose-logo.jpg");
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
-
-// Voegt een afbeelding‑frame toe aan de dia
-System::SharedPtr<IPictureFrame> picFrame =
-    pres->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f, image);
-
-// Haalt de hoofdreeks van de dia op.
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// Voegt een Fly‑van‑links animatie‑effect toe aan het afbeelding‑frame
-System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides::Animation::EffectType::Fly,
-    Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Sla het PPTX‑bestand op schijf
-pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Animatie toepassen op een Shape**
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation/) klasse.
-2. Verkrijg een referentie naar een dia via de index.
-3. Voeg een `rectangle` [IAutoShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_auto_shape) toe. 
-4. Voeg een `Bevel` [IAutoShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_auto_shape) toe (wanneer dit object wordt aangeklikt, wordt de animatie afgespeeld).
-5. Maak een reeks effecten op de bevel‑shape.
-6. Maak een aangepaste `UserPath`.
-7. Voeg opdrachten toe om naar de `UserPath` te bewegen.
-8. Schrijf de presentatie naar schijf als een PPTX‑bestand.
-
-Deze C++‑code laat zien hoe je het `PathFootball` (path football)‑effect toepast op een shape:
-
-```c++
-	// Het pad naar de documentmap.
-	const String outPath = u"../out/AnimationsOnShapes_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Laadt de presentatie
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// Benadert de eerste dia
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	// Benadert de vormcollectie voor de geselecteerde dia
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Maakt PathFootball‑effect voor bestaande vorm vanaf nul.
-	SharedPtr<IAutoShape> ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-
-	ashp->AddTextFrame(u"Animated TextBox");
-
-	// Voegt het PathFootBall‑animatie‑effect toe
-	slide->get_Timeline()->get_MainSequence()->AddEffect(ashp, EffectType::PathFootball,
-		EffectSubtype::None, EffectTriggerType::AfterPrevious);
-
-	// Maak een soort "knop".
-	SharedPtr<IAutoShape> shapeTrigger = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-
-	// Maakt een reeks effecten voor deze knop.
-	SharedPtr<ISequence> seqInter = slide->get_Timeline()->get_InteractiveSequences()->Add(shapeTrigger);
-	
-	 // Maakt een aangepast gebruikerspad. Ons object wordt alleen verplaatst nadat de knop is aangeklikt.
-	SharedPtr<IEffect> fxUserPath = seqInter->AddEffect(ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
-
-	// Voegt opdrachten toe om te verplaatsen omdat het aangemaakte pad leeg is.
-	 SharedPtr<MotionEffect> motionBhv = ExplicitCast<MotionEffect>(fxUserPath->get_Behaviors()->idx_get(0));
-
-	// SharedPtr<PointF> point = MakeObject<PointF >(0.076, 0.59);
-	 const PointF point = PointF (0.076, 0.59);
-	 System::ArrayPtr<PointF> pts = System::MakeObject<System::Array<PointF>>(1, point);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts, MotionPathPointsType::Auto, true);
-	 
-	 //PointF point2[1] = { -0.076, -0.59 };
-	const  PointF point2 = PointF(-0.076, -0.59 );
-
-	 System::ArrayPtr<PointF> pts2 = System::MakeObject<System::Array<PointF>>(1, point2);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts2, MotionPathPointsType::Auto, false);
-	 
-	 motionBhv->get_Path()->Add(MotionCommandPathType::End, nullptr, MotionPathPointsType::Auto, false);
-	 
-	 // Schrijft het PPTX‑bestand naar schijf
-	 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Animatie‑effecten ophalen die op een Shape zijn toegepast**
-
-De volgende voorbeelden laten zien hoe je de methode `GetEffectsByShape` van de [ISequence](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/isequence/) interface gebruikt om alle animatie‑effecten op een shape op te halen.
-
-**Voorbeeld 1: Animatie‑effecten ophalen die op een shape op een normale dia zijn toegepast**
-
-Eerder heb je geleerd hoe je animatie‑effecten kunt toevoegen aan shapes in PowerPoint‑presentaties. De volgende voorbeeldcode laat zien hoe je de effecten die op de eerste shape van de eerste normale dia in de presentatie `AnimExample_out.pptx` zijn toegepast, kunt ophalen.
-
-```c++
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"AnimExample_out.pptx");
-
-SharedPtr<ISlide> firstSlide = presentation->get_Slide(0);
-
-// Gets the main animation sequence of the slide.
-SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
-
-// Gets the first shape on the first slide.
-SharedPtr<IShape> shape = firstSlide->get_Shape(0);
-
-// Gets animation effects applied to the shape.
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = sequence->GetEffectsByShape(shape);
-
-if (shapeEffects->get_Length() > 0)
-{
-    Console::WriteLine(u"The shape " + shape->get_Name() + u" has " + shapeEffects->get_Length() + u" animation effects.");
-}
-
+presentation->Save(u"shape-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Voorbeeld 2: Alle animatie‑effecten ophalen, inclusief die van placeholders**
+De trigger bepaalt wanneer een effect start:
 
-Als een shape op een normale dia placeholders heeft die zich op de layout‑dia en/of master‑dia bevinden, en er animatie‑effecten aan deze placeholders zijn toegevoegd, dan worden alle effecten van de shape afgespeeld tijdens de diavoorstelling, inclusief die geërfd van de placeholders.
+- [EffectTriggerType::OnClick] wacht op een klik in de hoofdreeks, of op een klik op de trigger‑vorm in een interactieve reeks.
+- [EffectTriggerType::WithPrevious] start tegelijk met het voorafgaande effect.
+- [EffectTriggerType::AfterPrevious] start nadat het voorafgaande effect is voltooid.
 
-Stel dat we een PowerPoint‑presentatie `sample.pptx` hebben met één dia die alleen een footer‑shape bevat met de tekst “Made with Aspose.Slides” en het **Random Bars**‑effect op de shape is toegepast.
+Om een afbeelding, grafiek of een ander type vorm te animeren, geef je dat object door aan [ISequence::AddEffect] in plaats van `targetShape`. Voor chart‑specifieke groepeeropties, zie [Animated Charts](/slides/nl/cpp/animated-charts/).
 
-![Dia‑shape animatie‑effect](slide-shape-animation.png)
+## **Vormanimaties Lezen**
 
-Stel bovendien dat het **Split**‑effect op de footer‑placeholder van de **layout**‑dia is toegepast.
+Gebruik [ISequence::GetEffectsByShape] wanneer je de doelvorm kent. Om elk effect te inspecteren, enumerateer je de hoofdreeks en elke interactieve reeks. Enumeratie voorkomt de veronderstelling dat een reeks een effect op index `0` bevat.
 
-![Layout‑shape animatie‑effect](layout-shape-animation.png)
-
-En tenslotte dat het **Fly In**‑effect op de footer‑placeholder van de **master**‑dia is toegepast.
-
-![Master‑shape animatie‑effect](master-shape-animation.png)
-
-De volgende voorbeeldcode laat zien hoe je de methode `GetBasePlaceholder` van de [IShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/) interface gebruikt om via de shape‑placeholders de animatie‑effecten op de footer‑shape op te halen, inclusief die geërfd van placeholders op de layout‑ en master‑dia’s.
+Het volgende voorbeeld maakt een vorm met hoofd‑ en interactieve effecten, haalt de effecten op die de vorm targeten, en doorloopt vervolgens elke reeks op de dia.
 
 ```cpp
-void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto printSequence = [](const String& label, const SharedPtr<ISequence>& sequence)
 {
-    for (SharedPtr<IEffect> effect : effects)
+    Console::WriteLine(String::Format(u"  {0}: {1} effect(s)", label, sequence->get_Count()));
+
+    for (const auto& effect : sequence)
     {
-        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+        auto targetName = effect->get_TargetShape() == nullptr ? u"unknown" : effect->get_TargetShape()->get_Name();
+        auto effectDescription = String::Format(u"{0} {1}; target: {2}; trigger: {3}", effect->get_Type(), effect->get_Subtype(), targetName, effect->get_Timing()->get_TriggerType());
+        Console::WriteLine(u"    " + effectDescription);
     }
+};
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Animated shape");
+
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
+
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto targetEffects = mainSequence->GetEffectsByShape(targetShape);
+Console::WriteLine(String::Format(u"The main sequence contains {0} effect(s) for {1}.", targetEffects->get_Length(), targetShape->get_Name()));
+
+printSequence(u"Main sequence", mainSequence);
+
+int32_t interactiveIndex = 1;
+for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+{
+    auto triggerName = sequence->get_TriggerShape() == nullptr ? u"unknown" : sequence->get_TriggerShape()->get_Name();
+    auto sequenceLabel = String::Format(u"Interactive sequence {0}, trigger: {1}", interactiveIndex, triggerName);
+    printSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
-```cpp
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
-
-SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// Haal animatie‑effecten op van de shape op de normale dia.
-SharedPtr<IShape> shape = slide->get_Shape(0);
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(shape);
-
-// Haal animatie‑effecten op van de placeholder op de layout‑dia.
-SharedPtr<IShape> layoutShape = shape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> layoutShapeEffects = slide->get_LayoutSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(layoutShape);
-
-// Haal animatie‑effecten op van de placeholder op de master‑dia.
-SharedPtr<IShape> masterShape = layoutShape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> masterShapeEffects = slide->get_LayoutSlide()->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(masterShape);
 
 presentation->Dispose();
-
-Console::WriteLine(u"Main sequence of shape effects:");
-PrintEffects(masterShapeEffects);
-PrintEffects(layoutShapeEffects);
-PrintEffects(shapeEffects);
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Vliegen, Onderkant
-Type: 134, subtype: 45            // Splitsen, VerticaalIn
-Type: 126, subtype: 22            // WillekeurigeBalken, Horizontaal
+Als je alleen de effecten voor één vorm nodig hebt, identificeer dan eerst de vorm op naam, placeholder‑type of een andere stabiele eigenschap; roep daarna [ISequence::GetEffectsByShape] aan. Ga niet ervan uit dat [IShapeCollection::idx_get] op index `0` altijd het bedoelde object is.
+
+## **Werken met Geërfde Placeholder‑Effecten**
+
+Een placeholder op een gewone dia kan animatiegedrag overerven van de overeenkomstige placeholder op de lay‑out‑dia en master‑dia. [IShape::GetBasePlaceholder] retourneert die bovenliggende placeholder, of `nullptr` wanneer er geen bovenliggende bestaat.
+
+In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de gewone dia, **Split** op de lay‑out‑dia en **Fly In** op de master‑dia.
+
+![Footer animatie‑effect op de gewone dia](slide-shape-animation.png)
+
+![Footer placeholder‑animatie‑effect op de lay‑out‑dia](layout-shape-animation.png)
+
+![Footer placeholder‑animatie‑effect op de master‑dia](master-shape-animation.png)
+
+Het volgende voorbeeld bouwt zelf de placeholder‑hiërarchie. Het voegt effecten toe aan een master‑placeholder, een lay‑out‑placeholder en de overeenkomstige placeholder op een gewone dia. Elke oproep naar [IShape::GetBasePlaceholder] wordt gecontroleerd voordat de geretourneerde vorm wordt gebruikt.
+
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto findPlaceholderWithBase = [](const SharedPtr<ISlide>& slide) -> SharedPtr<IShape>
+{
+    for (const auto& shape : slide->get_Shapes())
+    {
+        if (shape->GetBasePlaceholder() != nullptr)
+            return shape;
+    }
+
+    return nullptr;
+};
+
+auto printEffects = [](const String& source, const ArrayPtr<SharedPtr<IEffect>>& effects)
+{
+    Console::WriteLine(String::Format(u"{0}: {1} effect(s)", source, effects->get_Length()));
+
+    for (const auto& effect : effects)
+        Console::WriteLine(String::Format(u"  {0} {1}", effect->get_Type(), effect->get_Subtype()));
+};
+
+auto presentation = MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto layoutPlaceholder = layoutSlide->get_PlaceholderManager()->AddTextPlaceholder(100.0f, 100.0f, 400.0f, 80.0f);
+layoutSlide->get_Timeline()->get_MainSequence()->AddEffect(layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+auto masterPlaceholder = layoutPlaceholder->GetBasePlaceholder();
+if (masterPlaceholder != nullptr)
+{
+    auto masterSequence = layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence();
+    masterSequence->AddEffect(masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+}
+
+auto slide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto slidePlaceholder = findPlaceholderWithBase(slide);
+
+if (slidePlaceholder == nullptr)
+    throw InvalidOperationException(u"The slide does not contain a placeholder linked to its layout slide.");
+
+slide->get_Timeline()->get_MainSequence()->AddEffect(slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+printEffects(u"Normal slide", slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(slidePlaceholder));
+
+auto baseLayoutPlaceholder = slidePlaceholder->GetBasePlaceholder();
+if (baseLayoutPlaceholder != nullptr)
+{
+    printEffects(u"Layout slide", layoutSlide->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseLayoutPlaceholder));
+
+    auto baseMasterPlaceholder = baseLayoutPlaceholder->GetBasePlaceholder();
+    if (baseMasterPlaceholder != nullptr)
+        printEffects(u"Master slide", layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseMasterPlaceholder));
+}
+
+presentation->Save(u"placeholder-animations.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Timing‑eigenschappen van animatie‑effecten wijzigen**
+## **Animatietiming Wijzigen**
 
-Aspose.Slides for C++ maakt het mogelijk om de timing‑eigenschappen van een animatie‑effect te wijzigen.
+De PowerPoint **Timing**‑dialoog komt overeen met de methoden van [ITiming].
 
-Dit is het Animation Timing‑paneel in Microsoft PowerPoint:
+![PowerPoint Timing‑dialoog voor een animatie‑effect](shape-animation.png)
 
-![voorbeeld1_image](shape-animation.png)
+- **Start** komt overeen met [ITiming::set_TriggerType].
+- **Duration** komt overeen met [ITiming::set_Duration], in seconden.
+- **Delay** komt overeen met [ITiming::set_TriggerDelayTime], in seconden.
+- **Repeat** komt overeen met [ITiming::set_RepeatCount], [ITiming::set_RepeatUntilNextClick] of [ITiming::set_RepeatUntilEndSlide].
+- **Rewind when done playing** komt overeen met [ITiming::set_Rewind].
 
-Dit zijn de overeenkomsten tussen PowerPoint‑Timing en de eigenschappen van [Effect.Timing](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c):
+Dit zelfstandige voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [ISequence::AddEffect], en slaat het resultaat op. Het behouden van de geretourneerde [IEffect]-referentie voorkomt een overbodige collectie‑index.
 
-- De keuzelijst **Start** in PowerPoint‑Timing komt overeen met de eigenschap [Effect.Timing.TriggerType](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3). 
-- **Duration** in PowerPoint‑Timing komt overeen met de eigenschap [Effect.Timing.Duration](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340). De duur van een animatie (in seconden) is de totale tijd die nodig is om één cyclus te voltooien. 
-- **Delay** in PowerPoint‑Timing komt overeen met de eigenschap [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b). 
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Zo wijzig je de Effect‑Timing‑eigenschappen:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-1. [Pas](#apply-animation-to-shape) of haal het animatie‑effect op.
-2. Stel nieuwe waarden in voor de [Effect.Timing](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) eigenschappen die je nodig hebt. 
-3. Sla het gewijzigde PPTX‑bestand op.
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Timed animation");
 
-Deze C++‑code demonstreert de bewerking:
-
-```c++
-// Instantieert een presentatie‑klasse die een presentatiedocument vertegenwoordigt.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
-
-// Haalt de hoofdreeks van de dia op.
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// Haalt het eerste effect van de hoofdreeks op.
-System::SharedPtr<IEffect> effect = sequence->idx_get(0);
-
-// Verandert het TriggerType van het effect naar starten bij klikken
-effect->get_Timing()->set_TriggerType(Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Verandert de duur van het effect
-effect->get_Timing()->set_Duration(3.f);
-
-// Verandert de TriggerDelayTime van het effect
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_Timing()->set_TriggerType(EffectTriggerType::OnClick);
+effect->get_Timing()->set_Duration(2.0f);
 effect->get_Timing()->set_TriggerDelayTime(0.5f);
+effect->get_Timing()->set_RepeatUntilNextClick(false);
+effect->get_Timing()->set_RepeatUntilEndSlide(false);
+effect->get_Timing()->set_RepeatCount(2.0f);
+effect->get_Timing()->set_Rewind(true);
 
-// Slaat het PPTX‑bestand op schijf
-pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Geluid bij animatie‑effect**
+Gebruik één herhaalmodus bewust. Het combineren van een herhaaltaantal met een “until”‑vlag kan verwarrende resultaten opleveren in verschillende viewers. Bij het wijzigen van herhaalmodi roep je [ITiming::set_RepeatUntilNextClick] en [ITiming::set_RepeatUntilEndSlide] aan vóór [ITiming::set_RepeatCount], omdat het instellen van een van de vlaggen tevens de actieve herhaalmodus wijzigt.
 
-Aspose.Slides biedt deze eigenschappen om met geluiden in animatie‑effecten te werken: 
+## **Animatiegeluiden Toevoegen en Extraheren**
 
-- [set_Sound()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/effect/set_sound/) 
-- [set_StopPreviousSound()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/effect/set_stopprevioussound/) 
+Een animatie‑effect kan via [IEffect::set_Sound] verwijzen naar ingebedde audio. [IEffect::set_StopPreviousSound] vertelt een effect om audio die door een eerder effect is gestart, te stoppen.
 
-### **Geluid aan een animatie‑effect toevoegen**
+### **Een Geluid aan een Effect Toevoegen**
 
-Deze C++‑code laat zien hoe je een geluid aan een animatie‑effect toevoegt en stopt wanneer het volgende effect start:
+Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecten, embedt dat bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [ISequence::AddEffect], dus een reeks‑index is niet nodig.
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// Voegt audio toe aan de audio‑collectie van de presentatie
-System::SharedPtr<IAudio> effectSound = pres->get_Audios()->AddAudio(System::IO::File::ReadAllBytes(u"sampleaudio.wav"));
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Haalt de hoofdreeks van de dia op.
-System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 100.0f, 240.0f, 80.0f);
+auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 400.0f, 100.0f, 240.0f, 80.0f);
+firstShape->get_TextFrame()->set_Text(u"Starts sound");
+secondShape->get_TextFrame()->set_Text(u"Stops sound");
 
-// Haalt het eerste effect van de hoofdreeks op
-System::SharedPtr<IEffect> firstEffect = sequence->idx_get(0);
+auto sequence = slide->get_Timeline()->get_MainSequence();
+auto firstEffect = sequence->AddEffect(firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+auto secondEffect = sequence->AddEffect(secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
 
-// Controleert of het effect geen geluid heeft
-if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr)
+auto audioData = File::ReadAllBytes(u"animation-sound.wav");
+auto effectSound = presentation->get_Audios()->AddAudio(audioData);
+firstEffect->set_Sound(effectSound);
+secondEffect->set_StopPreviousSound(true);
+
+presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **Ingebedde Effectgeluiden Extraheren**
+
+Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het scant zowel de hoofd‑ als de interactieve reeksen en schrijft elk ingebed effectgeluid naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt aangeboden door [IAudio::get_ContentType].
+
+```cpp
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+using namespace System::IO;
+
+auto getAudioExtension = [](const String& contentType)
 {
-    // Voeg geluid toe aan het eerste effect
-    firstEffect->set_Sound(effectSound);
+    auto normalizedType = String::IsNullOrEmpty(contentType) ? String::Empty : contentType.ToLowerInvariant();
+
+    if (normalizedType == u"audio/mpeg")
+        return String(u".mp3");
+
+    if (normalizedType == u"audio/mp4")
+        return String(u".m4a");
+
+    if (normalizedType == u"audio/ogg")
+        return String(u".ogg");
+
+    if (normalizedType == u"audio/wav" || normalizedType == u"audio/x-wav")
+        return String(u".wav");
+
+    return String(u".bin");
+};
+
+auto saveSounds = [&getAudioExtension](const SharedPtr<ISequence>& sequence, const String& outputDirectory, int32_t& soundIndex)
+{
+    for (const auto& effect : sequence)
+    {
+        if (effect->get_Sound() == nullptr)
+            continue;
+
+        auto extension = getAudioExtension(effect->get_Sound()->get_ContentType());
+        auto outputPath = Path::Combine(outputDirectory, String::Format(u"effect-sound-{0}{1}", soundIndex, extension));
+        File::WriteAllBytes(outputPath, effect->get_Sound()->get_BinaryData());
+        soundIndex++;
+    }
+};
+
+auto inputPath = String(u"presentation-with-animation-sounds.pptx");
+auto outputDirectory = String(u"extracted-animation-sounds");
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto presentation = MakeObject<Presentation>(inputPath);
+int32_t soundIndex = 1;
+
+for (const auto& slide : presentation->get_Slides())
+{
+    saveSounds(slide->get_Timeline()->get_MainSequence(), outputDirectory, soundIndex);
+
+    for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+        saveSounds(sequence, outputDirectory, soundIndex);
 }
 
-// Haalt de eerste interactieve reeks van de dia op.
-System::SharedPtr<ISequence> interactiveSequence = firstSlide->get_Timeline()->get_InteractiveSequence(0);
-
-// Zet de vlag "Stop previous sound" voor het effect
-interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
-
-// Schrijft het PPTX‑bestand naar schijf
-pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
+Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundIndex - 1, Path::GetFullPath(outputDirectory)));
+presentation->Dispose();
 ```
 
-### **Geluid uit een animatie‑effect extraheren**
+Voor grote audio‑objecten, gebruik [IAudio::GetStream] en kopieer de stream naar een bestand in plaats van het volledige object in een byte‑array te laden.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia via de index. 
-3. Haal de hoofdreeks van effecten op. 
-4. Extraheer de ingebedde [set_Sound()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/effect/set_sound/) van elk animatie‑effect. 
+## **Gedrag Na Animatie Instellen**
 
-Deze C++‑code laat zien hoe je het ingebedde geluid in een animatie‑effect kunt extraheren:
+De **After animation**‑optie bepaalt wat er met een vorm gebeurt nadat het effect is voltooid.
 
-```c++
-// Instantiëert een presentatie‑klasse die een presentatiedocument vertegenwoordigt.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"EffectSound.pptx");
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
+![PowerPoint Effect Options‑dialoog die After‑animatie‑instellingen toont](shape-after-animation.png)
 
-// Haalt de hoofdreeks van de dia op.
-System::SharedPtr<ISequence> sequence = slide->get_Timeline()->get_MainSequence();
+De enumeratie [AfterAnimationType] ondersteunt het ongewijzigd laten van de vorm, het wijzigen van de kleur, het verbergen na de animatie, of het verbergen bij de volgende klik. Wanneer het type [AfterAnimationType::Color] is, roep je [IEffect::get_AfterAnimationColor] aan om ook de kleur in te stellen.
 
-for (auto&& effect : sequence)
-{
-    System::SharedPtr<IAudio> sound = effect->get_Sound();
+Dit zelfstandige voorbeeld maakt een effect, stelt het gedrag na de animatie in via het geretourneerde effect‑object, en slaat het resultaat op.
 
-    if (sound == nullptr)
-        continue;
+```cpp
+#include <DOM/Animation/AfterAnimationType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
 
-    auto audio = sound->get_BinaryData();
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Dim after animation");
+
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->set_AfterAnimationType(AfterAnimationType::Color);
+effect->get_AfterAnimationColor()->set_Color(Color::get_LightGray());
+
+presentation->Save(u"shape-animation-after-effect.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **After Animation**
+Het wijzigen van het type van [AfterAnimationType::Color] wist de after‑animation‑kleurinstelling.
 
-Aspose.Slides for C++ maakt het mogelijk om de After‑animation‑eigenschap van een animatie‑effect te wijzigen.
+## **Tekst Animeren**
 
-Dit is het Animation Effect‑paneel en het uitgebreide menu in Microsoft PowerPoint:
+Tekst‑animatie heeft twee verwante bedieningselementen:
 
-![example1_image](shape-after-animation.png)
+- [ITextAnimation::set_BuildType] bepaalt of alinea’s tegelijk verschijnen of per alinea‑niveau.
+- [IEffect::set_AnimateTextType] bepaalt of tekst in één keer, per woord of per letter verschijnt. [IEffect::set_DelayBetweenTextParts] stelt de vertraging tussen woorden of letters in. Een positieve waarde is een percentage van de effectduur; een negatieve waarde is een vertraging in seconden.
 
-De keuzelijst **After animation** in PowerPoint komt overeen met deze eigenschappen: 
+Het volgende zelfstandige voorbeeld animeert de woorden in een tekstvak. [BuildType::AsOneObject] schakelt het per‑paragraaf‑bouwen uit zodat de woord‑instelling geldt voor het volledige tekstkader.
 
-- Eigenschap [set_AfterAnimationType()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) die het type After‑animation beschrijft :
-  * **More Colors** in PowerPoint komt overeen met type [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/afteranimationtype/) ;
-  * **Don't Dim** in PowerPoint komt overeen met type [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/afteranimationtype/) (standaard after‑animation‑type);
-  * **Hide After Animation** in PowerPoint komt overeen met type [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/afteranimationtype/) ;
-  * **Hide on Next Mouse Click** in PowerPoint komt overeen met type [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/afteranimationtype/) ;
-- Eigenschap [set_AfterAnimationColor()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) die een kleurformaat voor after‑animation definieert. Deze eigenschap werkt samen met het type [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/afteranimationtype/). Als je het type wijzigt, wordt de after‑animation‑kleur gewist.
+```cpp
+#include <DOM/Animation/AnimateTextType.h>
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Deze C++‑code laat zien hoe je een after‑animation‑effect wijzigt:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-```c++
-// Instantieert een presentatie‑klasse die een presentatiedocument vertegenwoordigt
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 80.0f, 560.0f, 100.0f);
+textBox->get_TextFrame()->set_Text(u"Aspose.Slides animates this sentence word by word.");
 
-// Haalt het eerste effect van de hoofdreeks op
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
+effect->set_AnimateTextType(AnimateTextType::ByWord);
+effect->set_DelayBetweenTextParts(20.0f);
 
-// Wijzigt het after‑animation type naar Kleur
-firstEffect->set_AfterAnimationType(AfterAnimationType::Color);
-
-// Stelt de dim‑kleur na animatie in
-firstEffect->get_AfterAnimationColor()->set_Color(System::Drawing::Color::get_AliceBlue());
-
-// Schrijft het PPTX‑bestand naar schijf
-pres->Save(u"AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
+presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Tekst animeren**
+Om een tekstvak per alinea te bouwen, gebruik je [ITextAnimation::set_BuildType] met [BuildType::ByLevelParagraphs1] of een ander alinea‑niveau. Om een enkele alinea met een eigen effect te targeten, gebruik je de overload van [ISequence::AddEffect] die een [IParagraph] accepteert. Zie [Animated Text](/slides/nl/cpp/animated-text/) voor alinea‑niveau voorbeelden.
 
-Aspose.Slides biedt deze eigenschappen om met het *Animate text*‑blok van een animatie‑effect te werken:
+## **Export‑ en Compatibiliteitsopmerkingen**
 
-- [set_AnimateTextType()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) die het type animatietekst van het effect beschrijft. De shape‑tekst kan geanimeerd worden:
-  - In één keer ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/animatetexttype/) type)
-  - Per woord ([AnimateTextType.ByWord](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/animatetexttype/) type)
-  - Per letter ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/animatetexttype/) type)
-- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) stelt een vertraging in tussen de geanimeerde tekstonderdelen (woorden of letters). Een positieve waarde geeft het percentage van de effectduur aan. Een negatieve waarde geeft de vertraging in seconden aan.
-
-Zo kun je de eigenschappen van Effect Animate text wijzigen:
-
-1. [Pas](#apply-animation-to-shape) of haal het animatie‑effect op.
-2. Stel de eigenschap [set_BuildType()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation.itextanimation/set_buildtype/) in op de waarde [BuildType.AsOneObject](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/buildtype/) om de *By Paragraphs*‑animatiemodus uit te schakelen.
-3. Stel nieuwe waarden in voor de eigenschappen [set_AnimateTextType()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) en [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/).
-4. Sla het gewijzigde PPTX‑bestand op.
-
-Deze C++‑code demonstreert de bewerking:
-
-```c++
-// Instantieert een presentatie‑klasse die een presentatiedocument vertegenwoordigt.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
-
-// Haalt het eerste effect van de hoofdreeks op
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
-
-// Wijzigt het type tekstanimatie van het effect naar "As One Object"
-firstEffect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
-
-// Wijzigt het type animatietekst van het effect naar "By word"
-firstEffect->set_AnimateTextType(AnimateTextType::ByWord);
-
-// Stelt de vertraging tussen woorden in op 20% van de effectduur
-firstEffect->set_DelayBetweenTextParts(20.0f);
-
-// Slaat het PPTX‑bestand op schijf
-pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
-```
+- Opslaan als PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke weergave wordt bestuurd door de presentatie‑viewer.
+- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5 export](/slides/nl/cpp/export-to-html5/), geanimeerde GIF of [video conversion](/slides/nl/cpp/convert-powerpoint-to-video/) wanneer de output beweging moet tonen.
+- Voor HTML5, schakel [Html5Options::set_AnimateShapes] in en, indien nodig, [Html5Options::set_AnimateTransitions].
+- Video‑rendering ondersteunt vele gangbare entree‑, nadruk‑, exit‑ en bewegings‑pad‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de huidige [supported animations and effects](/slides/nl/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritische presentaties met de gewenste versie van Aspose.Slides.
+- Geavanceerde aangepaste effect­en en effect­en geïmporteerd uit andere presentatie‑formaten kunnen in het bestand bewaard blijven, maar anders worden weergegeven in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
 
 ## **FAQ**
 
-**Hoe kan ik ervoor zorgen dat animaties behouden blijven bij het publiceren van de presentatie naar het web?**
+**Waarom verschijnt een animatie in PowerPoint maar niet in een PDF?**
 
-[Export to HTML5](/slides/nl/cpp/export-to-html5/) en schakel de [opties](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/html5options/) in die verantwoordelijk zijn voor animaties van [shape](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/html5options/set_animateshapes/) en [transition](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/html5options/set_animatetransitions/). Plain HTML speelt geen slide‑animaties af, HTML5 wel.
+PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afgespeeld. Exporteer naar HTML5, geanimeerde GIF of video wanneer beweging behouden moet blijven.
 
-**Hoe beïnvloedt het wijzigen van de z‑order (lagenvolgorde) van shapes de animatie?**
+**Waarom wordt een effect anders afgespeeld in een video?**
 
-Animatie‑ en tekenvolgorde zijn onafhankelijk: een effect bepaalt de timing en het type verschijnen/verdwijnen, terwijl [z-order](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shape/get_zorderposition/) bepaalt wat wat bedekt. Het zichtbare resultaat wordt bepaald door hun combinatie. (Dit is het algemene gedrag van PowerPoint; het Aspose.Slides‑effect‑en‑shape‑model volgt dezelfde logica.)
+Video‑export rendert animaties in plaats van het originele PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecten worden niet ondersteund of benaderd. Bekijk de tabel met ondersteunde effect­en en test de daadwerkelijke presentatie vóór productie‑gebruik.
 
-**Zijn er beperkingen bij het converteren van animaties naar video voor bepaalde effecten?**
+**Verandert het naar voren of achteren verplaatsen van een vorm de animatievolgorde?**
 
-In het algemeen worden [animaties ondersteund](/slides/nl/cpp/convert-powerpoint-to-video/), maar zeldzame gevallen of specifieke effecten kunnen anders worden gerenderd. Het wordt aanbevolen de gebruikte effecten en de bibliotheekversie te testen.
+Nee. De z‑volgorde van een vorm bepaalt de overlapping, terwijl de volgorde van reeksen en triggers de afspeelvolgorde van animaties bepalen. Pas de tijdlijn aan als je een andere afspeelvolgorde nodig hebt.
