@@ -7,7 +7,7 @@ url: /zh-hant/java/slide-layout/
 keywords:
 - 投影片版面
 - 內容版面
-- 佔位元件
+- 佔位元
 - 簡報設計
 - 投影片設計
 - 未使用的版面
@@ -15,12 +15,12 @@ keywords:
 - 標題投影片
 - 標題與內容
 - 章節標題
-- 兩欄內容
+- 雙內容
 - 比較
 - 僅標題
 - 空白版面
-- 含說明文字的內容
-- 含說明文字的圖片
+- 帶說明文字的內容
+- 帶說明文字的圖片
 - 標題與垂直文字
 - 垂直標題與文字
 - PowerPoint
@@ -28,151 +28,129 @@ keywords:
 - 簡報
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Java 中管理與自訂投影片版面。透過 Java 程式碼範例探索版面類型、佔位元件控制與頁腳可見性。"
+description: "在 Aspose.Slides for Java 中套用、建立與修改投影片版面，新增佔位元、移除未使用的版面，並控制頁腳可見性。"
 ---
-## **簡介**
+## **概覽**
 
-投影片版面定義投影片上佔位盒的排列方式與內容格式。它控制哪些佔位元件可用以及它們顯示的位置。投影片版面可協助您快速且一致地設計簡報，無論是建立簡單的還是較複雜的內容。PowerPoint 中最常見的投影片版面包括：
+投影片佈局定義了標題、文字、圖片、圖表和表格等佔位元的位置信息與格式設定。套用佈局可為投影片提供一致的結構，同時允許每張投影片包含其各自的內容。
 
-**標題投影片版面** – 包含兩個文字佔位元件：一個用於標題，另一個用於副標題。
+最常見的佈局包括：
 
-**標題與內容版面** – 在上方有較小的標題佔位元件，下方有較大的主內容佔位元件（例如文字、項目符號、圖表、影像等）。
+- **標題投影片**：包含標題與副標題佔位元。
+- **標題與內容**：包含標題佔位元與通用內容佔位元。
+- **空白**：不包含任何內容佔位元，適用於需要手動定位所有圖形的情況。
 
-**空白版面** – 不含任何佔位元件，讓您可以從頭自行設計投影片。
+## **了解佈局繼承**
 
-投影片版面是投影片母片的一部分，母片是定義簡報版面樣式的最高層投影片。您可以透過投影片母片存取並修改版面投影片，方式可以是依類型、名稱或唯一 ID。或者，您也可以直接在簡報內編輯特定的版面投影片。
+簡報具有三個相關層級：
 
-要在 Aspose.Slides for Java 中處理投影片版面，您可以使用：
+1. [主投影片](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imasterslide/) 定義主題、共用格式、背景與通用物件。
+2. [版面投影片](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslide/) 屬於主投影片，並定義特定的佔位元排列。
+3. [一般投影片](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/islide/) 使用一個版面，並儲存此投影片的內容。
 
-- 方法，例如 [getLayoutSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getLayoutSlides--)，以及 [getMasters](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getMasters--)，位於 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別下
-- 類型，如 [ILayoutSlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslide/)、[IMasterLayoutSlideCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imasterlayoutslidecollection/)、[ILayoutPlaceholderManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/)，以及 [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslideheaderfootermanager/)
+一般投影片會從其版面繼承主題與格式，而版面則繼承自其主投影片。直接在一般投影片上設定的值會在該層級覆寫繼承值。建立一般投影片時，會根據所選版面產生佔位元圖形，而填入這些佔位元的內容屬於該一般投影片。
 
-{{% alert title="Info" color="info" %}}
-若要進一步了解如何使用母片，請參閱 [Slide Master](/slides/zh-hant/java/slide-master/) 文章。
-{{% /alert %}}
+在使用版面建立投影片之前，請先在版面上新增所需的佔位元。之後再向版面加入佔位元，並不會自動在現有的一般投影片中新增相應的佔位元圖形。
 
-## **將版面投影片新增至簡報**
+此關係有兩個重要的結果：
 
-若要自訂投影片的外觀與結構，您可能需要在簡報中新增版面投影片。Aspose.Slides for Java 可讓您檢查特定版面是否已存在，必要時新增，並使用該版面插入投影片。
+- 變更版面上繼承的格式或既有佔位元的幾何形狀，可能會更新所有依賴該版面的投影片。編輯已使用的版面前，請先檢查其依賴的投影片並審閱最終簡報。
+- 仍被投影片使用的版面無法直接移除。請先將其依賴的投影片重新指派至其他版面，或僅移除未使用的版面。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-2. 存取 [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imasterlayoutslidecollection/)。
-3. 檢查所需的版面投影片是否已存在於集合中。若不存在，新增所需的版面投影片。
-4. 依新版面投影片新增一張空白投影片。
-5. 儲存簡報。
+如需瞭解此階層最上層的更多資訊，請參閱[投影片母片](/slides/zh-hant/java/slide-master/)。
 
-以下 Java 程式碼示範如何將版面投影片新增至 PowerPoint 簡報：
+## **選取並套用投影片版面**
+
+在簡報遵循標準 PowerPoint 版面定義時，使用版面類型。版面名稱可由使用者編輯且可能會本地化，因此除非您能掌控來源範本，否則僅依名稱選取的可靠性較低。
+
+以下範例在第一個主投影片中尋找 **標題與內容**。若找不到該版面，則會故意退回使用 **空白**。第二個 null 檢查是必要的，因為簡報可能僅包含自訂版面。選取的版面接著透過 [ISlide.setLayoutSlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) 方法套用到第一個一般投影片。
 
 ```java
-// 實例化代表 PowerPoint 檔案的 Presentation 類別。
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // 遍歷版面投影片類型以選取版面投影片。
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // 簡報不包含所有版面類型的情況。
-        // 簡報檔案僅包含空白與自訂版面類型。
-        // 然而，具有自訂類型的版面投影片可能有可辨識的名稱，
-        // 例如「Title」、「Title and Content」等，可用於版面投影片的選取。
-        // 您也可以依賴一組佔位形狀類型。
-        // 例如，標題投影片應僅具有 Title 佔位類型，依此類推。
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // 使用新增的版面投影片插入一張空白投影片。
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // 將簡報儲存至磁碟。
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **移除未使用的版面投影片**
+變更投影片的版面不會移除直接添加於投影片的普通圖形。然而，佔位元位置、繼承的格式以及現有佔位元與新版面之間的對應關係可能會改變，因此在切換差異極大的版面時請檢查輸出結果。
 
-Aspose.Slides 於 [Compress](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/compress/) 類別提供 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 方法，以便刪除不需要且未使用的版面投影片。
+## **新增版面投影片**
 
-以下 Java 程式碼顯示如何從 PowerPoint 簡報中移除版面投影片：
+選取與建立是分離的操作。前一個範例僅選取既有版面，並未建立新版面。若要建立版面，請在目標主投影片的版面集合上呼叫 [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) 方法。
+
+以下範例始終新增一個名為 `Report Title and Content` 的 **標題與內容** 版面，然後基於該版面新增一般投影片。版面名稱在集合中必須唯一。
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **在版面投影片中新增佔位元件**
+只有在範本確實需要另一個可重複使用的結構時才新增版面。若已有合適的版面，請選取並重用，而非建立重複的版面。
 
-Aspose.Slides 提供 [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) 方法，允許您在版面投影片中新增佔位元件。
+## **為版面投影片新增佔位元**
 
-此管理員包含以下佔位元件類型的方法：
+[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) 方法提供一個 [ILayoutPlaceholderManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/)，用於向版面新增佔位元圖形。
 
-| PowerPoint 佔位元件               | 方法 |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![內容](content.png)               | addContentPlaceholder(float x, float y, float width, float height) |
-| ![內容（垂直）](contentV.png)       | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![文字](text.png)                  | addTextPlaceholder(float x, float y, float width, float height) |
-| ![文字（垂直）](textV.png)          | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![圖片](picture.png)                | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![圖表](chart.png)                  | addChartPlaceholder(float x, float y, float width, float height) |
-| ![表格](table.png)                  | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![媒體](media.png)                  | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![線上圖像](onlineimage.png)        | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint 佔位元 | `ILayoutPlaceholderManager` 方法 |
+| ------------------ | -------------------------------- |
+| ![內容](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![內容（垂直）](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![文字](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![文字（垂直）](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![圖片](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![圖表](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![表格](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![媒體](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![線上圖片](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-以下 Java 程式碼示範如何將新佔位形狀加入空白版面投影片：
+以下範例驗證 **空白** 版面是否存在，向其新增四個佔位元，然後建立使用該修改版面的普通投影片。順序刻意安排：先新增佔位元再建立普通投影片，以便 Aspose.Slides 能在該投影片上產生相對應的佔位元圖形。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // 取得空白版面投影片。
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // 取得版面投影片的佔位元件管理員。
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // 為空白版面投影片新增不同的佔位元件。
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // 使用空白版面新增新投影片。
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -180,73 +158,81 @@ try {
 
 結果：
 
-![版面投影片上的佔位元件](add_placeholders.png)
+![版面投影片上的佔位元](add_placeholders.png)
 
-## **設定版面投影片的頁腳可見性**
+{{% alert color="warning" title="Warning" %}}
+變更繼承的格式或既有版面佔位元的幾何形狀可能會影響依賴的投影片。新加入的版面佔位元不會自動填入現有的一般投影片。請在簡報的副本上測試版面變更，並檢查每個依賴的投影片。
+{{% /alert %}}
 
-在 PowerPoint 簡報中，日期、投影片編號與自訂文字等頁腳元素可依版面不同而顯示或隱藏。Aspose.Slides for Java 允許您控制這些頁腳佔位元件的可見性。當您希望某些版面顯示頁腳資訊而其他版面保持簡潔時，此功能相當有用。
+## **移除未使用的版面投影片**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-2. 依索引取得版面投影片參考。
-3. 設定投影片頁腳佔位元件為可見。
-4. 設定投影片編號佔位元件為可見。
-5. 設定日期時間佔位元件為可見。
-6. 儲存簡報。
-
-以下 Java 程式碼顯示如何設定投影片頁腳的可見性以及相關操作：
+使用 [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 方法移除未被任何一般投影片參考的版面。此方法會保留仍在使用中的版面。
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **設定子版面投影片的頁腳可見性**
+若要移除特定的版面，首先使用其 [hasDependingSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) 或 [getDependingSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) 方法。呼叫 [ILayoutSlide.remove](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslide/#remove--) 前，請先重新指派任何依賴的投影片。嘗試移除正在使用的版面會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/pptxeditexception/)。
 
-在 PowerPoint 簡報中，日期、投影片編號與自訂文字等頁腳元素可在母片層級控制，以確保所有版面投影片的一致性。Aspose.Slides for Java 允許您在母片上設定這些頁腳佔位元件的可見性與內容，並將設定傳播至所有子版面投影片，從而在整個簡報中保持統一的頁腳資訊。
+## **在版面投影片上控制頁腳可見性**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-2. 依索引取得母片參考。
-3. 設定母片及所有子版面的頁腳佔位元件為可見。
-4. 設定母片及所有子版面的投影片編號佔位元件為可見。
-5. 設定母片及所有子版面的日期時間佔位元件為可見。
-6. 儲存簡報。
+版面擁有自己的頁腳、投影片編號與日期時間佔位元。可使用 [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) 方法來控制單一版面的這些佔位元。例如，內容版面應顯示頁腳，但標題版面則不需要。
 
-以下 Java 程式碼示範此操作：
+以下範例安全地選取一個版面，並將其頁腳元素設為可見：
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    }
+
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
+    }
+
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **在母片及其子版面上控制頁腳可見性**
+
+若要在母片階層中套用一致的頁腳設定，請使用 [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) 方法。[IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imasterslideheaderfootermanager/) 的傳播方法會作用於母片及其依賴的版面投影片與一般投影片；不會僅針對單一一般投影片。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -254,14 +240,18 @@ try {
 
 ## **常見問題**
 
-**母片與版面投影片有何差異？**
+**母片與版面投影片有何不同？**
 
-母片定義整體主題與預設格式，而版面投影片則為不同內容類型定義特定的佔位元件排列方式。
+母片定義簡報的主題與共用格式。版面投影片屬於母片，定義一種可重複使用的佔位元排列。一般投影片使用這些版面，並儲存投影片特定的內容。
 
-**我可以將版面投影片從一個簡報複製到另一個簡報嗎？**
+**我可以將版面投影片從一個簡報複製到另一個嗎？**
 
-可以，您可以透過 [getLayoutSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getLayoutSlides--) 方法取得的版面投影片集合，使用 `addClone` 方法將版面投影片克隆並插入至另一個簡報。
+可以。使用 [addClone](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) 方法將副本加入目標集合。於簡報之間複製時，亦須確認來源版面所使用的字型、主題、影像與其他資源。
 
-**如果我刪除仍被投影片使用的版面投影片會發生什麼事？**
+**當我修改已在使用的版面時會發生什麼？**
 
-若嘗試刪除仍被至少一張投影片參照的版面投影片，Aspose.Slides 會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/pptxeditexception/)。為避免此情況，請使用 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 只安全地移除未使用的版面投影片。
+除非依賴投影片在本地覆寫受影響的格式或物件，否則它們會繼承版面的變更。因此，佔位元的幾何形狀與繼承樣式可能會同時在多張投影片上變化。編輯版面前，可使用 [getDependingSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) 來識別受影響的投影片。
+
+**如果移除仍在使用的版面會發生什麼？**
+
+Aspose.Slides 會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/pptxeditexception/)。請先重新指派依賴的投影片，或使用 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 只移除未被參考的版面。

@@ -17,10 +17,10 @@ keywords:
 - bölüm başlığı
 - iki içerik
 - karşılaştırma
-- sadece başlık
+- yalnızca başlık
 - boş düzen
-- altyazılı içerik
-- altyazılı resim
+- başlıkla içerik
+- başlıkla resim
 - başlık ve dikey metin
 - dikey başlık ve metin
 - PowerPoint
@@ -28,151 +28,135 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile slayt düzenlerini yönetin ve özelleştirin. Düzen türlerini, yer tutucu kontrolünü ve altbilgi görünürlüğünü kod örnekleriyle keşfedin."
+description: "Aspose.Slides for PHP via Java'da slayt düzenlerini uygulayın, oluşturun ve değiştirin, yer tutucular ekleyin, kullanılmayan düzenleri kaldırın ve altbilgi görünürlüğünü kontrol edin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir slayt düzeni, bir slayttaki yer tutucu kutuların yerleşimini ve içeriğin biçimlendirmesini tanımlar. Hangi yer tutucuların mevcut olduğunu ve nerede görüneceklerini kontrol eder. Slayt düzenleri, ister basit ister karmaşık bir şey oluşturuyor olun, sunumları hızlı ve tutarlı bir şekilde tasarlamanıza yardımcı olur. PowerPoint'te en yaygın slayt düzenlerinden bazıları şunlardır:
+Bir slayt düzeni, başlıklar, metin, resimler, grafikler ve tablolar gibi yer tutucuların konumlarını ve biçimlendirmesini tanımlar. Bir düzen uygulamak, slaytlara tutarlı bir yapı kazandırırken her slaytın kendi içeriğini içermesine olanak tanır.
 
-**Başlık Slaytı düzeni** – Başlık ve alt başlık için iki metin yer tutucusu içerir.
+En yaygın düzenler şunlardır:
 
-**Başlık ve İçerik düzeni** – Üstte daha küçük bir başlık yer tutucusu ve altında metin, madde işaretleri, grafikler, resimler ve daha fazlası gibi ana içerik için daha büyük bir yer tutucu bulunur.
+- **Başlık Slaytı**: Başlık ve alt başlık yer tutucularını içerir.
+- **Başlık ve İçerik**: Bir başlık yer tutucusu ve genel amaçlı bir içerik yer tutucusu içerir.
+- **Boş**: İçerik yer tutucusu içermez ve her şeklin manuel olarak konumlandırılacağı durumlarda yararlıdır.
 
-**Boş düzen** – Hiç yer tutucu bulunmaz, slaytı sıfırdan tasarlamak için tam kontrol sağlar.
+## **Düzen Kalıtımını Anlamak**
 
-Slayt düzenleri, sunumun düzen stillerini tanımlayan üst düzey slayt olan slayt ana temasının bir parçasıdır. Düzen slaytlarına slayt ana temasından tip, ad veya benzersiz kimlikleriyle erişebilir ve onları değiştirebilirsiniz. Alternatif olarak, belirli bir düzen slaytını doğrudan sunum içinde düzenleyebilirsiniz.
+Bir sunum üç ilgili seviyeye sahiptir:
 
-Aspose.Slides for PHP'de slayt düzenleriyle çalışmak için şu öğeleri kullanabilirsiniz:
+1. Bir [master slayt](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslide/) tema, ortak biçimlendirme, arka planlar ve ortak nesneleri tanımlar.
+2. Bir [düzen slaytı](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/) bir master'a aittir ve yer tutucuların belirli bir düzenini tanımlar.
+3. Bir [normal slayt](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/) bir düzen kullanır ve o slayt için girilen içeriği depolar.
 
-- [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı altında bulunan [getLayoutSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getLayoutSlides) ve [getMasters](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getMasters) gibi yöntemler
-- [LayoutSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/) ve [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslideheaderfootermanager/) gibi türler
+Bir normal slayt temayı ve biçimlendirmeyi düzeninden devralır ve düzen de master’dan devralır. Normal bir slaytta doğrudan ayarlanan bir değer, o seviyedeki devralınan değeri geçersiz kılar. Bir normal slayt oluşturulduğunda, yer tutucu şekilleri seçilen düzen üzerinden oluşturulur, bu yer tutuculara girilen içerik ise normal slayta aittir.
 
-{{% alert title="Info" color="info" %}}
-Ana slaytlarla çalışmak hakkında daha fazla bilgi edinmek için [Slide Master](/slides/tr/php-java/slide-master/) makalesine göz atın.
-{{% /alert %}}
+Bir slayt oluşturmadan önce gerekli yer tutucuları bir düzene ekleyin. Daha sonra bir düzene başka bir yer tutucu eklemek, mevcut normal slaytlara otomatik olarak karşılık gelen bir yer tutucu şekli eklemez.
 
-## **Sunumlara Slayt Düzenleri Ekleme**
+Bu ilişkinin iki önemli sonucu vardır:
 
-Slaytlarınızın görünümünü ve yapısını özelleştirmek için bir sunuma yeni düzen slaytları eklemeniz gerekebilir. Aspose.Slides for PHP, belirli bir düzenin zaten var olup olmadığını kontrol etmenizi, gerekirse yeni bir düzen eklemenizi ve bu düzeni temel alarak slayt eklemenizi sağlar.
+- Bir düzende devralınan biçimlendirmeyi veya mevcut yer tutucu geometrisini değiştirmek, ona bağımlı tüm slaytları güncelleyebilir. Zaten kullanımdaki bir düzeni düzenlemeden önce, bağımlı slaytlarını inceleyin ve ortaya çıkan sunumu gözden geçirin.
+- Bir slayt tarafından hâlâ kullanılan bir düzen kaldırılamaz. Önce bağlı slaytlarını başka bir düzenle yeniden atayın ya da yalnızca kullanılmayan düzenleri kaldırın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. [MasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterlayoutslidecollection/) öğesine erişin.  
-1. İstenen düzen slaytı koleksiyonda zaten var mı kontrol edin. Yoksa ihtiyacınız olan düzen slaytını ekleyin.  
-1. Yeni düzen slaytına dayalı boş bir slayt ekleyin.  
-1. Sunumu kaydedin.
+Daha fazla bilgi için hiyerarşinin üst seviyesine bakın: [Slide Master](/slides/tr/php-java/slide-master/).
 
-Aşağıdaki PHP kodu, bir PowerPoint sunumuna slayt düzeni eklemenin nasıl yapılacağını gösterir:
+## **Bir Slayt Düzeni Seçme ve Uygulama**
+
+Sunum standart PowerPoint düzen tanımlarını izlediğinde bir düzen türü kullanın. Düzen adları kullanıcı tarafından düzenlenebilir ve yerelleştirilebilir, bu yüzden ad temelli seçim, kaynak şablonun kontrolü elinizde değilse daha az güvenilirdir.
+
+İşte sonraki örnek, ilk master’da **Title and Content** düzenini arar. Bu düzen bulunamazsa, kasıtlı olarak **Blank** düzenine geri döner. İkinci null kontrolü, bir sunumun yalnızca özel düzenler içerebileceği için gereklidir. Seçilen düzen, ardından [Slide.setLayoutSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#setLayoutSlide) yöntemiyle ilk normal slayta uygulanır.
 
 ```php
-// PowerPoint dosyasını temsil eden Presentation sınıfını örnekleyin.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // Bir düzen slaytı seçmek için düzen slaytı türleri arasında geçiş yapın.
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // Sunumun tüm düzen türlerini içermediği bir durum.
-        // Sunum dosyası yalnızca Boş ve Özel düzen türlerini içerir.
-        // Ancak, özel türlere sahip düzen slaytları tanınabilir adlara sahip olabilir,
-        // örneğin "Title", "Title and Content" vb., bu adlar düzen slaytı seçimi için kullanılabilir.
-        // Ayrıca bir dizi yer tutucu şekil türüne dayanabilirsiniz.
-        // Örneğin, bir Başlık slaytı yalnızca Başlık yer tutucu türüne sahip olmalıdır, vb.
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // Eklenen düzen slaytını kullanarak boş bir slayt ekleyin.
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // Sunumu diske kaydedin.
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Kullanılmayan Düzen Slaytlarını Kaldırma**
+Bir slaytın düzenini değiştirmek, slayta doğrudan eklenen normal şekilleri kaldırmaz. Ancak, yer tutucu konumları, devralınan biçimlendirme ve mevcut yer tutucular ile yeni düzen arasındaki eşleşme değişebilir; bu yüzden önemli ölçüde farklı düzenler arasında geçiş yaparken çıktıyı inceleyin.
 
-Aspose.Slides, istenmeyen ve kullanılmayan düzen slaytlarını silmenizi sağlayan [Compress](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/) sınıfındaki [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) yöntemini sunar.
+## **Bir Düzen Slaytı Ekleme**
 
-Aşağıdaki PHP kodu, bir PowerPoint sunumundan bir düzen slaytının nasıl kaldırılacağını gösterir:
+Seçim ve oluşturma ayrı işlemlerdir. Önceki örnek mevcut bir düzeni seçer; bir tane oluşturmaz. Bir düzen oluşturmak için, hedef master’ın düzen koleksiyonunda [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterlayoutslidecollection/#add) yöntemini çağırın.
+
+Aşağıdaki örnek her zaman `Report Title and Content` adlı yeni bir **Title and Content** düzeni ekler, ardından buna dayalı bir normal slayt ekler. Düzen adları koleksiyon içinde benzersiz olmalıdır.
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Düzen Slaytlarına Yer Tutucu Ekleme**
+Şablon gerçekten başka bir yeniden kullanılabilir yapıya ihtiyaç duyduğunda yalnızca bir düzen ekleyin. Uygun bir düzen zaten varsa, bir kopya oluşturmaktan ziyade onu seçip yeniden kullanın.
 
-Aspose.Slides, bir düzen slaytına yeni yer tutucular eklemenizi sağlayan [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/#getPlaceholderManager) yöntemini sunar.
+## **Bir Düzen Slaytına Yer Tutucu Ekleme**
 
-Bu yönetici, aşağıdaki yer tutucu türleri için yöntemler içerir:
+[LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/#getPlaceholderManager) yöntemi, bir düzene yer tutucu şekilleri eklemek için bir [LayoutPlaceholderManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/) sunar.
 
-| PowerPoint Yer Tutucu               | [LayoutPlaceholderManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/) Yöntemi |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                   | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png)       | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png)             | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png)                 | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png)                 | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                 | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png)    | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Yer Tutucu              | `LayoutPlaceholderManager` Method |
+| ----------------------------------- | --------------------------------- |
+| ![İçerik](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![İçerik (Dikey)](contentV.png)    | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Metin](text.png)                 | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Metin (Dikey)](textV.png)        | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Resim](picture.png)              | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Grafik](chart.png)               | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tablo](table.png)                | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)          | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Medya](media.png)                | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Çevrimiçi Görüntü](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Aşağıdaki PHP kodu, Boş düzen slaytına yeni yer tutucu şekilleri nasıl ekleyeceğinizi gösterir:
+Aşağıdaki örnek **Blank** düzeninin mevcut olduğunu doğrular, ona dört yer tutucu ekler ve ardından değiştirilmiş düzeni kullanan bir normal slayt oluşturur. Sıra kasıtlıdır: yer tutucular normal slayt oluşturulmadan önce eklenir, böylece Aspose.Slides o slaytta ilgili yer tutucu şekilleri oluşturabilir.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // Boş düzen slaytını alın.
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // Düzen slaytının yer tutucu yöneticisini alın.
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Boş düzen slaytına farklı yer tutucular ekleyin.
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // Boş düzen ile yeni bir slayt ekleyin.
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -180,88 +164,103 @@ try {
 
 Sonuç:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Düzen slaytındaki yer tutucular](add_placeholders.png)
 
-## **Bir Düzen Slaytı için Altbilgi Görünürlüğünü Ayarlama**
+{{% alert color="warning" title="Warning" %}}
+Devralınan biçimlendirmenin veya mevcut düzen yer tutucularının geometrisinin değiştirilmesi, bağımlı slaytları etkileyebilir. Yeni eklenen bir düzen yer tutucusu mevcut normal slaytlara otomatik olarak eklenmez. Düzen değişikliklerini bir sunum kopyası üzerinde test edin ve her bağımlı slaytı inceleyin.
+{{% /alert %}}
 
-PowerPoint sunumlarında tarih, slayt numarası ve özel metin gibi altbilgi öğeleri, slayt düzenine bağlı olarak gösterilebilir veya gizlenebilir. Aspose.Slides for PHP, bu altbilgi yer tutucularının görünürlüğünü kontrol etmenizi sağlar. Bu, bazı düzenlerin altbilgi bilgilerini gösterirken diğerlerinin temiz ve sade kalmasını istediğinizde kullanışlıdır.
+## **Kullanılmayan Düzen Slaytlarını Kaldırma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksiyle bir düzen slaytı referansı alın.  
-1. Slayt altbilgi yer tutucusunu görünür olarak ayarlayın.  
-1. Slayt numarası yer tutucusunu görünür olarak ayarlayın.  
-1. Tarih‑zaman yer tutucusunu görünür olarak ayarlayın.  
-1. Sunumu kaydedin.
-
-Aşağıdaki PHP kodu, bir slayt altbilgisinin görünürlüğünü nasıl ayarlayacağınızı ve ilgili görevleri nasıl gerçekleştireceğinizi gösterir:
+Hiçbir normal slaytın referans vermediği düzenleri kaldırmak için [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) yöntemini kullanın. Yöntem hâlâ kullanılan düzenleri olduğu gibi bırakır.
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
+Belirli bir düzeni kaldırmak için önce onun [hasDependingSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/#hasDependingSlides) veya [getDependingSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/#getDependingSlides) yöntemini kullanın. [LayoutSlide.remove](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/#remove) çağırmadan önce bağımlı slaytları yeniden atayın. Kullanılan bir düzeni kaldırmaya çalışmak bir [PptxEditException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxeditexception/) istisnası fırlatır.
+
+## **Bir Düzen Slaytında Altbilgi Görünürlüğünü Kontrol Etme**
+
+Bir düzenin kendi altbilgi, slayt numarası ve tarih-saat yer tutucuları vardır. Bu yer tutucuları bir düzen için kontrol etmek üzere [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) yöntemini kullanın. Bu, örneğin içerik düzenlerinin altbilgi göstermesi, başlık düzenlerinin ise göstermemesi gerektiğinde faydalıdır.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
     }
 
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
     $headerFooterManager->setFooterText("Footer text");
     $headerFooterManager->setDateTimeText("Date and time text");
 
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Bir Slayt İçin Alt Çocuk Altbilgi Görünürlüğünü Ayarlama**
+## **Bir Master ve Çocuk Düzenlerinde Altbilgi Görünürlüğünü Kontrol Etme**
 
-PowerPoint sunumlarında tarih, slayt numarası ve özel metin gibi altbilgi öğeleri, tüm düzen slaytlarında tutarlılığı sağlamak amacıyla ana slayt seviyesinde kontrol edilebilir. Aspose.Slides for PHP, bu altbilgi yer tutucularının görünürlüğünü ve içeriğini ana slaytta belirlemenize ve bu ayarları tüm çocuk düzen slaytlarına yaymanıza olanak tanır. Bu yaklaşım, sunumunuz boyunca tutarlı altbilgi bilgilerinin olmasını garantiler.
-
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksiyle ana slayta bir referans alın.  
-1. Ana slaytın ve tüm çocuk altbilgi yer tutucularının görünürlüğünü ayarlayın.  
-1. Ana slaytın ve tüm çocuk slayt numarası yer tutucularının görünürlüğünü ayarlayın.  
-1. Ana slaytın ve tüm çocuk tarih‑zaman yer tutucularının görünürlüğünü ayarlayın.  
-1. Sunumu kaydedin.
-
-Aşağıdaki PHP kodu bu işlemi gösterir:
+Bir master hiyerarşisi boyunca tutarlı altbilgi ayarları uygulamak için [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslide/#getHeaderFooterManager) yöntemini kullanın. [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslideheaderfootermanager/) yayma yöntemleri master, ona bağlı düzen slaytları ve normal slaytlar üzerinde çalışır; yalnızca tek bir normal slaytı hedef almaz.
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **SSS**
+## **FAQ**
 
-**Bir ana slayt ile bir düzen slaytı arasındaki fark nedir?**
+**Master Slaytı ile Layout Slaytı Arasındaki Fark Nedir?**
 
-Ana slayt genel temayı ve varsayılan biçimlendirmeyi tanımlarken, düzen slaytları farklı içerik türleri için yer tutucuların belirli düzenlemelerini tanımlar.
+Bir master slayt, sunumun temasını ve ortak biçimlendirmesini tanımlar. Bir layout slaytı bir master’a aittir ve yer tutucuların yeniden kullanılabilir bir düzenini tanımlar. Normal slaytlar bu düzenleri kullanır ve slayta özgü içeriği depolar.
 
-**Bir düzen slaytını bir sunumdan başka bir sunuma kopyalayabilir miyim?**
+**Bir Layout Slaytı bir Sunumdan Başka Bir Sunuma Kopyalayabilir miyim?**
 
-Evet, bir sunumun düzen slayt koleksiyonundan ( [getLayoutSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getLayoutSlides) yöntemiyle erişilebilir) bir düzen slaytını klonlayabilir ve `addClone` yöntemiyle başka bir sunuma ekleyebilirsiniz.
+Evet. [addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/globallayoutslidecollection/#addClone) yöntemiyle hedef koleksiyona bir kopya ekleyin. Sunumlar arasında kopyalarken, kaynak düzenin kullandığı yazı tiplerini, temaları, görselleri ve diğer kaynakları da doğrulayın.
 
-**Bir slayt tarafından hâlâ kullanılan bir düzen slaytını silersem ne olur?**
+**Zaten Kullanımdaki Bir Düzeni Değiştirirsem Ne Olur?**
 
-Eğer bir düzen slaytı, sunumdaki en az bir slayt tarafından hâlâ referans ediliyorsa, Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxeditexception/) fırlatır. Bunu önlemek için, yalnızca kullanılmayan düzen slaytlarını güvenle kaldıran [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) yöntemini kullanın.
+Bağımlı slaytlar, yerel olarak etkilenen biçimlendirmeyi veya nesneleri geçersiz kılmadıkları sürece düzen değişikliklerini devralır. Bu nedenle yer tutucu geometrisi ve devralınan stil birçok slaytta aynı anda değişebilir. Düzeni düzenlemeden önce etkilenen slaytları belirlemek için [getDependingSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/#getDependingSlides) kullanın.
+
+**Hâlâ Kullanımda Olan Bir Düzeni Kaldırırsam Ne Olur?**
+
+Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxeditexception/) istisnası fırlatır. Önce bağımlı slaytları yeniden atayın ya da yalnızca başvurulmamış düzenleri kaldırmak için [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) kullanın.

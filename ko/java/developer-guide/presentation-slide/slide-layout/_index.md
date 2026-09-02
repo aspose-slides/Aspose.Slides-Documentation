@@ -7,13 +7,13 @@ url: /ko/java/slide-layout/
 keywords:
 - 슬라이드 레이아웃
 - 콘텐츠 레이아웃
-- 자리표시자
+- 자리 표시자
 - 프레젠테이션 디자인
 - 슬라이드 디자인
 - 사용되지 않은 레이아웃
-- 바닥글 표시 여부
+- 바닥글 표시
 - 제목 슬라이드
-- 제목 및 내용
+- 제목 및 콘텐츠
 - 섹션 헤더
 - 두 개의 콘텐츠
 - 비교
@@ -21,158 +21,136 @@ keywords:
 - 빈 레이아웃
 - 캡션이 있는 콘텐츠
 - 캡션이 있는 그림
-- 제목 및 수직 텍스트
-- 수직 제목 및 텍스트
+- 제목 및 세로 텍스트
+- 세로 제목 및 텍스트
 - PowerPoint
 - OpenDocument
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java에서 슬라이드 레이아웃을 관리하고 사용자 지정합니다. 레이아웃 유형, 자리표시자 제어 및 바닥글 표시 여부를 Java 코드 예제로 살펴봅니다."
+description: "Aspose.Slides for Java에서 슬라이드 레이아웃을 적용, 생성 및 수정하고, 자리 표시자를 추가하고, 사용되지 않은 레이아웃을 제거하며, 바닥글 표시를 제어합니다."
 ---
-## **소개**
+## **개요**
 
-슬라이드 레이아웃은 슬라이드의 콘텐츠에 대한 자리표시자 상자와 서식의 배치를 정의합니다. 이 레이아웃은 사용할 수 있는 자리표시자와 그 위치를 제어합니다. 슬라이드 레이아웃을 사용하면 프레젠테이션을 빠르고 일관되게 디자인할 수 있습니다—단순한 경우든 복잡한 경우든 마찬가지입니다. PowerPoint에서 가장 일반적인 슬라이드 레이아웃은 다음과 같습니다:
+슬라이드 레이아웃은 제목, 텍스트, 그림, 차트 및 표와 같은 자리 표시자의 위치와 서식을 정의합니다. 레이아웃을 적용하면 슬라이드에 일관된 구조가 제공되며 각 슬라이드가 자체 콘텐츠를 가질 수 있습니다.
 
-**제목 슬라이드 레이아웃** – 제목 자리표시자 하나와 부제목 자리표시자 하나, 총 두 개의 텍스트 자리표시자를 포함합니다.
+가장 일반적인 레이아웃은 다음과 같습니다:
 
-**제목 및 내용 레이아웃** – 상단에 작은 제목 자리표시자가 있고, 그 아래에 본문 콘텐츠(텍스트, 글머리표, 차트, 이미지 등)를 위한 더 큰 자리표시자가 있습니다.
+- **Title Slide**: 제목 및 부제목 자리 표시자를 포함합니다.
+- **Title and Content**: 제목 자리 표시자와 일반 용도 콘텐츠 자리 표시자를 포함합니다.
+- **Blank**: 콘텐츠 자리 표시자가 없으며 모든 도형을 수동으로 배치할 때 유용합니다.
 
-**빈 레이아웃** – 자리표시자가 없으며, 슬라이드를 처음부터 자유롭게 디자인할 수 있습니다.
+## **레이아웃 상속 이해**
 
-슬라이드 레이아웃은 슬라이드 마스터의 일부이며, 슬라이드 마스터는 프레젠테이션의 레이아웃 스타일을 정의하는 최상위 슬라이드입니다. 레이아웃 슬라이드는 유형, 이름 또는 고유 ID로 슬라이드 마스터를 통해 접근하고 수정할 수 있습니다. 또는 프레젠테이션 내에서 특정 레이아웃 슬라이드를 직접 편집할 수도 있습니다.
+프레젠테이션에는 세 가지 관련 수준이 있습니다:
 
-Aspose.Slides for Java에서 슬라이드 레이아웃을 작업하려면 다음을 사용할 수 있습니다:
+1. A [마스터 슬라이드](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imasterslide/)는 테마, 공유 서식, 배경 및 공통 개체를 정의합니다.
+1. A [레이아웃 슬라이드](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslide/)는 마스터에 속하며 특정 자리 표시자 배치를 정의합니다.
+1. A [일반 슬라이드](https://reference.aspose.com/slides/ko/java/com.aspose.slides/islide/)는 하나의 레이아웃을 사용하고 해당 슬라이드에 입력된 콘텐츠를 저장합니다.
 
-- [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 클래스 아래의 [getLayoutSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/#getLayoutSlides--) 및 [getMasters](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/#getMasters--) 메서드
-- [ILayoutSlide](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/), 및 [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslideheaderfootermanager/)와 같은 유형
+일반 슬라이드는 레이아웃으로부터 테마와 서식을 상속받으며, 레이아웃은 마스터로부터 상속받습니다. 일반 슬라이드에 직접 설정된 값은 해당 수준에서 상속된 값을 덮어씁니다. 일반 슬라이드가 생성될 때, 해당 자리 표시자 모양은 선택된 레이아웃에서 생성되고, 자리 표시자에 입력된 콘텐츠는 일반 슬라이드에 속합니다.
 
-{{% alert title="Info" color="info" %}}
-마스터 슬라이드 작업에 대한 자세한 내용은 [Slide Master](/slides/ko/java/slide-master/) 문서를 확인하세요.
-{{% /alert %}}
+슬라이드를 만들기 전에 레이아웃에 필요한 자리 표시자를 추가하십시오. 레이아웃에 나중에 다른 자리 표시자를 추가해도 기존 일반 슬라이드에 해당 자리 표시자 모양이 자동으로 추가되지 않습니다.
 
-## **프레젠테이션에 슬라이드 레이아웃 추가**
+이 관계에는 두 가지 중요한 결과가 있습니다:
 
-슬라이드의 외관과 구조를 맞춤 설정하려면 프레젠테이션에 새 레이아웃 슬라이드를 추가해야 할 수도 있습니다. Aspose.Slides for Java를 사용하면 특정 레이아웃이 이미 존재하는지 확인하고, 필요하면 새 레이아웃을 추가한 다음 해당 레이아웃을 기반으로 슬라이드를 삽입할 수 있습니다.
+- 레이아웃에서 상속된 서식이나 기존 자리 표시자 기하학을 변경하면 해당 레이아웃에 의존하는 모든 슬라이드가 업데이트될 수 있습니다. 이미 사용 중인 레이아웃을 편집하기 전에 해당 레이아웃에 의존하는 슬라이드를 검토하고 결과 프레젠테이션을 확인하십시오.
+- 아직 슬라이드에서 사용 중인 레이아웃은 제거할 수 없습니다. 먼저 해당 레이아웃에 의존하는 슬라이드를 다른 레이아웃으로 재할당하거나 사용되지 않는 레이아웃만 제거하십시오.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imasterlayoutslidecollection/)에 접근합니다.
-1. 컬렉션에 원하는 레이아웃 슬라이드가 이미 존재하는지 확인합니다. 존재하지 않으면 필요한 레이아웃 슬라이드를 추가합니다.
-1. 새 레이아웃 슬라이드를 기반으로 빈 슬라이드를 추가합니다.
-1. 프레젠테이션을 저장합니다.
+이 계층 구조의 최상위 수준에 대한 자세한 내용은 [슬라이드 마스터](/slides/ko/java/slide-master/)를 참조하십시오.
 
-다음 Java 코드는 PowerPoint 프레젠테이션에 슬라이드 레이아웃을 추가하는 방법을 보여줍니다:
+## **슬라이드 레이아웃 선택 및 적용**
+
+프레젠테이션이 표준 PowerPoint 레이아웃 정의를 따를 때 레이아웃 유형을 사용하십시오. 레이아웃 이름은 사용자가 편집할 수 있고 현지화될 수 있으므로, 원본 템플릿을 제어하지 않는 한 이름 기반 선택은 신뢰성이 떨어집니다.
+
+다음 예제는 첫 번째 마스터에서 **Title and Content** 레이아웃을 찾습니다. 해당 레이아웃이 없으면 의도적으로 **Blank** 로 대체합니다. 프레젠테이션에 사용자 정의 레이아웃만 포함될 수 있기 때문에 두 번째 null 검사가 필요합니다. 선택된 레이아웃은 이후 [ISlide.setLayoutSlide](https://reference.aspose.com/slides/ko/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) 메서드를 통해 첫 번째 일반 슬라이드에 적용됩니다.
 
 ```java
-// PowerPoint 파일을 나타내는 Presentation 클래스를 인스턴스화합니다.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // 레이아웃 슬라이드 유형을 순회하여 레이아웃 슬라이드를 선택합니다.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // 프레젠테이션에 모든 레이아웃 유형이 포함되지 않은 상황입니다.
-        // 프레젠테이션 파일에는 Blank 및 Custom 레이아웃 유형만 포함됩니다.
-        // 그러나 사용자 지정 유형의 레이아웃 슬라이드에는 인식 가능한 이름이 있을 수 있습니다,
-        // 예: "Title", "Title and Content" 등, 이는 레이아웃 슬라이드 선택에 사용할 수 있습니다.
-        // 자리표시자 도형 유형 집합에 의존할 수도 있습니다.
-        // 예를 들어, Title 슬라이드에는 Title 자리표시자 유형만 있어야 합니다.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // 추가된 레이아웃 슬라이드를 사용하여 빈 슬라이드를 추가합니다.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // 프레젠테이션을 디스크에 저장합니다.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **사용되지 않은 레이아웃 슬라이드 제거**
+슬라이드 레이아웃을 변경해도 슬라이드에 직접 추가된 일반 도형은 제거되지 않습니다. 그러나 자리 표시자 위치, 상속된 서식 및 기존 자리 표시자와 새 레이아웃 간의 대응 관계가 변경될 수 있으므로, 크게 다른 레이아웃으로 전환할 때 출력물을 검토하십시오.
 
-Aspose.Slides는 [Compress](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/) 클래스의 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 메서드를 제공하여 원치 않거나 사용되지 않는 레이아웃 슬라이드를 삭제할 수 있도록 합니다.
+## **레이아웃 슬라이드 추가**
 
-다음 Java 코드는 PowerPoint 프레젠테이션에서 레이아웃 슬라이드를 제거하는 방법을 보여줍니다:
+선택과 생성은 별개의 작업입니다. 이전 예제는 기존 레이아웃을 선택했을 뿐이며, 레이아웃을 생성하지는 않습니다. 레이아웃을 만들려면 대상 마스터의 레이아웃 컬렉션에서 [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) 메서드를 호출하십시오.
+
+다음 예제는 항상 `Report Title and Content`라는 이름의 새로운 **Title and Content** 레이아웃을 추가한 다음, 이를 기반으로 일반 슬라이드를 추가합니다. 레이아웃 이름은 컬렉션 내에서 고유해야 합니다.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **슬라이드 레이아웃에 자리표시자 추가**
+템플릿에 실제로 다른 재사용 가능한 구조가 필요할 때만 레이아웃을 추가하십시오. 적절한 레이아웃이 이미 존재한다면, 중복을 만들기보다 해당 레이아웃을 선택해 재사용하십시오.
 
-Aspose.Slides는 [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) 메서드를 제공하여 레이아웃 슬라이드에 새 자리표시자를 추가할 수 있게 합니다.
+## **레이아웃 슬라이드에 자리 표시자 추가**
 
-이 관리자는 다음 자리표시자 유형에 대한 메서드를 포함합니다:
+[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) 메서드는 레이아웃에 자리 표시자 모양을 추가하기 위한 [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/)를 제공합니다.
 
-| PowerPoint 자리표시자 | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/) 메서드 |
-| ---------------------- | ------------------------------------------------------------ |
-| ![내용](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![내용 (수직)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![텍스트](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![텍스트 (수직)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![그림](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![차트](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![표](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![스마트아트](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![미디어](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![온라인 이미지](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint 자리 표시자 | `ILayoutPlaceholderManager` 메서드 |
+| --------------------- | ---------------------------------- |
+| ![컨텐츠](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![컨텐츠 (세로)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![텍스트](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![텍스트 (세로)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![그림](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![차트](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![표](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![스마트아트](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![미디어](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![온라인 이미지](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-다음 Java 코드는 빈 레이아웃 슬라이드에 새로운 자리표시자 모양을 추가하는 방법을 보여줍니다:
+다음 예제는 **Blank** 레이아웃이 존재하는지 확인하고, 네 개의 자리 표시자를 추가한 다음, 수정된 레이아웃을 사용하는 일반 슬라이드를 생성합니다. 순서는 의도된 것으로, 자리 표시자는 일반 슬라이드가 생성되기 전에 추가되므로 Aspose.Slides가 해당 슬라이드에 대응하는 자리 표시자 모양을 생성할 수 있습니다.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Blank 레이아웃 슬라이드를 가져옵니다.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // 레이아웃 슬라이드의 자리표시자 관리자를 가져옵니다.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Blank 레이아웃 슬라이드에 다양한 자리표시자를 추가합니다.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Blank 레이아웃을 사용하여 새 슬라이드를 추가합니다.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -180,73 +158,79 @@ try {
 
 결과:
 
-![레이아웃 슬라이드의 자리표시자](add_placeholders.png)
+![레이아웃 슬라이드의 자리 표시자](add_placeholders.png)
 
-## **레이아웃 슬라이드에 대한 바닥글 표시 설정**
+{{% alert color="warning" title="Warning" %}}
+상속된 서식이나 기존 레이아웃 자리 표시자의 기하학을 변경하면 의존 슬라이드에 영향을 줄 수 있습니다. 새로 추가된 레이아웃 자리 표시자는 기존 일반 슬라이드에 자동으로 채워지지 않습니다. 레이아웃 변경을 프레젠테이션 복사본에서 테스트하고 모든 의존 슬라이드를 검토하십시오.
+{{% /alert %}}
 
-PowerPoint 프레젠테이션에서 날짜, 슬라이드 번호 및 사용자 지정 텍스트와 같은 바닥글 요소는 슬라이드 레이아웃에 따라 표시하거나 숨길 수 있습니다. Aspose.Slides for Java를 사용하면 이러한 바닥글 자리표시자의 표시 여부를 제어할 수 있습니다. 이는 특정 레이아웃에서는 바닥글 정보를 표시하고, 다른 레이아웃은 깔끔하게 유지하고자 할 때 유용합니다.
+## **사용되지 않는 레이아웃 슬라이드 제거**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스로 레이아웃 슬라이드 참조를 가져옵니다.
-1. 슬라이드 바닥글 자리표시자를 표시하도록 설정합니다.
-1. 슬라이드 번호 자리표시자를 표시하도록 설정합니다.
-1. 날짜‑시간 자리표시자를 표시하도록 설정합니다.
-1. 프레젠테이션을 저장합니다.
-
-다음 Java 코드는 슬라이드 바닥글의 표시 여부를 설정하고 관련 작업을 수행하는 방법을 보여줍니다:
+[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 메서드를 사용하여 일반 슬라이드가 참조하지 않는 레이아웃을 제거합니다. 이 메서드는 아직 사용 중인 레이아웃은 그대로 두고 제거합니다.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **슬라이드에 대한 하위 바닥글 표시 설정**
+특정 레이아웃 하나를 제거하려면 먼저 해당 레이아웃의 [hasDependingSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) 또는 [getDependingSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) 메서드를 사용하십시오. [ILayoutSlide.remove](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslide/#remove--) 를 호출하기 전에 모든 의존 슬라이드를 재할당하십시오. 사용 중인 레이아웃을 제거하려고 하면 [PptxEditException](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pptxeditexception/) 이 발생합니다.
 
-PowerPoint 프레젠테이션에서 날짜, 슬라이드 번호 및 사용자 지정 텍스트와 같은 바닥글 요소는 마스터 슬라이드 수준에서 제어하여 모든 레이아웃 슬라이드에 일관성을 부여할 수 있습니다. Aspose.Slides for Java를 사용하면 마스터 슬라이드에서 이러한 바닥글 자리표시자의 표시 및 내용을 설정하고, 해당 설정을 모든 하위 레이아웃 슬라이드에 전파할 수 있습니다. 이 방법을 통해 프레젠테이션 전체에 동일한 바닥글 정보를 유지할 수 있습니다.
+## **레이아웃 슬라이드에서 바닥글 표시 제어**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스로 마스터 슬라이드에 대한 참조를 가져옵니다.
-1. 마스터와 모든 하위 바닥글 자리표시자를 표시하도록 설정합니다.
-1. 마스터와 모든 하위 슬라이드 번호 자리표시자를 표시하도록 설정합니다.
-1. 마스터와 모든 하위 날짜‑시간 자리표시자를 표시하도록 설정합니다.
-1. 프레젠테이션을 저장합니다.
-
-다음 Java 코드는 이 작업을 수행하는 예시입니다:
+레이아웃에는 자체 바닥글, 슬라이드 번호 및 날짜-시간 자리 표시자가 있습니다. 하나의 레이아웃에 대해 이러한 자리 표시자를 제어하려면 [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) 메서드를 사용하십시오. 예를 들어, 컨텐츠 레이아웃은 바닥글을 표시하고 제목 레이아웃은 표시하지 않아야 할 때 유용합니다.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    }
+
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
+    }
+
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **마스터와 해당 하위 레이아웃에서 바닥글 표시 제어**
+
+마스터 계층 전체에 일관된 바닥글 설정을 적용하려면 [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) 메서드를 사용하십시오. [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imasterslideheaderfootermanager/) 의 전파 메서드는 마스터와 그에 의존하는 레이아웃 슬라이드 및 일반 슬라이드에 적용되며, 단일 일반 슬라이드만을 대상으로 하지 않습니다.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -254,14 +238,18 @@ try {
 
 ## **FAQ**
 
-**마스터 슬라이드와 레이아웃 슬라이드의 차이점은 무엇인가요?**
+**마스터 슬라이드와 레이아웃 슬라이드의 차이점은 무엇입니까?**
 
-마스터 슬라이드는 전체 테마와 기본 서식을 정의하고, 레이아웃 슬라이드는 다양한 콘텐츠 유형에 맞는 특정 자리표시자 배치를 정의합니다.
+마스터 슬라이드는 프레젠테이션의 테마와 공유 서식을 정의합니다. 레이아웃 슬라이드는 마스터에 속하며 하나의 재사용 가능한 자리 표시자 배치를 정의합니다. 일반 슬라이드는 이러한 레이아웃을 사용하고 슬라이드별 콘텐츠를 저장합니다.
 
 **한 프레젠테이션에서 다른 프레젠테이션으로 레이아웃 슬라이드를 복사할 수 있나요?**
 
-예, [getLayoutSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/#getLayoutSlides--) 메서드로 접근 가능한 레이아웃 슬라이드 컬렉션에서 레이아웃 슬라이드를 복제한 다음 `addClone` 메서드를 사용해 다른 프레젠테이션에 삽입할 수 있습니다.
+예. [addClone](https://reference.aspose.com/slides/ko/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) 메서드를 사용하여 대상 컬렉션에 복사본을 추가합니다. 프레젠테이션 간에 복사할 때는 소스 레이아웃에서 사용된 글꼴, 테마, 이미지 및 기타 리소스도 확인하십시오.
 
-**여전히 슬라이드에서 사용 중인 레이아웃 슬라이드를 삭제하면 어떻게 되나요?**
+**이미 사용 중인 레이아웃을 수정하면 어떻게 되나요?**
 
-프레젠테이션에 하나 이상의 슬라이드가 아직 해당 레이아웃 슬라이드를 참조하고 있는 경우 삭제를 시도하면 Aspose.Slides가 [PptxEditException](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pptxeditexception/)을 발생시킵니다. 이를 방지하려면 사용되지 않은 레이아웃 슬라이드만 안전하게 제거하는 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 메서드를 사용하십시오.
+의존 슬라이드는 로컬에서 해당 서식이나 개체를 재정의하지 않는 한 레이아웃 변경을 상속합니다. 따라서 많은 슬라이드에서 자리 표시자 기하학 및 상속된 스타일이 한 번에 변경될 수 있습니다. 레이아웃을 편집하기 전에 [getDependingSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) 를 사용하여 영향을 받는 슬라이드를 파악하십시오.
+
+**여전히 사용 중인 레이아웃을 제거하면 어떻게 되나요?**
+
+Aspose.Slides는 [PptxEditException](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pptxeditexception/) 을 발생시킵니다. 먼저 의존 슬라이드를 재할당하거나 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 를 사용하여 참조되지 않은 레이아웃만 제거하십시오.

@@ -14,9 +14,9 @@ keywords:
 - viditelnost zápatí
 - titulní snímek
 - název a obsah
-- záhlaví sekce
-- dvě oblasti obsahu
-- srovnání
+- hlavička sekce
+- dva obsahy
+- porovnání
 - pouze název
 - prázdné rozvržení
 - obsah s popiskem
@@ -29,231 +29,215 @@ keywords:
 - C#
 - .NET
 - Aspose.Slides
-description: "Spravujte a přizpůsobujte rozvržení snímků v Aspose.Slides pro .NET. Prozkoumejte typy rozvržení, řízení zástupných objektů a viditelnost zápatí pomocí ukázek kódu v C#."
+description: "Používejte, vytvářejte a upravujte rozvržení snímků v Aspose.Slides pro .NET, přidávejte zástupné objekty, odstraňujte nepoužitá rozvržení a ovládejte viditelnost zápatí."
 ---
-## **Úvod**
+## **Přehled**
 
-Rozvržení snímku určuje uspořádání míst pro obsah a formátování obsahu na snímku. Řídí, které zástupné objekty jsou k dispozici a kde se zobrazují. Rozvržení snímků vám pomáhá rychle a jednotně navrhovat prezentace – ať už vytváříte něco jednoduchého nebo složitějšího. Mezi nejčastější rozvržení snímků v PowerPointu patří:
+Rozvržení snímku určuje pozice a formátování zástupných objektů, jako jsou nadpisy, text, obrázky, grafy a tabulky. Použití rozvržení poskytuje snímkům konzistentní strukturu a zároveň umožňuje každému snímku obsahovat vlastní obsah.
 
-**Rozvržení titulního snímku** – Obsahuje dva textové zástupce: jeden pro název a jeden pro podtitul.
+Mezi nejčastější rozvržení patří:
 
-**Rozvržení název a obsah** – Obsahuje menší zástupce pro název v horní části a větší pod ním pro hlavní obsah (jako je text, odrážky, grafy, obrázky a další).
+- **Title Slide**: Obsahuje zástupné objekty názvu a podnázvu.
+- **Title and Content**: Obsahuje zástupný objekt názvu a obecný zástupný objekt obsahu.
+- **Blank**: Neobsahuje žádné zástupné objekty obsahu a je užitečný, když budou všechny tvary umístěny ručně.
 
-**Prázdné rozvržení** – Neobsahuje žádné zástupce, což vám dává plnou kontrolu nad návrhem snímku od nuly.
+## **Pochopit dědičnost rozvržení**
 
-Rozvržení snímků jsou součástí hlavního snímku, který je nejvyšší úrovní snímku definujícího styly rozvržení pro celou prezentaci. K rozvrhům snímků můžete přistupovat a upravovat je přes hlavní snímek — buď podle jejich typu, názvu nebo unikátního ID. Případně můžete konkrétní rozvržení snímku upravit přímo v prezentaci.
+Prezentační soubor má tři související úrovně:
 
-Pro práci s rozvrženími snímků v Aspose.Slides pro .NET můžete použít:
+1. A [master slide](https://reference.aspose.com/slides/cs/net/aspose.slides/imasterslide/) definuje téma, sdílené formátování, pozadí a společné objekty.
+2. A [layout slide](https://reference.aspose.com/slides/cs/net/aspose.slides/ilayoutslide/) patří k masteru a určuje konkrétní uspořádání zástupných objektů.
+3. A [normal slide](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/) používá jedno rozvržení a ukládá obsah zadaný pro tento snímek.
 
-- Vlastnosti jako [LayoutSlides](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/layoutslides/) a [Masters](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/masters/) pod třídou [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) 
-- Typy jako [ILayoutSlide](https://reference.aspose.com/slides/cs/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cs/net/aspose.slides/ilayoutplaceholdermanager/), a [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/net/aspose.slides/ilayoutslideheaderfootermanager/)
+Normální snímek dědí téma a formátování ze svého rozvržení a rozvržení dědí z masteru. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu na této úrovni. Když je normální snímek vytvořen, jeho tvary zástupných objektů jsou generovány podle vybraného rozvržení, zatímco obsah vložený do těchto zástupných objektů patří normálnímu snímku.
 
-{{% alert title="Info" color="info" %}}
-Pro další informace o práci s hlavními snímky si přečtěte článek [Slide Master](/slides/cs/net/slide-master/).
-{{% /alert %}}
+Přidejte požadované zástupné objekty do rozvržení před vytvořením snímků z něj. Přidání dalšího zástupného objektu do rozvržení později automaticky nepřidá odpovídající tvar zástupného objektu do existujících normálních snímků.
 
-## **Přidání rozvržení snímků do prezentací**
+Tento vztah má dva důležité důsledky:
 
-Pro přizpůsobení vzhledu a struktury vašich snímků možná budete potřebovat přidat nová rozvržení snímků do prezentace. Aspose.Slides pro .NET vám umožňuje zkontrolovat, zda konkrétní rozvržení již existuje, v případě potřeby přidat nové a použít jej k vložení snímků založených na tomto rozvržení.
+- Změna zděděného formátování nebo geometrie existujících zástupných objektů v rozvržení může aktualizovat všechny snímky, které na něm závisí. Před úpravou rozvržení, které je již používáno, zkontrolujte jeho závislé snímky a přezkoumejte výslednou prezentaci.
+- Rozvržení, které je stále použito některým snímkem, nelze odstranit. Nejprve přiřaďte jeho závislé snímky k jinému rozvržení nebo odstraňte jen nepoužívaná rozvržení.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte přístup k [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/imasterlayoutslidecollection/).
-1. Zkontrolujte, zda požadované rozvržení snímku již existuje ve sbírce. Pokud ne, přidejte potřebné rozvržení snímku.
-1. Přidejte prázdný snímek založený na novém rozvržení snímku.
-1. Uložte prezentaci.
+Pro více informací o nejvyšší úrovni této hierarchie viz [Slide Master](/slides/cs/net/slide-master/).
 
-```cs
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+## **Vybrat a použít rozvržení snímku**
+
+Použijte typ rozvržení, když prezentace používá standardní definice rozvržení PowerPointu. Názvy rozvržení jsou upravitelné uživatelem a mohou být lokalizovány, takže výběr založený na názvu je méně spolehlivý, pokud nepřevzímáte kontrolu nad zdrojovou šablonou.
+
+Následující příklad hledá **Title and Content** na prvním masteru. Pokud toto rozvržení není k dispozici, úmyslně přejde na **Blank**. Druhá kontrola na null je nutná, protože prezentace může obsahovat pouze vlastní rozvržení. Vybrané rozvržení je pak použito na první normální snímek pomocí vlastnosti [ISlide.LayoutSlide].
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // Procházejte typy rozvržení snímků a vyberte požadované rozvržení.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // Situace, kdy prezentace neobsahuje všechny typy rozvržení.
-        // Soubor prezentace obsahuje jen typy rozvržení Blank a Custom.
-        // Nicméně rozvržení s vlastními typy mohou mít rozpoznatelné názvy,
-        // například "Title", "Title and Content", atd., které lze použít pro výběr rozvržení snímku.
-        // Můžete se také spolehnout na sadu typů tvarů zástupných objektů.
-        // Například titulní snímek by měl mít jen typ zástupce Title, a podobně.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // Přidejte prázdný snímek pomocí přidaného rozvržení snímku.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // Uložte prezentaci na disk.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Odstranění nepoužívaných rozvržení snímků**
+Změna rozvržení snímku neodstraňuje běžné tvary přidané přímo na snímek. Nicméně se mohou změnit pozice zástupných objektů, zděděné formátování a odpovídající vztah mezi existujícími zástupnými objekty a novým rozvržením, proto prověřte výstup při přepínání mezi podstatně odlišnými rozvrženími.
 
-Aspose.Slides poskytuje metodu [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) třídy [Compress](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/), která vám umožní smazat nechtěná a nepoužívaná rozvržení snímků.
+## **Přidat rozvržení snímku**
 
-Níže uvedený kód C# ukazuje, jak odstranit rozvržení snímku z prezentace PowerPoint:
+Výběr a vytvoření jsou samostatné operace. Předchozí příklad vybírá existující rozvržení; nevytváří žádné. Pro vytvoření rozvržení zavolejte metodu [IMasterLayoutSlideCollection.Add] na kolekci rozvržení cílového masteru.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+Následující příklad vždy přidá nové rozvržení **Title and Content** s názvem `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozvržení musí být v kolekci jedinečné.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Přidání zástupných objektů do rozvržení snímků**
+Přidejte rozvržení jen tehdy, když šablona skutečně potřebuje další znovupoužitelnou strukturu. Pokud vhodné rozvržení již existuje, vyberte a použijte jej místo vytvoření duplikátu.
 
-Aspose.Slides poskytuje vlastnost [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/cs/net/aspose.slides/ilayoutslide/placeholdermanager/), která umožňuje přidávat nové zástupce do rozvržení snímku.
+## **Přidat zástupné objekty do rozvržení snímku**
 
-Tento správce obsahuje metody pro následující typy zástupců:
+Vlastnost [ILayoutSlide.PlaceholderManager] poskytuje [ILayoutPlaceholderManager] pro přidávání tvarů zástupných objektů do rozvržení.
 
-| PowerPoint zástupce | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cs/net/aspose.slides/ilayoutplaceholdermanager/) metoda |
-| ------------------- | ------------------------------------------------------------ |
-| ![Obsah](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Obsah (vertikální)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (vertikální)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Obrázek](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Graf](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabulka](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Média](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online obrázek](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Zástupný objekt PowerPoint | Metoda `ILayoutPlaceholderManager` |
+| -------------------------- | ---------------------------------- |
+| ![Obsah](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![Obsah (vertikální)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (vertikální)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Obrázek](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Graf](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Tabulka](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Média](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online obrázek](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Níže uvedený kód C# ukazuje, jak přidat nové tvary zástupců do prázdného rozvržení snímku:
+Následující příklad ověří, že rozvržení **Blank** existuje, přidá k němu čtyři zástupné objekty a poté vytvoří normální snímek, který použije upravené rozvržení. Pořadí je záměrné: zástupné objekty jsou přidány před vytvořením normálního snímku, takže Aspose.Slides může vygenerovat odpovídající tvary zástupných objektů na tomto snímku.
 
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // Získat prázdné rozvržení snímku.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // Získat správce zástupných objektů rozvržení snímku.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // Přidat různé zástupce do prázdného rozvržení snímku.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // Přidat nový snímek s prázdným rozvržením.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
+
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 ```
 
 Výsledek:
 
-![Zástupci na rozvržení snímku](add_placeholders.png)
+![Zástupné objekty na rozvržení snímku](add_placeholders.png)
 
-## **Nastavení viditelnosti zápatí pro rozvržení snímku**
+{{% alert color="warning" title="Warning" %}}
+Změna zděděného formátování nebo geometrie existujících zástupných objektů v rozvržení může ovlivnit závislé snímky. Nově přidaný zástupný objekt rozvržení se nevyplní do existujících normálních snímků. Testujte změny rozvržení na kopii prezentace a prověřte každý závislý snímek.
+{{% /alert %}}
 
-V prezentacích PowerPoint lze prvky zápatí, jako je datum, číslo snímku a vlastní text, zobrazit nebo skrýt podle rozvržení snímku. Aspose.Slides pro .NET vám umožňuje řídit viditelnost těchto zástupců zápatí. To je užitečné, když chcete, aby některá rozvržení zobrazovala informace v zápatí, zatímco jiná zůstávají čistá a minimalistická.
+## **Odstranit nepoužívaná rozvržení snímků**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte referenci na rozvržení snímku podle jeho indexu.
-1. Nastavte zástupce zápatí snímku jako viditelný.
-1. Nastavte zástupce čísla snímku jako viditelný.
-1. Nastavte zástupce data/času jako viditelný.
-1. Uložte prezentaci.
+Použijte metodu [Compress.RemoveUnusedLayoutSlides] k odstranění rozvržení, na která neodkazuje žádný normální snímek. Metoda ponechá rozvržení, která jsou stále používána, beze změny.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-## **Nastavení viditelnosti zápatí pro podřízené snímky**
+Pro odstranění konkrétního rozvržení nejprve použijte jeho vlastnost [HasDependingSlides] nebo metodu [GetDependingSlides]. Před voláním [ILayoutSlide.Remove] přesuňte všechny závislé snímky. Pokus o odstranění používaného rozvržení vyvolá výjimku [PptxEditException].
 
-V prezentacích PowerPoint lze prvky zápatí, jako je datum, číslo snímku a vlastní text, řídit na úrovni hlavního snímku, aby byla zajištěna konzistence napříč všemi rozvrženími snímků. Aspose.Slides pro .NET vám umožňuje nastavit viditelnost a obsah těchto zástupců zápatí na hlavním snímku a tyto nastavení propagovat do všech podřízených rozvržení snímků. Tento přístup zajišťuje jednotné informace v zápatí v celé prezentaci.
+## **Ovládání viditelnosti zápatí na rozvržení snímku**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte referenci na hlavní snímek podle jeho indexu.
-1. Nastavte zástupce zápatí na hlavním snímku i na všech podřízených jako viditelné.
-1. Nastavte zástupce čísla snímku na hlavním snímku i na všech podřízených jako viditelné.
-1. Nastavte zástupce data/času na hlavním snímku i na všech podřízených jako viditelné.
-1. Uložte prezentaci.
+Rozvržení má své vlastní zástupné objekty zápatí, číslo snímku a datum/čas. Použijte vlastnost [ILayoutSlide.HeaderFooterManager] k řízení těchto zástupných objektů pro jedno rozvržení. To je užitečné například, když rozvržení obsahu má zobrazovat zápatí, ale rozvržení titulku ne.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
-## **Často kladené dotazy**
+## **Ovládání viditelnosti zápatí na masteru a jeho podřízených rozvrženích**
 
-**Jaký je rozdíl mezi hlavním snímkem a rozvržením snímku?**
+Pro použití jednotných nastavení zápatí napříč hierarchií masteru použijte vlastnost [IMasterSlide.HeaderFooterManager]. Metody šíření [IMasterSlideHeaderFooterManager] působí na master a jeho závislá rozvržení snímků i normální snímky; nezasahují pouze do jednoho normálního snímku.
 
-Hlavní snímek určuje celkový motiv a výchozí formátování, zatímco rozvržení snímků definují konkrétní uspořádání zástupců pro různé typy obsahu.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**Mohu zkopírovat rozvržení snímku z jedné prezentace do druhé?**
+using var presentation = new Presentation("input.pptx");
 
-Ano, můžete klonovat rozvržení snímku z kolekce [LayoutSlides](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/layoutslides/) jedné prezentace a vložit jej do jiné pomocí metody `AddClone`.
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
 
-**Co se stane, když smažu rozvržení snímku, které je stále používáno nějakým snímkem?**
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
+```
 
-Pokud se pokusíte smazat rozvržení snímku, na který odkazuje alespoň jeden snímek v prezentaci, Aspose.Slides vyhodí výjimku [PptxEditException](https://reference.aspose.com/slides/cs/net/aspose.slides/pptxeditexception/). Pro odstranění takových situací použijte [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/), která bezpečně odstraní pouze rozvržení snímků, která nejsou používána.
+## **Často kladené otázky**
+
+**Jaký je rozdíl mezi master snímkem a layout snímkem?**
+
+Master snímek určuje téma prezentace a sdílené formátování. Layout snímek patří k masteru a definuje jedno znovupoužitelné uspořádání zástupných objektů. Normální snímky používají tato rozvržení a ukládají obsah specifický pro snímek.
+
+**Mohu zkopírovat layout snímek z jedné prezentace do druhé?**
+
+Ano. Přidejte kopii do cílové kolekce pomocí metody [AddClone]. Při kopírování mezi prezentacemi také ověřte písma, témata, obrázky a další zdroje používané zdrojovým rozvržením.
+
+**Co se stane, když upravím rozvržení, které je již používáno?**
+
+Závislé snímky zdědí změny rozvržení, pokud lokálně nepřepíší ovlivněné formátování nebo objekty. Geometrie zástupných objektů a zděděné stylování se tedy mohou najednou změnit na mnoha snímcích. Použijte [GetDependingSlides] k určení ovlivněných snímků před úpravou rozvržení.
+
+**Co se stane, pokud odstraním rozvržení, které je stále používáno?**
+
+Aspose.Slides vyvolá výjimku [PptxEditException]. Nejprve přesuňte závislé snímky, nebo použijte [RemoveUnusedLayoutSlides] k odstranění pouze neodkazovaných rozvržení.

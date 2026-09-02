@@ -1,5 +1,5 @@
 ---
-title: Aplicar ou Alterar Layouts de Slides em Python
+title: Aplicar ou Alterar Layouts de Slide em Python
 linktitle: Layout de Slide
 type: docs
 weight: 60
@@ -7,11 +7,11 @@ url: /pt/python-net/slide-layout/
 keywords:
 - layout de slide
 - layout de conteúdo
-- espaço reservado
+- marcador de posição
 - design de apresentação
 - design de slide
 - layout não utilizado
-- visibilidade de rodapé
+- visibilidade do rodapé
 - slide de título
 - título e conteúdo
 - cabeçalho de seção
@@ -25,218 +25,204 @@ keywords:
 - título vertical e texto
 - PowerPoint
 - OpenDocument
+- apresentação
 - Python
 - Aspose.Slides
-description: "Aprenda a gerenciar e personalizar layouts de slides no Aspose.Slides for Python via .NET. Explore tipos de layout, controle de espaços reservados, visibilidade de rodapé e manipulação de layouts através de exemplos de código em Python."
+description: "Aplicar, criar e modificar layouts de slide no Aspose.Slides para Python via .NET, adicionar marcadores de posição, remover layouts não utilizados e controlar a visibilidade do rodapé."
 ---
-## **Introdução**
+## **Visão geral**
 
-Um layout de slide define a disposição das caixas de espaço reservado e a formatação do conteúdo em um slide. Ele controla quais espaços reservados estão disponíveis e onde eles aparecem. Os layouts de slides ajudam a criar apresentações de forma rápida e consistente—seja criando algo simples ou mais complexo. Alguns dos layouts de slide mais comuns no PowerPoint incluem:
+Um layout de slide define as posições e a formatação dos marcadores de posição, como títulos, texto, imagens, gráficos e tabelas. Aplicar um layout fornece aos slides uma estrutura consistente, permitindo que cada slide contenha seu próprio conteúdo.
 
-**Layout de Slide de Título** – Inclui dois espaços reservados de texto: um para o título e outro para o subtítulo.
+Os layouts mais comuns incluem:
 
-**Layout de Título e Conteúdo** – Apresenta um espaço reservado de título menor na parte superior e um maior abaixo para o conteúdo principal (como texto, marcadores, gráficos, imagens e mais).
+- **Title Slide**: Contém marcadores de título e subtítulo.
+- **Title and Content**: Contém um marcador de título e um marcador de conteúdo de uso geral.
+- **Blank**: Não contém marcadores de conteúdo e é útil quando cada forma será posicionada manualmente.
 
-**Layout em Branco** – Não contém espaços reservados, dando controle total para projetar o slide do zero.
+## **Entender a herança de layout**
 
-Os layouts de slides fazem parte de um slide mestre, que é o slide de nível superior que define estilos de layout para a apresentação. Você pode acessar e modificar slides de layout através do slide mestre—por tipo, nome ou ID exclusivo. Alternativamente, pode editar um layout de slide específico diretamente na apresentação.
+Uma apresentação tem três níveis relacionados:
 
-Para trabalhar com layouts de slides no Aspose.Slides for Python, você pode usar:
+1. Um [master slide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslide/) define o tema, formatação compartilhada, fundos e objetos comuns.
+2. Um [layout slide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/) pertence a um master e define um arranjo específico de marcadores de posição.
+3. Um [normal slide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slide/) usa um layout e armazena o conteúdo inserido para esse slide.
 
-- Propriedades como [layout_slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/layout_slides/) e [masters](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/masters/) da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/)
-- Tipos como [LayoutSlide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/) e [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslideheaderfootermanager/)
+Um slide normal herda o tema e a formatação do seu layout, e o layout herda do seu master. Um valor definido diretamente em um slide normal substitui o valor herdado nesse nível. Quando um slide normal é criado, suas formas de marcador de posição são geradas a partir do layout selecionado, enquanto o conteúdo inserido nesses marcadores pertence ao slide normal.
 
-{{% alert title="Info" color="info" %}}
-Para saber mais sobre como trabalhar com slides mestres, veja o artigo [Gerenciar Slides Mestres do PowerPoint em Python](/slides/pt/python-net/slide-master/).
-{{% /alert %}}
+Adicione os marcadores de posição necessários a um layout antes de criar slides a partir dele. Adicionar outro marcador de posição a um layout posteriormente não adiciona automaticamente a forma de marcador correspondente aos slides normais existentes.
 
-## **Adicionar Layouts de Slides às Apresentações**
+E esse relacionamento tem duas consequências importantes:
 
-Para personalizar a aparência e a estrutura dos seus slides, pode ser necessário adicionar novos layouts de slide a uma apresentação. O Aspose.Slides for Python permite verificar se um layout específico já existe, adicionar um novo se necessário e usá‑lo para inserir slides com base nesse layout.
+- Mudar a formatação herdada ou a geometria dos marcadores existentes em um layout pode atualizar todos os slides que dependem dele. Antes de editar um layout que já está em uso, inspecione seus slides dependentes e revise a apresentação resultante.
+- Um layout que ainda está sendo usado por um slide não pode ser removido. Reatribua seus slides dependentes a outro layout primeiro, ou remova apenas os layouts não utilizados.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
-2. Acesse a [MasterLayoutSlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterlayoutslidecollection/).
-3. Verifique se o layout de slide desejado já existe na coleção. Se não, adicione o layout de slide que precisar.
-4. Adicione um slide vazio baseado no novo layout de slide.
-5. Salve a apresentação.
+Para mais informações sobre o nível superior desta hierarquia, veja [Slide Master](/slides/pt/python-net/slide-master/).
 
-O código Python a seguir demonstra como adicionar um layout de slide a uma apresentação PowerPoint:
+## **Selecionar e aplicar um layout de slide**
+
+Use um tipo de layout quando a apresentação segue as definições padrão de layout do PowerPoint. Os nomes dos layouts são editáveis pelo usuário e podem ser localizados, então a seleção baseada em nome é menos confiável, a menos que você controle o modelo fonte.
+
+O exemplo a seguir procura por **Title and Content** no primeiro master. Se esse layout não estiver disponível, ele recorre deliberadamente ao **Blank**. A segunda verificação nula é necessária porque uma apresentação pode conter apenas layouts personalizados. O layout selecionado é então aplicado ao primeiro slide normal através da propriedade [Slide.layout_slide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slide/layout_slide/).
 
 ```python
 import aspose.slides as slides
 
-# Instanciar a classe Presentation para abrir o arquivo de apresentação.
-with slides.Presentation("sample.pptx") as presentation:
-    # Percorrer os tipos de layout de slide para selecionar um layout de slide.
+with slides.Presentation("input.pptx") as presentation:
     layout_slides = presentation.masters[0].layout_slides
-    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-    if layout_slide is None:
-         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-    if layout_slide is None:
-        # Situação em que a apresentação não contém todos os tipos de layout.
-        # O arquivo de apresentação contém apenas os tipos de layout Em Branco e Personalizado.
-        # No entanto, os layouts de slide com tipos personalizados podem ter nomes reconhecíveis,
-        # como "Título", "Título e Conteúdo", etc., que podem ser usados para a seleção de layout de slide.
-        # Também é possível basear-se em um conjunto de tipos de forma de espaço reservado.
-        # Por exemplo, um slide de Título deve ter apenas o tipo de espaço reservado Título, e assim por diante.
-        for title_and_object_layout_slide in layout_slides:
-            if title_and_object_layout_slide.name == "Title and Object":
-                layout_slide = title_and_object_layout_slide
-                break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-        if layout_slide is None:
-            for title_layout_slide in layout_slides:
-                if title_layout_slide.name == "Title":
-                    layout_slide = title_layout_slide
-                    break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-            if layout_slide is None:
-                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-    # Adicionar um slide vazio usando o layout de slide adicionado.
-    presentation.slides.insert_empty_slide(0, layout_slide)
-
-    # Salvar a apresentação no disco.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Remover Layouts de Slide Não Utilizados**
+Mudar o layout de um slide não remove as formas normais adicionadas diretamente ao slide. No entanto, as posições dos marcadores de posição, a formatação herdada e a correspondência entre os marcadores existentes e o novo layout podem mudar, portanto inspecione o resultado ao alternar entre layouts substancialmente diferentes.
 
-O Aspose.Slides fornece o método [remove_unused_layout_slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) da classe [Compress](https://reference.aspose.com/slides/pt/python-net/aspose.slides.lowcode/compress/) para permitir excluir layouts de slide indesejados e não utilizados.
+## **Adicionar um layout de slide**
 
-O código Python a seguir mostra como remover um layout de slide de uma apresentação PowerPoint:
+A seleção e a criação são operações separadas. O exemplo anterior seleciona um layout existente; não o cria. Para criar um layout, chame o método [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterlayoutslidecollection/add/) na coleção de layouts do master de destino.
+
+O exemplo a seguir sempre adiciona um novo layout **Title and Content** chamado `Report Title and Content`, então adiciona um slide normal baseado nele. Os nomes dos layouts devem ser exclusivos dentro da coleção.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Adicionar Espaços Reservados a Layouts de Slide**
+Adicione um layout somente quando o modelo realmente precisar de outra estrutura reutilizável. Se já existir um layout adequado, selecione e reutilize‑o em vez de criar um duplicado.
 
-O Aspose.Slides fornece a propriedade [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/placeholder_manager/), que permite adicionar novos espaços reservados a um layout de slide.
+## **Adicionar marcadores de posição a um layout de slide**
 
-Este gerenciador contém métodos para os seguintes tipos de espaço reservado:
+A propriedade [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/placeholder_manager/) fornece um [LayoutPlaceholderManager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/) para adicionar formas de marcador de posição a um layout.
 
-| Espaço Reservado do PowerPoint | Método |
-| ------------------------------ | ------ |
-| ![Conteúdo](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Conteúdo (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Texto](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Texto (Vertical)](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Imagem](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Gráfico](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Tabela](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Mídia](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Imagem Online](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+| Placeholder do PowerPoint          | `LayoutPlaceholderManager` Method |
+| ----------------------------------- | --------------------------------- |
+| Conteúdo                            | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| Conteúdo (Vertical)                 | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| Texto                               | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| Texto (Vertical)                    | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| Imagem                              | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| Gráfico                             | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| Tabela                              | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| SmartArt                            | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| Mídia                               | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| Imagem online                       | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-O código Python a seguir demonstra como adicionar novas formas de espaço reservado ao slide de layout em branco:
+O exemplo a seguir verifica se o layout **Blank** existe, adiciona quatro marcadores de posição a ele e, em seguida, cria um slide normal que usa o layout modificado. A ordem é intencional: os marcadores são adicionados antes de o slide normal ser criado, para que o Aspose.Slides possa gerar as formas de marcador correspondentes naquele slide.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Obter o slide de layout em branco.
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Obter o gerenciador de espaços reservados do slide de layout.
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # Adicionar diferentes espaços reservados ao slide de layout em branco.
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # Adicionar um novo slide com o layout em branco.
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 O resultado:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Os marcadores de posição no layout do slide](add_placeholders.png)
 
-## **Definir Visibilidade do Rodapé para um Layout de Slide**
+{{% alert color="warning" title="Warning" %}}
+Mudar a formatação herdada ou a geometria dos marcadores de posição existentes no layout pode afetar os slides dependentes. Um marcador de posição de layout recém‑adicionado não é preenchido retroativamente nos slides normais existentes. Teste as alterações de layout em uma cópia da apresentação e inspecione cada slide dependente.
+{{% /alert %}}
 
-Em apresentações PowerPoint, elementos de rodapé como data, número do slide e texto personalizado podem ser mostrados ou ocultados dependendo do layout do slide. O Aspose.Slides for Python permite controlar a visibilidade desses espaços reservados de rodapé. Isso é útil quando você deseja que determinados layouts exibam informações de rodapé enquanto outros permanecem limpos e minimalistas.
+## **Remover layouts de slide não utilizados**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
-2. Obtenha uma referência ao layout de slide pelo seu índice.
-3. Defina o espaço reservado do rodapé do slide como visível.
-4. Defina o espaço reservado do número do slide como visível.
-5. Defina o espaço reservado da data/hora como visível.
-6. Salve a apresentação.
-
-O código Python a seguir mostra como definir a visibilidade do rodapé de um slide e executar tarefas relacionadas:
+Use o método [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) para remover layouts que nenhum slide normal referencia. O método mantém intactos os layouts que ainda estão em uso.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Definir Visibilidade do Rodapé Filho para um Slide**
+Para remover um layout específico, primeiro use a propriedade [has_depending_slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/has_depending_slides/) ou o método [get_depending_slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/get_depending_slides/). Reatribua quaisquer slides dependentes antes de chamar [LayoutSlide.remove](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/remove/). Tentar remover um layout em uso gera uma [PptxEditException](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pptxeditexception/).
 
-Em apresentações PowerPoint, elementos de rodapé como data, número do slide e texto personalizado podem ser controlados no nível do slide mestre para garantir consistência em todos os layouts de slide. O Aspose.Slides for Python permite definir a visibilidade e o conteúdo desses espaços reservados de rodapé no slide mestre e propagar essas configurações a todos os layouts filhos. Essa abordagem garante informações de rodapé uniformes em toda a apresentação.
+## **Controlar a visibilidade do rodapé em um layout de slide**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
-2. Obtenha uma referência ao slide mestre pelo seu índice.
-3. Defina os espaços reservados de rodapé do mestre e de todos os filhos como visíveis.
-4. Defina os espaços reservados de número do slide do mestre e de todos os filhos como visíveis.
-5. Defina os espaços reservados de data/hora do mestre e de todos os filhos como visíveis.
-6. Salve a apresentação.
+Um layout tem seus próprios marcadores de rodapé, número de slide e data/hora. Use a propriedade [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/header_footer_manager/) para controlar esses marcadores em um layout. Isso é útil quando, por exemplo, layouts de conteúdo devem mostrar rodapés, mas layouts de título não.
 
-O código Python a seguir demonstra essa operação:
+O exemplo a seguir seleciona um layout com segurança e torna seus elementos de rodapé visíveis:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Controlar a visibilidade do rodapé em um master e seus layouts filhos**
+
+Para aplicar configurações de rodapé consistentes em toda a hierarquia de master, use a propriedade [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslide/header_footer_manager/). Os métodos de propagação do [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslideheaderfootermanager/) operam no master e em seus slides de layout e slides normais dependentes; eles não visam apenas um slide normal.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**Qual a diferença entre um slide mestre e um layout de slide?**
+**Qual é a diferença entre um Master Slide e um Layout Slide?**
 
-Um slide mestre define o tema geral e a formatação padrão, enquanto os layouts de slide definem arranjos específicos de espaços reservados para diferentes tipos de conteúdo.
+Um master slide define o tema da apresentação e a formatação compartilhada. Um layout slide pertence a um master e define um arranjo reutilizável de marcadores de posição. Slides normais usam esses layouts e armazenam o conteúdo específico de cada slide.
 
-**Posso copiar um layout de slide de uma apresentação para outra?**
+**Posso copiar um Layout Slide de uma apresentação para outra?**
 
-Sim, você pode clonar um layout de slide da coleção [layout_slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/layout_slides/) de uma apresentação e inseri‑lo em outra usando o método `add_clone`.
+Sim. Adicione uma cópia à coleção de destino com o método [add_clone](https://reference.aspose.com/slides/pt/python-net/aspose.slides/globallayoutslidecollection/add_clone/). Ao copiar entre apresentações, também verifique fontes, temas, imagens e outros recursos usados pelo layout de origem.
 
-**O que acontece se eu excluir um layout de slide que ainda está sendo usado por um slide?**
+**O que acontece quando modifico um layout que já está em uso?**
 
-Se você tentar excluir um layout de slide que ainda é referenciado por pelo menos um slide na apresentação, o Aspose.Slides lançará uma [PptxEditException](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pptxeditexception/). Para evitar isso, use [remove_unused_layout_slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) que remove com segurança apenas os layouts de slide que não estão em uso.
+Slides dependentes herdam as alterações do layout, a menos que substituam a formatação ou objetos afetados localmente. A geometria dos marcadores e o estilo herdado podem, portanto, mudar em muitos slides ao mesmo tempo. Use [get_depending_slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/get_depending_slides/) para identificar os slides afetados antes de editar o layout.
+
+**O que acontece se eu remover um layout que ainda está em uso?**
+
+O Aspose.Slides gera uma [PptxEditException](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pptxeditexception/). Reatribua primeiro os slides dependentes ou use [remove_unused_layout_slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) para remover apenas os layouts não referenciados.

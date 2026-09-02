@@ -1,16 +1,16 @@
 ---
-title: Applica o modifica layout diapositive in .NET
-linktitle: Layout diapositive
+title: Applica o Modifica Layout di Diapositive in .NET
+linktitle: Layout Diapositiva
 type: docs
 weight: 60
 url: /it/net/slide-layout/
 keywords:
-- layout diapositive
+- layout diapositiva
 - layout contenuto
 - segnaposto
-- progettazione presentazione
-- progettazione diapositiva
-- layout inutilizzato
+- design della presentazione
+- design diapositiva
+- layout non utilizzato
 - visibilità piè di pagina
 - diapositiva titolo
 - titolo e contenuto
@@ -29,237 +29,213 @@ keywords:
 - C#
 - .NET
 - Aspose.Slides
-description: "Gestisci e personalizza i layout diapositive in Aspose.Slides per .NET. Esplora i tipi di layout, il controllo dei segnaposto e la visibilità del piè di pagina tramite esempi di codice C#."
+description: "Applica, crea e modifica i layout delle diapositive in Aspose.Slides per .NET, aggiungi segnaposti, rimuovi layout non utilizzati e controlla la visibilità del piè di pagina."
 ---
-## **Introduzione**
+## **Panoramica**
 
-Un layout di diapositiva definisce la disposizione delle caselle segnaposto e la formattazione del contenuto su una diapositiva. Controlla quali segnaposto sono disponibili e dove appaiono. I layout di diapositiva ti aiutano a progettare presentazioni rapidamente e in modo coerente—sia che tu stia creando qualcosa di semplice o più complesso. Alcuni dei layout di diapositiva più comuni in PowerPoint includono:
+Un layout diapositive definisce le posizioni e la formattazione dei segnaposti come titoli, testo, immagini, grafici e tabelle. L'applicazione di un layout conferisce alle diapositive una struttura coerente consentendo a ciascuna diapositiva di contenere il proprio contenuto.
 
-**Layout Titolo** – Include due segnaposto di testo: uno per il titolo e uno per il sottotitolo.
+- **Diapositiva Titolo**: Contiene segnaposti per il titolo e il sottotitolo.
+- **Titolo e Contenuto**: Contiene un segnaposto titolo e un segnaposto contenuto generico.
+- **Vuota**: Non contiene segnaposti di contenuto ed è utile quando ogni forma verrà posizionata manualmente.
 
-**Layout Titolo e Contenuto** – Presenta un segnaposto per il titolo più piccolo nella parte superiore e uno più grande sotto per il contenuto principale (come testo, elenchi puntati, grafici, immagini e altro).
+## **Comprendere l'ereditarietà del layout**
 
-**Layout Vuoto** – Non contiene segnaposto, offrendoti il pieno controllo per progettare la diapositiva da zero.
+Una presentazione ha tre livelli correlati:
 
-I layout di diapositiva fanno parte di un master di diapositiva, che è la diapositiva di livello superiore che definisce gli stili di layout per la presentazione. Puoi accedere e modificare i layout di diapositiva tramite il master di diapositiva—sia per tipo, nome o ID univoco. In alternativa, puoi modificare un layout di diapositiva specifico direttamente all'interno della presentazione.
+1. Una [diapositiva master](https://reference.aspose.com/slides/it/net/aspose.slides/imasterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.
+1. Una [diapositiva layout](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslide/) appartiene a un master e definisce una particolare disposizione di segnaposti.
+1. Una [diapositiva normale](https://reference.aspose.com/slides/it/net/aspose.slides/islide/) utilizza un layout e memorizza il contenuto inserito per quella diapositiva.
 
-Per lavorare con i layout di diapositiva in Aspose.Slides per .NET, è possibile utilizzare:
+Una diapositiva normale eredita tema e formattazione dal suo layout, e il layout eredita dal suo master. Un valore impostato direttamente su una diapositiva normale sovrascrive il valore ereditato a quel livello. Quando viene creata una diapositiva normale, le forme dei segnaposti vengono generate dal layout selezionato, mentre il contenuto inserito in tali segnaposti appartiene alla diapositiva normale.
 
-- Proprietà come [LayoutSlides](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/layoutslides/) e [Masters](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/masters/) nella classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/)
-- Tipi come [ILayoutSlide](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/it/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutplaceholdermanager/) e [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslideheaderfootermanager/)
+Aggiungere i segnaposti richiesti a un layout prima di creare diapositive da esso. Aggiungere in seguito un altro segnaposto a un layout non aggiunge automaticamente una forma segnaposto corrispondente alle diapositive normali esistenti.
 
-{{% alert title="Info" color="info" %}}
-Per saperne di più su come lavorare con i master di diapositiva, consulta l'articolo [Slide Master](/slides/it/net/slide-master/).
-{{% /alert %}}
+Questa relazione ha due conseguenze importanti:
 
-## **Aggiungere layout di diapositiva alle presentazioni**
+- Modificare la formattazione ereditata o la geometria dei segnaposti esistenti su un layout può aggiornare ogni diapositiva che dipende da esso. Prima di modificare un layout già in uso, esamina le diapositive dipendenti e rivedi la presentazione risultante.
+- Un layout ancora utilizzato da una diapositiva non può essere rimosso. Riassegna prima le diapositive dipendenti a un altro layout, oppure rimuovi solo i layout non utilizzati.
 
-Per personalizzare l'aspetto e la struttura delle tue diapositive, potresti dover aggiungere nuovi layout di diapositiva a una presentazione. Aspose.Slides per .NET consente di verificare se un layout specifico esiste già, aggiungerne uno nuovo se necessario e usarlo per inserire diapositive basate su quel layout.
+Per ulteriori informazioni sul livello superiore di questa gerarchia, vedi [Master della diapositiva](/slides/it/net/slide-master/).
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
-1. Accedi alla [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/it/net/aspose.slides/imasterlayoutslidecollection/).
-1. Verifica se il layout di diapositiva desiderato esiste già nella collezione. In caso contrario, aggiungi il layout di diapositiva necessario.
-1. Aggiungi una diapositiva vuota basata sul nuovo layout di diapositiva.
-1. Salva la presentazione.
+## **Selezionare e Applicare un Layout Diapositiva**
 
-Il seguente codice C# dimostra come aggiungere un layout di diapositiva a una presentazione PowerPoint:
+Usa un tipo di layout quando la presentazione segue le definizioni di layout standard di PowerPoint. I nomi dei layout sono modificabili dall'utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che non si controlli il modello di origine.
 
-```cs
-// Istanzia la classe Presentation che rappresenta un file PowerPoint.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+L'esempio seguente cerca **Titolo e Contenuto** nel primo master. Se quel layout non è disponibile, ricade deliberatamente su **Vuota**. Il secondo controllo di null è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene quindi applicato alla prima diapositiva normale tramite la proprietà [ISlide.LayoutSlide](https://reference.aspose.com/slides/it/net/aspose.slides/islide/layoutslide/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // Scorri i tipi di layout diapositive per selezionare un layout di diapositiva.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // Una situazione in cui la presentazione non contiene tutti i tipi di layout.
-        // Il file della presentazione contiene solo i tipi di layout Blank e Custom.
-        // Tuttavia, i layout diapositive con tipi personalizzati possono avere nomi riconoscibili,
-        // come "Title", "Title and Content", ecc., che possono essere usati per la selezione del layout di diapositiva.
-        // Puoi anche fare affidamento su un insieme di tipi di forma segnaposto.
-        // Ad esempio, una diapositiva Title dovrebbe contenere solo il tipo di segnaposto Title, e così via.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // Aggiungi una diapositiva vuota usando il layout di diapositiva aggiunto.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // Salva la presentazione su disco.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Rimuovere i layout di diapositiva non utilizzati**
+Modificare il layout di una diapositiva non rimuove le forme ordinarie aggiunte direttamente alla diapositiva. Tuttavia, le posizioni dei segnaposti, la formattazione ereditata e la corrispondenza tra i segnaposti esistenti e il nuovo layout possono cambiare, quindi controlla l'output quando passi da un layout sostanzialmente diverso a un altro.
 
-Aspose.Slides fornisce il metodo [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) della classe [Compress](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/) per consentirti di eliminare i layout di diapositiva indesiderati e non utilizzati.
+## **Aggiungere una Diapositiva Layout**
 
-Il seguente codice C# mostra come rimuovere un layout di diapositiva da una presentazione PowerPoint:
+Selezione e creazione sono operazioni separate. L'esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/it/net/aspose.slides/masterlayoutslidecollection/add/) sulla collezione di layout del master di destinazione.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+L'esempio seguente aggiunge sempre un nuovo layout **Titolo e Contenuto** denominato `Report Title and Content`, quindi aggiunge una diapositiva normale basata su di esso. I nomi dei layout devono essere unici all'interno della collezione.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Aggiungere segnaposto ai layout di diapositiva**
+Aggiungi un layout solo quando il modello necessita realmente di un'altra struttura riutilizzabile. Se esiste già un layout adatto, selezionalo e riutilizzalo invece di crearne un duplicato.
 
-Aspose.Slides fornisce la proprietà [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslide/placeholdermanager/), che consente di aggiungere nuovi segnaposto a un layout di diapositiva.
+## **Aggiungere Segnaposti a una Diapositiva Layout**
 
-Questo gestore contiene metodi per i seguenti tipi di segnaposto:
+La proprietà [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslide/placeholdermanager/) fornisce un [ILayoutPlaceholderManager](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutplaceholdermanager/) per aggiungere forme segnaposto a un layout.
 
-| Segnaposto PowerPoint | Metodo [ILayoutPlaceholderManager](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutplaceholdermanager/) |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------- |
-| ![Contenuto](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Contenuto (Verticale)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Testo](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Testo (Verticale)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Immagine](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Grafico](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabella](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Immagine online](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Segnaposto PowerPoint               | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![Content](content.png)             | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![Content (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png)                   | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertical)](textV.png)       | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Picture](picture.png)             | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Chart](chart.png)                 | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Table](table.png)                 | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online Image](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Il seguente codice C# dimostra come aggiungere nuove forme segnaposto al layout Vuoto:
+L'esempio seguente verifica che il layout **Vuota** esista, aggiunge quattro segnaposti ad esso e poi crea una diapositiva normale che utilizza il layout modificato. L'ordine è intenzionale: i segnaposti vengono aggiunti prima della creazione della diapositiva normale, così Aspose.Slides può generare le forme segnaposto corrispondenti su quella diapositiva.
 
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // Ottieni il layout Blank.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // Ottieni il gestore dei segnaposto del layout slide.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // Aggiungi diversi segnaposto al layout Blank.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // Aggiungi una nuova diapositiva con il layout Blank.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
+
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 ```
 
 Il risultato:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![I segnaposti sulla diapositiva layout](add_placeholders.png)
 
-## **Impostare la visibilità del piè di pagina per un layout di diapositiva**
+{{% alert color="warning" title="Warning" %}}
+Modificare la formattazione ereditata o la geometria dei segnaposti di layout esistenti può influenzare le diapositive dipendenti. Un segnaposto di layout aggiunto di recente non viene retroattivamente inserito nelle diapositive normali esistenti. Testa le modifiche al layout su una copia della presentazione e controlla ogni diapositiva dipendente.
+{{% /alert %}}
 
-Nelle presentazioni PowerPoint, gli elementi del piè di pagina come data, numero della diapositiva e testo personalizzato possono essere mostrati o nascosti a seconda del layout di diapositiva. Aspose.Slides per .NET ti consente di controllare la visibilità di questi segnaposto del piè di pagina. Questo è utile quando desideri che alcuni layout mostrino le informazioni del piè di pagina mentre altri rimangano puliti e minimi.
+## **Rimuovere Diapositive Layout Non Utilizzate**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
-1. Ottieni un riferimento al layout di diapositiva tramite il suo indice.
-1. Imposta il segnaposto del piè di pagina della diapositiva su visibile.
-1. Imposta il segnaposto del numero della diapositiva su visibile.
-1. Imposta il segnaposto della data/ora su visibile.
-1. Salva la presentazione.
+Usa il metodo [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) per rimuovere i layout a cui non fa riferimento alcuna diapositiva normale. Il metodo mantiene intatti i layout ancora in uso.
 
-Il seguente codice C# mostra come impostare la visibilità del piè di pagina di una diapositiva ed eseguire le attività correlate:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-## **Impostare la visibilità del piè di pagina per i layout figlio di una diapositiva**
+Per rimuovere un layout specifico, usa innanzitutto la sua proprietà [HasDependingSlides](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslide/hasdependingslides/) o il metodo [GetDependingSlides](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslide/getdependingslides/). Riassegna le diapositive dipendenti prima di chiamare [ILayoutSlide.Remove](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslide/remove/). Tentare di rimuovere un layout in uso genera una [PptxEditException](https://reference.aspose.com/slides/it/net/aspose.slides/pptxeditexception/).
 
-​Nelle presentazioni PowerPoint, gli elementi del piè di pagina come data, numero della diapositiva e testo personalizzato possono essere controllati a livello del master di diapositiva per garantire la coerenza su tutti i layout di diapositiva. Aspose.Slides per .NET consente di impostare la visibilità e il contenuto di questi segnaposto del piè di pagina sul master di diapositiva e di propagare queste impostazioni a tutti i layout figlio. Questo approccio garantisce informazioni uniformi nel piè di pagina in tutta la presentazione.​
+## **Controllare la Visibilità del Footer su una Diapositiva Layout**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
-1. Ottieni un riferimento al master di diapositiva tramite il suo indice.
-1. Imposta tutti i segnaposto del piè di pagina del master e dei layout figlio su visibili.
-1. Imposta tutti i segnaposto del numero della diapositiva del master e dei layout figlio su visibili.
-1. Imposta tutti i segnaposto della data/ora del master e dei layout figlio su visibili.
-1. Salva la presentazione.
+Un layout ha i propri segnaposti per footer, numero diapositiva e data/ora. Usa la proprietà [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslide/headerfootermanager/) per controllare quei segnaposti su un singolo layout. È utile, ad esempio, quando i layout di contenuto devono mostrare i footer ma i layout di titolo no.
 
-Il seguente codice C# dimostra questa operazione:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+```
+
+## **Controllare la Visibilità del Footer su un Master e sui suoi Layout Figlio**
+
+Per applicare impostazioni di footer coerenti su tutta la gerarchia di un master, usa la proprietà [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/it/net/aspose.slides/imasterslide/headerfootermanager/). I metodi di propagazione di [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/net/aspose.slides/imasterslideheaderfootermanager/) operano sul master e sui suoi layout e diapositive normali dipendenti; non colpiscono una sola diapositiva normale.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Qual è la differenza tra un master slide e un layout slide?**
+**Qual è la differenza tra una diapositiva master e una diapositiva layout?**
 
-Un master slide definisce il tema generale e la formattazione predefinita, mentre i layout slide definiscono disposizioni specifiche di segnaposto per diversi tipi di contenuto.
+Una diapositiva master definisce il tema della presentazione e la formattazione condivisa. Una diapositiva layout appartiene a un master e definisce una disposizione riutilizzabile di segnaposti. Le diapositive normali usano questi layout e memorizzano il contenuto specifico della diapositiva.
 
-**Posso copiare un layout slide da una presentazione all'altra?**
+**Posso copiare una diapositiva layout da una presentazione all'altra?**
 
-Sì, puoi clonare un layout slide dalla collezione [LayoutSlides](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/layoutslides/) di una presentazione e inserirlo in un'altra usando il metodo `AddClone`.
+Sì. Aggiungi una copia alla collezione di destinazione con il metodo [AddClone](https://reference.aspose.com/slides/it/net/aspose.slides/globallayoutslidecollection/addclone/). Quando copi tra presentazioni, verifica anche i caratteri, i temi, le immagini e le altre risorse utilizzate dal layout di origine.
 
-**Cosa succede se elimino un layout slide che è ancora utilizzato da una diapositiva?**
+**Cosa succede se modifico un layout già in uso?**
 
-Se provi a eliminare un layout slide che è ancora referenziato da almeno una diapositiva nella presentazione, Aspose.Slides genererà un'eccezione [PptxEditException](https://reference.aspose.com/slides/it/net/aspose.slides/pptxeditexception/). Per evitare ciò, utilizza [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) che rimuove in sicurezza solo i layout slide non in uso.
+Le diapositive dipendenti ereditano le modifiche al layout, a meno che non sovrascrivano localmente la formattazione o gli oggetti interessati. La geometria dei segnaposti e lo stile ereditato possono quindi cambiare su molte diapositive contemporaneamente. Usa [GetDependingSlides](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslide/getdependingslides/) per identificare le diapositive interessate prima di modificare il layout.
+
+**Cosa succede se rimuovo un layout ancora in uso?**
+
+Aspose.Slides lancia una [PptxEditException](https://reference.aspose.com/slides/it/net/aspose.slides/pptxeditexception/). Riassegna prima le diapositive dipendenti, oppure usa [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/it/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) per rimuovere solo i layout non referenziati.

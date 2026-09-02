@@ -10,8 +10,8 @@ keywords:
 - marcador de posição
 - design de apresentação
 - design de slide
-- layout não utilizado
-- visibilidade de rodapé
+- layout não usado
+- visibilidade do rodapé
 - slide de título
 - título e conteúdo
 - cabeçalho de seção
@@ -28,235 +28,266 @@ keywords:
 - apresentação
 - C++
 - Aspose.Slides
-description: "Gerencie e personalize layouts de slide no Aspose.Slides para C++. Explore tipos de layout, controle de marcadores de posição e visibilidade de rodapé através de exemplos de código C++."
+description: "Aplicar, criar e modificar layouts de slide no Aspose.Slides para C++, adicionar marcadores de posição, remover layouts não usados e controlar a visibilidade do rodapé."
 ---
-## **Introdução**
+## **Visão geral**
 
-Um layout de slide define a disposição das caixas de marcador de posição e a formatação do conteúdo em um slide. Ele controla quais marcadores de posição estão disponíveis e onde eles aparecem. Os layouts de slide ajudam você a criar apresentações rapidamente e de forma consistente—seja criando algo simples ou mais complexo. Alguns dos layouts de slide mais comuns no PowerPoint incluem:
+Um layout de slide define as posições e formatação de marcadores de posição como títulos, texto, imagens, gráficos e tabelas. Aplicar um layout fornece aos slides uma estrutura consistente, permitindo que cada slide contenha seu próprio conteúdo.
 
-**Layout de Slide de Título** – Inclui dois marcadores de posição de texto: um para o título e outro para o subtítulo.
+- **Slide de Título**: Contém marcadores de posição de título e subtítulo.  
+- **Título e Conteúdo**: Contém um marcador de posição de título e um marcador de posição de conteúdo de uso geral.  
+- **Em Branco**: Não contém marcadores de posição de conteúdo e é útil quando cada forma será posicionada manualmente.
 
-**Layout de Título e Conteúdo** – Apresenta um marcador de posição de título menor na parte superior e um maior abaixo para o conteúdo principal (como texto, marcadores, gráficos, imagens e mais).
+## **Entenda a Herança de Layout**
 
-**Layout em Branco** – Não contém marcadores de posição, dando a você controle total para criar o slide do zero.
+Uma apresentação tem três níveis relacionados:
 
-Os layouts de slide fazem parte de um slide mestre, que é o slide de nível superior que define os estilos de layout para a apresentação. Você pode acessar e modificar os layouts de slide através do slide mestre—seja pelo tipo, nome ou ID exclusivo. Alternativamente, pode editar um layout de slide específico diretamente na apresentação.
+1. Um [slide mestre](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterslide/) define o tema, formatação compartilhada, planos de fundo e objetos comuns.  
+2. Um [slide de layout](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslide/) pertence a um mestre e define um arranjo específico de marcadores de posição.  
+3. Um [slide normal](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islide/) usa um layout e armazena o conteúdo inserido para esse slide.
 
-Para trabalhar com layouts de slide no Aspose.Slides for Android, você pode usar:
+Um slide normal herda o tema e a formatação do seu layout, e o layout herda do seu mestre. Um valor definido diretamente em um slide normal substitui o valor herdado naquele nível. Quando um slide normal é criado, suas formas de marcador de posição são geradas a partir do layout selecionado, enquanto o conteúdo inserido nesses marcadores pertence ao slide normal.
 
-- Métodos como [get_LayoutSlides](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_layoutslides/) e [get_Masters](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_masters/) na classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/) 
-- Tipos como [ILayoutSlide](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/), e [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
+Adicione os marcadores de posição necessários a um layout antes de criar slides a partir dele. Adicionar outro marcador de posição a um layout posteriormente não adiciona automaticamente a forma correspondente aos slides normais existentes.
 
-{{% alert title="Info" color="info" %}}
-Para saber mais sobre como trabalhar com slides mestres, confira o artigo [Slide Master](/slides/pt/cpp/slide-master/).
-{{% /alert %}}
+Essa relação tem duas consequências importantes:
 
-## **Adicionar Layouts de Slide às Apresentações**
+- Alterar a formatação herdada ou a geometria dos marcadores de posição existentes em um layout pode atualizar todos os slides que dependem dele. Antes de editar um layout que já está em uso, inspecione seus slides dependentes e revise a apresentação resultante.  
+- Um layout que ainda é usado por um slide não pode ser removido. Reatribua seus slides dependentes a outro layout primeiro, ou remova apenas os layouts não utilizados.
 
-Para personalizar a aparência e a estrutura dos seus slides, pode ser necessário adicionar novos layouts de slide a uma apresentação. O Aspose.Slides for Android permite verificar se um layout específico já existe, adicionar um novo se necessário e usá‑lo para inserir slides com base nesse layout.
+Para mais informações sobre o nível superior dessa hierarquia, veja [Mestre de Slides](/slides/pt/cpp/slide-master/).
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/).
-2. Acesse a [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterlayoutslidecollection/).
-3. Verifique se o layout de slide desejado já existe na coleção. Caso não exista, adicione o layout de slide necessário.
-4. Adicione um slide vazio baseado no novo layout de slide.
-5. Salve a apresentação.
+## **Selecione e Aplique um Layout de Slide**
 
-O código C++ a seguir demonstra como adicionar um layout de slide a uma apresentação PowerPoint:
+Use um tipo de layout quando a apresentação segue definições padrão de layouts do PowerPoint. Os nomes dos layouts são editáveis pelo usuário e podem ser localizados, portanto a seleção baseada em nome é menos confiável a menos que você controle o modelo fonte.
+
+O exemplo a seguir procura **Title and Content** no primeiro mestre. Se esse layout não estiver disponível, ele recai deliberadamente para **Blank**. A segunda verificação nula é necessária porque uma apresentação pode conter apenas layouts personalizados. O layout selecionado é então aplicado ao primeiro slide normal através do método [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
-// Instanciar a classe Presentation que representa um arquivo PowerPoint.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
 
-// Percorrer os tipos de layout de slide para selecionar um layout de slide.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
-SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+auto targetLayout = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+
+if (targetLayout == nullptr)
 {
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-}
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
-{
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+    targetLayout = layoutSlides->GetByType(SlideLayoutType::Blank);
 }
 
-if (layoutSlide == nullptr)
+if (targetLayout == nullptr)
 {
-    // Uma situação em que a apresentação não contém todos os tipos de layout.
-    // O arquivo de apresentação contém apenas os tipos de layout Blank e Custom.
-    // No entanto, slides de layout com tipos personalizados podem ter nomes reconhecíveis,
-    // como "Title", "Title and Content", etc., que podem ser usados para a seleção de layout de slide.
-    // Você também pode basear-se em um conjunto de tipos de formas de marcador de posição.
-    // Por exemplo, um slide de Título deve ter apenas o tipo de marcador de posição Title, e assim por diante.
-    for (int i = 0; i < layoutSlides->get_Count(); i++)
-    {
-        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-        {
-            layoutSlide = titleAndObjectLayoutSlide;
-            break;
-        }
-    }
-
-    if (layoutSlide == nullptr)
-    {
-        for (int i = 0; i < layoutSlides->get_Count(); i++)
-        {
-            auto titleLayoutSlide = layoutSlides->idx_get(i);
-
-            if (titleLayoutSlide->get_Name() == u"Title")
-            {
-                layoutSlide = titleLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == nullptr)
-        {
-            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == nullptr)
-            {
-                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-            }
-        }
-    }
+    throw InvalidOperationException(u"The first master does not contain a suitable layout slide.");
 }
 
-// Adicionar um slide vazio usando o layout de slide adicionado.
-presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-// Salvar a apresentação no disco.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->get_Slide(0)->set_LayoutSlide(targetLayout);
+presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Remover Layouts de Slide Não Utilizados**
+Alterar o layout de um slide não remove as formas comuns adicionadas diretamente ao slide. Contudo, posições dos marcadores, formatação herdada e a correspondência entre os marcadores existentes e o novo layout podem mudar, portanto inspecione o resultado ao alternar entre layouts substancialmente diferentes.
 
-O Aspose.Slides fornece o método [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pt/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) na classe [Compress](https://reference.aspose.com/slides/pt/cpp/aspose.slides.lowcode/compress/) para permitir que você exclua layouts de slide indesejados e não utilizados.
+## **Adicionar um Slide de Layout**
 
-O código C++ a seguir mostra como remover um layout de slide de uma apresentação PowerPoint:
+Seleção e criação são operações separadas. O exemplo anterior seleciona um layout existente; ele não cria um. Para criar um layout, chame o método [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterlayoutslidecollection/add/) na coleção de layouts do mestre de destino.
+
+O exemplo a seguir sempre adiciona um novo layout **Title and Content** chamado `Report Title and Content`, então adiciona um slide normal baseado nele. Os nomes dos layouts devem ser exclusivos dentro da coleção.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-Compress::RemoveUnusedLayoutSlides(presentation);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto reportLayout = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::TitleAndObject, u"Report Title and Content");
+presentation->get_Slides()->AddEmptySlide(reportLayout);
+
+presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Adicionar Marcadores de Posição aos Layouts de Slide**
+Adicione um layout somente quando o modelo realmente precisar de outra estrutura reutilizável. Se já existir um layout adequado, selecione‑o e reutilize‑o em vez de criar um duplicado.
 
-O Aspose.Slides fornece o método [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/), que permite adicionar novos marcadores de posição a um layout de slide.
+## **Adicionar Marcadores de Posição a um Slide de Layout**
 
-Este gerenciador contém métodos para os seguintes tipos de marcadores de posição:
+O método [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) fornece um [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/) para adicionar formas de marcador de posição a um layout.
 
-| Marcador de Posição do PowerPoint | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/) Method |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Conteúdo](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Conteúdo (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Texto](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Texto (Vertical)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Imagem](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Gráfico](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabela](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Mídia](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Imagem Online](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Marcador de Posição do PowerPoint | Método `ILayoutPlaceholderManager` |
+| --------------------------------- | ----------------------------------- |
+| ![Conteúdo](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Conteúdo (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Texto](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Texto (Vertical)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Imagem](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Gráfico](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Tabela](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Mídia](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Imagem Online](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-O código C++ a seguir demonstra como adicionar novas formas de marcadores de posição ao layout em branco:
+O exemplo a seguir verifica se o layout **Blank** existe, adiciona quatro marcadores a ele e então cria um slide normal que usa o layout modificado. A ordem é intencional: os marcadores são adicionados antes da criação do slide normal, permitindo que o Aspose.Slides gere as formas de marcador correspondentes nesse slide.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
-// Obter o slide de layout em branco.
-auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// Obter o gerenciador de marcadores de posição do slide de layout.
-auto placeholderManager = layout->get_PlaceholderManager();
+if (blankLayout == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a Blank layout slide.");
+}
 
-// Adicionar diferentes marcadores de posição ao slide de layout em branco.
-placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
-placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
-placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
-placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+auto placeholderManager = blankLayout->get_PlaceholderManager();
+placeholderManager->AddContentPlaceholder(20.0f, 20.0f, 310.0f, 270.0f);
+placeholderManager->AddVerticalTextPlaceholder(350.0f, 20.0f, 350.0f, 270.0f);
+placeholderManager->AddChartPlaceholder(20.0f, 310.0f, 310.0f, 180.0f);
+placeholderManager->AddTablePlaceholder(350.0f, 310.0f, 350.0f, 180.0f);
 
-// Adicionar um novo slide com o layout em branco.
-auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
-
-presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->AddEmptySlide(blankLayout);
+presentation->Save(u"output-with-placeholders.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 O resultado:
 
-![Os marcadores de posição no layout do slide](add_placeholders.png)
+![Os marcadores de posição no slide de layout](add_placeholders.png)
 
-## **Definir Visibilidade do Rodapé para um Layout de Slide**
+{{% alert color="warning" title="Warning" %}}
+Alterar a formatação herdada ou a geometria dos marcadores de posição existentes no layout pode afetar slides dependentes. Um marcador de posição recém‑adicionado não é retroalimentado em slides normais existentes. Teste alterações de layout em uma cópia da apresentação e inspecione cada slide dependente.
+{{% /alert %}}
 
-Em apresentações PowerPoint, elementos de rodapé como data, número do slide e texto personalizado podem ser exibidos ou ocultados dependendo do layout do slide. O Aspose.Slides for Android permite controlar a visibilidade desses marcadores de posição de rodapé. Isso é útil quando você deseja que determinados layouts exibam informações de rodapé enquanto outros permanecem limpos e mínimos.
+## **Remover Slides de Layout Não Utilizados**
 
-1. Crie uma instância da [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/) class.
-2. Obtenha uma referência ao layout de slide pelo seu índice.
-3. Defina o marcador de posição de rodapé do slide como visível.
-4. Defina o marcador de posição do número do slide como visível.
-5. Defina o marcador de posição de data/hora como visível.
-6. Salve a apresentação.
-
-O código C++ a seguir mostra como definir a visibilidade de um rodapé de slide e realizar tarefas relacionadas:
+Use o método [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pt/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) para remover layouts que nenhum slide normal referencia. O método deixa intactos os layouts que ainda estão em uso.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
-auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
 
-if (!headerFooterManager->get_IsFooterVisible())
-{
-    headerFooterManager->SetFooterVisibility(true);
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
 
-if (!headerFooterManager->get_IsSlideNumberVisible())
-{
-    headerFooterManager->SetSlideNumberVisibility(true);
-}
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
-if (!headerFooterManager->get_IsDateTimeVisible())
-{
-    headerFooterManager->SetDateTimeVisibility(true);
-}
-
-headerFooterManager->SetFooterText(u"Footer text");
-headerFooterManager->SetDateTimeText(u"Date and time text");
-
-presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+Compress::RemoveUnusedLayoutSlides(presentation);
+presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Definir Visibilidade do Rodapé Filho para um Slide**
+Para remover um layout específico, primeiro use seu método [get_HasDependingSlides](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) ou [GetDependingSlides](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslide/getdependingslides/). Reatribua quaisquer slides dependentes antes de chamar [ILayoutSlide::Remove](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslide/remove/). Tentar remover um layout em uso gera uma [PptxEditException](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pptxeditexception/).
 
-Em apresentações PowerPoint, os elementos de rodapé como data, número do slide e texto personalizado podem ser controlados ao nível do slide mestre para garantir consistência em todos os layouts de slide. O Aspose.Slides for Android permite definir a visibilidade e o conteúdo desses marcadores de posição de rodapé no slide mestre e propagar essas configurações para todos os layouts de slide filhos. Essa abordagem assegura informações de rodapé uniformes em toda a apresentação.
+## **Controlar a Visibilidade do Rodapé em um Slide de Layout**
 
-1. Crie uma instância da [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/) class.
-2. Obtenha uma referência ao slide mestre pelo seu índice.
-3. Defina os marcadores de posição de rodapé do mestre e de todos os filhos como visíveis.
-4. Defina os marcadores de posição de número do slide do mestre e de todos os filhos como visíveis.
-5. Defina os marcadores de posição de data/hora do mestre e de todos os filhos como visíveis.
-6. Salve a apresentação.
+Um layout tem seus próprios marcadores de posição de rodapé, número do slide e data/hora. Use o método [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) para controlar esses marcadores em um layout. Isso é útil quando, por exemplo, os layouts de conteúdo devem exibir rodapés, mas os layouts de título não.
 
-O código C++ a seguir demonstra essa operação:
+O exemplo a seguir seleciona um layout com segurança e torna seus elementos de rodapé visíveis:
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::TitleAndObject);
+
+if (layoutSlide == nullptr)
+{
+    layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+}
+
+if (layoutSlide == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a suitable layout slide.");
+}
+
+auto headerFooterManager = layoutSlide->get_HeaderFooterManager();
+headerFooterManager->SetFooterVisibility(true);
+headerFooterManager->SetSlideNumberVisibility(true);
+headerFooterManager->SetDateTimeVisibility(true);
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Controlar a Visibilidade do Rodapé em um Mestre e Seus Layouts Filhos**
+
+Para aplicar configurações de rodapé consistentes em toda a hierarquia de mestres, use o método [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Os métodos de propagação de [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterslideheaderfootermanager/) atuam no mestre e em seus slides de layout e slides normais dependentes; eles não visam apenas um slide normal.
+
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
-
 headerFooterManager->SetFooterAndChildFootersVisibility(true);
 headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
 headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
-
 headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
 headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
@@ -264,12 +295,16 @@ presentation->Dispose();
 
 **Qual é a diferença entre um slide mestre e um slide de layout?**
 
-Um slide mestre define o tema geral e a formatação padrão, enquanto os slides de layout definem disposições específicas de marcadores de posição para diferentes tipos de conteúdo.
+Um slide mestre define o tema da apresentação e a formatação compartilhada. Um slide de layout pertence a um mestre e define um arranjo reutilizável de marcadores de posição. Slides normais utilizam esses layouts e armazenam o conteúdo específico de cada slide.
 
 **Posso copiar um slide de layout de uma apresentação para outra?**
 
-Sim, você pode clonar um slide de layout da coleção de slides de layout de uma apresentação, acessível através do método [get_LayoutSlides](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_layoutslides/), e inseri‑lo em outra apresentação usando o método `AddClone`.
+Sim. Adicione uma cópia à coleção de destino com o método [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/pt/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Ao copiar entre apresentações, verifique também fontes, temas, imagens e outros recursos usados pelo layout de origem.
 
-**O que acontece se eu excluir um slide de layout que ainda está sendo usado por um slide?**
+**O que acontece quando modifico um layout que já está em uso?**
 
-Se você tentar excluir um slide de layout que ainda é referenciado por pelo menos um slide na apresentação, o Aspose.Slides lançará uma [PptxEditException](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pptxeditexception/). Para evitar isso, use [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pt/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/), que remove com segurança apenas os slides de layout que não estão em uso.
+Slides dependentes herdam as alterações do layout, salvo se substituírem localmente a formatação ou os objetos afetados. A geometria dos marcadores e o estilo herdado podem mudar em muitos slides simultaneamente. Use [GetDependingSlides](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslide/getdependingslides/) para identificar os slides afetados antes de editar o layout.
+
+**O que acontece se eu remover um layout que ainda está em uso?**
+
+O Aspose.Slides lança uma [PptxEditException](https://reference.aspose.com/slides/pt/cpp/aspose.slides/pptxeditexception/). Reatribua primeiro os slides dependentes ou use [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pt/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) para remover apenas os layouts sem referência.

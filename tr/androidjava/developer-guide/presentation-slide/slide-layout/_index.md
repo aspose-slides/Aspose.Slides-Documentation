@@ -1,6 +1,6 @@
 ---
-title: "Android'de Slayt Düzenlerini Uygula veya Değiştir"
-linktitle: "Slayt Düzeni"
+title: Android'de Slayt Düzenlerini Uygulama veya Değiştirme
+linktitle: Slayt Düzeni
 type: docs
 weight: 60
 url: /tr/androidjava/slide-layout/
@@ -19,8 +19,8 @@ keywords:
 - karşılaştırma
 - sadece başlık
 - boş düzen
-- altyazılı içerik
-- altyazılı resim
+- başlıklı içerik
+- başlıklı resim
 - başlık ve dikey metin
 - dikey başlık ve metin
 - PowerPoint
@@ -29,153 +29,129 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android'da slayt düzenlerini yönetin ve özelleştirin. Düzen türlerini, yer tutucu kontrolünü ve alt bilgi görünürlüğünü Java kod örnekleriyle keşfedin."
+description: "Aspose.Slides for Android'de Java aracılığıyla slayt düzenlerini uygulayın, oluşturun ve değiştirin, yer tutucular ekleyin, kullanılmayan düzenleri kaldırın ve alt bilgi görünürlüğünü kontrol edin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir slayt düzeni, bir slayttaki içeriğin yer tutucu kutularının ve biçimlendirmesinin düzenini tanımlar. Hangi yer tutucuların mevcut olduğunu ve nerede göründüklerini kontrol eder. Slayt düzenleri, basit ya da daha karmaşık bir şey oluştururken sunumları hızlı ve tutarlı bir şekilde tasarlamanıza yardımcı olur. PowerPoint'teki en yaygın slayt düzenlerinden bazıları şunlardır:
+Bir slayt düzeni, başlıklar, metin, resimler, grafikler ve tablolar gibi yer tutucuların konumlarını ve biçimlendirmesini tanımlar. Bir düzenin uygulanması, slaytlara tutarlı bir yapı kazandırırken her slaytın kendi içeriğini içermesine izin verir.
 
-**Başlık Slaytı düzeni** – Başlık için bir ve alt başlık için bir olmak üzere iki metin yer tutucusunu içerir.
+En yaygın düzenler şunlardır:
 
-**Başlık ve İçerik düzeni** – Üstte daha küçük bir başlık yer tutucusu ve altında ana içerik (metin, madde işaretleri, grafikler, resimler vb.) için daha büyük bir yer tutucu bulunur.
+- **Başlık Slaytı**: Başlık ve alt başlık yer tutucularını içerir.
+- **Başlık ve İçerik**: Bir başlık yer tutucusunu ve genel amaçlı bir içerik yer tutucusunu içerir.
+- **Boş**: İçerik yer tutucusu içermez ve her şeklin manuel olarak konumlandırılacağı durumlarda faydalıdır.
 
-**Boş düzen** – Hiçbir yer tutucu içermez, slaytı sıfırdan tasarlamanıza tam kontrol sağlar.
+## **Düzen Mirasını Anlamak**
 
-Slayt düzenleri, sunum için düzen stillerini tanımlayan üst düzey slayt olan slayt ana şablonunun bir parçasıdır. Slayt düzenlerine slayt ana şablonu üzerinden—türüne, adına veya benzersiz kimliğine göre—erişebilir ve bunları değiştirebilirsiniz. Alternatif olarak, belirli bir slayt düzenini sunum içinde doğrudan düzenleyebilirsiniz.
+Bir sunum üç ilgili seviyeye sahiptir:
 
-Slayt düzenleriyle Aspose.Slides for Android içinde çalışmak için şunları kullanabilirsiniz:
+1. Bir [master slayt](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslide/) temayı, ortak biçimlendirmeyi, arka planları ve ortak nesneleri tanımlar.
+2. Bir [düzen slaytı](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/) bir mastera aittir ve yer tutucuların belirli bir düzenini tanımlar.
+3. Bir [normal slayt](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islide/) bir düzen kullanır ve o slayt için girilen içeriği depolar.
 
-- [Presentation] sınıfı altında [getLayoutSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) ve [getMasters](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getMasters--) gibi yöntemler
-- [ILayoutSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/), ve [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/) gibi tipler
+Bir normal slayt, temasını ve biçimlendirmesini düzeninden miras alır ve düzen, masterından miras alır. Normal bir slaytta doğrudan ayarlanan bir değer, o seviyedeki miras alınan değerin üzerine yazar. Bir normal slayt oluşturulduğunda, yer tutucu şekilleri seçilen düzen üzerinden üretilir, bu yer tutuculara girilen içerik ise normal slayta aittir.
 
-{{% alert title="Info" color="info" %}}
+Bir slayt oluşturmadan önce bir düzene gerekli yer tutucuları ekleyin. Daha sonra bir düzene başka bir yer tutucu eklemek, mevcut normal slaytlara otomatik olarak karşılık gelen bir yer tutucu şekli eklemez.
 
-Ana slaytlarla çalışmak hakkında daha fazla bilgi edinmek için [Slide Master](/slides/tr/androidjava/slide-master/) makalesine göz atın.
+Bu ilişki iki önemli sonuca sahiptir:
 
-{{% /alert %}}
+- Bir düzen üzerindeki miras alınan biçimlendirmeyi veya mevcut yer tutucu geometrisini değiştirmek, ona bağlı tüm slaytları güncelleyebilir. Zaten kullanımda olan bir düzeni düzenlemeden önce, ona bağlı slaytları inceleyin ve ortaya çıkan sunumu gözden geçirin.
+- Bir slayt tarafından hâlâ kullanılan bir düzen kaldırılamaz. Önce bağlı slaytlarını başka bir düzene yeniden atayın veya yalnızca kullanılmayan düzenleri kaldırın.
 
-## **Sunumalara Slayt Düzenleri Ekleme**
+Bu hiyerarşinin üst seviyesi hakkında daha fazla bilgi için [Slide Master](/slides/tr/androidjava/slide-master/) bölümüne bakın.
 
-Slaytlarınızın görünümünü ve yapısını özelleştirmek için bir sunuma yeni düzen slaytları eklemeniz gerekebilir. Aspose.Slides for Android, belirli bir düzenin zaten mevcut olup olmadığını kontrol etmenizi, gerektiğinde yeni bir tane eklemenizi ve bu düzeni temel alarak slayt eklemenizi sağlar.
+## **Bir Slayt Düzeni Seçme ve Uygulama**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterlayoutslidecollection/) erişin.
-3. İstenen düzen slaydının koleksiyon içinde zaten mevcut olup olmadığını kontrol edin. Yoksa ihtiyacınız olan düzen slaydını ekleyin.
-4. Yeni düzen slaydına dayalı boş bir slayt ekleyin.
-5. Sunumu kaydedin.
+Sunum standart PowerPoint düzen tanımlarını izlediğinde bir düzen türü kullanın. Düzen adları kullanıcı tarafından düzenlenebilir ve yerelleştirilebilir, bu nedenle ad tabanlı seçim, kaynağı şablonu kontrol etmediğiniz sürece daha az güvenilir olur.
 
-Aşağıdaki Java kodu, bir PowerPoint sunumuna slayt düzeni eklemeyi gösterir:
+Aşağıdaki örnek, ilk masterda **Başlık ve İçerik** arar. Bu düzen mevcut değilse, kasıtlı olarak **Boş** seçeneğine geri döner. İkinci null kontrolü, bir sunumun yalnızca özel düzenler içerebileceği durum için gereklidir. Seçilen düzen daha sonra [ISlide.setLayoutSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) yöntemi aracılığıyla ilk normal slayta uygulanır.
 
 ```java
-// PowerPoint dosyasını temsil eden Presentation sınıfını örnekleyin.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Düzen slayt türlerini gezerek bir düzen slaytı seçin.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Sunumun tüm düzen türlerini içermediği bir durum.
-        // Sunum dosyası yalnızca Boş ve Özel düzen türlerini içerir.
-        // Ancak, özel türlere sahip düzen slaytları tanınabilir adlara sahip olabilir,
-        // örneğin "Title", "Title and Content", vb., bu isimler düzen slaytı seçimi için kullanılabilir.
-        // Ayrıca bir dizi yer tutucu şekil tipine güvenebilirsiniz.
-        // Örneğin, bir Başlık slaytı yalnızca Başlık yer tutucu tipine sahip olmalıdır, vb.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Eklenen düzen slaytını kullanarak boş bir slayt ekleyin.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Sunumu diske kaydedin.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Kullanılmayan Slayt Düzenlerini Kaldırma**
+Bir slaytın düzenini değiştirmek, slayta doğrudan eklenmiş sıradan şekilleri kaldırmaz. Ancak, yer tutucu konumları, miras alınan biçimlendirme ve mevcut yer tutucular ile yeni düzen arasındaki eşleşme değişebilir; bu nedenle, önemli ölçüde farklı düzenler arasında geçiş yaparken çıktıyı inceleyin.
 
-Aspose.Slides, kullanılmayan ve istenmeyen düzen slaytlarını silmenize olanak tanıyan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) yöntemini [Compress](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/compress/) sınıfından sağlar.
+## **Bir Düzen Slaytı Ekleme**
 
-Aşağıdaki Java kodu, bir PowerPoint sunumundan düzen slaytını kaldırmayı gösterir:
+Seçim ve oluşturma ayrı işlemlerdir. Önceki örnek mevcut bir düzeni seçer; bir düzen oluşturmaz. Bir düzen oluşturmak için, hedef masterın düzen koleksiyonunda [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) yöntemini çağırın.
+
+Aşağıdaki örnek, her zaman `Report Title and Content` adlı yeni bir **Başlık ve İçerik** düzeni ekler ve ardından ona dayalı bir normal slayt ekler. Düzen adları koleksiyon içinde benzersiz olmalıdır.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Slayt Düzenlerine Yer Tutucular Ekleme**
+Bir şablon gerçekten başka bir yeniden kullanılabilir yapıya ihtiyaç duyduğunda bir düzen ekleyin. Uygun bir düzen zaten varsa, bir kopyasını oluşturmak yerine onu seçip yeniden kullanın.
 
-Aspose.Slides, bir düzen slaytına yeni yer tutucular eklemenizi sağlayan [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) yöntemini sunar.
+## **Bir Düzen Slaytına Yer Tutucu Ekleme**
 
-Bu yönetici, aşağıdaki yer tutucu türleri için yöntemler içerir:
+[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) yöntemi, bir düzene yer tutucu şekilleri eklemek için bir [ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) sağlar.
 
-| PowerPoint Yer Tutucu | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) Yöntemi |
-| ---------------------- | ------------------------------------------------------------ |
-| ![İçerik](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![İçerik (Dikey)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Metin](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Metin (Dikey)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Resim](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Grafik](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tablo](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Medya](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Çevrimiçi Resim](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Yer Tutucu | `ILayoutPlaceholderManager` Method |
+| --------------------- | ---------------------------------- |
+| ![Content](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Text](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Text (Vertical)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Picture](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Chart](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Table](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Online Image](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Aşağıdaki Java kodu, Boş düzen slaydına yeni yer tutucu şekilleri eklemeyi gösterir:
+Aşağıdaki örnek, **Boş** düzenin var olduğunu doğrular, ona dört yer tutucu ekler ve ardından değiştirilmiş düzeni kullanan bir normal slayt oluşturur. Sıra kasıtlıdır: yer tutucular normal slayt oluşturulmadan önce eklenir, böylece Aspose.Slides o slaytta ilgili yer tutucu şekillerini oluşturabilir.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Boş düzen slaytını alın.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Düzen slaydının yer tutucu yöneticisini alın.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Boş düzen slaytına farklı yer tutucular ekleyin.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Boş düzenle yeni bir slayt ekleyin.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -183,73 +159,81 @@ try {
 
 Sonuç:
 
-![Düzen slaydındaki yer tutucular](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-## **Bir Düzen Slaytı İçin Alt Bilgi Görünürlüğünü Ayarlama**
+{{% alert color="warning" title="Warning" %}}
+Miras alınan biçimlendirmeyi veya mevcut düzen yer tutucularının geometrisini değiştirmek, bağımlı slaytları etkileyebilir. Yeni eklenen bir düzen yer tutucusu mevcut normal slaytlara geri eklenmez. Düzen değişikliklerini sunumun bir kopyasında test edin ve her bağımlı slaytı inceleyin.
+{{% /alert %}}
 
-PowerPoint sunumlarında tarih, slayt numarası ve özel metin gibi alt bilgi öğeleri, slayt düzenine bağlı olarak gösterilebilir veya gizlenebilir. Aspose.Slides for Android, bu alt bilgi yer tutucularının görünürlüğünü kontrol etmenizi sağlar. Belirli düzenlerin alt bilgi bilgilerini göstermesini, diğerlerinin ise temiz ve minimal kalmasını istediğinizde bu özellik faydalıdır.
+## **Kullanılmayan Düzen Slaytlarını Kaldırma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. Bir indeksle düzen slaytı referansını alın.
-3. Slayt alt bilgi yer tutucusunu görünür olarak ayarlayın.
-4. Slayt numarası yer tutucusunu görünür olarak ayarlayın.
-5. Tarih‑saat yer tutucusunu görünür olarak ayarlayın.
-6. Sunumu kaydedin.
-
-Aşağıdaki Java kodu, bir slayt alt bilgisinin görünürlüğünü ayarlamayı ve ilgili görevleri göstermektedir:
+[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) yöntemini, hiçbir normal slaytın başvurduğu bir düzeni kaldırmak için kullanın. Yöntem, hâlâ kullanımda olan düzenleri olduğu gibi bırakır.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Bir Slayt İçin Alt Slayt Alt Bilgi Görünürlüğünü Ayarlama**
+Belirli bir düzeni kaldırmak için önce onun [hasDependingSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) veya [getDependingSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) yöntemini kullanın. [ILayoutSlide.remove](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/#remove--) yöntemini çağırmadan önce bağımlı slaytları yeniden atayın. Kullanılan bir düzeni kaldırmaya çalışmak bir [PptxEditException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/pptxeditexception/) hatasına yol açar.
 
-PowerPoint sunumlarında tarih, slayt numarası ve özel metin gibi alt bilgi öğeleri, tutarlılığı sağlamak amacıyla ana slayt seviyesinde kontrol edilebilir ve bu ayarlar tüm alt düzen slaytlarına uygulanabilir. Aspose.Slides for Android, bu alt bilgi yer tutucularının görünürlüğünü ve içeriğini ana slaytta ayarlamanıza ve bu ayarları tüm alt düzen slaytlarına yaymanıza olanak tanır. Bu yaklaşım, sunumunuz boyunca tutarlı bir alt bilgi bilgisi sağlar.
+## **Bir Düzen Slaytında Alt Bilgi Görünürlüğünü Kontrol Etme**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. Bir indeksle ana slayta referans alın.
-3. Ana slaytın ve tüm alt slaytların alt bilgi yer tutucularını görünür olarak ayarlayın.
-4. Ana slaytın ve tüm alt slaytların slayt numarası yer tutucularını görünür olarak ayarlayın.
-5. Ana slaytın ve tüm alt slaytların tarih‑saat yer tutucularını görünür olarak ayarlayın.
-6. Sunumu kaydedin.
+Bir düzenin kendi alt bilgi, slayt numarası ve tarih‑saat yer tutucuları vardır. Bu yer tutucuları bir düzen için kontrol etmek amacıyla [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) yöntemini kullanın. Bu, örneğin içerik düzenlerinin alt bilgileri gösterirken başlık düzenlerinin göstermemesi gerektiğinde faydalıdır.
 
-Aşağıdaki Java kodu bu işlemi göstermektedir:
+Aşağıdaki örnek, bir düzeni güvenli bir şekilde seçer ve onun alt bilgi öğelerini görünür yapar:
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    }
+
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
+    }
+
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Bir Master ve Çocuk Düzenlerinde Alt Bilgi Görünürlüğünü Kontrol Etme**
+
+Bir master hiyerarşisi boyunca tutarlı alt bilgi ayarları uygulamak için [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) yöntemini kullanın. [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) yöntemlerinin yayılımı, master ve ona bağlı düzen slaytları ile normal slaytlar üzerinde çalışır; yalnızca tek bir normal slaytı hedeflemez.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -257,14 +241,18 @@ try {
 
 ## **SSS**
 
-**Ana slayt ile düzen slaytı arasındaki fark nedir?**
+**Master Slayt ile Düzen Slaytı Arasındaki Fark Nedir?**
 
-Ana slayt, genel temayı ve varsayılan biçimlendirmeyi tanımlarken, düzen slaytları farklı içerik türleri için yer tutucuların belirli düzenlemelerini tanımlar.
+Bir master slayt, sunumun temasını ve ortak biçimlendirmesini tanımlar. Bir düzen slaytı, bir mastera aittir ve yer tutucuların yeniden kullanılabilir bir düzenini tanımlar. Normal slaytlar bu düzenleri kullanır ve slayta özgü içeriği depolar.
 
-**Bir düzen slaydını bir sunumdan diğerine kopyalayabilir miyim?**
+**Bir Düzen Slaytını Bir Sunumdan Başka Bir Sunuma Kopyalayabilir miyim?**
 
-Evet, bir sunumun [getLayoutSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) yöntemiyle erişilebilen düzen slayt koleksiyonundan bir düzen slaytını klonlayabilir ve `addClone` yöntemiyle başka bir sunuma ekleyebilirsiniz.
+Evet. [addClone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) yöntemiyle hedef koleksiyona bir kopya ekleyin. Sunumlar arasında kopyalama yaparken, kaynak düzenin kullandığı yazı tiplerini, temaları, resimleri ve diğer kaynakları da doğrulayın.
 
-**Kullanımda olan bir slayt hala başvuruda bulunuyorsa bir düzen slaydını silersem ne olur?**
+**Zaten Kullanımda Olan Bir Düzeni Değiştirdiğimde Ne Olur?**
 
-Bir düzen slaytı, sunumda en az bir slayt tarafından hâlâ referans alınıyorsa silmeye çalışırsanız Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/pptxeditexception/) fırlatır. Bunu önlemek için kullanılmayanları güvenle kaldıran [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) yöntemini kullanın.
+Bağlı slaytlar, yerel olarak etkilenen biçimlendirmeyi veya nesneleri geçersiz kılmadıkça düzen değişikliklerini miras alır. Bu nedenle yer tutucu geometrisi ve miras alınan stil, birçok slaytta aynı anda değişebilir. Düzeni düzenlemeden önce etkilenen slaytları belirlemek için [getDependingSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) yöntemini kullanın.
+
+**Hâlâ Kullanımda Olan Bir Düzeni Kaldırırsam Ne Olur?**
+
+Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/pptxeditexception/) hatası verir. Önce bağlı slaytları yeniden atayın veya yalnızca referans edilmeyen düzenleri kaldırmak için [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) yöntemini kullanın.

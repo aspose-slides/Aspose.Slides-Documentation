@@ -1,5 +1,5 @@
 ---
-title: Aplicar ou Alterar Layouts de Slides em .NET
+title: Aplicar ou Alterar Layouts de Slide em .NET
 linktitle: Layout de Slide
 type: docs
 weight: 60
@@ -7,11 +7,11 @@ url: /pt/net/slide-layout/
 keywords:
 - layout de slide
 - layout de conteúdo
-- espaço reservado
+- marcador de posição
 - design de apresentação
 - design de slide
 - layout não utilizado
-- visibilidade de rodapé
+- visibilidade do rodapé
 - slide de título
 - título e conteúdo
 - cabeçalho de seção
@@ -29,237 +29,217 @@ keywords:
 - C#
 - .NET
 - Aspose.Slides
-description: "Gerencie e personalize layouts de slides no Aspose.Slides para .NET. Explore tipos de layout, controle de espaços reservados e visibilidade de rodapé através de exemplos de código C#."
+description: "Aplicar, criar e modificar layouts de slide no Aspose.Slides para .NET, adicionar marcadores de posição, remover layouts não utilizados e controlar a visibilidade do rodapé."
 ---
-## **Introdução**
+## **Visão geral**
 
-Um layout de slide define a disposição das caixas de espaço reservado e a formatação do conteúdo em um slide. Ele controla quais espaços reservados estão disponíveis e onde eles aparecem. Os layouts de slide ajudam a criar apresentações de forma rápida e consistente — seja você criando algo simples ou mais complexo. Alguns dos layouts de slide mais comuns no PowerPoint incluem:
+Um layout de slide define as posições e formatação de marcadores de posição, como títulos, texto, imagens, gráficos e tabelas. Aplicar um layout fornece aos slides uma estrutura consistente, permitindo que cada slide contenha seu próprio conteúdo.
 
-**Layout de Slide de Título** – Inclui dois espaços reservados de texto: um para o título e outro para o subtítulo.
+Os layouts mais comuns incluem:
 
-**Layout de Título e Conteúdo** – Apresenta um espaço reservado de título menor no topo e um maior abaixo para o conteúdo principal (como texto, marcadores, gráficos, imagens e muito mais).
+- **Slide de Título**: Contém marcadores de posição de título e subtítulo.
+- **Título e Conteúdo**: Contém um marcador de posição de título e um marcador de posição de conteúdo de uso geral.
+- **Em branco**: Não contém marcadores de posição de conteúdo e é útil quando cada forma será posicionada manualmente.
 
-**Layout em Branco** – Não contém espaços reservados, dando total controle para desenhar o slide do zero.
+## **Entender a Herança de Layout**
 
-Os layouts de slide fazem parte de um mestre de slide, que é o slide de nível superior que define os estilos de layout para a apresentação. Você pode acessar e modificar os slides de layout através do mestre de slide — seja por tipo, nome ou ID exclusivo. Alternativamente, pode editar um slide de layout específico diretamente na apresentação.
+Uma apresentação tem três níveis relacionados:
 
-Para trabalhar com layouts de slide no Aspose.Slides para .NET, você pode usar:
+1. Um [slide mestre](https://reference.aspose.com/slides/pt/net/aspose.slides/imasterslide/) define o tema, formatação compartilhada, fundos e objetos comuns.
+2. Um [slide de layout](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/) pertence a um mestre e define um arranjo específico de marcadores de posição.
+3. Um [slide normal](https://reference.aspose.com/slides/pt/net/aspose.slides/islide/) usa um layout e armazena o conteúdo inserido para esse slide.
 
-- Propriedades como [LayoutSlides](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/layoutslides/) e [Masters](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/masters/) na classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/)
-- Tipos como [ILayoutSlide](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutplaceholdermanager/) e [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslideheaderfootermanager/)
+Um slide normal herda tema e formatação do seu layout, e o layout herda do seu mestre. Um valor definido diretamente em um slide normal substitui o valor herdado nesse nível. Quando um slide normal é criado, suas formas de marcador de posição são geradas a partir do layout selecionado, enquanto o conteúdo inserido nesses marcadores pertence ao slide normal.
 
-{{% alert title="Info" color="info" %}}
-Para saber mais sobre como trabalhar com mestres de slide, consulte o artigo [Slide Master](/slides/pt/net/slide-master/).
-{{% /alert %}}
+Adicione os marcadores de posição necessários a um layout antes de criar slides a partir dele. Adicionar outro marcador de posição a um layout posteriormente não adiciona automaticamente a forma de marcador correspondente aos slides normais existentes.
 
-## **Adicionar Layouts de Slide às Apresentações**
+Esse relacionamento tem duas consequências importantes:
 
-Para personalizar a aparência e a estrutura dos seus slides, talvez seja necessário adicionar novos slides de layout a uma apresentação. O Aspose.Slides para .NET permite verificar se um layout específico já existe, adicioná‑lo caso necessário e usá‑lo para inserir slides com base nesse layout.
+- Alterar a formatação herdada ou a geometria de marcadores de posição existentes em um layout pode atualizar todos os slides que dependem dele. Antes de editar um layout já em uso, verifique seus slides dependentes e revise a apresentação resultante.
+- Um layout que ainda está sendo usado por um slide não pode ser removido. Reatribua seus slides dependentes a outro layout primeiro, ou remova apenas layouts não utilizados.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/).
-1. Acesse a [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/imasterlayoutslidecollection/).
-1. Verifique se o slide de layout desejado já existe na coleção. Caso não exista, adicione o layout de slide necessário.
-1. Adicione um slide vazio baseado no novo layout de slide.
-1. Salve a apresentação.
+Para mais informações sobre o nível superior dessa hierarquia, veja [Mestre de Slide](/slides/pt/net/slide-master/).
 
-O código C# a seguir demonstra como adicionar um layout de slide a uma apresentação PowerPoint:
+## **Selecionar e Aplicar um Layout de Slide**
 
-```cs
-// Instanciar a classe Presentation que representa um arquivo PowerPoint.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+Use um tipo de layout quando a apresentação segue as definições padrão de layout do PowerPoint. Os nomes de layout são editáveis pelo usuário e podem ser localizados, portanto a seleção baseada em nome é menos confiável, a menos que você controle o modelo de origem.
+
+O exemplo a seguir procura por **Título e Conteúdo** no primeiro mestre. Se esse layout não estiver disponível, ele recai deliberadamente para **Em branco**. A segunda verificação de nulo é necessária porque uma apresentação pode conter apenas layouts personalizados. O layout selecionado é então aplicado ao primeiro slide normal através da propriedade [ISlide.LayoutSlide](https://reference.aspose.com/slides/pt/net/aspose.slides/islide/layoutslide/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // Percorrer os tipos de slides de layout para selecionar um slide de layout.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // Uma situação em que a apresentação não contém todos os tipos de layout.
-        // O arquivo de apresentação contém apenas os tipos de layout Blank e Custom.
-        // No entanto, slides de layout com tipos personalizados podem ter nomes reconhecíveis,
-        // como "Title", "Title and Content", etc., que podem ser usados para a seleção de slide de layout.
-        // Você também pode contar com um conjunto de tipos de formas de espaço reservado.
-        // Por exemplo, um slide de Título deve ter apenas o tipo de espaço reservado Title, e assim por diante.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // Adicionar um slide vazio usando o slide de layout adicionado.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // Salvar a apresentação no disco.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Remover Slides de Layout Não Utilizados**
+Alterar o layout de um slide não remove as formas ordinárias adicionadas diretamente ao slide. Entretanto, as posições dos marcadores de posição, a formatação herdada e a correspondência entre marcadores existentes e o novo layout podem mudar, portanto inspecione a saída ao alternar entre layouts substancialmente diferentes.
 
-O Aspose.Slides fornece o método [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pt/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) da classe [Compress](https://reference.aspose.com/slides/pt/net/aspose.slides.lowcode/compress/) para que você possa excluir slides de layout indesejados e não utilizados.
+## **Adicionar um Slide de Layout**
 
-O código C# a seguir mostra como remover um slide de layout de uma apresentação PowerPoint:
+Seleção e criação são operações separadas. O exemplo anterior seleciona um layout existente; não o cria. Para criar um layout, chame o método [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/pt/net/aspose.slides/masterlayoutslidecollection/add/) na coleção de layouts do mestre de destino.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+O exemplo a seguir sempre adiciona um novo layout **Título e Conteúdo** chamado `Report Title and Content`, depois adiciona um slide normal baseado nele. Os nomes de layout devem ser exclusivos dentro da coleção.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Adicionar Espaços Reservados a Layouts de Slide**
+Adicione um layout somente quando o modelo realmente precisar de outra estrutura reutilizável. Se já existir um layout adequado, selecione‑o e reutilize‑o em vez de criar um duplicado.
 
-O Aspose.Slides fornece a propriedade [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/placeholdermanager/), que permite acrescentar novos espaços reservados a um slide de layout.
+## **Adicionar Marcadores de Posição a um Slide de Layout**
 
-Esse gerenciador contém métodos para os seguintes tipos de espaço reservado:
+A propriedade [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/placeholdermanager/) fornece um [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutplaceholdermanager/) para adicionar formas de marcador de posição a um layout.
 
-| Espaço Reservado do PowerPoint   | Método de [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutplaceholdermanager/) |
-| -------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)          | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png)    | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png)          | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png)              | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png)              | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)        | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)              | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Marcador de Posição do PowerPoint | Método `ILayoutPlaceholderManager` |
+| --------------------------------- | ---------------------------------- |
+| ![Conteúdo](content.png)          | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![Conteúdo (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Texto](text.png)                | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Texto (Vertical)](textV.png)    | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Imagem](picture.png)            | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Gráfico](chart.png)             | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Tabela](table.png)              | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)         | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Mídia](media.png)               | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Imagem Online](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pt/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-O código C# a seguir demonstra como adicionar novas formas de espaço reservado ao slide de layout em Branco:
+O exemplo a seguir verifica se o layout **Em branco** existe, adiciona quatro marcadores de posição a ele e, em seguida, cria um slide normal que usa o layout modificado. A ordem é intencional: os marcadores são adicionados antes da criação do slide normal, para que o Aspose.Slides possa gerar as formas de marcador correspondentes naquele slide.
 
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // Obter o slide de layout em branco.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // Obter o gerenciador de espaços reservados do slide de layout.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // Adicionar diferentes espaços reservados ao slide de layout em branco.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // Adicionar um novo slide com o layout em branco.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
+
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 ```
 
 O resultado:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Os marcadores de posição no slide de layout](add_placeholders.png)
 
-## **Definir Visibilidade do Rodapé para um Slide de Layout**
+{{% alert color="warning" title="Aviso" %}}
+Alterar a formatação herdada ou a geometria de marcadores de posição existentes no layout pode afetar os slides dependentes. Um marcador de posição de layout recém‑adicionado não é retroalimentado nos slides normais existentes. Teste alterações de layout em uma cópia da apresentação e inspecione cada slide dependente.
+{{% /alert %}}
 
-Em apresentações PowerPoint, elementos de rodapé como data, número do slide e texto personalizado podem ser exibidos ou ocultados dependendo do layout do slide. O Aspose.Slides para .NET permite controlar a visibilidade desses espaços reservados de rodapé. Isso é útil quando se deseja que determinados layouts mostrem informações de rodapé enquanto outros permanecem limpos e minimalistas.
+## **Remover Slides de Layout Não Utilizados**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/).
-1. Obtenha uma referência ao slide de layout pelo seu índice.
-1. Defina o espaço reservado de rodapé do slide como visível.
-1. Defina o espaço reservado de número do slide como visível.
-1. Defina o espaço reservado de data/hora como visível.
-1. Salve a apresentação.
+Use o método [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pt/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) para remover layouts que nenhum slide normal referencia. O método mantém intactos os layouts que ainda estão em uso.
 
-O código C# a seguir mostra como definir a visibilidade do rodapé de um slide e executar tarefas relacionadas:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-## **Definir Visibilidade do Rodapé Filho para um Slide**
+Para remover um layout específico, primeiro verifique sua propriedade [HasDependingSlides](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/hasdependingslides/) ou o método [GetDependingSlides](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/getdependingslides/). Reatribua quaisquer slides dependentes antes de chamar [ILayoutSlide.Remove](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/remove/). Tentar remover um layout em uso gera uma [PptxEditException](https://reference.aspose.com/slides/pt/net/aspose.slides/pptxeditexception/).
 
-Em apresentações PowerPoint, elementos de rodapé como data, número do slide e texto personalizado podem ser controlados no nível do slide mestre para garantir consistência em todos os slides de layout. O Aspose.Slides para .NET permite definir a visibilidade e o conteúdo desses espaços reservados de rodapé no slide mestre e propagar essas configurações a todos os slides de layout filhos. Essa abordagem assegura informações de rodapé uniformes ao longo da apresentação.
+## **Controlar a Visibilidade do Rodapé em um Slide de Layout**
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/).
-1. Obtenha uma referência ao slide mestre pelo seu índice.
-1. Defina os espaços reservados de rodapé do mestre e de todos os filhos como visíveis.
-1. Defina os espaços reservados de número do slide do mestre e de todos os filhos como visíveis.
-1. Defina os espaços reservados de data/hora do mestre e de todos os filhos como visíveis.
-1. Salve a apresentação.
+Um layout tem seus próprios marcadores de posição de rodapé, número do slide e data/hora. Use a propriedade [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/headerfootermanager/) para controlar esses marcadores em um único layout. Isso é útil quando, por exemplo, layouts de conteúdo devem exibir rodapés, mas layouts de título não devem.
 
-O código C# a seguir demonstra essa operação:
+O exemplo a seguir seleciona um layout com segurança e torna seus elementos de rodapé visíveis:
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+```
+
+## **Controlar a Visibilidade do Rodapé em um Mestre e Seus Layouts Filhos**
+
+Para aplicar configurações de rodapé consistentes em toda a hierarquia do mestre, use a propriedade [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/pt/net/aspose.slides/imasterslide/headerfootermanager/). Os métodos de propagação de [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pt/net/aspose.slides/imasterslideheaderfootermanager/) atuam no mestre e em seus slides de layout dependentes e slides normais; eles não visam apenas um slide normal.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Qual a diferença entre um slide mestre e um slide de layout?**
+**Qual é a diferença entre um slide mestre e um slide de layout?**
 
-Um slide mestre define o tema geral e a formatação padrão, enquanto os slides de layout definem arranjos específicos de espaços reservados para diferentes tipos de conteúdo.
+Um slide mestre define o tema da apresentação e a formatação compartilhada. Um slide de layout pertence a um mestre e define um arranjo reutilizável de marcadores de posição. Slides normais usam esses layouts e armazenam conteúdo específico de cada slide.
 
 **Posso copiar um slide de layout de uma apresentação para outra?**
 
-Sim, você pode clonar um slide de layout da coleção [LayoutSlides](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/layoutslides/) de uma apresentação e inseri‑lo em outra usando o método `AddClone`.
+Sim. Adicione uma cópia à coleção de destino usando o método [AddClone](https://reference.aspose.com/slides/pt/net/aspose.slides/globallayoutslidecollection/addclone/). Ao copiar entre apresentações, verifique também fontes, temas, imagens e outros recursos usados pelo layout de origem.
 
-**O que acontece se eu excluir um slide de layout que ainda está sendo usado por um slide?**
+**O que acontece quando modifico um layout que já está em uso?**
 
-Se você tentar excluir um slide de layout que ainda é referenciado por pelo menos um slide na apresentação, o Aspose.Slides lançará uma [PptxEditException](https://reference.aspose.com/slides/pt/net/aspose.slides/pptxeditexception/). Para evitar isso, use [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pt/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/), que remove com segurança apenas os slides de layout que não estão em uso.
+Slides dependentes herdam as alterações do layout, a menos que substituam a formatação ou os objetos afetados localmente. A geometria dos marcadores de posição e o estilo herdado podem mudar em muitos slides de uma só vez. Use [GetDependingSlides](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/getdependingslides/) para identificar os slides afetados antes de editar o layout.
+
+**O que acontece se eu remover um layout que ainda está em uso?**
+
+O Aspose.Slides lança uma [PptxEditException](https://reference.aspose.com/slides/pt/net/aspose.slides/pptxeditexception/). Reatribua primeiro os slides dependentes ou use [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pt/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) para remover apenas os layouts não referenciados.

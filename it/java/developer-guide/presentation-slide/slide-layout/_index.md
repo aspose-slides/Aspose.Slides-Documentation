@@ -1,180 +1,156 @@
 ---
-title: Applicare o modificare i layout di diapositiva in Java
-linktitle: Layout diapositiva
+title: "Applicare o Modificare i Layout delle Diapositive in Java"
+linktitle: "Layout di Diapositiva"
 type: docs
 weight: 60
 url: /it/java/slide-layout/
 keywords:
-- layout diapositiva
-- layout contenuto
-- segnaposto
-- progettazione presentazione
-- progettazione diapositiva
-- layout inutilizzato
-- visibilità piè di pagina
-- diapositiva titolo
-- titolo e contenuto
-- intestazione sezione
-- due contenuti
-- confronto
-- solo titolo
-- layout vuoto
-- contenuto con didascalia
-- immagine con didascalia
-- titolo e testo verticale
-- titolo verticale e testo
-- PowerPoint
-- OpenDocument
-- presentazione
-- Java
-- Aspose.Slides
-description: "Gestisci e personalizza i layout di diapositiva in Aspose.Slides per Java. Esplora i tipi di layout, il controllo dei segnaposto e la visibilità del piè di pagina attraverso esempi di codice Java."
+- "layout diapositiva"
+- "layout contenuto"
+- "segnaposto"
+- "design della presentazione"
+- "design della diapositiva"
+- "layout non utilizzato"
+- "visibilità piè di pagina"
+- "diapositiva titolo"
+- "titolo e contenuto"
+- "intestazione sezione"
+- "due contenuti"
+- "confronto"
+- "solo titolo"
+- "layout vuoto"
+- "contenuto con didascalia"
+- "immagine con didascalia"
+- "titolo e testo verticale"
+- "titolo verticale e testo"
+- "PowerPoint"
+- "OpenDocument"
+- "presentazione"
+- "Java"
+- "Aspose.Slides"
+description: "Applica, crea e modifica i layout delle diapositive in Aspose.Slides per Java, aggiungi segnaposti, rimuovi layout non utilizzati e controlla la visibilità del piè di pagina."
 ---
-## **Introduzione**
+## **Panoramica**
 
-Un layout di diapositiva definisce la disposizione dei riquadri segnaposto e la formattazione del contenuto su una diapositiva. Controlla quali segnaposto sono disponibili e dove appaiono. I layout di diapositiva ti aiutano a progettare presentazioni rapidamente e in modo coerente—che tu stia creando qualcosa di semplice o più complesso. Alcuni dei layout di diapositiva più comuni in PowerPoint includono:
+Un layout di diapositiva definisce le posizioni e la formattazione dei segnaposti come titoli, testo, immagini, grafici e tabelle. Applicare un layout fornisce alle diapositive una struttura coerente consentendo a ciascuna diapositiva di contenere il proprio contenuto.
 
-**Title Slide layout** – Include due segnaposto di testo: uno per il titolo e uno per il sottotitolo.
+I layout più comuni includono:
 
-**Title and Content layout** – Presenta un segnaposto titolo più piccolo in alto e uno più grande sotto per il contenuto principale (come testo, punti elenco, grafici, immagini e altro).
+- **Title Slide**: Contiene segnaposti per titolo e sottotitolo.
+- **Title and Content**: Contiene un segnaposto per il titolo e un segnaposto di contenuto generico.
+- **Blank**: Non contiene segnaposti di contenuto ed è utile quando ogni forma verrà posizionata manualmente.
 
-**Blank layout** – Non contiene segnaposti, offrendoti il pieno controllo per progettare la diapositiva da zero.
+## **Comprendere l'ereditarietà dei layout**
 
-I layout di diapositiva fanno parte di uno slide master, che è la diapositiva di livello superiore che definisce gli stili di layout per la presentazione. Puoi accedere e modificare i layout tramite lo slide master—sia per tipo, nome o ID unico. In alternativa, puoi modificare direttamente un layout specifico all'interno della presentazione.
+Una presentazione ha tre livelli correlati:
 
-Per lavorare con i layout di diapositiva in Aspose.Slides for Java, è possibile utilizzare:
+1. Una [master slide](https://reference.aspose.com/slides/it/java/com.aspose.slides/imasterslide/) definisce il tema, la formattazione condivisa, gli sfondi e gli oggetti comuni.
+1. Una [layout slide](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslide/) appartiene a un master e definisce una particolare disposizione dei segnaposti.
+1. Una [normal slide](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/) utilizza un layout e memorizza il contenuto inserito per quella diapositiva.
 
-- Metodi come [getLayoutSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getLayoutSlides--) e [getMasters](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getMasters--) nella classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/)
-- Tipi come [ILayoutSlide](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/), e [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslideheaderfootermanager/)
+Una normal slide eredita tema e formattazione dal suo layout, e il layout eredita dal suo master. Un valore impostato direttamente su una normal slide sovrascrive il valore ereditato a quel livello. Quando una normal slide viene creata, le forme dei segnaposti vengono generate dal layout selezionato, mentre il contenuto inserito in quei segnaposti appartiene alla normal slide.
 
-{{% alert title="Info" color="info" %}}
+Aggiungi i segnaposti richiesti a un layout prima di creare le diapositive da esso. Aggiungere un altro segnaposto a un layout in seguito non aggiunge automaticamente una forma di segnaposto corrispondente alle diapositive normali esistenti.
 
-Per saperne di più su come lavorare con le slide master, consulta l'articolo [Slide Master](/slides/it/java/slide-master/).
+Questa relazione ha due importanti conseguenze:
 
-{{% /alert %}}
+- Modificare la formattazione ereditata o la geometria dei segnaposti esistenti su un layout può aggiornare tutte le diapositive che dipendono da esso. Prima di modificare un layout già in uso, ispeziona le diapositive dipendenti e rivedi la presentazione risultante.
+- Un layout che è ancora utilizzato da una diapositiva non può essere rimosso. Riassegna prima le diapositive dipendenti a un altro layout, oppure rimuovi solo i layout non utilizzati.
 
-## **Aggiungere layout di diapositiva alle presentazioni**
+Per ulteriori informazioni sul livello più alto di questa gerarchia, vedi [Slide Master](/slides/it/java/slide-master/).
 
-Per personalizzare l'aspetto e la struttura delle tue diapositive, potresti dover aggiungere nuovi layout a una presentazione. Aspose.Slides for Java ti consente di verificare se un layout specifico esiste già, aggiungerne uno nuovo se necessario e usarlo per inserire diapositive basate su quel layout.
+## **Selezionare e Applicare un Layout di Diapositiva**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-1. Accedi alla [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/imasterlayoutslidecollection/).
-1. Verifica se il layout desiderato esiste già nella collezione. In caso contrario, aggiungi il layout di cui hai bisogno.
-1. Aggiungi una diapositiva vuota basata sul nuovo layout.
-1. Salva la presentazione.
+Utilizza un tipo di layout quando la presentazione segue le definizioni standard dei layout di PowerPoint. I nomi dei layout sono modificabili dall'utente e possono essere localizzati, quindi la selezione basata sul nome è meno affidabile a meno che tu non controlli il modello di origine.
 
-Il seguente codice Java dimostra come aggiungere un layout di diapositiva a una presentazione PowerPoint:
+L'esempio seguente cerca **Title and Content** sul primo master. Se quel layout non è disponibile, ricade deliberatamente su **Blank**. Il secondo controllo null è necessario perché una presentazione può contenere solo layout personalizzati. Il layout selezionato viene quindi applicato alla prima normal slide tramite il metodo [ISlide.setLayoutSlide](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-).
 
 ```java
-// Istanziare la classe Presentation che rappresenta un file PowerPoint.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Scorrere i tipi di layout di diapositiva per selezionare un layout di diapositiva.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Una situazione in cui la presentazione non contiene tutti i tipi di layout.
-        // Il file della presentazione contiene solo i tipi di layout Blank e Custom.
-        // Tuttavia, le diapositive di layout con tipi personalizzati possono avere nomi riconoscibili,
-        // come "Title", "Title and Content", ecc., che possono essere usati per la selezione del layout di diapositiva.
-        // È inoltre possibile basarsi su un insieme di tipi di forma segnaposto.
-        // Ad esempio, una diapositiva Title dovrebbe avere solo il tipo di segnaposto Title, e così via.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Aggiungere una diapositiva vuota usando il layout di diapositiva aggiunto.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Salvare la presentazione su disco.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Rimuovere layout di diapositiva inutilizzati**
+Modificare il layout di una diapositiva non rimuove le forme ordinarie aggiunte direttamente alla diapositiva. Tuttavia, le posizioni dei segnaposti, la formattazione ereditata e la corrispondenza tra i segnaposti esistenti e il nuovo layout possono cambiare, quindi ispeziona l'output quando passi da layout sostanzialmente diversi.
 
-Aspose.Slides fornisce il metodo [removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) della classe [Compress](https://reference.aspose.com/slides/it/java/com.aspose.slides/compress/) per consentire di eliminare i layout di diapositiva indesiderati e non utilizzati.
+## **Aggiungere una Diapositiva Layout**
 
-Il seguente codice Java mostra come rimuovere un layout di diapositiva da una presentazione PowerPoint:
+Selezione e creazione sono operazioni separate. L'esempio precedente seleziona un layout esistente; non ne crea uno. Per creare un layout, chiama il metodo [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/it/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) sulla collezione di layout del master di destinazione.
+
+L'esempio seguente aggiunge sempre un nuovo layout **Title and Content** chiamato `Report Title and Content`, quindi aggiunge una normal slide basata su di esso. I nomi dei layout devono essere unici all'interno della collezione.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Aggiungere segnaposti ai layout di diapositiva**
+Aggiungi un layout solo quando il modello necessita realmente di un'altra struttura riutilizzabile. Se esiste già un layout adatto, selezionalo e riutilizzalo invece di crearne un duplicato.
 
-Aspose.Slides fornisce il metodo [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) che consente di aggiungere nuovi segnaposti a un layout di diapositiva.
+## **Aggiungere Segnaposti a una Diapositiva Layout**
 
-Questo manager contiene metodi per i seguenti tipi di segnaposto:
+Il metodo [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) fornisce un [ILayoutPlaceholderManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/) per aggiungere forme di segnaposto a un layout.
 
-| Segnaposto PowerPoint              | Metodo [ILayoutPlaceholderManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/) |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Contenuto](content.png)          | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Contenuto (Verticale)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Testo](text.png)                 | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Testo (Verticale)](textV.png)    | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Immagine](picture.png)           | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Grafico](chart.png)              | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabella](table.png)              | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)          | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Immagine online](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Segnaposto PowerPoint | `ILayoutPlaceholderManager` Method |
+| --------------------- | ---------------------------------- |
+| ![Contenuto](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Contenuto (Verticale)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Testo](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Testo (Verticale)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Immagine](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Grafico](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Tabella](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Immagine online](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Il seguente codice Java dimostra come aggiungere nuove forme segnaposto al layout vuoto:
+L'esempio seguente verifica che il layout **Blank** esista, aggiunge quattro segnaposti ad esso e quindi crea una normal slide che utilizza il layout modificato. L'ordine è intenzionale: i segnaposti vengono aggiunti prima della creazione della normal slide, così Aspose.Slides può generare le corrispondenti forme di segnaposto su quella diapositiva.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Ottieni la diapositiva di layout Blank.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Ottieni il gestore dei segnaposto della diapositiva di layout.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Aggiungi diversi segnaposto alla diapositiva di layout Blank.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Aggiungi una nuova diapositiva con il layout Blank.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -182,73 +158,79 @@ try {
 
 Il risultato:
 
-![I segnaposti sul layout della diapositiva](add_placeholders.png)
+![I segnaposti sulla diapositiva layout](add_placeholders.png)
 
-## **Impostare la visibilità del piè di pagina per un layout di diapositiva**
+{{% alert color="warning" title="Warning" %}}
+Modificare la formattazione ereditata o la geometria dei segnaposti di layout esistenti può influire sulle diapositive dipendenti. Un segnaposto di layout appena aggiunto non viene retrofittato nelle normal slide esistenti. Prova le modifiche al layout su una copia della presentazione e ispeziona ogni diapositiva dipendente.
+{{% /alert %}}
 
-In presentazioni PowerPoint, gli elementi del piè di pagina come data, numero diapositiva e testo personalizzato possono essere mostrati o nascosti a seconda del layout della diapositiva. Aspose.Slides for Java consente di controllare la visibilità di questi segnaposto del piè di pagina. Questo è utile quando desideri che alcuni layout mostrino le informazioni del piè di pagina mentre altri rimangano puliti e minimi.
+## **Rimuovere le Diapositive Layout Inutilizzate**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-1. Ottieni un riferimento al layout di diapositiva per indice.
-1. Imposta il segnaposto del piè di pagina della diapositiva su visibile.
-1. Imposta il segnaposto del numero diapositiva su visibile.
-1. Imposta il segnaposto data‑ora su visibile.
-1. Salva la presentazione.
-
-Il seguente codice Java mostra come impostare la visibilità del piè di pagina di una diapositiva e svolgere le operazioni correlate:
+Utilizza il metodo [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) per rimuovere i layout a cui nessuna normal slide fa riferimento. Il metodo lascia intatti i layout ancora in uso.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Impostare la visibilità del piè di pagina per le diapositive figlie**
+Per rimuovere un layout specifico, utilizza prima il suo metodo [hasDependingSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) o [getDependingSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslide/#getDependingSlides--). Riassegna eventuali diapositive dipendenti prima di chiamare [ILayoutSlide.remove](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslide/#remove--). Tentare di rimuovere un layout in uso genera una [PptxEditException](https://reference.aspose.com/slides/it/java/com.aspose.slides/pptxeditexception/).
 
-In presentazioni PowerPoint, gli elementi del piè di pagina come data, numero diapositiva e testo personalizzato possono essere controllati a livello di slide master per garantire coerenza su tutti i layout di diapositiva. Aspose.Slides for Java consente di impostare la visibilità e il contenuto di questi segnaposto del piè di pagina sullo slide master e di propagare queste impostazioni a tutti i layout figlio. Questo approccio assicura informazioni uniformi sul piè di pagina in tutta la presentazione.
+## **Controllare la Visibilità del Footer su una Diapositiva Layout**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-1. Ottieni un riferimento al master slide per indice.
-1. Imposta tutti i segnaposto del piè di pagina del master e dei layout figlio su visibili.
-1. Imposta tutti i segnaposto del numero diapositiva del master e dei layout figlio su visibili.
-1. Imposta tutti i segnaposto data‑ora del master e dei layout figlio su visibili.
-1. Salva la presentazione.
-
-Il seguente codice Java dimostra questa operazione:
+Un layout ha i propri segnaposti per footer, numero diapositiva e data/ora. Utilizza il metodo [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) per controllare quei segnaposti per un layout. Questo è utile quando, ad esempio, i layout di contenuto devono mostrare i footer ma i layout di titolo no.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    }
+
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
+    }
+
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Controllare la Visibilità del Footer su un Master e i Suoi Layout Figlio**
+
+Per applicare impostazioni di footer coerenti su tutta la gerarchia di un master, utilizza il metodo [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) . I metodi di propagazione di [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/imasterslideheaderfootermanager/) operano sul master e sui suoi layout dipendenti e sulle normal slide; non si rivolgono a una sola normal slide.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -256,14 +238,18 @@ try {
 
 ## **FAQ**
 
-**Qual è la differenza tra una slide master e una slide layout?**
+**Qual è la differenza tra una Master Slide e una Layout Slide?**
 
-Una slide master definisce il tema complessivo e la formattazione predefinita, mentre le slide layout definiscono disposizioni specifiche di segnaposto per diversi tipi di contenuto.
+Una master slide definisce il tema della presentazione e la formattazione condivisa. Una layout slide appartiene a una master e definisce una disposizione riutilizzabile di segnaposti. Le normal slide utilizzano questi layout e memorizzano il contenuto specifico della diapositiva.
 
-**Posso copiare una slide layout da una presentazione all'altra?**
+**Posso copiare una Layout Slide da una presentazione a un'altra?**
 
-Sì, puoi clonare una slide layout dalla collezione di layout di una presentazione, accessibile tramite il metodo [getLayoutSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getLayoutSlides--), e inserirla in un'altra presentazione usando il metodo `addClone`.
+Sì. Aggiungi una copia alla collezione di destinazione con il metodo [addClone](https://reference.aspose.com/slides/it/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) . Quando copi tra presentazioni, verifica anche i caratteri, i temi, le immagini e le altre risorse utilizzate dal layout di origine.
 
-**Cosa succede se elimino una slide layout ancora usata da una slide?**
+**Cosa succede se modifico un layout già in uso?**
 
-Se tenti di eliminare una slide layout ancora referenziata da almeno una slide nella presentazione, Aspose.Slides genererà un'eccezione [PptxEditException](https://reference.aspose.com/slides/it/java/com.aspose.slides/pptxeditexception/). Per evitarlo, utilizza [removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) che rimuove in sicurezza solo i layout non in uso.
+Le diapositive dipendenti ereditano le modifiche al layout a meno che non sovrascrivano localmente la formattazione o gli oggetti interessati. La geometria dei segnaposti e lo stile ereditato possono quindi cambiare su molte diapositive contemporaneamente. Usa [getDependingSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) per identificare le diapositive interessate prima di modificare il layout.
+
+**Cosa succede se rimuovo un layout ancora in uso?**
+
+Aspose.Slides genera un'eccezione [PptxEditException](https://reference.aspose.com/slides/it/java/com.aspose.slides/pptxeditexception/). Riassegna prima le diapositive dipendenti, oppure utilizza [removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) per rimuovere solo i layout non referenziati.

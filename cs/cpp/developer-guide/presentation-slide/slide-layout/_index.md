@@ -7,271 +7,304 @@ url: /cs/cpp/slide-layout/
 keywords:
 - rozvržení snímku
 - rozvržení obsahu
-- zástupce
+- zástupný objekt
 - návrh prezentace
 - návrh snímku
 - nepoužité rozvržení
 - viditelnost zápatí
-- titulní snímek
-- titul a obsah
+- snímek s nadpisem
+- nadpis a obsah
 - hlavička sekce
-- dva obsah
-- srovnání
-- pouze titulek
+- dva obsahy
+- porovnání
+- pouze nadpis
 - prázdné rozvržení
 - obsah s popiskem
 - obrázek s popiskem
-- titulek a vertikální text
-- vertikální titulek a text
+- nadpis a svislý text
+- svislý nadpis a text
 - PowerPoint
 - OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Spravujte a přizpůsobujte rozvržení snímků v Aspose.Slides pro C++. Prozkoumejte typy rozvržení, řízení zástupců a viditelnost zápatí pomocí ukázek kódu v C++."
+description: "Použijte, vytvořte a upravte rozvržení snímků v Aspose.Slides pro C++, přidejte zástupné objekty, odstraňte nepoužitá rozvržení a ovládejte viditelnost zápatí."
 ---
-## **Úvod**
+## **Přehled**
 
-Rozvržení snímku určuje uspořádání míst pro zástupce a formátování obsahu na snímku. Řídí, které zástupce jsou k dispozici a kde se zobrazují. Rozvržení snímků vám pomáhá rychle a konzistentně vytvářet prezentace – ať už jde o něco jednoduchého nebo složitějšího. Mezi nejčastější rozvržení snímků v PowerPointu patří:
+Rozvržení snímku definuje pozice a formátování zástupných objektů, jako jsou nadpisy, text, obrázky, grafy a tabulky. Použití rozvržení poskytuje snímkům konzistentní strukturu a zároveň umožňuje, aby každý snímek obsahoval vlastní obsah.
 
-**Rozvržení titulního snímku** – Obsahuje dva textové zástupce: jeden pro titulek a jeden pro podtitulek.
+Nejčastější rozvržení zahrnují:
 
-**Rozvržení titulek a obsah** – Má menší zástupce titulku nahoře a větší pod ním pro hlavní obsah (jako text, odrážky, grafy, obrázky a další).
+- **Title Slide**: Obsahuje zástupné objekty nadpisu a podnadpisu.
+- **Title and Content**: Obsahuje zástupný objekt nadpisu a obecný zástupný objekt pro obsah.
+- **Blank**: Neobsahuje žádné zástupné objekty obsahu a je užitečné, když bude každá forma umístěna ručně.
 
-**Prázdné rozvržení** – Neobsahuje žádné zástupce, což vám dává plnou kontrolu nad návrhem snímku od základu.
+## **Pochopení dědičnosti rozvržení**
 
-Rozvržení snímků jsou součástí základního snímku (slide master), který je nejvyšší úrovní snímku definující styl rozvržení pro celou prezentaci. Přístup k rozvržením a jejich úpravy můžete provést přes základní snímek – podle typu, názvu nebo unikátního ID. Nebo můžete konkrétní rozvržení upravit přímo v prezentaci.
+Prezentace má tři související úrovně:
 
-Pro práci s rozvržením snímků v Aspose.Slides pro Android můžete použít:
+1. [Hlavní snímek](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslide/) definuje téma, sdílené formátování, pozadí a společné objekty.
+2. [Rozvržení snímku](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/) patří hlavnímu snímku a definuje konkrétní uspořádání zástupných objektů.
+3. [Normální snímek](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/) využívá jedno rozvržení a ukládá obsah zadaný pro tento snímek.
 
-- Metody jako [get_LayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_layoutslides/) a [get_Masters](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_masters/) ve třídě [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/)
-- Typy jako [ILayoutSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/) a [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
+Normální snímek dědí téma a formátování ze svého rozvržení a rozvržení dědí z hlavního snímku. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu na této úrovni. Když je normální snímek vytvořen, jeho tvary zástupných objektů jsou generovány z vybraného rozvržení, zatímco obsah zadaný do těchto zástupných objektů patří normálnímu snímku.
 
-{{% alert title="Info" color="info" %}}
+Přidejte požadované zástupné objekty do rozvržení před vytvořením snímků z něj. Přidání dalšího zástupného objektu do rozvržení později automaticky nepřidá odpovídající tvar zástupného objektu do existujících normálních snímků.
 
-Chcete-li se dozvědět více o práci se základními snímky, podívejte se na článek [Slide Master](/slides/cs/cpp/slide-master/).
+Tento vztah má dva důležité důsledky:
 
-{{% /alert %}}
+- Změna zděděného formátování nebo existující geometrie zástupného objektu v rozvržení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozvržení, které je již používáno, zkontrolujte jeho závislé snímky a přezkoumejte výslednou prezentaci.
+- Rozvržení, které je stále používáno snímkem, nelze odstranit. Předtím přesuňte jeho závislé snímky na jiné rozvržení, nebo odstraňte jen nepoužívaná rozvržení.
 
-## **Přidání rozvržení snímků do prezentací**
+Pro více informací o nejvyšší úrovni této hierarchie viz [Hlavní snímek](/slides/cs/cpp/slide-master/).
 
-Chcete‑li přizpůsobit vzhled a strukturu svých snímků, možná budete potřebovat přidat nová rozvržení do prezentace. Aspose.Slides pro Android vám umožňuje zjistit, zda konkrétní rozvržení již existuje, přidat jej v případě potřeby a použít jej k vkládání snímků na základě tohoto rozvržení.
+## **Vyberte a použijte rozvržení snímku**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte kolekci [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterlayoutslidecollection/).
-1. Ověřte, zda požadovaný rozvržení snímku již v kolekci existuje. Pokud ne, přidejte potřebné rozvržení.
-1. Přidejte prázdný snímek založený na novém rozvržení.
-1. Uložte prezentaci.
+Používejte typ rozvržení, když prezentace používá standardní definice rozvržení PowerPointu. Názvy rozvržení lze upravovat a lokalizovat, takže výběr založený na názvu je méně spolehlivý, pokud neovládáte zdrojovou šablonu.
 
-Níže uvedený C++ kód ukazuje, jak přidat rozvržení snímku do PowerPointové prezentace:
+Následující příklad hledá **Title and Content** v prvním hlavním snímku. Pokud toto rozvržení není k dispozici, úmyslně přejde na **Blank**. Druhá kontrola na null je nutná, protože prezentace může obsahovat jen vlastní rozvržení. Vybrané rozvržení je následně použito na první normální snímek pomocí metody [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
 
-// Go through the layout slide types to select a layout slide.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
-SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+auto targetLayout = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+
+if (targetLayout == nullptr)
 {
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-}
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
-{
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+    targetLayout = layoutSlides->GetByType(SlideLayoutType::Blank);
 }
 
-if (layoutSlide == nullptr)
+if (targetLayout == nullptr)
 {
-    // Situace, kdy prezentace neobsahuje všechny typy rozvržení.
-    // Soubor prezentace obsahuje jen typy rozvržení Blank a Custom.
-    // Nicméně rozvržení snímků s vlastními typy mohou mít rozpoznatelné názvy,
-    // např. "Title", "Title and Content" a další, které lze použít pro výběr rozvržení snímku.
-    // Můžete také spoléhat na sadu typů tvarů zástupců.
-    // Například titulní snímek by měl mít jen typ zástupce Title, atd.
-    for (int i = 0; i < layoutSlides->get_Count(); i++)
-    {
-        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-        {
-            layoutSlide = titleAndObjectLayoutSlide;
-            break;
-        }
-    }
-
-    if (layoutSlide == nullptr)
-    {
-        for (int i = 0; i < layoutSlides->get_Count(); i++)
-        {
-            auto titleLayoutSlide = layoutSlides->idx_get(i);
-
-            if (titleLayoutSlide->get_Name() == u"Title")
-            {
-                layoutSlide = titleLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == nullptr)
-        {
-            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == nullptr)
-            {
-                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-            }
-        }
-    }
+    throw InvalidOperationException(u"The first master does not contain a suitable layout slide.");
 }
 
-// Přidejte prázdný snímek pomocí přidaného rozvržení snímku.
-presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-// Uložte prezentaci na disk.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->get_Slide(0)->set_LayoutSlide(targetLayout);
+presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Odstranění nepoužívaných rozvržení snímků**
+Změna rozvržení snímku neodstraní běžné tvary přidané přímo na snímek. Nicméně pozice zástupných objektů, zděděné formátování a shoda mezi existujícími zástupnými objekty a novým rozvržením se mohou změnit, proto při přepínání mezi podstatně odlišnými rozvrženími zkontrolujte výstup.
 
-Aspose.Slides poskytuje metodu [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) ze třídy [Compress](https://reference.aspose.com/slides/cs/cpp/aspose.slides.lowcode/compress/), která vám umožní smazat nežádoucí a nepoužívaná rozvržení snímků.
+## **Přidejte rozvržení snímku**
 
-Následující C++ kód ukazuje, jak odstranit rozvržení snímku z PowerPointové prezentace:
+Výběr a vytvoření jsou samostatné operace. Předchozí příklad vybere existující rozvržení; nevytvoří ho. Pro vytvoření rozvržení zavolejte metodu [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterlayoutslidecollection/add/) na kolekci rozvržení cílového hlavního snímku.
+
+Následující příklad vždy přidá nové rozvržení **Title and Content** pojmenované `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozvržení musí být v kolekci jedinečné.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-Compress::RemoveUnusedLayoutSlides(presentation);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto reportLayout = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::TitleAndObject, u"Report Title and Content");
+presentation->get_Slides()->AddEmptySlide(reportLayout);
+
+presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Přidání zástupců do rozvržení snímků**
+Přidejte rozvržení pouze tehdy, když šablona skutečně potřebuje další opakovaně použitelnou strukturu. Pokud již existuje vhodné rozvržení, vyberte a znovu jej použijte místo vytváření duplikátu.
 
-Aspose.Slides poskytuje metodu [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/), která vám umožní přidávat nové zástupce do rozvržení snímku.
+## **Přidejte zástupné objekty do rozvržení snímku**
 
-Tento manažer obsahuje metody pro následující typy zástupců:
+Metoda [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) poskytuje [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/) pro přidávání tvarů zástupných objektů do rozvržení.
 
-| Zástupce PowerPointu | Metoda [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/) |
-| -------------------- | ------------------------------------------------------------ |
-| ![Content](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Zástupný objekt PowerPoint | `ILayoutPlaceholderManager` Metoda |
+| -------------------------- | ---------------------------------- |
+| ![Obsah](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Obsah (vertikální)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (vertikální)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Obrázek](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Graf](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Tabulka](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Média](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online obrázek](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Následující C++ kód ukazuje, jak přidat nové tvary zástupců do prázdného rozvržení snímku:
+Následující příklad ověří, že rozvržení **Blank** existuje, přidá k němu čtyři zástupné objekty a poté vytvoří normální snímek, který používá upravené rozvržení. Pořadí je úmyslné: zástupné objekty jsou přidány před vytvořením normálního snímku, takže Aspose.Slides může na tomto snímku vygenerovat odpovídající tvary zástupných objektů.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
-// Získat prázdné rozvržení snímku.
-auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// Získat správce zástupců rozvržení snímku.
-auto placeholderManager = layout->get_PlaceholderManager();
+if (blankLayout == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a Blank layout slide.");
+}
 
-// Přidat různé zástupce do prázdného rozvržení snímku.
-placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
-placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
-placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
-placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+auto placeholderManager = blankLayout->get_PlaceholderManager();
+placeholderManager->AddContentPlaceholder(20.0f, 20.0f, 310.0f, 270.0f);
+placeholderManager->AddVerticalTextPlaceholder(350.0f, 20.0f, 350.0f, 270.0f);
+placeholderManager->AddChartPlaceholder(20.0f, 310.0f, 310.0f, 180.0f);
+placeholderManager->AddTablePlaceholder(350.0f, 310.0f, 350.0f, 180.0f);
 
-// Přidat nový snímek s prázdným rozvržením.
-auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
-
-presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->AddEmptySlide(blankLayout);
+presentation->Save(u"output-with-placeholders.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Výsledek:
 
-![Zástupci na rozvržení snímku](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-## **Nastavení viditelnosti zápatí pro rozvržení snímku**
+{{% alert color="warning" title="Warning" %}}
+Změna zděděného formátování nebo geometrie existujících zástupných objektů v rozvržení může ovlivnit závislé snímky. Nově přidaný zástupný objekt rozvržení není doplněn do existujících normálních snímků. Otestujte změny rozvržení na kopii prezentace a zkontrolujte každý závislý snímek.
+{{% /alert %}}
 
-V PowerPointových prezentacích lze prvky zápatí – datum, číslo snímku a vlastní text – zobrazovat nebo skrývat podle rozvržení snímku. Aspose.Slides pro Android vám umožňuje řídit viditelnost těchto zástupců zápatí. To je užitečné, když chcete, aby některá rozvržení zobrazovala informace v zápatí, zatímco jiná zůstala čistá a minimalistická.
+## **Odstraňte nepoužívaná rozvržení snímků**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte referenci na rozvržení snímku podle jeho indexu.
-1. Nastavte viditelnost zástupce zápatí snímku na **visible**.
-1. Nastavte viditelnost zástupce čísla snímku na **visible**.
-1. Nastavte viditelnost zástupce data/času na **visible**.
-1. Uložte prezentaci.
-
-Následující C++ kód ukazuje, jak nastavit viditelnost zápatí snímku a provést související úkony:
+Použijte metodu [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) k odebrání rozvržení, na která neodkazuje žádný normální snímek. Metoda ponechá nedotčená rozvržení, která jsou stále používána.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
-auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
 
-if (!headerFooterManager->get_IsFooterVisible())
-{
-    headerFooterManager->SetFooterVisibility(true);
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
 
-if (!headerFooterManager->get_IsSlideNumberVisible())
-{
-    headerFooterManager->SetSlideNumberVisibility(true);
-}
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
-if (!headerFooterManager->get_IsDateTimeVisible())
-{
-    headerFooterManager->SetDateTimeVisibility(true);
-}
-
-headerFooterManager->SetFooterText(u"Footer text");
-headerFooterManager->SetDateTimeText(u"Date and time text");
-
-presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+Compress::RemoveUnusedLayoutSlides(presentation);
+presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Nastavení viditelnosti zápatí pro podřízené snímky**
+Chcete‑li odstranit konkrétní rozvržení, nejprve použijte jeho metodu [get_HasDependingSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) nebo [GetDependingSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/getdependingslides/). Před voláním [ILayoutSlide::Remove](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/remove/) přesuňte všechny závislé snímky. Pokus o odstranění používaného rozvržení vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxeditexception/).
 
-​V PowerPointových prezentacích lze prvky zápatí – datum, číslo snímku a vlastní text – řídit na úrovni základního snímku, aby byla zajištěna konzistence napříč všemi rozvrženími snímků. Aspose.Slides pro Android umožňuje nastavit viditelnost a obsah těchto zástupců zápatí na základním snímku a propagovat tato nastavení do všech podřízených rozvržení snímků. Tento přístup zajišťuje jednotné informace v zápatí v celé prezentaci.​
+## **Řízení viditelnosti zápatí na rozvržení snímku**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-1. Získejte referenci na základní snímek podle jeho indexu.
-1. Nastavte viditelnost všech zástupců zápatí základního i podřízených snímků na **visible**.
-1. Nastavte viditelnost všech zástupců čísel snímků základního i podřízených snímků na **visible**.
-1. Nastavte viditelnost všech zástupců data/času základního i podřízených snímků na **visible**.
-1. Uložte prezentaci.
-
-Následující C++ kód demonstruje tuto operaci:
+Rozvržení má vlastní zástupné objekty zápatí, čísla snímků a datum‑čas. Použijte metodu [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) k řízení těchto zástupných objektů pro jedno rozvržení. To je užitečné například, když by rozvržení obsahu měla zobrazovat zápatí, ale rozvržení nadpisu ne.
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::TitleAndObject);
+
+if (layoutSlide == nullptr)
+{
+    layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+}
+
+if (layoutSlide == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a suitable layout slide.");
+}
+
+auto headerFooterManager = layoutSlide->get_HeaderFooterManager();
+headerFooterManager->SetFooterVisibility(true);
+headerFooterManager->SetSlideNumberVisibility(true);
+headerFooterManager->SetDateTimeVisibility(true);
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Řízení viditelnosti zápatí v hlavním snímku a jeho podřízených rozvrženích**
+
+Aby byla použita jednotná nastavení zápatí v celé hierarchii hlavního snímku, použijte metodu [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Metody šíření třídy [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslideheaderfootermanager/) působí na hlavní snímek a jeho závislé rozvržení snímků i normální snímky; nemají cíl jen jeden normální snímek.
+
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
-
 headerFooterManager->SetFooterAndChildFootersVisibility(true);
 headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
 headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
-
 headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
 headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi základním snímkem a rozvržením snímku?**
+**Jaký je rozdíl mezi hlavním snímkem a rozvržením snímku?**
 
-Základní snímek určuje celkové téma a výchozí formátování, zatímco rozvržení snímku definují konkrétní uspořádání zástupců pro různé typy obsahu.
+Hlavní snímek definuje téma prezentace a sdílené formátování. Rozvržení snímku patří hlavnímu snímku a definuje jedno opakovaně použitelné uspořádání zástupných objektů. Normální snímky používají tato rozvržení a ukládají obsah specifický pro snímek.
 
 **Mohu zkopírovat rozvržení snímku z jedné prezentace do druhé?**
 
-Ano, můžete klonovat rozvržení snímku z kolekce rozvržení jedné prezentace (přístupné metodou [get_LayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_layoutslides/)) a vložit jej do jiné prezentace pomocí metody `AddClone`.
+Ano. Přidejte kopii do cílové kolekce pomocí metody [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/cs/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Při kopírování mezi prezentacemi také ověřte písma, témata, obrázky a další zdroje používané zdrojovým rozvržením.
 
-**Co se stane, když smažu rozvržení snímku, které je stále používáno?**
+**Co se stane, když upravím rozvržení, které je již používáno?**
 
-Pokud se pokusíte smazat rozvržení snímku, na které odkazuje alespoň jeden snímek v prezentaci, Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxeditexception/). Pro zamezení tomu použijte [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/), která bezpečně odstraní jen nepoužívaná rozvržení.
+Závislé snímky zdědí změny rozvržení, pokud lokálně nepřepíší ovlivněné formátování nebo objekty. Geometrie zástupných objektů a zděděné stylování se tak mohou najednou změnit na mnoha snímcích. Před úpravou rozvržení použijte [GetDependingSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilayoutslide/getdependingslides/) k určení ovlivněných snímků.
+
+**Co se stane, pokud odstraním rozvržení, které je stále používáno?**
+
+Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxeditexception/). Nejprve přesuňte závislé snímky, nebo použijte [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) k odstranění jen neodkazovaných rozvržení.

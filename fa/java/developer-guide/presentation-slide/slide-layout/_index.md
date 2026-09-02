@@ -1,178 +1,156 @@
 ---
-title: اعمال یا تغییر طرح اسلاید در جاوا
-linktitle: طرح اسلاید
+title: "اعمال یا تغییر طرح‌بندی اسلایدها در جاوا"
+linktitle: "طرح‌بندی اسلاید"
 type: docs
 weight: 60
 url: /fa/java/slide-layout/
 keywords:
-- طرح اسلاید
-- طرح محتوا
-- متغیر جایگزین
-- طراحی ارائه
-- طراحی اسلاید
-- طرح استفاده‌نشده
-- قابلیت نمایش پابرگ
-- اسلاید عنوان
-- عنوان و محتوا
-- سرصفحه بخش
-- دو محتوا
-- مقایسه
-- فقط عنوان
-- طرح خالی
-- محتوا با کپشن
-- عکس با کپشن
-- عنوان و متن عمودی
-- عنوان عمودی و متن
-- PowerPoint
-- OpenDocument
-- ارائه
-- Java
-- Aspose.Slides
-description: "مدیریت و سفارشی‌سازی طرح‌های اسلاید در Aspose.Slides برای جاوا. انواع طرح‌ها، کنترل متغیرهای جایگزین، و قابلیت نمایش پابرگ را از طریق مثال‌های کد جاوا بررسی کنید."
+- "طرح‌بندی اسلاید"
+- "طرح‌بندی محتوا"
+- "جای‌گذار"
+- "طراحی ارائه"
+- "طراحی اسلاید"
+- "طرح‌بندی استفاده‌نشده"
+- "قابلیت نمایش پانوشت"
+- "اسلاید عنوان"
+- "عنوان و محتوا"
+- "سرصفحه بخش"
+- "دو محتوا"
+- "مقایسه"
+- "فقط عنوان"
+- "طرح‌بندی خالی"
+- "محتوا با زیرنویس"
+- "تصویر با زیرنویس"
+- "عنوان و متن عمودی"
+- "عنوان عمودی و متن"
+- "PowerPoint"
+- "OpenDocument"
+- "ارائه"
+- "Java"
+- "Aspose.Slides"
+description: "اعمال، ایجاد و اصلاح طرح‌بندی اسلایدها در Aspose.Slides برای Java، افزودن جای‌گذارها، حذف طرح‌بندی‌های استفاده‌نشده و کنترل نمایش پانوشت."
 ---
-## **مقدمه**
+## **بررسی کلی**
 
-یک طرح اسلاید چیدمان جعبه‌های متغیر جایگزین و قالب‌بندی محتوا را بر روی یک اسلاید تعریف می‌کند. این کنترل می‌کند که کدام متغیرهای جایگزین در دسترس هستند و کجا ظاهر می‌شوند. طرح‌های اسلاید به شما کمک می‌کند تا ارائه‌ها را به‌سرعت و به‌صورت سازگار طراحی کنید—چه در حال ایجاد چیزی ساده باشید و چه پیچیده‌تر. برخی از رایج‌ترین طرح‌های اسلاید در PowerPoint عبارتند از:
+یک طرح‌بندی اسلاید موقعیت‌ها و قالب‌بندی جای‌گذاران مانند عنوان، متن، تصویر، نمودار و جدول را تعریف می‌کند. اعمال یک طرح‌بندی به اسلایدها ساختار ثابت‌تری می‌بخشد در حالی که هر اسلاید می‌تواند محتوای خود را داشته باشد.
 
-**طرح اسلاید عنوان** – دو متغیر متنی شامل یک برای عنوان و یک برای زیرعنوان دارد.
+پرکاربردترین طرح‌بندی‌ها عبارتند از:
 
-**طرح عنوان و محتوا** – شامل یک متغیر عنوان کوچکتر در بالای اسلاید و یک متغیر بزرگتر در زیر برای محتوای اصلی (مانند متن، نکات بولت‌دار، نمودارها، تصاویر و موارد دیگر) است.
+- **اسلاید عنوان**: شامل جای‌گذارهای عنوان و زیرعنوان.
+- **عنوان و محتوا**: شامل یک جای‌گذار عنوان و یک جای‌گذار محتوای عمومی.
+- **خالی**: هیچ جای‌گذار محتوایی ندارد و زمانی مفید است که تمام اشکال به‌صورت دستی موقعیت‌یابی شوند.
 
-**طرح خالی** – هیچ متغیر جایگزینی ندارد و به شما کنترل کامل برای طراحی اسلاید از ابتدا می‌دهد.
+## **درک ارث‌بری طرح‌بندی**
 
-طرح‌های اسلاید جزئی از یک اسلاید اصلی (slide master) هستند که اسلاید سطح بالایی است که سبک‌های طرح را برای ارائه تعریف می‌کند. می‌توانید از طریق اسلاید اصلی به طرح‌های اسلاید دسترسی پیدا کنید و آنها را اصلاح کنید—چه بر اساس نوع، نام یا شناسه منحصر به فردشان. یا می‌توانید یک طرح اسلاید خاص را مستقیماً درون ارائه ویرایش کنید.
+یک ارائه دارای سه سطح مرتبط است:
 
-برای کار با طرح‌های اسلاید در Aspose.Slides for Java، می‌توانید از:
+1. یک [اسلاید اصلی](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imasterslide/) تم، قالب‌بندی مشترک، پس‌زمینه و اشیای عمومی را تعریف می‌کند.
+1. یک [اسلاید طرح‌بندی](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslide/) متعلق به یک اسلاید اصلی است و ترتیب خاصی از جای‌گذاران را تعیین می‌کند.
+1. یک [اسلاید عادی](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islide/) از یک طرح‌بندی استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌کند.
 
-- روش‌هایی مانند [getLayoutSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getLayoutSlides--) و [getMasters](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getMasters--) تحت کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/)
-- انواع مانند [ILayoutSlide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/), و [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslideheaderfootermanager/)
+یک اسلاید عادی قالب‌بندی و تم را از طرح‌بندی خود ارث می‌برد و طرح‌بندی نیز از اسلاید اصلی ارث می‌برد. مقداری که مستقیماً بر روی اسلاید عادی تنظیم شود، مقدار ارث‌بری را در همان سطح بازنویسی می‌کند. هنگام ایجاد یک اسلاید عادی، اشکال جای‌گذار آن از طرح‌بندی انتخاب شده تولید می‌شوند، در حالی که محتوای وارد شده در این جای‌گذارها متعلق به اسلاید عادی است.
 
-{{% alert title="Info" color="info" %}}
-برای اطلاعات بیشتر درباره کار با اسلایدهای اصلی، مقاله [Slide Master](/slides/fa/java/slide-master/) را بررسی کنید.
-{{% /alert %}}
+قبل از ایجاد اسلایدها، جای‌گذاران مورد نیاز را به طرح‌بندی اضافه کنید. افزودن یک جای‌گذار دیگر به طرح‌بندی پس از ایجاد اسلایدهای عادی، به‌صورت خودکار به‌عنوان شکل جای‌گذار در اسلایدهای موجود اضافه نمی‌شود.
 
-## **افزودن طرح‌های اسلاید به ارائه‌ها**
+این رابطه دو پیامد مهم دارد:
 
-برای سفارشی‌سازی ظاهر و ساختار اسلایدهای خود، ممکن است نیاز داشته باشید طرح‌های اسلاید جدیدی به یک ارائه اضافه کنید. Aspose.Slides for Java به شما اجازه می‌دهد تا بررسی کنید آیا یک طرح خاص از قبل موجود است یا نه، در صورت نیاز یک طرح جدید اضافه کنید و از آن برای درج اسلایدهایی بر اساس همان طرح استفاده کنید.
+- تغییر قالب‌بندی ارث‌بری یا هندسه‌ی جای‌گذارهای موجود در یک طرح‌بندی می‌تواند همه اسلایدهایی را که به آن وابسته‌اند به‌روزرسانی کند. قبل از ویرایش طرح‌بندی‌ای که در حال استفاده است، اسلایدهای وابسته را بررسی و ارائه نهایی را مرور کنید.
+- یک طرح‌بندی که هنوز توسط اسلایدی استفاده می‌شود، نمی‌تواند حذف شود. ابتدا اسلایدهای وابسته را به طرح‌بندی دیگری منتقل کنید یا فقط طرح‌بندی‌های بدون استفاده را حذف کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-1. به [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imasterlayoutslidecollection/) دسترسی پیدا کنید.
-1. بررسی کنید آیا طرح اسلاید مورد نظر در مجموعه وجود دارد. اگر نه، طرح اسلاید مورد نیاز را اضافه کنید.
-1. یک اسلاید خالی بر اساس طرح اسلاید جدید اضافه کنید.
-1. ارائه را ذخیره کنید.
+برای اطلاعات بیشتر درباره سطح بالای این سلسله‌مراتب، به [اسلاید مستر](/slides/fa/java/slide-master/) مراجعه کنید.
 
-کد Java زیر نحوه افزودن یک طرح اسلاید به یک ارائه PowerPoint را نشان می‌دهد:
+## **انتخاب و اعمال یک طرح‌بندی اسلاید**
+
+زمانی که ارائه از تعاریف استاندارد طرح‌بندی پاورپوینت پیروی می‌کند، از یک نوع طرح‌بندی استفاده کنید. نام‌های طرح‌بندی قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر پایه نام تا زمانی که کنترل الگوی منبع را داشته باشید، قابل اطمینان نیست.
+
+مثال زیر به دنبال **عنوان و محتوا** در اولین اسلاید اصلی می‌گردد. اگر آن طرح‌بندی موجود نباشد، عمداً به **خالی** بازمی‌گردد. بررسی دوم null ضروری است زیرا یک ارائه می‌تواند تنها شامل طرح‌بندی‌های سفارشی باشد. طرح‌بندی انتخاب‌شده سپس از طریق متد [ISlide.setLayoutSlide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) به اولین اسلاید عادی اعمال می‌شود.
 
 ```java
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل PowerPoint است.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // از انواع اسلایدهای طرح عبور کنید تا یک اسلاید طرح را انتخاب کنید.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // وضعیتی که در آن ارائه تمام انواع طرح‌ها را شامل نمی‌شود.
-        // فایل ارائه تنها شامل انواع طرح Blank و Custom است.
-        // با این حال، اسلایدهای طرح با انواع سفارشی ممکن است نام‌های قابل تشخیص داشته باشند،
-        // مانند "Title"، "Title and Content"، و غیره که می‌توان برای انتخاب اسلاید طرح استفاده کرد.
-        // همچنین می‌توانید به مجموعه‌ای از انواع شکل‌های متغیر جایگزین وابسته باشید.
-        // به عنوان مثال، یک اسلاید Title باید فقط نوع متغیر جایگزین Title را داشته باشد و به همین ترتیب.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // یک اسلاید خالی با استفاده از اسلاید طرح اضافه شده اضافه کنید.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // ارائه را روی دیسک ذخیره کنید.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **حذف طرح‌های اسلاید استفاده‌نشده**
+تغییر طرح‌بندی یک اسلاید، اشکال عادی افزوده‌شده مستقیم به اسلاید را حذف نمی‌کند. با این حال، موقعیت‌های جای‌گذار، قالب‌بندی ارث‌بری و تطابق بین جای‌گذارهای موجود و طرح‌بندی جدید می‌توانند تغییر کنند؛ بنابراین هنگام جابجایی بین طرح‌بندی‌های به‌طور قابل‌توجه متفاوت، خروجی را بررسی کنید.
 
-Aspose.Slides متد [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) را از کلاس [Compress](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/) فراهم می‌کند تا به شما امکان حذف طرح‌های اسلاید ناخواسته و استفاده‌نشده را بدهد.
+## **افزودن یک اسلاید طرح‌بندی**
 
-کد Java زیر نشان می‌دهد چگونه یک طرح اسلاید را از یک ارائه PowerPoint حذف کنید:
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک طرح‌بندی موجود را انتخاب می‌کرد؛ آن را ایجاد نمی‌کرد. برای ساخت یک طرح‌بندی، متد [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) را روی مجموعهٔ طرح‌بندی‌های اسلاید اصلی هدف صدا بزنید.
+
+مثال زیر همیشه یک طرح‌بندی جدید **عنوان و محتوا** به نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید عادی مبتنی بر آن ایجاد می‌کند. نام‌های طرح‌بندی باید درون مجموعه یکتان باشند.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **افزودن متغیرهای جایگزین به طرح‌های اسلاید**
+فقط وقتی الگوی واقعی نیاز به یک ساختار قابل‌استفادهٔ دیگر دارد، یک طرح‌بندی اضافه کنید. اگر یک طرح‌بندی مناسب موجود است، به‌جای ایجاد یک کپی، آن را انتخاب و بازاستفاده کنید.
 
-Aspose.Slides متد [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) را فراهم می‌کند که امکان افزودن متغیرهای جایگزین جدید به یک طرح اسلاید را می‌دهد.
+## **افزودن جای‌گذارها به یک اسلاید طرح‌بندی**
 
-این مدیر شامل متدهایی برای انواع متغیرهای جایگزین زیر است:
+متد [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) یک [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/) برای افزودن اشکال جای‌گذار به یک طرح‌بندی فراهم می‌کند.
 
-| متغیر جایگزین PowerPoint | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/) متد |
-| ------------------------ | ------------------------------------------------------------ |
-| ![محتوا](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![محتوا (عمودی)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![متن](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![متن (عمودی)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![عکس](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![نمودار](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![جدول](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![رسانه](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![تصویر آنلاین](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| نشانگر پاورپوینت | متد `ILayoutPlaceholderManager` |
+| ---------------- | -------------------------------- |
+| ![محتوا](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![محتوا (عمودی)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![متن](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![متن (عمودی)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![تصویر](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![نمودار](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![جدول](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![رسانه](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![تصویر آنلاین](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-کد Java زیر نحوه افزودن شکل‌های متغیر جایگزین جدید به طرح اسلاید خالی را نشان می‌دهد:
+مثال زیر بررسی می‌کند که طرح‌بندی **خالی** وجود دارد، چهار جای‌گذار به آن اضافه می‌کند و سپس یک اسلاید عادی که از طرح‌بندی اصلاح‌شده استفاده می‌کند، می‌سازد. ترتیب به‌صورت عمدی است: ابتدا جای‌گذارها اضافه می‌شوند و سپس اسلاید عادی ایجاد می‌شود تا Aspose.Slides بتواند اشکال جای‌گذار متناظر را روی آن اسلاید تولید کند.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // دریافت اسلاید طرح Blank.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // دریافت مدیر متغیرهای جایگزین اسلاید طرح.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // افزودن متغیرهای جایگزین مختلف به اسلاید طرح Blank.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // افزودن اسلاید جدید با طرح Blank.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -180,88 +158,100 @@ try {
 
 نتیجه:
 
-![متغیرهای جایگزین بر روی اسلاید طرح](add_placeholders.png)
+![جای‌گذارهای موجود بر روی اسلاید طرح‌بندی](add_placeholders.png)
 
-## **تنظیم نمایش پابرگ برای یک طرح اسلاید**
+{{% alert color="warning" title="Warning" %}}
+تغییر قالب‌بندی ارث‌بری یا هندسهٔ جای‌گذارهای موجود در طرح‌بندی می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. یک جای‌گذار جدید به‌صورت خودکار در اسلایدهای عادی موجود پر نمی‌شود. تغییرات طرح‌بندی را روی یک کپی از ارائه تست کنید و هر اسلاید وابسته را بررسی کنید.
+{{% /alert %}}
 
-در ارائه‌های PowerPoint، عناصر پابرگ مانند تاریخ، شماره اسلاید و متن دلخواه می‌توانند بسته به طرح اسلاید نشان داده یا مخفی شوند. Aspose.Slides for Java به شما اجازه می‌دهد تا نمایش این متغیرهای پابرگ را کنترل کنید. این کار زمانی مفید است که بخواهید برخی طرح‌ها اطلاعات پابرگ را نشان دهند در حالی که دیگران تمیز و کم‌تعداد باقی بمانند.
+## **حذف اسلایدهای طرح‌بندی بدون استفاده**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به طرح اسلاید را با استفاده از ایندکس آن دریافت کنید.
-1. متغیر پابرگ اسلاید را به حالت قابل مشاهده تنظیم کنید.
-1. متغیر شماره اسلاید را به حالت قابل مشاهده تنظیم کنید.
-1. متغیر تاریخ‑زمان را به حالت قابل مشاهده تنظیم کنید.
-1. ارائه را ذخیره کنید.
-
-کد Java زیر نشان می‌دهد چگونه نمایش پابرگ اسلاید را تنظیم کنید و کارهای مرتبط را انجام دهید:
+از متد [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) برای حذف طرح‌بندی‌هایی که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد، استفاده کنید. این متد طرح‌بندی‌های هنوز در استفاده را دست‌نخورده می‌گذارد.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+برای حذف یک طرح‌بندی خاص، ابتدا از متد [hasDependingSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) یا [getDependingSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) آن استفاده کنید. قبل از فراخوانی متد [ILayoutSlide.remove](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslide/#remove--)، اسلایدهای وابسته را انتقال دهید. تلاش برای حذف یک طرح‌بندی مورد استفاده منجر به بوجود آمدن [PptxEditException](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxeditexception/) می‌شود.
+
+## **کنترل نمایش پانوشت در یک اسلاید طرح‌بندی**
+
+یک طرح‌بندی پانوشت، شمارهٔ اسلاید و نشانگر تاریخ‑زمان خود را دارد. از متد [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) برای کنترل این نشانگرها برای یک طرح‌بندی استفاده کنید. این رویکرد زمانی مفید است که به‌عنوان مثال طرح‌بندی‌های محتوا باید پانوشت نشان دهند اما طرح‌بندی‌های عنوان نه.
+
+مثال زیر یک طرح‌بندی را به‑صورت ایمن انتخاب می‌کند و عناصر پانوشت آن را قابل‌دید می‌سازد:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **تنظیم نمایش پابرگ فرزند برای یک اسلاید**
+## **کنترل نمایش پانوشت در یک اسلاید اصلی و طرح‌بندی‌های فرزند آن**
 
-در ارائه‌های PowerPoint، عناصر پابرگ مانند تاریخ، شماره اسلاید و متن دلخواه می‌توانند در سطح اسلاید اصلی کنترل شوند تا سازگاری در تمام طرح‌های اسلاید حفظ شود. Aspose.Slides for Java امکان تنظیم نمایش و محتوی این متغیرهای پابرگ بر روی اسلاید اصلی و انتشار این تنظیمات به تمام طرح‌های اسلاید فرزند را می‌دهد. این روش اطمینان می‌دهد که اطلاعات پابرگ به طور یکنواخت در سراسر ارائه شما گسترش یابد.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید.
-1. مرجع به اسلاید اصلی را با استفاده از ایندکس آن دریافت کنید.
-1. تمام متغیرهای پابرگ اصلی و فرزند را به حالت قابل مشاهده تنظیم کنید.
-1. تمام متغیرهای شماره اسلاید اصلی و فرزند را به حالت قابل مشاهده تنظیم کنید.
-1. تمام متغیرهای تاریخ‑زمان اصلی و فرزند را به حالت قابل مشاهده تنظیم کنید.
-1. ارائه را ذخیره کنید.
-
-کد Java زیر این عملیات را نشان می‌دهد:
+برای اعمال تنظیمات یکسان پانوشت در سرتاسر سلسله‌مراتب اسلاید اصلی، از متد [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) استفاده کنید. متدهای انتشار [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/imasterslideheaderfootermanager/) بر روی اسلاید اصلی و اسلایدهای طرح‌بندی وابسته و اسلایدهای عادی اعمال می‌شوند؛ نه فقط یک اسلاید عادی واحد.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**تفاوت بین اسلاید اصلی و اسلاید طرح چیست؟**
+**تفاوت اسلاید اصلی و اسلاید طرح‌بندی چیست؟**
 
-اسلاید اصلی تم کلی و قالب‌بندی پیش‌فرض را تعریف می‌کند، در حالی که اسلایدهای طرح چیدمان‌های خاص متغیرهای جایگزین برای انواع مختلف محتوا را تعیین می‌ورزند.
+اسلاید اصلی تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. اسلاید طرح‌بندی متعلق به یک اسلاید اصلی است و یک ترتیب قابل‌استفادهٔ جای‌گذارها را مشخص می‌کند. اسلایدهای عادی از این طرح‌بندی‌ها استفاده می‌کنند و محتوای خاص خود را ذخیره می‌نمایند.
 
-**آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائه دیگر کپی کنم؟**
+**آیا می‌توانم یک اسلاید طرح‌بندی را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
 
-بله، می‌توانید یک اسلاید طرح را از مجموعه اسلایدهای طرح یک ارائه، که از طریق متد [getLayoutSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getLayoutSlides--) قابل دسترسی است، کلون کنید و با استفاده از متد `addClone` آن را در ارائه دیگر وارد کنید.
+بله. با استفاده از متد [addClone](https://reference.aspose.com/slides/fa/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) یک کپی به مجموعهٔ مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، قلم‌ها، تم‌ها، تصاویر و سایر منابع استفاده‌شده توسط طرح‌بندی منبع را نیز بررسی کنید.
 
-**اگر یک اسلاید طرح که هنوز توسط اسلایدی استفاده می‌شود را حذف کنم چه اتفاقی می‌افتد؟**
+**اگر یک طرح‌بندی که در حال استفاده است را تغییر دهم چه می‌شود؟**
 
-اگر سعی کنید یک اسلاید طرح را حذف کنید که هنوز توسط حداقل یک اسلاید در ارائه مورد ارجاع قرار گرفته است، Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxeditexception/) را پرتاب می‌کند. برای جلوگیری از این مسئله، از متد [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) استفاده کنید که به‌صورت ایمن تنها طرح‌های اسلایدی که استفاده نمی‌شوند را حذف می‌نماید.
+اسلایدهای وابسته تغییرات طرح‌بندی را به ارث می‌برند مگر این‌که قالب‌بندی یا اشیای مورد تأثیر را به‌صورت محلی بازنویسی کرده باشند. بنابراین هندسهٔ جای‌گذارها و استایل‌های ارث‌بری می‌توانند یک‌باره در اسلایدهای متعدد تغییر کنند. قبل از ویرایش طرح‌بندی، از متد [getDependingSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) برای شناسایی اسلایدهای تحت‌تأثیر استفاده کنید.
+
+**اگر یک طرح‌بندی که هنوز استفاده می‌شود را حذف کنم چه می‌شود؟**
+
+Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را به طرح‌بندی دیگری منتقل کنید یا از متد [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) برای حذف فقط طرح‌بندی‌های غیر ارجاع‌شده استفاده کنید.

@@ -1,24 +1,24 @@
 ---
-title: Εφαρμογή ή Αλλαγή Διατάξεων Διαφάνειας σε JavaScript
-linktitle: Διάταξη Διαφάνειας
+title: Εφαρμογή ή Αλλαγή Διαρρυθμίσεων Διαφάνειας σε JavaScript
+linktitle: Διαρρύθμιση Διαφάνειας
 type: docs
 weight: 60
 url: /el/nodejs-java/slide-layout/
 keywords:
-- διάταξη διαφάνειας
-- διάταξη περιεχομένου
-- πλαίσιο κράτησης θέσης
-- σχεδιασμός παρουσίασης
-- σχεδιασμός διαφάνειας
-- μη χρησιμοποιημένη διάταξη
+- διαρρύθμιση διαφάνειας
+- διαρρύθμιση περιεχομένου
+- σύμβολο κράτησης
+- σχεδίαση παρουσίασης
+- σχεδίαση διαφάνειας
+- μη χρησιμοποιούμενη διαρρύθμιση
 - ορατότητα υποσέλιδου
 - διαφάνεια τίτλου
 - τίτλος και περιεχόμενο
-- επικεφαλίδα ενότητας
+- κεφαλίδα ενότητας
 - δύο περιεχόμενα
 - σύγκριση
 - μόνο τίτλος
-- κενή διάταξη
+- κενή διαρρύθμιση
 - περιεχόμενο με λεζάντα
 - εικόνα με λεζάντα
 - τίτλος και κατακόρυφο κείμενο
@@ -29,151 +29,139 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Διαχειριστείτε και προσαρμόστε τις διατάξεις διαφάνειας στο Aspose.Slides για Node.js. Εξερευνήστε τύπους διατάξεων, έλεγχο πλαισίων κράτησης θέσης και ορατότητα υποσέλιδου μέσω παραδειγμάτων κώδικα."
+description: "Εφαρμόστε, δημιουργήστε και τροποποιήστε διαρρυθμίσεις διαφάνειας στο Aspose.Slides για Node.js μέσω Java, προσθέστε σύμβολα κράτησης, αφαιρέστε μη χρησιμοποιούμενες διαρρυθμίσεις και ελέγξτε την ορατότητα του υποσέλιδου."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Μια διάταξη διαφάνειας ορίζει τη διάταξη των πλαισίων κράτησης θέσης και τη μορφοποίηση του περιεχομένου σε μια διαφάνεια. Ελέγχει ποια πλαίσια κράτησης θέσης είναι διαθέσιμα και πού εμφανίζονται. Οι διατάξεις διαφάνειας σας βοηθούν να δημιουργείτε παρουσιάσεις γρήγορα και με συνέπεια — είτε δημιουργείτε κάτι απλό είτε πιο πολύπλοκο. Μερικές από τις πιο κοινές διατάξεις διαφάνειας στο PowerPoint περιλαμβάνουν:
+Μια διαρρύθμιση διαφάνειας ορίζει τις θέσεις και τη μορφοποίηση των στοιχείων κράτησης όπως τίτλοι, κείμενο, εικόνες, γραφήματα και πίνακες. Η εφαρμογή μιας διαρρύθμισης δίνει στις διαφάνειες μια συνεπή δομή ενώ επιτρέπει σε κάθε διαφάνεια να περιέχει το δικό της περιεχόμενο.
 
-**Διάταξη Τίτλου Διαφάνειας** – Περιλαμβάνει δύο πλαίσια κειμένου: ένα για τον τίτλο και ένα για τον υπότιτλο.
+Οι πιο συνηθισμένες διαρρυθμίσεις περιλαμβάνουν:
 
-**Διάταξη Τίτλου και Περιεχομένου** – Περιλαμβάνει ένα μικρότερο πλαίσιο τίτλου στην κορυφή και ένα μεγαλύτερο κάτω για το κύριο περιεχόμενο (όπως κείμενο, σημεία λίστας, γραφήματα, εικόνες κλπ).
+- **Διαφάνεια Τίτλου**: Περιέχει στοιχεία κράτησης τίτλου και υποτίτλου.
+- **Τίτλος και Περιεχόμενο**: Περιέχει ένα στοιχείο κράτησης τίτλου και ένα γενικής χρήσης στοιχείο κράτησης περιεχομένου.
+- **Κενή**: Δεν περιέχει στοιχεία κράτησης περιεχομένου και είναι χρήσιμη όταν κάθε σχήμα θα τοποθετηθεί χειροκίνητα.
 
-**Κενή διάταξη** – Δεν περιέχει πλαίσια κράτησης θέσης, δίνοντάς σας πλήρη έλεγχο για να σχεδιάσετε τη διαφάνεια από το μηδέν.
+## **Κατανόηση Κληρονόμησης Διαρρύθμισης**
 
-Οι διατάξεις διαφάνειας αποτελούν μέρος ενός κύριου σλάιδος, που είναι η ανώτατη διαφάνεια η οποία ορίζει τα στυλ διάταξης για την παρουσίαση. Μπορείτε να έχετε πρόσβαση και να τροποποιήσετε τις διατάξεις διαφάνειας μέσω του κύριου σλάιδος — είτε με βάση τον τύπο, το όνομα ή το μοναδικό ID. Εναλλακτικά, μπορείτε να επεξεργαστείτε μια συγκεκριμένη διάταξη διαφάνειας απευθείας μέσα στην παρουσίαση.
+Μια παρουσίαση έχει τρία σχετιζόμενα επίπεδα:
 
-Για να εργαστείτε με διατάξεις διαφάνειας στο Aspose.Slides for Node.js, μπορείτε να χρησιμοποιήσετε:
+1. Ένα [master slide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterslide/) ορίζει το θέμα, τη κοινή μορφοποίηση, τα φόντα και τα κοινά αντικείμενα.
+1. Ένα [layout slide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/) ανήκει σε ένα master και ορίζει μια συγκεκριμένη διάταξη στοιχείων κράτησης.
+1. Ένα [normal slide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/) χρησιμοποιεί μία διαρρύθμιση και αποθηκεύει το περιεχόμενο που εισήχθη για εκείνη τη διαφάνεια.
 
-- Μέθοδοι όπως [getLayoutSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getLayoutSlides) και [getMasters](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getMasters) στην κλάση [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/)
-- Τύποι όπως [LayoutSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/), και [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslideheaderfootermanager/)
+Μια κανονική διαφάνεια κληρονομεί το θέμα και τη μορφοποίηση από τη διαρρύθμισή της, και η διαρρύθμιση κληρονομεί από το master της. Μία τιμή ορισμένη άμεσα σε μια κανονική διαφάνεια παρακάμπτει την κληρονομημένη τιμή σε εκείνο το επίπεδο. Όταν δημιουργείται μια κανονική διαφάνεια, τα σχήματα στοιχείων κράτησης δημιουργούνται από τη διαρρύθμιση που επιλέχθηκε, ενώ το περιεχόμενο που εισήχθη σε αυτά τα στοιχεία ανήκει στη κανονική διαφάνεια.
 
-{{% alert title="Info" color="info" %}}
-Για να μάθετε περισσότερα σχετικά με τη δουλειά με τις κύριες διαφάνειες, δείτε το άρθρο [Slide Master](/slides/el/nodejs-java/slide-master/).
-{{% /alert %}}
+Προσθέστε τα απαιτούμενα στοιχεία κράτησης σε μια διαρρύθμιση πριν δημιουργήσετε διαφάνειες από αυτήν. Η προσθήκη ενός νέου στοιχείου κράτησης σε μια διαρρύθμιση αργότερα δεν προσθέτει αυτόματα το αντίστοιχο σχήμα στοιχείου κράτησης σε υπάρχουσες κανονικές διαφάνειες.
 
-## **Προσθήκη Διατάξεων Διαφάνειας σε Παρουσιάσεις**
+Αυτή η σχέση έχει δύο σημαντικές συνέπειες:
 
-Για να προσαρμόσετε την εμφάνιση και τη δομή των διαφανειών σας, μπορεί να χρειαστεί να προσθέσετε νέες διατάξεις διαφάνειας σε μια παρουσίαση. Το Aspose.Slides for Node.js σας επιτρέπει να ελέγξετε εάν υπάρχει ήδη μια συγκεκριμένη διάταξη, να προσθέσετε μια νέα εάν χρειάζεται, και να τη χρησιμοποιήσετε για να εισάγετε διαφάνειες βασισμένες σε αυτήν τη διάταξη.
+- Η αλλαγή της κληρονομημένης μορφοποίησης ή της γεωμετρίας των υπαρχόντων στοιχείων κράτησης σε μια διαρρύθμιση μπορεί να ενημερώσει κάθε διαφάνεια που εξαρτάται από αυτήν. Πριν επεξεργαστείτε μια διαρρύθμιση που χρησιμοποιείται ήδη, ελέγξτε τις εξαρτημένες διαφάνειες και επανεξετάστε το προκύπτον αποτέλεσμα.
+- Μια διαρρύθμιση που χρησιμοποιείται ακόμα από κάποια διαφάνεια δεν μπορεί να αφαιρεθεί. Αναθέστε πρώτα τις εξαρτημένες διαφάνειες σε άλλη διαρρύθμιση ή αφαιρέστε μόνο τις διαρρυθμίσεις που δεν χρησιμοποιούνται.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
-1. Προσπελάστε τη [MasterLayoutSlideCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterlayoutslidecollection/).
-1. Ελέγξτε εάν η επιθυμητή διάταξη διαφάνειας υπάρχει ήδη στη συλλογή. Εάν όχι, προσθέστε τη διάταξη διαφάνειας που χρειάζεστε.
-1. Προσθέστε μια κενή διαφάνεια βασισμένη στην νέα διάταξη διαφάνειας.
-1. Αποθηκεύστε την παρουσίαση.
+Για περισσότερες πληροφορίες σχετικά με το ανώτερο επίπεδο αυτής της ιεραρχίας, δείτε το [Slide Master](/slides/el/nodejs-java/slide-master/).
 
-```js
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο PowerPoint.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+## **Επιλογή και Εφαρμογή Διαρρύθμισης Διαφάνειας**
+
+Χρησιμοποιήστε μια τιμή [SlideLayoutType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slidelayouttype/) όταν η παρουσίαση ακολουθεί τους τυπικούς ορισμούς διαρρυθμίσεων του PowerPoint. Τα ονόματα διαρρυθμίσεων είναι επεξεργάσιμα από το χρήστη και μπορούν να μεταφραστούν, οπότε η επιλογή βάσει ονόματος είναι λιγότερο αξιόπιστη εκτός εάν ελέγχετε το πρότυπο πηγή.
+
+Το παρακάτω παράδειγμα ψάχνει για **Title and Content** στον πρώτο master. Εάν αυτή η διαρρύθμιση δεν είναι διαθέσιμη, πέφτει σκόπιμα σε **Blank**. Ο δεύτερος έλεγχος null είναι απαραίτητος επειδή μια παρουσίαση μπορεί να περιέχει μόνο προσαρμοσμένες διαρρυθμίσεις. Η επιλεγμένη διαρρύθμιση εφαρμόζεται στη πρώτη κανονική διαφάνεια μέσω της μεθόδου [Slide.setLayoutSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Περάστε από τους τύπους διατάξεων διαφάνειας για να επιλέξετε μια διάταξη διαφάνειας.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // Μια κατάσταση όπου η παρουσίαση δεν περιέχει όλους τους τύπους διατάξεων.
-        // Το αρχείο παρουσίασης περιέχει μόνο τύπους διατάξεων Blank και Custom.
-        // Ωστόσο, οι διατάξεις διαφάνειας με προσαρμοσμένους τύπους μπορεί να έχουν αναγνωρίσιμα ονόματα,
-        // όπως "Title", "Title and Content", κλπ., τα οποία μπορούν να χρησιμοποιηθούν για επιλογή διάταξης διαφάνειας.
-        // Μπορείτε επίσης να βασιστείτε σε ένα σύνολο τύπων placeholder shape.
-        // Για παράδειγμα, μια διαφάνεια τίτλου πρέπει να έχει μόνο τον τύπο placeholder Title, κλπ.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // Προσθέστε μια κενή διαφάνεια χρησιμοποιώντας τη διάταξη διαφάνειας που προστέθηκε.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // Αποθηκεύστε την παρουσίαση στο δίσκο.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Αφαίρεση Μη Χρησιμοποιούμενων Διατάξεων Διαφάνειας**
+Η αλλαγή της διαρρύθμισης μιας διαφάνειας δεν αφαιρεί τα κανονικά σχήματα που προστέθηκαν απευθείας στη διαφάνεια. Ωστόσο, οι θέσεις των στοιχείων κράτησης, η κληρονομημένη μορφοποίηση και η αντιστοιχία μεταξύ των υπαρχόντων στοιχείων κράτησης και της νέας διαρρύθμισης μπορεί να αλλάξει, γι’ αυτό ελέγξτε το αποτέλεσμα όταν εναλλάσσετε ενδιάμεσα διαφορετικές διαρρυθμίσεις.
 
-Το Aspose.Slides παρέχει τη μέθοδο [removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) από την κλάση [Compress](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/compress/) ώστε να μπορείτε να διαγράψετε ανεπιθύμητες και μη χρησιμοποιούμενες διατάξεις διαφάνειας.
+## **Προσθήκη Διαφάνειας Διάταξης**
 
-Ο παρακάτω κώδικας JavaScript δείχνει πώς να αφαιρέσετε μια διάταξη διαφάνειας από μια παρουσίαση PowerPoint:
+Η επιλογή και η δημιουργία είναι ξεχωριστές λειτουργίες. Το προηγούμενο παράδειγμα επιλέγει μια υπάρχουσα διαρρύθμιση· δεν τη δημιουργεί. Για να δημιουργήσετε μια διαρρύθμιση, καλέστε τη μέθοδο [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) στη συλλογή διαρρυθμίσεων του στόχου master.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+Το παρακάτω παράδειγμα προσθέτει πάντα μια νέα διαρρύθμιση **Title and Content** με όνομα `Report Title and Content`, έπειτα προσθέτει μια κανονική διαφάνεια βασισμένη σε αυτήν. Τα ονόματα διαρρυθμίσεων πρέπει να είναι μοναδικά εντός της συλλογής.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Προσθήκη Πλαισίων Κράτησης Θέσης στις Διατάξεις Διαφάνειας**
+Προσθέστε μια διαρρύθμιση μόνο όταν το πρότυπο χρειάζεται πραγματικά μια επιπλέον επαναχρησιμοποιήσιμη δομή. Εάν υπάρχει ήδη μια κατάλληλη διαρρύθμιση, επιλέξτε και επαναχρησιμοποιήστε την αντί να δημιουργήσετε διπλότυπο.
 
-Το Aspose.Slides παρέχει τη μέθοδο [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) η οποία σας επιτρέπει να προσθέσετε νέα πλαίσια κράτησης θέσης σε μια διάταξη διαφάνειας.
+## **Προσθήκη Στοιχείων Κράτησης σε Διαφάνεια Διάταξης**
 
-Αυτός ο διαχειριστής περιέχει μεθόδους για τους ακόλουθους τύπους πλαισίων κράτησης θέσης:
+Η μέθοδος [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) παρέχει ένα [LayoutPlaceholderManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/) για να προσθέσετε σχήματα στοιχείων κράτησης σε μια διαρρύθμιση.
 
-| Πλαίσιο Κράτησης Θέσης PowerPoint | [LayoutPlaceholderManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/) Μέθοδος |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Περιεχόμενο](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Περιεχόμενο (Κατακόρυφο)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Κείμενο](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Κείμενο (Κατακόρυφο)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Εικόνα](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Διάγραμμα](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Πίνακας](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Διαδικτυακή Εικόνα](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Placeholder | `LayoutPlaceholderManager` Method |
+| ---------------------- | --------------------------------- |
+| ![Περιεχόμενο](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Περιεχόμενο (Κατακόρυφο)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Κείμενο](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Κείμενο (Κατακόρυφο)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Εικόνα](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Διάγραμμα](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Πίνακας](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Πολυμέσα](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Φωτογραφία online](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Ο παρακάτω κώδικας JavaScript δείχνει πώς να προσθέσετε νέες μορφές πλαισίων κράτησης θέσης στη κενή διάταξη διαφάνειας:
+Το παρακάτω παράδειγμα ελέγχει αν υπάρχει η διαρρύθμιση **Κενή**, προσθέτει τέσσερα στοιχεία κράτησης σε αυτήν και έπειτα δημιουργεί μια κανονική διαφάνεια που χρησιμοποιεί τη τροποποιημένη διαρρύθμιση. Η σειρά είναι σκόπιμη: τα στοιχεία κράτησης προστίθενται πριν δημιουργηθεί η κανονική διαφάνεια, ώστε το Aspose.Slides να μπορεί να δημιουργήσει τα αντίστοιχα σχήματα στοιχείων κράτησης σε αυτή τη διαφάνεια.
 
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε τη κενή διάταξη διαφάνειας.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // Λάβετε τον διαχειριστή placeholders της διάταξης διαφάνειας.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Προσθέστε διαφορετικά placeholders στη κενή διάταξη διαφάνειας.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Προσθέστε μια νέα διαφάνεια με την κενή διάταξη.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -181,86 +169,106 @@ try {
 
 Το αποτέλεσμα:
 
-![Τα πλαίσια κράτησης θέσης στη διάταξη διαφάνειας](add_placeholders.png)
+![Τα στοιχεία κράτησης στη διαφάνεια διαρρύθμισης](add_placeholders.png)
 
-## **Ορισμός Ορατότητας Υποσέλιδου για Διάταξη Διαφάνειας**
+{{% alert color="warning" title="Προειδοποίηση" %}}
+Η αλλαγή της κληρονομημένης μορφοποίησης ή της γεωμετρίας των υπαρχόντων στοιχείων κράτησης μπορεί να επηρεάσει τις εξαρτημένες διαφάνειες. Ένα νέο στοιχείο κράτησης που προστίθεται δεν συμπληρώνεται αυτόματα σε υπάρχουσες κανονικές διαφάνειες. Δοκιμάστε τις αλλαγές σε αντίγραφο της παρουσίασης και ελέγξτε κάθε εξαρτημένη διαφάνεια.
+{{% /alert %}}
 
-Σε παρουσιάσεις PowerPoint, τα στοιχεία υποσέλιδου όπως η ημερομηνία, ο αριθμός διαφάνειας και το προσαρμοσμένο κείμενο μπορούν να εμφανιστούν ή να κρυφτούν ανάλογα με τη διάταξη της διαφάνειας. Το Aspose.Slides for Node.js σας επιτρέπει να ελέγξετε την ορατότητα αυτών των πλαισίων υποσέλιδου. Αυτό είναι χρήσιμο όταν θέλετε ορισμένες διατάξεις να εμφανίζουν πληροφορίες υποσέλιδου ενώ άλλες παραμένουν καθαρές και ελάχιστες.
+## **Αφαίρεση Μη Χρησιμοποιούμενων Διαρρυθμίσεων Διαφάνειας**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
-1. Πάρτε μια αναφορά διάταξης διαφάνειας με βάση το δείκτη της.
-1. Ορίστε το πλαίσιο υποσέλιδου της διαφάνειας σε ορατό.
-1. Ορίστε το πλαίσιο αριθμού διαφάνειας σε ορατό.
-1. Ορίστε το πλαίσιο ημερομηνίας/ώρας σε ορατό.
-1. Αποθηκεύστε την παρουσίαση.
+Χρησιμοποιήστε τη μέθοδο [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) για να αφαιρέσετε διαρρυθμίσεις που δεν αναφέρονται από καμία κανονική διαφάνεια. Η μέθοδος αφήνει αμετάβλητες τις διαρρυθμίσεις που είναι ακόμη σε χρήση.
 
-Ο παρακάτω κώδικας JavaScript δείχνει πώς να ορίσετε την ορατότητα ενός υποσέλιδου διαφάνειας και να εκτελέσετε σχετικές εργασίες:
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+Για να αφαιρέσετε μια συγκεκριμένη διαρρύθμιση, πρώτα χρησιμοποιήστε τη μέθοδο [hasDependingSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) ή [getDependingSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Αναθέστε τυχόν εξαρτημένες διαφάνειες πριν καλέσετε το [LayoutSlide.remove](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/#remove). Η προσπάθεια αφαίρεσης μιας διαρρύθμισης που χρησιμοποιείται προκαλεί την εξαίρεση [PptxEditException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pptxeditexception/).
+
+## **Έλεγχος Ορατότητας Υποσέλιδου σε Διαφάνεια Διάταξης**
+
+Μια διαρρύθμιση διαθέτει τα δικά της στοιχεία κράτησης υποσέλιδου, αριθμού διαφάνειας και ημερομηνίας‑ώρας. Χρησιμοποιήστε τη μέθοδο [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) για να ελέγξετε αυτά τα στοιχεία σε μια διαρρύθμιση. Αυτό είναι χρήσιμο όταν, για παράδειγμα, οι διαρρυθμίσεις περιεχομένου πρέπει να εμφανίζουν υποσέλιδα αλλά οι διαρρυθμίσεις τίτλου όχι.
+
+Το παρακάτω παράδειγμα επιλέγει μια διαρρύθμιση με ασφάλεια και κάνει τα στοιχεία υποσέλιδου της ορατά:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ορισμός Ορατότητας Υποσέλιδου σε Καταγόμενη Διάταξη**
+## **Έλεγχος Ορατότητας Υποσέλιδου σε Master και τις Κατόχους Διαρρυθμίσεις**
 
-Σε παρουσιάσεις PowerPoint, τα στοιχεία υποσέλιδου όπως η ημερομηνία, ο αριθμός διαφάνειας και το προσαρμοσμένο κείμενο μπορούν να ελεγχθούν στο επίπεδο της κύριας διαφάνειας ώστε να διασφαλιστεί η συνέπεια σε όλες τις διατάξεις διαφάνειας. Το Aspose.Slides for Node.js σάς επιτρέπει να ορίσετε την ορατότητα και το περιεχόμενο αυτών των πλαισίων υποσέλιδου στη κύρια διαφάνεια και να διαδώσετε αυτές τις ρυθμίσεις σε όλες τις καταγόμενες διατάξεις διαφάνειας. Αυτή η προσέγγιση διασφαλίζει ομοιόμορφη πληροφόρηση υποσέλιδου σε όλη την παρουσίαση.
+Για να εφαρμόσετε συνεπείς ρυθμίσεις υποσέλιδου σε όλη τη ιεραρχία του master, χρησιμοποιήστε τη μέθοδο [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Οι μέθοδοι διάδοσης του [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterslideheaderfootermanager/) επηρεάζουν το master, τις εξαρτημένες διαφάνειες διαρρύθμισης και τις κανονικές διαφάνειες· δεν στοχεύουν μόνο μία κανονική διαφάνεια.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
-1. Πάρτε μια αναφορά στη κύρια διαφάνεια με βάση το δείκτη της.
-1. Ορίστε τα πλαίσια υποσέλιδου της κύριας διαφάνειας και όλων των καταγόμενων σε ορατό.
-1. Ορίστε τα πλαίσια αριθμού διαφάνειας της κύριας διαφάνειας και όλων των καταγόμενων σε ορατό.
-1. Ορίστε τα πλαίσια ημερομηνίας/ώρας της κύριας διαφάνειας και όλων των καταγόμενων σε ορατό.
-1. Αποθηκεύστε την παρουσίαση.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Ποια είναι η διαφορά μεταξύ κύριας διαφάνειας και διάταξης διαφάνειας;**
+**Ποια είναι η διαφορά μεταξύ master slide και layout slide;**
 
-Μια κύρια διαφάνεια ορίζει το γενικό θέμα και τη προεπιλεγμένη μορφοποίηση, ενώ οι διατάξεις διαφάνειας ορίζουν συγκεκριμένες διατάξεις πλαισίων κράτησης θέσης για διαφορετικούς τύπους περιεχομένου.
+Ένα master slide ορίζει το θέμα και τη κοινή μορφοποίηση της παρουσίασης. Ένα layout slide ανήκει σε ένα master και ορίζει μία επαναχρησιμοποιήσιμη διάταξη στοιχείων κράτησης. Οι κανονικές διαφάνειες χρησιμοποιούν αυτές τις διαρρυθμίσεις και αποθηκεύουν το περιεχόμενο της κάθε διαφάνειας.
 
-**Μπορώ να αντιγράψω μια διάταξη διαφάνειας από μια παρουσίαση σε άλλη;**
+**Μπορώ να αντιγράψω ένα layout slide από μια παρουσίαση σε άλλη;**
 
-Ναι, μπορείτε να κλωνοποιήσετε μια διάταξη διαφάνειας από τη συλλογή διατάξεων διαφάνειας μιας παρουσίασης, η οποία είναι προσβάσιμη μέσω της μεθόδου [getLayoutSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getLayoutSlides), και να την εισάγετε σε άλλη παρουσίαση χρησιμοποιώντας τη μέθοδο `addClone`.
+Ναι. Προσθέστε ένα αντίγραφο στη συλλογή προορισμού με τη μέθοδο [addClone](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Κατά την αντιγραφή μεταξύ παρουσιάσεων, ελέγξτε επίσης τις γραμματοσειρές, τα θέματα, τις εικόνες και άλλους πόρους που χρησιμοποιεί η πηγή διαρρύθμιση.
 
-**Τι συμβαίνει αν διαγράψω μια διάταξη διαφάνειας που χρησιμοποιείται ακόμα από κάποια διαφάνεια;**
+**Τι συμβαίνει όταν τροποποιώ μια διαρρύθμιση που χρησιμοποιείται ήδη;**
 
-Εάν προσπαθήσετε να διαγράψετε μια διάταξη διαφάνειας που παραπέρεται ακόμη από τουλάχιστον μία διαφάνεια στην παρουσίαση, το Aspose.Slides θα ρίξει ένα [PptxEditException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pptxeditexception/). Για να το αποφύγετε, χρησιμοποιήστε τη μέθοδο [removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides), η οποία αφαιρεί με ασφάλεια μόνο τις διατάξεις διαφάνειας που δεν χρησιμοποιούνται.
+Οι εξαρτημένες διαφάνειες κληρονομούν τις αλλαγές της διαρρύθμισης εκτός εάν παρακάμψουν τη μορφοποίηση ή τα αντικείμενα τοπικά. Η γεωμετρία των στοιχείων κράτησης και η κληρονομημένη μορφοποίηση μπορούν επομένως να αλλάξουν σε πολλές διαφάνειες ταυτόχρονα. Χρησιμοποιήστε το [getDependingSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) για να εντοπίσετε τις επηρεαζόμενες διαφάνειες πριν επεξεργαστείτε τη διαρρύθμιση.
+
+**Τι συμβαίνει αν αφαιρέσω μια διαρρύθμιση που είναι ακόμα σε χρήση;**
+
+Το Aspose.Slides ρίχνει μια [PptxEditException](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pptxeditexception/). Αναθέστε πρώτα τις εξαρτημένες διαφάνειες ή χρησιμοποιήστε το [removeUnusedLayoutSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) για να αφαιρέσετε μόνο τις διαρρυθμίσεις που δεν αναφέρονται.

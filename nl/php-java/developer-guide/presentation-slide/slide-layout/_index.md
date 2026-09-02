@@ -1,24 +1,24 @@
 ---
-title: Slide‑lay-outs toepassen of wijzigen in PHP
-linktitle: Slide‑lay-out
+title: "Dia-indelingen toepassen of wijzigen in PHP"
+linktitle: "Dia-indeling"
 type: docs
 weight: 60
 url: /nl/php-java/slide-layout/
 keywords:
-- slide‑lay-out
-- inhoudslay-out
+- dia-indeling
+- inhoudsindeling
 - plaatsaanduiding
-- presentatie‑ontwerp
-- slide‑ontwerp
-- ongebruikte lay-out
-- voettekst‑zichtbaarheid
-- titel‑dia
+- presentatie-ontwerp
+- dia-ontwerp
+- ongebruikte indeling
+- voettekstzichtbaarheid
+- titeldia
 - titel en inhoud
 - sectiekop
 - twee inhoud
 - vergelijking
 - alleen titel
-- lege lay-out
+- lege indeling
 - inhoud met bijschrift
 - afbeelding met bijschrift
 - titel en verticale tekst
@@ -28,151 +28,135 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Beheer en pas slide‑lay-outs aan in Aspose.Slides voor PHP via Java. Verken lay‑outtypen, controle over plaatsaanduidingen en voettekst‑zichtbaarheid via code‑voorbeelden."
+description: "Dia-indelingen toepassen, maken en wijzigen in Aspose.Slides voor PHP via Java, plaatsaanduidingen toevoegen, ongebruikte indelingen verwijderen en de zichtbaarheid van de voettekst regelen."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Een dia‑indeling bepaalt de rangschikking van tijdelijke aanduidingsvakken en de opmaak van de inhoud op een dia. Ze regelt welke tijdelijke aanduidingen beschikbaar zijn en waar ze verschijnen. Dia‑indelingen helpen u presentaties snel en consistent te ontwerpen — of u nu iets eenvoudigs of complexers maakt. Enkele van de meest voorkomende dia‑indelingen in PowerPoint zijn:
+Een dia-indeling definieert de posities en opmaak van tijdelijke aanduidingen zoals titels, tekst, afbeeldingen, grafieken en tabellen. Het toepassen van een indeling geeft dia's een consistente structuur terwijl elke dia zijn eigen inhoud kan bevatten.
 
-**Titel‑dia‑indeling** – Bevat twee tekst‑plaatsaanduidingen: één voor de titel en één voor de ondertitel.
+De meest voorkomende indelingen omvatten:
 
-**Titel‑en‑Inhoud‑indeling** – Heeft een kleinere titel‑plaatsaanduiding bovenaan en een grotere eronder voor de hoofdinhoud (zoals tekst, opsommingstekens, diagrammen, afbeeldingen en meer).
+- **Titel-dia**: Bevat tijdelijke aanduidingen voor titel en ondertitel.
+- **Titel en inhoud**: Bevat een tijdelijke aanduiding voor titel en een algemene inhoudstempelaanduiding.
+- **Leeg**: Bevat geen inhoudstempelaanduidingen en is handig wanneer elke vorm handmatig wordt geplaatst.
 
-**Lege indeling** – Bevat geen plaatsaanduidingen, waardoor u volledige controle heeft om de dia vanaf nul te ontwerpen.
+## **Begrijpen van indelings-erfenis**
 
-Dia‑indelingen maken deel uit van een dia‑master, die de bovenliggende dia is die de indelingsstijlen voor de presentatie definieert. U kunt indelingsdia’s benaderen en aanpassen via de dia‑master — op type, naam of unieke ID. U kunt ook een specifieke indelingsdia rechtstreeks in de presentatie bewerken.
+Een presentatie heeft drie gerelateerde niveaus:
 
-Om te werken met dia‑indelingen in Aspose.Slides for PHP, kunt u gebruiken:
+1. Een [masterdia](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/) definieert het thema, de gedeelde opmaak, achtergronden en gemeenschappelijke objecten.
+1. Een [indelingsdia](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/) behoort tot een master en definieert een bepaalde rangschikking van tijdelijke aanduidingen.
+1. Een [normale dia](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/) gebruikt één indeling en slaat de ingevoerde inhoud voor die dia op.
 
-- Methoden zoals [getLayoutSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#getLayoutSlides) en [getMasters](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#getMasters) onder de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse
-- Types zoals [LayoutSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/), en [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslideheaderfootermanager/)
+Een normale dia erft thema en opmaak van zijn indeling, en de indeling erft van zijn master. Een waarde die direct op een normale dia wordt ingesteld, overschrijft de geërfde waarde op dat niveau. Wanneer een normale dia wordt aangemaakt, worden de tijdelijke aanduidingsvormen gegenereerd vanuit de gekozen indeling, terwijl de ingevoerde inhoud in die aanduidingen tot de normale dia behoort.
 
-{{% alert title="Info" color="info" %}}
-Om meer te leren over het werken met masterdia’s, bekijk het artikel [Slide Master](/slides/nl/php-java/slide-master/) .
-{{% /alert %}}
+Voeg de benodigde tijdelijke aanduidingen toe aan een indeling voordat er dia's van worden gemaakt. Het later toevoegen van een extra tijdelijke aanduiding aan een indeling voegt niet automatisch een overeenkomstige vorm toe aan bestaande normale dia's.
 
-## **Dia‑indelingen toevoegen aan presentaties**
+Deze relatie heeft twee belangrijke consequenties:
 
-Om het uiterlijk en de structuur van uw dia’s aan te passen, moet u mogelijk nieuwe indelingsdia’s aan een presentatie toevoegen. Aspose.Slides for PHP stelt u in staat om te controleren of een bepaalde indeling al bestaat, deze indien nodig toe te voegen, en te gebruiken om dia’s in te voegen op basis van die indeling.
+- Het wijzigen van geërfde opmaak of de bestaande geometrie van tijdelijke aanduidingen op een indeling kan elke dia die ervan afhankelijk is bijwerken. Controleer de afhankelijk dia's en beoordeel de resulterende presentatie voordat u een al gebruikte indeling bewerkt.
+- Een indeling die nog door een dia wordt gebruikt, kan niet worden verwijderd. Wijs eerst de afhankelijk dia's toe aan een andere indeling, of verwijder alleen ongebruikte indelingen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse.
-1. Benader de [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterlayoutslidecollection/) .
-1. Controleer of de gewenste indelingsdia al bestaat in de collectie. Zo niet, voeg dan de benodigde indelingsdia toe.
-1. Voeg een lege dia toe op basis van de nieuwe indelingsdia.
-1. Sla de presentatie op.
+Voor meer informatie over het hoogste niveau van deze hiërarchie, zie [Slide Master](/slides/nl/php-java/slide-master/).
 
-De volgende PHP‑code toont hoe u een dia‑indeling aan een PowerPoint‑presentatie kunt toevoegen:
+## **Selecteer en pas een dia-indeling toe**
+
+Gebruik een indelingstype wanneer de presentatie standaard PowerPoint-indelingsdefinities volgt. Indelingsnamen zijn door de gebruiker bewerkbaar en kunnen gelokaliseerd worden, waardoor selectie op basis van naam minder betrouwbaar is tenzij u de bron-sjabloon beheert.
+
+Het volgende voorbeeld zoekt naar **Titel en inhoud** op de eerste master. Als die indeling niet beschikbaar is, valt het expres terug op **Leeg**. De tweede null-controle is nodig omdat een presentatie alleen aangepaste indelingen kan bevatten. De geselecteerde indeling wordt vervolgens toegepast op de eerste normale dia via de [Slide.setLayoutSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/#setLayoutSlide)‑methode.
 
 ```php
-// Maak een instantie van de Presentation‑klasse die een PowerPoint‑bestand vertegenwoordigt.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // Doorloop de layout‑dia‑types om een layout‑dia te selecteren.
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // Een situatie waarin de presentatie niet alle layout‑types bevat.
-        // Het presentatiesbestand bevat alleen lege en aangepaste layout‑types.
-        // Echter, layout‑dia’s met aangepaste types kunnen herkenbare namen hebben,
-        // zoals "Title", "Title and Content", etc., which can be used for layout slide selection.
-        // U kunt ook vertrouwen op een reeks plaatsaanduidings‑vormtypes.
-        // Bijvoorbeeld, een Title slide should have only the Title placeholder type, and so on.
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // Voeg een lege dia toe met behulp van de toegevoegde layout‑dia.
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // Sla de presentatie op schijf.
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Ongebruikte indelingsdia’s verwijderen**
+Het wijzigen van de indeling van een dia verwijdert niet de gewone vormen die rechtstreeks aan de dia zijn toegevoegd. De posities van tijdelijke aanduidingen, geërfde opmaak en de overeenkomst tussen bestaande aanduidingen en de nieuwe indeling kunnen echter veranderen, controleer daarom de uitvoer bij het wisselen tussen sterk verschillende indelingen.
 
-Aspose.Slides biedt de [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides)‑methode van de [Compress](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/)‑klasse, waarmee u ongewenste en ongebruikte indelingsdia’s kunt verwijderen.
+## **Voeg een indelingsdia toe**
 
-De volgende PHP‑code laat zien hoe u een indelingsdia uit een PowerPoint‑presentatie verwijdert:
+Selectie en creatie zijn aparte bewerkingen. Het vorige voorbeeld selecteert een bestaande indeling; het maakt er geen aan. Om een indeling te maken, roep de [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterlayoutslidecollection/#add)‑methode aan op de lay-outcollectie van de doel-master.
+
+Het volgende voorbeeld voegt altijd een nieuwe **Titel en inhoud**‑indeling toe met de naam `Report Title and Content`, en voegt vervolgens een normale dia toe gebaseerd op die indeling. Indelingsnamen moeten uniek zijn binnen de collectie.
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Plaatsaanduidingen toevoegen aan dia‑indelingen**
+Voeg alleen een indeling toe wanneer het sjabloon daadwerkelijk een extra herbruikbare structuur nodig heeft. Als er al een geschikte indeling bestaat, selecteer en hergebruik die in plaats van een duplicaat te maken.
 
-Aspose.Slides biedt de [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/#getPlaceholderManager)‑methode, waarmee u nieuwe plaatsaanduidingen aan een indelingsdia kunt toevoegen.
+## **Voeg tijdelijke aanduidingen toe aan een indelingsdia**
 
-Deze manager bevat methoden voor de volgende plaatsaanduidingstypen:
+De [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/#getPlaceholderManager)‑methode biedt een [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/) voor het toevoegen van vorm-tijdelijke aanduidingen aan een indeling.
 
-| PowerPoint‑plaatsaanduiding | [LayoutPlaceholderManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/) Methode |
-| --------------------------- | ------------------------------------------------------------ |
-| ![Inhoud](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Inhoud (Verticaal)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Tekst](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Tekst (Verticaal)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Afbeelding](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Diagram](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabel](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online‑afbeelding](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint-tijdelijke aanduiding | `LayoutPlaceholderManager` Method |
+| -------------------------------- | --------------------------------- |
+| ![Inhoud](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Inhoud (verticaal)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Tekst](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Tekst (verticaal)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Afbeelding](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Grafiek](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabel](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online-afbeelding](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-De volgende PHP‑code toont hoe u nieuwe plaatsaanduiding‑vormen toevoegt aan de lege indelingsdia:
+Het volgende voorbeeld controleert of de **Leeg**-indeling bestaat, voegt er vier tijdelijke aanduidingen aan toe, en maakt vervolgens een normale dia die de gewijzigde indeling gebruikt. De volgorde is opzettelijk: de tijdelijke aanduidingen worden toegevoegd voordat de normale dia wordt aangemaakt, zodat Aspose.Slides de overeenkomstige vorm-tijdelijke aanduidingen op die dia kan genereren.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // Haal de lege lay-outdia op.
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // Haal de plaatsaanduidingsmanager van de lay-outdia op.
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Voeg verschillende plaatsaanduidingen toe aan de lege lay-outdia.
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // Voeg een nieuwe dia toe met de lege lay-out.
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -180,73 +164,84 @@ try {
 
 Het resultaat:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![De tijdelijke aanduidingen op de indelingsdia](add_placeholders.png)
 
-## **Voettekst‑zichtbaarheid instellen voor een indelingsdia**
+{{% alert color="warning" title="Waarschuwing" %}}
+Het wijzigen van geërfde opmaak of de geometrie van bestaande indelingstijdelijke aanduidingen kan afhankelijke dia's beïnvloeden. Een nieuw toegevoegde indelingstijdelijke aanduiding wordt niet teruggevuld in bestaande normale dia's. Test wijziging van indelingen op een kopie van de presentatie en controleer elke afhankelijke dia.
+{{% /alert %}}
 
-In PowerPoint‑presentaties kunnen voettekstelementen zoals datum, dia‑nummer en aangepaste tekst worden weergegeven of verborgen, afhankelijk van de dia‑indeling. Aspose.Slides for PHP stelt u in staat de zichtbaarheid van deze voettekst‑plaatsaanduidingen te beheren. Dit is handig wanneer u wilt dat bepaalde indelingen voettekst‑informatie tonen, terwijl andere strak en minimaal blijven.
+## **Verwijder ongebruikte indelingsdia's**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie naar een indelingsdia op basis van de index.
-1. Stel de voettekst‑plaatsaanduiding van de dia in op zichtbaar.
-1. Stel de dia‑nummer‑plaatsaanduiding in op zichtbaar.
-1. Stel de datum‑tijd‑plaatsaanduiding in op zichtbaar.
-1. Sla de presentatie op.
-
-De volgende PHP‑code laat zien hoe u de zichtbaarheid van een dia‑voettekst instelt en gerelateerde taken uitvoert:
+Gebruik de [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides)‑methode om indelingen te verwijderen die door geen enkele normale dia worden verwezen. De methode laat indelingen die nog in gebruik zijn intact.
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
-
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
-    }
-
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
-    }
-
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
-    $headerFooterManager->setFooterText("Footer text");
-    $headerFooterManager->setDateTimeText("Date and time text");
-
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Voettekst‑zichtbaarheid voor onderliggende dia’s instellen**
+Om één specifieke indeling te verwijderen, gebruik eerst de [hasDependingSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/#hasDependingSlides)‑ of [getDependingSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/#getDependingSlides)‑methode. Wijs eventuele afhankelijke dia's opnieuw toe vóór het aanroepen van [LayoutSlide.remove](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/#remove). Het proberen te verwijderen van een gebruikte indeling veroorzaakt een [PptxEditException](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pptxeditexception/).
 
-In PowerPoint‑presentaties kunnen voettekstelementen zoals datum, dia‑nummer en aangepaste tekst op het niveau van de master‑dia worden beheerd om consistentie over alle indelingsdia’s te waarborgen. Aspose.Slides for PHP stelt u in staat de zichtbaarheid en inhoud van deze voettekst‑plaatsaanduidingen op de master‑dia in te stellen en deze instellingen door te voeren naar alle onderliggende indelingsdia’s. Deze aanpak zorgt voor uniforme voettekst‑informatie in de hele presentatie.
+## **Stel de zichtbaarheid van de voettekst in op een indelingsdia**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie naar de master‑dia op basis van de index.
-1. Stel de voettekst‑plaatsaanduidingen van de master en alle onderliggende dia’s in op zichtbaar.
-1. Stel de dia‑nummer‑plaatsaanduidingen van de master en alle onderliggende dia’s in op zichtbaar.
-1. Stel de datum‑tijd‑plaatsaanduidingen van de master en alle onderliggende dia’s in op zichtbaar.
-1. Sla de presentatie op.
-
-De volgende PHP‑code toont deze bewerking:
+Een indeling heeft zijn eigen voettekst‑, dia-nummer‑ en datum-tijd‑tijdelijke aanduidingen. Gebruik de [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/#getHeaderFooterManager)‑methode om die aanduidingen voor één indeling te regelen. Dit is handig wanneer bijvoorbeeld inhouds-indelingen voetteksten moeten tonen, maar titel-indelingen dat niet moeten doen.
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    }
+
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
+    }
+
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
+    $headerFooterManager->setFooterText("Footer text");
+    $headerFooterManager->setDateTimeText("Date and time text");
+
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Stel de zichtbaarheid van de voettekst in op een master en diens onderliggende indelingen**
+
+Om consistente voettekstinstellingen toe te passen over een master-hiërarchie, gebruik de [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/#getHeaderFooterManager)‑methode. De propagatiemethoden van [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslideheaderfootermanager/) werken op de master en zijn afhankelijke indelingsdia’s en normale dia’s; ze richten zich niet alleen op één normale dia.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -254,14 +249,18 @@ try {
 
 ## **FAQ**
 
-**Wat is het verschil tussen een master‑dia en een indelingsdia?**
+**Wat is het verschil tussen een masterdia en een indelingsdia?**
 
-Een master‑dia definieert het algemene thema en de standaardopmaak, terwijl indelingsdia’s specifieke rangschikkingen van plaatsaanduidingen voor verschillende soorten inhoud bepalen.
+Een masterdia definieert het thema en de gedeelde opmaak van de presentatie. Een indelingsdia behoort tot een master en definieert één herbruikbare rangschikking van tijdelijke aanduidingen. Normale dia's gebruiken die indelingen en slaan dia-specifieke inhoud op.
 
 **Kan ik een indelingsdia van de ene presentatie naar de andere kopiëren?**
 
-Ja, u kunt een indelingsdia klonen vanuit de indelingsdia‑collectie van een presentatie, toegankelijk via de [getLayoutSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#getLayoutSlides)‑methode, en deze in een andere presentatie invoegen met de `addClone`‑methode.
+Ja. Voeg een kopie toe aan de bestemmingscollectie met de [addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/globallayoutslidecollection/#addClone)‑methode. Bij het kopiëren tussen presentaties controleer ook lettertypen, thema's, afbeeldingen en andere bronnen die door de bron-indeling worden gebruikt.
 
-**Wat gebeurt er als ik een indelingsdia verwijder dat nog door een dia wordt gebruikt?**
+**Wat gebeurt er als ik een indeling wijzig die al in gebruik is?**
 
-Als u probeert een indelingsdia te verwijderen dat nog wordt verwezen door ten minste één dia in de presentatie, zal Aspose.Slides een [PptxEditException](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pptxeditexception/) werpen. Gebruik [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) om alleen de indelingsdia’s die niet in gebruik zijn veilig te verwijderen.
+Afhankelijke dia's erven de wijzigingen van de indeling, tenzij ze de betreffende opmaak of objecten lokaal overschrijven. De geometrie van tijdelijke aanduidingen en geërfde stijl kunnen daardoor op veel dia's tegelijk veranderen. Gebruik [getDependingSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/#getDependingSlides) om de getroffen dia's te identificeren voordat u de indeling bewerkt.
+
+**Wat gebeurt er als ik een indeling verwijder die nog in gebruik is?**
+
+Aspose.Slides geeft een [PptxEditException](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pptxeditexception/) terug. Wijs eerst de afhankelijke dia's opnieuw toe, of gebruik [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) om alleen niet-verwezen indelingen te verwijderen.

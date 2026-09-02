@@ -1,16 +1,16 @@
 ---
-title: Terapkan atau Ubah Layout Slide dalam JavaScript
-linktitle: Layout Slide
+title: Terapkan atau Ubah Tata Letak Slide di JavaScript
+linktitle: Tata Letak Slide
 type: docs
 weight: 60
 url: /id/nodejs-java/slide-layout/
 keywords:
-- layout slide
-- layout konten
+- tata letak slide
+- tata letak konten
 - placeholder
 - desain presentasi
 - desain slide
-- layout yang tidak terpakai
+- tata letak tak terpakai
 - visibilitas footer
 - slide judul
 - judul dan konten
@@ -18,7 +18,7 @@ keywords:
 - dua konten
 - perbandingan
 - hanya judul
-- layout kosong
+- tata letak kosong
 - konten dengan keterangan
 - gambar dengan keterangan
 - judul dan teks vertikal
@@ -29,152 +29,139 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Kelola dan sesuaikan layout slide dalam Aspose.Slides untuk Node.js. Jelajahi tipe layout, kontrol placeholder, dan visibilitas footer melalui contoh kode."
+description: "Terapkan, buat, dan modifikasi tata letak slide di Aspose.Slides untuk Node.js via Java, tambahkan placeholder, hapus tata letak yang tidak terpakai, dan kontrol visibilitas footer."
 ---
-## **Pendahuluan**
+## **Ringkasan**
 
-Layout slide menentukan tata letak kotak placeholder dan pemformatan untuk konten pada sebuah slide. Ia mengontrol placeholder mana yang tersedia dan di mana mereka muncul. Layout slide membantu Anda merancang presentasi dengan cepat dan konsisten—baik saat membuat sesuatu yang sederhana maupun yang lebih kompleks. Beberapa layout slide yang paling umum di PowerPoint meliputi:
+Tata letak slide menentukan posisi dan pemformatan placeholder seperti judul, teks, gambar, diagram, dan tabel. Menerapkan tata letak memberikan slide struktur yang konsisten sekaligus memungkinkan setiap slide memiliki kontennya masing‑ma.
 
-**Title Slide layout** – Menyertakan dua placeholder teks: satu untuk judul dan satu untuk subjudul.
+Layout yang paling umum meliputi:
 
-**Title and Content layout** – Menampilkan placeholder judul yang lebih kecil di bagian atas dan yang lebih besar di bawahnya untuk konten utama (seperti teks, poin-poin, diagram, gambar, dan lainnya).
+- **Title Slide**: Berisi placeholder judul dan subjudul.
+- **Title and Content**: Berisi placeholder judul dan placeholder konten serbaguna.
+- **Blank**: Tidak berisi placeholder konten dan berguna ketika setiap shape akan ditempatkan secara manual.
 
-**Blank layout** – Tidak berisi placeholder, memberi Anda kontrol penuh untuk merancang slide dari awal.
+## **Memahami Pewarisan Tata Letak**
 
-Layout slide merupakan bagian dari master slide, yang merupakan slide tingkat atas yang menentukan gaya layout untuk presentasi. Anda dapat mengakses dan memodifikasi layout slide melalui master slide—baik berdasarkan tipe, nama, atau ID uniknya. Alternatifnya, Anda dapat menyunting layout slide tertentu langsung di dalam presentasi.
+Sebuah presentasi memiliki tiga tingkatan terkait:
 
-Untuk bekerja dengan layout slide di Aspose.Slides untuk Node.js, Anda dapat menggunakan:
-- Metode seperti [getLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getLayoutSlides) dan [getMasters](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getMasters) pada kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/)
-- Tipe seperti [LayoutSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/), dan [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslideheaderfootermanager/)
+1. Sebuah [master slide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/) mendefinisikan tema, pemformatan bersama, latar belakang, dan objek umum.
+2. Sebuah [layout slide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/) milik master dan mendefinisikan susunan placeholder tertentu.
+3. Sebuah [normal slide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/) menggunakan satu tata letak dan menyimpan konten yang dimasukkan untuk slide tersebut.
 
-{{% alert title="Info" color="info" %}}
-Untuk mempelajari lebih lanjut tentang bekerja dengan master slide, lihat artikel [Slide Master](/slides/id/nodejs-java/slide-master/).
-{{% /alert %}}
+Sebuah normal slide mewarisi tema dan pemformatan dari layoutnya, dan layout mewarisi dari masternya. Nilai yang ditetapkan langsung pada normal slide menimpa nilai yang diwarisi pada level tersebut. Ketika normal slide dibuat, shape placeholder‑nya dihasilkan dari layout yang dipilih, sementara konten yang dimasukkan ke dalam placeholder tersebut menjadi milik normal slide.
 
-## **Menambahkan Layout Slide ke Presentasi**
+Tambahkan placeholder yang diperlukan ke layout sebelum membuat slide darinya. Menambahkan placeholder lain ke layout nanti tidak secara otomatis menambah shape placeholder yang sesuai ke slide normal yang sudah ada.
 
-Untuk menyesuaikan tampilan dan struktur slide Anda, Anda mungkin perlu menambahkan layout slide baru ke sebuah presentasi. Aspose.Slides untuk Node.js memungkinkan Anda memeriksa apakah layout tertentu sudah ada, menambahkan yang baru jika diperlukan, dan menggunakannya untuk menyisipkan slide berdasarkan layout tersebut.
+Hubungan ini memiliki dua konsekuensi penting:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/).
-1. Akses [MasterLayoutSlideCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterlayoutslidecollection/).
-1. Periksa apakah layout slide yang diinginkan sudah ada dalam koleksi. Jika tidak, tambahkan layout slide yang Anda butuhkan.
-1. Tambahkan slide kosong berdasarkan layout slide baru.
-1. Simpan presentasi.
+- Mengubah pemformatan yang diwarisi atau geometri placeholder yang ada pada layout dapat memperbarui setiap slide yang bergantung padanya. Sebelum mengedit layout yang sudah digunakan, periksa slide‑slide yang tergantung dan tinjau hasil presentasi.
+- Layout yang masih digunakan oleh slide tidak dapat dihapus. Alihkan slide‑slide yang bergantung ke layout lain terlebih dahulu, atau hapus hanya layout yang tidak digunakan.
 
-Kode JavaScript berikut menunjukkan cara menambahkan layout slide ke presentasi PowerPoint:
+Untuk informasi lebih lanjut tentang tingkat atas hierarki ini, lihat [Slide Master](/slides/id/nodejs-java/slide-master/).
 
-```js
-// Instansiasi kelas Presentation yang mewakili file PowerPoint.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+## **Pilih dan Terapkan Tata Letak Slide**
+
+Gunakan nilai [SlideLayoutType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidelayouttype/) ketika presentasi mengikuti definisi tata letak PowerPoint standar. Nama layout dapat diedit pengguna dan dapat dilokalisasi, sehingga pemilihan berdasarkan nama kurang andal kecuali Anda mengendalikan templat sumber.
+
+Contoh berikut mencari **Title and Content** pada master pertama. Jika layout itu tidak tersedia, secara sengaja beralih ke **Blank**. Pemeriksaan null kedua diperlukan karena sebuah presentasi dapat berisi hanya layout khusus. Layout yang dipilih kemudian diterapkan ke slide normal pertama melalui metode [Slide.setLayoutSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Telusuri tipe layout slide untuk memilih sebuah layout slide.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // Situasi di mana presentasi tidak berisi semua tipe layout.
-        // File presentasi hanya berisi tipe layout Blank dan Custom.
-        // Namun, layout slide dengan tipe custom mungkin memiliki nama yang dapat dikenali,
-        // seperti "Title", "Title and Content", dll., yang dapat digunakan untuk pemilihan layout slide.
-        // Anda juga dapat mengandalkan sekumpulan tipe bentuk placeholder.
-        // Misalnya, slide Title seharusnya hanya memiliki tipe placeholder Title, dan sebagainya.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // Tambahkan slide kosong menggunakan layout slide yang telah ditambahkan.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // Simpan presentasi ke disk.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Menghapus Layout Slide yang Tidak Digunakan**
+Mengubah tata letak slide tidak menghapus shape biasa yang ditambahkan langsung ke slide. Namun, posisi placeholder, pemformatan yang diwarisi, dan korespondensi antara placeholder yang ada dengan layout baru dapat berubah, jadi periksa output saat beralih antara layout yang sangat berbeda.
 
-Aspose.Slides menyediakan metode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) dari kelas [Compress](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/compress/) untuk memungkinkan Anda menghapus layout slide yang tidak diinginkan dan tidak terpakai.
+## **Tambahkan Slide Tata Letak**
 
-Kode JavaScript berikut menunjukkan cara menghapus layout slide dari presentasi PowerPoint:
+Pemilihan dan pembuatan adalah operasi terpisah. Contoh sebelumnya memilih layout yang ada; tidak membuat yang baru. Untuk membuat layout, panggil metode [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) pada koleksi layout master target.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+Contoh berikut selalu menambahkan layout **Title and Content** baru bernama `Report Title and Content`, kemudian menambahkan slide normal berdasarkan layout tersebut. Nama layout harus unik dalam koleksi.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Menambahkan Placeholder ke Layout Slide**
+Tambahkan layout hanya ketika templat memang memerlukan struktur dapat pakai kembali lainnya. Jika layout yang cocok sudah ada, pilih dan gunakan kembali alih‑alih membuat duplikat.
 
-Aspose.Slides menyediakan metode [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager), yang memungkinkan Anda menambahkan placeholder baru ke layout slide.
+## **Tambahkan Placeholder ke Slide Tata Letak**
 
-Manajer ini berisi metode untuk tipe placeholder berikut:
+Metode [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) menyediakan [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/) untuk menambahkan shape placeholder ke layout.
 
-| Placeholder PowerPoint              | Metode [LayoutPlaceholderManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/) |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                   | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png)       | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png)             | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png)                 | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png)                 | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                 | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png)    | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Placeholder              | `LayoutPlaceholderManager` Method |
+| ----------------------------------- | --------------------------------- |
+| ![Content](content.png)             | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png)                   | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png)             | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png)                 | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png)                 | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Kode JavaScript berikut menunjukkan cara menambahkan bentuk placeholder baru ke layout slide Blank:
+Contoh berikut memverifikasi bahwa layout **Blank** ada, menambahkan empat placeholder ke dalamnya, lalu membuat slide normal yang menggunakan layout yang telah dimodifikasi. Urutannya disengaja: placeholder ditambahkan sebelum slide normal dibuat, sehingga Aspose.Slides dapat menghasilkan shape placeholder yang sesuai pada slide tersebut.
 
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // Dapatkan layout slide Blank.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // Dapatkan manajer placeholder dari layout slide.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Tambahkan berbagai placeholder ke layout slide Blank.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Tambahkan slide baru dengan layout Blank.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -182,73 +169,87 @@ try {
 
 Hasil:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Placeholder pada slide tata letak](add_placeholders.png)
 
-## **Mengatur Visibilitas Footer untuk Layout Slide**
+{{% alert color="warning" title="Warning" %}}
+Mengubah pemformatan yang diwarisi atau geometri placeholder layout yang ada dapat memengaruhi slide‑slide yang bergantung. Placeholder layout yang baru ditambahkan tidak secara otomatis ditambahkan ke slide normal yang sudah ada. Uji perubahan layout pada salinan presentasi dan periksa setiap slide yang tergantung.
+{{% /alert %}}
 
-Dalam presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat ditampilkan atau disembunyikan tergantung pada layout slide. Aspose.Slides untuk Node.js memungkinkan Anda mengontrol visibilitas placeholder footer ini. Hal ini berguna ketika Anda menginginkan layout tertentu menampilkan informasi footer sementara yang lainnya tetap bersih dan minimal.
+## **Hapus Slide Tata Letak yang Tidak Digunakan**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/).
-1. Dapatkan referensi layout slide berdasarkan indeksnya.
-1. Setel placeholder footer slide menjadi terlihat.
-1. Setel placeholder nomor slide menjadi terlihat.
-1. Setel placeholder tanggal-waktu menjadi terlihat.
-1. Simpan presentasi.
+Gunakan metode [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) untuk menghapus layout yang tidak dirujuk oleh slide normal mana pun. Metode ini membiarkan layout yang masih dipakai tetap utuh.
 
-Kode JavaScript berikut menunjukkan cara mengatur visibilitas footer slide dan melakukan tugas terkait:
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Mengatur Visibilitas Footer Anak untuk Slide**
+Untuk menghapus satu layout tertentu, pertama gunakan metode [hasDependingSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) atau [getDependingSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Alihkan semua slide yang bergantung sebelum memanggil [LayoutSlide.remove](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#remove). Mencoba menghapus layout yang masih digunakan akan memunculkan [PptxEditException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pptxeditexception/).
 
-Dalam presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat dikontrol pada tingkat master slide untuk memastikan konsistensi di semua layout slide. Aspose.Slides untuk Node.js memungkinkan Anda mengatur visibilitas dan konten placeholder footer ini pada master slide dan menyebarkan pengaturan tersebut ke semua layout slide anak. Pendekatan ini memastikan informasi footer yang seragam sepanjang presentasi.
+## **Kontrol Visibilitas Footer pada Slide Tata Letak**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/).
-1. Dapatkan referensi master slide berdasarkan indeksnya.
-1. Setel placeholder footer master dan semua anak menjadi terlihat.
-1. Setel placeholder nomor slide master dan semua anak menjadi terlihat.
-1. Setel placeholder tanggal-waktu master dan semua anak menjadi terlihat.
-1. Simpan presentasi.
+Sebuah layout memiliki footer, nomor slide, dan placeholder tanggal‑waktu masing‑masing. Gunakan metode [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) untuk mengontrol placeholder tersebut pada satu layout. Ini berguna ketika, misalnya, layout konten harus menampilkan footer tetapi layout judul tidak.
 
-Kode JavaScript berikut menunjukkan operasi ini:
+Contoh berikut memilih layout secara aman dan membuat elemen footernya terlihat:
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
+    }
+
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
+    }
+
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kontrol Visibilitas Footer pada Master dan Tata Letak Anak‑nya**
+
+Untuk menerapkan pengaturan footer yang konsisten di seluruh hierarki master, gunakan metode [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Metode propagasi dari [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslideheaderfootermanager/) beroperasi pada master serta layout slide dan slide normal yang bergantung; tidak hanya pada satu slide normal.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -256,14 +257,18 @@ try {
 
 ## **FAQ**
 
-**Apa perbedaan antara master slide dan layout slide?**
+**Apa Perbedaan Antara Master Slide dan Layout Slide?**
 
-Master slide menentukan tema keseluruhan dan pemformatan default, sementara layout slide menentukan susunan placeholder spesifik untuk berbagai jenis konten.
+Master slide mendefinisikan tema dan pemformatan bersama presentasi. Layout slide termasuk dalam master dan mendefinisikan satu susunan placeholder yang dapat dipakai kembali. Slide normal menggunakan layout‑layout tersebut dan menyimpan konten khusus slide.
 
-**Apakah saya dapat menyalin layout slide dari satu presentasi ke presentasi lain?**
+**Bisakah Saya Menyalin Layout Slide dari Satu Presentasi ke Presentasi Lain?**
 
-Ya, Anda dapat menggandakan layout slide dari koleksi layout slide satu presentasi, yang dapat diakses melalui metode [getLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getLayoutSlides), dan menyisipkannya ke presentasi lain menggunakan metode `addClone`.
+Ya. Tambahkan salinan ke koleksi tujuan dengan metode [addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Saat menyalin antara presentasi, pastikan juga memeriksa font, tema, gambar, dan sumber daya lain yang digunakan oleh layout sumber.
 
-**Apa yang terjadi jika saya menghapus layout slide yang masih digunakan oleh slide lain?**
+**Apa yang Terjadi Ketika Saya Memodifikasi Layout yang Sudah Digunakan?**
 
-Jika Anda mencoba menghapus layout slide yang masih direferensikan oleh setidaknya satu slide dalam presentasi, Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pptxeditexception/). Untuk menghindarinya, gunakan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) yang secara aman menghapus hanya layout slide yang tidak digunakan.
+Slide yang bergantung mewarisi perubahan layout kecuali mereka menimpa pemformatan atau objek yang terpengaruh secara lokal. Geometri placeholder dan gaya yang diwarisi dapat berubah pada banyak slide sekaligus. Gunakan [getDependingSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) untuk mengidentifikasi slide yang terpengaruh sebelum mengedit layout.
+
+**Apa yang Terjadi Jika Saya Menghapus Layout yang Masih Digunakan?**
+
+Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pptxeditexception/). Alihkan slide yang bergantung terlebih dahulu, atau gunakan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) untuk menghapus hanya layout yang tidak direferensikan.)

@@ -1,16 +1,16 @@
 ---
-title: Terapkan atau Ubah Layout Slide di .NET
-linktitle: Layout Slide
+title: Menerapkan atau Mengubah Tata Letak Slide di .NET
+linktitle: Tata Letak Slide
 type: docs
 weight: 60
 url: /id/net/slide-layout/
 keywords:
-- layout slide
-- layout konten
+- tata letak slide
+- tata letak konten
 - placeholder
 - desain presentasi
 - desain slide
-- layout tidak terpakai
+- tata letak tidak terpakai
 - visibilitas footer
 - slide judul
 - judul dan konten
@@ -18,7 +18,7 @@ keywords:
 - dua konten
 - perbandingan
 - hanya judul
-- layout kosong
+- tata letak kosong
 - konten dengan keterangan
 - gambar dengan keterangan
 - judul dan teks vertikal
@@ -29,237 +29,217 @@ keywords:
 - C#
 - .NET
 - Aspose.Slides
-description: "Kelola dan sesuaikan layout slide di Aspose.Slides untuk .NET. Jelajahi jenis layout, kontrol placeholder, dan visibilitas footer melalui contoh kode C#."
+description: "Menerapkan, membuat, dan memodifikasi tata letak slide di Aspose.Slides untuk .NET, menambahkan placeholder, menghapus tata letak yang tidak terpakai, dan mengontrol visibilitas footer."
 ---
-## **Pendahuluan**
+## **Ikhtisar**
 
-Layout slide mendefinisikan susunan kotak placeholder dan pemformatan untuk konten pada sebuah slide. Ini mengontrol placeholder mana yang tersedia dan di mana mereka muncul. Layout slide membantu Anda merancang presentasi dengan cepat dan konsisten—baik Anda membuat sesuatu yang sederhana maupun yang lebih kompleks. Beberapa layout slide yang paling umum di PowerPoint meliputi:
+Tata letak slide mendefinisikan posisi dan pemformatan placeholder seperti judul, teks, gambar, diagram, dan tabel. Menerapkan tata letak memberi slide struktur yang konsisten sekaligus memungkinkan setiap slide memiliki kontennya masing‑ma​sil.
 
-**Layout Slide Judul** – Menyertakan dua placeholder teks: satu untuk judul dan satu untuk subjudul.
+Tata letak yang paling umum meliputi:
 
-**Layout Judul dan Konten** – Menampilkan placeholder judul yang lebih kecil di bagian atas dan yang lebih besar di bawahnya untuk konten utama (seperti teks, poin peluru, grafik, gambar, dan lainnya).
+- **Slide Judul**: Memuat placeholder judul dan subjudul.
+- **Judul dan Konten**: Memuat placeholder judul dan placeholder konten serbaguna.
+- **Kosong**: Tidak memuat placeholder konten dan berguna bila setiap bentuk akan diposisikan secara manual.
 
-**Layout Kosong** – Tidak berisi placeholder, memberi Anda kontrol penuh untuk merancang slide dari awal.
+## **Memahami Pewarisan Tata Letak**
 
-Layout slide merupakan bagian dari slide master, yang merupakan slide tingkat atas yang mendefinisikan gaya layout untuk presentasi. Anda dapat mengakses dan memodifikasi layout slide melalui slide master—baik berdasarkan tipe, nama, atau ID uniknya. Sebagai alternatif, Anda dapat mengedit layout slide tertentu langsung dalam presentasi.
+Sebuah presentasi memiliki tiga tingkat yang saling terkait:
 
-Untuk bekerja dengan layout slide di Aspose.Slides for .NET, Anda dapat menggunakan:
+1. Sebuah [master slide](https://reference.aspose.com/slides/id/net/aspose.slides/imasterslide/) menentukan tema, pemformatan bersama, latar belakang, dan objek umum.
+1. Sebuah [layout slide](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslide/) berada dalam sebuah master dan mendefinisikan susunan placeholder tertentu.
+1. Sebuah [normal slide](https://reference.aspose.com/slides/id/net/aspose.slides/islide/) menggunakan satu tata letak dan menyimpan konten yang dimasukkan untuk slide tersebut.
 
-- Properti seperti [LayoutSlides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/layoutslides/) dan [Masters](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/masters/) pada kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-- Tipe seperti [ILayoutSlide](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/id/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutplaceholdermanager/), dan [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslideheaderfootermanager/)
+Sebuah slide normal mewarisi tema dan pemformatan dari tata letaknya, dan tata letak mewarisi dari masternya. Nilai yang ditetapkan secara langsung pada slide normal akan menimpa nilai yang diwarisi pada tingkat tersebut. Ketika sebuah slide normal dibuat, bentuk placeholder‑nya dihasilkan dari tata letak yang dipilih, sementara konten yang dimasukkan ke dalam placeholder tersebut menjadi milik slide normal.
 
-{{% alert title="Info" color="info" %}}
-Untuk mempelajari lebih lanjut tentang bekerja dengan slide master, lihat artikel [Slide Master](/slides/id/net/slide-master/).
-{{% /alert %}}
+Tambahkan placeholder yang diperlukan ke sebuah tata letak sebelum membuat slide darinya. Menambahkan placeholder lain ke tata letak kemudian tidak secara otomatis menambah bentuk placeholder yang bersesuaian pada slide normal yang sudah ada.
 
-## **Menambahkan Layout Slide ke Presentasi**
+Hubungan ini menghasilkan dua konsekuensi penting:
 
-Untuk menyesuaikan tampilan dan struktur slide Anda, Anda mungkin perlu menambahkan layout slide baru ke sebuah presentasi. Aspose.Slides for .NET memungkinkan Anda memeriksa apakah layout tertentu sudah ada, menambahkan yang baru jika diperlukan, dan menggunakannya untuk menyisipkan slide berdasarkan layout tersebut.
+- Mengubah pemformatan yang diwarisi atau geometri placeholder yang ada pada tata letak dapat memperbarui setiap slide yang bergantung padanya. Sebelum mengedit tata letak yang sudah dipakai, periksa slide‑slide yang tergantung dan tinjau hasil presentasi.
+- Tata letak yang masih digunakan oleh sebuah slide tidak dapat dihapus. Alihkan slide‑slide yang bergantung ke tata letak lain terlebih dahulu, atau hapus hanya tata letak yang tidak terpakai.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-1. Akses [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/id/net/aspose.slides/imasterlayoutslidecollection/).
-1. Periksa apakah layout slide yang diinginkan sudah ada dalam koleksi. Jika tidak, tambahkan layout slide yang diperlukan.
-1. Tambahkan slide kosong berdasarkan layout slide baru.
-1. Simpan presentasi.
+Untuk informasi lebih lanjut tentang tingkatan teratas hierarki ini, lihat [Slide Master](/slides/id/net/slide-master/).
 
-Kode C# berikut menunjukkan cara menambahkan layout slide ke presentasi PowerPoint:
+## **Pilih dan Terapkan Tata Letak Slide**
 
-```cs
-// Membuat instance kelas Presentation yang mewakili file PowerPoint.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+Gunakan tipe tata letak ketika presentasi mengikuti definisi tata letak PowerPoint standar. Nama tata letak dapat diedit pengguna dan dapat dilokalisasi, sehingga pemilihan berbasis nama kurang dapat diandalkan kecuali Anda mengendalikan templat sumber.
+
+Contoh berikut mencari **Judul dan Konten** pada master pertama. Jika tata letak tersebut tidak tersedia, secara sengaja akan beralih ke **Kosong**. Pemeriksaan null kedua diperlukan karena sebuah presentasi dapat berisi hanya tata letak khusus. Tata letak yang dipilih kemudian diterapkan ke slide normal pertama melalui properti [ISlide.LayoutSlide](https://reference.aspose.com/slides/id/net/aspose.slides/islide/layoutslide/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // Telusuri tipe layout slide untuk memilih sebuah layout slide.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // Situasi di mana presentasi tidak berisi semua tipe layout.
-        // File presentasi hanya berisi tipe layout Kosong dan Kustom.
-        // Namun, layout slide dengan tipe kustom mungkin memiliki nama yang dikenali,
-        // seperti "Title", "Title and Content", dll, yang dapat digunakan untuk pemilihan layout slide.
-        // Anda juga dapat mengandalkan sekumpulan tipe bentuk placeholder.
-        // Misalnya, slide Judul harus hanya memiliki tipe placeholder Title, dan seterusnya.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // Tambahkan slide kosong menggunakan layout slide yang ditambahkan.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // Simpan presentasi ke disk.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Menghapus Layout Slide yang Tidak Digunakan**
+Mengubah tata letak slide tidak menghapus bentuk biasa yang ditambahkan langsung ke slide. Namun, posisi placeholder, pemformatan yang diwarisi, dan korespondensi antara placeholder yang ada dengan tata letak baru dapat berubah, sehingga periksalah output ketika beralih antar tata letak yang secara substansial berbeda.
 
-Aspose.Slides menyediakan metode [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) dari kelas [Compress](https://reference.aspose.com/slides/id/net/aspose.slides.lowcode/compress/) untuk memungkinkan Anda menghapus layout slide yang tidak diinginkan dan tidak digunakan.
+## **Tambahkan Tata Letak Slide**
 
-Kode C# berikut menunjukkan cara menghapus layout slide dari presentasi PowerPoint:
+Pemilihan dan pembuatan adalah operasi terpisah. Contoh sebelumnya hanya memilih tata letak yang sudah ada; tidak membuat yang baru. Untuk membuat tata letak, panggil metode [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/id/net/aspose.slides/masterlayoutslidecollection/add/) pada koleksi tata letak master target.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+Contoh berikut selalu menambahkan tata letak **Judul dan Konten** baru bernama `Report Title and Content`, kemudian menambahkan slide normal yang didasarkan padanya. Nama tata letak harus unik dalam koleksi.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Menambahkan Placeholder ke Layout Slide**
+Tambahkan tata letak hanya bila templat memang membutuhkan struktur yang dapat digunakan kembali. Jika tata letak yang sesuai sudah ada, pilih dan gunakan kembali daripada membuat duplikat.
 
-Aspose.Slides menyediakan properti [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslide/placeholdermanager/), yang memungkinkan Anda menambahkan placeholder baru ke sebuah layout slide.
+## **Tambahkan Placeholder ke Tata Letak Slide**
 
-Manajer ini berisi metode untuk tipe placeholder berikut:
+Properti [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslide/placeholdermanager/) menyediakan [ILayoutPlaceholderManager](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutplaceholdermanager/) untuk menambahkan bentuk placeholder ke sebuah tata letak.
 
-| Placeholder PowerPoint              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutplaceholdermanager/) Metode |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Konten](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Konten (Vertikal)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Teks](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Teks (Vertikal)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Gambar](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Diagram](chart.png)               | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabel](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Gambar Daring](onlineimage.png)  | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Placeholder PowerPoint               | Metode `ILayoutPlaceholderManager` |
+| ------------------------------------ | ----------------------------------- |
+| ![Content](content.png)              | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![Content (Vertical)](contentV.png)  | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png)                    | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertical)](textV.png)        | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Picture](picture.png)              | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Chart](chart.png)                  | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Table](table.png)                  | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)            | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png)                  | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online Image](onlineImage.png)     | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Kode C# berikut menunjukkan cara menambahkan bentuk placeholder baru ke layout slide Kosong:
+Contoh berikut memverifikasi bahwa tata letak **Kosong** ada, menambahkan empat placeholder padanya, lalu membuat slide normal yang menggunakan tata letak yang telah dimodifikasi. Urutannya sengaja: placeholder ditambahkan sebelum slide normal dibuat, sehingga Aspose.Slides dapat menghasilkan bentuk placeholder yang bersesuaian pada slide tersebut.
 
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // Dapatkan layout slide Kosong.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // Dapatkan manajer placeholder dari layout slide.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // Tambahkan berbagai placeholder ke layout slide Kosong.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // Tambahkan slide baru dengan layout Kosong.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
+
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 ```
 
 Hasilnya:
 
-![Placeholder pada layout slide](add_placeholders.png)
+![Placeholder pada tata letak slide](add_placeholders.png)
 
-## **Mengatur Visibilitas Footer untuk Layout Slide**
+{{% alert color="warning" title="Warning" %}}
+Mengubah pemformatan yang diwarisi atau geometri placeholder tata letak yang ada dapat memengaruhi slide‑slide yang bergantung. Placeholder tata letak yang baru ditambahkan tidak otomatis di‑backfill ke slide normal yang sudah ada. Uji perubahan tata letak pada salinan presentasi dan periksa setiap slide yang bergantung.
+{{% /alert %}}
 
-Pada presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat ditampilkan atau disembunyikan tergantung pada layout slide. Aspose.Slides for .NET memungkinkan Anda mengontrol visibilitas placeholder footer ini. Ini berguna ketika Anda ingin layout tertentu menampilkan informasi footer sementara yang lain tetap bersih dan minimal.
+## **Hapus Tata Letak Slide yang Tidak Digunakan**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-1. Dapatkan referensi layout slide berdasarkan indeksnya.
-1. Setel placeholder footer slide menjadi terlihat.
-1. Setel placeholder nomor slide menjadi terlihat.
-1. Setel placeholder tanggal-waktu menjadi terlihat.
-1. Simpan presentasi.
+Gunakan metode [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) untuk menghapus tata letak yang tidak dirujuk oleh slide normal mana pun. Metode ini membiarkan tata letak yang masih dipakai tetap utuh.
 
-Kode C# berikut menunjukkan cara mengatur visibilitas footer slide dan melakukan tugas terkait:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-## **Mengatur Visibilitas Footer Anak untuk Slide**
+Untuk menghapus satu tata letak tertentu, pertama gunakan properti [HasDependingSlides](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslide/hasdependingslides/) atau metode [GetDependingSlides](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslide/getdependingslides/). Alihkan semua slide yang bergantung sebelum memanggil [ILayoutSlide.Remove](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslide/remove/). Mencoba menghapus tata letak yang masih dipakai akan menghasilkan [PptxEditException](https://reference.aspose.com/slides/id/net/aspose.slides/pptxeditexception/).
 
-Pada presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat dikontrol pada tingkat slide master untuk memastikan konsistensi di semua layout slide. Aspose.Slides for .NET memungkinkan Anda mengatur visibilitas dan konten placeholder footer ini pada slide master dan menyebarkan pengaturan tersebut ke semua layout slide anak. Pendekatan ini memastikan informasi footer yang seragam di seluruh presentasi Anda.
+## **Atur Visibilitas Footer pada Tata Letak Slide**
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-1. Dapatkan referensi ke slide master berdasarkan indeksnya.
-1. Setel placeholder footer master dan semua anak menjadi terlihat.
-1. Setel placeholder nomor slide master dan semua anak menjadi terlihat.
-1. Setel placeholder tanggal-waktu master dan semua anak menjadi terlihat.
-1. Simpan presentasi.
+Sebuah tata letak memiliki placeholder footer, nomor slide, dan tanggal‑waktu sendiri. Gunakan properti [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslide/headerfootermanager/) untuk mengontrol placeholder tersebut pada satu tata letak. Ini berguna ketika, misalnya, tata letak konten harus menampilkan footer tetapi tata letak judul tidak.
 
-Kode C# berikut menunjukkan operasi ini:
+Contoh berikut memilih tata letak dengan aman dan membuat elemen footernya terlihat:
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+```
+
+## **Atur Visibilitas Footer pada Master dan Tata Letak Turunannya**
+
+Untuk menerapkan pengaturan footer yang konsisten di seluruh hierarki master, gunakan properti [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/id/net/aspose.slides/imasterslide/headerfootermanager/). Metode propagasi pada [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/id/net/aspose.slides/imasterslideheaderfootermanager/) bekerja pada master serta tata letak dan slide normal yang bergantung; mereka tidak menargetkan satu slide normal saja.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Apa perbedaan antara slide master dan slide layout?**
+**Apa Perbedaan antara Master Slide dan Layout Slide?**
 
-Slide master mendefinisikan tema keseluruhan dan pemformatan default, sementara slide layout mendefinisikan susunan khusus placeholder untuk berbagai jenis konten.
+Master slide menentukan tema presentasi dan pemformatan bersama. Layout slide merupakan bagian dari master dan menentukan satu susunan placeholder yang dapat digunakan kembali. Slide normal menggunakan tata letak tersebut dan menyimpan konten khusus slide.
 
-**Apakah saya dapat menyalin slide layout dari satu presentasi ke presentasi lain?**
+**Bisakah Saya Menyalin Layout Slide dari Satu Presentasi ke Presentasi Lain?**
 
-Ya, Anda dapat menggandakan slide layout dari koleksi [LayoutSlides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/layoutslides/) sebuah presentasi dan menyisipkannya ke presentasi lain menggunakan metode `AddClone`.
+Ya. Tambahkan salinan ke koleksi tujuan dengan metode [AddClone](https://reference.aspose.com/slides/id/net/aspose.slides/globallayoutslidecollection/addclone/). Saat menyalin antar presentasi, periksa juga font, tema, gambar, dan sumber daya lain yang digunakan oleh layout sumber.
 
-**Apa yang terjadi jika saya menghapus slide layout yang masih digunakan oleh slide lain?**
+**Apa yang Terjadi Jika Saya Memodifikasi Layout yang Sudah Digunakan?**
 
-Jika Anda mencoba menghapus slide layout yang masih direferensikan oleh setidaknya satu slide dalam presentasi, Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/net/aspose.slides/pptxeditexception/). Untuk menghindarinya, gunakan [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) yang secara aman menghapus hanya layout slide yang tidak digunakan.
+Slide yang bergantung mewarisi perubahan layout kecuali mereka menimpa pemformatan atau objek secara lokal. Geometri placeholder dan styling yang diwarisi dapat berubah pada banyak slide sekaligus. Gunakan [GetDependingSlides](https://reference.aspose.com/slides/id/net/aspose.slides/ilayoutslide/getdependingslides/) untuk mengidentifikasi slide yang terpengaruh sebelum mengedit layout.
+
+**Apa yang Terjadi Jika Saya Menghapus Layout yang Masih Digunakan?**
+
+Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/net/aspose.slides/pptxeditexception/). Alihkan slide yang bergantung terlebih dahulu, atau gunakan [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) untuk menghapus hanya layout yang tidak direferensikan.
