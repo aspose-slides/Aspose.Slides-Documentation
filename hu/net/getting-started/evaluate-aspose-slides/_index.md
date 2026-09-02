@@ -1,5 +1,5 @@
 ---
-title: Az Aspose.Slides értékelése
+title: Aspose.Slides értékelése
 type: docs
 weight: 120
 url: /hu/net/evaluate-aspose-slides/
@@ -13,40 +13,62 @@ keywords:
 - korlátozás
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET-re vonatkozó Aspose.Slides értékelése és a PowerPoint (PPT, PPTX) valamint OpenDocument (ODP) prezentációk API funkcióinak felfedezése – indítsa el ingyenes próbaverzióját."
+description: "Értékelje az Aspose.Slides .NET verzióját, és ismerje meg a PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációk API funkcióit - indítsa el ingyenes próbaidőszakát."
 ---
 ## **Aspose.Slides értékelés**
 
-Az Aspose.Slides könnyedén letölthető értékelés céljából. Az értékelési csomag megegyezik a megvásárolt csomaggal. Az értékelési verzió egyszerűen licencessé válik, ha néhány kódsort hozzáad a licenc alkalmazásához.  
+Az Aspose.Slides-t könnyedén letöltheti értékelés céljából. Az értékelési csomag megegyezik a megvásárolt csomaggal. Az értékelési verzió egyszerűen licencszerűvé válik, ha néhány sor kóddal alkalmazza a licencet. 
 
-Az Aspose.Slides értékelési verziója (licenc nélkül) teljes termékfunkcionalitást biztosít, de a dokumentum megnyitásakor és mentésekor egy értékelési vízjelet helyez a dokumentum tetejére. Emellett egy diára korlátozódik a szöveg kinyerése a bemutatódiákból.  
+Az Aspose.Slides értékelési verziója (licenc megadása nélkül) teljes termékfunkciókat biztosít, de nyitáskor és mentéskor a dokumentum tetejére értékelési vízjelet helyez. A bemutató diák szövegének kinyerése során egy diára korlátozódik.
+
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
 {{% alert color="primary" %}} 
 
-Ha az Aspose.Slides-t szeretné tesztelni az értékelési verzió korlátozása nélkül, kérhet **30 napos Ideiglenes Licencet**. További információért tekintse meg a [Hogyan lehet ideiglenes licencet szerezni?](https://purchase.aspose.com/temporary-license) oldalt.  
+Ha korlátozások nélkül szeretné tesztelni az Aspose.Slides-t, kérhet **30 napos ideiglenes licencet**. További információért tekintse meg a [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) című oldalt.
 
 {{% /alert %}}
 
+## **Az értékelési csomag telepítése**
+
+```bash
+dotnet add package Aspose.Slides.NET
+```
+
+## **Licenc alkalmazása**
+
+Ezek a „néhány sor kód”, amelyek az értékelési csomagot licencelté alakítják. A licencet egyszer alkalmazza az alkalmazás indításakor, mielőtt bármely `Presentation` objektum létrejön – egy korábban létrehozott bemutató megtartja az értékelési vízjelet.
+
+```csharp
+using Aspose.Slides;
+
+var license = new License();
+license.SetLicense("Aspose.Slides.NET.lic");
+```
+
+`SetLicense` fogad egy `Stream`‑et is, ami jobb megoldás, ha a licenc beágyazott erőforrásként érkezik, nem pedig fájlként a lemezen. Ha az útvonal hibás vagy a fájl lejárt, a hívás kivételt dob, így a hibák az indításkor azonnal láthatók, ahelyett, hogy csendben visszatérnének az értékelési módba.
+
+Miután a licencet alkalmazták, a vízjel eltűnik, és az egy diára korlátozott szövegkinyerés feloldódik.
+
 ## **GYIK**
 
-**Tesztelhetek több prezentációt párhuzamosan különböző szálakon értékelési módban?**  
+### Tesztelhetek több bemutatót párhuzamosan különböző szálakon az értékelési módban?
 
-Igen. Különböző dokumentumokat párhuzamosan feldolgozhat; nem szabad ugyanazt a prezentációobjektumot megosztani [szálak között](/slides/hu/net/multithreading/). Az értékelési mód erre nem hat.  
+Igen. Különböző dokumentumokat párhuzamosan feldolgozhat; nem szabad ugyanazt a prezentációobjektumot megosztani [szálak között](/slides/hu/net/multithreading/). Az értékelési mód erre nem vonatkozik.
 
-**Szükséges a Microsoft PowerPoint telepítése a könyvtár értékeléséhez egy szerveren vagy CI környezetben?**  
+### Szükséges a Microsoft PowerPoint telepítése a könyvtár értékeléséhez szerveren vagy CI környezetben?
 
-Nem. Az Aspose.Slides egy önálló motor, és sem értékeléshez, sem termeléshez nem igényel PowerPoint telepítést.  
+Nem. Az Aspose.Slides egy önálló motor, és nem igényel PowerPoint telepítést sem értékeléshez, sem produkcióhoz.
 
-**Teljesen tesztelhetem a PPT/PPTX PDF-re és képekre való konvertálását értékelési módban?**  
+### Teljesen tesztelhetem a PPT/PPTX PDF- és képképbe konvertálását értékelési módban?
 
-Igen. A [konverterek](/slides/hu/net/convert-presentation/) működnek; a kimenet vízjelet tartalmazni fog.  
+Igen. A [konvertáló eszközök](/slides/hu/net/convert-presentation/) működnek; a kimenetben vízjel lesz.
 
-**Használhatok ideiglenes licencet terheléses teszteléshez vízjel nélkül?**  
+### Használhatok ideiglenes licencet terheléses teszteléshez vízjel nélkül?
 
-Igen. Egy 30 napos ideiglenes licenc eltávolítja az értékelési mód korlátozásait, és lehetővé teszi a tesztelést vízjel nélkül.
+Igen. A 30 napos ideiglenes licenc eltávolítja az értékelési mód korlátozásait, és lehetővé teszi a tesztelést vízjel nélkül.
