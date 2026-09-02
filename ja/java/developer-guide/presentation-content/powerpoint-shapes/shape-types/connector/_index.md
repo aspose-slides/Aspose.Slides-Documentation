@@ -1,405 +1,503 @@
 ---
-title: Java を使用したプレゼンテーションでのコネクタ管理
+title: Javaでプレゼンテーションのコネクタを管理する
 linktitle: コネクタ
 type: docs
 weight: 10
 url: /ja/java/connector/
 keywords:
 - コネクタ
-- コネクタ タイプ
-- コネクタ ポイント
-- コネクタ ライン
-- コネクタ 角度
-- 図形接続
+- コネクタの種類
+- コネクタポイント
+- コネクタ線
+- コネクタ角度
+- 接続サイト
+- 調整ポイント
+- シェイプを接続
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Java アプリで PowerPoint スライド上に線を描画し、接続し、自動ルーティングできるようにし、直線、エルボー、曲線コネクタを完全に制御します。"
+description: "Aspose.Slides for Java を使用して、ストレート、ベンド、カーブドの PowerPoint コネクタを追加、接続、再ルーティング、調整、検査する方法を学びます。"
 ---
+## **概要**
 
-PowerPoint コネクタは、2 つの図形を接続またはリンクする特殊な線で、スライド上で図形を移動または再配置しても図形に貼り付いたままになります。
+コネクタは、いずれかのシェイプが移動しても 2 つのシェイプに接続されたままにできる線です。端は PowerPoint の緑のドットで表される接続サイトに接続されます。曲がったコネクタや曲線コネクタの中には、オレンジのドットで表される調整ポイントがあり、個々のコネクタセグメントの位置を制御します。
 
-コネクタは通常、*接続点*（緑のドット）に接続されます。接続点はすべての図形にデフォルトで存在し、カーソルが近づくと表示されます。
-
-*調整点*（オレンジのドット）は特定のコネクタにのみ存在し、コネクタの位置や形状を変更するために使用されます。
+Aspose.Slides はコネクタを [IConnector](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iconnector/) インターフェイスで表現します。コネクタを作成し、端をシェイプに接続し、接続サイトを選択し、再ルーティングし、調整ポイントを持つコネクタのジオメトリを変更できます。
 
 ## **コネクタの種類**
 
-PowerPoint では、直線、エルボー（角付き）、曲線コネクタを使用できます。
+[ShapeType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/shapetype/) クラスには、ストレート、ベンド、カーブド コネクタのプリセットが含まれます。以下の表は、利用可能なコネクタジオメトリと各プリセットで定義される調整ポイントの数を示しています。
 
-Aspose.Slides が提供するこれらのコネクタは次のとおりです。
+| コネクタ | 画像 | 調整ポイント数 |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Connector                      | Image                                                        | Number of adjustment points |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+調整ポイントの数と意味は選択されたコネクタプリセットの一部です。2 つの異なるコネクタタイプが同じコレクションレイアウトを提供すると想定しないでください。
 
-## **コネクタで図形を接続する**
+## **2 つのシェイプを接続**
 
-1. [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. `Shapes` オブジェクトが公開する `addAutoShape` メソッドを使用して、スライドに 2 つの [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) を追加します。  
-1. `Shapes` オブジェクトが公開する `addConnector` メソッドでコネクタの種類を指定してコネクタを追加します。  
-1. コネクタを使用して図形を接続します。  
-1. `reroute` メソッドを呼び出して最短接続パスを適用します。  
-1. プレゼンテーションを保存します。  
+[IShapeCollection.addConnector](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) を使用してコネクタを追加し、[IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) と [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) を使用して端を接続します。両端が接続された後、[IConnector.reroute](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iconnector/#reroute--) がシェイプ間の最短ルートを選択します。
 
-この Java コードは、2 つの図形（楕円と矩形）の間にベンドコネクタを追加する方法を示しています。  
-```Java
-// PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
-Presentation pres = new Presentation();
+以下の例は、楕円と長方形をベンドコネクタで接続します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // 特定のスライドのシェイプ コレクションにアクセスします
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // 楕円のオートシェイプを追加します
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // 矩形のオートシェイプを追加します
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // スライドのシェイプ コレクションにコネクタ シェイプを追加します
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // コネクタを使用してシェイプを接続します
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    
-    // シェイプ間の自動最短パスを設定する reroute を呼び出します
     connector.reroute();
-    
-    // プレゼンテーションを保存します
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="warning" title="Warning" %}}
+`reroute` を呼び出すと、[setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) と [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) の値が変更されることがあります。再ルーティング後に特定の接続サイトが固定されている必要がある場合は、再度それらのサイトを割り当ててください。
+{{% /alert %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **接続サイトを選択**
 
-`Connector.reroute` メソッドはコネクタを再ルーティングし、図形間で可能な限り最短のパスを取らせます。そのために `setStartShapeConnectionSiteIndex` と `setEndShapeConnectionSiteIndex` のポイントが変更されることがあります。 
+各接続可能シェイプは [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getConnectionSiteCount--) でサイト数を報告します。シェイプジオメトリによってサイト数は異なるため、コネクタ端に割り当てる前に、希望するゼロベースのサイトインデックスを検証してください。
 
-{{% /alert %}} 
+この例は、対象のサイトが存在する場合に楕円上の特定のサイトにコネクタを接続します。
 
-## **接続点を指定する**
-
-特定の図形上の点でコネクタを接続したい場合は、以下の手順で希望の接続点を指定します。
-
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. `Shapes` オブジェクトが公開する `addAutoShape` メソッドでスライドに 2 つの [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) を追加します。  
-1. `Shapes` オブジェクトが公開する `addConnector` メソッドでコネクタの種類を指定してコネクタを追加します。  
-1. コネクタで図形を接続します。  
-1. 図形上の希望する接続点を設定します。  
-1. プレゼンテーションを保存します。  
-
-この Java コードは、接続点を指定した操作例を示しています。  
 ```java
-// PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // 特定のスライドのシェイプ コレクションにアクセスします
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 楕円のオートシェイプを追加します
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // 矩形のオートシェイプを追加します
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // スライドのシェイプ コレクションにコネクタ シェイプを追加します
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // コネクタを使用してシェイプを接続します
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // 楕円シェイプの希望接続ドットインデックスを設定します
-    int wantedIndex = 6;
-
-    // 希望インデックスが最大サイトインデックス数未満か確認します
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // 楕円オートシェイプに希望接続ドットを設定します
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
     }
 
-    // プレゼンテーションを保存します
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **コネクタポイントを調整**
 
-## **コネクタのポイントを調整する**
+調整ポイントを持つコネクタは [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/ja/java/com.aspose.slides/igeometryshape/#getAdjustments--) でそれらを公開します。各 [IAdjustValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/) を調べ、変更前にその [getType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/#getType--) の値を確認し、[setRawValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) で変更します。プリセットシェイプ調整の識別に関する一般的なルールは [Shape Manipulation](/slides/ja/java/shape-manipulations/) に記載されています。
 
-調整点を持つコネクタは、調整点を操作することで変更できます。**[コネクタの種類](/slides/ja/java/connector/#types-of-connectors)** の表を参照してください。
+コネクタ調整の数、順序、意味、および有効な値範囲はコネクタプリセットに依存します。調整タイプは読み取り専用で、調整値は書き込み可能です。同一のセマンティックタイプが複数存在する場合、読み取り専用の [getName](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/#getName--) メソッドが追加の識別情報を提供します。
 
-### **単純なケース**
+### **障害物の回り込み**
 
-2 つの図形 (A と B) の間のコネクタが 3 番目の図形 (C) を通過する場合を考えます。
+以下のレイアウトでは、2 つのシェイプ間の `BentConnector5` が 3 番目のシェイプを通過しています。
 
 ![connector-obstruction](connector-obstruction.png)
+
+このコードは障害物があるコネクタを作成します。
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
-3 番目の図形を回避するために、垂直線を左側に移動してコネクタを調整できます。
+垂直ベンドを移動するとルートが変わり、コネクタが障害物を回避します。
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
+
+コレクションインデックス `1` が常に垂直ベンドを表すと想定せず、この例は `ConnectorBendPositionY` を検索し、期待されたセマンティックタイプが存在する場合にのみ変更します。
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
-```
+import com.aspose.slides.*;
+import java.awt.Color;
 
-
-### **複雑なケース** 
-
-より複雑な調整を行う場合は、以下の点に留意してください。
-
-* コネクタの調整可能点は、その位置を計算する数式に強く結び付いています。点の位置を変更するとコネクタの形状が変わることがあります。  
-* 調整点は配列内で厳密な順序で定義されており、コネクタの開始点から終了点へ向かって番号付けされています。  
-* 調整点の値はコネクタ形状の幅/高さのパーセンテージを表します。  
-  * 図形はコネクタの開始点と終了点に 1000 を掛けた範囲で制限されます。  
-  * 第1点は幅のパーセンテージ、第2点は高さのパーセンテージ、第3点は再び幅のパーセンテージを表します。  
-* 調整点の座標を算出する計算では、コネクタの回転と反転を考慮する必要があります。**注**：**[コネクタの種類](/slides/ja/java/connector/#types-of-connectors)** に示されたすべてのコネクタの回転角は 0 です。
-
-#### **ケース 1**
-
-2 つのテキストフレームオブジェクトがコネクタでリンクされているケースを考えます。
-
-![connector-shape-complex](connector-shape-complex.png)
-```java
-// PPTX ファイルを表すプレゼンテーションクラスのインスタンスを作成します
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // プレゼンテーションの最初のスライドを取得します
-    ISlide sld = pres.getSlides().get_Item(0);
-    // コネクタで結合される形状を追加します
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // コネクタを追加します
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // コネクタの方向を指定します
-    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // コネクタの色を指定します
-    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // コネクタの線の太さを指定します
-    connector.getLineFormat().setWidth(3);
-    
-    // コネクタで形状を結びつけます
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
-    connector.setEndShapeConnectionSiteIndex(2);
-    
-    // コネクタの調整点を取得します
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+`BentConnector5` には `ConnectorBendPositionX` が 2 つ、`ConnectorBendPositionY` が 1 つあります。必要なタイプが複数回出現する場合は、`getName` と既知のジオメトリを調べてから選択してください。調整が `ShapeAdjustmentType.Custom` を返す場合、その意味と範囲はプリセット固有とみなし、契約が明確になるまで変更しないでください。
 
-**調整**
+## **調整値とコネクタジオメトリの関連付け**
 
-幅と高さのパーセンテージをそれぞれ 20% と 200% 増加させて、コネクタの調整点の値を変更できます。  
+ベンドコネクタの場合、調整値は個々のセグメントの位置を推定するために使用できます。これらの計算はコネクタプリセット固有です。
+
+- `BentConnector4` は通常、1 つの `ConnectorBendPositionX` と 1 つの `ConnectorBendPositionY` 調整を公開します。
+- これらのベンド位置については、`getRawValue` が返す値を `100000f` で除算すると、以下の例で使用するコネクタフレームの幅または高さに対する割合が得られます。
+- コネクタフレームは回転または反転できるため、フレーム座標はスライド座標と比較する前に変換する必要があります。
+
+以下の例は最初に `getType` を使用して調整を識別します。コレクションインデックスをポータブルな識別子として扱いません。
+
+### **回転なしコネクタ**
+
+初期レイアウトには、`BentConnector4` で接続された 2 つのテキストシェイプがあります。
+
+![connector-shape-complex](connector-shape-complex.png)
+
+この例はコネクタを調べ、水平および垂直ベンド調整を取得します。
+
 ```java
-// 調整点の値を変更します
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+両方のベンドを変更するには、期待されるタイプをそれぞれ見つけ、両方が見つかった後に値を変更します。
 
-結果:
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+結果は、水平セグメントと垂直セグメントが移動したコネクタです。
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-個々のパーツの座標と形状を決定できるモデルを作成するために、`connector.getAdjustments().get_Item(0)` の点に対応する水平コンポーネントの形状を作成します。  
+セマンティックタイプが判明したら、その値をコネクタフレーム座標に変換できます。この例は 2 つのベンド調整で制御される垂直セグメント上に細い長方形を描画します。
+
 ```java
-// コネクタの垂直成分を描画します
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-
-結果:
+計算されたセグメントはガイドシェイプで示されています。
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **ケース 2**
+### **回転または反転コネクタ**
 
-**ケース 1** では基本原則を用いた単純なコネクタ調整操作を示しました。通常の状況では、`connector.getRotation()`, `connector.getFrame().getFlipH()`, `connector.getFrame().getFlipV()` で設定されるコネクタの回転と表示を考慮する必要があります。以下にその手順を示します。
+同じコネクタジオメトリが垂直方向に向く場合、[IShape.getFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getFrame--)、[ShapeFrame.getFlipH](https://reference.aspose.com/slides/ja/java/com.aspose.slides/shapeframe/#getFlipH--)、[ShapeFrame.getFlipV](https://reference.aspose.com/slides/ja/java/com.aspose.slides/shapeframe/#getFlipV--) の値がコネクタフレーム座標からスライド座標への変換に影響します。
 
-まず、スライドに新しいテキストフレームオブジェクト（**To 1**）を追加し、既存のオブジェクトに接続する新しい（緑色の）コネクタを作成します。  
+この例は垂直方向に向いたコネクタを作成し、調整します。
+
 ```java
-// 新しいバインディングオブジェクトを作成します
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// 新しいコネクタを作成します
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// 新しく作成したコネクタを使用してオブジェクトを接続します
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// コネクタの調整点を取得します
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// 調整点の値を変更します
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-
-結果:
+調整後のコネクタはシェイプ間に垂直に表示されます。
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-次に、新しいコネクタの調整点 `connector.getAdjustments().get_Item(0)` を通過する水平コンポーネントに対応する図形を作成します。回転角 `connector.getRotation()`, `connector.getFrame().getFlipH()`, `connector.getFrame().getFlipV()` の値を使用し、点 x0 周りの回転の座標変換式を適用します。
+任意の回転角 `alpha` に対して、コネクタフレーム点 `(x, y)` をフレーム中心 `(x0, y0)` の周りで回転させます。
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-このケースではオブジェクトの回転角は 90 度で、コネクタは垂直に表示されるため、対応するコードは次のとおりです。  
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+以下のコードはこの例で使用された 90 度の向きに対応し、対応するコネクタセグメント上に赤いガイドを描画します。
+
 ```java
-// コネクタの座標を保存します
-x = connector.getX();
-y = connector.getY();
-// コネクタが反転している場合に座標を修正します
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// 調整点の値を座標として使用します
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  座標を変換します（Sin(90)=1 および Cos(90)=0）
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// 第2調整点の値を使用して水平成分の幅を決定します
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-
-結果:
+座標変換後の計算されたセグメントは赤いガイドで示されています。
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-単純な調整と回転角を伴う複雑な調整点の計算を示しました。この知識を活用して、`GraphicsPath` オブジェクトを取得したり、特定のスライド座標に基づいてコネクタの調整点の値を設定したりするモデル（またはコード）を作成できます。
+これらの式は例で使用されたプリセットを記述したものであり、汎用的なコネクタモデルを示すものではありません。別のプリセットに同じ計算を適用する前に、調整タイプ、フレームの向き、値範囲を検証してください。
 
-## **コネクタ線の角度を求める**
+## **コネクタ方向角度を求める**
 
-1. クラスのインスタンスを作成します。  
-1. インデックスを使用してスライドの参照を取得します。  
-1. コネクタ線の形状にアクセスします。  
-1. 線の幅・高さ、図形フレームの幅・高さを使用して角度を計算します。  
+ストレートコネクタの方向は幅と高さから計算でき、水平・垂直のフリップが適用されます。以下の例はスライド座標系で正の水平軸から時計回りの角度を報告します。
 
-この Java コードは、コネクタ線形状の角度を計算する操作例を示しています。  
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
-```
-
 
 ## **FAQ**
 
-**コネクタが特定の図形に「貼り付け」可能かどうかはどう確認できますか？**
+**コネクタがシェイプに接続できるかどうかはどのように判断しますか？**
 
-図形が [connection sites](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getConnectionSiteCount--) を公開しているか確認してください。存在しない、またはカウントが 0 の場合は貼り付けは使用できません。その場合は自由端点を使用し、手動で位置を設定します。接続前にサイト数を確認するとよいでしょう。
+シェイプの [getConnectionSiteCount](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getConnectionSiteCount--) 値を確認してください。正のカウントはシェイプが接続サイトを公開していることを意味します。コネクタ端に割り当てる前に、選択したサイトインデックスを検証してください。
 
-**接続されている図形の一方を削除した場合、コネクタはどうなりますか？**
+**コネクタ調整をコレクションインデックスで特定できますか？**
 
-コネクタの端は切り離され、スライド上に普通の線として残ります（開始/終了が自由端点になります）。削除するか、接続を再割り当てし、必要に応じて [reroute](https://reference.aspose.com/slides/java/com.aspose.slides/connector/#reroute--) してください。
+インデックスは既知のコネクタプリセットおよびコレクションレイアウトに対してのみ意味があります。値を変更する前に [IAdjustValue.getType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/#getType--) を確認し、同一のセマンティックタイプが複数ある場合は [IAdjustValue.getName](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/#getName--) を追加情報として使用してください。
 
-**スライドを別のプレゼンテーションにコピーしたとき、コネクタのバインディングは保持されますか？**
+**接続されたシェイプが削除された場合はどうなりますか？**
 
-一般的に、対象の図形も同時にコピーすれば保持されます。接続された図形がコピー先に存在しない場合、端は自由端点となり、再度接続し直す必要があります。
+対応するコネクタ端は切り離されます。コネクタはスライド上に残り、削除したり、自由な線として配置したり、別のシェイプに再接続したりできます。
+
+**スライドをコピーしたときにコネクタのバインディングは保持されますか？**
+
+接続されたシェイプがスライドとともにコピーされる場合、バインディングは通常保持されます。コネクタだけがコピーされ、対象シェイプが欠けている場合は、影響を受けた端を再度接続する必要があります。

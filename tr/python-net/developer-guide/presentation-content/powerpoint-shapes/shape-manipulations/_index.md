@@ -9,40 +9,43 @@ keywords:
 - sunum şekli
 - slayttaki şekil
 - şekil bulma
-- şekil kopyalama
+- şekil klonlama
 - şekil kaldırma
 - şekil gizleme
 - şekil sırasını değiştirme
-- interop şekil kimliğini alma
+- interop şekil kimliği alma
 - şekil alternatif metni
+- şekil ayar noktası
+- önceden tanımlı şekil ayarı
+- şekil geometrisi
 - şekil düzen formatları
-- Şekli SVG olarak
-- Şekli SVG'ye
-- şekli hizalama
-- şekli döndürme
+- şekil SVG olarak
+- şekli SVG'ye
+- şekli hizala
+- şekli çevir
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile sunum şekillerini tanımlamayı, kopyalamayı, kaldırmayı, gizlemeyi, yeniden sıralamayı, dışa aktarmayı, hizalamayı ve döndürmeyi öğrenin."
+description: "Aspose.Slides for Python via .NET ile sunum şekillerini tanımlamayı, ayarlamayı, klonlamayı, kaldırmayı, gizlemeyi, yeniden sıralamayı, dışa aktarmayı, hizalamayı ve çevirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Python via .NET, bir slayttaki şekilleri sıralı bir [ShapeCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/) olarak temsil eder. Koleksiyon, şekilleri bulup değiştirdiğiniz yer olmasının yanı sıra yığın sırasının kaynağıdır: `0` indeksi en arka şekildir, son indeks ise en ön şekildir.
+Aspose.Slides for Python via .NET, bir slayd üzerindeki şekilleri sıralı bir [ShapeCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/) olarak temsil eder. Koleksiyon, şekilleri bulup değiştirdiğiniz yer olmanın yanı sıra yığılma sırasının kaynağıdır: `0` dizini en arkadaki şekli, son dizin ise en öndeki şekli temsil eder.
 
-Bu makale o modeli izler. Önce bir şeklin güvenilir bir şekilde nasıl tanımlanacağını açıklar, ardından şekilleri nasıl kopyalayacağınızı, kaldıracağınızı, gizleyeceğinizi ve yeniden sıralayacağınızı gösterir. Son bölümler düzen seviyesi biçimlendirme, SVG dışa aktarma, hizalama ve çevirme ayarlarını kapsar. Her örnek bağımsızdır, böylece iş akışınızın gerektirdiği işlemleri yalnızca kullanabilirsiniz.
+Bu makale bu modeli takip eder. Önce bir şekli güvenilir bir şekilde tanımlamayı ve önceden tanımlı şekil ayar noktalarını değiştirmeyi açıklar, ardından şekilleri klonlama, kaldırma, gizleme ve yeniden sıralamayı gösterir. Son bölümler, düzen‑seviyesi biçimlendirme, SVG dışa aktarma, hizalama ve çevirme ayarlarını kapsar. Her örnek bağımsızdır, böylece yalnızca iş akışınızın gerektirdiği işlemleri kullanabilirsiniz.
 
 ## **Şekilleri Tanımlama ve Bulma**
 
-Koleksiyon indeksleri, bilinen bir dosyayı işlerken kullanışlıdır, ancak kararlı tanımlayıcılar değildir. Bir şekil eklemek, kaldırmak veya yeniden sıralamak indeksini değiştirebilir. Sunumun nasıl oluşturulduğuna ve yönetildiğine göre bir tanımlayıcı seçin:
+Koleksiyon indisleri bilinen bir dosya işlenirken kullanışlıdır, ancak sabit tanımlayıcılar değildir. Bir şekil eklemek, kaldırmak veya yeniden sıralamak indeksini değiştirebilir. Sunumun nasıl oluşturulduğu ve sürdürüldüğüne göre bir tanımlayıcı seçin:
 
-- [Shape.name](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/name/) geliştirici kontrolündeki şablonlar için yararlıdır ve PowerPoint'in Seçim Bölmesi'nde denetlenmesi kolaydır. İsimler düzenlenebilir ve benzersiz olduğu garantilenmez; bu nedenle kod bu isimlere bağımlıysa bir adlandırma kuralı belirleyin.
-- [Shape.alternative_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/alternative_text/) bir erişilebilirlik açıklaması veya yazar tarafından sağlanan bir etiket zaten şekli tanımlıyorsa yararlıdır. Kullanıcılar tarafından görülebilir, yerelleştirilebilir veya erişilebilirlik için yeniden yazılabilir ve benzersiz olduğu garantilenmez. Anlamlı erişilebilirlik metnini sessizce veritabanı anahtarı olarak yeniden kullanmayın.
-- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/office_interop_shape_id/) okunabilir yalnızca bir tanımlayıcıdır ve bir slayt içinde benzersizdir, PowerPoint interop'unda kullanılan şekil kimliğine karşılık gelir. PowerPoint ile entegrasyon yaparken veya bir şeklin ömrü boyunca kesin bir referansa ihtiyacınız olduğunda kullanın. Kopyalanan veya yeniden oluşturulan bir şekil farklı bir şekildir ve kendi kimliğini alır.
+- [Shape.name](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/name/) geliştirici‑kontrolündeki şablonlar için yararlıdır ve PowerPoint’in Seçim Bölmesi’nde kolayca incelenebilir. İsimler düzenlenebilir ve benzersiz oldukları garanti edilmez; kod bu isimlere dayanıyorsa bir adlandırma kuralları oluşturun.
+- [Shape.alternative_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/alternative_text/) bir erişilebilirlik açıklaması veya yazar‑tarafından sağlanan etiket zaten şekli tanımlıyorsa uygundur. Kullanıcılara görünür, yerelleştirilebilir veya erişilebilirlik için yeniden yazılabilir ve benzersiz olması garanti edilmez. Anlamlı erişilebilirlik metnini sessizce veritabanı anahtarı olarak yeniden kullanmayın.
+- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/office_interop_shape_id/) sadece okuma izni olan bir tanımlayıcıdır, slayt içinde benzersizdir ve PowerPoint interop tarafından kullanılan şekil kimliğine karşılık gelir. PowerPoint ile entegrasyon yaparken veya bir şeklin ömrü boyunca belirsiz olmayan bir referansa ihtiyaç duyduğunuzda bunu kullanın. Klonlanmış veya yeniden yaratılmış bir şekil farklı bir şekildir ve kendi kimliğini alır.
 
-İlgili [Shape.unique_id](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/unique_id/) özelliği sunum kapsamındadır, ancak eklentiler için tasarlanmıştır ve yeniden atanabilir. Kalıcı bir dış anahtar olarak kullanılmamalıdır. Uzun vadeli kimlik önemliyse, eşlemeyi uygulama verilerinde tutun ve beklenen şeklin hâlâ mevcut olduğunu doğrulayın.
+İlgili [Shape.unique_id](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/unique_id/) özelliği sunum kapsamına sahiptir, ancak eklentiler için tasarlanmış olup yeniden atanabilir. Kalıcı dış anahtar olarak görülmemelidir. Uzun vadeli kimlik önemliyse, eşlemeyi uygulama verilerinde tutun ve beklenen şeklin hâlâ mevcut olduğunu doğrulayın.
 
-Aşağıdaki örnek `name` ile tam karşılaştırma yaparak arama yapar ve slayt kapsamında interop kimliğini raporlar. Şablon beklenen şekli içermediğinde kod, yanlış nesneyle devam etmek yerine bu sonucu raporlar.
+Aşağıdaki örnek, `name` ile tam karşılaştırma yaparak arama yapar ve slayt‑kapsamlı interop kimliğini raporlar. Şablon beklenen şekli içermediğinde, kod yanlış nesneyle devam etmek yerine bu sonucu raporlar.
 
 ```python
 import aspose.slides as slides
@@ -62,7 +65,7 @@ with slides.Presentation("input.pptx") as presentation:
         print("Found {}; interop ID: {}".format(target_shape.name, target_shape.office_interop_shape_id))
 ```
 
-Bir işlem şekil türüne özgü ise, tür‑spesifik üyeleri kullanmadan önce türü kontrol edin. Bu örnek, adlandırılmış nesne bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ise yalnızca metni ve alternatif metni günceller.
+Bir işlem belirli bir şekil türüne özgüyse, tür‑özel üyeleri kullanmadan önce türü kontrol edin. Bu örnek, adlandırılmış nesne bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ise metni ve alternatif metni günceller.
 
 ```python
 import aspose.slides as slides
@@ -84,15 +87,88 @@ with slides.Presentation("input.pptx") as presentation:
         print("'StatusLabel' is missing or is not an AutoShape.")
 ```
 
+## **Önceden Tanımlı Şekil Ayarlarını Tanımlama ve Değiştirme**
+
+Önceden tanımlı geometrik şekiller, köşe boyutu, ok oranları veya yay açıları gibi özellikleri kontrol eden ayar noktalarına sahip olabilir. Bu noktalara yalnızca okuma izni olan [GeometryShape.adjustments](https://reference.aspose.com/slides/tr/python-net/aspose.slides/geometryshape/adjustments/) koleksiyonu üzerinden erişilir. Koleksiyon şekil tarafından sağlanır, ancak her [AdjustValue](https://reference.aspose.com/slides/tr/python-net/aspose.slides/adjustvalue/) değiştirilebilir bir değer içerir.
+
+Sabit bir koleksiyon indeksiyle sınırlı kalmayın. Ayarları yineleyin ve yalnızca okuma izni olan [AdjustValue.type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/adjustvalue/type/) özelliğine bakın; bu özelliğin [ShapeAdjustmentType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapeadjustmenttype/) değeri ayarın neyi kontrol ettiğini açıklar. Okuma izni olan [AdjustValue.name](https://reference.aspose.com/slides/tr/python-net/aspose.slides/adjustvalue/name/) özelliği ek kimlik bilgisi sağlar ve aynı anlamsal tipe sahip birden fazla ayar bulunduğunda özellikle yararlıdır.
+
+Ayara karşılık gelen anlamı taşıyan değer özelliğini kullanın:
+
+| Ayarlama tipi | Amaç | Değiştirilecek değer |
+|---|---|---|
+| `CORNER_SIZE` | Yuvarlak köşelerin boyutu | [raw_value](https://reference.aspose.com/slides/tr/python-net/aspose.slides/adjustvalue/raw_value/) |
+| `ARROW_TAIL_THICKNESS` | Ok kuyruğunun kalınlığı | `raw_value` |
+| `ARROWHEAD_LENGTH` | Ok başının uzunluğu | `raw_value` |
+| `ARROWHEAD_WIDTH` | Ok başının genişliği | `raw_value` |
+| `START_ANGLE` | Daire dilimi veya yay için başlangıç açısı | [angle_value](https://reference.aspose.com/slides/tr/python-net/aspose.slides/adjustvalue/angle_value/) |
+| `END_ANGLE` | Daire dilimi veya yay için bitiş açısı | `angle_value` |
+
+`type` ve `name` atanamaz. `raw_value`, önceden tanımlı şeklin özgün geometri birimlerinde okuma‑yazma tam sayı iken, `angle_value` derece cinsinden okuma‑yazma açı değeridir. Ayarların sayısı, sırası, anlamı ve geçerli aralığı, önceden tanımlı [GeometryShape.shape_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/geometryshape/shape_type/) değerine bağlıdır. Bir önceden tanımlı için geçerli bir değer, başka bir önceden tanımlı için geçersiz olabilir ya da farklı bir etki yaratabilir.
+
+`type` değeri `ShapeAdjustmentType.CUSTOM` olduğunda API standart bir anlamsal anlam tanımaz. `name`, önceden tanımlı tipi ve mevcut değeri inceleyin; beklenen anlam ve aralık bilinmiyorsa ayarı değiştirmeyin. Tanımlı tipler için bile aynı tip birden fazla kez ortaya çıkıyorsa, bir değer seçmeden önce bunu kontrol edin. [Connector](/slides/tr/python-net/connector/) makalesi, bağlayıcı bükülme ayarlarıyla bu durumu gösterir.
+
+Aşağıdaki tam örnek, üç önceden tanımlı şeklin varsayılan ve değiştirilmiş sürümlerini oluşturur. Her ayarı iterasyonla dolaşır, `name` ve `type` bilgilerini raporlar, boyutla ilgili değerleri `raw_value` ile, açıları `angle_value` ile değiştirir ve sonucu kaydeder. Sol sütun varsayılan geometriyi, sağ sütun ise ayarlanmış yuvarlak dikdörtgen, dört yönlü ok ve dilimi gösterir.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Varsayılan ve ayarlanmış şekil sütunları için başlık ekleyin.
+    default_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 250, 30)
+    default_column_label.text_frame.text = "Default preset geometry"
+    adjusted_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 390, 20, 250, 30)
+    adjusted_column_label.text_frame.text = "Modified adjustment values"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 80, 70, 160, 70)
+    modified_rounded_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 430, 70, 160, 70)
+    modified_rounded_rectangle.name = "ModifiedRoundedRectangle"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 80, 180, 160, 110)
+    modified_arrow = slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 430, 180, 160, 110)
+    modified_arrow.name = "ModifiedQuadArrow"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.PIE, 95, 330, 130, 130)
+    modified_pie = slide.shapes.add_auto_shape(slides.ShapeType.PIE, 445, 330, 130, 130)
+    modified_pie.name = "ModifiedPie"
+
+    shapes_to_adjust = [modified_rounded_rectangle, modified_arrow, modified_pie]
+
+    for shape in shapes_to_adjust:
+        for adjustment in shape.adjustments:
+            print("{} / {}: {}".format(shape.name, adjustment.name, adjustment.type.name))
+
+            if adjustment.type == slides.ShapeAdjustmentType.CORNER_SIZE:
+                adjustment.raw_value = 5000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROW_TAIL_THICKNESS:
+                adjustment.raw_value = 25000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_LENGTH:
+                adjustment.raw_value = 30000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_WIDTH:
+                adjustment.raw_value = 40000
+            elif adjustment.type == slides.ShapeAdjustmentType.START_ANGLE:
+                adjustment.angle_value = 30
+            elif adjustment.type == slides.ShapeAdjustmentType.END_ANGLE:
+                adjustment.angle_value = 300
+            elif adjustment.type == slides.ShapeAdjustmentType.CUSTOM:
+                print("Custom adjustment '{}' was not changed.".format(adjustment.name))
+
+    presentation.save("preset-shape-adjustments.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Değiştirilecek değerden önce anlamsal tipi kontrol etmek, kodun amacını açıkça belirtir ve farklı önceden tanımlı şekillerde aynı koleksiyon indeksinin aynı anlama gelmediği varsayımını önler.
+
 ## **Şekil Koleksiyonunu Değiştirme**
 
-Ekle, kopyala, kaldır ve yeniden sırala yöntemleri koleksiyon üzerinde anında çalışır. Bir işlem şekil sayısını veya sırasını değiştiriyorsa, o işlemden önce yakalanmış indekslere dayanmayı bırakın.
+Ekle, klonla, kaldır ve yeniden sırala yöntemleri koleksiyon üzerinde anında çalışır. Bir işlem şekil sayısını ya da sırasını değiştirirse, o işlemden önce yakalanan indisleri kullanmaya devam etmeyin.
 
-### **Bir Şekli Kopyalama**
+### **Bir Şekli Kopyala**
 
-[ShapeCollection.add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_clone/) bağımsız bir kopya oluşturur ve hedef koleksiyona ekler. [ShapeCollection.insert_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/insert_clone/) da bir kopya oluşturur ancak belirtilen z‑sırası indeksine yerleştirir. Koordinatları kabul eden aşırı yüklemeler kopyayı boyutunu değiştirmeden taşır; genişlik ve yükseklik alan aşırı yüklemeler de yeniden boyutlandırabilir.
+[ShapeCollection.add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_clone/) bağımsız bir kopya oluşturur ve hedef koleksiyona ekler. [ShapeCollection.insert_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/insert_clone/) da bir kopya oluşturur ancak belirtilen z‑order indeksine yerleştirir. Koordinat kabul eden aşırı yüklemeler klonu yeniden boyutlandırmadan taşırken, genişlik ve yükseklik kabul eden aşırı yüklemeler de yeniden boyutlandırabilir.
 
-Örnek bir hedef slayt oluşturur, etiketli bir dikdörtgeni öne kopyalar ve ikinci bir kopyayı arkaya ekler. Her iki kopyada yapılan değişiklikler kaynak şekli etkilemez.
+Örnek bir hedef slayt oluşturur, etiketli bir dikdörtgeni öne klonlar ve ikinci bir klonu arka tarafa ekler. Her iki klon üzerindeki değişiklikler kaynak şekli etkilemez.
 
 ```python
 import aspose.slides as slides
@@ -123,13 +199,13 @@ with slides.Presentation() as presentation:
     presentation.save("cloned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kopyalama, şeklin içeriğini ve biçimlendirmesini, adını ve alternatif metnini de içerecek şekilde kopyalar. Bu değerlerin benzersiz olması gerekiyorsa kopyaya yeni mantıksal tanımlayıcılar atayın. Karmaşık şekiller tarafından kullanılan kaynaklar sunum tarafından yönetilir, ancak bir kopya yeni bir koleksiyon öğesi ve yeni bir şekil kimliği olarak kalır.
+Klonlama, şeklin içeriğini ve biçimlendirmesini, adını ve alternatif metnini de dahil olmak üzere kopyalar. Bu değerlerin benzersiz olması gerekiyorsa, klona yeni mantıksal tanımlayıcılar atayın. Karmaşık şekillerin kullandığı kaynaklar sunum tarafından yönetilir, ancak klon yeni bir koleksiyon öğesi olarak yeni bir şekil kimliğine sahiptir.
 
-### **Şekilleri Kaldırma**
+### **Şekilleri Kaldır**
 
-[ShapeCollection.remove](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/remove/) belirli bir şekil nesnesini koleksiyonundan siler. Birden fazla eşleşmeyi indeksli yineleme sırasında kaldırırken, her kalan indeksin geçerli kalması için sondan itibaren dolaşın.
+[ShapeCollection.remove](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/remove/) belirli bir şekil nesnesini koleksiyonundan siler. İndeksli yineleme sırasında birden çok eşleşme kaldırılırken, her kalan indeksin geçerli kalması için sondan başlanarak geçiş yapın.
 
-Bu örnek, belirli bir isimle her şekli kaldırır. Sabit bir koleksiyon öğesi değil, `slide.shapes[index]` okunur ve şekil gereksiz yere dönüştürülmez.
+Bu örnek, belirlenmiş bir isimle eşleşen tüm şekilleri kaldırır. Sabit bir koleksiyon öğesi değil, `slide.shapes[index]` okunur ve şekil gereksiz olarak tip dönüşümü yapılmaz.
 
 ```python
 import aspose.slides as slides
@@ -154,11 +230,11 @@ with slides.Presentation() as presentation:
     presentation.save("removed-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kaldırma sonrasında şekil sayısı ve sonraki şekillerin indeksleri değişir. Etkilenmeyen şekillere yönelik referanslar, kaydedilmiş indekslerden daha güvenilirdir. Ayrıca kaldırılan nesneye başvuran bağlayıcılar, animasyonlar ve diğer sunum özelliklerini göz önünde bulundurun; görünür bir şekli kaldırmak slaydın görünümünden daha fazlasını değiştirebilir.
+Kaldırma sonrası şekil sayısı ve sonraki şekillerin indeksleri değişir. Etkilenmeyen şekillere yapılan referanslar, kaydedilmiş indislerden daha güvenilirdir. Ayrıca kaldırılan nesneye başvuran bağlayıcılar, animasyonlar ve diğer sunum özelliklerini de göz önünde bulundurun; görünür bir şekli kaldırmak slaydın görünümünden daha fazlasını değiştirebilir.
 
-### **Bir Şekli Gizleme**
+### **Bir Şekli Gizle**
 
-[Shape.hidden](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/hidden/) değerini `True` olarak ayarlamak şekli koleksiyonda tutar ancak normal slayt gösterisinde görünmesini engeller. İndeks, biçimlendirme ve içerik koda hâlâ erişilebilir, bu yüzden gizleme, daha sonra geri getirilebilecek isteğe bağlı öğeler için uygundur.
+[Shape.hidden](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/hidden/) özelliğini `True` olarak ayarlamak, şekli koleksiyonda tutar ancak normal sunumda görünmesini engeller. İndeksi, biçimlendirmesi ve içeriği kod tarafından erişilebilir kalır; bu nedenle daha sonra geri getirilebilecek isteğe bağlı öğeler için gizleme uygundur.
 
 ```python
 import aspose.slides as slides
@@ -179,11 +255,11 @@ with slides.Presentation() as presentation:
     presentation.save("hidden-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Gizleme bir silme veya güvenlik işlemi değildir. Nesne hâlâ keşfedilebilir ve bir kullanıcı ya da kod tarafından yeniden görünür hâle getirilebilir; ayrıca sunum dosyasının bir parçası olarak kalır.
+Gizleme, silme ya da güvenlik değildir. Nesne hâlâ keşfedilebilir ve bir kullanıcı ya da kod tarafından yeniden görünür hâle getirilebilir; ayrıca sunum dosyasının bir parçası olmaya devam eder.
 
-### **Z‑Sırasını Değiştirme**
+### **Z‑Sırasını Değiştir**
 
-Üst üste gelen şekiller koleksiyon sırasına göre çizilir. [ShapeCollection.reorder](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/reorder/) mevcut bir şekli kopyalamadan hedef indekse taşır. `0` indeksi arka; `len(slide.shapes) - 1` indeksi ön demektir.
+Üst üste binen şekiller koleksiyon sırasına göre çizilir. [ShapeCollection.reorder](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/reorder/) mevcut bir şekli yeni bir indeksle klonlamadan taşır. `0` indeksi arka, `len(slide.shapes) - 1` indeksi öndedir.
 
 ```python
 import aspose.pydrawing as draw
@@ -206,13 +282,13 @@ with slides.Presentation() as presentation:
     presentation.save("reordered-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dikdörtgen ilk oluşturulduğunda elipsin arkasında yer alır. Son indekse taşındığında ön tarafa gelir. Tüm ilgili şekiller eklendikten veya kopyalandıktan sonra z‑sırasını sonlandırın; bu işlemler yeni koleksiyon öğeleri ekleyebilir ve istenen yığını değiştirebilir.
+Dikdörtgen önce oluşturulur ve başlangıçta elipsin arkasında durur. Son indekse taşındığında öne gelir. Tüm ilgili şekiller eklendikten ya da klonlandıktan sonra z‑sırasını sonlandırın; bu işlemler yeni koleksiyon öğeleri ekleyebilir ve amaçlanan yığını değiştirebilir.
 
-## **Düzen Slaytlarındaki Şekilleri İnceleme**
+## **Düzen Slaytlarındaki Şekilleri İncele**
 
-Normal slaytlar, düzen slaytları ve ana slaytlar ayrı şekil koleksiyonlarına sahiptir. Bir düzen koleksiyonundaki şekil, aynı konumda bir normal slaytdaki şekil ile aynı nesne değildir. Düzen tarafından sağlanan biçimlendirmeyi anlamak veya değiştirmek gerektiğinde düzen şekillerini inceleyin.
+Normal slaytlar, düzen slaytları ve ana slaytlar ayrı şekil koleksiyonlarına sahiptir. Bir düzen koleksiyonundaki şekil, normal bir slayttaki aynı konumdaki şekille aynı nesne değildir. Düzen tarafından sağlanan biçimlendirmeyi anlamak veya değiştirmek gerektiğinde düzen şekillerini inceleyin.
 
-Aşağıdaki örnek, her düzen şeklinin [Shape.fill_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/fill_format/) ve [Shape.line_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/line_format/) özelliklerini okur; tüm şekillerin `AutoShape` olduğu varsayımı yapılmaz.
+Aşağıdaki örnek, her düzen şeklinin [Shape.fill_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/fill_format/) ve [Shape.line_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/line_format/) değerlerini okur; her şeklin bir `AutoShape` olup olmadığını varsaymaz.
 
 ```python
 import aspose.slides as slides
@@ -225,11 +301,11 @@ with slides.Presentation("input.pptx") as presentation:
             print("{} / {}: fill={}, line width={}".format(layout_slide.name, shape.name, fill_type, line_width))
 ```
 
-Bir düzenin düzenlenmesi, onu kullanan birden çok slaytı etkileyebilir. Bir düzen şekli değiştirmeden önce normal bir slaytın nesneyi devralıp devralmadığını veya yerel bir geçersiz kılma içerip içermediğini belirleyin ve o düzeni kullanan tüm slaytları test edin.
+Bir düzenin düzenlenmesi, onu kullanan birden çok slaytı etkileyebilir. Bir düzen şekli değiştirmeden önce, normal bir slayt nesneyi devralıyor mu yoksa yerel bir geçersiz kılma mı içerdiğini belirleyin ve bu düzeni kullanan her slaytı test edin.
 
-## **Şekli SVG Olarak Dışa Aktarma**
+## **Bir Şekli SVG Olarak Dışa Aktar**
 
-[Shape.write_as_svg](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/write_as_svg/) bir şeklin render edilmiş içeriğini bir akıma yazar. Sonuç şekli içerir, tüm slayt arka planını veya komşu şekilleri içermez.
+[Shape.write_as_svg](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/write_as_svg/) bir şeklin render edilmiş içeriğini bir akıma yazar. Sonuç, tüm slayt arka planını veya komşu şekilleri değil, yalnızca şekli içerir.
 
 ```python
 import aspose.slides as slides
@@ -245,11 +321,11 @@ with slides.Presentation("input.pptx") as presentation:
             shape.write_as_svg(svg_stream)
 ```
 
-Sunumu render ederken açık tutun. Çıktı, şeklin biçimlendirmesine ve yazı tipleri, görüntüler gibi kaynaklara bağlıdır. Tüm kompozisyona ihtiyacınız varsa, tek bir şekil yerine slaytı dışa aktarın. Akışı çağıran taraf sahiplenir ve kapatmak zorundadır.
+Sunumu render ederken açık tutun. Çıktı, şeklin biçimlendirmesine ve fontlar ile görseller gibi kaynaklara bağlıdır. Tüm kompozisyona ihtiyacınız varsa, tek bir şekil yerine slaydı dışa aktarın. Çağıran akımı sahiplenir ve kapatması gerekir.
 
-## **Şekilleri Hizalama**
+## **Şekilleri Hizala**
 
-[SlideUtil.align_shapes](https://reference.aspose.com/slides/tr/python-net/aspose.slides.util/slideutil/align_shapes/) aşırı yüklemeleri, ya tüm şekilleri ya da seçili koleksiyon indekslerini hizalar. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapesalignmenttype/) kenar, merkez çizgisi veya dağıtım modunu belirtir. `align_to_slide` değerini `True` yaparsanız slayt kenarları kullanılır; `False` yaparsanız seçili şekiller birbirlerine göre hizalanır.
+[SlideUtil.align_shapes](https://reference.aspose.com/slides/tr/python-net/aspose.slides.util/slideutil/align_shapes/) aşırı yüklemeleri, tüm şekilleri veya seçili koleksiyon indislerini hizalar. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapesalignmenttype/) kenar, merkez çizgisi veya dağıtım modunu belirtir. `align_to_slide` değerini `True` yaparsanız slayt kenarları kullanılır; `False` yaparsanız seçili şekiller birbirlerine göre hizalanır.
 
 Bu örnek üç şekli slaydın üst kenarına hizalar. Mevcut indeksleri hizalamadan hemen önce çözülür.
 
@@ -276,17 +352,17 @@ with slides.Presentation() as presentation:
     presentation.save("aligned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Hizalama konumları değiştirir, z‑sırasını değiştirmaz. Göreli hizalama genellikle en az iki şekil gerektirir, yatay veya dikey dağıtım ise boşlukları tanımlamak için yeterli şekle ihtiyaç duyar. Metodu çağırmadan önce koleksiyonu değiştirdiyseniz indeksleri yeniden hesaplayın.
+Hizalama konumları değiştirir, z‑sırasını değil. Göreli hizalama genellikle en az iki şekil gerektirir, yatay veya dikey dağıtım ise aralığı tanımlamak için yeterli sayıda şekil ister. Metodu çağırmadan önce koleksiyonu değiştirdiyseniz indeksleri yeniden hesaplayın.
 
-## **Şekli Çevirme**
+## **Bir Şekli Çevir**
 
-[ShapeFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapeframe/) sınıfı konum, boyut, yatay ve dikey çevirme ayarları ve döndürmeyi tutar. `flip_h` ve `flip_v` değerleri [NullableBool](https://reference.aspose.com/slides/tr/python-net/aspose.slides/nullablebool/) kullanır: `TRUE` çevirme etkin, `FALSE` devre dışı, `NOT_DEFINED` belirtilmemiş veya varsayılan durumu korur.
+[ShapeFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapeframe/) sınıfı konum, boyut, yatay ve dikey çevirme ayarları ile döndürmeyi depolar. `flip_h` ve `flip_v` değerleri [NullableBool](https://reference.aspose.com/slides/tr/python-net/aspose.slides/nullablebool/) kullanır: `TRUE` çevirme etkin, `FALSE` devre dışı, `NOT_DEFINED` belirtilmemiş ya da varsayılan durumu korur.
 
-Aşağıdaki sunumda tek bir çevrilmemiş şekil bulunur.
+Aşağıdaki sunum, çevirilmemiş bir şekil içerir.
 
-![Şekil döndürülmeden önce](shape_to_be_flipped.png)
+![Döndürülmeden önceki şekil](shape_to_be_flipped.png)
 
-Örnek, diğer tüm çerçeve değerlerini korur ve yalnızca iki çevirme ayarını değiştirir. Bu önemlidir çünkü yeni bir [Shape.frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/frame/) atamak çerçevenin tamamını değiştirir.
+Örnek, diğer tüm çerçeve değerlerini korur ve yalnızca iki çevirme ayarını değiştirir. Bu önemlidir; yeni bir [Shape.frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/frame/) atamak çerçevenin tamamını değiştirir.
 
 ```python
 import aspose.slides as slides
@@ -305,20 +381,24 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("flipped-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kaydedilen şekil, konumunu, boyutunu ve döndürmesini korurken yatay ve dikey olarak yansıtılmıştır.
+Kaydedilen şekil, konum, boyut ve döndürmeyi korurken yatay ve dikey olarak yansıtılmıştır.
 
-![Şekil döndürüldükten sonra](flipped_shape.png)
+![Döndürülmüş şekil](flipped_shape.png)
 
-## **FAQ**
+## **SSS**
 
-**Koleksiyon indeksini şekil tanımlayıcısı olarak kullanmalı mıyım?**
+**Bir şekil tanımlayıcısı olarak koleksiyon indeksini kullanmalı mıyım?**
 
-Yalnızca indeksin kullanılmadan önce koleksiyonun değişmeyeceği kısa vadeli işlemler için. Oluşturulmuş şablonlar için doğrulanmış bir `name` veya `alternative_text` konvansiyonu, slayt kapsamında interop çalışması için `office_interop_shape_id` tercih edin.
+Sadece koleksiyon işlem sırasında değişmeyecek ve indeksin kullanılacağı süre kısa olduğunda. Yazar‑tarafından hazırlanmış şablonlar için doğrulanmış bir `name` veya `alternative_text` konvansiyonu tercih edin; slayt‑kapsamlı interop çalışmaları için `office_interop_shape_id` kullanın.
 
-**Bir şekli gizlemek, onu z‑sırasından kaldırır mı?**
+**Bir şekli gizlemek, onu z‑sırasından çıkarır mı?**
 
 Hayır. Gizli bir şekil aynı indekste koleksiyonda kalır. Bulunabilir, yeniden sıralanabilir, düzenlenebilir veya tekrar görünür hâle getirilebilir.
 
-**Neden kopyalanan bir şekil, başka bir şeklin önünde göründü?**
+**Klonlanan bir şekil neden başka bir şeklin önünde göründü?**
 
-`add_clone` kopyayı koleksiyonun sonuna ekler; bu, z‑sırasının ön kısmıdır. Başlangıç indeksini seçmek için `insert_clone` kullanın veya tüm şekiller eklendikten sonra `reorder` ile konumlandırın.
+`add_clone` klonu koleksiyonun sonuna ekler; koleksiyonun sonu z‑sırasının önüdür. Başlangıç indeksini seçmek için `insert_clone` kullanın veya tüm şekiller eklendikten sonra `reorder` ile konumlandırın.
+
+**Önceden tanımlı bir şekil ayarını tanımlamak için sabit bir indeks kullanabilir miyim?**
+
+Sadece kesin önceden tanımlı ve koleksiyon düzeni doğrulandıysa. `GeometryShape.adjustments` içinde yineleyin ve `AdjustValue.type` kontrol edin; aynı anlamsal tip birden çok kez göründüğünde ek bilgi için `AdjustValue.name` kullanın.

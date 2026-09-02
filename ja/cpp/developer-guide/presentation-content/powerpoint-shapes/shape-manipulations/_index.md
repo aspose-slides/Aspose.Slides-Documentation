@@ -1,12 +1,12 @@
 ---
-title: C++でプレゼンテーションの図形を管理する
+title: C++ でプレゼンテーションの図形を管理する
 linktitle: 図形操作
 type: docs
 weight: 40
 url: /ja/cpp/shape-manipulations/
 keywords:
-- PowerPoint 図形
-- プレゼンテーション図形
+- PowerPoint の図形
+- プレゼンテーションの図形
 - スライド上の図形
 - 図形の検索
 - 図形のクローン作成
@@ -15,34 +15,37 @@ keywords:
 - 図形の順序変更
 - Interop 図形 ID の取得
 - 図形の代替テキスト
-- 図形のレイアウト書式
-- SVG としての図形
+- 図形の調整ポイント
+- プリセット図形の調整
+- 図形ジオメトリ
+- 図形レイアウト書式
+- SVG 形式の図形
 - 図形を SVG に変換
-- 図形の整列
+- 図形の配置
 - 図形のフリップ
 - PowerPoint
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して、プレゼンテーションの図形を識別、クローン、削除、非表示、再配置、エクスポート、整列、フリップする方法を学びます。"
+description: "Aspose.Slides for C++ を使用して、プレゼンテーションの図形を特定、調整、クローン作成、削除、非表示、順序変更、エクスポート、配置、フリップする方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for C++ は、スライド上の図形を順序付けられた [IShapeCollection](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/) として表します。コレクションは図形を検索・変更する場所であると同時に、スタック順序の情報源でもあります。インデックス `0` が最背面の図形で、最後のインデックスが最前面の図形です。
+Aspose.Slides for C++ は、スライド上の図形を順序付けられた [IShapeCollection](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/) として表します。このコレクションは、図形を検索・変更する場所であると同時に、スタック順序のソースでもあります。インデックス `0` が最背面の図形で、最後のインデックスが最前面の図形です。
 
-このドキュメントはそのモデルに従います。まず図形を確実に特定する方法を説明し、次に図形のクローン作成、削除、非表示、順序変更の方法を示します。最終セクションではレイアウトレベルの書式設定、SVG へのエクスポート、整列、フリップ設定を取り上げます。各例は独立しているため、ワークフローで必要な操作だけを使用できます。
+本記事はこのモデルに従います。まず図形を確実に特定し、プリセットの調整ポイントを変更する方法を説明し、次に図形のクローン作成、削除、非表示、順序変更の手順を示します。最後のセクションではレイアウトレベルの書式設定、SVG エクスポート、配置、フリップ設定について解説します。各例は独立しているため、ワークフローで必要な操作だけを使用できます。
 
-## **図形の識別と検索**
+## **図形の特定と検索**
 
-コレクションインデックスは既知のファイルを処理する際に便利ですが、安定した識別子ではありません。図形の追加、削除、順序変更によりインデックスは変わります。プレゼンテーションの作成方法や保守方法に合わせて識別子を選択してください。
+コレクションインデックスは既知のファイルを処理するときに便利ですが、安定した識別子ではありません。図形の追加・削除・順序変更によりインデックスは変わります。プレゼンテーションの作成・管理方法に応じて識別子を選択してください。
 
-- [Name](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_name/) は開発者が管理するテンプレートに便利で、PowerPoint の選択ウィンドウで簡単に確認できます。名前は編集可能で一意性は保証されないため、コードが名前に依存する場合は命名規則を定めてください。
-- [AlternativeText](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_alternativetext/) は、アクセシビリティの説明や作者が付与したタグで図形が既に識別されているときに有用です。ユーザーに表示され、ローカライズやアクセシビリティ向上のために書き換えられる可能性があり、一意であるとは限りません。意味のあるアクセシビリティテキストをデータベースキーとして安易に再利用しないでください。
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_officeinteropshapeid/) は読み取り専用の識別子で、スライド内で一意であり PowerPoint の Interop が使用する shape ID に対応しています。PowerPoint との連携や、図形の存続期間中に曖昧でない参照が必要な場合に使用します。クローンまたは再生成された図形は別の図形となり、独自の ID が付与されます。
+- [Name](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_name/) は開発者が管理するテンプレートに有用で、PowerPoint の選択ウィンドウで簡単に確認できます。名前は編集可能で一意である保証はないため、コードが名前に依存する場合は命名規則を設けてください。
+- [AlternativeText](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_alternativetext/) は、アクセシビリティ用の説明や作者が付与したタグで既に図形を識別できる場合に有用です。ユーザーに見えるためローカライズやアクセシビリティ用に書き換えられることがあり、一意である保証はありません。意味のあるアクセシビリティテキストをデータベースキーとして静かに再利用しないでください。
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_officeinteropshapeid/) は読み取り専用の識別子で、スライド内で一意であり、PowerPoint Interop が使用する形状 ID に対応します。PowerPoint 連携や、図形の存続期間中に曖昧でない参照が必要なときに使用してください。クローンまたは再作成された図形は別の図形となり、別の ID が付与されます。
 
-関連する [UniqueId](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_uniqueid/) プロパティはプレゼンテーション全体で一意ですが、アドイン向けに意図されており再割り当て可能です。永続的な外部キーとして扱うべきではありません。長期的な同一性が重要な場合は、アプリケーションデータにマッピングを保持し、期待する図形が依然として存在するか検証してください。
+関連する [UniqueId](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_uniqueid/) プロパティはプレゼンテーション全体で有効ですが、アドイン向けで再割り当て可能です。永続的な外部キーとして扱うべきではありません。長期的な同一性が必要な場合は、アプリケーションデータにマッピングを保持し、期待する図形がまだ存在するか検証してください。
 
-以下の例は `Name` で検索し、スライドスコープの Interop ID を報告します。テンプレートに期待する図形が存在しない場合、コードはその結果を報告し、誤ったオブジェクトで続行しません。
+以下の例は `Name` で検索し、スライドスコープの Interop ID を報告します。テンプレートに期待した図形が存在しない場合、コードはその結果を報告し、誤ったオブジェクトで処理を続行しません。
 
 ```cpp
 #include <DOM/IShape.h>
@@ -124,15 +127,123 @@ else
 presentation->Dispose();
 ```
 
-## **図形コレクションの操作**
+## **プリセット図形調整の特定と変更**
 
-追加、クローン、削除、順序変更のメソッドはコレクションに即座に反映されます。操作により図形数や順序が変わった場合、操作前に取得したインデックスに依存し続けないでください。
+プリセットジオメトリ図形は、コーナーサイズ、矢印の比率、円弧角度などを制御する調整ポイントを公開することがあります。これらは読み取り専用の [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/ja/cpp/aspose.slides/igeometryshape/get_adjustments/) コレクションを介して取得します。コレクション自体は図形が提供しますが、各 [IAdjustValue](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iadjustvalue/) が変更可能な値を保持しています。
+
+固定インデックスのみに依存しないでください。調整項目を列挙し、読み取り専用の [IAdjustValue::get_Type](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iadjustvalue/get_type/) プロパティを確認します。このプロパティの [ShapeAdjustmentType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shapeadjustmenttype/) 値が、調整が何を制御するかを示します。読み取り専用の [IAdjustValue::get_Name](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iadjustvalue/get_name/) プロパティは追加の識別情報を提供し、同じセマンティックタイプの調整が複数ある場合に特に有用です。
+
+調整の意味に合った値プロパティを使用してください。
+
+| 調整タイプ | 用途 | 変更する値 |
+|---|---|---|
+| `CornerSize` | 丸めコーナーのサイズ | [RawValue](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | 矢尻の太さ | `RawValue` |
+| `ArrowheadLength` | 矢尻の長さ | `RawValue` |
+| `ArrowheadWidth` | 矢尻の幅 | `RawValue` |
+| `StartAngle` | 円弧または扇形の開始角度 | [AngleValue](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | 円弧または扇形の終了角度 | `AngleValue` |
+
+`Type` と `Name` は代入できません。`RawValue` はプリセット固有のジオメトリ単位の読み書き可能な整数で、`AngleValue` は度単位の読み書き可能な角度です。調整の数・順序・意味・有効範囲はプリセットの [ShapeType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/igeometryshape/get_shapetype/) に依存します。あるプリセットで有効な値が別のプリセットでは無効、あるいは別の効果を持つことがあります。
+
+`Type` が `ShapeAdjustmentType::Custom` の場合、API は標準的な意味を認識しません。`Name`、プリセットタイプ、既存の値を確認し、期待する意味と範囲が分からない限り調整は変更しないでください。認識できるタイプであっても、同じタイプが複数回出現するか確認してから値を選択します。コネクタの曲げ調整に関する例は [Connector](/slides/ja/cpp/connector/) 記事をご覧ください。
+
+以下の完全な例は、3 つのプリセット図形のデフォルト版と変更版を作成します。すべての調整を列挙し、`Name` と `Type` を報告し、サイズ関連の値は `RawValue`、角度は `AngleValue` で変更し、結果を保存します。左列はデフォルトジオメトリ、右列は調整された角丸矩形、四方向矢印、円弧です。
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// デフォルトと調整済みの図形列のヘッダーを追加します。
+auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
+auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel->get_TextFrame()->set_Text(u"Modified adjustment values");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+auto modifiedRoundedRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle->set_Name(u"ModifiedRoundedRectangle");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+auto modifiedArrow = slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+modifiedArrow->set_Name(u"ModifiedQuadArrow");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+auto modifiedPie = slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+modifiedPie->set_Name(u"ModifiedPie");
+
+auto shapesToAdjust = MakeArray<SharedPtr<IGeometryShape>>({modifiedRoundedRectangle, modifiedArrow, modifiedPie});
+
+for (auto shape : shapesToAdjust)
+{
+    auto adjustments = shape->get_Adjustments();
+    for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+    {
+        auto adjustment = adjustments->idx_get(adjustmentIndex);
+        Console::WriteLine(shape->get_Name() + u" / " + adjustment->get_Name() + u": " + ObjectExt::ToString(adjustment->get_Type()));
+
+        switch (adjustment->get_Type())
+        {
+            case ShapeAdjustmentType::CornerSize:
+                adjustment->set_RawValue(5000);
+                break;
+            case ShapeAdjustmentType::ArrowTailThickness:
+                adjustment->set_RawValue(25000);
+                break;
+            case ShapeAdjustmentType::ArrowheadLength:
+                adjustment->set_RawValue(30000);
+                break;
+            case ShapeAdjustmentType::ArrowheadWidth:
+                adjustment->set_RawValue(40000);
+                break;
+            case ShapeAdjustmentType::StartAngle:
+                adjustment->set_AngleValue(30);
+                break;
+            case ShapeAdjustmentType::EndAngle:
+                adjustment->set_AngleValue(300);
+                break;
+            case ShapeAdjustmentType::Custom:
+                Console::WriteLine(u"Custom adjustment '" + adjustment->get_Name() + u"' was not changed.");
+                break;
+        }
+    }
+}
+
+presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+値を変更する前にセマンティックタイプを確認すると、コードの意図が明確になり、異なるプリセット図形間で同じインデックスが同じ意味を持つと仮定するリスクを回避できます。
+
+## **図形コレクションの変更**
+
+追加、クローン、削除、再順序付けメソッドはコレクションに即座に作用します。操作により図形の数や順序が変わった場合、操作前に取得したインデックスに依存し続けないでください。
 
 ### **図形のクローン作成**
 
-[AddClone](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/addclone/) は独立したコピーを作成し、対象コレクションの末尾に追加します。[InsertClone](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/insertclone/) もコピーを作成しますが、指定した Z オーダーインデックスに配置します。座標のみを受け取るオーバーロードはサイズを変更せずにクローンを移動し、幅・高さを受け取るオーバーロードはリサイズも可能です。
+[AddClone](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/addclone/) は独立したコピーを作成し、対象コレクションの末尾に追加します。[InsertClone](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/insertclone/) もコピーを作成しますが、指定した Z オーダーインデックスに配置します。座標のみを受け取るオーバーロードはサイズを変更せずにクローンを移動し、幅と高さを受け取るオーバーロードはリサイズも可能です。
 
-この例は目的スライドを作成し、ラベル付き矩形を前面にクローンし、別のクローンを背面に挿入します。どちらのクローンに対する変更も元の図形を変更しません。
+以下の例は、宛先スライドを作成し、ラベル付き矩形を前面にクローンし、2 番目のクローンを背面に挿入します。どちらのクローンを変更しても元の図形には影響しません。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -192,9 +303,9 @@ presentation->Dispose();
 
 ### **図形の削除**
 
-[Remove](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/remove/) は特定の図形オブジェクトをそのコレクションから削除します。インデックス付きイテレーション中に複数の一致を削除する場合は、残りのインデックスが有効なままになるように末尾から走査してください。
+[Remove](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/remove/) は特定の図形オブジェクトをそのコレクションから削除します。インデックス付き反復中に複数の一致を削除する場合は、後方から走査して残りのインデックスが有効なままになるようにしてください。
 
-この例は指定された名前を持つすべての図形を削除します。固定のコレクション項目ではなく現在のインデックス付き図形を取得し、不要なキャストも行っていません。
+この例は、指定された名前を持つすべての図形を削除します。固定のコレクション項目ではなく、現在のインデックス付き図形を取得し、不要なキャストも行っていません。
 
 ```cpp
 #include <DOM/IShape.h>
@@ -233,11 +344,11 @@ presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-削除後は図形数と後続のインデックスが変わります。影響を受けない図形への参照は保存したインデックスより信頼性が高くなります。また、コネクタやアニメーションなど、削除対象オブジェクトを参照しているプレゼンテーション機能も考慮してください。可視図形を削除するとスライドの外観以上の変更が生じることがあります。
+削除後、図形数と後続のインデックスは変化します。影響を受けない図形への参照は、保存したインデックスよりも信頼性が高くなります。また、コネクタ、アニメーション、その他のプレゼンテーション機能が削除対象オブジェクトを参照している可能性があることに留意してください。可視図形を削除すると、スライドの見た目以外にも影響が及ぶことがあります。
 
 ### **図形の非表示**
 
-[Hidden](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/set_hidden/) を `true` に設定すると、図形はコレクション内に残りますが通常のスライドショーには表示されません。インデックス、書式、コンテンツはコードから引き続き利用可能なため、後で復元できるオプション要素に対して非表示は適切です。
+[Hidden](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/set_hidden/) を `true` に設定すると、図形はコレクションに残りますが、通常のスライドショーには表示されません。インデックス、書式、内容はコードから引き続き利用可能なので、後で復元できるオプション要素に適しています。
 
 ```cpp
 #include <DOM/IShape.h>
@@ -272,7 +383,7 @@ presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-非表示は削除でもセキュリティでもありません。オブジェクトはユーザーやコードによって再度発見・表示解除でき、プレゼンテーションファイルの一部として残ります。
+非表示は削除やセキュリティではありません。ユーザーやコードによって再度発見・非表示解除が可能で、プレゼンテーションファイルの一部として残ります。
 
 ### **Z オーダーの変更**
 
@@ -312,13 +423,13 @@ presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-矩形は最初に作成され、最初は楕円の背面に配置されます。最終インデックスへ移動すると前面に来ます。すべての関連図形を追加またはクローンした後に Z オーダーを確定してください。これらの操作は新しいコレクション項目を末尾または指定位置に挿入し、意図したスタックを変更する可能性があります。
+矩形は最初に作成され、最初は楕円の背面に配置されています。最終インデックスへ移動すると前面に来ます。関連図形をすべて追加またはクローンした後に Z オーダーを確定してください。これらの操作は新しいコレクション項目を追加または挿入し、意図したスタック順序を変更する可能性があります。
 
-## **レイアウトスライド上の図形を検査**
+## **レイアウトスライド上の図形の検査**
 
-通常スライド、レイアウトスライド、マスタースライドはそれぞれ別々の図形コレクションを持ちます。レイアウトコレクションの図形は、同じ位置にある通常スライドの図形と同一オブジェクトではありません。レイアウトが提供する書式を理解または変更する必要がある場合は、レイアウト図形を検査してください。
+通常スライド、レイアウトスライド、マスタースライドはそれぞれ別の図形コレクションを持ちます。レイアウトコレクション内の図形は、同じ位置にある通常スライド上の図形とは別オブジェクトです。レイアウトが提供する書式を理解・変更する必要があるときは、レイアウト図形を検査してください。
 
-以下の例は、各レイアウト図形の [FillFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_fillformat/) と [LineFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_lineformat/) を取得します。すべての図形が `AutoShape` であると仮定してはいません。
+以下の例は、各レイアウト図形の [FillFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_fillformat/) と [LineFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_lineformat/) を、すべてが `AutoShape` であると仮定せずに読み取ります。
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -348,11 +459,11 @@ for (auto layoutSlide : presentation->get_LayoutSlides())
 presentation->Dispose();
 ```
 
-レイアウトを編集すると、そのレイアウトを使用している複数のスライドに影響が及びます。レイアウト図形を変更する前に、通常スライドがオブジェクトを継承しているかローカルで上書きしているかを判断し、レイアウトを使用しているすべてのスライドでテストしてください。
+レイアウトを編集すると、そのレイアウトを使用している複数のスライドに影響が及びます。レイアウト図形を変更する前に、通常スライドがそのオブジェクトを継承しているかローカルに上書きしているかを判断し、該当レイアウトを使用しているすべてのスライドでテストしてください。
 
-## **図形を SVG にエクスポート**
+## **図形を SVG へエクスポート**
 
-[WriteAsSvg](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/writeassvg/) は単一図形の描画内容をストリームに書き出します。結果にはその図形のみが含まれ、スライド全体の背景や隣接図形は含まれません。
+[WriteAsSvg](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/writeassvg/) は、1 つの図形のレンダリング結果をストリームに書き込みます。出力には図形そのものだけが含まれ、スライド全体の背景や隣接図形は含まれません。
 
 ```cpp
 #include <DOM/IShape.h>
@@ -384,13 +495,13 @@ else
 presentation->Dispose();
 ```
 
-レンダリング中はプレゼンテーションを開いたままにしてください。出力は図形の書式設定とフォントや画像といったリソースに依存します。全体構成が必要な場合は個別図形ではなくスライド全体をエクスポートしてください。呼び出し側がストリームの所有権を持ち、閉じるまたは破棄する必要があります。
+レンダリング中はプレゼンテーションを開いたままにしてください。出力は図形の書式設定やフォント・画像などのリソースに依存します。全体の構成が必要な場合は、個別図形ではなくスライド全体をエクスポートしてください。呼び出し側がストリームの所有権を持ち、クローズまたは破棄する必要があります。
 
-## **図形の整列**
+## **図形の配置**
 
-[SlideUtil::AlignShapes](https://reference.aspose.com/slides/ja/cpp/aspose.slides.util/slideutil/alignshapes/) のオーバーロードは、すべての図形または選択されたコレクションインデックスを整列させます。[ShapesAlignmentType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shapesalignmenttype/) はエッジ、中心線、または分布モードを指定します。`alignToSlide` を `true` に設定するとスライドのエッジに合わせ、`false` にすると選択図形同士の相対位置に合わせます。
+[SlideUtil::AlignShapes](https://reference.aspose.com/slides/ja/cpp/aspose.slides.util/slideutil/alignshapes/) のオーバーロードは、すべての図形または選択したコレクションインデックスを整列させます。[ShapesAlignmentType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shapesalignmenttype/) はエッジ、中心線、または配置モードを指定します。`alignToSlide` を `true` に設定するとスライドのエッジに合わせ、`false` に設定すると選択図形同士の相対位置で整列します。
 
-この例は 3 つの図形をスライドの上端に整列させます。返された図形参照は整列直前に現在のインデックスへ変換されます。
+この例は、3 つの図形をスライド上部エッジに揃えます。返された図形参照は、整列直前に現在のインデックスへ変換されます。
 
 ```cpp
 #include <DOM/IShapeCollection.h>
@@ -424,17 +535,17 @@ presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-整列は位置を変更しますが Z オーダー は変わりません。相対整列は通常最低 2 つの図形が必要で、水平または垂直の分布には間隔を定義できるだけの図形が必要です。メソッド呼び出し前にコレクションを変更した場合はインデックスを再計算してください。
+整列は位置を変更しますが、Z オーダーは変わりません。相対整列は通常少なくとも 2 つの図形が必要で、水平または垂直の等間隔配置には間隔を定義できるだけの図形が必要です。メソッド呼び出し前にコレクションを変更した場合は、インデックスを再計算してください。
 
 ## **図形のフリップ**
 
-[ShapeFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shapeframe/) クラスは位置、サイズ、水平・垂直フリップ設定、回転を保持します。その `FlipH` と `FlipV` の値は [NullableBool](https://reference.aspose.com/slides/ja/cpp/aspose.slides/nullablebool/) を使用し、`True` でフリップ有効、`False` で無効、`NotDefined` で未指定/デフォルト状態を保持します。
+[ShapeFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shapeframe/) クラスは位置、サイズ、水平・垂直フリップ設定、回転を保持します。その `FlipH` と `FlipV` の値は [NullableBool](https://reference.aspose.com/slides/ja/cpp/aspose.slides/nullablebool/) を使用し、`True` がフリップを有効、`False` が無効、`NotDefined` が未指定/デフォルト状態を保持します。
 
-以下の入力プレゼンテーションはフリップされていない図形を 1 つ含みます。
+以下の入力プレゼンテーションには、フリップされていない図形が 1 つ含まれています。
 
-![The shape before flipping](shape_to_be_flipped.png)
+![フリップ前の図形](shape_to_be_flipped.png)
 
-この例は他のすべてのフレーム値は保持し、フリップ設定のみを置き換えます。これは新しい [Frame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/set_frame/) を割り当てるとフレーム全体が置き換わるため重要です。
+この例は、他のフレーム値はすべて保持し、フリップ設定の 2 つだけを置き換えます。新しい [Frame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/set_frame/) を割り当てるとフレーム全体が置き換えられるため、重要なポイントです。
 
 ```cpp
 #include <DOM/IShape.h>
@@ -462,20 +573,24 @@ presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-保存された図形は水平・垂直に鏡像化されますが、位置、サイズ、回転はそのままです。
+保存された図形は水平・垂直に鏡像化されますが、位置・サイズ・回転はそのままです。
 
-![The shape after flipping](flipped_shape.png)
+![フリップ後の図形](flipped_shape.png)
 
 ## **FAQ**
 
 **コレクションインデックスを図形の識別子として使用すべきですか？**
 
-短時間の処理でコレクションが変更されないことが確実な場合にのみ使用してください。テンプレートが作者管理の場合は検証済みの `Name` または `AlternativeText` を、スライドスコープの Interop 作業の場合は `OfficeInteropShapeId` を推奨します。
+コレクションが操作中に変わらない短期間の処理に限り使用できます。作成されたテンプレートでは検証済みの `Name` や `AlternativeText` の規約を、スライドスコープの Interop 作業では `OfficeInteropShapeId` を推奨します。
 
 **図形を非表示にすると Z オーダーから除外されますか？**
 
-いいえ。非表示の図形は同じインデックスでコレクションに残り、検索、順序変更、編集、再表示が可能です。
+いいえ。非表示の図形は同じインデックスでコレクションに残り、検索、再順序付け、編集、再表示が可能です。
 
-**クローンした図形が別の図形の前面に現れたのはなぜですか？**
+**クローンした図形が別の図形の前に表示されたのはなぜですか？**
 
-`AddClone` はクローンをコレクションの末尾に追加します。コレクションの末尾は Z オーダーの前面です。初期インデックスを指定したい場合は `InsertClone` を使用するか、すべての図形を追加した後に `Reorder` で位置を調整してください。
+`AddClone` はクローンをコレクションの末尾に追加します。コレクションの末尾は Z オーダーの前面になるためです。初期インデックスを指定したい場合は `InsertClone` を、すべての図形追加後に位置を調整したい場合は `Reorder` を使用してください。
+
+**プリセット図形の調整項目を固定インデックスで識別してもよいですか？**
+
+正確なプリセットとコレクション構成を検証した場合に限り可能です。`IGeometryShape::get_Adjustments` を列挙し、`IAdjustValue::get_Type` を確認する方法を推奨します。同一のセマンティックタイプが複数出現する場合は、追加情報として `IAdjustValue::get_Name` を利用してください。

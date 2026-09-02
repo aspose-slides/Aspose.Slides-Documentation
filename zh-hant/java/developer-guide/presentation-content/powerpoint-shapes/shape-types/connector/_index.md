@@ -1,5 +1,5 @@
 ---
-title: 在 Java 中管理簡報的連接線
+title: 在 Java 簡報中管理連接線
 linktitle: 連接線
 type: docs
 weight: 10
@@ -10,397 +10,494 @@ keywords:
 - 連接點
 - 連接線條
 - 連接角度
-- 連接圖形
+- 連接站點
+- 調整點
+- 連接形状
 - PowerPoint
 - 簡報
 - Java
 - Aspose.Slides
-description: "讓 Java 應用程式能在 PowerPoint 投影片中繪製、連接並自動路由線條——全面掌控直線、彎頭與曲線連接線。"
+description: "了解如何使用 Aspose.Slides for Java 來新增、附加、重新路由、調整及檢查直線、彎曲與曲線 PowerPoint 連接線。"
 ---
-## **簡介**
+## **概觀**
 
-PowerPoint 連接線是一種特殊的線條，可連接兩個圖形，且即使在投影片上移動或重新定位圖形時，仍會保持附著於圖形。
+連接線是一條在任一形狀移動時仍能保持連接兩個形狀的線。其兩端會附著在連接點上，在 PowerPoint 中以綠點表示。某些彎曲與曲線連接線還會顯示調整點，以橙點表示，這些點可控制個別連接線段的位置。
 
-連接線通常會連接到 *連接點*（綠點），這些點預設存在於所有圖形上。當游標靠近時，連接點會顯示。
-
-*調整點*（橙點）僅存在於某些連接線上，用於修改連接線的位置和形狀。
+Aspose.Slides 透過 [IConnector](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iconnector/) 介面來表示連接線。您可以建立連接線、將其兩端附著到形狀、選擇連接點、重新路由，並修改具有調整點的連接線幾何形狀。
 
 ## **連接線類型**
 
-在 PowerPoint 中，您可以使用直線、彎頭（有角度）和曲線連接線。
-
-Aspose.Slides 提供以下連接線：
+[ShapeType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/shapetype/) 類別包含直線、彎曲與曲線連接線預設。下表顯示可用的連接線幾何形狀以及每個預設所定義的調整點數量。
 
 | 連接線 | 圖片 | 調整點數量 |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **使用連接線連接圖形**
+調整點的數量與意義屬於所選的連接線預設。不要假設兩種不同的連接線類型會公開相同的集合佈局。
 
-1. 建立 [Presentation](https://apireference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation) 類別的實例。
-1. 透過索引取得投影片的參考。
-1. 使用 `Shapes` 物件提供的 `addAutoShape` 方法，向投影片加入兩個 [AutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/AutoShape)。
-1. 使用 `Shapes` 物件提供的 `addConnector` 方法，依據連接線類型新增連接線。
-1. 使用該連接線將圖形連接起來。 
-1. 呼叫 `reroute` 方法以套用最短的連接路徑。
-1. 儲存投影片。 
+## **連接兩個形狀**
 
-以下 Java 程式碼示範如何在兩個圖形（橢圓與矩形）之間新增連接線（彎曲連接線）：
+使用 [IShapeCollection.addConnector](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) 來新增連接線，並使用 [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) 與 [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) 來附著兩端。兩端皆附著後，呼叫 [IConnector.reroute](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iconnector/#reroute--) 會在形狀之間選擇最短路徑。
 
-```Java
-// 建立代表 PPTX 檔案的簡報類別實例
-Presentation pres = new Presentation();
+以下範例使用彎曲連接線連接橢圓與矩形：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // 取得特定投影片的圖形集合
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // 新增橢圓自動圖形
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // 新增矩形自動圖形
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // 向投影片的圖形集合加入連接線圖形
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // 使用連接線將圖形連接起來
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    
-    // 呼叫 reroute 方法，設定圖形之間的自動最短路徑
     connector.reroute();
-    
-    // 儲存簡報
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="警告" %}}
+呼叫 `reroute` 可能會變更 [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) 與 [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) 的值。若這些站點必須保持固定，請在重新路由後再指定具體的連接點。
+{{% /alert %}}
 
-`Connector.reroute` 方法會重新導向連接線，強制其在圖形之間走最短的路徑。為了達成此目的，該方法可能會變更 `setStartShapeConnectionSiteIndex` 與 `setEndShapeConnectionSiteIndex` 點。 
+## **選擇連接點**
 
-{{% /alert %}} 
+每個可連接的形狀會透過 [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/#getConnectionSiteCount--) 回報其連接點數量。將首選的零基索引指派給連接線端之前，請先驗證索引是否合法；不同形狀的站點數量會因幾何形狀而異。
 
-## **指定連接點**
-
-如果希望連接線使用圖形上的特定點來連接兩個圖形，必須以以下方式指定您偏好的連接點：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/Presentation) 類別的實例。
-1. 透過索引取得投影片的參考。
-1. 使用 `Shapes` 物件提供的 `addAutoShape` 方法，向投影片加入兩個 [AutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/AutoShape)。
-1. 使用 `Shapes` 物件提供的 `addConnector` 方法，依據連接線類型新增連接線。
-1. 使用該連接線將圖形連接起來。 
-1. 在圖形上設定您偏好的連接點。 
-1. 儲存投影片。
-
-以下 Java 程式碼示範指定偏好連接點的操作：
+此範例在橢圓上有特定站點時將連接線附著到該站點：
 
 ```java
-// 建立代表 PPTX 檔案的簡報類別實例
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // 取得特定投影片的圖形集合
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增橢圓自動圖形
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // 新增矩形自動圖形
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // 向投影片的圖形集合加入連接線圖形
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // 使用連接線將圖形連接起來
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // 設定橢圓圖形上首選的連接點索引
-    int wantedIndex = 6;
-
-    // 檢查首選索引是否小於最大連接點索引數
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // 在橢圓自動圖形上設定首選的連接點
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
     }
 
-    // 儲存簡報
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **調整連接線點**
 
-您可以透過調整點來調整現有的連接線。僅能對具有調整點的連接線進行此類修改。請參閱 **[連接線類型](/slides/zh-hant/java/connector/#types-of-connectors)** 表格。
+具有調整點的連接線會透過 [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/igeometryshape/#getAdjustments--) 暴露這些點。檢查每個 [IAdjustValue](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iadjustvalue/) 並在使用 [setRawValue](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) 變更之前，先檢查其 [getType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iadjustvalue/#getType--) 值。關於辨識預設形狀調整的通用規則，請參考 [Shape Manipulation](/slides/zh-hant/java/shape-manipulations/)。
 
-### **簡單案例**
+調整點的數量、順序、意義與有效值範圍取決於連接線預設。調整類型是唯讀的，調整值則可寫。唯讀的 [getName](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iadjustvalue/#getName--) 方法在同一語意類型出現多次時提供額外辨識資訊。
 
-考慮一個情況，兩個圖形（A 與 B）之間的連接線穿過第三個圖形（C）：
+### **繞過障礙物的路徑**
+
+下圖中，`BentConnector5` 連接線在兩個形狀之間穿過第三個形狀：
 
 ![connector-obstruction](connector-obstruction.png)
 
+以下程式碼建立了受阻的連接線：
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-為了避免或繞過第三個圖形，我們可以透過將其垂直線向左移動來調整連接線：
+移動垂直彎曲點會改變路徑，使連接線繞過障礙物：
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+此範例不假設集合索引 `1` 永遠代表垂直彎曲，而是搜尋 `ConnectorBendPositionY`，並僅在語意類型符合時才變更：
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **複雜案例** 
+`BentConnector5` 具有兩個 `ConnectorBendPositionX` 調整與一個 `ConnectorBendPositionY` 調整。若需要的類型出現多次，請檢查 `getName` 與該預設的已知幾何形狀後再選擇。若調整回傳 `ShapeAdjustmentType.Custom`，視為特定預設的語意，除非已瞭解其合約，否則不要變更。
 
-要執行更複雜的調整，必須考慮以下事項：
+## **將調整值對應至連接線幾何形狀**
 
-* 連接線的可調點與計算並決定其位置的公式緊密相關。因此，點位置的變更可能會改變連接線的形狀。
-* 連接線的調整點在陣列中以嚴格的順序定義。調整點的編號是從連接線的起點到終點依次排列。
-* 調整點的值代表連接線形狀寬度/高度的百分比。 
-  * 形狀以連接線的起點與終點乘以 1000 為界限。 
-  * 第一點、第二點與第三點分別定義寬度的百分比、高度的百分比以及再次的寬度百分比。
-* 在計算連接線調整點座標時，必須考慮連接線的旋轉與反射。**注意**，在 **[連接線類型](/slides/zh-hant/java/connector/#types-of-connectors)** 中顯示的所有連接線的旋轉角度皆為 0。
+對於彎曲連接線，調整值可用來估算各段的座標。這些計算僅適用於特定連接線預設：
 
-#### **案例 1**
+- `BentConnector4` 通常會公開一個 `ConnectorBendPositionX` 與一個 `ConnectorBendPositionY` 調整。
+- 對於這些彎曲位置，將 `getRawValue` 回傳的值除以 `100000f`，即可得到相對於連接線框寬度或高度的比例，以下範例皆採此方式。
+- 連接線框可能會旋轉或翻轉，故在與投影片座標比較前必須先轉換框座標。
 
-考慮一個案例，兩個文字框物件透過連接線相互連接：
+以下範例先使用 `getType` 辨識調整，絕不以集合索引作為可移植的識別子。
+
+### **未旋轉的連接線**
+
+初始版面圖包含兩個文字形狀，由 `BentConnector4` 連接：
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+此範例檢查連接線並取得水平與垂直彎曲的調整值：
+
 ```java
-// 建立代表 PPTX 檔案的簡報類別實例
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // 取得簡報的第一張投影片
-    ISlide sld = pres.getSlides().get_Item(0);
-    // 加入將透過連接線連結的圖形
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // 新增連接線
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // 指定連接線的方向
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // 指定連接線的顏色
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // 指定連接線的粗細
     connector.getLineFormat().setWidth(3);
-    
-    // 使用連接線將圖形連結起來
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // 取得連接線的調整點
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**調整**
-
-我們可以透過分別將相應的寬度與高度百分比提升 20% 與 200%，來變更連接線的調整點值：
+若要同時變更兩個彎曲，先找到每個預期的類型，待全部找到後再修改值：
 
 ```java
-// 更改調整點的值
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-結果：
+結果是水平與垂直段都已移動的連接線：
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-為了定義一個模型以確定連接線各部份的座標與形狀，我們建立一個對應於 connector.getAdjustments().get_Item(0) 點之水平組件的形狀：
+一旦確定語意類型，即可將其值轉換為連接線框座標。此範例在由兩個彎曲調整控制的垂直段上繪製細長矩形：
 
 ```java
-// 繪製連接線的垂直組件
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-結果：
+指南形狀標示計算出的段落：
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **案例 2**
+### **旋轉或翻轉的連接線**
 
-在 **案例 1** 中，我們示範了利用基本原理的簡單連接線調整操作。於一般情況下，必須考慮連接線的旋轉與顯示（由 connector.getRotation()、connector.getFrame().getFlipH() 以及 connector.getFrame().getFlipV() 設定）。接下來將示範此過程。
+當相同的連接線幾何形狀垂直放置時，其 [IShape.getFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/#getFrame--)、[ShapeFrame.getFlipH](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/shapeframe/#getFlipH--) 與 [ShapeFrame.getFlipV](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/shapeframe/#getFlipV--) 會影響從框座標到投影片座標的轉換。
 
-首先，向投影片加入一個新的文字框物件（**To 1**）（用於連接），並建立一條新的（綠色）連接線，將其與先前建立的物件連接。
+此範例建立並調整垂直方向的連接線：
 
 ```java
-// 建立新的綁定物件
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// 建立新的連接線
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// 使用新建立的連接線將物件連接起來
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// 取得連接線的調整點
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// 更改調整點的值
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-結果：
+調整後的連接線在形狀之間垂直顯示：
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-其次，建立一個形狀對應於穿過新連接線調整點 connector.getAdjustments().get_Item(0) 的水平組件。 我們將使用 connector.getRotation()、connector.getFrame().getFlipH() 與 connector.getFrame().getFlipV() 的值，並套用圍繞給定點 x0 的常用座標轉換公式來進行旋轉：
+對於任意旋轉角度 `alpha`，將框座標點 `(x, y)` 圍繞框中心 `(x0, y0)` 旋轉：
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-在本例中，物件的旋轉角度為 90 度，且連接線以垂直方式顯示，對應的程式碼如下：
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+以下程式碼處理本範例使用的 90 度方向，並在相應的連接線段上繪製紅色指南：
 
 ```java
-// 保存連接線座標
-x = connector.getX();
-y = connector.getY();
-// 修正連接線座標以防其出現異常
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// 將調整點的值作為座標
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  轉換座標，因為 Sin(90)=1 且 Cos(90)=0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// 根據第二個調整點的值確定水平組件的寬度
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-結果：
+紅色指南在座標轉換後標示出計算出的段落：
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-我們示範了包含簡單調整與具旋轉角度之複雜調整點的計算。藉由所學，您可以開發自己的模型（或撰寫程式碼）以取得 `GraphicsPath` 物件，甚至根據特定投影片座標設定連接線的調整點值。
+这些公式描述了範例中使用的預設，並非通用的連接線模型。於將相同計算套用至不同預設前，請先驗證調整類型、框方向與值範圍。
 
-## **找出連接線的角度**
+## **取得連接線方向角度**
 
-1. 建立該類別的實例。
-1. 透過索引取得投影片的參考。
-1. 存取連接線形狀。
-1. 使用線條的寬度、高度、形狀框的高度與寬度來計算角度。
-
-以下 Java 程式碼示範計算連接線形狀角度的操作：
+直線連接線的方向可由其寬度與高度計算，並考慮水平與垂直翻轉。以下範例回報投影片座標系中，從正水平軸起的順時針角度：
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
-```
+## **FAQ**
 
-## **常見問題**
+**我如何判斷連接線是否能附著於形狀？**
 
-**如何判斷連接線是否可以「黏附」到特定圖形？**
+檢查形狀的 [getConnectionSiteCount](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/#getConnectionSiteCount--) 值。正值表示該形狀提供連接點。指派站點索引前，先驗證所選索引是否合法。
 
-請確認該圖形提供了 [connection sites](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/shape/#getConnectionSiteCount--)。如果沒有或其計數為 0，則無法黏附；此時請使用自由端點並手動定位。建議在連接前先檢查端點計數。
+**我可以僅憑集合索引辨識連接線調整嗎？**
 
-**如果刪除其中一個已連接的圖形，連接線會發生什麼情況？**
+索引僅在已知的連接線預設與集合佈局下有意義。變更值前，先檢查 [IAdjustValue.getType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iadjustvalue/#getType--)，若同一語意類型出現多次，請使用 [IAdjustValue.getName](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iadjustvalue/#getName--) 取得額外資訊。
 
-其兩端將被分離；連接線仍會保留在投影片上，變成具有自由起點/終點的普通線條。您可以刪除它，或重新指派連接，並在需要時使用 [reroute](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/connector/#reroute--)。
+**當已連接的形狀被刪除會發生什麼？**
 
-**將投影片複製到另一個簡報時，連接線的綁定會被保留嗎？**
+相應的連接線端會被分離。連接線仍保留在投影片上，可自行刪除、作為自由線定位，或重新附著至其他形狀。
 
-通常會保留，前提是目標圖形也一併被複製。若將投影片插入至未包含連接圖形的檔案中，則連接線兩端會變為自由端點，需要重新連接。
+**當投影片被複製時，連接線的綁定會被保留嗎？**
+
+若連接的形狀與投影片一起被複製，綁定通常會被保留。若僅複製連接線而未複製其目標形狀，則必須再次附著受影響的一端。

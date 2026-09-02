@@ -1,13 +1,13 @@
 ---
 title: Gestire le forme della presentazione in PHP
-linktitle: Manipolazione delle forme
+linktitle: Manipolazione forme
 type: docs
 weight: 40
 url: /it/php-java/shape-manipulations/
 keywords:
 - Forma PowerPoint
-- Forma di presentazione
-- Forma su diapositiva
+- Forma della presentazione
+- Forma sulla diapositiva
 - Trova forma
 - Clona forma
 - Rimuovi forma
@@ -15,34 +15,37 @@ keywords:
 - Cambia ordine forma
 - Ottieni ID forma interop
 - Testo alternativo forma
+- Punto di regolazione forma
+- Regolazione forma predefinita
+- Geometria forma
 - Formati layout forma
 - Forma come SVG
-- Forma in SVG
+- Forma a SVG
 - Allinea forma
-- Ribalta forma
+- Capovolgi forma
 - PowerPoint
 - Presentazione
 - PHP
 - Aspose.Slides
-description: "Impara come identificare, clonare, rimuovere, nascondere, riordinare, esportare, allineare e ribaltare le forme della presentazione con Aspose.Slides per PHP via Java."
+description: "Impara a identificare, regolare, clonare, rimuovere, nascondere, riordinare, esportare, allineare e capovolgere le forme di una presentazione con Aspose.Slides per PHP via Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides per PHP via Java rappresenta le forme su una diapositiva come una [ShapeCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/). La collezione è sia il luogo in cui trovare e modificare le forme sia la fonte del loro ordine di impilamento: l'indice `0` è la forma più posteriore, mentre l'ultimo indice è la forma più anteriore.
+Aspose.Slides per PHP via Java rappresenta le forme su una diapositiva come una [ShapeCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/). La collezione è sia il luogo in cui trovare e modificare le forme sia la fonte del loro ordine di sovrapposizione: l'indice `0` è la forma più arretrata, mentre l'ultimo indice è la forma più avanzata.
 
-Questo articolo segue quel modello. Prima spiega come identificare in modo affidabile una forma, poi mostra come clonare, rimuovere, nascondere e riordinare le forme. Le sezioni finali trattano la formattazione a livello di layout, l'esportazione in SVG, l'allineamento e le impostazioni di ribaltamento. Ogni esempio è indipendente, così puoi utilizzare solo le operazioni di cui ha bisogno il tuo flusso di lavoro.
+Questo articolo segue quel modello. Prima spiega come identificare una forma in modo affidabile e modificare i punti di regolazione predefiniti, poi mostra come clonare, rimuovere, nascondere e riordinare le forme. Le sezioni finali coprono la formattazione a livello di layout, l'esportazione SVG, l'allineamento e le impostazioni di capovolgimento. Ogni esempio è indipendente, così puoi utilizzare solo le operazioni richieste dal tuo flusso di lavoro.
 
 ## **Identificare e trovare le forme**
 
 Gli indici della collezione sono comodi durante l'elaborazione di un file noto, ma non sono identificatori stabili. Aggiungere, rimuovere o riordinare una forma può cambiare il suo indice. Scegli un identificatore in base a come la presentazione è creata e gestita:
 
-- [Name](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getname/) è utile per modelli controllati dallo sviluppatore ed è facile da ispezionare nel riquadro Selezione di PowerPoint. I nomi possono essere modificati e non sono garantiti unici, quindi stabilire una convenzione di denominazione se il codice dipende da essi.
-- [AlternativeText](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getalternativetext/) è utile quando una descrizione di accessibilità o un tag fornito dall'autore identifica già la forma. È visibile agli utenti, può essere localizzato o riscritto per l'accessibilità e non è garantito univoco. Non riutilizzare silenziosamente testi di accessibilità significativi come chiave di database.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getofficeinteropshapeid/) è un identificatore di sola lettura unico all'interno di una diapositiva e corrisponde all'ID forma usato dall'interoperabilità di PowerPoint. Usalo quando integri con PowerPoint o quando hai bisogno di un riferimento inequivocabile per tutta la durata di una forma. Una forma clonata o ricreata è una forma diversa e riceve un proprio ID.
+- [Name](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getname/) è utile per template controllati dallo sviluppatore ed è facile da ispezionare nel Pannello di selezione di PowerPoint. I nomi possono essere modificati e non sono garantiti come unici, quindi stabilire una convenzione di denominazione se il codice dipende da essi.
+- [AlternativeText](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getalternativetext/) è utile quando una descrizione di accessibilità o un tag fornito dall'autore identifica già la forma. È visibile agli utenti, può essere localizzato o riscritto per l'accessibilità, e non è garantito come unico. Non riutilizzare silenziosamente un testo di accessibilità significativo come chiave di database.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getofficeinteropshapeid/) è un identificatore di sola lettura unico all'interno di una diapositiva e corrisponde all'ID della forma usato da PowerPoint interop. Usalo quando integri con PowerPoint o quando ti serve un riferimento inequivocabile durante la vita di una forma. Una forma clonata o ricreata è una forma diversa e riceve un proprio ID.
 
-Il metodo correlato [Shape::getUniqueId](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getuniqueid/) restituisce un identificatore con ambito di presentazione, ma tale identificatore è destinato a componenti aggiuntivi e può essere riassegnato. Non deve essere trattato come una chiave esterna permanente. Se l'identità a lungo termine è essenziale, conserva la mappatura nei dati dell'applicazione e verifica che la forma prevista esista ancora.
+Il metodo correlato [Shape::getUniqueId](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getuniqueid/) restituisce un identificatore a livello di presentazione, ma tale identificatore è destinato a componenti aggiuntivi e può essere riassegnato. Non dovrebbe essere trattato come una chiave esterna permanente. Se l'identità a lungo termine è essenziale, conserva la mappatura nei dati dell'applicazione e verifica che la forma prevista esista ancora.
 
-L'esempio seguente cerca per nome con confronto esatto e segnala l'ID interop a livello di diapositiva. Quando il modello non contiene la forma prevista, il codice segnala quel risultato invece di continuare con l'oggetto sbagliato.
+L'esempio seguente cerca per nome con confronto esatto e riporta l'ID interop a livello di diapositiva. Quando il modello non contiene la forma prevista, il codice riporta quel risultato invece di continuare con l'oggetto errato.
 
 ```php
 use aspose\slides\Presentation;
@@ -75,7 +78,7 @@ try {
 }
 ```
 
-Quando un'operazione è specifica per un tipo di forma, verifica la classe a runtime prima di usare membri specifici del tipo. Questo esempio aggiorna il testo e il testo alternativo solo se l'oggetto denominato è un [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/).
+Quando un'operazione è specifica per un tipo di forma, verifica la classe a runtime prima di usare membri specifici del tipo. Questo esempio aggiorna il testo e il testo alternativo solo se l'oggetto nominato è un [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/).
 
 ```php
 use aspose\slides\Presentation;
@@ -110,15 +113,115 @@ try {
 }
 ```
 
+## **Identificare e modificare le regolazioni predefinite delle forme**
+
+Le forme di geometria predefinita possono esporre punti di regolazione che controllano caratteristiche come la dimensione degli angoli, le proporzioni delle frecce o gli angoli degli archi. Accedile tramite la collezione di sola lettura [GeometryShape::getAdjustments](https://reference.aspose.com/slides/it/php-java/aspose.slides/geometryshape/#getAdjustments). La collezione stessa è fornita dalla forma, ma ogni [AdjustValue](https://reference.aspose.com/slides/it/php-java/aspose.slides/adjustvalue/) contiene un valore modificabile.
+
+Non fare affidamento solo su un indice fisso della collezione. Itera attraverso le regolazioni e ispeziona il metodo di sola lettura [AdjustValue::getType](https://reference.aspose.com/slides/it/php-java/aspose.slides/adjustvalue/#getType), il cui valore [ShapeAdjustmentType](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapeadjustmenttype/) descrive cosa controlla la regolazione. Il metodo di sola lettura [AdjustValue::getName](https://reference.aspose.com/slides/it/php-java/aspose.slides/adjustvalue/getname/) fornisce informazioni di identificazione aggiuntive ed è particolarmente utile quando un preset contiene più di una regolazione con lo stesso tipo semantico.
+
+Usa il metodo di valore che corrisponde al significato della regolazione:
+
+| Tipo di regolazione | Scopo | Valore da modificare |
+|---|---|---|
+| `CornerSize` | Dimensione degli angoli arrotondati | [setRawValue](https://reference.aspose.com/slides/it/php-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Spessore della coda di una freccia | `setRawValue` |
+| `ArrowheadLength` | Lunghezza della punta della freccia | `setRawValue` |
+| `ArrowheadWidth` | Larghezza della punta della freccia | `setRawValue` |
+| `StartAngle` | Angolo di partenza di una torta o di un arco | [setAngleValue](https://reference.aspose.com/slides/it/php-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Angolo finale di una torta o di un arco | `setAngleValue` |
+
+`getType` e `getName` restituiscono informazioni di sola lettura. `getRawValue` e `setRawValue` lavorano con un intero nelle unità geometriche native del preset, mentre `getAngleValue` e `setAngleValue` lavorano con un angolo in gradi. Il numero, l'ordine, il significato e l'intervallo valido delle regolazioni dipendono dal preset [GeometryShape::getShapeType](https://reference.aspose.com/slides/it/php-java/aspose.slides/geometryshape/#getShapeType). Un valore valido per un preset può essere non valido o avere un effetto diverso per un altro.
+
+Quando `getType` restituisce `ShapeAdjustmentType::Custom`, l'API non riconosce un significato semantico standard. Ispeziona `getName`, il tipo di preset e il valore esistente, e lascia la regolazione invariata a meno che non si conosca il significato e l'intervallo attesi. Anche per i tipi riconosciuti, verifica se lo stesso tipo appare più di una volta prima di selezionare un valore. L'articolo [Connector](/slides/it/php-java/connector/) mostra questa situazione con le regolazioni di curvatura dei connettori.
+
+L'esempio completo seguente crea versioni predefinite e modificate di tre forme predefinite. Itera attraverso ogni regolazione, riporta il suo nome e tipo, modifica i valori legati alle dimensioni tramite `setRawValue`, modifica gli angoli tramite `setAngleValue` e salva il risultato. La colonna sinistra mantiene la geometria predefinita; la colonna destra mostra il rettangolo arrotondato, la freccia a quattro vie e la torta regolati.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Aggiungi intestazioni per le colonne delle forme predefinite e modificate.
+    $defaultColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+    $defaultColumnLabel->getTextFrame()->setText("Default preset geometry");
+    $adjustedColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+    $adjustedColumnLabel->getTextFrame()->setText("Modified adjustment values");
+
+    $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+    $modifiedRoundedRectangle = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+    $modifiedRoundedRectangle->setName("ModifiedRoundedRectangle");
+
+    $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+    $modifiedArrow = $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+    $modifiedArrow->setName("ModifiedQuadArrow");
+
+    $slide->getShapes()->addAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+    $modifiedPie = $slide->getShapes()->addAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+    $modifiedPie->setName("ModifiedPie");
+
+    $shapesToAdjust = [
+        $modifiedRoundedRectangle,
+        $modifiedArrow,
+        $modifiedPie
+    ];
+
+    foreach ($shapesToAdjust as $shape) {
+        $adjustmentCount = java_values($shape->getAdjustments()->size());
+        for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+            $adjustment = $shape->getAdjustments()->get_Item($adjustmentIndex);
+            $shapeName = java_values($shape->getName());
+            $adjustmentName = java_values($adjustment->getName());
+            $adjustmentType = java_values($adjustment->getType());
+            echo $shapeName . " / " . $adjustmentName . ": " . $adjustmentType . PHP_EOL;
+
+            switch ($adjustmentType) {
+                case ShapeAdjustmentType::CornerSize:
+                    $adjustment->setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType::ArrowTailThickness:
+                    $adjustment->setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadLength:
+                    $adjustment->setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadWidth:
+                    $adjustment->setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType::StartAngle:
+                    $adjustment->setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType::EndAngle:
+                    $adjustment->setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType::Custom:
+                    echo "Custom adjustment '" . $adjustmentName . "' was not changed." . PHP_EOL;
+                    break;
+            }
+        }
+    }
+
+    $presentation->save("preset-shape-adjustments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Controllare il tipo semantico prima di modificare un valore rende il codice esplicito sul suo intento ed evita di presumere che uno specifico indice della collezione abbia lo stesso significato su forme predefinite diverse.
+
 ## **Modificare la collezione di forme**
 
-I metodi per aggiungere, clonare, rimuovere e riordinare operano sulla collezione immediatamente. Se un'operazione cambia il numero o l'ordine delle forme, non continuare a fare affidamento sugli indici catturati prima di tale operazione.
+I metodi di aggiunta, clonazione, rimozione e riordino operano immediatamente sulla collezione. Se un'operazione cambia il numero o l'ordine delle forme, non continuare a fare affidamento sugli indici catturati prima di quell'operazione.
 
 ### **Clonare una forma**
 
-[ShapeCollection::addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/addclone/) crea una copia indipendente e la aggiunge alla collezione di destinazione. [ShapeCollection::insertClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/insertclone/) crea anch'essa una copia ma la posiziona a un indice di ordine z specificato. Le sovraccariche che accettano coordinate spostano la clone senza cambiarne le dimensioni; le sovraccariche con larghezza e altezza possono ridimensionarla.
+[ShapeCollection::addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/addclone/) crea una copia indipendente e la aggiunge alla collezione di destinazione. [ShapeCollection::insertClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/insertclone/) crea anch'essa una copia ma la posiziona a un indice di ordine z specificato. Le sovraccariche che accettano coordinate spostano il clone senza modificare le dimensioni; le sovraccariche con larghezza e altezza possono ridimensionarlo.
 
-L'esempio crea una diapositiva di destinazione, clona un rettangolo etichettato in primo piano e inserisce un secondo clone in fondo. Le modifiche a ciascun clone non alterano la forma sorgente.
+L'esempio crea una diapositiva di destinazione, clona un rettangolo etichettato in avanti, e inserisce un secondo clone in fondo. Le modifiche a ciascun clone non modificano la forma originale.
 
 ```php
 use aspose\slides\Presentation;
@@ -159,11 +262,11 @@ try {
 }
 ```
 
-La clonazione copia il contenuto e la formattazione della forma, inclusi nome e testo alternativo. Assegna nuovi identificatori logici al clone quando tali valori devono essere unici. Le risorse usate da forme complesse sono gestite dalla presentazione, ma un clone rimane un nuovo elemento della collezione con una nuova identità di forma.
+Clonare copia il contenuto e la formattazione della forma, incluso il nome e il testo alternativo. Assegna nuovi identificatori logici al clone quando quei valori devono essere unici. Le risorse usate da forme complesse sono gestite dalla presentazione, ma un clone rimane un nuovo elemento della collezione con una nuova identità di forma.
 
-### **Rimuovere le forme**
+### **Rimuovere forme**
 
-[ShapeCollection::remove](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/remove/) elimina un oggetto forma specifico dalla sua collezione. Quando rimuovi più corrispondenze durante un'iterazione indicizzata, percorri dalla fine così ogni indice rimanente rimane valido.
+[ShapeCollection::remove](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/remove/) elimina un oggetto forma specifico dalla sua collezione. Quando rimuovi più corrispondenze durante un'iterazione indicizzata, attraversa la collezione dal fondo affinché ogni indice rimanente rimanga valido.
 
 Questo esempio rimuove ogni forma con un nome designato. Legge la forma all'indice corrente, non un elemento fisso della collezione, e non esegue cast inutili.
 
@@ -200,11 +303,11 @@ try {
 }
 ```
 
-Dopo la rimozione, il conteggio delle forme e gli indici delle forme successive cambiano. I riferimenti a forme non interessate rimangono più affidabili rispetto agli indici salvati. Considera anche connettori, animazioni e altre funzionalità della presentazione che potrebbero fare riferimento all'oggetto rimosso; rimuovere una forma visibile può cambiare più del semplice aspetto della diapositiva.
+Dopo la rimozione, il conteggio delle forme e gli indici delle forme successive cambiano. I riferimenti a forme non interessate rimangono più affidabili rispetto agli indici salvati. Considera anche connettori, animazioni e altre funzionalità della presentazione che possono fare riferimento all'oggetto rimosso; rimuovere una forma visibile può cambiare più del semplice aspetto della diapositiva.
 
 ### **Nascondere una forma**
 
-Impostare [Shape::setHidden](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/sethidden/) a `true` mantiene la forma nella collezione ma impedisce che appaia nella presentazione normale. Il suo indice, la formattazione e il contenuto rimangono disponibili al codice, quindi nascondere è appropriato per elementi opzionali che possono essere ripristinati in seguito.
+Impostare [Shape::setHidden](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/sethidden/) a `true` mantiene la forma nella collezione ma ne impedisce la visualizzazione nella presentazione normale. Il suo indice, la formattazione e il contenuto rimangono disponibili al codice, quindi nascondere è appropriato per elementi opzionali che possono essere ripristinati successivamente.
 
 ```php
 use aspose\slides\Presentation;
@@ -237,11 +340,11 @@ try {
 }
 ```
 
-Nascondere non è cancellazione né sicurezza. L'oggetto può ancora essere scoperto e reso nuovamente visibile da un utente o dal codice, e rimane parte del file della presentazione.
+Nascondere non è eliminazione né sicurezza. L'oggetto può ancora essere scoperto e reso visibile da un utente o da codice, e rimane parte del file della presentazione.
 
 ### **Modificare l'ordine Z**
 
-Le forme sovrapposte sono dipinte nell'ordine della collezione. [ShapeCollection::reorder](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/reorder/) sposta una forma esistente a un indice di destinazione senza clonarla. L'indice `0` è il retro; `size() - 1` è il frontale.
+Le forme sovrapposte sono dipinte secondo l'ordine della collezione. [ShapeCollection::reorder](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/reorder/) sposta una forma esistente a un indice di destinazione senza clonarla. L'indice `0` è quello più arretrato; `size() - 1` è quello più avanzato.
 
 ```php
 use aspose\slides\FillType;
@@ -271,13 +374,13 @@ try {
 }
 ```
 
-Il rettangolo viene creato per primo e inizialmente si trova dietro l'ellisse. Spostarlo all'indice finale lo porta in fronte. Finalizza l'ordine Z dopo aver aggiunto o clonato tutte le forme correlate, perché tali operazioni aggiungono o inseriscono nuovi elementi nella collezione e possono alterare lo stack previsto.
+Il rettangolo è creato per primo e inizialmente si trova dietro l'ellisse. Spostarlo all'indice finale lo porta in avanti. Finalizza l'ordine Z dopo aver aggiunto o clonato tutte le forme correlate, perché queste operazioni aggiungono o inseriscono nuovi elementi nella collezione e possono alterare lo stack previsto.
 
-## **Ispezionare le forme nei layout diapositive**
+## **Ispezionare le forme sui layout diapositive**
 
-Diapositive normali, layout e master hanno collezioni di forme separate. Una forma nella collezione di layout non è lo stesso oggetto di una forma simile posizionata su una diapositiva normale. Ispeziona le forme del layout quando devi comprendere o modificare la formattazione fornita da un layout.
+Le diapositive normali, i layout e i master hanno collezioni di forme separate. Una forma in una collezione di layout non è lo stesso oggetto di una forma posizionata in modo simile su una diapositiva normale. Ispeziona le forme del layout quando devi comprendere o modificare la formattazione fornita da un layout.
 
-L'esempio seguente legge il [FillFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getfillformat/) e il [LineFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getlineformat/) di ogni forma del layout senza presumere che ogni forma sia una `AutoShape`.
+L'esempio seguente legge per ogni forma del layout il suo [FillFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getfillformat/) e il suo [LineFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/getlineformat/) senza presumere che ogni forma sia un `AutoShape`.
 
 ```php
 use aspose\slides\Presentation;
@@ -304,11 +407,11 @@ try {
 }
 ```
 
-Modificare un layout può influire su più diapositive che lo utilizzano. Prima di cambiare una forma del layout, determina se una diapositiva normale eredita l'oggetto o contiene una sovrascrittura locale, e testa ogni diapositiva che utilizza quel layout.
+Modificare un layout può influenzare più diapositive che lo usano. Prima di cambiare una forma del layout, determina se una diapositiva normale eredita l'oggetto o contiene una sovrascrittura locale, e testa ogni diapositiva che utilizza quel layout.
 
 ## **Esportare una forma in SVG**
 
-[Shape::writeAsSvg](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/writeassvg/) scrive il contenuto renderizzato di una singola forma su uno stream. Il risultato contiene solo la forma, non l'intero sfondo della diapositiva o le forme vicine.
+[Shape::writeAsSvg](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/writeassvg/) scrive il contenuto renderizzato di una singola forma in uno stream. Il risultato contiene solo la forma, non lo sfondo dell'intera diapositiva o le forme vicine.
 
 ```php
 use aspose\slides\Presentation;
@@ -339,11 +442,11 @@ try {
 }
 ```
 
-Mantieni la presentazione aperta durante il rendering. L'output dipende dalla formattazione della forma e da risorse come font e immagini. Se ti serve l'intera composizione, esporta la diapositiva anziché una singola forma. Il chiamante possiede lo stream e deve chiuderlo.
+Mantieni la presentazione aperta durante il rendering. L'output dipende dalla formattazione della forma e da risorse come caratteri e immagini. Se ti serve l'intera composizione, esporta la diapositiva anziché una singola forma. Il chiamante possiede lo stream e deve chiuderlo.
 
 ## **Allineare le forme**
 
-[I metodi di SlideUtil::alignShapes](https://reference.aspose.com/slides/it/php-java/aspose.slides/slideutil/alignshapes/) hanno overload che allineano tutte le forme o gli indici di collezione selezionati. [ShapesAlignmentType](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapesalignmenttype/) specifica il bordo, la linea centrale o la modalità di distribuzione. Imposta `alignToSlide` a `true` per usare i bordi della diapositiva; impostalo a `false` per allineare le forme selezionate relative l'una all'altra.
+Le overload di [SlideUtil::alignShapes](https://reference.aspose.com/slides/it/php-java/aspose.slides/slideutil/alignshapes/) allineano o tutte le forme o gli indici di collezione selezionati. [ShapesAlignmentType](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapesalignmenttype/) specifica il bordo, la linea centrale o la modalità di distribuzione. Imposta `alignToSlide` a `true` per usare i bordi della diapositiva; impostalo a `false` per allineare le forme selezionate tra loro.
 
 Questo esempio allinea tre forme al bordo superiore della diapositiva. I riferimenti alle forme restituiti vengono convertiti nei loro indici correnti immediatamente prima dell'allineamento.
 
@@ -378,17 +481,17 @@ try {
 }
 ```
 
-L'allineamento modifica le posizioni, non l'ordine Z. L'allineamento relativo normalmente richiede almeno due forme, mentre la distribuzione orizzontale o verticale necessita di un numero sufficiente di forme per definire la spaziatura. Ricalcola gli indici se modifichi la collezione prima di chiamare il metodo.
+L'allineamento modifica le posizioni, non l'ordine Z. L'allineamento relativo normalmente richiede almeno due forme, mentre la distribuzione orizzontale o verticale richiede un numero sufficiente di forme per definire la spaziatura. Ricalcola gli indici se modifichi la collezione prima di chiamare il metodo.
 
-## **Ribaltare una forma**
+## **Capovolgere una forma**
 
-La classe [ShapeFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapeframe/) memorizza posizione, dimensioni, impostazioni di ribaltamento orizzontale e verticale e rotazione. I valori `getFlipH` e `getFlipV` usano [NullableBool](https://reference.aspose.com/slides/it/php-java/aspose.slides/nullablebool/): `True` abilita il ribaltamento, `False` lo disabilita e `NotDefined` conserva lo stato non specificato/predefinito.
+La classe [ShapeFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapeframe/) memorizza posizione, dimensione, impostazioni di capovolgimento orizzontale e verticale, e rotazione. I suoi valori `getFlipH` e `getFlipV` usano [NullableBool](https://reference.aspose.com/slides/it/php-java/aspose.slides/nullablebool/): `True` attiva il capovolgimento, `False` lo disattiva, e `NotDefined` preserva lo stato non specificato/predefinito.
 
-La presentazione di input sottostante contiene una forma non ribaltata.
+La presentazione di input sotto contiene una forma non capovolta.
 
-![The shape before flipping](shape_to_be_flipped.png)
+![La forma prima del capovolgimento](shape_to_be_flipped.png)
 
-L'esempio preserva tutti gli altri valori del frame e sostituisce solo le due impostazioni di ribaltamento. Questo è importante perché assegnare un nuovo [Frame](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/setframe/) sostituisce l'intero frame.
+L'esempio conserva tutti gli altri valori del frame e sostituisce solo le due impostazioni di capovolgimento. Questo è importante perché assegnare un nuovo [Frame](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/setframe/) sostituisce l'intero frame.
 
 ```php
 use aspose\slides\NullableBool;
@@ -414,20 +517,24 @@ try {
 }
 ```
 
-La forma salvata viene specchiata orizzontalmente e verticalmente mantenendo posizione, dimensioni e rotazione.
+La forma salvata è specchiata orizzontalmente e verticalmente mantenendo posizione, dimensione e rotazione.
 
-![The shape after flipping](flipped_shape.png)
+![La forma dopo il capovolgimento](flipped_shape.png)
 
 ## **FAQ**
 
-**Devo usare un indice di collezione come identificatore di una forma?**
+**Devo usare un indice della collezione come identificatore di una forma?**
 
-Solo per elaborazioni a breve termine quando la collezione non cambierà prima dell'uso dell'indice. Preferisci una convenzione con `Name` o `AlternativeText` validata per modelli autori, o `OfficeInteropShapeId` per lavoro interop a livello di diapositiva.
+Solo per elaborazioni a breve termine quando la collezione non cambierà prima dell'uso dell'indice. Preferisci una convenzione con `Name` o `AlternativeText` per i template creati, oppure `OfficeInteropShapeId` per lavori di interop a livello di diapositiva.
 
 **Nascondere una forma la rimuove dall'ordine Z?**
 
-No. Una forma nascosta rimane nella collezione allo stesso indice. Può essere trovata, riordinata, modificata o resa di nuovo visibile.
+No. Una forma nascosta rimane nella collezione allo stesso indice. Può essere trovata, riordinata, modificata o resa nuovamente visibile.
 
-**Perché una forma clonata è comparsa davanti a un’altra forma?**
+**Perché una forma clonata è comparsa davanti a un'altra forma?**
 
-`addClone` aggiunge il clone alla fine della collezione, che è il fronte dell'ordine Z. Usa `insertClone` per scegliere l'indice iniziale oppure `reorder` dopo aver aggiunto tutte le forme.
+`addClone` aggiunge il clone alla fine della collezione, che corrisponde al fronte dell'ordine Z. Usa `insertClone` per scegliere l'indice iniziale o `reorder` dopo aver aggiunto tutte le forme.
+
+**Posso usare un indice fisso per identificare una regolazione predefinita di una forma?**
+
+Solo dopo aver convalidato il preset esatto e la struttura della collezione. Preferisci iterare attraverso `GeometryShape::getAdjustments` e controllare `AdjustValue::getType`; usa `AdjustValue::getName` come informazione aggiuntiva quando lo stesso tipo semantico appare più di una volta.

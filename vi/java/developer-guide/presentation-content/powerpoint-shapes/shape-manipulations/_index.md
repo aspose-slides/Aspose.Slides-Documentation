@@ -1,48 +1,51 @@
 ---
-title: Quản lý các hình trong bản trình chiếu bằng Java
-linktitle: Thao tác hình
+title: Quản lý các hình dạng trong bài thuyết trình bằng Java
+linktitle: Thao tác Hình dạng
 type: docs
 weight: 40
 url: /vi/java/shape-manipulations/
 keywords:
-- hình PowerPoint
-- hình trong bản trình chiếu
-- hình trên slide
-- tìm hình
-- sao chép hình
-- xóa hình
-- ẩn hình
-- thay đổi thứ tự hình
-- lấy ID hình interop
-- văn bản thay thế của hình
-- định dạng bố cục hình
-- hình dưới dạng SVG
-- xuất hình ra SVG
-- căn chỉnh hình
-- lật hình
+- Hình dạng PowerPoint
+- Hình dạng trong bài thuyết trình
+- Hình dạng trên slide
+- Tìm hình dạng
+- Sao chép hình dạng
+- Xóa hình dạng
+- Ẩn hình dạng
+- Thay đổi thứ tự hình dạng
+- Lấy ID hình dạng interop
+- Văn bản thay thế cho hình dạng
+- Điểm điều chỉnh hình dạng
+- Điều chỉnh hình dạng preset
+- Hình học hình dạng
+- Định dạng bố cục hình dạng
+- Hình dạng dưới dạng SVG
+- Chuyển hình dạng sang SVG
+- Căn chỉnh hình dạng
+- Lật hình dạng
 - PowerPoint
-- bản trình chiếu
+- Bài thuyết trình
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách xác định, sao chép, xóa, ẩn, thay đổi thứ tự, xuất, căn chỉnh và lật các hình trong bản trình chiếu với Aspose.Slides cho Java."
+description: "Tìm hiểu cách xác định, điều chỉnh, sao chép, xóa, ẩn, sắp xếp lại, xuất, căn chỉnh và lật các hình dạng trong bài thuyết trình bằng Aspose.Slides cho Java."
 ---
-## **Overview**
+## **Tổng quan**
 
-Aspose.Slides for Java đại diện cho các hình trên một slide dưới dạng một [IShapeCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/) có thứ tự. Bộ sưu tập vừa là nơi bạn tìm và chỉnh sửa các hình, vừa là nguồn xác định thứ tự xếp chồng của chúng: chỉ mục `0` là hình ở phía sau nhất, trong khi chỉ mục cuối cùng là hình ở phía trước nhất.
+Aspose.Slides for Java biểu diễn các hình dạng trên một slide như một [IShapeCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/) có thứ tự. Bộ sưu tập vừa là nơi bạn tìm và sửa đổi các hình dạng vừa là nguồn của thứ tự xếp chồng: chỉ mục `0` là hình dạng ở phía sau nhất, trong khi chỉ mục cuối cùng là hình dạng ở phía trước nhất.
 
-Bài viết này tuân theo mô hình đó. Đầu tiên nó giải thích cách xác định một hình một cách đáng tin cậy, sau đó trình bày cách sao chép, xóa, ẩn và thay đổi thứ tự các hình. Các phần cuối cùng đề cập đến định dạng ở cấp layout, xuất SVG, căn chỉnh và cài đặt lật. Mỗi ví dụ là độc lập, vì vậy bạn có thể chỉ sử dụng các thao tác mà quy trình của bạn yêu cầu.
+Bài viết này tuân theo mô hình đó. Đầu tiên nó giải thích cách xác định một hình dạng một cách đáng tin cậy và sửa đổi các điểm điều chỉnh hình dạng đã được xác định trước, sau đó cho thấy cách sao chép, xóa, ẩn và sắp xếp lại các hình dạng. Các phần cuối cùng bao gồm định dạng cấp bố cục, xuất SVG, căn chỉnh và cài đặt lật. Mỗi ví dụ độc lập, vì vậy bạn có thể chỉ sử dụng các thao tác mà quy trình công việc của bạn yêu cầu.
 
-## **Identify and Find Shapes**
+## **Xác định và Tìm Kiếm Hình Dạng**
 
-Các chỉ mục trong bộ sưu tập tiện lợi khi xử lý tệp đã biết, nhưng chúng không phải là định danh ổn định. Thêm, xóa hoặc thay đổi thứ tự một hình có thể làm thay đổi chỉ mục của nó. Hãy chọn một định danh dựa trên cách bản trình chiếu được tạo và duy trì:
+Các chỉ mục trong bộ sưu tập tiện lợi khi xử lý một tệp đã biết, nhưng chúng không phải là định danh ổn định. Thêm, xóa hoặc sắp xếp lại một hình dạng có thể làm thay đổi chỉ mục của nó. Chọn một định danh dựa trên cách bản trình chiếu được tạo và duy trì:
 
-- [Name](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getName--) hữu ích cho các mẫu do nhà phát triển kiểm soát và dễ kiểm tra trong Bảng chọn của PowerPoint. Tên có thể được chỉnh sửa và không được đảm bảo là duy nhất, vì vậy hãy thiết lập quy tắc đặt tên nếu mã phụ thuộc vào chúng.
-- [AlternativeText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getAlternativeText--) hữu ích khi mô tả khả năng tiếp cận hoặc thẻ do tác giả cung cấp đã xác định hình. Nó hiển thị cho người dùng, có thể được bản địa hoá hoặc viết lại cho khả năng tiếp cận, và không được đảm bảo là duy nhất. Đừng lạm dụng văn bản khả năng tiếp cận có nghĩa làm khóa cơ sở dữ liệu một cách âm thầm.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) là một định danh chỉ đọc, duy nhất trong một slide và tương ứng với ID hình được PowerPoint interop sử dụng. Sử dụng nó khi tích hợp với PowerPoint hoặc khi bạn cần một tham chiếu không mơ hồ trong suốt thời gian tồn tại của một hình. Một hình được sao chép hoặc tạo lại là một hình khác và sẽ nhận ID riêng của nó.
+- [Name](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getName--) hữu ích cho các mẫu do nhà phát triển kiểm soát và dễ kiểm tra trong Bảng Chọn của PowerPoint. Tên có thể được chỉnh sửa và không được đảm bảo là duy nhất, vì vậy hãy thiết lập quy ước đặt tên nếu mã phụ thuộc vào chúng.
+- [AlternativeText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getAlternativeText--) hữu ích khi mô tả khả năng tiếp cận hoặc thẻ do tác giả cung cấp đã xác định hình dạng. Nó hiển thị cho người dùng, có thể được địa phương hoá hoặc viết lại cho khả năng tiếp cận, và cũng không được đảm bảo là duy nhất. Đừng tự động chuyển đổi văn bản khả năng tiếp cận có ý nghĩa thành khóa cơ sở dữ liệu.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) là một định danh chỉ đọc, duy nhất trong một slide và tương ứng với ID hình dạng được PowerPoint interop sử dụng. Sử dụng nó khi tích hợp với PowerPoint hoặc khi bạn cần một tham chiếu không mơ hồ trong suốt vòng đời của một hình dạng. Một hình dạng được sao chép hoặc tạo lại là một hình dạng khác và nhận ID riêng.
 
-Phương thức [getUniqueId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getUniqueId--) liên quan trả về một định danh có phạm vi trong bản trình chiếu, nhưng định danh này được thiết kế cho các add‑in và có thể được gán lại. Nó không nên được coi là khóa ngoài lâu dài. Nếu nhận dạng lâu dài là cần thiết, hãy giữ ánh xạ trong dữ liệu ứng dụng và xác thực rằng hình mong đợi vẫn tồn tại.
+Phương thức [getUniqueId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getUniqueId--) liên quan trả về một định danh có phạm vi toàn bộ bản trình chiếu, nhưng định danh này dành cho add‑in và có thể được gán lại. Không nên coi nó là khóa ngoại việt vĩnh viễn. Nếu tính nhận dạng lâu dài là quan trọng, hãy giữ ánh xạ trong dữ liệu ứng dụng và xác thực rằng hình dạng mong đợi vẫn còn tồn tại.
 
-Ví dụ sau tìm kiếm theo tên với so sánh chính xác và báo cáo ID interop có phạm vi slide. Khi mẫu không chứa hình mong đợi, mã sẽ báo cáo kết quả đó thay vì tiếp tục với đối tượng sai.
+Ví dụ dưới đây tìm kiếm theo tên với so sánh chính xác và báo cáo ID interop trong phạm vi slide. Khi mẫu không chứa hình dạng mong đợi, mã sẽ báo kết quả đó thay vì tiếp tục với đối tượng sai.
 
 ```java
 import com.aspose.slides.*;
@@ -69,7 +72,7 @@ try {
 }
 ```
 
-Khi một thao tác chỉ áp dụng cho một loại hình, hãy kiểm tra giao diện trước khi sử dụng các thành viên đặc thù loại. Ví dụ này cập nhật văn bản và văn bản thay thế chỉ khi đối tượng có tên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/).
+Khi một thao tác cụ thể cho một loại hình dạng, kiểm tra giao diện trước khi sử dụng các thành viên riêng loại. Ví dụ này cập nhật văn bản và văn bản thay thế chỉ khi đối tượng được đặt tên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/).
 
 ```java
 import com.aspose.slides.*;
@@ -99,15 +102,108 @@ try {
 }
 ```
 
-## **Modify the Shape Collection**
+## **Xác định và Sửa Đổi Các Điều Chỉnh Hình Dạng Được Định Nghĩa Trước**
 
-Các phương thức thêm, sao chép, xóa và thay đổi thứ tự hoạt động trên bộ sưu tập ngay lập tức. Nếu một thao tác làm thay đổi số lượng hoặc thứ tự các hình, đừng tiếp tục dựa vào các chỉ mục đã được ghi lại trước thao tác đó.
+Các hình dạng hình học đã được xác định trước có thể mở ra các điểm điều chỉnh kiểm soát các tính năng như kích thước góc, tỷ lệ mũi tên hoặc góc cung. Truy cập chúng thông qua bộ sưu tập chỉ đọc [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igeometryshape/#getAdjustments--) . Bộ sưu tập này do hình dạng cung cấp, nhưng mỗi [IAdjustValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/) chứa một giá trị có thể thay đổi.
 
-### **Clone a Shape**
+Đừng chỉ dựa vào một chỉ mục cố định trong bộ sưu tập. Duyệt qua các điều chỉnh và kiểm tra phương thức chỉ đọc [getType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#getType--) , giá trị [ShapeAdjustmentType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapeadjustmenttype/) của nó mô tả điều chỉnh điều khiển gì. Phương thức chỉ đọc [getName](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#getName--) cung cấp thông tin nhận dạng bổ sung và đặc biệt hữu ích khi một preset chứa hơn một điều chỉnh có cùng kiểu ngữ nghĩa.
 
-[addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) tạo một bản sao độc lập và thêm vào cuối bộ sưu tập đích. [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) cũng tạo một bản sao nhưng đặt nó ở chỉ mục z‑order được chỉ định. Các overload nhận tọa độ di chuyển bản sao mà không thay đổi kích thước; các overload có width và height có thể thay đổi kích thước nó nữa.
+Sử dụng phương thức giá trị phù hợp với ý nghĩa của điều chỉnh:
 
-Ví dụ tạo một slide đích, sao chép một hình chữ nhật có nhãn lên phía trước và chèn bản sao thứ hai ở phía sau. Thay đổi bất kỳ bản sao nào cũng không ảnh hưởng đến hình nguồn.
+| Loại điều chỉnh | Mục đích | Giá trị cần thay đổi |
+|---|---|---|
+| `CornerSize` | Kích thước góc bo tròn | [setRawValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | Độ dày đuôi mũi tên | `setRawValue` |
+| `ArrowheadLength` | Độ dài đầu mũi tên | `setRawValue` |
+| `ArrowheadWidth` | Độ rộng đầu mũi tên | `setRawValue` |
+| `StartAngle` | Góc bắt đầu của một phần tròn hoặc cung | [setAngleValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | Góc kết thúc của một phần tròn hoặc cung | `setAngleValue` |
+
+`getType` và `getName` trả về thông tin chỉ đọc. `getRawValue` và `setRawValue` làm việc với một số nguyên theo đơn vị hình học gốc của preset, trong khi `getAngleValue` và `setAngleValue` làm việc với góc tính bằng độ. Số lượng, thứ tự, ý nghĩa và phạm vi hợp lệ của các điều chỉnh phụ thuộc vào preset [ShapeType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igeometryshape/#getShapeType--). Một giá trị hợp lệ cho một preset có thể không hợp lệ hoặc có hiệu ứng khác cho preset khác.
+
+Khi `getType` trả về `ShapeAdjustmentType.Custom`, API không nhận ra ý nghĩa ngữ nghĩa tiêu chuẩn. Kiểm tra `getName`, loại preset và giá trị hiện tại, và để nguyên điều chỉnh nếu không biết rõ ý nghĩa và phạm vi mong muốn. Ngay cả với các kiểu đã được công nhận, cũng cần kiểm tra xem cùng một kiểu có xuất hiện nhiều lần không trước khi chọn giá trị. Bài viết [Connector](/slides/vi/java/connector/) minh họa trường hợp này với các điều chỉnh độ cong của connector.
+
+Ví dụ hoàn chỉnh dưới đây tạo các phiên bản mặc định và đã chỉnh sửa của ba hình dạng preset. Nó duyệt qua mọi điều chỉnh, báo cáo tên và kiểu, thay đổi các giá trị liên quan đến kích thước qua `setRawValue`, thay đổi góc qua `setAngleValue`, và lưu kết quả. Cột trái giữ hình học mặc định; cột phải hiển thị hình chữ nhật bo tròn đã chỉnh, mũi tên bốn chiều và phần tròn.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // Thêm tiêu đề cho các cột hình dạng mặc định và đã điều chỉnh.
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kiểm tra kiểu ngữ nghĩa trước khi thay đổi giá trị giúp mã rõ ràng về mục đích và tránh giả định rằng một chỉ mục bộ sưu tập nhất định có cùng ý nghĩa trên các preset hình dạng khác nhau.
+
+## **Sửa Đổi Bộ Sưu Tập Hình Dạng**
+
+Các phương thức thêm, sao chép, xóa và sắp xếp lại hoạt động ngay trên bộ sưu tập. Nếu một thao tác thay đổi số lượng hoặc thứ tự của các hình dạng, đừng tiếp tục dựa vào các chỉ mục đã được lấy trước khi thực hiện thao tác đó.
+
+### **Sao Chép Một Hình Dạng**
+
+[addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) tạo một bản sao độc lập và thêm nó vào cuối bộ sưu tập đích. [insertClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) cũng tạo bản sao nhưng đặt nó ở chỉ mục z‑order được chỉ định. Các overload chấp nhận tọa độ di chuyển bản sao mà không thay đổi kích thước; các overload có chiều rộng và chiều cao có thể thay đổi kích thước nó.
+
+Ví dụ tạo một slide đích, sao chép một hình chữ nhật có nhãn lên phía trước, và chèn một bản sao thứ hai ở phía sau. Thay đổi bất kỳ bản sao nào cũng không làm thay đổi hình dạng nguồn.
 
 ```java
 import com.aspose.slides.*;
@@ -146,13 +242,13 @@ try {
 }
 ```
 
-Sao chép sao chép nội dung và định dạng của hình, bao gồm tên và văn bản thay thế. Gán các định danh logic mới cho bản sao khi các giá trị đó phải là duy nhất. Các tài nguyên được hình phức tạp sử dụng được trình chiếu quản lý, nhưng bản sao vẫn là một mục mới trong bộ sưu tập với danh tính hình mới.
+Sao chép bao gồm nội dung và định dạng của hình dạng, bao gồm cả tên và văn bản thay thế. Gán các định danh logic mới cho bản sao khi các giá trị này phải là duy nhất. Các tài nguyên được hình dạng phức tạp sử dụng được xử lý bởi bản trình chiếu, nhưng bản sao vẫn là một mục bộ sưu tập mới với danh tính hình dạng mới.
 
-### **Remove Shapes**
+### **Xóa Các Hình Dạng**
 
-[remove](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) xóa một đối tượng hình cụ thể khỏi bộ sưu tập của nó. Khi xóa nhiều khớp trong vòng lặp có chỉ mục, hãy duyệt từ cuối để mỗi chỉ mục còn lại vẫn hợp lệ.
+[remove](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) xóa một đối tượng hình dạng cụ thể khỏi bộ sưu tập của nó. Khi xóa nhiều mục khớp trong quá trình lặp có chỉ mục, hãy duyệt từ cuối để mỗi chỉ mục còn lại vẫn hợp lệ.
 
-Ví dụ này xóa mọi hình có tên được chỉ định. Nó đọc hình tại chỉ mục hiện tại, không phải một mục cố định trong bộ sưu tập, và không ép kiểu hình một cách không cần thiết.
+Ví dụ này xóa mọi hình dạng có tên được chỉ định. Nó đọc hình dạng tại chỉ mục hiện tại, không phải một mục cố định trong bộ sưu tập, và không ép kiểu hình dạng không cần thiết.
 
 ```java
 import com.aspose.slides.*;
@@ -183,11 +279,11 @@ try {
 }
 ```
 
-Sau khi xóa, số lượng hình và các chỉ mục của các hình sau thay đổi. Tham chiếu tới các hình không bị ảnh hưởng vẫn đáng tin cậy hơn so với các chỉ mục đã lưu. Cũng cần cân nhắc các connector, animation và các tính năng trình chiếu khác có thể tham chiếu tới đối tượng đã xóa; việc xóa một hình hiển thị có thể thay đổi nhiều hơn chỉ giao diện slide.
+Sau khi xóa, số lượng hình dạng và các chỉ mục của các hình dạng sau thay đổi. Tham chiếu đến các hình dạng không bị ảnh hưởng vẫn đáng tin cậy hơn so với các chỉ mục đã lưu. Cũng hãy xem xét các connector, hoạt ảnh và các tính năng khác của bản trình chiếu có thể tham chiếu tới đối tượng đã xóa; việc xóa một hình dạng hiển thị có thể thay đổi hơn cả vẻ ngoài của slide.
 
-### **Hide a Shape**
+### **Ẩn Một Hình Dạng**
 
-Thiết lập [Hidden](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#setHidden-boolean-) thành `true` giữ hình trong bộ sưu tập nhưng ngăn nó xuất hiện trong buổi chiếu bình thường. Chỉ mục, định dạng và nội dung của nó vẫn có sẵn cho mã, vì vậy ẩn là phù hợp cho các yếu tố tuỳ chọn có thể được khôi phục sau này.
+Đặt [Hidden](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#setHidden-boolean-) thành `true` giữ hình dạng trong bộ sưu tập nhưng ngăn nó xuất hiện trong buổi chiếu slide bình thường. Chỉ mục, định dạng và nội dung của nó vẫn khả dụng cho mã, vì vậy việc ẩn thích hợp cho các thành phần tùy chọn có thể được khôi phục sau.
 
 ```java
 import com.aspose.slides.*;
@@ -214,11 +310,11 @@ try {
 }
 ```
 
-Ẩn không phải là xóa hay bảo mật. Đối tượng vẫn có thể được người dùng hoặc mã phát hiện và hiển thị lại, và nó vẫn nằm trong tệp trình chiếu.
+Ẩn không phải là xóa hay bảo mật. Đối tượng vẫn có thể được người dùng hoặc mã phát hiện và hiển thị lại, và nó vẫn là một phần của tệp bản trình chiếu.
 
-### **Change the Z-Order**
+### **Thay Đổi Z‑Order**
 
-Các hình chồng lên nhau được vẽ theo thứ tự trong bộ sưu tập. [reorder](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) di chuyển một hình hiện có tới chỉ mục mục tiêu mà không sao chép nó. Chỉ mục `0` là phía sau; `size() - 1` là phía trước.
+Các hình dạng chồng lên nhau được vẽ theo thứ tự bộ sưu tập. [reorder](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) di chuyển một hình dạng hiện có tới một chỉ mục đích mà không sao chép nó. Chỉ mục `0` là phía sau; `size() - 1` là phía trước.
 
 ```java
 import com.aspose.slides.*;
@@ -245,13 +341,13 @@ try {
 }
 ```
 
-Hình chữ nhật được tạo đầu tiên và ban đầu nằm phía sau hình ellipse. Di chuyển nó tới chỉ mục cuối cùng sẽ đặt nó lên phía trước. Hoàn thiện thứ tự z‑order sau khi thêm hoặc sao chép tất cả các hình liên quan, vì các thao tác đó thêm hoặc chèn các mục mới vào bộ sưu tập và có thể làm thay đổi ngăn xếp dự định.
+Hình chữ nhật được tạo trước và ban đầu nằm phía sau hình ellipse. Di chuyển nó tới chỉ mục cuối cùng sẽ đưa nó lên phía trước. Hoàn thiện z‑order sau khi thêm hoặc sao chép tất cả các hình dạng liên quan, vì các thao tác đó sẽ chèn hoặc thêm mục mới vào bộ sưu tập và có thể làm thay đổi thứ tự dự định.
 
-## **Inspect Shapes on Layout Slides**
+## **Kiểm Tra Các Hình Dạng Trên Slide Bố Cục**
 
-Slide bình thường, slide layout và master slide có các bộ sưu tập hình riêng biệt. Một hình trong bộ sưu tập layout không phải là cùng một đối tượng với một hình có vị trí tương tự trên slide bình thường. Kiểm tra các hình layout khi bạn cần hiểu hoặc thay đổi định dạng do layout cung cấp.
+Slide bình thường, slide bố cục và slide chủ đề có các bộ sưu tập hình dạng riêng. Một hình dạng trong bộ sưu tập bố cục không phải là cùng một đối tượng với một hình dạng tương tự trên slide bình thường. Kiểm tra các hình dạng bố cục khi bạn cần hiểu hoặc thay đổi định dạng do một bố cục cung cấp.
 
-Ví dụ sau đọc [FillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getFillFormat--) và [LineFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getLineFormat--) của mỗi hình layout mà không giả định mọi hình đều là `AutoShape`.
+Ví dụ dưới đây đọc [FillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getFillFormat--) và [LineFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getLineFormat--) của mỗi hình dạng bố cục mà không giả định rằng mọi hình dạng đều là `AutoShape`.
 
 ```java
 import com.aspose.slides.*;
@@ -270,11 +366,11 @@ try {
 }
 ```
 
-Chỉnh sửa một layout có thể ảnh hưởng tới nhiều slide sử dụng nó. Trước khi thay đổi một hình layout, hãy xác định slide bình thường có kế thừa đối tượng này hay chứa một ghi đè cục bộ, và kiểm thử mọi slide sử dụng layout đó.
+Chỉnh sửa một bố cục có thể ảnh hưởng đến nhiều slide sử dụng nó. Trước khi thay đổi một hình dạng bố cục, xác định xem một slide bình thường có kế thừa đối tượng đó hay chứa một ghi đè cục bộ, và kiểm tra mọi slide sử dụng bố cục đó.
 
-## **Export a Shape to SVG**
+## **Xuất Một Hình Dạng Ra SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) ghi nội dung đã render của một hình vào một stream. Kết quả chứa hình, không phải toàn bộ nền slide hay các hình lân cận.
+[writeAsSvg](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) ghi nội dung đã render của một hình dạng vào một luồng. Kết quả chỉ chứa hình dạng, không phải toàn bộ nền slide hay các hình dạng lân cận.
 
 ```java
 import com.aspose.slides.*;
@@ -300,13 +396,13 @@ try {
 }
 ```
 
-Giữ bản trình chiếu mở trong khi render. Đầu ra phụ thuộc vào định dạng của hình và các tài nguyên như phông chữ và hình ảnh. Nếu bạn cần toàn bộ bố cục, hãy xuất slide thay vì một hình riêng lẻ. Người gọi sở hữu stream và phải đóng nó.
+Giữ bản trình chiếu mở trong khi render. Đầu ra phụ thuộc vào định dạng của hình dạng và các tài nguyên như phông chữ và hình ảnh. Nếu bạn cần toàn bộ bố cục, hãy xuất slide thay vì một hình dạng riêng lẻ. Người gọi sở hữu luồng và phải đóng nó.
 
-## **Align Shapes**
+## **Căn Chỉnh Các Hình Dạng**
 
-Phương thức [SlideUtil.alignShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) có các overload cho phép căn chỉnh tất cả các hình hoặc các chỉ mục bộ sưu tập được chọn. [ShapesAlignmentType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapesalignmenttype/) xác định cạnh, đường trung tâm hoặc chế độ phân phối. Đặt `alignToSlide` thành `true` để sử dụng các cạnh slide; đặt thành `false` để căn các hình đã chọn tương quan với nhau.
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) có các overload cho phép căn chỉnh tất cả các hình dạng hoặc các chỉ mục bộ sưu tập đã chọn. [ShapesAlignmentType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapesalignmenttype/) chỉ ra cạnh, đường trung tâm hoặc chế độ phân phối. Đặt `alignToSlide` thành `true` để sử dụng các cạnh slide; đặt `false` để căn chỉnh các hình dạng đã chọn tương quan với nhau.
 
-Ví dụ này căn ba hình tới cạnh trên của slide. Các tham chiếu hình trả về được chuyển thành chỉ mục hiện tại ngay trước khi căn chỉnh.
+Ví dụ này căn chỉnh ba hình dạng đến cạnh trên của slide. Các tham chiếu hình dạng trả về được chuyển sang chỉ mục hiện tại ngay trước khi căn chỉnh.
 
 ```java
 import com.aspose.slides.*;
@@ -331,17 +427,17 @@ try {
 }
 ```
 
-Căn chỉnh thay đổi vị trí, không thay đổi thứ tự z‑order. Căn chỉnh tương đối thường cần ít nhất hai hình, trong khi phân phối ngang hoặc dọc cần đủ hình để xác định khoảng cách. Tính lại chỉ mục nếu bạn thay đổi bộ sưu tập trước khi gọi phương thức.
+Căn chỉnh thay đổi vị trí, không thay đổi z‑order. Căn chỉnh tương đối thường cần ít nhất hai hình dạng, trong khi phân phối ngang hoặc dọc cần đủ hình dạng để xác định khoảng cách. Tính lại chỉ mục nếu bạn sửa đổi bộ sưu tập trước khi gọi phương thức.
 
-## **Flip a Shape**
+## **Lật Một Hình Dạng**
 
-Lớp [ShapeFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapeframe/) lưu trữ vị trí, kích thước, cài đặt lật ngang và dọc, và góc quay. Các giá trị `getFlipH` và `getFlipV` sử dụng [NullableBool](https://reference.aspose.com/slides/vi/java/com.aspose.slides/nullablebool/): `True` bật lật, `False` tắt, và `NotDefined` giữ trạng thái chưa xác định/mặc định.
+Lớp [ShapeFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapeframe/) lưu trữ vị trí, kích thước, cài đặt lật ngang và dọc, và quay. Các giá trị `getFlipH` và `getFlipV` sử dụng [NullableBool](https://reference.aspose.com/slides/vi/java/com.aspose.slides/nullablebool/): `True` bật lật, `False` tắt lật, và `NotDefined` giữ trạng thái chưa xác định/mặc định.
 
-Bản trình chiếu đầu vào dưới đây chứa một hình chưa được lật.
+Bản trình chiếu đầu vào dưới đây chứa một hình dạng chưa được lật.
 
 ![The shape before flipping](shape_to_be_flipped.png)
 
-Ví dụ này giữ nguyên mọi giá trị frame khác và chỉ thay đổi hai cài đặt lật. Điều này quan trọng vì gán một [Frame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) mới sẽ thay thế toàn bộ frame.
+Ví dụ này giữ nguyên mọi giá trị khung khác và chỉ thay thế hai cài đặt lật. Điều này quan trọng vì gán một [Frame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) mới sẽ thay thế toàn bộ khung.
 
 ```java
 import com.aspose.slides.*;
@@ -362,20 +458,24 @@ try {
 }
 ```
 
-Hình đã lưu được phản chiếu ngang và dọc trong khi giữ vị trí, kích thước và góc quay.
+Hình dạng đã lưu được lật ngang và dọc trong khi vẫn giữ vị trí, kích thước và góc quay.
 
 ![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Should I use a collection index as a shape identifier?**
+**Có nên sử dụng chỉ mục bộ sưu tập làm định danh cho hình dạng không?**
 
-Chỉ nên dùng cho xử lý ngắn hạn khi bộ sưu tập sẽ không thay đổi trước khi chỉ mục được sử dụng. Ưu tiên quy tắc `Name` hoặc `AlternativeText` đã được xác thực cho các mẫu được tạo, hoặc `OfficeInteropShapeId` cho công việc interop có phạm vi slide.
+Chỉ đối với quá trình ngắn hạn khi bộ sưu tập không thay đổi trước khi chỉ mục được sử dụng. Ưu tiên quy ước `Name` hoặc `AlternativeText` đã được xác thực cho các mẫu do người tạo, hoặc `OfficeInteropShapeId` cho công việc interop trong phạm vi slide.
 
-**Does hiding a shape remove it from the z-order?**
+**Ẩn một hình dạng có làm nó bị loại bỏ khỏi z‑order không?**
 
-Không. Một hình ẩn vẫn nằm trong bộ sưu tập ở cùng chỉ mục. Nó vẫn có thể được tìm thấy, thay đổi thứ tự, chỉnh sửa hoặc hiển thị lại.
+Không. Một hình dạng ẩn vẫn còn trong bộ sưu tập tại cùng một chỉ mục. Nó có thể được tìm, sắp xếp lại, chỉnh sửa hoặc hiển thị lại.
 
-**Why did a cloned shape appear in front of another shape?**
+**Tại sao một hình dạng sao chép lại xuất hiện phía trước một hình dạng khác?**
 
-`addClone` thêm bản sao vào cuối bộ sưu tập, tức là phía trước trong z‑order. Sử dụng `insertClone` để chọn chỉ mục ban đầu hoặc `reorder` sau khi tất cả các hình đã được thêm.
+`addClone` thêm bản sao vào cuối bộ sưu tập, tức là phía trước của z‑order. Sử dụng `insertClone` để chọn chỉ mục khởi đầu hoặc `reorder` sau khi đã thêm tất cả các hình dạng.
+
+**Có thể dùng chỉ mục cố định để xác định một điều chỉnh hình dạng preset không?**
+
+Chỉ sau khi xác thực preset và bố cục bộ sưu tập một cách chính xác. Ưu tiên duyệt `IGeometryShape.getAdjustments` và kiểm tra `IAdjustValue.getType`; sử dụng `IAdjustValue.getName` làm thông tin bổ sung khi cùng một kiểu ngữ nghĩa xuất hiện nhiều lần.

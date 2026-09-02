@@ -1,5 +1,5 @@
 ---
-title: Quản lý các kết nối trong bản trình chiếu bằng Java
+title: Quản lý connector trong bài thuyết trình bằng Java
 linktitle: Kết nối
 type: docs
 weight: 10
@@ -10,396 +10,496 @@ keywords:
 - điểm kết nối
 - đường kết nối
 - góc kết nối
-- kết nối các hình
+- điểm kết nối
+- điểm điều chỉnh
+- kết nối các hình dạng
 - PowerPoint
-- bản trình chiếu
+- bài thuyết trình
 - Java
 - Aspose.Slides
-description: "Cho phép các ứng dụng Java vẽ, kết nối và tự động định tuyến các đường trong slide PowerPoint—đạt được kiểm soát hoàn toàn đối với các kết nối thẳng, góc khuỷu và cong."
+description: "Tìm hiểu cách thêm, gắn, định tuyến lại, điều chỉnh và kiểm tra các connector thẳng, uốn và cong của PowerPoint bằng Aspose.Slides cho Java."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Kết nối PowerPoint là một đường đặc biệt dùng để kết nối hoặc liên kết hai hình dạng lại với nhau và vẫn giữ gắn vào các hình dạng ngay cả khi chúng được di chuyển hoặc thay đổi vị trí trên một slide nhất định.  
+Một connector là một đường có thể vẫn gắn vào hai hình dạng khi bất kỳ hình dạng nào di chuyển. Đầu của nó gắn vào các điểm kết nối, được biểu thị bằng các chấm xanh trong PowerPoint. Một số connector uốn cong và cong cũng hiển thị các điểm điều chỉnh, được biểu thị bằng các chấm cam, kiểm soát vị trí của các đoạn connector riêng lẻ.
 
-Các kết nối thường được gắn vào *điểm kết nối* (điểm xanh lá), các điểm này tồn tại trên mọi hình dạng theo mặc định. Điểm kết nối sẽ xuất hiện khi con trỏ di chuyển gần chúng.  
+Aspose.Slides biểu diễn connector thông qua giao diện [IConnector](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iconnector/). Bạn có thể tạo chúng, gắn đầu vào các hình dạng, chọn các điểm kết nối, định tuyến lại và sửa đổi hình học của các connector có điểm điều chỉnh.
 
-*Điểm điều chỉnh* (điểm màu cam), chỉ tồn tại trên một số kết nối nhất định, được dùng để thay đổi vị trí và hình dạng của các kết nối.  
+## **Các loại Connector**
 
-## **Các loại kết nối**
+Lớp [ShapeType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapetype/) bao gồm các mẫu connector thẳng, uốn và cong. Bảng sau cho thấy các hình học connector có sẵn và số điểm điều chỉnh được định nghĩa cho mỗi mẫu.
 
-Trong PowerPoint, bạn có thể sử dụng các kết nối thẳng, góc khuỷu (có góc) và cong.  
+| Connector | Image | Số điểm điều chỉnh |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides cung cấp các kết nối sau:
+Số lượng và ý nghĩa của các điểm điều chỉnh là một phần của mẫu connector đã chọn. Không nên giả định rằng hai loại connector khác nhau sẽ hiển thị cùng một bố cục bộ sưu tập.
 
-| Kết nối | Hình ảnh | Số điểm điều chỉnh |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **Kết nối Hai Hình Dạng**
 
-## **Kết nối các hình bằng kết nối**
+Sử dụng [IShapeCollection.addConnector](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) để thêm một connector, và sử dụng [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) và [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) để gắn đầu của nó. Sau khi cả hai đầu đã được gắn, [IConnector.reroute](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iconnector/#reroute--) sẽ chọn một tuyến ngắn giữa các hình dạng.
 
-1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Lấy tham chiếu của slide thông qua chỉ mục của nó.
-1. Thêm hai [AutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/AutoShape) vào slide bằng phương thức `addAutoShape` được cung cấp bởi đối tượng `Shapes`.
-1. Thêm một kết nối bằng phương thức `addConnector` được cung cấp bởi đối tượng `Shapes` bằng cách định nghĩa loại kết nối.
-1. Kết nối các hình bằng kết nối.
-1. Gọi phương thức `reroute` để áp dụng đường kết nối ngắn nhất.
-1. Lưu bản trình bày.  
-
-Đoạn mã Java này cho bạn thấy cách thêm một kết nối (kết nối gập) giữa hai hình (một hình ellipse và hình chữ nhật):
-
-```Java
-// Khởi tạo một lớp trình chiếu đại diện cho tệp PPTX
-Presentation pres = new Presentation();
-try {
-    // Truy cập bộ sưu tập hình dạng cho một slide cụ thể
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // Thêm một hình tự động Ellipse
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // Thêm một hình tự động Rectangle
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // Thêm một hình kết nối vào bộ sưu tập hình dạng của slide
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // Kết nối các hình bằng kết nối
-    connector.setStartShapeConnectedTo(ellipse);
-    connector.setEndShapeConnectedTo(rectangle);
-    
-    // Gọi reroute để thiết lập đường ngắn nhất tự động giữa các hình
-    connector.reroute();
-    
-    // Lưu bản trình chiếu
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-`Phương thức `Connector.reroute` sẽ định tuyến lại một kết nối và buộc nó di chuyển theo đường ngắn nhất có thể giữa các hình. Để đạt mục tiêu này, phương thức có thể thay đổi các điểm `setStartShapeConnectionSiteIndex` và `setEndShapeConnectionSiteIndex`. 
-{{% /alert %}} 
-
-## **Chỉ định một điểm kết nối**
-
-Nếu bạn muốn một kết nối liên kết hai hình bằng các điểm cụ thể trên các hình, bạn phải chỉ định các điểm kết nối ưa thích của mình theo cách sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Lấy tham chiếu của slide thông qua chỉ mục của nó.
-1. Thêm hai [AutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/AutoShape) vào slide bằng phương thức `addAutoShape` được cung cấp bởi đối tượng `Shapes`.
-1. Thêm một kết nối bằng phương thức `addConnector` được cung cấp bởi đối tượng `Shapes` bằng cách định nghĩa loại kết nối.
-1. Kết nối các hình bằng kết nối. 
-1. Đặt các điểm kết nối ưa thích của bạn trên các hình. 
-1. Lưu bản trình bày.  
-
-Đoạn mã Java này minh họa một thao tác trong đó một điểm kết nối ưa thích được chỉ định:
+Ví dụ sau kết nối một ellipse và một rectangle bằng một bent connector:
 
 ```java
-// Khởi tạo một lớp trình chiếu đại diện cho tệp PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Truy cập bộ sưu tập hình dạng cho một slide cụ thể
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một hình tự động Ellipse
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Thêm một hình tự động Rectangle
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // Thêm một hình kết nối vào bộ sưu tập hình dạng của slide
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Kết nối các hình bằng kết nối
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
+    connector.reroute();
 
-    // Đặt chỉ mục điểm kết nối ưa thích trên hình Ellipse
-    int wantedIndex = 6;
-
-    // Kiểm tra xem chỉ mục ưa thích có nhỏ hơn số lượng điểm tối đa không
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // Đặt điểm kết nối ưa thích trên hình tự động Ellipse
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
-    }
-
-    // Lưu bản trình chiếu
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Điều chỉnh một điểm kết nối**
+{{% alert color="warning" title="Cảnh báo" %}}
 
-Bạn có thể điều chỉnh một kết nối hiện có thông qua các điểm điều chỉnh của nó. Chỉ những kết nối có điểm điều chỉnh mới có thể được thay đổi theo cách này. Xem bảng dưới **[Các loại kết nối.](/slides/vi/java/connector/#types-of-connectors)**  
+Gọi `reroute` có thể thay đổi các giá trị [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) và [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-). Gán các điểm kết nối cụ thể sau khi định tuyến lại nếu các điểm đó phải cố định.
 
-### **Trường hợp đơn giản**
+{{% /alert %}}
 
-Xem xét một trường hợp mà một kết nối giữa hai hình (A và B) đi qua một hình thứ ba (C):
+## **Chọn Một Điểm Kết Nối**
+
+Mỗi hình dạng có thể kết nối báo cáo số lượng điểm thông qua [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getConnectionSiteCount--). Xác thực một chỉ mục điểm dựa trên zero trước khi gán nó cho đầu connector; số điểm tùy thuộc vào hình học của hình dạng.
+
+Ví dụ này gắn connector vào một điểm cụ thể trên ellipse khi điểm đó tồn tại:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
+    }
+
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Điều Chỉnh Một Điểm Connector**
+
+Các connector có điểm điều chỉnh sẽ hiển thị chúng thông qua [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igeometryshape/#getAdjustments--). Kiểm tra mỗi [IAdjustValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/) và kiểm tra giá trị [getType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#getType--) trước khi thay đổi bằng [setRawValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#setRawValue-long-). Các quy tắc chung để xác định các điều chỉnh hình dạng mẫu được mô tả trong [Shape Manipulation](/slides/vi/java/shape-manipulations/).
+
+Số lượng, thứ tự, ý nghĩa và phạm vi giá trị hợp lệ của các điều chỉnh connector phụ thuộc vào mẫu connector. Kiểu điều chỉnh chỉ đọc, trong khi giá trị điều chỉnh có thể ghi. Phương thức chỉ đọc [getName](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#getName--) cung cấp thông tin nhận dạng bổ sung khi một connector chứa nhiều hơn một điều chỉnh cùng kiểu ngữ nghĩa.
+
+### **Định Tuyến Quanh Một Chướng Ngại Vật**
+
+Trong bố cục sau, một connector `BentConnector5` giữa hai hình dạng đi qua một hình dạng thứ ba:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Đoạn mã này tạo connector bị cản trở:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Để tránh hoặc vượt qua hình thứ ba, chúng ta có thể điều chỉnh kết nối bằng cách di chuyển đường thẳng đứng sang trái như sau:
+Di chuyển khúc uốn dọc thay đổi tuyến đường sao cho connector bỏ qua chướng ngại vật:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+Thay vì giả định chỉ mục bộ sưu tập `1` luôn đại diện cho khúc uốn dọc, ví dụ này tìm kiếm `ConnectorBendPositionY` và chỉ thay đổi khi kiểu ngữ nghĩa mong đợi hiện hữu:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Trường hợp phức tạp** 
+Một `BentConnector5` có hai điều chỉnh `ConnectorBendPositionX` và một `ConnectorBendPositionY`. Nếu kiểu bạn cần xuất hiện nhiều lần, hãy kiểm tra `getName` và hình học đã biết của mẫu trước khi chọn. Nếu một điều chỉnh báo cáo `ShapeAdjustmentType.Custom`, coi ý nghĩa và phạm vi của nó là đặc thù cho mẫu và không thay đổi cho đến khi hợp đồng đó được xác định.
 
-Để thực hiện các điều chỉnh phức tạp hơn, bạn cần lưu ý các yếu tố sau:
+## **Liên Kết Giá Trị Điều Chỉnh với Hình Học Connector**
 
-* Một điểm điều chỉnh của kết nối liên quan chặt chẽ tới công thức tính toán và xác định vị trí của nó. Vì vậy, việc thay đổi vị trí của điểm có thể làm thay đổi hình dạng của kết nối.  
-* Các điểm điều chỉnh của một kết nối được định nghĩa trong một mảng với thứ tự chặt chẽ. Các điểm này được đánh số từ điểm bắt đầu của kết nối tới điểm kết thúc.  
-* Giá trị của điểm điều chỉnh phản ánh tỷ lệ phần trăm của chiều rộng/chiều cao của hình dạng kết nối.  
-  * Hình dạng được giới hạn bởi các điểm bắt đầu và kết thúc của kết nối nhân với 1000.  
-  * Điểm thứ nhất, điểm thứ hai và điểm thứ ba lần lượt xác định tỷ lệ phần trăm từ chiều rộng, tỷ lệ phần trăm từ chiều cao và lại từ chiều rộng.  
-* Đối với các phép tính xác định tọa độ của các điểm điều chỉnh của kết nối, bạn phải tính đến góc quay và phản chiếu của kết nối. **Lưu ý** rằng góc quay cho tất cả các kết nối được hiển thị trong **[Các loại kết nối](/slides/vi/java/connector/#types-of-connectors)** là 0.  
+Đối với các connector uốn, giá trị điều chỉnh có thể được dùng để ước tính vị trí của các đoạn riêng lẻ. Các phép tính này cụ thể cho mỗi mẫu connector:
 
-#### **Trường hợp 1**
+- `BentConnector4` thường hiển thị một điều chỉnh `ConnectorBendPositionX` và một `ConnectorBendPositionY`.
+- Đối với các vị trí uốn này, chia giá trị trả về bởi `getRawValue` cho `100000f` tạo ra phần tỷ lệ của chiều rộng hoặc chiều cao khung connector như trong các ví dụ dưới.
+- Khung connector có thể bị quay hoặc lật, vì vậy tọa độ khung phải được biến đổi trước khi so sánh với tọa độ slide.
 
-Xem xét một trường hợp mà hai đối tượng khung văn bản được liên kết với nhau qua một kết nối:
+Các ví dụ sau dùng `getType` để xác định các điều chỉnh trước. Chúng không dùng chỉ mục bộ sưu tập làm định danh di động.
+
+### **Connector Không Được Quay**
+
+Bố cục ban đầu chứa hai hình dạng văn bản được kết nối bằng một `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Ví dụ này kiểm tra connector và lấy các điều chỉnh uốn ngang và dọc:
+
 ```java
-// Khởi tạo một lớp trình chiếu đại diện cho tệp PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên trong bản trình chiếu
-    ISlide sld = pres.getSlides().get_Item(0);
-    // Thêm các hình sẽ được nối lại với nhau bằng một kết nối
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Thêm một kết nối
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Xác định hướng của kết nối
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Xác định màu sắc của kết nối
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Xác định độ dày của đường kết nối
     connector.getLineFormat().setWidth(3);
-    
-    // Nối các hình lại với nhau bằng kết nối
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // Lấy các điểm điều chỉnh cho kết nối
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**Điều chỉnh**
-
-Chúng ta có thể thay đổi giá trị các điểm điều chỉnh của kết nối bằng cách tăng tỷ lệ phần trăm chiều rộng và chiều cao tương ứng lên 20% và 200%, tương ứng:
+Để thay đổi cả hai khúc uốn, tìm mỗi kiểu mong đợi và sửa đổi giá trị chỉ sau khi cả hai đã được tìm thấy:
 
 ```java
-// Thay đổi giá trị của các điểm điều chỉnh
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Kết quả:
+Kết quả là một connector mà các đoạn ngang và dọc đã di chuyển:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Để xác định một mô hình cho phép chúng ta tính toán tọa độ và hình dạng của các phần riêng lẻ của kết nối, hãy tạo một hình dạng tương ứng với thành phần ngang của kết nối tại điểm `connector.getAdjustments().get_Item(0)`:
+Khi đã biết các kiểu ngữ nghĩa, giá trị của chúng có thể được chuyển đổi thành tọa độ khung connector. Ví dụ này vẽ một hình chữ nhật mỏng lên đoạn dọc được điều khiển bởi hai điều chỉnh uốn:
 
 ```java
-// Vẽ thành phần thẳng đứng của kết nối
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Kết quả:
+Hình dạng hướng dẫn đánh dấu đoạn đã tính toán:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Trường hợp 2**
+### **Connector Được Quay Hoặc Lật**
 
-Trong **Trường hợp 1**, chúng tôi đã minh họa một thao tác điều chỉnh kết nối đơn giản bằng các nguyên tắc cơ bản. Trong các trường hợp bình thường, bạn phải tính đến góc quay của kết nối và cách hiển thị của nó (được đặt bởi `connector.getRotation()`, `connector.getFrame().getFlipH()` và `connector.getFrame().getFlipV()`). Bây giờ chúng tôi sẽ trình bày quy trình.  
+Khi cùng một hình học connector được định hướng dọc, các giá trị của [IShape.getFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getFrame--), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapeframe/#getFlipH--), và [ShapeFrame.getFlipV](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shapeframe/#getFlipV--) ảnh hưởng đến việc chuyển đổi từ tọa độ khung connector sang tọa độ slide.
 
-Đầu tiên, hãy thêm một đối tượng khung văn bản mới (**To 1**) vào slide (để kết nối) và tạo một kết nối (màu xanh lá) mới để nối nó với các đối tượng đã tạo trước đó.
+Ví dụ này tạo và điều chỉnh connector định hướng dọc:
 
 ```java
-// Tạo một đối tượng ràng buộc mới
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Tạo một kết nối mới
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// Kết nối các đối tượng bằng kết nối vừa tạo
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Lấy các điểm điều chỉnh của kết nối
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Thay đổi giá trị của các điểm điều chỉnh
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Kết quả:
+Connector đã chỉnh trở nên dọc giữa các hình dạng:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Thứ hai, hãy tạo một hình dạng sẽ tương ứng với thành phần ngang của kết nối đi qua điểm điều chỉnh mới của kết nối `connector.getAdjustments().get_Item(0)`. Chúng ta sẽ sử dụng các giá trị từ dữ liệu kết nối cho `connector.getRotation()`, `connector.getFrame().getFlipH()` và `connector.getFrame().getFlipV()` và áp dụng công thức chuyển đổi tọa độ phổ biến cho phép quay quanh một điểm cho trước x0:
+Với một góc quay tùy ý `alpha`, quay một điểm khung connector `(x, y)` quanh trung tâm khung `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Trong trường hợp của chúng ta, góc quay của đối tượng là 90 độ và kết nối được hiển thị theo chiều dọc, vì vậy đoạn mã tương ứng là:
+Đoạn mã dưới đây xử lý hướng 90 độ được dùng trong ví dụ và vẽ một hướng dẫn màu đỏ lên đoạn connector tương ứng:
 
 ```java
-// Lưu tọa độ của kết nối
-x = connector.getX();
-y = connector.getY();
-// Điều chỉnh tọa độ của kết nối trong trường hợp nó xuất hiện
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// Lấy giá trị điểm điều chỉnh làm tọa độ
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Chuyển đổi tọa độ vì Sin(90) = 1 và Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// Xác định độ rộng của thành phần ngang bằng cách sử dụng giá trị điểm điều chỉnh thứ hai
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-Kết quả:
+Hướng dẫn màu đỏ đánh dấu đoạn đã tính toán sau khi biến đổi tọa độ:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Chúng tôi đã minh họa các phép tính liên quan đến điều chỉnh đơn giản và các điểm điều chỉnh phức tạp (các điểm điều chỉnh có góc quay). Với kiến thức đã học, bạn có thể phát triển mô hình riêng (hoặc viết mã) để lấy một đối tượng `GraphicsPath` hoặc thậm chí đặt giá trị các điểm điều chỉnh của kết nối dựa trên tọa độ slide cụ thể.  
+Các công thức này mô tả các mẫu được dùng trong ví dụ, không phải mô hình connector chung. Hãy xác thực kiểu điều chỉnh, hướng khung và phạm vi giá trị trước khi áp dụng cùng một phép tính cho mẫu khác.
 
-## **Tìm góc của các đường kết nối**
+## **Tìm Góc Hướng Của Connector**
 
-1. Tạo một thể hiện của lớp.  
-1. Lấy tham chiếu của slide thông qua chỉ mục của nó.  
-1. Truy cập hình dạng đường kết nối.  
-1. Sử dụng độ rộng, độ cao của đường, chiều cao khung hình và độ rộng khung hình để tính góc.  
-
-Đoạn mã Java này minh họa một thao tác trong đó chúng tôi tính góc cho một hình dạng đường kết nối:
+Hướng của một straight connector có thể tính từ chiều rộng và chiều cao, cộng với việc áp dụng lật ngang và dọc. Ví dụ sau báo cáo góc theo chiều kim đồng hồ tính từ trục ngang dương trong tọa độ slide:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
-```
+## **Câu Hỏi Thường Gặp**
 
-## **Câu hỏi thường gặp**
+**Làm sao tôi biết một connector có thể gắn vào một hình dạng không?**
 
-**Làm sao tôi biết một kết nối có thể "dán" vào một hình dạng cụ thể?**  
+Kiểm tra giá trị [getConnectionSiteCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getConnectionSiteCount--) của hình dạng. Giá trị dương có nghĩa là hình dạng cung cấp các điểm kết nối. Xác thực chỉ mục điểm đã chọn trước khi gán cho bất kỳ đầu connector nào.
 
-Kiểm tra xem hình dạng có cung cấp [các điểm kết nối](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shape/#getConnectionSiteCount--) hay không. Nếu không có hoặc số lượng bằng 0, việc dán không khả dụng; trong trường hợp này, hãy sử dụng các đầu nối tự do và đặt chúng thủ công. Nên kiểm tra số lượng điểm trước khi gắn.  
+**Tôi có thể xác định một điểm điều chỉnh connector bằng chỉ mục bộ sưu tập không?**
 
-**Điều gì xảy ra với một kết nối nếu tôi xóa một trong những hình đã kết nối?**  
+Chỉ mục chỉ có ý nghĩa đối với một mẫu connector đã biết và bố cục bộ sưu tập. Kiểm tra [IAdjustValue.getType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#getType--) trước khi sửa đổi giá trị, và sử dụng [IAdjustValue.getName](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iadjustvalue/#getName--) như thông tin bổ sung khi cùng một kiểu ngữ nghĩa xuất hiện nhiều lần.
 
-Đầu của nó sẽ bị tách rời; kết nối vẫn còn trên slide như một đường thường với đầu/mối tự do. Bạn có thể xóa nó hoặc gán lại các kết nối và, nếu cần, [reroute](https://reference.aspose.com/slides/vi/java/com.aspose.slides/connector/#reroute--).  
+**Điều gì xảy ra khi một hình dạng đã được kết nối bị xóa?**
 
-**Liệu các ràng buộc của kết nối có được giữ lại khi sao chép một slide sang bản trình bày khác không?**  
+Đầu connector tương ứng sẽ bị tách rời. Connector vẫn còn trên slide và có thể bị xóa, đặt làm một đường tự do, hoặc gắn lại vào một hình dạng khác.
 
-Nói chung là có, với điều kiện các hình mục tiêu cũng được sao chép. Nếu slide được chèn vào tệp khác mà không có các hình đã kết nối, các đầu sẽ trở thành tự do và bạn sẽ cần gắn lại chúng.
+**Các ràng buộc connector có được giữ lại khi sao chép slide không?**
+
+Các ràng buộc thường được giữ lại khi các hình dạng được kết nối cùng với slide được sao chép. Nếu một connector được sao chép mà không có một trong các hình dạng mục tiêu, đầu bị ảnh hưởng phải được gắn lại.

@@ -1,5 +1,5 @@
 ---
-title: जावा का उपयोग करके प्रस्तुतियों में कनेक्टर प्रबंधित करें
+title: Java में प्रस्तुतियों में कनेक्टर प्रबंधित करें
 linktitle: कनेक्टर
 type: docs
 weight: 10
@@ -10,394 +10,494 @@ keywords:
 - कनेक्टर बिंदु
 - कनेक्टर रेखा
 - कनेक्टर कोण
-- आकृतियों को जोड़ें
+- कनेक्शन साइट
+- समायोजन बिंदु
+- आकारों को जोड़ें
 - PowerPoint
 - प्रस्तुति
-- जावा
+- Java
 - Aspose.Slides
-description: "जावा एप्लिकेशन को PowerPoint स्लाइड्स में रेखाएँ बनाने, जोड़ने और स्वतः‑रूट करने की क्षमता दें—सीधी, कुहनी और वक्र कनेक्टरों पर पूर्ण नियंत्रण प्राप्त करें।"
+description: "Aspose.Slides for Java के साथ सीधे, मोड़े हुए और वक्र PowerPoint कनेक्टर को जोड़ना, संलग्न करना, रीरूट करना, समायोजित करना और निरीक्षण करना सीखें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-PowerPoint कनेक्टर एक विशेष रेखा है जो दो आकृतियों को जोड़ता या लिंक करता है और स्लाइड पर उन्हें स्थानांतरित या पुनःस्थापित करने पर भी आकृतियों से जुड़ी रहती है।
+एक कनेक्टर वह रेखा है जो किसी भी आकार के 움직ने पर दो Shapes से जुड़ी रह सकती है। इसके सिरों को कनेक्शन साइटों से जोड़ा जाता है, जिन्हें PowerPoint में हरे बिंदुओं द्वारा दर्शाया जाता है। कुछ मोड़े हुए और वक्र कनेक्टर भी समायोजन बिंदु दिखाते हैं, जिन्हें नारंगी बिंदुओं द्वारा दर्शाया जाता है, जो व्यक्तिगत कनेक्टर खंडों की स्थिति को नियंत्रित करते हैं।
 
-कनेक्टर सामान्यतः *कनेक्शन डॉट्स* (हरा बिंदु) से जुड़ते हैं, जो डिफ़ॉल्ट रूप से सभी आकृतियों पर मौजूद होते हैं। कनेक्शन डॉट्स तब दिखते हैं जब कर्सर उनके पास आता है।
+Aspose.Slides कनेक्टर को [IConnector](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iconnector/) इंटरफ़ेस के माध्यम से दर्शाता है। आप उन्हें बना सकते हैं, उनके सिरों को Shapes से जोड़ सकते हैं, कनेक्शन साइट चुन सकते हैं, उन्हें reroute कर सकते हैं, और समायोजन बिंदुओं वाले कनेक्टर की ज्यामिति को संशोधित कर सकते हैं।
 
-*एडजस्टमेंट पॉइंट्स* (नारंगी बिंदु), जो केवल कुछ कनेक्टरों पर मौजूद होते हैं, का उपयोग कनेक्टरों की स्थिति और आकृति को बदलने के लिए किया जाता है।
+## **कनेक्टर प्रकार**
 
-## **कनेक्टर के प्रकार**
-
-PowerPoint में आप सीधी, कुहनी (कोणीय) और वक्र कनेक्टरों का उपयोग कर सकते हैं।
-
-Aspose.Slides ये कनेक्टर प्रदान करता है:
+[ShapeType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/shapetype/) क्लास में सीधे (straight), मोड़े हुए (bent), और वक्र (curved) कनेक्टर प्रीसेट शामिल हैं। नीचे की तालिका उपलब्ध कनेक्टर ज्यामिति और प्रत्येक प्रीसेट द्वारा परिभाषित समायोजन बिंदुओं की संख्या दर्शाती है।
 
 | कनेक्टर | छवि | समायोजन बिंदुओं की संख्या |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **कनेक्टरों का उपयोग करके आकृतियों को जोड़ें**
+समायोजन बिंदुओं की संख्या और अर्थ चयनित कनेक्टर प्रीसेट का हिस्सा होते हैं। यह न मानें कि दो विभिन्न कनेक्टर प्रकार समान संग्रह लेआउट दिखाते हैं।
 
-1. Presentation वर्ग की एक इंस्टेंस बनाएं。[Presentation](https://apireference.aspose.com/slides/hi/java/com.aspose.slides/Presentation)
-2. स्लाइड का संदर्भ उसके इंडेक्स द्वारा प्राप्त करें।
-3. स्लाइड में दो [AutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/AutoShape) जोड़ें, जो `Shapes` ऑब्जेक्ट द्वारा प्रदान किए गए `addAutoShape` मेथड से किया जाता है।
-4. `Shapes` ऑब्जेक्ट द्वारा प्रदान किए गए `addConnector` मेथड का उपयोग करके कनेक्टर जोड़ें और कनेक्टर प्रकार निर्धारित करें।
-5. कनेक्टर का उपयोग करके आकृतियों को जोड़ें।
-6. `reroute` मेथड को कॉल करें ताकि सबसे छोटा कनेक्शन पथ लागू हो।
-7. प्रेजेंटेशन को सहेजें।
+## **दो Shapes को जोड़ें**
 
-यह Java कोड आपको दिखाता है कि कैसे दो आकृतियों (एक दीर्घवृत्त और आयत) के बीच एक कनेक्टर (बेंट कनेक्टर) जोड़ा जाए:
+[IShapeCollection.addConnector](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) का उपयोग करके एक कनेक्टर जोड़ें, और [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) तथा [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) का उपयोग करके उसके सिरों को संलग्न करें। दोनों सिरों के जुड़ने के बाद, [IConnector.reroute](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iconnector/#reroute--) आकारों के बीच सबसे छोटा मार्ग चुनता है।
 
-```Java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
+निम्न उदाहरण एक दीर्घवृत्त और एक आयत को एक मोड़े हुए कनेक्टर से जोड़ता है:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // एक विशिष्ट स्लाइड के लिए शेप्स कलेक्शन तक पहुँचता है
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // एक एलिप्स ऑटोशेप जोड़ता है
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // एक आयत ऑटोशेप जोड़ता है
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // स्लाइड शेप्स कलेक्शन में कनेक्टर शेप जोड़ता है
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // कनेक्टर का उपयोग करके शेप्स को जोड़ता है
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    
-    // reroute को कॉल करता है जो शेप्स के बीच स्वचालित सबसे छोटा पथ सेट करता है
     connector.reroute();
-    
-    // प्रेजेंटेशन को सहेजता है
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Connector.reroute` मेथड कनेक्टर को पुन:रूट करता है और इसे आकृतियों के बीच सबसे छोटा संभव पथ लेने पर मजबूर करता है। इसका लक्ष्य प्राप्त करने के लिए, मेथड `setStartShapeConnectionSiteIndex` और `setEndShapeConnectionSiteIndex` बिंदुओं को बदल सकता है। 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
+`reroute` को कॉल करने से [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) और [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) मान बदल सकते हैं। यदि इन साइटों को स्थिर रखना है, तो reroute करने के बाद विशिष्ट कनेक्शन साइट असाइन करें।
+{{% /alert %}}
 
-## **कनेक्शन डॉट निर्दिष्ट करें**
+## **कनेक्शन साइट चुनें**
 
-यदि आप चाहते हैं कि एक कनेक्टर दो आकृतियों को उनके विशिष्ट डॉट्स के माध्यम से लिंक करे, तो आपको अपनी पसंदीदा कनेक्शन डॉट्स इस प्रकार निर्दिष्ट करने होंगे:
+प्रत्येक कनेक्टेबल Shape अपने साइटों की संख्या को [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/#getConnectionSiteCount--) के माध्यम से रिपोर्ट करता है। कनेक्टर के सिर को असाइन करने से पहले वांछित शून्य-आधारित साइट इंडेक्स को वैध करें; साइट की गणना Shape की ज्यामिति पर निर्भर करती है।
 
-1. Presentation वर्ग की एक इंस्टेंस बनाएं。[Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation)
-2. स्लाइड का संदर्भ उसके इंडेक्स द्वारा प्राप्त करें।
-3. स्लाइड में दो [AutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/AutoShape) जोड़ें, जो `Shapes` ऑब्जेक्ट द्वारा प्रदान किए गए `addAutoShape` मेथड से किया जाता है।
-4. `Shapes` ऑब्जेक्ट द्वारा प्रदान किए गए `addConnector` मेथड का उपयोग करके कनेक्टर जोड़ें और कनेक्टर प्रकार निर्धारित करें।
-5. कनेक्टर का उपयोग करके आकृतियों को जोड़ें।
-6. आकृतियों पर अपने पसंदीदा कनेक्शन डॉट्स सेट करें।
-7. प्रेजेंटेशन को सहेजें।
-
-यह Java कोड एक ऐसी ऑपरेशन को दर्शाता है जहाँ एक पसंदीदा कनेक्शन डॉट निर्दिष्ट किया गया है:
+यह उदाहरण कनेक्टर को दीर्घवृत्त पर एक विशिष्ट साइट से जोड़ता है जब वह साइट मौजूद हो:
 
 ```java
-// एक PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // एक विशिष्ट स्लाइड के लिए शेप्स कलेक्शन तक पहुँचता है
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // एक एलिप्स ऑटोशेप जोड़ता है
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // एक आयत ऑटोशेप जोड़ता है
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // स्लाइड के शेप कलेक्शन में एक कनेक्टर शेप जोड़ता है
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // कनेक्टर का उपयोग करके शेप्स को जोड़ता है
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // एलिप्स शेप पर पसंदीदा कनेक्शन डॉट इंडेक्स सेट करता है
-    int wantedIndex = 6;
-
-    // जाँचता है कि क्या पसंदीदा इंडेक्स अधिकतम साइट इंडेक्स काउंट से कम है
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // एलिप्स ऑटोशेप पर पसंदीदा कनेक्शन डॉट सेट करता है
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
     }
 
-    // प्रस्तुति को सहेजता है
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **कनेक्टर बिंदु समायोजित करें**
 
-आप किसी मौजूदा कनेक्टर को उसके समायोजन बिंदुओं के माध्यम से समायोजित कर सकते हैं। केवल उन कनेक्टरों को, जिनमें समायोजन बिंदु होते हैं, इस प्रकार बदला जा सकता है। **[कनेक्टर के प्रकार.](/slides/hi/java/connector/#types-of-connectors)** के अंतर्गत तालिका देखें।
+समायोजन बिंदुओं वाले कनेक्टर इन्हें [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/hi/java/com.aspose.slides/igeometryshape/#getAdjustments--) के माध्यम से उजागर करते हैं। प्रत्येक [IAdjustValue](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iadjustvalue/) को जाँचें और [setRawValue](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) से बदलने से पहले उसके [getType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iadjustvalue/#getType--) मान की जांच करें। प्रीसेट Shape समायोजनों की पहचान के सामान्य नियम [Shape Manipulation](/slides/hi/java/shape-manipulations/) में वर्णित हैं।
 
-### **साधारण मामला**
+कनेक्टर समायोजन की संख्या, क्रम, अर्थ और मान्य मान सीमा कनेक्टर प्रीसेट पर निर्भर करती है। समायोजन प्रकार केवल पढ़ने योग्य (read‑only) है, जबकि समायोजन मान लिखने योग्य (writable) है। केवल‑पढ़ने योग्य [getName](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iadjustvalue/#getName--) मेथड अतिरिक्त पहचान प्रदान करता है जब एक कनेक्टर में समान अर्थ वाले कई समायोजन होते हैं।
 
-ऐसे मामले पर विचार करें जहाँ दो आकृतियों (A और B) के बीच का कनेक्टर तीसरी आकृति (C) के माध्यम से जाता है:
+### **बाधा के आसपास मार्ग**
+
+निम्न लेआउट में, दो Shapes के बीच का `BentConnector5` कनेक्टर तीसरे Shape के माध्यम से गुजरता है:
 
 ![connector-obstruction](connector-obstruction.png)
 
+यह कोड बाधित कनेक्टर बनाता है:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-तीसरी आकृति से बचने या उसे बायपास करने के लिए, हम कनेक्टर को इस प्रकार बाएँ की ओर उसकी लंबवत रेखा को ले जाकर समायोजित कर सकते हैं:
+ऊर्ध्वाधर मोड़ को स्थानांतरित करने से मार्ग बदल जाता है जिससे कनेक्टर बाधा को बायपास करता है:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+संग्रह इंडेक्स `1` हमेशा ऊर्ध्वाधर मोड़ दर्शाता है, यह मानने के बजाय, यह उदाहरण `ConnectorBendPositionY` को खोजता है और केवल तब बदलता है जब अपेक्षित अर्थ प्रकार मौजूद हो:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **जटिल मामले** 
+`BentConnector5` में दो `ConnectorBendPositionX` समायोजन और एक `ConnectorBendPositionY` समायोजन होता है। यदि आवश्यक प्रकार एक से अधिक बार आता है, तो चयन करने से पहले `getName` और उस प्रीसेट की ज्ञात ज्यामिति जांचें। यदि किसी समायोजन ने `ShapeAdjustmentType.Custom` लौटाया है, तो उसके अर्थ और सीमा को प्रीसेट‑विशिष्ट मानें और तब तक न बदलें जब तक वह अनुबंध ज्ञात न हो।
 
-और अधिक जटिल समायोजन करने के लिए, आपको निम्नलिखित बातों पर ध्यान देना होगा:
+## **समायोजन मानों को कनेक्टर ज्यामिति से संबंधित करें**
 
-* कनेक्टर का समायोज्य बिंदु एक सूत्र से दृढ़ता से जुड़ा होता है जो उसकी स्थिति की गणना और निर्धारण करता है। इसलिए बिंदु के स्थान में परिवर्तन कनेक्टर की आकृति को बदल सकता है।
-* कनेक्टर के समायोजन बिंदुओं को एक सरणी में निश्चित क्रम में परिभाषित किया जाता है। समायोजन बिंदुओं को कनेक्टर के प्रारंभ बिंदु से अंत बिंदु तक क्रमांकित किया जाता है।
-* समायोजन बिंदु मान कनेक्टर आकृति की चौड़ाई/ऊँचाई के प्रतिशत को दर्शाते हैं। 
-  * आकृति को कनेक्टर के प्रारंभ और अंत बिंदुओं को 1000 से गुणा करके सीमित किया जाता है। 
-  * पहला बिंदु, दूसरा बिंदु और तीसरा बिंदु क्रमशः चौड़ाई के प्रतिशत, ऊँचाई के प्रतिशत और फिर से चौड़ाई के प्रतिशत को परिभाषित करता है। 
-* कनेक्टर के समायोजन बिंदुओं के निर्देशांक निर्धारित करने वाली गणनाओं के लिए, आपको कनेक्टर के घूर्णन और उसके प्रतिबिंब को ध्यान में रखना होगा। **ध्यान दें** कि **[कनेक्टर के प्रकार](/slides/hi/java/connector/#types-of-connectors)** के अंतर्गत दिखाए गए सभी कनेक्टरों का घूर्णन कोण 0 है।
+बोड़े (bent) कनेक्टरों के लिए, समायोजन मानों का उपयोग व्यक्तिगत खंडों की स्थितियों का अनुमान लगाने में किया जा सकता है। ये गणनाएँ कनेक्टर प्रीसेट के विशेष हैं:
 
-#### **मामला 1**
+- `BentConnector4` सामान्यतः एक `ConnectorBendPositionX` और एक `ConnectorBendPositionY` समायोजन उजागर करता है।
+- इन मोड़ स्थितियों के लिए, `getRawValue` द्वारा लौटाए मान को `100000f` से विभाजित करने से नीचे दिए उदाहरणों में उपयोग किए गए कनेक्टर फ्रेम की चौड़ाई या ऊँचाई का अंश प्राप्त होता है।
+- कनेक्टर फ्रेम को घुमाया या उलटा (flip) किया जा सकता है, इसलिए फ्रेम निर्देशांक को स्लाइड निर्देशांक से तुलना करने से पहले परिवर्तित करना आवश्यक है।
 
-ऐसे मामले पर विचार करें जहाँ दो टेक्स्ट फ्रेम ऑब्जेक्ट कनेक्टर के माध्यम से जुड़े होते हैं:
+निम्न उदाहरण पहले `getType` का उपयोग करके समायोजन की पहचान करते हैं। वे संग्रह इंडेक्स को पोर्टेबल पहचानकर्ता नहीं मानते।
+
+### **अनरोटेटेड कनेक्टर**
+
+प्रारंभिक लेआउट में दो टेक्स्ट Shapes हैं जो `BentConnector4` द्वारा जुड़े हुए हैं:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+यह उदाहरण कनेक्टर की जांच करता है और उसके क्षैतिज एवं ऊर्ध्वाधर मोड़ समायोजन प्राप्त करता है:
+
 ```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // प्रस्तुति में पहली स्लाइड प्राप्त करता है
-    ISlide sld = pres.getSlides().get_Item(0);
-    // ऐसे शैप्स जोड़ता है जिन्हें कनेक्टर के माध्यम से जोड़ा जाएगा
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // एक कनेक्टर जोड़ता है
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // कनेक्टर की दिशा निर्दिष्ट करता है
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // कनेक्टर का रंग निर्दिष्ट करता है
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // कनेक्टर की लाइन की मोटाई निर्दिष्ट करता है
     connector.getLineFormat().setWidth(3);
-    
-    // कनेक्टर के साथ शैप्स को आपस में जोड़ता है
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // कनेक्टर के समायोजन बिंदु प्राप्त करता है
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**समायोजन**
-
-हम कनेक्टर के समायोजन बिंदु मान को क्रमशः संबंधित चौड़ाई और ऊँचाई प्रतिशत को 20% और 200% बढ़ाकर बदल सकते हैं:
+दोनों मोड़ों को बदलने के लिए, प्रत्येक अपेक्षित प्रकार को खोजें और दोनों मिलने के बाद ही मान बदलें:
 
 ```java
-// समायोजन बिंदुओं के मान बदलता है
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-परिणाम:
+परिणामस्वरूप वह कनेक्टर प्राप्त होता है जिसके क्षैतिज और ऊर्ध्वाधर खंड स्थानांतरित हो गए हैं:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-एक मॉडल परिभाषित करने के लिए जो हमें कनेक्टर के व्यक्तिगत भागों के निर्देशांक और आकृति निर्धारित करने की अनुमति देता है, चलिए एक ऐसी आकृति बनाते हैं जो कनेक्टर के क्षैतिज घटक से मेल खाती हो, जहाँ बिंदु connector.getAdjustments().get_Item(0) है:
+एक बार अर्थपूर्ण प्रकार ज्ञात हो जाएँ, उनके मान को कनेक्टर‑फ़्रेम निर्देशांक में बदला जा सकता है। यह उदाहरण दो मोड़ समायोजनों द्वारा नियंत्रित ऊर्ध्वाधर खंड के ऊपर एक पतली आयत खींचता है:
 
 ```java
-// कनेक्टर का लम्बवत घटक बनाता है
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-परिणाम:
+गाइड Shape गणना किए गए खंड को चिह्नित करता है:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **मामला 2**
+### **घुमाया या उलटा कनेक्टर**
 
-**मामला 1** में हमने मूल सिद्धांतों का उपयोग करके एक साधारण कनेक्टर समायोजन ऑपरेशन प्रदर्शित किया। सामान्य स्थितियों में, आपको कनेक्टर के घूर्णन और उसके प्रदर्शन (जो connector.getRotation(), connector.getFrame().getFlipH(), और connector.getFrame().getFlipV() द्वारा निर्धारित होते हैं) को ध्यान में रखना होगा। अब हम प्रक्रिया दर्शाएंगे।
+जब वही कनेक्टर ज्यामिति ऊर्ध्वाधर रूप में अभिविन्यासित होती है, तो उसके [IShape.getFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/#getFrame--), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/hi/java/com.aspose.slides/shapeframe/#getFlipH--), और [ShapeFrame.getFlipV](https://reference.aspose.com/slides/hi/java/com.aspose.slides/shapeframe/#getFlipV--) मान कनेक्टर‑फ़्रेम निर्देशांक से स्लाइड निर्देशांक में परिवर्तन को प्रभावित करते हैं।
 
-पहले, स्लाइड में एक नया टेक्स्ट फ्रेम ऑब्जेक्ट (**To 1**) जोड़ें (कनेक्शन हेतु) और एक नया (हरा) कनेक्टर बनाएं जो इसे पहले से निर्मित ऑब्जेक्ट्स से जोड़ता है।
+यह उदाहरण ऊर्ध्वाधर अभिविन्यासित कनेक्टर बनाता और समायोजित करता है:
 
 ```java
-// एक नया बाइंडिंग ऑब्जेक्ट बनाता है
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// एक नया कनेक्टर बनाता है
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// नए बनाए गए कनेक्टर का उपयोग करके ऑब्जेक्ट्स को जोड़ता है
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// कनेक्टर के समायोजन बिंदु प्राप्त करता है
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// समायोजन बिंदुओं के मान बदलता है
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-परिणाम:
+समायोजित कनेक्टर आकारों के बीच ऊर्ध्वाधर रूप से दिखाई देता है:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-दूसरा, चलिए एक ऐसी आकृति बनाते हैं जो कनेक्टर के क्षैतिज घटक से मेल खाती हो, जो नए कनेक्टर के समायोजन बिंदु connector.getAdjustments().get_Item(0) से गुजरती है। हम कनेक्टर डेटा से मानों को उपयोग करेंगे जो connector.getRotation(), connector.getFrame().getFlipH(), और connector.getFrame().getFlipV() के लिए हैं और दिए गए बिंदु x0 के चारों ओर घूर्णन के लिए लोकप्रिय निर्देशांक परिवर्तन सूत्र लागू करेंगे:
+किसी भी घूर्णन कोण `alpha` के लिए, कनेक्टर‑फ़्रेम बिंदु `(x, y)` को फ्रेम केंद्र `(x0, y0)` के चारों ओर घुमाएँ:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-हमारे मामले में, ऑब्जेक्ट का घूर्णन कोण 90 डिग्री है और कनेक्टर लंबवत प्रदर्शित होता है, इसलिए यह संबंधित कोड है:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+निम्न कोड इस उदाहरण में उपयोग किए गए 90‑डिग्री अभिविन्यास को संभालता है और संबंधित कनेक्टर खंड के ऊपर एक लाल गाइड खींचता है:
 
 ```java
-// कनेक्टर के निर्देशांक को सहेजता है
-x = connector.getX();
-y = connector.getY();
-// यदि यह दिखाई देता है तो कनेक्टर के निर्देशांक को सही करता है
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// समायोजन बिंदु मान को निर्देशांक के रूप में लेता है
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  निर्देशांकों को परिवर्तित करता है क्योंकि Sin(90) = 1 और Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// दूसरे समायोजन बिंदु मान का उपयोग करके क्षैतिज घटक की चौड़ाई निर्धारित करता है
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-परिणाम:
+समन्वय रूपांतरण के बाद लाल गाइड गणना किए गए खंड को चिह्नित करता है:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-हमने साधारण समायोजनों और जटिल समायोजन बिंदुओं (घूर्णन कोण वाले समायोजन बिंदु) से संबंधित गणनाओं को दर्शाया। प्राप्त ज्ञान का उपयोग करके, आप अपना मॉडल बना सकते हैं (या कोड लिख सकते हैं) ताकि `GraphicsPath` ऑब्जेक्ट प्राप्त किया जा सके या विशिष्ट स्लाइड निर्देशांकों के आधार पर कनेक्टर के समायोजन बिंदु मान सेट किए जा सकें।
+ये सूत्र उदाहरणों में उपयोग किए गए प्रीसेट को वर्णित करते हैं, किसी सार्वभौमिक कनेक्टर मॉडल को नहीं। किसी अन्य प्रीसेट पर समान गणना लागू करने से पहले समायोजन प्रकार, फ्रेम अभिविन्यास, और मान रेंज की जाँच करें।
 
-## **कनेक्टर लाइनों का कोण खोजें**
+## **कनेक्टर दिशा कोण खोजें**
 
-1. क्लास की एक इंस्टेंस बनाएं।
-2. स्लाइड का संदर्भ उसके इंडेक्स द्वारा प्राप्त करें।
-3. कनेक्टर लाइन आकृति तक पहुँचें।
-4. लाइन की चौड़ाई, ऊँचाई, आकृति फ्रेम की ऊँचाई और चौड़ाई का उपयोग करके कोण की गणना करें।
-
-यह Java कोड एक ऐसी प्रक्रिया दर्शाता है जिसमें हमने कनेक्टर लाइन आकृति के लिए कोण की गणना की:
+एक सीधे कनेक्टर की दिशा उसकी चौड़ाई और ऊँचाई से, क्षैतिज एवं ऊर्ध्वाधर फ्लिप लागू करके, गणना की जा सकती है। निम्न उदाहरण स्लाइड निर्देशांक में सकारात्मक क्षैतिज अक्ष से घड़ी की दिशा में कोण रिपोर्ट करता है:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    presentation.dispose();
 }
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे पता कर सकता हूँ कि कोई कनेक्टर किसी विशिष्ट आकृति से "ग्लू" किया जा सकता है या नहीं?**
+**मैं कैसे जानूँ कि कोई कनेक्टर Shape से जुड़ सकता है या नहीं?**
 
-जाँचें कि आकृति [connection sites](https://reference.aspose.com/slides/hi/java/com.aspose.slides/shape/#getConnectionSiteCount--) प्रदान करती है या नहीं। यदि कोई नहीं हैं या गिनती शून्य है, तो ग्लू करने की सुविधा उपलब्ध नहीं है; ऐसे में, मुक्त अंत बिंदुओं का उपयोग करें और उन्हें मैन्युअल रूप से स्थिति दें। संलग्न करने से पहले साइट गिनती की जाँच करना समझदारी है।
+Shape के [getConnectionSiteCount](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/#getConnectionSiteCount--) मान की जाँच करें। सकारात्मक मान का अर्थ है कि Shape कनेक्शन साइट प्रदान करता है। कनेक्टर के सिर को असाइन करने से पहले चयनित साइट इंडेक्स को वैध करें, क्योंकि साइट गणना Shape की ज्यामिति पर निर्भर करती है।
 
-**यदि मैं जुड़े हुए आकृतियों में से एक को हटाता हूँ तो कनेक्टर के साथ क्या होता है?**
+**क्या मैं कनेक्टर समायोजन को उसके संग्रह इंडेक्स से पहचान सकता हूँ?**
 
-इसके सिरों को डिटैच कर दिया जाएगा; कनेक्टर स्लाइड पर एक सामान्य रेखा के रूप में रहता है जिसमें मुक्त प्रारम्भ/अंत होते हैं। आप इसे हटा सकते हैं या कनेक्शनों को पुनः असाइन कर सकते हैं और आवश्यक होने पर, [reroute](https://reference.aspose.com/slides/hi/java/com.aspose.slides/connector/#reroute--) कर सकते हैं।
+इंडेक्स केवल ज्ञात कनेक्टर प्रीसेट और संग्रह लेआउट के लिए अर्थपूर्ण होता है। मान बदलने से पहले [IAdjustValue.getType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iadjustvalue/#getType--) की जाँच करें, और जब समान अर्थ प्रकार कई बार उपस्थित हो तो अतिरिक्त जानकारी के लिए [IAdjustValue.getName](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iadjustvalue/#getName--) का उपयोग करें।
 
-**क्या स्लाइड को किसी अन्य प्रेजेंटेशन में कॉपी करने पर कनेक्टर बाइंडिंग्स संरक्षित रहती हैं?**
+**जब जुड़े हुए Shape को हटाया जाता है तो क्या होता है?**
 
-आम तौर पर हाँ, बशर्ते लक्ष्य आकृतियां भी कॉपी की गई हों। यदि स्लाइड को किसी अन्य फ़ाइल में बिना जुड़े हुए आकृतियों के सम्मिलित किया जाता है, तो अंत बिंदु मुक्त हो जाते हैं और आपको उन्हें पुनः संलग्न करना पड़ेगा।
+संबंधित कनेक्टर का सिर अलग हो जाता है। कनेक्टर स्लाइड पर बना रहता है और उसे हटाया, एक स्वतंत्र रेखा के रूप में स्थित, या किसी अन्य Shape से जोड़ा जा सकता है।
+
+**क्या स्लाइड कॉपी होने पर कनेक्टर बाइंडिंग्स संरक्षित रहती हैं?**
+
+आमतौर पर बाइंडिंग्स संरक्षित रहती हैं जब जुड़े हुए Shapes को स्लाइड के साथ कॉपी किया जाता है। यदि कनेक्टर को उसके लक्ष्य Shapes में से किसी एक के बिना कॉपी किया जाता है, तो प्रभावित सिर को पुनः जोड़ना आवश्यक होगा।

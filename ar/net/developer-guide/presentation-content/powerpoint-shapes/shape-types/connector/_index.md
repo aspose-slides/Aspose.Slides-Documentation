@@ -1,5 +1,5 @@
 ---
-title: إدارة الموصلات في العروض التقديمية باستخدام .NET
+title: إدارة الموصلات في العروض التقديمية في .NET
 linktitle: موصل
 type: docs
 weight: 10
@@ -10,29 +10,28 @@ keywords:
 - نقطة الموصل
 - خط الموصل
 - زاوية الموصل
+- موقع الاتصال
+- نقطة الضبط
 - ربط الأشكال
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تمكين تطبيقات .NET من رسم وربط وتوجيه الخطوط تلقائيًا في شرائح PowerPoint—احصل على تحكم كامل في الموصلات المستقيمة والمرفقة والمنحنية."
+description: "تعلم كيفية إضافة، ربط، إعادة توجيه، ضبط، وفحص الموصلات المستقيمة، المكسورة، والمنحنية في PowerPoint باستخدام Aspose.Slides ل .NET."
 ---
+## **نظرة عامة**
 
-موصل PowerPoint هو خط خاص يربط أو يربط بين شكلين مع البقاء ملتصقًا بالشكلين حتى عند تحريكهما أو إعادة وضعهما على الشريحة المحددة.
+الموصل هو خط يمكن أن يبقى مرتبطًا بشكليْن عندما يتحرك أي منهما. تتصل نهايته بمواقع الاتصال، التي تُمثَّل بنقاط خضراء في PowerPoint. بعض الموصلات المكسورة والمنحنية تكشف أيضًا عن نقاط ضبط، تُمثَّل بنقاط برتقالية، تتحكم في موضع أجزاء الموصل الفردية.
 
-عادةً ما يتم ربط الموصلات بنقاط **الاتصال** (النقاط الخضراء) التي توجد على جميع الأشكال بشكل افتراضي. تظهر نقاط الاتصال عندما يقترب المؤشر منها.
-
-نقاط **الضبط** (النقاط البرتقالية) التي توجد فقط على بعض الموصلات تُستخدم لتعديل موضع وشكل الموصلات.
+Aspose.Slides تمثِّل الموصلات عبر واجهة [IConnector](https://reference.aspose.com/slides/ar/net/aspose.slides/iconnector/) . يمكنك إنشاءها، ربط نهاياتها بالأشكال، اختيار مواقع الاتصال، إعادة توجيهها، وتعديل هندسة الموصلات التي تحتوي على نقاط ضبط.
 
 ## **أنواع الموصلات**
 
-في PowerPoint يمكنك استخدام موصلات مستقيمة، زاوية (مرفقة)، ومنحنية.
+التعداد [ShapeType](https://reference.aspose.com/slides/ar/net/aspose.slides/shapetype/) يتضمن إعدادات مسبقة للموصلات المستقيمة، المكسورة، والمنحنية. يظهر الجدول التالي الهندسات المتاحة للموصلات وعدد نقاط الضبط التي يعرّفها كل إعداد مسبق.
 
-توفر Aspose.Slides هذه الموصلات:
-
-| موصل | صورة | عدد نقاط الضبط |
-| ---- | ---- | --------------- |
+| الموصل | صورة | عدد نقاط الضبط |
+|---|---|---|
 | `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -44,350 +43,471 @@ description: "تمكين تطبيقات .NET من رسم وربط وتوجيه �
 | `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **ربط الأشكال باستخدام الموصلات**
+عدد ومعنى نقاط الضبط جزء من الإعداد المسبق للموصل المحدد. لا تفترض أن نوعي موصل مختلفين يقدمان نفس تخطيط المجموعة.
 
-1. أنشئ مثيلًا من فئة [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة عبر الفهرس الخاص بها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) إلى الشريحة باستخدام طريقة `AddAutoShape` المتاحة عبر كائن `Shapes`.
-1. أضف موصلاً باستخدام طريقة `AddConnector` المتاحة عبر كائن `Shapes` مع تحديد نوع الموصل.
-1. اربط الأشكال باستخدام الموصل.
-1. استدعِ طريقة `Reroute` لتطبيق أقصر مسار اتصال.
-1. احفظ العرض التقديمي.
+## **ربط شكلين**
 
-هذا الكود بلغة C# يوضح كيفية إضافة موصل (موصل منحني) بين شكلين (إهليلج ومستطيل):
-```c#
-// ينشئ فئة عرض تقديمي تمثل ملف PPTX
-using (Presentation input = new Presentation())
-{                
-    // الوصول إلى مجموعة الأشكال لشريحة محددة
-    IShapeCollection shapes = input.Slides[0].Shapes;
+استخدم [IShapeCollection.AddConnector](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addconnector/) لإضافة موصل، ثم عيّن خصائص [StartShapeConnectedTo](https://reference.aspose.com/slides/ar/net/aspose.slides/connector/startshapeconnectedto/) و [EndShapeConnectedTo](https://reference.aspose.com/slides/ar/net/aspose.slides/connector/endshapeconnectedto/). بعد ربط الطرفين، يختار [IConnector.Reroute](https://reference.aspose.com/slides/ar/net/aspose.slides/iconnector/reroute/) مسارًا قصيرًا بين الشكلين.
 
-    // إضافة شكل أوتوشيب إهليلج
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+المثال التالي يربط قطعًا بيضاويًا ومربعًا بموصل مكسور:
 
-    // إضافة شكل أوتوشيب مستطيل
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // إضافة شكل موصل إلى مجموعة أشكال الشريحة
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // ربط الأشكال باستخدام الموصل
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // استدعاء Reroute الذي يحدد أقصر مسار تلقائي بين الأشكال
-    connector.Reroute();
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // حفظ العرض التقديمي
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
+{{% alert color="warning" title="تحذير" %}}
+استدعاء `Reroute` قد يغيّر قيمتي [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/ar/net/aspose.slides/connector/startshapeconnectionsiteindex/) و [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/ar/net/aspose.slides/connector/endshapeconnectionsiteindex/). عيّن مواقع اتصال معينة بعد إعادة التوجيه إذا كان يجب أن تبقى هذه المواقع ثابتة.
+{{% /alert %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **اختيار موقع الاتصال**
 
-طريقة `Connector.Reroute` تعيد توجيه الموصل وتُجبره على أخذ أقصر مسار ممكن بين الأشكال. لتحقيق ذلك، قد تقوم الطريقة بتغيير نقاط `StartShapeConnectionSiteIndex` و`EndShapeConnectionSiteIndex`. 
+كل شكل يمكن ربطه يُعيد عدد المواقع عبر الخاصية [ConnectionSiteCount](https://reference.aspose.com/slides/ar/net/aspose.slides/shape/connectionsitecount/). تحقق من فهرس موقع صفر‑قاعدة مفضَّل قبل تعيينه إلى طرف الموصل؛ عدد المواقع يختلف حسب هندسة الشكل.
 
-{{% /alert %}} 
+هذا المثال يربط الموصل بموقع محدد على القطع البيضاوي إذا كان ذلك الموقع موجودًا:
 
-## **تحديد نقطة اتصال**
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-إذا أردت أن يربط الموصل شكلين باستخدام نقاط معينة على الأشكال، عليك تحديد نقاط الاتصال المفضلة بهذه الطريقة:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. أنشئ مثيلًا من فئة [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة عبر الفهرس الخاص بها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) إلى الشريحة باستخدام طريقة `AddAutoShape` المتاحة عبر كائن `Shapes`.
-1. أضف موصلاً باستخدام طريقة `AddConnector` المتاحة عبر كائن `Shapes` مع تحديد نوع الموصل.
-1. اربط الأشكال باستخدام الموصل.
-1. عيّن نقاط الاتصال المفضلة على الأشكال.
-1. احفظ العرض التقديمي.
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-هذا الكود بلغة C# يوضح عملية تحديد نقطة اتصال مفضلة:
-```c#
-// يَنشئ فئة عرض تقديمي تمثل ملف PPTX
-using (Presentation presentation = new Presentation())
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // الوصول إلى مجموعة الأشكال لشريحة محددة
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // إضافة شكل موصل إلى مجموعة أشكال الشريحة
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // إضافة شكل أوتوشيب إهليلج
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // إضافة شكل أوتوشيب مستطيل
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // ربط الأشكال باستخدام الموصل
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // تحديد فهرس نقطة الاتصال المفضلة على شكل الإهليلج
-    uint wantedIndex = 6;
-
-    // التحقق مما إذا كان الفهرس المفضل أقل من عدد مواقع الاتصال الأقصى
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // ضبط نقطة الاتصال المفضلة على شكل الإهليلج
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // حفظ العرض التقديمي
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
-```
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
 
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
+```
 
 ## **ضبط نقطة الموصل**
 
-يمكنك ضبط موصل موجود عبر نقاط الضبط الخاصة به. فقط الموصلات التي تحتوي على نقاط ضبط يمكن تعديلها بهذه الطريقة. انظر الجدول تحت **[أنواع الموصلات](/slides/ar/net/connector/#types-of-connectors)**.
+الموصلات التي تحتوي على نقاط ضبط تُظهرها الخاصية [IGeometryShape.Adjustments](https://reference.aspose.com/slides/ar/net/aspose.slides/igeometryshape/adjustments/). افحص كل [IAdjustValue](https://reference.aspose.com/slides/ar/net/aspose.slides/iadjustvalue/) وتحقق من خاصية [Type](https://reference.aspose.com/slides/ar/net/aspose.slides/adjustvalue/type/) قبل تغيير خاصية [RawValue](https://reference.aspose.com/slides/ar/net/aspose.slides/adjustvalue/rawvalue/). القواعد العامة لتحديد الضبط المسبق للأشكال موصوفة في [Shape Manipulation](/slides/ar/net/shape-manipulations/).
 
-### **حالة بسيطة**
+عدد وترتيب ومعنى ونطاق القيم الصالحة لضبط الموصل يعتمد على الإعداد المسبق للموصل. خاصية `Type` للقراءة فقط، بينما قيمة الضبط قابلة للكتابة. خاصية [Name](https://reference.aspose.com/slides/ar/net/aspose.slides/adjustvalue/name/) للقراءة فقط توفر تعريفًا إضافيًا عندما يحتوي الموصل على أكثر من ضبط من نفس النوع الدلالي.
 
-تخيل حالة يمر فيها موصل بين شكلين (A و B) عبر شكل ثالث (C):
+### **التحرك حول عائق**
+
+في المخطط التالي، موصل `BentConnector5` بين شكلين يمر عبر شكل ثالث:
 
 ![connector-obstruction](connector-obstruction.png)
 
-الكود:
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+هذا الشفر يُنشئ الموصل المتعرّض للعائق:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-
-لتجنب أو تجاوز الشكل الثالث، يمكننا ضبط الموصل بنقل خطه العمودي إلى اليسار هكذا:
+تحريك الانحناء العمودي يغيّر المسار بحيث يتجاوز الموصل العائق:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+
+بدلاً من افتراض أن فهرس المجموعة `1` يمثل دائمًا الانحناء العمودي، يبحث هذا المثال عن `ConnectorBendPositionY` ويغيّره فقط عندما يكون النوع الدلالي المتوقع موجودًا:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
+الموصل `BentConnector5` يحتوي على تعديلين `ConnectorBendPositionX` وتعديل واحد `ConnectorBendPositionY`. إذا تكرّر النوع الذي تحتاجه أكثر من مرة، افحص `Name` والهندسة المعروفة لذلك الإعداد قبل اختيار أحدهما. إذا أبلغ ضبط ما أن نوعه هو `ShapeAdjustmentType.Custom`، فاعتبر معناه ونطاقه خاصًا بالإعداد ولا تقم بتغييره حتى يصبح العقد معروفًا.
 
-### **حالات معقدة** 
+## **ربط قيم الضبط بهندسة الموصل**
 
-لإجراء تعديلات أكثر تعقيدًا، يجب مراعاة ما يلي:
+بالنسبة للموصلات المكسورة، يمكن استخدام قيم الضبط لتقدير مواقع الأجزاء الفردية. هذه الحسابات خاصة بإعداد الموصل:
 
-* نقطة الضبط للموصل مرتبطة ارتباطًا وثيقًا بصيغة تحسب وتحدد موقعها. لذلك قد تغير تغيير موقع النقطة شكل الموصل.
-* نقاط الضبط للموصل معرفة بترتيب صارم في مصفوفة. تُرقم نقاط الضبط من نقطة بدء الموصل إلى نهايته.
-* قيم نقاط الضبط تعكس النسبة المئوية لعرض/ارتفاع شكل الموصل.  
-  * الشكل محدود بنقطة بدء الموصل ونقطة نهايته مضروبة في 1000.  
-  * النقطة الأولى، الثانية، والثالثة تمثل النسبة من العرض، النسبة من الارتفاع، والنسبة من العرض مرة أخرى على التوالي.
-* عند حساب إحداثيات نقاط ضبط الموصل، يجب أخذ دوران الموصل وانعكاسه في الاعتبار. **ملاحظة** أن زاوية الدوران لجميع الموصلات المعروضة تحت **[أنواع الموصلات](/slides/ar/net/connector/#types-of-connectors)** هي 0.
+- `BentConnector4` عادةً يكشف عن تعديل واحد `ConnectorBendPositionX` وآخر `ConnectorBendPositionY`.
+- لهذه المواضع، ينتج التعبير `RawValue / 100000f` الكسر من عرض أو ارتفاع إطار الموصل المستخدم في الأمثلة أدناه.
+- يمكن أن يُدوَّر أو يُقلب إطار الموصل، لذا يجب تحويل إحداثيات الإطار قبل مقارنتها بإحداثيات الشريحة.
 
-#### **الحالة 1**
+الأمثلة التالية تستخدم `Type` لتحديد الضبط أولًا. لا تُعامل فهارس المجموعة كمُعرِّفات محمولة.
 
-تخيل حالة يتم فيها ربط كائنين من إطارات النص معًا عبر موصل:
+#### **موصل غير دوار**
+
+المخطط الأولي يحتوي على شكلين نصيين متصلين بموصل `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-الكود:
-```c#
-// ينشئ فئة عرض تقديمي تمثل ملف PPTX
-Presentation pres = new Presentation();
-// يحصل على الشريحة الأولى في العرض التقديمي
-ISlide sld = pres.Slides[0];
-// يضيف أشكالًا سيتم ربطها معًا عبر موصل
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// يضيف موصلًا
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// يحدد اتجاه الموصل
+هذا المثال يفحص الموصل ويحصل على ضبط الانحناء الأفقي والعمودي:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// يحدد لون الموصل
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// يحدد سماكة خط الموصل
 connector.LineFormat.Width = 3;
-
-// يرتبط الأشكال معًا باستخدام الموصل
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// يحصل على نقاط الضبط للموصل
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
+لتغيير الانحنائين، حدد كل نوع متوقع وعدل القيم فقط بعد العثور على كلاهما:
 
-**الضبط**
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-يمكننا تغيير قيم نقاط ضبط الموصل بزيادة النسبة المئوية للعرض والارتفاع المقابلة بـ20% و200% على التوالي:
-```c#
-// يغيّر قيم نقاط الضبط
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-
-النتيجة:
+النتيجة موصل يتحرك فيه الجزءان الأفقي والعمودي:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-لتعريف نموذج يسمح لنا بتحديد إحداثيات وشكل الأجزاء الفردية للموصل، لننشئ شكلاً يتطابق مع المكوّن الأفقي للموصل عند النقطة `connector.Adjustments[0]`:
-```c#
-// ارسم المكوّن العمودي للموصل
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+بمجرد معرفة الأنواع الدلالية، يمكن تحويل قيمها إلى إحداثيات إطار الموصل. يرسم هذا المثال مستطيلًا رفيعًا فوق الجزء العمودي المتحكم بهما:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-
-النتيجة:
+الشكل الدليل يوضح الجزء المُحسب:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **الحالة 2**
+#### **موصل دوار أو مقلوب**
 
-في **الحالة 1**، عرضنا عملية ضبط موصل بسيط باستخدام مبادئ أساسية. في الحالات العادية، يجب أخذ دوران الموصل وعرضه (المحدّدين بـ `connector.Rotation`، `connector.Frame.FlipH`، و`connector.Frame.FlipV`) في الاعتبار. سنوضح الآن العملية.
+عندما تُ oriented هندسة الموصل نفسها عموديًا، تؤثر قيم [Frame](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/frame/)، [FlipH](https://reference.aspose.com/slides/ar/net/aspose.slides/shapeframe/fliph/)، و[FlipV](https://reference.aspose.com/slides/ar/net/aspose.slides/shapeframe/flipv/) على تحويل إحداثيات إطار الموصل إلى إحداثيات الشريحة.
 
-أولاً، أضف كائن إطار نص جديد (**To 1**) إلى الشريحة (لأغراض الاتصال) وأنشئ موصلاً (أخضر) يربطه بالكائنات التي أنشأناها مسبقًا.
-```c#
-// ينشئ كائن ربط جديد
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// ينشئ موصلًا جديدًا
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+هذا المثال يُنشئ ويضبط الموصل المُorient عموديًا:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// يربط الكائنات باستخدام الموصل الذي تم إنشاؤه حديثًا
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// يحصل على نقاط الضبط للموصل
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// يغيّر قيم نقاط الضبط
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-
-النتيجة:
+الموصل المعدل يظهر عموديًا بين الشكلين:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ثانيًا، أنشئ شكلاً سيتطابق مع المكوّن الأفقي للموصل الذي يمر عبر نقطة الضبط الجديدة `connector.Adjustments[0]`. سنستخدم القيم من بيانات الموصل لـ `connector.Rotation`، `connector.Frame.FlipH`، و`connector.Frame.FlipV` ونطبق صيغة تحويل الإحداثيات الشهيرة للدوران حول نقطة معينة x0:
+لزاوية دوران عشوائية `alpha`، قم بتدوير نقطة إطار الموصل `(x, y)` حول مركز الإطار `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-في حالتنا، زاوية دوران الكائن هي 90 درجة والموصل معروض عموديًا، لذا يكون الكود المقابل:
-```c#
-// يحفظ إحداثيات الموصل
-x = connector.X;
-y = connector.Y;
-// يصحح إحداثيات الموصل إذا ظهر
-if (connector.Frame.FlipH == NullableBool.True)
+الكود التالي يتعامل مع الاتجاه بزاوية 90 درجة كما هو مستخدم في هذا المثال ويرسم دليلًا أحمر فوق الجزء المقابل من الموصل:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
-{
-    y += connector.Height;
-}
-// يُدخل قيمة نقطة الضبط كإحداثي
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  يحول الإحداثيات لأن Sin(90) = 1 و Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// يحدد عرض المكوّن الأفقي باستخدام قيمة نقطة الضبط الثانية
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-
-النتيجة:
+الدليل الأحمر يوضح الجزء المُحسب بعد تحويل الإحداثيات:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-لقد عرضنا حسابات تشمل ضبطًا بسيطًا ونقاط ضبط معقدة (نقاط ضبط مع زوايا دوران). باستخدام المعرفة التي اكتسبتها، يمكنك تطوير نموذجك الخاص (أو كتابة كود) للحصول على كائن `GraphicsPath` أو حتى ضبط قيم نقطة ضبط الموصل بناءً على إحداثيات شريحة محددة.
+هذه الصيغ تصف الإعدادات المستخدمة في الأمثلة، ليست نموذجًا عالميًا للموصلات. تحقق من أنواع الضبط، توجيه الإطار، ونطاق القيم قبل تطبيق نفس الحساب على إعداد مختلف.
 
-## **إيجاد زاوية خطوط الموصل**
+## **إيجاد زاوية اتجاه الموصل**
 
-1. أنشئ مثيلًا من فئة [العرض التقديمي](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. احصل على مرجع الشريحة عبر الفهرس الخاص بها.
-1. وصول إلى شكل خط الموصل.
-1. استخدم عرض الخط، ارتفاعه، ارتفاع إطار الشكل، وعرض إطار الشكل لحساب الزاوية.
+يمكن حساب اتجاه موصل مستقيم من عرضه وارتفاعه، مع مراعاة الانعكاسات الأفقية والعمودية. المثال التالي يُعيد الزاوية في الاتجاه clockwise من المحور الأفقي الموجب في إحداثيات الشريحة:
 
-هذا الكود بلغة C# يوضح عملية حساب زاوية شكل خط الموصل:
-```c#
-public static void Run()
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
-
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني معرفة ما إذا كان يمكن "لصق" موصل على شكل معين؟**
+**كيف يمكنني معرفة ما إذا كان الموصل يمكنه الارتباط بشكل؟**  
+تحقق من الخاصية `ConnectionSiteCount` للشكل. العدد الإيجابي يعني أن الشكل يوفّر مواقع اتصال. تحقق من فهرس الموقع المختار قبل تعيينه إلى أي طرف من الموصل.
 
-تأكد من أن الشكل يُظهر [مواقع الاتصال](https://reference.aspose.com/slides/net/aspose.slides/shape/connectionsitecount/). إذا لم يكن هناك أي موقع أو كان العدد صفرًا، فإن اللصق غير متاح؛ في هذه الحالة استخدم نقاط النهاية الحرة وضعها يدويًا. من المنطقي فحص عدد المواقع قبل الإرفاق.
+**هل يمكنني التعرف على ضبط الموصل عبر فهرس مجموعته؟**  
+الفهرس ذو معنى فقط لإعداد مسبق معروف للموصل وتخطيط مجموعةه. تحقق من `IAdjustValue.Type` قبل تعديل قيمة، واستخدم `IAdjustValue.Name` كمعلومات إضافية عندما يتكرر نفس النوع الدلالي أكثر من مرة.
 
-**ماذا يحدث للموصل إذا حذفت أحد الأشكال المرتبطة؟**
+**ماذا يحدث عندما يتم حذف الشكل المرتبط؟**  
+ينفصل الطرف المقابل من الموصل. يبقى الموصل على الشريحة ويمكن حذفه، أو تحويله إلى خط حر، أو ربطه بشكل آخر.
 
-ستنفصل نهاياته؛ يبقى الموصل على الشريحة كخط عادي بنقطة بداية/نهاية حرة. يمكنك إما حذفه أو إعادة تعيين الاتصالات، وإذا لزم الأمر، استخدم [Reroute](https://reference.aspose.com/slides/net/aspose.slides/connector/reroute/).
-
-**هل يتم الحفاظ على ارتباطات الموصل عند نسخ شريحة إلى عرض تقديمي آخر؟**
-
-عادةً نعم، بشرط أن تُنسخ الأشكال المستهدفة أيضًا. إذا تم إدراج الشريحة في ملف آخر دون الأشكال المرتبطة، تصبح النهايات حرة وستحتاج إلى إرفاقها مرة أخرى.
+**هل تُحافظ ربطات الموصل عند نسخ الشريحة؟**  
+تُحفظ عادةً عندما تُنسخ الأشكال المرتبطة مع الشريحة. إذا تم نسخ موصل دون أحد الأشكال الهدف، يجب ربط الطرف المتأثر مرة أخرى.

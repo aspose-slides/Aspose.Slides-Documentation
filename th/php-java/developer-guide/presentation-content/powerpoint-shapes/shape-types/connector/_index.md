@@ -1,370 +1,580 @@
 ---
-title: จัดการตัวเชื่อมต่อในงานนำเสนอด้วย PHP
-linktitle: ตัวเชื่อมต่อ
+title: จัดการคอนเน็กเตอร์ในงานนำเสนอโดยใช้ PHP
+linktitle: คอนเน็กเตอร์
 type: docs
 weight: 10
 url: /th/php-java/connector/
 keywords:
-- ตัวเชื่อมต่อ
-- ประเภทตัวเชื่อมต่อ
-- จุดตัวเชื่อมต่อ
-- เส้นตัวเชื่อมต่อ
-- มุมตัวเชื่อมต่อ
+- คอนเน็กเตอร์
+- ประเภทคอนเน็กเตอร์
+- จุดคอนเน็กเตอร์
+- เส้นคอนเน็กเตอร์
+- มุมคอนเน็กเตอร์
+- ตำแหน่งการเชื่อมต่อ
+- จุดปรับค่า
 - เชื่อมต่อรูปร่าง
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เพิ่มพลังให้แอป PHP ในการวาด, เชื่อมต่อและกำหนดเส้นอัตโนมัติในสไลด์ PowerPoint — ควบคุมอย่างเต็มที่เหนือตัวเชื่อมต่อแบบตรง, แบบศอก และแบบโค้งมน."
+description: "เรียนรู้วิธีการเพิ่ม, เชื่อมต่อ, ปรับเส้นทางใหม่, ปรับค่า, และตรวจสอบคอนเน็กเตอร์ PowerPoint แบบตรง, โค้ง, และบิดด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-ตัวเชื่อมต่อ PowerPoint คือเส้นพิเศษที่เชื่อมหรือเชื่อมโยงรูปสองรูปเข้าด้วยกันและยังคงแนบอยู่กับรูปแม้จะถูกย้ายหรือจัดตำแหน่งใหม่บนสไลด์ที่กำหนด  
+คอนเน็กเตอร์คือเส้นที่สามารถเชื่อมต่อกับรูปร่างสองรูปได้แม้ว่ารูปร่างใดจะเคลื่อนที่ จุดเชื่อมต่ออยู่ที่ตำแหน่งการเชื่อมต่อซึ่งแสดงด้วยจุดสีเขียวใน PowerPoint คอนเน็กเตอร์แบบโค้งและบิดบางประเภทยังมีจุดปรับค่าแสดงด้วยจุดสีส้ม ซึ่งควบคุมตำแหน่งของส่วนต่าง ๆ ของคอนเน็กเตอร์
 
-ตัวเชื่อมต่อมักเชื่อมต่อกับ *จุดเชื่อมต่อ* (จุดสีเขียว) ซึ่งมีอยู่บนรูปทั้งหมดโดยค่าเริ่มต้น จุดเชื่อมต่อจะปรากฏเมื่อเคอร์เซอร์เข้าใกล้
+Aspose.Slides แสดงคอนเน็กเตอร์โดยใช้คลาส [Connector](https://reference.aspose.com/slides/th/php-java/aspose.slides/connector/) คุณสามารถสร้าง, เชื่อมต่อปลายกับรูปร่าง, เลือกตำแหน่งการเชื่อมต่อ, ปรับเส้นทางใหม่, และแก้ไขเรขาคณิตของคอนเน็กเตอร์ที่มีจุดปรับค่าได้
 
-*จุดปรับตำแหน่ง* (จุดสีส้ม) มีอยู่เฉพาะบนตัวเชื่อมต่อบางประเภทและใช้ในการปรับตำแหน่งและรูปร่างของตัวเชื่อมต่อ
+## **ประเภทคอนเน็กเตอร์**
 
-## **ประเภทของตัวเชื่อมต่อ**
+คลาส [ShapeType](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapetype/) มีพรีเซ็ตคอนเน็กเตอร์แบบตรง, บิด, และโค้ง ตารางต่อไปนี้แสดงเรขาคณิตของคอนเน็กเตอร์ที่มีให้ใช้และจำนวนจุดปรับค่าที่กำหนดโดยแต่ละพรีเซ็ต
 
-ใน PowerPoint คุณสามารถใช้ตัวเชื่อมต่อตรง, ตัวเชื่อมต่อแบบโค้ง (มุม) และตัวเชื่อมต่อแบบโค้งมน  
+| คอนเน็กเตอร์ | รูปภาพ | จำนวนจุดปรับค่า |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides มีตัวเชื่อมต่อเหล่านี้:
+จำนวนและความหมายของจุดปรับค่าเป็นส่วนหนึ่งของพรีเซ็ตคอนเน็กเตอร์ที่เลือก ไม่ควรสมมติว่าประเภทคอนเน็กเตอร์ที่ต่างกันจะแสดงโครงสร้างคอลเลกชันเดียวกัน
 
-| ตัวเชื่อมต่อ | รูปภาพ | จำนวนจุดปรับตำแหน่ง |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **เชื่อมต่อสองรูปร่าง**
 
-## **เชื่อมรูปด้วยตัวเชื่อมต่อ**
+ใช้ [ShapeCollection::addConnector](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addconnector/) เพื่อเพิ่มคอนเน็กเตอร์ และใช้ [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/th/php-java/aspose.slides/connector/setstartshapeconnectedto/) และ [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/th/php-java/aspose.slides/connector/setendshapeconnectedto/) เพื่อเชื่อมต่อปลายของมัน หลังจากเชื่อมต่อทั้งสองปลายแล้ว [Connector::reroute](https://reference.aspose.com/slides/th/php-java/aspose.slides/connector/reroute/) จะเลือกเส้นทางสั้นที่สุดระหว่างรูปร่าง
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-1. เรียกอ้างอิงสไลด์ผ่านดัชนีของมัน  
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/AutoShape) สองรายการลงในสไลด์โดยใช้เมธอด `addAutoShape` ของออปเจกต์ `Shapes`  
-1. เพิ่มตัวเชื่อมต่อโดยใช้เมธอด `addConnector` ของออปเจกต์ `Shapes` พร้อมกำหนดประเภทของตัวเชื่อมต่อ  
-1. เชื่อมรูปด้วยตัวเชื่อมต่อ  
-1. เรียกเมธอด `reroute` เพื่อใช้เส้นเชื่อมที่สั้นที่สุด  
-1. บันทึกงานนำเสนอ  
-
-โค้ด PHP ด้านล่างแสดงวิธีเพิ่มตัวเชื่อมต่อ (ตัวเชื่อมต่อแบบโค้ง) ระหว่างรูปสองรูป (วงรีและสี่เหลี่ยม):
+ตัวอย่างต่อไปนี้เชื่อมต่อวงรีและสี่เหลี่ยมด้วยคอนเน็กเตอร์แบบบิด:
 
 ```php
-// สร้างอินสแตนซ์ของคลาสงานนำเสนอที่แสดงไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # เข้าถึงคอลเลกชันของรูปร่างสำหรับสไลด์เฉพาะ
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # เพิ่มรูปร่างอัตโนมัติแบบวงรี
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # เพิ่มรูปร่างอัตโนมัติแบบสี่เหลี่ยม
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # เพิ่มรูปร่างตัวเชื่อมต่อไปยังคอลเลกชันรูปร่างของสไลด์
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # เชื่อมต่อรูปร่างโดยใช้ตัวเชื่อมต่อ
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # เรียกใช้ reroute เพื่อกำหนดเส้นทางสั้นที่สุดอัตโนมัติระหว่างรูปร่าง
     $connector->reroute();
-    # บันทึกงานนำเสนอ
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
+การเรียก `reroute` สามารถเปลี่ยนค่าของ [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/th/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) และ [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/th/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/) ให้กำหนดตำแหน่งการเชื่อมต่อเฉพาะหลังจากปรับเส้นทางใหม่หากต้องการให้ตำแหน่งเหล่านั้นคงที่
+{{% /alert %}}
 
-เมธอด `Connector.reroute` จะทำการปรับเส้นเชื่อมใหม่และบังคับให้เส้นเชื่อมใช้เส้นทางที่สั้นที่สุดระหว่างรูปสองรูป เพื่อให้บรรลุเป้าหมาย เมธอดอาจทำการเปลี่ยนจุด `setStartShapeConnectionSiteIndex` และ `setEndShapeConnectionSiteIndex` 
+## **เลือกตำแหน่งการเชื่อมต่อ**
 
-{{% /alert %}} 
+แต่ละรูปร่างที่สามารถเชื่อมต่อได้รายงานจำนวนตำแหน่งผ่าน [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getconnectionsitecount/) ตรวจสอบดัชนีตำแหน่งที่เป็นศูนย์ก่อนนำไปใช้กับปลายคอนเน็กเตอร์; จำนวนตำแหน่งจะแตกต่างตามเรขาคณิตของรูปร่าง
 
-## **ระบุจุดเชื่อมต่อ**
-
-หากต้องการให้ตัวเชื่อมต่อเชื่อมสองรูปโดยใช้จุดเฉพาะบนรูป คุณต้องกำหนดจุดเชื่อมต่อที่ต้องการตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-1. เรียกอ้างอิงสไลด์ผ่านดัชนีของมัน  
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/AutoShape) สองรายการลงในสไลด์โดยใช้เมธอด `addAutoShape` ของออปเจกต์ `Shapes`  
-1. เพิ่มตัวเชื่อมต่อโดยใช้เมธอด `addConnector` ของออปเจกต์ `Shapes` พร้อมกำหนดประเภทของตัวเชื่อมต่อ  
-1. เชื่อมรูปด้วยตัวเชื่อมต่อ  
-1. ตั้งค่าจุดเชื่อมต่อที่ต้องการบนรูป  
-1. บันทึกงานนำเสนอ  
-
-โค้ด PHP ด้านล่างแสดงการกำหนดจุดเชื่อมต่อที่ต้องการ:
+ตัวอย่างนี้เชื่อมคอนเน็กเตอร์กับตำแหน่งเฉพาะบนวงรีเมื่อมีตำแหน่งนั้น:
 
 ```php
-  # สร้างอินสแตนซ์ของคลาสงานนำเสนอที่แสดงไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # เข้าถึงคอลเลกชันของรูปร่างสำหรับสไลด์เฉพาะ
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # เพิ่มรูปร่างอัตโนมัติแบบวงรี
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # เพิ่มรูปร่างอัตโนมัติแบบสี่เหลี่ยม
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # เพิ่มรูปร่างตัวเชื่อมต่อไปยังคอลเลกชันรูปร่างของสไลด์
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # เชื่อมต่อรูปร่างโดยใช้ตัวเชื่อมต่อ
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # ตั้งค่าดัชนีจุดเชื่อมต่อที่ต้องการบนรูปร่างวงรี
-    $wantedIndex = 6;
-    # ตรวจสอบว่าดัชนีที่ต้องการน้อยกว่าจำนวนดัชนีไซต์สูงสุดหรือไม่
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # ตั้งค่าจุดเชื่อมต่อที่ต้องการบนรูปร่างอัตโนมัติวงรี
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # บันทึกงานนำเสนอ
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ปรับจุดของตัวเชื่อมต่อ**
+## **ปรับจุดคอนเน็กเตอร์**
 
-คุณสามารถปรับตัวเชื่อมต่อที่มีอยู่ผ่านจุดปรับตำแหน่งได้ เพียงตัวเชื่อมต่อที่มีจุดปรับตำแหน่งเท่านั้นที่สามารถเปลี่ยนแปลงได้ ดูตารางใน **[Types of connectors.](/slides/th/php-java/connector/#types-of-connectors)**
+คอนเน็กเตอร์ที่มีจุดปรับค่าจะเปิดเผยผ่าน [GeometryShape::getAdjustments](https://reference.aspose.com/slides/th/php-java/aspose.slides/geometryshape/#getadjustments) ตรวจสอบแต่ละ [AdjustValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/) และตรวจสอบค่า [AdjustValue::getType](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/#gettype) ก่อนเปลี่ยนค่าโดยใช้ [AdjustValue::setRawValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/setrawvalue/) กฎทั่วไปสำหรับการระบุการปรับค่าพรีเซ็ตของรูปแบบอธิบายไว้ใน [Shape Manipulation](/slides/th/php-java/shape-manipulations/)
 
-### **กรณีง่าย**
+จำนวน, ลำดับ, ความหมายและช่วงค่าที่เป็นไปได้ของการปรับค่าคอนเน็กเตอร์ขึ้นกับพรีเซ็ตคอนเน็กเตอร์ ประเภทการปรับค่าเป็นแบบอ่านอย่างเดียว ส่วนค่าการปรับเป็นแบบเขียนได้ วิธีการอ่านอย่างเดียว [AdjustValue::getName](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/getname/) ให้ข้อมูลเพิ่มเติมเมื่อคอนเน็กเตอร์มีการปรับค่าที่มีประเภทเชิงความหมายเดียวกันหลายรายการ
 
-พิจารณากรณีที่ตัวเชื่อมต่อระหว่างรูปสองรูป (A และ B) ผ่านรูปที่สาม (C):
+### **เลี่ยงอุปสรรค**
+
+ในเลเอาต์ต่อไป `BentConnector5` ระหว่างสองรูปร่างจะผ่านรูปร่างที่สาม:
 
 ![connector-obstruction](connector-obstruction.png)
 
+โค้ดนี้สร้างคอนเน็กเตอร์ที่ถูกบัง:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-เพื่อหลีกเลี่ยงหรือข้ามรูปที่สาม เราสามารถปรับตัวเชื่อมต่อโดยย้ายเส้นแนวดิ่งไปทางซ้ายดังนี้:
+การย้ายการบิดแนวตั้งทำให้เส้นทางเปลี่ยนเป็นการหลบอุปสรรค:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
+แทนการสมมติว่าดัชนีคอลเลกชัน `1` คือการบิดแนวตั้งเสมอ ตัวอย่างนี้ค้นหา `ConnectorBendPositionY` และเปลี่ยนค่าเฉพาะเมื่อพบประเภทเชิงความหมายที่คาดหวัง:
 
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **กรณีซับซ้อน** 
+`BentConnector5` มีการปรับค่า `ConnectorBendPositionX` สองค่าและ `ConnectorBendPositionY` หนึ่งค่า หากประเภทที่ต้องการปรากฏหลายครั้งให้ตรวจสอบ `getName` และรูปร่างเรขาคณิตของพรีเซ็ตนั้นก่อนเลือกค่า หากการปรับค่ารายงานเป็น `ShapeAdjustmentType::Custom` ให้ถือว่าความหมายและช่วงเป็นของพรีเซ็ตนั้นและไม่เปลี่ยนจนกว่าจะทราบสัญญา
 
-เมื่อต้องทำการปรับแต่งที่ซับซ้อน คุณต้องคำนึงถึงสิ่งต่อไปนี้:
+## **เชื่อมโยงค่าการปรับกับเรขาคณิตของคอนเน็กเตอร์**
 
-* จุดปรับของตัวเชื่อมต่อเชื่อมโยงกับสูตรที่คำนวณและกำหนดตำแหน่งของมัน ดังนั้นการเปลี่ยนตำแหน่งของจุดอาจทำให้รูปร่างของตัวเชื่อมต่อเปลี่ยนไป  
-* จุดปรับของตัวเชื่อมต่อถูกกำหนดเป็นลำดับที่เข้มงวดในอาเรย์โดยเรียงจากจุดเริ่มต้นไปจุดสิ้นสุดของตัวเชื่อมต่อ  
-* ค่าแต่ละจุดปรับแสดงเป็นเปอร์เซ็นต์ของความกว้าง/ความสูงของรูปร่างตัวเชื่อมต่อ  
-  * รูปร่างถูกจำกัดโดยจุดเริ่มต้นและจุดสิ้นสุดของตัวเชื่อมต่อคูณด้วย 1000  
-  * จุดแรก, จุดสอง, และจุดสาม แสดงเปอร์เซ็นต์จากความกว้าง, ความสูง, และความกว้าง (อีกครั้ง) ตามลำดับ  
-* สำหรับการคำนวณพิกัดของจุดปรับของตัวเชื่อมต่อ คุณต้องคำนึงถึงการหมุนและการสะท้อนของตัวเชื่อมต่อ **หมายเหตุ** ว่ามุมการหมุนของตัวเชื่อมต่อทั้งหมดที่แสดงใน **[Types of connectors](/slides/th/php-java/connector/#types-of-connectors)** คือ 0
+สำหรับคอนเน็กเตอร์บิด ค่าการปรับสามารถใช้ประเมินตำแหน่งของส่วนต่าง ๆ ของคอนเน็กเตอร์ได้ การคำนวณเหล่านี้เป็นเฉพาะพรีเซ็ตคอนเน็กเตอร์:
 
-#### **กรณี 1**
+- `BentConnector4` ปกติจะเปิดเผยการปรับค่า `ConnectorBendPositionX` หนึ่งค่าและ `ConnectorBendPositionY` หนึ่งค่า
+- สำหรับตำแหน่งบิดเหล่านี้ การหารค่าที่ได้จาก `getRawValue` ด้วย `100000` จะให้ส่วนของความกว้างหรือความสูงของกรอบคอนเน็กเตอร์ที่ใช้ในตัวอย่างด้านล่าง
+- กรอบคอนเน็กเตอร์อาจถูกหมุนหรือพลิก ดังนั้นพิกัดกรอบต้องแปลงก่อนเปรียบเทียบกับพิกัดสไลด์
 
-พิจารณากรณีที่อ็อบเจกต์กรอบข้อความสองอันเชื่อมต่อกันผ่านตัวเชื่อมต่อ:
+ตัวอย่างต่อไปใช้ `getType` เพื่อตรวจสอบประเภทการปรับก่อน ไม่ใช้ดัชนีคอลเลกชันเป็นตัวระบุพกพา
+
+### **คอนเน็กเตอร์ที่ไม่ได้หมุน**
+
+เลเอาต์เริ่มต้นมีสองรูปข้อความเชื่อมต่อด้วย `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+ตัวอย่างนี้ตรวจสอบคอนเน็กเตอร์และรับค่าการบิดแนวนอนและแนวตั้ง:
+
 ```php
-  # สร้างอินสแตนซ์ของคลาสงานนำเสนอที่แสดงไฟล์ PPTX
-  $pres = new Presentation();
-  try {
-    # ดึงสไลด์แรกในงานนำเสนอ
-    $sld = $pres->getSlides()->get_Item(0);
-    # เพิ่มรูปร่างที่จะเชื่อมต่อด้วยตัวเชื่อมต่อ
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # เพิ่มตัวเชื่อมต่อ
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # ระบุทิศทางของตัวเชื่อมต่อ
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # ระบุสีของตัวเชื่อมต่อ
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # ระบุความหนาของเส้นตัวเชื่อมต่อ
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # เชื่อมโยงรูปร่างเข้าด้วยกันด้วยตัวเชื่อมต่อ
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # ดึงจุดปรับของตัวเชื่อมต่อ
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**การปรับ**
-
-เราสามารถเปลี่ยนค่าจุดปรับของตัวเชื่อมต่อได้โดยเพิ่มเปอร์เซ็นต์ความกว้างและความสูงที่สอดคล้องกันเป็น 20 % และ 200 % ตามลำดับ:
+เพื่อเปลี่ยนการบิดทั้งสอง ให้ค้นหาประเภทที่คาดหวังแต่ละประเภทและแก้ไขค่าหลังจากพบทั้งสอง:
 
 ```php
-  # เปลี่ยนค่าของจุดปรับ
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-ผลลัพธ์:
+ผลลัพธ์คือคอนเน็กเตอร์ที่ส่วนแนวนอนและแนวตั้งเคลื่อนย้าย:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-เพื่อกำหนดโมเดลที่ช่วยให้เราหาค่าพิกัดและรูปร่างของส่วนย่อยของตัวเชื่อมต่อ เราจะสร้างรูปร่างที่สอดคล้องกับส่วนแนวนอนของตัวเชื่อมต่อที่จุด `connector.getAdjustments().get_Item(0)`:
+เมื่อทราบประเภทเชิงความหมายแล้ว สามารถแปลงค่เป็นพิกัดกรอบคอนเน็กเตอร์ ตัวอย่างนี้วาดสี่เหลี่ยมบางบนส่วนแนวตั้งที่ควบคุมโดยการบิดสองค่า:
 
 ```php
-  # วาดส่วนแนวตั้งของตัวเชื่อมต่อ
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-ผลลัพธ์:
+รูปร่างแนวทางทำเครื่องหมายส่วนที่คำนวณได้:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **กรณี 2**
+### **คอนเน็กเตอร์ที่หมุนหรือพลิก**
 
-ใน **กรณี 1** เราได้สาธิตการปรับตัวเชื่อมต่อแบบง่ายโดยใช้หลักการพื้นฐาน ในสถานการณ์ทั่วไป คุณต้องคำนึงถึงการหมุนของตัวเชื่อมต่อและการแสดงผล (ซึ่งตั้งค่าโดย `connector.getRotation()`, `connector.getFrame().getFlipH()`, และ `connector.getFrame().getFlipV()`) เราจะสาธิตกระบวนการต่อไป
+เมื่อเรขาคณิตคอนเน็กเตอร์เดียวกันถูกกว้างตามแนวตั้ง ค่า [Shape::getFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getframe/), [ShapeFrame::getFlipH](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapeframe/getfliph/), และ [ShapeFrame::getFlipV](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapeframe/getflipv/) มีผลต่อการแปลงจากพิกัดกรอบคอนเน็กเตอร์เป็นพิกัดสไลด์
 
-แรกเริ่ม ให้เพิ่มอ็อบเจกต์กรอบข้อความใหม่ (**To 1**) ลงในสไลด์ (เพื่อใช้เชื่อมต่อ) และสร้างตัวเชื่อมต่อสีเขียวใหม่ที่เชื่อมต่อกับอ็อบเจกต์ที่สร้างไว้แล้ว
+ตัวอย่างนี้สร้างและปรับคอนเน็กเตอร์ที่มีแนวตั้ง:
 
 ```php
-  # สร้างอ็อบเจกต์การผูกใหม่
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # สร้างตัวเชื่อมต่อใหม่
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # เชื่อมต่ออ็อบเจกต์โดยใช้ตัวเชื่อมต่อที่สร้างใหม่
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # ดึงจุดปรับของตัวเชื่อมต่อ
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # เปลี่ยนค่าของจุดปรับ
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-ผลลัพธ์:
+คอนเน็กเตอร์ที่ปรับแล้วปรากฏเป็นแนวตั้งระหว่างรูปร่าง:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ต่อมา ให้สร้างรูปร่างที่สอดคล้องกับส่วนแนวนอนของตัวเชื่อมต่อที่ผ่านจุดปรับของตัวเชื่อมต่อ `connector.getAdjustments().get_Item(0)` เราจะใช้ค่าจาก `connector.getRotation()`, `connector.getFrame().getFlipH()`, และ `connector.getFrame().getFlipV()` และใช้สูตรแปลงพิกัดเพื่อหมุนรอบจุด x0 ดังนี้
+สำหรับมุมการหมุนใด ๆ `alpha` ให้หมุนจุดกรอบคอนเน็กเตอร์ `(x, y)` รอบศูนย์กรอบ `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;  
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-ในกรณีของเรา วัตถุหมุน 90 องศาและตัวเชื่อมต่อแสดงแบบแนวตั้ง ดังนั้นโค้ดที่สอดคล้องคือ:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+โค้ดต่อไปจัดการกับการหมุน 90 องศาที่ใช้ในตัวอย่างนี้และวาดแนวทางสีแดงบนส่วนคอนเน็กเตอร์ที่สอดคล้อง:
 
 ```php
-  # บันทึกพิกัดของตัวเชื่อมต่อ
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # แก้ไขพิกัดของตัวเชื่อมต่อในกรณีที่ปรากฏ
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # ใช้ค่าจุดปรับเป็นพิกัด
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # แปลงพิกัดเนื่องจาก Sin(90) = 1 และ Cos(90) = 0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # กำหนดความกว้างของส่วนแนวนอนโดยใช้ค่าจุดปรับที่สอง
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-ผลลัพธ์:
+แนวทางสีแดงทำเครื่องหมายส่วนที่คำนวณหลังการแปลงพิกัด:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-เราสาธิตการคำนวณที่เกี่ยวข้องกับการปรับง่ายและการปรับที่มีมุมหมุน การใช้ความรู้เหล่านี้ คุณสามารถพัฒนาโมเดลของตนเอง (หรือเขียนโค้ด) เพื่อรับอ็อบเจกต์ `GraphicsPath` หรือแม้แต่ตั้งค่าค่าแรงจูงใจของตัวเชื่อมต่อโดยอิงจากพิกัดบนสไลด์
+สูตรเหล่านี้อธิบายพรีเซ็ตที่ใช้ในตัวอย่าง ไม่ใช่โมเดลคอนเน็กเตอร์ทั่วไป ตรวจสอบประเภทการปรับ, การวางแนวกรอบ, และช่วงค่าก่อนนำการคำนวณเดียวกันไปใช้กับพรีเซ็ตอื่น
 
-## **หามุมของเส้นเชื่อมต่อ**
+## **หามุมทิศทางของคอนเน็กเตอร์**
 
-1. สร้างอินสแตนซ์ของคลาส  
-1. เรียกอ้างอิงสไลด์ผ่านดัชนีของมัน  
-1. เข้าถึงรูปร่างเส้นเชื่อมต่อ  
-1. ใช้ความกว้าง, ความสูง, ความสูงของเฟรมรูปร่าง, และความกว้างของเฟรมรูปร่างเพื่อคำนวณมุม  
-
-โค้ด PHP ด้านล่างแสดงการคำนวณมุมสำหรับรูปร่างเส้นเชื่อมต่อ:
+ทิศทางของคอนเน็กเตอร์ตรงสามารถคำนวณจากความกว้างและความสูงพร้อมการพลิกแนวนอนและแนวตั้ง ตัวอย่างต่อไปรายงานมุมตามเข็มนาฬิกาจากแกนแนวนอนบวกในพิกัดสไลด์:
 
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบได้อย่างไรว่าตัวเชื่อมต่อสามารถ "ติดแน่น" กับรูปเฉพาะได้หรือไม่?**
+**ฉันจะตรวจสอบว่าคอนเน็กเตอร์สามารถเชื่อมต่อกับรูปร่างได้หรือไม่?**
 
-ตรวจสอบว่ารูปร่างเปิดเผย [connection sites](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getconnectionsitecount/) หรือไม่ หากไม่มีหรือจำนวนเป็นศูนย์ การติดแน่นจะไม่พร้อมใช้งาน; ในกรณีนั้นใช้จุดสิ้นสุดแบบอิสระและจัดตำแหน่งด้วยตนเอง เป็นการดีที่จะตรวจสอบจำนวนไซต์ก่อนทำการแนบ
+ตรวจสอบค่าของ [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getconnectionsitecount/) ของรูปร่าง จำนวนบวกหมายถึงรูปร่างมีตำแหน่งการเชื่อมต่อ ตรวจสอบดัชนีตำแหน่งที่เลือกก่อนนำไปใช้กับปลายคอนเน็กเตอร์ใด ๆ
 
-**ถ้าฉันลบรูปหนึ่งที่เชื่อมต่ออยู่ ตัวเชื่อมต่อจะเกิดอะไรขึ้น?**
+**ฉันสามารถระบุการปรับค่าคอนเน็กเตอร์ด้วยดัชนีของคอลเลกชันได้หรือไม่?**
 
-ปลายทั้งสองจะถูกตัดออก; ตัวเชื่อมต่อจะคงอยู่บนสไลด์เป็นเส้นธรรมดาที่มีจุดเริ่มต้น/สิ้นสุดอิสระ คุณสามารถลบมันหรือกำหนดการเชื่อมต่อใหม่ได้ และหากต้องการ สามารถ [reroute](https://reference.aspose.com/slides/th/php-java/aspose.slides/connector/reroute/)  
+ดัชนีมีความหมายเฉพาะพรีเซ็ตคอนเน็กเตอร์และโครงสร้างคอลเลกชันที่รู้จัก ตรวจสอบ [AdjustValue::getType](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/#gettype) ก่อนแก้ค่ และใช้ [AdjustValue::getName](https://reference.aspose.com/slides/th/php-java/aspose.slides/adjustvalue/getname/) เป็นข้อมูลเพิ่มเติมเมื่อประเภทเชิงความหมายเดียวกันปรากฏหลายครั้ง
 
-**การผูกตัวเชื่อมต่อจะคงอยู่หรือไม่เมื่อคัดลอกสไลด์ไปยังงานนำเสนออื่น?**
+**เกิดอะไรขึ้นเมื่อรูปร่างที่เชื่อมต่อถูกลบ?**
 
-โดยทั่วไปใช่ ตราบใดที่รูปเป้าหมายถูกคัดลอกด้วย หากสไลด์ถูกแทรกเข้าไฟล์อื่นโดยไม่มีรูปที่เชื่อมต่อ ปลายจะกลายเป็นอิสระและคุณต้องเชื่อมต่อใหม่.
+ปลายคอนเน็กเตอร์ที่เชื่อมต่อกับรูปร่างนั้นจะถูกตัดการเชื่อมต่อ คอนเน็กเตอร์ยังคงอยู่บนสไลด์และสามารถลบ, ตั้งเป็นเส้นอิสระ, หรือเชื่อมต่อกับรูปร่างอื่นได้
+
+**การผูกคอนเน็กเตอร์ยังคงอยู่เมื่อตัวสไลด์ถูกคัดลอกหรือไม่?**
+
+โดยทั่วไปการผูกจะคงอยู่เมื่อรูปร่างที่เชื่อมต่อถูกคัดลอกพร้อมสไลด์ หากคอนเน็กเตอร์ถูกคัดลอกโดยไม่มีรูปร่างเป้าหมายหนึ่งด้าน ปลายที่ได้รับผลกระทบจะต้องเชื่อมต่อใหม่อีกครั้ง

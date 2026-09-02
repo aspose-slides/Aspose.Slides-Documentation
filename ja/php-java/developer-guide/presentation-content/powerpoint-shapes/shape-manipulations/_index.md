@@ -1,48 +1,51 @@
 ---
-title: PHPでプレゼンテーションの図形を管理する
-linktitle: 図形操作
+title: PHPでプレゼンテーションのシェイプを管理する
+linktitle: シェイプ操作
 type: docs
 weight: 40
 url: /ja/php-java/shape-manipulations/
 keywords:
-- PowerPoint 図形
-- プレゼンテーション図形
-- スライド上の図形
-- 図形の検索
-- 図形のクローン作成
-- 図形の削除
-- 図形の非表示
-- 図形の順序変更
-- Interop 図形 ID の取得
-- 図形の代替テキスト
-- 図形のレイアウト書式
-- 図形の SVG 変換
-- 図形を SVG に変換
-- 図形の配置
-- 図形のフリップ
+- PowerPointシェイプ
+- プレゼンテーションシェイプ
+- スライド上のシェイプ
+- シェイプの検索
+- シェイプのクローン作成
+- シェイプの削除
+- シェイプの非表示
+- シェイプの順序変更
+- InteropシェイプIDの取得
+- シェイプの代替テキスト
+- シェイプの調整ポイント
+- プリセットシェイプ調整
+- シェイプジオメトリ
+- シェイプのレイアウト書式
+- SVGとしてのシェイプ
+- シェイプをSVGへ変換
+- シェイプの配置
+- シェイプのフリップ
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、プレゼンテーションの図形を識別、クローン作成、削除、非表示、順序変更、エクスポート、配置、フリップする方法を学びます。"
+description: "Aspose.Slides for PHP via Java を使用して、プレゼンテーションシェイプの識別、調整、クローン作成、削除、非表示、順序変更、エクスポート、配置、フリップの方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for PHP via Java は、スライド上の図形を順序付けられた [ShapeCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/) として表します。このコレクションは図形の取得・変更の場所であると同時に、スタック順序の情報源でもあり、インデックス `0` が最背面の図形、最後のインデックスが最前面の図形を表します。
+Aspose.Slides for PHP via Java は、スライド上のシェイプを順序付けられた [ShapeCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/) として表現します。コレクションはシェイプを検索・変更する場所であると同時に、スタック順序の情報源でもあります。インデックス `0` が最背面のシェイプで、最後のインデックスが最前面のシェイプです。
 
-本記事はこのモデルに従います。まず図形を確実に特定する方法を説明し、続いて図形のクローン作成、削除、非表示、並び替えを示します。最後のセクションではレイアウトレベルの書式設定、SVG エクスポート、配置、フリップ設定について取り上げます。各例は独立しているため、ワークフローで必要な操作だけを使用できます。
+この文章はそのモデルに従います。まずシェイプを確実に識別し、プリセットの調整ポイントを変更する方法を説明し、次にシェイプのクローン作成、削除、非表示、順序変更の方法を示します。最後のセクションではレイアウトレベルの書式設定、SVG エクスポート、配置、フリップ設定を取り上げます。各例は独立しているため、ワークフローで必要な操作だけを利用できます。
 
-## **図形の特定と検索**
+## **シェイプの識別と検索**
 
-コレクションインデックスは既知のファイルを処理する際に便利ですが、安定した識別子ではありません。図形の追加・削除・並び替えによりインデックスは変わります。プレゼンテーションの作成・保守方法に合わせて識別子を選択してください。
+コレクションインデックスは既知のファイルを処理する際に便利ですが、安定した識別子ではありません。シェイプの追加、削除、順序変更によりインデックスは変わります。プレゼンテーションの作成・保守方法に応じて識別子を選択してください。
 
-- [Name](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getname/) は開発者が管理するテンプレートに有用で、PowerPoint の選択ウィンドウで簡単に確認できます。名前は編集可能で一意であることは保証されないため、コードが名前に依存する場合は命名規則を設けてください。
-- [AlternativeText](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getalternativetext/) は、アクセシビリティ記述や作者が付与したタグで図形が特定できる場合に有用です。ユーザーに表示され、ローカライズやアクセシビリティ向けに書き換えられる可能性があり、一意であることは保証されません。意味のあるアクセシビリティテキストをデータベースキーとして無暗に再利用しないでください。
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getofficeinteropshapeid/) は読み取り専用の識別子で、スライド内で一意であり、PowerPoint の interop が使用する形状 ID に対応します。PowerPoint との統合や、図形の存続期間中に曖昧さのない参照が必要な場合に使用してください。クローンや再作成された図形は別の図形となり、独自の ID が付与されます。
+- [Name](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getname/) は開発者が管理するテンプレートで有用で、PowerPoint の選択ウィンドウで簡単に確認できます。名前は編集可能ですが一意である保証はないため、コードが名前に依存する場合は命名規則を設けてください。
+- [AlternativeText](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getalternativetext/) は、アクセシビリティ記述や作者が付与したタグでシェイプが既に識別されている場合に有用です。ユーザーに表示され、ローカライズやアクセシビリティ向上のために書き換えられることがありますが、一意である保証はありません。意味のあるアクセシビリティテキストをデータベースキーとして無音で再利用しないでください。
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getofficeinteropshapeid/) は読み取り専用の識別子で、スライド内で一意であり、PowerPoint の Interop が使用するシェイプ ID に対応します。PowerPoint と統合する場合や、シェイプの存続期間中に曖昧でない参照が必要な場合に使用してください。クローンまたは再作成されたシェイプは別のシェイプとなり、独自の ID が付与されます。
 
-関連する [Shape::getUniqueId](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getuniqueid/) メソッドはプレゼンテーション スコープの識別子を返しますが、これはアドイン向けで再割り当てされる可能性があります。永続的な外部キーとして扱わないでください。長期的な同一性が必要な場合は、アプリケーション データにマッピングを保持し、期待する図形がまだ存在するか検証してください。
+関連する [Shape::getUniqueId](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getuniqueid/) メソッドはプレゼンテーションスコープの識別子を返しますが、これはアドイン向けで再割り当てされる可能性があります。永続的な外部キーとして扱うべきではありません。長期的な同一性が必要な場合は、アプリケーションデータにマッピングを保持し、期待するシェイプが依然として存在するか検証してください。
 
-以下の例は名前で正確に比較検索し、スライド スコープの interop ID を報告します。テンプレートに期待した図形が存在しない場合、コードはその結果を報告し、誤ったオブジェクトで続行しません。
+以下の例は名前で完全一致検索し、スライドスコープの Interop ID を報告します。テンプレートに期待するシェイプが存在しない場合、コードはその結果を報告し、誤ったオブジェクトで続行しません。
 
 ```php
 use aspose\slides\Presentation;
@@ -75,7 +78,7 @@ try {
 }
 ```
 
-操作が特定の図形タイプに限定される場合は、型固有メンバーを使用する前にランタイム クラスを確認してください。この例は、名前付きオブジェクトが [AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/) である場合にのみテキストと代替テキストを更新します。
+操作がシェイプの種類に依存する場合は、型固有メンバーを使用する前に実行時クラスを確認してください。この例は、名前付きオブジェクトが [AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/) である場合にのみテキストと代替テキストを更新します。
 
 ```php
 use aspose\slides\Presentation;
@@ -110,15 +113,115 @@ try {
 }
 ```
 
-## **図形コレクションの変更**
+## **プリセットシェイプ調整の識別と変更**
 
-add、clone、remove、reorder メソッドはコレクションに対して即座に作用します。操作により図形数や順序が変わった場合、操作前に取得したインデックスに依存し続けないでください。
+プリセットジオメトリシェイプは、角のサイズや矢印の比率、円弧の角度などを制御する調整ポイントを公開することがあります。これらは読み取り専用の [GeometryShape::getAdjustments](https://reference.aspose.com/slides/ja/php-java/aspose.slides/geometryshape/#getAdjustments) コレクション経由でアクセスできます。コレクション自体はシェイプから提供されますが、各 [AdjustValue](https://reference.aspose.com/slides/ja/php-java/aspose.slides/adjustvalue/) が変更可能な値を保持しています。
 
-### **図形のクローン作成**
+固定のコレクションインデックスだけに依存しないでください。調整項目を列挙し、読み取り専用の [AdjustValue::getType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/adjustvalue/#getType) メソッドを確認します。このメソッドの [ShapeAdjustmentType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapeadjustmenttype/) 値が調整が制御する対象を示します。読み取り専用の [AdjustValue::getName](https://reference.aspose.com/slides/ja/php-java/aspose.slides/adjustvalue/getname/) メソッドは追加の識別情報を提供し、同じセマンティックタイプの調整が複数あるプリセットで特に有用です。
 
-[ShapeCollection::addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/addclone/) は独立したコピーを作成し、対象コレクションの末尾に追加します。[ShapeCollection::insertClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/insertclone/) もコピーを作成しますが、指定した Z オーダー インデックスに配置します。座標のみを受け取るオーバーロードはサイズを変更せずにクローンを移動し、幅と高さを受け取るオーバーロードはリサイズも可能です。
+調整の意味に合ったメソッドを使用してください。
 
-この例では、宛先スライドを作成し、ラベル付き矩形を前面にクローンし、2 番目のクローンを背面に挿入します。どちらのクローンに対する変更も元の図形に影響しません。
+| 調整タイプ | 目的 | 変更する値 |
+|---|---|---|
+| `CornerSize` | 丸め角のサイズ | [setRawValue](https://reference.aspose.com/slides/ja/php-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | 矢尻の太さ | `setRawValue` |
+| `ArrowheadLength` | 矢じりの長さ | `setRawValue` |
+| `ArrowheadWidth` | 矢じりの幅 | `setRawValue` |
+| `StartAngle` | パイまたは円弧の開始角度 | [setAngleValue](https://reference.aspose.com/slides/ja/php-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | パイまたは円弧の終了角度 | `setAngleValue` |
+
+`getType` と `getName` は読み取り専用情報を返します。`getRawValue` と `setRawValue` はプリセットのネイティブジオメトリ単位の整数で動作し、`getAngleValue` と `setAngleValue` は度数で角度を扱います。調整項目の数・順序・意味・有効範囲はプリセットの [GeometryShape::getShapeType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/geometryshape/#getShapeType) に依存します。あるプリセットで有効な値が別のプリセットでは無効、あるいは異なる効果を持つことがあります。
+
+`getType` が `ShapeAdjustmentType::Custom` を返す場合、API は標準的な意味を認識していません。`getName`、プリセットタイプ、既存の値を確認し、期待する意味と範囲が分かっている場合以外は調整を変更しないでください。認識されたタイプでも、同じタイプが複数回出現するかどうかを確認してから値を選択します。コネクタの曲げ調整に関する例は [Connector](/slides/ja/php-java/connector/) 記事をご参照ください。
+
+以下の完全な例は、3 つのプリセットシェイプのデフォルト版と変更版を作成します。すべての調整を列挙し、名前とタイプを報告し、サイズ関連の値は `setRawValue`、角度は `setAngleValue` で変更し、結果を保存します。左列はデフォルトジオメトリを保持し、右列は調整された角丸長方形、四方向矢印、パイを示します。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // デフォルトと調整されたシェイプ列のヘッダーを追加します。
+    $defaultColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+    $defaultColumnLabel->getTextFrame()->setText("Default preset geometry");
+    $adjustedColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+    $adjustedColumnLabel->getTextFrame()->setText("Modified adjustment values");
+
+    $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+    $modifiedRoundedRectangle = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+    $modifiedRoundedRectangle->setName("ModifiedRoundedRectangle");
+
+    $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+    $modifiedArrow = $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+    $modifiedArrow->setName("ModifiedQuadArrow");
+
+    $slide->getShapes()->addAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+    $modifiedPie = $slide->getShapes()->addAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+    $modifiedPie->setName("ModifiedPie");
+
+    $shapesToAdjust = [
+        $modifiedRoundedRectangle,
+        $modifiedArrow,
+        $modifiedPie
+    ];
+
+    foreach ($shapesToAdjust as $shape) {
+        $adjustmentCount = java_values($shape->getAdjustments()->size());
+        for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+            $adjustment = $shape->getAdjustments()->get_Item($adjustmentIndex);
+            $shapeName = java_values($shape->getName());
+            $adjustmentName = java_values($adjustment->getName());
+            $adjustmentType = java_values($adjustment->getType());
+            echo $shapeName . " / " . $adjustmentName . ": " . $adjustmentType . PHP_EOL;
+
+            switch ($adjustmentType) {
+                case ShapeAdjustmentType::CornerSize:
+                    $adjustment->setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType::ArrowTailThickness:
+                    $adjustment->setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadLength:
+                    $adjustment->setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadWidth:
+                    $adjustment->setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType::StartAngle:
+                    $adjustment->setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType::EndAngle:
+                    $adjustment->setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType::Custom:
+                    echo "Custom adjustment '" . $adjustmentName . "' was not changed." . PHP_EOL;
+                    break;
+            }
+        }
+    }
+
+    $presentation->save("preset-shape-adjustments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+値を変更する前にセマンティックタイプを確認することで、コードは意図を明確にし、異なるプリセットシェイプ間で同じコレクションインデックスが同じ意味を持つと仮定することを防げます。
+
+## **シェイプコレクションの変更**
+
+追加、クローン、削除、順序変更のメソッドはコレクションに対して即座に作用します。操作によりシェイプ数や順序が変わった場合、事前に取得したインデックスに依存し続けないでください。
+
+### **シェイプのクローン**
+
+[ShapeCollection::addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/addclone/) は独立したコピーを作成し、対象コレクションの末尾に追加します。[ShapeCollection::insertClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/insertclone/) もコピーを作成しますが、指定した Z オーダーインデックスに配置します。座標のみを受け取るオーバーロードはサイズを変更せずにクローンを移動し、幅と高さを受け取るオーバーロードはサイズ変更も可能です。
+
+以下の例は、宛先スライドを作成し、ラベル付き長方形を前面にクローンし、2 番目のクローンを背面に挿入します。いずれかのクローンを変更しても元のシェイプには影響しません。
 
 ```php
 use aspose\slides\Presentation;
@@ -159,13 +262,13 @@ try {
 }
 ```
 
-クローンは図形の内容と書式、名前、代替テキストをコピーします。これらの値が一意である必要がある場合は、クローンに新しい論理識別子を割り当ててください。複雑な図形が使用するリソースはプレゼンテーションが管理しますが、クローンは新しいコレクション項目として新しい図形 ID を持ちます。
+クローンはシェイプのコンテンツと書式、名前、代替テキストをすべてコピーします。これらの値が一意である必要がある場合は、新しい論理識別子を割り当ててください。複雑なシェイプが使用するリソースはプレゼンテーションが管理しますが、クローンは新しいコレクション項目として新しいシェイプ ID を持ちます。
 
-### **図形の削除**
+### **シェイプの削除**
 
-[ShapeCollection::remove](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/remove/) は特定の図形オブジェクトをコレクションから削除します。インデックス順に複数マッチを削除する場合は、残りのインデックスが有効なままになるように末尾から走査してください。
+[ShapeCollection::remove](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/remove/) は特定のシェイプオブジェクトをコレクションから削除します。インデックス付きイテレーション中に複数マッチを削除する場合は、残りのインデックスが有効なままになるように末尾から走査してください。
 
-この例は、指定された名前を持つすべての図形を削除します。固定されたコレクション項目ではなく、現在のインデックスの図形を取得し、不要なキャストも行っていません。
+この例は、指定された名前を持つすべてのシェイプを削除します。固定のコレクション項目ではなく、現在のインデックスのシェイプを読み取り、不要なキャストも行っていません。
 
 ```php
 use aspose\slides\Presentation;
@@ -200,11 +303,11 @@ try {
 }
 ```
 
-削除後は図形数と後続図形のインデックスが変わります。影響を受けない図形への参照は、保存したインデックスよりも信頼性が高くなります。また、コネクタやアニメーションなど、削除されたオブジェクトを参照するプレゼンテーション機能があることも考慮してください。可視図形を削除すると、スライドの外観以上の変化が生じることがあります。
+削除後はシェイプ数と後続シェイプのインデックスが変わります。影響を受けないシェイプへの参照は保存されたインデックスより信頼性が高くなります。また、コネクタ、アニメーション、その他のプレゼンテーション機能が削除対象オブジェクトを参照している場合があることに留意してください。可視シェイプを削除すると、スライドの見た目以外にも影響が及ぶことがあります。
 
-### **図形の非表示**
+### **シェイプの非表示**
 
-[Shape::setHidden](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/sethidden/) を `true` に設定すると、図形はコレクションに残りますが通常のスライドショーには表示されなくなります。インデックス、書式、コンテンツはコードから利用可能なままであるため、後で復元できるオプション要素に適しています。
+[Shape::setHidden](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/sethidden/) を `true` に設定すると、シェイプはコレクションに残りますが、通常のスライドショーには表示されなくなります。インデックス、書式、コンテンツはコードから引き続き利用可能なので、後で復元できるオプション要素に適しています。
 
 ```php
 use aspose\slides\Presentation;
@@ -237,11 +340,11 @@ try {
 }
 ```
 
-非表示は削除でもセキュリティでもありません。オブジェクトはユーザーやコードによって発見・再表示でき、プレゼンテーション ファイルの一部として残ります。
+非表示は削除やセキュリティとは異なります。オブジェクトは依然として検出可能で、ユーザーやコードによって再表示できます。また、プレゼンテーションファイルの一部として残ります。
 
 ### **Z オーダーの変更**
 
-重なる図形はコレクション順に描画されます。[ShapeCollection::reorder](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/reorder/) は既存の図形をクローンせずに対象インデックスへ移動します。インデックス `0` が背面、`size() - 1` が前面です。
+重なったシェイプはコレクション順に描画されます。[ShapeCollection::reorder](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/reorder/) は既存シェイプをクローンせずに指定インデックスへ移動します。インデックス `0` が背面、`size() - 1` が前面です。
 
 ```php
 use aspose\slides\FillType;
@@ -271,13 +374,13 @@ try {
 }
 ```
 
-矩形は最初に作成され、当初は楕円の背面にあります。最終インデックスへ移動すると前面に配置されます。すべての関連図形を追加またはクローンした後に Z オーダーを確定してください。これらの操作は新しいコレクション項目を追加または挿入し、意図したスタック順を変える可能性があります。
+長方形は最初に作成され、最初は楕円の背面にあります。最終インデックスへ移動させると前面に配置されます。すべての関連シェイプを追加またはクローンした後に Z オーダーを確定してください。これらの操作はコレクション項目を追加または挿入し、意図したスタック順序を変える可能性があります。
 
-## **レイアウトスライド上の図形の検査**
+## **レイアウトスライド上のシェイプの検査**
 
-通常スライド、レイアウトスライド、マスタースライドはそれぞれ別々の図形コレクションを持ちます。レイアウトコレクション内の図形は、同じ位置にある通常スライド上の図形と同一オブジェクトではありません。レイアウトが提供する書式を理解または変更する必要がある場合は、レイアウト図形を検査してください。
+通常スライド、レイアウトスライド、マスタースライドはそれぞれ別個のシェイプコレクションを持ちます。レイアウトコレクションのシェイプは、同じ位置にある通常スライドのシェイプとは別オブジェクトです。レイアウトが提供する書式を理解または変更する必要がある場合は、レイアウトシェイプを検査してください。
 
-以下の例は、各レイアウト図形の [FillFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getfillformat/) と [LineFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getlineformat/) を取得し、すべてが `AutoShape` であるという前提をせずに処理します。
+以下の例は、各レイアウトシェイプの [FillFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getfillformat/) と [LineFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getlineformat/) を取得し、すべてが `AutoShape` であると仮定しません。
 
 ```php
 use aspose\slides\Presentation;
@@ -304,11 +407,11 @@ try {
 }
 ```
 
-レイアウトを編集すると、そのレイアウトを使用している複数のスライドに影響が及びます。レイアウト図形を変更する前に、通常スライドがオブジェクトを継承しているかローカルで上書きしているかを判断し、レイアウトを使用しているすべてのスライドでテストしてください。
+レイアウトを編集すると、それを使用している複数のスライドに影響します。レイアウトシェイプを変更する前に、通常スライドがオブジェクトを継承しているかローカルで上書きしているかを判定し、該当レイアウトを使用しているすべてのスライドでテストしてください。
 
-## **図形を SVG にエクスポート**
+## **シェイプを SVG にエクスポート**
 
-[Shape::writeAsSvg](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/writeassvg/) は単一図形のレンダリング結果をストリームに書き出します。結果にはその図形のみが含まれ、スライド全体の背景や隣接図形は含まれません。
+[Shape::writeAsSvg](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/writeassvg/) は、単一シェイプの描画結果をストリームに書き込みます。出力にはシェイプのみが含まれ、スライド全体の背景や隣接シェイプは含まれません。
 
 ```php
 use aspose\slides\Presentation;
@@ -339,13 +442,13 @@ try {
 }
 ```
 
-レンダリング中はプレゼンテーションを開いたままにしてください。出力は図形の書式設定およびフォントや画像といったリソースに依存します。全体の構成が必要な場合は、個別図形ではなくスライド全体をエクスポートしてください。呼び出し側がストリームの所有権を持ち、閉じる必要があります。
+レンダリング中はプレゼンテーションを開いたままにしてください。出力はシェイプの書式設定やフォント、画像といったリソースに依存します。全体の構成が必要な場合は、個別シェイプではなくスライド全体をエクスポートしてください。呼び出し側がストリームの所有権を持ち、閉じる必要があります。
 
-## **図形の配置**
+## **シェイプの配置**
 
-[SlideUtil::alignShapes](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slideutil/alignshapes/) のオーバーロードは、すべての図形または選択したコレクションインデックスを配置します。[ShapesAlignmentType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapesalignmenttype/) はエッジ、中心線、または分布モードを指定します。`alignToSlide` を `true` に設定するとスライドの辺に合わせ、`false` に設定すると選択図形同士の相対位置で配置します。
+[SlideUtil::alignShapes](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slideutil/alignshapes/) のオーバーロードは、すべてのシェイプまたは選択したコレクションインデックスを整列させます。[ShapesAlignmentType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapesalignmenttype/) はエッジ、中心線、または配分モードを指定します。`alignToSlide` を `true` に設定するとスライドのエッジに合わせ、`false` にすると選択シェイプ同士の相対位置で整列します。
 
-この例は、3 つの図形をスライド上部のエッジに揃えます。返された図形参照は、配置直前に現在のインデックスへ変換されます。
+この例は、3 つのシェイプをスライド上部のエッジに整列させます。返されたシェイプ参照は整列直前に現在のインデックスへ変換されます。
 
 ```php
 use aspose\slides\Presentation;
@@ -378,17 +481,17 @@ try {
 }
 ```
 
-配置は位置を変更しますが Z オーダー には影響しません。相対配置は通常少なくとも 2 つの図形が必要で、水平または垂直の分布には間隔を定義できるだけの図形が必要です。メソッド呼び出し前にコレクションを変更した場合はインデックスを再計算してください。
+配置は位置を変更しますが、Z オーダーは変わりません。相対配置には通常最低 2 つのシェイプが必要で、水平または垂直の配分には間隔を定義できるだけのシェイプが必要です。メソッド呼び出し前にコレクションを変更した場合はインデックスを再計算してください。
 
-## **図形のフリップ**
+## **シェイプのフリップ**
 
-[ShapeFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapeframe/) クラスは位置、サイズ、水平・垂直フリップ設定、回転を保持します。その `getFlipH` と `getFlipV` の値は [NullableBool](https://reference.aspose.com/slides/ja/php-java/aspose.slides/nullablebool/) を使用し、`True` がフリップを有効、`False` が無効、`NotDefined` が未指定/既定状態を保持します。
+[ShapeFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapeframe/) クラスは位置、サイズ、水平・垂直フリップ設定、回転を保持します。その `getFlipH` と `getFlipV` の値は [NullableBool](https://reference.aspose.com/slides/ja/php-java/aspose.slides/nullablebool/) を使用し、`True` がフリップ有効、`False` が無効、`NotDefined` が未指定/デフォルト状態を保持します。
 
-以下の入力プレゼンテーションには、フリップされていない図形が 1 つ含まれています。
+以下の入力プレゼンテーションにはフリップされていないシェイプが 1 つ含まれています。
 
-![フリップ前の図形](shape_to_be_flipped.png)
+![Flipping前のシェイプ](shape_to_be_flipped.png)
 
-この例は他のすべてのフレーム値を保持し、フリップ設定の 2 つだけを置き換えます。新しい [Frame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/setframe/) を割り当てるとフレーム全体が置き換わるため、重要なポイントです。
+この例は他のフレーム値はすべて保持し、フリップ設定のみを置き換えます。これは新しい [Frame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/setframe/) を割り当てるとフレーム全体が置き換えられるため、重要です。
 
 ```php
 use aspose\slides\NullableBool;
@@ -414,20 +517,24 @@ try {
 }
 ```
 
-保存された図形は水平・垂直に鏡像化されますが、位置、サイズ、回転はそのまま保持されます。
+保存されたシェイプは水平・垂直に鏡像化されますが、位置、サイズ、回転はそのままです。
 
-![フリップ後の図形](flipped_shape.png)
+![Flipping後のシェイプ](flipped_shape.png)
 
 ## **FAQ**
 
-**コレクションインデックスを図形識別子として使用すべきですか？**
+**コレクションインデックスをシェイプの識別子として使用すべきですか？**
 
-短時間の処理でコレクションが変化しないことが保証される場合にのみ使用してください。テンプレート作成時には検証済みの `Name` または `AlternativeText` の規約を、スライドスコープの interop 作業には `OfficeInteropShapeId` を優先してください。
+短時間の処理で、コレクションが操作前に変化しないことが保証されている場合にのみ使用してください。作成されたテンプレートでは `Name` や `AlternativeText` の命名規則を、スライドスコープの Interop 作業では `OfficeInteropShapeId` を優先してください。
 
-**図形を非表示にすると Z オーダーから除外されますか？**
+**シェイプを非表示にすると Z オーダーから除外されますか？**
 
-いいえ。非表示の図形は同じインデックスでコレクションに残り、検索、並び替え、編集、再表示が可能です。
+いいえ。非表示シェイプは同じインデックスでコレクションに残り、検索・順序変更・編集・再表示が可能です。
 
-**クローンした図形が他の図形の前に現れたのはなぜですか？**
+**クローンしたシェイプが別のシェイプの前に表示されたのはなぜですか？**
 
-`addClone` はクローンをコレクションの末尾に追加します。コレクションの末尾は Z オーダー の前面に相当します。初期インデックスを指定したい場合は `insertClone` を使用するか、すべての図形を追加した後で `reorder` してください。
+`addClone` はクローンをコレクションの末尾に追加します。コレクションの末尾は Z オーダーの前面に相当します。初期インデックスを指定したい場合は `insertClone` を使用するか、すべてのシェイプ追加後に `reorder` で位置を調整してください。
+
+**プリセットシェイプの調整を固定インデックスで識別できますか？**
+
+正確なプリセットとコレクション構造を検証した場合に限り可能です。`GeometryShape::getAdjustments` を列挙し、`AdjustValue::getType` を確認することを推奨します。同じセマンティックタイプが複数出現する場合は `AdjustValue::getName` を追加情報として利用してください。

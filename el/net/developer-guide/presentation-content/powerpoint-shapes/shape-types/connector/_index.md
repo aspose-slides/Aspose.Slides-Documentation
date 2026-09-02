@@ -1,6 +1,6 @@
 ---
-title: "Διαχείριση Συνδέσμων σε Παρουσιάσεις στο .NET"
-linktitle: "Σύνδεσμος"
+title: Διαχείριση Συνδέσμων σε Παρουσιάσεις σε .NET
+linktitle: Σύνδεσμος
 type: docs
 weight: 10
 url: /el/net/connector/
@@ -10,373 +10,510 @@ keywords:
 - σημείο συνδέσμου
 - γραμμή συνδέσμου
 - γωνία συνδέσμου
+- σημείο σύνδεσης
+- σημείο ρύθμισης
 - σύνδεση σχημάτων
 - PowerPoint
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Ενδυναμώνει τις εφαρμογές .NET να σχεδιάζουν, να συνδέουν και να αυτόματα δρομολογούν γραμμές σε διαφάνειες PowerPoint—αποκτήστε πλήρη έλεγχο πάνω σε ευθείες, αγκόνα και καμπυλωτούς συνδέσμους."
+description: "Μάθετε πώς να προσθέτετε, συνδέετε, επαναδρομολογείτε, ρυθμίζετε και ελέγχετε ευθείς, λυγρούς και καμπυλωτούς συνδέσμους PowerPoint με το Aspose.Slides για .NET."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Ένας σύνδεσμος PowerPoint είναι μια ειδική γραμμή που συνδέει ή συνδέει δύο σχήματα μεταξύ τους και παραμένει προσαρμοσμένος στα σχήματα ακόμη και όταν αυτά μετακινούνται ή τοποθετούνται ξανά σε μια δεδομένη διαφάνεια. 
+Ένα σύνδεσμο είναι μια γραμμή που μπορεί να παραμένει συνδεδεμένο με δύο σχήματα όταν κινούνται τα σχήματα. Τα άκρα του συνδέονται σε σημεία σύνδεσης, που απεικονίζονται με πράσινες κουκκίδες στο PowerPoint. Ορισμένοι λυγρές και καμπυλωτές σύνδεσμοι εκθέτουν επίσης σημεία ρύθμισης, που απεικονίζονται με πορτοκαλί κουκκίδες, και ελέγχουν τη θέση των μεμονωμένων τμημάτων του συνδέσμου.
 
-Οι σύνδεσμοι συνδέονται συνήθως με *σημεία σύνδεσης* (πράσινα σημεία), τα οποία υπάρχουν εξ' ορισμού σε όλα τα σχήματα. Τα σημεία σύνδεσης εμφανίζονται όταν ο κέρσορας πλησιάσει σε αυτά.
-
-*Σημεία ρύθμισης* (πορτοκαλί σημεία), που υπάρχουν μόνο σε ορισμένους συνδέσμους, χρησιμοποιούνται για την τροποποίηση των θέσεων και των σχημάτων των συνδέσμων.
+Το Aspose.Slides αντιπροσωπεύει τους συνδέσμους μέσω της διεπαφής [IConnector](https://reference.aspose.com/slides/el/net/aspose.slides/iconnector/). Μπορείτε να τους δημιουργήσετε, να συνδέσετε τα άκρα τους σε σχήματα, να επιλέξετε σημεία σύνδεσης, να αλλάξετε τη διαδρομή τους και να τροποποιήσετε τη γεωμετρία των συνδέσμων που διαθέτουν σημεία ρύθμισης.
 
 ## **Τύποι Συνδέσμων**
 
-Στο PowerPoint, μπορείτε να χρησιμοποιήσετε ευθείς, γωνιακούς (αγκυλωτούς) και καμπυλωτούς συνδέσμους. 
+Η απαρίθμηση [ShapeType](https://reference.aspose.com/slides/el/net/aspose.slides/shapetype/) περιλαμβάνει προκαθορισμένα ευθεία, λυγρά και καμπυλωτά συνδέσμους. Ο παρακάτω πίνακας εμφανίζει τις διαθέσιμες γεωμετρίες συνδέσμων και τον αριθμό των σημείων ρύθμισης που ορίζονται σε κάθε προεπιλογή.
 
-Το Aspose.Slides παρέχει αυτούς τους συνδέσμους:
+| Σύνδεσμος | Εικόνα | Αριθμός σημείων ρύθμισης |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Σύνδεσμος                      | Image                                                        | Αριθμός σημείων ρύθμισης |
-| ------------------------------ | ------------------------------------------------------------ | ------------------------ |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                        |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                        |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                        |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                        |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                        |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                        |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                        |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                        |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                        |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                        |
+Ο αριθμός και το νόημα των σημείων ρύθμισης αποτελούν μέρος του επιλεγμένου προεπιλεγμένου συνδέσμου. Μην υποθέτετε ότι δύο διαφορετικοί τύποι συνδέσμων εκθέτουν την ίδια διάταξη συλλογής.
 
-## **Συνδέστε Σχήματα Χρησιμοποιώντας Σύνδεσμους**
+## **Σύνδεση Δύο Σχημάτων**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του ευρετηρίου της.
-1. Προσθέστε δύο [AutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/autoshape/) στη διαφάνεια χρησιμοποιώντας τη μέθοδο `AddAutoShape` που παρέχεται από το αντικείμενο `Shapes`.
-1. Προσθέστε έναν σύνδεσμο χρησιμοποιώντας τη μέθοδο `AddConnector` που εκτίθεται από το αντικείμενο `Shapes`, ορίζοντας τον τύπο του συνδέσμου.
-1. Συνδέστε τα σχήματα χρησιμοποιώντας τον σύνδεσμο.
-1. Καλέστε τη μέθοδο `Reroute` για να εφαρμόσετε τη πιο σύντομη διαδρομή σύνδεσης.
-1. Αποθηκεύστε την παρουσίαση. 
+Χρησιμοποιήστε το [IShapeCollection.AddConnector](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addconnector/) για να προσθέσετε ένα σύνδεσμο και να ορίσετε τις ιδιότητες [StartShapeConnectedTo](https://reference.aspose.com/slides/el/net/aspose.slides/connector/startshapeconnectedto/) και [EndShapeConnectedTo](https://reference.aspose.com/slides/el/net/aspose.slides/connector/endshapeconnectedto/). Αφού συνδεθούν και τα δύο άκρα, το [IConnector.Reroute](https://reference.aspose.com/slides/el/net/aspose.slides/iconnector/reroute/) επιλέγει μια σύντομη διαδρομή μεταξύ των σχημάτων.
 
-```c#
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-using (Presentation input = new Presentation())
-{                
-    // Πρόσβαση στη συλλογή σχημάτων για μια συγκεκριμένη διαφάνεια
-    IShapeCollection shapes = input.Slides[0].Shapes;
+Το παρακάτω παράδειγμα συνδέει μια έλλειψη και ένα ορθογώνιο σχήμα με έναν λυγρό σύνδεσμο:
 
-    // Προσθέτει ένα αυτόματο σχήμα Έλλειψη
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Προσθέτει ένα αυτόματο σχήμα Ορθογώνιο
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Προσθέτει ένα σχήμα σύνδεσμου στη συλλογή σχημάτων της διαφάνειας
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Συνδέει τα σχήματα χρησιμοποιώντας τον σύνδεσμο
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // Καλεί τη μέθοδο reroute που ορίζει τη αυτόματη συντομότερη διαδρομή μεταξύ των σχημάτων
-    connector.Reroute();
-
-    // Αποθηκεύει την παρουσίαση
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Προειδοποίηση" %}}
+Η κλήση του `Reroute` μπορεί να αλλάξει τις τιμές των [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/el/net/aspose.slides/connector/startshapeconnectionsiteindex/) και [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/el/net/aspose.slides/connector/endshapeconnectionsiteindex/). Αναθέστε συγκεκριμένα σημεία σύνδεσης μετά το ξαναδρόμημα εάν αυτά τα σημεία πρέπει να παραμείνουν σταθερά.
+{{% /alert %}}
 
-Η μέθοδος `Connector.Reroute` επαναδρομολογεί ένα σύνδεσμο και τον αναγκάζει να ακολουθήσει τη συντομότερη δυνατή διαδρομή μεταξύ των σχημάτων. Για να πετύχει αυτό, η μέθοδος μπορεί να αλλάξει τα σημεία `StartShapeConnectionSiteIndex` και `EndShapeConnectionSiteIndex`. 
+## **Επιλογή Σημείου Σύνδεσης**
 
-{{% /alert %}} 
+Κάθε σχήμα που μπορεί να συνδεθεί αναφέρει τον αριθμό των σημείων του μέσω του [ConnectionSiteCount](https://reference.aspose.com/slides/el/net/aspose.slides/shape/connectionsitecount/). Επικυρώστε ένα προτιμώμενο δείκτη σημείου με μηδενική βάση πριν τον αναθέσετε σε ένα άκρο συνδέσμου· οι αριθμοί σημείων διαφέρουν ανάλογα με τη γεωμετρία του σχήματος.
 
-## **Καθορίστε Σημείο Σύνδεσης**
-Αν θέλετε ένας σύνδεσμος να συνδέει δύο σχήματα χρησιμοποιώντας συγκεκριμένα σημεία στα σχήματα, πρέπει να ορίσετε τα προτιμώμενα σημεία σύνδεσης με αυτόν τον τρόπο:
+Αυτό το παράδειγμα συνδέει τον σύνδεσμο σε ένα συγκεκριμένο σημείο της έλλειψης όταν αυτό το σημείο υπάρχει:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του ευρετηρίου της.
-1. Προσθέστε δύο [AutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/autoshape/) στη διαφάνεια χρησιμοποιώντας τη μέθοδο `AddAutoShape` που παρέχεται από το αντικείμενο `Shapes`.
-1. Προσθέστε έναν σύνδεσμο χρησιμοποιώντας τη μέθοδο `AddConnector` που εκτίθεται από το αντικείμενο `Shapes`, ορίζοντας τον τύπο του συνδέσμου.
-1. Συνδέστε τα σχήματα χρησιμοποιώντας τον σύνδεσμο. 
-1. Ορίστε τα προτιμώμενα σημεία σύνδεσης στα σχήματα. 
-1. Αποθηκεύστε την παρουσίαση.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // Πρόσβαση στη συλλογή σχημάτων για μια συγκεκριμένη διαφάνεια
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // Προσθέτει ένα σχήμα σύνδεσμου στη συλλογή σχημάτων της διαφάνειας
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // Προσθέτει ένα αυτόματο σχήμα Έλλειψη
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // Προσθέτει ένα αυτόματο σχήμα Ορθογώνιο
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // Συνδέει τα σχήματα χρησιμοποιώντας τον σύνδεσμο
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Ορίζει το προτιμώμενο δείκτη σημείου σύνδεσης στο σχήμα Έλλειψη
-    uint wantedIndex = 6;
-
-    // Ελέγχει εάν ο προτιμώμενος δείκτης είναι μικρότερος από τον μέγιστο αριθμό σημείων σύνδεσης
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // Ορίζει το προτιμώμενο σημείο σύνδεσης στο αυτόματο σχήμα Έλλειψη
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // Αποθηκεύει την παρουσίαση
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
-## **Ρυθμίστε Σημείο Συνδέσμου**
+## **Ρύθμιση Σημείου Συνδέσμου**
 
-Μπορείτε να ρυθμίσετε έναν υπάρχοντα σύνδεσμο μέσω των σημείων ρύθμισης του. Μόνο σύνδεσμοι με σημεία ρύθμισης μπορούν να τροποποιηθούν με αυτόν τον τρόπο. Δείτε τον πίνακα κάτω από **[Τύποι συνδέσμων.](/slides/el/net/connector/#types-of-connectors)** 
+Οι σύνδεσμοι με σημεία ρύθμισης τα εμφανίζουν μέσω του [IGeometryShape.Adjustments](https://reference.aspose.com/slides/el/net/aspose.slides/igeometryshape/adjustments/). Εξετάστε κάθε [IAdjustValue](https://reference.aspose.com/slides/el/net/aspose.slides/iadjustvalue/) και ελέγξτε το [Type](https://reference.aspose.com/slides/el/net/aspose.slides/adjustvalue/type/) πριν αλλάξετε το [RawValue](https://reference.aspose.com/slides/el/net/aspose.slides/adjustvalue/rawvalue/). Οι γενικοί κανόνες για την ταυτοποίηση προεπιλεγμένων ρυθμίσεων σχήματος περιγράφονται στη σελίδα [Shape Manipulation](/slides/el/net/shape-manipulations/).
 
-### **Απλή Περίπτωση**
+Ο αριθμός, η σειρά, το νόημα και το έγκυρο εύρος τιμών των ρυθμίσεων του συνδέσμου εξαρτώνται από το προεπιλεγμένο τύπο συνδέσμου. Η ιδιότητα `Type` είναι μόνο για ανάγνωση, ενώ η τιμή της ρύθμισης είναι εγγράψιμη. Η μόνο για ανάγνωση ιδιότητα [Name](https://reference.aspose.com/slides/el/net/aspose.slides/adjustvalue/name/) παρέχει πρόσθετη ταυτοποίηση όταν ένας σύνδεσμος περιέχει περισσότερες από μία ρυθμίσεις του ίδιου σημασιολογικού τύπου.
 
-Σκεφτείτε μια περίπτωση όπου ένας σύνδεσμος μεταξύ δύο σχημάτων (A και B) περνά από ένα τρίτο σχήμα (C):
+### **Διαδρομή Περιβάλλοντας Ένα Εμπόδιο**
+
+Στη παρακάτω διάταξη, ένας σύνδεσμος `BentConnector5` μεταξύ δύο σχημάτων περνά μέσα από ένα τρίτο σχήμα:
 
 ![connector-obstruction](connector-obstruction.png)
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+Αυτός ο κώδικας δημιουργεί τον εμπόδιο σύνδεσμο:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-Για να αποφύγουμε ή να παρακάμψουμε το τρίτο σχήμα, μπορούμε να ρυθμίσουμε τον σύνδεσμο μετακινώντας την κατακόρυφη γραμμή του προς τα αριστερά με αυτόν τον τρόπο:
+Μετακινώντας την κατακόρυφη κάμψη αλλάζει τη διαδρομή έτσι ώστε ο σύνδεσμος να παρακάμψει το εμπόδιο:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+Αντί να υποθέτετε ότι ο δείκτης συλλογής `1` αντιπροσωπεύει πάντα την κατακόρυφη κάμψη, αυτό το παράδειγμα αναζητά το `ConnectorBendPositionY` και το τροποποιεί μόνο όταν υπάρχει ο αναμενόμενος σημασιολογικός τύπος:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Πολύπλοκες Περιπτώσεις** 
+Ένα `BentConnector5` διαθέτει δύο ρυθμίσεις `ConnectorBendPositionX` και μία ρύθμιση `ConnectorBendPositionY`. Εάν ο τύπος που χρειάζεστε εμφανίζεται περισσότερες από μία φορές, ελέγξτε το `Name` και τη γνωστή γεωμετρία εκείνης της προεπιλογής προτού επιλέξετε ένα. Εάν μια ρύθμιση αναφέρει `ShapeAdjustmentType.Custom`, θεωρήστε το νόημα και το εύρος της ως ειδικό για την προεπιλογή και μην το αλλάξετε μέχρι να είναι γνωστή αυτή η σύμβαση.
 
-Για να εκτελέσετε πιο σύνθετες ρυθμίσεις, πρέπει να λάβετε υπόψη τα εξής:
+## **Συσχέτιση Τιμών Ρύθμισης με Γεωμετρία Συνδέσμου**
 
-* Το ρυθμιζόμενο σημείο ενός συνδέσμου συνδέεται στενά με έναν τύπο που υπολογίζει και καθορίζει τη θέση του. Έτσι, αλλαγές στη θέση του σημείου μπορεί να τροποποιήσουν το σχήμα του συνδέσμου.
-* Τα σημεία ρύθμισης ενός συνδέσμου ορίζονται με αυστηρή σειρά σε έναν πίνακα. Τα σημεία ρύθμισης αριθμούνται από το σημείο εκκίνησης του συνδέσμου μέχρι το σημείο τερματισμού του.
-* Οι τιμές των σημείων ρύθμισης αντανακλούν το ποσοστό του πλάτους/ύψους του σχήματος του συνδέσμου.
-  * Το σχήμα περιορίζεται από τα σημεία εκκίνησης και τερματισμού του συνδέσμου πολλαπλασιασμένα με 1000.
-  * Το πρώτο, το δεύτερο και το τρίτο σημείο καθορίζουν αντίστοιχα το ποσοστό από το πλάτος, το ποσοστό από το ύψος και ξανά το ποσοστό από το πλάτος.
-* Για τους υπολογισμούς που καθορίζουν τις συντεταγμένες των σημείων ρύθμισης ενός συνδέσμου, πρέπει να λάβετε υπόψη την περιστροφή του συνδέσμου και την αντανάκλασή του. **Σημείωση** ότι η γωνία περιστροφής για όλους τους συνδέσμους που εμφανίζονται κάτω από **[Τύποι συνδέσμων](/slides/el/net/connector/#types-of-connectors)** είναι 0.
+Για λυγρούς συνδέσμους, οι τιμές ρύθμισης μπορούν να χρησιμοποιηθούν για την εκτίμηση των θέσεων μεμονωμένων τμημάτων. Αυτοί οι υπολογισμοί είναι ειδικοί για τον προεπιλεγμένο σύνδεσμο:
 
-#### **Περίπτωση 1**
+- `BentConnector4` συνήθως εκθέτει μία ρύθμιση `ConnectorBendPositionX` και μία ρύθμιση `ConnectorBendPositionY`.
+- Για αυτές τις θέσεις κάμψης, το `RawValue / 100000f` παράγει το κλάσμα του πλάτους ή του ύψους του πλαισίου του συνδέσμου που χρησιμοποιείται στα παρακάτω παραδείγματα.
+- Ένα πλαίσιο συνδέσμου μπορεί να περιστραφεί ή να αντιστραφεί, επομένως οι συντεταγμένες του πλαισίου πρέπει να μετασχηματιστούν πριν συγκριθούν με τις συντεταγμένες της διαφάνειας.
 
-Σκεφτείτε μια περίπτωση όπου δύο αντικείμενα πλαισίου κειμένου είναι συνδεδεμένα μεταξύ τους μέσω ενός συνδέσμου:
+Τα παρακάτω παραδείγματα χρησιμοποιούν πρώτα το `Type` για την ταυτοποίηση των ρυθμίσεων. Δεν αντιμετωπίζουν τους δείκτες συλλογής ως φορητούς ταυτοποιητές.
+
+### **Μη Περιστρεφόμενος Σύνδεσμος**
+
+Η αρχική διάταξη περιέχει δύο σχήματα κειμένου συνδεδεμένα με έναν `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-```c#
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-Presentation pres = new Presentation();
-// Λαμβάνει την πρώτη διαφάνεια στην παρουσίαση
-ISlide sld = pres.Slides[0];
-// Προσθέτει σχήματα που θα συνδεθούν μέσω ενός συνδέσμου
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// Προσθέτει έναν σύνδεσμο
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Καθορίζει την κατεύθυνση του συνδέσμου
+Αυτό το παράδειγμα εξετάζει το σύνδεσμο και παίρνει τις οριζόντιες και κατακόρυφες ρυθμίσεις κάμψης:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Καθορίζει το χρώμα του συνδέσμου
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Καθορίζει το πάχος της γραμμής του συνδέσμου
 connector.LineFormat.Width = 3;
-
-// Συνδέει τα σχήματα μεταξύ τους με τον σύνδεσμο
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Λαμβάνει τα σημεία ρύθμισης για τον σύνδεσμο
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**Ρύθμιση**
+Για να αλλάξετε και τις δύο κάμψεις, εντοπίστε κάθε αναμενόμενο τύπο και τροποποιήστε τις τιμές μόνο αφού και οι δύο έχουν βρεθεί:
 
-Μπορούμε να αλλάξουμε τις τιμές των σημείων ρύθμισης του συνδέσμου αυξάνοντας το αντίστοιχο ποσοστό πλάτους και ύψους κατά 20% και 200% αντίστοιχα:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Αλλάζει τις τιμές των σημείων ρύθμισης
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-Το αποτέλεσμα:
+Το αποτέλεσμα είναι ένας σύνδεσμος των οποίων τα οριζόντια και κατακόρυφα τμήματα έχουν μετακινηθεί:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Για να ορίσουμε ένα μοντέλο που να μας επιτρέπει να προσδιορίζουμε τις συντεταγμένες και το σχήμα των μεμονωμένων τμημάτων του συνδέσμου, ας δημιουργήσουμε ένα σχήμα που αντιστοιχεί στο οριζόντιο συστατικό του συνδέσμου στο σημείο connector.Adjustments[0]:
+Μόλις γνωστοποιηθούν οι σημασιολογικοί τύποι, οι τιμές τους μπορούν να μετατραπούν σε συντεταγμένες πλαισίου συνδέσμου. Αυτό το παράδειγμα σχεδιάζει ένα λεπτό ορθογώνιο πάνω από το κατακόρ
 
-```c#
-// Σχεδιάζει το κάθετο συστατικό του συνδέσμου
+υφο τμήμα που ελέγχεται από τις δύο ρυθμίσεις κάμψης:
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Το αποτέλεσμα:
+Το σχήμα οδηγίας σηματοδοτεί το υπολογισμένο τμήμα:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Περίπτωση 2**
+### **Περιστρεφόμενος ή Αντεστραμμένος Σύνδεσμος**
 
-Στην **Περίπτωση 1**, δείξαμε μια απλή λειτουργία ρύθμισης συνδέσμου χρησιμοποιώντας βασικές αρχές. Σε κανονικές καταστάσεις, πρέπει να λάβετε υπόψη την περιστροφή του συνδέσμου και την απεικόνισή του (που ορίζονται από τα connector.Rotation, connector.Frame.FlipH και connector.Frame.FlipV). Θα δείξουμε τώρα τη διαδικασία.
+Όταν η ίδια γεωμετρία συνδέσμου είναι προσανατολισμένη κατακόρυφα, οι τιμές του [Frame](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/el/net/aspose.slides/shapeframe/fliph/), και [FlipV](https://reference.aspose.com/slides/el/net/aspose.slides/shapeframe/flipv/) επηρεάζουν τη μετατροπή από τις συντεταγμένες πλαισίου συνδέσμου σε συντεταγμένες διαφάνειας.
 
-Αρχικά, ας προσθέσουμε ένα νέο αντικείμενο πλαισίου κειμένου (**To 1**) στη διαφάνεια (για σκοπούς σύνδεσης) και να δημιουργήσουμε έναν νέο (πράσινο) σύνδεσμο που το συνδέει με τα αντικείμενα που έχουμε ήδη δημιουργήσει.
+Αυτό το παράδειγμα δημιουργεί και ρυθμίζει τον κατακόρυφα προσανατολισμένο σύνδεσμο:
 
-```c#
-// Δημιουργεί ένα νέο αντικείμενο σύνδεσης
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// Δημιουργεί έναν νέο σύνδεσμο
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Συνδέει αντικείμενα χρησιμοποιώντας τον πρόσφατα δημιουργημένο σύνδεσμο
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// Παίρνει τα σημεία ρύθμισης του συνδέσμου
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Αλλάζει τις τιμές των σημείων ρύθμισης 
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-Το αποτέλεσμα:
+Ο ρυθμισμένος σύνδεσμος εμφανίζεται κατακόρυφα μεταξύ των σχημάτων:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Δεύτερον, ας δημιουργήσουμε ένα σχήμα που θα αντιστοιχεί στο οριζόντιο συστατικό του συνδέσμου που περνά από το νέο σημείο ρύθμισης του συνδέσμου connector.Adjustments[0]. Θα χρησιμοποιήσουμε τις τιμές από τα δεδομένα του συνδέσμου για connector.Rotation, connector.Frame.FlipH και connector.Frame.FlipV και θα εφαρμόσουμε τον δημοφιλές τύπο μετασχηματισμού συντεταγμένων για περιστροφή γύρω από ένα δεδομένο σημείο x0:
+Για μια αυθαίρετη γωνία περιστροφής `alpha`, περιστρέψτε ένα σημείο πλαισίου συνδέσμου `(x, y)` γύρω από το κέντρο του πλαισίου `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Στην περίπτωση μας, η γωνία περιστροφής του αντικειμένου είναι 90 μοίρες και το σύνδεσμο εμφανίζεται κάθετα, έτσι αυτός είναι ο αντίστοιχος κώδικας:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```c#
-// Αποθηκεύει τις συντεταγμένες του συνδέσμου
-x = connector.X;
-y = connector.Y;
-// Διορθώνει τις συντεταγμένες του συνδέσμου σε περίπτωση που εμφανιστεί
-if (connector.Frame.FlipH == NullableBool.True)
+Ο παρακάτω κώδικας διαχειρίζεται τον προσανατολισμό των 90 μοιρών που χρησιμοποιείται σε αυτό το παράδειγμα και σχεδιάζει έναν κόκκινο οδηγό πάνω από το αντίστοιχο τμήμα του συνδέσμου:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
-{
-    y += connector.Height;
-}
-// Λαμβάνει την τιμή του σημείου ρύθμισης ως συντεταγμένη
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  Μετατρέπει τις συντεταγμένες καθώς Sin(90) = 1 και Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// Προσδιορίζει το πλάτος του οριζόντιου συστατικού χρησιμοποιώντας την τιμή του δεύτερου σημείου ρύθμισης
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Το αποτέλεσμα:
+Ο κόκκινος οδηγός σηματοδοτεί το υπολογισμένο τμήμα μετά τον μετασχηματισμό των συντεταγμένων:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Δείξαμε υπολογισμούς που περιλαμβάνουν απλές ρυθμίσεις και σύνθετα σημεία ρύθμισης (σημεία ρύθμισης με γωνίες περιστροφής). Χρησιμοποιώντας τις αποκτηθείσες γνώσεις, μπορείτε να αναπτύξετε το δικό σας μοντέλο (ή να γράψετε κώδικα) για να λάβετε ένα αντικείμενο `GraphicsPath` ή ακόμη και να ορίσετε τις τιμές των σημείων ρύθμισης ενός συνδέσμου βάσει συγκεκριμένων συντεταγμένων διαφάνειας.
+Αυτοί οι τύποι περιγράφουν τις προεπιλογές που χρησιμοποιούνται στα παραδείγματα, όχι ένα καθολικό μοντέλο συνδέσμου. Επικυρώστε τους τύπους ρυθμίσεων, τον προσανατολισμό του πλαισίου και τα εύρη τιμών πριν εφαρμόσετε τον ίδιο υπολογισμό σε διαφορετική προεπιλογή.
 
-## **Βρείτε τη Γωνία των Γραμμών Συνδέσμου**
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του ευρετηρίου της.
-1. Πρόσβαση στο σχήμα γραμμής του συνδέσμου. 
-1. Χρησιμοποιήστε το πλάτος, το ύψος, το ύψος του πλαισίου σχήματος και το πλάτος του πλαισίου σχήματος για να υπολογίσετε τη γωνία.
+## **Εύρεση Γωνίας Κατεύθυνσης Συνδέσμου**
 
-```c#
-public static void Run()
+Η κατεύθυνση ενός ευθείου συνδέσμου μπορεί να υπολογιστεί από το πλάτος και το ύψος του, με εφαρμοσμένες οριζόντιες και κατακόρυφες αναστροφές. Το παρακάτω παράδειγμα αναφέρει τη διπλωμένη (clockwise) γωνία από τον θετικό οριζόντιο άξονα στις συντεταγμένες της διαφάνειας:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να διαπιστώ αν ένας σύνδεσμος μπορεί να «κολλήσει» σε ένα συγκεκριμένο σχήμα;**
+**Πώς μπορώ να διαπιστώ αν ένας σύνδεσμος μπορεί να συνδεθεί με ένα σχήμα;**
 
-Ελέγξτε ότι το σχήμα εκθέτει [σημεία σύνδεσης](https://reference.aspose.com/slides/el/net/aspose.slides/shape/connectionsitecount/). Εάν δεν υπάρχουν ή ο αριθμός είναι μηδέν, η δυνατότητα «κολλήματος» δεν είναι διαθέσιμη· σε αυτήν την περίπτωση, χρησιμοποιήστε ελεύθερα άκρα και τοποθετήστε τα χειροκίνητα. Είναι λογικό να ελέγχετε τον αριθμό των σημείων πριν την σύνδεση.
+Ελέγξτε το `ConnectionSiteCount` του σχήματος. Ένας θετικός αριθμός σημαίνει ότι το σχήμα εκθέτει σημεία σύνδεσης. Επικυρώστε τον επιλεγμένο δείκτη σημείου πριν τον αναθέσετε σε οποιοδήποτε άκρο συνδέσμου.
 
-**Τι συμβαίνει με έναν σύνδεσμο αν διαγράψω ένα από τα συνδεδεμένα σχήματα;**
+**Μπορώ να ταυτοποιήσω μια ρύθμιση συνδέσμου με τον δείκτη της συλλογής του;**
 
-Τα άκρα του θα αποσυνδεθούν· ο σύνδεσμος παραμένει στη διαφάνεια ως απλή γραμμή με ελεύθερα άκρα. Μπορείτε είτε να το διαγράψετε είτε να επαναπροσδιορίσετε τις συνδέσεις και, εφόσον χρειαστεί, να το [επαναδρομολογήσετε](https://reference.aspose.com/slides/el/net/aspose.slides/connector/reroute/).
+Ένας δείκτης είναι σημαντικός μόνο για μια γνωστή προεπιλογή συνδέσμου και τη διάταξη της συλλογής. Ελέγξτε το `IAdjustValue.Type` πριν τροποποιήσετε μια τιμή και χρησιμοποιήστε το `IAdjustValue.Name` ως πρόσθετη πληροφορία όταν ο ίδιος σημασιολογικός τύπος εμφανίζεται περισσότερες από μία φορές.
 
-**Διατηρούνται οι συνδέσεις των συνδέσμων όταν αντιγράφεται μια διαφάνεια σε άλλη παρουσίαση;**
+**Τι συμβαίνει όταν ένα συνδεδεμένο σχήμα διαγραφεί;**
 
-Γενικά ναι, εφόσον τα αντίστοιχα σχήματα αντιγραφούν επίσης. Εάν η διαφάνεια εισαχθεί σε άλλο αρχείο χωρίς τα συνδεδεμένα σχήματα, τα άκρα γίνονται ελεύθερα και θα χρειαστεί να τα επανασυνδέσετε.
+Το αντίστοιχο άκρο του συνδέσμου αποσυνδέεται. Ο σύνδεσμος παραμένει στη διαφάνεια και μπορεί να διαγραφεί, να τοποθετηθεί ως ελεύθερη γραμμή ή να συνδεθεί με άλλο σχήμα.
+
+**Διατηρούνται οι δεσμοί των συνδέσμων όταν αντιγράφεται μια διαφάνεια;**
+
+Οι δεσμοί διατηρούνται γενικά όταν τα συνδεδεμένα σχήματα αντιγράφονται μαζί με τη διαφάνεια. Εάν ένας σύνδεσμος αντιγραφεί χωρίς ένα από τα σχήματα-στόχους του, το επηρεαζόμενο άκρο πρέπει να συνδεθεί εκ νέου.

@@ -1,378 +1,529 @@
 ---
-title: موصل
+title: إدارة الموصلات في العروض التقديمية باستخدام JavaScript
+linktitle: موصل
 type: docs
 weight: 10
 url: /ar/nodejs-java/connector/
-keywords: "ربط الأشكال, الموصلات, أشكال PowerPoint, عرض PowerPoint التقديمي, Java, Aspose.Slides لـ Node.js عبر Java"
-description: "ربط أشكال PowerPoint في JavaScript"
+keywords:
+- موصل
+- نوع الموصل
+- نقطة الموصل
+- خط الموصل
+- زاوية الموصل
+- موقع الاتصال
+- نقطة الضبط
+- ربط الأشكال
+- PowerPoint
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "تعلم كيفية إضافة وربط وإعادة توجيه وتعديل وفحص الموصلات المستقيمة والملتوية والمنحنية في PowerPoint باستخدام Aspose.Slides لـ Node.js عبر Java."
 ---
+## **نظرة عامة**
 
-موصل PowerPoint هو خط خاص يربط شكلين معًا ويبقى ملتصقًا بالأشكال حتى عند تحريكها أو إعادة تموضعها على الشريحة المحددة. 
+الموصل هو خط يمكن أن يبقى موصولًا إلى شكلين عندما يتحرك أي من الشكلين. نهايته تُرفق بمواقع الاتصال، التي تُمثَّل بنقاط خضراء في PowerPoint. بعض الموصلات المنحنية والملتوية تُظهر أيضًا نقاط ضبط، التي تُمثَّل بنقاط برتقالية، وتتحكم في موضع أجزاء الموصل الفردية.
 
-عادةً ما تكون الموصلات متصلة بـ *نقاط الاتصال* (النقاط الخضراء)، التي تتوفر على جميع الأشكال بشكل افتراضي. تظهر نقاط الاتصال عندما يقترب المؤشر منها.
-
-*نقاط التعديل* (النقاط البرتقالية)، التي تتوفر فقط على بعض الموصلات، تُستخدم لتعديل موضع وشكل الموصلات.
+تمثل Aspose.Slides الموصلات عبر الفئة [Connector](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/connector/). يمكنك إنشاؤها، ربط نهاياتها بأشكال، اختيار مواقع الاتصال، إعادة توجيهها، وتعديل هندسة الموصلات التي تحتوي على نقاط ضبط.
 
 ## **أنواع الموصلات**
 
-في PowerPoint يمكنك استخدام موصلات مستقيمة، ومقوسة (زاوية)، ومنحنية. 
+تضم الفئة [ShapeType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapetype/) إعدادات مسبقة للموصلات المستقيمة، المنحنية، والملتوية. يظهر الجدول التالي الهندسات المتاحة للموصل وعدد نقاط الضبط المعرفة لكل إعداد مسبق.
 
-توفر Aspose.Slides هذه الموصلات:
+| الموصل | الصورة | عدد نقاط الضبط |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Connector                      | Image                                                        | Number of adjustment points |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+عدد ومعنى نقاط الضبط جزء من الإعداد المسبق للموصل المختار. لا تفترض أن نوعي موصل مختلفين يعرضان نفس تخطيط المجموعة.
 
-## **ربط الأشكال باستخدام الموصلات**
+## **ربط شكلين**
 
-1. أنشئ كائنًا من فئة [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. احصل على مرجع الشريحة عبر فهرسها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) إلى الشريحة باستخدام طريقة `addAutoShape` التي توفرها الكائن `Shapes`.
-1. أضف موصلًا باستخدام طريقة `addConnector` التي توفرها الكائن `Shapes` مع تحديد نوع الموصل.
-1. اربط الأشكال باستخدام الموصل. 
-1. استدعِ طريقة `reroute` لتطبيق أقصر مسار اتصال.
-1. احفظ العرض التقديمي. 
+استخدم [ShapeCollection.addConnector](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/addconnector/) لإضافة موصل، واستخدم [Connector.setStartShapeConnectedTo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/connector/setstartshapeconnectedto/) و[Connector.setEndShapeConnectedTo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/connector/setendshapeconnectedto/) لربط نهاياته. بعد ربط النهايتين، تقوم [Connector.reroute](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/connector/reroute/) باختيار مسار قصير بين الشكلين.
 
-هذا الكود JavaScript يوضح كيفية إضافة موصل (موصل معوج) بين شكلين (بيضة ومستطيل):
+المثال التالي يربط قطعًا بيضاويًا ومستطيلًا بموصل ملتوي:
+
 ```javascript
-// ينشئ كلاس العرض التقديمي الذي يمثل ملف PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // الوصول إلى مجموعة الأشكال لشريحة معينة
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // يضيف شكل أوتوشيب إهليلجي
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // يضيف شكل أوتوشيب مستطيل
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // يضيف شكل موصل إلى مجموعة أشكال الشريحة
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // يربط الأشكال باستخدام الموصل
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // ينادى على reroute الذي يضبط أقصر مسار تلقائي بين الأشكال
     connector.reroute();
-    // يحفظ العرض التقديمي
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+{{% alert color="warning" title="Warning" %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+استدعاء `reroute` قد يغيّر قيمتي [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) و[setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/connector/setendshapeconnectionsiteindex/). عيّن مواقع اتصال محددة بعد إعادة التوجيه إذا كان يجب أن تظل تلك المواقع ثابتة.
 
-طريقة `Connector.reroute` تعيد توجيه الموصل وتفرض عليه اتخاذ أقصر مسار ممكن بين الأشكال. لتحقيق ذلك قد تغير الطريقة نقاط `setStartShapeConnectionSiteIndex` و`setEndShapeConnectionSiteIndex`. 
+{{% /alert %}}
 
-{{% /alert %}} 
+## **اختيار موقع الاتصال**
 
-## **تحديد نقطة الاتصال**
+كل شكل قابل للاتصال يُبلغ عن عدد مواقع الاتصال عبر [Shape.getConnectionSiteCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/getconnectionsitecount/). تحقّق من فهرس الموقع الصفري‑المُستند قبل إسناده إلى نهاية الموصل؛ فعدد المواقع يختلف حسب هندسة الشكل.
 
-إذا رغبت في أن يربط الموصل شكلين باستخدام نقاط معينة على الأشكال، عليك تحديد نقاط الاتصال المفضلة بهذه الطريقة:
+هذا المثال يربط الموصل بموقع معين على الشكل الإهليلجي عندما يكون ذلك الموقع موجودًا:
 
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. احصل على مرجع الشريحة عبر فهرسها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) إلى الشريحة باستخدام طريقة `addAutoShape` التي توفرها الكائن `Shapes`.
-1. أضف موصلًا باستخدام طريقة `addConnector` التي توفرها الكائن `Shapes` مع تحديد نوع الموصل.
-1. اربط الأشكال باستخدام الموصل. 
-1. اضبط نقاط الاتصال المفضلة على الأشكال. 
-1. احفظ العرض التقديمي.
-
-هذا الكود JavaScript يوضح عملية تحديد نقطة اتصال مفضلة:
 ```javascript
-    // ينشئ كلاس عرض تقديمي يمثل ملف PPTX
-    var pres = new aspose.slides.Presentation();
-    try {
-        // يصل إلى مجموعة الأشكال لشريحة محددة
-        var shapes = pres.getSlides().get_Item(0).getShapes();
-        // يضيف شكل أوتوشيب إهليلجي
-        var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-        // يضيف شكل أوتوشيب مستطيل
-        var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-        // يضيف شكل موصل إلى مجموعة أشكال الشريحة
-        var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-        // يربط الأشكال باستخدام الموصل
-        connector.setStartShapeConnectedTo(ellipse);
-        connector.setEndShapeConnectedTo(rectangle);
-        // يحدد فهرس نقطة الاتصال المفضلة على شكل الإهليلج
-        var wantedIndex = 6;
-        // يتحقق ما إذا كان الفهرس المفضلة أقل من عدد المواقع القصوى
-        if (ellipse.getConnectionSiteCount() > wantedIndex) {
-            // يحدد نقطة الاتصال المفضلة على شكل الإهليلج أوتوشيب
-            connector.setStartShapeConnectionSiteIndex(wantedIndex);
-        }
-        // يحفظ العرض التقديمي
-        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
-    }
-```
+const aspose = { slides: require("aspose.slides.via.java") };
 
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector3, 0, 0, 10, 10);
+
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+
+    const preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        console.log(`The ellipse has only ${ellipse.getConnectionSiteCount()} connection sites.`);
+    }
+
+    presentation.save("specific-connection-site.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **ضبط نقطة الموصل**
 
-يمكنك تعديل موصل موجود عبر نقاط التعديل الخاصة به. فقط الموصلات التي تحتوي على نقاط تعديل يمكن تغييرها بهذه الطريقة. راجع الجدول تحت **[Types of connectors.](/slides/ar/nodejs-java/connector/#types-of-connectors)**
+الموصلات التي تحتوي على نقاط ضبط تُظهرها عبر [GeometryShape.getAdjustments](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/geometryshape/). افحص كل [AdjustValue](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/adjustvalue/) وتحقق من قيمة [getType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/adjustvalue/) قبل تعديلها باستخدام [setRawValue](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/adjustvalue/setrawvalue/). القواعد العامة لتحديد تعديلات الشكل المسبقة موصوفة في [Shape Manipulation](/slides/ar/nodejs-java/shape-manipulations/).
 
-### **حالة بسيطة**
+عدد، ترتيب، معنى، والنطاق الصالح لقيم ضبط الموصل تعتمد على الإعداد المسبق للموصل. نوع الضبط للقراءة فقط، بينما قيمة الضبط قابلة للكتابة. طريقة القراءة فقط [getName](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/adjustvalue/getname/) توفر تعريفًا إضافيًا عندما يحتوي الموصل على أكثر من ضبط من نفس النوع الدلالي.
 
-تخيل حالة يكون فيها موصل بين شكلين (A و B) يمر عبر شكل ثالث (C):
+### **توجيه حول عائق**
+
+في التخطيط التالي، موصل `BentConnector5` بين شكلين يمر عبر شكل ثالث:
 
 ![connector-obstruction](connector-obstruction.png)
+
+هذا الكود يُنشئ الموصل المعوق:
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-
-لتجنب أو تجاوز الشكل الثالث، يمكننا تعديل الموصل بنقل الخط العمودي إلى اليسار بهذه الطريقة:
+تحريك الانحناء العمودي يغيّر المسار بحيث يتجاوز الموصل العائق:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
+
+بدلاً من الافتراض أن الفهرس 1 للمجموعة يمثل دائمًا الانحناء العمودي، يبحث هذا المثال عن `ConnectorBendPositionY` ويعدّله فقط عندما يكون النوع الدلالي المتوقع موجودًا:
+
 ```javascript
-var adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-
-### **حالات معقدة** 
-
-لإجراء تعديلات أكثر تعقيدًا، عليك مراعاة الأمور التالية:
-
-* نقطة تعديل الموصل مرتبطة ارتباطًا وثيقًا بمعادلة تحسب وتحدد موضعها. لذلك قد يغير تعديل موقع النقطة شكل الموصل.
-* تُعرّف نقاط تعديل الموصل بترتيب صارم داخل مصفوفة. تُرقم النقاط من نقطة بداية الموصل إلى نهايته.
-* قيم نقاط التعديل تعكس النسبة المئوية لعرض/ارتفاع شكل الموصل. 
-  * يُقيد الشكل بنقطة بداية الموصل ونهايته مضروبًا في 1000. 
-  * النقطة الأولى، الثانية، والثالثة تُحدّد النسبة المئوية من العرض، النسبة المئوية من الارتفاع، والنسبة المئوية من العرض مرة أخرى على التوالي.
-* لحساب إحداثيات نقاط تعديل الموصل، يجب أخذ دوران الموصل وانعكاسه في الاعتبار. **ملاحظة** أن زاوية الدوران لجميع الموصلات المعروضة تحت **[Types of connectors](/slides/ar/nodejs-java/connector/#types-of-connectors)** هي 0.
-
-#### **الحالة 1**
-
-تخيل حالة تكون فيها كائنات إطارات نصية مرتبطة معًا عبر موصل:
-
-![connector-shape-complex](connector-shape-complex.png)
-```javascript
-// ينشئ فئة عرض تقديمي تمثل ملف PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // يحصل على الشريحة الأولى في العرض التقديمي
-    var sld = pres.getSlides().get_Item(0);
-    // يضيف أشكالًا سيتم ربطها معًا عبر موصل
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // يضيف موصلاً
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-    // يحدد اتجاه الموصل
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    // يحدد لون الموصل
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // يحدد سمك خط الموصل
-    connector.getLineFormat().setWidth(3);
-    // يربط الأشكال معًا باستخدام الموصل
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
-    connector.setEndShapeConnectionSiteIndex(2);
-    // يحصل على نقاط تعديل للموصل
-    var adjValue_0 = connector.getAdjustments().get_Item(0);
-    var adjValue_1 = connector.getAdjustments().get_Item(1);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
     }
+
+    if (verticalBend === null) {
+        console.log("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
+يحتوي `BentConnector5` على ضبطين من نوع `ConnectorBendPositionX` وضبط واحد من نوع `ConnectorBendPositionY`. إذا ظهر النوع الذي تحتاجه أكثر من مرة، افحص `getName` والهندسة المعروفة لهذا الإعداد قبل اختيار أحدهما. إذا أبلغ ضبط عن `ShapeAdjustmentType.Custom`، اعتبر معناه ونطاقه خاصًا بالإعداد المسبق ولا تغيّره إلا إذا كان ذلك العقد معروفًا.
 
-**التعديل**
+## **ربط قيم الضبط بهندسة الموصل**
 
-يمكننا تغيير قيم نقاط تعديل الموصل بزيادة النسبة المئوية للعرض والارتفاع المقابلين بنسبة 20٪ و200٪ على الترتيب:
+بالنسبة للموصلات المنحنية، يمكن استخدام قيم الضبط لتقدير مواضع الأجزاء الفردية. هذه الحسابات خاصة بإعداد الموصل المسبق:
+
+- `BentConnector4` عادةً يُظهر ضبطًا واحدًا من نوع `ConnectorBendPositionX` وضبطًا واحدًا من نوع `ConnectorBendPositionY`.
+- بالنسبة لهذه المواضع، قسمة القيمة المُسترجعة من `getRawValue` على `100000` تُنتج الجزء من عرض أو ارتفاع إطار الموصل كما هو موضح في الأمثلة أدناه.
+- يمكن تدوير إطار الموصل أو عكسه، لذا يجب تحويل إحداثيات الإطار قبل مقارنتها بإحداثيات الشريحة.
+
+الأمثلة التالية تستخدم `getType` لتحديد الضبط أولًا. لا تُعامل فهارس المجموعة كمعرّفات قابلة للنقل.
+
+### **موصل غير مُدوَّر**
+
+التخطيط الأولي يحتوي على شكلين نصيين موصلين بـ `BentConnector4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+هذا المثال يفحص الموصل ويحصل على ضبط الانحناء الأفقي والعمودي:
+
 ```javascript
-// يغيّر قيم نقاط التعديل
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const red = java.getStaticFieldValue("java.awt.Color", "RED");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+لتغيير الانحنائين، حدِّد كل نوع متوقع وعدّل القيم فقط بعد العثور على الاثنين:
 
-النتيجة:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+النتيجة موصل يتحرك فيه الجزءان الأفقي والعمودي:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-لتعريف نموذج يتيح لنا تحديد إحداثيات وشكل الأجزاء الفردية للموصل، لننشئ شكلًا يتطابق مع المكوّن الأفقي للموصل عند نقطة `connector.getAdjustments().get_Item(0)`:
+بمجرد معرفة الأنواع الدلالية، يمكن تحويل قيمها إلى إحداثيات إطار الموصل. يرسم هذا المثال مستطيلًا رفيعًا فوق الجزء العمودي المتحكم بهما الضبطان:
+
 ```javascript
-// ارسم المكوّن الرأسي للموصل
-var x = connector.getX() + ((connector.getWidth() * adjValue_0.getRawValue()) / 100000);
-var y = connector.getY();
-var height = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 0, height);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        const x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const y = connector.getY();
+        const height = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(x);
+        const guideY = java.newFloat(y);
+        const guideWidth = java.newFloat(1);
+        const guideHeight = java.newFloat(height);
+        slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        presentation.save("connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-
-النتيجة:
+شكل الدليل يُظهر الجزء المُحسوب:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **الحالة 2**
+### **موصل مُدوَّر أو مقلوب**
 
-في **الحالة 1**، استعرضنا عملية تعديل موصل بسيطة باستخدام مبادئ أساسية. في الظروف العادية، يجب أخذ دوران الموصل وعرضه (الذي يتم تحديده بواسطة `connector.getRotation()`, `connector.getFrame().getFlipH()`, و`connector.getFrame().getFlipV()`) في الاعتبار. سنُظهر الآن العملية.
+عند توجيه نفس هندسة الموصل عموديًا، تؤثر قيم [Shape.getFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/getframe/)، [ShapeFrame.getFlipH](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapeframe/getfliph/)، و[ShapeFrame.getFlipV](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapeframe/getflipv/) على التحويل من إحداثيات إطار الموصل إلى إحداثيات الشريحة.
 
-أولاً، أضف كائن إطار نصي جديد (**To 1**) إلى الشريحة (لغرض الاتصال) وأنشئ موصلًا (أخضر) يربطه بالكائنات التي أنشأناها مسبقًا.
+هذا المثال يُنشئ ويُعدّل الموصل الموجه عموديًا:
+
 ```javascript
-// ينشئ كائن ربط جديد
-var shapeTo_1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// ينشئ موصلاً جديداً
-connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-connector.getLineFormat().setWidth(3);
-// يربط الكائنات باستخدام الموصل الذي تم إنشاؤه حديثًا
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// يحصل على نقاط تعديل الموصل
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// يغيّر قيم نقاط التعديل
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const connectorColor = java.newInstanceSync("java.awt.Color", 102, 205, 170);
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-
-النتيجة:
+الموصل المُعدَّل يظهر عموديًا بين الشكلين:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ثانيًا، أنشئ شكلًا سيتطابق مع المكوّن الأفقي للموصل الذي يمر عبر نقطة تعديل الموصل `connector.getAdjustments().get_Item(0)`. سنستخدم القيم من بيانات الموصل للـ `connector.getRotation()`, `connector.getFrame().getFlipH()`, و`connector.getFrame().getFlipV()` ونطبق صيغة تحويل الإحداثيات الشهيرة للدوران حول نقطة معينة x0:
+لزاوية دوران عشوائية `alpha`، دوِّر نقطة إطار الموصل `(x, y)` حول مركز الإطار `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-في حالتنا، زاوية دوران الكائن هي 90 درجة والموصل معروض عموديًا، لذا يكون الكود المقابل كالتالي:
+الكود التالي يتعامل مع التوجيه بزاوية 90 درجة المستخدم في هذا المثال ويرسم دليلًا أحمر فوق الجزء المقابل من الموصل:
+
 ```javascript
-// يحفظ إحداثيات الموصل
-x = connector.getX();
-y = connector.getY();
-// يصحح إحداثيات الموصل في حال ظهوره
-if (connector.getFrame().getFlipH() == aspose.slides.NullableBool.True) {
-    x += connector.getWidth();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        let x = connector.getX();
+        let y = connector.getY();
+        if (connector.getFrame().getFlipH() === aspose.slides.NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() === aspose.slides.NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        const rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        const segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(rotatedX);
+        const guideY = java.newFloat(rotatedY);
+        const guideWidth = java.newFloat(segmentWidth);
+        const guideHeight = java.newFloat(1);
+        const guide = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        const red = java.getStaticFieldValue("java.awt.Color", "RED");
+        const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+        guide.getLineFormat().getFillFormat().setFillType(solidFillType);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+        presentation.save("rotated-connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == aspose.slides.NullableBool.True) {
-    y += connector.getHeight();
-}
-// يأخذ قيمة نقطة التعديل كإحداثي
-x += (connector.getWidth() * adjValue_0.getRawValue()) / 100000;
-// يحوّل الإحداثيات لأن Sin(90) = 1 و Cos(90) = 0
-var xx = (connector.getFrame().getCenterX() - y) + connector.getFrame().getCenterY();
-var yy = (x - connector.getFrame().getCenterX()) + connector.getFrame().getCenterY();
-// يحدّد عرض المكوّن الأفقي باستخدام قيمة نقطة التعديل الثانية
-var width = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
 
-
-النتيجة:
+الدليل الأحمر يحدد الجزء المُحسوب بعد تحويل الإحداثيات:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-لقد استعرضنا حسابات تتعلق بتعديلات بسيطة ونقاط تعديل معقدة (نقاط تعديل مع زوايا دوران). باستخدام المعرفة المكتسبة، يمكنك تطوير نموذجك الخاص (أو كتابة كود) للحصول على كائن `GraphicsPath` أو حتى ضبط قيم نقاط تعديل الموصل بناءً على إحداثيات شريحة معينة.
+هذه الصيغ تصف الإعدادات المستخدمة في الأمثلة، ليست نموذج موصل عالمي. تحقق من أنواع الضبط، توجيه الإطار، ونطاقات القيم قبل تطبيق نفس الحساب على إعداد مسبق مختلف.
 
-## **إيجاد زاوية خطوط الموصل**
+## **إيجاد زاوية اتجاه الموصل**
 
-1. أنشئ كائنًا من الفئة.
-1. احصل على مرجع الشريحة عبر فهرسها.
-1. وصول إلى شكل خط الموصل.
-1. استخدم عرض وخط ارتفاع الخط، ارتفاع إطار الشكل، وعرض إطار الشكل لحساب الزاوية.
+يمكن حساب اتجاه موصل مستقيم من عرضه وارتفاعه، مع تطبيق انعكاسات أفقية ورأسية. المثال التالي يُظهر الزاوية في اتجاه عقارب الساعة من المحور الأفقي الموجب في إحداثيات الشريحة:
 
-هذا الكود JavaScript يوضح عملية حساب زاوية شكل خط الموصل:
 ```javascript
-var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    for (var i = 0; i < slide.getShapes().size(); i++) {
-        var dir = 0.0;
-        var shape = slide.getShapes().get_Item(i);
-        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-            var ashp = shape;
-            if (ashp.getShapeType() == aspose.slides.ShapeType.Line) {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        } else if (java.instanceOf(shape, "com.aspose.slides.Connector")) {
-            var ashp = shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
-        console.log(dir);
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const slide = presentation.getSlides().get_Item(0);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-```javascript
-function getDirection(w, h, flipH, flipV) {
-    let endLineX = w * (flipH ? -1 : 1);
-    let endLineY = h * (flipV ? -1 : 1);
-    
-    let endYAxisX = 0;
-    let endYAxisY = h;
-
-    let angle = Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX);
+    const flipH = connector.getFrame().getFlipH() === aspose.slides.NullableBool.True;
+    const flipV = connector.getFrame().getFlipV() === aspose.slides.NullableBool.True;
+    const deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    const deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    let angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
 
     if (angle < 0) {
-        angle += 2 * Math.PI;
+        angle += 360;
     }
 
-    return angle * 180.0 / Math.PI;
+    console.log(`Connector direction: ${angle.toFixed(2)} degrees`);
+} finally {
+    presentation.dispose();
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **الأسئلة المتكررة**
+**كيف يمكنني معرفة ما إذا كان الموصل يمكن أن يُربط بشكل؟**
 
-**كيف يمكنني معرفة ما إذا كان يمكن “لصق” موصل إلى شكل معين؟**
+تحقّق من قيمة [getConnectionSiteCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/getconnectionsitecount/) للشكل. القيمة الإيجابية تعني أن الشكل يُظهر مواقع اتصال. تحقق من فهرس الموقع المختار قبل إسناده إلى أي من نهايتي الموصل.
 
-تحقق مما إذا كان الشكل يوفّر [connection sites](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getconnectionsitecount/). إذا لم يكن هناك أي أو كان العدد صفرًا، فإن اللصق غير متاح؛ في هذه الحالة استخدم نقاط نهاية حرة وضعها يدويًا. من المنطقي فحص عدد المواقع قبل الإرفاق.
+**هل يمكنني تحديد ضبط الموصل من خلال فهرس المجموعة؟**
 
-**ماذا يحدث للموصل إذا حذفت أحد الأشكال المتصلة؟**
+الفهرس ذو معنى فقط لإعداد موصل معروف وتخطيط مجموعة معروف. تحقق من [AdjustValue.getType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/adjustvalue/) قبل تعديل قيمة، واستخدم [AdjustValue.getName](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/adjustvalue/getname/) كمعلومات إضافية عندما يظهر النوع الدلالي نفسه أكثر من مرة.
 
-ستنفصل نهاياته؛ يبقى الموصل على الشريحة كخط عادي بنقاط بداية/نهاية حرة. يمكنك إما حذفه أو إعادة تعيين الاتصالات وإذا لزم الأمر، استخدم [reroute](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connector/reroute/).
+**ماذا يحدث عندما يتم حذف الشكل المتصل؟**
 
-**هل تُحفظ ارتباطات الموصل عند نسخ شريحة إلى عرض تقديمي آخر؟**
+تُفصل النهاية المقابلة للموصل. يبقى الموصل على الشريحة ويمكن حذفه، وضعه كخط حر، أو ربطه بشكل آخر.
 
-عمومًا نعم، بشرط نسخ الأشكال المستهدفة أيضًا. إذا تم إدراج الشريحة في ملف آخر دون الأشكال المتصلة، تصبح النهايات حرة وستحتاج إلى إرفاقها مرة أخرى.
+**هل تُحافظ ربطات الموصل عند نسخ الشريحة؟**
+
+تُحافظ الروابط عادةً عند نسخ الأشكال المتصلة مع الشريحة. إذا تم نسخ موصل دون أحد الأشكال الهدف، يجب ربط النهاية المتأثرة مجدداً.

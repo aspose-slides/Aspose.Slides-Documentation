@@ -1,5 +1,5 @@
 ---
-title: Gestionar conectores en presentaciones con PHP
+title: Gestionar conectores en presentaciones usando PHP
 linktitle: Conector
 type: docs
 weight: 10
@@ -9,362 +9,572 @@ keywords:
 - tipo de conector
 - punto de conector
 - línea de conector
-- ángulo de conector
+- ángulo del conector
+- sitio de conexión
+- punto de ajuste
 - conectar formas
 - PowerPoint
 - presentación
 - PHP
 - Aspose.Slides
-description: "Permita a las aplicaciones PHP dibujar, conectar y encaminar automáticamente líneas en diapositivas de PowerPoint — obtenga un control total sobre conectores rectos, en codo y curvos."
+description: "Aprenda a añadir, adjuntar, reencaminar, ajustar e inspeccionar conectores rectos, doblados y curvos de PowerPoint con Aspose.Slides para PHP vía Java."
 ---
+## **Resumen**
 
-Un conector de PowerPoint es una línea especial que une o enlaza dos formas y permanece adherida a las formas incluso cuando se mueven o reposicionan en una diapositiva concreta.  
+Un conector es una línea que puede permanecer unida a dos formas cuando cualquiera de ellas se mueve. Sus extremos se conectan a sitios de conexión, representados por puntos verdes en PowerPoint. Algunos conectores doblados y curvos también exponen puntos de ajuste, representados por puntos naranjas, que controlan la posición de los segmentos individuales del conector.
 
-Los conectores suelen estar vinculados a *puntos de conexión* (puntos verdes), que existen en todas las formas por defecto. Los puntos de conexión aparecen cuando el cursor se acerca a ellos.  
+Aspose.Slides representa los conectores mediante la clase [Connector](https://reference.aspose.com/slides/es/php-java/aspose.slides/connector/). Puede crearlos, unir sus extremos a formas, elegir sitios de conexión, reencaminar (reroute) y modificar la geometría de los conectores que tienen puntos de ajuste.
 
-*Puntos de ajuste* (puntos naranjas), que sólo existen en ciertos conectores, se utilizan para modificar la posición y forma de los conectores.  
+## **Tipos de conector**
 
-## **Tipos de conectores**
-
-En PowerPoint, puede usar conectores rectos, en codo (angulados) y curvos.  
-
-Aspose.Slides proporciona estos conectores:
+La clase [ShapeType](https://reference.aspose.com/slides/es/php-java/aspose.slides/shapetype/) incluye preajustes de conectores rectos, doblados y curvos. La tabla siguiente muestra las geometrías de conector disponibles y el número de puntos de ajuste definidos por cada preajuste.
 
 | Conector | Imagen | Número de puntos de ajuste |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0 |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0 |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1 |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2 |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3 |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Conectar formas usando conectores**
+El número y el significado de los puntos de ajuste forman parte del preajuste de conector seleccionado. No asuma que dos tipos de conector diferentes expongan la misma disposición de la colección.
 
-1. Cree una instancia de la clase [Presentación](https://apireference.aspose.com/slides/php-java/aspose.slides/Presentation).  
-1. Obtenga una referencia a una diapositiva mediante su índice.  
-1. Añada dos [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) a la diapositiva usando el método `addAutoShape` expuesto por el objeto `Shapes`.  
-1. Añada un conector usando el método `addConnector` expuesto por el objeto `Shapes` definiendo el tipo de conector.  
-1. Conecte las formas mediante el conector.  
-1. Llame al método `reroute` para aplicar la ruta de conexión más corta.  
-1. Guarde la presentación.  
+## **Conectar dos formas**
 
-Este código PHP muestra cómo añadir un conector (un conector doblado) entre dos formas (una elipse y un rectángulo):
+Utilice [ShapeCollection::addConnector](https://reference.aspose.com/slides/es/php-java/aspose.slides/shapecollection/addconnector/) para añadir un conector, y utilice [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/es/php-java/aspose.slides/connector/setstartshapeconnectedto/) y [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/es/php-java/aspose.slides/connector/setendshapeconnectedto/) para unir sus extremos. Después de que ambos extremos estén unidos, [Connector::reroute](https://reference.aspose.com/slides/es/php-java/aspose.slides/connector/reroute/) selecciona una ruta corta entre las formas.
+
+El siguiente ejemplo conecta una elipse y un rectángulo con un conector doblado:
+
 ```php
-// Instancia una clase de presentación que representa el archivo PPTX
-  $pres = new Presentation();
-  try {
-    # Accede a la colección de formas de una diapositiva concreta
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Añade una forma automática de elipse
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Añade una forma automática de rectángulo
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Añade una forma de conector a la colección de formas de la diapositiva
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Conecta las formas usando el conector
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Llama a reroute que establece la ruta automática más corta entre las formas
     $connector->reroute();
-    # Guarda la presentación
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
+{{% alert color="warning" title="Warning" %}}
+Llamar a `reroute` puede cambiar los valores de [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/es/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) y [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/es/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/). Asigne sitios de conexión concretos después de reencaminar si esos sitios deben permanecer fijos.
+{{% /alert %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Elegir un sitio de conexión**
 
-El método `Connector.reroute` vuelve a encaminar un conector y lo obliga a tomar la ruta más corta posible entre las formas. Para conseguir su objetivo, el método puede modificar los puntos `setStartShapeConnectionSiteIndex` y `setEndShapeConnectionSiteIndex`. 
+Cada forma conectable informa su número de sitios mediante [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/getconnectionsitecount/). Valide un índice de sitio basado en cero antes de asignarlo a un extremo del conector; el número de sitios varía según la geometría de la forma.
 
-{{% /alert %}} 
+Este ejemplo une el conector a un sitio concreto de la elipse cuando ese sitio existe:
 
-## **Especificar un punto de conexión**
-
-Si desea que un conector una dos formas usando puntos específicos de las formas, debe especificar los puntos de conexión preferidos de esta manera:
-
-1. Cree una instancia de la clase [Presentación](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).  
-1. Obtenga una referencia a una diapositiva mediante su índice.  
-1. Añada dos [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) a la diapositiva usando el método `addAutoShape` expuesto por el objeto `Shapes`.  
-1. Añada un conector usando el método `addConnector` expuesto por el objeto `Shapes` definiendo el tipo de conector.  
-1. Conecte las formas mediante el conector.  
-1. Establezca sus puntos de conexión preferidos en las formas.  
-1. Guarde la presentación.  
-
-Este código PHP muestra una operación donde se especifica un punto de conexión preferido:
 ```php
-  # Instancia una clase de presentación que representa un archivo PPTX
-  $pres = new Presentation();
-  try {
-    # Accede a la colección de formas de una diapositiva concreta
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Añade una forma automática de elipse
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Añade una forma automática de rectángulo
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Añade una forma de conector a la colección de formas de la diapositiva
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Conecta las formas usando el conector
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Establece el índice del punto de conexión preferido en la forma de elipse
-    $wantedIndex = 6;
-    # Comprueba si el índice preferido es menor que el recuento máximo de sitios
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # Establece el punto de conexión preferido en la forma automática de elipse
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # Guarda la presentación
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Ajustar un punto del conector**
 
-## **Ajustar un punto de conector**
+Los conectores con puntos de ajuste los exponen a través de [GeometryShape::getAdjustments](https://reference.aspose.com/slides/es/php-java/aspose.slides/geometryshape/#getadjustments). Examine cada [AdjustValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/adjustvalue/) y compruebe su valor de [AdjustValue::getType](https://reference.aspose.com/slides/es/php-java/aspose.slides/adjustvalue/#gettype) antes de modificarlo con [AdjustValue::setRawValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/adjustvalue/setrawvalue/). Las reglas generales para identificar los ajustes predefinidos de una forma se describen en [Manipulación de formas](/slides/es/php-java/shape-manipulations/).
 
-Puede ajustar un conector existente a través de sus puntos de ajuste. Sólo los conectores con puntos de ajuste pueden modificarse de esta forma. Consulte la tabla bajo **[Tipos de conectores.](/slides/es/php-java/connector/#types-of-connectors)**  
+El número, orden, significado y rango de valores válidos de los ajustes del conector dependen del preajuste del conector. El tipo de ajuste es de solo lectura, mientras que el valor del ajuste es escribible. El método de solo lectura [AdjustValue::getName](https://reference.aspose.com/slides/es/php-java/aspose.slides/adjustvalue/getname/) proporciona identificación adicional cuando un conector contiene más de un ajuste del mismo tipo semántico.
 
-### **Caso simple**
+### **Ruta alrededor de un obstáculo**
 
-Considere un caso en el que un conector entre dos formas (A y B) pasa por una tercera forma (C):
+En el siguiente esquema, un conector `BentConnector5` entre dos formas pasa a través de una tercera forma:
 
 ![connector-obstruction](connector-obstruction.png)
+
+Este código crea el conector obstruido:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-Para evitar o eludir la tercera forma, podemos ajustar el conector desplazando su línea vertical hacia la izquierda de esta manera:
+Mover la doblez vertical cambia la ruta de modo que el conector evita el obstáculo:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
 
+En lugar de asumir que el índice de colección `1` siempre representa la doblez vertical, este ejemplo busca `ConnectorBendPositionY` y lo modifica solo cuando el tipo semántico esperado está presente:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+Un `BentConnector5` tiene dos ajustes `ConnectorBendPositionX` y un ajuste `ConnectorBendPositionY`. Si el tipo que necesita ocurre más de una vez, inspeccione `getName` y la geometría conocida de ese preajuste antes de seleccionar uno. Si un ajuste informa `ShapeAdjustmentType::Custom`, trate su significado y rango como específicos del preajuste y no lo modifique hasta que dicho contrato sea conocido.
 
-### **Casos complejos** 
+## **Relacionar los valores de ajuste con la geometría del conector**
 
-Para realizar ajustes más complicados, debe tener en cuenta los siguientes aspectos:
+Para los conectores doblados, los valores de ajuste pueden usarse para estimar las posiciones de los segmentos individuales. Estos cálculos son específicos del preajuste del conector:
 
-* El punto ajustable de un conector está fuertemente ligado a una fórmula que calcula y determina su posición. Por ello, los cambios en la ubicación del punto pueden alterar la forma del conector.  
-* Los puntos de ajuste de un conector se definen en un orden estricto dentro de una matriz. Los puntos de ajuste se numeran desde el punto de inicio del conector hasta su final.  
-* Los valores de los puntos de ajuste reflejan el porcentaje del ancho/alto de la forma del conector.  
-  * La forma está limitada por los puntos de inicio y fin del conector multiplicados por 1000.  
-  * El primer punto, segundo punto y tercer punto definen respectivamente el porcentaje del ancho, el porcentaje del alto y de nuevo el porcentaje del ancho.  
-* Para los cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debe considerar la rotación del conector y su reflexión. **Nota** que el ángulo de rotación para todos los conectores mostrados bajo **[Tipos de conectores](/slides/es/php-java/connector/#types-of-connectors)** es 0.  
+- `BentConnector4` normalmente expone un ajuste `ConnectorBendPositionX` y uno `ConnectorBendPositionY`.
+- Para estas posiciones de doblez, dividir el valor devuelto por `getRawValue` entre `100000` produce la fracción del ancho o alto del marco del conector utilizada en los ejemplos a continuación.
+- Un marco de conector puede rotarse o voltearse, por lo que las coordenadas del marco deben transformarse antes de compararse con las coordenadas de la diapositiva.
 
-#### **Caso 1**
+Los siguientes ejemplos usan `getType` para identificar primero los ajustes. No tratan los índices de colección como identificadores portátiles.
 
-Considere un caso en el que dos objetos de marco de texto están enlazados mediante un conector:
+### **Conector sin rotar**
+
+El diseño inicial contiene dos formas de texto conectadas mediante un `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
+
+Este ejemplo inspecciona el conector y obtiene sus ajustes de doblez horizontal y vertical:
+
 ```php
-  # Instancia una clase de presentación que representa un archivo PPTX
-  $pres = new Presentation();
-  try {
-    # Obtiene la primera diapositiva de la presentación
-    $sld = $pres->getSlides()->get_Item(0);
-    # Añade formas que se unirán mediante un conector
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # Añade un conector
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # Especifica la dirección del conector
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # Especifica el color del conector
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Especifica el grosor de la línea del conector
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # Enlaza las formas con el conector
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # Obtiene los puntos de ajuste del conector
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+Para cambiar ambas dobleces, localice cada tipo esperado y modifique los valores solo después de haber encontrado ambos:
 
-**Ajuste**
-
-Podemos cambiar los valores de los puntos de ajuste del conector aumentando el porcentaje correspondiente de ancho y alto en un 20 % y un 200 %, respectivamente:
 ```php
-  # Cambia los valores de los puntos de ajuste
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-El resultado:
+El resultado es un conector cuyos segmentos horizontal y vertical se han desplazado:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Para definir un modelo que nos permita determinar las coordenadas y la forma de las partes individuales del conector, crearemos una forma que corresponda al componente horizontal del conector en el punto `connector.getAdjustments().get_Item(0)`:
+Una vez que se conocen los tipos semánticos, sus valores pueden convertirse a coordenadas del marco del conector. Este ejemplo dibuja un rectángulo delgado sobre el segmento vertical controlado por los dos ajustes de doblez:
+
 ```php
-  # Dibuja el componente vertical del conector
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-El resultado:
+La forma guía marca el segmento calculado:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Caso 2**
+### **Conector rotado o volteado**
 
-En **Caso 1**, demostramos una operación simple de ajuste de conector usando principios básicos. En situaciones normales, debe tener en cuenta la rotación del conector y su visualización (que se establecen mediante `connector.getRotation()`, `connector.getFrame().getFlipH()` y `connector.getFrame().getFlipV()`). Ahora mostraremos el proceso.
+Cuando la misma geometría del conector se orienta verticalmente, sus valores de [Shape::getFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/getframe/), [ShapeFrame::getFlipH](https://reference.aspose.com/slides/es/php-java/aspose.slides/shapeframe/getfliph/) y [ShapeFrame::getFlipV](https://reference.aspose.com/slides/es/php-java/aspose.slides/shapeframe/getflipv/) influyen en la conversión de coordenadas del marco del conector a coordenadas de la diapositiva.
 
-Primero, añadamos un nuevo objeto de marco de texto (**To 1**) a la diapositiva (para fines de conexión) y creemos un nuevo conector (verde) que lo una a los objetos ya creados.
+Este ejemplo crea y ajusta el conector orientado verticalmente:
+
 ```php
-  # Crea un nuevo objeto de vinculación
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # Crea un nuevo conector
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # Conecta los objetos usando el conector recién creado
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # Obtiene los puntos de ajuste del conector
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # Cambia los valores de los puntos de ajuste
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-El resultado:
+El conector ajustado aparece verticalmente entre las formas:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Segundo, creemos una forma que corresponda al componente horizontal del conector que pasa por el nuevo punto de ajuste `connector.getAdjustments().get_Item(0)`. Utilizaremos los valores de los datos del conector para `connector.getRotation()`, `connector.getFrame().getFlipH()` y `connector.getFrame().getFlipV()` y aplicaremos la conocida fórmula de conversión de coordenadas para rotación alrededor de un punto x₀:
+Para un ángulo de rotación arbitrario `alpha`, rote un punto del marco del conector `(x, y)` alrededor del centro del marco `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;  
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-En nuestro caso, el ángulo de rotación del objeto es 90 grados y el conector se muestra verticalmente, por lo que el código correspondiente es:
+El siguiente código maneja la orientación de 90 grados utilizada en este ejemplo y dibuja una guía roja sobre el segmento correspondiente del conector:
+
 ```php
-  # Guarda las coordenadas del conector
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # Corrige las coordenadas del conector en caso de que aparezca
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # Toma el valor del punto de ajuste como coordenada
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # Convierte las coordenadas ya que Sin(90) = 1 y Cos(90) = 0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # Determina el ancho del componente horizontal usando el valor del segundo punto de ajuste
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-El resultado:
+La guía roja marca el segmento calculado después de la transformación de coordenadas:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Demostramos cálculos que implican ajustes simples y puntos de ajuste complejos (puntos de ajuste con ángulos de rotación). Con el conocimiento adquirido, puede desarrollar su propio modelo (o escribir código) para obtener un objeto `GraphicsPath` o incluso establecer los valores de los puntos de ajuste de un conector basándose en coordenadas específicas de la diapositiva.
+Estas fórmulas describen los preajustes usados en los ejemplos, no un modelo universal de conector. Valide los tipos de ajuste, la orientación del marco y los rangos de valores antes de aplicar el mismo cálculo a un preajuste diferente.
 
-## **Encontrar el ángulo de las líneas del conector**
+## **Encontrar el ángulo de dirección de un conector**
 
-1. Cree una instancia de la clase.  
-1. Obtenga una referencia a una diapositiva mediante su índice.  
-1. Acceda a la forma de la línea del conector.  
-1. Utilice el ancho, la altura, la altura del marco de la forma y el ancho del marco de la forma para calcular el ángulo.  
+La dirección de un conector recto puede calcularse a partir de su ancho y altura, aplicando los volteos horizontal y vertical. El siguiente ejemplo informa el ángulo en sentido horario desde el eje horizontal positivo en coordenadas de diapositiva:
 
-Este código PHP muestra una operación en la que calculamos el ángulo de una forma de línea de conector:
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Preguntas frecuentes**
 
-## **FAQ**
+**¿Cómo puedo saber si un conector puede unirse a una forma?**
 
-**¿Cómo puedo saber si un conector puede "pegarse" a una forma concreta?**
+Compruebe el valor de [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/getconnectionsitecount/). Un recuento positivo indica que la forma expone sitios de conexión. Valide el índice del sitio seleccionado antes de asignarlo a cualquiera de los extremos del conector.
 
-Compruebe que la forma expone [sitios de conexión](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getconnectionsitecount/). Si no hay ninguno o el recuento es cero, no es posible pegar; en ese caso, use extremos libres y colóquelos manualmente. Es recomendable comprobar el recuento de sitios antes de adjuntar.  
+**¿Puedo identificar un ajuste de conector por su índice de colección?**
 
-**¿Qué ocurre con un conector si elimino una de las formas conectadas?**
+Un índice solo tiene sentido para un preajuste de conector y disposición de colección conocidos. Verifique [AdjustValue::getType](https://reference.aspose.com/slides/es/php-java/aspose.slides/adjustvalue/#gettype) antes de modificar un valor, y use [AdjustValue::getName](https://reference.aspose.com/slides/es/php-java/aspose.slides/adjustvalue/getname/) como información adicional cuando el mismo tipo semántico ocurre más de una vez.
 
-Sus extremos se separarán; el conector permanecerá en la diapositiva como una línea ordinaria con inicio/final libres. Puede eliminarlo o reasignar las conexiones y, si es necesario, [volver a encaminar](https://reference.aspose.com/slides/php-java/aspose.slides/connector/reroute/).  
+**¿Qué ocurre cuando se elimina una forma a la que está conectado un conector?**
 
-**¿Se conservan los enlaces del conector al copiar una diapositiva a otra presentación?**
+El extremo correspondiente del conector queda desacoplado. El conector permanece en la diapositiva y puede eliminarse, posicionarse como una línea libre o unirse a otra forma.
 
-Generalmente sí, siempre que las formas objetivo también se copien. Si la diapositiva se inserta en otro archivo sin las formas conectadas, los extremos se vuelven libres y será necesario volver a adjuntarlos.
+**¿Se conservan las vinculaciones de los conectores al copiar una diapositiva?**
+
+Las vinculaciones suelen conservarse cuando las formas conectadas se copian con la diapositiva. Si se copia un conector sin una de sus formas objetivo, el extremo afectado debe volver a unirse.

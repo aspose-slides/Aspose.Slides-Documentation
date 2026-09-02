@@ -14,8 +14,11 @@ keywords:
 - ซ่อนรูปร่าง
 - เปลี่ยนลำดับรูปร่าง
 - รับ ID รูปร่าง Interop
-- ข้อความทางเลือกของรูปร่าง
-- รูปแบบการจัดเรียงรูปร่าง
+- ข้อความแทนรูปแบบ
+- จุดปรับรูปร่าง
+- การปรับรูปร่างที่กำหนดไว้ล่วงหน้า
+- รูปทรงของรูปร่าง
+- รูปแบบการจัดวางรูปร่าง
 - รูปร่างเป็น SVG
 - แปลงรูปร่างเป็น SVG
 - จัดแนวรูปร่าง
@@ -25,25 +28,25 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีการระบุ, คัดลอก, ลบ, ซ่อน, จัดลำดับใหม่, ส่งออก, จัดแนว, และพลิกรูปร่างการนำเสนอด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
+description: "เรียนรู้วิธีระบุ, ปรับ, คัดลอก, ลบ, ซ่อน, เปลี่ยนลำดับ, ส่งออก, จัดแนว, และพลิกรูปร่างการนำเสนอด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
-## **Overview**
+## **ภาพรวม**
 
-Aspose.Slides for Android via Java แสดงรูปร่างบนสไลด์เป็นลำดับของ [IShapeCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/) ที่จัดเรียงไว้ ความต่อเนื่องนี้เป็นทั้งที่คุณค้นหาและแก้ไขรูปร่างและแหล่งที่มาของลำดับซ้อนกัน: ดัชนี `0` คือรูปร่างที่อยู่ด้านหลังที่สุด ในขณะที่ดัชนีสุดท้ายคือรูปร่างที่อยู่ด้านหน้าที่สุด
+Aspose.Slides for Android via Java แสดงรูปแบบบนสไลด์เป็น [IShapeCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/) ที่เรียงลำดับกัน คอลเลกชันนี้เป็นทั้งที่ที่คุณค้นหาและแก้ไขรูปร่างและเป็นแหล่งที่มาของลำดับการซ้อน: ดัชนี `0` เป็นรูปแบบที่อยู่ด้านหลังสุด, ส่วนดัชนีสุดท้ายคือรูปแบบที่อยู่ด้านหน้าสุด
 
-บทความนี้ทำตามโมเดลนั้น โดยอธิบายวิธีระบุรูปร่างอย่างมั่นคง จากนั้นแสดงวิธีคัดลอก ลบ ซ่อน และจัดเรียงใหม่ของรูปร่าง ส่วนสุดท้ายจะครอบคลุมการจัดรูปแบบระดับเลย์เอาต์ การส่งออกเป็น SVG การจัดแนว และการตั้งค่าการพลิกของรูปร่าง ตัวอย่างแต่ละส่วนเป็นอิสระกัน ดังนั้นคุณสามารถใช้เฉพาะการดำเนินการที่โฟลว์ของคุณต้องการได้
+บทความนี้ปฏิบัติตามโมเดลนั้น โดยอธิบายวิธีระบุรูปแบบอย่างแม่นยำและแก้ไขจุดปรับค่าที่กำหนดไว้ล่วงหน้า, จากนั้นแสดงวิธีคัดลอก, ลบ, ซ่อน และจัดลำดับรูปแบบใหม่ ส่วนสุดท้ายครอบคลุมการจัดรูปแบบระดับเลเอาต์, การส่งออกเป็น SVG, การจัดแนว, และการตั้งค่าการพลิกภาพ ตัวอย่างแต่ละอันเป็นอิสระกัน, ดังนั้นคุณสามารถใช้เฉพาะการดำเนินการที่จำเป็นสำหรับ workflow ของคุณได้
 
-## **Identify and Find Shapes**
+## **ระบุและค้นหารูปร่าง**
 
-ดัชนีของคอลเลกชันสะดวกเมื่อประมวลผลไฟล์ที่รู้จักแล้ว แต่ไม่ใช่ตัวระบุที่คงที่ การเพิ่ม ลบ หรือจัดเรียงใหม่ของรูปร่างอาจเปลี่ยนดัชนีของมัน เลือกตัวระบุตามวิธีที่การนำเสนอถูกสร้างและดูแล:
+ดัชนีของคอลเลกชันสะดวกขณะประมวลผลไฟล์ที่ทราบ, แต่ไม่ใช่ตัวระบุที่คงที่ การเพิ่ม, ลบ, หรือจัดลำดับรูปแบบใหม่อาจเปลี่ยนดัชนีของมัน เลือกตัวระบุตามวิธีการสร้างและการบำรุงรักษา presentation:
 
-- [Name](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getName--) มีประโยชน์สำหรับเทมเพลตที่ควบคุมโดยนักพัฒนาและง่ายต่อการตรวจสอบในแผงการเลือกของ PowerPoint ชื่อสามารถแก้ไขได้และไม่ได้รับประกันว่าจะเป็นเอกลักษณ์ ดังนั้นควรกำหนดแนวปฏิบัติกับชื่อ หากโค้ดต้องอิงชื่อ
-- [AlternativeText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getAlternativeText--) มีประโยชน์เมื่อคำอธิบายการเข้าถึงหรือแท็กที่ผู้เขียนกำหนดไว้แล้วระบรูปร่างอยู่แล้ว มันมองเห็นได้โดยผู้ใช้ อาจมีการแปลหรือเขียนใหม่เพื่อการเข้าถึง และไม่ได้รับประกันว่าเป็นเอกลักษณ์ อย่าเปลี่ยนข้อความการเข้าถึงที่มีความหมายเป็นคีย์ฐานข้อมูลโดยไม่แจ้งผู้ใช้
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) เป็นตัวระบุแบบอ่านอย่างเดียวที่เป็นเอกลักษณ์ภายในสไลด์และสอดคล้องกับ ID ของรูปร่างที่ PowerPoint ใช้ ใช้เมื่อต้องผสานกับ PowerPoint หรือเมื่อคุณต้องการอ้างอิงที่ชัดเจนตลอดอายุของรูปร่าง รูปร่างที่คัดลอกหรือสร้างใหม่จะเป็นรูปร่างที่แตกต่างและจะได้รับ ID ของตนเอง
+- [Name](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getName--) มีประโยชน์สำหรับเทมเพลตที่ควบคุมโดยนักพัฒนาและตรวจสอบได้ง่ายใน Selection Pane ของ PowerPoint ชื่อสามารถแก้ไขได้และไม่รับประกันว่าจะเป็นเอกลักษณ์, ดังนั้นจึงควรกำหนดมาตรฐานการตั้งชื่อหากโค้ดพึ่งพา
+- [AlternativeText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getAlternativeText--) มีประโยชน์เมื่อคำอธิบายการเข้าถึงหรือแท็กที่ผู้เขียนกำหนดไว้แล้วระบุรูปแบบ มันมองเห็นได้โดยผู้ใช้, อาจแปลเป็นภาษาต่างๆ หรือเขียนใหม่เพื่อการเข้าถึง, และไม่รับประกันว่าจะเป็นเอกลักษณ์ อย่าใช้ข้อความการเข้าถึงที่มีความหมายเป็นคีย์ฐานข้อมูลโดยไม่ได้แจ้งให้ผู้ใช้ทราบ
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) เป็นตัวระบุแบบอ่านอย่างเดียวที่เป็นเอกลักษณ์ภายในสไลด์และสอดคล้องกับ Shape ID ที่ PowerPoint interop ใช้ ใช้เมื่อเชื่อมต่อกับ PowerPoint หรือเมื่อคุณต้องการอ้างอิงที่ไม่มีความกำกวมตลอดอายุของรูปแบบ รูปแบบที่คัดลอกหรือสร้างใหม่จะเป็นรูปแบบที่แตกต่างและจะได้รับ ID ของตัวเอง
 
-เมธอด [getUniqueId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getUniqueId--) ที่เกี่ยวข้องคืนตัวระบุระดับการนำเสนอ แต่ตัวระบุนั้นออกแบบมาสำหรับแอด‑อินและอาจถูกกำหนดใหม่ ไม่ควรถือว่าเป็นคีย์ภายนอกถาวร หากความเป็นตัวตนระยะยาวเป็นสิ่งสำคัญ ให้เก็บแมพปิ้งไว้ในข้อมูลแอปพลิเคชันและตรวจสอบว่ารูปร่างที่คาดหวังยังคงมีอยู่
+เมธอด [getUniqueId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getUniqueId--) ที่เกี่ยวข้องคืนค่าตัวระบุที่มีขอบเขตระดับ presentation, แต่ตัวระบุนั้นออกแบบมาสำหรับ add‑in และอาจถูกกำหนดใหม่ ไม่ควรถือว่าเป็นคีย์ภายนอกถาวร หากต้องการความเป็นตัวตนระยะยาวให้เก็บการแมปในข้อมูลแอปพลิเคชันและตรวจสอบว่ารูปแบบที่คาดหวังยังคงมีอยู่
 
-ตัวอย่างต่อไปค้นหาตามชื่อด้วยการเปรียบเทียบแบบตรงและรายงาน ID Interop ที่มีขอบเขตสไลด์ เมื่อเทมเพลตไม่มีรูปร่างที่คาดไว้ โค้ดจะรายงานผลนั้นแทนที่จะทำต่อด้วยออบเจ็กต์ที่ผิด
+ตัวอย่างต่อไปนี้ค้นหาด้วยชื่อโดยการเปรียบเทียบที่ตรงกันและรายงาน slide‑scoped interop ID เมื่อเทมเพลตไม่มีรูปแบบที่คาดหวัง โค้ดจะรายงานผลนั้นแทนที่จะดำเนินการต่อกับอ็อบเจกต์ที่ผิดพลาด
 
 ```java
 import com.aspose.slides.*;
@@ -70,7 +73,7 @@ try {
 }
 ```
 
-เมื่อการดำเนินการเฉพาะเจาะจงต่อประเภทของรูปร่าง ให้ตรวจสอบอินเทอร์เฟซก่อนใช้สมาชิกที่เฉพาะเจาะจง ตัวอย่างนี้อัปเดตข้อความและข้อความทางเลือกเฉพาะเมื่อออบเจ็กต์ที่ระบุชื่อเป็น [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/)
+เมื่อการดำเนินการเฉพาะเจาะจงต่อประเภทรูปแบบ ให้ตรวจสอบอินเทอร์เฟซก่อนใช้สมาชิกประเภท‑เฉพาะ ตัวอย่างนี้อัปเดตข้อความและ alternative text เฉพาะเมื่ออ็อบเจกต์ที่ตั้งชื่อเป็น [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/)
 
 ```java
 import com.aspose.slides.*;
@@ -100,15 +103,108 @@ try {
 }
 ```
 
-## **Modify the Shape Collection**
+## **ระบุและแก้ไขการปรับค่ารูปร่างที่กำหนดไว้ล่วงหน้า**
 
-เมธอดเพิ่ม คัดลอก ลบ และจัดเรียงใหม่ทำงานบนคอลเลกชันโดยตรง หากการดำเนินการทำให้จำนวนหรือลำดับของรูปร่างเปลี่ยนแปลง อย่าอ้างอิงดัชนีที่จับไว้ก่อนหน้านั้นต่อไป
+รูปร่างเรขาคณิตที่กำหนดล่วงหน้าสามารถเปิดเผยจุดปรับค่าที่ควบคุมคุณลักษณะต่างๆ เช่น ขนาดมุม, อัตราส่วนของศร, หรือมุมโค้ง เข้าถึงพวกมันผ่านคอลเลกชันอ่าน‑อย่างเดียว [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) คอลเลกชันนี้จัดหาโดยรูปแบบ, แต่แต่ละ [IAdjustValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/) มีค่าที่สามารถเปลี่ยนแปลงได้
 
-### **Clone a Shape**
+อย่าพึ่งพาเพียงดัชนีคอลเลกชันที่คงที่ ให้วนลูปผ่านการปรับค่าและตรวจสอบเมธอดอ่าน‑อย่างเดียว [getType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/#getType--) ซึ่งค่า [ShapeAdjustmentType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shapeadjustmenttype/) อธิบายว่าการปรับค่านั้นควบคุมอะไร เมธอดอ่าน‑อย่างเดียว [getName](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/#getName--) ให้ข้อมูลการระบุตัวเพิ่มและเป็นประโยชน์โดยเฉพาะเมื่อพรีเซ็ตมีการปรับค่ามากกว่าหนึ่งค่าแบบเดียวกัน
 
-[addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) สร้างสำเนาอิสระและเพิ่มต่อท้ายคอลเลกชันเป้าหมาย [insertClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) ก็สร้างสำเนาเช่นกันแต่ใส่ไว้ที่ดัชนี z‑order ที่ระบุ ค่าที่รับพิกัดจะย้ายสำเนาโดยไม่เปลี่ยนขนาด; ค่าที่รับความกว้างและความสูงสามารถปรับขนาดได้ด้วย
+ใช้เมธอดค่าที่สอดคล้องกับความหมายของการปรับค่า:
 
-ตัวอย่างสร้างสไลด์ปลายทาง คัดลอกรูปสี่เหลี่ยมที่มีป้ายกำกับไปด้านหน้า และแทรกสำเนาที่สองไว้ที่ด้านหลัง การเปลี่ยนแปลงใด ๆ กับสำเนาใด ๆ จะไม่กระทบต่อรูปร่างต้นฉบับ
+| ประเภทการปรับค่า | วัตถุประสงค์ | ค่าที่จะเปลี่ยน |
+|---|---|---|
+| `CornerSize` | ขนาดของมุมโค้ง | [setRawValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | ความหนาของหางศร | `setRawValue` |
+| `ArrowheadLength` | ความยาวของหัวศร | `setRawValue` |
+| `ArrowheadWidth` | ความกว้างของหัวศร | `setRawValue` |
+| `StartAngle` | มุมเริ่มต้นของพายหรือโค้ง | [setAngleValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | มุมสิ้นสุดของพายหรือโค้ง | `setAngleValue` |
+
+`getType` และ `getName` คืนข้อมูลแบบอ่าน‑อย่างเดียว `getRawValue` กับ `setRawValue` ทำงานกับจำนวนเต็มในหน่วยเรขาคณิตดั้งเดิมของพรีเซ็ต, ส่วน `getAngleValue` และ `setAngleValue` ทำงานกับมุมในหน่วยองศา จำนวน, ลำดับ, ความหมาย, และช่วงค่าที่ถูกต้องของการปรับค่าขึ้นอยู่กับพรีเซ็ต [ShapeType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/igeometryshape/#getShapeType--) ค่าที่เป็นประโยชน์สำหรับพรีเซ็ตหนึ่งอาจไม่ถูกต้องหรือมีผลต่างสำหรับพรีเซ็ตอื่น
+
+เมื่อ `getType` คืนค่า `ShapeAdjustmentType.Custom` API จะไม่รู้จักความหมายเชิงมาตรฐาน ตรวจสอบ `getName`, ประเภทพรีเซ็ต, และค่าที่มีอยู่, และอย่าเปลี่ยนการปรับค่าเว้นแต่คุณรู้ความหมายและช่วงที่คาดหวัง แม้สำหรับประเภทที่รู้จักแล้วก็ตรวจสอบว่าชนิดเดียวกันปรากฏมากกว่าหนึ่งครั้งหรือไม่ก่อนเลือกค่า บทความ [Connector](/slides/th/androidjava/connector/) แสดงสถานการณ์นี้ด้วยการปรับค่าการโค้งของคอนเน็กเตอร์
+
+ตัวอย่างเต็มต่อไปนี้สร้างเวอร์ชันเริ่มต้นและเวอร์ชันที่แก้ไขของรูปแบบพรีเซ็ตสามแบบ โดยวนลูปผ่านการปรับค่าทุกค่า, รายงานชื่อและประเภท, เปลี่ยนค่าที่เกี่ยวกับขนาดผ่าน `setRawValue`, เปลี่ยนมุมผ่าน `setAngleValue`, และบันทึกผล คอลัมน์ซ้ายเก็บเรขาคณิตเริ่มต้น; คอลัมน์ขวาแสดงสี่เหลี่ยมมุมโค้งที่ปรับค่า, ลูกศรสี่ทาง, และพาย
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // เพิ่มหัวข้อสำหรับคอลัมน์รูปร่างเริ่มต้นและคอลัมน์รูปร่างที่ปรับค่า.
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การตรวจสอบประเภทเชิงความหมายก่อนเปลี่ยนค่าช่วยให้โค้ดชัดเจนเกี่ยวกับเจตนารมณ์และหลีกเลี่ยงการสันนิษฐานว่าดัชนีคอลเลกชันเดียวกันมีความหมายเท่าเดิมในพรีเซ็ตต่าง ๆ
+
+## **แก้ไขคอลเลกชันรูปแบบ**
+
+เมธอดเพิ่ม, คัดลอก, ลบ, และจัดลำดับทำงานบนคอลเลกชันโดยทันที หากการดำเนินการเปลี่ยนจำนวนหรือลำดับของรูปแบบ, อย่าอ้างอิงดัชนีที่จับไว้ก่อนการดำเนินการนั้นต่อไป
+
+### **คัดลอกรูปแบบ**
+
+[addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) สร้างสำเนาอิสระและเพิ่มต่อท้ายคอลเลกชันเป้าหมาย [insertClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) ก็สร้างสำเนาเช่นกันแต่วางไว้ที่ดัชนี z‑order ที่กำหนด ตัวโอเวอร์โหลดที่รับพิกัดจะย้ายสำเนาโดยไม่เปลี่ยนขนาด; ตัวโอเวอร์โหลดที่รับความกว้างและความสูงสามารถปรับขนาดได้ด้วย
+
+ตัวอย่างนี้สร้างสไลด์ปลายทาง, คัดลอกสี่เหลี่ยมที่มีฉลากไปด้านหน้า, แล้วแทรกสำเนาที่สองไว้ด้านหลัง การเปลี่ยนแปลงใด ๆ กับสำเนาแต่ละอันจะไม่กระทบรูปแบบต้นฉบับ
 
 ```java
 import com.aspose.slides.*;
@@ -147,13 +243,13 @@ try {
 }
 ```
 
-การคัดลอกจะคัดลอกเนื้อหาและการจัดรูปแบบของรูปร่างรวมถึงชื่อและข้อความทางเลือกด้วย ให้กำหนดตัวระบุเชิงลอจิกใหม่ให้กับสำเนาเมื่อค่าดังกล่าวต้องเป็นเอกลักษณ์ ทรัพยากรที่ใช้โดยรูปร่างซับซ้อนจะจัดการโดยการนำเสนอ แต่สำเนาก็ยังคงเป็นรายการใหม่ในคอลเลกชันพร้อมอัตลักษณ์รูปร่างใหม่
+การคัดลอกจะคัดลอกเนื้อหาและการจัดรูปแบบของรูปแบบ รวมถึงชื่อและ alternative text ให้กำหนดตัวระบุแบบลอจิกใหม่ให้กับสำเนาเมื่อค่าดังกล่าวต้องเป็นเอกลักษณ์ ทรัพยากรที่ใช้โดยรูปแบบที่ซับซ้อนจัดการโดย presentation, แต่สำเนายังคงเป็นรายการคอลเลกชันใหม่ที่มีอัตลักษณ์รูปแบบใหม่
 
-### **Remove Shapes**
+### **ลบรูปแบบ**
 
-[remove](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) ลบออบเจ็กต์รูปร่างเฉพาะออกจากคอลเลกชันของมัน เมื่อลบหลายรายการที่ตรงกันระหว่างการวนลูปตามดัชนี ให้วนจากท้ายที่สุดเพื่อให้ดัชนีที่เหลือทั้งหมดยังคงใช้ได้
+[remove](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) ลบอ็อบเจกต์รูปแบบเฉพาะจากคอลเลกชันของมัน เมื่อลบหลายรายการที่ตรงกันระหว่างการวนลูปตามดัชนี ให้วนจากท้ายสุดเพื่อให้ดัชนีที่เหลือยังคงถูกต้อง
 
-ตัวอย่างนี้ลบรูปร่างทุกอันที่มีชื่อที่กำหนดไว้ มันอ่านรูปร่างที่ดัชนีปัจจุบัน ไม่ใช่รายการคอลเลกชันคงที่และไม่ได้ทำการแคสท์รูปร่างโดยไม่มีเหตุผล
+ตัวอย่างนี้ลบทุกรูปแบบที่มีชื่อกำหนดไว้ มันอ่านรูปแบบตามดัชนีปัจจุบัน ไม่ใช่รายการคอลเลกชันคงที่ และไม่ทำการ cast รูปแบบโดยไม่จำเป็น
 
 ```java
 import com.aspose.slides.*;
@@ -184,11 +280,11 @@ try {
 }
 ```
 
-หลังจากลบ จำนวนรูปร่างและดัชนีของรูปร่างที่เหลือจะเปลี่ยน แหล่งอ้างอิงที่ไม่ถูกกระทบยังคงเชื่อถือได้กว่าดัชนีที่บันทึกไว้ ควรพิจารณาตัวเชื่อมต่อ แอนิเมชัน และคุณลักษณะการนำเสนออื่น ๆ ที่อาจอ้างอิงถึงออบเจ็กต์ที่ถูกลบ; การลบรูปร่างที่มองเห็นได้อาจเปลี่ยนมากกว่าตัวสไลด์เดียว
+หลังการลบ จำนวนรูปแบบและดัชนีของรูปแบบต่อมาจะเปลี่ยน แหล่งอ้างอิงไปยังรูปแบบที่ไม่ได้รับผลกระทบจะคงเชื่อถือได้มากกว่าการบันทึกดัชนี นอกจากนี้ยังควรพิจารณา connector, animation, และคุณลักษณะ presentation อื่น ๆ ที่อาจอ้างอิงอ็อบเจกต์ที่ลบ; การลบรูปแบบที่มองเห็นได้อาจทำให้เปลี่ยนแปลงมากกว่ารูปลักษณ์ของสไลด์
 
-### **Hide a Shape**
+### **ซ่อนรูปแบบ**
 
-การตั้งค่า [Hidden](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) เป็น `true` จะทำให้รูปร่างยังคงอยู่ในคอลเลกชันแต่ไม่ปรากฏในการสไลด์โชว์ปกติ ดัชนี การจัดรูปแบบและเนื้อหายังคงสามารถเข้าถึงได้โดยโค้ด ดังนั้นการซ่อนจึงเหมาะกับองค์ประกอบที่เป็นตัวเลือกและอาจถูกกู้คืนในภายหลัง
+การตั้งค่า [Hidden](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) เป็น `true` ทำให้รูปแบบคงอยู่ในคอลเลกชันแต่ไม่แสดงใน slide show ปกติ ดัชนี, การจัดรูปแบบ, และเนื้อหายังคงพร้อมให้โค้ดใช้งาน ดังนั้นการซ่อนจึงเหมาะสำหรับองค์ประกอบเลือกที่อาจต้องการกู้คืนในภายหลัง
 
 ```java
 import com.aspose.slides.*;
@@ -215,11 +311,11 @@ try {
 }
 ```
 
-การซ่อนไม่ได้เป็นการลบหรือการรักษาความปลอดภัย ออบเจ็กต์ยังคงถูกค้นพบและสามารถทำให้แสดงออกได้โดยผู้ใช้หรือโดยโค้ด และยังคงเป็นส่วนหนึ่งของไฟล์การนำเสนอ
+การซ่อนไม่ใช่การลบหรือความปลอดภัย อ็อบเจกต์ยังสามารถค้นพบและแสดงใหม่โดยผู้ใช้หรือโดยโค้ด, และยังคงเป็นส่วนหนึ่งของไฟล์ presentation
 
-### **Change the Z-Order**
+### **เปลี่ยน Z‑Order**
 
-รูปร่างที่ทับกันจะถูกวาดตามลำดับของคอลเลกชัน [reorder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) ย้ายรูปร่างที่มีอยู่ไปยังดัชนีเป้าหมายโดยไม่ต้องคัดลอก ดัชนี `0` คือด้านหลัง; `size() - 1` คือด้านหน้า
+รูปแบบที่ทับซ้อนกันจะถูกวาดตามลำดับคอลเลกชัน [reorder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) ย้ายรูปแบบที่มีอยู่ไปยังดัชนีเป้าหมายโดยไม่ต้องคัดลอก ดัชนี `0` คือด้านหลัง; `size() - 1` คือด้านหน้า
 
 ```java
 import com.aspose.slides.*;
@@ -246,13 +342,13 @@ try {
 }
 ```
 
-สี่เหลี่ยมถูกสร้างก่อนและเริ่มต้นอยู่หลังวงรี การย้ายมันไปยังดัชนีสุดท้ายจะทำให้มันอยู่ด้านหน้า สรุปลำดับ z‑order หลังจากเพิ่มหรือคัดลอกรูปร่างที่เกี่ยวข้องทั้งหมด เพราะการดำเนินการเหล่านั้นจะเพิ่มหรือแทรกรายการใหม่ในคอลเลกชันและอาจเปลี่ยนสแต็กที่ตั้งใจไว้
+สี่เหลี่ยมถูกสร้างก่อนและโดยแรกจะอยู่หลังวงรี การย้ายไปยังดัชนีสุดท้ายทำให้มันอยู่ด้านหน้า ให้ทำการสรุป z‑order หลังจากเพิ่มหรือคัดลอกรูปแบบทั้งหมดที่เกี่ยวข้อง, เนื่องจากการดำเนินการเหล่านั้นจะเพิ่มหรือแทรกรายการคอลเลกชันใหม่และอาจเปลี่ยนสแต็กที่ตั้งใจไว้
 
-## **Inspect Shapes on Layout Slides**
+## **ตรวจสอบรูปแบบใน Layout Slides**
 
-สไลด์ปกติ สไลด์เลย์เอาต์ และสไลด์มาสเตอร์มีคอลเลกชันรูปร่างแยกกัน รูปร่างในคอลเลกชันเลย์เอาต์ไม่ใช่ออบเจ็กต์เดียวกับรูปร่างที่มีตำแหน่งคล้ายกันบนสไลด์ปกติ ตรวจสอบรูปร่างเลย์เอาต์เมื่อคุณต้องการทำความเข้าใจหรือเปลี่ยนการจัดรูปแบบที่เลย์เอาต์กำหนด
+สไลด์ปกติ, layout slides, และ master slides มีคอลเลกชันรูปแบบแยกกัน รูปแบบในคอลเลกชัน layout ไม่ใช่อ็อบเจกต์เดียวกับรูปแบบที่อยู่ในตำแหน่งเดียวกันบนสไลด์ปกติ ตรวจสอบรูปแบบ layout เมื่อคุณต้องการเข้าใจหรือเปลี่ยนการจัดรูปแบบที่มาจาก layout
 
-ตัวอย่างต่อไปอ่าน [FillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getFillFormat--) และ [LineFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getLineFormat--) ของแต่ละรูปร่างในเลย์เอาต์โดยไม่สมมติว่าทุกรูปร่างเป็น `AutoShape`
+ตัวอย่างต่อไปนี้อ่าน [FillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getFillFormat--) และ [LineFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getLineFormat--) ของแต่ละรูปแบบใน layout โดยไม่สมมติว่ารูปแบบทุกอันเป็น `AutoShape`
 
 ```java
 import com.aspose.slides.*;
@@ -271,11 +367,11 @@ try {
 }
 ```
 
-การแก้ไขเลย์เอาต์อาจส่งผลต่อหลายสไลด์ที่ใช้มัน ก่อนเปลี่ยนรูปร่างในเลย์เอาต์ให้ตรวจสอบว่าซไลด์ปกติสืบทอดออบเจ็กต์นั้นหรือมีการเขียนทับในระดับท้องถิ่น และทดสอบทุกสไลด์ที่ใช้งานเลย์เอาต์นั้น
+การแก้ไข layout สามารถส่งผลต่อหลายสไลด์ที่ใช้มัน ก่อนเปลี่ยนรูปแบบ layout ให้ตรวจสอบว่าสไลด์ปกติสืบทอดอ็อบเจกต์นั้นหรือมีการโอเวอร์ไรด์ในระดับท้องถิ่น, และทดสอบทุกสไลด์ที่ใช้ layout นั้น
 
-## **Export a Shape to SVG**
+## **ส่งออกรูปแบบเป็น SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) จะเขียนเนื้อหาที่เรนเดอร์ของรูปร่างหนึ่งไปยังสตรีม ผลลัพธ์จะมีเฉพาะรูปร่างนั้น ไม่รวมพื้นหลังของสไลด์ทั้งหมดหรือรูปร่างข้างเคียง
+[writeAsSvg](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) เขียนเนื้อหาที่เรนเดอร์ของรูปแบบหนึ่งไปยังสตรีม ผลลัพธ์จะมีรูปแบบเท่านั้น, ไม่ได้รวมพื้นหลังสไลด์ทั้งหมดหรือรูปแบบใกล้เคียง
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +397,13 @@ try {
 }
 ```
 
-ควรรักษาการนำเสนอเปิดอยู่ขณะเรนเดอร์ เอาต์พุตขึ้นกับการจัดรูปแบบของรูปร_shapeและทรัพยากรเช่นแบบอักษรและภาพ หากคุณต้องการส่วนประกอบทั้งหมด ให้ส่งออกสไลด์แทนการส่งออกรูปร่างเดี่ยว ผู้เรียกใช้เป็นเจ้าของสตรีมและต้องปิดสตรีมนั้น
+ให้เปิด presentation ไว้ขณะทำการเรนเดอร์ ผลลัพธ์ขึ้นกับการจัดรูปแบบของรูปแบบและทรัพยากรเช่นฟอนต์และรูปภาพ หากต้องการส่วนประกอบทั้งหมด ให้ส่งออกรูปแบบสไลด์แทนรูปแบบเดี่ยว ผู้เรียกต้องเป็นเจ้าของสตรีมและต้องปิดสตรีมเอง
 
-## **Align Shapes**
+## **จัดแนวรูปแบบ**
 
-เมธอด [SlideUtil.alignShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) มีหลายรูปแบบเพื่อจัดแนวทั้งหมดหรือดัชนีคอลเลกชันที่เลือก [ShapesAlignmentType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shapesalignmenttype/) กำหนดขอบ, เส้นศูนย์กลาง หรือโหมดกระจาย ตั้งค่า `alignToSlide` เป็น `true` เพื่อใช้ขอบสไลด์; ตั้งเป็น `false` เพื่อจัดแนวรูปร่างที่เลือกสัมพันธ์กัน
+เมธอด [SlideUtil.alignShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) มีโอเวอร์โหลดให้จัดแนวทั้งทั้งหมดหรือดัชนีคอลเลกชันที่เลือก [ShapesAlignmentType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shapesalignmenttype/) กำหนดขอบ, เส้นกึ่งกลาง, หรือโหมดการจัดกระจาย ตั้งค่า `alignToSlide` เป็น `true` เพื่อใช้ขอบสไลด์; ตั้งเป็น `false` เพื่อจัดแนวรูปแบบที่เลือกสัมพันธ์กัน
 
-ตัวอย่างนี้จัดแนวสามรูปร่างให้ชิดด้านบนของสไลด์ การอ้างอิงรูปร่างที่คืนค่าจะถูกแปลงเป็นดัชนีปัจจุบันทันทีก่อนการจัดแนว
+ตัวอย่างนี้จัดแนวสามรูปแบบไปยังขอบบนของสไลด์ การอ้างอิงรูปแบบที่คืนค่าจะถูกแปลงเป็นดัชนีปัจจุบันทันทีก่อนทำการจัดแนว
 
 ```java
 import com.aspose.slides.*;
@@ -332,17 +428,17 @@ try {
 }
 ```
 
-การจัดแนวเปลี่ยนตำแหน่ง ไม่เปลี่ยนลำดับ z‑order การจัดแนวเชิงสัมพันธ์ทั่วไปต้องมีอย่างน้อยสองรูปร่าง ส่วนการกระจายแนวนอนหรือแนวตั้งต้องมีรูปร่างเพียงพอเพื่อกำหนดระยะห่าง หากคุณแก้ไขคอลเลกชันก่อนเรียกเมธอดให้คำนวณดัชนีใหม่
+การจัดแนวเปลี่ยนตำแหน่ง, ไม่ใช่ z‑order การจัดแนวเชิงสัมพันธ์ทั่วไปต้องมีอย่างน้อยสองรูปแบบ, ส่วนการกระจายแนวนอนหรือแนวตั้งต้องมีรูปแบบพอที่จะกำหนดระยะห่าง หากคุณแก้ไขคอลเลกชันก่อนเรียกเมธอดให้คำนวณดัชนีใหม่
 
-## **Flip a Shape**
+## **พลิกรูปแบบ**
 
-คลาส [ShapeFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shapeframe/) เก็บตำแหน่ง, ขนาด, การตั้งค่าการพลิกแนวนอนและแนวตั้ง, และการหมุน ค่า `getFlipH` และ `getFlipV` ใช้ [NullableBool](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/nullablebool/): `True` เปิดการพลิก, `False` ปิดการพลิก, `NotDefined` คงสภาพที่ไม่ได้กำหนด/ค่าเริ่มต้น
+คลาส [ShapeFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shapeframe/) เก็บตำแหน่ง, ขนาด, การตั้งค่าพลิกแนวนอนและแนวตั้ง, และการหมุน ค่า `getFlipH` และ `getFlipV` ใช้ [NullableBool](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/nullablebool/): `True` เปิดการพลิก, `False` ปิด, `NotDefined` คงสภาพที่ไม่ได้กำหนด/ค่าเริ่มต้น
 
-การนำเสนออินพุตด้านล่างมีรูปร่างที่ไม่ได้พลิก
+presentation ตัวอย่างด้านล่างมีรูปแบบที่ไม่ถูกพลิก
 
 ![The shape before flipping](shape_to_be_flipped.png)
 
-ตัวอย่างนี้เก็บค่ากรอบอื่น ๆ ไว้ทั้งหมดและแทนที่เพียงสองการตั้งค่าการพลิกเท่านั้น สิ่งนี้สำคัญเพราะการกำหนด [Frame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) ใหม่จะทับกรอบทั้งหมด
+ตัวอย่างนี้คงค่ากรอบอื่นทั้งหมดและแทนที่เฉพาะการตั้งค่าพลิกสองค่าเท่านั้น นี้สำคัญเพราะการกำหนด [Frame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) ใหม่จะทำการแทนที่กรอบทั้งหมด
 
 ```java
 import com.aspose.slides.*;
@@ -363,20 +459,24 @@ try {
 }
 ```
 
-รูปร่างที่บันทึกแล้วจะถูกสะท้อนแนวนอนและแนวตั้งพร้อมคงตำแหน่ง, ขนาด, และการหมุนเดิม
+รูปแบบที่บันทึกจะถูกสะท้อนแบบแนวนอนและแนวตั้งขณะคงตำแหน่ง, ขนาด, และการหมุนไว้
 
 ![The shape after flipping](flipped_shape.png)
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**Should I use a collection index as a shape identifier?**
+**ควรใช้ดัชนีคอลเลกชันเป็นตัวระบุรูปแบบหรือไม่?**
 
-ใช้ได้เฉพาะสำหรับการประมวลผลสั้น ๆ ที่คอลเลกชันจะไม่เปลี่ยนแปลงก่อนที่ดัชนีจะถูกใช้ แนะนำให้ใช้ `Name` หรือ `AlternativeText` ที่ผ่านการตรวจสอบเป็นแนวปฏิบัติสำหรับเทมเพลตที่สร้างขึ้น, หรือ `OfficeInteropShapeId` สำหรับงานที่ต้องอิงสไลด์‑scoped interop
+ใช้เฉพาะการประมวลผลระยะสั้นเมื่อคอลเลกชันจะไม่เปลี่ยนแปลงก่อนใช้ดัชนี แนะนำให้ใช้ `Name` หรือ `AlternativeText` ที่ตรวจสอบแล้วสำหรับเทมเพลตที่สร้างโดยผู้เขียน, หรือ `OfficeInteropShapeId` สำหรับงาน interop ระดับสไลด์
 
-**Does hiding a shape remove it from the z-order?**
+**การซ่อนรูปแบบทำให้มันถูกลบออกจาก z‑order หรือไม่?**
 
-ไม่. รูปร่างที่ซ่อนอยู่ยังคงอยู่ในคอลเลกชันที่ดัชนีเดิม สามารถค้นหา, จัดเรียงใหม่, แก้ไข, หรือทำให้แสดงผลอีกครั้งได้
+ไม่ รูปแบบที่ซ่อนคงอยู่ในคอลเลกชันที่ดัชนีเดิม สามารถค้นหา, จัดลำดับใหม่, แก้ไข, หรือทำให้มองเห็นอีกครั้งได้
 
-**Why did a cloned shape appear in front of another shape?**
+**ทำไมรูปแบบที่คัดลอกจึงปรากฏอยู่หน้ารูปแบบอื่น?**
 
-`addClone` เพิ่มสำเนาที่ส่วนท้ายของคอลเลกชัน ซึ่งเป็นส่วนหน้าของ z‑order ใช้ `insertClone` เพื่อเลือกดัชนีเริ่มต้น หรือใช้ `reorder` หลังจากเพิ่มรูปร่างทั้งหมดแล้ว
+`addClone` เพิ่มสำเนาที่ตำแหน่งสุดท้ายของคอลเลกชัน, ซึ่งเป็นด้านหน้าของ z‑order ใช้ `insertClone` เพื่อกำหนดดัชนีเริ่มต้นหรือใช้ `reorder` หลังจากเพิ่มรูปแบบทั้งหมดแล้ว
+
+**สามารถใช้ดัชนีคงที่เพื่อระบุการปรับค่ารูปร่างพรีเซ็ตได้หรือไม่?**
+
+ทำได้เฉพาะหลังจากตรวจสอบพรีเซ็ตและโครงสร้างคอลเลกชันอย่างละเอียด แนะนำให้วนผ่าน `IGeometryShape.getAdjustments` และตรวจสอบ `IAdjustValue.getType`; ใช้ `IAdjustValue.getName` เป็นข้อมูลเสริมเมื่อประเภทเชิงความหมายเดียวกันปรากฏหลายครั้ง

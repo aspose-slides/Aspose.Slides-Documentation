@@ -8,41 +8,44 @@ keywords:
 - شكل PowerPoint
 - شكل العرض التقديمي
 - شكل على الشريحة
-- البحث عن شكل
+- العثور على الشكل
 - استنساخ الشكل
 - إزالة الشكل
 - إخفاء الشكل
 - تغيير ترتيب الشكل
-- الحصول على معرف الشكل للـ interop
-- النص البديل للشكل
+- الحصول على معرف الشكل Interop
+- نص الشكل البديل
+- نقطة ضبط الشكل
+- ضبط الشكل المسبق
+- هندسة الشكل
 - تنسيقات تخطيط الشكل
-- الشكل كـ SVG
+- شكل كـ SVG
 - تحويل الشكل إلى SVG
 - محاذاة الشكل
-- قلب الشكل
+- عكس الشكل
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية التعرف على أشكال العرض التقديمي، استنساخها، إزالتها، إخفائها، إعادة ترتيبها، تصديرها، محاذاةها، وقلبها باستخدام Aspose.Slides لـ C++."
+description: "تعلم كيفية تحديد، ضبط، استنساخ، إزالة، إخفاء، إعادة ترتيب، تصدير، محاذاة، وعكس أشكال العروض التقديمية باستخدام Aspose.Slides for C++."
 ---
 ## **نظرة عامة**
 
-تمثل Aspose.Slides للـ C++ الأشكال على الشريحة كمجموعة مرتبة من النوع [IShapeCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/). تُعد المجموعة هي المكان الذي تجد فيه وتُعدل الأشكال ومصدر ترتيب تراكبها: الفهرس `0` هو الشكل الخلفي، بينما الفهرس الأخير هو الشكل الأمامي.
+Aspose.Slides for C++ يمثل الأشكال على الشريحة كـ[IShapeCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/) مرتب. المجموعة هي المكان الذي تجد فيه الأشكال وتعدلها ومصدر ترتيب تكدسها: الفهرس `0` هو الشكل الأبعد في الخلفية، بينما الفهرس الأخير هو الشكل الأقرب إلى المقدمة.
 
-يتبع هذا المقال ذلك النموذج. يشرح أولاً كيفية التعرف على الشكل بشكل موثوق، ثم يُظهر كيفية نسخ الشكل، إزالته، إخفائه، وإعادة ترتيبه. تغطي الأقسام النهائية تنسيق مستوى التخطيط، تصدير SVG، المحاذاة، وإعدادات القلب. كل مثال مستقل، لذا يمكنك استخدام العمليات التي تحتاجها فقط في سير عملك.
+يتبع هذا المقال هذا النموذج. يشرح أولاً كيفية تحديد الشكل موثوقًا وتعديل نقاط الضبط المسبقة، ثم يظهر كيفية استنساخ، إزالة، إخفاء، وإعادة ترتيب الأشكال. تغطي الأقسام النهائية تنسيق مستوى التخطيط، تصدير SVG، المحاذاة، وإعدادات الانعكاس. كل مثال مستقل، لذلك يمكنك استخدام العمليات التي يحتاجها سير عملك فقط.
 
 ## **تحديد وإيجاد الأشكال**
 
-مؤشرات المجموعة مريحة أثناء معالجة ملف معروف، لكنها ليست معرفات ثابتة. إضافة، إزالة أو إعادة ترتيب شكل يمكن أن تغير فهرسه. اختر معرفًا وفقًا لكيفية إنشاء العرض التقديمي وصيانته:
+فهارس المجموعة مريحة أثناء معالجة ملف معروف، لكنها ليست معرفات ثابتة. إضافة أو إزالة أو إعادة ترتيب شكل يمكن أن يغيّر فهرسه. اختر معرفًا وفقًا لكيفية إنشاء وتحصين العرض التقديمي:
 
-- [Name](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_name/) مفيد للقوالب التي يتحكم فيها المطور ويسهل فحصه في لوحة التحديد في PowerPoint. يمكن تعديل الأسماء ولا تضمن كونها فريدة، لذا ضع اتفاقية تسمية إذا كان الكود يعتمد عليها.
-- [AlternativeText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_alternativetext/) مفيد عندما يكون وصف الوصول أو العلامة التي أضافها المؤلف قد حددت الشكل بالفعل. هو مرئي للمستخدمين، قد يُترجم أو يُعيد صياغته لتلبية متطلبات الوصول، ولا يضمن كونه فريدًا. لا تُعيد استعمال نص وصول ذو معنى كمفتاح قاعدة بيانات بشكل صامت.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_officeinteropshapeid/) هو معرف للقراءة فقط فريد داخل الشريحة ويتطابق مع معرف الشكل الذي يستخدمه PowerPoint interop. استخدمه عند الدمج مع PowerPoint أو عندما تحتاج إلى إشارة لا لبس فيها طوال عمر الشكل. الشكل المستنسخ أو المعاد إنشاؤه يُعامل كشكل مختلف ويحصل على معرف خاص به.
+- [Name](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_name/) مفيدة للقوالب التي يتحكم فيها المطورون ويسهل فحصها في لوحة التحديد في PowerPoint. يمكن تحرير الأسماء ولا يُضمن أنها فريدة، لذا ضع اتفاقية تسمية إذا كان الكود يعتمد عليها.
+- [AlternativeText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_alternativetext/) مفيدة عندما تكون الوصيفة التكيفية أو علامة يضيفها المؤلف قد عرّفت الشكل بالفعل. هي مرئية للمستخدمين، قد تُمحَوَّل أو تُعاد صياغتها لإمكانية الوصول، ولا يُضمن أنها فريدة. لا تُعيد توجيه نص إمكانية الوصول ذو المعنى كمفتاح قاعدة بيانات بصمت.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_officeinteropshapeid/) هو معرف للقراءة فقط فريد داخل الشريحة ويتطابق مع معرف الشكل المستخدم في تفاعل PowerPoint. استخدمه عند التكامل مع PowerPoint أو عندما تحتاج إلى مرجع لا لبس فيه طوال عمر الشكل. الشكل المستنسخ أو المُعاد إنشائه هو شكل مختلف ويحصل على معرف خاص به.
 
-الخاصية المرتبطة [UniqueId](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_uniqueid/) لها نطاق العرض التقديمي، لكنها مخصصة للإضافات ويمكن إعادة تعيينها. لا ينبغي الاعتبار بها كمفتاح خارجي دائم. إذا كان تعريف الشكل على المدى الطويل ضروريًا، احتفظ بعملية الربط في بيانات التطبيق وتحقق من أن الشكل المتوقع لا يزال موجودًا.
+خاصية [UniqueId](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_uniqueid/) ذات نطاق عرض تقديمي، لكنها مخصصة للإضافات ويمكن إعادة تعيينها. لا ينبغي اعتبارها مفتاحًا خارجيًا دائمًا. إذا كانت الهوية طويلة الأمد ضرورية، احتفظ بالتطابق في بيانات التطبيق وتحقق من أن الشكل المتوقع ما زال موجودًا.
 
-المثال التالي يبحث عن الشكل باستخدام `Name` ويُبلغ عن معرف الـ interop على مستوى الشريحة. عندما لا يحتوي القالب على الشكل المتوقع، يُبلغ الكود عن تلك النتيجة بدلاً من المتابعة مع الكائن الخطأ.
+المثال التالي يبحث بالـ`Name` ويبلغ عن معرف Interop بمستوى الشريحة. عندما لا يحتوي القالب على الشكل المتوقع، يُبلِغ الكود عن ذلك بدلاً من المتابعة مع الكائن الخطأ.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -80,7 +83,7 @@ else
 presentation->Dispose();
 ```
 
-عند أن تكون العملية خاصة بنوع معين من الأشكال، تحقق من الواجهة قبل استخدام الأعضاء الخاصة بالنوع. هذا المثال يُحدّث النص والنص البديل فقط إذا كان الكائن المُسمّى من النوع [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/).
+عند كون العملية خاصة بنوع شكل ما، تحقق من الواجهة قبل استخدام الأعضاء الخاصة بالنوع. هذا المثال يُحدِّث النص والنص البديل فقط إذا كان الكائن المُسمى هو [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/).
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,15 +127,123 @@ else
 presentation->Dispose();
 ```
 
+## **تحديد وتعديل ضبط الأشكال المسبقة**
+
+الأشكال الهندسية المسبقة يمكن أن تعرض نقاط ضبط تتحكم في ميزات مثل حجم الزاوية، نسب السهم، أو زوايا القوس. وصول إليها يكون عبر مجموعة القراءة فقط [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igeometryshape/get_adjustments/). المجموعة نفسها تُوفرها الشكل، لكن كل [IAdjustValue](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iadjustvalue/) يحتوي قيمة يمكن تغييرها.
+
+لا تعتمد فقط على فهرس ثابت للمجموعة. مرّ عبر الضبط وتفحص خاصية القراءة فقط [IAdjustValue::get_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iadjustvalue/get_type/) التي يُصفِّفها قيمة [ShapeAdjustmentType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shapeadjustmenttype/) ما يتحكم به الضبط. خاصية القراءة فقط [IAdjustValue::get_Name](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iadjustvalue/get_name/) تُوفر معلومات تعريف إضافية وتكون مفيدة خصوصًا عندما يحتوي قالب على أكثر من ضبط من نفس النوع الدلالي.
+
+استخدم خاصية القيمة التي تتوافق مع معنى الضبط:
+
+| نوع الضبط | الغرض | القيمة التي تُغيّر |
+|---|---|---|
+| `CornerSize` | حجم الزوايا المستديرة | [RawValue](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | سمك ذيل السهم | `RawValue` |
+| `ArrowheadLength` | طول رأس السهم | `RawValue` |
+| `ArrowheadWidth` | عرض رأس السهم | `RawValue` |
+| `StartAngle` | زاوية البداية لفطيرة أو قوس | [AngleValue](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | زاوية النهاية لفطيرة أو قوس | `AngleValue` |
+
+`Type` و`Name` لا يمكن تعيينهما. `RawValue` هو عدد صحيح قابل للقراءة والكتابة بوحدات الهندسة الأصلية للقالب، بينما `AngleValue` هو زاوية قابلة للقراءة والكتابة بالدرجات. عدد، ترتيب، معنى، والنطاق الصالح للضبط يعتمد على قالب [ShapeType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igeometryshape/get_shapetype/). القيمة الصالحة لقالب قد تكون غير صالحة أو ذات تأثير مختلف لقالب آخر.
+
+عند كون `Type` هو `ShapeAdjustmentType::Custom`، لا يتعرف API على معنى دلالي قياسي. افحص `Name`، نوع القالب، والقيمة الحالية، واترك الضبط دون تغيير ما لم تعرف المعنى والنطاق المتوقع. حتى للأنواع المعروفة، تحقق مما إذا كان النوع نفسه يظهر أكثر من مرة قبل اختيار قيمة. مقالة [Connector](/slides/ar/cpp/connector/) تُظهر هذا الوضع مع ضبط انحناءات الوصلات.
+
+المثال الكامل التالي يُنشئ نسخًا افتراضية ومُعدَّلة من ثلاثة أشكال مسبقة. يمر عبر كل ضبط، يُبلغ عن `Name` و`Type`، يُغيّر القيم المتعلقة بالحجم عبر `RawValue`، ويغيّر الزوايا عبر `AngleValue`، ثم يُحفظ النتيجة. العمود الأيسر يُظهر الهندسة الافتراضية؛ العمود الأيمن يُظهر المستطيل المستدير المُعدَّل، السهم رباعي الاتجاهات، والفطيرة.
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// يضيف رؤوسًا لأعمدة الشكل الافتراضي والعمود المعدل.
+auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
+auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel->get_TextFrame()->set_Text(u"Modified adjustment values");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+auto modifiedRoundedRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle->set_Name(u"ModifiedRoundedRectangle");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+auto modifiedArrow = slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+modifiedArrow->set_Name(u"ModifiedQuadArrow");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+auto modifiedPie = slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+modifiedPie->set_Name(u"ModifiedPie");
+
+auto shapesToAdjust = MakeArray<SharedPtr<IGeometryShape>>({modifiedRoundedRectangle, modifiedArrow, modifiedPie});
+
+for (auto shape : shapesToAdjust)
+{
+    auto adjustments = shape->get_Adjustments();
+    for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+    {
+        auto adjustment = adjustments->idx_get(adjustmentIndex);
+        Console::WriteLine(shape->get_Name() + u" / " + adjustment->get_Name() + u": " + ObjectExt::ToString(adjustment->get_Type()));
+
+        switch (adjustment->get_Type())
+        {
+            case ShapeAdjustmentType::CornerSize:
+                adjustment->set_RawValue(5000);
+                break;
+            case ShapeAdjustmentType::ArrowTailThickness:
+                adjustment->set_RawValue(25000);
+                break;
+            case ShapeAdjustmentType::ArrowheadLength:
+                adjustment->set_RawValue(30000);
+                break;
+            case ShapeAdjustmentType::ArrowheadWidth:
+                adjustment->set_RawValue(40000);
+                break;
+            case ShapeAdjustmentType::StartAngle:
+                adjustment->set_AngleValue(30);
+                break;
+            case ShapeAdjustmentType::EndAngle:
+                adjustment->set_AngleValue(300);
+                break;
+            case ShapeAdjustmentType::Custom:
+                Console::WriteLine(u"Custom adjustment '" + adjustment->get_Name() + u"' was not changed.");
+                break;
+        }
+    }
+}
+
+presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+التحقق من النوع الدلالي قبل تغيير قيمة يجعل الكود صريحًا بشأن نواياه ويتجنب الافتراض بأن فهرس مجموعة معين له نفس المعنى عبر أشكال مسبقة مختلفة.
+
 ## **تعديل مجموعة الأشكال**
 
-طريقة الإضافة، الاستنساخ، الإزالة وإعادة الترتيب تعمل على المجموعة مباشرة. إذا غيّرت عملية ما عدد أو ترتيب الأشكال، لا تواصل الاعتماد على المؤشرات التي تم التقاطها قبل تلك العملية.
+طرق الإضافة، النسخ، الإزالة، وإعادة الترتيب تعمل على المجموعة فورًا. إذا غيرت عملية ما عدد أو ترتيب الأشكال، لا تستمر في الاعتماد على الفهارس التي تم التقاطها قبل تلك العملية.
 
 ### **استنساخ شكل**
 
-[AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/addclone/) يُنشئ نسخة مستقلة ويُلحقها بالمجموعة الهدف. [InsertClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/insertclone/) ينشئ نسخة أيضًا ولكنه يضعها عند فهرس z‑order محدد. التحميلات التي تقبل إحداثيات تنقل النسخة دون تغيير حجمها؛ التحميلات التي تتضمن العرض والارتفاع يمكنها تغيير الحجم كذلك.
+[AddClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/addclone/) يُنشئ نسخة مستقلة ويضيفها إلى نهاية المجموعة الهدف. [InsertClone](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/insertclone/) أيضًا يُنشئ نسخة لكنه يضعها في فهرس ترتيب z محدد. التحميلات التي تقبل إحداثيات تنقل النسخة دون تغيير حجمها؛ التحميلات ذات العرض والارتفاع يمكن أن تعيد تحجيمها أيضًا.
 
-المثال يُنشئ شريحة هدف، يستنسخ مستطيلًا موسومًا إلى المقدمة، ويُدخل نسخة ثانية في الخلف. التغييرات على أي نسخة لا تُعدل الشكل الأصلي.
+المثال يُنشئ شريحة هدف، يستنسخ مستطيلًا مُعنونًا إلى المقدمة، ويُدرج نسخة ثانية في الخلف. التغييرات على أي نسخة لا تُعدِّل الشكل الأصلي.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -188,13 +299,13 @@ presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-نسخ الاستنساخ ينسخ محتوى الشكل وتنسيقه، بما في ذلك اسمه والنص البديل. عيّن معرفات منطقية جديدة للنسخة عندما يجب أن تكون هذه القيم فريدة. الموارد المستخدمة من قبل الأشكال المعقّدة تُدار بواسطة العرض التقديمي، لكن النسخة تظل عنصرًا جديدًا في المجموعة له هوية شكل جديدة.
+الاستنساخ ينسخ محتوى الشكل وتنسيقه، بما في ذلك اسمه والنص البديل. عيّن معرفات منطقية جديدة للنسخة عندما يجب أن تكون هذه القيم فريدة. الموارد التي تستخدمها الأشكال المعقدة تُدار بواسطة العرض التقديمي، لكن النسخة تظل عنصرًا جديدًا في المجموعة له هوية شكل جديدة.
 
 ### **إزالة الأشكال**
 
-[Remove](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/remove/) يحذف كائن شكل محدد من مجموعته. عند إزالة عدة تطابقات أثناء تكرار بالفهرس، تجول من النهاية بحيث يظل كل فهرس متبقٍ صالحًا.
+[Remove](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/remove/) يحذف كائن شكل محدد من مجموعته. عند إزالة مطابقات متعددة خلال تكرار بفهارس، تجول من النهاية حتى يبقى كل فهرس متبقي صالحًا.
 
-هذا المثال يزيل كل شكل له اسم محدد. يقرأ الشكل المفهرس الحالي، وليس عنصر مجموعة ثابت، ولا يُحول الشكل دون حاجة.
+هذا المثال يزيل كل شكل يحمل اسمًا معينًا. يقرأ الشكل المفهرس الحالي، وليس عنصر مجموعة ثابت، ولا يُحوِّل الشكل دون حاجة.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -233,11 +344,11 @@ presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-بعد الإزالة، يتغير عدد الأشكال وفهارس الأشكال اللاحقة. المراجع إلى الأشكال غير المتأثرة تبقى أكثر موثوقية من الفهارس المحفوظة. ضع في اعتبارك الموصلات، الرسوم المتحركة، وميزات العرض التقديمي الأخرى التي قد تشير إلى الكائن المُزال؛ إزالة شكل مرئي قد تغير أكثر من مظهر الشريحة.
+بعد الإزالة، يتغيّر عدد الأشكال وفهارس الأشكال اللاحقة. المراجع للأشكال غير المتأثرة تظل أكثر موثوقية من الفهارس المحفوظة. ضع في اعتبارك الوصلات، الرسوم المتحركة، وميزات العرض الأخرى التي قد تشير إلى الكائن المُزال؛ إزالة شكل ظاهر يمكن أن تغيّر أكثر من مظهر الشريحة.
 
 ### **إخفاء شكل**
 
-ضبط [Hidden](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/set_hidden/) إلى `true` يبقي الشكل في المجموعة لكنه يمنع ظهوره في عرض الشرائح العادي. يظل فهرسه وتنسيقه ومحتواه متاحًا للكود، لذا فإن الإخفاء ملائم للعناصر الاختيارية التي قد تُستعاد لاحقًا.
+ضبط [Hidden](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/set_hidden/) إلى `true` يبقي الشكل في المجموعة لكنه يمنعه من الظهور في عرض الشرائح العادي. يبقى فهرسه، تنسيقه، ومحتواه متاحًا للكود، لذا الإخفاء مناسب للعناصر الاختيارية التي قد تُستعاد لاحقًا.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -272,11 +383,11 @@ presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-الإخفاء ليس حذفًا ولا أمانًا. لا يزال بإمكان المستخدم أو الكود اكتشاف الكائن وإظهاره مرة أخرى، وهو يبقى جزءًا من ملف العرض التقديمي.
+الإخفاء ليس حذفًا ولا أمانًا. لا يزال بالإمكان اكتشاف الكائن وإظهاره مرة أخرى من قبل المستخدم أو الكود، ويظل جزءًا من ملف العرض التقديمي.
 
 ### **تغيير ترتيب Z**
 
-الأشكال المتراكبة تُرسم بترتيب المجموعة. [Reorder](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/reorder/) يحرك شكلًا موجودًا إلى فهرس هدف دون استنساخه. الفهرس `0` هو الخلف؛ `Count - 1` هو الأمام.
+الأشكال المتداخلة تُرسم بترتيب المجموعة. [Reorder](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/reorder/) ينقل شكلًا موجودًا إلى فهرس هدف دون استنساخه. الفهرس `0` هو الخلف؛ `Count - 1` هو المقدمة.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -312,11 +423,11 @@ presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-يتم إنشاء المستطيل أولاً ويقع في البداية خلف الشكل البيضاوي. نقله إلى الفهرس الأخير يجعله في المقدمة. اكمل ترتيب z‑order بعد إضافة أو استنساخ جميع الأشكال ذات الصلة، لأن تلك العمليات تُضيف أو تُدخل عناصر مجموعة جديدة وقد تغير المكدس المقصود.
+المستطيل يُنشأ أولًا ويقع في البداية خلف الشكل البيضاوي. نقله إلى الفهرس النهائي يجعله في المقدمة. أكمل ترتيب z بعد إضافة أو استنساخ جميع الأشكال ذات الصلة، لأن تلك العمليات تُضيف أو تُدرج عناصر مجموعة جديدة ويمكن أن تغيّر التكدس المقصود.
 
 ## **فحص الأشكال على شرائح التخطيط**
 
-الشرائح العادية، وشرائح التخطيط، والشرائح الرئيسة لها مجموعات أشكال منفصلة. الشكل في مجموعة التخطيط ليس نفس الكائن الموجود على شريحة عادية في نفس الموضع. فحص أشكال التخطيط ضروري عندما تحتاج إلى فهم أو تعديل التنسيق المزوّد من قبل التخطيط.
+الشرائح العادية، شرائح التخطيط، وشرائح القالب لها مجموعات أشكال منفصلة. الشكل في مجموعة التخطيط ليس نفس الكائن كما هو في شريحة عادية بنفس الموضع. افحص أشكال التخطيط عندما تحتاج إلى فهم أو تغيير التنسيق المزوّد بواسطة التخطيط.
 
 المثال التالي يقرأ كل [FillFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_fillformat/) و[LineFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_lineformat/) لشكل التخطيط دون افتراض أن كل شكل هو `AutoShape`.
 
@@ -348,11 +459,11 @@ for (auto layoutSlide : presentation->get_LayoutSlides())
 presentation->Dispose();
 ```
 
-تحرير التخطيط قد يؤثر على عدة شرائح تستخدمه. قبل تعديل شكل تخطيط، حدّد ما إذا كانت الشريحة العادية ترث الكائن أو تحتوي على تجاوز محلي، واختبر كل شريحة تستخدم ذلك التخطيط.
+تحرير تخطيط يمكن أن يؤثر على عدة شرائح تستخدمه. قبل تغيير شكل تخطيط، حدّد ما إذا كانت شريحة عادية ترث الكائن أو تحتوي على تعديل محلي، واختبر كل شريحة تستخدم ذلك التخطيط.
 
 ## **تصدير شكل إلى SVG**
 
-[WriteAsSvg](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/writeassvg/) يكتب محتوى شكل واحد مُرَسَّم إلى تدفق. النتيجة تحتوي على الشكل فقط، ليس خلفية الشريحة بالكامل أو الأشكال المجاورة.
+[WriteAsSvg](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/writeassvg/) يكتب المحتوى المُرسوم لشكل واحد إلى دفق. النتيجة تحتوي على الشكل فقط، لا خلفية الشريحة بالكامل أو الأشكال المجاورة.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -384,13 +495,13 @@ else
 presentation->Dispose();
 ```
 
-احتفظ بالعرض التقديمي مفتوحًا أثناء التصدير. يعتمد الإخراج على تنسيق الشكل وعلى موارد مثل الخطوط والصور. إذا كنت بحاجة إلى التكوين الكامل، صدّر الشريحة بدلاً من شكل فردي. المتصل يملك التدفق ويجب أن يغلقه أو يتخلص منه.
+احتفظ بالعرض التقديمي مفتوحًا أثناء الإخراج. النتيجة تعتمد على تنسيق الشكل وعلى الموارد مثل الخطوط والصور. إذا كنت بحاجة إلى التكوين الكامل، صدّر الشريحة بدلًا من الشكل الفردي. المتصل يمتلك الدفق ويجب أن يغلقه أو يحرره.
 
 ## **محاذاة الأشكال**
 
-طريقة [SlideUtil::AlignShapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides.util/slideutil/alignshapes/) لديها تحميلات تُحاذى إما جميع الأشكال أو الفهارس المحددة في المجموعة. [ShapesAlignmentType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shapesalignmenttype/) يحدد الحافة، أو الخط المركزي، أو وضع التوزيع. اضبط `alignToSlide` إلى `true` لاستخدام حواف الشريحة؛ واضبطها إلى `false` لمحاذاة الأشكال المختارة بالنسبة إلى بعضها البعض.
+[SlideUtil::AlignShapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides.util/slideutil/alignshapes/) يوفّر إصدارات تُحاذي إما جميع الأشكال أو فهارس مجموعة مختارة. [ShapesAlignmentType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shapesalignmenttype/) يحدد الحافة، خط الوسط، أو وضع التوزيع. اضبط `alignToSlide` إلى `true` لاستخدام حواف الشريحة؛ اضبطه إلى `false` لمحاذاة الأشكال المختارة بالنسبة إلى بعضها البعض.
 
-هذا المثال يُحاذى ثلاثة أشكال إلى الحافة العلوية للشريحة. مراجع الأشكال المعادة تُحوَّل إلى فهارسها الحالية مباشرة قبل المحاذاة.
+هذا المثال يحاذي ثلاثة أشكال إلى الحافة العليا للشريحة. مراجع الأشكال المُُرجَعة تُحوَّل إلى فهارسها الحالية مباشرة قبل المحاذاة.
 
 ```cpp
 #include <DOM/IShapeCollection.h>
@@ -424,17 +535,17 @@ presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-المحاذاة تغيّر المواقع، لا ترتيب Z. المحاذاة النسبية عادةً تحتاج على الأقل إلى شكلين، بينما التوزيع الأفقي أو العمودي يحتاج إلى عدد كافٍ من الأشكال لتحديد الفواصل. أعد حساب الفهارس إذا عدّلت المجموعة قبل استدعاء الطريقة.
+المحاذاة تُغيّر المواقع، لا ترتيب Z. المحاذاة النسبية عادةً تحتاج إلى شكلين على الأقل، بينما التوزيع الأفقي أو العمودي يحتاج إلى عدد كافٍ من الأشكال لتحديد الفواصل. أعد حساب الفهارس إذا عدّلت المجموعة قبل استدعاء الطريقة.
 
-## **قلب شكل**
+## **انعكاس الشكل**
 
-فئة [ShapeFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shapeframe/) تخزن الموقع، الحجم، إعدادات القلب الأفقية والرأسية، والدوران. قيمتي `FlipH` و`FlipV` تستخدم [NullableBool](https://reference.aspose.com/slides/ar/cpp/aspose.slides/nullablebool/): `True` يُفعّل القلب، `False` يُعطّله، و`NotDefined` يحافظ على الحالة غير المحددة/الافتراضية.
+فئة [ShapeFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shapeframe/) تخزن الموقع، الحجم، إعدادات الانعكاس الأفقي والعمودي، والدوران. قيمتي `FlipH` و`FlipV` تستخدمان [NullableBool](https://reference.aspose.com/slides/ar/cpp/aspose.slides/nullablebool/): `True` تُفعِّل الانعكاس، `False` تُعطّله، و`NotDefined` تُبقي الحالة غير محددة/الافتراضية.
 
-العرض التقديمي المدخل أدناه يحتوي على شكل غير مقلوب.
+العرض التقديمي المُدخل أدناه يحتوي على شكل غير مُنعكس.
 
 ![The shape before flipping](shape_to_be_flipped.png)
 
-المثال يحافظ على جميع قيم الإطار الأخرى ويستبدل فقط إعدادات القلب الثنائية. هذا مهم لأن تعيين [Frame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/set_frame/) جديد يستبدل الإطار بالكامل.
+المثال يحافظ على كل قيمة إطار أخرى ويستبدل إعدادات الانعكاس فقط. هذا مهم لأن تعيين [Frame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/set_frame/) جديد يستبدل الإطار بالكامل.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -462,20 +573,24 @@ presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-الشكل المحفوظ مقلوب أفقيًا وعموديًا مع الحفاظ على موقعه وحجمه ودورانه.
+الشكل المحفوظ مُعكَّس أفقياً وعمودياً مع الحفاظ على موقعه، حجمه، ودورانه.
 
 ![The shape after flipping](flipped_shape.png)
 
 ## **الأسئلة المتكررة**
 
-**هل ينبغي استخدام فهرس المجموعة كمعرف للشكل؟**
+**هل يجب أن أستخدم فهرس مجموعة كمعرف للشكل؟**
 
-فقط للمعالجة قصيرة الأجل عندما لا تتغير المجموعة قبل استخدام الفهرس. يُفضَّل الاعتماد على `Name` أو `AlternativeText` المعتمدة للقوالب المصمَّمة، أو `OfficeInteropShapeId` للعمل مع الـ interop على مستوى الشريحة.
+فقط للمعالجة القصيرة الأمد عندما لن تتغير المجموعة قبل استخدام الفهرس. يفضَّل اعتماد convention `Name` أو `AlternativeText` للقوالب المُنشأة، أو `OfficeInteropShapeId` للعمل التفاعلي على مستوى الشريحة.
 
 **هل إخفاء الشكل يزيله من ترتيب Z؟**
 
-لا. يبقى الشكل المخفي في المجموعة عند نفس الفهرس. يمكن العثور عليه، إعادة ترتيبه، تحريره، أو إظهارّه مرة أخرى.
+لا. الشكل المخفي يبقى في المجموعة عند نفس الفهرس. يمكن العثور عليه، إعادة ترتيبه، تحريره، أو إظهاره مرة أخرى.
 
-**لماذا ظهر الشكل المستنسخ أمام شكل آخر؟**
+**لماذا ظهر شكل مُستنسخ أمام شكل آخر؟**
 
-`AddClone` يضيف النسخة إلى نهاية المجموعة، وهي مقدمة ترتيب Z. استخدم `InsertClone` لتحديد الفهرس الأولي أو `Reorder` بعد إضافة جميع الأشكال.
+`AddClone` يُضيف النسخة إلى نهاية المجموعة، وهي مقدمة ترتيب Z. استخدم `InsertClone` لاختيار الفهرس الابتدائي أو `Reorder` بعد إضافة جميع الأشكال.
+
+**هل يمكنني استخدام فهرس ثابت لتحديد ضبط شكل مسبق؟**
+
+فقط بعد التحقق من القالب الدقيق وتخطيط المجموعة. يفضَّل التكرار خلال `IGeometryShape::get_Adjustments` والتحقق من `IAdjustValue::get_Type`؛ استخدم `IAdjustValue::get_Name` كمعلومات إضافية عندما يظهر نفس النوع الدلالي أكثر من مرة.

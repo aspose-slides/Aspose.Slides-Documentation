@@ -5,44 +5,47 @@ type: docs
 weight: 40
 url: /fa/php-java/shape-manipulations/
 keywords:
-- شکل پاورپوینت
+- شکل PowerPoint
 - شکل ارائه
-- شکل در اسلاید
+- شکل روی اسلاید
 - یافتن شکل
-- کلون کردن شکل
+- کلون شکل
 - حذف شکل
 - مخفی کردن شکل
 - تغییر ترتیب شکل
-- دریافت شناسه Interop شکل
+- دریافت شناسه interop شکل
 - متن جایگزین شکل
-- قالب‌بندی‌های لایه شکل
-- شکل به عنوان SVG
+- نقطه تنظیم شکل
+- تنظیم پیش‌فرض شکل
+- هندسه شکل
+- قالب‌بندی‌های طرح‌بندی شکل
+- شکل به صورت SVG
 - شکل به SVG
-- تراز کردن شکل
+- هم‌ترازی شکل
 - چرخاندن شکل
-- پاورپوینت
+- PowerPoint
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال ارائه را شناسایی، کلون، حذف، مخفی، ترتیب‌دهی مجدد، صادر، تراز و چرخاندن کنید با Aspose.Slides برای PHP از طریق Java."
+description: "یاد بگیرید چگونه شکل‌های ارائه را شناسایی، تنظیم، کلون، حذف، مخفی، دوباره‌چین، خروجی، هم‌ترازی و چرخاندن کنید با Aspose.Slides برای PHP از طریق Java."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides for PHP via Java اشکال موجود در یک اسلاید را به‌عنوان یک [ShapeCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/) مرتب‌شده نمایش می‌دهد. این مجموعه هم محلی است که می‌توانید اشکال را پیدا و اصلاح کنید و هم منبع ترتیب انباشته‌شدن آنها است: ایندکس `0` به پشت‌ترین شکل اشاره دارد، در حالی که آخرین ایندکس به جلو‌ترین شکل اشاره می‌کند.
+Aspose.Slides for PHP via Java اشکال روی یک اسلاید را به‌صورت یک [ShapeCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/) مرتب‌شده نشان می‌دهد. این مجموعه هم محلی است که می‌توانید اشکال را پیدا و تغییر دهید و هم منبع ترتیب چیدمان آن‌ها: شاخص `0` پشت‌ترین شکل است، در حالی که آخرین شاخص جلوترین شکل است.
 
-این مقاله از همان مدل پیروی می‌کند. ابتدا نحوه شناسایی مطمئن یک شکل را شرح می‌دهد، سپس نشان می‌دهد چگونه اشکال را کلون، حذف، مخفی و ترتیب‌دهی مجدد کنید. بخش‌های نهایی به قالب‌بندی در سطح لایه، صادر کردن به SVG، تراز کردن و تنظیمات چرخاندن می‌پردازند. هر مثال مستقل است، بنابراین می‌توانید فقط عملیاتی را که در جریان کاری شما لازم است استفاده کنید.
+این مقاله همین مدل را دنبال می‌کند. ابتدا چگونگی شناسایی مطمئن یک شکل و تغییر نقاط تنظیم پیش‌فرض را توضیح می‌دهد، سپس نشان می‌دهد چگونه اشکال را کپی، حذف، مخفی و دوباره ترتیب دهید. بخش‌های نهایی به قالب‌بندی در سطح لایه، خروجی SVG، هم‌ترازی و تنظیمات چرخش می‌پردازند. هر مثال مستقل است، بنابراین می‌توانید فقط عملیاتی را که نیاز دارید استفاده کنید.
 
 ## **شناسایی و یافتن اشکال**
 
-ایندکس‌های مجموعه هنگام پردازش یک فایل شناخته‌شده مفید هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا تغییر ترتیب یک شکل می‌تواند ایندکس آن را تغییر دهد. یک شناسه را بر اساس نحوهٔ ایجاد و نگهداری ارائه انتخاب کنید:
+شاخص‌های مجموعه در حین پردازش یک فایل شناخته‌شده راحت هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا دوباره ترتیب دادن یک شکل می‌تواند شاخص آن را تغییر دهد. یک شناسه را بر اساس نحوه ایجاد و نگهداری ارائه انتخاب کنید:
 
-- [Name](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getname/) برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در پنل انتخاب پاورپوینت به‌راحتی قابل مشاهده است. نام‌ها قابل ویرایش‌اند و تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آنها وابسته است یک کنوانسیون نامگذاری برقرار کنید.
-- [AlternativeText](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getalternativetext/) زمانی مفید است که یک توصیف دسترسی یا برچسب ارائه‌شده توسط نویسنده پیش از این شکل را شناسایی کرده باشد. این متن برای کاربران قابل مشاهده است، ممکن است بومی‌سازی یا برای دسترسی بازنویسی شود و تضمین یکتایی نمی‌کند. متن معنادار دسترسی را به‌صورت خاموش به عنوان کلید پایگاه‌داده استفاده نکنید.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getofficeinteropshapeid/) یک شناسهٔ فقط‌خواندنی است که در یک اسلاید یکتا بوده و به شناسهٔ شکل مورد استفاده توسط PowerPoint Interop مطابقت دارد. هنگام یکپارچه‌سازی با PowerPoint یا زمانی که به مرجع بدون ابهام در طول عمر شکل نیاز دارید از آن استفاده کنید. یک شکل کلون‌شده یا بازساخته شکل متفاوتی است و شناسهٔ خود را دریافت می‌کند.
+- [Name](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getname/) برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در صفحهٔ انتخاب PowerPoint به‌راحتی قابل مشاهده است. نام‌ها قابل ویرایش‌اند ولی تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است، یک قرارداد نام‌گذاری برقرار کنید.
+- [AlternativeText](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getalternativetext/) زمانی مفید است که یک توضیح دسترس‌پذیری یا یک برچسب توسط نویسنده قبلاً شکل را شناسایی می‌کند. این متن برای کاربران قابل مشاهده است، می‌تواند بومی‌سازی یا برای دسترس‌پذیری بازنویسی شود و یکتایی تضمین نمی‌شود. متن دسترس‌پذیری معنادار را به‌صورت خاموش به‌عنوان کلید پایگاه‌داده استفاده نکنید.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getofficeinteropshapeid/) یک شناسهٔ فقط‑خواندنی است که درون یک اسلاید یکتا بوده و با شناسهٔ شکل استفاده‌شده توسط PowerPoint interop مطابقت دارد. وقتی با PowerPoint یکپارچه می‌شوید یا به یک مرجع بدون ابهام در طول عمر شکل نیاز دارید از آن استفاده کنید. یک شکل کپی‌شده یا بازسازی‌شده شکل دیگری است و شناسهٔ خود را دریافت می‌کند.
 
-متد مرتبط [Shape::getUniqueId](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getuniqueid/) شناسه‌ای با دامنهٔ ارائه باز می‌گرداند، اما این شناسه برای افزونه‌ها در نظر گرفته شده و می‌تواند بازتخصیص یابد. نباید به‌عنوان کلید خارجی دائمی رفتار شود. اگر هویت طولانی‌مدت ضروری است، نگاشت را در داده‌های برنامه نگه‌دارید و اطمینان حاصل کنید که شکل مورد انتظار همچنان وجود دارد.
+متد مرتبط [Shape::getUniqueId](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getuniqueid/) یک شناسه با دامنهٔ ارائه برمی‌گرداند، اما این شناسه برای افزونه‌هاست و می‌تواند بازتخصیص یابد. نباید به‌عنوان کلید خارجی دائمی استفاده شود. اگر هویت درازمدت ضروری است، نگاشت را در داده‌های برنامه ذخیره کنید و صحت وجود شکل مورد انتظار را تأیید کنید.
 
-مثال زیر با مقایسهٔ دقیق بر اساس نام جستجو می‌کند و شناسهٔ Interop scoped به اسلاید را گزارش می‌دهد. زمانی که قالب شامل شکل مورد انتظار نباشد، کد همان نتیجه را گزارش می‌کند به‌جای ادامه دادن با شیء اشتباه.
+مثال زیر با مقایسهٔ دقیق بر اساس نام جستجو می‌کند و شناسهٔ interop مخصوص اسلاید را گزارش می‌دهد. وقتی قالب شامل شکل مورد انتظار نباشد، کد به‌جای ادامه با شیء اشتباه، همان نتیجه را گزارش می‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -75,7 +78,7 @@ try {
 }
 ```
 
-وقتی عملیاتی به نوع خاصی از شکل مربوط می‌شود، قبل از استفاده از اعضای مخصوص نوع، کلاس زمان اجرا را بررسی کنید. این مثال متن و متن جایگزین را فقط در صورتی به‌روزرسانی می‌کند که شیء نام‌دار یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) باشد.
+هنگامی که عملیاتی به یک نوع شکل خاص محدود می‌شود، قبل از استفاده از اعضای نوع‑خاص، کلاس زمان اجرا را بررسی کنید. این مثال متن و متن جایگزین را فقط در صورتی به‌روز می‌کند که شیء نام‌گذاری‌شده یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) باشد.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,15 +113,115 @@ try {
 }
 ```
 
+## **شناسایی و تغییر تنظیمات پیش‌فرض شکل**
+
+اشکال هندسهٔ پیش‌فرض می‌توانند نقاط تنظیمی داشته باشند که ویژگی‌هایی نظیر اندازهٔ گوشه، نسبت پیکان یا زاویهٔ قوس را کنترل می‌کنند. به آن‌ها از طریق مجموعهٔ فقط‑خواندنی [GeometryShape::getAdjustments](https://reference.aspose.com/slides/fa/php-java/aspose.slides/geometryshape/#getAdjustments) دسترسی پیدا کنید. خود مجموعه توسط شکل فراهم می‌شود، اما هر [AdjustValue](https://reference.aspose.com/slides/fa/php-java/aspose.slides/adjustvalue/) شامل مقداری است که می‌توان آن را تغییر داد.
+
+فقط به یک شاخص ثابت مجموعه تکیه نکنید. از طریق تنظیمات عبور کنید و متد فقط‑خواندنی [AdjustValue::getType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/adjustvalue/#getType) را بررسی کنید؛ مقدار [ShapeAdjustmentType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapeadjustmenttype/) توصیف می‌کند که تنظیم چه چیزی را کنترل می‌کند. متد فقط‑خواندنی [AdjustValue::getName](https://reference.aspose.com/slides/fa/php-java/aspose.slides/adjustvalue/getname/) اطلاعات شناسایی بیشتری می‌دهد و به‌ویژه وقتی یک پیش‌تنظیم بیش از یک تنظیم با همان نوع معنایی دارد، مفید است.
+
+از متدی استفاده کنید که با معنای تنظیم مطابقت دارد:
+
+| نوع تنظیم | هدف | مقدار برای تغییر |
+|---|---|---|
+| `CornerSize` | اندازهٔ گوشه‌های گرد | [setRawValue](https://reference.aspose.com/slides/fa/php-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | ضخامت دم پیکان | `setRawValue` |
+| `ArrowheadLength` | طول سر پیکان | `setRawValue` |
+| `ArrowheadWidth` | عرض سر پیکان | `setRawValue` |
+| `StartAngle` | زاویهٔ شروع پای یا قوس | [setAngleValue](https://reference.aspose.com/slides/fa/php-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | زاویهٔ پایان پای یا قوس | `setAngleValue` |
+
+`getType` و `getName` اطلاعات فقط‑خواندنی برمی‌گردانند. `getRawValue` و `setRawValue` با یک عدد در واحدهای هندسی بومی پیش‌تنظیم کار می‌کنند، در حالی که `getAngleValue` و `setAngleValue` با یک زاویه به درجه کار می‌کنند. تعداد، ترتیب، معنا و بازهٔ معتبر تنظیمات وابسته به پیش‌تنظیم [GeometryShape::getShapeType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/geometryshape/#getShapeType) است. مقداری که برای یک پیش‌تنظیم معتبر است ممکن است برای پیش‌تنظیم دیگر نامعتبر یا اثر متفاوتی داشته باشد.
+
+وقتی `getType` مقدار `ShapeAdjustmentType::Custom` را برمی‌گرداند، API معنای استانداردی برای آن نمی‌شناسد. `getName`، نوع پیش‌تنظیم و مقدار موجود را بررسی کنید و تنظیم را تغییر ندهید مگر اینکه معنای مورد انتظار و بازهٔ آن شناخته شده باشد. حتی برای انواع شناخته‌شده، قبل از انتخاب مقدار بررسی کنید که آیا همان نوع بیش از یک‌بار رخ می‌دهد یا نه. مقالهٔ [Connector](/slides/fa/php-java/connector/) این وضعیت را با تنظیمات خم‌شدن وصل‌کننده نشان می‌دهد.
+
+مثال کامل زیر نسخه‌های پیش‌فرض و اصلاح‌شدهٔ سه شکل پیش‌تنظیم شده را می‌سازد. برای هر تنظیم، نام و نوع آن را گزارش می‌کند، مقادیر مرتبط با اندازه را از طریق `setRawValue`، زاویه‌ها را از طریق `setAngleValue` تغییر می‌دهد و نتیجه را ذخیره می‌کند. ستون چپ هندسهٔ پیش‌فرض را نگه می‌دارد؛ ستون راست مستطیل گرد، پیکان چهار‌طرفه و پای تنظیم‌شده را نشان می‌دهد.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // سرفصل‌های ستون‌های شکل پیش‌فرض و تنظیم‌شده را اضافه کنید.
+    $defaultColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+    $defaultColumnLabel->getTextFrame()->setText("Default preset geometry");
+    $adjustedColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+    $adjustedColumnLabel->getTextFrame()->setText("Modified adjustment values");
+
+    $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+    $modifiedRoundedRectangle = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+    $modifiedRoundedRectangle->setName("ModifiedRoundedRectangle");
+
+    $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+    $modifiedArrow = $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+    $modifiedArrow->setName("ModifiedQuadArrow");
+
+    $slide->getShapes()->addAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+    $modifiedPie = $slide->getShapes()->addAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+    $modifiedPie->setName("ModifiedPie");
+
+    $shapesToAdjust = [
+        $modifiedRoundedRectangle,
+        $modifiedArrow,
+        $modifiedPie
+    ];
+
+    foreach ($shapesToAdjust as $shape) {
+        $adjustmentCount = java_values($shape->getAdjustments()->size());
+        for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+            $adjustment = $shape->getAdjustments()->get_Item($adjustmentIndex);
+            $shapeName = java_values($shape->getName());
+            $adjustmentName = java_values($adjustment->getName());
+            $adjustmentType = java_values($adjustment->getType());
+            echo $shapeName . " / " . $adjustmentName . ": " . $adjustmentType . PHP_EOL;
+
+            switch ($adjustmentType) {
+                case ShapeAdjustmentType::CornerSize:
+                    $adjustment->setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType::ArrowTailThickness:
+                    $adjustment->setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadLength:
+                    $adjustment->setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadWidth:
+                    $adjustment->setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType::StartAngle:
+                    $adjustment->setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType::EndAngle:
+                    $adjustment->setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType::Custom:
+                    echo "Custom adjustment '" . $adjustmentName . "' was not changed." . PHP_EOL;
+                    break;
+            }
+        }
+    }
+
+    $presentation->save("preset-shape-adjustments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+بررسی نوع معنایی قبل از تغییر مقدار، کد را شفاف می‌کند و از این‌که یک شاخص خاص در پیش‌تنظیم‌های مختلف همان معنا داشته باشد، جلوگیری می‌کند.
+
 ## **تغییر مجموعهٔ اشکال**
 
-متدهای افزودن، کلون، حذف و تغییر ترتیب بلافاصله بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، دیگر بر ایندکس‌های گرفته‌شده قبل از آن عملیات تکیه نکنید.
+متدهای افزودن، کپی، حذف و دوباره‌چیدن مستقیماً بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، پس از آن نیازی به ادامهٔ استفاده از شاخص‌های گرفته‌شده پیش از آن عمل ندارید.
 
-### **کلون کردن یک شکل**
+### **کپی یک شکل**
 
-[ShapeCollection::addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/addclone/) یک کپی مستقل ایجاد کرده و به انتهای مجموعه هدف اضافه می‌کند. [ShapeCollection::insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/insertclone/) نیز یک کپی می‌سازد اما آن را در ایندکس z‑order مشخص می‌گذارد. نسخه‌های overload که مختصات می‌پذیرند، کلون را بدون تغییر اندازه جابه‌جا می‌کنند؛ overloadهای با عرض و ارتفاع می‌توانند اندازه را نیز تغییر دهند.
+[ShapeCollection::addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/addclone/) یک کپی مستقل می‌سازد و به انتهای مجموعه هدف اضافه می‌کند. [ShapeCollection::insertClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/insertclone/) نیز یک کپی می‌سازد اما آن را در یک شاخص z‑order مشخص قرار می‌دهد. بارگذاری‌های پذیرش مختصات کپی را بدون تغییر اندازه جابه‌جا می‌کنند؛ بارگذاری‌های پذیرش عرض و ارتفاع می‌توانند آن را نیز تغییر اندازه دهند.
 
-مثال یک اسلاید مقصد ایجاد می‌کند، یک مستطیل برچسب‌دار را به جلوی اسلاید کلون می‌کند و یک کلون دوم را در پشت وارد می‌کند. تغییرات روی هر دو کلون منبع شکل را تحت تأثیر قرار نمی‌دهد.
+مثال یک اسلاید مقصد می‌سازد، یک مستطیل برچسب‌دار را به جلو کپی می‌کند و یک کپی دوم را در پشت وارد می‌کند. تغییر در هر یک از کپی‌ها شکل منبع را تحت تأثیر قرار نمی‌دهد.
 
 ```php
 use aspose\slides\Presentation;
@@ -159,13 +262,13 @@ try {
 }
 ```
 
-کلون کردن محتوا و قالب‌بندی شکل را کپی می‌کند، از جمله نام و متن جایگزین آن. وقتی این مقادیر باید یکتا باشند، شناسه‌های منطقی جدیدی به کلون اختصاص دهید. منابع مورد استفادهٔ اشکال پیچیده توسط ارائه مدیریت می‌شوند، اما یک کلون همچنان یک آیتم جدید در مجموعه با هویت شکل جدید است.
+کپی کردن محتوای شکل و قالب‌بندی آن را شامل می‌شود، از جمله نام و متن جایگزین. وقتی این مقادیر باید یکتا باشند، شناسه‌های منطقی جدیدی به کپی اختصاص دهید. منابع استفاده‌شده توسط اشکال پیچیده توسط ارائه مدیریت می‌شوند، اما یک کپی آیتم جدیدی در مجموعه با شناسهٔ شکل جدید می‌شود.
 
 ### **حذف اشکال**
 
-[ShapeCollection::remove](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/remove/) یک شیء شکل خاص را از مجموعهٔ خود حذف می‌کند. هنگام حذف چندین مورد مطابق در حین تکرار ایندکس‌دار، از انتها به شروع پیش بروید تا هر ایندکس باقی‌مانده معتبر بماند.
+[ShapeCollection::remove](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/remove/) یک شیء شکل خاص را از مجموعهٔ خود حذف می‌کند. هنگام حذف چندین مورد مطابقت‌دار در یک حلقهٔ شاخصی، از انتها به ابتدا عبور کنید تا هر شاخص باقی‌مانده معتبر بماند.
 
-این مثال هر شکلی که نام تعیین‌شده داشته باشد را حذف می‌کند. شکل را در ایندکس جاری می‌خواند، نه یک آیتم ثابت مجموعه، و نیازی به تبدیل نوع ناخواسته ندارد.
+این مثال هر شکلی را که نام تعیین‌شده دارد حذف می‌کند. شکل را در شاخص جاری می‌خواند، نه یک آیتم ثابت مجموعه، و نیازی به تبدیل غیرضروری شکل ندارد.
 
 ```php
 use aspose\slides\Presentation;
@@ -200,11 +303,11 @@ try {
 }
 ```
 
-پس از حذف، تعداد اشکال و ایندکس‌های اشکال بعدی تغییر می‌کند. ارجاع به اشکال غیرمffected معتبرتر از ایندکس‌های ذخیره‌شده است. همچنین به اتصال‌ها، انیمیشن‌ها و سایر ویژگی‌های ارائه که ممکن است به شیء حذف‌شده ارجاع دهند، توجه کنید؛ حذف یک شکل قابل مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
+پس از حذف، تعداد اشکال و شاخص‌های اشکال بعدی تغییر می‌کند. ارجاع‌ها به اشکال غیرقابل‌حذف نسبت به شاخص‌های ذخیره‌شده قابل اعتمادتر هستند. همچنین اتصالات، انیمیشن‌ها و سایر ویژگی‌های ارائه‌ای که ممکن است به شیء حذف‌شده اشاره داشته باشند را در نظر بگیرید؛ حذف یک شکل قابل مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
 
 ### **مخفی کردن یک شکل**
 
-تنظیم [Shape::setHidden](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/sethidden/) به `true` شکل را در مجموعه نگه می‌دارد اما از نمایش در نمایش اسلاید عادی جلوگیری می‌کند. ایندکس، قالب‌بندی و محتوا برای کد قابل دسترسی باقی می‌مانند، بنابراین مخفی کردن برای عناصر اختیاری مناسب است که ممکن است بعداً بازگردانده شوند.
+تنظیم [Shape::setHidden](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/sethidden/) روی `true` شکل را در مجموعه نگه می‌دارد اما مانع نمایش آن در نمایش عادی اسلاید می‌شود. شاخص، قالب‌بندی و محتوای آن برای کد در دسترس می‌مانند، بنابراین مخفی‌کردن برای عناصر اختیاری که ممکن است بعدها بازگردانده شوند مناسب است.
 
 ```php
 use aspose\slides\Presentation;
@@ -237,11 +340,11 @@ try {
 }
 ```
 
-مخفی کردن حذف یا امنیت نیست. شیء همچنان می‌تواند توسط کاربر یا کد کشف و دوباره نمایان شود و بخشی از فایل ارائه می‌ماند.
+مخفی‌کردن حذف یا امنیت نیست. شیء هنوز می‌تواند توسط کاربر یا کد کشف و دوباره آشکار شود و همچنان بخشی از فایل ارائه باقی می‌ماند.
 
 ### **تغییر Z‑Order**
 
-اشکال همپوشانی‌شده بر اساس ترتیب مجموعه رنگ می‌شوند. [ShapeCollection::reorder](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/reorder/) یک شکل موجود را به ایندکس هدف منتقل می‌کند بدون اینکه آن را کلون کند. ایندکس `0` پشت است؛ `size() - 1` جلوی است.
+اشکال همپوشانی‌شده بر اساس ترتیب مجموعه نقاشی می‌شوند. [ShapeCollection::reorder](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/reorder/) یک شکل موجود را به یک شاخص هدف منتقل می‌کند بدون اینکه آن را کپی کند. شاخص `0` پشت است؛ `size() - 1` جلو.
 
 ```php
 use aspose\slides\FillType;
@@ -271,13 +374,13 @@ try {
 }
 ```
 
-مستطیل ابتدا ایجاد می‌شود و در ابتدا پشت بیضی قرار دارد. جابه‌جایی آن به ایندکس نهایی، آن را به جلو می‌برد. پس از افزودن یا کلون کردن تمام اشکال مرتبط، ترتیب z‑order را نهایی کنید، زیرا این عملیات آیتم‌های جدیدی به مجموعه اضافه یا درج می‌کند و می‌تواند ساختار انبار موردنظر را تغییر دهد.
+مستطیل ابتدا ساخته می‌شود و ابتدا پشت بیضی قرار می‌گیرد. جابه‌جایی به شاخص نهایی آن را به جلو می‌برد. پس از افزودن یا کپی تمام اشکال مرتبط، Z‑order را نهایی کنید، زیرا این عملیات آیتم‌های جدیدی به مجموعه اضافه یا درج می‌کنند و می‌توانند چیدمان موردنظر را تغییر دهند.
 
 ## **بازرسی اشکال در اسلایدهای لایه‌ای**
 
-اسلایدهای عادی، اسلایدهای لایه‌ای و اسلایدهای مستر دارای مجموعهٔ اشکال جداگانه‌ای هستند. یک شکل در مجموعهٔ لایه‌ای همان شیء شکل موقعیت‌دار در اسلاید عادی نیست. هنگام نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک لایه، اشکال لایه را بررسی کنید.
+اسلایدهای عادی، اسلایدهای لایه‌ای و اسلایدهای اصلی دارای مجموعهٔ اشکال جداگانه‌ای هستند. یک شکل در مجموعهٔ لایه‌ای همان شیء شکل در اسلاید عادی نیست. وقتی نیاز به فهم یا تغییر قالب‌بندی ارائه‌شده توسط یک لایه دارید، اشکال لایه را بررسی کنید.
 
-مثال زیر [FillFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getfillformat/) و [LineFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getlineformat/) هر شکل لایه را می‌خواند بدون این که فرض کند هر شکل یک `AutoShape` است.
+مثال زیر برای هر شکل لایه، [FillFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getfillformat/) و [LineFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getlineformat/) را می‌خواند بدون این‌که فرض کند هر شکل یک `AutoShape` است.
 
 ```php
 use aspose\slides\Presentation;
@@ -304,11 +407,11 @@ try {
 }
 ```
 
-ویرایش یک لایه می‌تواند بر اسلایدهای متعددی که از آن استفاده می‌کنند تأثیر بگذارد. قبل از تغییر یک شکل لایه، تعیین کنید آیا اسلاید عادی شیء را به ارث می‌برد یا یک بازنویسی محلی دارد، و هر اسلایدی که از آن لایه استفاده می‌کند را تست کنید.
+ویرایش یک لایه می‌تواند چندین اسلایدی که از آن استفاده می‌کنند را تحت تأثیر قرار دهد. پیش از تغییر یک شکل لایه، تعیین کنید آیا یک اسلاید عادی آن شیء را به ارث می‌برد یا یک بازنویسی محلی دارد و هر اسلایدی که از آن لایه استفاده می‌کند را آزمایش کنید.
 
-## **صادرات یک شکل به SVG**
+## **صادر کردن یک شکل به SVG**
 
-[Shape::writeAsSvg](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/writeassvg/) محتوی رندر شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه شامل فقط همان شکل است، نه پس‌زمینهٔ کل اسلاید یا اشکال همجوار.
+[Shape::writeAsSvg](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/writeassvg/) محتوای رندر شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه شامل خود شکل است، نه پس‌زمینهٔ کل اسلاید یا شکل‌های همسایه.
 
 ```php
 use aspose\slides\Presentation;
@@ -339,13 +442,13 @@ try {
 }
 ```
 
-در حین رندر، ارائه باید باز باشد. خروجی به قالب‌بندی شکل و منابعی مانند فونت‌ها و تصاویر وابسته است. اگر به کل ترکیب‌بندی نیاز دارید، اسلاید را به‌جای یک شکل منفرد صادر کنید. فراخواننده مالک جریان است و باید آن را ببندد.
+در حین رندر، ارائه را باز نگه دارید. خروجی به قالب‌بندی شکل و منابعی مانند قلم‌ها و تصاویر وابسته است. اگر به کل ترکیب نیاز دارید، اسلاید را به‌جای یک شکل منفرد صادر کنید. فراخوانی کننده مالک جریان است و باید آن را بسته شود.
 
-## **تراز کردن اشکال**
+## **هم‌ترازی اشکال**
 
-متدهای overload شدهٔ [SlideUtil::alignShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slideutil/alignshapes/) می‌توانند یا تمام اشکال یا ایندکس‌های منتخب مجموعه را تراز کنند. [ShapesAlignmentType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapesalignmenttype/) لبه، خط مرکز یا حالت توزیع را مشخص می‌کند. مقدار `alignToSlide` را به `true` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ به `false` تنظیم کنید تا اشکال انتخاب‌شده نسبت به یکدیگر تراز شوند.
+متدهای [SlideUtil::alignShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slideutil/alignshapes/) می‌توانند همهٔ اشکال یا شاخص‌های انتخاب‌شدهٔ مجموعه را هم‌تراز کنند. [ShapesAlignmentType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapesalignmenttype/) لبه، خط مرکزی یا حالت توزیع را مشخص می‌کند. `alignToSlide` را روی `true` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ روی `false` تنظیم کنید تا اشکال انتخاب‌شده نسبت به یکدیگر هم‌تراز شوند.
 
-این مثال سه شکل را به لبهٔ بالای اسلاید تراز می‌کند. ارجاع‌های شکل بازگشتی بلافاصله قبل از تراز به ایندکس‌های فعلیشان تبدیل می‌شوند.
+این مثال سه شکل را به لبهٔ بالای اسلاید هم‌تراز می‌کند. ارجاع‌های شکل بازگردانده‌شده بلافاصله قبل از هم‌ترازی به شاخص‌های فعلی خود تبدیل می‌شوند.
 
 ```php
 use aspose\slides\Presentation;
@@ -378,17 +481,17 @@ try {
 }
 ```
 
-تراز کردن موقعیت‌ها را تغییر می‌دهد، نه z‑order. تراز نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی به اندازه کافی شکل برای تعریف فاصله‌ها نیاز دارد. اگر قبل از فراخوانی متد مجموعه را تغییر می‌دهید، ایندکس‌ها را دوباره محاسبه کنید.
+هم‌ترازی موقعیت‌ها را تغییر می‌دهد، نه Z‑order. هم‌ترازی نسبی معمولاً حداقل به دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی برای تعریف فواصل به اشکال کافی نیاز دارد. اگر قبل از فراخوانی متد مجموعه را تغییر دادید، شاخص‌ها را دوباره محاسبه کنید.
 
-## **چرخاندن یک شکل**
+## **چرخاندن (Flip) یک شکل**
 
-کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapeframe/) موقعیت، اندازه، تنظیمات چرخش افقی و عمودی و دوران را ذخیره می‌کند. مقادیر `getFlipH` و `getFlipV` از [NullableBool](https://reference.aspose.com/slides/fa/php-java/aspose.slides/nullablebool/) استفاده می‌کنند: `True` چرخش را فعال می‌کند، `False` آن را غیرفعال می‌کند و `NotDefined` حالت پیش‌فرض/نامشخص را حفظ می‌کند.
+کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapeframe/) موقعیت، اندازه، تنظیمات چرخش افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر `getFlipH` و `getFlipV` از نوع [NullableBool](https://reference.aspose.com/slides/fa/php-java/aspose.slides/nullablebool/) استفاده می‌کنند: `True` چرخش را فعال می‌کند، `False` غیرفعال می‌کند و `NotDefined` حالت نامشخص/پیش‌فرض را حفظ می‌کند.
 
 ارائهٔ ورودی زیر شامل یک شکل بدون چرخش است.
 
-![شکل قبل از چرخاندن](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-مثال تمام مقادیر دیگر فریم را حفظ می‌کند و فقط دو تنظیم چرخش را جایگزین می‌کند. این مهم است زیرا اختصاص یک [Frame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/setframe/) جدید تمام فریم را بازنویسی می‌کند.
+مثال مقادیر دیگر فریم را حفظ می‌کند و فقط دو تنظیم چرخش را جایگزین می‌کند. این مهم است چون اختصاص یک [Frame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/setframe/) جدید، فریم کامل را جایگزین می‌کند.
 
 ```php
 use aspose\slides\NullableBool;
@@ -414,20 +517,24 @@ try {
 }
 ```
 
-شکل ذخیره‌شده به صورت افقی و عمودی آینه‌ای می‌شود در حالی که موقعیت، اندازه و دوران خود را حفظ می‌کند.
+شکل ذخیره‌شده به‌صورت افقی و عمودی آینه‌برداری می‌شود در حالی که موقعیت، اندازه و چرخش خود را حفظ می‌کند.
 
-![شکل پس از چرخاندن](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
-## **پرسش‌های متداول**
+## **FAQ**
 
-**آیا باید از ایندکس مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
+**آیا باید از شاخص مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
 
-فقط برای پردازش‌های کوتاه‌مدتی که مجموعه قبل از استفاده از ایندکس تغییر نخواهد کرد. برای قالب‌های ساخته‌شده ترجیحاً از یک کنوانسیون معتبر `Name` یا `AlternativeText` استفاده کنید، یا برای کارهای Interop scoped به اسلاید `OfficeInteropShapeId` به‌کار ببرید.
+فقط برای پردازش کوتاه‌مدت که پیش از استفاده مجموعه تغییری نمی‌کند. برای قالب‌های نویسنده‌شده ترجیحاً از یک قرارداد معتبر `Name` یا `AlternativeText` استفاده کنید یا برای کارهای interop در محدوده اسلاید از `OfficeInteropShapeId` بهره ببرید.
 
-**آیا مخفی کردن یک شکل آن را از z‑order حذف می‌کند؟**
+**آیا مخفی‌کردن یک شکل آن را از Z‑order حذف می‌کند؟**
 
-نه. یک شکل مخفی در همان ایندکس در مجموعه باقی می‌ماند. می‌توان آن را یافت، ترتیب داد، ویرایش یا دوباره قابل مشاهده کرد.
+خیر. یک شکل مخفی در همان شاخص در مجموعه باقی می‌ماند. می‌توان آن را یافت، دوباره‌چین، ویرایش یا دوباره قابل مشاهده کرد.
 
-**چرا یک شکل کلون‌شده جلوی شکل دیگری ظاهر شد؟**
+**چرا یک شکل کپی‌شده در مقابل شکل دیگری ظاهر شد؟**
 
-`addClone` کلون را به انتهای مجموعه می‌افزاید که جلوی z‑order است. برای انتخاب ایندکس اولیه از `insertClone` استفاده کنید یا پس از افزودن تمام اشکال از `reorder` بهره بگیرید.
+`addClone` کپی را به انتهای مجموعه (جلو Z‑order) اضافه می‌کند. برای انتخاب شاخص اولیه از `insertClone` استفاده کنید یا پس از افزودن تمام اشکال از `reorder` بهره بگیرید.
+
+**آیا می‌توانم از یک شاخص ثابت برای شناسایی تنظیم پیش‌تنظیم شکل استفاده کنم؟**
+
+فقط پس از اعتبارسنجی دقیق پیش‌تنظیم و ساختار مجموعه. بهتر است از طریق `GeometryShape::getAdjustments` عبور کنید و `AdjustValue::getType` را بررسی کنید؛ وقتی همان نوع معنایی بیش از یک‌بار ظاهر می‌شود، از `AdjustValue::getName` به‌عنوان اطلاعات تکمیلی استفاده کنید.

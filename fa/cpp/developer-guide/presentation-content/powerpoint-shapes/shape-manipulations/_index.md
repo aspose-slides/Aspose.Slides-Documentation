@@ -5,44 +5,47 @@ type: docs
 weight: 40
 url: /fa/cpp/shape-manipulations/
 keywords:
-- شکل PowerPoint
-- شکل ارائه
-- شکل در اسلاید
+- اشکل PowerPoint
+- اشکل ارائه
+- اشکل روی اسلاید
 - یافتن شکل
-- کلون شکل
+- کلون‌کردن شکل
 - حذف شکل
 - پنهان کردن شکل
 - تغییر ترتیب شکل
-- دریافت شناسه شکل interop
+- دریافت شناسهٔ interop شکل
 - متن جایگزین شکل
+- نقطه تنظیم شکل
+- تنظیم پیش‌تنظیم شدهٔ شکل
+- هندسهٔ شکل
 - قالب‌بندی‌های طرح‌بندی شکل
 - شکل به صورت SVG
-- شکل به SVG
-- هم‌ترازی شکل
-- معکوس کردن شکل
+- تبدیل شکل به SVG
+- تراز کردن شکل
+- وارون‌کردن شکل
 - PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال ارائه را با Aspose.Slides برای C++ شناسایی، کلون، حذف، پنهان، دوباره ترتیب‌دهی، صادر، هم‌ترازی و معکوس کنید."
+description: "یاد بگیرید چگونه اشکال ارائه را با Aspose.Slides برای C++ شناسایی، تنظیم، کلون‌کردن، حذف، پنهان‌کردن، تغییر ترتیب، خروجی‌گیری، تراز کردن و وارون‌کردن کنید."
 ---
-## **نمای کلی**
+## **مروری**
 
-Aspose.Slides for C++ اشکال موجود در یک اسلاید را به عنوان یک [IShapeCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/) مرتب‌شده نمایش می‌دهد. این مجموعه هم مکانی است که می‌توانید اشکال را پیدا کنید و تغییر دهید و هم منبع ترتیب لایه‌بندی آن‌ها: ایندکس `0` پایین‌ترین شکل است، در حالی که آخرین ایندکس بالاترین شکل است.
+Aspose.Slides for C++ اشکال موجود در یک اسلاید را به عنوان یک ‎[IShapeCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/)‎ مرتب‌شده نمایش می‌دهد. این مجموعه هم مکانی است که می‌توانید اشکال را پیدا و ویرایش کنید و هم منبع ترتیب لایه‌ای آن‌ها: اندیس `0` پایین‌ترین شکل است و آخرین اندیس بالاترین شکل را نشان می‌دهد.
 
-این مقاله بر این مدل استوار است. ابتدا نحوه شناسایی یک شکل به‌صورت قابل‌اعتماد را توضیح می‌دهد، سپس نشان می‌دهد چگونه می‌توان اشکال را کلون، حذف، پنهان و دوباره ترتیب داد. بخش‌های نهایی به قالب‌بندی در سطح طرح‌بندی، صادرات SVG، هم‌ترازی و تنظیمات چرخش می‌پردازند. هر مثال مستقل است، بنابراین می‌توانید تنها عملیاتی را که در جریان کاری‌تان نیاز دارید استفاده کنید.
+این مقاله بر همان مدل استوار است. ابتدا نحوه شناسایی قابل‌اعتماد یک شکل و ویرایش نقاط تنظیم پیش‌تنظیم‌شدهٔ شکل را توضیح می‌دهد، سپس نحوهٔ کلون‌کردن، حذف، پنهان‌کردن و تغییر ترتیب اشکال را نشان می‌دهد. بخش‌های نهایی به قالب‌بندی در سطح طرح‌بندی، خروجی SVG، تراز و تنظیمات وارون‌کردن می‌پردازند. هر مثال به‌صورت مستقل است، بنابراین می‌توانید تنها عملیاتی را که در جریان کارتان نیاز دارید، به کار ببرید.
 
 ## **شناسایی و یافتن اشکال**
 
-اندیس‌های مجموعه در پردازش یک فایل شناخته‌شده راحت هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا دوباره ترتیب دادن یک شکل می‌تواند اندیس آن را تغییر دهد. یک شناسه را بر اساس نحوهٔ نگارش و نگهداری ارائه انتخاب کنید:
+اندیس‌های مجموعه هنگام پردازش یک فایل شناخته‌شده مفید هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا تغییر ترتیب یک شکل می‌تواند اندیس آن را تغییر دهد. یک شناسه را بر اساس نحوهٔ نگارش و نگهداری ارائه‌نامه انتخاب کنید:
 
-- [Name](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_name/) برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در پنل انتخاب PowerPoint به‌راحتی قابل‌مشاهده است. نام‌ها قابل ویرایش‌اند و تضمین می‌شود که یکتا نباشند، بنابراین در صورت وابستگی کد به آن‌ها یک قرارداد نام‌گذاری برقرار کنید.
-- [AlternativeText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_alternativetext/) زمانی مفید است که یک توضیح دسترس‌پذیری یا برچسبی که توسط نویسنده ارائه شده است، پیش از این شکل را شناسایی کند. این متن برای کاربران قابل‌مشاهده است، ممکن است برای دسترس‌پذیری بومی‌سازی یا بازنویسی شود و تضمین نمی‌شود یکتا باشد. از استفادهٔ ساکتانه از متن معنادار دسترسی به‌عنوان کلید پایگاه داده خودداری کنید.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_officeinteropshapeid/) یک شناسهٔ فقط‑خواندنی است که درون یک اسلاید یکتا بوده و با شناسهٔ شکلی که PowerPoint interop استفاده می‌کند، مطابقت دارد. زمانی که با PowerPoint ادغام می‌کنید یا به یک مرجع غیرقابل‌تردید در طول عمر یک شکل نیاز دارید از آن استفاده کنید. یک شکل کلون شده یا بازسازی‌شده شکل دیگری است و شناسهٔ خود را دریافت می‌کند.
+- [Name](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_name/) برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و به‌راحتی در پنل انتخاب پاورپوینت قابل مشاهده است. نام‌ها قابل ویرایش هستند و تضمین نمی‌شود یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است، یک قرارداد نام‌گذاری برقرار کنید.
+- [AlternativeText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_alternativetext/) وقتی توصیف دسترس‌پذیری یا برچسبی توسط نویسنده پیش از این شکل را شناسایی می‌کند، مفید است. این متن برای کاربران قابل مشاهده است، می‌تواند محلی‌سازی یا بازنویسی برای دسترس‌پذیری شود و تضمین نمی‌شود یکتا باشد. متن معنادار دسترس‌پذیری را به‌طور خاموش به عنوان کلید دیتابیس استفاده نکنید.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_officeinteropshapeid/) یک شناسهٔ فقط‑خواندنی است که درون یک اسلاید یکتا بوده و به شناسهٔ شکلی که پاورپوینت برای هم‌بستگی استفاده می‌کند، مطابقت دارد. هنگام یکپارچه‌سازی با پاورپوینت یا زمانی که به مرجع بدون ابهامی در طول عمر یک شکل نیاز دارید، از آن استفاده کنید. یک شکل کلون‌شده یا دوباره‌ساخته شکل دیگری است و شناسهٔ خودش را دریافت می‌کند.
 
-ویژگی مرتبط [UniqueId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_uniqueid/) دارای حوزهٔ ارائه است، اما برای افزونه‌ها در نظر گرفته می‌شود و می‌تواند دوباره اختصاص یابد. نباید به‌عنوان کلید خارجی دائمی استفاده شود. اگر هویت طولانی‌مدت ضروری است، نگاشت را در داده‌های برنامه نگه داشته و صحت شکل مورد انتظار را اعتبارسنجی کنید.
+ویژگی مرتبط ‎[UniqueId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_uniqueid/)‎ حوزهٔ ارائه‌نامه را در بر می‌گیرد، اما برای افزودنی‌ها در نظر گرفته شده و می‌تواند دوباره‌تخصیص یابد. نباید آن را به‌عنوان کلید خارجی دائمی در نظر گرفت. اگر هویت طولانی‌مدت لازم است، نگاشت را در داده‌های برنامه نگه دارید و اعتبارسنجی کنید که شکل مورد انتظار هنوز وجود دارد.
 
-مثال زیر با `Name` جستجو می‌کند و شناسهٔ interop scoped به اسلاید را گزارش می‌دهد. وقتی قالب شامل شکل مورد انتظار نباشد، کد آن نتیجه را گزارش می‌کند به‌جای ادامه با شیء اشتباه.
+مثال زیر با استفاده از `Name` جستجو می‌کند و شناسهٔ interop مخصوص اسلاید را گزارش می‌دهد. وقتی قالب حاوی شکل مورد انتظار نیست، کد همان نتیجه را گزارش می‌کند به‌جای ادامه با شیء اشتباه.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -80,7 +83,7 @@ else
 presentation->Dispose();
 ```
 
-زمانی که یک عملیات مختص به نوعی از شکل است، قبل از استفاده از اعضای نوع‑خاص، رابط مربوطه را بررسی کنید. این مثال متن و متن جایگزین را تنها در صورتی به‌روزرسانی می‌کند که شیء نام‌دار یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) باشد.
+هنگامی که عملیاتی به نوع خاصی از شکل مربوط می‌شود، پیش از استفاده از اعضای خاص نوع، رابط مربوطه را بررسی کنید. این مثال متن و متن جایگزین را فقط در صورتی به‌روزرسانی می‌کند که شیء نام‌دار یک ‎[IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/)‎ باشد.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,15 +127,123 @@ else
 presentation->Dispose();
 ```
 
-## **تعدیل مجموعهٔ اشکال**
+## **شناسایی و اصلاح تنظیمات پیش‌تنظیم اشکال**
 
-متدهای افزودن، کلون، حذف و دوباره ترتیب دادن بلافاصله روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر داد، پس از آن دیگر به اندیس‌های ضبط‌شده قبل از آن عملیات تکیه نکنید.
+اشکال هندسی پیش‌تنظیم می‌توانند نقاط تنظیمی داشته باشند که ویژگی‌هایی مانند اندازهٔ گوشه، نسبت‌های پیکان یا زاویهٔ قوس را کنترل می‌کنند. از مجموعهٔ فقط‑خواندنی ‎[IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igeometryshape/get_adjustments/)‎ به آن‌ها دسترسی پیدا کنید. خود مجموعه توسط شکل ارائه می‌شود، اما هر ‎[IAdjustValue](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iadjustvalue/)‎ شامل مقداری است که می‌توان آن را تغییر داد.
 
-### **کلون کردن یک شکل**
+به تنها اندیس ثابت مجموعه اطمینان نکنید. بر روی تنظیمات پیمایش کنید و ویژگی فقط‑خواندنی ‎[IAdjustValue::get_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iadjustvalue/get_type/)‎ را بررسی کنید؛ مقدار ‎[ShapeAdjustmentType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/shapeadjustmenttype/)‎ توصیف می‌کند که تنظیم چه چیزی را کنترل می‌کند. ویژگی فقط‑خواندنی ‎[IAdjustValue::get_Name](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iadjustvalue/get_name/)‎ اطلاعات شناسایی تکمیلی فراهم می‌کند و به‌ویژه وقتی یک پیش‌تنظیم بیش از یک تنظیم با همان نوع معنایی دارد، مفید است.
 
-[AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/addclone/) یک کپی مستقل ایجاد می‌کند و به انتهای مجموعه هدف اضافه می‌نماید. [InsertClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/insertclone/) نیز یک کپی ایجاد می‌کند اما آن را در یک اندیس z‑order مشخص قرار می‌دهد. نسخه‌های overloadی که مختصات را می‌پذیرند، کلون را بدون تغییر اندازه منتقل می‌کنند؛ overloadهایی با عرض و ارتفاع می‌توانند آن را نیز تغییر اندازه دهند.
+از ویژگی مقدار متناسب با معنای تنظیم استفاده کنید:
 
-مثال یک اسلاید مقصد می‌سازد، یک مستطیل برچسب‌دار را به جلو کلون می‌کند و یک کلون دوم را در عقب درج می‌کند. تغییرات در هر دو کلون شکل منبع را تحت تأثیر قرار نمی‌دهند.
+| نوع تنظیم | هدف | مقدار برای تغییر |
+|---|---|---|
+| `CornerSize` | اندازهٔ گوشه‌های گرد | [RawValue](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | ضخامت دم‌پیکان | `RawValue` |
+| `ArrowheadLength` | طول سر پیکان | `RawValue` |
+| `ArrowheadWidth` | عرض سر پیکان | `RawValue` |
+| `StartAngle` | زاویهٔ شروع یک دایره یا قوس | [AngleValue](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | زاویهٔ پایان یک دایره یا قوس | `AngleValue` |
+
+`Type` و `Name` قابل انتساب نیستند. `RawValue` یک عدد صحیح قابل خواندن/نوشتن در واحدهای هندسی بومی پیش‌تنظیم است، در حالی که `AngleValue` یک زاویهٔ قابل خواندن/نوشتن بر حسب درجه است. تعداد، ترتیب، معنای و بازهٔ معتبر تنظیمات به ‎[ShapeType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igeometryshape/get_shapetype/)‎ پیش‌تنظیم وابسته است. مقداری که برای یک پیش‌تنظیم معتبر است ممکن است برای پیش‌تنظیم دیگری نامعتبر یا اثر متفاوتی داشته باشد.
+
+زمانی که `Type` برابر با `ShapeAdjustmentType::Custom` باشد، API معنایی استانداردی برای آن شناسایی نمی‌کند. `Name`، نوع پیش‌تنظیم و مقدار موجود را بررسی کنید و تنظیم را دست‌نکرده بگذارید مگر اینکه معنای مورد انتظار و بازهٔ آن را بدانید. حتی برای انواع شناخته‌شده، قبل از انتخاب مقدار بررسی کنید که آیا همان نوع بیش از یک بار ظاهر می‌شود یا نه. مقاله ‎[Connector](/slides/fa/cpp/connector/)‎ این وضعیت را با تنظیمات انحنای کانکتور نشان می‌دهد.
+
+مثال کامل زیر نسخه‌های پیش‌فرض و اصلاح‌شدهٔ سه شکل پیش‌تنظیم‌شده را ایجاد می‌کند. بر روی هر تنظیم پیمایش می‌کند، `Name` و `Type` آن را گزارش می‌دهد، مقادیر مرتبط با اندازه را از طریق `RawValue` و زاویه‌ها را از طریق `AngleValue` تغییر می‌دهد و نتیجه را ذخیره می‌کند. ستون چپ هندسهٔ پیش‌فرض را حفظ می‌کند؛ ستون راست مستطیل گرد، پیکان چهارطرفه و دایرهٔ قطعی تنظیم‌شده را نمایش می‌دهد.
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// افزودن سرصفحه‌ها برای ستون‌های شکل پیش‌فرض و تنظیم‌شده.
+auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
+auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel->get_TextFrame()->set_Text(u"Modified adjustment values");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+auto modifiedRoundedRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle->set_Name(u"ModifiedRoundedRectangle");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+auto modifiedArrow = slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+modifiedArrow->set_Name(u"ModifiedQuadArrow");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+auto modifiedPie = slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+modifiedPie->set_Name(u"ModifiedPie");
+
+auto shapesToAdjust = MakeArray<SharedPtr<IGeometryShape>>({modifiedRoundedRectangle, modifiedArrow, modifiedPie});
+
+for (auto shape : shapesToAdjust)
+{
+    auto adjustments = shape->get_Adjustments();
+    for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+    {
+        auto adjustment = adjustments->idx_get(adjustmentIndex);
+        Console::WriteLine(shape->get_Name() + u" / " + adjustment->get_Name() + u": " + ObjectExt::ToString(adjustment->get_Type()));
+
+        switch (adjustment->get_Type())
+        {
+            case ShapeAdjustmentType::CornerSize:
+                adjustment->set_RawValue(5000);
+                break;
+            case ShapeAdjustmentType::ArrowTailThickness:
+                adjustment->set_RawValue(25000);
+                break;
+            case ShapeAdjustmentType::ArrowheadLength:
+                adjustment->set_RawValue(30000);
+                break;
+            case ShapeAdjustmentType::ArrowheadWidth:
+                adjustment->set_RawValue(40000);
+                break;
+            case ShapeAdjustmentType::StartAngle:
+                adjustment->set_AngleValue(30);
+                break;
+            case ShapeAdjustmentType::EndAngle:
+                adjustment->set_AngleValue(300);
+                break;
+            case ShapeAdjustmentType::Custom:
+                Console::WriteLine(u"Custom adjustment '" + adjustment->get_Name() + u"' was not changed.");
+                break;
+        }
+    }
+}
+
+presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+بررسی نوع معنایی قبل از تغییر مقدار، کد را صریحاً نسبت به هدفش می‌کند و از فرض اینکه اندیس خاصی در تمام پیش‌تنظیم‌ها همان معنا را دارد جلوگیری می‌نماید.
+
+## **اصلاح مجموعهٔ اشکال**
+
+متدهای افزودن، کلون‌کردن، حذف و تغییر ترتیب بلافاصله بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، پس از آن دیگر نباید به اندیس‌های گرفته‌شده قبل از عملیات تکیه کرد.
+
+### **کلون‌کردن یک شکل**
+
+‎[AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/addclone/)‎ یک نسخهٔ مستقل ایجاد می‌کند و آن را به انتهای مجموعه هدف اضافه می‌نماید. ‎[InsertClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/insertclone/)‎ نیز یک نسخه می‌سازد اما در اندیس z‑order مشخصی جای می‌دهد. بارگذاری‌های پذیرفتن مختصات کلون را بدون تغییر اندازه جابه‌جا می‌کند؛ بارگذاری‌های شامل عرض و ارتفاع می‌توانند اندازه را نیز تغییر دهند.
+
+مثال یک اسلاید مقصد ایجاد می‌کند، مستطیل برچسب‌دار را به جلو کلون می‌کند و کلون دوم را به پشت وارد می‌نماید. تغییرات بر روی هر یک از کلون‌ها شکل منبع را تحت تأثیر قرار نمی‌دهد.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -188,13 +299,13 @@ presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-کلون کردن محتوا و قالب‌بندی شکل را کپی می‌کند، از جمله نام و متن جایگزین آن. هنگامی که این مقادیر باید یکتا باشند، شناسه‌های منطقی جدیدی به کلون اختصاص دهید. منابع مصرف‌شده توسط اشکال پیچیده توسط ارائه مدیریت می‌شود، اما یک کلون یک مورد جدید در مجموعه با هویت شکلی جدید باقی می‌ماند.
+کلون‌کردن محتوا و قالب‌بندی شکل را، شامل نام و متن جایگزین، کپی می‌کند. هنگامیکه این مقادیر باید یکتا باشند، شناسه‌های منطقی جدیدی به کلون اختصاص دهید. منابع استفاده‌شده توسط اشکال پیچیده توسط ارائه‌نامه مدیریت می‌شوند، اما یک کلون به‌عنوان یک آیتم جدید در مجموعه با هویت شکل جدید باقی می‌ماند.
 
 ### **حذف اشکال**
 
-[Remove](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/remove/) یک شیء شکل خاص را از مجموعهٔ خود حذف می‌کند. هنگام حذف چندین تطابق در طول یک تکرار اندیسی، از انتها به سمت ابتدا پیش بروید تا هر اندیس باقی‌مانده معتبر بماند.
+‎[Remove](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/remove/)‎ یک شیء شکل خاص را از مجموعهٔ خود حذف می‌کند. هنگام حذف چندین مطابقت در طی iteration ایندکس‌دار، از انتها به ابتدا پیمایش کنید تا هر ایندکس باقی‌مانده معتبر بماند.
 
-این مثال هر شکل دارای نام تعیین‌شده‌ای را حذف می‌کند. شکل فعلی با اندیس خوانده می‌شود، نه یک مورد ثابت در مجموعه، و شکل به‌صورت غیرضروری تبدیل نوع نمی‌شود.
+این مثال هر شکلی با نام تعیین‌شده را حذف می‌کند. شکل فعلی بر اساس ایندکس فعلی خوانده می‌شود، نه یک آیتم ثابت از مجموعه، و نیازی به تبدیل نوع غیرضروری شکل نیست.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -233,11 +344,11 @@ presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-پس از حذف، شمارش اشکال و اندیس‌های اشکال بعدی تغییر می‌کند. ارجاعات به اشکال غیرقابل‌تأثیر نسبت به اندیس‌های ذخیره‌شده قابل‑اعتمادتر هستند. همچنین به اتصالات، انیمیشن‌ها و سایر ویژگی‌های ارائه‌ای که ممکن است به شیء حذف‌شده اشاره داشته باشند، توجه کنید؛ حذف یک شکل قابل‌مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
+پس از حذف، تعداد اشکال و ایندکس‌های اشکال بعدی تغییر می‌کند. ارجاع به اشکالی که تحت تأثیر حذف قرار نگرفته‌اند، نسبت به ایندکس‌های ذخیره‌شده معتبرتر است. همچنین به اتصال‌ها، انیمیشن‌ها و سایر ویژگی‌های ارائه که ممکن است به شیء حذف‌شده ارجاع دهند، توجه کنید؛ حذف یک شکل قابل مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
 
-### **پنهان کردن یک شکل**
+### **پنهان‌کردن یک شکل**
 
-تنظیم [Hidden](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/set_hidden/) به `true` شکل را در مجموعه نگه می‌دارد اما از نمایش در نمایش اسلاید معمولی منع می‌کند. اندیس، قالب‌بندی و محتوای آن برای کد در دسترس می‌ماند، بنابراین پنهان‌سازی برای عناصر اختیاری که ممکن است بعدها بازگردانده شوند مناسب است.
+تنظیم ‎[Hidden](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/set_hidden/)‎ روی `true` شکل را در مجموعه نگه می‌دارد اما از نمایش در اسلاید شو عادی جلوگیری می‌کند. ایندکس، قالب‌بندی و محتوا همچنان در دسترس کد باقی می‌مانند، بنابراین پنهان‌کردن برای عناصر اختیاری که ممکن است بعداً بازیابی شوند، مناسب است.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -272,11 +383,11 @@ presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-پنهان‌سازی حذف یا امنیت نیست. این شیء همچنان قابل کشف و قابل نمایش مجدد توسط کاربر یا کد است و بخشی از فایل ارائه می‌ماند.
+پنهان‌کردن حذف یا امنیت نیست. شیء می‌تواند توسط کاربر یا کد کشف و دوباره نمایان شود و همچنان بخشی از فایل ارائه‌نامه می‌ماند.
 
 ### **تغییر ترتیب Z**
 
-اشکال همپوشانی‌شده به ترتیب مجموعه رنگ می‌شوند. [Reorder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/reorder/) یک شکل موجود را به یک اندیس هدف منتقل می‌کند بدون اینکه آن را کلون کند. اندیس `0` پشت صحنه است؛ `Count - 1` جلو صحنه.
+اشکال همپوشانی‌شده به ترتیب مجموعه‌رنگ می‌شوند. ‎[Reorder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/reorder/)‎ یک شکل موجود را به اندیس هدفی منتقل می‌کند بدون اینکه آن را کلون کند. اندیس `0` پشت‌ترین، `Count - 1` جلوی‌ترین است.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -312,13 +423,13 @@ presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-مستطیل ابتدا ساخته می‌شود و در ابتدا پشت بیضی قرار دارد. جابجا کردن آن به اندیس نهایی آن را به جلو می‌برد. پس از افزودن یا کلون تمام اشکال مربوطه، ترتیب Z را نهایی کنید، زیرا این عملیات‌ها موارد جدیدی به مجموعه اضافه یا وارد می‌کنند و می‌توانند ترتیب موردنظر را تغییر دهند.
+در ابتدا مستطیل ساخته می‌شود و پشت بیضی قرار می‌گیرد. جابه‌جا کردن آن به اندیس نهایی آن را به جلو می‌آورد. ترتیب Z را پس از افزودن یا کلون‌کردن تمام اشکال مرتبط نهایی کنید، زیرا این عملیات آیتم‌های جدیدی را به مجموعه اضافه یا وارد می‌کنند و می‌توانند پشتهٔ موردنظر را تغییر دهند.
 
 ## **بازرسی اشکال در اسلایدهای طرح‌بندی**
 
-اسلایدهای معمولی، اسلایدهای طرح‌بندی و اسلایدهای استاد دارای مجموعه‌های شکلی جداگانه هستند. یک شکل در مجموعهٔ طرح‌بندی همان شیء شکل در اسلاید معمولی با موقعیت مشابه نیست. زمانی که نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک طرح‌بندی دارید، اشکال طرح‌بندی را بررسی کنید.
+اسلایدهای عادی، اسلایدهای طرح‌بندی و اسلایدهای مستر مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ طرح‌بندی همان شیء‌ای نیست که در اسلاید عادی با موقعیت مشابه قرار دارد. هنگام نیاز به درک یا تغییر قالب‌بندی فراهم‌شده توسط یک طرح‌بندی، به اشکال طرح‌بندی مراجعه کنید.
 
-مثال زیر هر شکل طرح‌بندی را با استفاده از [FillFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_fillformat/) و [LineFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_lineformat/) می‌خواند بدون این‌که فرض کند هر شکلی یک `AutoShape` است.
+مثال زیر ‎[FillFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_fillformat/)‎ و ‎[LineFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_lineformat/)‎ هر شکل طرح‌بندی را می‌خواند بدون اینکه فرض کند هر شکل یک `AutoShape` است.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -348,11 +459,11 @@ for (auto layoutSlide : presentation->get_LayoutSlides())
 presentation->Dispose();
 ```
 
-ویرایش یک طرح‌بندی می‌تواند بر چندین اسلایدی که از آن استفاده می‌کنند تأثیر بگذارد. قبل از تغییر یک شکل طرح‌بندی، تعیین کنید آیا یک اسلاید معمولی شیء را به ارث می‌برد یا یک بازنویسی محلی دارد و هر اسلایدی که از آن طرح‌بندی استفاده می‌کند را تست کنید.
+ویرایش یک طرح‌بندی می‌تواند بر اسلایدهای متعددی که از آن استفاده می‌کنند تأثیر بگذارد. پیش از تغییر یک شکل طرح‌بندی، تعیین کنید آیا اسلاید عادی شیء را به ارث می‌برد یا یک بازنویسی محلی دارد و هر اسلایدی که از آن طرح‌بندی استفاده می‌کند را تست کنید.
 
 ## **صادر کردن یک شکل به SVG**
 
-[WriteAsSvg](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/writeassvg/) محتوای رندر شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه فقط شامل شکل است، نه پس‌زمینهٔ کامل اسلاید یا شکل‌های همجوار.
+‎[WriteAsSvg](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/writeassvg/)‎ محتوای رندر شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه شامل خود شکل است، نه پس‌زمینهٔ تمام اسلاید یا اشکال همجوار.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -384,13 +495,13 @@ else
 presentation->Dispose();
 ```
 
-در حین رندر، ارائه را باز نگه دارید. خروجی به قالب‌بندی شکل و به منابعی مانند قلم‌ها و تصاویر وابسته است. اگر به کل ترکیب نیاز دارید، اسلاید را به‌جای یک شکل منفرد صادر کنید. فراخواننده مالک جریان است و باید آن را ببندد یا از بین ببرد.
+در زمان رندر، ارائه‌نامه باز بماند. خروجی به قالب‌بندی شکل و به منابعی مثل قلم‌ها و تصاویر وابسته است. اگر به کل ترکیب نیاز دارید، به جای یک شکل منفرد اسلاید را صادر کنید. فراخواننده مالک جریان است و باید آن را ببندد یا تخلیه کند.
 
-## **هم‌ترازی اشکال**
+## **تراز کردن اشکال**
 
-متدهای [SlideUtil::AlignShapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.util/slideutil/alignshapes/) امکان هم‌ترازی تمام اشکال یا اندیس‌های انتخاب‌شدهٔ مجموعه را فراهم می‌کنند. [ShapesAlignmentType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/shapesalignmenttype/) لبه، خط مرکز یا حالت توزیع را مشخص می‌کند. `alignToSlide` را به `true` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ برای هم‌ترازی اشکال منتخب نسبت به یکدیگر مقدار `false` را بگذارید.
+متد ‎[SlideUtil::AlignShapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.util/slideutil/alignshapes/)‎ می‌تواند همهٔ اشکال یا اندیس‌های انتخابی مجموعه را تراز کند. ‎[ShapesAlignmentType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/shapesalignmenttype/)‎ لبه، مرکز یا حالت توزیع را مشخص می‌کند. `alignToSlide` را روی `true` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ روی `false` تنظیم کنید تا اشکال انتخابی نسبت به یکدیگر تراز شوند.
 
-این مثال سه شکل را به لبهٔ بالای اسلاید هم‌تراز می‌کند. ارجاعات به شکل‌های بازگردانده‌شده بلافاصله قبل از هم‌ترازی به اندیس‌های جاریشان تبدیل می‌شوند.
+این مثال سه شکل را به لبهٔ بالای اسلاید تراز می‌کند. مراجع شکل بازگردانده‌شده بلافاصله قبل از تراز به ایندکس‌های فعلی خود تبدیل می‌شوند.
 
 ```cpp
 #include <DOM/IShapeCollection.h>
@@ -424,17 +535,17 @@ presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-هم‌ترازی موقعیت‌ها را تغییر می‌دهد، نه ترتیب Z. هم‌ترازی نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی به تعداد کافی شکلی برای تعریف فاصله نیاز دارد. اگر قبل از فراخوانی متد مجموعه را تغییر دادید، اندیس‌ها را دوباره محاسبه کنید.
+تراز موقعیت‌ها را تغییر می‌دهد، نه ترتیب Z. تراز نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی برای تعیین فواصل به تعداد کافی شکل نیاز دارد. اگر قبل از فراخوانی متد مجموعه را تغییر دادید، ایندکس‌ها را مجدداً محاسبه کنید.
 
-## **معکوس کردن یک شکل**
+## **وارون‌کردن یک شکل**
 
-کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/shapeframe/) موقعیت، اندازه، تنظیمات معکوس افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر `FlipH` و `FlipV` از [NullableBool](https://reference.aspose.com/slides/fa/cpp/aspose.slides/nullablebool/) استفاده می‌کنند: `True` معکوس را فعال می‌کند، `False` غیرفعال می‌کند و `NotDefined` حالت تعریف‌نشده/پیش‌فرض را حفظ می‌کند.
+کلاس ‎[ShapeFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/shapeframe/)‎ موقعیت، اندازه، تنظیمات وارون‌کردن افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر `FlipH` و `FlipV` از ‎[NullableBool](https://reference.aspose.com/slides/fa/cpp/aspose.slides/nullablebool/)‎ استفاده می‌کنند: `True` وارون‌کردن را فعال می‌کند، `False` غیرفعال می‌کند و `NotDefined` حالت نامشخص/پیش‌فرض را حفظ می‌کند.
 
-ارائهٔ زیر شامل یک شکل بدون معکوس است.
+ارائه‌نامهٔ ورودی زیر شامل یک شکل بدون وارون‌کردن است.
 
-![شکل قبل از معکوس شدن](shape_to_be_flipped.png)
+![شکل قبل از وارون‌کردن](shape_to_be_flipped.png)
 
-مثال فقط دو تنظیم معکوس را تغییر می‌دهد و سایر مقادیر فریم را همان‌گونه می‌گذارد. این مهم است چون اختصاص یک [Frame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/set_frame/) جدید تمام فریم را جایگزین می‌کند.
+این مثال تمام مقادیر دیگر قاب را حفظ می‌کند و فقط دو تنظیم وارون‌کردن را جایگزین می‌نماید. این مهم است چون اختصاص یک ‎[Frame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/set_frame/)‎ جدید، کل قاب را بازنویسی می‌کند.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -462,20 +573,24 @@ presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-شکل ذخیره‌شده به‌صورت افقی و عمودی معکوس می‌شود در حالی که موقعیت، اندازه و چرخش خود را حفظ می‌کند.
+شکل ذخیره‌شده به صورت افقی و عمودی آینه‌ای می‌شود در حالی که موقعیت، اندازه و چرخش خود را حفظ می‌کند.
 
-![شکل پس از معکوس شدن](flipped_shape.png)
+![شکل پس از وارون‌کردن](flipped_shape.png)
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا باید از ایندکس مجموعه به عنوان شناسهٔ شکل استفاده کنم؟**
+**آیا باید از اندیس مجموعه به‌عنوان شناسهٔ یک شکل استفاده کنم؟**
 
-فقط برای پردازش‌های کوتاه‌مدت که مجموعه قبل از استفاده از ایندکس تغییر نخواهد کرد. برای قالب‌های نوشته‌شده ترجیحاً از یک قرارداد معتبر `Name` یا `AlternativeText` استفاده کنید یا برای کارهای مرتبط با interop scoped به اسلاید از `OfficeInteropShapeId` بهره ببرید.
+فقط برای پردازش‌های کوتاه‌مدتی که مجموعه قبل از استفاده از اندیس تغییر نخواهد کرد. برای قالب‌های نوشته‌شده، ترجیحاً از یک قرارداد معتبر `Name` یا `AlternativeText` استفاده کنید، یا برای کارهای هم‌بستگی اسلاید‑محدود `OfficeInteropShapeId` را به کار ببرید.
 
-**آیا پنهان‌سازی یک شکل آن را از ترتیب Z حذف می‌کند؟**
+**آیا پنهان‌کردن یک شکل آن را از ترتیب Z حذف می‌کند؟**
 
-خیر. یک شکل پنهان‌شده در همان اندیس در مجموعه باقی می‌ماند. می‌توان آن را یافت، دوباره ترتیب داد، ویرایش یا دوباره قابل مشاهده کرد.
+خیر. یک شکل پنهان در همان اندیس در مجموعه باقی می‌ماند. می‌توان آن را یافت، دوباره‌مرتب‌سازی، ویرایش یا دوباره قابل مشاهده کرد.
 
-**چرا یک شکل کلون‌شده جلوتر از شکل دیگری ظاهر شد؟**
+**چرا یک شکل کلون‌شده جلوی شکل دیگری ظاهر شد؟**
 
-`AddClone` کلون را به انتهای مجموعه اضافه می‌کند که جلوی ترتیب Z است. برای انتخاب اندیس اولیه از `InsertClone` استفاده کنید یا پس از افزودن تمام اشکال از `Reorder` بهره بگیرید.
+`AddClone` کلون را به انتهای مجموعه اضافه می‌کند که جلوی ترتیب Z محسوب می‌شود. برای انتخاب اندیس اولیه از `InsertClone` استفاده کنید یا پس از افزودن همهٔ اشکال از `Reorder` بهره ببرید.
+
+**آیا می‌توانم با استفاده از یک اندیس ثابت، تنظیم پیش‌تنظیم یک شکل را شناسایی کنم؟**
+
+فقط پس از اعتبارسنجی دقیق پیش‌تنظیم و چیدمان مجموعه. ترجیحاً از ‎`IGeometryShape::get_Adjustments`‎ پیمایش کنید و `IAdjustValue::get_Type` را بررسی کنید؛ وقتی همان نوع معنایی بیش از یک بار ظاهر می‌شود، از `IAdjustValue::get_Name` به عنوان اطلاعات تکمیلی استفاده کنید.

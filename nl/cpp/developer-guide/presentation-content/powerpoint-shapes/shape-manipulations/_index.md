@@ -1,20 +1,23 @@
 ---
-title: Beheer Presentatievormen in C++
-linktitle: Vormbewerkingen
+title: Beheer presentatievormen in C++
+linktitle: Vormmanipulatie
 type: docs
 weight: 40
 url: /nl/cpp/shape-manipulations/
 keywords:
 - PowerPoint-vorm
-- presentatievorm
+- presentatie-vorm
 - vorm op dia
 - vorm vinden
 - vorm klonen
 - vorm verwijderen
 - vorm verbergen
-- vormvolgorde wijzigen
+- volgorde van vorm wijzigen
 - interop-vorm-ID ophalen
 - alternatieve tekst van vorm
+- aanpassingspunt van vorm
+- voorafgeconfigureerde vormaanpassing
+- vormgeometrie
 - vormlay-outformaten
 - vorm als SVG
 - vorm naar SVG
@@ -24,25 +27,25 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe u presentatievormen kunt identificeren, klonen, verwijderen, verbergen, herschikken, exporteren, uitlijnen en spiegelen met Aspose.Slides voor C++."
+description: "Leer hoe u presentatievormen kunt identificeren, aanpassen, klonen, verwijderen, verbergen, herschikken, exporteren, uitlijnen en spiegelen met Aspose.Slides voor C++."
 ---
 ## **Overzicht**
 
-Aspose.Slides for C++ vertegenwoordigt de vormen op een dia als een geordende [IShapeCollection](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/). De collectie is zowel de plek waar u vormen vindt en wijzigt als de bron van hun stapelvolgorde: index `0` is de achterste vorm, terwijl de laatste index de voorste vorm is.
+Aspose.Slides for C++ stelt de vormen op een dia voor als een geordende [IShapeCollection](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/). De collectie is zowel de plek waar je vormen vindt en wijzigt als de bron van hun stapelvolgorde: index `0` is de vorm die het verst achterin staat, terwijl de laatste index de voorste vorm is.
 
-Dit artikel volgt dat model. Het legt eerst uit hoe u een vorm betrouwbaar kunt identificeren, daarna wordt aangetoond hoe u vormen kunt klonen, verwijderen, verbergen en herschikken. De laatste secties behandelen lay-out‑niveau opmaak, SVG‑export, uitlijning en spiegelinstellingen. Elk voorbeeld staat op zichzelf, zodat u alleen de bewerkingen kunt gebruiken die uw workflow vereist.
+Dit artikel volgt dat model. Het legt eerst uit hoe je een vorm betrouwbaar kunt identificeren en vooraf ingestelde aanpassingspunten van vormen kunt wijzigen, daarna wordt getoond hoe je vormen kunt klonen, verwijderen, verbergen en opnieuw ordenen. De laatste secties behandelen opmaak op lay-outniveau, SVG-export, uitlijning en spiegelinstellingen. Elk voorbeeld staat op zichzelf, zodat je alleen de bewerkingen kunt gebruiken die jouw workflow vereist.
 
-## **Identificeren en Vinden van Vormen**
+## **Identificeer en vind vormen**
 
-Collectie‑indexen zijn handig bij het verwerken van een bekend bestand, maar ze zijn geen stabiele identifiers. Het toevoegen, verwijderen of herschikken van een vorm kan de index wijzigen. Kies een identifier op basis van hoe de presentatie is gemaakt en onderhouden:
+Collectie‑indexen zijn handig bij het verwerken van een bekend bestand, maar ze zijn geen stabiele identificatoren. Het toevoegen, verwijderen of herschikken van een vorm kan de index wijzigen. Kies een identifier op basis van hoe de presentatie is gemaakt en onderhouden:
 
-- [Name](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_name/) is handig voor door ontwikkelaars beheerde sjablonen en is eenvoudig te inspecteren in het Selection Pane van PowerPoint. Namen kunnen bewerkt worden en zijn niet gegarandeerd uniek, dus stel een naamgevingsconventie vast als code ervan afhankelijk is.
-- [AlternativeText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_alternativetext/) is nuttig wanneer een toegankelijkheidsbeschrijving of een door de auteur toegevoegde tag de vorm al identificeert. Het is zichtbaar voor gebruikers, kan gelokaliseerd of herschreven worden voor toegankelijkheid, en is niet gegarandeerd uniek. Gebruik geen toegankelijke tekst stilletjes als databasesleutel.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_officeinteropshapeid/) is een alleen‑lezen identifier die uniek is binnen een dia en overeenkomt met de shape‑ID die PowerPoint‑interop gebruikt. Gebruik deze bij integratie met PowerPoint of wanneer u een ondubbelzinnige referentie nodig heeft gedurende de levensduur van een vorm. Een gekloonde of opnieuw aangemaakte vorm is een andere vorm en krijgt een eigen ID.
+- [Name](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_name/) is nuttig voor door ontwikkelaars beheerde sjablonen en is gemakkelijk te inspecteren in het selectie‑paneel van PowerPoint. Namen kunnen worden bewerkt en zijn niet gegarandeerd uniek, dus stel een naamgevingsconventie vast als code ervan afhankelijk is.
+- [AlternativeText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_alternativetext/) is nuttig wanneer een toegankelijke beschrijving of een door de auteur toegevoegde tag de vorm al identificeert. Het is zichtbaar voor gebruikers, kan worden gelokaliseerd of herschreven voor toegankelijkheid, en is niet gegarandeerd uniek. Gebruik niet stilzwijgend betekenisvolle toegankelijkheidstekst als een databasesleutel.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_officeinteropshapeid/) is een alleen‑lezen identifier die uniek is binnen een dia en overeenkomt met de vorm‑ID die door PowerPoint‑interop wordt gebruikt. Gebruik deze bij integratie met PowerPoint of wanneer je een ondubbelzinnige referentie nodig hebt gedurende de levensduur van een vorm. Een gekloonde of opnieuw gemaakte vorm is een andere vorm en krijgt een eigen ID.
 
-De gerelateerde [UniqueId](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_uniqueid/)‑eigenschap heeft presentatie‑scope, maar is bedoeld voor add‑ins en kan opnieuw worden toegewezen. Beschouw het niet als een permanente externe sleutel. Als langdurige identiteit essentieel is, bewaar dan de mapping in applicatie‑data en controleer of de verwachte vorm nog bestaat.
+De gerelateerde [UniqueId](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_uniqueid/)‑eigenschap heeft een presentatiescope, maar is bedoeld voor add‑ins en kan worden her toegewezen. Het moet niet worden behandeld als een permanente externe sleutel. Als langdurige identiteit essentieel is, bewaar dan de koppeling in applicatiedata en controleer of de verwachte vorm nog bestaat.
 
-Het volgende voorbeeld zoekt op `Name` en rapporteert de interop‑ID met dia‑scope. Wanneer de sjabloon de verwachte vorm niet bevat, rapporteert de code dat resultaat in plaats van door te gaan met het verkeerde object.
+Het volgende voorbeeld zoekt op `Name` en rapporteert de interop‑ID scoped aan de dia. Wanneer de sjabloon de verwachte vorm niet bevat, rapporteert de code dat resultaat in plaats van verder te gaan met het verkeerde object.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -80,7 +83,7 @@ else
 presentation->Dispose();
 ```
 
-Wanneer een bewerking specifiek is voor een bepaald vormtype, controleer dan de interface voordat u type‑specifieke leden gebruikt. Dit voorbeeld werkt tekst en alternatieve tekst bij alleen als het benoemde object een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) is.
+Wanneer een bewerking specifiek is voor een vormtype, controleer dan de interface voordat je type‑specifieke leden gebruikt. Dit voorbeeld werkt tekst en alternatieve tekst bij alleen als het benoemde object een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) is.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,15 +127,123 @@ else
 presentation->Dispose();
 ```
 
-## **De Vormenverzameling Aanpassen**
+## **Identificeer en wijzig vooraf ingestelde vormaanpassingen**
 
-De methoden voor toevoegen, klonen, verwijderen en herschikken werken direct op de collectie. Als een bewerking het aantal of de volgorde van vormen wijzigt, mag u niet blijven vertrouwen op indexen die vóór die bewerking zijn vastgelegd.
+Vooraf ingestelde geometrievormen kunnen aanpassingspunten blootstellen die eigenschappen zoals hoekgrootte, pijlverhoudingen of booghoeken regelen. Toegang hiertoe krijg je via de alleen‑lezen collectie [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/nl/cpp/aspose.slides/igeometryshape/get_adjustments/). De collectie zelf wordt geleverd door de vorm, maar elk [IAdjustValue](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iadjustvalue/) bevat een waarde die kan worden gewijzigd.
 
-### **Een Vorm Klonen**
+Vertrouw niet uitsluitend op een vaste collectie‑index. Loop door de aanpassingen en controleer de alleen‑lezen eigenschap [IAdjustValue::get_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iadjustvalue/get_type/), waarvan de [ShapeAdjustmentType](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shapeadjustmenttype/)‑waarde beschrijft wat de aanpassing regelt. De alleen‑lezen eigenschap [IAdjustValue::get_Name](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iadjustvalue/get_name/) biedt extra identificatie‑informatie en is vooral nuttig wanneer een preset meer dan één aanpassing met hetzelfde semantische type bevat.
 
-[AddClone](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addclone/) maakt een onafhankelijke kopie en voegt deze toe aan de doelcollectie. [InsertClone](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/insertclone/) maakt eveneens een kopie maar plaatst deze op een opgegeven z‑order‑index. De overloads die coördinaten accepteren verplaatsen de kloon zonder de grootte te wijzigen; overloads met breedte en hoogte kunnen deze ook aanpassen.
+Gebruik de eigenschap die overeenkomt met de betekenis van de aanpassing:
 
-Het voorbeeld maakt een doel‑dia, kloont een gelabelde rechthoek naar de voorgrond en voegt een tweede kloon toe aan de achtergrond. Wijzigingen aan een van beide klonen wijzigen de bronvorm niet.
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | Grootte van afgeronde hoeken | [RawValue](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | Dikte van een pijpstaart | `RawValue` |
+| `ArrowheadLength` | Lengte van een pijlkop | `RawValue` |
+| `ArrowheadWidth` | Breedte van een pijlkop | `RawValue` |
+| `StartAngle` | Beginhoek van een taart‑ of boogvorm | [AngleValue](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | Eindhoek van een taart‑ of boogvorm | `AngleValue` |
+
+`Type` en `Name` kunnen niet worden toegewezen. `RawValue` is een lees‑/schrijf‑integer in de native eenheden van de preset‑geometrie, terwijl `AngleValue` een lees‑/schrijf‑hoek in graden is. Het aantal, de volgorde, de betekenis en het geldige bereik van aanpassingen hangen af van het preset‑[ShapeType](https://reference.aspose.com/slides/nl/cpp/aspose.slides/igeometryshape/get_shapetype/). Een waarde die geldig is voor één preset kan ongeldig zijn of een ander effect hebben voor een andere.
+
+Wanneer `Type` `ShapeAdjustmentType::Custom` is, herkent de API geen standaard semantische betekenis. Inspecteer `Name`, het preset‑type en de bestaande waarde, en laat de aanpassing ongewijzigd tenzij de verwachte betekenis en het bereik bekend zijn. Zelfs voor herkende types, controleer of hetzelfde type meer dan één keer voorkomt voordat je een waarde selecteert. Het artikel over [Connector](/slides/nl/cpp/connector/) toont deze situatie met buig‑aanpassingen van connectoren.
+
+Het volgende volledige voorbeeld maakt standaard‑ en gewijzigde versies van drie preset‑vormen. Het doorloopt elke aanpassing, rapporteert diens `Name` en `Type`, wijzigt grootte‑gerelateerde waarden via `RawValue`, wijzigt hoeken via `AngleValue` en slaat het resultaat op. De linkerkolom behoudt de standaardgeometrie; de rechterkolom toont de aangepaste afgeronde rechthoek, de vier‑richtingspijl en de taart.
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// Voegt koppen toe voor de standaard- en aangepaste vormkolommen.
+auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
+auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel->get_TextFrame()->set_Text(u"Modified adjustment values");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+auto modifiedRoundedRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle->set_Name(u"ModifiedRoundedRectangle");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+auto modifiedArrow = slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+modifiedArrow->set_Name(u"ModifiedQuadArrow");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+auto modifiedPie = slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+modifiedPie->set_Name(u"ModifiedPie");
+
+auto shapesToAdjust = MakeArray<SharedPtr<IGeometryShape>>({modifiedRoundedRectangle, modifiedArrow, modifiedPie});
+
+for (auto shape : shapesToAdjust)
+{
+    auto adjustments = shape->get_Adjustments();
+    for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+    {
+        auto adjustment = adjustments->idx_get(adjustmentIndex);
+        Console::WriteLine(shape->get_Name() + u" / " + adjustment->get_Name() + u": " + ObjectExt::ToString(adjustment->get_Type()));
+
+        switch (adjustment->get_Type())
+        {
+            case ShapeAdjustmentType::CornerSize:
+                adjustment->set_RawValue(5000);
+                break;
+            case ShapeAdjustmentType::ArrowTailThickness:
+                adjustment->set_RawValue(25000);
+                break;
+            case ShapeAdjustmentType::ArrowheadLength:
+                adjustment->set_RawValue(30000);
+                break;
+            case ShapeAdjustmentType::ArrowheadWidth:
+                adjustment->set_RawValue(40000);
+                break;
+            case ShapeAdjustmentType::StartAngle:
+                adjustment->set_AngleValue(30);
+                break;
+            case ShapeAdjustmentType::EndAngle:
+                adjustment->set_AngleValue(300);
+                break;
+            case ShapeAdjustmentType::Custom:
+                Console::WriteLine(u"Custom adjustment '" + adjustment->get_Name() + u"' was not changed.");
+                break;
+        }
+    }
+}
+
+presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Het controleren van het semantische type vóór het wijzigen van een waarde maakt de code expliciet in zijn intentie en voorkomt dat je aanneemt dat een bepaalde collectie‑index dezelfde betekenis heeft bij verschillende preset‑vormen.
+
+## **Wijzig de vormcollectie**
+
+De methoden voor toevoegen, klonen, verwijderen en herschikken werken direct op de collectie. Als een bewerking het aantal of de volgorde van vormen wijzigt, vertrouw dan niet meer op indexen die vóór die bewerking zijn vastgelegd.
+
+### **Kloon een vorm**
+
+[AddClone](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addclone/) maakt een onafhankelijke kopie en voegt deze toe aan de doelcollectie. [InsertClone](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/insertclone/) maakt ook een kopie maar plaatst deze op een opgegeven z‑order‑index. De overloads die coördinaten accepteren verplaatsen de kloon zonder de grootte te wijzigen; overloads met breedte en hoogte kunnen deze ook aanpassen.
+
+Het voorbeeld maakt een doel‑dia, kloont een gelabelde rechthoek naar voren en voegt een tweede kloon toe achteraan. Wijzigingen aan zowel de eerste als de tweede kloon wijzigen de bronvorm niet.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -188,11 +299,11 @@ presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Klonen kopieert de inhoud en opmaak van de vorm, inclusief naam en alternatieve tekst. Ken nieuwe logische identifiers toe aan de kloon wanneer die waarden uniek moeten zijn. Hulpbronnen die door complexe vormen worden gebruikt, worden door de presentatie afgehandeld, maar een kloon blijft een nieuw collectie‑item met een nieuwe vormidentiteit.
+Klonen kopieert de inhoud en opmaak van de vorm, inclusief naam en alternatieve tekst. Ken nieuwe logische identifiers toe aan de kloon wanneer die waarden uniek moeten zijn. Bronnen die door complexe vormen worden gebruikt, worden afgehandeld door de presentatie, maar een kloon blijft een nieuw collectie‑item met een nieuwe vormidentiteit.
 
-### **Vormen Verwijderen**
+### **Verwijder vormen**
 
-[Remove](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/remove/) verwijdert een specifiek vormobject uit zijn collectie. Wanneer u meerdere overeenkomsten tijdens een geïndexeerde iteratie wilt verwijderen, doorloop dan van het einde zodat elke resterende index geldig blijft.
+[Remove](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/remove/) verwijdert een specifiek vormobject uit zijn collectie. Wanneer je tijdens een geïndexeerde iteratie meerdere overeenkomsten wilt verwijderen, doorloop dan de collectie van achteren zodat elk overgebleven index geldig blijft.
 
 Dit voorbeeld verwijdert elke vorm met een opgegeven naam. Het leest de huidige geïndexeerde vorm, niet een vast collectie‑item, en cast de vorm niet onnodig.
 
@@ -233,11 +344,11 @@ presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Na het verwijderen veranderen het aantal vormen en de indexen van de latere vormen. Verwijzingen naar ongewijzigde vormen blijven betrouwbaarder dan opgeslagen indexen. Houd ook rekening met connectoren, animaties en andere presentatiefuncties die naar het verwijderde object kunnen verwijzen; het verwijderen van een zichtbare vorm kan meer veranderen dan alleen het uiterlijk van de dia.
+Na verwijdering veranderen het aantal vormen en de indexen van latere vormen. Verwijzingen naar onaangetaste vormen blijven betrouwbaarder dan opgeslagen indexen. Houd ook rekening met connectoren, animaties en andere presentatiefuncties die naar het verwijderde object kunnen verwijzen; het verwijderen van een zichtbare vorm kan meer beïnvloeden dan alleen het uiterlijk van de dia.
 
-### **Een Vorm Verbergen**
+### **Verberg een vorm**
 
-Het instellen van [Hidden](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/set_hidden/) op `true` houdt de vorm in de collectie, maar voorkomt dat deze verschijnt in de normale diavoorstelling. De index, opmaak en inhoud blijven beschikbaar voor code, dus verbergen is geschikt voor optionele elementen die later hersteld kunnen worden.
+Instellen van [Hidden](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/set_hidden/) op `true` houdt de vorm in de collectie, maar verhindert dat deze voorkomt in de normale diavoorstelling. De index, opmaak en inhoud blijven beschikbaar voor code, dus verbergen is geschikt voor optionele elementen die later eventueel hersteld kunnen worden.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -272,11 +383,11 @@ presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Verbergen is geen verwijdering of beveiliging. Het object kan nog steeds worden ontdekt en weer zichtbaar gemaakt door een gebruiker of door code, en blijft deel uitmaken van het presentatie‑bestand.
+Verbergen is geen verwijdering of beveiliging. Het object kan nog steeds worden ontdekt en weer zichtbaar worden gemaakt door een gebruiker of door code, en het blijft deel uitmaken van het presentatie‑bestand.
 
-### **De Z‑volgorde Wijzigen**
+### **Wijzig de Z‑order**
 
-Overlappende vormen worden getekend in de volgorde van de collectie. [Reorder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/reorder/) verplaatst een bestaande vorm naar een doel‑index zonder deze te klonen. Index `0` is de achterkant; `Count - 1` is de voorkant.
+Overschotende vormen worden getekend in de volgorde van de collectie. [Reorder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/reorder/) verplaatst een bestaande vorm naar een doel‑index zonder deze te klonen. Index `0` is de achterkant; `Count - 1` is de voorkant.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -312,13 +423,13 @@ presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-De rechthoek wordt eerst gemaakt en staat aanvankelijk achter de ellips. Het naar de laatste index verplaatsen brengt hem naar voren. Voltooi de z‑order nadat u alle gerelateerde vormen heeft toegevoegd of gekloond, omdat die bewerkingen nieuwe collectie‑items toevoegen of invoegen en de beoogde stapel kunnen wijzigen.
+De rechthoek wordt eerst aangemaakt en zit initieel achter de ellips. Verplaatsen naar de laatste index brengt hem naar voren. Voltooi de z‑order nadat alle gerelateerde vormen zijn toegevoegd of gekloond, want die bewerkingen voegen nieuwe collectie‑items toe of plaatsen ze in, waardoor de beoogde stapel kan verschuiven.
 
-## **Vormen Inspecteren op Layoutdia's**
+## **Inspecteer vormen op lay‑outdia's**
 
-Normale dia's, layout‑dia's en master‑dia's hebben afzonderlijke vormcollecties. Een vorm in een layout‑collectie is niet hetzelfde object als een gelijkaardige vorm op een normale dia. Inspecteer layout‑vormen wanneer u de opmaak die door een layout wordt geleverd wilt begrijpen of wijzigen.
+Normale dia's, lay‑outdia's en masterdia's hebben gescheiden vormcollecties. Een vorm in een lay‑outcollectie is niet hetzelfde object als een vergelijkbaar gepositioneerde vorm op een normale dia. Inspecteer lay‑outvormen wanneer je de opmaak die door een lay‑out wordt geleverd wilt begrijpen of wijzigen.
 
-Het volgende voorbeeld leest elke layout‑vorm's [FillFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_fillformat/) en [LineFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_lineformat/) zonder aan te nemen dat elke vorm een `AutoShape` is.
+Het volgende voorbeeld leest voor elke lay‑outvorm de [FillFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_fillformat/) en [LineFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_lineformat/) zonder aan te nemen dat elke vorm een `AutoShape` is.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -348,11 +459,11 @@ for (auto layoutSlide : presentation->get_LayoutSlides())
 presentation->Dispose();
 ```
 
-Het bewerken van een layout kan meerdere dia's die de layout gebruiken beïnvloeden. Voordat u een layout‑vorm wijzigt, bepaal of een normale dia het object erft of een lokale overschrijving bevat, en test elke dia die die layout gebruikt.
+Het bewerken van een lay‑out kan meerdere dia's die het gebruiken beïnvloeden. Controleer voordat je een lay‑outvorm wijzigt of een normale dia het object erft of een lokale overschrijving bevat, en test elke dia die die lay‑out gebruikt.
 
-## **Een Vorm Exporteren naar SVG**
+## **Exporteer een vorm naar SVG**
 
-[WriteAsSvg](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/writeassvg/) schrijft de gerenderde inhoud van één vorm naar een stream. Het resultaat bevat alleen de vorm, niet de volledige dia‑achtergrond of aangrenzende vormen.
+[WriteAsSvg](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/writeassvg/) schrijft de gerenderde inhoud van één vorm naar een stream. Het resultaat bevat alleen de vorm, niet de volledige dia‑achtergrond of naburige vormen.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -384,13 +495,13 @@ else
 presentation->Dispose();
 ```
 
-Houd de presentatie open tijdens het renderen. De output hangt af van de opmaak van de vorm en van hulpbronnen zoals lettertypen en afbeeldingen. Als u de volledige compositie nodig hebt, exporteer dan de dia in plaats van een individuele vorm. De aanroeper bezit de stream en moet deze sluiten of disposen.
+Houd de presentatie open tijdens het renderen. De output hangt af van de opmaak van de vorm en van bronnen zoals lettertypen en afbeeldingen. Als je de volledige compositie nodig hebt, exporteer dan de dia in plaats van een individuele vorm. De aanroeper bezit de stream en moet deze sluiten of vrijgeven.
 
-## **Vormen Uitlijnen**
+## **Lijn vormen uit**
 
-De [SlideUtil::AlignShapes](https://reference.aspose.com/slides/nl/cpp/aspose.slides.util/slideutil/alignshapes/) overloads lijnen ofwel alle vormen of geselecteerde collectie‑indexen uit. [ShapesAlignmentType](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shapesalignmenttype/) bepaalt de rand, middenlijn of distributiemodus. Zet `alignToSlide` op `true` om de randen van de dia te gebruiken; zet het op `false` om de geselecteerde vormen ten opzichte van elkaar uit te lijnen.
+[SlideUtil::AlignShapes](https://reference.aspose.com/slides/nl/cpp/aspose.slides.util/slideutil/alignshapes/) overloads lijnen ofwel alle vormen uit ofwel geselecteerde collectie‑indexen uit. [ShapesAlignmentType](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shapesalignmenttype/) specificeert de rand, het middellijn‑ of distributiemodus. Stel `alignToSlide` in op `true` om de dia‑randen te gebruiken; stel het in op `false` om de geselecteerde vormen ten opzichte van elkaar uit te lijnen.
 
-Dit voorbeeld lijnt drie vormen uit op de bovenrand van de dia. De geretourneerde vormreferenties worden direct vóór het uitlijnen omgezet naar hun huidige indexen.
+Dit voorbeeld lijnt drie vormen uit langs de bovenrand van de dia. De geretourneerde vormreferenties worden direct vóór uitlijning naar hun huidige indexen geconverteerd.
 
 ```cpp
 #include <DOM/IShapeCollection.h>
@@ -424,17 +535,17 @@ presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Uitlijnen wijzigt posities, niet de z‑order. Relatieve uitlijning vereist normaal gezien ten minste twee vormen, terwijl horizontale of verticale distributie voldoende vormen nodig heeft om de afstand te bepalen. Herbereken de indexen als u de collectie wijzigt vóór het aanroepen van de methode.
+Uitlijning wijzigt posities, niet de z‑order. Relatieve uitlijning vereist normaal gezien minimaal twee vormen, terwijl horizontale of verticale distributie genoeg vormen nodig heeft om de afstand te bepalen. Herbereken indexen als je de collectie wijzigt vóór het aanroepen van de methode.
 
-## **Een Vorm Spiegelen**
+## **Spiegel een vorm**
 
-De [ShapeFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shapeframe/) klasse slaat positie, grootte, horizontale en verticale spiegelinstellingen, en rotatie op. De `FlipH` en `FlipV` waarden gebruiken [NullableBool](https://reference.aspose.com/slides/nl/cpp/aspose.slides/nullablebool/): `True` schakelt het spiegelen in, `False` schakelt het uit, en `NotDefined` behoudt de ongedefinieerde/standaard toestand.
+De [ShapeFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shapeframe/)‑klasse slaat positie, grootte, horizontale en verticale spiegelinstellingen en rotatie op. De waarden `FlipH` en `FlipV` gebruiken [NullableBool](https://reference.aspose.com/slides/nl/cpp/aspose.slides/nullablebool/): `True` activeert de spiegeling, `False` deactiveert deze, en `NotDefined` behoudt de niet‑gespecificeerde/standaardstatus.
 
 De invoerpresentatie hieronder bevat één niet‑gespiegelde vorm.
 
 ![De vorm vóór het spiegelen](shape_to_be_flipped.png)
 
-Het voorbeeld behoudt elke andere frame‑waarde en vervangt alleen de twee spiegelinstellingen. Dit is belangrijk omdat het toewijzen van een nieuw [Frame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/set_frame/) het volledige frame vervangt.
+Het voorbeeld behoudt elke andere frame‑waarde en vervangt alleen de twee spiegelinstellingen. Dit is belangrijk omdat het toewijzen van een nieuwe [Frame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/set_frame/) het volledige frame vervangt.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -466,16 +577,20 @@ De opgeslagen vorm wordt horizontaal en verticaal gespiegeld terwijl positie, gr
 
 ![De vorm na het spiegelen](flipped_shape.png)
 
-## **Veelgestelde Vragen**
+## **FAQ**
 
-**Moet ik een collectie-index gebruiken als vormidentificator?**
+**Moet ik een collectie‑index gebruiken als vorm‑identifier?**
 
-Alleen voor kortstondige verwerking wanneer de collectie niet zal veranderen vóórdat de index wordt gebruikt. Geef de voorkeur aan een gevalideerde `Name`‑ of `AlternativeText`‑conventie voor gemaakte sjablonen, of `OfficeInteropShapeId` voor interop‑werk met dia‑scope.
+Alleen voor kortdurende verwerking wanneer de collectie niet verandert vóórdat de index wordt gebruikt. Geef de voorkeur aan een gevalideerde `Name`‑ of `AlternativeText`‑conventie voor gemaakte sjablonen, of `OfficeInteropShapeId` voor interop‑werk op dia‑niveau.
 
-**Verwijdert het verbergen van een vorm deze uit de Z‑volgorde?**
+**Verwijdert het verbergen van een vorm deze uit de z‑order?**
 
-Nee. Een verborgen vorm blijft in de collectie op dezelfde index. Hij kan worden gevonden, herschikt, bewerkt of weer zichtbaar worden gemaakt.
+Nee. Een verborgen vorm blijft in de collectie op dezelfde index. Hij kan worden gevonden, herschikt, bewerkt of opnieuw zichtbaar worden gemaakt.
 
-**Waarom verscheen een gekloonde vorm voor een andere vorm?**
+**Waarom verscheen een gekloonde vorm vóór een andere vorm?**
 
-`AddClone` voegt de kloon toe aan het einde van de collectie, wat de voorgrond van de Z‑volgorde is. Gebruik `InsertClone` om de initiële index te kiezen of `Reorder` nadat alle vormen zijn toegevoegd.
+`AddClone` voegt de kloon toe aan het einde van de collectie, wat de voorkant van de z‑order is. Gebruik `InsertClone` om een initiële index te kiezen of `Reorder` nadat alle vormen zijn toegevoegd.
+
+**Kan ik een vaste index gebruiken om een preset‑vormaanpassing te identificeren?**
+
+Alleen na het valideren van de exacte preset en collectie‑lay‑out. Geef de voorkeur aan itereren door `IGeometryShape::get_Adjustments` en controleren van `IAdjustValue::get_Type`; gebruik `IAdjustValue::get_Name` als extra informatie wanneer hetzelfde semantische type meer dan één keer voorkomt.

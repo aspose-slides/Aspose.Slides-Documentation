@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 在簡報中管理連接線
+title: 管理 Python 簡報中的連接線
 linktitle: 連接線
 type: docs
 weight: 10
@@ -8,144 +8,110 @@ keywords:
 - 連接線
 - 連接線類型
 - 連接點
-- 連接線
-- 連接線角度
-- 連接圖形
+- 連接線條
+- 連接角度
+- 連接位置
+- 調整點
+- 連接形狀
 - PowerPoint
 - 簡報
 - Python
 - Aspose.Slides
-description: "賦能 Python 應用程式在 PowerPoint 與 OpenDocument 投影片中繪製、連接與自動路由線條——全面掌控直線、彎角與曲線連接線。"
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 中新增、附加、重新路由、調整與檢查直線、彎曲與曲線連接線。"
 ---
-## **簡介**
+## **概觀**
 
-PowerPoint 連接線是一種專門用來連結兩個圖形的線條，當圖形在投影片上移動或重新定位時，連接線會保持附著。連接線會附著在圖形的 **連接點**（綠點）上。當指標靠近連接點時會顯示。某些連接線提供 **調整手柄**（黃點），可讓您修改連接線的位置與形狀。
+連接線是一條在任一形狀移動時仍可保持連接兩個形狀的線。其兩端會連接到連接點，這些連接點在 PowerPoint 中以綠點顯示。某些彎曲和曲線連接線還會顯示調整點，以橙點表示，用於控制各連接線段的位置。
+
+Aspose.Slides 透過 [IConnector](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iconnector/) 介面表示連接線。您可以建立連接線、將兩端連接到形狀、選擇連接點、重新路由，並修改具有調整點的連接線的幾何形狀。
 
 ## **連接線類型**
 
-在 PowerPoint 中，您可以使用三種連接線：直線、彎角（斜角）與曲線。
+[ShapeType](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapetype/) 列舉包含直線、彎曲和曲線連接線預設。下表顯示可用的連接線幾何形狀以及每個預設定義的調整點數量。
 
-Aspose.Slides 支援以下連接線類型：
+| 連接線 | 圖片 | 調整點數量 |
+|---|---|---|
+| `ShapeType.LINE` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.STRAIGHT_CONNECTOR1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BENT_CONNECTOR2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BENT_CONNECTOR3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BENT_CONNECTOR4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BENT_CONNECTOR5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CURVED_CONNECTOR2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CURVED_CONNECTOR3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CURVED_CONNECTOR4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CURVED_CONNECTOR5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| 連接線類型                     | 圖片                                                         | 調整點數量 |
-| ------------------------------ | ------------------------------------------------------------ | ---------- |
-| `ShapeType.LINE`               | ![直線連接線](shapetype-lineconnector.png)                 | 0          |
-| `ShapeType.STRAIGHT_CONNECTOR1`| ![直線連接線 1](shapetype-straightconnector1.png)           | 0          |
-| `ShapeType.BENT_CONNECTOR2`    | ![彎曲連接線 2](shapetype-bent-connector2.png)              | 0          |
-| `ShapeType.BENT_CONNECTOR3`    | ![彎曲連接線 3](shapetype-bentconnector3.png)               | 1          |
-| `ShapeType.BENT_CONNECTOR4`    | ![彎曲連接線 4](shapetype-bentconnector4.png)               | 2          |
-| `ShapeType.BENT_CONNECTOR5`    | ![彎曲連接線 5](shapetype-bentconnector5.png)               | 3          |
-| `ShapeType.CURVED_CONNECTOR2`  | ![曲線連接線 2](shapetype-curvedconnector2.png)             | 0          |
-| `ShapeType.CURVED_CONNECTOR3`  | ![曲線連接線 3](shapetype-curvedconnector3.png)             | 1          |
-| `ShapeType.CURVED_CONNECTOR4`  | ![曲線連接線 4](shapetype-curvedconnector4.png)             | 2          |
-| `ShapeType.CURVED_CONNECTOR5`  | ![曲線連接線 5](shapetype.curvedconnector5.png)             | 3          |
+調整點的數量與意義屬於所選連接線預設的一部份。不要假設兩種不同的連接線類型會暴露相同的集合布局。
 
-## **以連接線連結圖形**
+## **將兩個形狀連接起來**
 
-本節示範如何在 Aspose.Slides 中使用連接線連結圖形。您將在投影片中加入連接線，並將其起點與終點附著到目標圖形。使用連接點可確保即使圖形移動或調整大小，連接線仍保持「黏貼」狀態。
+使用 [IShapeCollection.add_connector](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ishapecollection/add_connector/) 新增連接線，並指定其 [start_shape_connected_to](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iconnector/start_shape_connected_to/) 與 [end_shape_connected_to](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iconnector/end_shape_connected_to/) 屬性。兩端都連接後，呼叫 [IConnector.reroute](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iconnector/reroute/) 會在形狀之間選擇最短路徑。
 
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的執行個體。  
-1. 依索引取得投影片的參考。  
-1. 使用 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/) 物件的 `add_auto_shape` 方法，將兩個 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/) 加入投影片。  
-1. 透過 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/) 物件的 `add_connector` 方法新增連接線，並指定連接線類型。  
-1. 用連接線連結兩個圖形。  
-1. 呼叫 `reroute` 方法以套用最短的連接路徑。  
-1. 儲存投影片。
-
-以下 Python 程式碼示範如何在兩個圖形（橢圓與矩形）之間加入彎曲連接線：
+以下範例使用彎曲連接線將橢圓與矩形連接：
 
 ```python
 import aspose.slides as slides
 
-# 初始化 Presentation 類別以建立 PPTX 檔案。
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # 取得第一張投影片的 shapes 集合。
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-    # 新增橢圓 AutoShape。
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # 新增矩形 AutoShape。
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # 在投影片上新增連接線。
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
-
-    # 使用連接線將圖形連接起來。
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
-
-    # 呼叫 reroute 設定最短路徑。
     connector.reroute()
 
-    # 儲存簡報。
-    presentation.save("connected_shapes.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("connected-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-`connector.reroute` 方法會重新導向連接線，強制其在圖形之間走最短路徑。為此，該方法可能會變更 `start_shape_connection_site_index` 與 `end_shape_connection_site_index` 的值。  
+{{% alert color="warning" title="警告" %}}
+呼叫 `reroute` 可能會變更 [start_shape_connection_site_index](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iconnector/start_shape_connection_site_index/) 與 [end_shape_connection_site_index](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iconnector/end_shape_connection_site_index/) 的值。若必須固定這些連接點，請在重新路由後再指定具體的連接點。
 {{% /alert %}}
 
-## **指定連接點**
+## **選擇連接點**
 
-本節說明如何在 Aspose.Slides 中將連接線附著到圖形的特定連接點。透過精準指定連接點，您可以控制連接線的路徑與版面配置，讓簡報中的圖表保持整潔且可預測。
+每個可連接的形狀會透過 [connection_site_count](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/igeometryshape/connection_site_count/) 報告其連接點數量。在指派給連接線端點之前，先驗證所選的零基索引；不同形狀的幾何會導致連接點數量不同。
 
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的執行個體。  
-1. 依索引取得投影片的參考。  
-1. 使用 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/) 物件的 `add_auto_shape` 方法，將兩個 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/) 加入投影片。  
-1. 透過 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapecollection/) 物件的 `add_connector` 方法新增連接線，並指定連接線類型。  
-1. 用連接線連結兩個圖形。  
-1. 在圖形上設定您偏好的連接點。  
-1. 儲存投影片。
-
-以下 Python 程式碼示範如何指定首選的連接點：
+此範例在橢圓上存在的特定連接點上附加連接線：
 
 ```python
 import aspose.slides as slides
 
-# 初始化 Presentation 類別以建立 PPTX 檔案。
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # 取得第一張投影片的 shapes 集合。
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
 
-    # 新增橢圓 AutoShape。
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # 新增矩形 AutoShape。
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # 在投影片的 shape 集合中新增連接線。
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
-
-    # 使用連接線將圖形連接起來。
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
 
-    # 設定橢圓的首選連接點索引。
-    site_index = 6
+    preferred_site_index = 2
+    if preferred_site_index < ellipse.connection_site_count:
+        connector.start_shape_connection_site_index = preferred_site_index
+    else:
+        print(f"The ellipse has only {ellipse.connection_site_count} connection sites.")
 
-    # 檢查首選索引是否在可用的連接點數量內。
-    if  ellipse.connection_site_count > site_index:
-        # 指定橢圓 AutoShape 上的首選連接點。
-        connector.start_shape_connection_site_index = site_index
-
-    # 儲存簡報。
-    presentation.save("connection_points.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("specific-connection-site.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **調整連接點**
 
-您可以使用調整點來修改連接線。僅有公開調整點的連接線才能以此方式編輯。欲了解哪些連接線支援調整，請參考 [連接線類型](/slides/zh-hant/python-net/connector/#connector-types) 表格。
+具有調整點的連接線會透過 [IGeometryShape.adjustments](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/igeometryshape/adjustments/) 暴露。檢查每個 [IAdjustValue](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iadjustvalue/) 並在變更其 [raw_value](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iadjustvalue/raw_value/) 前先確認其 [type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iadjustvalue/type/)。有關一般形狀操作，請參閱 [Shape Manipulation](/slides/zh-hant/python-net/shape-manipulations/)。
 
-### **簡單案例**
+調整點的數量、順序、意義與有效值範圍取決於連接線預設。`type` 屬性為唯讀，調整值則可寫。唯讀的 [name](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iadjustvalue/name/) 屬性在同一語意類型出現多次時提供額外辨識。
 
-考慮一條連接兩個圖形（A 與 B）的連接線與第三個圖形（C）相交的情況：
+### **繞過障礙物**
 
-![連接線阻礙](connector-obstruction.png)
+在下圖中，`ShapeType.BENT_CONNECTOR5` 連接線在兩個形狀之間穿過第三個形狀：
 
-程式碼範例：
+![connector-obstruction](connector-obstruction.png)
+
+以下程式碼建立受阻的連接線：
 
 ```python
 import aspose.slides as slides
@@ -154,238 +120,326 @@ import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
-    
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
     connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
-    
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
-    
-    connector.start_shape_connected_to = shape_from
-    connector.end_shape_connected_to = shape_to
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
     connector.start_shape_connection_site_index = 2
+
+    presentation.save("connector-obstruction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-為避免與第三個圖形相交，將連接線的垂直段向左移動即可：
+移動垂直彎曲點會改變路徑，使連接線繞過障礙物：
 
-![已修正的連接線阻礙](connector-obstruction-fixed.png)
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```python
-    adjustment2 = connector.adjustments[1]
-    adjustment2.raw_value += 10000
-```
-
-### **複雜案例** 
-
-對於較高階的調整，請參考以下說明：
-
-- 連接線的可調整點受一個公式控制，決定其位置。變更此點會改變整條連接線的形狀。  
-- 連接線的調整點以嚴格排序的陣列儲存，從起點到終點依序編號。  
-- 調整點值代表連接線形狀寬度/高度的百分比。  
-  - 該形狀由連接線的起點與終點界定，並以 1000 為基準縮放。  
-  - 第一、二、三個調整點分別代表：寬度百分比、高度百分比、再次的寬度百分比。  
-- 計算調整點座標時，需考慮連接線的旋轉與翻轉。**注意：**對於所有列於 [連接線類型](/slides/zh-hant/python-net/connector/#connector-types) 的連接線，旋轉角度皆為 0。
-
-#### **案例 1**
-
-考慮兩個文字框物件以連接線相連的情形：
-
-![已連結的圖形](connector-shape-complex.png)
-
-程式碼範例：
+此範例不假設集合索引 `1` 必定代表垂直彎曲點，而是搜尋 `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`，僅在語意類型符合時才變更：
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# 建立 Presentation 類別以建立 PPTX 檔案。
 with slides.Presentation() as presentation:
-
-    # 取得第一張投影片。
     slide = presentation.slides[0]
 
-    # 取得第一張投影片。
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
-    shape_from.text_frame.text = "From"
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
-    shape_to.text_frame.text = "To"
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
 
-    # 新增連接線。
-    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
-    # 設定連接線的方向。
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
-    # 設定連接線的顏色。
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
+    connector.start_shape_connection_site_index = 2
+
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+            break
+
+    if vertical_bend is None:
+        print("The connector does not expose a vertical bend adjustment.")
+    else:
+        vertical_bend.raw_value = 60000
+        presentation.save("connector-obstruction-fixed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+`ShapeType.BENT_CONNECTOR5` 具有兩個 `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` 調整點與一個 `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` 調整點。若需要的類型出現多次，請檢查 `name` 並依據已知的幾何預設選擇。若調整點回報 [ShapeAdjustmentType.CUSTOM](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shapeadjustmenttype/)，視其意義與範圍為預設特有，且在未了解合約前不要變更。
+
+## **將調整值對應至連接線幾何**
+
+對於彎曲連接線，調整值可用來估算各段的座標。以下計算皆針對特定連接線預設：
+
+- `ShapeType.BENT_CONNECTOR4` 通常暴露一個 `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` 與一個 `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` 調整點。
+- 對於這些彎曲位置，`raw_value / 100000` 產生相對於連接線框寬或高的比例。
+- 連接線框可能被旋轉或翻轉，故在與投影片座標比較前必須先轉換框座標。
+
+以下範例先使用 `type` 辨識調整點，並不以集合索引作為可移植的辨識子。
+
+### **未旋轉的連接線**
+
+初始版面包含兩個文字形狀，由 `ShapeType.BENT_CONNECTOR4` 連接：
+
+![connector-shape-complex](connector-shape-complex.png)
+
+此範例檢查連接線並取得水平與垂直彎曲的調整點：
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    target_shape.text_frame.text = "To"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.crimson
-    # 設定連接線的線寬。
     connector.line_format.width = 3
-
-    # 使用連接線將圖形連結。
-    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 3
-    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 2
 
-    # 取得連接線的調整點。
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
 ```
 
-**調整**
-
-將連接線的調整點值分別將寬度百分比提升 20%，高度百分比提升 200%：
+若要同時變更兩個彎曲，先找到每個預期的類型，確保兩者皆被找到後再修改其值：
 
 ```python
-    # 變更調整點的值。
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+        presentation.save("connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果：
+結果是水平與垂直段都已移動的連接線：
 
-![連接線調整 1](connector-adjusted-1.png)
+![connector-adjusted-1](connector-adjusted-1.png)
 
-為了建立一個模型，使我們能夠算出連接線各段的座標與形狀，請建立一個對應於 `connector.adjustments[0]` 的垂直元件的圖形：
+一旦得知語意類型，即可將其值轉換為連接線框座標。此範例在由兩個彎曲調整點控制的垂直段上繪製一個細長矩形：
 
 ```python
-    # 繪製連接線的垂直組件。
-    x = connector.x + connector.width * adjustment_0.raw_value / 100000
-    y = connector.y
-    height = connector.height * adjustment_1.raw_value / 100000
+import aspose.slides as slides
 
-    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        x = connector.x + connector.width * horizontal_bend.raw_value / 100000
+        y = connector.y
+        height = connector.height * vertical_bend.raw_value / 100000
+        slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 1, height)
+        presentation.save("connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果：
+指示形狀標示出計算後的段落：
 
-![連接線調整 2](connector-adjusted-2.png)
+![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **案例 2**
+### **旋轉或翻轉的連接線**
 
-在 **案例 1** 中，我們示範了使用基本原理進行簡單的連接線調整。實際情況下，必須同時考慮連接線的旋轉與顯示設定（由 `connector.rotation`、`connector.frame.flip_h`、`connector.frame.flip_v` 控制）。以下說明其運作方式。
+當相同的連接線幾何垂直排列時，其 [frame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iconnector/frame/)、[flip_h](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ishapeframe/flip_h/) 與 [flip_v](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ishapeframe/flip_v/) 會影響從連接線框座標到投影片座標的轉換。
 
-首先，於投影片上新增一個文字框物件（**To 1**）作為連接點，並建立一條新的綠色連接線將其與既有物件相連：
+此範例建立並調整垂直方向的連接線：
 
 ```python
-    # 建立新的目標物件。
-    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
-    shape_to_1.text_frame.text = "To 1"
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    # 建立新的連接線。
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    target_shape.text_frame.text = "To 1"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
-
-    # 使用新建立的連接線連接物件。
-    connector.start_shape_connected_to = shapeFrom
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 2
-    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 3
 
-    # 取得連接線的調整點。
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
-    
-    # 變更調整點的值。
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            adjustment.raw_value += 20000
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            adjustment.raw_value += 200000
+
+    presentation.save("vertical-connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果：
+調整後的連接線垂直顯示於兩個形狀之間：
 
-![連接線調整 3](connector-adjusted-3.png)
+![connector-adjusted-3](connector-adjusted-3.png)
 
-其次，建立一個圖形對應於通過新連接線調整點 `connector.adjustments[0]` 的 **水平** 段。使用 `connector.rotation`、`connector.frame.flip_h`、`connector.frame.flip_v` 的值，套用繞固定點 `x0` 旋轉的座標轉換公式：
+對於任意旋轉角度 `alpha`，將連接線框點 `(x, y)` 圍繞框中心 `(x0, y0)` 旋轉：
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-在本例中，物件的旋轉角度為 90 度，且連接線以垂直方式顯示，對應的程式碼如下：
-
-```python
-    # 儲存連接線座標。
-    x = connector.x
-    y = connector.y
-    
-    # 如果連接線被翻轉，修正其座標。
-    if connector.frame.flip_h == 1:
-        x += connector.width
-    if connector.frame.flip_v == 1:
-        y += connector.height
-
-    # 使用調整點的值作為座標。
-    x += connector.width * adjValue_0.raw_value / 100000
-    
-    # 轉換座標，因為 sin(90°) = 1 且 cos(90°) = 0。
-    xx = connector.frame.center_x - y + connector.frame.center_y
-    yy = x - connector.frame.center_x + connector.frame.center_y
-
-    # 使用第二個調整點的值決定水平段的寬度。
-    width = connector.height * adjValue_1.raw_value / 100000
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-```
-
-結果：
-
-![連接線調整 4](connector-adjusted-4.png)
-
-我們示範了涉及簡單調整與更複雜（考慮旋轉）的調整點計算。掌握此知識後，您可以自行開發模型，或編寫程式碼取得 `GraphicsPath` 物件，甚至根據特定投影片座標設定連接線的調整點值。
-
-## **取得連接線角度**
-
-使用以下範例可在 Aspose.Slides 中求得投影片上連接線的角度。您將學會讀取連接線的端點並計算其方向，從而精確對齊箭頭、標籤與其他圖形。
-
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別的執行個體。  
-1. 依索引取得投影片的參考。  
-1. 取得連接線形狀。  
-1. 使用線條的寬度與高度，以及圖形框架的寬度與高度，計算角度。
-
-以下 Python 程式碼示範如何計算連接線形狀的角度：
+以下程式碼處理本例中使用的 90° 方向，並在相應的連接線段上繪製紅色指示：
 
 ```python
 import aspose.slides as slides
-import math
+import aspose.pydrawing as draw
 
-def get_direction(w, h, flip_h, flip_v):
-    end_line_x = w * (-1 if flip_h else 1)
-    end_line_y = h * (-1 if flip_v else 1)
-    end_y_axis_x = 0
-    end_y_axis_y = h
-    angle = math.atan2(end_y_axis_y, end_y_axis_x) - math.atan2(end_line_y, end_line_x)
-    if (angle < 0):
-         angle += 2 * math.pi
-    return angle * 180.0 / math.pi
-
-with slides.Presentation("connector_line_angle.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    for shape_index in range(len(slide.shapes)):
-        direction = 0.0
-        shape = slide.shapes[shape_index]
-        if type(shape) is slides.AutoShape and shape.shape_type == slides.ShapeType.LINE:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        elif type(shape) is slides.Connector:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        print(direction)
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 2
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 3
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+
+        x = connector.x
+        y = connector.y
+        if connector.frame.flip_h == slides.NullableBool.TRUE:
+            x += connector.width
+        if connector.frame.flip_v == slides.NullableBool.TRUE:
+            y += connector.height
+
+        x += connector.width * horizontal_bend.raw_value / 100000
+        rotated_x = connector.frame.center_x - y + connector.frame.center_y
+        rotated_y = x - connector.frame.center_x + connector.frame.center_y
+        segment_width = connector.height * vertical_bend.raw_value / 100000
+        guide = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, rotated_x, rotated_y, segment_width, 1)
+        guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+        guide.line_format.fill_format.solid_fill_color.color = draw.Color.red
+
+        presentation.save("rotated-connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
+```
+
+紅色指示標示出座標轉換後計算的段落：
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+這些公式描述的是範例所用的預設，而非通用的連接線模型。套用相同計算於其他預設前，請先驗證調整類型、框方向與值範圍。
+
+## **取得連接線方向角度**
+
+直線連接線的方向可由其寬度與高度計算，並考慮水平與垂直翻轉。以下範例回報投影片座標系中正水平軸的順時針角度：
+
+```python
+import math
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 100, 100, 200, 100)
+
+    flip_h = connector.frame.flip_h == slides.NullableBool.TRUE
+    flip_v = connector.frame.flip_v == slides.NullableBool.TRUE
+    delta_x = connector.width * (-1 if flip_h else 1)
+    delta_y = connector.height * (-1 if flip_v else 1)
+    angle = math.atan2(delta_y, delta_x) * 180.0 / math.pi
+
+    if angle < 0:
+        angle += 360
+
+    print(f"Connector direction: {angle:.2f} degrees")
 ```
 
 ## **常見問題**
 
-**如何判斷連接線是否能「黏貼」到特定圖形？**
+**如何判斷連接線是否能附著於形狀？**
 
-請檢查該圖形是否公開 [connection sites](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/connection_site_count/)。如果沒有或計數為零，則無法黏貼；此時請使用自由端點並手動定位。建議在附著前先檢查 site 數量。
+檢查形狀的 [connection_site_count](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/igeometryshape/connection_site_count/)。正值表示形狀提供連接點。指派給任一連接線端之前，先驗證所選的站點索引。
 
-**若我刪除其中一個已連接的圖形，連接線會怎樣？**
+**我能以集合索引辨識連接線調整點嗎？**
 
-其兩端會被分離，連接線會以普通線段的形式留在投影片上，擁有自由的起點與終點。您可以自行刪除，或重新指派連接，必要時再呼叫 [reroute](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/connector/reroute/)。
+索引僅在已知的連接線預設與集合布局下才有意義。修改值前先檢查 [IAdjustValue.type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iadjustvalue/type/)，若同一語意類型出現多次，請使用 [IAdjustValue.name](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/iadjustvalue/name/) 作為補充資訊。
 
-**在將投影片複製到另一個簡報時，連接線的綁定會被保留嗎？**
+**當所連接的形狀被刪除時會發生什麼？**
 
-通常會保留，前提是目標圖形也一併被複製。如果投影片被插入到未包含連接圖形的檔案中，端點會變為自由狀態，需要重新附著。
+相應的連接線端會變為未附著狀態。連接線仍保留在投影片上，您可以刪除、作為自由線定位，或重新附著到其他形狀。
+
+**複製投影片時會保留連接線的綁定嗎？**
+
+一般情況下，當連接的形狀與投影片一起被複製時，綁定會保留。如果僅複製了連接線而未複製其目標形狀，則必須重新附著受影響的端點。

@@ -1,385 +1,517 @@
 ---
-title: จัดการคอนเนคเตอร์ในพรีเซนเทชันด้วย .NET
+title: จัดการคอนเนคเตอร์ในงานนำเสนอด้วย .NET
 linktitle: คอนเนคเตอร์
 type: docs
 weight: 10
 url: /th/net/connector/
 keywords:
 - คอนเนคเตอร์
-- ประเภทคอนเนคเตอร์
+- ชนิดคอนเนคเตอร์
 - จุดคอนเนคเตอร์
 - เส้นคอนเนคเตอร์
 - มุมคอนเนคเตอร์
-- เชื่อมต่อรูปทรง
+- จุดเชื่อมต่อ
+- จุดปรับค่า
+- เชื่อมต่อรูปร่าง
 - PowerPoint
-- พรีเซนเทชัน
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ช่วยให้แอป .NET สามารถวาด, เชื่อมต่อและกำหนดเส้นทางอัตโนมัติของเส้นในสไลด์ PowerPoint — ควบคุมคอนเนคเตอร์แบบตรง, แบบหัวศอก และแบบโค้งได้อย่างเต็มที่"
+description: "เรียนรู้วิธีเพิ่ม, แนบ, ปรับเส้นทางใหม่, ปรับค่า, และตรวจสอบคอนเนคเตอร์ PowerPoint แบบตรง, หยัก, และโค้งด้วย Aspose.Slides สำหรับ .NET."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-คอนเนคเตอร์ใน PowerPoint คือเส้นพิเศษที่เชื่อมต่อหรือเชื่อมโยงรูปทรงสองรูปเข้าด้วยกันและยังคงติดกับรูปทรงแม้เมื่อรูปทรงเหล่านั้นถูกย้ายหรือเปลี่ยนตำแหน่งบนสไลด์ที่กำหนด  
+คอนเนคเตอร์คือเส้นที่สามารถยึดติดกับรูปร่างสองรูปเมื่อรูปร่างใดรูปร่างหนึ่งเคลื่อนที่ จุดเชื่อมต่อปลายของคอนเนคเตอร์ต่อกับตำแหน่งการเชื่อมต่อที่แสดงด้วยจุดสีเขียวใน PowerPoint คอนเนคเตอร์ที่หยักและโค้งบางประเภทยังมีจุดปรับค่าแสดงด้วยจุดสีส้ม ซึ่งควบคุมตำแหน่งของส่วนย่อยของคอนเนคเตอร์แต่ละส่วน.
 
-คอนเนคเตอร์โดยทั่วไปจะเชื่อมต่อกับ *จุดเชื่อมต่อ* (จุดสีเขียว) ซึ่งมีอยู่บนรูปทรงทั้งหมดโดยค่าเริ่มต้น จุดเชื่อมต่อจะปรากฏเมื่อเคอร์เซอร์เข้าใกล้  
+Aspose.Slides แสดงคอนเนคเตอร์ผ่านอินเตอร์เฟซ [IConnector](https://reference.aspose.com/slides/th/net/aspose.slides/iconnector/) คุณสามารถสร้างคอนเนคเตอร์เหล่านี้ แนบปลายของมันกับรูปร่าง เลือกตำแหน่งการเชื่อมต่อ ปรับเส้นทางใหม่ และแก้ไขเรขาคณิตของคอนเนคเตอร์ที่มีจุดปรับค่าได้.
 
-* จุดปรับแต่ง* (จุดสีส้ม) ซึ่งมีเฉพาะบนคอนเนคเตอร์บางประเภท ใช้เพื่อปรับตำแหน่งและรูปร่างของคอนเนคเตอร์  
+## **ประเภทคอนเนคเตอร์**
 
-## **ประเภทของคอนเนคเตอร์**
+Enumeration [ShapeType](https://reference.aspose.com/slides/th/net/aspose.slides/shapetype/) มีพรีเซ็ตคอนเนคเตอร์แบบตรง, หยัก, และโค้ง ตารางต่อไปนี้แสดงเรขาคณิตของคอนเนคเตอร์ที่มีให้และจำนวนจุดปรับค่าที่กำหนดโดยแต่ละพรีเซ็ต.
 
-ใน PowerPoint คุณสามารถใช้คอนเนคเตอร์สายตรง, คอนเนคเตอร์แบบหัวศอก (มุม), และคอนเนคเตอร์โค้ง  
+| คอนเนคเตอร์ | รูปภาพ | จำนวนจุดปรับค่า |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides มีคอนเนคเตอร์เหล่านี้:
+จำนวนและความหมายของจุดปรับค่าคือส่วนหนึ่งของพรีเซ็ตคอนเนคเตอร์ที่เลือก อย่าสันนิษฐานว่าชนิดคอนเนคเตอร์สองแบบจะแสดงโครงสร้างคอลเลกชันเดียวกัน.
 
-| คอนเนคเตอร์ | รูปภาพ | จำนวนจุดปรับแต่ง |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **เชื่อมโยงรูปร่างสองรูป**
 
-## **เชื่อมต่อรูปทรงด้วยคอนเนคเตอร์**
+ใช้ [IShapeCollection.AddConnector](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addconnector/) เพื่อเพิ่มคอนเนคเตอร์และกำหนดคุณสมบัติ [StartShapeConnectedTo](https://reference.aspose.com/slides/th/net/aspose.slides/connector/startshapeconnectedto/) และ [EndShapeConnectedTo](https://reference.aspose.com/slides/th/net/aspose.slides/connector/endshapeconnectedto/) ของมัน หลังจากที่ปลายทั้งสองถูกเชื่อมต่อแล้ว [IConnector.Reroute](https://reference.aspose.com/slides/th/net/aspose.slides/iconnector/reroute/) จะเลือกเส้นทางสั้นระหว่างรูปร่าง.
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-1. เพิ่มสองรูปแบบ [AutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/autoshape/) ลงในสไลด์โดยใช้เมธอด `AddAutoShape` ที่เปิดให้บริการโดยอ็อบเจ็กต์ `Shapes`  
-1. เพิ่มคอนเนคเตอร์โดยใช้เมธอด `AddConnector` ที่เปิดให้บริการโดยอ็อบเจ็กต์ `Shapes` โดยกำหนดประเภทของคอนเนคเตอร์  
-1. เชื่อมต่อรูปทรงด้วยคอนเนคเตอร์  
-1. เรียกเมธอด `Reroute` เพื่อใช้เส้นทางการเชื่อมที่สั้นที่สุด  
-1. บันทึกพรีเซนเทชัน  
+ตัวอย่างต่อไปนี้เชื่อมต่อรูปวงรีและสี่เหลี่ยมผืนผ้าด้วยคอนเนคเตอร์แบบหยัก:
 
-โค้ด C# นี้แสดงวิธีเพิ่มคอนเนคเตอร์ (คอนเนคเตอร์แบบงอ) ระหว่างรูปทรงสองรูป (วงรีและสี่เหลี่ยม):
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// สร้างอินสแตนซ์ของคลาสพรีเซนเทชันที่เป็นไฟล์ PPTX
-using (Presentation input = new Presentation())
-{                
-    // เข้าถึงคอลเลกชันของรูปทรงสำหรับสไลด์ที่ระบุ
-    IShapeCollection shapes = input.Slides[0].Shapes;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // เพิ่มออโตชิพรูปวงรี
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // เพิ่มออโตชิพรูปสี่เหลี่ยม
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // เพิ่มรูปคอนเนคเตอร์ไปยังคอลเลกชันรูปทรงของสไลด์
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // เชื่อมต่อรูปทรงโดยใช้คอนเนคเตอร์
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // เรียกเมธอด reroute เพื่อกำหนดเส้นทางอัตโนมัติที่สั้นที่สุดระหว่างรูปทรง
-    connector.Reroute();
-
-    // บันทึกพรีเซนเทชัน
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`เมธอด Connector.Reroute` จะทำการเปลี่ยนเส้นทางของคอนเนคเตอร์และบังคับให้มันเดินตามเส้นทางที่สั้นที่สุดระหว่างรูปทรง เพื่อให้บรรลุเป้าหมาย เมธอดอาจเปลี่ยนค่าจุด `StartShapeConnectionSiteIndex` และ `EndShapeConnectionSiteIndex` 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
+การเรียก `Reroute` อาจทำให้ค่า [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/th/net/aspose.slides/connector/startshapeconnectionsiteindex/) และ [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/th/net/aspose.slides/connector/endshapeconnectionsiteindex/) เปลี่ยนแปลง ให้กำหนดตำแหน่งการเชื่อมต่อเฉพาะหลังจากปรับเส้นทางใหม่ หากตำแหน่งเหล่านั้นต้องคงที่.
+{{% /alert %}}
 
-## **ระบุจุดเชื่อมต่อ**
+## **เลือกตำแหน่งการเชื่อมต่อ**
 
-หากคุณต้องการให้คอนเนคเตอร์เชื่อมสองรูปทรงโดยใช้จุดเฉพาะบนรูปทรง คุณต้องระบุจุดเชื่อมต่อที่ต้องการดังนี้:
+แต่ละรูปร่างที่สามารถเชื่อมต่อได้รายงานจำนวนตำแหน่งผ่าน [ConnectionSiteCount](https://reference.aspose.com/slides/th/net/aspose.slides/shape/connectionsitecount/). ตรวจสอบดัชนีตำแหน่งฐานศูนย์ที่ต้องการก่อนกำหนดให้กับปลายคอนเนคเตอร์; จำนวนตำแหน่งจะแตกต่างกันตามเรขาคณิตของรูปร่าง.
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-1. เพิ่มสองรูปแบบ [AutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/autoshape/) ลงในสไลด์โดยใช้เมธอด `AddAutoShape` ที่เปิดให้บริการโดยอ็อบเจ็กต์ `Shapes`  
-1. เพิ่มคอนเนคเตอร์โดยใช้เมธอด `AddConnector` ที่เปิดให้บริการโดยอ็อบเจ็กต์ `Shapes` โดยกำหนดประเภทของคอนเนคเตอร์  
-1. เชื่อมต่อรูปทรงด้วยคอนเนคเตอร์  
-1. ตั้งค่าจุดเชื่อมต่อที่ต้องการบนรูปทรง  
-1. บันทึกพรีเซนเทชัน  
+ตัวอย่างนี้แนบคอนเนคเตอร์ไปยังตำแหน่งเฉพาะบนรูปวงรีเมื่อมีตำแหน่งนั้นอยู่:
 
-โค้ด C# นี้สาธิตการระบุจุดเชื่อมต่อที่ต้องการ:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// สร้างอินสแตนซ์ของคลาสพรีเซนเทชันที่เป็นไฟล์ PPTX
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // เข้าถึงคอลเลกชันของรูปทรงสำหรับสไลด์ที่ระบุ
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // เพิ่มรูปคอนเนคเตอร์ไปยังคอลเลกชันรูปทรงของสไลด์
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // เพิ่มออโตชิพรูปวงรี
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // เพิ่มออโตชิพรูปสี่เหลี่ยม
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // เชื่อมต่อรูปทรงโดยใช้คอนเนคเตอร์
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // ตั้งค่าดัชนีจุดเชื่อมต่อที่ต้องการบนรูปวงรี
-    uint wantedIndex = 6;
-
-    // ตรวจสอบว่าดัชนีที่ต้องการน้อยกว่าจำนวนจุดเชื่อมต่อสูงสุดหรือไม่
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // ตั้งค่าจุดเชื่อมต่อที่ต้องการบนออโตชิพรูปวงรี
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // บันทึกพรีเซนเทชัน
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
 ## **ปรับจุดคอนเนคเตอร์**
 
-คุณสามารถปรับคอนเนคเตอร์ที่มีอยู่ได้ผ่านจุดปรับแต่งของมัน คอนเนคเตอร์ที่มีจุดปรับแต่งเท่านั้นที่สามารถแก้ไขได้ในลักษณะนี้ ดูตารางภายใต้ **[ประเภทของคอนเนคเตอร์.](/slides/th/net/connector/#types-of-connectors)**  
+คอนเนคเตอร์ที่มีจุดปรับค่าสามารถเข้าถึงได้ผ่าน [IGeometryShape.Adjustments](https://reference.aspose.com/slides/th/net/aspose.slides/igeometryshape/adjustments/). ตรวจสอบทุก [IAdjustValue](https://reference.aspose.com/slides/th/net/aspose.slides/iadjustvalue/) และเช็ก [Type](https://reference.aspose.com/slides/th/net/aspose.slides/adjustvalue/type/) ก่อนเปลี่ยนค่า [RawValue](https://reference.aspose.com/slides/th/net/aspose.slides/adjustvalue/rawvalue/). กฎทั่วไปสำหรับการระบุการปรับรูปพรีเซ็ตอธิบายไว้ใน [Shape Manipulation](/slides/th/net/shape-manipulations/).
 
-### **กรณีง่าย**
+จำนวน ลำดับ ความหมาย และช่วงค่าที่ถูกต้องของการปรับค่าคอนเนคเตอร์ขึ้นอยู่กับพรีเซ็ตคอนเนคเตอร์. คุณสมบัติ `Type` เป็นแบบอ่านอย่างเดียว ส่วนค่าการปรับสามารถเขียนได้. คุณสมบัติอ่านอย่างเดียว [Name](https://reference.aspose.com/slides/th/net/aspose.slides/adjustvalue/name/) ให้การระบุเพิ่มเติมเมื่อคอนเนคเตอร์มีการปรับค่ามากกว่าหนึ่งรายการที่มีประเภทเชิงความหมายเดียวกัน.
 
-พิจารณากรณีที่คอนเนคเตอร์ระหว่างรูปทรงสองรูป (A และ B) ผ่านรูปทรงที่สาม (C):
+### **เส้นทางหลีกเลี่ยงอุปสรรค**
+
+ในรูปแบบต่อไปนี้ คอนเนคเตอร์ `BentConnector5` ระหว่างสองรูปร่างจะผ่านรูปร่างที่สาม:
 
 ![connector-obstruction](connector-obstruction.png)
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+โค้ดนี้สร้างคอนเนคเตอร์ที่ถูกบัง:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-เพื่อหลีกเลี่ยงหรือข้ามรูปทรงที่สาม เราสามารถปรับคอนเนคเตอร์โดยย้ายเส้นแนวตั้งไปด้านซ้ายดังนี้:
+การย้ายการงอแบบแนวตั้งทำให้เส้นทางเปลี่ยนไปเพื่อให้คอนเนคเตอร์หลบอุปสรรค:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+แทนที่จะสันนิษฐานว่าดัชนีคอลเลกชัน `1` แสดงการงอแนวตั้งเสมอ ตัวอย่างนี้จะค้นหา `ConnectorBendPositionY` และเปลี่ยนค่าเฉพาะเมื่อพบประเภทเชิงความหมายที่คาดหวัง:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **กรณีซับซ้อน** 
+`BentConnector5` มีการปรับค่า `ConnectorBendPositionX` สองรายการและ `ConnectorBendPositionY` หนึ่งรายการ หากประเภทที่คุณต้องการมีหลายรายการ ให้ตรวจสอบ `Name` และเรขาคณิตที่รู้ของพรีเซ็ตก่อนเลือกหนึ่งรายการ หากการปรับค่ารายงานเป็น `ShapeAdjustmentType.Custom` ให้ถือความหมายและช่วงค่าตามพรีเซ็ตนั้นและอย่าเปลี่ยนจนกว่าจะทราบสัญญานั้น.
 
-เพื่อทำการปรับที่ซับซ้อนมากขึ้น คุณต้องคำนึงถึงสิ่งต่อไปนี้:
+## **เชื่อมโยงค่าการปรับกับเรขาคณิตของคอนเนคเตอร์**
 
-* จุดปรับของคอนเนคเตอร์เชื่อมโยงอย่างใกล้ชิดกับสูตรที่คำนวณและกำหนดตำแหน่งของมัน ดังนั้นการเปลี่ยนแปลงตำแหน่งของจุดอาจทำให้รูปร่างของคอนเนคเตอร์เปลี่ยนแปลง  
-* จุดปรับแต่งของคอนเนคเตอร์ถูกกำหนดในลำดับที่เคร่งครัดในอาร์เรย์ จุดปรับแต่งจะถูกลำดับเลขตั้งแต่จุดเริ่มต้นของคอนเนคเตอร์ไปจนถึงจุดสิ้นสุด  
-* ค่าของจุดปรับแต่งสะท้อนเปอร์เซ็นต์ของความกว้าง/ความสูงของรูปทรงคอนเนคเตอร์  
-  * รูปทรงถูกกำหนดโดยจุดเริ่มต้นและสิ้นสุดของคอนเนคเตอร์ที่คูณด้วย 1000  
-  * จุดแรก, จุดที่สอง, และจุดที่สามกำหนดเปอร์เซ็นต์จากความกว้าง, จากความสูง, และจากความกว้าง (อีกครั้ง) ตามลำดับ  
-* สำหรับการคำนวณที่กำหนดพิกัดของจุดปรับแต่งของคอนเนคเตอร์ คุณต้องคำนึงถึงการหมุนของคอนเนคเตอร์และการสะท้อนของมัน **หมายเหตุ** ว่ามุมการหมุนของคอนเนคเตอร์ทั้งหมดที่แสดงภายใต้ **[ประเภทของคอนเนคเตอร์](/slides/th/net/connector/#types-of-connectors)** คือ 0  
+สำหรับคอนเนคเตอร์แบบหยัก ค่าการปรับสามารถใช้ประมาณตำแหน่งของส่วนย่อยแต่ละส่วน การคำนวณเหล่านี้เฉพาะพรีเซ็ตคอนเนคเตอร์:
 
-#### **กรณีที่ 1**
+- `BentConnector4`โดยทั่วไปจะแสดงการปรับค่า `ConnectorBendPositionX` หนึ่งค่าและ `ConnectorBendPositionY` หนึ่งค่า.
+- สำหรับตำแหน่งการงอนี้ `RawValue / 100000f` ให้ส่วนของความกว้างหรือความสูงของเฟรมคอนเนคเตอร์ที่ใช้ในตัวอย่างต่อไปนี้.
+- เฟรมของคอนเนคเตอร์สามารถหมุนหรือพลิกได้ ดังนั้นพิกัดเฟรมต้องแปลงก่อนจึงจะเปรียบเทียบกับพิกัดสไลด์.
 
-พิจารณากรณีที่ออบเจ็กต์กรอบข้อความสองออบเจ็กต์เชื่อมต่อกันผ่านคอนเนคเตอร์:
+ตัวอย่างต่อไปนี้ใช้ `Type` เพื่อระบุตัวการปรับค่าเป็นอันดับแรก ไม่ได้ใช้ดัชนีคอลเลกชันเป็นตัวระบุตัวตนที่พกพาได้.
+
+### **คอนเนคเตอร์ที่ไม่ได้หมุน**
+
+รูปแบบเริ่มต้นมีรูปร่างข้อความสองรูปที่เชื่อมต่อด้วย `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-```c#
-// สร้างอินสแตนซ์ของคลาสพรีเซนเทชันที่เป็นไฟล์ PPTX
-Presentation pres = new Presentation();
-// ดึงสไลด์แรกในพรีเซนเทชัน
-ISlide sld = pres.Slides[0];
-// เพิ่มรูปทรงที่จะเชื่อมต่อกันผ่านคอนเนคเตอร์
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// เพิ่มคอนเนคเตอร์
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// ระบุทิศทางของคอนเนคเตอร์
+ตัวอย่างนี้ตรวจสอบคอนเนคเตอร์และดึงการปรับค่าองศาแนวนอนและแนวตั้งของการงอ:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// ระบุสีของคอนเนคเตอร์
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// ระบุความหนาของเส้นคอนเนคเตอร์
 connector.LineFormat.Width = 3;
-
-// เชื่อมรูปทรงเข้าด้วยกันด้วยคอนเนคเตอร์
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// ดึงจุดปรับแต่งของคอนเนคเตอร์
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**การปรับ**  
+เพื่อเปลี่ยนการงอทั้งสอง ค้นหาประเภทที่คาดหวังแต่ละประเภทและแก้ไขค่าเฉพาะหลังจากที่พบทั้งสองแล้ว:
 
-เราสามารถเปลี่ยนค่าจุดปรับของคอนเนคเตอร์โดยเพิ่มเปอร์เซ็นต์ความกว้างและความสูงที่สอดคล้องกันโดยเพิ่มขึ้น 20% และ 200% ตามลำดับ:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// เปลี่ยนค่าของจุดปรับแต่ง
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-ผลลัพธ์:
+ผลลัพธ์คือคอนเนคเตอร์ที่ส่วนแนวนอนและแนวตั้งได้เคลื่อนที่:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-เพื่อกำหนดโมเดลที่ให้เราคำนวณพิกัดและรูปร่างของส่วนต่าง ๆ ของคอนเนคเตอร์ ลองสร้างรูปทรงที่สอดคล้องกับส่วนแนวนอนของคอนเนคเตอร์ที่จุด connector.Adjustments[0]:
+เมื่อทราบประเภทเชิงความหมายแล้ว ค่าของมันสามารถแปลงเป็นพิกัดเฟรมคอนเนคเตอร์ได้ ตัวอย่างนี้วาดสี่เหลี่ยมแผ่นบางเหนือส่วนแนวตั้งที่ควบคุมโดยการปรับค่าการงอสองค่า:
 
-```c#
-// วาดส่วนประกอบแนวตั้งของคอนเนคเตอร์
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-ผลลัพธ์:
+รูปร่างไกด์ทำเครื่องหมายส่วนที่คำนวณได้:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **กรณีที่ 2**
+### **คอนเนคเตอร์ที่หมุนหรือพลิก**
 
-ใน **กรณีที่ 1** เราได้สาธิตการปรับคอนเนคเตอร์แบบง่ายโดยใช้หลักพื้นฐาน ในสถานการณ์ปกติคุณต้องคำนึงถึงการหมุนของคอนเนคเตอร์และการแสดงผลของมัน (ซึ่งถูกตั้งค่าโดย connector.Rotation, connector.Frame.FlipH, และ connector.Frame.FlipV) เราจะสาธิตกระบวนการต่อไป  
+เมื่อเรขาคณิตของคอนเนคเตอร์เดียวกันถูกจัดแนวแนวตั้ง ค่า [Frame](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/th/net/aspose.slides/shapeframe/fliph/), และ [FlipV](https://reference.aspose.com/slides/th/net/aspose.slides/shapeframe/flipv/) มีผลต่อการแปลงจากพิกัดเฟรมคอนเนคเตอร์ไปยังพิกัดสไลด์.
 
-ขั้นแรก ให้เพิ่มออบเจ็กต์กรอบข้อความใหม่ (**To 1**) ลงในสไลด์ (เพื่อการเชื่อมต่อ) และสร้างคอนเนคเตอร์ (สีเขียว) ใหม่ที่เชื่อมต่อกับออบเจ็กต์ที่เราสร้างไว้ก่อนหน้า:
+ตัวอย่างนี้สร้างและปรับคอนเนคเตอร์ที่จัดแนวแนวตั้ง:
 
-```c#
-// สร้างอ็อบเจ็กต์ binding ใหม่
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// สร้างคอนเนคเตอร์ใหม่
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// เชื่อมต่ออ็อบเจ็กต์โดยใช้คอนเนคเตอร์ที่สร้างใหม่
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// ดึงจุดปรับแต่งของคอนเนคเตอร์
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// เปลี่ยนค่าของจุดปรับแต่ง 
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-ผลลัพธ์:
+คอนเนคเตอร์ที่ปรับแล้วปรากฏเป็นแนวตั้งระหว่างรูปร่าง:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ต่อมา ให้สร้างรูปทรงที่สอดคล้องกับส่วนแนวนอนของคอนเนคเตอร์ที่ผ่านจุดปรับของคอนเนคเตอร์ใหม่ connector.Adjustments[0] เราจะใช้ค่าจากข้อมูลคอนเนคเตอร์สำหรับ connector.Rotation, connector.Frame.FlipH, และ connector.Frame.FlipV แล้วนำสูตรการแปลงพิกัดสำหรับการหมุนรอบจุด x0 ที่นิยมใช้มาใช้:
+สำหรับมุมการหมุนใด ๆ `alpha` ให้หมุนจุดในเฟรมคอนเนคเตอร์ `(x, y)` รอบศูนย์กลางเฟรม `(x0, y0)` ตามสูตร:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-ในกรณีของเรา มุมการหมุนของออบเจ็กต์คือ 90 องศาและคอนเนคเตอร์แสดงในแนวตั้ง ดังนั้นโค้ดที่สอดคล้องคือ:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```c#
-// บันทึกพิกัดของคอนเนคเตอร์
-x = connector.X;
-y = connector.Y;
-// ปรับแก้พิกัดของคอนเนคเตอร์ในกรณีที่มันแสดง
-if (connector.Frame.FlipH == NullableBool.True)
+โค้ดต่อไปนี้จัดการการวางแนว 90 องศาที่ใช้ในตัวอย่างนี้และวาดไกด์สีแดงเหนือส่วนคอนเนคเตอร์ที่สอดคล้องกัน:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
-{
-    y += connector.Height;
-}
-// นำค่าจุดปรับแต่งเป็นพิกัด
-x += connector.Width * adjValue_0.RawValue / 100000;
-// แปลงพิกัดเนื่องจาก Sin(90) = 1 และ Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// กำหนดความกว้างของส่วนแนวนอนโดยใช้ค่าจุดปรับแต่งที่สอง
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-ผลลัพธ์:
+ไกด์สีแดงทำเครื่องหมายส่วนที่คำนวณหลังจากการแปลงพิกัด:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-เราได้สาธิตการคำนวณที่เกี่ยวกับการปรับอย่างง่ายและจุดปรับที่ซับซ้อน (จุดปรับที่มีมุมการหมุน) ด้วยความรู้ที่ได้คุณสามารถพัฒนาโมเดลของคุณเอง (หรือเขียนโค้ด) เพื่อรับอ็อบเจ็กต์ `GraphicsPath` หรือแม้แต่ตั้งค่าค่าจุดปรับของคอนเนคเตอร์ตามพิกัดสไลด์เฉพาะ  
+สูตรเหล่านี้อธิบายพรีเซ็ตที่ใช้ในตัวอย่าง ไม่ได้เป็นโมเดลคอนเนคเตอร์สากล ตรวจสอบประเภทการปรับ, การจัดแนวของเฟรม, และช่วงค่าก่อนนำการคำนวนเดียวกันไปใช้กับพรีเซ็ตอื่น.
 
-## **ค้นหามุมของเส้นคอนเนคเตอร์**
+## **ค้นหามุมทิศทางของคอนเนคเตอร์**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)  
-1. รับอ้างอิงสไลด์ผ่านดัชนีของมัน  
-1. เข้าถึงรูปทรงเส้นคอนเนคเตอร์  
-1. ใช้ความกว้าง, ความสูง, ความสูงของเฟรมรูปทรง, และความกว้างของเฟรมรูปทรงเพื่อคำนวณมุม  
+ทิศทางของคอนเนคเตอร์แบบตรงสามารถคำนวณจากความกว้างและความสูงของมัน โดยคำนึงถึงการพลิกแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้รายงานมุมตามเข็มน時計จากแกนแนวนอนบวกในพิกัดสไลด์:
 
-โค้ด C# นี้สาธิตการคำนวณมุมสำหรับรูปทรงเส้นคอนเนคเตอร์:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-public static void Run()
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันจะทราบได้อย่างไรว่าคอนเนคเตอร์สามารถ 'ติด' กับรูปทรงเฉพาะได้หรือไม่?**  
-ตรวจสอบว่ารูปทรงเปิดให้ใช้ [จุดเชื่อมต่อ](https://reference.aspose.com/slides/th/net/aspose.slides/shape/connectionsitecount/) หรือไม่ หากไม่มีหรือจำนวนเป็นศูนย์ การติดไม่สามารถทำได้; ในกรณีนั้นให้ใช้จุดสิ้นสุดอิสระและกำหนดตำแหน่งด้วยตนเอง การตรวจสอบจำนวนจุดเชื่อมต่อก่อนทำการเชื่อมถือเป็นสิ่งสมเหตุสมผล  
+**ฉันจะรู้ได้อย่างไรรับว่าคอนเนคเตอร์สามารถแนบกับรูปร่างได้หรือไม่?**
 
-**จะเกิดอะไรขึ้นกับคอนเนคเตอร์หากฉันลบหนึ่งในรูปทรงที่เชื่อมต่อ?**  
-หัวปลายของคอนเนคเตอร์จะถูกแยกออก; คอนเนคเตอร์จะคงอยู่บนสไลด์เป็นเส้นธรรมดาที่มีจุดเริ่มต้น/จบอิสระ คุณสามารถลบมันหรือกำหนดการเชื่อมต่อใหม่และหากต้องการก็สามารถ [เปลี่ยนเส้นทาง](https://reference.aspose.com/slides/th/net/aspose.slides/connector/reroute/) ได้  
+ตรวจสอบ `ConnectionSiteCount` ของรูปร่าง จำนวนบวกหมายถึงรูปร่างมีตำแหน่งเชื่อมต่อ ตรวจสอบดัชนีตำแหน่งที่เลือกก่อนกำหนดให้กับปลายคอนเนคเตอร์ใด ๆ.
 
-**การเชื่อมต่อของคอนเนคเตอร์จะถูกเก็บรักษาไว้เมื่อคัดลอกสไลด์ไปยังพรีเซนเทชันอื่นหรือไม่?**  
-โดยทั่วไปแล้วใช่ หากรูปทรงเป้าหมายถูกคัดลอกไปด้วย หากสไลด์ถูกแทรกเข้าไฟล์อื่นโดยไม่มีรูปทรงที่เชื่อมต่ออยู่ หัวปลายจะกลายเป็นอิสระและคุณจะต้องเชื่อมต่อใหม่  
+**ฉันสามารถระบุการปรับค่าคอนเนคเตอร์ด้วยดัชนีคอลเลกชันได้หรือไม่?**
+
+ดัชนีมีความหมายเฉพาะกับพรีเซ็ตคอนเนคเตอร์และโครงสร้างคอลเลกชันที่รู้เท่านั้น ตรวจสอบ `IAdjustValue.Type` ก่อนแก้ค่าหนึ่งค่า และใช้ `IAdjustValue.Name` เป็นข้อมูลเพิ่มเติมเมื่อประเภทเชิงความหมายเดียวกันปรากฏหลายครั้ง.
+
+**เกิดอะไรขึ้นเมื่อรูปร่างที่เชื่อมต่อถูกลบ?**
+
+ปลายคอนเนคเตอร์ที่สัมพันธ์จะถูกแยกออก รูปร่างคอนเนคเตอร์ยังคงอยู่บนสไลด์และสามารถลบได้, ตั้งเป็นเส้นอิสระ, หรือแนบกับรูปร่างอื่น.
+
+**การผูกคอนเนคเตอร์จะถูกเก็บไว้เมื่อทำสำเนาสไลด์หรือไม่?**
+
+การผูกมักจะถูกเก็บไว้เมื่อรูปร่างที่เชื่อมต่อถูกคัดลอกพร้อมสไลด์ หากคอนเนคเตอร์ถูกคัดลอกโดยไม่มีรูปร่างเป้าหมายหนึ่งรูปปลายที่ได้รับผลกระทบต้องถูกแนบใหม่.

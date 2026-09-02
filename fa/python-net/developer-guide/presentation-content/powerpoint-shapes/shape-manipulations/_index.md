@@ -9,14 +9,17 @@ keywords:
 - شکل ارائه
 - شکل روی اسلاید
 - یافتن شکل
-- تکثیر شکل
+- کلون شکل
 - حذف شکل
-- مخفی کردن شکل
+- پنهان‌کردن شکل
 - تغییر ترتیب شکل
 - دریافت شناسهٔ interop شکل
 - متن جایگزین شکل
+- نقطهٔ تنظیم شکل
+- تنظیم پیش‌فرض شکل
+- هندسهٔ شکل
 - قالب‌های چیدمان شکل
-- شکل به عنوان SVG
+- شکل به صورت SVG
 - شکل به SVG
 - تراز کردن شکل
 - چرخاندن شکل
@@ -24,25 +27,25 @@ keywords:
 - ارائه
 - Python
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال ارائه را شناسایی، تکثیر، حذف, مخفی، بازمرتب‌سازی، صادر کردن، تراز کردن و چرخاندن کنید با Aspose.Slides برای پایتون از طریق .NET."
+description: "بیاموزید چگونه اشکال ارائه را با Aspose.Slides برای Python از طریق .NET شناسایی، تنظیم، کلون، حذف، مخفی، دوباره‌ترتیب‌بندی، خروجی، تراز و چرخاندن کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-Aspose.Slides برای Python از طریق .NET اشکال موجود در اسلاید را به‌صورت یک [ShapeCollection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/) مرتب شده نشان می‌دهد. این مجموعه هم جایی است که می‌توانید اشکال را پیدا و تغییر دهید و هم منبع ترتیب لایه‌بندی آن‌ها: شاخص `0` نمایان‌گر پشت‌ترین شکل است، در حالی که آخرین شاخص نمایان‌گر جلوی‌ترین شکل است.
+Aspose.Slides for Python via .NET اشکال موجود در یک اسلاید را به‌صورت یک [مجموعه‌ اشکال](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/) مرتبی نمایش می‌دهد. این مجموعه هم محلی است که می‌توانید اشکال را پیدا و اصلاح کنید و هم منبع ترتیب انباشته‑سازی آن‌ها: ایندکس `0` عقب‌ترین شکل است، در حالی که آخرین ایندکس جلوترین شکل است.
 
-این مقاله این مدل را دنبال می‌کند. ابتدا توضیح می‌دهد چگونه می‌توان یک شکل را به‌صورت قابل اطمینان شناسایی کرد، سپس نشان می‌دهد چگونه می‌توان اشکال را تکثیر، حذف، مخفی و بازمرتب‌سازی کرد. بخش‌های نهایی قالب‌بندی در سطح چیدمان، خروجی SVG، تراز و تنظیمات چرخش را پوشش می‌دهند. هر مثال به‌صورت مستقل است، بنابراین می‌توانید فقط عملیاتی را که گردش کار شما به آن نیاز دارد استفاده کنید.
+این مقاله همان مدل را دنبال می‌کند. ابتدا توضیح می‌دهد چگونه یک شکل را به‌صورت قابل اطمینان شناسایی و نقاط تنظیم پیش‌فرض شکل را تغییر دهید، سپس نشان می‌دهد چگونه اشکال را کلون، حذف، مخفی و دوباره ترتیب‌بندی کنید. بخش‌های نهایی به قالب‌بندی در سطح چیدمان، خروجی SVG، تراز و تنظیمات چرخش می‌پردازند. هر مثال مستقل است، بنابراین می‌توانید فقط عملیاتی را که در جریان کارتان نیاز دارید استفاده کنید.
 
 ## **شناسایی و یافتن اشکال**
 
-شاخص‌های مجموعه هنگام پردازش یک فایل شناخته‌شده مفید هستند، اما شناسه‌گذارهای ثابت نیستند. افزودن، حذف یا بازمرتب‌سازی یک شکل می‌تواند شاخص آن را تغییر دهد. یک شناسه را بر اساس نحوهٔ ایجاد و نگهداری ارائه انتخاب کنید:
+اندیس‌های مجموعه هنگام پردازش یک فایل شناخته‌شده مفید هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا دوباره ترتیب‌بندی یک شکل می‌تواند ایندکس آن را تغییر دهد. بسته به نحوهٔ ایجاد و نگهداری ارائه، شناسه‌ای انتخاب کنید:
 
-- [Shape.name](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/name/) برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در پنل انتخاب PowerPoint به‌راحتی قابل مشاهده است. نام‌ها قابلیت ویرایش دارند و تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است یک قرارداد نام‌گذاری برقرار کنید.
-- [Shape.alternative_text](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/alternative_text/) زمانی مفید است که یک توضیح دسترس‌پذیری یا برچسب ارائه‌دهنده پیش از این شکل را شناسایی کند. این متن برای کاربران قابل مشاهده است، ممکن است بومی‌سازی یا برای دسترس‌پذیری بازنویسی شود و یکتا نیست. متن دسترس‌پذیری معنادار را به‌صورت ساکن کلید پایگاه داده استفاده نکنید.
-- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/office_interop_shape_id/) یک شناسهٔ فقط‑خواندنی است که درون یک اسلاید یکتاست و به شناسهٔ شکل مورد استفاده توسط PowerPoint interop مربوط می‌شود. هنگام ادغام با PowerPoint یا زمانی که به یک مرجع غیر مبهم در طول زمان حیات یک شکل نیاز دارید از آن استفاده کنید. یک شکل کپی‌شده یا بازساخته شکل متفاوتی است و شناسهٔ مخصوص خود را دریافت می‌کند.
+- [Shape.name](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/name/) برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و به‌راحتی در پانل انتخاب PowerPoint قابل مشاهده است. نام‌ها قابل ویرایش‌اند اما تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است، یک قرارداد نام‌گذاری تعیین کنید.
+- [Shape.alternative_text](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/alternative_text/) وقتی توضیح‌دستیابی یا برچسبی توسط نویسنده قبلاً شکل را شناسایی می‌کند مفید است. برای کاربران قابل مشاهده است، ممکن است بومی‌سازی یا برای دسترس‌پذیری بازنویسی شود و تضمین یکتایی ندارد. متن دسترسی‌پذیری معنادار را به‌صورت خاموش به‌عنوان کلید دیتابیس استفاده نکنید.
+- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/office_interop_shape_id/) یک شناسهٔ فقط‑خواندنی است که درون یک اسلاید یکتا است و به شناسهٔ شکل استفاده‌شده توسط PowerPoint interop مربوط می‌شود. هنگام ادغام با PowerPoint یا وقتی به مرجع واضحی در طول عمر یک شکل نیاز دارید از آن استفاده کنید. یک شکل کلون‑شده یا دوباره‑ساخته‌شده یک شکل متفاوت است و شناسهٔ خود را دریافت می‌کند.
 
-ویژگی مرتبط [Shape.unique_id](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/unique_id/) دامنهٔ ارائه دارد، اما برای افزونه‌ها در نظر گرفته شده و می‌تواند مجدداً تخصیص یابد. نباید به‌عنوان کلید خارجی دائمی رفتار شود. اگر هویت بلندمدت ضروری است، نگاشت را در دادهٔ برنامه نگه دارید و اعتبارسنجی کنید که شکل مورد انتظار هنوز وجود دارد.
+ویژگی مرتبط [Shape.unique_id](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/unique_id/) دامنهٔ ارائه دارد، اما برای افزونه‌ها در نظر گرفته شده و می‌تواند بازتخصیص یابد. نباید به‌عنوان کلید خارجی دائمی استفاده شود. اگر هویت طولانی‌مدت ضروری است، نگاشت را در داده‌های برنامه نگه‌دارید و صحت وجود شکل مورد انتظار را تأیید کنید.
 
-مثال زیر با مقایسهٔ دقیق `name` جستجو می‌کند و شناسهٔ interop scoped به اسلاید را گزارش می‌دهد. وقتی قالب شکل مورد انتظار را نداشته باشد، کد همان نتیجه را گزارش می‌کند به‌جای ادامهٔ کار با شیء نادرست.
+مثال زیر با مقایسه دقیق `name` جستجو می‌کند و شناسهٔ interop scoped به اسلاید را گزارش می‌دهد. وقتی قالب شامل شکل مورد انتظار نیست، کد همان نتایج را گزارش می‌کند به‌جای ادامه با شیء اشتباه.
 
 ```python
 import aspose.slides as slides
@@ -62,7 +65,7 @@ with slides.Presentation("input.pptx") as presentation:
         print("Found {}; interop ID: {}".format(target_shape.name, target_shape.office_interop_shape_id))
 ```
 
-هنگامی که یک عملیات به نوع خاصی از شکل تعلق دارد، پیش از استفاده از اعضای مخصوص نوع، نوع را بررسی کنید. این مثال متن و متن جایگزین را تنها در صورتیکه شیء نام‌گذاری‌شده یک [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) باشد به‌روزرسانی می‌کند.
+هنگامی که عملیاتی خاص به نوعی از شکل مربوط است، قبل از استفاده از اعضای نوع‑خاص، نوع را بررسی کنید. این مثال فقط در صورتی که شیء نام‌گذاری‌شده یک [AutoShape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshape/) باشد، متن و متن جایگزین را به‌روزرسانی می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -84,15 +87,88 @@ with slides.Presentation("input.pptx") as presentation:
         print("'StatusLabel' is missing or is not an AutoShape.")
 ```
 
+## **شناسایی و اصلاح تنظیمات پیش‌فرض شکل**
+
+اشکال هندسی پیش‌فرض می‌توانند نقاط تنظیمی داشته باشند که ویژگی‌هایی مانند اندازهٔ گوشه، نسبت‌های پیکان یا زاویهٔ قوس را کنترل می‌کنند. از مجموعه فقط‑خواندنی [GeometryShape.adjustments](https://reference.aspose.com/slides/fa/python-net/aspose.slides/geometryshape/adjustments/) برای دسترسی به آن‌ها استفاده کنید. خود مجموعه توسط شکل فراهم می‌شود، اما هر [AdjustValue](https://reference.aspose.com/slides/fa/python-net/aspose.slides/adjustvalue/) شامل مقداری است که می‌توان آن را تغییر داد.
+
+به‌تنهایی به یک ایندکس ثابت وابسته نشوید. در میان تنظیمات پیمایش کنید و ویژگی فقط‑خواندنی [AdjustValue.type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/adjustvalue/type/) را بررسی کنید؛ مقدار [ShapeAdjustmentType](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapeadjustmenttype/) توصیف می‌کند تنظیم چه چیزی را کنترل می‌کند. ویژگی فقط‑خواندنی [AdjustValue.name](https://reference.aspose.com/slides/fa/python-net/aspose.slides/adjustvalue/name/) اطلاعات شناسایی اضافی می‌دهد و به‌ویژه وقتی یک پیش‌تنظیم بیش از یک تنظیم با همان نوع معنایی داشته باشد، مفید است.
+
+از ویژگی مقدار متناسب با معنای تنظیم استفاده کنید:
+
+| نوع تنظیم | هدف | مقدار برای تغییر |
+|---|---|---|
+| `CORNER_SIZE` | اندازهٔ گوشه‌های گرد | [raw_value](https://reference.aspose.com/slides/fa/python-net/aspose.slides/adjustvalue/raw_value/) |
+| `ARROW_TAIL_THICKNESS` | ضخامت انتهای پیکان | `raw_value` |
+| `ARROWHEAD_LENGTH` | طول سر پیکان | `raw_value` |
+| `ARROWHEAD_WIDTH` | عرض سر پیکان | `raw_value` |
+| `START_ANGLE` | زاویهٔ شروع دایره یا قوس | [angle_value](https://reference.aspose.com/slides/fa/python-net/aspose.slides/adjustvalue/angle_value/) |
+| `END_ANGLE` | زاویهٔ پایان دایره یا قوس | `angle_value` |
+
+`type` و `name` قابل انتساب نیستند. `raw_value` عدد صحیح خواندنی/نوشتنی در واحدهای هندسی بومی پیش‌تنظیم است، در حالی که `angle_value` زاویهٔ خواندنی/نوشتنی بر حسب درجه است. تعداد، ترتیب، معنای و محدودهٔ معتبر تنظیمات به [GeometryShape.shape_type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/geometryshape/shape_type/) پیش‌تنظیم وابسته است. مقداری که برای یک پیش‌تنظیم معتبر است ممکن است برای پیش‌تنظیم دیگر نامعتبر یا اثر متفاوتی داشته باشد.
+
+زمانی که `type` برابر `ShapeAdjustmentType.CUSTOM` باشد، API معنای معنایی استانداردی را تشخیص نمی‌دهد. `name`، نوع پیش‌تنظیم و مقدار موجود را بررسی کنید و تنظیم را دست نخورده بگذارید مگر اینکه معنای مورد انتظار و محدودهٔ آن شناخته شده باشد. حتی برای انواع شناخته‌شده، پیش از انتخاب مقدار بررسی کنید آیا همان نوع بیش از یک بار ظاهر می‌شود یا خیر. مقالهٔ [Connector](/slides/fa/python-net/connector/) این وضعیت را با تنظیمات انحنا برای «متصل‌کننده» نشان می‌دهد.
+
+مثال کامل زیر نسخه‌های پیش‌فرض و تغییر یافتهٔ سه شکل پیش‌تنظیم‌شده ایجاد می‌کند. به‌صورت حلقه‌ای از هر تنظیم عبور می‌کند، `name` و `type` آن را گزارش می‌دهد، مقادیر مرتبط با اندازه را با `raw_value` تغییر می‌دهد، زاویه‌ها را با `angle_value` تغییر می‌دهد و نتیجه را ذخیره می‌کند. ستون چپ هندسهٔ پیش‌فرض را حفظ می‌کند؛ ستون راست مستطیل گرد، پیکان چهارطرفه و دایرهٔ قطعی تنظیم‌شده را نشان می‌دهد.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # سرصفحه‌ها را برای ستون‌های شکل پیش‌فرض و تنظیم‌شده اضافه کنید.
+    default_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 250, 30)
+    default_column_label.text_frame.text = "Default preset geometry"
+    adjusted_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 390, 20, 250, 30)
+    adjusted_column_label.text_frame.text = "Modified adjustment values"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 80, 70, 160, 70)
+    modified_rounded_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 430, 70, 160, 70)
+    modified_rounded_rectangle.name = "ModifiedRoundedRectangle"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 80, 180, 160, 110)
+    modified_arrow = slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 430, 180, 160, 110)
+    modified_arrow.name = "ModifiedQuadArrow"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.PIE, 95, 330, 130, 130)
+    modified_pie = slide.shapes.add_auto_shape(slides.ShapeType.PIE, 445, 330, 130, 130)
+    modified_pie.name = "ModifiedPie"
+
+    shapes_to_adjust = [modified_rounded_rectangle, modified_arrow, modified_pie]
+
+    for shape in shapes_to_adjust:
+        for adjustment in shape.adjustments:
+            print("{} / {}: {}".format(shape.name, adjustment.name, adjustment.type.name))
+
+            if adjustment.type == slides.ShapeAdjustmentType.CORNER_SIZE:
+                adjustment.raw_value = 5000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROW_TAIL_THICKNESS:
+                adjustment.raw_value = 25000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_LENGTH:
+                adjustment.raw_value = 30000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_WIDTH:
+                adjustment.raw_value = 40000
+            elif adjustment.type == slides.ShapeAdjustmentType.START_ANGLE:
+                adjustment.angle_value = 30
+            elif adjustment.type == slides.ShapeAdjustmentType.END_ANGLE:
+                adjustment.angle_value = 300
+            elif adjustment.type == slides.ShapeAdjustmentType.CUSTOM:
+                print("Custom adjustment '{}' was not changed.".format(adjustment.name))
+
+    presentation.save("preset-shape-adjustments.pptx", slides.export.SaveFormat.PPTX)
+```
+
+بررسی نوع معنایی قبل از تغییر مقدار، کد را نسبت به قصدش واضح می‌سازد و از فرض اینکه ایندکس خاصی در تمام پیش‌تنظیم‌ها همان معنای را دارد، جلوگیری می‌کند.
+
 ## **تغییر مجموعهٔ اشکال**
 
-متدهای افزودن، تکثیر، حذف و بازمرتب‌سازی بلافاصله بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر داد، دیگر به شاخص‌های ثبت‌شده پیش از آن عملیات تکیه نکنید.
+متدهای افزودن، کلون، حذف و دوباره‑ترتیب‌بندی بلافاصله بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، پس از آن به ایندکس‌های ضبط‑شدهٔ قبل از آن عملیات وابسته نباشید.
 
-### **تکثیر یک شکل**
+### **کلون یک شکل**
 
-[ShapeCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/add_clone/) یک نسخهٔ مستقل ایجاد می‌کند و آن را به انتهای مجموعهٔ هدف اضافه می‌نماید. [ShapeCollection.insert_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/insert_clone/) نیز یک کپی می‌سازد اما آن را در یک شاخص z‑order مشخص قرار می‌دهد. overloadهایی که مختصات می‌پذیرند کپی را بدون تغییر اندازه جابه‌جا می‌کنند؛ overloadهایی که عرض و ارتفاع می‌گیرند می‌توانند اندازه را نیز تغییر دهند.
+[ShapeCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/add_clone/) یک نسخهٔ مستقل ایجاد می‌کند و به انتهای مجموعه هدف اضافه می‌نماید. [ShapeCollection.insert_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/insert_clone/) نیز یک نسخه ایجاد می‌کند اما آن را در ایندکس z‑order مشخص‌ شده قرار می‌دهد. بارگذاری‌های پذیرندهٔ مختصات کلون را بدون تغییر اندازه جابه‌جا می‌کنند؛ بارگذاری‌های دارای عرض و ارتفاع می‌توانند اندازهٔ آن را نیز تغییر دهند.
 
-مثال یک اسلاید مقصد می‌سازد، یک مستطیل برچسب‌دار را به جلوی اسلاید تکثیر می‌کند و یک تکثیر دوم را در پشت قرار می‌دهد. تغییرات هر دو تکثیر بر شکل منبع تأثیری نمی‌گذارد.
+مثال یک اسلاید مقصد ایجاد می‌کند، یک مستطیل برچسب‌دار را در جلو کلون می‌کند و یک کلون دوم را در پشت وارد می‌کند. تغییرات در هر کلون شکل منبع را تحت تأثیر قرار نمی‌دهد.
 
 ```python
 import aspose.slides as slides
@@ -123,13 +199,13 @@ with slides.Presentation() as presentation:
     presentation.save("cloned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تکثیر محتوا و قالب‌بندی شکل را شامل می‌شود، از جمله نام و متن جایگزین آن. وقتی این مقادیر باید یکتا باشند شناسه‌های منطقی جدید به تکثیر اختصاص دهید. منابع مورد استفادهٔ اشکال پیچیده توسط ارائه مدیریت می‌شود، اما تکثیر یک مورد جدید در مجموعه با هویت جدید شکل است.
+کلون‌کردن محتوا و قالب‌بندی شکل، از جمله نام و متن جایگزین آن را کپی می‌کند. وقتی این مقادیر باید یکتا باشند، شناسه‌های منطقی جدیدی به کلون اختصاص دهید. منابع استفاده‌شده توسط اشکال پیچیده توسط ارائه مدیریت می‌شوند، اما یک کلون یک مورد جدید در مجموعه با هویت شکل جدید باقی می‌ماند.
 
 ### **حذف اشکال**
 
-[ShapeCollection.remove](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/remove/) یک شیء شکل خاص را از مجموعه‌اش حذف می‌کند. هنگام حذف چندین تطبیق در طول تکرار بر پایهٔ شاخص، از انتها به سمت ابتدا عبور کنید تا هر شاخص باقی‌مانده معتبر بماند.
+[ShapeCollection.remove](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/remove/) یک شیء شکل خاص را از مجموعه‌اش حذف می‌کند. هنگام حذف چندین مورد مطابقت‌دار در طول پیمایش ایندکسی، از انتها به ابتدا عبور کنید تا هر ایندکس باقی‌مانده همچنان معتبر بماند.
 
-این مثال هر شکلی که نام تعیین‌شده داشته باشد را حذف می‌کند. از `slide.shapes[index]` می‌خواند، نه یک مورد ثابت مجموعه، و شکل را بدون تبدیل غیرضروری به نوع دیگری می‌گیرد.
+این مثال هر شکلی را که دارای نام معین باشد حذف می‌کند. از `slide.shapes[index]` می‌خواند، نه یک مورد ثابت از مجموعه، و نیازی به تبدیل غیرضروری نوع شکل نیست.
 
 ```python
 import aspose.slides as slides
@@ -154,11 +230,11 @@ with slides.Presentation() as presentation:
     presentation.save("removed-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-پس از حذف، شمارش شکل‌ها و شاخص‌های اشکال بعدی تغییر می‌کند. ارجاعات به اشکال غیرقابل‌تغییر از شاخص‌های ذخیره‌شده قابل‌اعتمادتر هستند. همچنین به اتصال‌ها، انیمیشن‌ها و سایر ویژگی‌های ارائه که ممکن است به شیء حذف‌شده ارجاع دهند توجه کنید؛ حذف یک شکل قابل‌مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
+پس از حذف، شمارش شکل‌ها و ایندکس‌های اشکال بعدی تغییر می‌کند. ارجاع به اشکال بدون تأثیر بیشتر از ایندکس‌های ذخیره‌شده قابل اطمینان‌تر است. همچنین به متصل‌کننده‌ها، انیمیشن‌ها و سایر ویژگی‌های ارائه‌ای که ممکن است به شیء حذف‌شده ارجاع دهند، توجه کنید؛ حذف یک شکل قابل مشاهده می‌تواند بیش از ظاهر اسلاید تغییر ایجاد کند.
 
 ### **مخفی کردن یک شکل**
 
-تنظیم [Shape.hidden](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/hidden/) به `True` شکل را در مجموعه نگه می‌دارد اما از نمایش در نمایش اسلاید عادی جلوگیری می‌کند. شاخص، قالب‌بندی و محتوای آن برای کد در دسترس می‌ماند، بنابراین مخفی‌سازی برای عناصر اختیاری که ممکن است بعدها بازگردانده شوند مناسب است.
+تنظیم [Shape.hidden](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/hidden/) به `True` شکل را در مجموعه نگه می‌دارد اما از نمایش در نمایش عادی اسلاید جلوگیری می‌کند. ایندکس، قالب‌بندی و محتویات آن برای کد در دسترس باقی می‌مانند، بنابراین مخفی کردن برای عناصر اختیاری که ممکن است بعداً بازگردانده شوند مناسب است.
 
 ```python
 import aspose.slides as slides
@@ -179,11 +255,11 @@ with slides.Presentation() as presentation:
     presentation.save("hidden-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-مخفی‌سازی حذف یا امنیت نیست. شیء همچنان می‌تواند توسط کاربر یا کد پیدا و بازنمایی شود و بخشی از فایل ارائه باقی می‌ماند.
+مخفی کردن حذف یا امنیت نیست. شیء هنوز می‌تواند توسط کاربر یا کد کشف و دوباره نمایان شود و بخشی از فایل ارائه می‌ماند.
 
 ### **تغییر Z‑Order**
 
-اشکال همپوشانی‌شده بر پایهٔ ترتیب مجموعه رنگ می‌شوند. [ShapeCollection.reorder](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/reorder/) یک شکل موجود را به شاخص هدف منتقل می‌کند بدون این‌که آن را تکثیر کند. شاخص `0` پشت‌ترین است؛ `len(slide.shapes) - 1` جلوی‌ترین.
+اشکال همپوشانی‑یافته بر اساس ترتیب مجموعه کشیده می‌شوند. [ShapeCollection.reorder](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/reorder/) شکل موجود را به ایندکس هدف بدون کلون منتقل می‌کند. ایندکس `0` عقب است؛ `len(slide.shapes) - 1` جلو.
 
 ```python
 import aspose.pydrawing as draw
@@ -206,13 +282,13 @@ with slides.Presentation() as presentation:
     presentation.save("reordered-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-مستطیل ابتدا ایجاد می‌شود و ابتدایی پشت دایره قرار دارد. جابه‌جایی آن به شاخص نهایی آن را به جلوی صفحه می‌برد. پس از افزودن یا تکثیر تمام اشکال مرتبط، Z‑Order را نهایی کنید، زیرا این عملیات موارد جدیدی را به مجموعه اضافه یا درج می‌کنند و می‌توانند ترتیب مورد نظر را تغییر دهند.
+در ابتدا مستطیل ساخته می‌شود و پشت بیضی قرار دارد. جابه‌جایی آن به ایندکس نهایی، آن را به‌سوی جلو می‌برد. پس از افزودن یا کلون تمام اشکال مرتبط، Z‑Order را نهایی کنید، زیرا این عملیات موارد جدیدی به مجموعه اضافه یا وارد می‌کنند و می‌توانند پشتهٔ مورد نظر را تغییر دهند.
 
-## **بازرسی اشکال در اسلایدهای چیدمانی**
+## **بررسی اشکال در اسلایدهای چیدمان**
 
-اسلایدهای عادی، اسلایدهای چیدمانی و اسلایدهای استاد مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ چیدمان همان شیء شکل مشابه در اسلاید عادی نیست. وقتی نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک چیدمان دارید، اشکال چیدمان را بررسی کنید.
+اسلایدهای معمولی، اسلایدهای چیدمان و اسلایدهای اصلی مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ چیدمان همان شیء نیست که شکل مشابهی در اسلاید معمولی داشته باشد. هنگام نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک چیدمان، اشکال چیدمان را بررسی کنید.
 
-مثال زیر هر شکل چیدمان را با استفاده از [Shape.fill_format](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/fill_format/) و [Shape.line_format](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/line_format/) می‌خواند بدون این‌که فرض کند هر شکل یک `AutoShape` است.
+مثال زیر برای هر شکل چیدمان، [Shape.fill_format](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/fill_format/) و [Shape.line_format](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/line_format/) را می‌خواند بدون این‌که فرض کند هر شکل یک `AutoShape` است.
 
 ```python
 import aspose.slides as slides
@@ -225,11 +301,11 @@ with slides.Presentation("input.pptx") as presentation:
             print("{} / {}: fill={}, line width={}".format(layout_slide.name, shape.name, fill_type, line_width))
 ```
 
-ویرایش یک چیدمان می‌تواند بر اسلایدهای متعددی که از آن استفاده می‌کنند تأثیر بگذارد. پیش از تغییر یک شکل چیدمان، تعیین کنید آیا اسلاید عادی آن شیء را به ارث می‌برد یا یک بازنویسی محلی دارد و هر اسلایدی که از آن چیدمان استفاده می‌کند را تست کنید.
+ویرایش یک چیدمان می‌تواند بر اسلایدهای متعددی که از آن استفاده می‌کنند تأثیر بگذارد. پیش از تغییر شکل چیدمان، تعیین کنید آیا اسلاید معمولی شیء را به ارث می‌برد یا اورراید لوکال دارد و هر اسلایدی که از آن چیدمان استفاده می‌کند را تست کنید.
 
 ## **صادرات یک شکل به SVG**
 
-[Shape.write_as_svg](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/write_as_svg/) محتوای رندر‌شده یک شکل را به یک جریان می‌نویسد. نتیجه شامل همان شکل است، نه پس‌زمینهٔ کامل اسلاید یا اشکال همسایه.
+[Shape.write_as_svg](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/write_as_svg/) محتوای رندر شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه شامل همان شکل است، نه پس‌زمینهٔ کل اسلاید یا اشکال همسایه.
 
 ```python
 import aspose.slides as slides
@@ -245,13 +321,13 @@ with slides.Presentation("input.pptx") as presentation:
             shape.write_as_svg(svg_stream)
 ```
 
-در حین رندر کردن ارائه را باز بمانید. خروجی به قالب‌بندی شکل و به منابعی مانند قلم‌ها و تصاویر وابسته است. اگر به ترکیب کامل نیاز دارید، اسلاید را به‌جای یک شکل جداگانه صادر کنید. فراخوانی‌کننده مالک جریان است و باید آن را بسته.
+در حین رندر، ارائه را باز نگه دارید. خروجی به قالب‌بندی شکل و منابعی مانند قلم‌ها و تصاویر وابسته است. اگر به ترکیب کامل نیاز دارید، اسلاید را به‌جای شکل منفرد صادر کنید. فراخواننده مالک جریان است و باید آن را بسته باشد.
 
 ## **تراز کردن اشکال**
 
-متد [SlideUtil.align_shapes](https://reference.aspose.com/slides/fa/python-net/aspose.slides.util/slideutil/align_shapes/) می‌تواند همهٔ اشکال یا شاخص‌های انتخاب‌شدهٔ مجموعه را تراز کند. [ShapesAlignmentType](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapesalignmenttype/) سمت، خط مرکزی یا حالت توزیع را مشخص می‌کند. مقدار `align_to_slide` را به `True` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ به `False` تنظیم کنید تا اشکال انتخاب‌شده نسبت به یکدیگر تراز شوند.
+متدهای [SlideUtil.align_shapes](https://reference.aspose.com/slides/fa/python-net/aspose.slides.util/slideutil/align_shapes/) می‌توانند تمام اشکال یا ایندکس‌های انتخابی مجموعه را تراز کنند. [ShapesAlignmentType](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapesalignmenttype/) لبه، مرکز یا حالت توزیع را مشخص می‌کند. `align_to_slide` را به `True` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ به `False` تنظیم کنید تا اشکال انتخابی نسبت به یکدیگر تراز شوند.
 
-این مثال سه شکل را به لبهٔ بالای اسلاید تراز می‌کند. شاخص‌های فعلی آن‌ها دقیقاً پیش از تراز حلّ شد.
+این مثال سه شکل را به لبهٔ بالای اسلاید تراز می‌کند. ایندکس‌های فعلی آن‌ها درست قبل از تراز resolved می‌شوند.
 
 ```python
 import aspose.slides as slides
@@ -276,17 +352,17 @@ with slides.Presentation() as presentation:
     presentation.save("aligned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تراز موقعیت‌ها را تغییر می‌دهد، نه Z‑Order. تراز نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی به اندازه کافی شکل برای تعیین فواصل نیاز دارد. اگر قبل از فراخوانی متد مجموعه را تغییر دادید، شاخص‌ها را دوباره محاسبه کنید.
+ترازبندی موقعیت‌ها را تغییر می‌دهد، نه Z‑Order. ترازبندی نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی به تعداد کافی شکل برای تعیین فاصله نیاز دارد. اگر قبل از فراخوانی متد مجموعه را اصلاح می‌کنید، ایندکس‌ها را دوباره محاسبه کنید.
 
 ## **چرخاندن یک شکل**
 
-کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapeframe/) موقعیت، اندازه، تنظیمات چرخش افقی و عمودی، و چرخش را ذخیره می‌کند. مقادیر `flip_h` و `flip_v` از [NullableBool](https://reference.aspose.com/slides/fa/python-net/aspose.slides/nullablebool/) استفاده می‌کنند: `TRUE` چرخش را فعال می‌کند، `FALSE` آن را غیرفعال می‌کند، و `NOT_DEFINED` حالت تعریف‌نشده یا پیش‌فرض را حفظ می‌کند.
+کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapeframe/) موقعیت، اندازه، تنظیمات چرخش افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر `flip_h` و `flip_v` از نوع [NullableBool](https://reference.aspose.com/slides/fa/python-net/aspose.slides/nullablebool/) استفاده می‌کنند: `TRUE` چرخش را فعال می‌کند، `FALSE` غیرفعال می‌کند و `NOT_DEFINED` حالت پیش‌فرض یا نامشخص را حفظ می‌کند.
 
 ارائهٔ ورودی زیر شامل یک شکل بدون چرخش است.
 
-![شکل قبل از چرخش](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-مثال تمام مقادیر دیگر فریم را حفظ می‌کند و فقط دو تنظیم چرخش را جایگزین می‌کند. این مهم است چون اختصاص یک [Shape.frame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/frame/) جدید تمام فریم را بازنویسی می‌کند.
+مثال همه مقادیر دیگر فریم را حفظ می‌کند و فقط دو تنظیم چرخش را جایگزین می‌کند. این مهم است چون اختصاص یک [Shape.frame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/frame/) جدید تمام فریم را بازنویسی می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -305,20 +381,24 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("flipped-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-شکل ذخیره‌شده به صورت افقی و عمودی آینه‌ای می‌شود در حالی که موقعیت، اندازه و چرخش خود را حفظ می‌کند.
+شکل ذخیره‌شده به‌صورت افقی و عمودی آینه‌ای می‌شود در حالی که موقعیت، اندازه و چرخش خود را حفظ می‌کند.
 
-![شکل بعد از چرخش](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **سوالات متداول**
 
-**آیا باید از شاخص مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
+**آیا باید از ایندکس مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
 
-فقط برای پردازش‌های کوتاه‌مدتی که مجموعه قبل از استفاده از شاخص تغییر نخواهد کرد. برای قالب‌های ساخته‌شده ترجیحاً از یک قرارداد معتبر `name` یا `alternative_text` استفاده کنید، یا برای کارهای scoped به اسلاید `office_interop_shape_id` بکار ببرید.
+فقط برای پردازش‌های کوتاه‌مدت که مجموعه قبل از استفاده از ایندکس تغییر نمی‌کند. برای قالب‌های نویسنده‌شده از یک قرارداد معتبر `name` یا `alternative_text` استفاده کنید یا برای کارهای interop scoped به اسلاید از `office_interop_shape_id` بهره ببرید.
 
-**آیا مخفی‌سازی یک shape آن را از Z‑Order حذف می‌کند؟**
+**آیا مخفی کردن یک شکل آن را از Z‑Order حذف می‌کند؟**
 
-خیر. یک شکل مخفی در همان شاخص در مجموعه باقی می‌ماند. می‌تواند پیدا، بازمرتب‌سازی، ویرایش یا مجدداً قابل مشاهده شود.
+خیر. یک شکل مخفی در همان ایندکس در مجموعه باقی می‌ماند. می‌توانید آن را پیدا کنید، دوباره ترتیب‑بندی کنید، ویرایش کنید یا دوباره نمایش دهید.
 
-**چرا یک شکل تکثیرشده در جلوی شکل دیگری ظاهر شد؟**
+**چرا یک شکل کلون‌شده در جلوی شکل دیگری ظاهر شد؟**
 
-`add_clone` تکثیر را به انتهای مجموعه اضافه می‌کند که جلوی Z‑Order است. برای انتخاب شاخص اولیه از `insert_clone` استفاده کنید یا پس از افزودن تمام اشکال از `reorder` بهره ببرید.
+`add_clone` کلون را به انتهای مجموعه اضافه می‌کند که جلوترین قسمت Z‑Order است. برای انتخاب ایندکس اولیه از `insert_clone` یا پس از افزودن تمام اشکال از `reorder` استفاده کنید.
+
+**آیا می‌توانم از یک ایندکس ثابت برای شناسایی تنظیم پیش‌فرض شکل استفاده کنم؟**
+
+فقط پس از اعتبارسنجی دقیق پیش‌تنظیم و چیدمان مجموعه. ترجیحاً از طریق پیمایش `GeometryShape.adjustments` و بررسی `AdjustValue.type` عمل کنید؛ وقتی همان نوع معنایی بیش از یک‌بار ظاهر می‌شود، از `AdjustValue.name` به‌عنوان اطلاعات تکمیلی استفاده کنید.

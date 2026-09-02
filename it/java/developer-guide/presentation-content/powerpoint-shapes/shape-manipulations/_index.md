@@ -1,48 +1,51 @@
 ---
 title: Gestire le forme della presentazione in Java
-linktitle: Manipolazione forme
+linktitle: Manipolazione delle forme
 type: docs
 weight: 40
 url: /it/java/shape-manipulations/
 keywords:
-- forma PowerPoint
-- forma della presentazione
-- forma nella diapositiva
-- trovare forma
-- clonare forma
-- rimuovere forma
-- nascondere forma
-- cambiare ordine forma
-- ottenere ID forma interop
-- testo alternativo forma
-- formati layout forma
-- forma come SVG
-- forma in SVG
-- allineare forma
-- capovolgere forma
+- Forma PowerPoint
+- Forma di presentazione
+- Forma su diapositiva
+- Trova forma
+- Clona forma
+- Rimuovi forma
+- Nascondi forma
+- Cambia ordine forma
+- Ottieni ID forma interop
+- Testo alternativo della forma
+- Punto di regolazione della forma
+- Regolazione forma predefinita
+- Geometria della forma
+- Formati layout forma
+- Forma come SVG
+- Converti forma in SVG
+- Allinea forma
+- Ribalta forma
 - PowerPoint
-- presentazione
+- Presentazione
 - Java
 - Aspose.Slides
-description: "Scopri come identificare, clonare, rimuovere, nascondere, riordinare, esportare, allineare e capovolgere le forme della presentazione con Aspose.Slides per Java."
+description: "Scopri come identificare, regolare, clonare, rimuovere, nascondere, riordinare, esportare, allineare e ribaltare le forme di una presentazione con Aspose.Slides per Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides for Java rappresenta le forme su una diapositiva come una [IShapeCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/) ordinata. La collezione è sia il luogo in cui è possibile trovare e modificare le forme sia la fonte del loro ordine di impilamento: l’indice `0` è la forma più arretrata, mentre l’ultimo indice è la forma più frontale.
+Aspose.Slides for Java rappresenta le forme su una diapositiva come una [IShapeCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/) ordinata. La collezione è sia il luogo in cui trovi e modifichi le forme sia la fonte del loro ordine di sovrapposizione: l’indice `0` è la forma più arretrata, mentre l’ultimo indice è la forma più frontale.
 
-Questo articolo segue quel modello. Prima spiega come identificare in modo affidabile una forma, poi mostra come clonare, rimuovere, nascondere e riordinare le forme. Le sezioni finali trattano la formattazione a livello di layout, l’esportazione SVG, l’allineamento e le impostazioni di flip. Ogni esempio è indipendente, così è possibile utilizzare solo le operazioni richieste dal proprio flusso di lavoro.
+Questo articolo segue quel modello. Prima spiega come identificare in modo affidabile una forma e modificare i punti di aggiustamento predefiniti, poi mostra come clonare, rimuovere, nascondere e riordinare le forme. Le sezioni finali coprono la formattazione a livello di layout, l’esportazione SVG, l’allineamento e le impostazioni di ribaltamento. Ogni esempio è indipendente, così puoi utilizzare solo le operazioni richieste dal tuo flusso di lavoro.
 
 ## **Identificare e Trovare le Forme**
 
-Gli indici della collezione sono comodi durante l’elaborazione di un file conosciuto, ma non sono identificatori stabili. Aggiungere, rimuovere o riordinare una forma può cambiarne l’indice. Scegli un identificatore in base a come la presentazione è stata creata e mantenuta:
+Gli indici della collezione sono comodi durante l’elaborazione di un file noto, ma non sono identificatori stabili. L’aggiunta, la rimozione o il riordino di una forma può cambiarne l’indice. Scegli un identificatore in base a come la presentazione è creata e gestita:
 
-- [Name](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getName--) è utile per i modelli controllati dallo sviluppatore ed è facile da ispezionare nel riquadro di selezione di PowerPoint. I nomi possono essere modificati e non sono garantiti unici, quindi stabilisci una convenzione di denominazione se il codice dipende da essi.
-- [AlternativeText](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getAlternativeText--) è utile quando una descrizione di accessibilità o un tag fornito dall’autore identifica già la forma. È visibile agli utenti, può essere localizzato o riscritto per l’accessibilità e non è garantito unico. Non riutilizzare silenziosamente un testo di accessibilità significativo come chiave di database.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) è un identificatore di sola lettura unico all’interno di una diapositiva e corrisponde all’ID della forma usato dall’interoperabilità di PowerPoint. Usalo quando integri con PowerPoint o quando ti serve un riferimento non ambiguo per tutta la durata di una forma. Una forma clonata o ricreata è una forma diversa e riceve un proprio ID.
+- [Name](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getName--) è utile per modelli controllati dallo sviluppatore ed è facile da ispezionare nel riquadro di selezione di PowerPoint. I nomi possono essere modificati e non sono garantiti univoci, quindi stabilisci una convenzione di denominazione se il codice dipende da essi.
+- [AlternativeText](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getAlternativeText--) è utile quando una descrizione di accessibilità o un tag fornito dall’autore identifica già la forma. È visibile agli utenti, può essere localizzato o riscritto per l’accessibilità e non è garantito univoco. Non riutilizzare silenziosamente testo di accessibilità significativo come chiave di database.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) è un identificatore di sola lettura unico all’interno di una diapositiva e corrisponde all’ID forma usato dall’interoperabilità di PowerPoint. Usalo quando integri con PowerPoint o quando ti serve un riferimento inequivocabile per tutta la durata di una forma. Una forma clonata o ricreata è una forma diversa e riceve un proprio ID.
 
-Il metodo correlato [getUniqueId](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getUniqueId--) restituisce un identificatore con ambito presentazione, ma quell’identificatore è destinato a componenti aggiuntivi e può essere riassegnato. Non dovrebbe essere trattato come chiave esterna permanente. Se è essenziale un’identità a lungo termine, conserva la mappatura nei dati dell’applicazione e verifica che la forma prevista esista ancora.
+Il metodo correlato [getUniqueId](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getUniqueId--) restituisce un identificatore con ambito di presentazione, ma quell’identificatore è destinato a componenti aggiuntivi e può essere riassegnato. Non deve essere trattato come una chiave esterna permanente. Se è essenziale un’identità a lungo termine, mantieni la mappatura nei dati dell’applicazione e verifica che la forma prevista esista ancora.
 
-L’esempio seguente ricerca per nome con confronto esatto e segnala l’interoperability ID a livello di diapositiva. Quando il modello non contiene la forma attesa, il codice segnala quel risultato invece di continuare con l’oggetto sbagliato.
+L’esempio seguente ricerca per nome con confronto esatto e riporta l’ID interop a livello di diapositiva. Quando il modello non contiene la forma prevista, il codice riporta quel risultato invece di continuare con l’oggetto errato.
 
 ```java
 import com.aspose.slides.*;
@@ -69,7 +72,7 @@ try {
 }
 ```
 
-Quando un’operazione è specifica a un tipo di forma, verifica l’interfaccia prima di usare membri specifici del tipo. Questo esempio aggiorna il testo e il testo alternativo solo se l’oggetto nominato è un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/).
+Quando un’operazione è specifica a un tipo di forma, controlla l’interfaccia prima di usare membri specifici del tipo. Questo esempio aggiorna il testo e il testo alternativo solo se l’oggetto denominato è un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/).
 
 ```java
 import com.aspose.slides.*;
@@ -99,15 +102,108 @@ try {
 }
 ```
 
+## **Identificare e Modificare gli Aggiustamenti Predefiniti delle Forme**
+
+Le forme geometriche predefinite possono esporre punti di aggiustamento che controllano caratteristiche come la dimensione degli angoli, le proporzioni delle frecce o gli angoli degli archi. Accedili tramite la collezione di sola lettura [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/it/java/com.aspose.slides/igeometryshape/#getAdjustments--) . La collezione stessa è fornita dalla forma, ma ogni [IAdjustValue](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/) contiene un valore modificabile.
+
+Non fare affidamento solo su un indice fisso della collezione. Itera attraverso gli aggiustamenti e ispeziona il metodo di sola lettura [getType](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/#getType--) , il cui valore [ShapeAdjustmentType](https://reference.aspose.com/slides/it/java/com.aspose.slides/shapeadjustmenttype/) descrive cosa controlla l’aggiustamento. Il metodo di sola lettura [getName](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/#getName--) fornisce informazioni di identificazione aggiuntive ed è particolarmente utile quando un predefinito contiene più di un aggiustamento con lo stesso tipo semantico.
+
+Usa il metodo di valore che corrisponde al significato dell’aggiustamento:
+
+| Tipo di aggiustamento | Scopo | Valore da modificare |
+|---|---|---|
+| `CornerSize` | Dimensione degli angoli arrotondati | [setRawValue](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | Spessore della coda di una freccia | `setRawValue` |
+| `ArrowheadLength` | Lunghezza della punta della freccia | `setRawValue` |
+| `ArrowheadWidth` | Larghezza della punta della freccia | `setRawValue` |
+| `StartAngle` | Angolo iniziale di una torta o arco | [setAngleValue](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | Angolo finale di una torta o arco | `setAngleValue` |
+
+`getType` e `getName` restituiscono informazioni di sola lettura. `getRawValue` e `setRawValue` lavorano con un intero nelle unità native della geometria del predefinito, mentre `getAngleValue` e `setAngleValue` operano con un angolo in gradi. Il numero, l’ordine, il significato e l’intervallo valido degli aggiustamenti dipendono dal predefinito [ShapeType](https://reference.aspose.com/slides/it/java/com.aspose.slides/igeometryshape/#getShapeType--). Un valore valido per un predefinito può essere non valido o avere un effetto diverso per un altro.
+
+Quando `getType` restituisce `ShapeAdjustmentType.Custom`, l’API non riconosce un significato semantico standard. Ispeziona `getName`, il tipo di predefinito e il valore esistente, e lascia l’aggiustamento invariato a meno che non siano noti il significato e l’intervallo previsto. Anche per i tipi riconosciuti, verifica se lo stesso tipo compare più volte prima di selezionare un valore. L’articolo [Connector](/slides/it/java/connector/) mostra questa situazione con gli aggiustamenti di curvatura dei connettori.
+
+L’esempio completo seguente crea versioni predefinite e modificate di tre forme predefinite. Itera attraverso ogni aggiustamento, riporta il suo nome e tipo, modifica i valori legati alle dimensioni tramite `setRawValue`, modifica gli angoli tramite `setAngleValue` e salva il risultato. La colonna sinistra conserva la geometria predefinita; la colonna destra mostra il rettangolo arrotondato, la freccia a quattro vie e la torta regolati.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // Aggiunge intestazioni per le colonne di forma predefinita e regolata.
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Controllare il tipo semantico prima di cambiare un valore rende il codice esplicito sul suo intento ed evita di presumere che un indice di collezione specifico abbia lo stesso significato tra forme predefinite diverse.
+
 ## **Modificare la Collezione di Forme**
 
 I metodi add, clone, remove e reorder operano sulla collezione immediatamente. Se un’operazione cambia il numero o l’ordine delle forme, non continuare a fare affidamento sugli indici catturati prima di quell’operazione.
 
 ### **Clonare una Forma**
 
-[addClone](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) crea una copia indipendente e la aggiunge alla collezione di destinazione. [insertClone](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) crea anch’essa una copia ma la posiziona a un indice di ordine Z specificato. Le overload che accettano coordinate spostano il clone senza modificarne le dimensioni; le overload con larghezza e altezza possono ridimensionarlo.
+[addClone](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) crea una copia indipendente e la aggiunge alla collezione di destinazione. [insertClone](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) crea anch’essa una copia ma la posiziona a un indice di ordine z specificato. Le overload che accettano coordinate spostano la copia senza cambiare le dimensioni; le overload con larghezza e altezza possono ridimensionarla.
 
-L’esempio crea una diapositiva di destinazione, clona un rettangolo etichettato in primo piano e inserisce un secondo clone in fondo. Le modifiche a ciascun clone non alterano la forma sorgente.
+L’esempio crea una diapositiva di destinazione, clona un rettangolo etichettato in primo piano e inserisce un secondo clone sul retro. Le modifiche a ciascun clone non alterano la forma sorgente.
 
 ```java
 import com.aspose.slides.*;
@@ -146,13 +242,13 @@ try {
 }
 ```
 
-Il clonare copia il contenuto e la formattazione della forma, incluso il nome e il testo alternativo. Assegna nuovi identificatori logici al clone quando quei valori devono essere unici. Le risorse usate da forme complesse sono gestite dalla presentazione, ma un clone rimane un nuovo elemento della collezione con una nuova identità di forma.
+Il clonaggio copia il contenuto e la formattazione della forma, incluso nome e testo alternativo. Assegna nuovi identificatori logici al clone quando tali valori devono essere unici. Le risorse usate dalle forme complesse sono gestite dalla presentazione, ma un clone rimane un nuovo elemento della collezione con una nuova identità di forma.
 
 ### **Rimuovere Forme**
 
-[remove](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) elimina un oggetto forma specifico dalla sua collezione. Quando si rimuovono più corrispondenze durante un’iterazione indicizzata, attraversa la collezione dal fondo in modo che ogni indice rimanente rimanga valido.
+[remove](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) elimina un oggetto forma specifico dalla sua collezione. Quando rimuovi più corrispondenze durante un’iterazione indicizzata, attraversa la collezione dal fondo in modo che ogni indice rimanente rimanga valido.
 
-Questo esempio rimuove ogni forma con un nome designato. Legge la forma all’indice corrente, non un elemento fisso della collezione, e non esegue cast non necessari.
+Questo esempio rimuove ogni forma con un nome designato. Legge la forma all’indice corrente, non un elemento fisso della collezione, e non esegue cast inutili.
 
 ```java
 import com.aspose.slides.*;
@@ -183,11 +279,11 @@ try {
 }
 ```
 
-Dopo la rimozione, il conteggio delle forme e gli indici delle forme successive cambiano. I riferimenti a forme non interessate rimangono più affidabili rispetto agli indici salvati. Considera anche connettori, animazioni e altre funzionalità della presentazione che possono riferirsi all’oggetto rimosso; rimuovere una forma visibile può cambiare più del semplice aspetto della diapositiva.
+Dopo la rimozione, il conteggio delle forme e gli indici delle forme successive cambiano. I riferimenti a forme non interessate rimangono più affidabili rispetto agli indici salvati. Considera anche connettori, animazioni e altre funzionalità della presentazione che potrebbero riferirsi all’oggetto rimosso; rimuovere una forma visibile può modificare più del semplice aspetto della diapositiva.
 
 ### **Nascondere una Forma**
 
-Impostare [Hidden](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#setHidden-boolean-) su `true` mantiene la forma nella collezione ma impedisce che appaia nella presentazione normale. Il suo indice, la formattazione e il contenuto rimangono disponibili al codice, quindi nascondere è appropriato per elementi opzionali che possono essere ripristinati in seguito.
+Impostare [Hidden](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#setHidden-boolean-) su `true` mantiene la forma nella collezione ma ne impedisce la comparsa nella presentazione normale. Il suo indice, la formattazione e il contenuto rimangono disponibili al codice, quindi nascondere è appropriato per elementi opzionali che possono essere ripristinati successivamente.
 
 ```java
 import com.aspose.slides.*;
@@ -214,11 +310,11 @@ try {
 }
 ```
 
-Nascondere non è cancellazione né sicurezza. L’oggetto può ancora essere scoperto e reso visibile da un utente o da codice, e rimane parte del file della presentazione.
+Nascondere non è cancellazione né sicurezza. L’oggetto può ancora essere scoperto e reso visibile da un utente o dal codice, e resta parte del file di presentazione.
 
 ### **Modificare l’Ordine Z**
 
-Le forme sovrapposte sono dipinte secondo l’ordine della collezione. [reorder](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) sposta una forma esistente a un indice di destinazione senza clonarla. L’indice `0` è il retro; `size() - 1` è il fronte.
+Le forme sovrapposte vengono disegnate nell’ordine della collezione. [reorder](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) sposta una forma esistente a un indice di destinazione senza clonarla. L’indice `0` è il retro; `size() - 1` è il fronte.
 
 ```java
 import com.aspose.slides.*;
@@ -245,13 +341,13 @@ try {
 }
 ```
 
-Il rettangolo viene creato per primo e inizialmente si trova dietro l’ellisse. Spostarlo all’indice finale lo porta in fronte. Finalizza l’ordine Z dopo aver aggiunto o clonato tutte le forme correlate, perché tali operazioni aggiungono o inseriscono nuovi elementi nella collezione e possono alterare lo stack previsto.
+Il rettangolo è creato per primo e inizialmente si trova dietro l’ellisse. Spostarlo all’indice finale lo porta in fronte. Finalizza l’ordine z dopo aver aggiunto o clonato tutte le forme correlate, perché tali operazioni aggiungono o inseriscono nuovi elementi nella collezione e possono alterare lo stack previsto.
 
-## **Ispezionare le Forme sui Layout**
+## **Ispezionare le Forme sui Layout di Diapositiva**
 
-Diapositive normali, layout e master hanno collezioni di forme separate. Una forma in una collezione di layout non è lo stesso oggetto di una forma posizionata in modo simile su una diapositiva normale. Ispeziona le forme di layout quando devi comprendere o modificare la formattazione fornita da un layout.
+Le diapositive normali, i layout di diapositiva e i master hanno collezioni di forme separate. Una forma in una collezione di layout non è lo stesso oggetto di una forma posizionata similmente su una diapositiva normale. Ispeziona le forme del layout quando devi comprendere o modificare la formattazione fornita da un layout.
 
-L’esempio seguente legge il [FillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getFillFormat--) e il [LineFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getLineFormat--) di ogni forma di layout senza presumere che ogni forma sia una `AutoShape`.
+L’esempio seguente legge per ogni forma del layout il suo [FillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getFillFormat--) e il suo [LineFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getLineFormat--) senza presumere che ogni forma sia una `AutoShape`.
 
 ```java
 import com.aspose.slides.*;
@@ -270,11 +366,11 @@ try {
 }
 ```
 
-Modificare un layout può influire su più diapositive che lo utilizzano. Prima di cambiare una forma di layout, determina se una diapositiva normale eredita l’oggetto o contiene una sovrascrittura locale, e testa ogni diapositiva che usa quel layout.
+Modificare un layout può influire su più diapositive che lo utilizzano. Prima di cambiare una forma del layout, verifica se una diapositiva normale eredita l’oggetto o contiene una sovrascrittura locale, e testa ogni diapositiva che usa quel layout.
 
 ## **Esportare una Forma in SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) scrive il contenuto renderizzato di una singola forma in uno stream. Il risultato contiene solo la forma, non lo sfondo dell’intera diapositiva né le forme vicine.
+[writeAsSvg](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) scrive il contenuto renderizzato di una forma in uno stream. Il risultato contiene solo la forma, non lo sfondo dell’intera diapositiva né le forme vicine.
 
 ```java
 import com.aspose.slides.*;
@@ -300,13 +396,13 @@ try {
 }
 ```
 
-Mantieni la presentazione aperta durante il rendering. L’output dipende dalla formattazione della forma e da risorse quali font e immagini. Se ti serve l’intera composizione, esporta la diapositiva anziché una forma individuale. Il chiamante possiede lo stream e deve chiuderlo.
+Mantieni la presentazione aperta durante il rendering. L’output dipende dalla formattazione della forma e da risorse come caratteri e immagini. Se ti serve l’intera composizione, esporta la diapositiva invece di una singola forma. Chi chiama possiede lo stream e deve chiuderlo.
 
 ## **Allineare le Forme**
 
 Il metodo [SlideUtil.alignShapes](https://reference.aspose.com/slides/it/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) ha overload che allineano tutte le forme o solo gli indici di collezione selezionati. [ShapesAlignmentType](https://reference.aspose.com/slides/it/java/com.aspose.slides/shapesalignmenttype/) specifica il bordo, la linea centrale o la modalità di distribuzione. Imposta `alignToSlide` su `true` per usare i bordi della diapositiva; impostalo su `false` per allineare le forme selezionate l’una rispetto all’altra.
 
-Questo esempio allinea tre forme al bordo superiore della diapositiva. I riferimenti alle forme restituiti vengono convertiti nei loro indici correnti immediatamente prima dell’allineamento.
+Questo esempio allinea tre forme al bordo superiore della diapositiva. I riferimenti alle forme restituiti vengono convertiti nei loro indici attuali immediatamente prima dell’allineamento.
 
 ```java
 import com.aspose.slides.*;
@@ -331,17 +427,17 @@ try {
 }
 ```
 
-L’allineamento cambia le posizioni, non l’ordine Z. Un allineamento relativo richiede normalmente almeno due forme, mentre la distribuzione orizzontale o verticale richiede un numero sufficiente di forme per definire la spaziatura. Ricalcola gli indici se modifichi la collezione prima di chiamare il metodo.
+L’allineamento modifica le posizioni, non l’ordine z. L’allineamento relativo richiede normalmente almeno due forme, mentre la distribuzione orizzontale o verticale necessita di un numero sufficiente di forme per definire la spaziatura. Ricalcola gli indici se modifichi la collezione prima di chiamare il metodo.
 
-## **Capovolgere una Forma**
+## **Ribaltare una Forma**
 
-La classe [ShapeFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/shapeframe/) memorizza posizione, dimensioni, impostazioni di flip orizzontale e verticale, e rotazione. I suoi valori `getFlipH` e `getFlipV` usano [NullableBool](https://reference.aspose.com/slides/it/java/com.aspose.slides/nullablebool/): `True` abilita il flip, `False` lo disabilita, e `NotDefined` mantiene lo stato non specificato/predefinito.
+La classe [ShapeFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/shapeframe/) memorizza posizione, dimensioni, impostazioni di ribaltamento orizzontale e verticale e rotazione. I suoi valori `getFlipH` e `getFlipV` usano [NullableBool](https://reference.aspose.com/slides/it/java/com.aspose.slides/nullablebool/) : `True` abilita il ribaltamento, `False` lo disabilita e `NotDefined` conserva lo stato non specificato/default.
 
-La presentazione di input sottostante contiene una forma non capovolta.
+La presentazione di input sotto contiene una forma non ribaltata.
 
-![The shape before flipping](shape_to_be_flipped.png)
+![La forma prima del ribaltamento](shape_to_be_flipped.png)
 
-L’esempio conserva tutti gli altri valori del frame e sostituisce solo le due impostazioni di flip. Questo è importante perché assegnare un nuovo [Frame](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) sostituisce l’intero frame.
+L’esempio conserva tutti gli altri valori del frame e sostituisce solo le due impostazioni di ribaltamento. Questo è importante perché assegnare un nuovo [Frame](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) sostituisce l’intero frame.
 
 ```java
 import com.aspose.slides.*;
@@ -364,18 +460,22 @@ try {
 
 La forma salvata è riflessa orizzontalmente e verticalmente mantenendo posizione, dimensioni e rotazione.
 
-![The shape after flipping](flipped_shape.png)
+![La forma dopo il ribaltamento](flipped_shape.png)
 
 ## **FAQ**
 
 **Devo usare un indice di collezione come identificatore di una forma?**
 
-Solo per elaborazioni a breve termine in cui la collezione non cambierà prima dell’uso dell’indice. Preferisci una convenzione validata di `Name` o `AlternativeText` per i modelli creati, o `OfficeInteropShapeId` per lavori di interop a livello di diapositiva.
+Solo per elaborazioni di breve durata quando la collezione non cambierà prima dell’uso dell’indice. Preferisci una convenzione validata di `Name` o `AlternativeText` per i modelli creati, oppure `OfficeInteropShapeId` per lavori di interop a livello di diapositiva.
 
-**Nascondere una forma la rimuove dall’ordine Z?**
+**Nascondere una forma la rimuove dall’ordine z?**
 
-No. Una forma nascosta rimane nella collezione allo stesso indice. Può essere trovata, riordinata, modificata o resa visibile nuovamente.
+No. Una forma nascosta rimane nella collezione allo stesso indice. Può essere trovata, riordinata, modificata o resa nuovamente visibile.
 
 **Perché una forma clonata è apparsa davanti a un’altra forma?**
 
-`addClone` aggiunge il clone alla fine della collezione, che è il fronte dell’ordine Z. Usa `insertClone` per scegliere l’indice iniziale o `reorder` dopo aver aggiunto tutte le forme.
+`addClone` aggiunge il clone alla fine della collezione, che corrisponde al fronte dell’ordine z. Usa `insertClone` per scegliere l’indice iniziale o `reorder` dopo aver aggiunto tutte le forme.
+
+**Posso usare un indice fisso per identificare un aggiustamento di forma predefinito?**
+
+Solo dopo aver convalidato il predefinito esatto e il layout della collezione. Preferisci iterare attraverso `IGeometryShape.getAdjustments` e controllare `IAdjustValue.getType`; usa `IAdjustValue.getName` come informazione aggiuntiva quando lo stesso tipo semantico appare più di una volta.

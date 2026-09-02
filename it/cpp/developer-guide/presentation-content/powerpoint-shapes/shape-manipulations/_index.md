@@ -7,40 +7,45 @@ url: /it/cpp/shape-manipulations/
 keywords:
 - Forma PowerPoint
 - Forma della presentazione
-- Forma nella diapositiva
+- Forma su diapositiva
 - Trova forma
 - Clona forma
 - Rimuovi forma
 - Nascondi forma
-- Cambia ordine della forma
-- Ottieni ID della forma interop
-- Testo alternativo della forma
-- Formati layout della forma
+- Modifica ordine forme
+- Ottieni ID forma interop
+- Testo alternativo forma
+- Punto di regolazione forma
+- Regolazione forma predefinita
+- Geometria forma
+- Formati layout forma
 - Forma come SVG
-- Converti forma in SVG
+- Forma in SVG
 - Allinea forma
 - Ribalta forma
 - PowerPoint
-- Presentazione
+- presentazione
 - C++
 - Aspose.Slides
-description: "Scopri come identificare, clonare, rimuovere, nascondere, riordinare, esportare, allineare e ribaltare le forme della presentazione con Aspose.Slides per C++."
+description: "Scopri come identificare, regolare, clonare, rimuovere, nascondere, riordinare, esportare, allineare e ribaltare le forme della presentazione con Aspose.Slides per C++."
 ---
 ## **Panoramica**
 
-Aspose.Slides for C++ rappresenta le forme su una diapositiva come una [IShapeCollection](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/) ordinata. La collezione è sia il luogo dove trovare e modificare le forme sia la sorgente del loro ordine di sovrapposizione: l’indice `0` è la forma più sullo sfondo, mentre l’ultimo indice è la forma più in primo piano.
+Aspose.Slides per C++ rappresenta le forme su una diapositiva come una [IShapeCollection](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/) ordinata. La collezione è sia il luogo in cui trovare e modificare le forme sia la sorgente del loro ordine di sovrapposizione: l'indice `0` è la forma più arretrata, mentre l'ultimo indice è la forma più in avanti.
 
-Questo articolo segue quel modello. Prima spiega come identificare una forma in modo affidabile, poi mostra come clonare, rimuovere, nascondere e riordinare le forme. Le sezioni finali coprono la formattazione a livello di layout, l’esportazione SVG, l’allineamento e le impostazioni di ribaltamento. Ogni esempio è indipendente, così puoi utilizzare solo le operazioni richieste dal tuo flusso di lavoro.
+Questo articolo segue quel modello. Prima spiega come identificare una forma in modo affidabile e modificare i punti di regolazione predefiniti, poi mostra come clonare, rimuovere, nascondere e riordinare le forme. Le sezioni finali coprono la formattazione a livello di layout, l'esportazione SVG, l'allineamento e le impostazioni di ribaltamento. Ogni esempio è indipendente, così puoi utilizzare solo le operazioni necessarie al tuo flusso di lavoro.
 
-## **Identificare e trovare le forme**
+## **Identificare e Trovare le Forme**
 
-- [Name](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_name/) è utile per i modelli controllati dallo sviluppatore ed è facile da ispezionare nel Pannello di selezione di PowerPoint. I nomi possono essere modificati e non è garantita l’unicità, quindi stabilisci una convenzione di denominazione se il codice dipende da essi.
-- [AlternativeText](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_alternativetext/) è utile quando una descrizione di accessibilità o un tag fornito dall'autore identifica già la forma. È visibile agli utenti, può essere localizzato o riscritto per l'accessibilità e non è garantita l’unicità. Non riutilizzare silenziosamente testi di accessibilità significativi come chiave di database.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_officeinteropshapeid/) è un identificatore di sola lettura che è univoco all’interno di una diapositiva e corrisponde all'ID della forma usato dall'interoperabilità di PowerPoint. Usalo quando integri con PowerPoint o quando hai bisogno di un riferimento inequivocabile durante la vita di una forma. Una forma clonata o ricreata è una forma diversa e riceve un proprio ID.
+Gli indici della collezione sono comodi durante l'elaborazione di un file noto, ma non sono identificatori stabili. Aggiungere, rimuovere o riordinare una forma può cambiarne l'indice. Scegli un identificatore in base a come la presentazione è creata e mantenuta:
 
-La proprietà correlata [UniqueId](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_uniqueid/) ha ambito di presentazione, ma è destinata ai componenti aggiuntivi e può essere riassegnata. Non dovrebbe essere considerata una chiave esterna permanente. Se un’identità a lungo termine è essenziale, conserva la mappatura nei dati dell’applicazione e verifica che la forma prevista esista ancora.
+- [Name](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_name/) è utile per modelli controllati dallo sviluppatore ed è facile da ispezionare nel Pannello di selezione di PowerPoint. I nomi possono essere modificati e non sono garantiti univoci, quindi stabilisci una convenzione di denominazione se il codice dipende da essi.
+- [AlternativeText](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_alternativetext/) è utile quando una descrizione di accessibilità o un tag fornito dall'autore identifica già la forma. È visibile agli utenti, può essere localizzato o riscritto per l'accessibilità, e non è garantito univoco. Non riutilizzare silenziosamente testo di accessibilità significativo come chiave di database.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_officeinteropshapeid/) è un identificatore di sola lettura che è unico all'interno di una diapositiva e corrisponde all'ID della forma usato dall'interoperabilità di PowerPoint. Usalo quando integri con PowerPoint o quando ti serve un riferimento non ambiguo per tutta la durata della forma. Una forma clonata o ricreata è una forma diversa e riceve un proprio ID.
 
-L’esempio seguente ricerca per `Name` e restituisce l’ID interop a livello di diapositiva. Quando il modello non contiene la forma prevista, il codice restituisce quel risultato invece di continuare con l’oggetto errato.
+La proprietà correlata [UniqueId](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_uniqueid/) ha ambito di presentazione, ma è destinata ai componenti aggiuntivi e può essere riassegnata. Non dovrebbe essere trattata come chiave esterna permanente. Se l'identità a lungo termine è essenziale, conserva la mappatura nei dati dell'applicazione e verifica che la forma prevista esista ancora.
+
+L'esempio seguente cerca per `Name` e restituisce l'ID interop a livello di diapositiva. Quando il modello non contiene la forma prevista, il codice segnala quel risultato invece di continuare con l'oggetto errato.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -78,7 +83,7 @@ else
 presentation->Dispose();
 ```
 
-Quando un’operazione è specifica per un tipo di forma, verifica l’interfaccia prima di usare membri specifici del tipo. Questo esempio aggiorna il testo e il testo alternativo solo se l’oggetto nominato è un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/).
+Quando un'operazione è specifica a un tipo di forma, controlla l'interfaccia prima di usare membri specifici del tipo. Questo esempio aggiorna il testo e il testo alternativo solo se l'oggetto denominato è un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/).
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -122,15 +127,123 @@ else
 presentation->Dispose();
 ```
 
-## **Modificare la collezione di forme**
+## **Identificare e Modificare le Regolazioni Predefinite delle Forme**
 
-I metodi add, clone, remove e reorder operano sulla collezione immediatamente. Se un’operazione modifica il numero o l’ordine delle forme, non continuare a fare affidamento sugli indici catturati prima di quell’operazione.
+Le forme di geometria predefinita possono esporre punti di regolazione che controllano caratteristiche come la dimensione dell'angolo, le proporzioni della freccia o gli angoli di arco. Accedi a loro tramite la collezione di sola lettura [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/it/cpp/aspose.slides/igeometryshape/get_adjustments/). La collezione stessa è fornita dalla forma, ma ogni [IAdjustValue](https://reference.aspose.com/slides/it/cpp/aspose.slides/iadjustvalue/) contiene un valore che può essere modificato.
 
-### **Clonare una forma**
+Non fare affidamento solo su un indice di collezione fisso. Scorri le regolazioni e ispeziona la proprietà di sola lettura [IAdjustValue::get_Type](https://reference.aspose.com/slides/it/cpp/aspose.slides/iadjustvalue/get_type/), il cui valore [ShapeAdjustmentType](https://reference.aspose.com/slides/it/cpp/aspose.slides/shapeadjustmenttype/) descrive cosa controlla la regolazione. La proprietà di sola lettura [IAdjustValue::get_Name](https://reference.aspose.com/slides/it/cpp/aspose.slides/iadjustvalue/get_name/) fornisce informazioni di identificazione aggiuntive ed è particolarmente utile quando un preset contiene più di una regolazione con lo stesso tipo semantico.
 
-[AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/addclone/) crea una copia indipendente e la aggiunge alla collezione di destinazione. [InsertClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/insertclone/) crea anch'essa una copia ma la posiziona a un indice di ordine z specificato. Le versioni che accettano coordinate spostano la copia senza cambiare le dimensioni; le versioni con larghezza e altezza possono ridimensionarla.
+Usa la proprietà valore che corrisponde al significato della regolazione:
 
-L’esempio crea una diapositiva di destinazione, clona un rettangolo con etichetta in primo piano e inserisce un secondo clone sullo sfondo. Le modifiche a ciascun clone non alterano la forma di origine.
+| Tipo di regolazione | Scopo | Valore da modificare |
+|---|---|---|
+| `CornerSize` | Dimensione degli angoli arrotondati | [RawValue](https://reference.aspose.com/slides/it/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | Spessore della coda della freccia | `RawValue` |
+| `ArrowheadLength` | Lunghezza della punta della freccia | `RawValue` |
+| `ArrowheadWidth` | Larghezza della punta della freccia | `RawValue` |
+| `StartAngle` | Angolo di inizio di una torta o di un arco | [AngleValue](https://reference.aspose.com/slides/it/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | Angolo finale di una torta o di un arco | `AngleValue` |
+
+`Type` e `Name` non possono essere assegnati. `RawValue` è un intero di lettura/scrittura nelle unità geometriche native del preset, mentre `AngleValue` è un angolo di lettura/scrittura in gradi. Il numero, l'ordine, il significato e l'intervallo valido delle regolazioni dipendono dal preset [ShapeType](https://reference.aspose.com/slides/it/cpp/aspose.slides/igeometryshape/get_shapetype/). Un valore valido per un preset può essere non valido o avere un effetto diverso per un altro.
+
+Quando `Type` è `ShapeAdjustmentType::Custom`, l'API non riconosce un significato semantico standard. Ispeziona `Name`, il tipo di preset e il valore esistente, e lascia la regolazione invariata a meno che non si conosca il significato e l'intervallo previsto. Anche per i tipi riconosciuti, verifica se lo stesso tipo compare più volte prima di scegliere un valore. L'articolo [Connector](/slides/it/cpp/connector/) mostra questa situazione con le regolazioni di curvatura dei connettori.
+
+L'esempio completo seguente crea versioni predefinite e modificate di tre forme predefinite. Scorre ogni regolazione, riporta il suo `Name` e `Type`, cambia i valori legati alle dimensioni tramite `RawValue`, cambia gli angoli tramite `AngleValue` e salva il risultato. La colonna sinistra conserva la geometria predefinita; la colonna destra mostra il rettangolo arrotondato, la freccia a quattro vie e la torta regolati.
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// Aggiunge intestazioni per le colonne delle forme predefinite e regolate.
+auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
+auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel->get_TextFrame()->set_Text(u"Modified adjustment values");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+auto modifiedRoundedRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle->set_Name(u"ModifiedRoundedRectangle");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+auto modifiedArrow = slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+modifiedArrow->set_Name(u"ModifiedQuadArrow");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+auto modifiedPie = slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+modifiedPie->set_Name(u"ModifiedPie");
+
+auto shapesToAdjust = MakeArray<SharedPtr<IGeometryShape>>({modifiedRoundedRectangle, modifiedArrow, modifiedPie});
+
+for (auto shape : shapesToAdjust)
+{
+    auto adjustments = shape->get_Adjustments();
+    for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+    {
+        auto adjustment = adjustments->idx_get(adjustmentIndex);
+        Console::WriteLine(shape->get_Name() + u" / " + adjustment->get_Name() + u": " + ObjectExt::ToString(adjustment->get_Type()));
+
+        switch (adjustment->get_Type())
+        {
+            case ShapeAdjustmentType::CornerSize:
+                adjustment->set_RawValue(5000);
+                break;
+            case ShapeAdjustmentType::ArrowTailThickness:
+                adjustment->set_RawValue(25000);
+                break;
+            case ShapeAdjustmentType::ArrowheadLength:
+                adjustment->set_RawValue(30000);
+                break;
+            case ShapeAdjustmentType::ArrowheadWidth:
+                adjustment->set_RawValue(40000);
+                break;
+            case ShapeAdjustmentType::StartAngle:
+                adjustment->set_AngleValue(30);
+                break;
+            case ShapeAdjustmentType::EndAngle:
+                adjustment->set_AngleValue(300);
+                break;
+            case ShapeAdjustmentType::Custom:
+                Console::WriteLine(u"Custom adjustment '" + adjustment->get_Name() + u"' was not changed.");
+                break;
+        }
+    }
+}
+
+presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Controllare il tipo semantico prima di modificare un valore rende il codice esplicito riguardo all'intento ed evita di assumere che un indice di collezione specifico abbia lo stesso significato in forme predefinite diverse.
+
+## **Modificare la Collezione di Forme**
+
+I metodi di aggiunta, clonazione, rimozione e riordino operano immediatamente sulla collezione. Se un'operazione cambia il numero o l'ordine delle forme, non continuare a fare affidamento sugli indici catturati prima di quell'operazione.
+
+### **Clonare una Forma**
+
+[AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/addclone/) crea una copia indipendente e la aggiunge alla collezione di destinazione. [InsertClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/insertclone/) crea anch'essa una copia ma la posiziona a un indice di ordine Z specificato. Le sovraccariche che accettano coordinate spostano la clonazione senza cambiare le dimensioni; le sovraccariche con larghezza e altezza possono ridimensionarla.
+
+L'esempio crea una diapositiva di destinazione, clona un rettangolo etichettato in primo piano e inserisce un secondo clone in fondo. Le modifiche a ciascun clone non modificano la forma di origine.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -186,13 +299,13 @@ presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-La clonazione copia il contenuto e la formattazione della forma, inclusi nome e testo alternativo. Assegna nuovi identificatori logici al clone quando tali valori devono essere unici. Le risorse usate da forme complesse sono gestite dalla presentazione, ma un clone rimane un nuovo elemento della collezione con una nuova identità di forma.
+La clonazione copia il contenuto e la formattazione della forma, inclusi nome e testo alternativo. Assegna nuovi identificatori logici al clone quando tali valori devono essere univoci. Le risorse usate dalle forme complesse sono gestite dalla presentazione, ma un clone rimane un nuovo elemento della collezione con una nuova identità di forma.
 
-### **Rimuovere le forme**
+### **Rimuovere Forme**
 
-[Remove](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/remove/) elimina un oggetto forma specifico dalla sua collezione. Quando si rimuovono più corrispondenze durante un’iterazione indicizzata, scorrere dall’ultimo verso il primo in modo che ogni indice rimanente rimanga valido.
+[Remove](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/remove/) elimina un oggetto forma specifico dalla sua collezione. Quando rimuovi più corrispondenze durante un'iterazione indicizzata, attraversa la collezione dal fondo così che ogni indice rimanente rimanga valido.
 
-Questo esempio rimuove ogni forma con un nome designato. Legge la forma indicizzata corrente, non un elemento fisso della collezione, e non effettua cast inutili della forma.
+Questo esempio rimuove ogni forma con un nome designato. Legge la forma indicizzata corrente, non un elemento fisso della collezione, e non effettua cast inutili.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -231,11 +344,11 @@ presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Dopo la rimozione, il conteggio delle forme e gli indici delle forme successive cambiano. I riferimenti a forme non interessate rimangono più affidabili rispetto agli indici salvati. Considera anche connettori, animazioni e altre funzionalità della presentazione che possono fare riferimento all’oggetto rimosso; rimuovere una forma visibile può modificare più del semplice aspetto della diapositiva.
+Dopo la rimozione, il conteggio delle forme e gli indici delle forme successive cambiano. I riferimenti a forme non interessate rimangono più affidabili rispetto agli indici salvati. Considera anche connettori, animazioni e altre funzionalità della presentazione che potrebbero fare riferimento all'oggetto rimosso; rimuovere una forma visibile può cambiare più che l'aspetto della diapositiva.
 
-### **Nascondere una forma**
+### **Nascondere una Forma**
 
-Impostare [Hidden](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/set_hidden/) su `true` mantiene la forma nella collezione ma ne impedisce la comparsa nella presentazione normale. Il suo indice, formattazione e contenuto rimangono disponibili al codice, quindi nascondere è appropriato per elementi opzionali che possono essere ripristinati in seguito.
+Impostare [Hidden](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/set_hidden/) a `true` mantiene la forma nella collezione ma impedisce che appaia nella presentazione normale. Il suo indice, la formattazione e il contenuto rimangono disponibili al codice, quindi nascondere è appropriato per elementi opzionali che possono essere ripristinati in seguito.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -270,11 +383,11 @@ presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Nascondere non è cancellazione né sicurezza. L’oggetto può ancora essere scoperto e resa visibile da un utente o dal codice, e rimane parte del file della presentazione.
+Nascondere non è cancellazione né sicurezza. L'oggetto può ancora essere scoperto e reso visibile da un utente o da codice, e rimane parte del file di presentazione.
 
-### **Modificare l’ordine Z**
+### **Modificare l'Ordine Z**
 
-Le forme sovrapposte sono disegnate secondo l’ordine della collezione. [Reorder](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/reorder/) sposta una forma esistente a un indice di destinazione senza clonarla. L’indice `0` è lo sfondo; `Count - 1` è il primo piano.
+Le forme sovrapposte sono disegnate nell'ordine della collezione. [Reorder](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/reorder/) sposta una forma esistente a un indice di destinazione senza clonarla. L'indice `0` è quello più arretrato; `Count - 1` è quello più avanzato.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -310,13 +423,13 @@ presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il rettangolo viene creato per primo e inizialmente è dietro l’ellisse. Spostarlo all’indice finale lo porta in primo piano. Finalizza l’ordine Z dopo aver aggiunto o clonato tutte le forme correlate, poiché tali operazioni aggiungono o inseriscono nuovi elementi nella collezione e possono alterare lo stack previsto.
+Il rettangolo viene creato per primo e inizialmente si trova dietro l'ellisse. Spostarlo all'indice finale lo porta in primo piano. Finalizza l'ordine Z dopo aver aggiunto o clonato tutte le forme correlate, perché tali operazioni aggiungono o inseriscono nuovi elementi nella collezione e possono alterare lo stack previsto.
 
-## **Ispezionare le forme nelle diapositive layout**
+## **Ispezionare le Forme sui Layout**
 
-Le diapositive normali, le diapositive layout e le diapositive master hanno collezioni di forme separate. Una forma in una collezione layout non è lo stesso oggetto di una forma posizionata in modo simile su una diapositiva normale. Ispeziona le forme layout quando devi comprendere o modificare la formattazione fornita da un layout.
+Le diapositive normali, i layout e i master hanno collezioni di forme separate. Una forma nella collezione di un layout non è lo stesso oggetto di una forma posizionata in modo simile su una diapositiva normale. Ispeziona le forme del layout quando devi comprendere o modificare la formattazione fornita da un layout.
 
-L’esempio seguente legge il [FillFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_fillformat/) e il [LineFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_lineformat/) di ogni forma layout senza presumere che ogni forma sia un `AutoShape`.
+L'esempio seguente legge il [FillFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_fillformat/) e il [LineFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_lineformat/) di ogni forma del layout senza presumere che ogni forma sia un `AutoShape`.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -346,11 +459,11 @@ for (auto layoutSlide : presentation->get_LayoutSlides())
 presentation->Dispose();
 ```
 
-Modificare un layout può influenzare più diapositive che lo usano. Prima di cambiare una forma del layout, determina se una diapositiva normale eredita l’oggetto o contiene una sovrascrittura locale, e testa ogni diapositiva che utilizza quel layout.
+Modificare un layout può influire su più diapositive che lo utilizzano. Prima di cambiare una forma di layout, determina se una diapositiva normale eredita l'oggetto o contiene una sovrascrittura locale, e testa ogni diapositiva che usa quel layout.
 
-## **Esportare una forma in SVG**
+## **Esportare una Forma in SVG**
 
-[WriteAsSvg](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/writeassvg/) scrive il contenuto renderizzato di una forma in uno stream. Il risultato contiene la forma, non l’intero sfondo della diapositiva o le forme vicine.
+[WriteAsSvg](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/writeassvg/) scrive il contenuto renderizzato di una sola forma su uno stream. Il risultato contiene la forma, non l'intero sfondo della diapositiva o le forme vicine.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -382,13 +495,13 @@ else
 presentation->Dispose();
 ```
 
-Mantieni aperta la presentazione durante il rendering. L’output dipende dalla formattazione della forma e dalle risorse come font e immagini. Se ti serve l’intera composizione, esporta la diapositiva invece di una singola forma. Il chiamante possiede lo stream e deve chiuderlo o smaltirlo.
+Mantieni la presentazione aperta durante il rendering. L'output dipende dalla formattazione della forma e da risorse come caratteri e immagini. Se ti serve l'intera composizione, esporta la diapositiva anziché una singola forma. Chi chiama possiede lo stream e deve chiuderlo o rilasciarlo.
 
-## **Allineare le forme**
+## **Allineare le Forme**
 
-Le overload di [SlideUtil::AlignShapes](https://reference.aspose.com/slides/it/cpp/aspose.slides.util/slideutil/alignshapes/) allineano tutte le forme o gli indici di collezione selezionati. [ShapesAlignmentType](https://reference.aspose.com/slides/it/cpp/aspose.slides/shapesalignmenttype/) specifica il bordo, la linea centrale o la modalità di distribuzione. Imposta `alignToSlide` su `true` per usare i bordi della diapositiva; impostalo su `false` per allineare le forme selezionate rispetto a ciascuna altra.
+Le sovraccariche di [SlideUtil::AlignShapes](https://reference.aspose.com/slides/it/cpp/aspose.slides.util/slideutil/alignshapes/) allineano tutte le forme o gli indici di collezione selezionati. [ShapesAlignmentType](https://reference.aspose.com/slides/it/cpp/aspose.slides/shapesalignmenttype/) specifica il bordo, la linea centrale o la modalità di distribuzione. Imposta `alignToSlide` a `true` per usare i bordi della diapositiva; impostalo a `false` per allineare le forme selezionate tra loro.
 
-Questo esempio allinea tre forme al bordo superiore della diapositiva. I riferimenti alle forme restituiti sono convertiti nei loro indici correnti immediatamente prima dell’allineamento.
+Questo esempio allinea tre forme al bordo superiore della diapositiva. I riferimenti alle forme restituiti vengono convertiti nei loro indici correnti immediatamente prima dell'allineamento.
 
 ```cpp
 #include <DOM/IShapeCollection.h>
@@ -422,17 +535,17 @@ presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-L’allineamento cambia le posizioni, non l’ordine Z. L’allineamento relativo richiede normalmente almeno due forme, mentre la distribuzione orizzontale o verticale necessita di un numero sufficiente di forme per definire la spaziatura. Ricalcola gli indici se modifichi la collezione prima di chiamare il metodo.
+L'allineamento modifica le posizioni, non l'ordine Z. L'allineamento relativo normalmente richiede almeno due forme, mentre la distribuzione orizzontale o verticale richiede un numero sufficiente di forme per definire la spaziatura. Ricalcola gli indici se modifichi la collezione prima di chiamare il metodo.
 
-## **Ribaltare una forma**
+## **Ribaltare una Forma**
 
-La classe [ShapeFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/shapeframe/) memorizza posizione, dimensione, impostazioni di ribaltamento orizzontale e verticale e rotazione. I suoi valori `FlipH` e `FlipV` usano [NullableBool](https://reference.aspose.com/slides/it/cpp/aspose.slides/nullablebool/): `True` abilita il ribaltamento, `False` lo disabilita, e `NotDefined` conserva lo stato non specificato/predefinito.
+La classe [ShapeFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/shapeframe/) memorizza posizione, dimensioni, impostazioni di ribaltamento orizzontale e verticale e rotazione. I valori `FlipH` e `FlipV` usano [NullableBool](https://reference.aspose.com/slides/it/cpp/aspose.slides/nullablebool/): `True` attiva il ribaltamento, `False` lo disattiva, e `NotDefined` conserva lo stato non specificato/predefinito.
 
-La presentazione di input mostrata di seguito contiene una forma non ribaltata.
+La presentazione di input di seguito contiene una forma non ribaltata.
 
-![La forma prima del ribaltamento](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-L’esempio conserva tutti gli altri valori del frame e sostituisce solo le due impostazioni di ribaltamento. Questo è importante perché assegnare un nuovo [Frame](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/set_frame/) sostituisce l’intero frame.
+L'esempio conserva tutti gli altri valori del frame e sostituisce solo le due impostazioni di ribaltamento. Questo è importante perché assegnare un nuovo [Frame](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/set_frame/) sostituisce l'intero frame.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -460,20 +573,24 @@ presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-La forma salvata è specchiata orizzontalmente e verticalmente mantenendo posizione, dimensione e rotazione.
+La forma salvata è rispecchiata orizzontalmente e verticalmente mantenendo posizione, dimensioni e rotazione.
 
-![La forma dopo il ribaltamento](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
 **Devo usare un indice di collezione come identificatore di una forma?**
 
-Solo per elaborazioni di breve durata quando la collezione non cambierà prima dell'uso dell'indice. Preferisci una convenzione validata di `Name` o `AlternativeText` per i modelli creati, o `OfficeInteropShapeId` per lavori interop a livello di diapositiva.
+Solo per elaborazioni di breve durata quando la collezione non cambierà prima dell'uso dell'indice. Preferisci una convenzione con `Name` o `AlternativeText` per modelli creati, o `OfficeInteropShapeId` per lavori di interop a livello di diapositiva.
 
-**Nascondere una forma la rimuove dall’ordine Z?**
+**Nascondere una forma la rimuove dall'ordine Z?**
 
 No. Una forma nascosta rimane nella collezione allo stesso indice. Può essere trovata, riordinata, modificata o resa nuovamente visibile.
 
 **Perché una forma clonata è apparsa davanti a un'altra forma?**
 
-`AddClone` aggiunge il clone alla fine della collezione, che è il fronte dell’ordine Z. Usa `InsertClone` per scegliere l’indice iniziale o `Reorder` dopo aver aggiunto tutte le forme.
+`AddClone` aggiunge il clone alla fine della collezione, che corrisponde al fronte dell'ordine Z. Usa `InsertClone` per scegliere l'indice iniziale o `Reorder` dopo aver aggiunto tutte le forme.
+
+**Posso usare un indice fisso per identificare una regolazione di forma predefinita?**
+
+Solo dopo aver convalidato il preset esatto e la disposizione della collezione. Preferisci scorrere `IGeometryShape::get_Adjustments` e verificare `IAdjustValue::get_Type`; usa `IAdjustValue::get_Name` come informazione aggiuntiva quando lo stesso tipo semantico appare più di una volta.

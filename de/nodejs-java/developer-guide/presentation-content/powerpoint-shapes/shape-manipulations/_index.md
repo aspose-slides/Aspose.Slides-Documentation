@@ -14,8 +14,11 @@ keywords:
 - Form ausblenden
 - Formreihenfolge ändern
 - Interop-Form-ID abrufen
-- alternativer Text der Form
-- Form-Layoutformate
+- Form-Alternativtext
+- Form-Anpassungspunkt
+- Voreingestellte Formanpassung
+- Formgeometrie
+- Form-Layout-Formate
 - Form als SVG
 - Form zu SVG
 - Form ausrichten
@@ -25,25 +28,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Präsentationsformen mit Aspose.Slides für Node.js via Java identifizieren, klonen, entfernen, ausblenden, neu anordnen, exportieren, ausrichten und spiegeln."
+description: "Erfahren Sie, wie Sie Präsentationsformen mit Aspose.Slides für Node.js via Java identifizieren, anpassen, klonen, entfernen, ausblenden, neu anordnen, exportieren, ausrichten und spiegeln."
 ---
 ## **Übersicht**
 
-Aspose.Slides for Node.js via Java stellt die Formen auf einer Folie als geordnete [ShapeCollection](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/) dar. Die Sammlung ist sowohl der Ort, an dem Sie Formen finden und ändern, als auch die Quelle ihrer Stapelreihenfolge: Index `0` ist die hinterste Form, während der letzte Index die vorderste Form ist.
+Aspose.Slides for Node.js via Java stellt die Formen auf einer Folie als geordnete [ShapeCollection](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/) dar. Die Sammlung ist sowohl der Ort, an dem Sie Formen finden und ändern, als auch die Quelle ihrer Stapelreihenfolge: Index `0` ist die am weitesten hinten liegende Form, während der letzte Index die vorderste Form ist.
 
-Dieser Artikel folgt diesem Modell. Zuerst wird erklärt, wie man eine Form zuverlässig identifiziert, dann wird gezeigt, wie man Formen klont, entfernt, ausblendet und neu anordnet. Die letzten Abschnitte behandeln Layout‑bezogene Formatierung, SVG‑Export, Ausrichtung und Spiegelungseinstellungen. Jeder Abschnitt ist unabhängig, sodass Sie nur die Vorgänge verwenden können, die Ihr Workflow erfordert.
+Dieser Artikel folgt diesem Modell. Er erklärt zuerst, wie man eine Form zuverlässig identifiziert und voreingestellte Anpassungspunkte der Form ändert, zeigt dann, wie man Formen klont, entfernt, ausblendet und neu anordnet. Die abschließenden Abschnitte behandeln Layout‑bezogene Formatierung, SVG‑Export, Ausrichtung und Spiegelungseinstellungen. Jedes Beispiel ist unabhängig, sodass Sie nur die Vorgänge verwenden können, die Ihr Workflow erfordert.
 
-## **Identifizieren und Finden von Formen**
+## **Formen identifizieren und finden**
 
-Sammlungsindizes sind praktisch beim Verarbeiten einer bekannten Datei, aber sie sind keine stabilen Bezeichner. Das Hinzufügen, Entfernen oder Neuordnen einer Form kann ihren Index ändern. Wählen Sie einen Bezeichner basierend darauf, wie die Präsentation erstellt und gepflegt wird:
+Sammlungsindizes sind praktisch, wenn eine bekannte Datei verarbeitet wird, aber sie sind keine stabilen Kennungen. Das Hinzufügen, Entfernen oder Neuordnen einer Form kann ihren Index ändern. Wählen Sie eine Kennung nach dem Erstellungs‑ und Wartungsstil der Präsentation:
 
-- [Name](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getname/) ist nützlich für entwicklergesteuerte Vorlagen und lässt sich leicht im Auswahlfenster von PowerPoint inspizieren. Namen können bearbeitet werden und sind nicht garantiert eindeutig, also etablieren Sie eine Namenskonvention, wenn Code von ihnen abhängt.
+- [Name](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getname/) ist nützlich für von Entwicklern gesteuerte Vorlagen und lässt sich leicht in PowerPoints Auswahlbereich inspizieren. Namen können bearbeitet werden und sind nicht garantiert eindeutig, also etablieren Sie eine Namenskonvention, wenn Code von ihnen abhängt.
 - [AlternativeText](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getalternativetext/) ist nützlich, wenn eine Barrierefreiheitsbeschreibung oder ein vom Autor bereitgestelltes Tag die Form bereits identifiziert. Es ist für Benutzer sichtbar, kann lokalisiert oder für Barrierefreiheit umgeschrieben werden und ist nicht garantiert eindeutig. Verwenden Sie keinen bedeutungsvollen Barrierefreiheitstext stillschweigend als Datenbankschlüssel.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) ist ein schreibgeschützter Bezeichner, der innerhalb einer Folie eindeutig ist und der von PowerPoint‑Interop verwendeten Form‑ID entspricht. Verwenden Sie ihn bei der Integration mit PowerPoint oder wenn Sie während der Lebensdauer einer Form eine eindeutige Referenz benötigen. Eine geklonte oder neu erstellte Form ist eine andere Form und erhält ihre eigene ID.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) ist ein schreibgeschützter Bezeichner, der innerhalb einer Folie eindeutig ist und der von PowerPoint‑Interop verwendeten Form‑ID entspricht. Verwenden Sie ihn, wenn Sie mit PowerPoint integrieren oder während der Lebensdauer einer Form eine eindeutige Referenz benötigen. Eine geklonte oder neu erstellte Form ist eine andere Form und erhält ihre eigene ID.
 
-Die zugehörige Methode [getUniqueId](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getuniqueid/) gibt einen Bezeichner mit Präsentationsumfang zurück, der jedoch für Add‑Ins gedacht ist und neu zugewiesen werden kann. Er sollte nicht als permanenter externer Schlüssel behandelt werden. Wenn eine langfristige Identität entscheidend ist, behalten Sie die Zuordnung in Anwendungsdaten und prüfen Sie, ob die erwartete Form noch existiert.
+Die zugehörige [getUniqueId](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getuniqueid/)‑Methode gibt einen Bezeichner im Präsentationsumfang zurück, der jedoch für Add‑Ins gedacht ist und neu zugewiesen werden kann. Er sollte nicht als permanenter externer Schlüssel behandelt werden. Wenn eine langfristige Identität wichtig ist, halten Sie die Zuordnung in Anwendungsdaten und prüfen Sie, ob die erwartete Form noch existiert.
 
-Das folgende Beispiel sucht nach Namen mit einem exakten Vergleich und gibt die folienbezogene Interop‑ID aus. Wenn die Vorlage die erwartete Form nicht enthält, meldet der Code dieses Ergebnis, anstatt mit dem falschen Objekt fortzufahren.
+Das folgende Beispiel sucht nach Namen mit exakt gleichem Vergleich und meldet die folienbezogene Interop‑ID. Wenn die Vorlage die erwartete Form nicht enthält, gibt der Code dieses Ergebnis aus, anstatt mit dem falschen Objekt weiterzumachen.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -71,7 +74,7 @@ try {
 }
 ```
 
-Wenn ein Vorgang spezifisch für einen Formtyp ist, prüfen Sie die Laufzeitklasse, bevor Sie typ‑spezifische Mitglieder verwenden. Dieses Beispiel aktualisiert Text und Alternativtext nur, wenn das benannte Objekt ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) ist.
+Wenn ein Vorgang für einen bestimmten Formtyp spezifisch ist, prüfen Sie die Laufzeitklasse, bevor Sie typenspezifische Mitglieder verwenden. Dieses Beispiel aktualisiert Text und Alternativtext nur, wenn das benannte Objekt ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) ist.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -102,15 +105,105 @@ try {
 }
 ```
 
-## **Modifizieren der Form‑Sammlung**
+## **Voreingestellte Formanpassungen identifizieren und ändern**
 
-Die Methoden zum Hinzufügen, Klonen, Entfernen und Neuordnen wirken sofort auf die Sammlung. Wenn ein Vorgang die Anzahl oder Reihenfolge der Formen ändert, verlassen Sie sich nicht mehr auf zuvor erfasste Indizes.
+Voreingestellte Geometrieformen können Anpassungspunkte besitzen, die Merkmale wie Eckgröße, Pfeilverhältnisse oder Bogenwinkel steuern. Greifen Sie über die schreibgeschützte [GeometryShape.getAdjustments](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/geometryshape/)‑Sammlung darauf zu. Die Sammlung selbst wird von der Form bereitgestellt, aber jedes [AdjustValue](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/) enthält einen änderbaren Wert.
+
+Verlassen Sie sich nicht nur auf einen festen Sammlungsindex. Durchlaufen Sie die Anpassungen und prüfen Sie die schreibgeschützte [getType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/)‑Methode, deren [ShapeAdjustmentType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapeadjustmenttype/)‑Wert beschreibt, was die Anpassung kontrolliert. Die schreibgeschützte [getName](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/getname/)‑Methode liefert zusätzliche Identifikationsinformationen und ist besonders nützlich, wenn ein Preset mehr als eine Anpassung desselben semantischen Typs enthält.
+
+Verwenden Sie die Wert‑Methode, die der Bedeutung der Anpassung entspricht:
+
+| Anpassungstyp | Zweck | Zu ändernder Wert |
+|---|---|---|
+| `CornerSize` | Größe abgerundeter Ecken | [setRawValue](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Dicke des Pfeilschafts | `setRawValue` |
+| `ArrowheadLength` | Länge der Pfeilspitze | `setRawValue` |
+| `ArrowheadWidth` | Breite der Pfeilspitze | `setRawValue` |
+| `StartAngle` | Startwinkel eines Kuchen‑ oder Bogensegments | [setAngleValue](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Endwinkel eines Kuchen‑ oder Bogensegments | `setAngleValue` |
+
+`getType` und `getName` geben schreibgeschützte Informationen zurück. `getRawValue` und `setRawValue` arbeiten mit einem Ganzzahlwert in den nativen Geometrieeinheiten des Presets, während `getAngleValue` und `setAngleValue` mit einem Winkel in Grad arbeiten. Anzahl, Reihenfolge, Bedeutung und gültiger Bereich der Anpassungen hängen vom Preset‑[GeometryShape.getShapeType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/geometryshape/) ab. Ein Wert, der für ein Preset gültig ist, kann für ein anderes ungültig sein oder eine andere Wirkung haben.
+
+Wenn `getType` `ShapeAdjustmentType.Custom` zurückgibt, erkennt die API keine standardmäßige semantische Bedeutung. Prüfen Sie `getName`, den Preset‑Typ und den bestehenden Wert und lassen Sie die Anpassung unverändert, sofern die erwartete Bedeutung und der Bereich nicht bekannt sind. Auch bei erkannten Typen sollten Sie prüfen, ob derselbe Typ mehr als einmal vorkommt, bevor Sie einen Wert auswählen. Der Artikel [Connector](/slides/de/nodejs-java/connector/) zeigt diese Situation mit Biegeanpassungen von Verbindern.
+
+Das folgende vollständige Beispiel erzeugt Standard‑ und modifizierte Varianten von drei Preset‑Formen. Es durchläuft jede Anpassung, meldet ihren Namen und Typ, ändert größenbezogene Werte über `setRawValue`, ändert Winkel über `setAngleValue` und speichert das Ergebnis. Die linke Spalte behält die Standardgeometrie; die rechte Spalte zeigt das angepasste abgerundete Rechteck, den Vier‑Weg‑Pfeil und das Kuchendiagramm.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    // Fügt Überschriften für die Standard- und angepassten Formspalten hinzu.
+    var defaultColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    var adjustedColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    var modifiedRoundedRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 80, 180, 160, 110);
+    var modifiedArrow = slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 95, 330, 130, 130);
+    var modifiedPie = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    var shapesToAdjust = [modifiedRoundedRectangle, modifiedArrow, modifiedPie];
+
+    for (var shapeIndex = 0; shapeIndex < shapesToAdjust.length; shapeIndex++) {
+        var shape = shapesToAdjust[shapeIndex];
+        for (var adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            var adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            console.log(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case asposeSlides.ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.Custom:
+                    console.log("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Prüfen des semantischen Typs vor dem Ändern eines Werts macht den Code explizit bezüglich seiner Absicht und verhindert die Annahme, dass ein bestimmter Sammlungsindex dieselbe Bedeutung über verschiedene Preset‑Formen hinweg hat.
+
+## **Formensammlung ändern**
+
+Die Methoden zum Hinzufügen, Klonen, Entfernen und Neuordnen wirken sofort auf die Sammlung. Wenn ein Vorgang die Anzahl oder Reihenfolge der Formen ändert, verlassen Sie sich nicht weiter auf zuvor erfasste Indizes.
 
 ### **Eine Form klonen**
 
-[addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/addclone/) erstellt eine unabhängige Kopie und fügt sie an das Ziel‑Collection‑Objekt an. [insertClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/insertclone/) erstellt ebenfalls eine Kopie, legt sie jedoch an einem angegebenen Z‑Order‑Index ab. Die Überladungen, die Koordinaten akzeptieren, verschieben den Klon, ohne seine Größe zu ändern; Überladungen mit Breite und Höhe können ihn ebenfalls skalieren.
+[addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/addclone/) erstellt eine unabhängige Kopie und hängt sie an die Ziel‑Sammlung an. [insertClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/insertclone/) erstellt ebenfalls eine Kopie, legt sie jedoch an einem angegebenen Z‑Order‑Index ab. Die Überladungen, die Koordinaten akzeptieren, verschieben den Klon, ohne seine Größe zu ändern; Überladungen mit Breite und Höhe können ihn ebenfalls skalieren.
 
-Das Beispiel erstellt eine Ziel‑Folien, klont ein beschriftetes Rechteck nach vorne und fügt einen zweiten Klon hinten ein. Änderungen an einem der Klone verändern nicht die Quell‑Form.
+Das Beispiel erstellt eine Ziel‑Folie, klont ein beschriftetes Rechteck nach vorne und fügt einen zweiten Klon hinten ein. Änderungen an einem der Klone beeinflussen nicht die Quellform.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -148,13 +241,13 @@ try {
 }
 ```
 
-Das Klonen kopiert den Inhalt und die Formatierung der Form, einschließlich ihres Namens und Alternativtexts. Weisen Sie dem Klon neue logische Bezeichner zu, wenn diese Werte eindeutig sein müssen. Ressourcen, die von komplexen Formen verwendet werden, werden von der Präsentation verwaltet, aber ein Klon bleibt ein neues Sammlungselement mit neuer Formidentität.
+Klonen kopiert den Inhalt und die Formatierung der Form, inklusive Name und Alternativtext. Weisen Sie dem Klon neue logische Kennungen zu, wenn diese Werte eindeutig sein müssen. Ressourcen, die von komplexen Formen verwendet werden, werden von der Präsentation verwaltet, aber ein Klon bleibt ein neues Sammlungselement mit einer neuen Form‑Identität.
 
 ### **Formen entfernen**
 
-[remove](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/remove/) löscht ein bestimmtes Form‑Objekt aus seiner Sammlung. Beim Entfernen mehrerer Übereinstimmungen während einer indizierten Iteration von hinten nach vorne traversieren, damit jeder verbleibende Index gültig bleibt.
+[remove](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/remove/) löscht ein bestimmtes Form‑Objekt aus seiner Sammlung. Beim Entfernen mehrerer Treffer während einer indizierten Iteration von hinten nach vorne durchlaufen, damit jeder verbleibende Index gültig bleibt.
 
-Dieses Beispiel entfernt jede Form mit einem festgelegten Namen. Es liest die Form am aktuellen Index und geht nicht von einem bestimmten Formtyp aus.
+Dieses Beispiel entfernt jede Form mit einem festgelegten Namen. Es liest die Form am aktuellen Index und nimmt nicht an, dass es sich um einen bestimmten Formtyp handelt.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -185,11 +278,11 @@ try {
 }
 ```
 
-Nach dem Entfernen ändern sich die Formzahl und die Indizes nachfolgender Formen. Verweise auf unbeeinflusste Formen bleiben zuverlässiger als gespeicherte Indizes. Berücksichtigen Sie außerdem Verbinder, Animationen und andere Präsentationsfeatures, die auf das entfernte Objekt verweisen könnten; das Entfernen einer sichtbaren Form kann mehr als das Aussehen der Folie verändern.
+Nach dem Entfernen ändern sich die Formanzahl und die Indizes späterer Formen. Verweise auf unbeeinflusste Formen bleiben zuverlässiger als gespeicherte Indizes. Berücksichtigen Sie außerdem Verbinder, Animationen und andere Präsentationsfunktionen, die auf das entfernte Objekt verweisen könnten; das Entfernen einer sichtbaren Form kann mehr als das Aussehen der Folie verändern.
 
 ### **Eine Form ausblenden**
 
-Das Setzen von [Hidden](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/sethidden/) auf `true` behält die Form in der Sammlung, verhindert jedoch, dass sie in der normalen Bildschirmanzeige erscheint. Ihr Index, ihre Formatierung und ihr Inhalt bleiben für Code verfügbar, sodass das Ausblenden für optionale Elemente geeignet ist, die später wiederhergestellt werden können.
+Das Setzen von [Hidden](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/sethidden/) auf `true` lässt die Form in der Sammlung, verhindert jedoch ihr Erscheinen in der normalen Bildschirmpräsentation. Ihr Index, ihre Formatierung und ihr Inhalt bleiben für Code verfügbar, sodass das Ausblenden für optionale Elemente geeignet ist, die später wiederhergestellt werden können.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -217,11 +310,11 @@ try {
 }
 ```
 
-Ausblenden ist kein Löschen oder Sicherheitsmechanismus. Das Objekt kann weiterhin entdeckt und von einem Benutzer oder Code wieder eingeblendet werden und bleibt Teil der Präsentationsdatei.
+Ausblenden ist kein Löschen oder eine Sicherheitsmaßnahme. Das Objekt kann weiterhin entdeckt und von einem Benutzer oder Code wieder eingeblendet werden und bleibt Teil der Präsentationsdatei.
 
-### **Die Z‑Order ändern**
+### **Z‑Order ändern**
 
-Überlappende Formen werden in der Reihenfolge der Sammlung gezeichnet. [reorder](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/reorder/) verschiebt eine vorhandene Form zu einem Ziel‑Index, ohne sie zu klonen. Index `0` ist die Rückseite; `size() - 1` ist die Vorderseite.
+Überlappende Formen werden in der Reihenfolge der Sammlung gezeichnet. [reorder](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/reorder/) verschiebt eine bestehende Form zu einem Ziel‑Index, ohne sie zu klonen. Index `0` ist hinten; `size() - 1` ist vorne.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -248,13 +341,13 @@ try {
 }
 ```
 
-Das Rechteck wird zuerst erstellt und liegt zunächst hinter der Ellipse. Das Verschieben zum letzten Index bringt es nach vorne. Finalisieren Sie die Z‑Order, nachdem Sie alle zugehörigen Formen hinzugefügt oder geklont haben, da diese Vorgänge neue Sammlungselemente anhängen oder einfügen und die beabsichtigte Stapelreihenfolge ändern können.
+Das Rechteck wird zuerst erstellt und liegt zunächst hinter der Ellipse. Das Verschieben an den letzten Index bringt es nach vorne. Finalisieren Sie die Z‑Order, nachdem Sie alle zugehörigen Formen hinzugefügt oder geklont haben, weil diese Vorgänge neue Sammlungselemente anhängen oder einfügen und die beabsichtigte Stapelreihenfolge ändern können.
 
 ## **Formen auf Layout‑Folien inspizieren**
 
-Normale Folien, Layout‑Folien und Master‑Folien besitzen separate Form‑Sammlungen. Eine Form in einer Layout‑Sammlung ist nicht dasselbe Objekt wie eine ähnlich positionierte Form auf einer normalen Folie. Inspizieren Sie Layout‑Formen, wenn Sie die von einem Layout bereitgestellte Formatierung verstehen oder ändern müssen.
+Normale Folien, Layout‑Folien und Master‑Folien besitzen separate Formensammlungen. Eine Form in einer Layout‑Sammlung ist nicht dasselbe Objekt wie eine ähnlich positionierte Form auf einer normalen Folie. Inspizieren Sie Layout‑Formen, wenn Sie die durch ein Layout bereitgestellte Formatierung verstehen oder ändern müssen.
 
-Das folgende Beispiel liest das [FillFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getfillformat/) und [LineFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getlineformat/) jeder Layout‑Form, ohne anzunehmen, dass jede Form ein `AutoShape` ist.
+Das folgende Beispiel liest für jede Layout‑Form das [FillFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getfillformat/) und das [LineFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getlineformat/), ohne anzunehmen, dass jede Form ein `AutoShape` ist.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -310,13 +403,13 @@ try {
 }
 ```
 
-Halten Sie die Präsentation während des Renderns offen. Die Ausgabe hängt von der Formatierung der Form sowie von Ressourcen wie Schriften und Bildern ab. Wenn Sie die gesamte Komposition benötigen, exportieren Sie die Folie statt einer einzelnen Form. Der Aufrufer besitzt den Stream und muss ihn schließen.
+Halten Sie die Präsentation während des Renderns geöffnet. Die Ausgabe hängt von der Formatierung der Form und von Ressourcen wie Schriften und Bildern ab. Wenn Sie die gesamte Komposition benötigen, exportieren Sie die Folie statt einer einzelnen Form. Der Aufrufer besitzt den Stream und muss ihn schließen.
 
 ## **Formen ausrichten**
 
-Die Überladungen von [SlideUtil.alignShapes](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slideutil/alignshapes/) richten entweder alle Formen oder ausgewählte Sammlungsindizes aus. [ShapesAlignmentType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapesalignmenttype/) gibt die Kante, Mittellinie oder Verteilungsart an. Setzen Sie `alignToSlide` auf `true`, um die Folienkanten zu verwenden; setzen Sie es auf `false`, um die ausgewählten Formen relativ zueinander auszurichten.
+Die [SlideUtil.alignShapes](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slideutil/alignshapes/)‑Überladungen richten entweder alle Formen oder ausgewählte Sammlungsindizes aus. [ShapesAlignmentType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapesalignmenttype/) gibt die Kante, Mittellinie oder Verteilungsart an. Setzen Sie `alignToSlide` auf `true`, um die Folienkanten zu verwenden; setzen Sie es auf `false`, um die ausgewählten Formen relativ zueinander auszurichten.
 
-Dieses Beispiel richtet drei Formen an der oberen Folienkante aus. Die zurückgegebenen Form‑Referenzen werden unmittelbar vor der Ausrichtung in ihre aktuellen Indizes umgewandelt.
+Dieses Beispiel richtet drei Formen am oberen Rand der Folie aus. Die zurückgegebenen Formverweise werden unmittelbar vor der Ausrichtung in ihre aktuellen Indizes konvertiert.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -342,17 +435,17 @@ try {
 }
 ```
 
-Das Ausrichten ändert Positionen, nicht die Z‑Order. Relative Ausrichtung benötigt normalerweise mindestens zwei Formen, während horizontale oder vertikale Verteilung genug Formen erfordert, um den Abstand zu definieren. Berechnen Sie Indizes neu, wenn Sie die Sammlung vor dem Methodenaufruf ändern.
+Ausrichten ändert Positionen, nicht die Z‑Order. Relative Ausrichtung erfordert normalerweise mindestens zwei Formen, während horizontale oder vertikale Verteilung genügend Formen zur Bestimmung des Abstands benötigt. Berechnen Sie Indizes neu, wenn Sie die Sammlung vor dem Aufruf der Methode ändern.
 
 ## **Eine Form spiegeln**
 
-Die Klasse [ShapeFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapeframe/) speichert Position, Größe, horizontale und vertikale Spiegelungseinstellungen sowie Drehung. Ihre `getFlipH`‑ und `getFlipV`‑Werte verwenden [NullableBool](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/nullablebool/): `True` aktiviert die Spiegelung, `False` deaktiviert sie, und `NotDefined` bewahrt den nicht spezifizierten/Standardzustand.
+Die Klasse [ShapeFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapeframe/) speichert Position, Größe, horizontale und vertikale Spiegelungs‑Einstellungen sowie Rotation. Ihre `getFlipH`‑ und `getFlipV`‑Werte verwenden [NullableBool](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/nullablebool/): `True` aktiviert die Spiegelung, `False` deaktiviert sie, und `NotDefined` bewahrt den nicht spezifizierten/Standard‑Zustand.
 
-Die Eingabepräsentation unten enthält eine nicht gespiegelte Form.
+Die Eingabepräsentation unten enthält eine nicht gespiegelt Form.
 
-![Die Form vor dem Spiegeln](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-Das Beispiel bewahrt jeden anderen Frame‑Wert und ersetzt nur die beiden Spiegelungseinstellungen. Das ist wichtig, weil das Zuweisen eines neuen [Frame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/setframe/) den kompletten Frame ersetzt.
+Das Beispiel behält alle anderen Frame‑Werte bei und ersetzt nur die beiden Spiegelungs‑Einstellungen. Das ist wichtig, weil das Zuordnen eines neuen [Frame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/setframe/) den kompletten Frame ersetzt.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -375,20 +468,24 @@ try {
 }
 ```
 
-Die gespeicherte Form ist horizontal und vertikal gespiegelt, wobei Position, Größe und Drehung erhalten bleiben.
+Die gespeicherte Form ist horizontal und vertikal gespiegelt, wobei Position, Größe und Rotation erhalten bleiben.
 
-![Die Form nach dem Spiegeln](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Soll ich einen Sammlungsindex als Form‑Bezeichner verwenden?**
+**Soll ich einen Sammlungsindex als Form‑Kennung verwenden?**
 
-Nur für kurzlebige Verarbeitung, wenn die Sammlung sich nicht ändert, bevor der Index verwendet wird. Bevorzugen Sie eine validierte `Name`‑ oder `AlternativeText`‑Konvention für authorisierte Vorlagen oder `OfficeInteropShapeId` für folienbezogene Interop‑Arbeiten.
+Nur für kurzlebige Verarbeitung, wenn sich die Sammlung vor der Verwendung des Index nicht ändert. Bevorzugen Sie eine validierte `Name`‑ oder `AlternativeText`‑Konvention für erstellte Vorlagen oder `OfficeInteropShapeId` für folienbezogene Interop‑Arbeiten.
 
 **Entfernt das Ausblenden einer Form sie aus der Z‑Order?**
 
-Nein. Eine ausgeblendete Form bleibt in der Sammlung am gleichen Index. Sie kann gefunden, neu geordnet, bearbeitet oder wieder sichtbar gemacht werden.
+Nein. Eine ausgeblendete Form bleibt in der Sammlung am selben Index. Sie kann gefunden, neu geordnet, bearbeitet oder wieder sichtbar gemacht werden.
 
 **Warum erschien eine geklonte Form vor einer anderen Form?**
 
-`addClone` fügt den Klon am Ende der Sammlung ein, was die Vorderseite der Z‑Order ist. Verwenden Sie `insertClone`, um den Anfangs‑Index zu wählen, oder `reorder` nach dem Hinzufügen aller Formen.
+`addClone` hängt den Klon an das Ende der Sammlung, was die Vorderseite der Z‑Order ist. Verwenden Sie `insertClone`, um den Anfangs‑Index zu wählen, oder `reorder` nach dem Hinzufügen aller Formen.
+
+**Kann ich einen festen Index zur Identifikation einer Preset‑Form‑Anpassung verwenden?**
+
+Nur nach Validierung des genauen Presets und des Sammlungs‑Layouts. Durchlaufen Sie lieber `GeometryShape.getAdjustments` und prüfen Sie `AdjustValue.getType`; verwenden Sie `AdjustValue.getName` als zusätzliche Information, wenn derselbe semantische Typ mehr als einmal vorkommt.

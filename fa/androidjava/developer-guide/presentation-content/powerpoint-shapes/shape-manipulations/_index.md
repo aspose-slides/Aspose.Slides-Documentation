@@ -1,49 +1,52 @@
 ---
 title: مدیریت اشکال ارائه در اندروید
-linktitle: دستکاری اشکال
+linktitle: دست‌کاری اشکال
 type: docs
 weight: 40
 url: /fa/androidjava/shape-manipulations/
 keywords:
-- اشکال پاورپوینت
-- اشکال ارائه
-- اشکال در اسلاید
-- یافتن اشکال
-- کلون کردن اشکال
-- حذف اشکال
-- مخفی کردن اشکال
-- تغییر ترتیب اشکال
-- دریافت شناسهٔ اشکال interop
-- متن جایگزین اشکال
-- قالب‌های لایهٔ اشکال
-- اشکال به‌صورت SVG
-- تبدیل اشکال به SVG
-- تراز کردن اشکال
-- چرخاندن اشکال
+- شکل پاورپوینت
+- شکل ارائه
+- شکل روی اسلاید
+- یافتن شکل
+- کلون شکل
+- حذف شکل
+- مخفی‌سازی شکل
+- تغییر ترتیب شکل
+- دریافت شناسهٔ شکل Interop
+- متن جایگزین شکل
+- نقطه تنظیم شکل
+- تنظیم پیش‌فرض شکل
+- هندسه شکل
+- قالب‌بندی‌های چیدمان شکل
+- شکل به‌صورت SVG
+- شکل به SVG
+- تراز کردن شکل
+- چرخاندن شکل
 - پاورپوینت
 - ارائه
 - اندروید
 - جاوا
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال ارائه را شناسایی، کلون، حذف، مخفی، ترتیب‌داده، خروجی، تراز و چرخانده کنید با Aspose.Slides برای اندروید از طریق جاوا."
+description: "یاد بگیرید چگونه اشکال ارائه را شناسایی، تنظیم، کلون، حذف، مخفی‌سازی، ترتیب‌دهی مجدد، صادرات، تراز و چرخاندن کنید با Aspose.Slides برای اندروید از طریق جاوا."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-Aspose.Slides برای Android از طریق Java اشکال موجود در یک اسلاید را به عنوان یک [IShapeCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/) مرتب نمایش می‌دهد. این مجموعه هم محلی است که می‌توانید اشکال را پیدا و ویرایش کنید و هم منبع ترتیب لایه‌ای آن‌ها: اندیس `0` مربوط به پشت‌ترین شکل است، در حالی که آخرین اندیس مربوط به جلوی‌ترین شکل است.
+Aspose.Slides for Android via Java اشکال موجود در یک اسلاید را به‌صورت یک ‎[IShapeCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/)‎ مرتب نمایش می‌دهد. این مجموعه هم محل یافتن و ویرایش اشکال است و هم منبع ترتیب لایه‑بندی آن‌ها: اندیس `0` به‌معنای پشت‌ترین شکل است و آخرین اندیس به‌معنای جلوی‌ترین شکل.
 
-این مقاله بر همین مدل استوار است. ابتدا توضیح می‌دهد چگونه می‌توان به‌صورت قابل‌اعتماد یک شکل را شناسایی کرد، سپس نشان می‌دهد چگونه اشکال را کلون، حذف، مخفی و ترتیب‌داده مجدد کنید. بخش‌های نهایی به قالب‌بندی در سطح لایه، خروجی SVG، تراز و تنظیمات چرخش می‌پردازند. هر مثال به‌صورت مستقل است، بنابراین می‌توانید فقط عملیات مورد نیاز جریان کار خود را استفاده کنید.
+این مقاله بر این مدل استوار است. ابتدا نحوه شناسایی قابل‌اعتماد یک شکل و تغییر نقطه تنظیمات از پیش تعریف‌شدهٔ آن را توضیح می‌دهد، سپس نحوهٔ کلون، حذف، مخفی‌سازی و تغییر ترتیب شکل‌ها را نشان می‌دهد. بخش‌های نهایی به قالب‌بندی در سطح طرح‌بندی، خروجی SVG، ترازکردن و تنظیمات چرخش می‌پردازند. هر مثال مستقل است، بنابراین می‌توانید تنها عملیاتی را که جریان کاری‌تان نیاز دارد، استفاده کنید.
 
 ## **شناسایی و یافتن اشکال**
 
-اندیس‌های مجموعه هنگام پردازش یک فایل شناخته‌شده راحت هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا تغییر ترتیب یک شکل می‌تواند اندیس آن را تغییر دهد. یک شناسه را بر اساس نحوه‌ی نوشتن و نگهداری ارائه انتخاب کنید:
+اندیس‌های مجموعه هنگام پردازش یک فایل شناخته‌شده راحت هستند، اما شناسه‌های پایداری نیستند. افزودن، حذف یا تغییر ترتیب یک شکل می‌تواند اندیس آن را تغییر دهد. شناسه‌ای متناسب با نحوهٔ ساخت و نگهداری ارائه انتخاب کنید:
 
-- [Name](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getName--) برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در پنل انتخاب PowerPoint به‌راحتی قابل مشاهده است. نام‌ها را می‌توان ویرایش کرد و تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است، یک کنوانسیون نامگذاری تعیین کنید.
-- [AlternativeText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getAlternativeText--) زمانی مفید است که یک توضیح دسترسی یا برچسبی که توسط نویسنده افزوده شده است، پیشاپیش شکل را شناسایی می‌کند. این متن برای کاربران قابل‌دید است، ممکن است محلی‌سازی یا بازنویسی برای دسترسی شود و یکتا نیست. از تبدیل بی‌صدا متن دسترسی معنادار به کلید پایگاه‌داده خودداری کنید.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) یک شناسهٔ فقط‑خواندنی است که درون یک اسلاید یکتا بوده و با شناسهٔ شکلی که توسط PowerPoint interop استفاده می‌شود مطابقت دارد. وقتی با PowerPoint یکپارچه می‌شوید یا به یک مرجع واضح در طول عمر یک شکل نیاز دارید از آن استفاده کنید. یک شکل کلون‌شده یا بازساخته یک شکل متفاوت است و شناسهٔ خود را دریافت می‌کند.
+- [Name](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getName--) برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در **پنل انتخاب** PowerPoint به‌راحتی قابل مشاهده است. نام‌ها قابل ویرایش‌اند اما تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است، یک کنوانسیون نام‌گذاری اتخاذ کنید.
+- [AlternativeText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getAlternativeText--) زمانی مفید است که یک توضیح دسترس‌پذیری یا برچسبی که توسط نویسنده افزوده شده، پیشاپیش شکل را شناسایی کند. این متن برای کاربران قابل دیدن است، می‌تواند بومی‌سازی یا برای دسترس‌پذیری بازنویسی شود و یکتایی تضمین نمی‌شود. متن دسترس‌پذیری معنادار را به‌صورت ساکت به‌عنوان کلید دیتابیس استفاده نکنید.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) یک شناسهٔ فقط‑خواندنی است که در داخل یک اسلاید یکتا بوده و با شناسهٔ شکل مورد استفاده در PowerPoint Interop مطابقت دارد. زمانی که با PowerPoint ادغام می‌کنید یا نیاز به مرجع واضح در طول عمر یک شکل دارید، از آن استفاده کنید. یک شکل کلون‑شده یا دوباره‌ساخته، شکل دیگری است و شناسهٔ مخصوص به خود را دریافت می‌کند.
 
-متد مرتبط [getUniqueId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getUniqueId--) شناسه‌ای با دامنهٔ ارائه برمی‌گرداند، اما این شناسه برای افزونه‌ها در نظر گرفته شده و می‌تواند بازتخصیص یابد. نباید آن را به‌عنوان کلید ثابت خارجی در نظر گرفت. اگر هویت بلندمدت ضروری است، نگاشت را در داده‌های برنامه نگه داشته و صحت وجود شکل مورد انتظار را اعتبارسنجی کنید.
+متد مرتبط ‎[getUniqueId](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getUniqueId--) شناسه‌ای با دامنهٔ ارائه برمی‌گرداند، اما این شناسه برای افزونه‌ها در نظر گرفته شده و می‌تواند مجدداً تخصیص یابد. نباید آن را به‌عنوان کلید خارجی دائمی در نظر گرفت. اگر هویت طولانی‌مدت ضروری است، نگاشت را در داده‌های برنامه ذخیره کنید و اطمینان حاصل کنید که شکل مورد انتظار هنوز وجود دارد.
 
-مثال زیر با مقایسهٔ دقیق بر اساس نام جستجو می‌کند و شناسهٔ interop scoped به اسلاید را گزارش می‌دهد. وقتی قالب شامل شکل مورد انتظار نباشد، کد همان نتیجه را گزارش می‌کند به‌جای ادامه با شیء نادرست.
+مثال زیر با مقایسهٔ دقیق بر اساس نام جستجو می‌کند و ‎ID‎ اسکُوپ اسلاید را گزارش می‌دهد. وقتی قالب شامل شکل مورد انتظار نباشد، کد همان نتیجه را گزارش می‌کند به‌جای ادامه با شیء اشتباه.
 
 ```java
 import com.aspose.slides.*;
@@ -70,7 +73,7 @@ try {
 }
 ```
 
-هنگامی که عملیاتی مخصوص به نوعی از شکل باشد، قبل از استفاده از اعضای مخصوص نوع، اینترفیس را بررسی کنید. این مثال متن و متن جایگزین را فقط در صورتی به‌روز می‌کند که شیء نام‌گذاری‌شده یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) باشد.
+هنگامی که عملیاتی مختص به یک نوع شکل است، قبل از استفاده از اعضای نوع‑خاص، اینترفیس را بررسی کنید. این مثال تنها در صورتی که شیء نام‌دار یک ‎[IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/)‎ باشد، متن و متن جایگزین را به‌روز می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -100,15 +103,108 @@ try {
 }
 ```
 
+## **شناسایی و تغییر تنظیمات پیش‌فرض شکل**
+
+اشکال هندسی پیش‌تنظیم‌شده می‌توانند نقاط تنظیمی داشته باشند که ویژگی‌هایی مانند اندازهٔ گوشه، نسبت‌های پیکان یا زوایای قوس را کنترل می‌کنند. برای دسترسی به آن‌ها از مجموعهٔ فقط‑خواندنی ‎[IGeometryShape.getAdjustments](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--)‎ استفاده کنید. خود مجموعه توسط شکل فراهم می‌شود، اما هر ‎[IAdjustValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/)‎ حاوی مقدار قابل تغییر است.
+
+فقط به یک اندیس ثابت مجموعه تکیه نکنید. در تنظیمات مرور کنید و متد فقط‑خواندنی ‎[getType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#getType--)‎ را بررسی کنید؛ مقدار ‎ShapeAdjustmentType‎ توصیف می‌کند تنظیم چه چیزی را کنترل می‌کند. متد فقط‑خواندنی ‎[getName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#getName--)‎ اطلاعات شناسایی تکمیلی فراهم می‌کند و به‌ویژه وقتی یک پیش‌تنظیم چند تنظیم با همان نوع معنایی دارد، مفید است.
+
+از متد مقداری استفاده کنید که با معنی تنظیم منطبق باشد:
+
+| نوع تنظیم | هدف | مقدار برای تغییر |
+|---|---|---|
+| `CornerSize` | اندازهٔ گوشه‌های گرد | [setRawValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | ضخامت دم پیکان | `setRawValue` |
+| `ArrowheadLength` | طول سر پیکان | `setRawValue` |
+| `ArrowheadWidth` | عرض سر پیکان | `setRawValue` |
+| `StartAngle` | زاویهٔ شروع دایره یا قوس | [setAngleValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | زاویهٔ پایان دایره یا قوس | `setAngleValue` |
+
+`getType` و `getName` فقط‑خواندنی هستند. `getRawValue` و `setRawValue` با یک عدد در واحدهای هندسی بومی پیش‌تنظیم کار می‌کنند، در حالی که `getAngleValue` و `setAngleValue` با زاویه بر حسب درجه کار می‌نمایند. تعداد، ترتیب، معنی و بازهٔ معتبر تنظیمات به ‎ShapeType‎ پیش‌تنظیم‑شده وابسته است. مقداری که برای یک پیش‌تنظیم معتبر است، ممکن است برای پیش‌تنظیم دیگری نامعتبر یا اثر متفاوتی داشته باشد.
+
+هنگامی که ‎`getType`‎ مقدار ‎`ShapeAdjustmentType.Custom`‎ را برمی‌گرداند، API معنای معنایی استانداردی را تشخیص نمی‌دهد. ‎`getName`‎، نوع پیش‌تنظیم و مقدار فعلی را بررسی کنید و تنظیم را دست نخورده بگذارید مگر اینکه معنی و بازهٔ مورد انتظار شناخته شده باشد. حتی برای انواع شناخته‌شده، قبل از انتخاب مقدار، بررسی کنید که آیا همان نوع بیش از یک بار رخ می‌دهد یا نه. مقاله ‎[Connector](/slides/fa/androidjava/connector/)‎ این وضعیت را با تنظیمات خم‌کاری‌اتصالات نشان می‌دهد.
+
+مثال کامل زیر نسخه‌های پیش‌فرض و تغییر یافتهٔ سه شکل پیش‌تنظیم‌شده را می‌سازد. برای هر تنظیم، نام و نوع آن را گزارش می‌کند، مقادیر مرتبط با اندازه را با `setRawValue` و زوایا را با `setAngleValue` تغییر می‌دهد و نتیجه را ذخیره می‌کند. ستون چپ هندسه پیش‌فرض را حفظ می‌کند؛ ستون راست مستطیل گرد، پیکان چهار‌سویه و دایرهٔ شعاعی تنظیم‌شده را نشان می‌دهد.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // سرعنوان‌های ستون‌های پیش‌فرض و تنظیم‌شده شکل‌ها را اضافه می‌کند.
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+بررسی نوع معنایی قبل از تغییر مقدار، کد را در مورد قصدش واضح می‌سازد و از فرض اینکه یک اندیس خاص در همهٔ پیش‌تنظیم‌ها همان معنی را دارد، جلوگیری می‌کند.
+
 ## **تغییر مجموعهٔ اشکال**
 
-متدهای افزودن، کلون، حذف و ترتیب‌داده مجدد بلافاصله روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، پس از آن عملیات دیگر بر روی اندیس‌های ضبط‌شده پیش از تغییر تکیه نکنید.
+متدهای افزودن، کلون، حذف و تغییر ترتیب بلافاصله بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، دیگر به اندیس‌های ثبت‑شده پیش از آن عمل نباید تکیه کرد.
 
 ### **کلون یک شکل**
 
-[addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) یک کپی مستقل ایجاد کرده و آن را به انتهای مجموعه هدف اضافه می‌کند. [insertClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) نیز یک کپی می‌سازد اما آن را در اندیسی مشخص از z‑order قرار می‌دهد. اورلودهایی که مختصات می‌پذیرند کلون را بدون تغییر اندازه جابه‌جا می‌کنند؛ اورلودهایی که عرض و ارتفاع می‌گیرند می‌توانند اندازهٔ آن را نیز تغییر دهند.
+[addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) یک کپی مستقل می‌سازد و به انتهای مجموعه مقصد اضافه می‌کند. [insertClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) نیز یک کپی می‌سازد اما آن را در اندیس z‑order مشخصی قرار می‌دهد. بارگذاری‌های پذیرفتن مختصات کپی را بدون تغییر اندازه حرکت می‌دهند؛ بارگذاری‌های پذیرندهٔ عرض و ارتفاع می‌توانند اندازهٔ آن را نیز تغییر دهند.
 
-مثال زیر یک اسلاید مقصد می‌سازد، یک مستطیل برچسب‌دار را به جلوی اسلاید کلون می‌کند و سپس یک کلون دوم را در پشت وارد می‌کند. تغییرات در هر یک از کلون‌ها منبع شکل را تحت تأثیر قرار نمی‌دهد.
+مثال یک اسلاید مقصد می‌سازد، یک مستطیل برچسب‌دار را در جلو کلون می‌کند و یک کلون دوم را در پشت درج می‌کند. تغییرات روی هر دو کلون منبع شکل را تحت تأثیر قرار نمی‌دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -147,13 +243,13 @@ try {
 }
 ```
 
-کلون‌کردن محتوا و قالب‌بندی شکل را شامل می‌شود، از جمله نام و متن جایگزین آن. وقتی این مقادیر باید یکتا باشند، شناسه‌های منطقی جدیدی به کلون اختصاص دهید. منابع مورد استفادهٔ اشکال پیچیده توسط ارائه مدیریت می‌شود، اما یک کلون همچنان یک مورد جدید در مجموعه با هویت شکل جدید است.
+کلون محتوا و قالب‌بندی شکل را کپی می‌کند، شامل نام و متن جایگزین. زمانی که این مقادیر باید یکتا باشند، شناسه‌های منطقی جدید به کلون اختصاص دهید. منابع استفاده‌شده توسط اشکال پیچیده توسط ارائه مدیریت می‌شوند، اما کلون یک آیتم جدید در مجموعه با هویت شکل جدید است.
 
 ### **حذف اشکال**
 
-[remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) یک شیء شکل خاص را از مجموعهٔ خود حذف می‌کند. هنگام حذف چندین مورد مطابق در طول یک تکرار اندیسی، از انتها به ابتدا پیمایش کنید تا هر اندیس باقی‌مانده معتبر بماند.
+[remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) یک شیء شکل خاص را از مجموعه‌اش حذف می‌کند. هنگام حذف چندین مطابقت طی iteration بر اساس اندیس، از انتها به جلو عبور کنید تا هر اندیس باقی‌مانده معتبر بماند.
 
-این مثال هر شکلی را که نامی تعیین‌شده داشته باشد حذف می‌کند. شکل را در اندیس جاری می‌خواند، نه یک مورد ثابت از مجموعه، و شکل را به‌صورت غیرضروری تبدیل نوع نمی‌کند.
+این مثال تمام اشکالی را که نام معین دارند حذف می‌کند. شکل را در اندیس جاری می‌خواند، نه یک آیتم ثابت مجموعه، و شکل را بدون نیاز به cast اضافی استفاده می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -184,11 +280,11 @@ try {
 }
 ```
 
-پس از حذف، تعداد اشکال و اندیس‌های اشکال بعدی تغییر می‌کند. ارجاع به اشکال بدون تغییر بیشتر قابل اعتماد است نسبت به ذخیرهٔ اندیس‌ها. همچنین به connector‌ها، انیمیشن‌ها و سایر ویژگی‌های ارائه که ممکن است به شیء حذف‌شده ارجاع دهند، توجه کنید؛ حذف یک شکل قابل‌مشاهده می‌تواند بیش از ظاهر اسلاید تغییر ایجاد کند.
+پس از حذف، شمارش اشکال و اندیس‌های اشکال پسین تغییر می‌کند. مراجع به اشکال بدون تغییر نسبت به اندیس‌های ذخیره‌شده قابل‌اعتمادتر هستند. همچنین اتصالات، انیمیشن‌ها و ویژگی‌های دیگر ارائه که ممکن است به شیء حذف‌شده ارجاع دهند را در نظر بگیرید؛ حذف یک شکل قابل‌مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
 
-### **مخفی کردن یک شکل**
+### **مخفی‌سازی یک شکل**
 
-تنظیم [Hidden](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) به `true` شکل را در مجموعه نگه می‌دارد اما از نمایش در نمای اسلاید عادی جلوگیری می‌کند. اندیس، قالب‌بندی و محتوای آن برای کد در دسترس باقی می‌ماند، بنابراین مخفی‌کردن برای عناصر اختیاری که ممکن است بعداً بازگردانده شوند مناسب است.
+تنظیم ‎[Hidden](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#setHidden-boolean-)‎ به `true` شکل را در مجموعه نگه می‌دارد اما مانع نمایش آن در نمایش معمولی اسلاید می‌شود. اندیس، قالب‌بندی و محتوای آن برای کد در دسترس می‌مانند، بنابراین مخفی‌سازی برای عناصر اختیاری که ممکن است بعدها دوباره بازگردانده شوند، مناسب است.
 
 ```java
 import com.aspose.slides.*;
@@ -215,11 +311,11 @@ try {
 }
 ```
 
-مخفی‌کردن حذف یا امنیت نیست. شیء همچنان می‌تواند توسط کاربر یا کد کشف و دوباره آشکار شود و بخشی از فایل ارائه می‌ماند.
+مخفی‌سازی حذف یا امنیت نیست. شیء هنوز می‌تواند توسط کاربر یا کد کشف و دوباره نمایان شود و همچنان بخشی از فایل ارائه باقی می‌ماند.
 
-### **تغییر ترتیب Z‑Order**
+### **تغییر Z‑Order**
 
-اشکال که روی هم قرار می‌گیرند بر اساس ترتیب مجموعه رنگ می‌شوند. [reorder](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) یک شکل موجود را به اندیس هدفی بدون کلون کردن منتقل می‌کند. اندیس `0` پشت‌ترین است؛ `size() - 1` جلوی‌ترین.
+اشکال همپوشانی‌شده بر اساس ترتیب مجموعه نقاشی می‌شوند. ‎[reorder](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-)‎ یک شکل موجود را به یک اندیس هدف بدون کلون کردن منتقل می‌کند. اندیس `0` پشت‌ترین است؛ `size() - 1` جلوی‌ترین.
 
 ```java
 import com.aspose.slides.*;
@@ -246,13 +342,13 @@ try {
 }
 ```
 
-در ابتدا مستطیل ایجاد می‌شود و پشت بیضی قرار می‌گیرد. جابجا کردن آن به اندیس نهایی، آن را به جلوی صفحه می‌آورد. پس از افزودن یا کلون تمام اشکال مرتبط، ترتیب Z‑order را نهایی کنید، چون این عملیات موارد جدیدی به مجموعه اضافه یا وارد می‌کنند و می‌توانند ترتیب دلخواه را تغییر دهند.
+ابتدا مستطیل ایجاد می‌شود و ابتدا پشت بیضی قرار می‌گیرد. انتقال آن به اندیس نهایی، آن را به جلو می‌آورد. پس از افزودن یا کلون کردن تمام اشکال مرتبط، Z‑Order را نهایی کنید؛ زیرا این عملیات آیتم‌های جدیدی را به مجموعه اضافه یا درج می‌کنند و می‌توانند پشتهٔ موردنظر را تغییر دهند.
 
-## **بازرسی اشکال در اسلایدهای لایه‌بندی**
+## **بازرسی اشکال در اسلایدهای طرح‌بندی**
 
-اسلایدهای معمولی، اسلایدهای لایه‌بندی و اسلایدهای اصلی هرکدام مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ لایه‌بندی همان شیء شکل مشابه در یک اسلاید معمولی نیست. زمانی که نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک لایه دارید، اشکال لایه را بررسی کنید.
+اسلایدهای عادی، اسلایدهای طرح‌بندی و اسلایدهای مستر مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ طرح‌بندی همان شیء شکل در اسلاید عادی نیست. وقتی نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک طرح‌بندی دارید، اشکال طرح‌بندی را بررسی کنید.
 
-مثال زیر برای هر شکل لایهٔ [FillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getFillFormat--) و [LineFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getLineFormat--) را می‌خواند بدون این فرض که هر شکل یک `AutoShape` است.
+مثال زیر برای هر شکل طرح‌بندی ‎[FillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getFillFormat--)‎ و ‎[LineFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getLineFormat--)‎ را می‌خواند بدون این که فرض کند هر شکل یک `AutoShape` است.
 
 ```java
 import com.aspose.slides.*;
@@ -271,11 +367,11 @@ try {
 }
 ```
 
-ویرایش یک لایه می‌تواند بر چندین اسلایدی که از آن استفاده می‌کنند تاثیر بگذارد. پیش از تغییر شکل لایه، تعیین کنید آیا یک اسلاید معمولی همان شیء را به ارث می‌برد یا یک بازنویسی محلی دارد و هر اسلایدی که آن لایه را به کار می‌برد تست کنید.
+ویرایش یک طرح‌بندی می‌تواند بر اسلایدهای متعددی که از آن استفاده می‌کنند، تأثیر بگذارد. قبل از تغییر یک شکل طرح‌بندی، تعیین کنید آیا یک اسلاید عادی شیء را به ارث می‌برد یا دارای بازنویسی محلی است و هر اسلایدی که از آن طرح‌بندی استفاده می‌کند را آزمون کنید.
 
-## **خروجی یک شکل به SVG**
+## **صادرات یک شکل به SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) محتوای رندر‌شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه شامل همان شکل است، نه پس‌زمینهٔ کامل اسلاید یا اشکال همسایه.
+[writeAsSvg](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) محتوای رندر‌شدهٔ یک شکل را به یک stream می‌نویسد. نتیجه شامل فقط همان شکل است، نه پس‌زمینهٔ کامل اسلاید یا اشکال همسایه.
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +397,13 @@ try {
 }
 ```
 
-در هنگام رندر، ارائه را باز نگه دارید. خروجی به قالب‌بندی شکل و منابعی مانند قلم‌ها و تصاویر وابسته است. اگر به ترکیب کامل نیاز دارید، اسلاید را به‌جای یک شکل منفرد صادر کنید. فراخوانی‌کننده مالک جریان است و باید آن را ببندد.
+در زمان رندر، ارائه را باز نگه دارید. خروجی به قالب‌بندی شکل و به منابعی مانند فونت‌ها و تصویرها وابسته است. اگر به کل ترکیب‌بندی نیاز دارید، به‌جای یک شکل منفرد اسلاید را صادر کنید. فراخواننده مالک stream است و باید آن را ببندد.
 
 ## **تراز کردن اشکال**
 
-متد [SlideUtil.alignShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) دو overload دارد: یکی برای تراز همه اشکال و دیگری برای اندیس‌های انتخابی مجموعه. [ShapesAlignmentType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapesalignmenttype/) لبه، خط مرکزی یا حالت توزیع را مشخص می‌کند. `alignToSlide` را به `true` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ به `false` تنظیم کنید تا اشکال انتخابی نسبت به یکدیگر تراز شوند.
+متد ‎[SlideUtil.alignShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)‎ می‌تواند تمام اشکال یا اندیس‌های مجموعهٔ انتخابی را تراز کند. ‎[ShapesAlignmentType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapesalignmenttype/)‎ نوع لبه، خط مرکزی یا حالت توزیع را مشخص می‌کند. مقدار `alignToSlide` را به `true` تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ به `false` تنظیم کنید تا اشکال منتخب نسبت به یکدیگر تراز شوند.
 
-این مثال سه شکل را به لبهٔ بالایی اسلاید تراز می‌کند. ارجاع‌های شکل‌های بازگشتی بلافاصله قبل از تراز به اندیس‌های جاری خود تبدیل می‌شوند.
+این مثال سه شکل را به لبهٔ بالایی اسلاید تراز می‌کند. ارجاع‌های شکل برگشتی بلافاصله قبل از تراز به اندیس‌های فعلی‌شان تبدیل می‌شوند.
 
 ```java
 import com.aspose.slides.*;
@@ -332,17 +428,17 @@ try {
 }
 ```
 
-تراز موقعیت را تغییر می‌دهد، نه ترتیب Z‑order. تراز نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی برای تعیین فاصله به تعداد کافی شکل نیاز دارد. اگر پیش از فراخوانی متد مجموعه را تغییر دادید، اندیس‌ها را دوباره محاسبه کنید.
+تراز کردن موقعیت‌ها را تغییر می‌دهد، نه Z‑Order. تراز نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی برای تعریف فواصل به تعداد کافی شکل نیاز دارد. اگر پیش از فراخوانی متد مجموعه را تغییر می‌دهید، اندیس‌ها را مجدداً محاسبه کنید.
 
-## **چرخاندن (فلیپ) یک شکل**
+## **چرخاندن (Flip) یک شکل**
 
-کلاس [ShapeFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapeframe/) موقعیت، اندازه، تنظیمات فلیپ افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر `getFlipH` و `getFlipV` از [NullableBool](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/nullablebool/) استفاده می‌کنند: `True` فلیپ را فعال می‌کند، `False` غیرفعال می‌کند و `NotDefined` حالت نامشخص/پیش‌فرض را حفظ می‌کند.
+کلاس ‎[ShapeFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shapeframe/)‎ موقعیت، اندازه، تنظیمات چرخش افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر `getFlipH` و `getFlipV` از ‎[NullableBool](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/nullablebool/)‎ استفاده می‌کنند: `True` چرخش را فعال می‌کند، `False` غیرفعال می‌کند و `NotDefined` حالت ناشناخته/پیش‌فرض را حفظ می‌کند.
 
-ارائهٔ ورودی زیر شامل یک شکل بدون فلیپ است.
+ارائهٔ ورودی زیر شامل یک شکل بدون چرخش است.
 
 ![The shape before flipping](shape_to_be_flipped.png)
 
-مثال زیر فقط مقادیر دو تنظیم فلیپ را جایگزین می‌کند و سایر مقادیر فریم را همان‌گونه حفظ می‌کند. این مهم است زیرا اختصاص یک [Frame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) جدید فریم کامل را جایگزین می‌کند.
+مثال تنها مقادیر فریم دیگر را حفظ می‌کند و تنها دو تنظیم چرخش را جایگزین می‌نماید. این مهم است زیرا اختصاص یک ‎[Frame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-)‎ جدید، فریم کامل را بازنویسی می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -363,20 +459,24 @@ try {
 }
 ```
 
-شکل ذخیره‌شده به صورت افقی و عمودی آینه‌ای می‌شود در حالی که موقعیت، اندازه و چرخش آن حفظ می‌شود.
+شکل ذخیره‌شده به‌صورت افقی و عمودی آینه‌ای می‌شود در حالی که موقعیت، اندازه و چرخش آن حفظ می‌شود.
 
 ![The shape after flipping](flipped_shape.png)
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا باید از اندیس مجموعه به عنوان شناسهٔ شکل استفاده کنم؟**
+**آیا باید از اندیس مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
 
-فقط برای پردازش‌های کوتاه‌مدتی که مجموعه قبل از استفاده از اندیس تغییر نخواهد کرد. برای قالب‌های نویسنده‌دار، یک کنوانسیون معتبر `Name` یا `AlternativeText` را ترجیح دهید، یا برای کارهای مرتبط با interop در سطح اسلاید `OfficeInteropShapeId` را استفاده کنید.
+فقط برای پردازش‌های کوتاه‌مدتی که مجموعه پیش از استفاده از اندیس تغییر نمی‌کند. برای قالب‌های نوشته‌شده ترجیحاً از یک کنوانسیون معتبر `Name` یا `AlternativeText` استفاده کنید، یا برای کارهای اسکوپ‌دار اسلاید از `OfficeInteropShapeId`.
 
-**آیا مخفی‌کردن یک شکل آن را از ترتیب Z‑order حذف می‌کند؟**
+**آیا مخفی‌سازی یک شکل آن را از Z‑Order حذف می‌کند؟**
 
-خیر. یک شکل مخفی در همان اندیس در مجموعه باقی می‌ماند. می‌توان آن را یافت، ترتیب‌داده، ویرایش یا دوباره قابل‌مشاهده کرد.
+خیر. یک شکل مخفی در همان اندیس در مجموعه باقی می‌ماند. می‌توان آن را یافت، دوباره ترتیب داد، ویرایش کرد یا دوباره نمایان ساخت.
 
-**چرا یک شکل کلون‌شده در جلوی شکل دیگری ظاهر شد؟**
+**چرا یک شکل کلون‌شده در جلو شکل دیگری ظاهر شد؟**
 
-`addClone` کلون را به انتهای مجموعه اضافه می‌کند که جلوی Z‑order است. برای انتخاب اندیس اولیه از `insertClone` استفاده کنید یا پس از افزودن همهٔ اشکال از `reorder` بهره ببرید.
+`addClone` کلون را به انتهای مجموعه اضافه می‌کند که جلوی Z‑Order است. برای انتخاب اندیس اولیه از `insertClone` استفاده کنید یا پس از افزودن تمام اشکال از `reorder` بهره ببرید.
+
+**آیا می‌توانم از یک اندیس ثابت برای شناسایی تنظیم پیش‌تنظیم‌شدهٔ یک شکل استفاده کنم؟**
+
+فقط پس از اعتبارسنجی دقیق پیش‌تنظیم و چینش مجموعه. ترجیحاً به ‎`IGeometryShape.getAdjustments`‎ مرور کنید و `IAdjustValue.getType` را بررسی کنید؛ وقتی همان نوع معنایی بیش از یک بار ظاهر می‌شود، از `IAdjustValue.getName` به عنوان اطلاعات تکمیلی استفاده کنید.

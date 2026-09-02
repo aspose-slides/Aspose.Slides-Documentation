@@ -6,414 +6,674 @@ weight: 10
 url: /tr/cpp/connector/
 keywords:
 - bağlayıcı
-- bağlayıcı tipi
+- bağlayıcı türü
 - bağlayıcı noktası
 - bağlayıcı çizgisi
 - bağlayıcı açısı
+- bağlantı noktası
+- ayarlama noktası
 - şekilleri bağla
 - PowerPoint
 - sunum
 - C++
 - Aspose.Slides
-description: "C++ uygulamalarını PowerPoint slaytlarında çizim yapmaya, bağlamaya ve çizgileri otomatik yönlendirmeye güçlendirin—düz, dirsek ve eğimli bağlayıcılar üzerinde tam kontrol elde edin."
+description: "Aspose.Slides for C++ ile düz, eğimli ve kıvrımlı PowerPoint bağlayıcılarını ekleme, bağlama, yönlendirme, ayarlama ve inceleme yöntemlerini öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-PowerPoint bağlayıcısı, iki şekli birbirine bağlayan özel bir çizgidir ve bir slaytta taşınsalar veya yeniden konumlandırılsalar bile şekillere tutunur. 
+Bağlayıcı, iki şekilden biri hareket ettiğinde bile iki şekle bağlı kalabilen bir çizgidir. Uçları, PowerPoint'te yeşil noktalarla gösterilen bağlantı noktalarına bağlanır. Bazı kıvrık ve eğimli bağlayıcılar ayrıca turuncu noktalarla temsil edilen ayarlama noktalarını ortaya çıkarır; bu noktalar bağlayıcının bireysel segmentlerinin konumunu kontrol eder.
 
-Bağlayıcılar genellikle *bağlantı noktalarına* (yeşil noktalar) bağlanır; bu noktalar tüm şekillerde varsayılan olarak bulunur. Bağlantı noktaları, imleç yaklaştığında görünür.
-
-*Sıfır noktalar* (turuncu noktalar), yalnızca belirli bağlayıcılarda bulunur ve bağlayıcıların konum ve şekillerini değiştirmek için kullanılır.
+Aspose.Slides, bağlayıcıları [IConnector](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iconnector/) arabirimi aracılığıyla temsil eder. Bağlayıcıları oluşturabilir, uçlarını şekillere bağlayabilir, bağlantı noktalarını seçebilir, yönlerini yeniden belirleyebilir ve ayarlama noktalarına sahip bağlayıcıların geometrisini değiştirebilirsiniz.
 
 ## **Bağlayıcı Türleri**
 
-PowerPoint'te düz, dirsek (köşeli) ve eğimli bağlayıcıları kullanabilirsiniz. 
+[ShapeType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/shapetype/) enumerasyonu düz, eğimli ve kavisli bağlayıcı ön ayarlarını içerir. Aşağıdaki tablo, mevcut bağlayıcı geometrilerini ve her ön ayarda tanımlı ayarlama noktalarının sayısını gösterir.
 
-Aspose.Slides bu bağlayıcıları sağlar:
+| Bağlayıcı | Görsel | Ayarlama noktalarının sayısı |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Bağlayıcı | Image | Ayarlama noktalarının sayısı |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+Ayarlama noktalarının sayısı ve anlamı seçilen bağlayıcı ön ayarının bir parçasıdır. İki farklı bağlayıcı tipinin aynı koleksiyon düzenini gösterdiğini varsaymayın.
 
-## **Şekilleri Bağlayıcılarla Bağlamak**
+## **İki Şekli Bağla**
 
-1. Bir [Sunum](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation/) sınıfı örneği oluşturun.  
-1. Slaytın indeksine göre bir referans alın.  
-1. `Shapes` nesnesinin `AddAutoShape` yöntemiyle slayta iki [AutoShape](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.auto_shape) ekleyin.  
-1. Bağlayıcı tipini belirterek `Shapes` nesnesinin `AddConnector` yöntemiyle bir bağlayıcı ekleyin.  
-1. Şekilleri bağlayıcıyla bağlayın.  
-1. En kısa bağlantı yolunu uygulamak için `Reroute` metodunu çağırın.  
-1. Sunumu kaydedin.  
+Bir bağlayıcı eklemek için [IShapeCollection::AddConnector](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addconnector/) kullanın ve uçlarını bağlamak için [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) ve [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) çağırın. Her iki uç da bağlandıktan sonra, [IConnector::Reroute](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iconnector/reroute/) bağlayıcılar arasındaki kısa bir yolu seçer.
 
-Bu C++ kodu iki şekil (bir elips ve bir dikdörtgen) arasında bir dirsek bağlayıcı eklemenizi gösterir:
+İşte aşağıdaki örnek, bir elips ile bir dikdörtgeni kıvrık bir bağlayıcıyla bağlar:
 
-```c++
-// Belgeler dizininin yolu.
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-	// İstenen sunumu yükler.
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// İlk slayta erişir.
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// Belirli bir slayt için şekil koleksiyonuna erişir.
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// Bir Elips otomatik şekli ekler.
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// Bir Dikdörtgen otomatik şekli ekler.
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-
-	// Slayt şekil koleksiyonuna bir bağlayıcı şekli ekler.
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// Şekilleri bağlayıcıyı kullanarak bağlar.
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// Şekiller arasındaki otomatik en kısa yolu ayarlayan reroute metodunu çağırır.
-	connector->Reroute();
-	
-	// Sunumu kaydeder.
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Uyarı" %}}
+`IConnector::Reroute` çağrısı, [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) ve [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/) değerlerini değiştirebilir. Bu noktaların sabit kalması gerekiyorsa, yönlendirme sonrasında belirli bağlantı noktalarını atayın.
+{{% /alert %}}
 
-`connector->Reroute` yöntemi bir bağlayıcıyı yeniden yönlendirir ve şekiller arasında mümkün olan en kısa yolu almasını zorlar. Bu amaçla, yöntem `StartShapeConnectionSiteIndex` ve `EndShapeConnectionSiteIndex` noktalarını değiştirebilir. 
+## **Bağlantı Noktası Seçin**
 
-{{% /alert %}} 
+Bağlanabilir her şekil, bağlantı noktası sayısını [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/get_connectionsitecount/) aracılığıyla raporlar. Bir bağlayıcı ucuna atamadan önce tercih edilen sıfır tabanlı yer indeksini doğrulayın; yer sayıları şeklin geometrisine göre değişir.
 
-## **Bağlantı Noktasını Belirtmek**
+Bu örnek, elips üzerindeki belirli bir bağlantı noktasına (varsa) bağlayıcıyı bağlar:
 
-Bağlayıcının iki şekli belirli noktalarla bağlamasını istiyorsanız, tercih ettiğiniz bağlantı noktalarını şu şekilde belirtmelisiniz:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-1. Bir [Sunum](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation/) sınıfı örneği oluşturun.  
-1. Slaytın indeksine göre bir referans alın.  
-1. `Shapes` nesnesinin `AddAutoShape` yöntemiyle slayta iki [AutoShape](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.auto_shape) ekleyin.  
-1. Bağlayıcı tipini belirterek `Shapes` nesnesinin `AddConnector` yöntemiyle bir bağlayıcı ekleyin.  
-1. Şekilleri bağlayıcıyla bağlayın.  
-1. Şekillerde tercih ettiğiniz bağlantı noktalarını ayarlayın.  
-1. Sunumu kaydedin.  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-Bu C++ kodu tercih edilen bir bağlantı noktasının nasıl belirtileceğini gösterir:
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-```c++
-	// Belgeler dizininin yolu.
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// İstenen sunumu yükler
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// İlk slayta erişir
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// Belirli bir slayt için şekil koleksiyonuna erişir
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Bir Elips otomatik şekli ekler
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// Bir Dikdörtgen otomatik şekli ekler
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// Slaytın şekil koleksiyonuna bir bağlayıcı şekli ekler
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// Şekilleri bağlayıcıyı kullanarak bağlar
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// Elips şekli üzerinde tercih edilen bağlantı nokta indeksini ayarlar
-	int wantedIndex = 6;
-
-	// Tercih edilen indeksin maksimum site indeks sayısından küçük olup olmadığını kontrol eder
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// Elips otomatik şekli üzerinde tercih edilen bağlantı noktasını ayarlar
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// Sunumu kaydeder
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
-## **Bağlayıcı Noktasını Ayarlamak**
+## **Bir Bağlayıcı Noktasını Ayarlama**
 
-Varolan bir bağlayıcıyı ayar noktalarıyla düzenleyebilirsiniz. Yalnızca ayar noktalarına sahip bağlayıcılar bu şekilde değiştirilebilir. **[Bağlayıcı Türleri](/slides/tr/cpp/connector/#types-of-connectors)** altındaki tabloya bakın. 
+Ayarlama noktalarına sahip bağlayıcılar, bu noktaları [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/tr/cpp/aspose.slides/igeometryshape/get_adjustments/) aracılığıyla ortaya çıkarır. Her bir [IAdjustValue](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iadjustvalue/) inceleyin ve [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iadjustvalue/set_rawvalue/) değiştirmeden önce [IAdjustValue::get_Type](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iadjustvalue/get_type/) değerini kontrol edin. Ön ayar şekil ayarlamalarını tanımlama kuralları, [Shape Manipulation](/slides/tr/cpp/shape-manipulations/) bölümünde açıklanmıştır.
 
-### **Basit Durum**
+Bağlayıcı ayarlamalarının sayısı, sırası, anlamı ve geçerli değer aralığı bağlayıcı ön ayarına bağlıdır. `IAdjustValue::get_Type` tarafından döndürülen tip yalnızca okunur, ham ayarlama değeri ise yazılabilir. Bağlayıcı aynı anlamsal tipe sahip birden fazla ayarlamaya sahip olduğunda, yalnızca okunur [IAdjustValue::get_Name](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iadjustvalue/get_name/) yöntemi ek tanımlama sağlar.
 
-İki şekil (A ve B) arasında bir bağlayıcı üçüncü bir şekil (C) üzerinden geçiyorsa:
+### **Bir Engel Çevresinde Yönlendirme**
+
+Aşağıdaki yerleşimde, iki şekil arasındaki `ShapeType::BentConnector5` bağlayıcı, üçüncü bir şekilden geçer:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Kod:
+Bu kod, engellenmiş bağlayıcıyı oluşturur:
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-Üçüncü şekli atlatmak için bağlayıcıyı şu şekilde sola doğru bir dik çizgiyle ayarlayabiliriz:
+Dikey bükülmenin hareket ettirilmesi, yönü değiştirerek bağlayıcının engeli atlatmasını sağlar:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+Toplama indeksinin `1`'inin her zaman dikey bükülmeyi temsil ettiğini varsaymak yerine, bu örnek `ShapeAdjustmentType::ConnectorBendPositionY` öğesini arar ve yalnızca beklenen anlamsal tip mevcut olduğunda değiştirir:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
-### **Karmaşık Durumlar** 
+`ShapeType::BentConnector5` iki `ShapeAdjustmentType::ConnectorBendPositionX` ayarlaması ve bir `ShapeAdjustmentType::ConnectorBendPositionY` ayarlaması içerir. İhtiyacınız olan tip birden fazla kez oluşuyorsa, seçim yapmadan önce `IAdjustValue::get_Name` ve o ön ayarın bilinen geometrisini inceleyin. Bir ayarlama `ShapeAdjustmentType::Custom` bildiriyorsa, anlamını ve aralığını ön ayara özgü olarak ele alın ve bu sözleşme bilinene kadar değiştirmeyin.
 
-Daha karmaşık ayarlamalar yapmak için aşağıdaki unsurları göz önünde bulundurmalısınız:
+## **Ayarlama Değerlerini Bağlayıcı Geometrisiyle İlişkilendirme**
 
-* Bir bağlayıcının ayarlanabilir noktası, konumunu hesaplayan bir formülle güçlü bir şekilde ilişkilidir. Bu nedenle noktanın konumundaki değişiklik bağlayıcının şeklini etkileyebilir.  
-* Bağlayıcının ayar noktaları bir dizi içinde kesin bir sırayla tanımlanır. Ayar noktaları bağlayıcının başlangıç noktasından sonuna doğru numaralandırılır.  
-* Ayar noktası değerleri, bağlayıcı şeklinin genişlik/yükseklik yüzdesini yansıtır.  
-  * Şekil, bağlayıcının başlangıç ve bitiş noktaları ile 1000 ile çarpılarak sınırlanır.  
-  * İlk nokta, ikinci nokta ve üçüncü nokta sırasıyla genişlik, yükseklik ve tekrar genişlik yüzdesini tanımlar.  
-* Bağlayıcının ayar noktalarının koordinatlarını belirleyen hesaplamalarda bağlayıcının dönme ve yansıtma durumları dikkate alınmalıdır. **Not**: **[Bağlayıcı Türleri](/slides/tr/cpp/connector/#types-of-connectors)** altında gösterilen tüm bağlayıcıların dönme açısı 0’dır.
+Eğimli bağlayıcılar için, ayarlama değerleri bireysel segmentlerin konumlarını tahmin etmekte kullanılabilir. Bu hesaplamalar bağlayıcı ön ayarına özgüdür:
 
-#### **Durum 1**
+- `ShapeType::BentConnector4` genellikle bir `ShapeAdjustmentType::ConnectorBendPositionX` ve bir `ShapeAdjustmentType::ConnectorBendPositionY` ayarlaması gösterir.
+- Bu bükülme konumları için `RawValue / 100000.0f`, aşağıdaki örneklerde kullanılan bağlayıcı çerçevesinin genişlik ya da yükseklik oranını üretir.
+- Bir bağlayıcı çerçevesi döndürülebilir veya çevrilebilir; bu yüzden çerçeve koordinatları slayt koordinatlarıyla karşılaştırılmadan önce dönüştürülmelidir.
 
-İki metin çerçevesi nesnesinin bir bağlayıcıyla birbirine bağlandığı bir senaryo düşünelim:
+Aşağıdaki örnekler, önce ayarlamaları tanımlamak için `IAdjustValue::get_Type` kullanır. Toplama indekslerini taşınabilir tanımlayıcılar olarak ele almazlar.
+
+### **Döndürülmemiş Bağlayıcı**
+
+İlk yerleşim, bir `ShapeType::BentConnector4` ile bağlanmış iki metin şekli içerir:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Kod:
+Bu örnek, bağlayıcıyı inceler ve yatay ve dikey bükülme ayarlamalarını elde eder:
 
-```c++
-// PPTX dosyasını temsil eden bir sunum sınıfı örnekler
-auto pres = System::MakeObject<Presentation>();
-// Sunumdaki ilk slaytı alır
-auto slide = pres->get_Slides()->idx_get(0);
-// İlk slayttaki şekilleri al
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-// Bağlayıcı aracılığıyla birleştirilecek şekilleri ekler
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// Bir bağlayıcı ekler
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// Bağlayıcının yönünü belirtir
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// Bağlayıcının çizgi kalınlığını belirtir
-lineFormat->set_Width(3);
-// Bağlayıcının rengini belirtir
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
 
-// Şekilleri bağlayıcı ile birbirine bağlar
-connector->set_StartShapeConnectedTo(shapeFrom);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// Bağlayıcı için ayar noktalarını alır
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
-**Ayarlama**
+Her iki bükülmeyi değiştirmek için, beklenen her tipi bulun ve her ikisi de bulunduktan sonra değerleri değiştirin:
 
-Bağlayıcının ayar noktası değerlerini, ilgili genişlik ve yükseklik yüzdelerini sırasıyla %20 ve %200 artırarak değiştirebiliriz:
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-```c++
-// Ayar noktalarının değerlerini değiştirir
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-Sonuç:
+Sonuç, yatay ve dikey segmentleri hareket eden bir bağlayıcıdır:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Bağlayıcının bireysel parçalarının koordinatlarını ve şeklini belirleyen bir model oluşturmak için, bağlayıcı.Adjustments[0] noktasındaki yatay bileşene karşılık gelen bir şekil oluşturalım:
+Anlamsal tipler belirlendikten sonra, değerler bağlayıcı-çerçeve koordinatlarına dönüştürülebilir. Bu örnek, iki bükülme ayarlamasıyla kontrol edilen dikey segmentin üzerine ince bir dikdörtgen çizer:
 
-```c++
-// Bağlayıcının dikey bileşenini çizer
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Sonuç:
+Kılavuz şekli, hesaplanan segmenti işaretler:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Durum 2**
+### **Döndürülmüş veya Çevrilmiş Bağlayıcı**
 
-**Durum 1**’de temel prensiplerle basit bir bağlayıcı ayarlama işlemi gösterdik. Normal durumlarda, bağlayıcının `Rotation`, `Frame.FlipH` ve `Frame.FlipV` özellikleriyle belirlenen dönme ve görüntüleme yönlerini de hesaba katmanız gerekir. Şimdi süreci gösterelim.
+Aynı bağlayıcı geometrisi dikey yönlendirildiğinde, [IShape::get_Frame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/get_frame/), [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapeframe/get_fliph/), ve [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapeframe/get_flipv/) değerleri, bağlayıcı-çerçeve koordinatlarından slayt koordinatlarına dönüşümü etkiler.
 
-İlk olarak, slayta bir bağlantı amacıyla yeni bir metin çerçevesi nesnesi (**To 1**) ekleyelim ve bunu mevcut nesnelere bağlayan yeni (yeşil) bir bağlayıcı oluşturalım.
+Bu örnek, dikey yönlendirilmiş bağlayıcıyı oluşturur ve ayarlar:
 
-```c++
-// Yeni bir bağlama nesnesi oluşturur
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// Yeni bir bağlayıcı oluşturur
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// Yeni oluşturulan bağlayıcıyı kullanarak nesneleri bağlar
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// Bağlayıcı ayar noktalarını alır
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// Ayar noktalarının değerlerini değiştirir
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-Sonuç:
+Ayarlanmış bağlayıcı, şekiller arasında dikey olarak görünür:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-İkinci olarak, yeni bağlayıcının ayar noktası `connector.Adjustments[0]` üzerinden geçen yatay bileşene karşılık gelen bir şekil oluşturalım. Bağlayıcı verilerindeki `Rotation`, `Frame.FlipH` ve `Frame.FlipV` değerlerini kullanarak, verilen bir x0 noktasına göre dönüş için yaygın koordinat dönüşüm formülünü uygulayacağız:
+Keyfi bir dönüş açısı `alpha` için, bir bağlayıcı-çerçeve noktasını `(x, y)` çerçeve merkezi `(x0, y0)` etrafında döndürün:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Bizim durumumuzda nesnenin dönüş açısı 90 derecedir ve bağlayıcı dikey olarak görüntülenir, bu yüzden ilgili kod şu şekildedir:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```c++
+Aşağıdaki kod, bu örnekte kullanılan 90 derece yönlendirmeyi ele alır ve ilgili bağlayıcı segmenti üzerine kırmızı bir kılavuz çizer:
 
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Sonuç:
+Kırmızı kılavuz, koordinat dönüşümünden sonra hesaplanan segmenti işaretler:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Basit ayarlamaları ve dönme açılarına sahip karmaşık ayar noktalarını içeren hesaplamaları gösterdik. Edindiğiniz bilgiyle, belirli slayt koordinatlarına dayalı bir `GraphicsPath` nesnesi elde etmek veya bir bağlayıcının ayar noktası değerlerini ayarlamak için kendi modelinizi (veya kodunuzu) geliştirebilirsiniz.
+Bu formüller, örneklerde kullanılan ön ayarları tanımlar, evrensel bir bağlayıcı modeli değildir. Aynı hesabı farklı bir ön ayara uygulamadan önce ayarlama tiplerini, çerçeve yönlendirmesini ve değer aralıklarını doğrulayın.
 
-## **Bağlayıcı Çizgilerinin Açısını Bulmak**
+## **Bağlayıcı Yön Açısını Bulma**
 
-1. Bir [Sunum](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation/) sınıfı örneği oluşturun.  
-1. Slaytın indeksine göre bir referans alın.  
-1. Bağlayıcı çizgi şekline erişin.  
-1. Açıyı hesablamak için çizgi genişliğini, yüksekliğini, şekil çerçevesi yüksekliğini ve şekil çerçevesi genişliğini kullanın.  
+Düz bir bağlayıcının yönü, genişlik ve yükseklik değerlerinden, yatay ve dikey çevirmeler uygulandıktan sonra hesaplanabilir. Aşağıdaki örnek, slayt koordinatlarında pozitif yatay eksenden saat yönünde açıyı rapor eder:
 
-Bu C++ kodu bir bağlayıcı çizgi şeklinin açısını nasıl hesaplayacağınızı gösterir:
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
 
-```c++
-void ConnectorLineAngle()
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// Belgeler dizininin yolu.
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// İstenen sunumu yükler
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// İlk slayta erişir
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// Slaytların şekil koleksiyonuna erişir
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
 
 ## **SSS**
 
-**Bir bağlayıcının belirli bir şekle “yapıştırılıp” yapıştırılamadığını nasıl anlayabilirim?**
+**Bir bağlayıcının bir şekle bağlanıp bağlanamayacağını nasıl anlayabilirim?**
 
-Şeklin [bağlantı noktalarını](https://reference.aspose.com/slides/tr/cpp/aspose.slides/shape/get_connectionsitecount/) expose ettiğini kontrol edin. Hiçbiri yoksa veya sayısı sıfırsa, yapıştırma mümkün değildir; bu durumda serbest uçları kullanıp manuel konumlandırmalısınız. Bağlantı nokta sayısını eklemeden önce kontrol etmek mantıklıdır.
+`IShape::get_ConnectionSiteCount` değerini kontrol edin. Pozitif bir sayı, şeklin bağlantı noktalarını ortaya çıkardığını gösterir. Bağlayıcının herhangi bir ucuna atamadan önce seçilen site indeksini doğrulayın.
 
-**Bağlı şekillerden birini sildiğimde bağlayıcı ne olur?**
+**Bir bağlayıcı ayarlamasını koleksiyon indeksine göre tanımlayabilir miyim?**
 
-Uçları ayrılır; bağlayıcı serbest başlangıç/bitiş noktalarına sahip normal bir çizgi olarak slaytta kalır. İsterseniz silebilir ya da bağlantıları yeniden atayabilir ve gerekirse [reroute](https://reference.aspose.com/slides/tr/cpp/aspose.slides/connector/reroute/) yapabilirsiniz.
+Bir indeks, yalnızca bilinen bir bağlayıcı ön ayarı ve koleksiyon düzeni için anlamlıdır. Bir değeri değiştirmeden önce `IAdjustValue::get_Type` kontrol edin ve aynı anlamsal tip birden fazla kez ortaya çıktığında ek bilgi sağlamak için `IAdjustValue::get_Name` kullanın.
 
-**Bir slaytı başka bir sunuma kopyaladığımda bağlayıcı bağlamaları korunur mu?**
+**Bağlı bir şekil silindiğinde ne olur?**
 
-Genellikle evet, hedef şekiller de kopyalandığında korunur. Slayt, bağlı şekiller olmadan başka bir dosyaya eklenirse uçlar serbest olur ve yeniden eklemeniz gerekir.
+İlgili bağlayıcı ucu bağlantısız kalır. Bağlayıcı slaytta kalır ve silinebilir, serbest bir çizgi olarak konumlandırılabilir veya başka bir şekle bağlanabilir.
+
+**Bir slayt kopyalandığında bağlayıcı bağlamaları korunur mu?**
+
+Bağlamalar, bağlı şekiller slayt ile birlikte kopyalandığında genellikle korunur. Bir bağlayıcı, hedef şekillerinden biri olmadan kopyalanırsa, etkilenen uç yeniden bağlanmalıdır.

@@ -12,37 +12,40 @@ keywords:
 - Klonuj kształt
 - Usuń kształt
 - Ukryj kształt
-- Zmień kolejność kształtów
-- Pobierz interopowy identyfikator kształtu
+- Zmień kolejność kształtu
+- Pobierz ID kształtu interop
 - Alternatywny tekst kształtu
+- Punkt regulacji kształtu
+- Regulacja kształtu predefiniowanego
+- Geometria kształtu
 - Formaty układu kształtu
 - Kształt jako SVG
 - Kształt do SVG
 - Wyrównaj kształt
 - Odbij kształt
 - PowerPoint
-- Prezentacja
+- prezentacja
 - PHP
 - Aspose.Slides
-description: "Dowiedz się, jak identyfikować, klonować, usuwać, ukrywać, zmieniać kolejność, eksportować, wyrównywać i odbijać kształty prezentacji przy użyciu Aspose.Slides for PHP via Java."
+description: "Dowiedz się, jak identyfikować, regulować, klonować, usuwać, ukrywać, zmieniać kolejność, eksportować, wyrównywać i odbijać kształty prezentacji za pomocą Aspose.Slides dla PHP poprzez Java."
 ---
 ## **Przegląd**
 
-Aspose.Slides for PHP via Java reprezentuje kształty na slajdzie jako uporządkowaną [ShapeCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/). Kolekcja jest zarówno miejscem, w którym można znaleźć i modyfikować kształty, jak i źródłem ich kolejności nakładania: indeks `0` to kształt najbardziej z tyłu, a ostatni indeks to kształt najbardziej z przodu.
+Aspose.Slides for PHP via Java reprezentuje kształty na slajdzie jako uporządkowaną [ShapeCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/). Kolekcja jest jednocześnie miejscem, w którym znajdujesz i modyfikujesz kształty oraz źródłem ich kolejności nakładania: indeks `0` to najdalej w tle kształt, a ostatni indeks to kształt najbardziej na wierzchu.
 
-Ten artykuł opiera się na tym modelu. Najpierw wyjaśnia, jak niezawodnie zidentyfikować kształt, a następnie pokazuje, jak klonować, usuwać, ukrywać i zmieniać kolejność kształtów. Ostatnie sekcje obejmują formatowanie na poziomie układu, eksport do SVG, wyrównanie i ustawienia odbicia. Każdy przykład jest niezależny, więc możesz używać tylko tych operacji, które są potrzebne w Twoim przepływie pracy.
+Ten artykuł opiera się na tym modelu. Najpierw wyjaśnia, jak wiarygodnie zidentyfikować kształt i zmodyfikować wstępnie ustawione punkty regulacji, a potem pokazuje, jak klonować, usuwać, ukrywać i zmieniać kolejność kształtów. Ostatnie sekcje obejmują formatowanie na poziomie układu, eksport SVG, wyrównywanie i ustawienia odbicia. Każdy przykład jest niezależny, więc możesz używać tylko operacji wymaganych w Twoim przepływie pracy.
 
-## **Identyfikowanie i znajdowanie kształtów**
+## **Identyfikacja i znajdowanie kształtów**
 
 Indeksy kolekcji są wygodne podczas przetwarzania znanego pliku, ale nie są stabilnymi identyfikatorami. Dodanie, usunięcie lub zmiana kolejności kształtu może zmienić jego indeks. Wybierz identyfikator zgodnie z tym, jak prezentacja jest tworzona i utrzymywana:
 
-- [Name](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getname/) jest przydatny w szablonach kontrolowanych przez programistów i łatwy do sprawdzenia w Panelu wyboru PowerPointa. Nazwy można edytować i nie są gwarantowane jako unikalne, więc wprowadź konwencję nazewnictwa, jeśli kod od nich zależy.
-- [AlternativeText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getalternativetext/) jest użyteczny, gdy opis dostępności lub tag nadany przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub przepisany pod kątem dostępności i nie jest gwarantowany jako unikalny. Nie używaj cichego przekształcania znaczącego tekstu dostępności jako klucza bazodanowego.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getofficeinteropshapeid/) jest identyfikatorem tylko do odczytu, który jest unikalny w obrębie slajdu i odpowiada identyfikatorowi kształtu używanemu przez interfejs PowerPointa. Używaj go przy integracji z PowerPointem lub gdy potrzebujesz jednoznacznego odniesienia w czasie życia kształtu. Sklonowany lub odtworzony kształt jest innym kształtem i otrzymuje własny identyfikator.
+- [Name](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getname/) jest przydatny w szablonach kontrolowanych przez dewelopera i łatwy do sprawdzenia w panelu wyboru PowerPointa. Nazwy można edytować i nie są gwarantowane jako unikalne, więc wprowadź konwencję nazewnictwa, jeśli kod od nich zależy.
+- [AlternativeText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getalternativetext/) jest przydatny, gdy opis dostępności lub znak dostarczony przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub przepisywany pod kątem dostępności i nie jest gwarantowany jako unikalny. Nie używaj cichego przekształcania znaczącego tekstu dostępności jako klucza bazy danych.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getofficeinteropshapeid/) jest identyfikatorem tylko do odczytu, unikalnym w obrębie slajdu i odpowiadającemu identyfikatorowi kształtu używanemu przez interop PowerPointa. Używaj go przy integracji z PowerPointem lub gdy potrzebujesz jednoznacznego odniesienia w czasie życia kształtu. Sklonowany lub odtworzony kształt jest innym kształtem i otrzymuje własny identyfikator.
 
-Powiązana metoda [Shape::getUniqueId](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getuniqueid/) zwraca identyfikator o zakresie prezentacji, ale jest przeznaczona dla dodatków i może być ponownie przypisana. Nie należy jej traktować jako trwałego zewnętrznego klucza. Jeśli długoterminowa tożsamość jest istotna, przechowuj mapowanie w danych aplikacji i weryfikuj, czy oczekiwany kształt nadal istnieje.
+Powiązana metoda [Shape::getUniqueId](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getuniqueid/) zwraca identyfikator o zakresie prezentacji, ale jest przeznaczona dla dodatków i może być ponownie przypisana. Nie należy jej traktować jako stałego klucza zewnętrznego. Jeśli trwała tożsamość jest kluczowa, przechowuj mapowanie w danych aplikacji i weryfikuj, że oczekiwany kształt nadal istnieje.
 
-Poniższy przykład wyszukuje według nazwy przy użyciu dokładnego porównania i raportuje interopowy identyfikator w zakresie slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z niewłaściwym obiektem.
+Poniższy przykład wyszukuje po nazwie przy użyciu dokładnego porównania i zgłasza interopowy identyfikator w zakresie slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z niewłaściwym obiektem.
 
 ```php
 use aspose\slides\Presentation;
@@ -75,7 +78,7 @@ try {
 }
 ```
 
-Gdy operacja jest specyficzna dla typu kształtu, sprawdź klasę w czasie wykonywania przed użyciem członków specyficznych dla typu. Ten przykład aktualizuje tekst i tekst alternatywny tylko wtedy, gdy nazwany obiekt jest [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/).
+Gdy operacja jest specyficzna dla typu kształtu, sprawdź klasę w czasie wykonywania przed użyciem członków specyficznych dla typu. Ten przykład aktualizuje tekst i alternatywny tekst tylko wtedy, gdy nazwany obiekt jest [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/).
 
 ```php
 use aspose\slides\Presentation;
@@ -110,15 +113,115 @@ try {
 }
 ```
 
-## **Modyfikowanie kolekcji kształtów**
+## **Identyfikacja i modyfikacja wstępnie ustawionych regulacji kształtu**
 
-Metody dodawania, klonowania, usuwania i zmiany kolejności działają na kolekcji natychmiast. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie polegaj dalej na indeksach przechwyconych przed tą operacją.
+Kształty o predefiniowanej geometrii mogą udostępniać punkty regulacji, które kontrolują takie cechy jak rozmiar narożników, proporcje strzałek lub kąty łuków. Dostęp do nich uzyskuje się przez kolekcję tylko do odczytu [GeometryShape::getAdjustments](https://reference.aspose.com/slides/pl/php-java/aspose.slides/geometryshape/#getAdjustments). Sama kolekcja jest dostarczana przez kształt, ale każdy [AdjustValue](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/) zawiera wartość, którą można zmienić.
+
+Nie polegaj wyłącznie na stałym indeksie kolekcji. Przeglądaj regulacje i sprawdzaj metodę tylko do odczytu [AdjustValue::getType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/#getType), której wartość [ShapeAdjustmentType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapeadjustmenttype/) opisuje, co dana regulacja kontroluje. Metoda tylko do odczytu [AdjustValue::getName](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/getname/) dostarcza dodatkowych informacji identyfikacyjnych i jest szczególnie przydatna, gdy predefinicja zawiera więcej niż jedną regulację tego samego typu semantycznego.
+
+Użyj metody wartości odpowiadającej znaczeniu regulacji:
+
+| Typ regulacji | Cel | Wartość do zmiany |
+|---|---|---|
+| `CornerSize` | Rozmiar zaokrąglonych narożników | [setRawValue](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Grubość ogona strzałki | `setRawValue` |
+| `ArrowheadLength` | Długość grotu strzałki | `setRawValue` |
+| `ArrowheadWidth` | Szerokość grotu strzałki | `setRawValue` |
+| `StartAngle` | Kąt początkowy wycinka lub łuku | [setAngleValue](https://reference.aspose.com/slides/pl/php-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Kąt końcowy wycinka lub łuku | `setAngleValue` |
+
+`getType` i `getName` zwracają informacje tylko do odczytu. `getRawValue` i `setRawValue` pracują z liczbą całkowitą w natywnych jednostkach geometrii predefinicji, natomiast `getAngleValue` i `setAngleValue` pracują z kątem w stopniach. Liczba, kolejność, znaczenie i dopuszczalny zakres regulacji zależą od predefinicji [GeometryShape::getShapeType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/geometryshape/#getShapeType). Wartość ważna dla jednej predefinicji może być nieprawidłowa lub mieć inny efekt dla innej.
+
+Gdy `getType` zwraca `ShapeAdjustmentType::Custom`, API nie rozpoznaje standardowego znaczenia semantycznego. Sprawdź `getName`, typ predefinicji oraz istniejącą wartość i pozostaw regulację niezmienioną, chyba że znane są oczekiwane znaczenie i zakres. Nawet dla rozpoznanych typów, sprawdź, czy ten sam typ występuje więcej niż raz, zanim wybierzesz wartość. Artykuł [Connector](/slides/pl/php-java/connector/) pokazuje tę sytuację w kontekście regulacji zgięcia łącznika.
+
+Poniższy kompletny przykład tworzy domyślne i zmodyfikowane wersje trzech predefiniowanych kształtów. Przegląda każdą regulację, zgłasza jej nazwę i typ, zmienia wartości związane z rozmiarem za pomocą `setRawValue`, zmienia kąty za pomocą `setAngleValue` i zapisuje wynik. Lewa kolumna zachowuje domyślną geometrię; prawa kolumna pokazuje dostosowany prostokąt zaokrąglony, czterokierunkową strzałkę i wycinek.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Dodaj nagłówki dla kolumn kształtów domyślnych i zmodyfikowanych.
+    $defaultColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+    $defaultColumnLabel->getTextFrame()->setText("Default preset geometry");
+    $adjustedColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+    $adjustedColumnLabel->getTextFrame()->setText("Modified adjustment values");
+
+    $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+    $modifiedRoundedRectangle = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+    $modifiedRoundedRectangle->setName("ModifiedRoundedRectangle");
+
+    $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+    $modifiedArrow = $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+    $modifiedArrow->setName("ModifiedQuadArrow");
+
+    $slide->getShapes()->addAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+    $modifiedPie = $slide->getShapes()->addAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+    $modifiedPie->setName("ModifiedPie");
+
+    $shapesToAdjust = [
+        $modifiedRoundedRectangle,
+        $modifiedArrow,
+        $modifiedPie
+    ];
+
+    foreach ($shapesToAdjust as $shape) {
+        $adjustmentCount = java_values($shape->getAdjustments()->size());
+        for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+            $adjustment = $shape->getAdjustments()->get_Item($adjustmentIndex);
+            $shapeName = java_values($shape->getName());
+            $adjustmentName = java_values($adjustment->getName());
+            $adjustmentType = java_values($adjustment->getType());
+            echo $shapeName . " / " . $adjustmentName . ": " . $adjustmentType . PHP_EOL;
+
+            switch ($adjustmentType) {
+                case ShapeAdjustmentType::CornerSize:
+                    $adjustment->setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType::ArrowTailThickness:
+                    $adjustment->setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadLength:
+                    $adjustment->setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadWidth:
+                    $adjustment->setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType::StartAngle:
+                    $adjustment->setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType::EndAngle:
+                    $adjustment->setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType::Custom:
+                    echo "Custom adjustment '" . $adjustmentName . "' was not changed." . PHP_EOL;
+                    break;
+            }
+        }
+    }
+
+    $presentation->save("preset-shape-adjustments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Sprawdzanie typu semantycznego przed zmianą wartości sprawia, że kod jest jednoznaczny co do intencji i unika założenia, że dany indeks kolekcji ma to samo znaczenie w różnych predefiniowanych kształtach.
+
+## **Modyfikacja kolekcji kształtów**
+
+Metody dodawania, klonowania, usuwania i zmiany kolejności działają natychmiast na kolekcji. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie polegaj dalej na indeksach pobranych przed tą operacją.
 
 ### **Klonowanie kształtu**
 
-[ShapeCollection::addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/addclone/) tworzy niezależną kopię i dodaje ją na koniec docelowej kolekcji. [ShapeCollection::insertClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/insertclone/) również tworzy kopię, ale umieszcza ją pod określonym indeksem kolejności Z. Przeciążenia przyjmujące współrzędne przemieszcza klon bez zmiany rozmiaru; przeciążenia z szerokością i wysokością mogą go także przeskalować.
+[ShapeCollection::addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/addclone/) tworzy niezależną kopię i dołącza ją do docelowej kolekcji. [ShapeCollection::insertClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/insertclone/) także tworzy kopię, ale umieszcza ją pod określonym indeksem z‑order. Przeciążenia przyjmujące współrzędne przenoszą klon bez zmiany jego rozmiaru; przeciążenia z szerokością i wysokością mogą również zmienić rozmiar.
 
-Przykład tworzy slajd docelowy, klonuje oznaczony prostokąt na przednią warstwę i wstawia drugi klon z tyłu. Zmiany w którymkolwiek klonie nie modyfikują kształtu źródłowego.
+Przykład tworzy slajd docelowy, klonuje opisany prostokąt na wierzch i wstawia drugi klon na tył. Zmiany w jednym klonie nie modyfikują kształtu źródłowego.
 
 ```php
 use aspose\slides\Presentation;
@@ -159,13 +262,13 @@ try {
 }
 ```
 
-Klonowanie kopiuje zawartość i formatowanie kształtu, w tym jego nazwę i tekst alternatywny. Przypisz nowe logiczne identyfikatory klonowi, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty są obsługiwane przez prezentację, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
+Klonowanie kopiuje zawartość i formatowanie kształtu, w tym jego nazwę i tekst alternatywny. Przypisz nowe logiczne identyfikatory klonowi, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty są zarządzane przez prezentację, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
 
 ### **Usuwanie kształtów**
 
-[ShapeCollection::remove](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/remove/) usuwa konkretny obiekt kształtu z jego kolekcji. Podczas usuwania wielu dopasowań w trakcie iteracji po indeksach, przechodź od końca, aby każdy pozostały indeks pozostał prawidłowy.
+[ShapeCollection::remove](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/remove/) usuwa określony obiekt kształtu z jego kolekcji. Podczas usuwania wielu dopasowań w trakcie iteracji po indeksach, przeglądaj od końca, aby każdy pozostały indeks pozostał ważny.
 
-Ten przykład usuwa każdy kształt o wyznaczonej nazwie. Czyta kształt pod aktualnym indeksem, a nie stały element kolekcji, i nie rzutuje go niepotrzebnie.
+Ten przykład usuwa każdy kształt o określonej nazwie. Odczytuje kształt pod bieżącym indeksem, nie stały element kolekcji, i nie wykonuje niepotrzebnego rzutowania.
 
 ```php
 use aspose\slides\Presentation;
@@ -200,11 +303,11 @@ try {
 }
 ```
 
-Po usunięciu liczba kształtów i indeksy późniejszych kształtów ulegają zmianie. Odwołania do niezmienionych kształtów pozostają bardziej wiarygodne niż zapisane indeksy. Pamiętaj także o łącznikach, animacjach i innych funkcjach prezentacji, które mogą odwoływać się do usuniętego obiektu; usunięcie widocznego kształtu może zmienić więcej niż wygląd slajdu.
+Po usunięciu liczba kształtów i indeksy kolejnych kształtów się zmieniają. Odwołania do niezmienionych kształtów pozostają bardziej niezawodne niż zapisane indeksy. Pamiętaj także o łącznikach, animacjach i innych elementach prezentacji, które mogą odwoływać się do usuniętego obiektu; usunięcie widocznego kształtu może zmienić więcej niż wygląd slajdu.
 
 ### **Ukrywanie kształtu**
 
-Ustawienie [Shape::setHidden](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/sethidden/) na `true` pozostawia kształt w kolekcji, ale zapobiega jego wyświetlaniu w normalnym pokazie slajdów. Jego indeks, formatowanie i zawartość pozostają dostępne w kodzie, więc ukrywanie jest odpowiednie dla opcjonalnych elementów, które mogą być przywrócone później.
+Ustawienie [Shape::setHidden](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/sethidden/) na `true` pozostawia kształt w kolekcji, ale zapobiega jego wyświetleniu w normalnym pokazie slajdów. Jego indeks, formatowanie i zawartość pozostają dostępne dla kodu, więc ukrywanie jest odpowiednie dla opcjonalnych elementów, które mogą zostać przywrócone później.
 
 ```php
 use aspose\slides\Presentation;
@@ -237,11 +340,11 @@ try {
 }
 ```
 
-Ukrywanie nie jest usuwaniem ani zabezpieczeniem. Obiekt nadal może być odnaleziony i odsłonięty przez użytkownika lub kod, i pozostaje częścią pliku prezentacji.
+Ukrycie nie jest usunięciem ani zabezpieczeniem. Obiekt nadal może być odnaleziony i odkryty przez użytkownika lub kod, i pozostaje częścią pliku prezentacji.
 
-### **Zmiana kolejności Z**
+### **Zmiana Z‑Order**
 
-Nakładające się kształty są rysowane w kolejności kolekcji. [ShapeCollection::reorder](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/reorder/) przemieszcza istniejący kształt do docelowego indeksu bez jego klonowania. Indeks `0` to tył; `size() - 1` to przód.
+Nakładające się kształty są rysowane w kolejności kolekcji. [ShapeCollection::reorder](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/reorder/) przenosi istniejący kształt do docelowego indeksu bez klonowania. Indeks `0` to tył; `size() - 1` to przód.
 
 ```php
 use aspose\slides\FillType;
@@ -271,13 +374,13 @@ try {
 }
 ```
 
-Prostokąt jest tworzony najpierw i początkowo znajduje się za elipsą. Przeniesienie go na ostatni indeks umieszcza go na wierzchu. Finalizuj kolejność Z po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dodają lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzoną warstwę.
+Prostokąt jest tworzony jako pierwszy i początkowo znajduje się za elipsą. Przeniesienie go do ostatniego indeksu powoduje, że jest na wierzchu. Ustal ostateczny Z‑Order po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dopisują lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzoną kolejkę.
 
 ## **Inspekcja kształtów na slajdach układu**
 
-Zwykłe slajdy, slajdy układu i slajdy bazowe mają oddzielne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem co podobnie położony kształt na zwykłym slajdzie. Sprawdzaj kształty układu, gdy musisz zrozumieć lub zmienić formatowanie dostarczane przez układ.
+Normalne slajdy, slajdy układu i slajdy nadrzędne mają oddzielne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem co podobnie pozycjonowany kształt na normalnym slajdzie. Sprawdzaj kształty układu, gdy musisz zrozumieć lub zmienić formatowanie dostarczane przez układ.
 
-Poniższy przykład odczytuje dla każdego kształtu układu [FillFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getfillformat/) i [LineFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getlineformat/) bez zakładania, że każdy kształt jest `AutoShape`.
+Poniższy przykład odczytuje [FillFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getfillformat/) i [LineFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getlineformat/) każdego kształtu układu, nie zakładając, że każdy kształt jest `AutoShape`.
 
 ```php
 use aspose\slides\Presentation;
@@ -304,11 +407,11 @@ try {
 }
 ```
 
-Edycja układu może wpływać na wiele slajdów, które go używają. Przed zmianą kształtu układu zdecyduj, czy zwykły slajd dziedziczy obiekt, czy zawiera lokalne nadpisanie, i przetestuj każdy slajd korzystający z tego układu.
+Edycja układu może wpływać na wiele slajdów, które go używają. Przed zmianą kształtu układu określ, czy normalny slajd dziedziczy obiekt czy zawiera lokalne nadpisanie, i przetestuj każdy slajd używający tego układu.
 
-## **Eksportowanie kształtu do SVG**
+## **Eksport kształtu do SVG**
 
-[Shape::writeAsSvg](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/writeassvg/) zapisuje renderowaną zawartość jednego kształtu do strumienia. Wynik zawiera tylko kształt, a nie całe tło slajdu ani sąsiadujące kształty.
+[Shape::writeAsSvg](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/writeassvg/) zapisuje renderowaną zawartość jednego kształtu do strumienia. Wynik zawiera tylko kształt, a nie tło całego slajdu ani sąsiadujące kształty.
 
 ```php
 use aspose\slides\Presentation;
@@ -339,13 +442,13 @@ try {
 }
 ```
 
-Utrzymuj otwartą prezentację podczas renderowania. Wyjście zależy od formatowania kształtu oraz od zasobów, takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd zamiast pojedynczego kształtu. Wywołujący jest właścicielem strumienia i musi go zamknąć.
+Trzymaj prezentację otwartą podczas renderowania. Wyjście zależy od formatowania kształtu oraz od zasobów takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd zamiast pojedynczego kształtu. Wywołujący własność strumienia musi go zamknąć.
 
 ## **Wyrównywanie kształtów**
 
-[SlideUtil::alignShapes](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slideutil/alignshapes/) ma przeciążenia, które wyrównują wszystkie kształty lub wybrane indeksy kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb dystrybucji. Ustaw `alignToSlide` na `true`, aby używać krawędzi slajdu; ustaw na `false`, aby wyrównać wybrane kształty względem siebie.
+Przeciążenia [SlideUtil::alignShapes](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slideutil/alignshapes/) wyrównują wszystkie kształty lub wybrane indeksy kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb dystrybucji. Ustaw `alignToSlide` na `true`, aby używać krawędzi slajdu; ustaw na `false`, aby wyrównywać wybrane kształty względem siebie.
 
-Ten przykład wyrównuje trzy kształty do górnej krawędzi slajdu. Zwrócone odniesienia do kształtów są konwertowane na ich bieżące indeksy tuż przed wyrównaniem.
+Ten przykład wyrównuje trzy kształty do górnej krawędzi slajdu. Zwrócone referencje kształtów są przeliczane na ich bieżące indeksy bezpośrednio przed wyrównaniem.
 
 ```php
 use aspose\slides\Presentation;
@@ -378,17 +481,17 @@ try {
 }
 ```
 
-Wyrównywanie zmienia pozycje, a nie kolejność Z. Wyrównanie względne zazwyczaj wymaga przynajmniej dwóch kształtów, podczas gdy dystrybucja pozioma lub pionowa wymaga wystarczającej liczby kształtów do określenia odstępów. Przelicz indeksy, jeśli modyfikujesz kolekcję przed wywołaniem metody.
+Wyrównanie zmienia pozycje, a nie Z‑Order. Wyrównanie względne zazwyczaj wymaga przynajmniej dwóch kształtów, podczas gdy dystrybucja pozioma lub pionowa wymaga wystarczającej liczby kształtów do określenia odstępów. Przelicz indeksy, jeśli modyfikujesz kolekcję przed wywołaniem metody.
 
 ## **Odbicie kształtu**
 
-Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odbicia poziomego i pionowego oraz obrót. Jej wartości `getFlipH` i `getFlipV` używają [NullableBool](https://reference.aspose.com/slides/pl/php-java/aspose.slides/nullablebool/): `True` włącza odbicie, `False` wyłącza, a `NotDefined` zachowuje stan nieokreślony/domyślny.
+Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odbicia poziomego i pionowego oraz obrót. Jej wartości `getFlipH` i `getFlipV` używają [NullableBool](https://reference.aspose.com/slides/pl/php-java/aspose.slides/nullablebool/): `True` włącza odbicie, `False` wyłącza, a `NotDefined` zachowuje nieokreślony/ domyślny stan.
 
-Wejściowa prezentacja poniżej zawiera jeden nieodbity kształt.
+Poniższa prezentacja wejściowa zawiera jeden nieodbijany kształt.
 
-![Kształt przed odbiciem](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-Przykład zachowuje wszystkie inne wartości ramki i zamienia tylko dwa ustawienia odbicia. Jest to ważne, ponieważ przypisanie nowego [Frame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/setframe/) zastępuje całą ramkę.
+Przykład zachowuje wszystkie inne wartości ramki i zamienia jedynie dwa ustawienia odbicia. Jest to ważne, ponieważ przypisanie nowego [Frame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/setframe/) zastępuje całą ramkę.
 
 ```php
 use aspose\slides\NullableBool;
@@ -414,20 +517,24 @@ try {
 }
 ```
 
-Zapisany kształt jest odbity poziomo i pionowo, zachowując jednocześnie swoją pozycję, rozmiar i obrót.
+Zapisany kształt jest odbity poziomo i pionowo, zachowując jednocześnie pozycję, rozmiar i obrót.
 
-![Kształt po odbiciu](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
 **Czy powinienem używać indeksu kolekcji jako identyfikatora kształtu?**
 
-Tylko w krótkotrwałym przetwarzaniu, gdy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zweryfikowaną konwencję `Name` lub `AlternativeText` dla szablonów tworzonych przez autora lub `OfficeInteropShapeId` dla pracy z interopem w zakresie slajdu.
+Tylko w krótkotrwałym przetwarzaniu, gdy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zweryfikowaną konwencję `Name` lub `AlternativeText` dla szablonów tworzonych ręcznie, lub `OfficeInteropShapeId` dla prac w zakresie interopu slajdu.
 
-**Czy ukrycie kształtu usuwa go z kolejności Z?**
+**Czy ukrycie kształtu usuwa go z Z‑Order?**
 
-Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Może być odnaleziony, przestawiony, edytowany lub ponownie widoczny.
+Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Można go znaleźć, zmienić kolejność, edytować lub ponownie uczynić widocznym.
 
 **Dlaczego sklonowany kształt pojawił się przed innym kształtem?**
 
-`addClone` dodaje klon na koniec kolekcji, co jest przodem kolejności Z. Użyj `insertClone`, aby wybrać początkowy indeks, lub `reorder` po dodaniu wszystkich kształtów.
+`addClone` dołącza klon na koniec kolekcji, co jest przodem Z‑Order. Użyj `insertClone`, aby wybrać początkowy indeks, lub `reorder` po dodaniu wszystkich kształtów.
+
+**Czy mogę używać stałego indeksu do identyfikacji regulacji predefiniowanego kształtu?**
+
+Tylko po zweryfikowaniu dokładnej predefinicji i układu kolekcji. Preferuj iterację przez `GeometryShape::getAdjustments` i sprawdzanie `AdjustValue::getType`; używaj `AdjustValue::getName` jako dodatkowej informacji, gdy ten sam typ semantyczny pojawia się więcej niż raz.

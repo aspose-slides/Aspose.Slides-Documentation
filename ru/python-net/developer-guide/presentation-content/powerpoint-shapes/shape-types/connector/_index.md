@@ -1,152 +1,120 @@
 ---
-title: Управление соединителями в презентациях с Python
-linktitle: Соединитель
+title: Управление коннекторами в презентациях с помощью Python
+linktitle: Коннектор
 type: docs
 weight: 10
 url: /ru/python-net/connector/
 keywords:
-- соединитель
-- тип соединителя
-- точка соединителя
-- линия соединителя
-- угол соединителя
-- связывать фигуры
+- коннектор
+- тип коннектора
+- точка коннектора
+- линия коннектора
+- угол коннектора
+- точка соединения
+- точка регулировки
+- соединять фигуры
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Позвольте Python‑приложениям рисовать, соединять и автоматически прокладывать линии в слайдах PowerPoint и OpenDocument — получайте полный контроль над прямыми, угловыми и изогнутыми соединителями."
+description: "Узнайте, как добавлять, прикреплять, переориентировать, регулировать и исследовать прямые, сгибные и изогнутые коннекторы PowerPoint с помощью Aspose.Slides для Python через .NET."
 ---
+## **Обзор**
 
-## **Введение**
+Коннектор – это линия, которая может оставаться привязанной к двум фигурам, когда любая из фигур перемещается. Его концы привязываются к точкам соединения, которые отображаются зелёными точками в PowerPoint. Некоторые изогнутые и сгибные коннекторы также имеют точки регулировки, обозначенные оранжевыми точками, которые управляют положением отдельных сегментов коннектора.
 
-Соединитель PowerPoint — это специализированная линия, соединяющая две фигуры и остающаяся привязанной к ним при перемещении или переустановке фигур на слайде. Соединители привязываются к **точкам соединения** (зеленые точки) на фигурах. Точки соединения появляются, когда указатель приближается к ним. **Ручки регулировки** (желтые точки), доступные для некоторых соединителей, позволяют изменять положение и форму соединителя.
+Aspose.Slides представляет коннекторы через интерфейс [IConnector](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iconnector/). Вы можете создавать их, привязывать их концы к фигурам, выбирать точки соединения, переориентировать их и изменять геометрию коннекторов, имеющих точки регулировки.
 
-## **Типы соединителей**
+## **Типы коннекторов**
 
-В PowerPoint можно использовать три типа соединителей: прямой, с изгибом (угловой) и изогнутый.
+Перечисление [ShapeType](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shapetype/) включает предустановки прямых, сгибных и изогнутых коннекторов. В таблице ниже показаны доступные геометрии коннекторов и количество точек регулировки, определённое для каждой предустановки.
 
-Aspose.Slides поддерживает следующие типы соединителей:
+| Коннектор | Изображение | Количество точек регулировки |
+|---|---|---|
+| `ShapeType.LINE` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.STRAIGHT_CONNECTOR1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BENT_CONNECTOR2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BENT_CONNECTOR3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BENT_CONNECTOR4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BENT_CONNECTOR5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CURVED_CONNECTOR2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CURVED_CONNECTOR3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CURVED_CONNECTOR4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CURVED_CONNECTOR5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Тип соединителя | Изображение | Количество точек регулировки |
-| ---------------- | ------------ | ---------------------------- |
-| `ShapeType.LINE` | ![Линейный соединитель](shapetype-lineconnector.png) | 0 |
-| `ShapeType.STRAIGHT_CONNECTOR1` | ![Прямой соединитель 1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BENT_CONNECTOR2` | ![Сгнутый соединитель 2](shapetype-bent-connector2.png) | 0 |
-| `ShapeType.BENT_CONNECTOR3` | ![Сгнутый соединитель 3](shapetype-bentconnector3.png) | 1 |
-| `ShapeType.BENT_CONNECTOR4` | ![Сгнутый соединитель 4](shapetype-bentconnector4.png) | 2 |
-| `ShapeType.BENT_CONNECTOR5` | ![Сгнутый соединитель 5](shapetype-bentconnector5.png) | 3 |
-| `ShapeType.CURVED_CONNECTOR2` | ![Изогнутый соединитель 2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CURVED_CONNECTOR3` | ![Изогнутый соединитель 3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CURVED_CONNECTOR4` | ![Изогнутый соединитель 4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CURVED_CONNECTOR5` | ![Изогнутый соединитель 5](shapetype.curvedconnector5.png) | 3 |
+Количество и смысл точек регулировки являются частью выбранной предустановки коннектора. Не следует предполагать, что два разных типа коннекторов имеют одинаковую структуру коллекции.
 
-## **Соединять фигуры с помощью соединителей**
+## **Соединение двух фигур**
 
-В этом разделе показано, как связывать фигуры с помощью соединителей в Aspose.Slides. Вы добавите соединитель на слайд, привяжете его начало и конец к целевым фигурам. Использование точек соединения гарантирует, что соединитель останется «приклеенным» к фигурам даже при их перемещении или изменении размера.
+Для добавления коннектора используйте [IShapeCollection.add_connector](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ishapecollection/add_connector/), а затем задайте его свойства [start_shape_connected_to](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iconnector/start_shape_connected_to/) и [end_shape_connected_to](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iconnector/end_shape_connected_to/). После привязки обоих концов вызов [IConnector.reroute](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iconnector/reroute/) выбирает короткий путь между фигурами.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите ссылку на слайд по его индексу.
-3. Добавьте два объекта [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на слайд, используя метод `add_auto_shape`, предоставляемый объектом [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/).
-4. Добавьте соединитель с помощью метода `add_connector`, предоставляемого объектом [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/), указав тип соединителя.
-5. Соедините фигуры с помощью соединителя.
-6. Вызовите метод `reroute`, чтобы применить кратчайший путь соединения.
-7. Сохраните презентацию.
+Ниже приведён пример, который соединяет эллипс и прямоугольник с помощью сгибного коннектора:
 
-Следующий код Python показывает, как добавить сгнутый соединитель между двумя фигурами (эллипсом и прямоугольником):
 ```python
 import aspose.slides as slides
 
-    # Создать экземпляр класса Presentation для создания файла PPTX.
-    with slides.Presentation() as presentation:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-        # Получить коллекцию фигур первого слайда.
-        shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
 
-        # Добавить AutoShape‑окружность.
-        ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
+    connector.start_shape_connected_to = ellipse
+    connector.end_shape_connected_to = rectangle
+    connector.reroute()
 
-        # Добавить AutoShape‑прямоугольник.
-        rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-        # Добавить соединитель на слайд.
-        connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR2, 0, 0, 10, 10)
-
-        # Соединить фигуры с помощью соединителя.
-        connector.start_shape_connected_to = ellipse
-        connector.end_shape_connected_to = rectangle
-
-        # Вызвать reroute для установки кратчайшего пути.
-        connector.reroute()
-
-        # Сохранить презентацию.
-        presentation.save("connected_shapes.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("connected-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+{{% alert color="warning" title="Warning" %}}
 
-{{% alert title="ПРИМЕЧАНИЕ" color="warning" %}}
-Метод `connector.reroute` переупорядочивает соединитель, заставляя его выбрать наиболее короткий возможный путь между фигурами. Для этого метод может изменить значения `start_shape_connection_site_index` и `end_shape_connection_site_index`.
+Вызов `reroute` может изменить значения [start_shape_connection_site_index](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iconnector/start_shape_connection_site_index/) и [end_shape_connection_site_index](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iconnector/end_shape_connection_site_index/). После переориентирования назначьте конкретные точки соединения, если они должны оставаться фиксированными.
+
 {{% /alert %}}
 
-## **Указать точки соединения**
+## **Выбор точки соединения**
 
-Этот раздел объясняет, как привязать соединитель к конкретной точке соединения на фигуре в Aspose.Slides. Точная настройка точек соединения позволяет управлять маршрутизацией и размещением соединителей, получая чистые и предсказуемые диаграммы в презентациях.
+Каждая соединяемая фигура сообщает количество своих точек через [connection_site_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides/igeometryshape/connection_site_count/). Перед привязкой к коннектору проверьте предпочтительный нулевой индекс точки; количество точек различается в зависимости от геометрии фигуры.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите ссылку на слайд по его индексу.
-3. Добавьте два объекта [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) на слайд, используя метод `add_auto_shape`, предоставляемый объектом [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/).
-4. Добавьте соединитель с помощью метода `add_connector` на объекте [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) и укажите тип соединителя.
-5. Соедините фигуры с помощью соединителя.
-6. Установите предпочтительные точки соединения на фигурах.
-7. Сохраните презентацию.
+В этом примере коннектор привязывается к определённой точке эллипса, если такая точка существует:
 
-Следующий код Python демонстрирует, как указать предпочтительную точку соединения:
 ```python
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation для создания файла PPTX.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Получить коллекцию фигур первого слайда.
-    shapes = presentation.slides[0].shapes
+    ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 40, 80, 120, 80)
+    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 320, 240, 140, 80)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
 
-    # Добавить AutoShape‑окружность.
-    ellipse = shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
-
-    # Добавить AutoShape‑прямоугольник.
-    rectangle = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 200, 100, 100)
-
-    # Добавить соединитель в коллекцию фигур слайда.
-    connector = shapes.add_connector(slides.ShapeType.BENT_CONNECTOR3, 0, 0, 10, 10)
-
-    # Соединить фигуры с помощью соединителя.
     connector.start_shape_connected_to = ellipse
     connector.end_shape_connected_to = rectangle
 
-    # Установить предпочтительный индекс точки подключения для окружности.
-    site_index = 6
+    preferred_site_index = 2
+    if preferred_site_index < ellipse.connection_site_count:
+        connector.start_shape_connection_site_index = preferred_site_index
+    else:
+        print(f"The ellipse has only {ellipse.connection_site_count} connection sites.")
 
-    # Проверить, что предпочтительный индекс находится в пределах количества доступных точек.
-    if  ellipse.connection_site_count > site_index:
-        # Присвоить предпочтительную точку подключения для AutoShape‑окружности.
-        connector.start_shape_connection_site_index = site_index
-
-    # Сохранить презентацию.
-    presentation.save("connection_points.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("specific-connection-site.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Регулировка точки коннектора**
 
-## **Регулировать точки соединителя**
+Коннекторы с точками регулировки предоставляют их через [IGeometryShape.adjustments](https://reference.aspose.com/slides/ru/python-net/aspose.slides/igeometryshape/adjustments/). Просмотрите каждый [IAdjustValue](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iadjustvalue/) и проверьте его [type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iadjustvalue/type/) перед изменением [raw_value](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iadjustvalue/raw_value/). Для общей работы с фигурами см. [Shape Manipulation](/slides/ru/python-net/shape-manipulations/).
 
-Вы можете изменять соединители, используя их точки регулировки. Только соединители, которые открывают точки регулировки, могут быть изменены таким способом. Подробнее о том, какие соединители поддерживают регулировку, смотрите в таблице в разделе [Типы соединителей](/slides/ru/python-net/connector/#connector-types).
+Количество, порядок, смысл и допустимый диапазон значений регулировки зависят от предустановки коннектора. Свойство `type` доступно только для чтения, а значение регулировки можно изменять. Свойство только для чтения [name](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iadjustvalue/name/) предоставляет дополнительную идентификацию, когда у коннектора несколько регулировок одного и того же семантического типа.
 
-### **Простой случай**
+### **Обход препятствия**
 
-Рассмотрим ситуацию, когда соединитель между двумя фигурами (A и B) пересекает третью фигуру (C):
+На следующей схеме коннектор `ShapeType.BENT_CONNECTOR5` между двумя фигурами проходит через третью фигуру:
 
-![Препятствие соединителя](connector-obstruction.png)
+![connector-obstruction](connector-obstruction.png)
 
-Пример кода:
+Этот код создаёт «заблокированный» коннектор:
+
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
@@ -154,239 +122,326 @@ import aspose.pydrawing as draw
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
-    
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
     connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
-    
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
-    
-    connector.start_shape_connected_to = shape_from
-    connector.end_shape_connected_to = shape_to
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
     connector.start_shape_connection_site_index = 2
+
+    presentation.save("connector-obstruction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Перемещение вертикального сгиба меняет маршрут, так что коннектор обходит препятствие:
 
-Чтобы избежать третьей фигуры, переместите вертикальный сегмент соединителя влево:
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-![Устранённое препятствие соединителя](connector-obstruction-fixed.png)
-```python
-    adjustment2 = connector.adjustments[1]
-    adjustment2.raw_value += 10000
-```
+Вместо предположения, что элемент коллекции с индексом `1` всегда представляет вертикальный сгиб, пример ищет `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y` и изменяет его только при наличии ожидаемого семантического типа:
 
-
-### **Сложные случаи** 
-
-Для более продвинутой регулировки рассмотрите следующее:
-
-- Точка регулировки соединителя управляется формулой, определяющей её положение. Изменение этой точки может изменить общую форму соединителя.
-- Точки регулировки соединителя хранятся в строго упорядоченном массиве, нумерованном от начала соединителя к его концу.
-- Значения точек регулировки представляют собой проценты от ширины/высоты формы соединителя.
-  - Форма ограничена начальной и конечной точками соединителя и масштабируется на 1000.
-  - Первая, вторая и третья точки регулировки означают соответственно: процент ширины, процент высоты и снова процент ширины.
-- При вычислении координат точек регулировки учитывайте вращение и отражение соединителя. **Примечание:** Для всех соединителей, перечисленных в разделе [Типы соединителей](/slides/ru/python-net/connector/#connector-types), угол вращения равен 0.
-
-#### **Случай 1**
-
-Рассмотрим случай, когда два текстовых фрейма связаны соединителем:
-
-![Связанные фигуры](connector-shape-complex.png)
-
-Пример кода:
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Создать экземпляр класса Presentation для создания PPTX‑файла.
 with slides.Presentation() as presentation:
-
-    # Получить первый слайд.
     slide = presentation.slides[0]
 
-    # Получить первый слайд.
-    shape_from = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
-    shape_from.text_frame.text = "From"
-    shape_to = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
-    shape_to.text_frame.text = "To"
+    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 150, 150, 75)
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 400, 100, 50)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 70, 30)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR5, 20, 20, 400, 300)
 
-    # Добавить соединитель.
-    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
-    # Установить направление соединителя.
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
-    # Установить цвет соединителя.
+    connector.line_format.fill_format.fill_type = slides.FillType.SOLID
+    connector.line_format.fill_format.solid_fill_color.color = draw.Color.black
+    connector.start_shape_connected_to = source_shape
+    connector.end_shape_connected_to = target_shape
+    connector.start_shape_connection_site_index = 2
+
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+            break
+
+    if vertical_bend is None:
+        print("The connector does not expose a vertical bend adjustment.")
+    else:
+        vertical_bend.raw_value = 60000
+        presentation.save("connector-obstruction-fixed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+У `ShapeType.BENT_CONNECTOR5` есть два регулировочных параметра `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` и один `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`. Если нужный тип встречается более одного раза, проверьте `name` и известную геометрию предустановки перед выбором. Если регулировка имеет тип [ShapeAdjustmentType.CUSTOM](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shapeadjustmenttype/), рассматривайте её смысл и диапазон как специфичные для предустановки и не меняйте её, пока не будет известен соответствующий контракт.
+
+## **Связь значений регулировки с геометрией коннектора**
+
+Для сгибных коннекторов значения регулировки можно использовать для оценки положения отдельных сегментов. Эти расчёты зависят от предустановки коннектора:
+
+- `ShapeType.BENT_CONNECTOR4` обычно предоставляет одну регулировку `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X` и одну `ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y`.
+- Для этих позиций сгиба `raw_value / 100000` даёт долю ширины или высоты кадра коннектора, использованную в примерах ниже.
+- Кадр коннектора может быть повернут или отражён, поэтому координаты кадра необходимо преобразовать перед сравнением с координатами слайда.
+
+Ниже приведён пример, который сначала определяет тип регулировки через `type`. Индексы коллекции не рассматриваются как переносимые идентификаторы.
+
+### **Неповернутый коннектор**
+
+Исходная схема содержит два текстовых объекта, соединённых `ShapeType.BENT_CONNECTOR4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Этот пример исследует коннектор и получает его горизонтальные и вертикальные регулировки сгиба:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    target_shape.text_frame.text = "To"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
+    connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.crimson
-    # Установить толщину линии соединителя.
     connector.line_format.width = 3
-
-    # Связать фигуры соединителем.
-    connector.start_shape_connected_to = shape_from
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 3
-    connector.end_shape_connected_to = shape_to
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 2
 
-    # Получить точки регулировки соединителя.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        print(f"{adjustment.name}: {adjustment.type}, raw value = {adjustment.raw_value}")
 ```
 
+Чтобы изменить оба сгиба, найдите каждый ожидаемый тип и измените значения только после того, как оба будут найдены:
 
-**Регулировка**
-
-Измените значения точек регулировки соединителя, увеличив процент ширины на 20 % и процент высоты на 200 % соответственно:
 ```python
-    # Изменить значения точек регулировки.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+        presentation.save("connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+В результате коннектор получает перемещённые горизонтальные и вертикальные сегменты:
 
-Результат:
+![connector-adjusted-1](connector-adjusted-1.png)
 
-![Регулировка соединителя 1](connector-adjusted-1.png)
+После определения семантических типов их значения можно преобразовать в координаты кадра коннектора. Этот пример рисует тонкий прямоугольник над вертикальным сегментом, управляемым двумя регулировками сгиба:
 
-Чтобы определить модель, позволяющую вычислять координаты и форму сегментов соединителя, создайте фигуру, соответствующую вертикальному компоненту соединителя при `connector.adjustments[0]`:
 ```python
-    # Нарисовать вертикальную часть соединителя.
-    x = connector.x + connector.width * adjustment_0.raw_value / 100000
-    y = connector.y
-    height = connector.height * adjustment_1.raw_value / 100000
+import aspose.slides as slides
 
-    slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 0, height)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 3
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 2
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        x = connector.x + connector.width * horizontal_bend.raw_value / 100000
+        y = connector.y
+        height = connector.height * vertical_bend.raw_value / 100000
+        slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 1, height)
+        presentation.save("connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Фигура‑направляющая отмечает вычисленный сегмент:
 
-Результат:
+![connector-adjusted-2](connector-adjusted-2.png)
 
-![Регулировка соединителя 2](connector-adjusted-2.png)
+### **Повернутый или отражённый коннектор**
 
-#### **Случай 2**
+Когда та же геометрия коннектора ориентирована вертикально, её свойства [frame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iconnector/frame/), [flip_h](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ishapeframe/flip_h/) и [flip_v](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ishapeframe/flip_v/) влияют на преобразование координат кадра коннектора в координаты слайда.
 
-В **Случае 1** мы продемонстрировали простую регулировку соединителя на основе базовых принципов. В типичных сценариях необходимо учитывать вращение соединителя и его настройки отображения (контролируемые параметрами `connector.rotation`, `connector.frame.flip_h` и `connector.frame.flip_v`). Ниже описание процесса.
+Этот пример создаёт и регулирует вертикально ориентированный коннектор:
 
-Сначала добавьте новый текстовый фрейм (**To 1**) на слайд (для соединения) и создайте новый зелёный соединитель, связывающий его с существующими объектами.
 ```python
-    # Создать новый целевой объект.
-    shape_to_1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
-    shape_to_1.text_frame.text = "To 1"
+import aspose.slides as slides
+import aspose.pydrawing as draw
 
-    # Создать новый соединитель.
-    connector = sld.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    source_shape.text_frame.text = "From"
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    target_shape.text_frame.text = "To 1"
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+
     connector.line_format.end_arrowhead_style = slides.LineArrowheadStyle.TRIANGLE
     connector.line_format.fill_format.fill_type = slides.FillType.SOLID
     connector.line_format.fill_format.solid_fill_color.color = draw.Color.medium_aquamarine
     connector.line_format.width = 3
-
-    # Соединить объекты с помощью только что созданного соединителя.
-    connector.start_shape_connected_to = shapeFrom
+    connector.start_shape_connected_to = source_shape
     connector.start_shape_connection_site_index = 2
-    connector.end_shape_connected_to = shape_to_1
+    connector.end_shape_connected_to = target_shape
     connector.end_shape_connection_site_index = 3
 
-    # Получить точки регулировки соединителя.
-    adjustment_0 = connector.adjustments[0]
-    adjustment_1 = connector.adjustments[1]
-    
-    # Изменить значения точек регулировки.
-    adjustment_0.raw_value += 20000
-    adjustment_1.raw_value += 200000
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            adjustment.raw_value += 20000
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            adjustment.raw_value += 200000
+
+    presentation.save("vertical-connector-adjusted.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Отрегулированный коннектор отображается вертикально между фигурами:
 
-Результат:
+![connector-adjusted-3](connector-adjusted-3.png)
 
-![Регулировка соединителя 3](connector-adjusted-3.png)
+Для произвольного угла вращения `alpha` вращайте точку кадра коннектора `(x, y)` вокруг его центра `(x0, y0)`:
 
-Затем создайте фигуру, соответствующую **горизонтальному** сегменту соединителя, проходящему через новую точку регулировки `connector.adjustments[0]`. Используйте значения `connector.rotation`, `connector.frame.flip_h` и `connector.frame.flip_v`, и примените стандартную формулу преобразования координат при вращении вокруг точки `x0`:
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+Следующий код обрабатывает ориентацию на 90 градусов, использованную в этом примере, и рисует красную направляющую над соответствующим сегментом коннектора:
 
-В нашем случае угол вращения объекта = 90 °, а соединитель отображается вертикально, поэтому соответствующий код выглядит так:
-```python
-    # Сохранить координаты соединителя.
-    x = connector.x
-    y = connector.y
-    
-    # Корректировать координаты соединителя, если он отражён.
-    if connector.frame.flip_h == 1:
-        x += connector.width
-    if connector.frame.flip_v == 1:
-        y += connector.height
-
-    # Использовать значение точки регулировки как координату.
-    x += connector.width * adjValue_0.raw_value / 100000
-    
-    # Преобразовать координаты, так как sin(90°) = 1 и cos(90°) = 0.
-    xx = connector.frame.center_x - y + connector.frame.center_y
-    yy = x - connector.frame.center_x + connector.frame.center_y
-
-    # Определить ширину горизонтального сегмента, используя значение второй точки регулировки.
-    width = connector.height * adjValue_1.raw_value / 100000
-    shape = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, xx, yy, width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-```
-
-
-Результат:
-
-![Регулировка соединителя 4](connector-adjusted-4.png)
-
-Мы продемонстрировали расчёты, включающие как простые регулировки, так и более сложные точки регулировки (учитывающие вращение). Используя эти знания, вы можете разработать собственную модель — или написать код — для получения объекта `GraphicsPath` или даже установки значений точек регулировки соединителя на основе конкретных координат слайда.
-
-## **Найти углы линии соединителя**
-
-Используйте пример ниже, чтобы определить угол линии соединителя на слайде с помощью Aspose.Slides. Вы узнаете, как считывать конечные точки соединителя и вычислять его ориентацию, чтобы точно выравнивать стрелки, подписи и другие фигуры.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Получите ссылку на слайд по индексу.
-3. Доступ к форме линии соединителя.
-4. Используйте ширину и высоту линии, а также ширину и высоту кадра фигуры, чтобы рассчитать угол.
-
-Следующий код Python демонстрирует, как вычислить угол для формы линии соединителя:
 ```python
 import aspose.slides as slides
-import math
+import aspose.pydrawing as draw
 
-def get_direction(w, h, flip_h, flip_v):
-    end_line_x = w * (-1 if flip_h else 1)
-    end_line_y = h * (-1 if flip_v else 1)
-    end_y_axis_x = 0
-    end_y_axis_y = h
-    angle = math.atan2(end_y_axis_y, end_y_axis_x) - math.atan2(end_line_y, end_line_x)
-    if (angle < 0):
-         angle += 2 * math.pi
-    return angle * 180.0 / math.pi
-
-with slides.Presentation("connector_line_angle.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    for shape_index in range(len(slide.shapes)):
-        direction = 0.0
-        shape = slide.shapes[shape_index]
-        if type(shape) is slides.AutoShape and shape.shape_type == slides.ShapeType.LINE:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        elif type(shape) is slides.Connector:
-            direction = get_direction(shape.width, shape.height, shape.frame.flip_h, shape.frame.flip_v)
-        print(direction)
+
+    source_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 60, 25)
+    target_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 400, 60, 25)
+    connector = slide.shapes.add_connector(slides.ShapeType.BENT_CONNECTOR4, 20, 20, 400, 300)
+    connector.start_shape_connected_to = source_shape
+    connector.start_shape_connection_site_index = 2
+    connector.end_shape_connected_to = target_shape
+    connector.end_shape_connection_site_index = 3
+
+    horizontal_bend = None
+    vertical_bend = None
+    for adjustment_index in range(len(connector.adjustments)):
+        adjustment = connector.adjustments[adjustment_index]
+        if adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_X:
+            horizontal_bend = adjustment
+        elif adjustment.type == slides.ShapeAdjustmentType.CONNECTOR_BEND_POSITION_Y:
+            vertical_bend = adjustment
+
+    if horizontal_bend is None or vertical_bend is None:
+        print("The connector does not expose the expected bend adjustments.")
+    else:
+        horizontal_bend.raw_value += 20000
+        vertical_bend.raw_value += 200000
+
+        x = connector.x
+        y = connector.y
+        if connector.frame.flip_h == slides.NullableBool.TRUE:
+            x += connector.width
+        if connector.frame.flip_v == slides.NullableBool.TRUE:
+            y += connector.height
+
+        x += connector.width * horizontal_bend.raw_value / 100000
+        rotated_x = connector.frame.center_x - y + connector.frame.center_y
+        rotated_y = x - connector.frame.center_x + connector.frame.center_y
+        segment_width = connector.height * vertical_bend.raw_value / 100000
+        guide = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, rotated_x, rotated_y, segment_width, 1)
+        guide.line_format.fill_format.fill_type = slides.FillType.SOLID
+        guide.line_format.fill_format.solid_fill_color.color = draw.Color.red
+
+        presentation.save("rotated-connector-segment-guide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Красная направляющая отмечает вычисленный сегмент после преобразования координат:
 
-## **Вопросы и ответы**
+![connector-adjusted-4](connector-adjusted-4.png)
 
-**Как понять, может ли соединитель «приклеиваться» к конкретной фигуре?**
+Эти формулы описывают предустановки, использованные в примерах, а не универсальную модель коннектора. Перед применением того же расчёта к другой предустановке проверьте типы регулировки, ориентацию кадра и диапазоны значений.
 
-Проверьте, открывает ли фигура [точки соединения](https://reference.aspose.com/slides/python-net/aspose.slides/shape/connection_site_count/). Если их нет или их количество равно 0, приклеивание недоступно; в этом случае используйте свободные концы и позиционируйте их вручную. Рекомендуется проверять количество точек перед привязкой.
+## **Определение угла направления коннектора**
 
-**Что происходит с соединителем, если удалить одну из связанных фигур?**
+Направление прямого коннектора можно вычислить из его ширины и высоты с учётом горизонтального и вертикального отражения. Ниже пример, который выводит угол по часовой стрелке от положительной горизонтальной оси в координатах слайда:
 
-Его концы будут отсоединены; соединитель останется на слайде как обычная линия со свободным началом/концом. Вы можете либо удалить его, либо переназначить соединения и при необходимости [переупорядочить](https://reference.aspose.com/slides/python-net/aspose.slides/connector/reroute/).
+```python
+import math
+import aspose.slides as slides
 
-**Сохраняются ли привязки соединителей при копировании слайда в другую презентацию?**
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 100, 100, 200, 100)
 
-Как правило, да, при условии, что связанные фигуры также копируются. Если слайд вставляется в другой файл без связанных фигур, концы становятся свободными, и их необходимо заново привязать.
+    flip_h = connector.frame.flip_h == slides.NullableBool.TRUE
+    flip_v = connector.frame.flip_v == slides.NullableBool.TRUE
+    delta_x = connector.width * (-1 if flip_h else 1)
+    delta_y = connector.height * (-1 if flip_v else 1)
+    angle = math.atan2(delta_y, delta_x) * 180.0 / math.pi
+
+    if angle < 0:
+        angle += 360
+
+    print(f"Connector direction: {angle:.2f} degrees")
+```
+
+## **FAQ**
+
+**Как определить, может ли коннектор присоединяться к фигуре?**
+
+Проверьте [connection_site_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides/igeometryshape/connection_site_count/) фигуры. Положительное значение означает, что фигура имеет точки соединения. Перед привязкой к коннектору проверьте выбранный индекс точки.
+
+**Можно ли идентифицировать регулировку коннектора по её индексу в коллекции?**
+
+Индекс имеет смысл только для известной предустановки коннектора и известного расположения коллекции. Проверьте [IAdjustValue.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iadjustvalue/type/) перед изменением значения и используйте [IAdjustValue.name](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iadjustvalue/name/) как дополнительную информацию, когда один и тот же семантический тип встречается более одного раза.
+
+**Что происходит, когда подключённая фигура удаляется?**
+
+Соответствующий конец коннектора отсоединяется. Коннектор остаётся на слайде и может быть удалён, перемещён как свободная линия или привязан к другой фигуре.
+
+**Сохраняются ли привязки коннектора при копировании слайда?**
+
+Привязки обычно сохраняются, когда копируются соединённые фигуры вместе со слайдом. Если коннектор копируется без одной из целевых фигур, необходимо вновь привязать затронутый конец.

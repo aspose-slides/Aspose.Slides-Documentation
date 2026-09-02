@@ -1,6 +1,6 @@
 ---
 title: Hantera presentationsformer i PHP
-linktitle: Formhantering
+linktitle: Formmanipulering
 type: docs
 weight: 40
 url: /sv/php-java/shape-manipulations/
@@ -13,9 +13,12 @@ keywords:
 - ta bort form
 - dölj form
 - ändra formordning
-- hämta interop form-ID
-- alternativ text för form
-- formlayoutformat
+- hämta interop-form-ID
+- formens alternativa text
+- formjusteringspunkt
+- förinställd formjustering
+- formgeometri
+- formatlayoutformat
 - form som SVG
 - form till SVG
 - justera form
@@ -24,25 +27,25 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Lär dig hur du identifierar, klonar, tar bort, döljer, omordnar, exporterar, justerar och vänder presentationsformer med Aspose.Slides för PHP via Java."
+description: "Lär dig hur du identifierar, justerar, klonar, tar bort, döljer, omordnar, exporterar, placerar och vänder presentationsformer med Aspose.Slides för PHP via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides för PHP via Java representerar formerna på en bild som en ordnad [ShapeCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/). Samlingen är både platsen där du hittar och ändrar former samt källan till deras staplingsordning: index `0` är den bakre formen, medan det sista indexet är den främsta formen.
+Aspose.Slides för PHP via Java representerar formerna på en bild som en ordnad [ShapeCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/). Samlingen är både platsen där du hittar och ändrar former samt källan till deras staplingsordning: index `0` är den längst bak, medan det sista indexet är den längst fram.
 
-Denna artikel följer den modellen. Den förklarar först hur man identifierar en form på ett tillförlitligt sätt, sedan visar hur man klonar, tar bort, döljer och omordnar former. De sista avsnitten täcker layoutegenskapsformattering, SVG-export, justering och flip‑inställningar. Varje exempel är oberoende, så du kan använda endast de operationer som ditt arbetsflöde kräver.
+Denna artikel följer den modellen. Den förklarar först hur man på ett pålitligt sätt identifierar en form och ändrar förinställda justeringspunkter, och visar sedan hur man klonar, tar bort, döljer och omordnar former. De sista avsnitten behandlar layoutnivåformat, SVG‑export, justering och vändinställningar. Varje exempel är fristående, så du kan använda bara de operationer ditt arbetsflöde kräver.
 
-## **Identifiera och hitta former**
+## **Identifiera och Hitta Former**
 
-Kollektionsindex är praktiska vid bearbetning av en känd fil, men de är inte stabila identifierare. Att lägga till, ta bort eller omordna en form kan ändra dess index. Välj en identifierare baserat på hur presentationen skapats och underhålls:
+Samlingsindex är praktiska när du bearbetar en känd fil, men de är inte stabila identifierare. Att lägga till, ta bort eller omordna en form kan ändra dess index. Välj en identifierare utifrån hur presentationen authoras och underhålls:
 
-- [Name](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getname/) är användbart för utvecklarkontrollerade mallar och är enkelt att inspektera i PowerPoints urvalspanel. Namn kan redigeras och garanteras inte vara unika, så etablera en namngivningskonvention om kod är beroende av dem.
-- [AlternativeText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getalternativetext/) är användbart när en tillgänglighetsbeskrivning eller en författarlevererad tagg redan identifierar formen. Den är synlig för användare, kan lokaliseras eller omskrivas för tillgänglighet, och garanteras inte vara unik. Återanvänd inte tyst meningsfull tillgänglighetstext som en databaskey.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getofficeinteropshapeid/) är en skrivskyddad identifierare som är unik inom en bild och motsvarar det shape‑ID som används av PowerPoint interop. Använd den när du integrerar med PowerPoint eller när du behöver en entydig referens under en presentations livstid. En klonad eller om skapad form är en annan form och får sitt eget ID.
+- [Namn](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getname/) är användbart för utvecklarkontrollerade mallar och är lätt att inspektera i PowerPoints urvalspanel. Namn kan redigeras och är inte garanterade att vara unika, så etablera en namnkod om kod beror på dem.
+- [AlternativeText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getalternativetext/) är användbart när en tillgänglighetsbeskrivning eller en författartagg redan identifierar formen. Det är synligt för användare, kan lokalanpassas eller skrivas om för tillgänglighet, och är inte garanterat att vara unikt. Återanvänd inte tyst meningsfull tillgänglighetstext som en databaskey.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getofficeinteropshapeid/) är en skrivskyddad identifierare som är unik inom en bild och motsvarar shape‑ID som används av PowerPoint‑interop. Använd den när du integrerar med PowerPoint eller när du behöver en entydig referens under en forms livstid. En klonad eller återställd form är en annan form och får sitt eget ID.
 
-Den relaterade metoden [Shape::getUniqueId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getuniqueid/) returnerar en identifierare med presentationsomfattning, men den identifieraren är avsedd för tillägg och kan omfördelas. Den bör inte behandlas som en permanent extern nyckel. Om långsiktig identitet är väsentlig, behåll mappningen i applikationsdata och validera att den förväntade formen fortfarande finns.
+Den relaterade metoden [Shape::getUniqueId](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getuniqueid/) returnerar en identifierare med presentationsomfattning, men den är avsedd för tillägg och kan omfördelas. Den bör inte betraktas som en permanent extern nyckel. Om långsiktig identitet är väsentlig, håll mappningen i applikationsdata och validera att den förväntade formen fortfarande finns.
 
-Följande exempel söker efter namn med en exakt jämförelse och rapporterar bildens interop‑ID. När mallen inte innehåller den förväntade formen rapporterar koden det resultatet istället för att fortsätta med fel objekt.
+Följande exempel söker efter namn med en exakt jämförelse och rapporterar bild‑scopad interop‑ID. När mallen inte innehåller den förväntade formen rapporterar koden det resultatet istället för att fortsätta med fel objekt.
 
 ```php
 use aspose\slides\Presentation;
@@ -75,7 +78,7 @@ try {
 }
 ```
 
-När en operation är specifik för en formtyp, kontrollera körtidsklassen innan du använder typ‑specifika medlemmar. Detta exempel uppdaterar text och alternativ text endast om det namngivna objektet är en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/).
+När en operation är specifik för en formtyp, kontrollera runtime‑klassen innan du använder typ‑specifika medlemmar. Detta exempel uppdaterar text och alternativ text endast om det namngivna objektet är en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/).
 
 ```php
 use aspose\slides\Presentation;
@@ -110,15 +113,115 @@ try {
 }
 ```
 
-## **Modifiera formkollektionen**
+## **Identifiera och Ändra Förinställda Formjusteringar**
 
-Metoderna add, clone, remove och reorder verkar på samlingen omedelbart. Om en operation ändrar antalet eller ordningen på former, fortsätt inte att förlita dig på index som fångats före den operationen.
+Förinställda geometriska former kan exponera justeringspunkter som styr funktioner såsom hörnstorlek, pilproportioner eller bågvinklar. Åtkomst sker via den skrivskyddade samlingen [GeometryShape::getAdjustments](https://reference.aspose.com/slides/sv/php-java/aspose.slides/geometryshape/#getAdjustments). Själva samlingen tillhandahålls av formen, men varje [AdjustValue](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/) innehåller ett värde som kan ändras.
 
-### **Klon en form**
+Förlita dig inte bara på ett fast samlingsindex. Iterera genom justeringarna och inspektera den skrivskyddade metoden [AdjustValue::getType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/#getType), vars värde av typen [ShapeAdjustmentType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapeadjustmenttype/) beskriver vad justeringen styr. Den skrivskyddade metoden [AdjustValue::getName](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/getname/) ger ytterligare identifieringsinformation och är särskilt användbar när en förinställning innehåller mer än en justering med samma semantiska typ.
 
-[ShapeCollection::addClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addclone/) skapar en oberoende kopia och lägger till den i målkollektionen. [ShapeCollection::insertClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/insertclone/) skapar också en kopia men placerar den på ett specificerat z‑ordningsindex. Överlagringarna som accepterar koordinater flyttar klonen utan att ändra dess storlek; överlagringarna med bredd och höjd kan även ändra dess storlek.
+Använd den värdemetod som matchar justeringens innebörd:
 
-Exemplet skapar en målbild, klonar en märkt rektangel till fronten, och infogar en andra klon längst bak. Ändringar i någon av klonerna modifierar inte källformen.
+| Justeringstyp | Syfte | Värde att ändra |
+|---|---|---|
+| `CornerSize` | Storlek på avrundade hörn | [setRawValue](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Tjocklek på en pilsvans | `setRawValue` |
+| `ArrowheadLength` | Längd på en pilspets | `setRawValue` |
+| `ArrowheadWidth` | Bredd på en pilspets | `setRawValue` |
+| `StartAngle` | Startvinkel för en paj eller båge | [setAngleValue](https://reference.aspose.com/slides/sv/php-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Slutvinkel för en paj eller båge | `setAngleValue` |
+
+`getType` och `getName` returnerar skrivskyddad information. `getRawValue` och `setRawValue` arbetar med ett heltal i förinställningens inhemska geometrienheter, medan `getAngleValue` och `setAngleValue` arbetar med en vinkel i grader. Antalet, ordningen, innebörden och giltigt intervall för justeringar beror på förinställningens [GeometryShape::getShapeType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/geometryshape/#getShapeType). Ett värde som är giltigt för en förinställning kan vara ogiltigt eller ha en annan effekt för en annan.
+
+När `getType` returnerar `ShapeAdjustmentType::Custom` känner API:t inte igen en standardsemantisk betydelse. Inspektera `getName`, förinställningstypen och det befintliga värdet, och lämna justeringen oförändrad om den förväntade betydelsen och intervallet inte är känt. Även för igenkända typer, kontrollera om samma typ förekommer mer än en gång innan du väljer ett värde. Artikeln [Connector](/slides/sv/php-java/connector/) visar detta scenario med böjningsjusteringar för anslutningar.
+
+Följande kompletta exempel skapar standard‑ och modifierade versioner av tre förinställda former. Det itererar genom varje justering, rapporterar dess namn och typ, ändrar storleksrelaterade värden via `setRawValue`, ändrar vinklar via `setAngleValue` och sparar resultatet. Den vänstra kolumnen behåller standardgeometrin; den högra visar den justerade avrundade rektangeln, fyrvägs‑pilen och pajen.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // Lägg till rubriker för standard- och justerade formkolumner.
+    $defaultColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+    $defaultColumnLabel->getTextFrame()->setText("Default preset geometry");
+    $adjustedColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+    $adjustedColumnLabel->getTextFrame()->setText("Modified adjustment values");
+
+    $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+    $modifiedRoundedRectangle = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+    $modifiedRoundedRectangle->setName("ModifiedRoundedRectangle");
+
+    $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+    $modifiedArrow = $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+    $modifiedArrow->setName("ModifiedQuadArrow");
+
+    $slide->getShapes()->addAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+    $modifiedPie = $slide->getShapes()->addAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+    $modifiedPie->setName("ModifiedPie");
+
+    $shapesToAdjust = [
+        $modifiedRoundedRectangle,
+        $modifiedArrow,
+        $modifiedPie
+    ];
+
+    foreach ($shapesToAdjust as $shape) {
+        $adjustmentCount = java_values($shape->getAdjustments()->size());
+        for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+            $adjustment = $shape->getAdjustments()->get_Item($adjustmentIndex);
+            $shapeName = java_values($shape->getName());
+            $adjustmentName = java_values($adjustment->getName());
+            $adjustmentType = java_values($adjustment->getType());
+            echo $shapeName . " / " . $adjustmentName . ": " . $adjustmentType . PHP_EOL;
+
+            switch ($adjustmentType) {
+                case ShapeAdjustmentType::CornerSize:
+                    $adjustment->setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType::ArrowTailThickness:
+                    $adjustment->setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadLength:
+                    $adjustment->setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadWidth:
+                    $adjustment->setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType::StartAngle:
+                    $adjustment->setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType::EndAngle:
+                    $adjustment->setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType::Custom:
+                    echo "Custom adjustment '" . $adjustmentName . "' was not changed." . PHP_EOL;
+                    break;
+            }
+        }
+    }
+
+    $presentation->save("preset-shape-adjustments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Att kontrollera den semantiska typen innan ett värde ändras gör koden explicit om sin avsikt och undviker antagandet att ett visst samlingsindex har samma betydelse för olika förinställda former.
+
+## **Ändra Formsamlingen**
+
+Tillaggs‑, klon‑, borttagnings‑ och omordningsmetoderna verkar på samlingen omedelbart. Om en operation förändrar antalet eller ordningen av former, fortsätt inte att förlita dig på index som fångats före den operationen.
+
+### **Klona en Form**
+
+[ShapeCollection::addClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addclone/) skapar en oberoende kopia och lägger till den i slutet av mål‑samlingen. [ShapeCollection::insertClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/insertclone/) skapar också en kopia men placerar den på ett angivet z‑order‑index. Överlagringarna som accepterar koordinater flyttar klonen utan att ändra dess storlek; överlagringarna med bredd och höjd kan även ändra storleken.
+
+Exemplet skapar en målbilder, klonar en märkt rektangel till fronten och infogar en andra klon längst bak. Ändringar i någon av klonerna ändrar inte källformen.
 
 ```php
 use aspose\slides\Presentation;
@@ -159,13 +262,13 @@ try {
 }
 ```
 
-Klonning kopierar formens innehåll och formatering, inklusive dess namn och alternativa text. Tilldela nya logiska identifierare till klonen när dessa värden måste vara unika. Resurser som används av komplexa former hanteras av presentationen, men en klon förblir ett nytt kollektionsobjekt med en ny formidentitet.
+Kloning kopierar formens innehåll och formatering, inklusive namn och alternativ text. Tilldela nya logiska identifierare till klonen när dessa värden måste vara unika. Resurser som används av komplexa former hanteras av presentationen, men en klon förblir ett nytt samlingsobjekt med en ny formidentitet.
 
-### **Ta bort former**
+### **Ta Bort Former**
 
-[ShapeCollection::remove](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/remove/) tar bort ett specifikt formobjekt från dess samling. När du tar bort flera matchningar under indexerad iteration, gå baklänges så att varje återstående index förblir giltigt.
+[ShapeCollection::remove](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/remove/) tar bort ett specifikt formobjekt från dess samling. När du tar bort flera matchningar under indexerad iteration, gå bakifrån så att varje återstående index förblir giltigt.
 
-Detta exempel tar bort varje form med ett bestämt namn. Det läser formen vid det aktuella indexet, inte ett fast samlingsobjekt, och castar inte formen i onödan.
+Detta exempel tar bort varje form med ett angivet namn. Det läser formen på det aktuella indexet, inte ett fast samlingsobjekt, och kastar inte formen i onödan.
 
 ```php
 use aspose\slides\Presentation;
@@ -200,11 +303,11 @@ try {
 }
 ```
 
-Efter borttagning ändras antalet former och indexen för senare former. Referenser till opåverkade former förblir mer pålitliga än sparade index. Tänk också på anslutningar, animationer och andra presentationsfunktioner som kan referera till det borttagna objektet; att ta bort en synlig form kan förändra mer än bara bildens utseende.
+Efter borttagning förändras antalet former och indexen för senare former. Referenser till opåverkade former förblir mer pålitliga än sparade index. Tänk också på anslutningar, animationer och andra presentationsfunktioner som kan referera till det borttagna objektet; att ta bort en synlig form kan ändra mer än bara bildens utseende.
 
-### **Dölj en form**
+### **Dölja en Form**
 
-Att sätta [Shape::setHidden](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/sethidden/) till `true` behåller formen i samlingen men förhindrar att den visas i den vanliga bildspelsvisningen. Dess index, formatering och innehåll förblir tillgängligt för kod, så dölja är lämpligt för valfria element som kan återställas senare.
+Att sätta [Shape::setHidden](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/sethidden/) till `true` behåller formen i samlingen men hindrar den från att visas i normal bildspelsvisning. Dess index, formatering och innehåll förblir tillgängliga för kod, så dölja är lämpligt för valfria element som kan återställas senare.
 
 ```php
 use aspose\slides\Presentation;
@@ -237,11 +340,11 @@ try {
 }
 ```
 
-Dölja är inte borttagning eller säkerhet. Objektet kan fortfarande upptäckas och avdöljas av en användare eller av kod, och det förblir en del av presentationsfilen.
+Döljning är inte radering eller säkerhet. Objektet kan fortfarande upptäckas och göras synligt igen av en användare eller av kod, och det förblir en del av presentationsfilen.
 
-### **Ändra Z‑ordning**
+### **Ändra Z‑Order**
 
-Överlappande former målas i samlingsordning. [ShapeCollection::reorder](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/reorder/) flyttar en befintlig form till ett målindex utan att klona den. Index `0` är bakre; `size() - 1` är främre.
+Överlappande former ritas i samlingsordning. [ShapeCollection::reorder](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/reorder/) flyttar en befintlig form till ett mål‑index utan att klona den. Index `0` är bakgrunden; `size() - 1` är framfronten.
 
 ```php
 use aspose\slides\FillType;
@@ -271,11 +374,11 @@ try {
 }
 ```
 
-Rektangeln skapas först och ligger initialt bakom ellipsen. Att flytta den till det sista indexet placerar den framför. Slutför z‑ordning efter att ha lagt till eller klonat alla relaterade former, eftersom dessa operationer lägger till eller infogar nya samlingsobjekt och kan ändra den avsedda stapeln.
+Rektangeln skapas först och sitter initialt bakom ellipsen. Att flytta den till sista indexet placerar den framför. Slutför z‑order efter att alla relaterade former har lagts till eller klonats, eftersom dessa operationer lägger till eller inför nya samlingsobjekt och kan ändra den avsedda stapeln.
 
-## **Inspektera former på layoutbilder**
+## **Inspektera Former på Layout‑bilder**
 
-Normala bilder, layoutbilder och masterbilder har separata formsamlingar. En form i en layoutsamling är inte samma objekt som en liknande placerad form på en normal bild. Inspektera layoutformer när du behöver förstå eller ändra formatering som levereras av en layout.
+Normala bilder, layout‑bilder och master‑bilder har separata form‑samlingar. En form i en layout‑samling är inte samma objekt som en liknande placerad form på en normal bild. Inspektera layoutformer när du behöver förstå eller ändra formatering som levereras av en layout.
 
 Följande exempel läser varje layoutforms [FillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getfillformat/) och [LineFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/getlineformat/) utan att anta att varje form är en `AutoShape`.
 
@@ -304,11 +407,11 @@ try {
 }
 ```
 
-Att redigera en layout kan påverka flera bilder som använder den. Innan du ändrar en layoutform, avgör om en normal bild ärver objektet eller innehåller en lokal överskrivning, och testa varje bild som använder den layouten.
+Att redigera en layout kan påverka flera bilder som använder den. Innan du ändrar en layout‑form, avgör om en normal bild ärver objektet eller har en lokal överskrivning, och testa varje bild som använder den layouten.
 
-## **Exportera en form till SVG**
+## **Exportera en Form till SVG**
 
-[Shape::writeAsSvg](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/writeassvg/) skriver en forms renderade innehåll till en ström. Resultatet innehåller formen, inte hela bildbakgrunden eller närliggande former.
+[Shape::writeAsSvg](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/writeassvg/) skriver en enskild forms renderade innehåll till en ström. Resultatet innehåller bara formen, inte hela bildbakgrunden eller närliggande former.
 
 ```php
 use aspose\slides\Presentation;
@@ -339,13 +442,13 @@ try {
 }
 ```
 
-Håll presentationen öppen under rendering. Utdata beror på formens formatering och på resurser som typsnitt och bilder. Om du behöver hela sammansättningen, exportera bilden snarare än en enskild form. Anroparen äger strömmen och måste stänga den.
+Håll presentationen öppen under rendering. Utdata beror på formens formatering samt resurser som teckensnitt och bilder. Om du behöver hela kompositionen, exportera bilden istället för en enskild form. Anroparen äger strömmen och måste stänga den.
 
-## **Justera former**
+## **Justera Former**
 
-[SlideUtil::alignShapes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slideutil/alignshapes/) överlagringar justerar antingen alla former eller utvalda samlingsindex. [ShapesAlignmentType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapesalignmenttype/) specificerar kanten, mittlinjen eller fördelningsläget. Sätt `alignToSlide` till `true` för att använda bildens kanter; sätt den till `false` för att justera de valda formerna i förhållande till varandra.
+[SlideUtil::alignShapes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slideutil/alignshapes/) har överlagringar som antingen justerar alla former eller utvalda samlingsindex. [ShapesAlignmentType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapesalignmenttype/) specificerar kanten, mittlinjen eller distributionsläget. Sätt `alignToSlide` till `true` för att använda bildens kanter; sätt den till `false` för att justera de valda formerna relativt varandra.
 
-Detta exempel justerar tre former till bildens överkant. De returnerade formreferenserna konverteras till sina aktuella index omedelbart före justering.
+Detta exempel justerar tre former till bildens överkant. De returnerade formreferenserna konverteras till deras aktuella index omedelbart före justering.
 
 ```php
 use aspose\slides\Presentation;
@@ -378,17 +481,17 @@ try {
 }
 ```
 
-Justering förändrar positioner, inte z‑ordning. Relativ justering kräver normalt minst två former, medan horisontell eller vertikal fördelning kräver tillräckligt många former för att definiera avstånd. Räkna om index om du ändrar samlingen innan du anropar metoden.
+Justering ändrar positioner, inte z‑order. Relativ justering kräver normalt minst två former, medan horisontell eller vertikal fördelning kräver tillräckligt många former för att definiera avståndet. Räkna om index om du ändrar samlingen innan du anropar metoden.
 
-## **Vänd en form**
+## **Vända en Form**
 
-[ShapeFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapeframe/)‑klassen lagrar position, storlek, horisontella och vertikala vändinställningar samt rotation. Dess `getFlipH`‑ och `getFlipV`‑värden använder [NullableBool](https://reference.aspose.com/slides/sv/php-java/aspose.slides/nullablebool/): `True` aktiverar vändning, `False` inaktiverar den, och `NotDefined` bevarar det odefinierade/default‑tillståndet.
+Klassen [ShapeFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapeframe/) lagrar position, storlek, horisontella och vertikala vändinställningar samt rotation. Dess `getFlipH`‑ och `getFlipV`‑värden använder [NullableBool](https://reference.aspose.com/slides/sv/php-java/aspose.slides/nullablebool/): `True` aktiverar vändning, `False` inaktiverar den, och `NotDefined` behåller det odefinierade/standardtillståndet.
 
-Den input‑presentation som visas nedan innehåller en oroterad form.
+Den inmatade presentationen nedan innehåller en icke‑vänd form.
 
 ![Formen före vändning](shape_to_be_flipped.png)
 
-Exemplet bevarar alla andra ramvärden och ersätter endast de två vändinställningarna. Detta är viktigt eftersom tilldelning av en ny [Frame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/setframe/) ersätter hela ramen.
+Exemplet behåller alla andra ramvärden och ersätter endast de två vändinställningarna. Detta är viktigt eftersom en ny [Frame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/setframe/) ersätter hela ramen.
 
 ```php
 use aspose\slides\NullableBool;
@@ -414,20 +517,24 @@ try {
 }
 ```
 
-Den sparade formen speglas horisontellt och vertikalt samtidigt som position, storlek och rotation behålls.
+Den sparade formen är speglad horisontellt och vertikalt samtidigt som position, storlek och rotation behålls.
 
 ![Formen efter vändning](flipped_shape.png)
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Bör jag använda ett kollektionsindex som formidentifierare?**
+**Bör jag använda ett samlingsindex som formidentifierare?**
 
-Endast för kortlivad bearbetning när kollektionen inte kommer att förändras innan indexet används. Föredra en validerad `Name`‑ eller `AlternativeText`‑konvention för skapade mallar, eller `OfficeInteropShapeId` för interop‑arbete med bildomfång.
+Endast för kortlivad bearbetning när samlingen inte kommer att ändras innan indexet används. Föredra en validerad `Name`‑ eller `AlternativeText`‑konvention för authorade mallar, eller `OfficeInteropShapeId` för interop‑arbete med bild‑scope.
 
-**Tar döljning av en form bort den från z‑ordningen?**
+**Tar dölja en form bort den från z‑order?**
 
 Nej. En dold form förblir i samlingen på samma index. Den kan hittas, omordnas, redigeras eller göras synlig igen.
 
-**Varför visades en klonad form framför en annan form?**
+**Varför hamnade en klonad form framför en annan form?**
 
-`addClone` lägger till klonen i slutet av samlingen, vilket är fronten av z‑ordningen. Använd `insertClone` för att välja initialt index eller `reorder` efter att alla former har lagts till.
+`addClone` lägger till klonen i slutet av samlingen, vilket är fronten i z‑order. Använd `insertClone` för att välja startindex eller `reorder` efter att alla former har lagts till.
+
+**Kan jag använda ett fast index för att identifiera en förinställd formjustering?**
+
+Endast efter att ha validerat exakt förinställning och samlingslayout. Föredra att iterera genom `GeometryShape::getAdjustments` och kontrollera `AdjustValue::getType`; använd `AdjustValue::getName` som ytterligare information när samma semantiska typ förekommer mer än en gång.

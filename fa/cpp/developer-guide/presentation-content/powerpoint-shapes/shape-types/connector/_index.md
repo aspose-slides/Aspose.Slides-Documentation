@@ -1,414 +1,681 @@
 ---
-title: مدیریت اتصال‌دهنده‌ها در ارائه‌ها با استفاده از C++
-linktitle: اتصال‌دهنده
+title: مدیریت اتصال‌کننده‌ها در ارائه‌ها با استفاده از C++
+linktitle: اتصال‌کننده
 type: docs
 weight: 10
 url: /fa/cpp/connector/
 keywords:
-- اتصال‌دهنده
-- نوع اتصال‌دهنده
-- نقطه اتصال‌دهنده
-- خط اتصال‌دهنده
-- زاویه اتصال‌دهنده
-- اتصال شکل‌ها
-- پاورپوینت
+- اتصال‌کننده
+- نوع اتصال‌کننده
+- نقطه اتصال‌کننده
+- خط اتصال‌کننده
+- زاویه اتصال‌کننده
+- محل اتصال
+- نقطه تنظیم
+- اتصال اشکال
+- PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "به برنامه‌های C++ قدرت دهید تا خطوط را در اسلایدهای PowerPoint رسم، متصل و به‌صورت خودکار مسیردهی کنند— و کنترل کامل بر روی اتصال‌دهنده‌های مستقیم، زانو (زاویه‌دار) و منحنی داشته باشید."
+description: "یاد بگیرید چگونه اتصال‌کننده‌های مستقیم، خمیده و منحنی PowerPoint را با Aspose.Slides برای C++ اضافه، متصل، مسیردهی مجدد، تنظیم و بررسی کنید."
 ---
-## **معرفی**
+## **نمای کلی**
 
-یک وصل‌کنندهٔ پاورپوینت خطی ویژه است که دو شکل را به هم متصل یا لینک می‌کند و حتی زمانی که این اشکال جابجا یا تغییر مکان می‌یابند، به آن‌ها چسبیده می‌ماند. 
+یک اتصال‌کننده خطی است که می‌تواند هنگام حرکت هر یک از دو شکل به دو شکل متصل بماند. سرهای آن به نقاط اتصال که در PowerPoint با نقاط سبز نشان داده می‌شوند، وصل می‌شوند. برخی از اتصال‌کننده‌های خمیده و منحنی همچنین نقاط تنظیمی (نقاط نارنجی) دارند که موقعیت بخش‌های مختلف اتصال‌کننده را کنترل می‌کنند.
 
-وصل‌کننده‌ها به طور معمول به *نقاط اتصال* (نقاط سبز) متصل می‌شوند که به‌صورت پیش‌فرض در تمام اشکال وجود دارند. نقاط اتصال زمانی ظاهر می‌شوند که کرسر به آن‌ها نزدیک شود.
+Aspose.Slides اتصال‌کننده‌ها را از طریق رابط [IConnector](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iconnector/) نمایش می‌دهد. می‌توانید آن‌ها را ایجاد کنید، سرهایشان را به شکل‌ها وصل کنید، نقاط اتصال را انتخاب کنید، مسیرشان را تغییر دهید و هندسهٔ اتصال‌کننده‌هایی که نقاط تنظیمی دارند را اصلاح کنید.
 
-*نقاط تنظیم* (نقاط نارنجی) که فقط در برخی وصل‌کننده‌ها وجود دارند، برای تغییر موقعیت و شکل وصل‌کننده‌ها استفاده می‌شوند.
+## **انواع اتصال‌کننده**
 
-## **انواع وصل‌کننده‌ها**
+شمارشگر [ShapeType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/shapetype/) شامل تنظیمات پیش‌فرض برای اتصال‌کننده‌های مستقیم، خمیده و منحنی است. جدول زیر هندسه‌های موجود اتصال‌کننده و تعداد نقاط تنظیمی تعریف‌شده برای هر پیش‌فرض را نشان می‌دهد.
 
-در پاورپوینت می‌توانید از وصل‌کننده‌های مستقیم، زانو (زاویه‌دار) و منحنی استفاده کنید. 
+| اتصال‌کننده | تصویر | تعداد نقاط تنظیم |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides این وصل‌کننده‌ها را فراهم می‌کند:
+تعداد و معنی نقاط تنظیم بخشی از پیش‌فرض انتخاب‌شدهٔ اتصال‌کننده است. فرض نکنید که دو نوع اتصال‌کنندهٔ متفاوت همان چیدمان مجموعه را در اختیار دارند.
 
-| وصل‌کننده | تصویر | تعداد نقاط تنظیم |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **اتصال دو شکل**
 
-## **متصل کردن اشکال با استفاده از وصل‌کننده‌ها**
+از [IShapeCollection::AddConnector](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/addconnector/) برای افزودن یک اتصال‌کننده استفاده کنید و سپس با فراخوانی‌های [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) و [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) سرهای آن را وصل کنید. پس از اتصال هر دو سر، متد [IConnector::Reroute](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iconnector/reroute/) یک مسیر کوتاه بین شکل‌ها انتخاب می‌کند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation/) ایجاد کنید.  
-1. از طریق شاخص آن، ارجاع اسلاید را دریافت کنید.  
-1. با استفاده از متد `AddAutoShape` که در شیء `Shapes` در دسترس است، دو [AutoShape](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.auto_shape) به اسلاید اضافه کنید.  
-1. با تعریف نوع وصل‌کننده، یک وصل‌کننده را با استفاده از متد `AddConnector` که در شیء `Shapes` موجود است اضافه کنید.  
-1. با استفاده از وصل‌کننده، اشکال را به هم متصل کنید.  
-1. متد `Reroute` را صدا بزنید تا کوتاه‌ترین مسیر اتصال اعمال شود.  
-1. ارائه را ذخیره کنید.  
+مثال زیر یک شکل بیضی و یک مستطیل را با یک اتصال‌کنندهٔ خمیده متصل می‌کند:
 
-این کد C++ نشان می‌دهد که چگونه یک وصل‌کننده (یک وصل‌کننده خمیده) بین دو شکل (یک بیضی و یک مستطیل) اضافه کنید:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-```c++
-// مسیر پوشه اسناد.
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// ارائه مورد نظر را بارگذاری می‌کند
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// به اولین اسلاید دسترسی پیدا می‌کند
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// مجموعهٔ اشکال یک اسلاید خاص را دریافت می‌کند
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// یک شکل خودکار بیضی را اضافه می‌کند
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// یک شکل خودکار مستطیل را اضافه می‌کند
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-
-	// یک شکل اتصال‌دهنده را به مجموعهٔ اشکال اسلاید اضافه می‌کند
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// اشکال را با استفاده از اتصال‌دهنده متصل می‌کند
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// متد Reroute را صدا می‌زند که کوتاه‌ترین مسیر خودکار بین اشکال را تنظیم می‌کند
-	connector->Reroute();
-	
-	// ارائه را ذخیره می‌کند
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-متد `connector->Reroute` یک وصل‌کننده را باز مسیر می‌کند و آن را مجبور می‌سازد تا کوتاه‌ترین مسیر ممکن بین اشکال را انتخاب کند. برای رسیدن به این هدف، ممکن است این متد مقادیر `StartShapeConnectionSiteIndex` و `EndShapeConnectionSiteIndex` را تغییر دهد. 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
 
-## **مشخص کردن نقطه اتصال**
+فراخوانی `IConnector::Reroute` می‌تواند مقادیر [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) و [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/) را تغییر دهد. پس از مسیر‌یابی مجدد، در صورتی که این نقاط باید ثابت بمانند، مکان‌های اتصال خاصی را دوباره اختصاص دهید.
 
-اگر می‌خواهید یک وصل‌کننده دو شکل را با استفاده از نقاط خاص روی اشکال متصل کند، باید نقاط اتصال دلخواه خود را به این صورت مشخص کنید:
+{{% /alert %}}
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation/) ایجاد کنید.  
-1. از طریق شاخص آن، ارجاع اسلاید را دریافت کنید.  
-1. با استفاده از متد `AddAutoShape` که در شیء `Shapes` در دسترس است، دو [AutoShape](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.auto_shape) به اسلاید اضافه کنید.  
-1. با تعریف نوع وصل‌کننده، یک وصل‌کننده را با استفاده از متد `AddConnector` که در شیء `Shapes` موجود است اضافه کنید.  
-1. با استفاده از وصل‌کننده، اشکال را به هم متصل کنید.  
-1. نقاط اتصال دلخواه خود را بر روی اشکال تنظیم کنید.  
-1. ارائه را ذخیره کنید.  
+## **انتخاب یک نقطه اتصال**
 
-این کد C++ عملیاتی را نشان می‌دهد که در آن یک نقطه اتصال دلخواه مشخص می‌شود:
+هر شکل قابل اتصال تعداد نقاط خود را از طریق [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_connectionsitecount/) گزارش می‌دهد. پیش از اختصاص یک اندیس صفر‑مبنا به یک سر اتصال‌کننده، اعتبارسنجی کنید؛ تعداد نقاط بسته به هندسهٔ شکل متفاوت است.
 
-```c++
-	// مسیر پوشه اسناد.
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+این مثال اتصال‌کننده را وقتی نقطهٔ موردنظر بر روی بیضی وجود داشته باشد، به آن نقطه وصل می‌کند:
 
-	// ارائه مورد نظر را بارگذاری می‌کند
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-	// به اولین اسلاید دسترسی پیدا می‌کند
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// مجموعهٔ اشکال یک اسلاید خاص را دریافت می‌کند
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// یک شکل خودکار بیضی اضافه می‌کند
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// یک شکل خودکار مستطیل اضافه می‌کند
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// یک شکل اتصال‌دهنده را به مجموعهٔ اشکال اسلاید اضافه می‌کند
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// اشکال را با استفاده از اتصال‌دهنده متصل می‌کند
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// اندیس نقطهٔ اتصال دلخواه را بر روی شکل بیضی تنظیم می‌کند
-	int wantedIndex = 6;
-
-	// بررسی می‌کند که آیا اندیس دلخواه کمتر از حداکثر تعداد سایت‌ها است یا خیر
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// نقطهٔ اتصال دلخواه را بر روی شکل خودکار بیضی تنظیم می‌کند
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// ارائه را ذخیره می‌کند
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
-## **تنظیم یک نقطهٔ وصل‌کننده**
+## **تنظیم یک نقطه اتصال‌کننده**
 
-می‌توانید یک وصل‌کنندهٔ موجود را از طریق نقاط تنظیم آن تنظیم کنید. فقط وصل‌کننده‌هایی که نقاط تنظیم دارند می‌توانند به این روش تغییر یابند. جدول زیر را در **[انواع وصل‌کننده‌ها](/slides/fa/cpp/connector/#types-of-connectors)** ببینید.
+اتصال‌کننده‌های دارای نقاط تنظیمی این نقاط را از طریق [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igeometryshape/get_adjustments/) در دسترس می‌گذارند. قبل از تغییر مقدار هر [IAdjustValue](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iadjustvalue/)، نوع آن را با [IAdjustValue::get_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iadjustvalue/get_type/) بررسی کنید. قوانین کلی شناسایی تنظیمات پیش‌فرض شکل در بخش [Shape Manipulation](/slides/fa/cpp/shape-manipulations/) شرح داده شده است.
 
-### **مورد ساده**
+تعداد، ترتیب، معنا و دامنهٔ مقدار معتبر تنظیمات اتصال‌کننده به پیش‌فرض اتصال‌کننده بستگی دارد. نوع برگردانده‌شده توسط `IAdjustValue::get_Type` فقط خواندنی است، در حالی که مقدار خام تنظیمات قابل نوشتن است. متد فقط‑خواندنی [IAdjustValue::get_Name](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iadjustvalue/get_name/) برای شناسایی بیشتر وقتی یک اتصال‌کننده بیش از یک تنظیم با نوع معنایی یکسان دارد، مفید است.
 
-در نظر بگیرید حالتی که یک وصل‌کننده بین دو شکل (A و B) از یک شکل سوم (C) عبور می‌کند:
+### **مسیر دور موانع**
+
+در طرح زیر یک اتصال‌کنندهٔ `ShapeType::BentConnector5` بین دو شکل از طریق شکل سوم عبور می‌کند:
 
 ![connector-obstruction](connector-obstruction.png)
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
+کد زیر اتصال‌کنندهٔ مسدودشده را می‌سازد:
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-برای اجتناب یا دور زدن شکل سوم، می‌توانیم وصل‌کننده را با جابه‌جایی خط عمودی‌اش به سمت چپ این‌گونه تنظیم کنیم:
+جابجایی خم عمودی مسیر را به‌گونه‌ای تغییر می‌دهد که اتصال‌کننده مانع را دور می‌زند:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+به‌جای فرض اینکه اندیس مجموعهٔ `1` همیشه نمایانگر خم عمودی است، این مثال به‌دنبال `ShapeAdjustmentType::ConnectorBendPositionY` می‌گردد و فقط در صورت حضور نوع معنایی مورد انتظار آن را تغییر می‌دهد:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
-### **موارد پیچیده** 
+یک `ShapeType::BentConnector5` دو تنظیم `ShapeAdjustmentType::ConnectorBendPositionX` و یک تنظیم `ShapeAdjustmentType::ConnectorBendPositionY` دارد. اگر نوع موردنیاز بیش از یک بار ظاهر شود، قبل از انتخاب یکی، `IAdjustValue::get_Name` و هندسهٔ شناخته‌شدهٔ آن پیش‌فرض را بررسی کنید. اگر یک تنظیم `ShapeAdjustmentType::Custom` گزارش شود، معنای آن و دامنهٔ مقدار را به‌عنوان پیش‌فرض خاص در نظر بگیرید و تا زمانی که قرارداد آن شناخته نشود، تغییر ندهید.
 
-برای انجام تنظیمات پیچیده‌تر، باید موارد زیر را در نظر بگیرید:
+## **ارتباط مقادیر تنظیمی با هندسهٔ اتصال‌کننده**
 
-* نقطهٔ قابل تنظیم یک وصل‌کننده به‌ شدت به فرمولی که موقعیت آن را محاسبه و تعیین می‌کند مرتبط است. بنابراین تغییر مکان نقطه ممکن است شکل وصل‌کننده را تغییر دهد.  
-* نقاط تنظیم یک وصل‌کننده در یک آرایه به‌ ترتیب دقیق تعریف می‌شوند. نقاط تنظیم از نقطهٔ شروع وصل‌کننده تا انتهای آن شماره‌گذاری می‌شوند.  
-* مقادیر نقاط تنظیم درصد عرض/ارتفاع شکل وصل‌کننده را نشان می‌دهند.  
-  * شکل توسط نقاط شروع و پایان وصل‌کننده ضرب در 1000 محدود می‌شود.  
-  * نقطهٔ اول، دوم و سوم به ترتیب درصد از عرض، درصد از ارتفاع و دوباره درصد از عرض را تعیین می‌کنند.  
-* برای محاسبهٔ مختصات نقاط تنظیم یک وصل‌کننده، باید چرخش و بازتاب آن را در نظر بگیرید. **توجه** داشته باشید که زاویهٔ چرخش تمام وصل‌کننده‌های نشان داده شده در **[انواع وصل‌کننده‌ها](/slides/fa/cpp/connector/#types-of-connectors)** برابر با ۰ است.
+برای اتصال‌کننده‌های خمیده، مقادیر تنظیم می‌توانند برای برآورد موقعیت بخش‌های جداگانه استفاده شوند. این محاسبات مختص پیش‌فرض اتصال‌کننده است:
 
-#### **مورد 1**
+- `ShapeType::BentConnector4` به‌طور معمول یک تنظیم `ShapeAdjustmentType::ConnectorBendPositionX` و یک تنظیم `ShapeAdjustmentType::ConnectorBendPositionY` نشان می‌دهد.
+- برای این موقعیت‌های خم، `RawValue / 100000.0f` کسر عرض یا ارتفاع چارچوب اتصال‌کننده را که در مثال‌های زیر استفاده می‌شود، تولید می‌کند.
+- چارچوب اتصال‌کننده می‌تواند چرخیده یا معکوس شود؛ بنابراین مختصات چارچوب باید قبل از مقایسه با مختصات اسلاید تبدیل شوند.
 
-یک مورد را در نظر بگیرید که در آن دو شیء قاب متن از طریق یک وصل‌کننده به هم متصل شده‌اند:
+مثال‌های زیر ابتدا با استفاده از `IAdjustValue::get_Type` تنظیمات را شناسایی می‌کنند. آن‌ها اندیس‌های مجموعه را به‌عنوان شناسهٔ قابل‌حمل در نظر نمی‌گیرند.
+
+#### **اتصال‌کننده بدون چرخش**
+
+طرح اولیه شامل دو شکل متنی است که توسط یک `ShapeType::BentConnector4` به هم وصل شده‌اند:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-```c++
-// یک شیء از کلاس ارائه را می‌سازد که نمایانگر فایل PPTX است
-auto pres = System::MakeObject<Presentation>();
-// اولین اسلاید موجود در ارائه را دریافت می‌کند
-auto slide = pres->get_Slides()->idx_get(0);
-// اشکال را از اولین اسلاید دریافت می‌کند
-auto shapes = slide->get_Shapes();
-// اشکالی را اضافه می‌کند که از طریق یک اتصال‌دهنده به هم ملحق می‌شوند
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// یک اتصال‌دهنده اضافه می‌کند
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// جهت اتصال‌دهنده را مشخص می‌کند
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// ضخامت خط اتصال‌دهنده را تعیین می‌کند
-lineFormat->set_Width(3);
-// رنگ اتصال‌دهنده را تعیین می‌کند
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
+این مثال اتصال‌کننده را بررسی می‌کند و تنظیمات خم افقی و عمودی آن را به‌دست می‌آورد:
 
-// اشکال را با استفاده از اتصال‌دهنده به هم متصل می‌کند
-connector->set_StartShapeConnectedTo(shapeFrom);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// نقاط تنظیم اتصال‌دهنده را دریافت می‌کند
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
-**تنظیم**
+برای تغییر هر دو خم، هر نوع مورد انتظار را پیدا کنید و پس از یافتن هر دو مقدار را اصلاح کنید:
 
-می‌توانیم مقادیر نقاط تنظیم وصل‌کننده را با افزایش درصد عرض و ارتفاع مربوطه به ترتیب ۲۰٪ و ۲۰۰٪ تغییر دهیم:
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-```c++
-// مقادیر نقاط تنظیم را تغییر می‌دهد
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-نتیجه:
+نتیجه یک اتصال‌کننده است که بخش‌های افقی و عمودی آن جابه‌جا شده‌اند:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-برای تعریف مدلی که به ما امکان تعیین مختصات و شکل اجزای فردی وصل‌کننده را بدهد، بیایید شکلی بسازیم که به مؤلفهٔ افقی وصل‌کننده در نقطهٔ `connector.Adjustments[0]` متناظر باشد:
+پس از شناخت انواع معنایی، مقادیر می‌توانند به مختصات چارچوب اتصال‌کننده تبدیل شوند. این مثال یک مستطیل نازک بر روی بخش عمودی که توسط دو تنظیم خم کنترل می‌شود، رسم می‌کند:
 
-```c++
-// رسم مؤلفه عمودی اتصال‌دهنده
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-نتیجه:
+شکل راهنما بخش محاسبه‌شده را نشان می‌دهد:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **مورد 2**
+#### **اتصال‌کننده چرخیده یا معکوس**
 
-در **مورد 1**، یک عملیات سادهٔ تنظیم وصل‌کننده را با استفاده از اصول پایه نشان دادیم. در شرایط عادی، باید چرخش وصل‌کننده و نمایش آن (که توسط `connector.Rotation`، `connector.Frame.FlipH` و `connector.Frame.FlipV` تنظیم می‌شود) را در نظر بگیرید. اکنون روند را نشان می‌دهیم.
+زمانی که همان هندسهٔ اتصال‌کننده به‌صورت عمودی جهت‌گیری شده باشد، مقادیر [IShape::get_Frame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_frame/)، [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapeframe/get_fliph/) و [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapeframe/get_flipv/) بر تبدیل مختصات چارچوب اتصال‌کننده به مختصات اسلاید تأثیر می‌گذارند.
 
-ابتدا یک شیء قاب متن جدید (**To 1**) به اسلاید اضافه کنیم (برای اتصال) و یک وصل‌کنندهٔ جدید (سبز) بسازیم که آن را به اشیائی که قبلاً ایجاد کرده‌ایم متصل می‌کند.
+این مثال اتصال‌کنندهٔ جهت‌دار عمودی را می‌سازد و تنظیم می‌کند:
 
-```c++
-// یک شی بایندینگ جدید ایجاد می‌کند
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// یک اتصال‌دهنده جدید ایجاد می‌کند
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// اشیاء را با استفاده از اتصال‌دهندهٔ تازه ایجاد شده متصل می‌کند
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// نقاط تنظیم اتصال‌دهنده را دریافت می‌کند
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// مقادیر نقاط تنظیم را تغییر می‌دهد
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-نتیجه:
+اتصال‌کننده تنظیم‌شده به‌صورت عمودی بین شکل‌ها ظاهر می‌شود:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-دوم، بیایید شکلی بسازیم که به مؤلفهٔ افقی وصل‌کننده که از نقطهٔ تنظیم جدید `connector.Adjustments[0]` می‌گذرد، متناظر باشد. مقادیر `connector.Rotation`، `connector.Frame.FlipH` و `connector.Frame.FlipV` را استفاده می‌کنیم و فرمول تبدیل مختصات مشهور برای چرخش دور یک نقطهٔ داده شده x0 را اعمال می‌کنیم:
+برای یک زاویهٔ چرخش دلخواه `alpha`، نقطهٔ چارچوب اتصال‌کننده `(x, y)` را نسبت به مرکز چارچوب `(x0, y0)` می‌چرخانیم:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-در مورد ما، زاویهٔ چرخش شیء ۹۰ درجه است و وصل‌کننده به صورت عمودی نمایش داده می‌شود، بنابراین کد متناظر به صورت زیر است:
+کد زیر جهت‌گیری 90 درجه استفاده‌شده در این مثال را مدیریت می‌کند و یک راهنمای قرمز بر روی بخش مربوطهٔ اتصال‌کننده می‌کشد:
 
-```c++
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-نتیجه:
+راهنمای قرمز پس از تبدیل مختصات، بخش محاسبه‌شده را نشان می‌دهد:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-ما محاسباتی شامل تنظیمات ساده و نقاط تنظیم پیچیده (نقاط تنظیم با زاویهٔ چرخش) را نمایش دادیم. با استفاده از دانش به دست آمده، می‌توانید مدل خود را توسعه دهید (یا کدی بنویسید) تا یک شیء `GraphicsPath` دریافت کنید یا حتی مقادیر نقاط تنظیم وصل‌کننده را بر اساس مختصات خاص اسلاید تنظیم کنید.
+این فرمول‌ها پیش‌فرض‌های استفاده‌شده در مثال‌ها را توصیف می‌کنند، نه یک مدل کلی برای همهٔ اتصال‌کننده‌ها. قبل از اعمال همان محاسبه بر پیش‌فرض دیگر، انواع تنظیم، جهت‌گیری چارچوب و دامنهٔ مقادیر را اعتبارسنجی کنید.
 
-## **یافتن زاویهٔ خطوط وصل‌کننده**
+## **یافتن زاویهٔ جهت اتصال‌کننده**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation/) ایجاد کنید.  
-1. از طریق شاخص آن، ارجاع اسلاید را دریافت کنید.  
-1. به شکل خطی وصل‌کننده دسترسی پیدا کنید.  
-1. از عرض خط، ارتفاع، ارتفاع فریم شکل و عرض فریم شکل برای محاسبهٔ زاویه استفاده کنید.  
+جهت یک اتصال‌کنندهٔ مستقیم می‌تواند از عرض و ارتفاع آن محاسبه شود، به‌همراه اعمال چرخش‌های افقی و عمودی. مثال زیر زاویهٔ ساعتگرد نسبت به محور افقی مثبت در مختصات اسلاید را گزارش می‌کند:
 
-این کد C++ عملیاتی را نشان می‌دهد که در آن زاویهٔ یک شکل خطی وصل‌کننده را محاسبه کردیم:
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
 
-```c++
-void ConnectorLineAngle()
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// مسیر پوشه اسناد.
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// ارائه مورد نظر را بارگذاری می‌کند
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// به اولین اسلاید دسترسی پیدا می‌کند
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// مجموعهٔ اشکال اسلایدها را دریافت می‌کند
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم تشخیص دهم که آیا یک وصل‌کننده می‌تواند به یک شکل خاص «چسبانده» شود؟**
+**چگونه می‌توانم مشخص کنم آیا یک اتصال‌کننده می‌تواند به یک شکل متصل شود؟**
 
-بررسی کنید که شکل [نقاط اتصال](https://reference.aspose.com/slides/fa/cpp/aspose.slides/shape/get_connectionsitecount/) را ارائه می‌دهد. اگر هیچ نقطه‌ای وجود نداشته باشد یا تعدادشان صفر باشد، قابلیت چسباندن موجود نیست؛ در این صورت از نقاط انتهایی آزاد استفاده کنید و آنها را به‌صورت دستی موقعیت‌دهی کنید. منطقی است قبل از اتصال، تعداد نقاط را بررسی کنید.
+مقدار `IShape::get_ConnectionSiteCount` شکل را بررسی کنید. عدد مثبت نشان می‌دهد شکل نقاط اتصال را ارائه می‌دهد. قبل از اختصاص اندیس سایت به هر سر اتصال‌کننده، اعتبارسنجی کنید.
 
-**اگر یک از اشکال متصل را حذف کنم، چه اتفاقی برای وصل‌کننده می‌افتد؟**
+**آیا می‌توانم تنظیم اتصال‌کننده را با اندیس مجموعه شناسایی کنم؟**
 
-شابک‌های آن جدا می‌شوند؛ وصل‌کننده به عنوان یک خط عادی با شروع/پایان آزاد در اسلاید باقی می‌ماند. می‌توانید آن را حذف کنید یا اتصالات را دوباره اختصاص دهید و در صورت نیاز، [بازمسیر کردن](https://reference.aspose.com/slides/fa/cpp/aspose.slides/connector/reroute/) را انجام دهید.
+اندیس فقط برای یک پیش‌فرض شناخته‌شدهٔ اتصال‌کننده و چیدمان مجموعه معنی دارد. قبل از تغییر مقدار، `IAdjustValue::get_Type` را بررسی کنید و وقتی همان نوع معنایی چندین بار ظاهر می‌شود، از `IAdjustValue::get_Name` به‌عنوان اطلاعات تکمیلی استفاده کنید.
 
-**آیا پیوندهای وصل‌کننده هنگام کپی اسلاید به ارائهٔ دیگر حفظ می‌شوند؟**
+**وقتی یک شکل متصل حذف شود چه اتفاقی می‌افتد؟**
 
-عموماً بله، به شرطی که شکل‌های هدف نیز کپی شوند. اگر اسلاید بدون اشکال متصل به فایل دیگری وارد شود، انتهاها آزاد می‌شوند و شما باید آنها را مجدداً متصل کنید.
+سر مربوط به آن شکل از اتصال قطع می‌شود. اتصال‌کننده روی اسلاید باقی می‌ماند و می‌توان آن را حذف کرد، به‌عنوان خط آزاد قرار داد یا به شکل دیگری متصل کرد.
+
+**آیا پیوندهای اتصال‌کننده هنگام کپی اسلاید حفظ می‌شوند؟**
+
+معمولاً پیوندها هنگام کپی شدن شکل‌های متصل همراه با اسلاید حفظ می‌شوند. اگر یک اتصال‌کننده بدون یکی از شکل‌های هدف کپی شود، سر متاثر باید دوباره متصل شود.

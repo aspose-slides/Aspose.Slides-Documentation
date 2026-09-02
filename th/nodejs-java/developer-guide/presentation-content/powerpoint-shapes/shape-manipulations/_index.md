@@ -1,49 +1,52 @@
 ---
-title: จัดการรูปร่างพรีเซนเทชันใน JavaScript
-linktitle: การจัดการรูปร่าง
+title: จัดการรูปทรงพรีเซนเทชันใน JavaScript
+linktitle: การจัดการรูปทรง
 type: docs
 weight: 40
 url: /th/nodejs-java/shape-manipulations/
 keywords:
-- รูปร่าง PowerPoint
-- รูปร่างพรีเซนเทชัน
-- รูปร่างบนสไลด์
-- ค้นหารูปร่าง
-- คัดลอกรูปร่าง
-- ลบรูปร่าง
-- ซ่อนรูปร่าง
-- เปลี่ยนลำดับรูปร่าง
-- รับ Interop Shape ID
-- ข้อความแทนของรูปร่าง
-- รูปแบบการจัดวางรูปร่าง
-- รูปร่างเป็น SVG
-- แปลงรูปร่างเป็น SVG
-- จัดแนวรูปร่าง
-- พลิกรูปร่าง
+- รูปทรง PowerPoint
+- รูปทรงพรีเซนเทชัน
+- รูปทรงบนสไลด์
+- ค้นหารูปทรง
+- ทำสำเนารูปทรง
+- ลบรูปทรง
+- ซ่อนรูปทรง
+- เปลี่ยนลำดับรูปทรง
+- รับ ID รูปทรง Interop
+- ข้อความแทนที่ของรูปทรง
+- จุดปรับรูปทรง
+- การปรับรูปทรงแบบ preset
+- เรขาคณิตรูปทรง
+- รูปแบบการจัดวางรูปทรง
+- รูปทรงเป็น SVG
+- แปลงรูปทรงเป็น SVG
+- จัดแนวรูปทรง
+- พลิกรูปทรง
 - PowerPoint
 - พรีเซนเทชัน
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เรียนรู้วิธีระบุ, คัดลอก, ลบ, ซ่อน, จัดลำดับใหม่, ส่งออก, จัดแนว, และพลิกรูปร่างพรีเซนเทชันด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
+description: "เรียนรู้วิธีระบุ ปรับ ปรับแต่งทำสำเนา ลบ ซ่อน จัดลำดับใหม่ ส่งออก จัดแนว และพลิกรูปทรงพรีเซนเทชันด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
 ## **Overview**
 
-Aspose.Slides for Node.js via Java แสดงรูปร่างบนสไลด์เป็น [ShapeCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/) ที่จัดลำดับไว้แล้ว คอลเลกชันนี้เป็นทั้งที่คุณค้นหาและแก้ไขรูปร่าง รวมถึงเป็นแหล่งที่มาของลำดับการซ้อนกัน: ดัชนี `0` คือรูปร่างที่อยู่ลึกสุดด้านหลัง ส่วนดัชนีสุดท้ายคือรูปร่างที่อยู่ด้านหน้า
+Aspose.Slides for Node.js via Java แสดงรูปทรงบนสไลด์เป็น [ShapeCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/) ที่จัดลำดับไว้แล้ว คอลเลกชันนี้เป็นทั้งที่ที่คุณค้นหาและแก้ไขรูปทรงและเป็นแหล่งของลำดับการซ้อนกัน: ดัชนี `0` คือรูปทรงที่อยู่ด้านหลังที่สุด ส่วนดัชนีสุดท้ายคือรูปทรงที่อยู่ด้านหน้าที่สุด
 
-บทความนี้ตามโมเดลนั้น โดยอธิบายวิธีระบุรูปร่างอย่างแม่นยำก่อน แล้วแสดงวิธีคัดลอก, ลบ, ซ่อน, และจัดลำดับใหม่ของรูปร่าง ส่วนสุดท้ายครอบคลุมการจัดรูปแบบระดับเลย์เอาต์, การส่งออกเป็น SVG, การจัดแนว, และการตั้งค่าการพลิก รูปแบบแต่ละตัวเป็นอิสระกัน คุณจึงสามารถใช้เฉพาะการดำเนินการที่จำเป็นต่อเวิร์กโฟลว์ของคุณได้
+บทความนี้ทำตามโมเดลนั้น โดยอธิบายวิธีระบุรูปทรงอย่างเชื่อถือได้และแก้ไขจุดปรับรูปทรงที่ตั้งไว้ก่อน แล้วแสดงวิธีทำสำเนา ลบ ซ่อน และจัดเรียงลำดับรูปทรงใหม่ ส่วนสุดท้ายครอบคลุมการจัดรูปแบบระดับเลย์เอาท์ การส่งออกเป็น SVG การจัดแนว และการตั้งค่าการพลิก ทั้งหลายเป็นตัวอย่างอิสระ คุณจึงใช้เฉพาะการกระทำที่จำเป็นในการทำงานของคุณได้
 
 ## **Identify and Find Shapes**
 
-ดัชนีในคอลเลกชันสะดวกเมื่อประมวลผลไฟล์ที่ทราบล่วงหน้า แต่ไม่ได้เป็นตัวระบุที่คงที่ การเพิ่ม, ลบ, หรือจัดลำดับใหม่ของรูปร่างอาจทำให้ดัชนีเปลี่ยน เลือกตัวระบุตามวิธีการสร้างและการดูแลพรีเซนเทชัน:
+ดัชนีของคอลเลกชันสะดวกเมื่อประมวลผลไฟล์ที่รู้ล่วงหน้า แต่ไม่ใช่ตัวระบุที่มั่นคง การเพิ่ม ลบ หรือจัดเรียงลำดับรูปทรงใหม่สามารถเปลี่ยนดัชนีของมันได้ เลือกตัวระบุตามวิธีการสร้างและการบำรุงรักษาไฟล์พรีเซนเทชัน:
 
-- [Name](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getname/) มีประโยชน์สำหรับเทมเพลตที่นักพัฒนาควบคุมและง่ายต่อการตรวจสอบใน **Selection Pane** ของ PowerPoint สามารถแก้ไขได้และไม่ได้รับประกันว่าจะเป็นค่าที่ไม่ซ้ำกัน ดังนั้นจึงควรกำหนดแนวทางการตั้งชื่อหากโค้ดต้องพึ่งพา
-- [AlternativeText](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getalternativetext/) มีประโยชน์เมื่อมีคำอธิบายการเข้าถึงหรือแท็กที่ผู้เขียนกำหนดไว้แล้วเพื่อระบุรูปร่าง มันจะแสดงให้ผู้ใช้เห็น, สามารถแปลหรือแก้ไขเพื่อการเข้าถึงได้, แต่ไม่ได้รับประกันว่าจะเป็นค่าที่ไม่ซ้ำกัน อย่าแปลงข้อความการเข้าถึงที่มีความหมายให้เป็นคีย์ฐานข้อมูลโดยไม่มีการแจ้งเตือน
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) เป็นตัวระบุแบบอ่านอย่างเดียวที่ไม่ซ้ำกันภายในสไลด์หนึ่งและสอดคล้องกับ Shape ID ที่ใช้โดย PowerPoint interop ใช้เมื่อต้องผสานกับ PowerPoint หรือเมื่อต้องการอ้างอิงที่ชัดเจนตลอดช่วงชีพของรูปร่าง รูปร่างที่คัดลอกหรือสร้างใหม่จะได้รับ ID ของตนเอง
+- [Name](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getname/) มีประโยชน์สำหรับเทมเพลตที่ควบคุมโดยนักพัฒนาและง่ายต่อการตรวจสอบใน **Selection Pane** ของ PowerPoint ชื่อสามารถแก้ไขได้และไม่รับประกันว่าจะเป็นเอกลักษณ์ จึงควรกำหนดกฎการตั้งชื่อหากโค้ดพึ่งพา
+- [AlternativeText](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getalternativetext/) มีประโยชน์เมื่อคำอธิบายการเข้าถึงหรือแท็กที่ผู้เขียนกำหนดไว้ได้ระบุรูปทรงแล้ว มันมองเห็นได้โดยผู้ใช้ อาจแปลเป็นภาษาต่าง ๆ หรือเขียนใหม่เพื่อการเข้าถึงได้และไม่รับประกันว่าจะเป็นเอกลักษณ์ อย่าใช้ข้อความการเข้าถึงที่มีความหมายเป็นคีย์ฐานข้อมูลโดยไม่เจตนา
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) เป็นตัวระบุแบบอ่าน‑อย่างเดียวที่มีเอกลักษณ์ภายในสไลด์และสอดคล้องกับ Shape ID ที่ PowerPoint interop ใช้ ใช้เมื่อต้องทำงานร่วมกับ PowerPoint หรือเมื่อคุณต้องการอ้างอิงที่ชัดเจนตลอดอายุของรูปทรง รูปทรงที่ทำสำเนาหรือสร้างใหม่จะมี ID ของตนเอง
 
-เมธอด [getUniqueId](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getuniqueid/) ที่เกี่ยวข้องคืนค่าตัวระบุระดับพรีเซนเทชัน แต่ตัวระบุดังกล่าวออกแบบมาสำหรับแอดอินและอาจถูกกำหนดใหม่ ไม่ควรถือเป็นคีย์ภายนอกถาวร หากต้องการเอกลักษณ์ระยะยาว ควรเก็บแมปปิ้งไว้ในข้อมูลแอปพลิเคชันและตรวจสอบว่ารูปร่างที่คาดหวังยังคงมีอยู่
+เมธอดที่เกี่ยวข้อง [getUniqueId](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getuniqueid/) คืนค่าตัวระบุที่มีขอบเขตระดับพรีเซนเทชัน แต่ตัวระบุดังกล่าวออกแบบมาสำหรับแอด‑อินและอาจถูกกำหนดใหม่ ไม่ควรถือว่าเป็นคีย์ภายนอกถาวร หากต้องการระบุตัวตนระยะยาวกรุณาเก็บแมปปิ้งในข้อมูลแอปพลิเคชันและตรวจสอบว่ารูปทรงที่คาดหวังยังคงอยู่
 
-ตัวอย่างต่อไปนี้ค้นหาโดยชื่อด้วยการเปรียบเทียบแบบตรงและรายงาน interop ID ระดับสไลด์ เมื่อเทมเพลตไม่มีรูปร่างที่คาดไว้ โค้ดจะแจ้งผลนั้นแทนที่จะดำเนินการต่อกับอ็อบเจ็กต์ที่ผิดพลาด
+ตัวอย่างต่อไปค้นหาโดยชื่อด้วยการเปรียบเทียบแบบแม่นยำและรายงาน interop ID ที่มีขอบเขตสไลด์ เมื่อเทมเพลตไม่มีรูปทรงที่คาดไว้ โค้ดจะรายงานผลลัพธ์นั้นแทนที่จะดำเนินการต่อด้วยออบเจกต์ผิด
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -71,7 +74,7 @@ try {
 }
 ```
 
-เมื่อการดำเนินการเฉพาะกับประเภทรูปร่าง ตรวจสอบคลาสรันไทม์ก่อนใช้สมาชิกแบบเฉพาะประเภท ตัวอย่างนี้อัปเดตข้อความและข้อความแทนเมื่ออ็อบเจ็กต์ที่มีชื่อเป็น [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/)
+เมื่อการดำเนินการเฉพาะประเภทรูปทรง ให้ตรวจสอบคลาสขณะทำงานก่อนใช้สมาชิกที่เฉพาะเจาะจง ตัวอย่างนี้อัปเดตข้อความและข้อความแทนที่เฉพาะเมื่ออ็อบเจกต์ที่ตั้งชื่อเป็น [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/)
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -102,15 +105,105 @@ try {
 }
 ```
 
+## **Identify and Modify Preset Shape Adjustments**
+
+รูปทรงเรขาคณิตแบบ preset สามารถเปิดเผยจุดปรับที่ควบคุมคุณสมบัติต่าง ๆ เช่น ขนาดมุม ลูกศร หรือมุมของโค้ง เข้าถึงได้ผ่านคอลเลกชันอ่าน‑อย่างเดียว [GeometryShape.getAdjustments](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/geometryshape/) คอลเลกชันนี้จัดหาโดยรูปทรงเอง แต่ละ [AdjustValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/adjustvalue/) มีค่า ที่สามารถเปลี่ยนได้
+
+ห้ามพึ่งพาดัชนีคอลเลกชันคงที่เท่านั้น ให้วนลูปผ่านการปรับทั้งหมดและตรวจสอบเมธอดอ่าน‑อย่างเดียว [getType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/adjustvalue/) ซึ่งค่าประเภท [ShapeAdjustmentType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapeadjustmenttype/) บอกรายละเอียดว่าการปรับควบคุมอะไร เมธอดอ่าน‑อย่างเดียว [getName](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/adjustvalue/getname/) ให้ข้อมูลระบุตัวเพิ่มเติมและมีประโยชน์อย่างยิ่งเมื่อ preset มีการปรับหลายรายการที่มีประเภทเชิงความหมายเดียวกัน
+
+ใช้เมธอดค่าที่สอดคล้องกับความหมายของการปรับ:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | ขนาดของมุมโค้ง | [setRawValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | ความหนาของหัวลูกศร | `setRawValue` |
+| `ArrowheadLength` | ความยาวของหัวลูกศร | `setRawValue` |
+| `ArrowheadWidth` | ความกว้างของหัวลูกศร | `setRawValue` |
+| `StartAngle` | มุมเริ่มต้นของพายหรือโค้ง | [setAngleValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | มุมสิ้นสุดของพายหรือโค้ง | `setAngleValue` |
+
+`getType` และ `getName` คืนข้อมูลแบบอ่าน‑อย่างเดียว `getRawValue` และ `setRawValue` ทำงานกับจำนวนเต็มในหน่วยเรขาคณิตของ preset ส่วน `getAngleValue` และ `setAngleValue` ทำงานกับมุมเป็นองศา จำนวน ลำดับ ความหมายและช่วงค่าที่ถูกต้องของการปรับขึ้นอยู่กับ preset ที่ได้จาก [GeometryShape.getShapeType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/geometryshape/) ค่าเดียวที่ใช้ได้กับ preset หนึ่งอาจไม่ถูกต้องหรือมีผลต่างกับ preset อื่น
+
+เมื่อ `getType` คืนค่า `ShapeAdjustmentType.Custom` API จะไม่รู้จักความหมายมาตรฐาน ให้ตรวจสอบ `getName` ประเภท preset และค่าที่มีอยู่ และปล่อยให้การปรับคงเดิมไว้ เว้นแต่คุณจะรู้ความหมายและช่วงที่คาดหวัง แม้สำหรับประเภทที่รู้จักแล้วก็ตาม ให้ตรวจสอบว่าประเภทเดียวกันปรากฏหลายครั้งหรือไม่ ก่อนเลือกค่า บทความ [Connector](/slides/th/nodejs-java/connector/) แสดงสถานการณ์นี้กับการปรับโค้งของคอนเนคเตอร์
+
+ตัวอย่างเต็มต่อไปนี้สร้างเวอร์ชันเริ่มต้นและเวอร์ชันที่แก้ไขของรูปทรง preset สามรูป แสดงการวนลูปผ่านทุกการปรับ รายงานชื่อและประเภทของแต่ละรายการ เปลี่ยนค่าที่เกี่ยวกับขนาดโดย `setRawValue` เปลี่ยนมุมโดย `setAngleValue` และบันทึกผล คอลัมน์ซ้ายแสดงเรขาคณิตเดิม คอลัมน์ขวามีสี่เหลี่ยมมุมโค้ง ปุ่มลูกศรสี่ทาง และพายที่ปรับแล้ว
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    // เพิ่มส่วนหัวสำหรับคอลัมน์รูปทรงเริ่มต้นและรูปทรงที่ปรับค่า.
+    var defaultColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    var adjustedColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    var modifiedRoundedRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 80, 180, 160, 110);
+    var modifiedArrow = slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 95, 330, 130, 130);
+    var modifiedPie = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    var shapesToAdjust = [modifiedRoundedRectangle, modifiedArrow, modifiedPie];
+
+    for (var shapeIndex = 0; shapeIndex < shapesToAdjust.length; shapeIndex++) {
+        var shape = shapesToAdjust[shapeIndex];
+        for (var adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            var adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            console.log(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case asposeSlides.ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.Custom:
+                    console.log("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การตรวจสอบประเภทเชิงความหมายก่อนเปลี่ยนค่าช่วยให้โค้ดมีเจตนาชัดเจนและหลีกเลี่ยงการสันนิษฐานว่าดัชนีคอลเลกชันเดียวกันมีความหมายเท่ากันใน preset ที่ต่างกัน
+
 ## **Modify the Shape Collection**
 
-เมธอดเพิ่ม, คัดลอก, ลบ, และจัดลำดับใหม่ทำงานกับคอลเลกชันโดยทันที หากการดำเนินการทำให้จำนวนหรือลำดับของรูปร่างเปลี่ยน อย่าอ้างอิงดัชนีที่จับไว้ก่อนการดำเนินการนั้นต่อไป
+เมธอด add, clone, remove และ reorder ทำงานกับคอลเลกชันโดยตรง หากการดำเนินการใดทำให้จำนวนหรือลำดับของรูปทรงเปลี่ยนแปลง อย่าอ้างอิงดัชนีที่จับไว้ก่อนหน้าต่อไป
 
 ### **Clone a Shape**
 
-[addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/addclone/) สร้างสำเนาอิสระและต่อท้ายลงในคอลเลกชันเป้าหมาย [insertClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/insertclone/) ก็สร้างสำเนาเช่นกันแต่วางที่ดัชนี z-order ที่กำหนด ตัวโอเวอร์โหลดที่รับพิกัดจะย้ายสำเนาโดยไม่เปลี่ยนขนาด; ตัวโอเวอร์โหลดที่รับความกว้างและความสูงสามารถปรับขนาดได้ด้วย
+[addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/addclone/) สร้างสำเนาอิสระและเพิ่มเข้าไปที่ท้ายคอลเลกชัน [insertClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/insertclone/) ก็สร้างสำเนาเช่นกันแต่ใส่ที่ดัชนี z‑order ที่ระบุ ตัว overload ที่รับพิกัดจะย้ายสำเนาโดยไม่เปลี่ยนขนาด; overload ที่รับความกว้างและความสูงสามารถปรับขนาดได้ด้วย
 
-ตัวอย่างนี้สร้างสไลด์ปลายทาง, คัดลอกสี่เหลี่ยมที่มีป้ายกำกับไปด้านหน้า, และแทรกสำเนาที่สองลงที่ด้านหลัง การเปลี่ยนแปลงใด ๆ กับสำเนาแต่ละอันจะไม่กระทบกับรูปร่างต้นฉบับ
+ตัวอย่างสร้างสไลด์ปลายทาง ทำสำเนาสี่เหลี่ยมที่มีป้ายกำกับไปด้านหน้า แล้วแทรกสำเนาที่สองไว้ด้านหลัง การเปลี่ยนแปลงใด ๆ กับสำเนาใดสำเนาหนึ่งจะไม่กระทบรูปต้นฉบับ
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -148,13 +241,13 @@ try {
 }
 ```
 
-การคัดลอกจะคัดลอกเนื้อหาและการจัดรูปแบบของรูปร่างรวมถึงชื่อและข้อความแทนด้วย ให้กำหนดตัวระบุตรรกะใหม่ให้กับสำเนาเมื่อค่าดังกล่าวต้องเป็นเอกลักษณ์ การใช้ทรัพยากรของรูปร่างที่ซับซ้อนจะถูกจัดการโดยพรีเซนเทชัน แต่สำเนายังคงเป็นรายการคอลเลกชันใหม่ที่มีอัตลักษณ์รูปร่างใหม่
+การทำสำเนาจะคัดลอกเนื้อหาและการจัดรูปแบบของรูปทรงรวมถึงชื่อและข้อความแทนที่ด้วย ให้กำหนดตัวระบุลอจิกใหม่ให้กับสำเนาเมื่อค่าดังกล่าวต้องเป็นเอกลักษณ์ ทรัพยากรที่รูปทรงซับซ้อนใช้จะถูกจัดการโดยพรีเซนเทชัน แต่สำเนายังคงเป็นรายการคอลเลกชันใหม่ที่มีอัตลักษณ์รูปทรงใหม่
 
 ### **Remove Shapes**
 
-[remove](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/remove/) ลบอ็อบเจ็กต์รูปร่างเฉพาะออกจากคอลเลกชันของมัน เมื่อทำการลบหลายรายการในระหว่างการทำซ้ำตามดัชนี ให้วนจากท้ายไปข้างหน้าเพื่อให้ดัชนีที่เหลือทั้งหมดยังคงถูกต้อง
+[remove](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/remove/) ลบออบเจกต์รูปทรงเฉพาะออกจากคอลเลกชันของมัน เมื่อทำการลบหลายรายการขณะวนลูปตามดัชนี ให้เริ่มจากปลายท้ายเพื่อให้ดัชนีที่เหลือยังคงถูกต้อง
 
-ตัวอย่างนี้ลบทุกรูปร่างที่มีชื่อที่กำหนดไว้ มันอ่านรูปร่างที่ดัชนีปัจจุบันและไม่มีการสมมติว่ารูปร่างเป็นประเภทใดประเภทหนึ่ง
+ตัวอย่างนี้ลบทุกรูปทรงที่มีชื่อที่กำหนดไว้ อ่านรูปทรงที่ดัชนีปัจจุบันและไม่สันนิษฐานว่ามีประเภทรูปทรงเฉพาะ
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -185,11 +278,11 @@ try {
 }
 ```
 
-หลังการลบ จำนวนรูปร่างและดัชนีของรูปร่างที่ตามมาจะเปลี่ยน การอ้างอิงถึงรูปร่างที่ไม่ได้รับผลกระทบจึงค่อนข้างเชื่อถือได้กว่าเมื่ออ้างอิงดัชนีที่บันทึกไว้ นอกจากนี้ยังต้องพิจารณา connector, animation, และคุณสมบัติพรีเซนเทชันอื่น ๆ ที่อาจอ้างอิงถึงอ็อบเจ็กต์ที่ถูกลบ; การลบรูปร่างที่มองเห็นได้อาจทำให้เปลี่ยนแปลงมากกว่าลักษณะการแสดงผลของสไลด์
+หลังการลบ จำนวนรูปทรงและดัชนีของรูปทรงที่เหลือจะเปลี่ยน แนะนำให้อ้างอิงรูปทรงที่ไม่ได้รับผลกระทบแทนดัชนีที่บันทึกไว้ นอกจากนี้ยังต้องพิจารณาคอนเนคเตอร์ แอนิเมชัน และฟีเจอร์พรีเซนเทชันอื่น ๆ ที่อาจอ้างอิงออบเจกต์ที่ถูกลบ; การลบรูปทรงที่มองเห็นได้อาจเปลี่ยนมากกว่าลักษณะของสไลด์เท่านั้น
 
 ### **Hide a Shape**
 
-การตั้งค่า [Hidden](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/sethidden/) เป็น `true` จะทำให้รูปร่างยังคงอยู่ในคอลเลกชันแต่ไม่ปรากฏในการแสดงสไลด์ปกติ ดัชนี, การจัดรูปแบบ, และเนื้อหายังคงพร้อมให้โค้ดใช้งาน ดังนั้นการซ่อนจึงเหมาะกับองค์ประกอบที่เป็นตัวเลือกและอาจถูกเรียกคืนในภายหลัง
+ตั้งค่า [Hidden](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/sethidden/) เป็น `true` จะทำให้รูปทรงยังคงอยู่ในคอลเลกชันแต่ไม่ปรากฏในโหมดสไลด์โชว์ปกติ ดัชนี การจัดรูปแบบ และเนื้อหายังคงสามารถเข้าถึงได้โดยโค้ด ดังนั้นการซ่อนไว้จึงเหมาะกับองค์ประกอบที่อาจเปิดใช้ใหม่ได้ในภายหลัง
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -217,11 +310,11 @@ try {
 }
 ```
 
-การซ่อนไม่ใช่การลบหรือการรักษาความปลอดภัย อ็อบเจ็กต์ยังคงถูกค้นพบและสามารถทำให้แสดงใหม่ได้โดยผู้ใช้หรือโค้ด และยังคงเป็นส่วนหนึ่งของไฟล์พรีเซนเทชัน
+การซ่อนไม่ใช่การลบหรือการรักษาความปลอดภัย ออบเจกต์ยังสามารถค้นพบและยกเลิกการซ่อนได้โดยผู้ใช้หรือโดยโค้ด และมันยังคงเป็นส่วนหนึ่งของไฟล์พรีเซนเทชัน
 
 ### **Change the Z-Order**
 
-รูปร่างที่ทับซ้อนกันจะถูกวาดตามลำดับในคอลเลกชัน [reorder](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/reorder/) ย้ายรูปร่างที่มีอยู่ไปยังดัชนีเป้าหมายโดยไม่ต้องคัดลอก ดัชนี `0` คือด้านหลัง; `size() - 1` คือด้านหน้า
+รูปทรงที่ทับซ้อนกันจะถูกวาดตามลำดับของคอลเลกชัน [reorder](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/reorder/) ย้ายรูปทรงที่มีอยู่ไปยังดัชนีเป้าหมายโดยไม่ทำสำเนา ดัชนี `0` คือด้านหลัง; `size() - 1` คือด้านหน้า
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -248,13 +341,13 @@ try {
 }
 ```
 
-สี่เหลี่ยมถูกสร้างก่อนและเริ่มต้นอยู่เบื้องหลังวงรี การย้ายไปยังดัชนีสุดท้ายทำให้มันอยู่ด้านหน้า ควรสรุปลำดับ z-order หลังจากเพิ่มหรือคัดลอกรูปร่างที่เกี่ยวข้องทั้งหมด เพราะการดำเนินการเหล่านั้นจะต่อหรือแทรกรายการคอลเลกชันใหม่และอาจเปลี่ยนลำดับที่ตั้งใจไว้
+สี่เหลี่ยมถูกสร้างก่อนและอยู่หลังวงรีในตอนแรก การย้ายไปดัชนีสุดท้ายทำให้มันอยู่ด้านหน้า ควรจัดลำดับ z‑order สุดท้ายหลังจากเพิ่มหรือทำสำเนารูปทรงทั้งหมดแล้ว เพราะการดำเนินการเหล่านั้นจะเพิ่มหรือแทรกรายการคอลเลกชันใหม่และอาจเปลี่ยนสแตกที่ต้องการ
 
 ## **Inspect Shapes on Layout Slides**
 
-สไลด์ปกติ, สไลด์เลย์เอาต์, และสไลด์มาสเตอร์มีคอลเลกชันรูปร่างแยกกัน รูปร่างในคอลเลกชันเลย์เอาต์ไม่ใช่วัตถุเดียวกับรูปร่างที่อยู่ในตำแหน่งเดียวกันบนสไลด์ปกติ ตรวจสอบรูปร่างในเลย์เอาต์เมื่อคุณต้องการเข้าใจหรือเปลี่ยนแปลงการจัดรูปแบบที่มาจากเลย์เอาต์
+สไลด์ปกติ สไลด์เลย์เอาท์ และมาสเตอร์สไลด์มีคอลเลกชันรูปทรงแยกกัน รูปทรงในคอลเลกชันเลย์เอาท์ไม่ใช่ออบเจกต์เดียวกับรูปทรงที่จัดตำแหน่งเดียวกันบนสไลด์ปกติ ตรวจสอบรูปทรงในเลย์เอาท์เมื่อคุณต้องการเข้าใจหรือเปลี่ยนการจัดรูปแบบที่เลย์เอาท์จัดหาไว้
 
-ตัวอย่างต่อไปนี้อ่าน [FillFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getfillformat/) และ [LineFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getlineformat/) ของแต่ละรูปร่างในเลย์เอาต์โดยไม่สมมติว่าทุกรูปร่างเป็น `AutoShape`
+ตัวอย่างต่อไปนี้อ่าน [FillFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getfillformat/) และ [LineFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/getlineformat/) ของแต่ละรูปทรงในเลย์เอาท์โดยไม่สันนิษฐานว่าทุกรูปทรงเป็น `AutoShape`
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -275,11 +368,11 @@ try {
 }
 ```
 
-การแก้ไขเลย์เอาต์อาจส่งผลต่อหลายสไลด์ที่ใช้เลย์เอาต้นนั้น ก่อนเปลี่ยนรูปร่างในเลย์เอาต์ ให้ตรวจสอบว่าสไลด์ปกติสืบทอดอ็อบเจ็กต์นั้นหรือมีการกำหนดทับในระดับท้องถิ่น และทดสอบทุกสไลด์ที่ใช้เลย์เอาต์นั้นด้วย
+การแก้ไขเลย์เอาท์อาจกระทบหลายสไลด์ที่ใช้งานมัน ก่อนเปลี่ยนรูปทรงเลย์เอาท์ให้ตรวจสอบว่าสไลด์ปกติสืบทอดออบเจกต์นั้นหรือมีการเขียนทับในท้องถิ่น และทดสอบทุกสไลด์ที่ใช้เลย์เอาท์นั้น
 
 ## **Export a Shape to SVG**
 
-[writeAsSvg](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/writeassvg/) จะเขียนเนื้อหาที่เรนเดอร์ของรูปร่างหนึ่งไปยังสตรีม ผลลัพธ์จะมีเฉพาะรูปร่างนั้น ไม่รวมพื้นหลังสไลด์ทั้งหมดหรือรูปร่างใกล้เคียง
+[writeAsSvg](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/writeassvg/) เขียนเนื้อหาที่เรนเดอร์ของรูปทรงเดียวไปยังสตรีม ผลลัพธ์จะประกอบด้วยรูปทรงเท่านั้น ไม่รวมพื้นหลังของสไลด์หรือรูปทรงใกล้เคียง
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -310,13 +403,13 @@ try {
 }
 ```
 
-ควรเปิดพรีเซนเทชันอยู่ขณะทำการเรนเดอร์ ผลลัพธ์ขึ้นอยู่กับการจัดรูปแบบของรูปร่างและทรัพยากรเช่นฟอนต์และภาพ หากต้องการองค์ประกอบทั้งหมด ให้ส่งออกสไลด์แทนการส่งออกรูปร่างเดี่ยว ผู้เรียกใช้ต้องเป็นเจ้าของสตรีมและต้องปิดสตรีมนั้นเอง
+ให้เปิดพรีเซนเทชันอยู่ขณะเรนเดอร์ ผลลัพธ์ขึ้นอยู่กับการจัดรูปแบบของรูปทรงและทรัพยากรเช่น ฟอนท์และรูปภาพ หากต้องการส่งออกทั้งหมดให้ส่งออกรายสไลด์แทนการส่งออกรูปทรงเดี่ยว ตัวเรียกต้องเป็นผู้ดูแลสตรีมและต้องปิดสตรีมเอง
 
 ## **Align Shapes**
 
-เมธอด [SlideUtil.alignShapes](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideutil/alignshapes/) มีหลายแบบที่จัดแนวทั้งทั้งหมดหรือดัชนีที่เลือกจากคอลเลกชัน [ShapesAlignmentType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapesalignmenttype/) ระบุขอบ, เส้นศูนย์กลาง, หรือโหมดการกระจาย ตั้งค่า `alignToSlide` เป็น `true` เพื่อใช้ขอบสไลด์; ตั้งเป็น `false` เพื่อจัดแนวรูปร่างที่เลือกสัมพันธ์กัน
+เมธอด [SlideUtil.alignShapes](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideutil/alignshapes/) มี overload ที่จัดแนวทั้งชุดหรือดัชนีที่เลือกในคอลเลกชัน [ShapesAlignmentType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapesalignmenttype/) ระบุขอบ ศูนย์กลาง หรือโหมดกระจาย ตั้งค่า `alignToSlide` เป็น `true` เพื่อใช้ขอบสไลด์; ตั้งเป็น `false` เพื่อจัดแนวรูปทรงที่เลือกสัมพันธ์กัน
 
-ตัวอย่างนี้จัดแนวสามรูปร่างให้กับขอบด้านบนของสไลด์ การอ้างอิงรูปร่างที่คืนค่าจะถูกแปลงเป็นดัชนีปัจจุบันทันทีก่อนทำการจัดแนว
+ตัวอย่างนี้จัดแนวสามรูปทรงให้ชิดขอบบนของสไลด์ การอ้างอิงรูปทรงที่คืนค่าจะถูกแปลงเป็นดัชนีปัจจุบันทันทีก่อนจัดแนว
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -342,17 +435,17 @@ try {
 }
 ```
 
-การจัดแนวเปลี่ยนตำแหน่ง ไม่ใช่ลำดับ z-order การจัดแนวเชิงสัมพันธ์มักต้องใช้รูปร่างอย่างน้อยสองรูป ส่วนการกระจายแนวนอนหรือแนวดิ่งต้องมีจำนวนรูปร่างเพียงพอเพื่อกำหนดระยะห่าง หากคุณแก้ไขคอลเลกชันก่อนเรียกเมธอด ควรคำนวณดัชนีใหม่
+การจัดแนวเปลี่ยนตำแหน่ง ไม่เปลี่ยนลำดับ z‑order การจัดแนวสัมพันธ์ทั่วไปต้องมีอย่างน้อยสองรูปทรง ส่วนการกระจายแนวนอนหรือแนวตั้งต้องมีรูปทรงหลายรูปเพื่อกำหนดช่องว่าง หากคุณแก้ไขคอลเลกชันก่อนเรียกเมธอดให้คำนวณดัชนีใหม่
 
 ## **Flip a Shape**
 
-คลาส [ShapeFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapeframe/) เก็บตำแหน่ง, ขนาด, การตั้งค่าการพลิกแนวนอนและแนวตั้ง, และการหมุน ค่า `getFlipH` และ `getFlipV` ใช้ [NullableBool](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/nullablebool/): `True` เปิดการพลิก, `False` ปิดการพลิก, และ `NotDefined` รักษาสถานะที่ไม่ได้กำหนด/ค่าเริ่มต้น
+คลาส [ShapeFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapeframe/) เก็บตำแหน่ง ขนาด การพลิกแนวนอนและแนวตั้ง และการหมุน ค่า `getFlipH` และ `getFlipV` ใช้ [NullableBool](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/nullablebool/) : `True` เปิดการพลิก, `False` ปิด, `NotDefined` รักษาสถานะที่ไม่ได้กำหนด/ค่าเริ่มต้น
 
-พรีเซนเทชันตัวอย่างด้านล่างมีรูปร่างหนึ่งรูปที่ไม่ได้พลิก
+พรีเซนเทชันอินพุตด้านล่างมีรูปทรงหนึ่งที่ไม่ได้พลิก
 
 ![The shape before flipping](shape_to_be_flipped.png)
 
-ตัวอย่างนี้คงค่ากรอบอื่นทั้งหมดไว้และแทนที่เฉพาะการตั้งค่าการพลิกสองค่า นี้สำคัญเพราะการกำหนด [Frame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/setframe/) ใหม่จะทับกรอบทั้งหมด
+ตัวอย่างนี้เก็บค่ากรอบอื่น ๆ ไว้ทั้งหมดและเปลี่ยนเฉพาะการตั้งค่าพลิกสองค่าเท่านั้น ซึ่งสำคัญเพราะการกำหนด [Frame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/setframe/) ใหม่จะทับกรอบทั้งหมด
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -375,7 +468,7 @@ try {
 }
 ```
 
-รูปร่างที่บันทึกจะถูกสะท้อนแนวนอนและแนวตั้งโดยคงตำแหน่ง, ขนาด, และการหมุนไว้
+รูปทรงที่บันทึกแล้วจะถูกสะท้อนทั้งแนวนอนและแนวตั้งในขณะที่ตำแหน่ง ขนาด และการหมุนคงเดิม
 
 ![The shape after flipping](flipped_shape.png)
 
@@ -383,12 +476,16 @@ try {
 
 **Should I use a collection index as a shape identifier?**
 
-ใช้ดัชนีคอลเลกชันได้เฉพาะเมื่อการประมวลผลสั้น ๆ และคอลเลกชันจะไม่เปลี่ยนก่อนใช้ดัชนีนั้น แนะนำให้ใช้ `Name` หรือ `AlternativeText` ที่ตรวจสอบแล้วสำหรับเทมเพลตที่สร้างขึ้น, หรือ `OfficeInteropShapeId` สำหรับงาน interop ระดับสไลด์
+ใช้ได้เฉพาะการประมวลผลระยะสั้นเมื่อคอลเลกชันจะไม่เปลี่ยนแปลงก่อนใช้ดัชนี แนะนำให้ใช้ `Name` หรือ `AlternativeText` ที่ผ่านการตรวจสอบในเทมเพลตที่สร้างขึ้น หรือ `OfficeInteropShapeId` สำหรับงาน interop ระดับสไลด์
 
 **Does hiding a shape remove it from the z-order?**
 
-ไม่ การซ่อนรูปร่างยังคงอยู่ในคอลเลกชันที่ดัชนีเดิม สามารถค้นหา, จัดลำดับใหม่, แก้ไข, หรือทำให้มองเห็นได้อีกครั้ง
+ไม่ รูปทรงที่ซ่อนยังคงอยู่ในคอลเลกชันที่ดัชนีเดียวกัน สามารถค้นพบ เรียงใหม่ แก้ไข หรือทำให้มองเห็นได้อีกครั้ง
 
 **Why did a cloned shape appear in front of another shape?**
 
-`addClone` ใส่สำเนาไว้ที่ท้ายคอลเลกชัน ซึ่งเป็นด้านหน้าของ z-order ใช้ `insertClone` เพื่อกำหนดดัชนีเริ่มต้น หรือใช้ `reorder` หลังจากเพิ่มรูปร่างทั้งหมดแล้ว
+`addClone` เพิ่มสำเนาที่ท้ายคอลเลกชัน ซึ่งเป็นด้านหน้าของ z‑order ใช้ `insertClone` เพื่อเลือกดัชนีเริ่มต้นหรือใช้ `reorder` หลังจากเพิ่มรูปทั้งหมดแล้ว
+
+**Can I use a fixed index to identify a preset shape adjustment?**
+
+ได้เฉพาะหลังจากตรวจสอบ preset และการจัดวางคอลเลกชันอย่างแม่นยำ แนะนำให้วนลูปผ่าน `GeometryShape.getAdjustments` และตรวจสอบ `AdjustValue.getType`; หากประเภทเชิงความหมายเดียวกันปรากฏหลายครั้งให้ใช้ `AdjustValue.getName` เป็นข้อมูลเสริม

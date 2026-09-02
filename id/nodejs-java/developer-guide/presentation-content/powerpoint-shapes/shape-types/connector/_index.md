@@ -1,39 +1,37 @@
 ---
-title: Kelola Konektor dalam Presentasi Menggunakan JavaScript
+title: Mengelola Konektor dalam Presentasi Menggunakan JavaScript
 linktitle: Konektor
 type: docs
 weight: 10
 url: /id/nodejs-java/connector/
 keywords:
 - konektor
-- jenis konektor
+- tipe konektor
 - titik konektor
 - garis konektor
 - sudut konektor
+- situs koneksi
+- titik penyesuaian
 - hubungkan bentuk
 - PowerPoint
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Berdayakan aplikasi JavaScript untuk menggambar, menghubungkan, dan mengatur otomatis garis pada slide PowerPoint—dapatkan kontrol penuh atas konektor lurus, siku, dan melengkung."
+description: "Pelajari cara menambahkan, menempelkan, mengubah rute, menyesuaikan, dan memeriksa konektor PowerPoint lurus, bengkok, dan melengkung dengan Aspose.Slides untuk Node.js via Java."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Konektor PowerPoint adalah garis khusus yang menghubungkan atau menautkan dua bentuk dan tetap melekat pada bentuk meskipun dipindahkan atau diposisikan ulang pada slide tertentu.  
+Konektor adalah garis yang dapat tetap terhubung ke dua bentuk ketika salah satu bentuk bergerak. Ujungnya terhubung ke situs koneksi, yang diwakili oleh titik hijau di PowerPoint. Beberapa konektor bengkok dan melengkung juga menampilkan titik penyesuaian, yang diwakili oleh titik oranye, yang mengontrol posisi segmen konektor individual.
 
-Konektor biasanya terhubung ke *titik sambungan* (titik hijau), yang secara default ada pada semua bentuk. Titik sambungan muncul ketika kursor mendekatinya.
+Aspose.Slides merepresentasikan konektor melalui kelas [Connector](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/connector/). Anda dapat membuatnya, menempelkan ujungnya ke bentuk, memilih situs koneksi, mengubah rutenya, dan memodifikasi geometri konektor yang memiliki titik penyesuaian.
 
-*Titik penyesuaian* (titik oranye), yang hanya ada pada konektor tertentu, digunakan untuk memodifikasi posisi dan bentuk konektor.
+## **Jenis Konektor**
 
-## **Jenis‑jenis Konektor**
-
-Di PowerPoint, Anda dapat menggunakan konektor lurus, siku (berpola), dan melengkung.  
-
-Aspose.Slides menyediakan konektor berikut:
+Kelas [ShapeType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapetype/) mencakup preset konektor lurus, bengkok, dan melengkung. Tabel berikut menunjukkan geometri konektor yang tersedia dan jumlah titik penyesuaian yang didefinisikan oleh setiap preset.
 
 | Konektor | Gambar | Jumlah titik penyesuaian |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+|---|---|---|
 | `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -45,347 +43,485 @@ Aspose.Slides menyediakan konektor berikut:
 | `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Menghubungkan Bentuk dengan Konektor**
+Jumlah dan makna titik penyesuaian merupakan bagian dari preset konektor yang dipilih. Jangan mengasumsikan bahwa dua tipe konektor berbeda menampilkan tata letak koleksi yang sama.
 
-1. Buat instance kelas [Presentation](https://apireference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan dua [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/AutoShape) ke slide dengan metode `addAutoShape` yang disediakan oleh objek `Shapes`.
-1. Tambahkan konektor menggunakan metode `addConnector` yang disediakan oleh objek `Shapes` dengan mendefinisikan tipe konektor.
-1. Hubungkan bentuk‑bentuk menggunakan konektor. 
-1. Panggil metode `reroute` untuk menerapkan jalur koneksi terpendek.
-1. Simpan presentasi. 
+## **Hubungkan Dua Bentuk**
 
-Kode JavaScript berikut menunjukkan cara menambahkan konektor (konektor bengkok) antara dua bentuk (sebuah elips dan persegi panjang):
+Gunakan [ShapeCollection.addConnector](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/addconnector/) untuk menambahkan sebuah konektor, dan gunakan [Connector.setStartShapeConnectedTo](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/connector/setstartshapeconnectedto/) serta [Connector.setEndShapeConnectedTo](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/connector/setendshapeconnectedto/) untuk menempelkan ujung-ujungnya. Setelah kedua ujung terpasang, [Connector.reroute](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/connector/reroute/) memilih rute pendek antara bentuk-bentuk tersebut.
+
+Contoh berikut menghubungkan sebuah elips dan sebuah persegi panjang dengan konektor bengkok:
 
 ```javascript
-// Membuat instance kelas presentasi yang mewakili file PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Mengakses koleksi bentuk untuk slide tertentu
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // Menambahkan autoshape Elips
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // Menambahkan autoshape Persegi Panjang
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // Menambahkan bentuk konektor ke koleksi bentuk slide
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // Menghubungkan bentuk-bentuk menggunakan konektor
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // Memanggil reroute yang mengatur jalur terpendek otomatis antara bentuk
     connector.reroute();
-    // Menyimpan presentasi
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Peringatan" %}}
+Memanggil `reroute` dapat mengubah nilai [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) dan [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/connector/setendshapeconnectionsiteindex/). Tetapkan situs koneksi tertentu setelah pengalihan rute jika situs tersebut harus tetap tetap.
+{{% /alert %}}
 
-Metode `Connector.reroute` mengatur ulang konektor dan memaksa ia mengambil jalur terpendek yang mungkin antara bentuk. Untuk mencapai tujuan tersebut, metode ini dapat mengubah titik `setStartShapeConnectionSiteIndex` dan `setEndShapeConnectionSiteIndex`. 
+## **Pilih Situs Koneksi**
 
-{{% /alert %}} 
+Setiap bentuk yang dapat dihubungkan melaporkan jumlah situsnya melalui [Shape.getConnectionSiteCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getconnectionsitecount/). Validasi indeks situs berbasis nol yang diinginkan sebelum menetapkannya ke ujung konektor; jumlah situs bervariasi tergantung geometri bentuk.
 
-## **Menentukan Titik Sambungan**
-
-Jika Anda ingin konektor menautkan dua bentuk menggunakan titik tertentu pada bentuk, Anda harus menentukan titik sambungan yang diinginkan dengan cara berikut:
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan dua [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/AutoShape) ke slide dengan metode `addAutoShape` yang disediakan oleh objek `Shapes`.
-1. Tambahkan konektor menggunakan metode `addConnector` yang disediakan oleh objek `Shapes` dengan mendefinisikan tipe konektor.
-1. Hubungkan bentuk‑bentuk menggunakan konektor. 
-1. Atur titik sambungan pilihan Anda pada bentuk. 
-1. Simpan presentasi.
-
-Kode JavaScript berikut mendemonstrasikan operasi di mana titik sambungan yang dipilih ditentukan:
+Contoh ini menempelkan konektor ke situs tertentu pada elips ketika situs tersebut ada:
 
 ```javascript
-// Membuat instance kelas presentasi yang mewakili file PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Mengakses koleksi bentuk untuk slide tertentu
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // Menambahkan autoshape Elips
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // Menambahkan autoshape Persegi Panjang
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // Menambahkan bentuk konektor ke koleksi bentuk slide
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // Menghubungkan bentuk-bentuk menggunakan konektor
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector3, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // Mengatur indeks titik sambungan yang diinginkan pada bentuk Elips
-    var wantedIndex = 6;
-    // Memeriksa apakah indeks yang diinginkan lebih kecil dari jumlah maksimum situs indeks
-    if (ellipse.getConnectionSiteCount() > wantedIndex) {
-        // Mengatur titik sambungan yang diinginkan pada autoshape Elips
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+
+    const preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        console.log(`The ellipse has only ${ellipse.getConnectionSiteCount()} connection sites.`);
     }
-    // Menyimpan presentasi
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("specific-connection-site.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Menyesuaikan Titik Konektor**
+## **Sesuaikan Titik Konektor**
 
-Anda dapat menyesuaikan konektor yang sudah ada melalui titik penyesuaian nya. Hanya konektor dengan titik penyesuaian yang dapat diubah dengan cara ini. Lihat tabel pada **[Jenis konektor.](/slides/id/nodejs-java/connector/#types-of-connectors)**
+Konektor dengan titik penyesuaian menampilkannya melalui [GeometryShape.getAdjustments](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/geometryshape/). Inspeksi setiap [AdjustValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/adjustvalue/) dan periksa nilai [getType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/adjustvalue/) sebelum mengubahnya dengan [setRawValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/adjustvalue/setrawvalue/). Aturan umum untuk mengidentifikasi penyesuaian bentuk preset dijelaskan dalam [Shape Manipulation](/slides/id/nodejs-java/shape-manipulations/).
 
-### **Kasus Sederhana**
+Jumlah, urutan, makna, dan rentang nilai yang sah untuk penyesuaian konektor tergantung pada preset konektor. Tipe penyesuaian bersifat baca‑saja, sedangkan nilai penyesuaian dapat ditulis. Metode baca‑saja [getName](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/adjustvalue/getname/) memberikan identifikasi tambahan ketika sebuah konektor berisi lebih dari satu penyesuaian dengan tipe semantik yang sama.
 
-Pertimbangkan kasus di mana konektor antara dua bentuk (A dan B) melewati bentuk ketiga (C):
+### **Rute Mengelilingi Hambatan**
+
+Dalam tata letak berikut, sebuah konektor `BentConnector5` antara dua bentuk melewati bentuk ketiga:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Kode ini membuat konektor yang terhalang:
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Untuk menghindari atau melewati bentuk ketiga, kita dapat menyesuaikan konektor dengan memindahkan garis vertikalnya ke kiri seperti berikut:
+Memindahkan bengkok vertikal mengubah rute sehingga konektor melewati hambatan:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+Alih‑alih mengasumsikan bahwa indeks koleksi `1` selalu mewakili bengkok vertikal, contoh ini mencari `ConnectorBendPositionY` dan mengubahnya hanya ketika tipe semantik yang diharapkan ada:
+
 ```javascript
-var adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend === null) {
+        console.log("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Kasus Kompleks** 
+Sebuah `BentConnector5` memiliki dua penyesuaian `ConnectorBendPositionX` dan satu penyesuaian `ConnectorBendPositionY`. Jika tipe yang Anda butuhkan muncul lebih dari sekali, inspeksi `getName` dan geometri yang diketahui dari preset tersebut sebelum memilih satu. Jika sebuah penyesuaian melaporkan `ShapeAdjustmentType.Custom`, perlakukan makna dan rentangnya sebagai spesifik preset dan jangan ubah sampai kontrak tersebut diketahui.
 
-Untuk melakukan penyesuaian yang lebih rumit, Anda harus memperhatikan hal‑hal berikut:
+## **Hubungkan Nilai Penyesuaian dengan Geometri Konektor**
 
-* Titik penyesuaian konektor sangat terkait dengan rumus yang menghitung dan menentukan posisinya. Jadi perubahan pada posisi titik dapat mengubah bentuk konektor.
-* Titik penyesuaian konektor didefinisikan dalam urutan yang ketat dalam sebuah array. Titik‑titik tersebut diberi nomor dari titik awal konektor ke titik akhirnya.
-* Nilai titik penyesuaian mencerminkan persentase lebar/tinggi bentuk konektor. 
-  * Bentuk dibatasi oleh titik awal dan akhir konektor yang dikalikan 1000. 
-  * Titik pertama, kedua, dan ketiga masing‑masing mendefinisikan persentase dari lebar, persentase dari tinggi, dan persentase dari lebar (lagi).
-* Untuk perhitungan yang menentukan koordinat titik penyesuaian konektor, Anda harus mempertimbangkan rotasi konektor dan pantulannya. **Catatan** bahwa sudut rotasi untuk semua konektor yang ditampilkan pada **[Jenis konektor](/slides/id/nodejs-java/connector/#types-of-connectors)** adalah 0.
+Untuk konektor bengkok, nilai penyesuaian dapat digunakan untuk memperkirakan posisi segmen individual. Perhitungan ini spesifik untuk preset konektor:
 
-#### **Kasus 1**
+- `BentConnector4` biasanya menampilkan satu penyesuaian `ConnectorBendPositionX` dan satu `ConnectorBendPositionY`.
+- Untuk posisi bengkok ini, membagi nilai yang dikembalikan oleh `getRawValue` dengan `100000` menghasilkan pecahan lebar atau tinggi bingkai konektor yang digunakan oleh contoh di bawah.
+- Sebuah bingkai konektor dapat diputar atau dibalik, sehingga koordinat bingkai harus ditransformasi sebelum dibandingkan dengan koordinat slide.
 
-Pertimbangkan kasus di mana dua objek bingkai teks ditautkan bersama melalui sebuah konektor:
+Contoh berikut menggunakan `getType` untuk mengidentifikasi penyesuaian terlebih dahulu. Mereka tidak memperlakukan indeks koleksi sebagai pengenal yang dapat dipindahkan.
+
+### **Konektor Tidak Diputar**
+
+Tata letak awal berisi dua bentuk teks yang terhubung oleh sebuah `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Contoh ini menginspeksi konektor dan memperoleh penyesuaian bengkok horizontal serta vertikal:
+
 ```javascript
-// Membuat instance kelas presentasi yang mewakili file PPTX
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Mendapatkan slide pertama dalam presentasi
-    var sld = pres.getSlides().get_Item(0);
-    // Menambahkan bentuk yang akan digabungkan melalui sebuah konektor
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Menambahkan konektor
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Menentukan arah konektor
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    // Menentukan warna konektor
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Menentukan ketebalan garis konektor
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const red = java.getStaticFieldValue("java.awt.Color", "RED");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
     connector.getLineFormat().setWidth(3);
-    // Menghubungkan bentuk-bentuk dengan konektor
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    // Mendapatkan titik penyesuaian untuk konektor
-    var adjValue_0 = connector.getAdjustments().get_Item(0);
-    var adjValue_1 = connector.getAdjustments().get_Item(1);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-**Penyesuaian**
-
-Kita dapat mengubah nilai titik penyesuaian konektor dengan meningkatkan persentase lebar dan tinggi yang bersangkutan masing‑masing sebesar 20 % dan 200 %:
+Untuk mengubah kedua bengkok, temukan setiap tipe yang diharapkan dan modifikasi nilai hanya setelah keduanya ditemukan:
 
 ```javascript
-// Mengubah nilai titik penyesuaian
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Hasilnya:
+Hasilnya adalah konektor yang segmen horizontal dan vertikalnya telah bergeser:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Untuk mendefinisikan model yang memungkinkan kita menentukan koordinat dan bentuk bagian‑bagian individual konektor, buatlah bentuk yang mewakili komponen horizontal konektor pada titik `connector.getAdjustments().get_Item(0)`:
+Setelah tipe semantik diketahui, nilainya dapat dikonversi ke koordinat bingkai konektor. Contoh ini menggambar sebuah persegi panjang tipis di atas segmen vertikal yang dikendalikan oleh dua penyesuaian bengkok:
 
 ```javascript
-// Gambar komponen vertikal dari konektor
-var x = connector.getX() + ((connector.getWidth() * adjValue_0.getRawValue()) / 100000);
-var y = connector.getY();
-var height = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 0, height);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        const x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const y = connector.getY();
+        const height = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(x);
+        const guideY = java.newFloat(y);
+        const guideWidth = java.newFloat(1);
+        const guideHeight = java.newFloat(height);
+        slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        presentation.save("connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Hasilnya:
+Bentuk panduan menandai segmen yang dihitung:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Kasus 2**
+### **Konektor Diputar atau Dibalik**
 
-Dalam **Kasus 1**, kami mendemonstrasikan operasi penyesuaian konektor sederhana menggunakan prinsip dasar. Dalam situasi normal, Anda harus memperhitungkan rotasi konektor serta tampilan nya (yang diatur oleh `connector.getRotation()`, `connector.getFrame().getFlipH()`, dan `connector.getFrame().getFlipV()`). Sekarang kami akan menunjukkan prosesnya.
+Ketika geometri konektor yang sama diarahkan secara vertikal, nilai [Shape.getFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getframe/), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapeframe/getfliph/), dan [ShapeFrame.getFlipV](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapeframe/getflipv/) memengaruhi konversi dari koordinat bingkai konektor ke koordinat slide.
 
-Pertama, tambahkan objek bingkai teks baru (**To 1**) ke slide (untuk tujuan penyambungan) dan buat konektor (hijau) baru yang menghubungkannya dengan objek‑objek yang sudah ada.
+Contoh ini membuat dan menyesuaikan konektor yang diarahkan vertikal:
 
 ```javascript
-// Membuat objek binding baru
-var shapeTo_1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Membuat konektor baru
-connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-connector.getLineFormat().setWidth(3);
-// Menghubungkan objek menggunakan konektor yang baru dibuat
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Mendapatkan titik penyesuaian konektor
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Mengubah nilai titik penyesuaian
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const connectorColor = java.newInstanceSync("java.awt.Color", 102, 205, 170);
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Hasilnya:
+Konektor yang disesuaikan muncul secara vertikal di antara bentuk-bentuk:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Kedua, buat bentuk yang akan mewakili komponen horizontal konektor yang melewati titik penyesuaian konektor baru `connector.getAdjustments().get_Item(0)`. Gunakan nilai‑nilai dari data konektor untuk `connector.getRotation()`, `connector.getFrame().getFlipH()`, dan `connector.getFrame().getFlipV()` serta terapkan rumus konversi koordinat populer untuk rotasi mengelilingi titik x₀:
+Untuk sudut rotasi sewenang‑wannnya `alpha`, putar sebuah titik bingkai konektor `(x, y)` sekitar pusat bingkai `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Dalam kasus kami, sudut rotasi objek adalah 90 derajat dan konektor ditampilkan secara vertikal, sehingga kode yang bersesuaian adalah:
+Kode berikut menangani orientasi 90‑derajat yang digunakan dalam contoh ini dan menggambar panduan merah di atas segmen konektor yang bersesuaian:
 
 ```javascript
-// Menyimpan koordinat konektor
-x = connector.getX();
-y = connector.getY();
-// Mengoreksi koordinat konektor jika muncul
-if (connector.getFrame().getFlipH() == aspose.slides.NullableBool.True) {
-    x += connector.getWidth();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        let x = connector.getX();
+        let y = connector.getY();
+        if (connector.getFrame().getFlipH() === aspose.slides.NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() === aspose.slides.NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        const rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        const segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(rotatedX);
+        const guideY = java.newFloat(rotatedY);
+        const guideWidth = java.newFloat(segmentWidth);
+        const guideHeight = java.newFloat(1);
+        const guide = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        const red = java.getStaticFieldValue("java.awt.Color", "RED");
+        const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+        guide.getLineFormat().getFillFormat().setFillType(solidFillType);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+        presentation.save("rotated-connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == aspose.slides.NullableBool.True) {
-    y += connector.getHeight();
-}
-// Menggunakan nilai titik penyesuaian sebagai koordinat
-x += (connector.getWidth() * adjValue_0.getRawValue()) / 100000;
-// Mengonversi koordinat karena Sin(90) = 1 dan Cos(90) = 0
-var xx = (connector.getFrame().getCenterX() - y) + connector.getFrame().getCenterY();
-var yy = (x - connector.getFrame().getCenterX()) + connector.getFrame().getCenterY();
-// Menentukan lebar komponen horizontal menggunakan nilai titik penyesuaian kedua
-var width = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
 
-Hasilnya:
+Panduan merah menandai segmen yang dihitung setelah transformasi koordinat:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Kami telah mendemonstrasikan perhitungan yang melibatkan penyesuaian sederhana dan titik penyesuaian yang rumit (titik penyesuaian dengan sudut rotasi). Dengan pengetahuan ini, Anda dapat mengembangkan model Anda sendiri (atau menulis kode) untuk mendapatkan objek `GraphicsPath` atau bahkan mengatur nilai titik penyesuaian konektor berdasarkan koordinat slide tertentu.
+Rumus ini menjelaskan preset yang digunakan dalam contoh, bukan model konektor universal. Validasi tipe penyesuaian, orientasi bingkai, dan rentang nilai sebelum menerapkan perhitungan yang sama pada preset yang berbeda.
 
-## **Menemukan Sudut Garis Konektor**
+## **Temukan Sudut Arah Konektor**
 
-1. Buat instance kelas.
-1. Dapatkan referensi slide melalui indeksnya.
-1. Akses bentuk garis konektor.
-1. Gunakan lebar, tinggi, tinggi bingkai bentuk, dan lebar bingkai bentuk untuk menghitung sudut.
-
-Kode JavaScript berikut menunjukkan operasi di mana kami menghitung sudut untuk bentuk garis konektor:
+Arah sebuah konektor lurus dapat dihitung dari lebar dan tinggi, dengan pembalikan horizontal serta vertikal diterapkan. Contoh berikut melaporkan sudut searah jarum jam dari sumbu horizontal positif dalam koordinat slide:
 
 ```javascript
-var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    for (var i = 0; i < slide.getShapes().size(); i++) {
-        var dir = 0.0;
-        var shape = slide.getShapes().get_Item(i);
-        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-            var ashp = shape;
-            if (ashp.getShapeType() == aspose.slides.ShapeType.Line) {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        } else if (java.instanceOf(shape, "com.aspose.slides.Connector")) {
-            var ashp = shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
-        console.log(dir);
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const slide = presentation.getSlides().get_Item(0);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-```javascript
-function getDirection(w, h, flipH, flipV) {
-    let endLineX = w * (flipH ? -1 : 1);
-    let endLineY = h * (flipV ? -1 : 1);
-    
-    let endYAxisX = 0;
-    let endYAxisY = h;
-
-    let angle = Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX);
+    const flipH = connector.getFrame().getFlipH() === aspose.slides.NullableBool.True;
+    const flipV = connector.getFrame().getFlipV() === aspose.slides.NullableBool.True;
+    const deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    const deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    let angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
 
     if (angle < 0) {
-        angle += 2 * Math.PI;
+        angle += 360;
     }
 
-    return angle * 180.0 / Math.PI;
+    console.log(`Connector direction: ${angle.toFixed(2)} degrees`);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Bagaimana saya dapat mengetahui apakah sebuah konektor dapat "direkatkan" ke bentuk tertentu?**
+**Bagaimana saya dapat mengetahui apakah sebuah konektor dapat menempel ke sebuah bentuk?**
 
-Periksa apakah bentuk tersebut menyediakan [connection sites](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getconnectionsitecount/). Jika tidak ada atau jumlahnya nol, perekat tidak tersedia; dalam hal ini gunakan ujung bebas dan posisikan secara manual. Disarankan untuk memeriksa hitungan situs sebelum menempelkan.
+Periksa nilai [getConnectionSiteCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/getconnectionsitecount/) pada bentuk. Nilai positif berarti bentuk menampilkan situs koneksi. Validasi indeks situs yang dipilih sebelum menetapkannya ke salah satu ujung konektor.
 
-**Apa yang terjadi pada konektor jika saya menghapus salah satu bentuk yang terhubung?**
+**Apakah saya dapat mengidentifikasi penyesuaian konektor berdasarkan indeks koleksinya?**
 
-Ujung‑ujungnya akan terlepas; konektor tetap berada di slide sebagai garis biasa dengan awal/akhir bebas. Anda dapat menghapusnya atau menugaskan kembali sambungan dan, bila perlu, [reroute](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/connector/reroute/).
+Indeks hanya bermakna untuk preset konektor yang diketahui dan tata letak koleksi yang diketahui. Periksa [AdjustValue.getType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/adjustvalue/) sebelum memodifikasi nilai, dan gunakan [AdjustValue.getName](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/adjustvalue/getname/) sebagai informasi tambahan ketika tipe semantik yang sama muncul lebih dari sekali.
 
-**Apakah ikatan konektor tetap terjaga saat menyalin slide ke presentasi lain?**
+**Apa yang terjadi ketika sebuah bentuk yang terhubung dihapus?**
 
-Umumnya ya, asalkan bentuk‑bentuk target juga disalin. Jika slide dimasukkan ke file lain tanpa bentuk‑bentuk yang terhubung, ujung‑ujungnya menjadi bebas dan Anda harus menempelkannya kembali.
+Ujung konektor yang bersangkutan menjadi tidak terpasang. Konektor tetap berada di slide dan dapat dihapus, diposisikan sebagai garis bebas, atau ditempelkan ke bentuk lain.
+
+**Apakah ikatan konektor dipertahankan ketika sebuah slide disalin?**
+
+Ikatan biasanya dipertahankan saat bentuk‑bentuk yang terhubung disalin bersama slide. Jika sebuah konektor disalin tanpa salah satu bentuk targetnya, ujung yang terpengaruh harus ditempelkan kembali.

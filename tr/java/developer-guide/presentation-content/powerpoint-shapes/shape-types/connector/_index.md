@@ -1,401 +1,503 @@
 ---
-title: Java kullanarak Sunumlarda Bağlayıcıları Yönetme
+title: Java'da Sunumlarda Bağlayıcıları Yönet
 linktitle: Bağlayıcı
 type: docs
 weight: 10
 url: /tr/java/connector/
 keywords:
 - bağlayıcı
-- bağlayıcı tipi
+- bağlayıcı türü
 - bağlayıcı noktası
 - bağlayıcı çizgisi
 - bağlayıcı açısı
+- bağlantı noktası
+- ayarlama noktası
 - şekilleri bağla
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "Java uygulamalarını PowerPoint slaytlarında çizim, bağlama ve otomatik yönlendirme yapabilme yeteneğiyle güçlendirin—düz, dirsek ve eğimli bağlayıcılar üzerinde tam kontrole sahip olun."
+description: "Aspose.Slides for Java ile düz, bükülmüş ve eğri PowerPoint bağlayıcılarını eklemeyi, bağlamayı, yeniden yönlendirmeyi, ayarlamayı ve incelemeyi öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-PowerPoint bağlayıcısı, iki şekli birbirine bağlayan veya ilişkilendiren özel bir çizgidir ve şekiller hareket ettirildiğinde veya konumları bir slaytta değiştirildiğinde bile şekillere bağlı kalır.  
+Bir bağlayıcı, iki şekilden biri hareket ettiğinde bile iki şekle bağlı kalabilen bir çizgidir. Uçları, PowerPoint’te yeşil noktalarla gösterilen bağlantı noktalarına bağlanır. Bazı bükülmüş ve eğri bağlayıcılar ayrıca turuncu noktalarla gösterilen ayarlama noktalarına sahiptir; bu noktalar bağlayıcı segmentlerinin konumunu kontrol eder.
 
-Bağlayıcılar genellikle *bağlantı noktalarına* (yeşil noktalar) bağlanır; bu noktalar tüm şekillerde varsayılan olarak bulunur. Bağlantı noktaları, imleç onlara yaklaştığında görünür.  
-
-*Ayarlama noktaları* (turuncu noktalar), yalnızca belirli bağlayıcılarda bulunur ve bağlayıcıların konum ve şekillerini değiştirmek için kullanılır.  
+Aspose.Slides bağlayıcıları, [IConnector](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iconnector/) arabirimi aracılığıyla temsil eder. Bağlayıcıları oluşturabilir, uçlarını şekillere bağlayabilir, bağlantı noktalarını seçebilir, yeniden yönlendirebilir ve ayarlama noktalarına sahip bağlayıcıların geometrisini değiştirebilirsiniz.
 
 ## **Bağlayıcı Türleri**
 
-PowerPoint'te düz, dirsek (açılı) ve eğimli bağlayıcıları kullanabilirsiniz.  
+[ShapeType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shapetype/) sınıfı, düz, bükülmüş ve eğri bağlayıcı ön ayarlarını içerir. Aşağıdaki tablo, kullanılabilir bağlayıcı geometrilerini ve her ön ayarın tanımladığı ayarlama noktası sayısını gösterir.
 
-Aspose.Slides bu bağlayıcıları sağlar:
-
-| Bağlayıcı                      | Resim                                                        | Ayarlama noktası sayısı |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0 |
+| Bağlayıcı | Görsel | Ayarlama nokta sayısı |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0 |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1 |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2 |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3 |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Şekilleri Bağlayıcılarla Bağlama**
+Ayarlama noktalarının sayısı ve anlamı, seçilen bağlayıcı ön ayarının bir parçasıdır. İki farklı bağlayıcı tipinin aynı koleksiyon düzenini sunduğunu varsaymayın.
 
-1. Bir [Presentation](https://apireference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-1. İndeksi aracılığıyla bir slaytın referansını alın.  
-1. `Shapes` nesnesi tarafından sağlanan `addAutoShape` yöntemiyle slayta iki [AutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/AutoShape) ekleyin.  
-1. `Shapes` nesnesi tarafından sağlanan `addConnector` yöntemiyle bağlayıcı türünü tanımlayarak bir bağlayıcı ekleyin.  
-1. Şekilleri bağlayıcıyla bağlayın.  
-1. En kısa bağlantı yolunu uygulamak için `reroute` yöntemini çağırın.  
-1. Sunumu kaydedin.  
+## **İki Şekli Bağla**
 
-Bu Java kodu, iki şekil (bir elips ve bir dikdörtgen) arasında bir bağlayıcı (bükülmüş bağlayıcı) eklemenizi gösterir:
+Bir bağlayıcı eklemek için [IShapeCollection.addConnector](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) yöntemini kullanın ve uçlarını bağlamak için [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) ve [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) yöntemlerini kullanın. Her iki uç da bağlandıktan sonra, [IConnector.reroute](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iconnector/#reroute--) şekiller arasındaki kısa yolu seçer.
 
-```Java
-// PPTX dosyasını temsil eden bir sunum sınıfını örnekler
-Presentation pres = new Presentation();
-try {
-    // Belirli bir slayt için şekil koleksiyonuna erişir
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // Bir Elips otomatik şekli ekler
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // Bir Dikdörtgen otomatik şekli ekler
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // Bağlayıcı şekli slayt şekil koleksiyonuna ekler
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // Bağlayıcıyı kullanarak şekilleri bağlar
-    connector.setStartShapeConnectedTo(ellipse);
-    connector.setEndShapeConnectedTo(rectangle);
-    
-    // Şekiller arasındaki otomatik en kısa yolu ayarlayan reroute metodunu çağırır
-    connector.reroute();
-    
-    // Sunumu kaydeder
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Connector.reroute` yöntemi bir bağlayıcıyı yeniden yönlendirir ve şekiller arasındaki en kısa yolu almasını zorlar. Hedefine ulaşmak için yöntem `setStartShapeConnectionSiteIndex` ve `setEndShapeConnectionSiteIndex` noktalarını değiştirebilir. 
-{{% /alert %}} 
-
-## **Bağlantı Noktası Belirleme**
-
-Bir bağlayıcının iki şekli belirli noktalardan bağlamasını istiyorsanız, tercih ettiğiniz bağlantı noktalarını şu şekilde belirtmelisiniz:
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-1. İndeksi aracılığıyla bir slaytın referansını alın.  
-1. `Shapes` nesnesi tarafından sağlanan `addAutoShape` yöntemiyle slayta iki [AutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/AutoShape) ekleyin.  
-1. `Shapes` nesnesi tarafından sağlanan `addConnector` yöntemiyle bağlayıcı türünü tanımlayarak bir bağlayıcı ekleyin.  
-1. Şekilleri bağlayıcıyla bağlayın.  
-1. Şekillerde tercih ettiğiniz bağlantı noktalarını ayarlayın.  
-1. Sunumu kaydedin.  
-
-Bu Java kodu, tercih edilen bir bağlantı noktasının belirtildiği bir işlemi gösterir:
+Aşağıdaki örnek, bir elips ve bir dikdörtgeni bükülmüş bir bağlayıcı ile birleştirir:
 
 ```java
-// PPTX dosyasını temsil eden bir sunum sınıfını örnekler
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Belirli bir slayt için şekil koleksiyonuna erişir
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Bir Elips otomatik şekli ekler
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Bir Dikdörtgen otomatik şekli ekler
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // Bağlayıcı şekli slaytın şekil koleksiyonuna ekler
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Bağlayıcıyı kullanarak şekilleri bağlar
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
+    connector.reroute();
 
-    // Elips şekli üzerinde tercih edilen bağlantı noktası indeksini ayarlar
-    int wantedIndex = 6;
-
-    // Tercih edilen indeksin maksimum site indeksi sayısından küçük olup olmadığını kontrol eder
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // Elips otomatik şekli üzerinde tercih edilen bağlantı noktasını ayarlar
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
-    }
-
-    // Sunumu kaydeder
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bağlayıcı Noktasını Ayarlama**
+{{% alert color="warning" title="Uyarı" %}}
+`reroute` çağrısı, [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) ve [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) değerlerini değiştirebilir. Bu noktalar sabit kalmalıysa, yeniden yönlendirmeden sonra belirli bağlantı noktalarını atayın.
+{{% /alert %}}
 
-Mevcut bir bağlayıcıyı ayarlama noktaları aracılığıyla ayarlayabilirsiniz. Yalnızca ayarlama noktalarına sahip bağlayıcılar bu şekilde değiştirilebilir. **[Bağlayıcı Türleri](/slides/tr/java/connector/#types-of-connectors)** altındaki tabloya bakın.  
+## **Bir Bağlantı Noktası Seç**
 
-### **Basit Durum**
+Bağlanabilir her şekil, bağlantı noktalarının sayısını [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#getConnectionSiteCount--) yöntemiyle bildirir. Bağlayıcı ucuna atamadan önce tercih edilen sıfır‑tabanlı site indeksini doğrulayın; site sayısı şekil geometrisine göre değişir.
 
-İki şekil (A ve B) arasındaki bağlayıcının üçüncü bir şekil (C) üzerinden geçtiği bir durumu düşünün:
+Bu örnek, elips üzerindeki belirli bir site mevcut olduğunda bağlayıcıyı o siteye bağlar:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
+    }
+
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Bir Bağlayıcı Noktasını Ayarla**
+
+Ayarlama noktalarına sahip bağlayıcılar, bu noktaları [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/tr/java/com.aspose.slides/igeometryshape/#getAdjustments--) yöntemiyle sunar. Her bir [IAdjustValue](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iadjustvalue/) incelenip, değerini değiştirmeden önce [getType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iadjustvalue/#getType--) değerine bakılmalıdır; değişiklik ise [setRawValue](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) ile yapılır. Ön ayar şekil ayarlamalarıyla ilgili genel kurallar [Shape Manipulation](/slides/tr/java/shape-manipulations/) bölümünde açıklanmıştır.
+
+Bağlayıcı ayarlamalarının sayısı, sırası, anlamı ve geçerli değer aralığı bağlayıcı ön ayarına bağlıdır. Ayarlama tipi yalnızca okunabilir, değer ise yazılabilir. Aynı anlamsal tipe birden fazla ayarlama sahip olduğunda ek tanımlama sağlayan yalnızca okunabilir [getName](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iadjustvalue/#getName--) metodudur.
+
+### **Bir Engel Çevresinde Yönlendir**
+
+Aşağıdaki düzenlemede, iki şekil arasındaki bir `BentConnector5` üçüncü bir şekilden geçer:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Bu kod, engellenmiş bağlayıcıyı oluşturur:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Üçüncü şekilden kaçınmak veya onu atlatmak için bağlayıcıyı, dikey çizgisini sola kaydırarak şu şekilde ayarlayabiliriz:
+Dikey eğimi hareket ettirmek, bağlayıcının rotasını değiştirerek engeli atlamasını sağlar:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+Koleksiyon indeksi `1` her zaman dikey eğimi temsil eder diye varsaymak yerine, bu örnek `ConnectorBendPositionY` öğesini arar ve yalnızca beklenen anlamsal tip mevcutsa değiştirir:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Karmaşık Durumlar** 
+Bir `BentConnector5` iki `ConnectorBendPositionX` ve bir `ConnectorBendPositionY` ayarlamasına sahiptir. İhtiyacınız olan tip birden fazla kez ortaya çıkarsa, seçim yapmadan önce `getName` ve o ön ayarın bilinen geometrisini inceleyin. Bir ayarlama `ShapeAdjustmentType.Custom` döndürürse, anlamı ve aralığı ön ayar‑spesifik olarak ele alın ve sözleşme netleşene kadar değiştirmeyin.
 
-Daha karmaşık ayarlamalar yapmak için aşağıdakileri göz önünde bulundurmalısınız:
+## **Ayarlama Değerlerini Bağlayıcı Geometrisine Bağla**
 
-* Bir bağlayıcının ayarlanabilir noktası, konumunu hesaplayan ve belirleyen bir formülle güçlü bir şekilde ilişkilidir. Bu yüzden noktanın konumundaki değişiklikler bağlayıcının şeklini değiştirebilir.  
-* Bir bağlayıcının ayarlama noktaları, bir dizi içinde katı bir sırayla tanımlanır. Ayarlama noktaları bağlayıcının başlangıç noktasından sonuna doğru numaralandırılır.  
-* Ayarlama noktası değerleri, bağlayıcı şeklinin genişlik/yükseklik yüzdesini yansıtır.  
-  * Şekil, bağlayıcının başlangıç ve bitiş noktalarının 1000 ile çarpılmasıyla sınırlanır.  
-  * İlk nokta, ikinci nokta ve üçüncü nokta sırasıyla genişlik yüzdesi, yükseklik yüzdesi ve tekrar genişlik yüzdesini tanımlar.  
-* Bir bağlayıcının ayarlama noktalarının koordinatlarını belirleyen hesaplamalar için bağlayıcının dönüşünü ve yansımasını dikkate almanız gerekir. **Not**: **[Bağlayıcı Türleri](/slides/tr/java/connector/#types-of-connectors)** altında gösterilen tüm bağlayıcıların dönüş açısı 0'dır.  
+Bükülmüş bağlayıcılar için ayarlama değerleri, bireysel segmentlerin konumlarını tahmin etmekte kullanılabilir. Bu hesaplamalar bağlayıcı ön ayarına özeldir:
 
-#### **Durum 1**
+- `BentConnector4` normalde bir `ConnectorBendPositionX` ve bir `ConnectorBendPositionY` ayarlaması sunar.
+- Bu büküm konumları için, `getRawValue` tarafından döndürülen değeri `100000f` ile bölmek, aşağıdaki örneklerde kullanılan bağlayıcı çerçevesi genişliği veya yüksekliği oranını verir.
+- Bağlayıcı çerçevesi döndürülebilir veya çevrilebilir; bu nedenle çerçeve koordinatları slayt koordinatlarıyla karşılaştırılmadan önce dönüştürülmelidir.
 
-İki metin çerçevesi nesnesinin bir bağlayıcı ile birbirine bağlandığı bir durumu düşünün:
+Aşağıdaki örnekler, önce ayarlamaları tanımlamak için `getType` kullanır. Koleksiyon indekslerini taşınabilir tanımlayıcı olarak kabul etmezler.
+
+### **Döndürülmemiş Bağlayıcı**
+
+İlk düzen, bir `BentConnector4` ile iki metin şekli içerir:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Bu örnek bağlayıcıyı inceler ve yatay ve dikey büküm ayarlamalarını elde eder:
+
 ```java
-// Bir PPTX dosyasını temsil eden bir sunum sınıfını örnekler
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Sunumdaki ilk slaytı alır
-    ISlide sld = pres.getSlides().get_Item(0);
-    // Bağlayıcı aracılığıyla birleştirilecek şekilleri ekler
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Bir bağlayıcı ekler
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Bağlayıcının yönünü belirtir
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Bağlayıcının rengini belirtir
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Bağlayıcı çizgisinin kalınlığını belirtir
     connector.getLineFormat().setWidth(3);
-    
-    // Şekilleri bağlayıcıyla birbirine bağlar
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // Bağlayıcı için ayarlama noktalarını alır
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**Ayarlama**
-
-Bağlayıcının ayarlama noktası değerlerini, ilgili genişlik ve yükseklik yüzdelerini sırasıyla %20 ve %200 artırarak değiştirebiliriz:
+Her iki bükümü değiştirmek için, her beklenen tip bulunana kadar değerler yalnızca bulununca değiştirilir:
 
 ```java
-// Ayarlama noktalarının değerlerini değiştirir
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Sonuç:
+Sonuç, yatay ve dikey segmentleri hareket eden bir bağlayıcıdır:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Bağlayıcının koordinatlarını ve bireysel bölümlerinin şeklini belirlememize izin veren bir model tanımlamak için, `connector.getAdjustments().get_Item(0)` noktasındaki bağlayıcının yatay bileşenine karşılık gelen bir şekil oluşturalım:
+Anlamsal tipler belirlendikten sonra, değerler bağlayıcı‑çerçeve koordinatlarına dönüştürülebilir. Bu örnek, iki büküm ayarlaması tarafından kontrol edilen dikey segment üzerine ince bir dikdörtgen çizer:
 
 ```java
-// Bağlayıcının dikey bileşenini çizer
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Sonuç:
+Kılavuz şekil, hesaplanan segmenti işaretler:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Durum 2**
+### **Döndürülmüş veya Çevrilmiş Bağlayıcı**
 
-**Durum 1**'de, temel prensipler kullanarak basit bir bağlayıcı ayarlama işlemini gösterdik. Normal durumlarda, bağlayıcı dönüşünü ve görüntülenmesini (`connector.getRotation()`, `connector.getFrame().getFlipH()`, ve `connector.getFrame().getFlipV()` tarafından ayarlanır) dikkate almanız gerekir. Şimdi bu süreci göstereceğiz.
+Aynı bağlayıcı geometrisi dikey olarak yönlendirildiğinde, [IShape.getFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#getFrame--), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shapeframe/#getFlipH--) ve [ShapeFrame.getFlipV](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shapeframe/#getFlipV--) değerleri, bağlayıcı‑çerçeve koordinatlarının slayt koordinatlarına dönüşümünü etkiler.
 
-İlk olarak, slayta yeni bir metin çerçevesi nesnesi (**To 1**) ekleyelim (bağlantı amacıyla) ve onu zaten oluşturduğumuz nesnelere bağlayan yeni (yeşil) bir bağlayıcı oluşturalım.
+Bu örnek, dikey yönlendirilmiş bağlayıcıyı oluşturur ve ayarlar:
 
 ```java
-// Yeni bir bağlama nesnesi oluşturur
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Yeni bir bağlayıcı oluşturur
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// Yeni oluşturulan bağlayıcıyı kullanarak nesneleri bağlar
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Bağlayıcının ayarlama noktalarını alır
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Ayarlama noktalarının değerlerini değiştirir
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Sonuç:
+Ayarlanan bağlayıcı, şekiller arasına dikey olarak yerleşir:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-İkinci olarak, yeni bağlayıcının ayarlama noktası `connector.getAdjustments().get_Item(0)` üzerinden geçen bağlayıcının yatay bileşenine karşılık gelen bir şekil oluşturalım. `connector.getRotation()`, `connector.getFrame().getFlipH()` ve `connector.getFrame().getFlipV()` için bağlayıcı verilerindeki değerleri kullanacağız ve verilen x0 noktasına göre dönüş için yaygın koordinat dönüşüm formülünü uygulayacağız:
+Arbitrer bir döndürme açısı `alpha` için, bağlayıcı‑çerçeve noktasını `(x, y)` çerçeve merkezi `(x0, y0)` etrafında döndürün:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Bizim durumumuzda, nesnenin dönüş açısı 90 derecedir ve bağlayıcı dikey olarak gösterilir, bu yüzden ilgili kod şudur:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+Aşağıdaki kod, bu örnekte kullanılan 90‑derece yönelimi işler ve ilgili bağlayıcı segmenti üzerine kırmızı bir kılavuz çizer:
 
 ```java
-// Bağlayıcı koordinatlarını kaydeder
-x = connector.getX();
-y = connector.getY();
-// Bağlayıcı koordinatlarını gerektiğinde düzeltir
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// Ayarlama noktası değerini koordinat olarak alır
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Koordinatları dönüştürür çünkü Sin(90) = 1 ve Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// İkinci ayarlama noktası değerini kullanarak yatay bileşenin genişliğini belirler
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-Sonuç:
+Koordinat dönüşümünden sonra kırmızı kılavuz, hesaplanan segmenti gösterir:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Basit ayarlamaları ve karmaşık ayarlama noktalarını (dönüş açılarıyla birlikte ayarlama noktaları) içeren hesaplamaları gösterdik. Edinilen bilgiyle kendi modelinizi geliştirebilir (veya kod yazabilirsiniz) ve belirli slayt koordinatlarına göre bir `GraphicsPath` nesnesi elde edebilir veya bir bağlayıcının ayarlama noktası değerlerini ayarlayabilirsiniz.
+Bu formüller örneklerde kullanılan ön ayarları tanımlar, evrensel bir bağlayıcı modeli değildir. Aynı hesaplamayı farklı bir ön ayara uygulamadan önce ayarlama tipleri, çerçeve yönelimi ve değer aralıklarını doğrulayın.
 
-## **Bağlayıcı Çizgilerinin Açısını Bulma**
+## **Bağlayıcı Yön Açısını Bul**
 
-1. Sınıfın bir örneğini oluşturun.  
-1. İndeksi aracılığıyla bir slaytın referansını alın.  
-1. Bağlayıcı çizgi şeklini erişin.  
-1. Açıyı hesaplamak için çizgi genişliğini, yüksekliğini, şekil çerçevesi yüksekliğini ve şekil çerçevesi genişliğini kullanın.  
-
-Bu Java kodu, bir bağlayıcı çizgi şeklinin açısını hesapladığımız bir işlemi gösterir:
+Düz bir bağlayıcının yönü, genişlik ve yükseklik değerlerinden, yatay ve dikey çevirmeler uygulanarak hesaplanabilir. Aşağıdaki örnek, slayt koordinatlarında pozitif yatay eksenden saat yönünde açıyı rapor eder:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
 
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **SSS**
 
-**Bir bağlayıcının belirli bir şekle “yapıştırılıp yapıştırılamadığını” nasıl anlayabilirim?**  
-Şeklin [bağlantı noktalarını](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shape/#getConnectionSiteCount--) sağladığından emin olun. Eğer yoksa ya da sayısı sıfırsa, yapıştırma mümkün değildir; bu durumda serbest uç noktalarını kullanıp manuel olarak konumlandırın. Bağlamadan önce noktaların sayısını kontrol etmek mantıklıdır.  
+**Bir bağlayıcının bir şekle bağlanıp bağlanamayacağını nasıl anlayabilirim?**
 
-**Bağlı şekillerden birini sildiğimde bağlayıcı ne olur?**  
-Uçları ayrılır; bağlayıcı slaytta serbest başlangıç/bitişli normal bir çizgi olarak kalır. Ya silebilir ya da bağlantıları yeniden atayabilirsiniz ve gerekirse [reroute](https://reference.aspose.com/slides/tr/java/com.aspose.slides/connector/#reroute--) yapabilirsiniz.  
+Şeklin [getConnectionSiteCount](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#getConnectionSiteCount--) değerini kontrol edin. Pozitif bir sayı, şeklin bağlantı noktaları sunduğunu gösterir. Bağlayıcı ucuna atamadan önce seçilen site indeksini doğrulayın.
 
-**Bir slaytı başka bir sunuma kopyaladığımda bağlayıcı bağları korunur mu?**  
-Genellikle evet, hedef şekiller de kopyalanırsa. Slayt, bağlı şekiller olmadan başka bir dosyaya eklenirse, uçlar serbest kalır ve onları yeniden bağlamanız gerekir.
+**Bir bağlayıcı ayarlamasını koleksiyon indeksine göre tanımlayabilir miyim?**
+
+İndeks, yalnızca bilinen bir bağlayıcı ön ayarı ve koleksiyon düzeni için anlamlıdır. Değeri değiştirmeden önce [IAdjustValue.getType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iadjustvalue/#getType--) kontrol edin ve aynı anlamsal tip birden fazla kez varsa ek bilgi için [IAdjustValue.getName](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iadjustvalue/#getName--) kullanın.
+
+**Bağlı bir şekil silindiğinde ne olur?**
+
+İlgili bağlayıcı ucu ayrılır. Bağlayıcı slaytta kalır ve silinebilir, serbest bir çizgi olarak konumlandırılabilir veya başka bir şekle bağlanabilir.
+
+**Bir slayt kopyalandığında bağlayıcı bağlamaları korunur mu?**
+
+Bağlantılı şekiller slayt ile birlikte kopyalandığında bağlamalar genellikle korunur. Bir bağlayıcı, hedef şekillerinden biri olmadan kopyalanırsa, etkilenen uç tekrar bağlanmalıdır.

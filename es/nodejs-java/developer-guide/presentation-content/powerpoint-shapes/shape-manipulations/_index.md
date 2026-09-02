@@ -6,44 +6,47 @@ weight: 40
 url: /es/nodejs-java/shape-manipulations/
 keywords:
 - Forma de PowerPoint
-- forma de presentación
-- forma en diapositiva
-- buscar forma
-- clonar forma
-- eliminar forma
-- ocultar forma
-- cambiar orden de forma
-- obtener ID de forma interop
-- texto alternativo de forma
-- formatos de diseño de forma
-- forma como SVG
-- forma a SVG
-- alinear forma
-- voltear forma
+- Forma de presentación
+- Forma en diapositiva
+- Encontrar forma
+- Clonar forma
+- Eliminar forma
+- Ocultar forma
+- Cambiar orden de forma
+- Obtener ID de forma interop
+- Texto alternativo de forma
+- Punto de ajuste de forma
+- Ajuste de forma predefinido
+- Geometría de forma
+- Formatos de diseño de forma
+- Forma como SVG
+- Forma a SVG
+- Alinear forma
+- Voltear forma
 - PowerPoint
 - presentación
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aprenda cómo identificar, clonar, eliminar, ocultar, reordenar, exportar, alinear y voltear formas de presentación con Aspose.Slides para Node.js via Java."
+description: "Aprenda a identificar, ajustar, clonar, eliminar, ocultar, reordenar, exportar, alinear y voltear formas de presentación con Aspose.Slides for Node.js via Java."
 ---
 ## **Visión general**
 
-Aspose.Slides for Node.js via Java representa las formas en una diapositiva como una [ShapeCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/) ordenada. La colección es tanto el lugar donde se encuentran y modifican las formas como la fuente de su orden de apilamiento: el índice `0` es la forma más trasera, mientras que el último índice corresponde a la forma más frontal.
+Aspose.Slides for Node.js via Java representa las formas en una diapositiva como una [ShapeCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/) ordenada. La colección es tanto el lugar donde se encuentran y modifican las formas como la fuente de su orden de apilamiento: el índice `0` es la forma más trasera, mientras que el último índice es la forma más delantera.
 
-Este artículo sigue ese modelo. Primero explica cómo identificar una forma de forma fiable, y después muestra cómo clonar, eliminar, ocultar y reordenar formas. Las secciones finales abarcan el formato a nivel de diseño, la exportación a SVG, la alineación y los ajustes de inversión. Cada ejemplo es independiente, de modo que puede usar solo las operaciones que requiera su flujo de trabajo.
+Este artículo sigue ese modelo. Primero explica cómo identificar una forma de forma fiable y modificar los puntos de ajuste predefinidos, luego muestra cómo clonar, eliminar, ocultar y reordenar formas. Las secciones finales cubren el formato a nivel de diseño, exportación a SVG, alineación y configuraciones de volteo. Cada ejemplo es independiente, por lo que puedes usar solo las operaciones que tu flujo de trabajo requiera.
 
 ## **Identificar y encontrar formas**
 
-Los índices de la colección son útiles al procesar un archivo conocido, pero no son identificadores estables. Añadir, eliminar o reordenar una forma puede cambiar su índice. Elija un identificador según cómo se haya creado y mantenga la presentación:
+Los índices de la colección son cómodos al procesar un archivo conocido, pero no son identificadores estables. Añadir, eliminar o reordenar una forma puede cambiar su índice. Elige un identificador según cómo se autorice y mantenga la presentación:
 
-- [Name](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getname/) es útil para plantillas controladas por desarrolladores y es fácil de inspeccionar en el panel de selección de PowerPoint. Los nombres pueden editarse y no están garantizados como únicos, por lo que es conveniente establecer una convención de nombres si el código depende de ellos.
-- [AlternativeText](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getalternativetext/) es útil cuando una descripción de accesibilidad o una etiqueta proporcionada por el autor ya identifica la forma. Es visible para los usuarios, puede localizarse o reescribirse para accesibilidad, y no se garantiza que sea única. No reutilice silenciosamente texto de accesibilidad con significado como clave de base de datos.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) es un identificador de solo lectura que es único dentro de una diapositiva y corresponde al ID de forma utilizado por la interoperabilidad de PowerPoint. Úselo al integrar con PowerPoint o cuando necesite una referencia inequívoca durante la vida útil de una forma. Una forma clonada o recreada es una forma diferente y recibe su propio ID.
+- [Name](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getname/) es útil para plantillas controladas por desarrolladores y es fácil de inspeccionar en el Panel de selección de PowerPoint. Los nombres pueden editarse y no están garantizados como únicos, así que establece una convención de nombres si el código depende de ellos.
+- [AlternativeText](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getalternativetext/) es útil cuando una descripción de accesibilidad o una etiqueta proporcionada por el autor ya identifica la forma. Es visible para los usuarios, puede localizarse o reescribirse para accesibilidad, y no está garantizado como único. No reutilices silenciosamente texto de accesibilidad significativo como clave de base de datos.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) es un identificador de solo lectura que es único dentro de una diapositiva y corresponde al ID de forma usado por la interoperabilidad de PowerPoint. Úsalo al integrar con PowerPoint o cuando necesites una referencia inequívoca durante la vida útil de una forma. Una forma clonada o recreada es una forma diferente y recibe su propio ID.
 
-El método relacionado [getUniqueId](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getuniqueid/) devuelve un identificador con alcance de presentación, pero ese identificador está pensado para complementos y puede reasignarse. No debe considerarse una clave externa permanente. Si la identidad a largo plazo es esencial, mantenga el mapeo en datos de la aplicación y valide que la forma esperada siga existiendo.
+El método relacionado [getUniqueId](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getuniqueid/) devuelve un identificador con alcance de presentación, pero ese identificador está pensado para complementos y puede reasignarse. No debe tratarse como una clave externa permanente. Si la identidad a largo plazo es esencial, conserva el mapeo en datos de la aplicación y valida que la forma esperada siga existiendo.
 
-El siguiente ejemplo busca por nombre con una comparación exacta y muestra el ID de interoperabilidad con alcance de diapositiva. Cuando la plantilla no contiene la forma esperada, el código informa ese resultado en lugar de continuar con el objeto incorrecto.
+El siguiente ejemplo busca por nombre con una comparación exacta y muestra el ID de interoperabilidad con ámbito de diapositiva. Cuando la plantilla no contiene la forma esperada, el código informa ese resultado en lugar de continuar con el objeto incorrecto.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -71,7 +74,7 @@ try {
 }
 ```
 
-Cuando una operación es específica de un tipo de forma, compruebe la clase en tiempo de ejecución antes de usar miembros específicos del tipo. Este ejemplo actualiza el texto y el texto alternativo solo si el objeto con nombre es un [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/).
+Cuando una operación es específica de un tipo de forma, verifica la clase en tiempo de ejecución antes de usar miembros específicos del tipo. Este ejemplo actualiza el texto y el texto alternativo solo si el objeto con nombre es un [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/).
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -102,15 +105,105 @@ try {
 }
 ```
 
+## **Identificar y modificar ajustes predefinidos de forma**
+
+Las formas de geometría predefinida pueden exponer puntos de ajuste que controlan características como el tamaño de la esquina, proporciones de flechas o ángulos de arco. Accede a ellos mediante la colección de solo lectura [GeometryShape.getAdjustments](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/geometryshape/). La colección en sí es suministrada por la forma, pero cada [AdjustValue](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/adjustvalue/) contiene un valor que puede modificarse.
+
+No te limites a un índice de colección fijo. Itera a través de los ajustes e inspecciona el método de solo lectura [getType](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/adjustvalue/) cuyo valor [ShapeAdjustmentType](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapeadjustmenttype/) describe qué controla el ajuste. El método de solo lectura [getName](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/adjustvalue/getname/) aporta información de identificación adicional y es especialmente útil cuando un preajuste contiene más de un ajuste con el mismo tipo semántico.
+
+Usa el método de valor que coincida con el significado del ajuste:
+
+| Tipo de ajuste | Propósito | Valor a cambiar |
+|---|---|---|
+| `CornerSize` | Tamaño de las esquinas redondeadas | [setRawValue](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Espesor de la cola de una flecha | `setRawValue` |
+| `ArrowheadLength` | Longitud de la punta de flecha | `setRawValue` |
+| `ArrowheadWidth` | Ancho de la punta de flecha | `setRawValue` |
+| `StartAngle` | Ángulo inicial de una porción o arco | [setAngleValue](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Ángulo final de una porción o arco | `setAngleValue` |
+
+`getType` y `getName` devuelven información de solo lectura. `getRawValue` y `setRawValue` trabajan con un entero en las unidades nativas de geometría del preajuste, mientras que `getAngleValue` y `setAngleValue` trabajan con un ángulo en grados. El número, orden, significado y rango válido de ajustes dependen del preajuste [GeometryShape.getShapeType](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/geometryshape/). Un valor válido para un preajuste puede ser inválido o tener un efecto diferente para otro.
+
+Cuando `getType` devuelve `ShapeAdjustmentType.Custom`, la API no reconoce un significado semántico estándar. Inspecciona `getName`, el tipo de preajuste y el valor existente, y deja el ajuste sin cambios a menos que se conozca el significado y rango esperados. Incluso para tipos reconocidos, comprueba si el mismo tipo aparece más de una vez antes de seleccionar un valor. El artículo [Connector](/slides/es/nodejs-java/connector/) muestra esta situación con ajustes de doblez de conectores.
+
+El siguiente ejemplo completo crea versiones predeterminadas y modificadas de tres formas predefinidas. Itera por cada ajuste, informa su nombre y tipo, cambia los valores relacionados con el tamaño mediante `setRawValue`, cambia los ángulos mediante `setAngleValue` y guarda el resultado. La columna izquierda conserva la geometría predeterminada; la columna derecha muestra el rectángulo redondeado, la flecha de cuatro direcciones y la porción ajustadas.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    // Añade cabeceras para las columnas de forma predeterminada y ajustada.
+    var defaultColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    var adjustedColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    var modifiedRoundedRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 80, 180, 160, 110);
+    var modifiedArrow = slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 95, 330, 130, 130);
+    var modifiedPie = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    var shapesToAdjust = [modifiedRoundedRectangle, modifiedArrow, modifiedPie];
+
+    for (var shapeIndex = 0; shapeIndex < shapesToAdjust.length; shapeIndex++) {
+        var shape = shapesToAdjust[shapeIndex];
+        for (var adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            var adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            console.log(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case asposeSlides.ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.Custom:
+                    console.log("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Comprobar el tipo semántico antes de cambiar un valor hace que el código sea explícito sobre su intención y evita asumir que un índice de colección particular tiene el mismo significado en diferentes formas predefinidas.
+
 ## **Modificar la colección de formas**
 
-Los métodos de añadir, clonar, eliminar y reordenar actúan sobre la colección inmediatamente. Si una operación cambia el número o el orden de las formas, no continúe confiando en los índices capturados antes de esa operación.
+Los métodos de añadir, clonar, eliminar y reordenar actúan sobre la colección inmediatamente. Si una operación cambia el número o el orden de las formas, no continúes confiando en índices capturados antes de esa operación.
 
 ### **Clonar una forma**
 
-[addClone](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/addclone/) crea una copia independiente y la añade al final de la colección de destino. [insertClone](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/insertclone/) también crea una copia pero la coloca en un índice de orden z especificado. Las sobrecargas que aceptan coordenadas mueven el clon sin cambiar su tamaño; las sobrecargas con ancho y alto pueden redimensionarlo también.
+[addClone](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/addclone/) crea una copia independiente y la añade al final de la colección de destino. [insertClone](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/insertclone/) también crea una copia pero la coloca en un índice de orden Z especificado. Las sobrecargas que aceptan coordenadas mueven el clon sin cambiar su tamaño; las sobrecargas con ancho y alto pueden redimensionarlo también.
 
-El ejemplo crea una diapositiva de destino, clona un rectángulo con etiqueta al frente y inserta un segundo clon en la parte trasera. Los cambios en cualquiera de los clones no modifican la forma original.
+El ejemplo crea una diapositiva de destino, clona un rectángulo etiquetado al frente e inserta un segundo clon en la parte trasera. Los cambios en cualquiera de los clones no modifican la forma origen.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -148,13 +241,13 @@ try {
 }
 ```
 
-Clonar copia el contenido y el formato de la forma, incluido su nombre y texto alternativo. Asigne nuevos identificadores lógicos al clon cuando esos valores deban ser únicos. Los recursos utilizados por formas complejas son gestionados por la presentación, pero un clon sigue siendo un nuevo elemento de la colección con una nueva identidad de forma.
+Clonar copia el contenido y el formato de la forma, incluido su nombre y texto alternativo. Asigna nuevos identificadores lógicos al clon cuando esos valores deban ser únicos. Los recursos usados por formas complejas son gestionados por la presentación, pero un clon sigue siendo un nuevo elemento de la colección con una nueva identidad de forma.
 
 ### **Eliminar formas**
 
-[remove](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/remove/) elimina un objeto forma específico de su colección. Al eliminar varias coincidencias durante una iteración por índices, recorra la colección desde el final para que cada índice restante siga siendo válido.
+[remove](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/remove/) elimina un objeto forma específico de su colección. Al eliminar varias coincidencias durante una iteración indexada, recorre desde el final para que cada índice restante siga siendo válido.
 
-Este ejemplo elimina todas las formas con un nombre designado. Lee la forma en el índice actual y no asume un tipo de forma concreto.
+Este ejemplo elimina cada forma con un nombre designado. Lee la forma en el índice actual y no asume un tipo de forma específico.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -185,11 +278,11 @@ try {
 }
 ```
 
-Después de la eliminación, el recuento de formas y los índices de las formas posteriores cambian. Las referencias a formas no afectadas siguen siendo más fiables que los índices guardados. También considere conectores, animaciones y otras características de la presentación que puedan referirse al objeto eliminado; eliminar una forma visible puede cambiar más que la apariencia de la diapositiva.
+Después de la eliminación, el recuento de formas y los índices de las formas posteriores cambian. Las referencias a formas no afectadas siguen siendo más fiables que los índices guardados. También considera conectores, animaciones y otras características de la presentación que puedan referirse al objeto eliminado; eliminar una forma visible puede cambiar más que la apariencia de la diapositiva.
 
 ### **Ocultar una forma**
 
-Establecer [Hidden](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/sethidden/) a `true` mantiene la forma en la colección pero impide que aparezca en la presentación normal. Su índice, formato y contenido siguen disponibles para el código, por lo que ocultar es apropiado para elementos opcionales que puedan restaurarse más tarde.
+Establecer [Hidden](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/sethidden/) a `true` mantiene la forma en la colección pero impide que aparezca en la presentación normal. Su índice, formato y contenido siguen disponibles para el código, por lo que ocultar es apropiado para elementos opcionales que pueden restaurarse más adelante.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -217,11 +310,11 @@ try {
 }
 ```
 
-Ocultar no equivale a eliminar ni a aplicar seguridad. El objeto puede seguir siendo descubierto y desocultado por un usuario o por código, y sigue formando parte del archivo de la presentación.
+Ocultar no es eliminación ni seguridad. El objeto aún puede ser descubierto y desocultado por un usuario o por código, y sigue formando parte del archivo de presentación.
 
 ### **Cambiar el orden Z**
 
-Las formas superpuestas se dibujan según el orden de la colección. [reorder](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/reorder/) mueve una forma existente a un índice objetivo sin clonarla. El índice `0` es la parte trasera; `size() - 1` es la parte frontal.
+Las formas superpuestas se pintan según el orden de la colección. [reorder](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/reorder/) mueve una forma existente a un índice objetivo sin clonarla. El índice `0` es la parte trasera; `size() - 1` es la parte delantera.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -248,13 +341,13 @@ try {
 }
 ```
 
-El rectángulo se crea primero y inicialmente queda detrás de la elipse. Moverlo al índice final lo coloca al frente. Finalice el orden Z después de añadir o clonar todas las formas relacionadas, porque esas operaciones añaden o insertan nuevos elementos en la colección y pueden alterar la pila prevista.
+El rectángulo se crea primero y inicialmente queda detrás de la elipse. Moverlo al índice final lo coloca al frente. Finaliza el orden Z después de añadir o clonar todas las formas relacionadas, porque esas operaciones añaden o insertan nuevos elementos en la colección y pueden alterar la pila prevista.
 
 ## **Inspeccionar formas en diapositivas de diseño**
 
-Las diapositivas normales, de diseño y maestras tienen colecciones de formas independientes. Una forma en la colección de diseño no es el mismo objeto que una forma situada de manera similar en una diapositiva normal. Inspeccione las formas de diseño cuando necesite comprender o cambiar el formato suministrado por un diseño.
+Las diapositivas normales, las diapositivas de diseño y las diapositivas maestras tienen colecciones de formas independientes. Una forma en una colección de diseño no es el mismo objeto que una forma posicionada de forma similar en una diapositiva normal. Inspecciona las formas de diseño cuando necesites comprender o cambiar el formato suministrado por un diseño.
 
-El siguiente ejemplo lee el [FillFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getfillformat/) y el [LineFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getlineformat/) de cada forma de diseño sin asumir que todas las formas son un `AutoShape`.
+El siguiente ejemplo lee el [FillFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getfillformat/) y el [LineFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/getlineformat/) de cada forma de diseño sin asumir que toda forma sea un `AutoShape`.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -275,7 +368,7 @@ try {
 }
 ```
 
-Editar un diseño puede afectar a varias diapositivas que lo utilizan. Antes de cambiar una forma de diseño, determine si una diapositiva normal hereda el objeto o contiene una anulación local, y pruebe cada diapositiva que use ese diseño.
+Editar un diseño puede afectar a múltiples diapositivas que lo utilizan. Antes de cambiar una forma de diseño, determina si una diapositiva normal hereda el objeto o contiene una anulación local, y prueba cada diapositiva que use ese diseño.
 
 ## **Exportar una forma a SVG**
 
@@ -310,13 +403,13 @@ try {
 }
 ```
 
-Mantenga la presentación abierta mientras se renderiza. La salida depende del formato de la forma y de recursos como fuentes e imágenes. Si necesita la composición completa, exporte la diapositiva en lugar de una forma individual. El llamador posee el flujo y debe cerrarlo.
+Mantén la presentación abierta mientras se renderiza. La salida depende del formato de la forma y de recursos como fuentes e imágenes. Si necesitas toda la composición, exporta la diapositiva en lugar de una forma individual. El llamador es quien posee el flujo y debe cerrarlo.
 
 ## **Alinear formas**
 
-Las sobrecargas de [SlideUtil.alignShapes](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/slideutil/alignshapes/) alinean todas las formas o los índices de colección seleccionados. [ShapesAlignmentType](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapesalignmenttype/) especifica el borde, la línea central o el modo de distribución. Establezca `alignToSlide` a `true` para usar los bordes de la diapositiva; establézcalo a `false` para alinear las formas seleccionadas entre sí.
+Los sobrecargas de [SlideUtil.alignShapes](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/slideutil/alignshapes/) alinean ya sea todas las formas o los índices de colección seleccionados. [ShapesAlignmentType](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapesalignmenttype/) especifica el borde, la línea central o el modo de distribución. Establece `alignToSlide` a `true` para usar los bordes de la diapositiva; establézcalo a `false` para alinear las formas seleccionadas entre sí.
 
-Este ejemplo alinea tres formas al borde superior de la diapositiva. Las referencias a formas devueltas se convierten a sus índices actuales inmediatamente antes de la alineación.
+Este ejemplo alinea tres formas al borde superior de la diapositiva. Las referencias a formas devueltas se convierten en sus índices actuales inmediatamente antes de la alineación.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -342,17 +435,17 @@ try {
 }
 ```
 
-La alineación cambia posiciones, no el orden Z. La alineación relativa normalmente requiere al menos dos formas, mientras que la distribución horizontal o vertical necesita suficientes formas para definir el espaciado. Recalcule los índices si modifica la colección antes de llamar al método.
+La alineación cambia posiciones, no el orden Z. La alineación relativa normalmente necesita al menos dos formas, mientras que la distribución horizontal o vertical necesita suficientes formas para definir el espaciado. Recalcula los índices si modificas la colección antes de llamar al método.
 
-## **Invertir una forma**
+## **Voltear una forma**
 
-La clase [ShapeFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapeframe/) almacena posición, tamaño, ajustes de inversión horizontal y vertical, y rotación. Sus valores `getFlipH` y `getFlipV` usan [NullableBool](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/nullablebool/): `True` habilita la inversión, `False` la deshabilita y `NotDefined` preserva el estado no especificado/predeterminado.
+La clase [ShapeFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapeframe/) almacena posición, tamaño, ajustes de volteo horizontal y vertical, y rotación. Sus valores `getFlipH` y `getFlipV` usan [NullableBool](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/nullablebool/): `True` habilita el volteo, `False` lo deshabilita, y `NotDefined` conserva el estado no especificado/de fábrica.
 
-La presentación de entrada a continuación contiene una forma sin invertir.
+La presentación de entrada a continuación contiene una forma sin voltear.
 
-![La forma antes de invertir](shape_to_be_flipped.png)
+![La forma antes de voltear](shape_to_be_flipped.png)
 
-El ejemplo conserva todos los demás valores del marco y reemplaza solo los dos ajustes de inversión. Esto es importante porque asignar un nuevo [Frame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/setframe/) sustituye el marco completo.
+El ejemplo conserva todos los demás valores del marco y sustituye solo los dos ajustes de volteo. Esto es importante porque asignar un nuevo [Frame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/setframe/) reemplaza el marco completo.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -375,15 +468,15 @@ try {
 }
 ```
 
-La forma guardada se refleja horizontal y verticalmente manteniendo su posición, tamaño y rotación.
+La forma guardada se refleja horizontal y verticalmente mientras mantiene su posición, tamaño y rotación.
 
-![La forma después de invertir](flipped_shape.png)
+![La forma después de voltear](flipped_shape.png)
 
 ## **Preguntas frecuentes**
 
 **¿Debo usar un índice de colección como identificador de forma?**
 
-Solo para procesamiento de corta duración cuando la colección no cambiará antes de usar el índice. Prefiera una convención validada de `Name` o `AlternativeText` para plantillas creadas, o `OfficeInteropShapeId` para trabajos de interoperabilidad con alcance de diapositiva.
+Solo para procesamiento de corta duración cuando la colección no cambiará antes de que se use el índice. Prefiere una convención validada de `Name` o `AlternativeText` para plantillas autoras, o `OfficeInteropShapeId` para trabajos de interoperabilidad con alcance de diapositiva.
 
 **¿Ocultar una forma la elimina del orden Z?**
 
@@ -391,4 +484,8 @@ No. Una forma oculta permanece en la colección en el mismo índice. Puede encon
 
 **¿Por qué una forma clonada apareció delante de otra forma?**
 
-`addClone` añade el clon al final de la colección, que es la parte frontal del orden Z. Use `insertClone` para elegir el índice inicial o `reorder` después de que se hayan añadido todas las formas.
+`addClone` añade el clon al final de la colección, que es el frente del orden Z. Usa `insertClone` para elegir el índice inicial o `reorder` después de que se hayan añadido todas las formas.
+
+**¿Puedo usar un índice fijo para identificar un ajuste predefinido de forma?**
+
+Solo después de validar el preajuste exacto y la disposición de la colección. Prefiere iterar a través de `GeometryShape.getAdjustments` y comprobar `AdjustValue.getType`; usa `AdjustValue.getName` como información adicional cuando el mismo tipo semántico aparece más de una vez.

@@ -10,380 +10,510 @@ keywords:
 - punto del connettore
 - linea del connettore
 - angolo del connettore
+- sito di connessione
+- punto di regolazione
 - collegare forme
 - PowerPoint
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Consenti alle app .NET di disegnare, collegare e instradare automaticamente le linee nelle diapositive PowerPoint—ottieni il pieno controllo su connettori lineari, a gomito e curvi."
+description: "Scopri come aggiungere, collegare, ricalcolare, regolare e ispezionare connettori PowerPoint lineari, piegati e curvi con Aspose.Slides per .NET."
 ---
-## **Introduzione**
+## **Panoramica**
 
-Un connettore PowerPoint è una linea speciale che collega due forme tra loro e rimane attaccata alle forme anche quando queste vengono spostate o riposizionate su una determinata diapositiva.  
+Un connettore è una linea che può rimanere collegata a due forme quando una delle forme si sposta. Le sue estremità si collegano a siti di connessione, rappresentati da punti verdi in PowerPoint. Alcuni connettori piegati e curvi espongono anche punti di regolazione, rappresentati da punti arancioni, che controllano la posizione dei singoli segmenti del connettore.
 
-I connettori sono tipicamente collegati a *punti di connessione* (punti verdi), che esistono su tutte le forme per impostazione predefinita. I punti di connessione compaiono quando il cursore si avvicina a loro.  
+Aspose.Slides rappresenta i connettori tramite l’interfaccia [IConnector](https://reference.aspose.com/slides/it/net/aspose.slides/iconnector/). È possibile crearli, collegare le loro estremità alle forme, scegliere i siti di connessione, ricalcolare il percorso e modificare la geometria dei connettori che possiedono punti di regolazione.
 
-*Punti di regolazione* (punti arancioni), presenti solo su alcuni connettori, sono utilizzati per modificare la posizione e la forma dei connettori.  
+## **Tipi di connettore**
 
-## **Tipi di connettori**
+L’enumerazione [ShapeType](https://reference.aspose.com/slides/it/net/aspose.slides/shapetype/) include preset di connettori lineari, piegati e curvi. La tabella seguente mostra le geometrie di connettore disponibili e il numero di punti di regolazione definiti da ciascun preset.
 
-In PowerPoint è possibile utilizzare connettori lineari, ad angolo (a gomito) e curvi.  
+| Connettore | Immagine | Numero di punti di regolazione |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides fornisce questi connettori:
+Il numero e il significato dei punti di regolazione fanno parte del preset di connettore selezionato. Non presumere che due tipi diversi di connettore espongano la stessa disposizione della raccolta.
 
-| Connettore                      | Immagine                                                        | Numero di punti di regolazione |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **Collegare due forme**
 
-## **Collega le forme usando i connettori**
+Utilizzare [IShapeCollection.AddConnector](https://reference.aspose.com/slides/it/net/aspose.slides/ishapecollection/addconnector/) per aggiungere un connettore e impostare le proprietà [StartShapeConnectedTo](https://reference.aspose.com/slides/it/net/aspose.slides/connector/startshapeconnectedto/) e [EndShapeConnectedTo](https://reference.aspose.com/slides/it/net/aspose.slides/connector/endshapeconnectedto/). Dopo che entrambe le estremità sono collegate, [IConnector.Reroute](https://reference.aspose.com/slides/it/net/aspose.slides/iconnector/reroute/) seleziona un percorso breve tra le forme.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
-1. Ottieni un riferimento alla diapositiva tramite il suo indice.
-1. Aggiungi due [AutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/autoshape/) alla diapositiva utilizzando il metodo `AddAutoShape` esposto dall'oggetto `Shapes`.
-1. Aggiungi un connettore usando il metodo `AddConnector` esposto dall'oggetto `Shapes` specificando il tipo di connettore.
-1. Collega le forme usando il connettore.
-1. Chiama il metodo `Reroute` per applicare il percorso di connessione più breve.
-1. Salva la presentazione.  
+L’esempio seguente collega un’ellisse e un rettangolo con un connettore piegato:
 
-Questo codice C# mostra come aggiungere un connettore (un connettore a gomito) tra due forme (un'ellisse e un rettangolo):
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
- // Istanzia una classe Presentation che rappresenta un file PPTX
- using (Presentation input = new Presentation())
- {                
-     // Accede alla raccolta di forme per una diapositiva specifica
-     IShapeCollection shapes = input.Slides[0].Shapes;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-     // Aggiunge una forma automatica Ellipse
-     IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-     // Aggiunge una forma automatica Rectangle
-     IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-     // Aggiunge una forma connettore alla raccolta di forme della diapositiva
-     IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-     // Collega le forme utilizzando il connettore
-     connector.StartShapeConnectedTo = ellipse;
-     connector.EndShapeConnectedTo = rectangle;
-
-     // Chiama Reroute che imposta il percorso automatico più breve tra le forme
-     connector.Reroute();
-
-     // Salva la presentazione
-     input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
- }
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Il metodo `Connector.Reroute` riorganizza un connettore e lo costringe a seguire il percorso più breve possibile tra le forme. Per raggiungere questo scopo, il metodo può modificare i punti `StartShapeConnectionSiteIndex` e `EndShapeConnectionSiteIndex`. 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
 
-## **Specificare un punto di connessione**
+Chiamare `Reroute` può modificare i valori di [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/it/net/aspose.slides/connector/startshapeconnectionsiteindex/) e [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/it/net/aspose.slides/connector/endshapeconnectionsiteindex/). Assegnare siti di connessione specifici dopo il ricalcolo se tali siti devono rimanere fissi.
 
-Se desideri che un connettore colleghi due forme utilizzando punti specifici sulle forme, devi specificare i punti di connessione preferiti in questo modo:
+{{% /alert %}}
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
-1. Ottieni un riferimento alla diapositiva tramite il suo indice.
-1. Aggiungi due [AutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/autoshape/) alla diapositiva utilizzando il metodo `AddAutoShape` esposto dall'oggetto `Shapes`.
-1. Aggiungi un connettore usando il metodo `AddConnector` esposto dall'oggetto `Shapes` specificando il tipo di connettore.
-1. Collega le forme usando il connettore.
-1. Imposta i punti di connessione preferiti sulle forme.
-1. Salva la presentazione.  
+## **Scegliere un sito di connessione**
 
-Questo codice C# dimostra un'operazione in cui viene specificato un punto di connessione preferito:
+Ogni forma collegabile restituisce il proprio numero di siti tramite [ConnectionSiteCount](https://reference.aspose.com/slides/it/net/aspose.slides/shape/connectionsitecount/). Convalidare un indice di sito zero‑based desiderato prima di assegnarlo a un’estremità del connettore; il conteggio dei siti varia a seconda della geometria della forma.
 
-```c#
- // Istanzia una classe Presentation che rappresenta un file PPTX
- using (Presentation presentation = new Presentation())
- {
-     // Accede alla raccolta di forme per una diapositiva specifica
-     IShapeCollection shapes = presentation.Slides[0].Shapes;
+Questo esempio collega il connettore a un sito specifico sull’ellisse quando tale sito esiste:
 
-     // Aggiunge una forma connettore alla raccolta di forme della diapositiva
-     IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-     // Aggiunge una forma automatica Ellipse
-     IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-     // Aggiunge una forma automatica Rectangle
-     IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-     // Collega le forme usando il connettore
-     connector.StartShapeConnectedTo = ellipse;
-     connector.EndShapeConnectedTo = rectangle;
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
 
-     // Imposta l'indice del punto di connessione preferito sulla forma Ellipse
-     uint wantedIndex = 6;
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
+{
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
+}
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
 
-     // Verifica se l'indice preferito è minore del conteggio massimo degli indici di sito
-     if (ellipse.ConnectionSiteCount > wantedIndex)
-     {
-         // Imposta il punto di connessione preferito sulla forma automatica Ellipse
-         connector.StartShapeConnectionSiteIndex = wantedIndex;
-     }
-
-     // Salva la presentazione
-     presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
- }
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
 ## **Regolare un punto del connettore**
 
-Puoi regolare un connettore esistente attraverso i suoi punti di regolazione. Solo i connettori con punti di regolazione possono essere modificati in questo modo. Vedi la tabella sotto **[Tipi di connettori.](/slides/it/net/connector/#types-of-connectors)** 
+I connettori con punti di regolazione li espongono tramite [IGeometryShape.Adjustments](https://reference.aspose.com/slides/it/net/aspose.slides/igeometryshape/adjustments/). Esaminare ogni [IAdjustValue](https://reference.aspose.com/slides/it/net/aspose.slides/iadjustvalue/) e controllare il suo [Type](https://reference.aspose.com/slides/it/net/aspose.slides/adjustvalue/type/) prima di modificare il suo [RawValue](https://reference.aspose.com/slides/it/net/aspose.slides/adjustvalue/rawvalue/). Le regole generali per identificare le regolazioni di forme preset sono descritte in [Shape Manipulation](/slides/it/net/shape-manipulations/).
 
-### **Caso semplice**
+Il numero, l’ordine, il significato e l’intervallo di valori validi delle regolazioni del connettore dipendono dal preset del connettore. La proprietà `Type` è sola lettura, mentre il valore di regolazione è scrivibile. La proprietà [Name](https://reference.aspose.com/slides/it/net/aspose.slides/adjustvalue/name/) (sola lettura) fornisce un’identificazione aggiuntiva quando un connettore contiene più di una regolazione dello stesso tipo semantico.
 
-Considera un caso in cui un connettore tra due forme (A e B) passa attraverso una terza forma (C):
+### **Percorso attorno a un ostacolo**
+
+Nel layout seguente, un connettore `BentConnector5` tra due forme attraversa una terza forma:
 
 ![connector-obstruction](connector-obstruction.png)
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+Questo codice crea il connettore ostacolato:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-Per evitare o aggirare la terza forma, possiamo regolare il connettore spostando la sua linea verticale verso sinistra in questo modo:
+Spostare la piega verticale modifica il percorso in modo che il connettore aggiri l’ostacolo:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+Invece di presumere che l’indice di raccolta `1` rappresenti sempre la piega verticale, questo esempio ricerca `ConnectorBendPositionY` e lo modifica solo quando è presente il tipo semantico previsto:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Casi complessi** 
+Un `BentConnector5` ha due regolazioni `ConnectorBendPositionX` e una regolazione `ConnectorBendPositionY`. Se il tipo necessario compare più volte, ispezionare `Name` e la geometria nota di quel preset prima di sceglierne uno. Se una regolazione restituisce `ShapeAdjustmentType.Custom`, trattare il suo significato e intervallo come specifici del preset e non modificarla finché il relativo contratto non è noto.
 
-Per eseguire regolazioni più complesse, devi tenere conto di questi aspetti:
+## **Collegare i valori di regolazione alla geometria del connettore**
 
-* Un punto regolabile di un connettore è fortemente legato a una formula che calcola e determina la sua posizione. Pertanto, le modifiche alla posizione del punto possono alterare la forma del connettore.  
-* I punti di regolazione di un connettore sono definiti in un ordine rigoroso in un array. I punti di regolazione sono numerati dal punto di inizio del connettore a quello di fine.  
-* I valori dei punti di regolazione riflettono la percentuale della larghezza/altezza della forma del connettore.  
-  * La forma è delimitata dai punti di inizio e fine del connettore moltiplicati per 1000.  
-  * Il primo punto, il secondo punto e il terzo punto definiscono rispettivamente la percentuale della larghezza, la percentuale dell'altezza e nuovamente la percentuale della larghezza.  
-* Per i calcoli che determinano le coordinate dei punti di regolazione di un connettore, devi considerare la rotazione del connettore e la sua riflessione. **Nota** che l'angolo di rotazione per tutti i connettori mostrati sotto **[Tipi di connettori](/slides/it/net/connector/#types-of-connectors)** è 0.  
+Per i connettori piegati, i valori di regolazione possono essere usati per stimare le posizioni dei singoli segmenti. Questi calcoli sono specifici del preset del connettore:
 
-#### **Caso 1**
+- `BentConnector4` normalmente espone una regolazione `ConnectorBendPositionX` e una `ConnectorBendPositionY`.
+- Per queste posizioni di piega, `RawValue / 100000f` produce la frazione della larghezza o altezza del frame del connettore usata negli esempi seguenti.
+- Un frame del connettore può essere ruotato o capovolto, quindi le coordinate del frame devono essere trasformate prima di confrontarle con le coordinate della diapositiva.
 
-Considera un caso in cui due oggetti di casella di testo sono collegati tra loro tramite un connettore:
+Gli esempi seguenti usano `Type` per identificare prima le regolazioni. Non trattano gli indici di raccolta come identificatori portabili.
+
+### **Connettore non ruotato**
+
+Il layout iniziale contiene due forme di testo collegate da un `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-```c#
-// Istanzia una classe Presentation che rappresenta un file PPTX
-Presentation pres = new Presentation();
-// Ottiene la prima diapositiva nella presentazione
-ISlide sld = pres.Slides[0];
-// Aggiunge forme che saranno unite tramite un connettore
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// Aggiunge un connettore
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Specifica la direzione del connettore
+Questo esempio ispeziona il connettore e ottiene le sue regolazioni di piega orizzontale e verticale:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Specifica il colore del connettore
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Specifica lo spessore della linea del connettore
 connector.LineFormat.Width = 3;
-
-// Collega le forme insieme con il connettore
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Ottiene i punti di regolazione per il connettore
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**Regolazione**
+Per modificare entrambe le pieghe, individuare ogni tipo previsto e modificare i valori solo dopo aver trovato entrambi:
 
-Possiamo modificare i valori dei punti di regolazione del connettore aumentando rispettivamente la percentuale di larghezza e di altezza del 20% e del 200%:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Modifica i valori dei punti di regolazione
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-Il risultato:
+Il risultato è un connettore i cui segmenti orizzontale e verticale si sono spostati:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Per definire un modello che ci permetta di determinare le coordinate e la forma delle singole parti del connettore, creiamo una forma che corrisponda alla componente orizzontale del connettore al punto `connector.Adjustments[0]`:
+Una volta conosciuti i tipi semantici, i loro valori possono essere convertiti in coordinate del frame del connettore. Questo esempio disegna un rettangolo sottile sul segmento verticale controllato dalle due regolazioni di piega:
 
-```c#
-// Disegna la componente verticale del connettore
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Il risultato:
+La forma guida segna il segmento calcolato:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Caso 2**
+### **Connettore ruotato o capovolto**
 
-Nel **Caso 1**, abbiamo dimostrato un'operazione di regolazione semplice del connettore usando principi di base. In situazioni normali, devi considerare la rotazione del connettore e la sua visualizzazione (impostate da `connector.Rotation`, `connector.Frame.FlipH` e `connector.Frame.FlipV`). Ora dimostreremo il processo.
+Quando la stessa geometria del connettore è orientata verticalmente, i valori di [Frame](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/it/net/aspose.slides/shapeframe/fliph/) e [FlipV](https://reference.aspose.com/slides/it/net/aspose.slides/shapeframe/flipv/) influenzano la conversione dalle coordinate del frame del connettore a quelle della diapositiva.
 
-Innanzitutto, aggiungiamo un nuovo oggetto di casella di testo (**To 1**) alla diapositiva (per scopi di connessione) e creiamo un nuovo connettore (verde) che lo collega agli oggetti già creati.
+Questo esempio crea e regola il connettore orientato verticalmente:
 
-```c#
-// Crea un nuovo oggetto di binding
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// Crea un nuovo connettore
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Collega gli oggetti usando il connettore appena creato
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// Ottiene i punti di regolazione del connettore
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Modifica i valori dei punti di regolazione
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-Il risultato:
+Il connettore regolato appare verticalmente tra le forme:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Secondo, creiamo una forma che corrisponda alla componente orizzontale del connettore che passa attraverso il nuovo punto di regolazione del connettore `connector.Adjustments[0]`. Useremo i valori dei dati del connettore per `connector.Rotation`, `connector.Frame.FlipH` e `connector.Frame.FlipV` e applicheremo la nota formula di conversione delle coordinate per la rotazione attorno a un punto dato x0:
+Per un angolo di rotazione arbitrario `alpha`, ruotare un punto del frame del connettore `(x, y)` attorno al centro del frame `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Nella nostra situazione, l'angolo di rotazione dell'oggetto è 90 gradi e il connettore è visualizzato verticalmente, quindi questo è il codice corrispondente:
+Il codice seguente gestisce l’orientamento a 90 gradi usato in questo esempio e disegna una guida rossa sul segmento corrispondente del connettore:
 
-```c#
- // Salva le coordinate del connettore
- x = connector.X;
- y = connector.Y;
- // Corregge le coordinate del connettore nel caso appaia
- if (connector.Frame.FlipH == NullableBool.True)
- {
-     x += connector.Width;
- }
- if (connector.Frame.FlipV == NullableBool.True)
- {
-     y += connector.Height;
- }
- // Utilizza il valore del punto di regolazione come coordinata
- x += connector.Width * adjValue_0.RawValue / 100000;
- // Converte le coordinate poiché Sin(90) = 1 e Cos(90) = 0
- float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
- float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
- // Determina la larghezza della componente orizzontale usando il valore del secondo punto di regolazione
- float width = connector.Height * adjValue_1.RawValue / 100000;
- IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
- shape.LineFormat.FillFormat.FillType = FillType.Solid;
- shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Il risultato:
+La guida rossa segna il segmento calcolato dopo la trasformazione delle coordinate:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Abbiamo dimostrato calcoli che coinvolgono regolazioni semplici e punti di regolazione complessi (punti di regolazione con angoli di rotazione). Utilizzando le conoscenze acquisite, puoi sviluppare il tuo modello (o scrivere del codice) per ottenere un oggetto `GraphicsPath` o persino impostare i valori dei punti di regolazione di un connettore basati su coordinate specifiche della diapositiva.
+Queste formule descrivono i preset usati negli esempi, non un modello di connettore universale. Convalidare i tipi di regolazione, l’orientamento del frame e gli intervalli di valore prima di applicare lo stesso calcolo a un preset diverso.
 
-## **Trovare l'angolo delle linee del connettore**
+## **Trovare l’angolo di direzione di un connettore**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
-1. Ottieni un riferimento alla diapositiva tramite il suo indice.
-1. Accedi alla forma della linea del connettore.
-1. Utilizza la larghezza, l'altezza della linea, l'altezza del frame della forma e la larghezza del frame della forma per calcolare l'angolo.
+La direzione di un connettore lineare può essere calcolata dalla sua larghezza e altezza, tenendo conto dei ribaltamenti orizzontali e verticali. L’esempio seguente restituisce l’angolo in senso orario rispetto all’asse orizzontale positivo nelle coordinate della diapositiva:
 
-Questo codice C# dimostra un'operazione in cui abbiamo calcolato l'angolo per una forma di linea del connettore:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-public static void Run()
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
 ## **FAQ**
 
-**Come posso capire se un connettore può essere "incollato" a una forma specifica?**
+**Come posso capire se un connettore può essere collegato a una forma?**
 
-Verifica che la forma esponga i [connection sites](https://reference.aspose.com/slides/it/net/aspose.slides/shape/connectionsitecount/). Se non ce ne sono o il conteggio è zero, l'incollaggio non è disponibile; in tal caso, utilizza estremità libere e posizionale manualmente. È consigliabile controllare il conteggio dei siti prima di collegare.
+Controllare la proprietà `ConnectionSiteCount` della forma. Un valore positivo indica che la forma espone siti di connessione. Convalidare l’indice del sito selezionato prima di assegnarlo a una delle estremità del connettore.
 
-**Cosa succede a un connettore se elimino una delle forme collegate?**
+**Posso identificare una regolazione del connettore tramite il suo indice di raccolta?**
 
-Le sue estremità verranno scollegate; il connettore rimane nella diapositiva come una linea ordinaria con estremità libere. Puoi eliminarlo o riassegnare le connessioni e, se necessario, [reroute](https://reference.aspose.com/slides/it/net/aspose.slides/connector/reroute/).
+Un indice è significativo solo per un preset di connettore noto e la relativa disposizione della raccolta. Verificare `IAdjustValue.Type` prima di modificare un valore e usare `IAdjustValue.Name` come informazione aggiuntiva quando lo stesso tipo semantico compare più volte.
 
-**I collegamenti dei connettori vengono conservati quando si copia una diapositiva in un'altra presentazione?**
+**Cosa accade quando una forma collegata viene eliminata?**
 
-In generale sì, a condizione che anche le forme di destinazione vengano copiate. Se la diapositiva viene inserita in un altro file senza le forme collegate, le estremità diventano libere e sarà necessario ricollegarle.
+L’estremità corrispondente del connettore diventa scollegata. Il connettore rimane sulla diapositiva e può essere eliminato, posizionato come linea libera o collegato a un’altra forma.
+
+**I collegamenti dei connettori vengono mantenuti quando una diapositiva è copiata?**
+
+In genere i collegamenti sono mantenuti quando le forme collegate vengono copiate insieme alla diapositiva. Se un connettore viene copiato senza una delle forme target, l’estremità interessata deve essere ricollegata.

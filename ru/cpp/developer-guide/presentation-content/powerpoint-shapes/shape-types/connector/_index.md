@@ -10,410 +10,668 @@ keywords:
 - точка коннектора
 - линия коннектора
 - угол коннектора
-- соединение фигур
+- точка соединения
+- точка регулировки
+- соединить фигуры
 - PowerPoint
 - презентация
 - C++
 - Aspose.Slides
-description: "Дайте возможность приложениям C++ рисовать, соединять и автоматически прокладывать линии в слайдах PowerPoint — получайте полный контроль над прямыми, угловыми и кривыми коннекторами."
+description: "Узнайте, как добавлять, прикреплять, перенаправлять, регулировать и просматривать прямые, изгибные и изогнутые коннекторы PowerPoint с помощью Aspose.Slides для C++."
 ---
+## **Обзор**
 
-Коннектор PowerPoint — это специальная линия, которая соединяет два объекта и остаётся привязанной к объектам даже при их перемещении или изменении позиции на слайде. 
+Коннектор — это линия, которая может оставаться привязанной к двум фигурам, когда одна из фигур перемещается. Его концы присоединяются к точкам соединения, отображаемым в PowerPoint зелёными точками. Некоторые изогнутые и изгибающиеся коннекторы также предоставляют точки регулировки, отображаемые оранжевыми точками, которые управляют положением отдельных сегментов коннектора.
 
-Коннекторы обычно соединяются с *точками соединения* (зелёные точки), которые присутствуют на всех объектах по умолчанию. Точки соединения появляются, когда курсор подходит к ним.
-
-*Точки регулировки* (оранжевые точки), которые существуют только у некоторых коннекторов, используются для изменения положения и формы коннекторов.
+Aspose.Slides представляет коннекторы через интерфейс [IConnector](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iconnector/). Вы можете создавать их, присоединять их концы к фигурам, выбирать точки соединения, перенаправлять их и изменять геометрию коннекторов, имеющих точки регулировки.
 
 ## **Типы коннекторов**
 
-В PowerPoint вы можете использовать прямые, сгибные (угловые) и кривые коннекторы. 
+Перечисление [ShapeType](https://reference.aspose.com/slides/ru/cpp/aspose.slides/shapetype/) включает предустановки прямых, изгибных и изогнутых коннекторов. В следующей таблице показаны доступные геометрии коннекторов и количество точек регулировки, определённых для каждой предустановки.
 
-Aspose.Slides предоставляет следующие коннекторы:
+| Коннектор | Изображение | Количество точек регулировки |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Коннектор                      | Image                                                        | Количество точек регулировки |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+Количество и значение точек регулировки являются частью выбранной предустановки коннектора. Не делайте предположения, что два разных типа коннекторов предоставляют одинаковую структуру коллекции.
 
-## **Соединение фигур с помощью коннекторов**
+## **Подключение двух фигур**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/).
-1. Получите ссылку на слайд по его индексу.
-1. Добавьте два [AutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape) на слайд, используя метод `AddAutoShape` объекта `Shapes`.
-1. Добавьте коннектор методом `AddConnector` объекта `Shapes`, указав тип коннектора.
-1. Соедините фигуры с помощью коннектора. 
-1. Вызовите метод `Reroute`, чтобы применить кратчайший путь соединения.
-1. Сохраните презентацию. 
+Используйте [IShapeCollection::AddConnector](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapecollection/addconnector/) для добавления коннектора и вызовите [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) и [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) для присоединения его концов. После присоединения обоих концов [IConnector::Reroute](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iconnector/reroute/) выбирает короткий маршрут между фигурами.
 
-Этот C++‑код показывает, как добавить коннектор (сгибной) между двумя фигурами (эллипсом и прямоугольником):
-```c++
-// Путь к каталогу документов.
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+Следующий пример соединяет эллипс и прямоугольник изгибающим коннектором:
 
-	// Загружает требуемую презентацию
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-	// Получает первый слайд
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// Получает коллекцию фигур для конкретного слайда
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// Добавляет автоконтур «Эллипс»
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// Добавляет автоконтур «Прямоугольник»
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// Добавляет фигуру‑коннектор в коллекцию фигур слайда
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// Соединяет фигуры при помощи коннектора
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// Вызывает Reroute, устанавливающий автоматический кратчайший путь между фигурами
-	connector->Reroute();
-	
-	// Сохраняет презентацию
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
+{{% alert color="warning" title="Warning" %}}
+Вызов `IConnector::Reroute` может изменить значения [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) и [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/). Присвойте конкретные точки соединения после перенаправления, если эти точки должны оставаться фиксированными.
+{{% /alert %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Выбор точки соединения**
 
-Метод `connector->Reroute` перестраивает коннектор и заставляет его принять самый короткий возможный путь между фигурами. Чтобы достичь цели, метод может изменить точки `StartShapeConnectionSiteIndex` и `EndShapeConnectionSiteIndex`. 
+Каждая соединяемая фигура сообщает количество своих точек через [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/get_connectionsitecount/). Проверьте предпочтительный нулевой индекс точки перед тем, как присвоить его концу коннектора; количество точек зависит от геометрии фигуры.
 
-{{% /alert %}} 
+Этот пример присоединяет коннектор к конкретной точке на эллипсе, если такая точка существует:
 
-## **Указание точки соединения**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-Если нужно, чтобы коннектор связывал две фигуры через конкретные точки на фигурах, укажите предпочитаемые точки соединения следующим образом:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/).
-1. Получите ссылку на слайд по его индексу.
-1. Добавьте два  [AutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape) на слайд, используя метод `AddAutoShape` объекта `Shapes`.
-1. Добавьте коннектор методом `AddConnector` объекта `Shapes`, указав тип коннектора.
-1. Соедините фигуры с помощью коннектора. 
-1. Установите предпочтительные точки соединения на фигурах. 
-1. Сохраните презентацию.
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-Этот C++‑код демонстрирует операцию, в которой указывается предпочтительная точка соединения:
-```c++
-	// Путь к каталогу документов.
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// Загружает нужную презентацию
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// Получает первый слайд
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// Получает коллекцию фигур для конкретного слайда
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Добавляет автоконтур Эллипс
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// Добавляет автоконтур Прямоугольник
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// Добавляет форму‑коннектор в коллекцию фигур слайда
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// Соединяет фигуры с помощью коннектора
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// Устанавливает предпочтительный индекс точки соединения для фигуры Эллипс
-	int wantedIndex = 6;
-
-	// Проверяет, меньше ли предпочтительный индекс максимального количества точек соединения
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// Устанавливает предпочтительную точку соединения для автоконтурa Эллипс
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// Сохраняет презентацию
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **Регулировка точки коннектора**
 
-Вы можете изменять существующий коннектор через его точки регулировки. Только коннекторы с точками регулировки могут быть изменены таким способом. Смотрите таблицу в разделе **[Типы коннекторов](/slides/ru/cpp/connector/#types-of-connectors)** 
+Коннекторы с точками регулировки предоставляют их через [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/ru/cpp/aspose.slides/igeometryshape/get_adjustments/). Изучите каждый [IAdjustValue](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iadjustvalue/) и проверьте его [IAdjustValue::get_Type](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iadjustvalue/get_type/) перед изменением его [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iadjustvalue/set_rawvalue/). Общие правила идентификации предустановленных регулировок фигур описаны в разделе [Shape Manipulation](/slides/ru/cpp/shape-manipulations/).
 
-### **Простой пример**
+Количество, порядок, значение и допустимый диапазон значений точек регулировки коннектора зависят от предустановки коннектора. Тип, возвращаемый `IAdjustValue::get_Type`, только для чтения, в то время как «сырой» параметр регулировки можно изменять. Метод только для чтения [IAdjustValue::get_Name](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iadjustvalue/get_name/) предоставляет дополнительную идентификацию, когда коннектор содержит более одной регулировки одного и того же семантического типа.
 
-Рассмотрим случай, когда коннектор между двумя фигурами (A и B) проходит через третью фигуру (C):
+### **Обход препятствия**
+
+На следующей схеме коннектор `ShapeType::BentConnector5` между двумя фигурами проходит через третью фигуру:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Код:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
+Этот код создаёт препятствующий коннектор:
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-
-Чтобы обойти третью фигуру, можно сместить вертикальную линию коннектора влево:
+Перемещение вертикального изгиба меняет маршрут так, что коннектор объезжает препятствие:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+
+Вместо предположения, что индекс коллекции `1` всегда представляет вертикальный изгиб, пример ищет `ShapeAdjustmentType::ConnectorBendPositionY` и меняет его только когда ожидаемый семантический тип присутствует:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
+`ShapeType::BentConnector5` имеет две регулировки `ShapeAdjustmentType::ConnectorBendPositionX` и одну `ShapeAdjustmentType::ConnectorBendPositionY`. Если нужный вам тип встречается более одного раза, изучите `IAdjustValue::get_Name` и известную геометрию предустановки перед выбором. Если регулировка возвращает `ShapeAdjustmentType::Custom`, рассматривайте её значение и диапазон как специфичные для предустановки и не меняйте её, пока не будет известен соответствующий контракт.
 
-### **Сложные случаи** 
+## **Связь значений регулировок с геометрией коннектора**
 
-При более сложных регулировках необходимо учитывать следующее:
+Для изгибных коннекторов значения регулировок могут использоваться для оценки позиций отдельных сегментов. Эти вычисления специфичны для предустановки коннектора:
 
-* Точка регулировки коннектора тесно связана с формулой, вычисляющей её положение. Поэтому изменение позиции точки может изменить форму коннектора.
-* Точки регулировки находятся в строгом порядке в массиве. Они пронумерованы от начальной точки коннектора до конечной.
-* Значения точек отражают процент от ширины/высоты фигуры коннектора. 
-  * Фигура ограничена начальной и конечной точками коннектора, умноженными на 1000. 
-  * Первая, вторая и третья точки определяют процент от ширины, процент от высоты и снова процент от ширины соответственно.
-* При вычислении координат точек регулировки необходимо учитывать вращение коннектора и его отражение. **Примечание**: угол вращения для всех коннекторов, показанных в разделе **[Типы коннекторов](/slides/ru/cpp/connector/#types-of-connectors)**, равен 0.
+- `ShapeType::BentConnector4` обычно предоставляет одну регулировку `ShapeAdjustmentType::ConnectorBendPositionX` и одну `ShapeAdjustmentType::ConnectorBendPositionY`.
+- Для этих позиций изгиба `RawValue / 100000.0f` даёт долю ширины или высоты рамки коннектора, используемую в примерах ниже.
+- Рамка коннектора может быть повернута или отзеркалена, поэтому координаты рамки необходимо преобразовать перед сравнением со слайдовыми координатами.
 
-#### **Случай 1**
+Следующие примеры используют `IAdjustValue::get_Type` для идентификации регулировок сначала. Они не рассматривают индексы коллекции как переносимые идентификаторы.
 
-Рассмотрим случай, когда два текстовых фрейма соединены коннектором:
+### **Неповернутый коннектор**
+
+Начальная схема содержит две текстовые фигуры, соединённые `ShapeType::BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Код:
-```c++
-// Создаёт объект класса презентации, представляющий файл PPTX
-auto pres = System::MakeObject<Presentation>();
-// Получает первый слайд презентации
-auto slide = pres->get_Slides()->idx_get(0);
-// Получает фигуры с первого слайда
-auto shapes = slide->get_Shapes();
-// Добавляет фигуры, которые будут соединены коннектором
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// Добавляет коннектор
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// Указывает направление коннектора
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// Задает толщину линии коннектора
-lineFormat->set_Width(3);
-// Указывает цвет коннектора
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
+Этот пример изучает коннектор и получает его горизонтальные и вертикальные регулировки изгиба:
 
-// Связывает фигуры с помощью коннектора
-connector->set_StartShapeConnectedTo(shapeFrom);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// Получает точки регулировки коннектора
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
+Чтобы изменить оба изгиба, найдите каждый ожидаемый тип и измените значения только после того, как оба будут найдены:
 
-**Регулировка**
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-Мы можем изменить значения точек регулировки коннектора, увеличив соответствующие проценты ширины и высоты на 20 % и 200 % соответственно:
-```c++
-// Изменяет значения точек регулировки
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-Результат:
+В результате получаем коннектор, у которого горизонтальные и вертикальные сегменты сместились:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Чтобы задать модель, позволяющую определить координаты и форму отдельных частей коннектора, создадим фигуру, соответствующую горизонтальному компоненту коннектора в точке `connector.Adjustments[0]`:
-```c++
-// Нарисовать вертикальный компонент коннектора
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+После того как семантические типы известны, их значения можно преобразовать в координаты рамки коннектора. Этот пример рисует тонкий прямоугольник над вертикальным сегментом, управляемым двумя регулировками изгиба:
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
-
-
-Результат:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Случай 2**
+### **Повернутый или отзеркаленный коннектор**
 
-В **Случае 1** мы продемонстрировали простую операцию регулировки коннектора на основе базовых принципов. В обычных ситуациях необходимо учитывать вращение коннектора и его отображение (которые задаются свойствами `connector.Rotation`, `connector.Frame.FlipH` и `connector.Frame.FlipV`). Сейчас покажем процесс.
+Когда та же геометрия коннектора ориентирована вертикально, её значения [IShape::get_Frame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/get_frame/), [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapeframe/get_fliph/) и [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapeframe/get_flipv/) влияют на преобразование координат из рамки коннектора в координаты слайда.
 
-Сначала добавим новый текстовый фрейм (**To 1**) на слайд (для соединения) и создадим новый (зелёный) коннектор, соединяющий его с уже созданными объектами.
-```c++
-// Создаёт новый объект привязки
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// Создаёт новый коннектор
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+Этот пример создаёт и регулирует вертикально ориентированный коннектор:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// Соединяет объекты с помощью только что созданного коннектора
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// Получает точки регулировки коннектора
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// Изменяет значения точек регулировки
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-
-Результат:
+Отрегулированный коннектор отображается вертикально между фигурами:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Затем создадим фигуру, соответствующую горизонтальному компоненту коннектора, проходящего через новую точку регулировки `connector.Adjustments[0]`. Используем значения из данных коннектора `connector.Rotation`, `connector.Frame.FlipH` и `connector.Frame.FlipV` и применим известную формулу преобразования координат при вращении вокруг точки x₀:
+Для произвольного угла поворота `alpha` вращайте точку рамки коннектора `(x, y)` вокруг центра рамки `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-В нашем случае угол вращения объекта составляет 90 градусов, а коннектор отображается вертикально, поэтому соответствующий код выглядит так:
-```c++
+Следующий код обрабатывает ориентацию в 90 градусов, используемую в этом примере, и рисует красную направляющую над соответствующим сегментом коннектора:
 
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-Результат:
+Красная направляющая отмечает вычисленный сегмент после преобразования координат:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Мы продемонстрировали расчёты, связанные с простыми и сложными точками регулировки (точки с углами вращения). Полученные знания позволяют создать собственную модель (или написать код) для получения объекта `GraphicsPath` или даже установки значений точек регулировки коннектора на основе конкретных координат слайда.
+Эти формулы описывают предустановки, использованные в примерах, а не универсальную модель коннектора. Проверьте типы регулировок, ориентацию рамки и диапазоны значений перед применением тех же вычислений к другой предустановке.
 
-## **Определение угла линии коннектора**
+## **Нахождение угла направления коннектора**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/).
-1. Получите ссылку на слайд по его индексу.
-1. Доступ к фигуре линии коннектора.
-1. Используйте ширину, высоту, высоту и ширину рамки фигуры для вычисления угла.
+Направление прямого коннектора можно вычислить из его ширины и высоты, учитывая горизонтальные и вертикальные отражения. Следующий пример выводит угол по часовой стрелке от положительной горизонтальной оси в координатах слайда:
 
-Этот C++‑код демонстрирует операцию, в которой вычисляется угол линии коннектора:
-```c++
-void ConnectorLineAngle()
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// Путь к каталогу документов.
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Загружает требуемую презентацию
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// Получает первый слайд
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// Получает коллекцию фигур со слайдов
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-				//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-				//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//	float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
-
 
 ## **FAQ**
 
-**Как определить, можно ли «приклеить» коннектор к конкретной фигуре?**
+**Как определить, может ли коннектор присоединиться к фигуре?**
 
-Проверьте, предоставляет ли фигура [connection sites](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_connectionsitecount/). Если их нет или количество равно нулю, прикрепление недоступно; в этом случае используйте свободные концы и позиционируйте их вручную. Рекомендуется проверять количество сайтов перед привязкой.
+Проверьте значение `IShape::get_ConnectionSiteCount` фигуры. Положительное число означает, что фигура имеет точки соединения. Проверьте выбранный индекс точки перед тем, как присвоить его концу коннектора.
 
-**Что происходит с коннектором, если я удаляю одну из связанных фигур?**
+**Можно ли идентифицировать регулировку коннектора по индексу коллекции?**
 
-Его концы будут отсоединены; коннектор останется на слайде как обычная линия со свободным началом/концом. Вы можете удалить его или переназначить соединения и, при необходимости, [reroute](https://reference.aspose.com/slides/cpp/aspose.slides/connector/reroute/).
+Индекс имеет смысл только для известной предустановки коннектора и известного расположения коллекции. Сначала проверьте `IAdjustValue::get_Type` перед изменением значения и используйте `IAdjustValue::get_Name` как дополнительную информацию, когда один и тот же семантический тип встречается более одного раза.
 
-**Сохраняются ли привязки коннектора при копировании слайда в другую презентацию?**
+**Что происходит, когда соединённая фигура удаляется?**
 
-Как правило, да, при условии, что связанные фигуры также копируются. Если слайд вставляется в другой файл без связанных фигур, концы становятся свободными, и их потребуется заново привязать.
+Соответствующий конец коннектора открепляется. Коннектор остаётся на слайде и может быть удалён, оставлен как свободная линия или присоединён к другой фигуре.
+
+**Сохраняются ли связи коннекторов при копировании слайда?**
+
+Связи обычно сохраняются, когда копируются соединённые фигуры вместе со слайдом. Если коннектор копируется без одной из целевых фигур, соответствующий конец необходимо снова присоединить.

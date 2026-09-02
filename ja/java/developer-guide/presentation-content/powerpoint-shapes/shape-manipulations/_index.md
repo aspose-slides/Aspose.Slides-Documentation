@@ -1,48 +1,51 @@
 ---
-title: "Java でプレゼンテーションの図形を管理する"
-linktitle: "図形操作"
+title: Java でプレゼンテーションのシェイプを管理する
+linktitle: シェイプ操作
 type: docs
 weight: 40
 url: /ja/java/shape-manipulations/
 keywords:
-- "PowerPoint 図形"
-- "プレゼンテーション図形"
-- "スライド上の図形"
-- "図形の検索"
-- "図形のクローン作成"
-- "図形の削除"
-- "図形の非表示"
-- "図形の順序変更"
-- "インターロップ図形 ID の取得"
-- "図形の代替テキスト"
-- "図形のレイアウト書式"
-- "SVG としての図形"
-- "図形を SVG に変換"
-- "図形の整列"
-- "図形のフリップ"
-- "PowerPoint"
-- "プレゼンテーション"
-- "Java"
-- "Aspose.Slides"
-description: "Aspose.Slides for Java を使用して、プレゼンテーションの図形を識別、クローン、削除、非表示、順序変更、エクスポート、整列、フリップする方法を学びます。"
+- PowerPoint シェイプ
+- プレゼンテーション シェイプ
+- スライド上のシェイプ
+- シェイプの検索
+- シェイプのクローン
+- シェイプの削除
+- シェイプの非表示
+- シェイプ順序の変更
+- Interop シェイプ ID の取得
+- シェイプ代替テキスト
+- シェイプ調整ポイント
+- プリセットシェイプ調整
+- シェイプジオメトリ
+- シェイプレイアウト形式
+- SVG としてのシェイプ
+- シェイプを SVG に変換
+- シェイプの配置
+- シェイプのフリップ
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java を使用して、プレゼンテーションのシェイプを特定、調整、クローン、削除、非表示、再配置、エクスポート、配置、フリップする方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for Java はスライド上の図形を順序付けられた[IShapeCollection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/)として表します。このコレクションは図形の取得・変更の場所であると同時に、スタック順序の情報源でもあります。インデックス`0`が最背面の図形で、最後のインデックスが最前面の図形です。
+Aspose.Slides for Java は、スライド上のシェイプを順序付けられた [IShapeCollection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/) として表します。コレクションはシェイプを検索・変更する場所であると同時に、スタック順序の情報源でもあります。インデックス `0` が最背面のシェイプで、最後のインデックスが最前面のシェイプです。
 
-この記事はこのモデルに従っています。まず図形を確実に識別する方法を説明し、次に図形のクローン作成、削除、非表示、順序変更の方法を示します。最後のセクションではレイアウトレベルの書式設定、SVG エクスポート、配置、フリップ設定について解説します。各例は独立しているので、ワークフローで必要な操作だけを使用できます。
+このドキュメントはそのモデルに従います。まずシェイプを確実に特定し、プリセット形状調整ポイントを変更する方法を説明し、次にシェイプのクローン作成、削除、非表示、再配置の方法を示します。最終セクションではレイアウトレベルの書式設定、SVG エクスポート、配置、フリップ設定を取り上げます。各例は独立しているため、ワークフローで必要な操作だけを使用できます。
 
-## **図形の識別と検索**
+## **シェイプの特定と検索**
 
-コレクションインデックスは既知のファイルを処理する際に便利ですが、安定した識別子ではありません。図形の追加、削除、順序変更によりインデックスは変わります。プレゼンテーションの作成・保守方法に応じて識別子を選択してください。
+コレクションインデックスは既知のファイルを処理する際に便利ですが、安定した識別子ではありません。シェイプの追加、削除、再配置によりインデックスは変わります。プレゼンテーションの作成・保守方法に合わせて識別子を選択してください。
 
-- [Name](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getName--) は開発者が管理するテンプレートに有用で、PowerPoint の選択ウィンドウで簡単に確認できます。名前は編集可能で一意である保証はないため、コードが名前に依存する場合は命名規則を設けてください。
-- [AlternativeText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getAlternativeText--) は、アクセシビリティ説明や作者が付与したタグですでに図形を識別できる場合に有用です。ユーザーに表示され、ローカライズやアクセシビリティ用に書き換えられる可能性があり、一意である保証はありません。意味のあるアクセシビリティテキストをデータベースキーとして静かに再利用しないでください。
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) は読み取り専用の識別子で、スライド内で一意であり、PowerPoint インターロップで使用される図形 ID に対応します。PowerPoint との統合や、図形の存続期間中に曖昧さのない参照が必要な場合に使用してください。クローンや再作成された図形は別の図形となり、独自の ID が付与されます。
+- [Name](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getName--) は、開発者が管理するテンプレートに便利で、PowerPoint の選択ウィンドウで簡単に確認できます。名前は編集可能ですが一意である保証はないため、コードが名前に依存する場合は命名規則を確立してください。
+- [AlternativeText](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getAlternativeText--) は、アクセシビリティ用の説明や作者が付与したタグですでにシェイプを識別できる場合に有用です。ユーザーに表示され、ローカライズやアクセシビリティ向けに書き換えられることがあり、一意である保証はありません。意味のあるアクセシビリティテキストをデータベースキーとして安易に再利用しないでください。
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) は読み取り専用の識別子で、スライド内で一意であり、PowerPoint のインタープリットで使用されるシェイプ ID に対応します。PowerPoint と連携する場合や、シェイプのライフタイム中に曖昧でない参照が必要な場合に使用してください。クローンや再作成されたシェイプは別のシェイプとなり、独自の ID が付与されます。
 
-関連する[getUniqueId](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getUniqueId--) メソッドはプレゼンテーション全体で有効な識別子を返しますが、アドイン向けで再割り当てされる可能性があるため、永続的な外部キーとして扱うべきではありません。長期的な同一性が重要な場合は、アプリケーションデータにマッピングを保持し、期待する図形がまだ存在するか検証してください。
+関連する [getUniqueId](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getUniqueId--) メソッドはプレゼンテーションスコープの識別子を返しますが、これはアドイン向けで再割り当てされる可能性があるため、永続的な外部キーとして扱うべきではありません。長期的な同一性が必要な場合は、アプリケーションデータにマッピングを保持し、期待するシェイプがまだ存在するか検証してください。
 
-以下の例は名前で正確に比較検索し、スライドスコープのインターロップ ID を報告します。テンプレートに期待した図形が存在しない場合、コードは誤ったオブジェクトで続行せずにその結果を報告します。
+以下の例は名前で正確に比較検索し、スライドスコープのインタープリット ID を報告します。テンプレートに期待するシェイプが存在しない場合、コードはその結果を報告し、誤ったオブジェクトで続行しません。
 
 ```java
 import com.aspose.slides.*;
@@ -69,7 +72,7 @@ try {
 }
 ```
 
-操作が特定の図形タイプに限定される場合は、型固有メンバーを使用する前にインターフェイスを確認してください。この例では、名前付きオブジェクトが[IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/)である場合にのみテキストと代替テキストを更新します。
+シェイプの種類に固有の操作を行う場合は、型固有のメンバーを使用する前にインターフェイスを確認してください。この例は、名前付きオブジェクトが [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) である場合にのみテキストと代替テキストを更新します。
 
 ```java
 import com.aspose.slides.*;
@@ -99,15 +102,108 @@ try {
 }
 ```
 
-## **図形コレクションの変更**
+## **プリセット形状調整の特定と変更**
 
-add、clone、remove、reorder メソッドはコレクションに対して即座に作用します。操作により図形の数や順序が変わった場合、操作前に取得したインデックスに依存し続けないでください。
+プリセットジオメトリシェイプは、角サイズ、矢印比率、弧角などの機能を制御する調整ポイントを公開できます。これらは読み取り専用の [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/ja/java/com.aspose.slides/igeometryshape/#getAdjustments--) コレクションを通じてアクセスします。コレクション自体はシェイプから提供されますが、各 [IAdjustValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/) は変更可能な値を保持しています。
 
-### **図形のクローン作成**
+固定のコレクションインデックスのみに依存しないでください。調整項目を列挙し、読み取り専用の [getType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/#getType--) メソッドを調べます。このメソッドが返す [ShapeAdjustmentType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/shapeadjustmenttype/) の値が、調整が何を制御するかを示します。読み取り専用の [getName](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/#getName--) メソッドは追加の識別情報を提供し、同一の意味タイプが複数存在する場合に特に有用です。
 
-[addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) は独立したコピーを作成し、対象コレクションの末尾に追加します。[insertClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) もコピーを作成しますが、指定した Z 順序インデックスに配置します。座標のみを受け取るオーバーロードはサイズを変えずにクローンを移動し、幅と高さを受け取るオーバーロードはサイズ変更も行います。
+調整の意味に合致した値設定メソッドを使用してください。
 
-この例では、宛先スライドを作成し、ラベル付き矩形を前面にクローンし、2 番目のクローンを背面に挿入します。どちらのクローンに対する変更も元の図形には影響しません。
+| 調整タイプ | 目的 | 変更する値 |
+|---|---|---|
+| `CornerSize` | 角丸のサイズ | [setRawValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | 矢尻の太さ | `setRawValue` |
+| `ArrowheadLength` | 矢頭の長さ | `setRawValue` |
+| `ArrowheadWidth` | 矢頭の幅 | `setRawValue` |
+| `StartAngle` | 円弧または扇形の開始角度 | [setAngleValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | 円弧または扇形の終了角度 | `setAngleValue` |
+
+`getType` と `getName` は読み取り専用情報を返します。`getRawValue` と `setRawValue` はプリセットのネイティブジオメトリ単位の整数で動作し、`getAngleValue` と `setAngleValue` は度単位の角度で動作します。調整項目の数・順序・意味・有効範囲はプリセットの [ShapeType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/igeometryshape/#getShapeType--) に依存します。あるプリセットで有効な値が、別のプリセットでは無効または異なる効果を持つことがあります。
+
+`getType` が `ShapeAdjustmentType.Custom` を返す場合、API は標準的な意味を認識しません。`getName`、プリセットの種類、既存の値を調べ、期待する意味と範囲が分からない限り調整は変更しないでください。認識されたタイプであっても、同一タイプが複数回出現するかどうかを確認してから値を選択してください。[Connector](/slides/ja/java/connector/) 記事ではコネクタの曲げ調整でこの状況が示されています。
+
+以下の完全な例は、3 つのプリセットシェイプのデフォルト版と変更版を作成します。すべての調整を列挙し、名前とタイプを報告し、サイズ関連の値は `setRawValue`、角度は `setAngleValue` で変更し、結果を保存します。左列はデフォルトジオメトリを保持し、右列は調整された角丸長方形、四方向矢印、円弧を示します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // デフォルト列と調整列のヘッダーを追加します。
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+値を変更する前に意味タイプを確認することで、コードの意図が明確になり、異なるプリセットシェイプ間で同一インデックスが同じ意味を持つという仮定を防げます。
+
+## **シェイプコレクションの変更**
+
+add、clone、remove、reorder メソッドはコレクションに即座に作用します。操作によりシェイプの数や順序が変わる場合、操作前に取得したインデックスに依存し続けないでください。
+
+### **シェイプのクローン作成**
+
+[addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) は独立したコピーを作成し、対象コレクションの末尾に追加します。[insertClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) もコピーを作成しますが、指定した Z オーダーインデックスに配置します。座標だけを受け取るオーバーロードはサイズを変更せずにクローンを移動し、幅と高さを受け取るオーバーロードはサイズ変更も可能です。
+
+この例は、宛先スライドを作成し、ラベル付き長方形を前面にクローンし、2 番目のクローンを背面に挿入します。どちらのクローンに対する変更も元シェイプには影響しません。
 
 ```java
 import com.aspose.slides.*;
@@ -146,13 +242,13 @@ try {
 }
 ```
 
-クローンは図形の内容と書式（名前と代替テキストを含む）をコピーします。これらの値が一意である必要がある場合は、クローンに新しい論理識別子を割り当ててください。複雑な図形が使用するリソースはプレゼンテーション側で管理されますが、クローンは新しいコレクション項目として新しい図形 ID を持ちます。
+クローンはシェイプの内容と書式（名前と代替テキストも含む）をコピーします。これらの値が一意である必要がある場合は、クローンに新しい論理識別子を割り当ててください。複雑なシェイプで使用されるリソースはプレゼンテーションが管理しますが、クローンは新しいコレクション項目として新しいシェイプ ID を持ちます。
 
-### **図形の削除**
+### **シェイプの削除**
 
-[remove](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) は特定の図形オブジェクトをそのコレクションから削除します。インデックス付きイテレーション中に複数一致を削除する場合は、残りのインデックスが有効なままになるように末尾から走査してください。
+[remove](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) は特定のシェイプオブジェクトをコレクションから削除します。インデックスで反復しながら複数の一致を削除する場合は、インデックスが有効なままになるように末尾から走査してください。
 
-この例は指定された名前を持つすべての図形を削除します。固定のコレクション項目ではなく、現在のインデックスの図形を読み取り、不要なキャストも行っていません。
+この例は、指定された名前を持つすべてのシェイプを削除します。固定のコレクション項目ではなく、現在のインデックスのシェイプを取得し、不要なキャストは行いません。
 
 ```java
 import com.aspose.slides.*;
@@ -183,11 +279,11 @@ try {
 }
 ```
 
-削除後は図形数と後続のインデックスが変わります。影響を受けない図形への参照は保存したインデックスよりも信頼性が高くなります。また、コネクタやアニメーションなど、削除されたオブジェクトを参照しているプレゼンテーション機能がないか考慮してください。可視図形を削除すると、スライドの見た目以外にも影響が出ることがあります。
+削除後、シェイプ数と後続シェイプのインデックスが変わります。影響を受けないシェイプへの参照は、保存されたインデックスよりも信頼性が高いです。コネクタ、アニメーション、その他のプレゼンテーション機能が削除対象オブジェクトを参照している可能性も考慮してください。可視シェイプを削除すると、スライドの見た目以上の影響が出ることがあります。
 
-### **図形の非表示**
+### **シェイプの非表示**
 
-[Hidden](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#setHidden-boolean-) を`true`に設定すると、図形はコレクションに残りますが通常のスライドショーには表示されません。インデックス、書式、コンテンツはコードから引き続き利用可能なので、後で復元できるオプション要素に適しています。
+[Hidden](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#setHidden-boolean-) を `true` に設定すると、シェイプはコレクションに残りますが、通常のスライドショーには表示されなくなります。インデックス、書式、コンテンツはコードから引き続き利用できるため、後で復元可能なオプション要素に適しています。
 
 ```java
 import com.aspose.slides.*;
@@ -214,11 +310,11 @@ try {
 }
 ```
 
-非表示は削除やセキュリティとは異なります。ユーザーやコードで再び発見・非表示解除でき、プレゼンテーションファイルの一部として残ります。
+非表示は削除やセキュリティではありません。ユーザーやコードでオブジェクトを検出し、再表示することが可能であり、プレゼンテーションファイルの一部として残ります。
 
-### **Z 順序の変更**
+### **Z-Order の変更**
 
-重なった図形はコレクション順に描画されます。[reorder](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) は既存の図形をクローンせずに指定インデックスへ移動します。インデックス`0`が背面、`size() - 1`が前面です。
+重なり合うシェイプはコレクション順に描画されます。[reorder](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) は既存シェイプをクローンせずに対象インデックスへ移動します。インデックス `0` が背面、`size() - 1` が前面です。
 
 ```java
 import com.aspose.slides.*;
@@ -245,13 +341,13 @@ try {
 }
 ```
 
-矩形は最初に作成され、最初は楕円の背面にあります。最終インデックスへ移動すると前面になります。すべての関連図形を追加またはクローンした後に Z 順序を確定してください。これらの操作は新しいコレクション項目を追加または挿入し、意図したスタック順序を変える可能性があります。
+長方形は最初に作成され、最初は楕円の背面にあります。最終インデックスに移動させると前面に配置されます。すべての関連シェイプを追加またはクローンした後に Z オーダーを確定してください。これらの操作はコレクション項目を追加または挿入し、意図したスタック順序を変更する可能性があります。
 
-## **レイアウトスライド上の図形の検査**
+## **レイアウトスライド上のシェイプを検査**
 
-通常スライド、レイアウトスライド、マスタースライドはそれぞれ別の図形コレクションを持ちます。レイアウトコレクション内の図形は、通常スライド上の同位置の図形と同一オブジェクトではありません。レイアウトが提供する書式を理解・変更する必要がある場合は、レイアウト図形を検査してください。
+通常スライド、レイアウトスライド、マスタースライドはそれぞれ別個のシェイプコレクションを持ちます。レイアウトコレクション内のシェイプは、通常スライド上の同位置シェイプと同一オブジェクトではありません。レイアウトが提供する書式を理解・変更する必要がある場合は、レイアウトシェイプを検査してください。
 
-以下の例は、各レイアウト図形の[FillFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getFillFormat--) と [LineFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getLineFormat--) を取得し、すべてが `AutoShape` であると仮定しません。
+以下の例は、各レイアウトシェイプの [FillFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getFillFormat--) と [LineFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getLineFormat--) を取得し、すべてのシェイプが `AutoShape` であるという前提を置きません。
 
 ```java
 import com.aspose.slides.*;
@@ -270,11 +366,11 @@ try {
 }
 ```
 
-レイアウトを編集すると、レイアウトを使用している複数のスライドに影響が及びます。レイアウト図形を変更する前に、通常スライドがそのオブジェクトを継承しているかローカルで上書きしているかを判断し、レイアウトを使用しているすべてのスライドでテストしてください。
+レイアウトを編集すると、そのレイアウトを使用している複数のスライドに影響を与える可能性があります。レイアウトシェイプを変更する前に、通常スライドがオブジェクトを継承しているかローカルで上書きしているかを判断し、そのレイアウトを使用するすべてのスライドでテストしてください。
 
-## **図形を SVG にエクスポート**
+## **シェイプを SVG にエクスポート**
 
-[writeAsSvg](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) は単一図形のレンダリング結果をストリームに書き込みます。出力には図形自体のみが含まれ、スライド全体の背景や隣接図形は含まれません。
+[writeAsSvg](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) は、単一シェイプの描画内容をストリームに書き出します。結果にはシェイプだけが含まれ、スライド全体の背景や隣接シェイプは含まれません。
 
 ```java
 import com.aspose.slides.*;
@@ -300,13 +396,13 @@ try {
 }
 ```
 
-レンダリング中はプレゼンテーションを開いたままにしてください。出力は図形の書式やフォント・画像といったリソースに依存します。全体の構成が必要な場合は、個別図形ではなくスライド全体をエクスポートしてください。呼び出し側がストリームの所有権を持ち、閉鎖する必要があります。
+レンダリング中はプレゼンテーションを開いたままにしてください。出力はシェイプの書式設定やフォント、画像などのリソースに依存します。全体の構成が必要な場合は、個別シェイプではなくスライド全体をエクスポートしてください。ストリームの所有権は呼び出し元にあり、必ずクローズする必要があります。
 
-## **図形の整列**
+## **シェイプの配置**
 
-[SlideUtil.alignShapes](https://reference.aspose.com/slides/ja/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) のオーバーロードは、すべての図形または選択されたコレクションインデックスを整列させます。[ShapesAlignmentType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/shapesalignmenttype/) はエッジ、中心線、または分布モードを指定します。`alignToSlide` を `true` にするとスライドの端に合わせ、`false` にすると選択図形同士の相対位置で整列します。
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/ja/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) のオーバーロードは、すべてのシェイプまたは選択したコレクションインデックスを配置します。[ShapesAlignmentType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/shapesalignmenttype/) はエッジ、中心線、または分布モードを指定します。`alignToSlide` を `true` に設定するとスライドのエッジに合わせ、`false` にすると選択シェイプ同士の相対位置で配置します。
 
-この例は 3 つの図形をスライドの上端に整列させます。返された図形参照は整列直前に現在のインデックスへ変換されます。
+この例は 3 つのシェイプをスライド上部のエッジに合わせます。返されたシェイプ参照は配置直前に現在のインデックスに変換されます。
 
 ```java
 import com.aspose.slides.*;
@@ -331,17 +427,17 @@ try {
 }
 ```
 
-整列は位置を変更しますが Z 順序は変えません。相対整列は通常最低2つの図形が必要で、水平または垂直の分布には間隔を定義できるだけの図形が必要です。メソッド呼び出し前にコレクションを変更した場合はインデックスを再計算してください。
+配置は位置を変更しますが、Z オーダーは変わりません。相対配置は通常少なくとも 2 つのシェイプが必要で、水平または垂直の分布には間隔を定義できるだけのシェイプが必要です。メソッド呼び出し前にコレクションを変更した場合はインデックスを再計算してください。
 
-## **図形のフリップ**
+## **シェイプのフリップ**
 
-[ShapeFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/shapeframe/) クラスは位置、サイズ、水平・垂直フリップ設定、回転を保持します。その `getFlipH` と `getFlipV` の値は[NullableBool](https://reference.aspose.com/slides/ja/java/com.aspose.slides/nullablebool/) を使用し、`True` でフリップ有効、`False` で無効、`NotDefined` で未指定/既定状態を保持します。
+[ShapeFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/shapeframe/) クラスは位置、サイズ、水平・垂直フリップ設定、回転を保持します。その `getFlipH` と `getFlipV` の値は [NullableBool](https://reference.aspose.com/slides/ja/java/com.aspose.slides/nullablebool/) を使用し、`True` がフリップを有効にし、`False` が無効にし、`NotDefined` が未指定/既定状態を保持します。
 
-以下の入力プレゼンテーションにはフリップされていない図形が 1 つ含まれています。
+以下の入力プレゼンテーションにはフリップされていないシェイプが1つ含まれています。
 
-![The shape before flipping](shape_to_be_flipped.png)
+![フリップ前のシェイプ](shape_to_be_flipped.png)
 
-この例は他のすべてのフレーム値を保持し、フリップ設定の 2 つだけを置き換えます。新しい [Frame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) を割り当てるとフレーム全体が置き換わるため重要です。
+この例は他のフレーム値はすべて保持し、2 つのフリップ設定だけを置き換えます。これは新しい [Frame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) を割り当てるとフレーム全体が置き換わるため重要です。
 
 ```java
 import com.aspose.slides.*;
@@ -362,20 +458,24 @@ try {
 }
 ```
 
-保存された図形は水平・垂直に鏡像化されますが、位置・サイズ・回転はそのままです。
+保存されたシェイプは位置、サイズ、回転を保持したまま、水平・垂直にミラーリングされます。
 
-![The shape after flipping](flipped_shape.png)
+![フリップ後のシェイプ](flipped_shape.png)
 
 ## **FAQ**
 
-**コレクションインデックスを図形の識別子として使用すべきですか？**
+**コレクションインデックスをシェイプの識別子として使用すべきでしょうか？**
 
-コレクションが操作前に変わらない短時間の処理に限って使用してください。テンプレートを作成する場合は検証済みの `Name` または `AlternativeText` を、スライドスコープのインターロップ作業には `OfficeInteropShapeId` を推奨します。
+短時間の処理でコレクションが変更されないことが保証される場合にのみ使用してください。作成されたテンプレートでは検証済みの `Name` または `AlternativeText` の命名規則を、スライドスコープのインタープリット作業では `OfficeInteropShapeId` を優先してください。
 
-**図形を非表示にすると Z 順序から除外されますか？**
+**シェイプを非表示にすると Z-Order から除外されますか？**
 
-いいえ。非表示の図形は同じインデックスでコレクションに残り、検索・再順序付け・編集・再表示が可能です。
+いいえ。非表示のシェイプは同じインデックスでコレクションに残り、検索、再配置、編集、再表示が可能です。
 
-**クローンした図形が別の図形の前に表示されたのはなぜですか？**
+**クローンしたシェイプが別のシェイプの前に表示されたのはなぜですか？**
 
-`addClone` はクローンをコレクションの末尾に追加します。コレクションの末尾は Z 順序の前面になるためです。初期インデックスを指定したい場合は `insertClone` を使用するか、すべての図形追加後に `reorder` で調整してください。
+`addClone` はクローンをコレクションの末尾に追加します。コレクションの末尾は Z-Order の前面に相当します。初期インデックスを指定したい場合は `insertClone` を使用するか、すべてのシェイプ追加後に `reorder` で位置を調整してください。
+
+**固定インデックスを使ってプリセット形状調整を特定できますか？**
+
+正確なプリセットとコレクションレイアウトを検証した場合に限り可能です。`IGeometryShape.getAdjustments` を列挙し、`IAdjustValue.getType` を確認することを推奨します。同一の意味タイプが複数出現する場合は、追加情報として `IAdjustValue.getName` を使用してください。

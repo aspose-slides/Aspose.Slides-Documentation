@@ -10,410 +10,670 @@ keywords:
 - punkt łącznika
 - linia łącznika
 - kąt łącznika
+- punkt połączenia
+- punkt regulacji
 - łączenie kształtów
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Umożliw aplikacjom C++ rysowanie, łączenie i automatyczne trasowanie linii w slajdach PowerPoint — uzyskaj pełną kontrolę nad prostymi, łokciowymi i krzywymi łącznikami."
+description: "Dowiedz się, jak dodawać, przyłączać, przekierowywać, regulować i analizować proste, łamane i zakrzywione łączniki PowerPoint za pomocą Aspose.Slides dla C++."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Łącznik PowerPoint to specjalna linia, która łączy dwa kształty i pozostaje przyczepiona do kształtów, nawet gdy są one przesuwane lub przestawiane na danym slajdzie.  
+Łącznik to linia, która może pozostać przyczepiona do dwóch kształtów, gdy którykolwiek z nich się przesuwa. Jego końce przyczepiają się do punktów połączeń, przedstawionych jako zielone kropki w PowerPoint. Niektóre łamane i zakrzywione łączniki udostępniają również punkty regulacji, przedstawione jako pomarańczowe kropki, które kontrolują położenie poszczególnych segmentów łącznika.
 
-Łączniki są zazwyczaj podłączane do *punktów połączenia* (zielonych kropek), które standardowo występują na wszystkich kształtach. Punkty połączenia pojawiają się, gdy kursor zbliży się do nich.  
-
-*Punkty dopasowania* (pomarańczowe kropki), które występują tylko w niektórych łącznikach, służą do modyfikacji położenia i kształtu łączników.  
+Aspose.Slides reprezentuje łączniki za pomocą interfejsu [IConnector](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iconnector/). Można je tworzyć, przyłączać ich końce do kształtów, wybierać punkty połączeń, przekierowywać je oraz modyfikować geometrię łączników, które mają punkty regulacji.
 
 ## **Typy łączników**
 
-W programie PowerPoint można używać łączników prostych, łokciowych (kątowych) i krzywych.  
+Wyliczenie [ShapeType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shapetype/) zawiera gotowe typy prostych, łamanych i zakrzywionych łączników. Poniższa tabela pokazuje dostępne geometrie łączników oraz liczbę punktów regulacji zdefiniowaną dla każdego zestawu.
 
-Aspose.Slides udostępnia następujące łączniki:
+| Łącznik | Obraz | Liczba punktów regulacji |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Łącznik | Obraz | Liczba punktów dopasowania |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
-| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
-| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
-| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
-| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
+Liczba i znaczenie punktów regulacji są częścią wybranego zestawu łącznika. Nie zakładaj, że dwa różne typy łączników udostępniają ten sam układ kolekcji.
 
-## **Łączenie kształtów przy użyciu łączników**
+## **Połącz dwa kształty**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation/) .
-1. Uzyskaj odwołanie do slajdu poprzez jego indeks.
-1. Dodaj dwa [AutoShape](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.auto_shape) do slajdu przy użyciu metody `AddAutoShape` udostępnionej przez obiekt `Shapes`.
-1. Dodaj łącznik przy użyciu metody `AddConnector` udostępnionej przez obiekt `Shapes`, określając typ łącznika.
-1. Połącz kształty przy użyciu łącznika. 
-1. Wywołaj metodę `Reroute`, aby zastosować najkrótszą ścieżkę połączenia.
-1. Zapisz prezentację. 
+Użyj [IShapeCollection::AddConnector](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addconnector/), aby dodać łącznik, a następnie wywołaj [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) oraz [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iconnector/set_endshapeconnectedto/), aby przyłączyć jego końce. Po przyłączeniu obu końcówek, [IConnector::Reroute](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iconnector/reroute/) wybiera najkrótszą trasę pomiędzy kształtami.
 
-Ten kod C++ pokazuje, jak dodać łącznik (zgięty łącznik) między dwoma kształtami (elipsą i prostokątem):
+Poniższy przykład łączy elipsę i prostokąt łamanym łącznikiem:
 
-```c++
-	// Ścieżka do katalogu dokumentów.
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-	// Ładuje żądaną prezentację
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// Uzyskuje dostęp do pierwszego slajdu
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	// Uzyskuje dostęp do kolekcji kształtów dla określonego slajdu
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Dodaje automatyczny kształt elipsy
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// Dodaje automatyczny kształt prostokąta
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-
-	// Dodaje kształt łącznika do kolekcji kształtów slajdu
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// Łączy kształty przy użyciu łącznika
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// Wywołuje Reroute, który ustawia automatyczną najkrótszą ścieżkę między kształtami
-	connector->Reroute();
-	
-	// Zapisuje prezentację
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-Metoda `connector->Reroute` przerysowuje łącznik i wymusza przyjęcie najkrótszej możliwej ścieżki pomiędzy kształtami. Aby osiągnąć ten cel, metoda może zmienić punkty `StartShapeConnectionSiteIndex` i `EndShapeConnectionSiteIndex`. 
-
-{{% /alert %}} 
-
-## **Określenie punktu połączenia**
-
-Jeśli chcesz, aby łącznik połączył dwa kształty przy użyciu określonych punktów na kształtach, musisz określić preferowane punkty połączenia w następujący sposób:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation/) .
-1. Uzyskaj odwołanie do slajdu poprzez jego indeks.
-1. Dodaj dwa [AutoShape](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.auto_shape) do slajdu przy użyciu metody `AddAutoShape` udostępnionej przez obiekt `Shapes`.
-1. Dodaj łącznik przy użyciu metody `AddConnector` udostępnionej przez obiekt `Shapes`, określając typ łącznika.
-1. Połącz kształty przy użyciu łącznika. 
-1. Ustaw preferowane punkty połączenia na kształtach. 
-1. Zapisz prezentację.
-
-Ten kod C++ demonstruje operację, w której określono preferowany punkt połączenia:
-
-```c++
-	// Ścieżka do katalogu dokumentów.
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Ładuje żądaną prezentację
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// Uzyskuje dostęp do pierwszego slajdu
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	// Uzyskuje dostęp do kolekcji kształtów dla określonego slajdu
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Dodaje automatyczny kształt elipsy
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// Dodaje automatyczny kształt prostokąta
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// Dodaje kształt łącznika do kolekcji kształtów slajdu
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// Łączy kształty przy użyciu łącznika
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// Ustawia indeks preferowanego punktu połączenia na kształcie elipsy
-	int wantedIndex = 6;
-
-	// Sprawdza, czy preferowany indeks jest mniejszy niż maksymalna liczba punktów połączenia
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// Ustawia preferowany punkt połączenia na automatycznym kształcie elipsy
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// Zapisuje prezentację
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Dostosowanie punktu łącznika**
-
-Możesz dostosować istniejący łącznik poprzez jego punkty dopasowania. Tylko łączniki posiadające punkty dopasowania mogą być w ten sposób modyfikowane. Zobacz tabelę pod **[Types of connectors.](/slides/pl/cpp/connector/#types-of-connectors)** 
-
-### **Przypadek prosty**
-
-Rozważ sytuację, w której łącznik między dwoma kształtami (A i B) przechodzi przez trzeci kształt (C):
-
-![przeszkoda-łącznika](connector-obstruction.png)
-
-Kod:
-
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
+
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
+```
+
+{{% alert color="warning" title="Ostrzeżenie" %}}
+Wywołanie `IConnector::Reroute` może zmienić wartości [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) i [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/). Po przekierowaniu przydziel konkretne punkty połączeń, jeśli mają pozostać stałe.
+{{% /alert %}}
+
+## **Wybierz punkt połączenia**
+
+Każdy kształt, z którym można się połączyć, zgłasza liczbę dostępnych punktów przez [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_connectionsitecount/). Zweryfikuj preferowany indeks punktu (zero‑based) przed przypisaniem go do końca łącznika; liczba punktów różni się w zależności od geometrii kształtu.
+
+Ten przykład przyłącza łącznik do konkretnego punktu elipsy, gdy taki punkt istnieje:
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
+
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
+```
+
+## **Regulacja punktu łącznika**
+
+Łączniki z punktami regulacji udostępniają je poprzez [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igeometryshape/get_adjustments/). Przejrzyj każdy [IAdjustValue](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/) i sprawdź jego [IAdjustValue::get_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/get_type/) przed zmianą [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/set_rawvalue/). Ogólne zasady identyfikacji regulacji w zestawach kształtów opisano w [Shape Manipulation](/slides/pl/cpp/shape-manipulations/).
+
+Liczba, kolejność, znaczenie i dopuszczalny zakres wartości regulacji łącznika zależą od wybranego zestawu. Typ zwracany przez `IAdjustValue::get_Type` jest tylko do odczytu, natomiast surowa wartość regulacji jest zapisywalna. Metoda tylko‑do‑odczytu [IAdjustValue::get_Name](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iadjustvalue/get_name/) dostarcza dodatkowej identyfikacji, gdy łącznik zawiera więcej niż jedną regulację o tym samym semantycznym typie.
+
+### **Omijanie przeszkody**
+
+W poniższym układzie łącznik `ShapeType::BentConnector5` pomiędzy dwoma kształtami przechodzi przez trzeci kształt:
+
+![connector-obstruction](connector-obstruction.png)
+
+Ten kod tworzy łącznik z przeszkodą:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-Aby uniknąć lub ominąć trzeci kształt, możemy dostosować łącznik, przesuwając jego pionową linię w lewo w następujący sposób:
+Przesunięcie pionowego zgięcia zmienia trasę tak, aby łącznik omijał przeszkodę:
 
-![przeszkoda-łącznika-naprawiona](connector-obstruction-fixed.png)
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
-```
+Zamiast zakładać, że indeks kolekcji `1` zawsze oznacza pionowe zgięcie, ten przykład wyszukuje `ShapeAdjustmentType::ConnectorBendPositionY` i zmienia go tylko wtedy, gdy występuje oczekiwany typ semantyczny:
 
-### **Przypadki złożone** 
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
 
-Aby wykonać bardziej skomplikowane regulacje, musisz wziąć pod uwagę następujące kwestie:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-* Punkt regulacji łącznika jest ściśle powiązany z formułą, która oblicza i określa jego położenie. Dlatego zmiany położenia punktu mogą zmienić kształt łącznika.  
-* Punkty dopasowania łącznika są definiowane w ścisłej kolejności w tablicy. Są numerowane od punktu początkowego łącznika do punktu końcowego.  
-* Wartości punktów dopasowania odzwierciedlają procent szerokości/wysokości kształtu łącznika.  
-  * Kształt jest ograniczony przez punkty początkowy i końcowy łącznika pomnożone przez 1000.  
-  * Pierwszy, drugi i trzeci punkt określają odpowiednio procent szerokości, procent wysokości oraz ponownie procent szerokości.  
-* Do obliczeń wyznaczających współrzędne punktów dopasowania łącznika musisz uwzględnić obrót łącznika oraz jego odbicie. **Note** że kąt obrotu dla wszystkich łączników pokazanych pod **[Types of connectors](/slides/pl/cpp/connector/#types-of-connectors)** wynosi 0.  
-
-#### **Przypadek 1**
-
-Rozważ sytuację, w której dwa obiekty ramki tekstowej są połączone łącznikiem:
-
-![łącznik-kształt-złożony](connector-shape-complex.png)
-
-Kod:
-
-```c++
-// Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
-auto pres = System::MakeObject<Presentation>();
-// Pobiera pierwszy slajd w prezentacji
-auto slide = pres->get_Slides()->idx_get(0);
-// Pobiera kształty z pierwszego slajdu
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-// Dodaje kształty, które zostaną połączone za pomocą łącznika
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// Dodaje łącznik
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// Określa kierunek łącznika
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// Określa grubość linii łącznika
-lineFormat->set_Width(3);
-// Określa kolor łącznika
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
 
-// Łączy kształty razem przy użyciu łącznika
-connector->set_StartShapeConnectedTo(shapeFrom);
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
+```
+
+`ShapeType::BentConnector5` ma dwie regulacje `ShapeAdjustmentType::ConnectorBendPositionX` oraz jedną `ShapeAdjustmentType::ConnectorBendPositionY`. Jeśli potrzebny typ występuje więcej niż raz, przeanalizuj `IAdjustValue::get_Name` i znaną geometrię zestawu przed wybraniem jednej regulacji. Gdy regulacja zwraca `ShapeAdjustmentType::Custom`, traktuj jej znaczenie i zakres jako specyficzne dla zestawu i nie zmieniaj jej, dopóki nie będziesz znał odpowiedniej umowy.
+
+## **Powiązanie wartości regulacji z geometrią łącznika**
+
+W przypadku łamanych łączników wartości regulacji można wykorzystać do oszacowania położeń poszczególnych segmentów. Obliczenia te są specyficzne dla konkretnego zestawu łącznika:
+
+- `ShapeType::BentConnector4` zazwyczaj udostępnia jedną regulację `ShapeAdjustmentType::ConnectorBendPositionX` oraz jedną `ShapeAdjustmentType::ConnectorBendPositionY`.
+- Dla tych pozycji zgięcia `RawValue / 100000.0f` daje ułamek szerokości lub wysokości ramki łącznika, wykorzystywany w poniższych przykładach.
+- Ramka łącznika może być obrócona lub odbita, więc współrzędne ramki muszą być przekształcone przed porównaniem z współrzędnymi slajdu.
+
+Poniższe przykłady najpierw używają `IAdjustValue::get_Type`, aby zidentyfikować regulacje. Nie traktują one indeksów kolekcji jako przenośnych identyfikatorów.
+
+### **Nieobrócony łącznik**
+
+Początkowy układ zawiera dwa kształty tekstowe połączone `ShapeType::BentConnector4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Ten przykład przegląda łącznik i pobiera jego regulacje poziomego oraz pionowego zgięcia:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// Pobiera punkty dopasowania dla łącznika
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
-**Dopasowanie**
+Aby zmienić oba zgięcia, znajdź każdy oczekiwany typ i zmodyfikuj wartości dopiero po odnalezieniu obu:
 
-Możemy zmienić wartości punktów dopasowania łącznika, zwiększając odpowiadające procenty szerokości i wysokości o 20 % i 200 % odpowiednio:
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-```c++
-// Zmienia wartości punktów dopasowania
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-Wynik:
+Rezultatem jest łącznik, którego poziome i pionowe segmenty przemieściły się:
 
-![łączenie-ustawione-1](connector-adjusted-1.png)
+![connector-adjusted-1](connector-adjusted-1.png)
 
-Aby zdefiniować model umożliwiający określenie współrzędnych i kształtu poszczególnych części łącznika, utwórzmy kształt odpowiadający poziomej składnikowi łącznika w punkcie `connector.Adjustments[0]`:
+Gdy typy semantyczne są znane, ich wartości można przeliczyć na współrzędne ramki łącznika. Ten przykład rysuje cienki prostokąt nad pionowym segmentem kontrolowanym przez oba zgięcia:
 
-```c++
-// Rysuje pionowy komponent łącznika
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Wynik:
+Kształt pomocniczy zaznacza obliczony segment:
 
-![łączenie-ustawione-2](connector-adjusted-2.png)
+![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Przypadek 2**
+### **Obrócony lub odbity łącznik**
 
-W **Przypadku 1** zademonstrowaliśmy prostą operację regulacji łącznika przy użyciu podstawowych zasad. W normalnych sytuacjach musisz uwzględnić obrót łącznika oraz jego wyświetlanie (ustawiane przez `connector.Rotation`, `connector.Frame.FlipH` i `connector.Frame.FlipV`). Poniżej przedstawiamy proces.
+Gdy ta sama geometria łącznika jest ustawiona pionowo, wartości [IShape::get_Frame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_frame/), [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapeframe/get_fliph/) i [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapeframe/get_flipv/) wpływają na konwersję współrzędnych ramki łącznika na współrzędne slajdu.
 
-Najpierw dodajmy nowy obiekt ramki tekstowej (**To 1**) do slajdu (w celu połączenia) i utwórzmy nowy (zielony) łącznik, który połączy go z już istniejącymi obiektami.
+Ten przykład tworzy i reguluje pionowo ustawiony łącznik:
 
-```c++
-// Tworzy nowy obiekt wiązania
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// Tworzy nowy łącznik
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// Łączy obiekty przy użyciu nowo utworzonego łącznika
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// Pobiera punkty dopasowania łącznika
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// Zmienia wartości punktów dopasowania
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-Wynik:
+Regulowany łącznik pojawia się pionowo pomiędzy kształtami:
 
-![łączenie-ustawione-3](connector-adjusted-3.png)
+![connector-adjusted-3](connector-adjusted-3.png)
 
-Następnie utwórzmy kształt odpowiadający poziomej składnikowi łącznika, który przechodzi przez nowy punkt regulacji `connector.Adjustments[0]`. Użyjemy wartości z danych łącznika dla `connector.Rotation`, `connector.Frame.FlipH` i `connector.Frame.FlipV` oraz zastosujemy popularną formułę przekształcania współrzędnych dla obrotu wokół punktu x0:
+Dla dowolnego kąta obrotu `alpha` obróć punkt ramki łącznika `(x, y)` wokół środka ramki `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-W naszym przypadku kąt obrotu obiektu wynosi 90 stopni, a łącznik jest wyświetlany pionowo, więc kod wygląda następująco:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```c++
+Poniższy kod obsługuje orientację 90 stopni używaną w tym przykładzie i rysuje czerwony przewodnik nad odpowiednim segmentem łącznika:
 
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-Wynik:
+Czerwony przewodnik zaznacza obliczony segment po przekształceniu współrzędnych:
 
-![łączenie-ustawione-4](connector-adjusted-4.png)
+![connector-adjusted-4](connector-adjusted-4.png)
 
-Zademonstrowaliśmy obliczenia obejmujące proste regulacje oraz skomplikowane punkty dopasowania (punkty z kątami obrotu). Korzystając z nabytej wiedzy, możesz opracować własny model (lub napisać kod) umożliwiający uzyskanie obiektu `GraphicsPath` lub nawet ustawienie wartości punktów dopasowania łącznika na podstawie konkretnych współrzędnych slajdu. 
+Te wzory opisują zestawy użyte w przykładach, a nie uniwersalny model łącznika. Zweryfikuj typy regulacji, orientację ramki i zakresy wartości przed zastosowaniem tych samych obliczeń do innego zestawu.
 
-## **Znajdowanie kąta linii łącznika**
+## **Znajdowanie kąta kierunku łącznika**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation/) .
-1. Uzyskaj odwołanie do slajdu poprzez jego indeks.
-1. Uzyskaj dostęp do kształtu linii łącznika.
-1. Użyj szerokości, wysokości, wysokości ramki kształtu i szerokości ramki kształtu, aby obliczyć kąt.
+Kierunek prostego łącznika można obliczyć z jego szerokości i wysokości, uwzględniając poziome i pionowe odbicia. Poniższy przykład podaje kąt w stopniach (zgodnie z ruchem wskazówek zegara) od dodatniej osi poziomej w współrzędnych slajdu:
 
-Ten kod C++ demonstruje operację, w której obliczyliśmy kąt linii łącznika:
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
 
-```c++
-void ConnectorLineAngle()
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// Ścieżka do katalogu dokumentów.
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Ładuje żądaną prezentację
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// Uzyskuje dostęp do pierwszego slajdu
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// Uzyskuje dostęp do kolekcji kształtów slajdu
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
 
 ## **FAQ**
 
-**Jak mogę sprawdzić, czy łącznik może być „przyklejony” do konkretnego kształtu?**  
+**Jak mogę sprawdzić, czy łącznik może zostać przyłączony do kształtu?**
 
-Sprawdź, czy kształt udostępnia [connection sites](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shape/get_connectionsitecount/). Jeśli nie ma żadnych lub liczba wynosi zero, przyklejanie nie jest dostępne; w takim wypadku użyj wolnych końcówek i ustaw je ręcznie. Warto sprawdzić liczbę miejsc przed dołączeniem.
+Sprawdź wartość `IShape::get_ConnectionSiteCount` kształtu. Dodatnia liczba oznacza, że kształt udostępnia punkty połączeń. Zweryfikuj wybrany indeks punktu przed przypisaniem go do którejkolwiek z końcówek łącznika.
 
-**Co się stanie z łącznikiem, jeśli usunę jeden z połączonych kształtów?**  
+**Czy mogę zidentyfikować regulację łącznika po jej indeksie w kolekcji?**
 
-Jego końce zostaną odłączone; łącznik pozostaje na slajdzie jako zwykła linia z wolnym początkiem i końcem. Możesz go usunąć lub ponownie przydzielić połączenia i w razie potrzeby [reroute](https://reference.aspose.com/slides/pl/cpp/aspose.slides/connector/reroute/).
+Indeks ma sens tylko dla znanego zestawu łącznika i układu kolekcji. Sprawdź `IAdjustValue::get_Type` przed zmianą wartości i użyj `IAdjustValue::get_Name` jako dodatkowej informacji, gdy ten sam typ semantyczny występuje wielokrotnie.
 
-**Czy powiązania łączników są zachowywane przy kopiowaniu slajdu do innej prezentacji?**  
+**Co się dzieje, gdy połączony kształt zostanie usunięty?**
 
-Zasadniczo tak, pod warunkiem że kopiowane są również docelowe kształty. Jeśli slajd zostanie wstawiony do innego pliku bez połączonych kształtów, końce staną się wolne i będzie trzeba je ponownie podłączyć.
+Odpowiedni koniec łącznika odłącza się. Łącznik pozostaje na slajdzie i może zostać usunięty, przekształcony w wolną linię lub przyłączony do innego kształtu.
+
+**Czy połączenia łączników są zachowywane podczas kopiowania slajdu?**
+
+Połączenia są zazwyczaj zachowywane, gdy połączone kształty są kopiowane razem ze slajdem. Jeśli łącznik zostanie skopiowany bez jednego z docelowych kształtów, odpowiedni koniec musi zostać ponownie przyłączony.

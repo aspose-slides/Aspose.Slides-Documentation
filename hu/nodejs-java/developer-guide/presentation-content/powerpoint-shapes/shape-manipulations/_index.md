@@ -1,12 +1,12 @@
 ---
-title: Prezentáció alakzatok kezelése JavaScriptben
-linktitle: Alakzatkezelés
+title: Prezentációs alakzatok kezelése JavaScriptben
+linktitle: Alakzatmanipuláció
 type: docs
 weight: 40
 url: /hu/nodejs-java/shape-manipulations/
 keywords:
 - PowerPoint alakzat
-- prezentáció alakzat
+- prezentációs alakzat
 - alakzat a dián
 - alakzat keresése
 - alakzat klónozása
@@ -15,7 +15,10 @@ keywords:
 - alakzat sorrendjének módosítása
 - interop alakzat ID lekérése
 - alakzat alternatív szövege
-- alakzat elrendezési formátumok
+- alakzat állítási pont
+- előre beállított alakzat állítása
+- alakzat geometria
+- alakzat elrendezés formátumok
 - alakzat SVG-ként
 - alakzat SVG-be
 - alakzat igazítása
@@ -25,25 +28,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tanulja meg, hogyan azonosíthatja, klónozhatja, eltávolíthatja, elrejtheti, újrarendezheti, exportálhatja, igazíthatja és tükrözheti a prezentáció alakzatokat az Aspose.Slides for Node.js via Java segítségével."
+description: "Ismerje meg, hogyan azonosíthatja, állíthatja, klónozhatja, eltávolíthatja, elrejtheti, átrendezheti, exportálhatja, igazíthatja és tükrözheti a prezentációs alakzatokat az Aspose.Slides for Node.js via Java segítségével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for Node.js via Java a dia alakzatait egy rendezett [ShapeCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/)‑ként ábrázolja. A gyűjtemény egyszerre hely, ahol az alakzatokat megtalálja és módosíthatja, és a rétegezési sorrend forrása: a `0` indeks a hátsó alakzat, míg az utolsó index az előre legközelebbi alakzat.
+Az Aspose.Slides for Node.js via Java a dián lévő alakzatokat egy rendezett [ShapeCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/) formájában ábrázolja. A gyűjtemény egyaránt a hely, ahol alakzatokat kereshet és módosíthat, valamint a rétegezési sorrend forrása: a `0` indexű alakzat a leghátsó, míg az utolsó indexű a legelöl lévő alakzat.
 
-Ez a cikk ezt a modellt követi. Először elmagyarázza, hogyan azonosítható megbízhatóan egy alakzat, majd bemutatja, hogyan klónozhat, távolíthat el, rejthet el és rendezhet újra alakzatokat. Az utolsó szakaszok a layout‑szintű formázást, az SVG exportot, az igazítást és a tükrözési beállításokat fedik le. Minden példa önálló, így csak a munkafolyamatához szükséges műveleteket használhatja.
+Ez a cikk ezt a modellt követi. Először bemutatja, hogyan azonosíthat egy alakzatot megbízhatóan és módosíthatja az előre beállított alakzat‑állítási pontokat, majd megmutatja, hogyan klónozhat, távolíthat el, rejthet el és módosíthatja a sorrendet. Az utolsó szakaszok a layout‑szintű formázást, az SVG exportot, a beállítást és a tükrözést fedik le. Minden példa önálló, így csak a munkafolyamatához szükséges műveleteket használhatja.
 
-## **Az alakzatok azonosítása és keresése**
+## **Alakzatok azonosítása és keresése**
 
-A gyűjtemény indexei kényelmesek egy ismert fájl feldolgozása során, de nem stabil azonosítók. Egy alakzat hozzáadása, eltávolítása vagy újrarendezése megváltoztathatja az indexét. Válasszon azonosítót attól függően, hogyan készült és karbantartott a prezentáció:
+A gyűjtemény indexei kényelmesek egy ismert fájl feldolgozásakor, de nem stabil azonosítók. Egy alakzat hozzáadása, eltávolítása vagy átrendezése megváltoztathatja az indexét. Válasszon azonosítót a prezentáció írói és karbantartási módja szerint:
 
-- [Name](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getname/) hasznos fejlesztő által ellenőrzött sablonoknál, és könnyen megtekinthető a PowerPoint Kijelölő ablaktáblájában. A neveket szerkeszthető, és nem garantált a egyediségük, ezért definiáljon elnevezési konvenciót, ha a kód rájuk támaszkodik.
-- [AlternativeText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getalternativetext/) hasznos, ha egy hozzáférhetőségi leírás vagy szerző által megadott címke már azonosítja az alakzatot. A felhasználók számára látható, lokalizálható vagy átírható a hozzáférhetőség érdekében, és nem garantált az egyedisége. Ne használja csendben értelemszerűen a jelentős hozzáférhetőségi szöveget adatbáziskezettként.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) egy csak olvasható azonosító, amely egy dián belül egyedi, és megfelel a PowerPoint interop által használt alakzat ID‑nek. Használja, ha PowerPoint integrációról van szó, vagy ha egyértelmű hivatkozásra van szükség az alakzat élettartama alatt. A klónozott vagy újra létrehozott alakzat másik alakzat, és saját ID‑t kap.
+- [Name](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getname/) hasznos fejlesztő által vezérelt sablonoknál, és könnyen megtekinthető a PowerPoint Kiválasztási ablaktáblájában. A neveket szerkeszthető, de nem garantált a egyediségük, ezért nevezzük el konvenció szerint, ha a kód rá támaszkodik.
+- [AlternativeText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getalternativetext/) akkor hasznos, ha egy hozzáférhetőségi leírás vagy egy szerző által megadott címke már azonosítja az alakzatot. A felhasználók számára látható, lokalizálható vagy hozzáférhetőségi okokból átírható, és nem garantált a egyediség. Ne használja csendben jelentős hozzáférhetőségi szövegként adatbáziskulcsot.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getofficeinteropshapeid/) egy csak‑olvasásos azonosító, amely a dián belül egyedi, és a PowerPoint interop által használt alakzat‑azonosítónak felel meg. Használja, ha PowerPoint‑tel integrál, vagy ha egyértelmű hivatkozásra van szükség az alakzat élettartama alatt. Egy klónozott vagy újra létrehozott alakzat másik alakzat, és saját azonosítót kap.
 
-A kapcsolódó [getUniqueId](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getuniqueid/) metódus egy prezentáció‑szintű azonosítót ad vissza, de ez az azonosító kiegészítőknek szánt, és újra hozzárendelhető. Nem szabad állandó külső kulcsként kezelni. Ha hosszú távú azonosításra van szükség, tárolja a leképezést az alkalmazás adataiban, és ellenőrizze, hogy a várt alakzat még létezik‑e.
+A kapcsolódó [getUniqueId](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getuniqueid/) metódus egy prezentáció‑szintű azonosítót ad vissza, de ez az azonosító bővítmények számára szánt, és átadható. Nem szabad állandó külső kulcsként kezelni. Ha hosszú távú azonosításra van szükség, tárolja a leképezést az alkalmazás adatában, és ellenőrizze, hogy a várt alakzat még létezik‑e.
 
-A következő példa név szerint keres pontos összehasonlítással, és a dia‑szintű interop ID‑t jelenti. Ha a sablon nem tartalmazza a várt alakzatot, a kód ezt az eredményt jelzi, ahelyett, hogy a rossz objektummal folytatná.
+Az alábbi példa név alapján keres pontos összehasonlítással, és a diára vonatkozó interop‑azonosítót adja vissza. Ha a sablon nem tartalmazza a várt alakzatot, a kód ezt az eredményt jelenti ahelyett, hogy a helytelen objektummal folytatná.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -71,7 +74,7 @@ try {
 }
 ```
 
-Ha egy művelet alakzat típusra specifikus, ellenőrizze a futási osztályt, mielőtt típus‑specifikus tagokat használna. Ez a példa csak akkor frissíti a szöveget és az alternatív szöveget, ha a megnevezett objektum egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/).
+Amikor egy művelet alakzat‑típusra vonatkozik, ellenőrizze a futásidejű osztályt, mielőtt típus‑specifikus tagokat használna. Ez a példa csak akkor frissíti a szöveget és az alternatív szöveget, ha a megnevezett objektum egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/).
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -102,15 +105,105 @@ try {
 }
 ```
 
-## **Az alakzategyűjtemény módosítása**
+## **Alakzat előre beállított állítások azonosítása és módosítása**
 
-Az add, clone, remove és reorder metódusok azonnal a gyűjmentényen dolgoznak. Ha egy művelet megváltoztatja az alakzatok számát vagy sorrendjét, ne támaszkodjon a korábban rögzített indexekre.
+Az előre definiált geometriai alakzatok olyan állítási pontokat fedhetnek fel, amelyek a sarkok méretét, a nyíl arányait vagy az ív szögeit szabályozzák. Ezeket a csak‑olvasásos [GeometryShape.getAdjustments](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/geometryshape/) gyűjteményen keresztül érheti el. Maga a gyűjtemény az alakzattól származik, de minden [AdjustValue](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/adjustvalue/) egy módosítható értéket tartalmaz.
+
+Ne csak egy rögzített gyűjtemény‑indexre támaszkodjon. Iteráljon végig az állításokon, és vizsgálja meg a csak‑olvasásos [getType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/adjustvalue/) metódust, amelynek [ShapeAdjustmentType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapeadjustmenttype/) értéke leírja, mit szabályoz az állítás. A csak‑olvasásos [getName](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/adjustvalue/getname/) metódus további azonosítási információt nyújt, és különösen hasznos, ha egy előre beállítás több azonos szemantikai típusú állítást tartalmaz.
+
+Használja azt az érték‑módszert, amely megfelel az állítás jelentésének:
+
+| Állítás típusa | Cél | Módosítandó érték |
+|---|---|---|
+| `CornerSize` | Lekerekített sarkok mérete | [setRawValue](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | Nyílfarok vastagsága | `setRawValue` |
+| `ArrowheadLength` | Nyílhegy hossza | `setRawValue` |
+| `ArrowheadWidth` | Nyílhegy szélessége | `setRawValue` |
+| `StartAngle` | Körív vagy szakasz kezdőszöge | [setAngleValue](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | Körív vagy szakasz végszöge | `setAngleValue` |
+
+A `getType` és a `getName` csak‑olvasásos információt ad. A `getRawValue` és a `setRawValue` egy egész számot használ a preset natív geometriai egységében, míg a `getAngleValue` és a `setAngleValue` fokban megadott szöget használ. Az állítások száma, sorrendje, jelentése és érvényes tartománya a [GeometryShape.getShapeType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/geometryshape/) előre beállítástól függ. Egy presethez érvényes érték egy másiknál érvénytelen vagy más hatást válthat ki.
+
+Amikor a `getType` `ShapeAdjustmentType.Custom`‑t ad vissza, az API nem ismeri fel a szabványos szemantikai jelentést. Vizsgálja meg a `getName`‑t, a preset típusát és a meglévő értéket, és hagyja az állítást változatlanul, hacsak a várt jelentés és tartomány nem ismert. Még felismert típusoknál is ellenőrizze, hogy ugyanaz a típus többször is előfordul‑e, mielőtt értéket választana. A [Connector](/slides/hu/nodejs-java/connector/) cikk bemutatja ezt a helyzetet a csatlakozó ívek állításainál.
+
+Az alábbi teljes példa három előre beállított alakzat alap és módosított változatát hozza létre. A minden egyes állításon végig iterál, jelentést készít a nevéről és típusáról, a `setRawValue`‑val mérettel kapcsolatos értékeket változtat, a `setAngleValue`‑val szögeket módosít, és elmenti az eredményt. A bal oszlop az alap geometriai alakzatot tartja; a jobb oszlop a módosított lekerekített téglalapot, a négyszögletű nyilat és a körívet mutatja.
+
+```javascript
+const asposeSlides = require("aspose.slides.via.java");
+
+var presentation = new asposeSlides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    // Fejléceket ad hozzá az alap és a módosított alakzatoszlopokhoz.
+    var defaultColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    var adjustedColumnLabel = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    var modifiedRoundedRectangle = slide.getShapes().addAutoShape(asposeSlides.ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 80, 180, 160, 110);
+    var modifiedArrow = slide.getShapes().addAutoShape(asposeSlides.ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 95, 330, 130, 130);
+    var modifiedPie = slide.getShapes().addAutoShape(asposeSlides.ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    var shapesToAdjust = [modifiedRoundedRectangle, modifiedArrow, modifiedPie];
+
+    for (var shapeIndex = 0; shapeIndex < shapesToAdjust.length; shapeIndex++) {
+        var shape = shapesToAdjust[shapeIndex];
+        for (var adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            var adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            console.log(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case asposeSlides.ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case asposeSlides.ShapeAdjustmentType.Custom:
+                    console.log("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A szemantikai típus ellenőrzése érték módosítása előtt egyértelművé teszi a kód szándékát, és elkerüli, hogy egy adott gyűjtemény‑indexet különböző preset alakzatok között azonos jelentésűnek tekintsen.
+
+## **Alakzatgyűjtemény módosítása**
+
+A hozzáad, klónoz, eltávolít és átrendez metódusok azonnal a gyűjteményen működnek. Ha egy művelet megváltoztatja az alakzatok számát vagy sorrendjét, ne számítson tovább a művelet előtt rögzített indexekre.
 
 ### **Alakzat klónozása**
 
-[addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/addclone/) független másolatot hoz létre, és a célgyűjtemény végére fűzi. [insertClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/insertclone/) szintén másolatot készít, de egy megadott z‑rend indexnél helyezi el. A koordinátákat elfogadó túlterhelések a klónt áthelyezik méretváltoztatás nélkül; a szélességet és magasságot meghatározó túlterhelések átméretezhetik is.
+[addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/addclone/) egy független másolatot hoz létre, és a célgyűjtemény végére fűzi. [insertClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/insertclone/) szintén másolatot készít, de egy megadott z‑sorrend‑indexhez helyezi. A koordinátákat elfogadó túlterhelések a méretét változtatás nélkül mozgatják a klónt; a szélességgel és magassággal rendelkező túlterhelések átméretezhetik is.
 
-A példa egy cél diát hoz létre, egy címkézett téglalapot klónoz az előre, és egy második klónt illeszt be a háttérbe. Bármelyik klón változtatása nem módosítja a forrás alakzatot.
+A példa egy cél diát hoz létre, egy címkézett téglalapot klónoz a frontra, majd egy második klónt szúr be a hát oldalra. A klónok bármelyikének módosítása nem érinti a forrás alakzatot.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -148,13 +241,13 @@ try {
 }
 ```
 
-A klónozás másolja az alakzat tartalmát és formázását, beleértve a nevét és az alternatív szöveget is. Adjon új logikai azonosítókat a klónnak, ha ezeknek az értékeknek egyedinek kell lenniük. A komplex alakzatok által használt erőforrásokat a prezentáció kezeli, de a klón új gyűjteményelemként jelenik meg egy új alakzatidentitással.
+A klónozás másolja az alakzat tartalmát és formázását, beleértve a nevét és az alternatív szöveget is. Ha ezeknek az értékeknek egyedinek kell lenniük, adjon új logikai azonosítókat a klónnak. A komplex alakzatok erőforrásait a prezentáció kezeli, de a klón egy új gyűjtemény‑elem, új alakzat‑azonossággal.
 
 ### **Alakzatok eltávolítása**
 
-[remove](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/remove/) egy adott alakzatot töröl a gyűjteményéből. Több egyező eltávolítása indexelt iteráció során, járjon a végéről, hogy minden maradó index érvényes maradjon.
+[remove](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/remove/) egy konkrét alakzat‑objektumot töröl a gyűjteményéből. Ha indexelt iteráció során több egyezést távolít el, haladjon a vég felől, hogy a megmaradt indexek érvényben maradjanak.
 
-Ez a példa minden olyan alakzatot eltávolít, amelynek meghatározott neve van. Az aktuális indexnél olvassa az alakzatot, és nem feltételez konkrét alakzattípust.
+Ez a példa minden megadott névvel rendelkező alakzatot eltávolít. A jelenlegi indexnél olvassa az alakzatot, és nem feltételez konkrét típusú alakzatot.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -185,11 +278,11 @@ try {
 }
 ```
 
-Eltávolítás után az alakzatszám és a későbbi alakzatok indexei változnak. A nem érintett alakzatokra mutató hivatkozások megbízhatóbbak a mentett indexeknél. Emellett vegye figyelembe a csatlakozókat, animációkat és egyéb prezentációs elemeket, amelyek a törölt objektumra hivatkozhatnak; egy látható alakzat eltávolítása több mint csak a dia megjelenését változtathatja meg.
+Eltávolítás után az alakzatok száma és a későbbi alakzatok indexei megváltoznak. A nem érintett alakzatokra mutató hivatkozások megbízhatóbbak, mint a mentett indexek. Vegye figyelembe a csatlakozókat, animációkat és egyéb prezentációs elemeket is, amelyek a törölt objektumra hivatkozhatnak; egy látható alakzat eltávolítása több mint a dia megjelenését is módosíthatja.
 
 ### **Alakzat elrejtése**
 
-[A Hidden](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/sethidden/) `true` értékre állítása megtartja az alakzatot a gyűjteményben, de megakadályozza, hogy megjelenjen a normál diavetítésben. Indexe, formázása és tartalma továbbra is elérhető a kód számára, így az elrejtés megfelelő opcionális elemeknél, amelyeket később vissza lehet állítani.
+A [Hidden](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/sethidden/) `true`‑ra állítása megtartja az alakzatot a gyűjteményben, de megakadályozza, hogy a normál diavetítésben megjelenjen. Az indexe, formázása és tartalma továbbra is elérhető a kód számára, ezért a rejtés alkalmas opcionális elemekhez, amelyek később visszaállíthatók.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -217,11 +310,11 @@ try {
 }
 ```
 
-Az elrejtés nem törlés vagy biztonság. Az objektum továbbra is felfedezhető és visszafejthető felhasználó vagy kód által, és része marad a prezentáció fájlnak.
+A rejtés nem törlés vagy biztonsági intézkedés. Az objektum továbbra is felfedezhető és feloldható felhasználó vagy kód által, és része marad a prezentáció fájlnak.
 
 ### **Z‑sorrend módosítása**
 
-A átfedő alakzatok a gyűjtemény sorrendjében kerülnek lerajzolásra. A [reorder](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/reorder/) egy meglévő alakzatot egy cél indexre mozgat klónozás nélkül. A `0` index a hátul; a `size() - 1` az elülső.
+Átfedő alakzatok a gyűjtemény sorrendjében kerülnek festésre. A [reorder](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/reorder/) egy meglévő alakzatot a cél indexre helyez át klónozás nélkül. A `0` index a hátsó, a `size() - 1` az első.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -248,13 +341,13 @@ try {
 }
 ```
 
-A téglalap először kerül létrehozásra, és kezdetben a ellipszis mögött helyezkedik el. Ha a végső indexre mozgatjuk, elöl kerül. Z‑sorrendet a kapcsolódó alakzatok hozzáadása vagy klónozása után kell befejezni, mert ezek a műveletek új gyűjteményelemeket fűznek hozzá vagy illesztenek be, és megváltoztathatják a kívánt réteget.
+Először a téglalap jön létre, és kezdetben a ellipszis mögött helyezkedik el. Ha a végső indexre mozgatjuk, előre kerül. A z‑sorrendet a kapcsolódó alakzatok hozzáadása vagy klónozása után véglegesítse, mivel ezek a műveletek új gyűjtemény‑elemeket fűznek hozzá vagy illesztenek be, és megváltoztathatják a kívánt rétegsorrendet.
 
-## **Alakzatok ellenőrzése elrendezési diákon**
+## **Layout‑diákon lévő alakzatok vizsgálata**
 
-A normál diák, az elrendezési diák és a mesterdiák külön alakzategyűjteménnyel rendelkeznek. Egy elrendezési gyűjteményben lévő alakzat nem ugyanaz az objektum, mint egy hasonló pozíciójú alakzat a normál dián. Vizsgálja meg az elrendezési alakzatokat, ha meg kell érteni vagy módosítani kell egy elrendezés által biztosított formázást.
+A normál diák, a layout‑diákok és a mesterdiák külön alakzatgyűjteménnyel rendelkeznek. Egy layout‑gyűjteményben lévő alakzat nem ugyanaz az objektum, mint egy hasonló pozícióban lévő alakzat egy normál dián. Vizsgálja a layout‑alakzatokat, ha a layout által biztosított formázást kell megérteni vagy módosítani.
 
-A következő példa beolvassa minden elrendezési alakzat [FillFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getfillformat/) és [LineFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getlineformat/) tulajdonságait anélkül, hogy feltételezné, hogy minden alakzat egy `AutoShape`.
+Az alábbi példa minden layout‑alakzat [FillFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getfillformat/) és [LineFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/getlineformat/) értékét olvassa be, anélkül, hogy azt feltételezné, hogy minden alakzat `AutoShape`.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -275,11 +368,11 @@ try {
 }
 ```
 
-Egy elrendezés szerkesztése több diára is hatással lehet, amely használja azt. A layout alakzat módosítása előtt határozza meg, hogy egy normál dia örökölte‑e az objektumot vagy tartalmaz‑e helyi felülírást, és tesztelje minden olyan diát, amely az elrendezést használja.
+Egy layout szerkesztése több, azt használó diát is befolyásolhat. Mielőtt egy layout‑alakzatot módosítaná, határozza meg, hogy egy normál dia örökli‑e az objektumot vagy helyi felülírást tartalmaz‑e, és tesztelje az összes olyan diát, amely az adott layout‑ot használja.
 
-## **Alakzat exportálása SVG‑be**
+## **Alakzat exportálása SVG‑ként**
 
-[writeAsSvg](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/writeassvg/) egy alakzat renderelt tartalmát írja egy stream‑be. Az eredmény az alakzatot tartalmazza, nem a teljes dia háttérét vagy a szomszédos alakzatokat.
+A [writeAsSvg](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/writeassvg/) egy alakzat renderelt tartalmát írja egy streame‑be. Az eredmény csak az alakzatot tartalmazza, nem a teljes dia hátterét vagy a szomszédos alakzatokat.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -310,13 +403,13 @@ try {
 }
 ```
 
-Tartsa nyitva a prezentációt a renderelés közben. A kimenet az alakzat formázásától és olyan erőforrásoktól, mint betűtípusok és képek, függ. Ha az egész kompozícióra van szükség, exportálja a diát az egyes alakzat helyett. A hívó birtokolja a stream‑et, és le kell zárnia.
+Tartsa nyitva a prezentációt a renderelés közben. A kimenet az alakzat formázásától, valamint a betűtípusok és képek erőforrásaitól függ. Ha a teljes kompozícióra van szüksége, exportálja a diát, ne pedig egy önálló alakzatot. A hívó birtokolja a stream‑et, és azt be kell zárnia.
 
 ## **Alakzatok igazítása**
 
-A [SlideUtil.alignShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slideutil/alignshapes/) túlterhelései akár az összes alakzatot, akár a kiválasztott gyűjtemény indexeket igazítják. A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapesalignmenttype/) meghatározza az él, a középvonal vagy az elosztási módot. `alignToSlide` `true` értékre állítása a dia széleit használja; `false` esetén a kiválasztott alakzatok egymáshoz viszonyított igazítása.
+A [SlideUtil.alignShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slideutil/alignshapes/) túlterhelései vagy az összes alakzatot, vagy a kiválasztott gyűjtemény indexeit igazítják. A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapesalignmenttype/) meghatározza az él, a középvonal vagy a elosztási módot. Állítsa az `alignToSlide`‑t `true`‑ra a dia széleihez igazításhoz; `false` esetén a kiválasztott alakzatok egymáshoz viszonyított igazítására.
 
-Ez a példa három alakzatot a dia felső éléhez igazít. A visszakapott alakzatreferenciákat az igazítás előtt azonnal az aktuális indexeikre konvertálja.
+Ez a példa három alakzatot igazít a dia felső éléhez. A visszakapott alakzat‑referenciákat az igazítás előtt az aktuális indexeikre konvertálja.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -342,17 +435,17 @@ try {
 }
 ```
 
-Az igazítás a pozíciókat változtatja, nem a z‑sorrendet. Relatív igazításhoz általában legalább két alakzat szükséges, míg a vízszintes vagy függőleges elosztáshoz elegendő alakzat kell a távolság meghatározásához. Számolja újra az indexeket, ha a gyűjteményt módosítja a metódus hívása előtt.
+Az igazítás a pozíciókat változtatja, nem a z‑sorrendet. A relatív igazításhoz általában legalább két alakzat szükséges, míg a vízszintes vagy függőleges elosztáshoz elegendő alakzat kell legyen a távolság meghatározásához. Újra kell számolni az indexeket, ha a metódus meghívása előtt módosítja a gyűjteményt.
 
 ## **Alakzat tükrözése**
 
-A [ShapeFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapeframe/) osztály tárolja a pozíciót, méretet, vízszintes és függőleges tükrözési beállításokat, valamint a forgást. A `getFlipH` és `getFlipV` értékek a [NullableBool](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/nullablebool/) használják: a `True` engedélyezi a tükrözést, a `False` letiltja, a `NotDefined` megőrzi a nem meghatározott/alapértelmezett állapotot.
+A [ShapeFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapeframe/) osztály tárolja a pozíciót, méretet, a vízszintes és függőleges tükrözés beállításait és a forgatást. A `getFlipH` és `getFlipV` értékei a [NullableBool](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/nullablebool/) típusba tartoznak: `True` engedélyezi a tükrözést, `False` letiltja, a `NotDefined` pedig az nem definiált/ alapértelmezett állapotot tartja meg.
 
 Az alábbi bemeneti prezentáció egy nem tükrözött alakzatot tartalmaz.
 
-![Az alakzat a tükrözés előtt](shape_to_be_flipped.png)
+![A forma a tükrözés előtt](shape_to_be_flipped.png)
 
-A példa minden egyéb keretértéket megtart, és csak a két tükrözési beállítást cseréli le. Ez fontos, mert egy új [Frame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/setframe/) hozzárendelése a teljes keretet felülírja.
+A példa minden más keretértéket megőriz, és csak a két tükrözési beállítást cseréli le. Ez fontos, mert egy új [Frame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/setframe/) hozzárendelése a teljes keretet felülírja.
 
 ```javascript
 const asposeSlides = require("aspose.slides.via.java");
@@ -375,20 +468,24 @@ try {
 }
 ```
 
-A mentett alakzat vízszintesen és függőlegesen tükröződik, miközben megtartja a pozícióját, méretét és forgását.
+A mentett forma vízszintesen és függőlegesen tükröződik, miközben megőrzi a pozíciót, méretet és forgást.
 
-![Az alakzat a tükrözés után](flipped_shape.png)
+![A forma a tükrözés után](flipped_shape.png)
 
 ## **GYIK**
 
-**Használjak gyűjtemény indexet alakzatazonosítóként?**
+**Használjak gyűjtemény‑indexet alakzat‑azonosítóként?**
 
-Csak rövid életű feldolgozáshoz, amikor a gyűjtemény nem változik az index használata előtt. Előnyben részesítsen egy ellenőrzött `Name` vagy `AlternativeText` konvenciót a szerkesztett sablonoknál, vagy `OfficeInteropShapeId`‑t a dia‑szintű interop munkához.
+Csak rövid életű feldolgozáskor, amikor a gyűjtemény nem változik az index használata előtt. A szerzői sablonokhoz inkább ellenőrzött `Name` vagy `AlternativeText` konvenciót használjon, vagy `OfficeInteropShapeId`‑t a diához kötött interop munkához.
 
-**Eltávolítja‑e egy elrejtett alakzat a z‑sorrendből?**
+**Eltávolítja-e a rejtett alakzat a z‑sorrendet?**
 
-Nem. Egy elrejtett alakzat a gyűjteményben marad ugyanazon az indexen. Megtalálható, újrarendezhető, szerkeszthető vagy újra láthatóvá tehető.
+Nem. Egy rejtett alakzat a gyűjteményben marad ugyanazon az indexen. Megtalálható, átrendezhető, szerkeszthető vagy újra láthatóvá tehető.
 
 **Miért jelent meg egy klónozott alakzat egy másik alakzat előtt?**
 
-Az `addClone` a klónt a gyűjtemény végére fűzi, ami a z‑sorrend eleje. Használja az `insertClone`‑t a kezdeti index kiválasztásához, vagy a `reorder`‑t az összes alakzat hozzáadása után.
+Az `addClone` a klónt a gyűjtemény végére fűzi, ami a z‑sorrend első helye. Az `insertClone` segítségével választhatja ki a kezdeti indexet, vagy a `reorder`‑t használhatja az összes alakzat hozzáadása után.
+
+**Használhatok rögzített indexet egy előre beállított alakzat‑állítás azonosításához?**
+
+Csak akkor, ha a pontos presetet és a gyűjtemény‑elrendezést előzetesen ellenőrizte. Inkább iteráljon a `GeometryShape.getAdjustments`‑en, és ellenőrizze az `AdjustValue.getType`‑ot; ha ugyanaz a szemantikai típus többször fordul elő, használja az `AdjustValue.getName`‑t további információként.

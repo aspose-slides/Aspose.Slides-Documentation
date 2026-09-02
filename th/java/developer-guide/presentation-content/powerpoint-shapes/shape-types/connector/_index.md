@@ -1,401 +1,503 @@
 ---
-title: จัดการตัวเชื่อมในงานนำเสนอด้วย Java
-linktitle: ตัวเชื่อม
+title: จัดการคอนเนคเตอร์ในงานนำเสนอด้วย Java
+linktitle: คอนเนคเตอร์
 type: docs
 weight: 10
 url: /th/java/connector/
 keywords:
-- ตัวเชื่อม
-- ประเภทตัวเชื่อม
-- จุดตัวเชื่อม
-- เส้นตัวเชื่อม
-- มุมตัวเชื่อม
-- เชื่อมรูปร่าง
+- คอนเนคเตอร์
+- ประเภทคอนเนคเตอร์
+- จุดคอนเนคเตอร์
+- เส้นคอนเนคเตอร์
+- มุมคอนเนคเตอร์
+- จุดเชื่อมต่อ
+- จุดปรับค่า
+- เชื่อมต่อรูปร่าง
 - PowerPoint
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ให้แอป Java สามารถวาด, เชื่อมและกำหนดเส้นทางอัตโนมัติในสไลด์ PowerPoint — ควบคุมตัวเชื่อมตรง, ตัวเชื่อมศอก และตัวเชื่อมโค้งได้อย่างเต็มที่"
+description: "เรียนรู้วิธีเพิ่ม, เชื่อมต่อ, เปลี่ยนเส้นทาง, ปรับค่า, และตรวจสอบคอนเนคเตอร์ PowerPoint แบบตรง, หักโค้ง, และโค้งด้วย Aspose.Slides สำหรับ Java."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-PowerPoint connector คือเส้นพิเศษที่เชื่อมหรือเชื่อมโยงสองรูปร่างเข้าด้วยกันและจะคงอยู่ติดกับรูปร่างแม้เมื่อรูปร่างถูกย้ายหรือปรับตำแหน่งบนสไลด์
+คอนเนคเตอร์เป็นเส้นที่สามารถเชื่อมต่ออยู่กับสองรูปร่างเมื่อรูปร่างใดรูปร่างหนึ่งเคลื่อนที่ ปลายของคอนเนคเตอร์เชื่อมต่อกับจุดเชื่อมต่อ ซึ่งแสดงด้วยจุดสีเขียวใน PowerPoint คอนเนคเตอร์แบบหักโค้งและโค้งบางประเภทยังเปิดเผยจุดปรับค่า ซึ่งแสดงด้วยจุดสีส้ม เพื่อควบคุมตำแหน่งของส่วนต่าง ๆ ของคอนเนคเตอร์
 
-Connectors มักเชื่อมต่อกับ *จุดเชื่อมต่อ* (จุดสีเขียว) ซึ่งมีอยู่บนทุกรูปร่างเป็นค่าเริ่มต้น จุดเชื่อมต่อจะปรากฏเมื่อเคอร์เซอร์อยู่ใกล้
+Aspose.Slides แสดงคอนเนคเตอร์ผ่านอินเทอร์เฟซ [IConnector](https://reference.aspose.com/slides/th/java/com.aspose.slides/iconnector/) คุณสามารถสร้างคอนเนคเตอร์, เชื่อมต่อปลายของมันกับรูปร่าง, เลือกจุดเชื่อมต่อ, ทำการเปลี่ยนเส้นทาง, และแก้ไขรูปทรงของคอนเนคเตอร์ที่มีจุดปรับค่าได้
 
-*จุดปรับ* (จุดสีส้ม) ซึ่งมีเฉพาะบางตัวเชื่อม ใช้เพื่อแก้ไขตำแหน่งและรูปร่างของตัวเชื่อม
+## **ประเภทคอนเนคเตอร์**
 
-## **ประเภทของตัวเชื่อม**
+คลาส [ShapeType](https://reference.aspose.com/slides/th/java/com.aspose.slides/shapetype/) มีชุดคอนเนคเตอร์แบบตรง, หักโค้ง, และโค้ง ตารางต่อไปนี้แสดงรูปทรงคอนเนคเตอร์ที่มีอยู่และจำนวนจุดปรับค่าที่กำหนดโดยแต่ละพรีเซ็ต
 
-ใน PowerPoint คุณสามารถใช้ตัวเชื่อมแบบตรง, แบบศอก (มุม), และแบบโค้ง
-
-Aspose.Slides มีตัวเชื่อมเหล่านี้:
-
-| ตัวเชื่อม | รูปภาพ | จำนวนจุดปรับ |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0 |
+| คอนเนคเตอร์ | รูปภาพ | จำนวนจุดปรับค่า |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0 |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1 |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2 |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3 |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **เชื่อมต่อรูปร่างโดยใช้ตัวเชื่อม**
+จำนวนและความหมายของจุดปรับค่าเป็นส่วนหนึ่งของพรีเซ็ตคอนเนคเตอร์ที่เลือก อย่าสมมติว่าประเภทคอนเนคเตอร์สองประเภทที่แตกต่างกันจะเปิดเผยโครงสร้างคอลเลกชันเดียวกัน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/java/com.aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มสอง [AutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/AutoShape) ไปยังสไลด์โดยใช้เมธอด `addAutoShape` ของอ็อบเจกต์ `Shapes`  
-4. เพิ่มตัวเชื่อมโดยใช้เมธอด `addConnector` ของอ็อบเจกต์ `Shapes` โดยกำหนดประเภทของตัวเชื่อม  
-5. เชื่อมต่อรูปร่างโดยใช้ตัวเชื่อม  
-6. เรียกเมธอด `reroute` เพื่อใช้เส้นเชื่อมที่สั้นที่สุด  
-7. บันทึกพรีเซนเทชัน  
+## **เชื่อมต่อสองรูปร่าง**
 
-โค้ด Java นี้แสดงวิธีการเพิ่มตัวเชื่อม (ตัวเชื่อมแบบบิด) ระหว่างสองรูป (รูปวงรีและสี่เหลี่ยม):
+ใช้ [IShapeCollection.addConnector](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) เพื่อเพิ่มคอนเนคเตอร์ และใช้ [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/th/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) และ [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/th/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) เพื่อเชื่อมต่อปลายของมัน หลังจากปลายทั้งสองเชื่อมต่อแล้ว, [IConnector.reroute](https://reference.aspose.com/slides/th/java/com.aspose.slides/iconnector/#reroute--) จะเลือกเส้นทางสั้นระหว่างรูปร่าง
 
-```Java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // เข้าถึงคอลเลกชันของรูปร่างสำหรับสไลด์ที่ระบุ
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // เพิ่มรูปร่างอัตโนมัติรูปวงรี
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // เพิ่มรูปร่างอัตโนมัติรูปสี่เหลี่ยม
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // เพิ่มรูปร่างตัวเชื่อมไปยังคอลเลกชันรูปร่างของสไลด์
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // เชื่อมต่อรูปร่างโดยใช้ตัวเชื่อม
-    connector.setStartShapeConnectedTo(ellipse);
-    connector.setEndShapeConnectedTo(rectangle);
-    
-    // เรียกเมธอด reroute ที่กำหนดเส้นทางสั้นที่สุดอัตโนมัติระหว่างรูปร่าง
-    connector.reroute();
-    
-    // บันทึกพรีเซนเทชัน
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert title="NOTE"  color="warning"   %}} 
-เมธอด `Connector.reroute` จะทำการกำหนดเส้นทางใหม่ให้กับตัวเชื่อมและบังคับให้มันใช้เส้นทางที่สั้นที่สุดระหว่างรูปร่าง ทั้งนี้เมธอดอาจเปลี่ยนค่า `setStartShapeConnectionSiteIndex` และ `setEndShapeConnectionSiteIndex` ได้  
-{{% /alert %}} 
-
-## **ระบุจุดเชื่อมต่อ**
-
-หากต้องการให้ตัวเชื่อมเชื่อมสองรูปร่างโดยใช้จุดเฉพาะบนรูปร่าง คุณต้องระบุตำแหน่งจุดเชื่อมต่อที่ต้องการดังนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มสอง [AutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/AutoShape) ไปยังสไลด์โดยใช้เมธอด `addAutoShape` ของอ็อบเจกต์ `Shapes`  
-4. เพิ่มตัวเชื่อมโดยใช้เมธอด `addConnector` ของอ็อบเจกต์ `Shapes` โดยกำหนดประเภทของตัวเชื่อม  
-5. เชื่อมต่อรูปร่างโดยใช้ตัวเชื่อม  
-6. ตั้งค่าจุดเชื่อมต่อที่ต้องการบนรูปร่าง  
-7. บันทึกพรีเซนเทชัน  
-
-โค้ด Java นี้สาธิตการระบุจุดเชื่อมต่อที่ต้องการ:
+ตัวอย่างต่อไปนี้เชื่อมต่อรูปวงรีและสี่เหลี่ยมด้วยคอนเนคเตอร์แบบหักโค้ง:
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // เข้าถึงคอลเลกชันของรูปร่างสำหรับสไลด์ที่ระบุ
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติรูปวงรี
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // เพิ่มรูปร่างอัตโนมัติรูปสี่เหลี่ยม
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // เพิ่มรูปร่างตัวเชื่อมไปยังคอลเลกชันรูปร่างของสไลด์
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // เชื่อมต่อรูปร่างโดยใช้ตัวเชื่อม
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
+    connector.reroute();
 
-    // ตั้งค่าดัชนีจุดเชื่อมต่อที่ต้องการบนรูปร่างวงรี
-    int wantedIndex = 6;
-
-    // ตรวจสอบว่าดัชนีที่ต้องการน้อยกว่าจำนวนดัชนีไซต์สูงสุดหรือไม่
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // ตั้งค่าจุดเชื่อมต่อที่ต้องการบนรูปร่างอัตโนมัติวงรี
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
-    }
-
-    // บันทึกพรีเซนเทชัน
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ปรับจุดของตัวเชื่อม**
+{{% alert color="warning" title="Warning" %}}
+การเรียก `reroute` อาจเปลี่ยนค่า [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/th/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) และ [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/th/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) ให้กำหนดจุดเชื่อมต่อเฉพาะหลังจากทำการเปลี่ยนเส้นทางหากจุดเหล่านั้นต้องคงที่
+{{% /alert %}}
 
-คุณสามารถปรับตัวเชื่อมที่มีอยู่ผ่านจุดปรับได้ เพียงตัวเชื่อมที่มีจุดปรับเท่านั้นที่สามารถแก้ไขในลักษณะนี้ ดูตารางภายใต้ **[ประเภทของตัวเชื่อม](/slides/th/java/connector/#types-of-connectors)**  
+## **เลือกจุดเชื่อมต่อ**
 
-### **กรณีง่าย**
+รูปร่างที่สามารถเชื่อมต่อได้แต่ละรูปจะรายงานจำนวนจุดผ่าน [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getConnectionSiteCount--) ตรวจสอบดัชนีจุดเริ่มต้นที่ต้องการ (เป็นเลขศูนย์ฐาน) ก่อนกำหนดให้กับปลายคอนเนคเตอร์; จำนวนจุดจะแตกต่างตามรูปทรงของรูปร่าง
 
-พิจารณากรณีที่ตัวเชื่อมระหว่างสองรูปร่าง (A และ B) ผ่านรูปร่างที่สาม (C):
+ตัวอย่างนี้เชื่อมต่อคอนเนคเตอร์กับจุดเฉพาะบนวงรีเมื่อจุดนั้นมีอยู่:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
+    }
+
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ปรับจุดคอนเนคเตอร์**
+
+คอนเนคเตอร์ที่มีจุดปรับค่าเปิดเผยผ่าน [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/th/java/com.aspose.slides/igeometryshape/#getAdjustments--) ตรวจสอบทุก [IAdjustValue](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/) และตรวจสอบค่าของ [getType](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/#getType--) ก่อนเปลี่ยนค่าโดยใช้ [setRawValue](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) กฎทั่วไปสำหรับการระบุการปรับรูปแบบพรีเซ็ตอธิบายไว้ใน [Shape Manipulation](/slides/th/java/shape-manipulations/)
+
+จำนวน, ลำดับ, ความหมาย, และช่วงค่าที่ถูกต้องของการปรับของคอนเนคเตอร์ขึ้นอยู่กับพรีเซ็ตคอนเนคเตอร์ ประเภทการปรับเป็นแบบอ่านอย่างเดียว, ส่วนค่าการปรับสามารถเขียนได้ วิธีอ่านอย่างเดียว [getName](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/#getName--) ให้ข้อมูลระบุตัวเพิ่มเติมเมื่อคอนเนคเตอร์มีการปรับมากกว่าหนึ่งรายการที่มีประเภทเชิงความหมายเดียวกัน
+
+### **เส้นทางรอบอุปสรรค**
+
+ในเลย์เอาต์ต่อไปนี้ คอนเนคเตอร์ `BentConnector5` ระหว่างสองรูปร่างผ่านรูปร่างที่สาม:
 
 ![connector-obstruction](connector-obstruction.png)
 
+โค้ดนี้สร้างคอนเนคเตอร์ที่ถูกกีดขวาง:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-เพื่อหลีกเลี่ยงหรือข้ามรูปร่างที่สาม เราสามารถปรับตัวเชื่อมโดยย้ายเส้นแนวตั้งไปทางซ้ายดังนี้:
+การย้ายการหักแนวตั้งเปลี่ยนเส้นทางให้คอนเนคเตอร์เลี่ยงอุปสรรค:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+แทนที่จะสมมติว่าดัชนีคอลเลกชัน `1` แสดงการหักแนวตั้งเสมอ ตัวอย่างนี้ค้นหา `ConnectorBendPositionY` และเปลี่ยนค่าเฉพาะเมื่อประเภทเชิงความหมายที่คาดหวังปรากฏ:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **กรณีซับซ้อน** 
+คอนเนคเตอร์ `BentConnector5` มีการปรับ `ConnectorBendPositionX` สองรายการและ `ConnectorBendPositionY` หนึ่งรายการ หากประเภทที่ต้องการปรากฏมากกว่าหนึ่งครั้ง ให้ตรวจสอบ `getName` และรูปทรงที่รู้จักของพรีเซ็ตก่อนเลือกหนึ่งรายการ หากการปรับรายงานเป็น `ShapeAdjustmentType.Custom` ให้นับความหมายและช่วงเป็นของพรีเซ็ตนั้นและไม่เปลี่ยนจนกว่าจะทราบสัญญานั้น
 
-เมื่อต้องทำการปรับที่ซับซ้อนมากขึ้น คุณต้องคำนึงถึงสิ่งต่อไปนี้:
+## **เชื่อมโยงค่าการปรับกับรูปทรงคอนเนคเตอร์**
 
-* จุดปรับของตัวเชื่อมเชื่อมโยงอย่างแน่นหนากับสูตรที่คำนวณและกำหนดตำแหน่งของมัน ดังนั้นการเปลี่ยนตำแหน่งจุดอาจทำให้รูปร่างของตัวเชื่อมเปลี่ยนไป  
-* จุดปรับของตัวเชื่อมถูกกำหนดตามลำดับที่เคร่งครัดในอาร์เรย์ โดยจัดลำดับจากจุดเริ่มต้นของตัวเชื่อมไปจนถึงจุดสิ้นสุด  
-* ค่าจุดปรับแสดงเป็นเปอร์เซ็นต์ของความกว้าง/ความสูงของรูปร่างตัวเชื่อม  
-  * รูปร่างถูกจำกัดโดยจุดเริ่มต้นและสิ้นสุดของตัวเชื่อมคูณด้วย 1000  
-  * จุดแรก, จุดที่สอง, และจุดที่สามกำหนดเปอร์เซ็นต์จากความกว้าง, ความสูง, และความกว้าง (อีกครั้ง) ตามลำดับ  
-* สำหรับการคำนวณที่กำหนดพิกัดของจุดปรับของตัวเชื่อม คุณต้องคำนึงถึงการหมุนและการสะท้อนของตัวเชื่อม **หมายเหตุ** ว่ามุมการหมุนของตัวเชื่อมทั้งหมดที่แสดงใน **[ประเภทของตัวเชื่อม](/slides/th/java/connector/#types-of-connectors)** คือ 0  
+สำหรับคอนเนคเตอร์แบบหักโค้ง ค่าการปรับสามารถใช้ประมาณตำแหน่งของส่วนแต่ละส่วน การคำนวณเหล่านี้เป็นเฉพาะพรีเซ็ตคอนเนคเตอร์:
 
-#### **กรณี 1**
+- `BentConnector4` ปกติจะเปิดเผยการปรับ `ConnectorBendPositionX` หนึ่งรายการและ `ConnectorBendPositionY` หนึ่งรายการ
+- สำหรับตำแหน่งการหักนี้ การหารค่าที่คืนจาก `getRawValue` ด้วย `100000f` จะให้ส่วนของความกว้างหรือความสูงของกรอบคอนเนคเตอร์ที่ใช้ในตัวอย่างด้านล่าง
+- กรอบคอนเนคเตอร์อาจถูกหมุนหรือกลับด้าน ดังนั้นพิกัดของกรอบต้องแปลงก่อนที่จะเปรียบเทียบกับพิกัดของสไลด์
 
-พิจารณากรณีที่สองอ็อบเจกต์กรอบข้อความเชื่อมต่อกันผ่านตัวเชื่อม:
+ตัวอย่างต่อไปนี้ใช้ `getType` เพื่อระบุการปรับค่าแรก เรียกดัชนีคอลเลกชันไม่ใช่ตัวระบุที่พกพาได้
+
+### **คอนเนคเตอร์ที่ไม่ได้หมุน**
+
+เลย์เอาต์เริ่มต้นมีรูปข้อความสองรูปเชื่อมต่อด้วย `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+ตัวอย่างนี้ตรวจสอบคอนเนคเตอร์และดึงการปรับการหักแนวนอนและแนวตั้ง:
+
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรกในพรีเซนเทชัน
-    ISlide sld = pres.getSlides().get_Item(0);
-    // เพิ่มรูปร่างที่จะเชื่อมต่อกันผ่านตัวเชื่อม
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // เพิ่มตัวเชื่อม
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // กำหนดทิศทางของตัวเชื่อม
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // กำหนดสีของตัวเชื่อม
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // กำหนดความหนาของเส้นตัวเชื่อม
     connector.getLineFormat().setWidth(3);
-    
-    // เชื่อมต่อรูปร่างเข้าด้วยกันโดยใช้ตัวเชื่อม
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // ดึงจุดปรับของตัวเชื่อม
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**การปรับ**
-
-เราสามารถเปลี่ยนค่าจุดปรับของตัวเชื่อมได้โดยเพิ่มเปอร์เซ็นต์ความกว้างและความสูงที่สอดคล้องกันเป็น 20% และ 200% ตามลำดับ:
+เพื่อเปลี่ยนการหักทั้งสองให้ค้นหาประเภทที่คาดหวังแต่ละอย่างและแก้ไขค่าเฉพาะหลังจากพบทั้งสอง:
 
 ```java
-// เปลี่ยนค่าของจุดปรับ
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-ผลลัพธ์:
+ผลลัพธ์คือตัวคอนเนคเตอร์ที่ส่วนแนวนอนและแนวตั้งเคลื่อนที่:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-เพื่อกำหนดโมเดลที่ช่วยให้เราหาพิกัดและรูปร่างของส่วนประกอบย่อยของตัวเชื่อม เราจะสร้างรูปร่างที่สอดคล้องกับส่วนประกอบแนวนอนของตัวเชื่อมที่จุด `connector.getAdjustments().get_Item(0)`:
+เมื่อทราบประเภทเชิงความหมายแล้ว ค่าต่าง ๆ สามารถแปลงเป็นพิกัดของกรอบคอนเนคเตอร์ ตัวอย่างนี้วาดสี่เหลี่ยมแถบบางเหนือส่วนแนวตั้งที่ควบคุมโดยการหักทั้งสอง:
 
 ```java
-// วาดส่วนประกอบแนวตั้งของตัวเชื่อม
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-ผลลัพธ์:
+รูปแบบแนวทางแสดงส่วนที่คำนวณได้:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **กรณี 2**
+### **คอนเนคเตอร์ที่หมุนหรือกลับด้าน**
 
-ใน **กรณี 1** เราได้สาธิตการปรับตัวเชื่อมอย่างง่ายโดยใช้หลักการพื้นฐาน ในสถานการณ์ปกติคุณต้องคำนึงถึงการหมุนของตัวเชื่อมและการแสดงผล (ซึ่งตั้งค่าผ่าน `connector.getRotation()`, `connector.getFrame().getFlipH()`, และ `connector.getFrame().getFlipV()`) เราจะสาธิตขั้นตอนต่อไป
+เมื่อรูปทรงคอนเนคเตอร์เดียวกันถูกจัดวางในแนวตั้ง ค่าของ [IShape.getFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getFrame--), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/th/java/com.aspose.slides/shapeframe/#getFlipH--), และ [ShapeFrame.getFlipV](https://reference.aspose.com/slides/th/java/com.aspose.slides/shapeframe/#getFlipV--) มีผลต่อการแปลงจากพิกัดกรอบคอนเนคเตอร์เป็นพิกัดสไลด์
 
-ขั้นแรกให้เพิ่มอ็อบเจกต์กรอบข้อความใหม่ (**To 1**) ไปยังสไลด์ (เพื่อการเชื่อมต่อ) แล้วสร้างตัวเชื่อม (สีเขียว) ที่เชื่อมต่อกับอ็อบเจกต์ที่สร้างไว้ก่อนหน้า:
+ตัวอย่างนี้สร้างและปรับคอนเนคเตอร์ที่จัดวางในแนวตั้ง:
 
 ```java
-// สร้างอ็อบเจกต์การผูกใหม่
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// สร้างตัวเชื่อมใหม่
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// เชื่อมต่ออ็อบเจกต์โดยใช้ตัวเชื่อมที่สร้างขึ้นใหม่
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// ดึงจุดปรับของตัวเชื่อม
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// เปลี่ยนค่าของจุดปรับ
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-ผลลัพธ์:
+คอนเนคเตอร์ที่ปรับแล้วปรากฏเป็นแนวตั้งระหว่างรูปร่าง:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ต่อมาให้สร้างรูปร่างที่สอดคล้องกับส่วนประกอบแนวนอนของตัวเชื่อมที่ผ่านจุดปรับของตัวเชื่อมใหม่ `connector.getAdjustments().get_Item(0)` เราจะใช้ค่าจาก `connector.getRotation()`, `connector.getFrame().getFlipH()`, และ `connector.getFrame().getFlipV()` และนำสูตรแปลงพิกัดสำหรับการหมุนรอบจุด x0:
+สำหรับมุมการหมุนใด ๆ `alpha` ให้หมุนจุดกรอบคอนเนคเตอร์ `(x, y)` รอบศูนย์กลางกรอบ `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-ในกรณีของเรา มุมการหมุนของอ็อบเจกต์คือ 90 องศาและตัวเชื่อมแสดงเป็นแนวตั้ง ดังนั้นโค้ดที่สอดคล้องคือ:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+โค้ดต่อไปนี้จัดการกับการวางแนว 90° ที่ใช้ในตัวอย่างและวาดแนวทางสีแดงเหนือส่วนคอนเนคเตอร์ที่สอดคล้องกัน:
 
 ```java
-// บันทึกพิกัดของตัวเชื่อม
-x = connector.getX();
-y = connector.getY();
-// แก้ไขพิกัดของตัวเชื่อมในกรณีที่ปรากฏ
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// นำค่าจุดปรับมาใช้เป็นพิกัด
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  แปลงพิกัดเนื่องจาก Sin(90) = 1 และ Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// กำหนดความกว้างของส่วนประกอบแนวนอนโดยใช้ค่าจุดปรับที่สอง
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-ผลลัพธ์:
+แนวทางสีแดงแสดงส่วนที่คำนวณหลังจากการแปลงพิกัด:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-เราได้สาธิตการคำนวณที่เกี่ยวข้องกับการปรับอย่างง่ายและการปรับจุดที่ซับซ้อน (จุดปรับที่มีมุมการหมุน) ด้วยความรู้เหล่านี้ คุณสามารถพัฒนาโมเดลของคุณเอง (หรือเขียนโค้ด) เพื่อตั้งค่าอ็อบเจกต์ `GraphicsPath` หรือแม้แต่ตั้งค่าจุดปรับของตัวเชื่อมตามพิกัดสไลด์ที่กำหนด
+สูตรเหล่านี้อธิบายพรีเซ็ตที่ใช้ในตัวอย่าง ไม่ใช่โมเดลคอนเนคเตอร์สากล ตรวจสอบประเภทการปรับ, การวางกรอบ, และช่วงค่าก่อนนำการคำนวณเดียวกันไปใช้กับพรีเซ็ตอื่น
 
-## **ค้นหามุมของเส้นตัวเชื่อม**
+## **ค้นหามุมทิศทางของคอนเนคเตอร์**
 
-1. สร้างอินสแตนซ์ของคลาส  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เข้าถึงรูปร่างเส้นตัวเชื่อม  
-4. ใช้ความกว้าง, ความสูง, ความสูงของเฟรมรูปร่าง, และความกว้างของเฟรมรูปร่างเพื่อคำนวณมุม  
-
-โค้ด Java นี้สาธิตการคำนวณมุมของรูปร่างเส้นตัวเชื่อม:
+ทิศทางของคอนเนคเตอร์ตรงสามารถคำนวณจากความกว้างและความสูงโดยคำนึงถึงการกลับด้านแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้รายงานมุมตามเข็มนาฬิกาจากแกนแนวนอนบวกในพิกัดสไลด์:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
 
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบได้อย่างไรว่าตัวเชื่อมสามารถ "ผูกติด" กับรูปร่างเฉพาะได้หรือไม่?**  
-ให้ตรวจสอบว่ารูปร่างเปิดเผย [connection sites](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#getConnectionSiteCount--) หรือไม่ หากไม่มีหรือจำนวนเป็นศูนย์ การผูกติดไม่สามารถทำได้; ในกรณีนั้นใช้จุดปลายอิสระและกำหนดตำแหน่งด้วยตนเอง ควรตรวจสอบจำนวนไซต์ก่อนทำการแนบ
+**ฉันจะตรวจสอบได้อย่างไรว่าคอนเนคเตอร์สามารถเชื่อมต่อกับรูปร่างได้หรือไม่?**
 
-**จะเกิดอะไรขึ้นกับตัวเชื่อมหากฉันลบหนึ่งในรูปร่างที่เชื่อมต่อ?**  
-ปลายทั้งสองจะถูกยกเลิกการเชื่อมต่อ; ตัวเชื่อมจะคงอยู่บนสไลด์เป็นเส้นธรรมดาที่มีจุดเริ่มต้น/สิ้นสุดอิสระ คุณสามารถลบมันหรือกำหนดการเชื่อมต่อใหม่และหากจำเป็นให้ใช้ [reroute](https://reference.aspose.com/slides/th/java/com.aspose.slides/connector/#reroute--)  
+ตรวจสอบค่าของ [getConnectionSiteCount](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getConnectionSiteCount--) ของรูปร่าง จำนวนบวกหมายความว่ารูปร่างเปิดเผยจุดเชื่อมต่อ ตรวจสอบดัชนีจุดที่เลือกก่อนกำหนดให้กับปลายคอนเนคเตอร์ใดก็ได้
 
-**การผูกติดของตัวเชื่อมจะถูกเก็บไว้เมื่อคัดลอกสไลด์ไปยังพรีเซนเทชันอื่นหรือไม่?**  
-โดยทั่วไปใช่ แต่อยู่ที่ว่ารูปร่างเป้าหมายถูกคัดลอกด้วยหรือไม่ หากสไลด์ถูกแทรกเข้าไฟล์อื่นโดยไม่มีรูปร่างที่เชื่อมต่อ ปลายจะกลายเป็นอิสระและคุณต้องผูกติดใหม่.
+**ฉันสามารถระบุการปรับของคอนเนคเตอร์โดยดัชนีของคอลเลกชันได้หรือไม่?**
+
+ดัชนีจะมีความหมายเฉพาะกับพรีเซ็ตคอนเนคเตอร์และโครงสร้างคอลเลกชันที่รู้จัก ตรวจสอบ [IAdjustValue.getType](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/#getType--) ก่อนแก้ไขค่า และใช้ [IAdjustValue.getName](https://reference.aspose.com/slides/th/java/com.aspose.slides/iadjustvalue/#getName--) เป็นข้อมูลเพิ่มเติมเมื่อประเภทเชิงความหมายเดียวกันปรากฏหลายครั้ง
+
+**จะเกิดอะไรขึ้นเมื่อรูปร่างที่เชื่อมต่อถูกลบ?**
+
+ปลายคอนเนคเตอร์ที่เกี่ยวข้องจะถูกถอดการเชื่อมต่อ คอนเนคเตอร์จะคงอยู่บนสไลด์และสามารถลบ, วางเป็นเส้นอิสระ, หรือเชื่อมต่อกับรูปร่างอื่นต่อไปได้
+
+**การเชื่อมต่อคอนเนคเตอร์จะคงไว้เมื่อสไลด์ถูกคัดลอกหรือไม่?**
+
+โดยทั่วไปการเชื่อมต่อจะคงอยู่เมื่อรูปร่างที่เชื่อมต่อถูกคัดลอกพร้อมกับสไลด์ หากคอนเนคเตอร์ถูกคัดลอกโดยไม่มีรูปร่างเป้าหมายหนึ่งตัว ปลายที่ได้รับผลกระทบจะต้องเชื่อมต่อใหม่อีกครั้ง

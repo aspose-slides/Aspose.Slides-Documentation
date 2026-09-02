@@ -1,396 +1,519 @@
 ---
-title: .NET のプレゼンテーションでコネクタを管理する
-linktitle: コネクタ
+title: ".NET でプレゼンテーションのコネクタを管理する"
+linktitle: "コネクタ"
 type: docs
 weight: 10
 url: /ja/net/connector/
 keywords:
-- コネクタ
-- コネクタの種類
-- コネクタポイント
-- コネクタライン
-- コネクタ角度
-- 図形を接続
-- PowerPoint
-- プレゼンテーション
-- .NET
-- C#
-- Aspose.Slides
-description: ".NET アプリが PowerPoint スライド上で線を描画し、接続し、自動ルーティングできるようにし、直線、エルボー、曲線コネクタを完全に制御できるようにします。"
+- "コネクタ"
+- "コネクタ タイプ"
+- "コネクタ ポイント"
+- "コネクタ ライン"
+- "コネクタ 角度"
+- "接続サイト"
+- "調整ポイント"
+- "図形 を 接続"
+- "PowerPoint"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET を使用して、PowerPoint の直線、曲がり、曲線コネクタを追加、接続、再経路化、調整、検査する方法を学びます。"
 ---
+## **概要**
 
-PowerPoint のコネクタは、2 つの図形を接続またはリンクする特別な線で、スライド上で図形が移動または再配置されても図形に付着したままです。
+コネクタは、いずれかの図形が移動しても 2 つの図形に接続されたままでいられる線です。端点は PowerPoint の緑の点で表される接続サイトに接続されます。曲がったり湾曲したりしたコネクタの中には、オレンジの点で表される調整ポイントが公開されており、個々のコネクタ セグメントの位置を制御できます。
 
-コネクタは通常、*接続点*（緑の点）に接続されます。接続点はすべての図形に既定で存在し、カーソルが近づくと表示されます。
-
-*調整ポイント*（橙色の点）は特定のコネクタにのみ存在し、コネクタの位置や形状を変更するために使用されます。
+Aspose.Slides はコネクタを [IConnector](https://reference.aspose.com/slides/ja/net/aspose.slides/iconnector/) インターフェイスで表します。コネクタを作成し、端点を図形に接続し、接続サイトを選択し、経路を再計算し、調整ポイントを持つコネクタのジオメトリを変更できます。
 
 ## **コネクタの種類**
 
-PowerPoint では、直線、エルボー（折れ線）、曲線のコネクタを使用できます。
+[ShapeType](https://reference.aspose.com/slides/ja/net/aspose.slides/shapetype/) 列挙型には、直線、曲がり、曲線のコネクタ プリセットが含まれます。以下の表は、利用可能なコネクタ ジオメトリと各プリセットで定義される調整ポイントの数を示しています。
 
-Aspose.Slides は以下のコネクタを提供します。
+| コネクタ | 画像 | 調整ポイントの数 |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| コネクタ | 画像 | 調整ポイント数 |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+調整ポイントの数と意味は選択されたコネクタ プリセットの一部です。2 つの異なるコネクタ タイプが同じコレクション レイアウトを公開するとは限らないことに留意してください。
 
-## **コネクタで図形を接続**
+## **2 つの図形を接続する**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. `Shapes` オブジェクトが提供する `AddAutoShape` メソッドを使って、スライドに 2 つの [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) を追加します。
-1. `Shapes` オブジェクトが提供する `AddConnector` メソッドでコネクタの種類を指定して追加します。
-1. コネクタを使用して図形同士を接続します。
-1. `Reroute` メソッドを呼び出して、最短の接続経路を適用します。
-1. プレゼンテーションを保存します。
+[IShapeCollection.AddConnector](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection/addconnector/) を使用してコネクタを追加し、[StartShapeConnectedTo](https://reference.aspose.com/slides/ja/net/aspose.slides/connector/startshapeconnectedto/) および [EndShapeConnectedTo](https://reference.aspose.com/slides/ja/net/aspose.slides/connector/endshapeconnectedto/) プロパティに割り当てます。両端が接続されたら、[IConnector.Reroute](https://reference.aspose.com/slides/ja/net/aspose.slides/iconnector/reroute/) が図形間の最短経路を選択します。
 
-この C# コードは、2 つの図形（楕円と矩形）の間にベンドコネクタを追加する方法を示しています。
-```c#
-// PPTX ファイルを表すプレゼンテーションクラスのインスタンスを作成します
-using (Presentation input = new Presentation())
-{                
-    // 特定のスライドのシェイプコレクションにアクセスします
-    IShapeCollection shapes = input.Slides[0].Shapes;
+次の例は、楕円と矩形を曲がったコネクタで接続します。
 
-    // 楕円オートシェイプを追加します
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 矩形オートシェイプを追加します
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // スライドのシェイプコレクションにコネクタシェイプを追加します
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // コネクタを使用してシェイプを接続します
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // シェイプ間の自動最短経路を設定する reroute を呼び出します
-    connector.Reroute();
-
-    // プレゼンテーションを保存します
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
+{{% alert color="warning" title="Warning" %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Connector.Reroute` メソッドはコネクタの経路を再計算し、図形間の最短経路を強制します。目的を達成するために、`StartShapeConnectionSiteIndex` と `EndShapeConnectionSiteIndex` のポイントが変更されることがあります。 
-{{% /alert %}} 
+`Reroute` を呼び出すと、[StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/ja/net/aspose.slides/connector/startshapeconnectionsiteindex/) および [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/ja/net/aspose.slides/connector/endshapeconnectionsiteindex/) の値が変わる可能性があります。これらのサイトを固定したままにしたい場合は、再経路化後に特定の接続サイトを割り当ててください。
 
-## **接続点を指定**
+{{% /alert %}}
 
-コネクタを特定の図形上の点で接続したい場合は、以下の手順で希望する接続点を指定します。
+## **接続サイトを選択する**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. `Shapes` オブジェクトが提供する `AddAutoShape` メソッドを使って、スライドに 2 つの [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) を追加します。
-1. `Shapes` オブジェクトが提供する `AddConnector` メソッドでコネクタの種類を指定して追加します。
-1. コネクタを使用して図形同士を接続します。
-1. 図形上の希望する接続点を設定します。
-1. プレゼンテーションを保存します。
+接続可能な各図形は、[ConnectionSiteCount](https://reference.aspose.com/slides/ja/net/aspose.slides/shape/connectionsitecount/) を通じてサイト数を報告します。コネクタ端に割り当てる前に、0 ベースの希望インデックスが有効かどうかを検証してください。図形のジオメトリによりサイト数は異なります。
 
-この C# コードは、接続点を指定した操作例を示しています。
-```c#
-// PPTX ファイルを表すプレゼンテーションクラスのインスタンスを作成します
-using (Presentation presentation = new Presentation())
+この例は、対象のサイトが存在する場合に楕円上の特定のサイトにコネクタを接続します。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // 特定のスライドのシェイプコレクションにアクセスします
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // スライドのシェイプコレクションにコネクタシェイプを追加します
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // 楕円のオートシェイプを追加します
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // 矩形のオートシェイプを追加します
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // コネクタを使用してシェイプを接続します
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // 楕円シェイプの希望接続ドットインデックスを設定します
-    uint wantedIndex = 6;
-
-    // 希望インデックスが最大サイトインデックス数未満かどうかを確認します
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // 楕円オートシェイプに希望接続ドットを設定します
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // プレゼンテーションを保存します
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
+## **コネクタ ポイントを調整する**
 
-## **コネクタポイントの調整**
+調整ポイントを持つコネクタは、[IGeometryShape.Adjustments](https://reference.aspose.com/slides/ja/net/aspose.slides/igeometryshape/adjustments/) を介してそれらを公開します。各 [IAdjustValue](https://reference.aspose.com/slides/ja/net/aspose.slides/iadjustvalue/) を調査し、[Type](https://reference.aspose.com/slides/ja/net/aspose.slides/adjustvalue/type/) を確認してから [RawValue](https://reference.aspose.com/slides/ja/net/aspose.slides/adjustvalue/rawvalue/) を変更してください。プリセット形状の調整を識別する一般的な規則は、[Shape Manipulation](/slides/ja/net/shape-manipulations/) に記載されています。
 
-既存のコネクタは調整ポイントを使って変更できます。調整ポイントを持つコネクタだけがこの方法で変更可能です。**[コネクタの種類](/slides/ja/net/connector/#types-of-connectors)** の表をご参照ください。
+コネクタの調整は、プリセットに応じて数、順序、意味、および有効な値範囲が異なります。`Type` プロパティは読み取り専用で、調整値は書き込み可能です。同一の意味タイプが複数存在する場合、読み取り専用の [Name](https://reference.aspose.com/slides/ja/net/aspose.slides/adjustvalue/name/) プロパティが追加の識別情報を提供します。
 
-### **シンプルなケース**
+### **障害物の回り道**
 
-2 つの図形 (A と B) を結ぶコネクタが、3 番目の図形 (C) を通過するケースを考えてみます。
+以下のレイアウトでは、2 つの図形間の `BentConnector5` が 3 番目の図形を通過しています。
 
-![コネクタ遮蔽](connector-obstruction.png)
+![connector-obstruction](connector-obstruction.png)
 
-コード:
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+このコードは障害物があるコネクタを作成します。
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
+垂直方向の曲げを移動すると、コネクタが障害物を回避するように経路が変わります。
 
-3 番目の図形を回避または迂回するために、コネクタの垂直線を左側に移動して調整できます。
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-![コネクタ遮蔽修正](connector-obstruction-fixed.png)
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
-```
+コレクション インデックス `1` が常に垂直曲げを表すと仮定せず、`ConnectorBendPositionY` を検索し、期待される意味タイプが存在する場合にのみ変更する例です。
 
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-### **複雑なケース** 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-より高度な調整を行うには、以下の点に留意する必要があります。
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
-* コネクタの調整ポイントは、位置を算出する数式と強く結びついています。そのため、ポイントの位置を変更するとコネクタの形状が変わることがあります。
-* 調整ポイントは配列内で厳密な順序で定義されます。開始点から終了点へ向かって番号が付けられます。
-* 調整ポイントの値は、コネクタ形状の幅・高さに対するパーセンテージで表されます。  
-  * 形状はコネクタの開始点と終了点を 1000 倍した範囲で制限されます。  
-  * 第 1 ポイント、第 2 ポイント、第 3 ポイントはそれぞれ幅のパーセンテージ、高さのパーセンテージ、再び幅のパーセンテージを示します。
-* 調整ポイントの座標を算出する際は、コネクタの回転と鏡像も考慮する必要があります。**注**：**[コネクタの種類](/slides/ja/net/connector/#types-of-connectors)** に示されたすべてのコネクタの回転角は 0 です。
-
-#### **ケース 1**
-
-2 つのテキストフレームオブジェクトがコネクタで結び付けられているケースを考えます。
-
-![コネクタ形状複合](connector-shape-complex.png)
-
-コード:
-```c#
-// PPTX ファイルを表すプレゼンテーションクラスのインスタンスを作成します
-Presentation pres = new Presentation();
-// プレゼンテーションの最初のスライドを取得します
-ISlide sld = pres.Slides[0];
-// コネクタで結合される形状を追加します
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// コネクタを追加します
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// コネクタの方向を指定します
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// コネクタの色を指定します
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
+```
+
+`BentConnector5` には `ConnectorBendPositionX` が 2 つ、`ConnectorBendPositionY` が 1 つ存在します。必要なタイプが複数回出現する場合は、`Name` と既知のジオメトリを確認してから選択してください。調整が `ShapeAdjustmentType.Custom` を報告する場合、その意味と範囲はプリセット固有とみなし、契約が明らかになるまで変更しないでください。
+
+## **調整値をコネクタ ジオメトリに関連付ける**
+
+曲がったコネクタの場合、調整値を使用して個々のセグメントの位置を推定できます。これらの計算はコネクタ プリセット固有です。
+
+- `BentConnector4` は通常、`ConnectorBendPositionX` と `ConnectorBendPositionY` をそれぞれ 1 つずつ公開します。
+- これらの曲げ位置については、`RawValue / 100000f` が下記例で使用されたコネクタ フレームの幅または高さの割合を生成します。
+- コネクタ フレームは回転または反転できるため、フレーム座標はスライド座標と比較する前に変換する必要があります。
+
+以下の例は、まず `Type` を使用して調整を識別し、コレクション インデックスを移植可能な識別子として扱いません。
+
+### **回転していないコネクタ**
+
+最初のレイアウトには、`BentConnector4` で接続された 2 つのテキスト図形が含まれます。
+
+![connector-shape-complex](connector-shape-complex.png)
+
+この例はコネクタを調査し、水平および垂直曲げの調整を取得します。
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// コネクタの線の太さを指定します
 connector.LineFormat.Width = 3;
-
-// コネクタで形状同士をリンクします
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// コネクタの調整ポイントを取得します
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
-```
-
-
-**調整**
-
-対応する幅と高さのパーセンテージをそれぞれ 20% と 200% 増加させて、コネクタの調整ポイント値を変更できます。
-
-```c#
-// 調整ポイントの値を変更します
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
-```
-
-
-結果:
-
-![コネクタ調整-1](connector-adjusted-1.png)
-
-コネクタの個別パーツの座標と形状を決定できるモデルを作成するために、`connector.Adjustments[0]` ポイントに対応する水平成分の形状を作成します。
-
-```c#
-// コネクタの垂直成分を描画します
-
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
-```
-
-
-結果:
-
-![コネクタ調整-2](connector-adjusted-2.png)
-
-#### **ケース 2**
-
-**ケース 1** では、基本原理を用いたシンプルな調整操作を示しました。通常の状況では、`connector.Rotation`、`connector.Frame.FlipH`、`connector.Frame.FlipV` が設定するコネクタの回転と表示を考慮する必要があります。以下で手順を示します。
-
-最初に、スライドに新しいテキストフレームオブジェクト (**To 1**) を追加し（接続用）、既存オブジェクトに接続する新しい（緑色の）コネクタを作成します。
-
-```c#
- // 新しいバインディングオブジェクトを作成します
- IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
- shapeTo_1.TextFrame.Text = "To 1";
- // 新しいコネクタを作成します
- connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
- connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
- connector.LineFormat.FillFormat.FillType = FillType.Solid;
- connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
- connector.LineFormat.Width = 3;
- // 新しく作成したコネクタでオブジェクトを接続します
- connector.StartShapeConnectedTo = shapeFrom;
- connector.StartShapeConnectionSiteIndex = 2;
- connector.EndShapeConnectedTo = shapeTo_1;
- connector.EndShapeConnectionSiteIndex = 3;
- // コネクタの調整ポイントを取得します
- adjValue_0 = connector.Adjustments[0];
- adjValue_1 = connector.Adjustments[1];
- // 調整ポイントの値を変更します 
- adjValue_0.RawValue += 20000;
- adjValue_1.RawValue += 200000;
-```
-
-
-結果:
-
-![コネクタ調整-3](connector-adjusted-3.png)
-
-次に、新しいコネクタの調整ポイント `connector.Adjustments[0]` を通過する水平成分に対応する形状を作成します。`connector.Rotation`、`connector.Frame.FlipH`、`connector.Frame.FlipV` の値を使用し、基準点 x0 周りの回転に対する座標変換式を適用します。
-
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
-
-この例ではオブジェクトの回転角は 90 度で、コネクタは縦方向に表示されるため、対応するコードは以下のとおりです。
-
-```c#
-// コネクタの座標を保存します
-x = connector.X;
-y = connector.Y;
-// コネクタの座標がずれている場合に修正します
-if (connector.Frame.FlipH == NullableBool.True)
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
 }
-if (connector.Frame.FlipV == NullableBool.True)
-{
-    y += connector.Height;
-}
-// 調整ポイントの値を座標として使用します
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  座標を変換します（Sin(90)=1、Cos(90)=0 のため）
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// 第2の調整ポイントの値を使用して水平成分の幅を決定します
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
-
 ```
 
+両方の曲げを変更するには、期待されるタイプをそれぞれ見つけ、両方が見つかった後に値を変更します。
 
-結果:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-![コネクタ調整-4](connector-adjusted-4.png)
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-シンプルな調整と回転角を伴う複雑な調整ポイントの計算を示しました。取得した知識を活用して、`GraphicsPath` オブジェクトを取得したり、特定のスライド座標に基づいてコネクタの調整ポイント値を設定したりするモデルやコードを作成できます。
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
 
-## **コネクタ線の角度を求める**
-
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. コネクタの線形状にアクセスします。
-1. 線の幅・高さ、図形フレームの幅・高さを使用して角度を計算します。
-
-この C# コードは、コネクタ線形状の角度を計算する操作例です。
-```c#
-public static void Run()
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
     {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
 
-        Console.WriteLine(dir);
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
+```
+
+結果として、水平セグメントと垂直セグメントが移動したコネクタが得られます。
+
+![connector-adjusted-1](connector-adjusted-1.png)
+
+意味タイプが判明したら、その値をコネクタ フレーム座標に変換できます。この例は、2 つの曲げ調整が制御する垂直セグメント上に細い矩形を描画します。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
+```
+
+ガイド形状は計算されたセグメントを示しています。
+
+![connector-adjusted-2](connector-adjusted-2.png)
+
+### **回転または反転したコネクタ**
+
+同じコネクタ ジオメトリが縦向きになると、[Frame](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/frame/)、[FlipH](https://reference.aspose.com/slides/ja/net/aspose.slides/shapeframe/fliph/)、[FlipV](https://reference.aspose.com/slides/ja/net/aspose.slides/shapeframe/flipv/) の値が、コネクタ フレーム座標からスライド座標への変換に影響します。
+
+この例は縦向きのコネクタを作成し、調整します。
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
+connector.LineFormat.Width = 3;
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+```
+
+調整後のコネクタは図形間で縦向きに表示されます。
+
+![connector-adjusted-3](connector-adjusted-3.png)
+
+任意の回転角 α に対して、コネクタ フレーム点 `(x, y)` をフレーム中心 `(x0, y0)` の周りで回転させる式は次のとおりです。
+
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
+
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+以下のコードはこの例で使用される 90 度回転を処理し、対応するコネクタ セグメント上に赤いガイドを描画します。
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
     }
 
-}
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
 }
 ```
 
+赤いガイドは座標変換後の計算されたセグメントを示しています。
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+これらの式は例で使用されたプリセットを説明したものであり、汎用的なコネクタ モデルを表すものではありません。別のプリセットに同じ計算を適用する前に、調整タイプ、フレームの向き、および値範囲を必ず検証してください。
+
+## **コネクタの方向角を求める**
+
+直線コネクタの方向は、幅と高さ、および水平・垂直フリップを考慮して計算できます。以下の例は、スライド座標系で正の水平軸から時計回りの角度を報告します。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
+{
+    angle += 360;
+}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
+```
 
 ## **FAQ**
 
-**コネクタが特定の図形に「貼り付け」できるかどうかは、どう判断すればよいですか？**
+**コネクタが図形に接続できるかどうかはどうやって判断しますか？**
 
-その図形が [connection sites](https://reference.aspose.com/slides/net/aspose.slides/shape/connectionsitecount/) を公開しているか確認してください。存在しない、または数が 0 の場合は貼り付けは利用できません。その場合は自由端点を使用し、手動で位置を設定します。接続前にサイト数を確認するのが賢明です。
+図形の `ConnectionSiteCount` を確認してください。正のカウントがある場合、その図形は接続サイトを公開しています。コネクタ端に割り当てる前に、選択したサイトインデックスが有効かどうかを検証してください。
 
-**接続されている図形の一方を削除した場合、コネクタはどうなりますか？**
+**コネクタの調整をコレクション インデックスで特定できますか？**
 
-端点が切り離され、コネクタは普通の線としてスライド上に残ります（開始/終了が自由になります）。削除するか、接続先を再設定し、必要に応じて [reroute](https://reference.aspose.com/slides/net/aspose.slides/connector/reroute/) してください。
+インデックスは既知のコネクタ プリセットとコレクション レイアウトに対してのみ意味があります。値を変更する前に `IAdjustValue.Type` を確認し、同一の意味タイプが複数出現する場合は `IAdjustValue.Name` を追加情報として使用してください。
 
-**スライドを別のプレゼンテーションにコピーしたとき、コネクタのバインディングは保持されますか？**
+**接続された図形が削除された場合はどうなりますか？**
 
-通常は保持されますが、対象の図形も一緒にコピーされている必要があります。接続された図形がコピーされていない場合、端点は自由になり、再度接続し直す必要があります。
+該当するコネクタ端が切り離されます。コネクタはスライド上に残り、削除したり、フリーレインとして配置したり、別の図形に再接続したりできます。
+
+**スライドをコピーしたときにコネクタのバインディングは保持されますか？**
+
+接続された図形とともにスライドがコピーされる場合、バインディングは通常保持されます。コネクタだけがコピーされ、対象図形のいずれかが欠けている場合は、影響を受けた端を再度接続する必要があります。

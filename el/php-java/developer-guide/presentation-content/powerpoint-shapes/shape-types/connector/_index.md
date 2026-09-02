@@ -10,363 +10,573 @@ keywords:
 - σημείο συνδέσμου
 - γραμμή συνδέσμου
 - γωνία συνδέσμου
+- σημείο σύνδεσης
+- σημείο προσαρμογής
 - σύνδεση σχημάτων
 - PowerPoint
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Ενδυναμώστε τις εφαρμογές PHP να σχεδιάζουν, συνδέουν και αυτο-δρομολογούν γραμμές σε διαφάνειες PowerPoint — αποκτήστε πλήρη έλεγχο πάνω σε ευθείες, αγκάλες και καμπυλωτούς συνδέσμους."
+description: "Μάθετε πώς να προσθέτετε, να συνδέετε, να αλλάζετε διαδρομή, να προσαρμόζετε και να ελέγχετε ευθείς, λυγούς και κυρτούς συνδέσμους PowerPoint με το Aspose.Slides για PHP μέσω Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Ένας σύνδεσμος PowerPoint είναι μια ειδική γραμμή που συνδέει ή ενώνει δύο σχήματα μεταξύ τους και παραμένει συνδεδεμένος με τα σχήματα ακόμη και όταν αυτά μετακινούνται ή τοποθετούνται ξανά σε μια δεδομένη διαφάνεια. 
+Ένας σύνδεσμος είναι μια γραμμή που μπορεί να παραμείνει προσαρτημένη σε δύο σχήματα όταν μετακινηθεί το ένα ή το άλλο σχήμα. Τα άκρα του συνδέονται με σημεία σύνδεσης, τα οποία απεικονίζονται με πράσινες κουκκίδες στο PowerPoint. Ορισμένοι λυγόμενοι και κυρτοί σύνδεσμοι εκθέτουν επίσης σημεία προσαρμογής, τα οποία απεικονίζονται με πορτοκαλί κουκκίδες, και ελέγχουν τη θέση των μεμονωμένων τμημάτων του συνδέσμου.
 
-Οι σύνδεσμοι συνδέονται τυπικά σε *σημεία σύνδεσης* (πράσινα σημεία), που υπάρχουν προεπιλεγμένα σε όλα τα σχήματα. Τα σημεία σύνδεσης εμφανίζονται όταν ο δρομέας πλησιάζει σε αυτά.
+Η Aspose.Slides αντιπροσωπεύει τους συνδέσμους μέσω της κλάσης [Connector](https://reference.aspose.com/slides/el/php-java/aspose.slides/connector/) . Μπορείτε να τους δημιουργήσετε, να συνδέσετε τα άκρα τους με σχήματα, να επιλέξετε σημεία σύνδεσης, να τους αλλάξετε διαδρομή και να τροποποιήσετε τη γεωμετρία των συνδέσμων που έχουν σημεία προσαρμογής.
 
-*Σημεία προσαρμογής* (πορτοκαλί σημεία), που υπάρχουν μόνο σε ορισμένους συνδέσμους, χρησιμοποιούνται για την τροποποίηση των θέσεων και των μορφών των συνδέσμων.
+## **Τύποι Συνδέσμων**
 
-## **Τύποι συνδέσμων**
-
-Στο PowerPoint, μπορείτε να χρησιμοποιήσετε ευθείς, αγκυκλούς (γωνιακούς) και καμπυλωτούς συνδέσμους. 
-
-Aspose.Slides παρέχει αυτούς τους συνδέσμους:
+Η κλάση [ShapeType](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapetype/) περιλαμβάνει προεπιλεγμένους ευθείς, λυγόμενους και κυρτούς συνδέσμους. Ο παρακάτω πίνακας δείχνει τις διαθέσιμες γεωμετρίες συνδέσμων και τον αριθμό σημείων προσαρμογής που ορίζονται από κάθε προεπιλογή.
 
 | Σύνδεσμος | Εικόνα | Αριθμός σημείων προσαρμογής |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Σύνδεση σχημάτων με συνδέσμους**
+Ο αριθμός και το νόημα των σημείων προσαρμογής αποτελούν μέρος της επιλεγμένης προεπιλογής του συνδέσμου. Μην υποθέτετε ότι δύο διαφορετικοί τύποι συνδέσμου εκθέτουν την ίδια διάταξη συλλογής.
 
-1. Δημιουργήστε μία εμφάνιση της κλάσης [Presentation](https://apireference.aspose.com/slides/el/php-java/aspose.slides/Presentation).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-1. Προσθέστε δύο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/AutoShape) στη διαφάνεια χρησιμοποιώντας τη μέθοδο `addAutoShape` που παρέχεται από το αντικείμενο `Shapes`.
-1. Προσθέστε έναν σύνδεσμο χρησιμοποιώντας τη μέθοδο `addConnector` που παρέχεται από το αντικείμενο `Shapes`, ορίζοντας τον τύπο του συνδέσμου.
-1. Συνδέστε τα σχήματα χρησιμοποιώντας τον σύνδεσμο. 
-1. Καλέστε τη μέθοδο `reroute` για να εφαρμόσετε τη μικρότερη διαδρομή σύνδεσης.
-1. Αποθηκεύστε την παρουσίαση. 
+## **Σύνδεση Δύο Σχημάτων**
 
-Αυτός ο κώδικας PHP σας δείχνει πώς να προσθέσετε έναν σύνδεσμο (έναν λυγμό σύνδεσμου) μεταξύ δύο σχημάτων (μιας έλλειψης και ενός ορθογωνίου):
+Χρησιμοποιήστε την μέθοδο [ShapeCollection::addConnector](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addconnector/) για να προσθέσετε έναν σύνδεσμο και τις μεθόδους [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/el/php-java/aspose.slides/connector/setstartshapeconnectedto/) και [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/el/php-java/aspose.slides/connector/setendshapeconnectedto/) για να συνδέσετε τα άκρα του. Αφού συνδέσετε και τα δύο άκρα, η μέθοδος [Connector::reroute](https://reference.aspose.com/slides/el/php-java/aspose.slides/connector/reroute/) επιλέγει μια σύντομη διαδρομή μεταξύ των σχημάτων.
+
+Το παρακάτω παράδειγμα συνδέει μια έλλειψη και ένα ορθογώνιο με έναν λυγό σύνδεσμο:
 
 ```php
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει το αρχείο PPTX
-  $pres = new Presentation();
-  try {
-    # Πρόσβαση στη συλλογή σχημάτων για μια συγκεκριμένη διαφάνεια
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Προσθέτει αυτόματο σχήμα Έλλειψης
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Προσθέτει αυτόματο σχήμα Ορθογώνιου
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Προσθέτει σχήμα συνδέσμου στη συλλογή σχημάτων της διαφάνειας
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Συνδέει τα σχήματα χρησιμοποιώντας το σύνδεσμο
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Καλεί τη μέθοδο reroute που ορίζει τη αυτόματη πιο σύντομη διαδρομή μεταξύ των σχημάτων
     $connector->reroute();
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Προειδοποίηση" %}}
 
-Η μέθοδος `Connector.reroute` επαναδρομολογεί έναν σύνδεσμο και τον αναγκάζει να ακολουθήσει τη συντομότερη δυνατή διαδρομή μεταξύ των σχημάτων. Για να πετύχει τον στόχο της, η μέθοδος μπορεί να αλλάξει τα σημεία `setStartShapeConnectionSiteIndex` και `setEndShapeConnectionSiteIndex`. 
+Η κλήση της `reroute` μπορεί να αλλάξει τις τιμές των [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/el/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) και [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/el/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/). Ορίστε συγκεκριμένα σημεία σύνδεσης μετά την επανακατεύθυνση εάν πρέπει να παραμείνουν σταθερά.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **Καθορισμός σημείου σύνδεσης**
+## **Επιλογή Σημείου Σύνδεσης**
 
-Αν θέλετε ένας σύνδεσμος να ενώσει δύο σχήματα χρησιμοποιώντας συγκεκριμένα σημεία στα σχήματα, πρέπει να καθορίσετε τα προτιμώμενα σημεία σύνδεσης ως εξής:
+Κάθε σχήμα που μπορεί να συνδεθεί αναφέρει τον αριθμό των σημείων μέσω της μεθόδου [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getconnectionsitecount/). Ελέγξτε έναν προτιμώμενο μηδενικά‑βάση δείκτη πριν τον αναθέσετε σε άκρο συνδέσμου· οι μετρήσεις διαφέρουν ανάλογα με τη γεωμετρία του σχήματος.
 
-1. Δημιουργήστε μία εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-1. Προσθέστε δύο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/AutoShape) στη διαφάνεια χρησιμοποιώντας τη μέθοδο `addAutoShape` που παρέχεται από το αντικείμενο `Shapes`.
-1. Προσθέστε έναν σύνδεσμο χρησιμοποιώντας τη μέθοδο `addConnector` που παρέχεται από το αντικείμενο `Shapes`, ορίζοντας τον τύπο του συνδέσμου.
-1. Συνδέστε τα σχήματα χρησιμοποιώντας τον σύνδεσμο. 
-1. Ορίστε τα προτιμώμενα σημεία σύνδεσης στα σχήματα. 
-1. Αποθηκεύστε την παρουσίαση.
-
-Αυτός ο κώδικας PHP δείχνει μια λειτουργία όπου καθορίζεται ένα προτιμώμενο σημείο σύνδεσης:
+Αυτό το παράδειγμα συνδέει το σύνδεσμο σε ένα συγκεκριμένο σημείο της έλλειψης όταν αυτό το σημείο υπάρχει:
 
 ```php
-  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-  $pres = new Presentation();
-  try {
-    # Πρόσβαση στη συλλογή σχημάτων για μια συγκεκριμένη διαφάνεια
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Προσθέτει αυτόματο σχήμα Έλλειψη
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Προσθέτει αυτόματο σχήμα Ορθογώνιου
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Προσθέτει σχήμα συνδέσμου στη συλλογή σχημάτων της διαφάνειας
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Συνδέει τα σχήματα χρησιμοποιώντας το σύνδεσμο
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Θέτει το προτιμώμενο δείκτη σημείου σύνδεσης στο σχήμα Έλλειψη
-    $wantedIndex = 6;
-    # Ελέγχει αν ο προτιμώμενος δείκτης είναι μικρότερος από το μέγιστο πλήθος δεικτών σημείου
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # Θέτει το προτιμώμενο σημείο σύνδεσης στο αυτόματο σχήμα Έλλειψη
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ρύθμιση σημείου συνδέσμου**
+## **Ρύθμιση Σημείου Συνδέσμου**
 
-Μπορείτε να ρυθμίσετε έναν υπάρχοντα σύνδεσμο μέσω των σημείων προσαρμογής του. Μόνο σύνδεσμοι με σημεία προσαρμογής μπορούν να τροποποιηθούν με αυτόν τον τρόπο. Δείτε τον πίνακα κάτω από **[Τύποι συνδέσμων](/slides/el/php-java/connector/#types-of-connectors)**
+Οι σύνδεσμοι με σημεία προσαρμογής τα εκθέτουν μέσω της μεθόδου [GeometryShape::getAdjustments](https://reference.aspose.com/slides/el/php-java/aspose.slides/geometryshape/#getadjustments). Εξετάστε κάθε [AdjustValue](https://reference.aspose.com/slides/el/php-java/aspose.slides/adjustvalue/) και ελέγξτε την τιμή [AdjustValue::getType](https://reference.aspose.com/slides/el/php-java/aspose.slides/adjustvalue/#gettype) πριν την αλλάξετε με [AdjustValue::setRawValue](https://reference.aspose.com/slides/el/php-java/aspose.slides/adjustvalue/setrawvalue/). Οι γενικοί κανόνες για την αναγνώριση προεπιλεγμένων προσαρμογών σχήματος περιγράφονται στην ενότητα [Shape Manipulation](/slides/el/php-java/shape-manipulations/).
 
-### **Απλή περίπτωση**
+Ο αριθμός, η σειρά, το νόημα και το έγκυρο εύρος τιμών των προσαρμογών συνδέσμου εξαρτώνται από την προεπιλογή του συνδέσμου. Ο τύπος προσαρμογής είναι μόνο για ανάγνωση· η τιμή είναι επεξεργάσιμη. Η μέθοδος μόνο για ανάγνωση [AdjustValue::getName](https://reference.aspose.com/slides/el/php-java/aspose.slides/adjustvalue/getname/) παρέχει πρόσθετη ταυτοποίηση όταν ένας σύνδεσμος περιέχει περισσότερες από μία προσαρμογές του ίδιου εννοιολογικού τύπου.
 
-Σκεφτείτε μια περίπτωση όπου ένας σύνδεσμος μεταξύ δύο σχημάτων (A και B) περνά μέσα από ένα τρίτο σχήμα (C):
+### **Διαδρομή γύρω από Εμπόδιο**
+
+Στην παρακάτω διάταξη, ένας σύνδεσμος `BentConnector5` μεταξύ δύο σχημάτων περνάει από ένα τρίτο σχήμα:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Αυτός ο κώδικας δημιουργεί τον εμποδισμένο σύνδεσμο:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Για να αποφύγουμε ή να παρακάμψουμε το τρίτο σχήμα, μπορούμε να ρυθμίσουμε τον σύνδεσμο μετακινώντας την κάθετη γραμμή του προς τα αριστερά ως εξής:
+Η μετακίνηση του κάθετου λυγμού αλλάζει τη διαδρομή έτσι ώστε ο σύνδεσμος να παρακάμπτει το εμπόδιο:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
+Αντί να υποθέτετε ότι ο δείκτης συλλογής `1` αντιπροσωπεύει πάντα τον κάθετο λυγμό, αυτό το παράδειγμα ψάχνει για `ConnectorBendPositionY` και το αλλάζει μόνο όταν ο αναμενόμενος εννοιολογικός τύπος είναι παρόν:
 
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Σύνθετες περιπτώσεις** 
+Ένας `BentConnector5` έχει δύο προσαρμογές `ConnectorBendPositionX` και μία προσαρμογή `ConnectorBendPositionY`. Εάν ο τύπος που χρειάζεστε εμφανίζεται περισσότερες από μία φορές, εξετάστε το `getName` και τη γνωστή γεωμετρία της προεπιλογής πριν επιλέξετε. Εάν μια προσαρμογή επιστρέφει `ShapeAdjustmentType::Custom`, θεωρήστε το νόημα και το εύρος της ως ειδικά για αυτήν την προεπιλογή και μην το αλλάξετε μέχρι να είναι γνωστή η σύμβαση.
 
-Για να πραγματοποιήσετε πιο σύνθετες ρυθμίσεις, πρέπει να λάβετε υπόψη τα εξής:
+## **Συσχέτιση Τιμών Προσαρμογής με Γεωμετρία Συνδέσμου**
 
-* Το προσαρμοζόμενο σημείο ενός συνδέσμου συνδέεται στενά με έναν τύπο που υπολογίζει και καθορίζει τη θέση του. Συνεπώς, οι αλλαγές στη θέση του σημείου μπορεί να αλλάξουν το σχήμα του συνδέσμου.
-* Τα σημεία προσαρμογής ενός συνδέσμου ορίζονται με αυστηρή σειρά σε έναν πίνακα. Τα σημεία αριθμούνται από το σημείο εκκίνησης του συνδέσμου μέχρι το τέλος του.
-* Οι τιμές των σημείων προσαρμογής αντανακλούν το ποσοστό του πλάτους/ύψους του σχήματος του συνδέσμου. 
-  * Το σχήμα περιορίζεται από τα σημεία εκκίνησης και τέλους του συνδέσμου πολλαπλασιασμένα με 1000. 
-  * Το πρώτο, το δεύτερο και το τρίτο σημείο καθορίζουν αντίστοιχα το ποσοστό από το πλάτος, το ποσοστό από το ύψος και πάλι το ποσοστό από το πλάτος.
-* Για υπολογισμούς που καθορίζουν τις συντεταγμένες των σημείων προσαρμογής ενός συνδέσμου, πρέπει να ληφθεί υπόψη η περιστροφή του συνδέσμου και η αντανάκλασή του. **Σημείωση** ότι η γωνία περιστροφής για όλους τους συνδέσμους που εμφανίζονται κάτω από **[Τύποι συνδέσμων](/slides/el/php-java/connector/#types-of-connectors)** είναι 0.
+Για λυγόμενους συνδέσμους, οι τιμές προσαρμογής μπορούν να χρησιμοποιηθούν για την εκτίμηση των θέσεων των μεμονωμένων τμημάτων. Αυτοί οι υπολογισμοί είναι ειδικοί για την προεπιλογή του συνδέσμου:
 
-#### **Περίπτωση 1**
+- Το `BentConnector4` συνήθως εκθέτει μία προσαρμογή `ConnectorBendPositionX` και μία `ConnectorBendPositionY`.
+- Για αυτές τις θέσεις λυγμού, η διαίρεση της τιμής που επιστρέφει το `getRawValue` με `100000` παρέχει το κλάσμα του πλάτους ή του ύψους του πλαισίου του συνδέσμου που χρησιμοποιείται στα παραδείγματα παρακάτω.
+- Ένα πλαίσιο συνδέσμου μπορεί να περιστραφεί ή να αντιστραφεί, επομένως οι συντεταγμένες του πλαισίου πρέπει να μετατραπούν πριν συγκριθούν με τις συντεταγμένες της διαφάνειας.
 
-Σκεφτείτε μια περίπτωση όπου δύο αντικείμενα πλαισίου κειμένου συνδέονται μέσω ενός συνδέσμου:
+Τα παρακάτω παραδείγματα χρησιμοποιούν το `getType` για την αναγνώριση των προσαρμογών πρώτα. Δεν αντιμετωπίζουν τους δείκτες συλλογής ως φορητά αναγνωριστικά.
+
+### **Σύνδεσμος χωρίς Περιστροφή**
+
+Η αρχική διάταξη περιέχει δύο σχήματα κειμένου συνδεδεμένα με ένα `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Αυτό το παράδειγμα εξετάζει τον σύνδεσμο και λαμβάνει τις οριζόντιες και κάθετες προσαρμογές λυγμού:
+
 ```php
-  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
-  $pres = new Presentation();
-  try {
-    # Λαμβάνει την πρώτη διαφάνεια στην παρουσίαση
-    $sld = $pres->getSlides()->get_Item(0);
-    # Προσθέτει σχήματα που θα ενωθούν μέσω ενός συνδέσμου
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # Προσθέτει έναν σύνδεσμο
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # Καθορίζει την κατεύθυνση του συνδέσμου
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # Καθορίζει το χρώμα του συνδέσμου
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Καθορίζει το πάχος της γραμμής του συνδέσμου
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # Συνδέει τα σχήματα μεταξύ τους με το σύνδεσμο
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # Λαμβάνει τα σημεία προσαρμογής του συνδέσμου
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Ρύθμιση**
-
-Μπορούμε να αλλάξουμε τις τιμές των σημείων προσαρμογής του συνδέσμου αυξάνοντας το αντίστοιχο ποσοστό πλάτους και ύψους κατά 20% και 200% αντίστοιχα:
+Για να αλλάξετε και τους δύο λυγμούς, εντοπίστε κάθε αναμενόμενο τύπο και τροποποιήστε τις τιμές μόνο αφού βρεθούν και οι δύο:
 
 ```php
-  # Αλλάζει τις τιμές των σημείων προσαρμογής
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Το αποτέλεσμα είναι ένας σύνδεσμος του οποίου τα οριζόντια και κάθετα τμήματα έχουν μετακινηθεί:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Για να ορίσουμε ένα μοντέλο που να μας επιτρέπει τον προσδιορισμό των συντεταγμένων και του σχήματος των μεμονωμένων τμημάτων του συνδέσμου, ας δημιουργήσουμε ένα σχήμα που αντιστοιχεί στο οριζόντιο συστατικό του συνδέσμου στο σημείο `connector.getAdjustments().get_Item(0)`:
+Μόλις γνωστοποιηθούν οι εννοιολογικοί τύποι, οι τιμές τους μπορούν να μετατραπούν σε συντεταγμένες πλαισίου συνδέσμου. Το παράδειγμα αυτό σχεδιάζει ένα λεπτό ορθογώνιο πάνω από το κάθετο τμήμα που ελέγχεται από τις δύο προσαρμογές λυγμού:
 
 ```php
-  # Σχεδιάζει το κάθετο συστατικό του συνδέσμου
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Το σχήμα οδηγού σηματοδοτεί το υπολογισμένο τμήμα:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Περίπτωση 2**
+### **Περιστρεφόμενος ή Αντανακλασθείς Σύνδεσμος**
 
-Στην **Περίπτωση 1**, παρουσιάσαμε μια απλή λειτουργία ρύθμισης συνδέσμου χρησιμοποιώντας βασικές αρχές. Σε κανονικές συνθήκες, πρέπει να ληφθούν υπόψη η περιστροφή του συνδέσμου και η προβολή του (που ορίζονται από τις μεθόδους `connector.getRotation()`, `connector.getFrame().getFlipH()` και `connector.getFrame().getFlipV()`). Τώρα θα δείξουμε τη διαδικασία.
+Όταν η ίδια γεωμετρία συνδέσμου τοποθετείται κατακόρυφα, οι τιμές [Shape::getFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getframe/), [ShapeFrame::getFlipH](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapeframe/getfliph/), και [ShapeFrame::getFlipV](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapeframe/getflipv/) επηρεάζουν τη μετατροπή από συντεταγμένες πλαισίου συνδέσμου σε συντεταγμένες διαφάνειας.
 
-Πρώτα, προσθέστε ένα νέο αντικείμενο πλαισίου κειμένου (**To 1**) στη διαφάνεια (για σκοπούς σύνδεσης) και δημιουργήστε έναν νέο (πράσινο) σύνδεσμο που το συνδέει με τα αντικείμενα που έχουμε ήδη δημιουργήσει.
+Αυτό το παράδειγμα δημιουργεί και ρυθμίζει τον κατακόρυφα προσανατολισμένο σύνδεσμο:
 
 ```php
-  # Δημιουργεί ένα νέο αντικείμενο σύνδεσης
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # Δημιουργεί έναν νέο σύνδεσμο
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # Συνδέει αντικείμενα χρησιμοποιώντας τον νεοδημιουργημένο σύνδεσμο
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # Λαμβάνει τα σημεία προσαρμογής του συνδέσμου
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # Αλλάζει τις τιμές των σημείων προσαρμογής
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Ο προσαρμοσμένος σύνδεσμος εμφανίζεται κατακόρυφα μεταξύ των σχημάτων:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Δεύτερον, ας δημιουργήσουμε ένα σχήμα που θα αντιστοιχεί στο οριζόντιο συστατικό του συνδέσμου που διέρχεται από το νέο σημείο προσαρμογής του συνδέσμου `connector.getAdjustments().get_Item(0)`. Θα χρησιμοποιήσουμε τις τιμές από τα δεδομένα του συνδέσμου για `connector.getRotation()`, `connector.getFrame().getFlipH()` και `connector.getFrame().getFlipV()` και θα εφαρμόσουμε τον δημοφιλές τύπο μετασχηματισμού συντεταγμένων για περιστροφή γύρω από ένα σημείο x0:
+Για μια αυθαίρετη γωνία περιστροφής `alpha`, περιστρέψτε ένα σημείο πλαισίου συνδέσμου `(x, y)` γύρω από το κέντρο του πλαισίου `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Στην περίπτωσή μας, η γωνία περιστροφής του αντικειμένου είναι 90 μοίρες και ο σύνδεσμος εμφανίζεται κάθετα, έτσι αυτός είναι ο αντίστοιχος κώδικας:
+Ο παρακάτω κώδικας χειρίζεται την 90‑μοίρες προσανατολισμό που χρησιμοποιείται σε αυτό το παράδειγμα και σχεδιάζει έναν κόκκινο οδηγό πάνω από το αντίστοιχο τμήμα του συνδέσμου:
 
 ```php
-  # Αποθηκεύει τις συντεταγμένες του συνδέσμου
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # Διορθώνει τις συντεταγμένες του συνδέσμου σε περίπτωση που εμφανίζεται
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # Λαμβάνει την τιμή του σημείου προσαρμογής ως συντεταγμένη
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # Μετατρέπει τις συντεταγμένες επειδή Sin(90) = 1 και Cos(90) = 0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # Καθορίζει το πλάτος του οριζόντιου συστατικού χρησιμοποιώντας τη δεύτερη τιμή σημείου προσαρμογής
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Το αποτέλεσμα:
+Ο κόκκινος οδηγός σηματοδοτεί το υπολογισμένο τμήμα μετά τη μετατροπή των συντεταγμένων:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Δείξαμε υπολογισμούς που αφορούν απλές ρυθμίσεις και σύνθετα σημεία προσαρμογής (σημεία με γωνίες περιστροφής). Με τη γνώση που αποκτήσατε, μπορείτε να αναπτύξετε το δικό σας μοντέλο (ή να γράψετε κώδικα) για να λάβετε ένα αντικείμενο `GraphicsPath` ή ακόμη και να θέσετε τις τιμές των σημείων προσαρμογής ενός συνδέσμου βάσει συγκεκριμένων συντεταγμένων διαφάνειας.
+Αυτοί οι τύποι περιγράφουν τις προεπιλογές που χρησιμοποιούνται στα παραδείγματα, όχι ένα καθολικό μοντέλο συνδέσμου. Επικυρώστε τους τύπους προσαρμογών, τον προσανατολισμό του πλαισίου και τα εύρη τιμών πριν εφαρμόσετε τον ίδιο υπολογισμό σε διαφορετική προεπιλογή.
 
-## **Εύρεση γωνίας γραμμών συνδέσμου**
+## **Εύρεση Γωνίας Κατεύθυνσης Συνδέσμου**
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης.
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-1. Προσπελάστε το σχήμα γραμμής του συνδέσμου.
-1. Χρησιμοποιήστε το πλάτος, το ύψος, το ύψος του πλαισίου σχήματος και το πλάτος του πλαισίου σχήματος για να υπολογίσετε τη γωνία.
-
-Αυτός ο κώδικας PHP δείχνει μια λειτουργία στην οποία υπολογίσαμε τη γωνία για ένα σχήμα γραμμής συνδέσμου:
+Η κατεύθυνση ενός ευθείου συνδέσμου μπορεί να υπολογιστεί από το πλάτος και το ύψος του, λαμβάνοντας υπόψη τις οριζόντιες και κάθετες αντιστροφές. Το παρακάτω παράδειγμα αναφέρει τη γωνία δεινού ρολογιού από τον θετικό οριζόντιο άξονα στις συντεταγμένες της διαφάνειας:
 
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να καταλάβω αν ένας σύνδεσμος μπορεί να «κολλήσει» σε ένα συγκεκριμένο σχήμα;**
+**Πώς μπορώ να καταλάβω αν ένας σύνδεσμος μπορεί να συνδεθεί με ένα σχήμα;**
 
-Ελέγξτε αν το σχήμα εκθέτει [σημεία σύνδεσης](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getconnectionsitecount/). Αν δεν υπάρχουν ή ο αριθμός είναι μηδέν, η δυνατότητα κόλλησης δεν είναι διαθέσιμη· σε αυτή την περίπτωση, χρησιμοποιήστε ελεύθερα άκρα και τοποθετήστε τα χειροκίνητα. Συνιστάται να ελέγχετε τον αριθμό των σημείων πριν την προσάρτηση.
+Ελέγξτε την τιμή [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getconnectionsitecount/) του σχήματος. Ένας θετικός αριθμός σημαίνει ότι το σχήμα εκθέτει σημεία σύνδεσης. Επικυρώστε τον επιλεγμένο δείκτη σημείου πριν τον αναθέσετε σε οποιοδήποτε άκρο του συνδέσμου.
 
-**Τι συμβαίνει με έναν σύνδεσμο αν διαγράψω ένα από τα συνδεδεμένα σχήματα;**
+**Μπορώ να ταυτοποιήσω μια προσαρμογή συνδέσμου με τον δείκτη της συλλογής;**
 
-Τα άκρα του αποσυνδέονται· ο σύνδεσμος παραμένει στη διαφάνεια ως απλή γραμμή με ελεύθερη αρχή/τέλος. Μπορείτε είτε να το διαγράψετε είτε να επανακαθορίσετε τις συνδέσεις και, εάν χρειαστεί, να το [επανδρομολογήσετε](https://reference.aspose.com/slides/el/php-java/aspose.slides/connector/reroute/).
+Ένας δείκτης είναι σημαντικός μόνο για μια γνωστή προεπιλογή συνδέσμου και διάταξη συλλογής. Ελέγξτε το [AdjustValue::getType](https://reference.aspose.com/slides/el/php-java/aspose.slides/adjustvalue/#gettype) πριν τροποποιήσετε μια τιμή και χρησιμοποιήστε το [AdjustValue::getName](https://reference.aspose.com/slides/el/php-java/aspose.slides/adjustvalue/getname/) ως πρόσθετη πληροφορία όταν ο ίδιος εννοιολογικός τύπος εμφανίζεται περισσότερες από μία φορές.
 
-**Διατηρούνται οι δεσμοί των συνδέσμων όταν αντιγράψετε μια διαφάνεια σε άλλη παρουσίαση;**
+**Τι συμβαίνει όταν ένα συνδεδεμένο σχήμα διαγραφεί;**
 
-Γενικά ναι, εφόσον τα αντίστοιχα σχήματα αντιγραφούν επίσης. Αν η διαφάνεια εισαχθεί σε άλλο αρχείο χωρίς τα συνδεδεμένα σχήματα, τα άκρα γίνονται ελεύθερα και θα πρέπει να τα επανα-συνδέσετε.
+Το αντίστοιχο άκρο του συνδέσμου αποσυνδέεται. Ο σύνδεσμος παραμένει στη διαφάνεια και μπορεί να διαγραφεί, να τοποθετηθεί ως ελεύθερη γραμμή ή να συνδεθεί με άλλο σχήμα.
+
+**Διατηρούνται οι συνδέσεις όταν αντιγραφεί μια διαφάνεια;**
+
+Οι συνδέσεις διατηρούνται γενικά όταν τα συνδεδεμένα σχήματα αντιγράφονται μαζί με τη διαφάνεια. Εάν ένας σύνδεσμος αντιγραφεί χωρίς ένα από τα σχήματα-στόχους, το επηρεαζόμενο άκρο πρέπει να επανασυνδεθεί.

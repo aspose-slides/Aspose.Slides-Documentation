@@ -1,5 +1,5 @@
 ---
-title: Kelola Bentuk Presentasi dalam C++
+title: Kelola Bentuk Presentasi di C++
 linktitle: Manipulasi Bentuk
 type: docs
 weight: 40
@@ -8,41 +8,44 @@ keywords:
 - Bentuk PowerPoint
 - Bentuk presentasi
 - Bentuk pada slide
-- menemukan bentuk
+- cari bentuk
 - gandakan bentuk
 - hapus bentuk
 - sembunyikan bentuk
 - ubah urutan bentuk
 - dapatkan ID bentuk interop
 - teks alternatif bentuk
+- titik penyesuaian bentuk
+- penyesuaian bentuk preset
+- geometri bentuk
 - format tata letak bentuk
 - bentuk sebagai SVG
 - bentuk ke SVG
-- selaraskan bentuk
+- rata bentuk
 - balikkan bentuk
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara mengidentifikasi, menggandakan, menghapus, menyembunyikan, menyusun ulang, mengekspor, menyelaraskan, dan membalikkan bentuk presentasi dengan Aspose.Slides untuk C++."
+description: "Pelajari cara mengidentifikasi, menyesuaikan, menggandakan, menghapus, menyembunyikan, mengubah urutan, mengekspor, meratakan, dan membalik bentuk presentasi dengan Aspose.Slides untuk C++."
 ---
 ## **Ikhtisar**
 
-Aspose.Slides for C++ merepresentasikan bentuk pada sebuah slide sebagai [IShapeCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/) yang terurut. Koleksi ini merupakan tempat Anda menemukan dan memodifikasi bentuk serta sumber urutan tumpukan mereka: indeks `0` adalah bentuk paling belakang, sementara indeks terakhir adalah bentuk paling depan.
+Aspose.Slides for C++ merepresentasikan bentuk pada sebuah slide sebagai [IShapeCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/) yang terurut. Koleksi ini sekaligus tempat Anda menemukan dan memodifikasi bentuk serta sumber urutan penumpukan mereka: indeks `0` adalah bentuk paling belakang, sementara indeks terakhir adalah bentuk paling depan.
 
-Artikel ini mengikuti model tersebut. Pertama menjelaskan cara mengidentifikasi sebuah bentuk secara andal, kemudian menunjukkan cara menggandakan, menghapus, menyembunyikan, dan menyusun kembali bentuk. Bagian akhir mencakup pemformatan tingkat tata letak, ekspor SVG, penyelarasan, dan pengaturan pembalikan. Setiap contoh bersifat mandiri, sehingga Anda dapat menggunakan hanya operasi yang diperlukan oleh alur kerja Anda.
+Artikel ini mengikuti model tersebut. Pertama menjelaskan cara mengidentifikasi bentuk secara andal dan memodifikasi titik penyesuaian bentuk preset, kemudian menunjukkan cara menggandakan, menghapus, menyembunyikan, dan mengubah urutan bentuk. Bagian akhir mencakup pemformatan tingkat tata letak, ekspor SVG, perataan, dan pengaturan flip. Setiap contoh bersifat independen, sehingga Anda dapat menggunakan hanya operasi yang diperlukan dalam alur kerja Anda.
 
 ## **Identifikasi dan Temukan Bentuk**
 
-Indeks koleksi berguna saat memproses file yang diketahui, tetapi bukan pengidentifikasi yang stabil. Menambah, menghapus, atau menyusun kembali sebuah bentuk dapat mengubah indeksnya. Pilih pengidentifikasi sesuai dengan cara presentasi dibuat dan dipelihara:
+Indeks koleksi nyaman saat memproses file yang sudah dikenal, tetapi bukan pengidentifikasi yang stabil. Menambahkan, menghapus, atau mengubah urutan sebuah bentuk dapat mengubah indeksnya. Pilih pengidentifikasi sesuai dengan cara presentasi dibuat dan dipelihara:
 
-- [Name](/slides/id/cpp/aspose.slides/ishape/get_name/) berguna untuk templat yang dikendalikan oleh pengembang dan mudah diperiksa di Panel Seleksi PowerPoint. Nama dapat diedit dan tidak dijamin unik, jadi tetapkan konvensi penamaan jika kode bergantung padanya.
-- [AlternativeText](/slides/id/cpp/aspose.slides/ishape/get_alternativetext/) berguna ketika deskripsi aksesibilitas atau tag yang disediakan penulis sudah mengidentifikasi bentuk. Teks ini terlihat oleh pengguna, dapat dilokalkan atau ditulis ulang untuk aksesibilitas, dan tidak dijamin unik. Jangan diam‑diam menggunakan teks aksesibilitas yang bermakna sebagai kunci basis data.
-- [OfficeInteropShapeId](/slides/id/cpp/aspose.slides/ishape/get_officeinteropshapeid/) adalah pengidentifikasi hanya‑baca yang unik dalam satu slide dan sesuai dengan ID bentuk yang digunakan oleh interop PowerPoint. Gunakan ini saat berintegrasi dengan PowerPoint atau ketika Anda memerlukan referensi tak ambigu selama masa hidup sebuah bentuk. Bentuk yang digandakan atau dibuat ulang adalah bentuk yang berbeda dan menerima IDnya masing‑misah.
+- [Name](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_name/) berguna untuk templat yang dikontrol pengembang dan mudah diperiksa di Panel Seleksi PowerPoint. Nama dapat diedit dan tidak dijamin unik, jadi tetapkan konvensi penamaan jika kode bergantung padanya.
+- [AlternativeText](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_alternativetext/) berguna ketika deskripsi aksesibilitas atau tag yang diberikan penulis sudah mengidentifikasi bentuk. Teks ini terlihat oleh pengguna, dapat dilokalkan atau ditulis ulang untuk aksesibilitas, dan tidak dijamin unik. Jangan diam‑diam memakai teks aksesibilitas yang bermakna sebagai kunci basis data.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_officeinteropshapeid/) adalah pengidentifikasi hanya‑baca yang unik dalam sebuah slide dan sesuai dengan ID bentuk yang digunakan oleh interop PowerPoint. Gunakan ketika berintegrasi dengan PowerPoint atau saat Anda membutuhkan referensi yang tidak ambigu selama masa hidup sebuah bentuk. Bentuk yang digandakan atau dibuat ulang adalah bentuk berbeda dan menerima IDnya masing‑masing.
 
-Properti terkait [UniqueId](/slides/id/cpp/aspose.slides/ishape/get_uniqueid/) memiliki ruang lingkup presentasi, tetapi ditujukan untuk add‑in dan dapat dipindahkan kembali. Jangan memperlakukannya sebagai kunci eksternal permanen. Jika identitas jangka panjang penting, simpan pemetaan dalam data aplikasi dan validasi bahwa bentuk yang diharapkan masih ada.
+Properti terkait [UniqueId](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_uniqueid/) memiliki lingkup presentasi, tetapi dimaksudkan untuk add‑in dan dapat dipindahtugaskan kembali. Itu tidak boleh diperlakukan sebagai kunci eksternal permanen. Jika identitas jangka panjang penting, simpan pemetaan dalam data aplikasi dan validasi bahwa bentuk yang diharapkan masih ada.
 
-Contoh berikut mencari berdasarkan `Name` dan melaporkan ID interop yang berskala slide. Ketika templat tidak berisi bentuk yang diharapkan, kode melaporkan hasil itu alih‑alih melanjutkan dengan objek yang salah.
+Contoh berikut mencari berdasarkan `Name` dan melaporkan ID interop ber‑lingkup slide. Ketika templat tidak berisi bentuk yang diharapkan, kode melaporkan hasil tersebut alih‑alih melanjutkan dengan objek yang salah.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -80,7 +83,7 @@ else
 presentation->Dispose();
 ```
 
-Ketika operasi khusus untuk tipe bentuk, periksa antarmuka sebelum menggunakan anggota spesifik tipe. Contoh ini memperbarui teks dan teks alternatif hanya jika objek bernama tersebut adalah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/).
+Ketika sebuah operasi khusus untuk tipe bentuk tertentu, periksa antarmuka sebelum menggunakan anggota yang bersifat tipe‑spesifik. Contoh ini memperbarui teks dan teks alternatif hanya bila objek bernama tersebut adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/).
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,15 +127,123 @@ else
 presentation->Dispose();
 ```
 
+## **Identifikasi dan Modifikasi Penyesuaian Bentuk Preset**
+
+Bentuk geometri preset dapat mengekspos titik penyesuaian yang mengontrol fitur seperti ukuran sudut, proporsi panah, atau sudut busur. Akses mereka melalui koleksi baca‑saja [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/id/cpp/aspose.slides/igeometryshape/get_adjustments/). Koleksi itu disediakan oleh bentuk, tetapi setiap [IAdjustValue](https://reference.aspose.com/slides/id/cpp/aspose.slides/iadjustvalue/) berisi nilai yang dapat diubah.
+
+Jangan bergantung hanya pada indeks koleksi tetap. Iterasikan penyesuaian dan inspeksi properti baca‑saja [IAdjustValue::get_Type](https://reference.aspose.com/slides/id/cpp/aspose.slides/iadjustvalue/get_type/), yang nilai [ShapeAdjustmentType](https://reference.aspose.com/slides/id/cpp/aspose.slides/shapeadjustmenttype/)‑nya menjelaskan apa yang dikontrol penyesuaian tersebut. Properti baca‑saja [IAdjustValue::get_Name](https://reference.aspose.com/slides/id/cpp/aspose.slides/iadjustvalue/get_name/) memberikan informasi identifikasi tambahan dan sangat berguna ketika preset berisi lebih dari satu penyesuaian dengan tipe semantik yang sama.
+
+Gunakan properti nilai yang cocok dengan makna penyesuaian:
+
+| Tipe Penyesuaian | Tujuan | Nilai yang diubah |
+|---|---|---|
+| `CornerSize` | Ukuran sudut bulat | [RawValue](https://reference.aspose.com/slides/id/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | Ketebalan ekor panah | `RawValue` |
+| `ArrowheadLength` | Panjang kepala panah | `RawValue` |
+| `ArrowheadWidth` | Lebar kepala panah | `RawValue` |
+| `StartAngle` | Sudut awal pai atau busur | [AngleValue](https://reference.aspose.com/slides/id/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | Sudut akhir pai atau busur | `AngleValue` |
+
+`Type` dan `Name` tidak dapat ditetapkan. `RawValue` adalah integer baca‑tulis dalam satuan geometri native preset, sedangkan `AngleValue` adalah sudut baca‑tulis dalam derajat. Jumlah, urutan, makna, dan rentang nilai penyesuaian tergantung pada preset [ShapeType](https://reference.aspose.com/slides/id/cpp/aspose.slides/igeometryshape/get_shapetype/). Nilai yang valid untuk satu preset mungkin tidak valid atau memiliki efek berbeda untuk preset lainnya.
+
+Ketika `Type` adalah `ShapeAdjustmentType::Custom`, API tidak mengenali makna semantik standar. Periksa `Name`, tipe preset, dan nilai yang ada, dan biarkan penyesuaian tidak berubah kecuali makna dan rentang yang diharapkan diketahui. Bahkan untuk tipe yang dikenali, periksa apakah tipe yang sama muncul lebih dari satu kali sebelum memilih nilai. Artikel [Connector](/slides/id/cpp/connector/) menunjukkan situasi ini dengan penyesuaian tikungan konektor.
+
+Contoh lengkap berikut membuat versi default dan dimodifikasi dari tiga bentuk preset. Ia mengiterasi setiap penyesuaian, melaporkan `Name` dan `Type`‑nya, mengubah nilai terkait ukuran lewat `RawValue`, mengubah sudut lewat `AngleValue`, dan menyimpan hasilnya. Kolom kiri mempertahankan geometri default; kolom kanan menampilkan persegi panjang bulat yang disesuaikan, panah empat arah, dan pai.
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// Menambahkan header untuk kolom bentuk default dan yang disesuaikan.
+auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
+auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel->get_TextFrame()->set_Text(u"Modified adjustment values");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+auto modifiedRoundedRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle->set_Name(u"ModifiedRoundedRectangle");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+auto modifiedArrow = slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+modifiedArrow->set_Name(u"ModifiedQuadArrow");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+auto modifiedPie = slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+modifiedPie->set_Name(u"ModifiedPie");
+
+auto shapesToAdjust = MakeArray<SharedPtr<IGeometryShape>>({modifiedRoundedRectangle, modifiedArrow, modifiedPie});
+
+for (auto shape : shapesToAdjust)
+{
+    auto adjustments = shape->get_Adjustments();
+    for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+    {
+        auto adjustment = adjustments->idx_get(adjustmentIndex);
+        Console::WriteLine(shape->get_Name() + u" / " + adjustment->get_Name() + u": " + ObjectExt::ToString(adjustment->get_Type()));
+
+        switch (adjustment->get_Type())
+        {
+            case ShapeAdjustmentType::CornerSize:
+                adjustment->set_RawValue(5000);
+                break;
+            case ShapeAdjustmentType::ArrowTailThickness:
+                adjustment->set_RawValue(25000);
+                break;
+            case ShapeAdjustmentType::ArrowheadLength:
+                adjustment->set_RawValue(30000);
+                break;
+            case ShapeAdjustmentType::ArrowheadWidth:
+                adjustment->set_RawValue(40000);
+                break;
+            case ShapeAdjustmentType::StartAngle:
+                adjustment->set_AngleValue(30);
+                break;
+            case ShapeAdjustmentType::EndAngle:
+                adjustment->set_AngleValue(300);
+                break;
+            case ShapeAdjustmentType::Custom:
+                Console::WriteLine(u"Custom adjustment '" + adjustment->get_Name() + u"' was not changed.");
+                break;
+        }
+    }
+}
+
+presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Memeriksa tipe semantik sebelum mengubah nilai membuat kode eksplisit tentang niatnya dan menghindari asumsi bahwa indeks koleksi tertentu memiliki makna yang sama pada bentuk preset yang berbeda.
+
 ## **Modifikasi Koleksi Bentuk**
 
-Metode tambah, gandakan, hapus, dan susun kembali beroperasi pada koleksi secara langsung. Jika sebuah operasi mengubah jumlah atau urutan bentuk, jangan terus mengandalkan indeks yang diambil sebelum operasi tersebut.
+Metode tambah, gandakan, hapus, dan ubah urutan beroperasi pada koleksi secara langsung. Jika sebuah operasi mengubah jumlah atau urutan bentuk, jangan terus mengandalkan indeks yang diambil sebelum operasi tersebut.
 
-### **Gandakan Bentuk**
+### **Gandakan Sebuah Bentuk**
 
-[AddClone](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addclone/) membuat salinan independen dan menambahkannya ke koleksi target. [InsertClone](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/insertclone/) juga membuat salinan tetapi menempatkannya pada indeks z‑order yang ditentukan. Overload yang menerima koordinat memindahkan salinan tanpa mengubah ukuran; overload dengan lebar dan tinggi dapat mengubah ukuran juga.
+[AddClone](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addclone/) membuat salinan independen dan menambahkannya ke koleksi target. [InsertClone](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/insertclone/) juga membuat salinan tetapi menempatkannya pada indeks z‑order yang ditentukan. Overload yang menerima koordinat memindahkan klon tanpa mengubah ukurannya; overload dengan lebar dan tinggi dapat mengubah ukuran juga.
 
-Contoh ini membuat slide tujuan, menggandakan persegi panjang berlabel ke depan, dan menyisipkan salinan kedua di belakang. Perubahan pada salah satu salinan tidak memodifikasi bentuk sumber.
+Contoh membuat slide tujuan, menggandakan persegi panjang berlabel ke depan, dan menyisipkan klon kedua ke belakang. Perubahan pada salah satu klon tidak memodifikasi bentuk sumber.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -188,13 +299,13 @@ presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Penggandaan menyalin konten dan pemformatan bentuk, termasuk nama dan teks alternatifnya. Berikan pengidentifikasi logis baru pada salinan ketika nilai‑nilai tersebut harus unik. Sumber daya yang digunakan oleh bentuk kompleks ditangani oleh presentasi, tetapi salinan tetap menjadi item koleksi baru dengan identitas bentuk baru.
+Penggandaan menyalin konten dan pemformatan bentuk, termasuk nama dan teks alternatifnya. Tetapkan pengidentifikasi logis baru ke klon ketika nilai‑nilai tersebut harus unik. Sumber daya yang digunakan oleh bentuk kompleks ditangani oleh presentasi, tetapi klon tetap menjadi item koleksi baru dengan identitas bentuk baru.
 
 ### **Hapus Bentuk**
 
-[Remove](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/remove/) menghapus objek bentuk tertentu dari koleksinya. Saat menghapus beberapa kecocokan selama iterasi berindeks, lakukan penelusuran dari akhir sehingga setiap indeks yang tersisa tetap valid.
+[Remove](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/remove/) menghapus objek bentuk tertentu dari koleksinya. Saat menghapus beberapa kecocokan selama iterasi ber‑indeks, lalui dari akhir sehingga setiap indeks yang tersisa tetap valid.
 
-Contoh ini menghapus setiap bentuk dengan nama yang ditentukan. Ia membaca bentuk berindeks saat ini, bukan item koleksi tetap, dan tidak melakukan casting bentuk secara tidak perlu.
+Contoh ini menghapus setiap bentuk dengan nama yang ditentukan. Ia membaca bentuk yang di‑indeks saat ini, bukan item koleksi tetap, dan tidak melakukan cast bentuk yang tidak diperlukan.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -233,11 +344,11 @@ presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Setelah penghapusan, jumlah bentuk dan indeks bentuk berikutnya berubah. Referensi ke bentuk yang tidak terpengaruh tetap lebih dapat diandalkan daripada indeks yang disimpan. Pertimbangkan pula konektor, animasi, dan fitur presentasi lain yang mungkin merujuk pada objek yang dihapus; menghapus bentuk yang terlihat dapat mengubah lebih dari penampilan slide.
+Setelah penghapusan, jumlah bentuk dan indeks bentuk‑bentuk berikutnya berubah. Referensi ke bentuk yang tidak terpengaruh tetap lebih dapat diandalkan daripada indeks yang disimpan. Pertimbangkan juga konektor, animasi, dan fitur presentasi lain yang mungkin merujuk pada objek yang dihapus; menghapus bentuk yang terlihat dapat mengubah lebih dari sekadar tampilan slide.
 
-### **Sembunyikan Bentuk**
+### **Sembunyikan Sebuah Bentuk**
 
-Menetapkan [Hidden](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/set_hidden/) ke `true` mempertahankan bentuk dalam koleksi tetapi mencegahnya muncul dalam tayangan slide normal. Indeks, pemformatan, dan kontennya tetap tersedia bagi kode, sehingga menyembunyikan cocok untuk elemen opsional yang mungkin dipulihkan nanti.
+Menetapkan [Hidden](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/set_hidden/) ke `true` menjaga bentuk tetap berada dalam koleksi tetapi mencegahnya muncul dalam tampilan slide normal. Indeks, pemformatan, dan kontennya tetap tersedia bagi kode, sehingga menyembunyikan cocok untuk elemen opsional yang mungkin dipulihkan nanti.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -272,11 +383,11 @@ presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Menyembunyikan bukan penghapusan atau keamanan. Objek masih dapat ditemukan dan ditampilkan kembali oleh pengguna atau kode, dan tetap menjadi bagian dari file presentasi.
+Menyembunyikan bukan berarti menghapus atau mengamankan. Objek masih dapat ditemukan dan ditampilkan kembali oleh pengguna atau kode, dan tetap menjadi bagian dari berkas presentasi.
 
-### **Ubah Urutan Z**
+### **Ubah Z‑Order**
 
-Bentuk yang tumpang tindih digambar sesuai urutan koleksi. [Reorder](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/reorder/) memindahkan bentuk yang ada ke indeks target tanpa menggandakannya. Indeks `0` adalah belakang; `Count - 1` adalah depan.
+Bentuk yang saling tumpang tindih digambar sesuai urutan koleksi. [Reorder](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/reorder/) memindahkan bentuk yang ada ke indeks target tanpa menggandakannya. Indeks `0` adalah belakang; `Count - 1` adalah depan.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -312,13 +423,13 @@ presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Persegi panjang dibuat terlebih dahulu dan pada awalnya berada di belakang elips. Memindahkannya ke indeks akhir menempatkannya di depan. Selesaikan urutan z setelah menambah atau menggandakan semua bentuk terkait, karena operasi tersebut menambah atau menyisipkan item koleksi baru dan dapat mengubah tumpukan yang dimaksud.
+Persegi panjang dibuat terlebih dahulu dan awalnya berada di belakang elips. Memindahkannya ke indeks akhir menempatkannya di depan. Selesaikan z‑order setelah menambahkan atau menggandakan semua bentuk terkait, karena operasi‑operasi tersebut menambah atau menyisipkan item koleksi baru dan dapat mengubah tumpukan yang diinginkan.
 
 ## **Periksa Bentuk pada Slide Tata Letak**
 
-Slide normal, slide tata letak, dan slide master memiliki koleksi bentuk terpisah. Sebuah bentuk dalam koleksi tata letak bukan objek yang sama dengan bentuk yang diposisikan serupa pada slide normal. Periksa bentuk tata letak ketika Anda perlu memahami atau mengubah pemformatan yang disediakan oleh tata letak.
+Slide normal, slide tata letak, dan slide master memiliki koleksi bentuk terpisah. Sebuah bentuk dalam koleksi tata letak bukan objek yang sama dengan bentuk yang posisinya serupa pada slide normal. Periksa bentuk tata letak ketika Anda perlu memahami atau mengubah pemformatan yang disediakan oleh tata letak.
 
-Contoh berikut membaca setiap [FillFormat](/slides/id/cpp/aspose.slides/ishape/get_fillformat/) dan [LineFormat](/slides/id/cpp/aspose.slides/ishape/get_lineformat/) bentuk tata letak tanpa mengasumsikan bahwa setiap bentuk adalah `AutoShape`.
+Contoh berikut membaca masing‑masing [FillFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_fillformat/) dan [LineFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_lineformat/) pada bentuk tata letak tanpa mengasumsikan bahwa setiap bentuk adalah `AutoShape`.
 
 ```cpp
 #include <DOM/IGlobalLayoutSlideCollection.h>
@@ -348,11 +459,11 @@ for (auto layoutSlide : presentation->get_LayoutSlides())
 presentation->Dispose();
 ```
 
-Mengedit tata letak dapat memengaruhi banyak slide yang menggunakannya. Sebelum mengubah bentuk tata letak, tentukan apakah slide normal mewarisi objek tersebut atau berisi penimpaan lokal, dan uji setiap slide yang memakai tata letak itu.
+Menyunting tata letak dapat memengaruhi banyak slide yang menggunakannya. Sebelum mengubah bentuk tata letak, tentukan apakah slide normal mewarisi objek tersebut atau berisi penimpaan lokal, dan uji setiap slide yang memakai tata letak itu.
 
 ## **Ekspor Bentuk ke SVG**
 
-[WriteAsSvg](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/writeassvg/) menulis konten ter‑render satu bentuk ke aliran. Hasilnya berisi bentuk, bukan latar belakang seluruh slide atau bentuk di sekitarnya.
+[WriteAsSvg](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/writeassvg/) menulis konten ter‑render satu bentuk ke sebuah aliran. Hasilnya berisi bentuk itu, bukan latar belakang seluruh slide atau bentuk‑bentuk tetangganya.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -384,13 +495,13 @@ else
 presentation->Dispose();
 ```
 
-Pertahankan presentasi terbuka selama proses rendering. Output tergantung pada pemformatan bentuk serta sumber daya seperti font dan gambar. Jika Anda membutuhkan seluruh komposisi, ekspor slide bukan bentuk individual. Pemanggil memiliki aliran dan harus menutup atau membuangnya.
+Biarkan presentasi tetap terbuka selama proses rendering. Output bergantung pada pemformatan bentuk serta sumber daya seperti font dan gambar. Jika Anda membutuhkan keseluruhan komposisi, ekspor slide alih‑alih bentuk individual. Pemanggil memiliki aliran dan harus menutup atau membuangnya.
 
-## **Selaraskan Bentuk**
+## **Ratakan Bentuk**
 
-[SlideUtil::AlignShapes](https://reference.aspose.com/slides/id/cpp/aspose.slides.util/slideutil/alignshapes/) memiliki overload yang menyelaraskan seluruh bentuk atau indeks koleksi terpilih. [ShapesAlignmentType](https://reference.aspose.com/slides/id/cpp/aspose.slides/shapesalignmenttype/) menentukan tepi, garis tengah, atau mode distribusi. Atur `alignToSlide` ke `true` untuk menggunakan tepi slide; atur ke `false` untuk menyelaraskan bentuk terpilih relatif satu sama lain.
+Overload [SlideUtil::AlignShapes](https://reference.aspose.com/slides/id/cpp/aspose.slides.util/slideutil/alignshapes/) meratakan semua bentuk atau indeks koleksi yang dipilih. [ShapesAlignmentType](https://reference.aspose.com/slides/id/cpp/aspose.slides/shapesalignmenttype/) menentukan tepi, garis tengah, atau mode distribusi. Setel `alignToSlide` ke `true` untuk menggunakan tepi slide; setel ke `false` untuk meratakan bentuk‑bentuk terpilih relatif satu sama lain.
 
-Contoh ini menyelaraskan tiga bentuk ke tepi atas slide. Referensi bentuk yang dikembalikan dikonversi ke indeks saat ini tepat sebelum penyelarasan.
+Contoh ini meratakan tiga bentuk ke tepi atas slide. Referensi bentuk yang dikembalikan dikonversi ke indeksnya saat ini tepat sebelum perataan.
 
 ```cpp
 #include <DOM/IShapeCollection.h>
@@ -424,17 +535,17 @@ presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Penyelarasan mengubah posisi, bukan urutan z. Penyelarasan relatif biasanya memerlukan setidaknya dua bentuk, sementara distribusi horizontal atau vertikal memerlukan cukup bentuk untuk mendefinisikan jarak. Hitung ulang indeks jika Anda memodifikasi koleksi sebelum memanggil metode.
+Perataan mengubah posisi, bukan z‑order. Perataan relatif biasanya membutuhkan setidaknya dua bentuk, sementara distribusi horizontal atau vertikal memerlukan cukup bentuk untuk menentukan jarak. Hitung ulang indeks jika Anda memodifikasi koleksi sebelum memanggil metode.
 
 ## **Balikkan Bentuk**
 
 Kelas [ShapeFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/shapeframe/) menyimpan posisi, ukuran, pengaturan flip horizontal dan vertikal, serta rotasi. Nilai `FlipH` dan `FlipV`‑nya menggunakan [NullableBool](https://reference.aspose.com/slides/id/cpp/aspose.slides/nullablebool/): `True` mengaktifkan flip, `False` menonaktifkannya, dan `NotDefined` mempertahankan keadaan tak ditentukan/default.
 
-Presentasi input di bawah ini berisi satu bentuk yang tidak dibalik.
+Presentasi input di bawah berisi satu bentuk yang tidak dibalik.
 
-![Bentuk sebelum dibalik](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-Contoh ini mempertahankan setiap nilai frame lainnya dan mengganti hanya dua pengaturan flip. Ini penting karena menetapkan [Frame](/slides/id/cpp/aspose.slides/ishape/set_frame/) baru menggantikan seluruh frame.
+Contoh ini mempertahankan semua nilai frame lainnya dan mengganti hanya dua pengaturan flip. Ini penting karena menetapkan [Frame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/set_frame/) baru menggantikan seluruh frame.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -462,20 +573,24 @@ presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Bentuk yang disimpan tercermin secara horizontal dan vertikal sekaligus mempertahankan posisi, ukuran, dan rotasinya.
+Bentuk yang disimpan menjadi cermin secara horizontal dan vertikal sementara posisi, ukuran, dan rotasinya tetap.
 
-![Bentuk setelah dibalik](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
 **Haruskah saya menggunakan indeks koleksi sebagai pengidentifikasi bentuk?**
 
-Hanya untuk pemrosesan singkat ketika koleksi tidak akan berubah sebelum indeks digunakan. Pilih konvensi `Name` atau `AlternativeText` yang divalidasi untuk templat yang dibuat, atau `OfficeInteropShapeId` untuk pekerjaan interop berskala slide.
+Hanya untuk pemrosesan singkat ketika koleksi tidak akan berubah sebelum indeks digunakan. Lebih baik memakai konvensi `Name` atau `AlternativeText` yang divalidasi untuk templat yang ditulis, atau `OfficeInteropShapeId` untuk pekerjaan interop ber‑lingkup slide.
 
-**Apakah menyembunyikan bentuk menghapusnya dari urutan z?**
+**Apakah menyembunyikan bentuk menghapusnya dari z‑order?**
 
-Tidak. Bentuk yang disembunyikan tetap berada di koleksi pada indeks yang sama. Ia dapat ditemukan, disusun kembali, diedit, atau dibuat terlihat kembali.
+Tidak. Bentuk tersembunyi tetap berada dalam koleksi pada indeks yang sama. Bentuk tersebut dapat ditemukan, diubah urutannya, diedit, atau dibuat terlihat kembali.
 
 **Mengapa bentuk yang digandakan muncul di depan bentuk lain?**
 
-`AddClone` menambahkan salinan ke akhir koleksi, yang merupakan depan urutan z. Gunakan `InsertClone` untuk memilih indeks awal atau `Reorder` setelah semua bentuk ditambahkan.
+`AddClone` menambahkan klon ke akhir koleksi, yang merupakan bagian depan z‑order. Gunakan `InsertClone` untuk memilih indeks awal atau `Reorder` setelah semua bentuk ditambahkan.
+
+**Bisakah saya menggunakan indeks tetap untuk mengidentifikasi penyesuaian bentuk preset?**
+
+Hanya setelah memvalidasi preset dan tata letak koleksi secara tepat. Lebih baik mengiterasi melalui `IGeometryShape::get_Adjustments` dan memeriksa `IAdjustValue::get_Type`; gunakan `IAdjustValue::get_Name` sebagai informasi tambahan ketika tipe semantik yang sama muncul lebih dari satu kali.

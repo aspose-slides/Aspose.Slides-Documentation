@@ -1,416 +1,675 @@
 ---
-title: C++ を使用したプレゼンテーションでのコネクタ管理
+title: C++ を使用したプレゼンテーションでコネクタを管理する
 linktitle: コネクタ
 type: docs
 weight: 10
 url: /ja/cpp/connector/
 keywords:
 - コネクタ
-- コネクタの種類
-- コネクタのポイント
-- コネクタ線
-- コネクタ角度
+- コネクタ タイプ
+- コネクタ ポイント
+- コネクタ 線
+- コネクタ 角度
+- 接続サイト
+- 調整ポイント
 - 図形を接続
 - PowerPoint
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "C++ アプリに PowerPoint スライド上で線を描画し、接続し、自動ルーティングする機能を提供し、直線、エルボー、曲線コネクタを完全に制御できます。"
+description: "Aspose.Slides for C++ を使用して、直線、曲がり、曲線の PowerPoint コネクタを追加、接続、再ルーティング、調整、検査する方法を学びます。"
 ---
+## **概要**
 
-PowerPoint のコネクタは、2 つの図形を接続またはリンクする特殊な線で、スライド上で図形が移動または位置変更されても図形に付着したままになります。
+コネクタは、どちらかの図形が移動しても 2 つの図形に付いたままにできる線です。端点は PowerPoint の緑の点で表される接続点に接続されます。曲がったり丸められたコネクタの中には、個々のセグメントの位置を制御するオレンジの点で表される調整ポイントが公開されているものがあります。
 
-コネクタは通常、*接続点*（緑色の点）に接続されます。接続点はすべての図形にデフォルトで存在し、カーソルが近づくと表示されます。
-
-*調整点*（オレンジ色の点）は特定のコネクタにのみ存在し、コネクタの位置や形状を変更するために使用されます。
+Aspose.Slides はコネクタを [IConnector](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iconnector/) インターフェイスで表現します。コネクタを作成し、端点を図形に接続し、接続点を選択し、再ルーティングし、調整ポイントを持つコネクタのジオメトリを変更できます。
 
 ## **コネクタの種類**
 
-PowerPoint では、直線、エルボー（角度付き）、曲線のコネクタを使用できます。
+[ShapeType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shapetype/) 列挙体には、直線、曲がり、曲線のコネクタプリセットが含まれます。以下の表は利用可能なコネクタジオメトリと、各プリセットで定義されている調整ポイントの数を示します。
 
-Aspose.Slides は次のコネクタを提供します:
+| コネクタ | 画像 | 調整ポイント数 |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| コネクタ | 画像 | 調整点の数 |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+調整ポイントの数と意味は選択したコネクタプリセットの一部です。異なるコネクタタイプが同じコレクションレイアウトを公開するとは限りません。
 
-## **コネクタを使用して図形を接続する**
+## **2 つの図形を接続する**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. `Shapes` オブジェクトが提供する `AddAutoShape` メソッドを使用して、スライドに 2 つの [AutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape) を追加します。
-1. コネクタのタイプを指定して、`Shapes` オブジェクトが提供する `AddConnector` メソッドでコネクタを追加します。
-1. コネクタを使用して図形を接続します。
-1. `Reroute` メソッドを呼び出して、最短接続パスを適用します。
-1. プレゼンテーションを保存します。
+[IShapeCollection::AddConnector](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapecollection/addconnector/) を使用してコネクタを追加し、[IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) と [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) を呼び出して端点を接続します。両端が接続された後、[IConnector::Reroute](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iconnector/reroute/) が図形間の最短経路を選択します。
 
-この C++ コードは、2 つの図形（楕円と矩形）の間にコネクタ（曲げコネクタ）を追加する方法を示しています:
-```c++
- // ドキュメントディレクトリへのパス。
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+次の例は、楕円と矩形を曲がったコネクタで接続します。
 
-	// 指定したプレゼンテーションを読み込みます
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-	// 最初のスライドにアクセス
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// 特定のスライドのシェイプコレクションにアクセス
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// 楕円のオートシェイプを追加
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// 四角形のオートシェイプを追加
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// スライドのシェイプコレクションにコネクタシェイプを追加
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// コネクタを使用してシェイプを接続
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// シェイプ間の最短パスを自動設定する reroute を呼び出す
-	connector->Reroute();
-	
-	// プレゼンテーションを保存
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
+{{% alert color="warning" title="警告" %}}
+`IConnector::Reroute` を呼び出すと、[IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) と [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/) の値が変更されることがあります。再ルーティング後に特定の接続点を固定したままにしたい場合は、再度割り当ててください。
+{{% /alert %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`connector->Reroute` メソッドはコネクタのルートを再計算し、図形間の最短パスを取らせます。この目的を達成するために、メソッドは `StartShapeConnectionSiteIndex` と `EndShapeConnectionSiteIndex` のポイントを変更する場合があります。 
-{{% /alert %}} 
+## **接続点を選択する**
 
-## **接続点の指定**
+接続可能な各図形は、[IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_connectionsitecount/) を通じて接続点の数を報告します。接続点インデックスは 0 から始まるため、コネクタの端に割り当てる前に有効なインデックスかどうかを検証してください。図形のジオメトリにより接続点数は変わります。
 
-コネクタが図形上の特定の点を使用して 2 つの図形をリンクさせたい場合は、以下の手順で希望する接続点を指定します:
+この例は、対象の接続点が存在する場合にコネクタを楕円の特定の接続点に結び付けます。
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. `Shapes` オブジェクトが提供する `AddAutoShape` メソッドを使用して、スライドに 2 つの [AutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape) を追加します。
-1. コネクタのタイプを指定して、`Shapes` オブジェクトが提供する `AddConnector` メソッドでコネクタを追加します。
-1. コネクタを使用して図形を接続します。
-1. 図形上の希望する接続点を設定します。
-1. プレゼンテーションを保存します。
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-この C++ コードは、希望する接続点を指定した操作を示しています:
-```c++
-	// ドキュメントディレクトリへのパス。
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// 目的のプレゼンテーションを読み込みます
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// 最初のスライドにアクセス
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// 特定のスライドのシェイプコレクションにアクセス
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// 楕円のオートシェイプを追加
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// 矩形のオートシェイプを追加
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// スライドのシェイプコレクションにコネクタシェイプを追加
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// コネクタを使用してシェイプを接続
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// 楕円シェイプの優先接続ドットインデックスを設定
-	int wantedIndex = 6;
-
-	// 優先インデックスが最大サイトインデックス数未満かを確認
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// 楕円オートシェイプに優先接続ドットを設定
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// プレゼンテーションを保存
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
+## **コネクタポイントを調整する**
 
-## **コネクタのポイントを調整する**
+調整ポイントを持つコネクタは、[IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/ja/cpp/aspose.slides/igeometryshape/get_adjustments/) でそれらを取得できます。各 [IAdjustValue](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iadjustvalue/) を調べ、変更前に [IAdjustValue::get_Type](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iadjustvalue/get_type/) を確認してください。プリセット形状の調整に関する一般的なルールは、[Shape Manipulation](/slides/ja/cpp/shape-manipulations/) に記載されています。
 
-既存のコネクタは調整点を使用して調整できます。調整点を持つコネクタのみがこの方法で変更可能です。**[コネクタの種類](/slides/ja/cpp/connector/#types-of-connectors)** の表を参照してください。
+調整ポイントの数、順序、意味、許容値範囲はコネクタのプリセットに依存します。`IAdjustValue::get_Type` が返す型は読み取り専用ですが、`IAdjustValue::set_RawValue` で生の調整値は書き込み可能です。コネクタに同じ意味タイプの調整が複数ある場合は、読み取り専用の [IAdjustValue::get_Name](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iadjustvalue/get_name/) メソッドが追加の識別情報を提供します。
 
-### **シンプルケース**
+### **障害物の回り道**
 
-2 つの図形（A と B）をつなぐコネクタが、3 番目の図形（C）を通過するケースを考えてみましょう:
+以下のレイアウトでは、`ShapeType::BentConnector5` コネクタが 2 つの図形間を通り、途中で 3 番目の図形を横切ります。
 
 ![connector-obstruction](connector-obstruction.png)
 
-Code:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
+このコードは遮蔽されたコネクタを作成します。
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-
-3 番目の図形を回避または迂回するために、次のように垂直線を左に移動させてコネクタを調整できます:
+垂直方向の曲げを移動すると、コネクタは障害物を迂回するように経路が変わります。
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+
+コレクションインデックス `1` が常に垂直曲げを表すと仮定せず、`ShapeAdjustmentType::ConnectorBendPositionY` を検索し、期待する意味タイプが存在する場合にのみ変更します。
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
+`ShapeType::BentConnector5` には `ShapeAdjustmentType::ConnectorBendPositionX` が 2 つ、`ShapeAdjustmentType::ConnectorBendPositionY` が 1 つあります。必要なタイプが複数回出現する場合は、`IAdjustValue::get_Name` とそのプリセットの既知ジオメトリを確認してから選択してください。調整が `ShapeAdjustmentType::Custom` を報告した場合は、その意味と範囲をプリセット固有とみなし、契約が明らかになるまで変更しないでください。
 
-### **複雑なケース**
+## **調整値をコネクタジオメトリに関連付ける**
 
-より複雑な調整を行うには、以下の点に留意する必要があります:
+曲がったコネクタについては、調整値を使用して個々のセグメント位置を概算できます。これらの計算はコネクタプリセット固有です。
 
-* コネクタの調整ポイントは、その位置を計算・決定する数式と強く結びついています。そのため、ポイントの位置を変更するとコネクタの形状が変わる可能性があります。
-* コネクタの調整点は配列内で厳密な順序で定義されます。調整点はコネクタの開始点から終了点へと番号付けされます。
-* 調整点の値はコネクタ形状の幅／高さの百分率を表します。  
-  * 形状はコネクタの開始点と終了点に 1000 を掛けた範囲で制限されます。  
-  * 最初のポイントは幅の百分率、2 番目のポイントは高さの百分率、3 番目のポイントは再び幅の百分率を表します。
-* コネクタの調整点の座標を算出する際には、コネクタの回転と反転を考慮する必要があります。**注**：**[コネクタの種類](/slides/ja/cpp/connector/#types-of-connectors)** に示されたすべてのコネクタの回転角度は 0 です。
+- `ShapeType::BentConnector4` は通常、`ShapeAdjustmentType::ConnectorBendPositionX` と `ShapeAdjustmentType::ConnectorBendPositionY` の 1 つずつを公開します。
+- これらの曲げ位置については、`RawValue / 100000.0f` が例で使用されるコネクタフレームの幅または高さの割合を示します。
+- コネクタフレームは回転または反転できるため、フレーム座標はスライド座標と比較する前に変換する必要があります。
 
-#### **ケース 1**
+以下の例は、まず `IAdjustValue::get_Type` で調整を識別し、コレクションインデックスを移植可能な識別子として扱いません。
 
-2 つのテキストフレームオブジェクトがコネクタで結ばれているケースを考えてみましょう:
+### **回転していないコネクタ**
+
+最初のレイアウトは、`ShapeType::BentConnector4` で接続された 2 つのテキスト図形を含みます。
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Code:
-```c++
-// PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
-auto pres = System::MakeObject<Presentation>();
-// プレゼンテーションの最初のスライドを取得します
-auto slide = pres->get_Slides()->idx_get(0);
-// 最初のスライドからシェイプを取得します
-auto shapes = slide->get_Shapes();
-// コネクタで結合されるシェイプを追加します
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// コネクタを追加します
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// コネクタの方向を指定します
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// コネクタの線の太さを指定します
-lineFormat->set_Width(3);
-// コネクタの色を指定します
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
+この例はコネクタを検査し、水平および垂直曲げ調整を取得します。
 
-// コネクタでシェイプ同士をリンクします
-connector->set_StartShapeConnectedTo(shapeFrom);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// コネクタの調整ポイントを取得します
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
+両方の曲げを変更するには、期待する型をそれぞれ見つけてから値を変更します。
 
-**調整**
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-対応する幅と高さの百分率をそれぞれ 20% と 200% 増加させて、コネクタの調整点の値を変更できます:
-```c++
-// 調整ポイントの値を変更します
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-結果:
+結果として、水平セグメントと垂直セグメントが移動したコネクタが得られます。
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-コネクタの個々の部品の座標と形状を決定できるモデルを定義するために、`connector.Adjustments[0]` のポイントに対応する水平コンポーネントの形状を作成します:
-```c++
-// コネクタの垂直成分を描画
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+意味タイプが判明したら、値をコネクタフレーム座標に変換できます。この例は、2 つの曲げ調整で制御される垂直セグメント上に細い矩形を描画します。
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-結果:
+ガイド形状は計算されたセグメントを示します。
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **ケース 2**
+### **回転または反転したコネクタ**
 
-**ケース 1** では、基本原理を用いたシンプルなコネクタ調整操作を示しました。通常の状況では、`connector.Rotation`、`connector.Frame.FlipH`、`connector.Frame.FlipV` が設定するコネクタの回転と表示を考慮する必要があります。以下でプロセスを示します。
+同じコネクタジオメトリが垂直方向に向くと、[IShape::get_Frame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_frame/)、[IShapeFrame::get_FlipH](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapeframe/get_fliph/)、[IShapeFrame::get_FlipV](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapeframe/get_flipv/) の値がコネクタフレーム座標からスライド座標への変換に影響します。
 
-まず、スライドに新しいテキストフレームオブジェクト（**To 1**）を追加し（接続用）、既存オブジェクトに接続する新しい（緑色）コネクタを作成します。
-```c++
-// 新しいバインディングオブジェクトを作成します
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// 新しいコネクタを作成します
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+この例は垂直に向いたコネクタを作成し、調整します。
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// 新しく作成したコネクタを使用してオブジェクトを接続します
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// コネクタの調整ポイントを取得します
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// 調整ポイントの値を変更します
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-
-結果:
+調整されたコネクタは図形間に垂直に表示されます。
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-次に、新しいコネクタの調整点 `connector.Adjustments[0]` を通過する水平コンポーネントに対応する形状を作成します。`connector.Rotation`、`connector.Frame.FlipH`、`connector.Frame.FlipV` の値を使用し、点 x0 周りの回転座標変換式を適用します:
+任意の回転角 `alpha` に対して、コネクタフレーム点 `(x, y)` をフレーム中心 `(x0, y0)` 周りに回転させる式は次のとおりです。
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-今回、オブジェクトの回転角は 90 度でコネクタは縦向きに表示されるため、対応するコードは次のとおりです:
-```c++
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
+以下のコードはこの例で使用した 90 度回転を処理し、対応するコネクタセグメント上に赤いガイドを描画します。
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-結果:
+座標変換後、赤いガイドが計算されたセグメントを示します。
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-シンプルな調整と回転角を伴う複雑な調整点の計算を示しました。得られた知識を活用して、`GraphicsPath` オブジェクトを取得したり、特定のスライド座標に基づいてコネクタの調整点の値を設定したりする独自のモデル（またはコード）を作成できます。
+これらの式は例で使用したプリセットを説明したものであり、汎用的なコネクタモデルを示すものではありません。別のプリセットに同じ計算を適用する前に、調整タイプ、フレームの向き、値範囲を必ず検証してください。
 
-## **コネクタ線の角度を求める**
+## **コネクタの方向角を求める**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/) クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. コネクタの線形状にアクセスします。
-1. 線の幅・高さ、形状フレームの高さ・幅を使用して角度を計算します。
+直線コネクタの方向は幅と高さから計算でき、水平・垂直の反転も考慮されます。次の例は、スライド座標系で正の水平軸から時計回りの角度を報告します。
 
-この C++ コードは、コネクタ線形状の角度を計算する操作を示しています:
-```c++
-void ConnectorLineAngle()
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// ドキュメントディレクトリへのパス。
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// 目的のプレゼンテーションを読み込みます
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// 最初のスライドにアクセスします
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// スライドのシェイプコレクションにアクセスします
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-//	float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
-
 
 ## **FAQ**
 
-**コネクタが特定の図形に「貼り付け」可能かどうかはどうやって判断できますか？**
+**コネクタが図形に接続できるかどうかはどう確認できますか？**  
+図形の `IShape::get_ConnectionSiteCount` の値を確認してください。正の数であれば接続点が公開されていることを意味します。接続点インデックスをコネクタの端に割り当てる前に必ず検証してください。
 
-図形が [connection sites](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_connectionsitecount/) を公開しているか確認してください。存在しない、またはカウントが 0 の場合は貼り付けは利用できません。その場合は自由端点を使用し、手動で位置を設定します。接続前にサイト数を確認することが賢明です。
+**コレクションインデックスでコネクタ調整を特定できますか？**  
+インデックスは既知のコネクタプリセットとコレクションレイアウトに対してのみ意味があります。値を変更する前に `IAdjustValue::get_Type` を確認し、同じ意味タイプが複数存在する場合は `IAdjustValue::get_Name` を追加情報として使用してください。
 
-**接続された図形の一つを削除すると、コネクタはどうなりますか？**
+**接続された図形が削除された場合はどうなりますか？**  
+対応するコネクタの端は切り離されます。コネクタ自体はスライド上に残り、削除するか、自由線として位置決めするか、別の図形に再接続することができます。
 
-コネクタの端は切り離され、スライド上には自由な開始/終了点を持つ普通の線として残ります。削除するか、接続を再割り当てして、必要に応じて [reroute](https://reference.aspose.com/slides/cpp/aspose.slides/connector/reroute/) してください。
-
-**スライドを別のプレゼンテーションにコピーしたとき、コネクタのバインディングは保持されますか？**
-
-一般的に保持されますが、対象の図形も同様にコピーされている必要があります。接続された図形が含まれない状態でスライドを別ファイルに挿入した場合、端は自由端点となり、再度接続し直す必要があります。
+**スライドをコピーしたときにコネクタのバインディングは保持されますか？**  
+接続された図形と共にスライドをコピーすると、バインディングは通常保持されます。コネクタだけがコピーされ、対象図形が含まれない場合は、影響を受けた端を再度接続する必要があります。

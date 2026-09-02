@@ -1,367 +1,582 @@
 ---
-title: Kapcsolók kezelése prezentációkban PHP-vel
-linktitle: Kapcsoló
+title: Csatlakozók kezelése prezentációkban PHP használatával
+linktitle: Csatlakozó
 type: docs
 weight: 10
 url: /hu/php-java/connector/
 keywords:
-- kapcsoló
-- kapcsoló típusa
-- kapcsoló pont
-- kapcsoló vonal
-- kapcsoló szög
+- csatlakozó
+- csatlakozó típus
+- csatlakozó pont
+- csatlakozó vonal
+- csatlakozó szög
+- csatlakozási pont
+- állítási pont
 - alakzatok összekapcsolása
 - PowerPoint
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Engedélyezze a PHP alkalmazások számára, hogy vonalakat rajzoljanak, összekapcsoljanak és automatikusan útvonalat állítsanak elő a PowerPoint diákon — teljes irányítást kapjon az egyenes, könyök és íves kapcsolók felett."
+description: "Tanulja meg, hogyan adhat hozzá, csatlakoztathat, átirányíthat, állíthat és vizsgálhat egyenes, hajlított és görbe PowerPoint csatlakozókat az Aspose.Slides for PHP Java használatával."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A PowerPoint kapcsoló egy speciális vonal, amely két alakzatot kapcsol össze, és a alakzatokhoz kapcsolódva marad akkor is, ha azok egy adott dián mozognak vagy áthelyeződnek. 
+Egy csatlakozó egy vonal, amely két alakzathoz is rögzítve maradhat, amikor bármelyik alakzat mozog. Végei kapcsolódnak a csatlakozási pontokhoz, amelyeket a PowerPoint zöld pontokként jelenít meg. Néhány ívelt és hajlított csatlakozó további állítási pontokat (narancssárga pontok) is mutat, amelyek az egyes csatlakozórészletek pozícióját szabályozzák.
 
-A kapcsolók általában *kapcsolódási pontokhoz* (zöld pontok) csatlakoznak, amelyek alapértelmezés szerint minden alakzaton megtalálhatók. A kapcsolódási pontok megjelennek, amikor a kurzor közel kerül hozzájuk.
+Az Aspose.Slides a csatlakozókat a [Connector](https://reference.aspose.com/slides/hu/php-java/aspose.slides/connector/) osztállyal ábrázolja. Létrehozhatja őket, rögzítheti végeiket alakzatokhoz, kiválaszthatja a csatlakozási pontokat, átirányíthatja őket, és módosíthatja a csatlakozók geometriáját, ha azok állítási pontokkal rendelkeznek.
 
-*Igazítási pontok* (narancssárga pontok), amelyek csak bizonyos kapcsolók esetén léteznek, a kapcsolók pozíciójának és alakjának módosítására szolgálnak.
+## **Csatlakozó típusok**
 
-## **Kapcsolók típusai**
+A [ShapeType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapetype/) osztály tartalmaz egyenes, hajlított és görbült csatlakozó előbeállításokat. Az alábbi táblázat mutatja a rendelkezésre álló csatlakozó geometriákat és az egyes előbeállításokhoz tartozó állítási pontok számát.
 
-A PowerPointban használhatunk egyenes, könyök (szöges) és íves kapcsolókat. 
+| Csatlakozó | Kép | Állítási pontok száma |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides ezeket a kapcsolókat biztosítja:
+Az állítási pontok száma és jelentése a kiválasztott csatlakozó előbeállítás részét képezi. Ne feltételezze, hogy két különböző csatlakozó típus ugyanazt a gyűjteményelrendezést mutatja.
 
-| Kapcsoló                      | Kép                                                        | Igazítási pontok száma |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **Két alakzat összekapcsolása**
 
-## **Alakzatok összekapcsolása kapcsolókkal**
+Használja a [ShapeCollection::addConnector](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addconnector/) metódust egy csatlakozó hozzáadásához, majd a [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/connector/setstartshapeconnectedto/) és a [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/connector/setendshapeconnectedto/) metódusokat a végek rögzítéséhez. Miután mindkét vég csatlakoztatva van, a [Connector::reroute](https://reference.aspose.com/slides/hu/php-java/aspose.slides/connector/reroute/) egy rövid útvonalat választ a két alakzat között.
 
-1. Hozzon létre egy példányt a [Presentation](https://apireference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.  
-1. Szerezze meg a dia hivatkozását az indexén keresztül.  
-1. Adjon hozzá két [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/AutoShape) elemet a dián a `Shapes` objektum által biztosított `addAutoShape` metódussal.  
-1. Adjon hozzá egy kapcsolót a `Shapes` objektum által biztosított `addConnector` metódussal, megadva a kapcsoló típusát.  
-1. Kösse össze az alakzatokat a kapcsolóval.  
-1. Hívja meg a `reroute` metódust a legrövidebb kapcsolati út alkalmazásához.  
-1. Mentse a prezentációt.  
-
-Ez a PHP kód bemutatja, hogyan adjon hozzá egy kapcsolót (egy megtört kapcsolót) két alakzat (egy ellipszis és egy téglalap) között:
+Az alábbi példa egy ellipszist és egy négyzetet kapcsol össze egy hajlított csatlakozóval:
 
 ```php
-// Létrehozza a PPTX fájlt képviselő prezentáció osztályt
-  $pres = new Presentation();
-  try {
-    # Hozzáfér a megadott dia alakzatgyűjteményéhez
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Ellipszis autóalakzatot ad hozzá
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Téglalap autóalakzatot ad hozzá
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Kapcsoló alakzatot ad a dia alakzatgyűjteményéhez
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # A kapcsolóval összekapcsolja az alakzatokat
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Meghívja a reroute metódust, amely beállítja az alakzatok közötti automatikus legrövidebb utat
     $connector->reroute();
-    # Mentse a prezentációt
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Connector.reroute` metódus újra irányítja a kapcsolót, és kényszeríti, hogy a lehető legrövidebb útvonalat vegye az alakzatok között. A cél elérése érdekében a metódus módosíthatja a `setStartShapeConnectionSiteIndex` és a `setEndShapeConnectionSiteIndex` pontokat. 
-{{% /alert %}} 
+{{% alert color="warning" title="Figyelmeztetés" %}}
 
-## **Kapcsolódási pont megadása**
+A `reroute` meghívása megváltoztathatja a [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) és a [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/) értékeket. Ha a csatlakozási pontoknak rögzítve kell maradniuk, a átirányítás után rendelje hozzá a kívánt csatlakozási pontokat.
 
-Ha azt szeretné, hogy egy kapcsoló két alakzatot a alakzatok meghatározott pontjaival kössön össze, a preferált kapcsolódási pontokat a következő módon kell megadni:
+{{% /alert %}}
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Presentation) osztályból.  
-1. Szerezze meg a dia hivatkozását az indexén keresztül.  
-1. Adjon hozzá két [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/AutoShape) elemet a dián a `Shapes` objektum által biztosított `addAutoShape` metódussal.  
-1. Adjon hozzá egy kapcsolót a `Shapes` objektum által biztosított `addConnector` metódussal, megadva a kapcsoló típusát.  
-1. Kösse össze az alakzatokat a kapcsolóval.  
-1. Állítsa be a preferált kapcsolódási pontokat az alakzatokon.  
-1. Mentse a prezentációt.  
+## **Csatlakozási pont kiválasztása**
+
+Minden csatlakoztatható alakzat a [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getconnectionsitecount/) metódussal adja vissza a rendelkezésre álló pontok számát. Érvényesítse a kívánt, nullától indexelt pontot, mielőtt a csatlakozó végéhez rendeli; a pontok száma alakzat-geometriától függően változik.
+
+Ez a példa egy adott ponthoz rögzíti a csatlakozót az ellipszisen, ha az a pont létezik:
 
 ```php
-  # Létrehozza a PPTX fájlt reprezentáló prezentáció osztályt
-  $pres = new Presentation();
-  try {
-    # Hozzáfér a megadott dia alakzatgyűjteményéhez
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Ellipszis autóalakzatot ad hozzá
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Téglalap autóalakzatot ad hozzá
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Kapcsoló alakzatot ad a dia alakzatgyűjteményéhez
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # A kapcsolóval összekapcsolja az alakzatokat
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Beállítja a preferált kapcsolódási pont indexét az Ellipszis alakzaton
-    $wantedIndex = 6;
-    # Ellenőrzi, hogy a preferált index kisebb-e a maximális hely index számnál
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # Beállítja a preferált kapcsolódási pontot az Ellipszis autóalakzaton
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # Mentse a prezentációt
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Kapcsoló pontjának módosítása**
+## **Csatlakozó pont állítása**
 
-Egy meglévő kapcsolót a hozzá tartozó igazítási pontokkal módosíthat. Csak az igazítási pontokkal rendelkező kapcsolók módosíthatók ebben a módon. Lásd a táblázatot a **[Kapcsolók típusai](/slides/hu/php-java/connector/#types-of-connectors)** alatt.
+Az állítási pontokkal rendelkező csatlakozók ezeket a [GeometryShape::getAdjustments](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometryshape/#getadjustments) metódussal teszik elérhetővé. Minden [AdjustValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/) esetén ellenőrizze a [AdjustValue::getType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/#gettype) értékét, mielőtt a [AdjustValue::setRawValue](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/setrawvalue/) segítségével módosítaná. Az előbeállított alakzat-állítások azonosításának általános szabályait a [Shape Manipulation](/slides/hu/php-java/shape-manipulations/) fejezet tartalmazza.
 
-### **Egyszerű eset**
+Az állítások száma, sorrendje, jelentése és a megengedett értéktartomány a csatlakozó előbeállításától függ. Az állítás típusa csak olvasható, az érték írásra jogosult. A csak olvasható [AdjustValue::getName](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/getname/) metódus további azonosítást nyújt, ha egy csatlakozó több azonos szemantikus típusú állítással rendelkezik.
 
-Tekintsünk egy esetet, ahol egy kapcsoló két alakzat (A és B) között egy harmadik alakzatot (C) érint:
+### **Útvonal akadály körül**
+
+Az alábbi elrendezésben egy `BentConnector5` csatlakozó két alakzat között egy harmadik alakzaton halad át:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Ez a kód létrehozza az akadályos csatlakozót:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-A harmadik alakzat elkerüléséhez vagy megkerüléséhez a kapcsolót úgy módosíthatjuk, hogy a függőleges vonalát balra mozdítjuk:
+A függőleges hajlítás mozgatása megváltoztatja az útvonalat, így a csatlakozó kikerüli az akadályt:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
+Ahelyett, hogy azt feltételezné, hogy az `1` indexű elem mindig a függőleges hajlítás, ez a példa a `ConnectorBendPositionY` elemet keresi, és csak akkor módosítja, ha a várt szemantikus típus jelen van:
 
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Összetett esetek** 
+Egy `BentConnector5` két `ConnectorBendPositionX` és egy `ConnectorBendPositionY` állítással rendelkezik. Ha a szükséges típus többször fordul elő, vizsgálja meg a `getName` értéket és az előbeállítás ismert geometriáját, mielőtt kiválasztaná. Ha egy állítás `ShapeAdjustmentType::Custom` értéket ad vissza, tekintse jelentését és tartományát az adott előbeállítás specifikusnak, és ne változtassa meg, amíg a szerződés nem ismert.
 
-Összetettebb módosítások végrehajtásához az alábbiakat kell figyelembe venni:
+## **Az állítási értékek összekapcsolása a csatlakozó geometriával**
 
-* A kapcsoló állítható pontja szorosan egy olyan képlethez kapcsolódik, amely kiszámítja és meghatározza a pozícióját. Így a pont helyzetének változtatása megváltoztathatja a kapcsoló alakját.  
-* A kapcsoló igazítási pontjai egy tömbben szigorú sorrendben vannak definiálva. Az igazítási pontok számozása a kapcsoló kezdőpontjától a végpontig tart.  
-* Az igazítási pont értékei a kapcsoló alakzat szélességének/magasságának százalékát tükrözik.  
-  * Az alakzat a kapcsoló kezdő- és végpontjainak 1000-szeresével határolt.  
-  * Az első, második és harmadik pont a szélesség, a magasság, majd újra a szélesség százalékát határozza meg.  
-* Az igazítási pontok koordinátáit meghatározó számításoknál figyelembe kell venni a kapcsoló forgását és tükröződését. **Megjegyzés**: a **[Kapcsolók típusai](/slides/hu/php-java/connector/#types-of-connectors)** alatt látható összes kapcsoló forgatási szöge 0.
+Hajlított csatlakozók esetén az állítási értékek felhasználhatók az egyes szegmensek pozíciójának becslésére. Ezek a számítások a csatlakozó előbeállításra jellemzőek:
 
-#### **Eset 1**
+- `BentConnector4` általában egy `ConnectorBendPositionX` és egy `ConnectorBendPositionY` állítást tesz elérhetővé.
+- Ezekhez a hajlítási pozíciókhoz a `getRawValue` által visszaadott értéket `100000`-val osztva kapjuk meg a csatlakozó keret szélességének vagy magasságának megfelelő törtet a lenti példákban.
+- A csatlakozó kerete elfordítható vagy tükrözhető, így a keret koordinátáit át kell alakítani, mielőtt a diára vonatkozó koordinátákkal összehasonlítanánk.
 
-Tekintsünk egy esetet, ahol két szövegkeret objektum egy kapcsolóval van összekapcsolva:
+Az alábbi példák először a `getType` használatával azonosítják az állításokat; nem tekintik a gyűjtemény indexét hordozható azonosítónak.
+
+### **Nem elforgatott csatlakozó**
+
+A kezdeti elrendezés két szöveges alakzattal tartalmaz egy `BentConnector4`-et:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Ez a példa megvizsgálja a csatlakozót, és lekéri a vízszintes és függőleges hajlítási állításokat:
+
 ```php
-  # Létrehozza a PPTX fájlt reprezentáló prezentáció osztályt
-  $pres = new Presentation();
-  try {
-    # Lekéri a prezentáció első diáját
-    $sld = $pres->getSlides()->get_Item(0);
-    # Alakzatokat ad hozzá, amelyeket egy kapcsolóval kapcsolunk össze
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # Kapcsolót ad hozzá
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # Meghatározza a kapcsoló irányát
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # Meghatározza a kapcsoló színét
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Meghatározza a kapcsoló vonalának vastagságát
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # Az alakzatokat a kapcsolóval összekapcsolja
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # Lekéri a kapcsoló igazítási pontjait
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Módosítás**
-
-A kapcsoló igazítási pontjainak értékeit a megfelelő szélesség- és magasság százalékának 20%-os és 200%-os növelésével módosíthatjuk:
+A két hajlítás módosításához keresse meg a várt típusokat, és csak akkor változtassa meg az értékeket, ha mindkettőt megtalálta:
 
 ```php
-  # Módosítja az igazítási pontok értékeit
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Az eredmény:
+Az eredmény egy olyan csatlakozó, amelynek vízszintes és függőleges szegmensei elmozdultak:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Ahhoz, hogy egy modellt definiáljunk, amely lehetővé teszi a kapcsoló egyes részeinek koordinátáinak és alakjának meghatározását, hozzunk létre egy alakzatot, amely a `connector.getAdjustments().get_Item(0)` pontnál lévő vízszintes komponensnek felel meg:
+Miután a szemantikus típusok ismertté válnak, értékeik átalakíthatók csatlakozó‑keret koordinátákká. Ez a példa egy vékony téglalapot rajzol a két hajlítás által vezérelt függőleges szegmens fölé:
 
 ```php
-  # Rajzolja a kapcsoló függőleges komponensét
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Az eredmény:
+Az útmutató alakzat jelöli a kiszámított szegmenst:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Eset 2**
+### **Elforgatott vagy tükrözött csatlakozó**
 
-Az **Eset 1**-ben egyszerű kapcsoló módosítási műveletet mutattunk be alapelvek használatával. Normál körülmények között figyelembe kell venni a kapcsoló forgását és megjelenését (amelyeket a `connector.getRotation()`, a `connector.getFrame().getFlipH()` és a `connector.getFrame().getFlipV()` állít be). Most bemutatjuk a folyamatot.
+Amikor ugyanaz a csatlakozó geometria függőlegesen van elrendezve, a [Shape::getFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getframe/), a [ShapeFrame::getFlipH](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapeframe/getfliph/) és a [ShapeFrame::getFlipV](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapeframe/getflipv/) értékek befolyásolják a csatlakozó‑keret koordináták diára való átalakítását.
 
-Először adjunk hozzá egy új szövegkeret objektumot (**To 1**) a diához (kapcsolódási célból), és hozzunk létre egy új (zöld) kapcsolót, amely összeköti azt a már létrehozott objektumokkal.
+Ez a példa létrehozza és állítja a függőlegesen elrendezett csatlakozót:
 
 ```php
-  # Létrehozza az új kötési objektumot
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # Létrehozza az új kapcsolót
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # Az objektumokat az újonnan létrehozott kapcsolóval összekapcsolja
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # Lekéri a kapcsoló igazítási pontjait
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # Módosítja az igazítási pontok értékeit
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Az eredmény:
+Az állított csatlakozó függőlegesen jelenik meg az alakzatok között:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Másodszor hozzunk létre egy alakzatot, amely a kapcsoló vízszintes komponensének felel meg, és áthalad az új kapcsoló igazítási pontján: `connector.getAdjustments().get_Item(0)`. A `connector.getRotation()`, a `connector.getFrame().getFlipH()` és a `connector.getFrame().getFlipV()` értékeket fogjuk használni, és alkalmazzuk a gyakran használt koordináta átalakító képletet a forgatáshoz egy adott x0 pont körül:
+Tetszőleges `alpha` forgatási szög esetén a csatlakozó‑keret pont `(x, y)` elforgatható a keret középpontja `(x0, y0)` körül:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-A mi esetünkben az objektum forgásszöge 90 fok, a kapcsoló függőlegesen jelenik meg, ezért ez a megfelelő kód:
+Az alábbi kód kezeli a példában használt 90‑fokos orientációt, és piros útmutatót rajzol a megfelelő csatlakozó szegmens fölé:
 
 ```php
-  # Elmenti a kapcsoló koordinátáit
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # Javítja a kapcsoló koordinátákat, ha szükséges
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # Az igazítási pont értékét veszi koordinátaként
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # Átalakítja a koordinátákat, mivel Sin(90)=1 és Cos(90)=0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # Meghatározza a vízszintes komponens szélességét a második igazítási pont értékének felhasználásával
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Az eredmény:
+A piros útmutató a koordináta‑átalakítás után kiszámított szegmenst jelöli:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Bemutattuk az egyszerű módosításokat és a bonyolultabb, forgatási szöggel rendelkező igazítási pontokat érintő számításokat. Az így szerzett tudás segítségével saját modellt fejleszthet (vagy kódot írhat), amely `GraphicsPath` objektumot hoz létre, vagy akár a kapcsoló igazítási pontjainak értékeit beállítja a konkrét diak koordináták alapján.
+Ezek a képletek a példákban használt előbeállításokat írják le, nem egy univerzális csatlakozó modellt. Ellenőrizze az állítás típusát, a keret orientációját és az értéktartományokat, mielőtt ugyanazt a számítást más előbeállításra alkalmazná.
 
-## **A kapcsoló vonalak szögének meghatározása**
+## **Csalózó csatlakozó irányszög meghatározása**
 
-1. Hozzon létre egy példányt az osztályból.  
-1. Szerezze meg a dia hivatkozását az indexén keresztül.  
-1. Hozza hozzá a kapcsoló vonal alakzatot.  
-1. Használja a vonal szélességét, magasságát, az alakzat keretmagasságát és keretszélességét a szög kiszámításához.  
+Egy egyenes csatlakozó irányát a szélesség és a magasság, valamint a vízszintes és függőleges tükrözés figyelembevételével számítható. Az alábbi példa a dián lévő koordinátákban a pozitív vízszintes tengelyhez képest óramutató járásával megegyező szöget adja vissza:
 
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Hogyan állapíthatom meg, hogy egy kapcsoló „ragasztható”‑e egy adott alakzatra?**
+**Hogyan tudom megállapítani, hogy egy csatlakozó csatlakoztatható-e egy alakzathoz?**
 
-Ellenőrizze, hogy az alakzat rendelkezik-e [kapcsolódási helyekkel](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getconnectionsitecount/). Ha nincs ilyen, vagy a számuk nulla, a ragasztás nem lehetséges; ebben az esetben szabad végpontokat kell használni és kézzel pozícionálni őket. Értelemszerűen a csatlakoztatás előtt ellenőrizni kell a helyek számát.
+Ellenőrizze a alakzat [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getconnectionsitecount/) értékét. A pozitív szám azt jelenti, hogy az alakzat csatlakozási pontokat kínál. Az érvényesítés után rendelje hozzá a kiválasztott pont indexet a csatlakozó végéhez.
 
-**Mi történik a kapcsolóval, ha törlöm az egyik csatlakoztatott alakzatot?**
+**Azonosíthatom-e a csatlakozó állítását a gyűjtemény indexe alapján?**
 
-A végei leválasztásra kerülnek; a kapcsoló a diához egy szabad végű vonalként marad meg. Törölheti, vagy újra hozzárendelheti a csatlakozásokat, és szükség esetén [újrairányíthatja](https://reference.aspose.com/slides/hu/php-java/aspose.slides/connector/reroute/).
+Az index csak akkor értelmezhető, ha a csatlakozó előbeállítása és gyűjteményelrendezése ismert. Módosítás előtt ellenőrizze a [AdjustValue::getType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/#gettype) értékét, és ha ugyanaz a szemantikus típus többször előfordul, használja a [AdjustValue::getName](https://reference.aspose.com/slides/hu/php-java/aspose.slides/adjustvalue/getname/) metódust további információként.
 
-**Megmaradnak a kapcsoló kötései, ha egy diát egy másik prezentációba másolok?**
+**Mi történik, ha egy csatlakoztatott alakzatot törölnek?**
 
-Általában igen, ha a cél alakzatok is másolásra kerülnek. Ha a dia egy másik fájlba kerül a kapcsolódó alakzatok nélkül, a végek szabadokká válnak, és újra kell csatlakoztatni őket.
+A megfelelő csatlakozó vége leválik. A csatlakozó a dián marad, és törölhető, szabad vonalként pozicionálható, vagy újra csatlakoztatható egy másik alakzathoz.
+
+**Megmaradnak-e a csatlakozók kötései, ha egy diát másolnak?**
+
+A kötések általában megmaradnak, ha a csatlakoztatott alakzatokkal együtt másolják a diát. Ha egy csatlakozót másolnak anélkül, hogy az egyik célnak megfelelő alakzatot is másolnák, az érintett végét újra kell csatlakoztatni.

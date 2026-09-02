@@ -1,407 +1,503 @@
 ---
-title: Mengelola Penghubung dalam Presentasi Menggunakan Java
+title: Kelola Penghubung dalam Presentasi di Java
 linktitle: Penghubung
 type: docs
 weight: 10
 url: /id/java/connector/
 keywords:
 - penghubung
-- jenis penghubung
+- tipe penghubung
 - titik penghubung
 - garis penghubung
 - sudut penghubung
+- situs koneksi
+- titik penyesuaian
 - menghubungkan bentuk
 - PowerPoint
 - presentasi
 - Java
 - Aspose.Slides
-description: "Berdayakan aplikasi Java untuk menggambar, menghubungkan, dan mengatur otomatis jalur garis dalam slide PowerPoint—dapatkan kontrol penuh atas penghubung lurus, siku, dan melengkung."
+description: "Pelajari cara menambahkan, menempelkan, mengubah rute, menyesuaikan, dan memeriksa penghubung PowerPoint lurus, bengkok, dan melengkung dengan Aspose.Slides untuk Java."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Penghubung PowerPoint adalah sebuah garis khusus yang menghubungkan atau menautkan dua bentuk bersama‑sama dan tetap menempel pada bentuk bahkan ketika mereka dipindahkan atau diposisikan ulang pada slide tertentu. 
+Penghubung adalah sebuah garis yang dapat tetap terpasang pada dua bentuk ketika salah satu bentuk bergerak. Ujung‑ujungnya terhubung ke situs koneksi, yang direpresentasikan oleh titik hijau di PowerPoint. Beberapa penghubung yang bengkok dan melengkung juga memiliki titik penyesuaian, yang direpresentasikan oleh titik oranye, yang mengontrol posisi segmen‑segmen penghubung secara individual.
 
-Penghubung biasanya terhubung ke *titik sambungan* (titik hijau), yang ada pada semua bentuk secara default. Titik sambungan muncul ketika kursor mendekatinya.
-
-*Titik penyesuaian* (titik oranye), yang hanya ada pada beberapa penghubung, digunakan untuk mengubah posisi dan bentuk penghubung.
+Aspose.Slides merepresentasikan penghubung melalui antarmuka [IConnector](https://reference.aspose.com/slides/id/java/com.aspose.slides/iconnector/). Anda dapat membuatnya, menempelkan ujung‑ujungnya ke bentuk, memilih situs koneksi, mengubah rutenya, dan memodifikasi geometri penghubung yang memiliki titik penyesuaian.
 
 ## **Jenis Penghubung**
 
-Di PowerPoint, Anda dapat menggunakan penghubung lurus, siku (berpola), dan melengkung. 
+Kelas [ShapeType](https://reference.aspose.com/slides/id/java/com.aspose.slides/shapetype/) mencakup preset penghubung lurus, bengkok, dan melengkung. Tabel berikut menunjukkan geometri penghubung yang tersedia dan jumlah titik penyesuaian yang didefinisikan oleh masing‑masing preset.
 
-Aspose.Slides menyediakan penghubung‑penghubung ini:
+| Penghubung | Gambar | Jumlah titik penyesuaian |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Connector                      | Image                                                        | Jumlah titik penyesuaian |
-| ------------------------------ | ------------------------------------------------------------ | ------------------------ |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                        |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                        |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                        |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                        |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                        |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                        |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                        |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                        |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                        |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                        |
+Jumlah dan arti titik penyesuaian merupakan bagian dari preset penghubung yang dipilih. Jangan berasumsi bahwa dua tipe penghubung yang berbeda menampilkan susunan koleksi yang sama.
 
-## **Hubungkan Bentuk Menggunakan Penghubung**
+## **Sambungkan Dua Bentuk**
 
-1. Buat sebuah instance dari kelas [Presentation](https://apireference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan dua [AutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/AutoShape) ke slide menggunakan metode `addAutoShape` yang tersedia pada objek `Shapes`.
-4. Tambahkan sebuah penghubung menggunakan metode `addConnector` yang tersedia pada objek `Shapes` dengan menentukan tipe penghubung.
-5. Hubungkan bentuk‑bentuk menggunakan penghubung.
-6. Panggil metode `reroute` untuk menerapkan jalur koneksi terpendek.
-7. Simpan presentasi. 
+Gunakan [IShapeCollection.addConnector](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) untuk menambahkan penghubung, dan gunakan [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/id/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) serta [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/id/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) untuk menempelkan ujung‑ujungnya. Setelah kedua ujung terpasang, [IConnector.reroute](https://reference.aspose.com/slides/id/java/com.aspose.slides/iconnector/#reroute--) memilih rute pendek di antara kedua bentuk.
 
-Kode Java ini menunjukkan cara menambahkan sebuah penghubung (penghubung bengkok) antara dua bentuk (sebuah elips dan persegi panjang):
+Contoh berikut menghubungkan sebuah elips dan persegi panjang dengan penghubung bengkok:
 
-```Java
-// Membuat instance kelas presentasi yang mewakili file PPTX
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Mengakses koleksi bentuk untuk slide tertentu
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // Menambahkan bentuk otomatis Elips
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // Menambahkan bentuk otomatis Persegi Panjang
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // Menambahkan bentuk penghubung ke koleksi bentuk slide
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // Menghubungkan bentuk menggunakan penghubung
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    
-    // Memanggil reroute yang mengatur jalur terpendek otomatis antara bentuk
     connector.reroute();
-    
-    // Menyimpan presentasi
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
+Memanggil `reroute` dapat mengubah nilai [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/id/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) dan [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/id/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-). Tetapkan situs koneksi tertentu setelah mereroute bila situs‑situs tersebut harus tetap tetap.
+{{% /alert %}}
 
-Metode `Connector.reroute` mengatur ulang sebuah penghubung dan memaksanya mengambil jalur terpendek yang mungkin antara bentuk‑bentuk. Untuk mencapai tujuan tersebut, metode ini dapat mengubah titik `setStartShapeConnectionSiteIndex` dan `setEndShapeConnectionSiteIndex`. 
+## **Pilih Situs Koneksi**
 
-{{% /alert %}} 
+Setiap bentuk yang dapat dihubungkan melaporkan jumlah situsnya melalui [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/#getConnectionSiteCount--). Validasi indeks situs berbasis nol yang diinginkan sebelum menugaskannya ke ujung penghubung; jumlah situs bervariasi tergantung pada geometri bentuk.
 
-## **Tentukan Titik Sambungan**
-
-Jika Anda ingin sebuah penghubung menautkan dua bentuk menggunakan titik tertentu pada bentuk‑bentuk tersebut, Anda harus menentukan titik sambungan pilihan Anda dengan cara berikut:
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan dua [AutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/AutoShape) ke slide menggunakan metode `addAutoShape` yang tersedia pada objek `Shapes`.
-4. Tambahkan sebuah penghubung menggunakan metode `addConnector` yang tersedia pada objek `Shapes` dengan menentukan tipe penghubung.
-5. Hubungkan bentuk‑bentuk menggunakan penghubung.
-6. Tentukan titik sambungan pilihan Anda pada bentuk‑bentuk.
-7. Simpan presentasi.
-
-Kode Java ini menunjukkan operasi di mana titik sambungan pilihan ditentukan:
+Contoh ini menempelkan penghubung ke situs tertentu pada elips bila situs tersebut ada:
 
 ```java
-// Membuat instance kelas presentasi yang mewakili file PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Mengakses koleksi bentuk untuk slide tertentu
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Menambahkan bentuk otomatis Elips
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // Menambahkan bentuk otomatis Persegi Panjang
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // Menambahkan bentuk penghubung ke koleksi bentuk slide
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Menghubungkan bentuk menggunakan penghubung
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // Menetapkan indeks titik sambungan pilihan pada bentuk Elips
-    int wantedIndex = 6;
-
-    // Memeriksa apakah indeks pilihan lebih kecil dari jumlah maksimum situs sambungan
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // Menetapkan titik sambungan pilihan pada bentuk otomatis Elips
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
     }
 
-    // Menyimpan presentasi
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Sesuaikan Titik Penghubung**
 
-Anda dapat menyesuaikan sebuah penghubung yang ada melalui titik penyesuaiannya. Hanya penghubung dengan titik penyesuaian yang dapat diubah dengan cara ini. Lihat tabel di bawah **[Jenis penghubung.](/slides/id/java/connector/#types-of-connectors)**
+Penghubung dengan titik penyesuaian mengeksposnya melalui [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/id/java/com.aspose.slides/igeometryshape/#getAdjustments--). Periksa setiap [IAdjustValue](https://reference.aspose.com/slides/id/java/com.aspose.slides/iadjustvalue/) dan nilai [getType](https://reference.aspose.com/slides/id/java/com.aspose.slides/iadjustvalue/#getType--)‑nya sebelum mengubahnya dengan [setRawValue](https://reference.aspose.com/slides/id/java/com.aspose.slides/iadjustvalue/#setRawValue-long-). Aturan umum untuk mengidentifikasi penyesuaian bentuk preset dijelaskan dalam [Shape Manipulation](/slides/id/java/shape-manipulations/).
 
-### **Kasus Sederhana**
+Jumlah, urutan, arti, dan rentang nilai yang sah dari penyesuaian penghubung bergantung pada preset penghubung. Tipe penyesuaian bersifat read‑only, sedangkan nilai penyesuaian dapat ditulis. Metode read‑only [getName](https://reference.aspose.com/slides/id/java/com.aspose.slides/iadjustvalue/#getName--) memberikan identifikasi tambahan ketika sebuah penghubung berisi lebih dari satu penyesuaian dengan tipe semantik yang sama.
 
-Pertimbangkan sebuah kasus di mana sebuah penghubung antara dua bentuk (A dan B) melewati bentuk ketiga (C):
+### **Rute Mengelilingi Rintangan**
+
+Pada tata letak berikut, sebuah penghubung `BentConnector5` di antara dua bentuk melewati bentuk ketiga:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Kode ini membuat penghubung yang terhalang:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Untuk menghindari atau melewati bentuk ketiga, kita dapat menyesuaikan penghubung dengan memindahkan garis vertikalnya ke kiri seperti ini:
+Memindahkan bengkok vertikal mengubah rute sehingga penghubung melewati rintangan:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+Alih‑alihasumsikan bahwa indeks koleksi `1` selalu mewakili bengkok vertikal, contoh ini mencari `ConnectorBendPositionY` dan mengubahnya hanya ketika tipe semantik yang diharapkan ada:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Kasus Kompleks** 
+Sebuah `BentConnector5` memiliki dua penyesuaian `ConnectorBendPositionX` dan satu penyesuaian `ConnectorBendPositionY`. Jika tipe yang Anda butuhkan muncul lebih dari satu kali, periksa `getName` dan geometri preset yang diketahui sebelum memilih satu. Jika sebuah penyesuaian melaporkan `ShapeAdjustmentType.Custom`, perlakukan arti dan rentangnya sebagai spesifik preset dan jangan ubah sampai kontrak tersebut diketahui.
 
-Untuk melakukan penyesuaian yang lebih rumit, Anda harus mempertimbangkan hal‑hal berikut:
+## **Hubungkan Nilai Penyesuaian dengan Geometri Penghubung**
 
-* Titik penyesuaian penghubung sangat terkait dengan formula yang menghitung dan menentukan posisinya. Jadi perubahan lokasi titik dapat mengubah bentuk penghubung.
-* Titik penyesuaian penghubung didefinisikan dalam urutan yang ketat dalam sebuah array. Titik penyesuaian diberi nomor dari titik awal penghubung hingga akhir.
-* Nilai titik penyesuaian mencerminkan persentase lebar/tinggi bentuk penghubung. 
-  * Bentuk dibatasi oleh titik awal dan akhir penghubung yang dikalikan 1000. 
-  * Titik pertama, kedua, dan ketiga masing‑masing menentukan persentase dari lebar, persentase dari tinggi, dan persentase dari lebar (lagi).
-* Untuk perhitungan yang menentukan koordinat titik penyesuaian penghubung, Anda harus memperhitungkan rotasi penghubung dan pantulannya. **Catatan** bahwa sudut rotasi untuk semua penghubung yang ditampilkan di bawah **[Jenis penghubung](/slides/id/java/connector/#types-of-connectors)** adalah 0.
+Untuk penghubung bengkok, nilai penyesuaian dapat digunakan untuk memperkirakan posisi segmen‑segmen individual. Perhitungan ini spesifik untuk preset penghubung:
 
-#### **Kasus 1**
+- `BentConnector4` biasanya menampilkan satu penyesuaian `ConnectorBendPositionX` dan satu `ConnectorBendPositionY`.
+- Untuk posisi bengkok ini, membagi nilai yang dikembalikan oleh `getRawValue` dengan `100000f` menghasilkan fraksi lebar atau tinggi bingkai penghubung yang digunakan pada contoh di bawah.
+- Bingkai penghubung dapat diputar atau dibalik, sehingga koordinat bingkai harus ditransformasikan sebelum dibandingkan dengan koordinat slide.
 
-Pertimbangkan sebuah kasus di mana dua objek bingkai teks ditautkan bersama melalui sebuah penghubung:
+Contoh‑contoh berikut menggunakan `getType` untuk mengidentifikasi penyesuaian terlebih dahulu. Mereka tidak memperlakukan indeks koleksi sebagai pengidentifikasi portabel.
+
+### **Penghubung Tanpa Rotasi**
+
+Tata letak awal berisi dua bentuk teks yang dihubungkan oleh sebuah `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Contoh ini memeriksa penghubung dan mendapatkan penyesuaian bengkok horizontal serta vertikalnya:
+
 ```java
-// Membuat instance kelas presentasi yang mewakili file PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Mendapatkan slide pertama dalam presentasi
-    ISlide sld = pres.getSlides().get_Item(0);
-    // Menambahkan bentuk yang akan digabungkan melalui penghubung
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Menambahkan sebuah penghubung
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Menentukan arah penghubung
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Menentukan warna penghubung
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Menentukan ketebalan garis penghubung
     connector.getLineFormat().setWidth(3);
-    
-    // Menautkan bentuk‑bentuk bersama dengan penghubung
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // Mendapatkan titik penyesuaian untuk penghubung
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**Penyesuaian**
-
-Kita dapat mengubah nilai titik penyesuaian penghubung dengan meningkatkan persentase lebar dan tinggi yang bersangkutan masing‑masing sebesar 20% dan 200%:
+Untuk mengubah kedua bengkok, temukan masing‑masing tipe yang diharapkan dan modifikasi nilainya hanya setelah keduanya ditemukan:
 
 ```java
-// Mengubah nilai titik penyesuaian
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Hasilnya:
+Hasilnya adalah penghubung dengan segmen horizontal dan vertikal yang telah berpindah:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Untuk mendefinisikan sebuah model yang memungkinkan kami menentukan koordinat dan bentuk bagian‑bagian individual penghubung, mari buat sebuah bentuk yang sesuai dengan komponen horizontal penghubung pada titik connector.getAdjustments().get_Item(0):
+Setelah tipe semantik diketahui, nilainya dapat dikonversi ke koordinat bingkai‑penghubung. Contoh ini menggambar sebuah persegi panjang tipis di atas segmen vertikal yang dikendalikan oleh dua penyesuaian bengkok:
 
 ```java
-// Menggambar komponen vertikal penghubung
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Hasilnya:
+Bentuk panduan menandai segmen yang dihitung:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Kasus 2**
+### **Penghubung Diputar atau Dibelokkan**
 
-Pada **Kasus 1**, kami menunjukkan operasi penyesuaian penghubung sederhana menggunakan prinsip dasar. Dalam situasi normal, Anda harus memperhitungkan rotasi penghubung dan tampilannya (yang diatur oleh connector.getRotation(), connector.getFrame().getFlipH(), dan connector.getFrame().getFlipV()). Sekarang kami akan memperlihatkan prosesnya.
+Ketika geometri penghubung yang sama berorientasi vertikal, nilai [IShape.getFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/#getFrame--), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/id/java/com.aspose.slides/shapeframe/#getFlipH--), dan [ShapeFrame.getFlipV](https://reference.aspose.com/slides/id/java/com.aspose.slides/shapeframe/#getFlipV--) memengaruhi konversi dari koordinat bingkai‑penghubung ke koordinat slide.
 
-Pertama, mari tambahkan sebuah objek bingkai teks baru (**To 1**) ke slide (untuk tujuan koneksi) dan buat sebuah penghubung (hijau) baru yang menghubungkannya dengan objek‑objek yang sudah kami buat.
+Contoh ini membuat dan menyesuaikan penghubung berorientasi vertikal:
 
 ```java
-// Membuat objek binding baru
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Membuat penghubung baru
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// Menghubungkan objek menggunakan penghubung yang baru dibuat
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Mendapatkan titik penyesuaian penghubung
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Mengubah nilai titik penyesuaian
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Hasilnya:
+Penghubung yang telah disesuaikan muncul secara vertikal di antara bentuk‑bentuk:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Kedua, mari buat sebuah bentuk yang akan sesuai dengan komponen horizontal penghubung yang melewati titik penyesuaian penghubung baru connector.getAdjustments().get_Item(0). Kami akan menggunakan nilai dari data penghubung untuk connector.getRotation(), connector.getFrame().getFlipH(), dan connector.getFrame().getFlipV() serta menerapkan rumus konversi koordinat populer untuk rotasi mengelilingi titik x0:
+Untuk sudut rotasi sewenang‑wenang `alpha`, putar titik bingkai‑penghubung `(x, y)` sekitar pusat bingkai `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Dalam kasus kami, sudut rotasi objek adalah 90 derajat dan penghubung ditampilkan secara vertikal, sehingga ini adalah kode yang sesuai:
+Kode berikut menangani orientasi 90‑derajat yang dipakai dalam contoh ini dan menggambar panduan merah di atas segmen penghubung yang bersesuaian:
 
 ```java
-// Menyimpan koordinat penghubung
-x = connector.getX();
-y = connector.getY();
-// Memperbaiki koordinat penghubung jika muncul
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// Mengambil nilai titik penyesuaian sebagai koordinat
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Mengonversi koordinat karena Sin(90) = 1 dan Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// Menentukan lebar komponen horizontal menggunakan nilai titik penyesuaian kedua
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-Hasilnya:
+Panduan merah menandai segmen yang dihitung setelah transformasi koordinat:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Kami menunjukkan perhitungan yang melibatkan penyesuaian sederhana dan titik penyesuaian yang rumit (titik penyesuaian dengan sudut rotasi). Dengan pengetahuan yang diperoleh, Anda dapat mengembangkan model Anda sendiri (atau menulis kode) untuk mendapatkan objek `GraphicsPath` atau bahkan mengatur nilai titik penyesuaian penghubung berdasarkan koordinat slide tertentu.
+Rumus‑rumus ini menjelaskan preset yang dipakai dalam contoh, bukan model penghubung universal. Validasi tipe penyesuaian, orientasi bingkai, dan rentang nilai sebelum menerapkan perhitungan yang sama pada preset lain.
 
-## **Temukan Sudut Garis Penghubung**
+## **Temukan Sudut Arah Penghubung**
 
-1. Buat sebuah instance dari kelas.
-2. Dapatkan referensi slide melalui indeksnya.
-3. Akses bentuk garis penghubung.
-4. Gunakan lebar garis, tinggi, tinggi bingkai bentuk, dan lebar bingkai bentuk untuk menghitung sudut.
-
-Kode Java ini menunjukkan operasi di mana kami menghitung sudut untuk bentuk garis penghubung:
+Arah sebuah penghubung lurus dapat dihitung dari lebar dan tingginya, dengan pembalikan horizontal serta vertikal diterapkan. Contoh berikut melaporkan sudut searah jarum jam dari sumbu horizontal positif dalam koordinat slide:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
 
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Bagaimana saya dapat mengetahui apakah sebuah penghubung dapat 'menempel' pada bentuk tertentu?**
+**Bagaimana saya mengetahui apakah sebuah penghubung dapat menempel pada sebuah bentuk?**
 
-Periksa apakah bentuk tersebut menyediakan [situs sambungan](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#getConnectionSiteCount--). Jika tidak ada atau jumlahnya nol, penempelan tidak tersedia; dalam hal ini, gunakan titik akhir bebas dan posisikan secara manual. Sebaiknya periksa jumlah situs sebelum menempelkan.
+Periksa nilai [getConnectionSiteCount](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/#getConnectionSiteCount--) pada bentuk. Jumlah positif berarti bentuk tersebut mengekspor situs koneksi. Validasi indeks situs yang dipilih sebelum menugaskannya ke salah satu ujung penghubung.
 
-**Apa yang terjadi pada sebuah penghubung jika saya menghapus salah satu bentuk yang terhubung?**
+**Apakah saya dapat mengidentifikasi penyesuaian penghubung melalui indeks koleksinya?**
 
-Ujung‑ujungnya akan terlepas; penghubung tetap berada di slide sebagai garis biasa dengan awal/akhir bebas. Anda dapat menghapusnya atau menetapkan kembali koneksi, dan jika diperlukan, [reroute](https://reference.aspose.com/slides/id/java/com.aspose.slides/connector/#reroute--).
+Indeks hanya bermakna untuk preset penghubung dan susunan koleksi yang diketahui. Periksa [IAdjustValue.getType](https://reference.aspose.com/slides/id/java/com.aspose.slides/iadjustvalue/#getType--) sebelum memodifikasi nilai, dan gunakan [IAdjustValue.getName](https://reference.aspose.com/slides/id/java/com.aspose.slides/iadjustvalue/#getName--) sebagai informasi tambahan bila tipe semantik yang sama muncul lebih dari satu kali.
 
-**Apakah pengikatan penghubung dipertahankan saat menyalin slide ke presentasi lain?**
+**Apa yang terjadi ketika bentuk yang terhubung dihapus?**
 
-Umumnya ya, asalkan bentuk target juga disalin. Jika slide disisipkan ke file lain tanpa bentuk yang terhubung, ujung‑ujungnya menjadi bebas dan Anda perlu menempelkannya kembali.
+Ujung penghubung yang bersangkutan menjadi terlepas. Penghubung tetap berada di slide dan dapat dihapus, diposisikan sebagai garis bebas, atau ditempelkan ke bentuk lain.
+
+**Apakah ikatan penghubung dipertahankan ketika slide disalin?**
+
+Ikatan umumnya dipertahankan ketika bentuk‑bentuk yang terhubung disalin bersama slide. Jika sebuah penghubung disalin tanpa salah satu bentuk targetnya, ujung yang terpengaruh harus ditempelkan kembali.

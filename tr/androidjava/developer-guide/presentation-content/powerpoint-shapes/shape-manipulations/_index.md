@@ -9,41 +9,44 @@ keywords:
 - sunum şekli
 - slayttaki şekil
 - şekil bulma
-- şekil klonlama
+- şekil kopyalama
 - şekil kaldırma
 - şekil gizleme
 - şekil sırasını değiştirme
 - interop şekil kimliğini al
 - şekil alternatif metni
-- şekil düzen formatları
-- şekil SVG olarak
-- şekli SVG'ye dönüştür
+- şekil ayar noktası
+- önceden ayarlanmış şekil ayarı
+- şekil geometrisi
+- şekil yerleşim formatları
+- Şekil SVG olarak
+- Şekli SVG'ye
 - şekli hizalama
-- şekli çevirme
+- şekli döndürme
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java ile sunum şekillerini tanımlamayı, klonlamayı, kaldırmayı, gizlemeyi, yeniden sıralamayı, dışa aktarmayı, hizalamayı ve çevirmeyi öğrenin."
+description: "Aspose.Slides for Android via Java ile sunum şekillerini tanımlamayı, ayarlamayı, kopyalamayı, kaldırmayı, gizlemeyi, yeniden sıralamayı, dışa aktarmayı, hizalamayı ve döndürmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Android via Java, bir slayttaki şekilleri sıralı bir [IShapeCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/) olarak temsil eder. Koleksiyon, şekilleri bulup değiştirildiğiniz yer olduğu gibi, yığın sırasının da kaynağıdır: `0` indeksindeki şekil en arka taraftadır, son indeks ise en ön taraftadır.
+Aspose.Slides for Android via Java, bir slayd üzerindeki şekilleri sıralı bir [IShapeCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/) olarak temsil eder. Koleksiyon, şekilleri bulup değiştirmenizi sağlayan yer olmanın yanı sıra, yığılma sırasının kaynağıdır: indeks `0` en arkadaki şekli, son indeks ise en öndeki şekli gösterir.
 
-Bu makale aynı modeli izler. Önce bir şekli güvenilir şekilde nasıl tanımlayacağınızı açıklar, ardından şekilleri klonlama, kaldırma, gizleme ve yeniden sıralama yöntemlerini gösterir. Son bölümler, düzen seviyesindeki biçimlendirme, SVG dışa aktarma, hizalama ve çevirme ayarlarını kapsar. Her örnek bağımsızdır; böylece yalnızca iş akışınızın gerektirdiği işlemleri kullanabilirsiniz.
+Bu makale bu modeli izler. Öncelikle bir şekli güvenilir şekilde nasıl tanımlayacağınızı ve önceden ayarlanmış şekil ayar noktalarını nasıl değiştireceğinizi açıklar, ardından şekilleri nasıl kopyalayacağınızı, kaldıracağınızı, gizleyeceğinizi ve yeniden sıralayacağınızı gösterir. Son bölümler, düzen‑seviyesi biçimlendirme, SVG dışa aktarma, hizalama ve döndürme ayarlarını kapsar. Her örnek bağımsızdır, bu yüzden yalnızca iş akışınızın gerektirdiği işlemleri kullanabilirsiniz.
 
 ## **Şekilleri Tanımlama ve Bulma**
 
-Koleksiyon indeksleri, bilinen bir dosya işlenirken kullanışlıdır, ancak sabit tanımlayıcılar değildir. Bir şeklin eklenmesi, kaldırılması veya yeniden sıralanması indeksini değiştirebilir. Sunumun nasıl oluşturulduğuna ve korunduğuna göre bir tanımlayıcı seçin:
+Koleksiyon indeksleri bilinen bir dosya işlenirken kullanışlıdır, ancak sabit tanımlayıcılar değildir. Bir şeklin eklenmesi, kaldırılması veya yeniden sıralanması indeksini değiştirebilir. Sunumun nasıl oluşturulduğuna ve yönetildiğine göre bir tanımlayıcı seçin:
 
-- [Name](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getName--) geliştiricinin kontrolündeki şablonlar için yararlıdır ve PowerPoint’in Seçim Bölmesi’nde kolayca incelenebilir. İsimler düzenlenebilir ve benzersiz olması garanti edilmez; bu yüzden kodun buna bağlı olması durumunda bir isimlendirme standartı oluşturun.
-- [AlternativeText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getAlternativeText--) bir erişilebilirlik açıklaması veya yazar tarafından sağlanan bir etiket zaten şekli tanımlıyorsa faydalıdır. Kullanıcılar tarafından görülür, yerelleştirilebilir veya erişilebilirlik için yeniden yazılabilir ve benzersiz olması garanti edilmez. Anlamlı erişilebilirlik metnini sessizce bir veri tabanı anahtarı olarak kullanmayın.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) bir slayt içinde benzersiz olan, yalnızca okunabilen bir tanımlayıcıdır ve PowerPoint interop tarafından kullanılan şekil kimliğine karşılık gelir. PowerPoint ile bütünleştirirken veya bir şeklin ömrü boyunca net bir referansa ihtiyaç duyduğunuzda kullanın. Klonlanmış veya yeniden oluşturulmuş bir şekil farklı bir şekildir ve kendi kimliğini alır.
+- [Name](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getName--) geliştirici‑kontrollü şablonlar için yararlıdır ve PowerPoint’in Seçim Bölmesi’nde kolayca incelenebilir. İsimler düzenlenebilir ve benzersiz olması garanti edilmez; bu yüzden koda bağlıysanız bir adlandırma konvansiyonu oluşturun.
+- [AlternativeText](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getAlternativeText--) erişilebilirlik açıklaması ya da yazar‑tarafından sağlanan bir etiket zaten şekli tanımlıyorsa işe yarar. Kullanıcılar tarafından görülür, yerelleştirilebilir veya erişilebilirlik için yeniden yazılabilir ve benzersiz olması garanti edilmez. Anlamlı erişilebilirlik metnini sessizce bir veritabanı anahtarı olarak kullanmayın.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) yalnızca bir slayt içinde benzersiz olan ve PowerPoint interop tarafından kullanılan şekil kimliğine karşılık gelen salt‑okunur bir tanımlayıcıdır. PowerPoint ile bütünleştirirken veya bir şeklin ömrü boyunca kesin bir referansa ihtiyaç duyduğunuzda bunu kullanın. Kopyalanmış ya da yeniden oluşturulmuş bir şekil farklı bir şekildir ve kendi kimliğini alır.
 
-İlgili [getUniqueId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getUniqueId--) yöntemi sunum kapsamlı bir tanımlayıcı döner, ancak bu tanımlayıcı eklentiler için tasarlanmıştır ve yeniden atanabilir. Kalıcı bir dış anahtar olarak görülmemelidir. Uzun vadeli kimlik önemliyse, eşlemeyi uygulama verilerinde tutun ve beklenen şeklin hâlâ mevcut olduğunu doğrulayın.
+İlgili [getUniqueId](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getUniqueId--) yöntemi sunum kapsamlı bir tanımlayıcı döndürür, ancak bu tanımlayıcı eklentiler içindir ve yeniden atanabilir. Dış anahtar olarak kalıcı kabul edilmemelidir. Uzun vadeli kimlik önemliyse, eşlemeyi uygulama verilerinde tutun ve beklenen şeklin hâlâ mevcut olduğunu doğrulayın.
 
-Aşağıdaki örnek, adı tam eşleşme ile arar ve slayt kapsamlı interop kimliğini raporlar. Şablon beklenen şekli içermediğinde, kod yanlış nesneyle devam etmek yerine bu sonucu bildirir.
+Aşağıdaki örnek, isme tam eşleşme ile arama yapar ve slayt‑kapsamlı interop kimliğini rapor eder. Şablon beklenen şekli içermediğinde, kod hatalı nesneyle devam etmek yerine bu sonucu raporlar.
 
 ```java
 import com.aspose.slides.*;
@@ -70,7 +73,7 @@ try {
 }
 ```
 
-Bir işlem belirli bir şekil türüne özgüyse, tür‑özel üyelere erişmeden önce arayüzü kontrol edin. Bu örnek, adlandırılmış nesne bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ise yalnızca metin ve alternatif metni günceller.
+Bir işlem belirli bir şekil türüne özgüyse, tür‑özel üyeleri kullanmadan önce arabirimi kontrol edin. Bu örnek, adlandırılmış nesne bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ise yalnızca metin ve alternatif metni günceller.
 
 ```java
 import com.aspose.slides.*;
@@ -100,15 +103,108 @@ try {
 }
 ```
 
+## **Önceden Ayarlanmış Şekil Ayarlarını Tanımlama ve Değiştirme**
+
+Önceden ayarlanmış geometri şekilleri, köşe boyutu, ok oranları ya da yay açıları gibi özellikleri kontrol eden ayar noktaları sunabilir. Bu noktalara, salt‑okunur [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) koleksiyonu üzerinden erişin. Koleksiyon şekil tarafından sağlanır, ancak her [IAdjustValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iadjustvalue/) değiştirilebilen bir değere sahiptir.
+
+Yalnızca sabit bir koleksiyon indeksine güvenmeyin. Ayarlamalar üzerinde döngü kurun ve salt‑okunur [getType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iadjustvalue/#getType--) yöntemini inceleyin; bu yöntemin döndürdüğü [ShapeAdjustmentType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shapeadjustmenttype/) değeri ayarın neyi kontrol ettiğini tanımlar. Salt‑okunur [getName](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iadjustvalue/#getName--) yöntemi ek tanımlama bilgisi sağlar ve aynı anlamsal türe sahip birden çok ayar bulunduğunda özellikle yararlıdır.
+
+Ayarlamanın anlamına uyan değer yöntemini kullanın:
+
+| Ayarlama türü | Amaç | Değiştirilecek değer |
+|---|---|---|
+| `CornerSize` | Yuvarlatılmış köşelerin boyutu | [setRawValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | Bir ok kuyruğunun kalınlığı | `setRawValue` |
+| `ArrowheadLength` | Ok ucu uzunluğu | `setRawValue` |
+| `ArrowheadWidth` | Ok ucu genişliği | `setRawValue` |
+| `StartAngle` | Pasta ya da yay başlangıç açısı | [setAngleValue](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | Pasta ya da yay bitiş açısı | `setAngleValue` |
+
+`getType` ve `getName` salt‑okunur bilgiler döndürür. `getRawValue` ve `setRawValue`, önceden ayarlanmış şeklin yerel geometri birimlerinde bir tamsayıyla çalışırken, `getAngleValue` ve `setAngleValue` derece cinsinden açıyla çalışır. Ayarların sayısı, sırası, anlamı ve geçerli aralığı önceden ayarlanmış [ShapeType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/igeometryshape/#getShapeType--) değerine bağlıdır. Bir önceden ayarlanmış için geçerli olan bir değer, başka birinde geçersiz ya da farklı bir etki yapabilir.
+
+`getType` `ShapeAdjustmentType.Custom` döndürdüğünde, API standart bir anlamsal anlamı tanımaz. `getName`, önceden ayarlanmış tür ve mevcut değeri inceleyin ve beklenen anlam ve aralık bilinmiyorsa ayarı değiştirmeyin. Tanınan türler için bile aynı tür birden çok kez ortaya çıkıyorsa bir değer seçmeden önce kontrol edin. [Connector](/slides/tr/androidjava/connector/) makalesi, bağlayıcı bükülme ayarlarıyla bu durumu gösterir.
+
+Aşağıdaki tam örnek, üç önceden ayarlanmış şeklin varsayılan ve değiştirilmiş sürümlerini oluşturur. Her ayar üzerinden döner, ismini ve tipini raporlar, boyutla ilgili değerleri `setRawValue` ile, açıları ise `setAngleValue` ile değiştirir ve sonucu kaydeder. Sol sütun varsayılan geometriyi, sağ sütun ise ayarlanmış yuvarlak dikdörtgeni, dört yönlü oku ve pastayı gösterir.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // Varsayılan ve ayarlanmış şekil sütunları için başlıklar ekler.
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Değişiklik yapmadan önce anlamsal türü kontrol etmek, kodun amacını açıkça belirtir ve aynı koleksiyon indeksinin farklı önceden ayarlanmış şekillerde aynı anlama geldiği varsayımını önler.
+
 ## **Şekil Koleksiyonunu Değiştirme**
 
-Ekle, klonla, kaldır ve yeniden sırala yöntemleri koleksiyon üzerinde hemen çalışır. Bir işlem şekil sayısını veya sırasını değiştiriyorsa, o işlemden önce yakalanmış indekslere güvenmeye devam etmeyin.
+Ekle, kopyala, kaldır ve yeniden sırala yöntemleri koleksiyon üzerinde anında çalışır. Bir işlem şekil sayısını ya da sırasını değiştiriyorsa, o işlemden önce yakalanan indekslere güvenmeyin.
 
 ### **Bir Şekli Kopyalama**
 
-[addClone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) bağımsız bir kopya oluşturur ve hedef koleksiyona ekler. [insertClone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) de bir kopya oluşturur ancak belirtilen z‑sırası indeksine yerleştirir. Koordinatları kabul eden aşırı yüklemeler, kopyayı boyutunu değiştirmeden taşır; genişlik ve yükseklik kabul edenler ise yeniden boyutlandırabilir.
+[addClone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) bağımsız bir kopya oluşturur ve hedef koleksiyona ekler. [insertClone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) da bir kopya oluşturur ancak belirtilen z‑order indeksine yerleştirir. Koordinatları kabul eden aşırı yüklemeler, kopyayı boyutunu değiştirmeden taşırken; genişlik ve yükseklik kabul edenler ise yeniden boyutlandırabilir.
 
-Örnek, bir hedef slayt oluşturur, etiketli bir dikdörtgeni öne klonlar ve ikinci bir klonu arkaya ekler. Her iki klon üzerindeki değişiklikler kaynak şekli etkilemez.
+Bu örnek bir hedef slayt oluşturur, etiketli bir dikdörtgeni öne kopyalar ve ikinci bir kopyayı arka tarafa ekler. Her iki kopyada yapılan değişiklikler kaynak şekli etkilemez.
 
 ```java
 import com.aspose.slides.*;
@@ -147,13 +243,13 @@ try {
 }
 ```
 
-Klonlama, şeklin içeriğini ve biçimlendirmesini, adı ve alternatif metni dahil, kopyalar. Bu değerlerin benzersiz olması gerekiyorsa, klona yeni mantıksal tanımlayıcılar atayın. Karmaşık şekillerin kullandığı kaynaklar sunum tarafından yönetilir, ancak bir klon yeni bir koleksiyon öğesi ve yeni bir şekil kimliği olur.
+Kopyalama, şeklin içeriğini ve biçimlendirmesini, adını ve alternatif metnini dahil ederek kopyalar. Bu değerlerin benzersiz olması gerekiyorsa klona yeni mantıksal tanımlayıcılar atayın. Karmaşık şekillerin kullandığı kaynaklar sunum tarafından yönetilir, ancak kopya yeni bir koleksiyon öğesi ve yeni bir şekil kimliği alır.
 
 ### **Şekilleri Kaldırma**
 
-[remove](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) belirli bir şekil nesnesini koleksiyonundan siler. İndeksli yineleme sırasında birden fazla eşleşme kaldırıyorsanız, her kalan indeksin geçerli kalması için sondan itibaren dolaşın.
+[remove](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) belirli bir şekil nesnesini kendi koleksiyonundan siler. İndeksli döngü sırasında birden çok eşleşme kaldırılırken, kalan indekslerin geçerli kalması için sonundan geriye doğru dolaşın.
 
-Bu örnek, belirli bir isimle eşleşen her şekli kaldırır. Sabit bir koleksiyon öğesi yerine mevcut indekste şekli okur ve şekli gereksiz yere tip dönüşümü yapmaz.
+Bu örnek, belirli bir isim taşıyan her şekli kaldırır. Sabit bir koleksiyon öğesi yerine mevcut indeksteki şekli okur ve gereksiz tür dönüşümü yapmaz.
 
 ```java
 import com.aspose.slides.*;
@@ -184,11 +280,11 @@ try {
 }
 ```
 
-Kaldırma işleminden sonra şekil sayısı ve sonraki şekillerin indeksleri değişir. Etkilenmemiş şekillere yapılan referanslar, kaydedilmiş indekslerden daha güvenilirdir. Ayrıca bağlayıcılar, animasyonlar ve kaldırılan nesneye referans verebilecek diğer sunum özelliklerini de göz önünde bulundurun; görünür bir şekli kaldırmak slaydın görünümünden daha fazlasını değiştirebilir.
+Kaldırma sonrası, şekil sayısı ve sonraki şekillerin indeksleri değişir. Etkilenmeyen şekillere referanslar, kaydedilmiş indekslerden daha güvenilirdir. Ayrıca kaldırılan nesneye referans verebilecek bağlayıcılar, animasyonlar ve diğer sunum özelliklerini de göz önünde bulundurun; görünür bir şekli kaldırmak slaytın görünümünden daha fazlasını değiştirebilir.
 
 ### **Bir Şekli Gizleme**
 
-[Hidden](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) özelliğini `true` olarak ayarlamak, şekli koleksiyonda tutar ancak normal slayt gösterisinde görünmesini engeller. İndeksi, biçimlendirmesi ve içeriği koda hâlâ ulaşılabilir olduğu için, daha sonra geri getirilebilecek isteğe bağlı öğeler için gizleme uygundur.
+[Hidden](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) özelliğini `true` olarak ayarlamak, şekli koleksiyonda tutar ancak normal slayt gösterisinde görünmesini engeller. İndeksi, biçimi ve içeriği kod tarafından erişilebilir olmaya devam eder; bu yüzden daha sonra geri getirilebilecek isteğe bağlı öğeler için gizleme uygundur.
 
 ```java
 import com.aspose.slides.*;
@@ -215,11 +311,11 @@ try {
 }
 ```
 
-Gizleme bir silme veya güvenlik işlemi değildir. Nesne hâlâ keşfedilebilir ve bir kullanıcı ya da kod tarafından gizlilikten çıkarılabilir; ayrıca sunum dosyasının bir parçası olarak kalır.
+Gizleme, silme ya da güvenlik değildir. Nesne hâlâ keşfedilebilir ve bir kullanıcı ya da kod tarafından tekrar görünür hâle getirilebilir; ayrıca sunum dosyasının bir parçası olarak kalır.
 
 ### **Z‑Sırasını Değiştirme**
 
-Üst üste binen şekiller koleksiyon sırasına göre çizilir. [reorder](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) var olan bir şekli klonlamadan hedef indeksine taşır. `0` indeksi arka, `size() - 1` indeksi ön taraftır.
+Üst‑üste binen şekiller koleksiyon sırasına göre çizilir. [reorder](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) mevcut bir şekli kopyalamadan hedef bir indekse taşır. İndeks `0` arka, `size() - 1` ön taraftır.
 
 ```java
 import com.aspose.slides.*;
@@ -246,13 +342,13 @@ try {
 }
 ```
 
-Dikdörtgen önce oluşturulur ve başlangıçta elipsin arkasında durur. Son indekse taşındığında ön tarafta görünür. Tüm ilgili şekiller eklendikten veya klonlandıktan sonra z‑sırasını kesin, çünkü bu işlemler yeni koleksiyon öğeleri ekleyebilir ve istenen yığını değiştirebilir.
+Dikdörtgen önce oluşturulur ve başlangıçta elipsin arkasında yer alır. Son indekse taşındığında ön tarafta görünür. Tüm ilgili şekiller eklenip/kopyalandıktan sonra z‑sırasını sonlandırın; çünkü bu işlemler yeni koleksiyon öğeleri ekleyebilir ve istenen yığılımı değiştirebilir.
 
 ## **Düzen Slaytlarındaki Şekilleri İnceleme**
 
-Normal slaytlar, düzen slaytları ve ana slaytların ayrı şekil koleksiyonları vardır. Bir düzen koleksiyonundaki şekil, normal bir slayttaki benzer konumlu şekil ile aynı nesne değildir. Düzen tarafından sağlanan biçimlendirmeyi anlamak veya değiştirmek gerektiğinde düzen şekillerini inceleyin.
+Normal slaytlar, düzen slaytları ve master slaytlar ayrı şekil koleksiyonlarına sahiptir. Bir düzen koleksiyonundaki şekil, normal bir slayttaki benzer konumdaki şekille aynı nesne değildir. Düzenin sağladığı biçimlendirmeyi anlamak ya da değiştirmek için düzen şekillerini inceleyin.
 
-Aşağıdaki örnek, her düzen şeklinin [FillFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getFillFormat--) ve [LineFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getLineFormat--) özelliklerini, her şeklin bir `AutoShape` olduğu varsayımı olmadan okur.
+Aşağıdaki örnek, her bir düzen şeklinin [FillFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getFillFormat--) ve [LineFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getLineFormat--) özelliklerini okur; her şeklin bir `AutoShape` olduğu varsayımı yapılmaz.
 
 ```java
 import com.aspose.slides.*;
@@ -271,11 +367,11 @@ try {
 }
 ```
 
-Bir düzeni düzenlemek, onu kullanan birden fazla slaytı etkileyebilir. Normal bir slayt nesneyi devralıyor mu yoksa yerel bir geçersiz kılma içeriyor mu belirleyin ve o düzeni kullanan her slaytı test edin.
+Bir düzeni düzenlemek, onu kullanan birden fazla slaytı etkileyebilir. Normal bir slayt nesneyi devralıyor mu ya da yerel bir geçersiz kılma içeriyor mu belirleyin ve o düzeni kullanan her slaytı test edin.
 
 ## **Bir Şekli SVG Olarak Dışa Aktarma**
 
-[writeAsSvg](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) bir şeklin render edilmiş içeriğini akıma yazar. Sonuç, tüm slayt arka planını veya komşu şekilleri değil yalnızca o şekli içerir.
+[writeAsSvg](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) bir şeklin renderlanmış içeriğini bir akıma yazar. Sonuç, şekli içerir; tüm slayt arka planı ya da komşu şekiller dahil değildir.
 
 ```java
 import com.aspose.slides.*;
@@ -301,13 +397,13 @@ try {
 }
 ```
 
-Render ederken sunumu açık tutun. Çıktı, şeklin biçimlendirmesine ve yazı tipleri ile görüntüler gibi kaynaklara bağlıdır. Tüm kompozisyona ihtiyacınız varsa, tek bir şekil yerine slaytı dışa aktarın. Akışı çağıran tarafın sorumluluğunda olup, kapatılması gerekir.
+Renderlama sırasında sunumu açık tutun. Çıktı, şeklin biçimlendirmesine ve fontlar, görüntüler gibi kaynaklara bağlıdır. Tüm kompozisyon gerektiğinde, tek bir şekil yerine slaytı dışa aktarın. Çağıran akımı sahiplenir ve kapatmak zorundadır.
 
 ## **Şekilleri Hizalama**
 
-[SlideUtil.alignShapes](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) aşırı yüklemeleri, ya tüm şekilleri ya da seçili koleksiyon indekslerini hizalar. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shapesalignmenttype/) kenarı, merkez hattını veya dağıtım modunu belirtir. `alignToSlide` değerini `true` yaparsanız slayt kenarları kullanılır; `false` yaparsanız seçili şekiller birbirlerine göre hizalanır.
+[SlideUtil.alignShapes](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) aşırı yüklemeleri, tüm şekilleri ya da seçili koleksiyon indekslerini hizalar. [ShapesAlignmentType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shapesalignmenttype/) kenarı, merkez çizgiyi veya dağıtım kipini belirtir. `alignToSlide` değerini `true` yaparsanız slayt kenarlarını, `false` yaparsanız seçili şekilleri birbirine göre hizalarsınız.
 
-Bu örnek, üç şekli slaydın üst kenarına hizalar. Döndürülen şekil referansları, hizalamadan hemen önce mevcut indekslerine dönüştürülür.
+Bu örnek, üç şekli slaytın üst kenarına hizalar. Döndürmeden hemen önce döndürülen şekil referansları mevcut indekslerine çevrilir.
 
 ```java
 import com.aspose.slides.*;
@@ -332,17 +428,17 @@ try {
 }
 ```
 
-Hizalama konumları değiştirir, z‑sırasını değiştirmez. Göreceli hizalama genellikle en az iki şekil gerektirir, yatay veya dikey dağıtım ise boşluk tanımlayacak yeterli sayıda şekil gerekir. Yöntemi çağırmadan önce koleksiyonu değiştirdiyseniz indeksleri yeniden hesaplayın.
+Hizalama konumları değiştirir, z‑order’ı etkilemez. Göreli hizalama genellikle en az iki şekil gerektirir, yatay ya da dikey dağıtım ise aralık tanımlamak için yeterli sayıda şekil gerektirir. Metodu çağırmadan önce koleksiyonu değiştirdiyseniz indeksleri yeniden hesaplayın.
 
-## **Bir Şekli Çevirme**
+## **Bir Şekli Döndürme**
 
-[ShapeFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shapeframe/) sınıfı konum, boyut, yatay ve dikey çevirme ayarları ile dönüş açılarını saklar. `getFlipH` ve `getFlipV` değerleri [NullableBool](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/nullablebool/) kullanır: `True` çevirme etkin, `False` devre dışı, `NotDefined` belirtilmemiş/varsayılan durumu korur.
+[ShapeFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shapeframe/) sınıfı konum, boyut, yatay ve dikey döndürme ayarları ile rotasyonu saklar. `getFlipH` ve `getFlipV` değerleri [NullableBool](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/nullablebool/) kullanır: `True` döndürmeyi etkinleştirir, `False` devre dışı bırakır ve `NotDefined` belirtilmemiş/varsayılan durumu korur.
 
-Aşağıdaki sunum, çevirilmemiş bir şekil içerir.
+Aşağıdaki giriş sunumu, döndürülmemiş bir şekil içerir.
 
-![Çevirme öncesi şekil](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-Örnek, diğer tüm çerçeve değerlerini korur ve yalnızca iki çevirme ayarını değiştirir. Bu önemlidir çünkü yeni bir [Frame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) atamak çerçevenin tamamını değiştirir.
+Örnek, diğer tüm çerçeve değerlerini korur ve yalnızca iki döndürme ayarını değiştirir. Bu önemlidir çünkü yeni bir [Frame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) atamak çerçevenin tamamını değiştirir.
 
 ```java
 import com.aspose.slides.*;
@@ -363,20 +459,24 @@ try {
 }
 ```
 
-Kaydedilen şekil, konumu, boyutu ve dönüşü korunurken yatay ve dikey olarak yansıtılır.
+Kaydedilen şekil, konum, boyut ve rotasyonu korurken yatay ve dikey olarak yansıtılır.
 
-![Çevirme sonrası şekil](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **SSS**
 
-**Bir koleksiyon indeksini şekil tanımlayıcı olarak kullanmalı mıyım?**
+**Bir şekil tanımlayıcısı olarak koleksiyon indeksi kullanılmalı mı?**
 
-Sadece indeksin kullanılmadan önce koleksiyonun değişmeyeceği kısa vadeli işlemler için. Şablonlar için doğrulanmış bir `Name` ya da `AlternativeText` standartı, slayt‑kapsamlı interop işleri için `OfficeInteropShapeId` tercih edin.
+Sadece koleksiyonun işlem süresince değişmeyeceği kısa‑vadeli işlemelerde kullanılabilir. Oluşturulmuş şablonlar için doğrulanmış bir `Name` ya da `AlternativeText` konvansiyonu, slayt‑kapsamlı interop işleri için `OfficeInteropShapeId` tercih edin.
 
-**Bir şekli gizlemek, onu z‑sırasından kaldırır mı?**
+**Bir şekli gizlemek, onu z‑sırasından çıkarır mı?**
 
-Hayır. Gizli bir şekil aynı indekste koleksiyonda kalır. Bulunabilir, yeniden sıralanabilir, düzenlenebilir veya tekrar görünür hâle getirilebilir.
+Hayır. Gizli bir şekil aynı indekste koleksiyonda kalır. Bulunabilir, yeniden sıralanabilir, düzenlenebilir ya da tekrar görünür hâle getirilebilir.
 
-**Neden kopyalanan bir şekil diğerinin önünde göründü?**
+**Kopyalanan bir şekil neden başka bir şeklin önünde göründü?**
 
-`addClone` klonu koleksiyonun sonuna ekler; bu da z‑sırasının ön kısmıdır. Başlangıç indeksini seçmek için `insertClone` kullanın veya tüm şekiller eklendikten sonra `reorder` ile konumunu ayarlayın.
+`addClone` kopyayı koleksiyonun sonuna ekler; bu z‑order’da ön taraftır. Başlangıç indeksini belirlemek için `insertClone` kullanın ya da tüm şekiller eklendikten sonra `reorder` ile konumlandırın.
+
+**Önceden ayarlanmış bir şekil ayarını tanımlamak için sabit bir indeks kullanılabilir mi?**
+
+Sadece önceden ayarlanmış tip ve koleksiyon düzeni kesin olarak doğrulandıysa. `IGeometryShape.getAdjustments` üzerinden döngü kurup `IAdjustValue.getType` kontrol etmeyi tercih edin; aynı anlamsal tip birden çok kez ortaya çıktığında ek bilgi için `IAdjustValue.getName` kullanın.

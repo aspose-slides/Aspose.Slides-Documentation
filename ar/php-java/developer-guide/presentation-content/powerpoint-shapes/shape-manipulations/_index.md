@@ -1,6 +1,6 @@
 ---
 title: إدارة أشكال العرض التقديمي في PHP
-linktitle: معالجة الأشكال
+linktitle: تعديل الشكل
 type: docs
 weight: 40
 url: /ar/php-java/shape-manipulations/
@@ -8,14 +8,17 @@ keywords:
 - شكل PowerPoint
 - شكل العرض التقديمي
 - شكل على الشريحة
-- البحث عن شكل
+- العثور على شكل
 - استنساخ الشكل
 - إزالة الشكل
 - إخفاء الشكل
 - تغيير ترتيب الشكل
-- الحصول على معرف الشكل interop
-- النص البديل للشكل
-- تنسيقات تخطيط الشكل
+- الحصول على معرف الشكل Interop
+- نص بديل للشكل
+- نقطة ضبط الشكل
+- ضبط الشكل المُعد مسبقًا
+- هندسة الشكل
+- صيغ تخطيط الشكل
 - الشكل كـ SVG
 - تحويل الشكل إلى SVG
 - محاذاة الشكل
@@ -24,25 +27,25 @@ keywords:
 - العرض التقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية التعرف على أشكال العرض التقديمي، استنساخها، إزالتها، إخفائها، إعادة ترتيبها، تصديرها، محاذاةها، وانعكاسها باستخدام Aspose.Slides for PHP عبر Java."
+description: "تعلم كيفية التعرف على أشكال العرض التقديمي وتعديلها واستنساخها وإزالتها وإخفائها وإعادة ترتيبها وتصديرها ومحاذاتها وعكسها باستخدام Aspose.Slides للـ PHP عبر Java."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for PHP via Java تمثّل الأشكال على الشريحة كـ [ShapeCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/) مُرتّبة. تُعدّ هذه المجموعة المكان الذي تجد فيه وتُعدّل الأشكال ومصدر ترتيب طبقاتها: الفهرس `0` هو الشكل الأبعد في الخلفية، بينما الفهرس الأخير هو الشكل الأقرب إلى الأمام.
+Aspose.Slides for PHP via Java يمثل الأشكال على الشريحة كـ [ShapeCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/) مرتب. المجموعة هي المكان الذي تجد فيه وتُعدل الأشكال ومصدر ترتيب تكدسها: الفهرس `0` هو الشكل الخلفي، بينما الفهرس الأخير هو الشكل الأمامي.
 
-يتبع هذا المقال هذا النموذج. يشرح أولاً كيفية التعرف على الشكل بشكل موثوق، ثم يوضّح كيفية استنساخ الشكل، حذفه، إخفائه وإعادة ترتيبه. تغطي الأقسام الأخيرة تنسيق المستوى التخطيطي، تصدير SVG، المحاذاة وإعدادات الانعكاس. كل مثال مستقل، بحيث يمكنك استخدام العملية التي يحتاجها سير العمل الخاص بك فقط.
+يتبع هذا المقال هذا النموذج. يشرح أولاً كيفية تحديد الشكل بصورة موثوقة وتعديل نقاط ضبط الشكل المُعدة مسبقًا، ثم يوضح كيفية استنساخ، وإزالة، وإخفاء، وإعادة ترتيب الأشكال. تغطي الأقسام النهائية تنسيق مستوى التخطيط، وتصدير SVG، والمحاذاة، وإعدادات الانعكاس. كل مثال مستقل، بحيث يمكنك استخدام العمليات التي تحتاجها فقط في سير عملك.
 
-## **التعرّف على الأشكال وإيجادها**
+## **تحديد وإيجاد الأشكال**
 
-تُعتبر فهارس المجموعة مريحة عند معالجة ملف معروف، لكنها ليست معرّفات ثابتة. قد يغيّر إضافة أو حذف أو إعادة ترتيب شكل فهرسته. اختر معرّفًا وفقًا لطريقة إنشاء العرض التقديمي وصيانته:
+فهارس المجموعة مريحة أثناء معالجة ملف معروف، لكنها ليست معرّفات ثابتة. إضافة أو إزالة أو إعادة ترتيب شكل قد يغيّر فهرسه. اختر معرّفًا وفقًا لكيفية إنشاء العرض التقديمي وصيانته:
 
-- [Name](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getname/) مفيد للقوالب التي يتحكم فيها المطورون وسهل فحصه في لوحة التحديد في PowerPoint. يمكن تعديل الأسماء ولا يُضمن أنها فريدة، لذا يُستحسن وضع اتفاقية تسمية إذا كان الكود يعتمد عليها.
-- [AlternativeText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getalternativetext/) مفيد عندما تكون وصفية الوصول أو وسماً يحدده المؤلف قد عرّفت الشكل بالفعل. هو مرئي للمستخدمين، قد يُترجم أو يُعاد صياغته لسهولة الوصول، ولا يُضمن أنه فريد. لا تُعيد استعمال نص وصول ذي معنى كمعرّف قاعدة بيانات بصمت.
-- [OfficeInteropShapeId](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getofficeinteropshapeid/) هو معرّف للقراءة فقط فريد داخل الشريحة ويتCorrespond إلى معرف الشكل المستخدم في PowerPoint interop. استخدمه عند التكامل مع PowerPoint أو عندما تحتاج إلى مرجع لا لبس فيه طوال عمر الشكل. الشكل المستنسخ أو المعاد إنشاؤه يُعطى معرّفًا مختلفًا.
+- [Name](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getname/) مفيد للقوالب التي يتحكم فيها المطور ويسهل فحصه في لوحة الاختيار في PowerPoint. يمكن تعديل الأسماء ولا يضمن أنها فريدة، لذا ضع قاعدة تسمية إذا كان الكود يعتمد عليها.
+- [AlternativeText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getalternativetext/) مفيد عندما يكون وصف إمكانية الوصول أو علامة يحددها الكاتب قد حددت الشكل بالفعل. هو مرئي للمستخدمين، قد يُدار أو يُعاد صياغته لإمكانية الوصول، ولا يضمن أنه فريد. لا تُعيد استخدام نص إمكانية وصول ذو معنى كمفتاح قاعدة بيانات بصمت.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getofficeinteropshapeid/) هو معرف للقراءة فقط فريد داخل الشريحة ويت对应 إلى معرف الشكل المستخدم في PowerPoint Interop. استخدمه عند التكامل مع PowerPoint أو عندما تحتاج إلى إشارة لا لبس فيها طوال عمر الشكل. الشكل المستنسخ أو المُعاد إنشاؤه هو شكل مختلف ويتلقى معرفًا خاصًا به.
 
-طريقة [Shape::getUniqueId](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getuniqueid/) ذات الصلة تُعيد معرفًا بنطاق العرض التقديمي، لكن هذا المعرف مخصص للإضافات ويمكن إعادة تعيينه. لا ينبغي اعتباره مفتاحًا خارجيًا دائمًا. إذا كانت هوية طويلة الأمد ضرورية، احتفظ بعملية الربط في بيانات التطبيق وتأكد من أن الشكل المتوقع لا يزال موجودًا.
+طريقة [Shape::getUniqueId](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getuniqueid/) المرتبطة تُرجع معرفًا بنطاق العرض التقديمي، لكن هذا المعرف مخصص للإضافات ويمكن إعادة تعيينه. لا ينبغي اعتباره مفتاحًا خارجيًا دائمًا. إذا كانت الهوية طويلة الأمد ضرورية، احتفظ بالتطابق في بيانات التطبيق وتحقّق من أن الشكل المتوقع لا يزال موجودًا.
 
-المثال التالي يبحث عن الاسم بمقارنة مطابقة ويُبلغ عن معرف interop بنطاق الشريحة. عندما لا يحتوي القالب على الشكل المتوقع، يُبلغ الكود عن تلك النتيجة بدلًا من المتابعة مع الكائن الخطأ.
+المثال التالي يبحث عن الشكل بالاسم بمقارنة دقيقة ويُظهر معرف Interop نطاق الشريحة. عندما لا يحتوي القالب على الشكل المتوقع، يُظهر الكود تلك النتيجة بدلاً من الاستمرار مع الكائن الخاطئ.
 
 ```php
 use aspose\slides\Presentation;
@@ -75,7 +78,7 @@ try {
 }
 ```
 
-عند كون العملية خاصة بنوع شكل معين، افحص الفئة في وقت التشغيل قبل استخدام الأعضاء الخاصة بالنوع. يُحدّث هذا المثال النص والنص البديل فقط إذا كان الكائن المُسمى من نوع [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/).
+عند كون عملية ما محددة لنوع شكل معين، تحقق من فئة runtime قبل استخدام الأعضاء الخاصة بالنوع. يُحدّث هذا المثال النص والنص البديل فقط إذا كان الكائن المُسمّى هو [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/).
 
 ```php
 use aspose\slides\Presentation;
@@ -110,15 +113,115 @@ try {
 }
 ```
 
+## **تحديد وتعديل ضبط الشكل المُعد مسبقًا**
+
+الأشكال الهندسية المُعدة مسبقًا يمكن أن تكشف نقاط ضبط تتحكم في ميزات مثل حجم الزوايا، نسب السهم، أو زوايا القوس. يمكن الوصول إليها عبر مجموعة [GeometryShape::getAdjustments](https://reference.aspose.com/slides/ar/php-java/aspose.slides/geometryshape/#getAdjustments) للقراءة فقط. تُوفر الشكل المجموعة نفسها، لكن كل [AdjustValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/adjustvalue/) يحتوي على قيمة يمكن تغييرها.
+
+لا تعتمد فقط على فهرس ثابت للمجموعة. كرّر عبر الضبط وتفحص طريقة القراءة فقط [AdjustValue::getType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/adjustvalue/#getType) التي تُعيد قيمة [ShapeAdjustmentType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapeadjustmenttype/) توضح ما يتحكم فيه الضبط. طريقة القراءة فقط [AdjustValue::getName](https://reference.aspose.com/slides/ar/php-java/aspose.slides/adjustvalue/getname/) توفّر معلومات تعريف إضافية وتكون مفيدة خصوصًا عندما يحتوي الإعداد المسبق على أكثر من ضبط من نفس النوع الدلالي.
+
+استخدم طريقة القيمة التي تتطابق مع معنى الضبط:
+
+| نوع الضبط | الهدف | القيمة التي يجب تغييرها |
+|---|---|---|
+| `CornerSize` | حجم الزوايا الدائرية | [setRawValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/adjustvalue/setrawvalue/) |
+| `ArrowTailThickness` | سمك ذيل السهم | `setRawValue` |
+| `ArrowheadLength` | طول رأس السهم | `setRawValue` |
+| `ArrowheadWidth` | عرض رأس السهم | `setRawValue` |
+| `StartAngle` | الزاوية الابتدائية لفطيرة أو قوس | [setAngleValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/adjustvalue/setanglevalue/) |
+| `EndAngle` | الزاوية النهائية لفطيرة أو قوس | `setAngleValue` |
+
+`getType` و `getName` تُرجعان معلومات للقراءة فقط. `getRawValue` و `setRawValue` تعملان مع عدد صحيح بوحدات الهندسة الأصلية للإعداد، بينما `getAngleValue` و `setAngleValue` تعملان مع زاوية بالدرجات. عدد، ترتيب، معنى، والنطاق المسموح للضبط يعتمد على [GeometryShape::getShapeType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/geometryshape/#getShapeType) للإعداد. قد تكون قيمة صالحة لإعداد ما غير صالحة أو لها تأثير مختلف لإعداد آخر.
+
+عندما تُرجع `getType` القيمة `ShapeAdjustmentType::Custom`، لا تتعرف الواجهة البرمجية على معنى دلالي قياسي. فحص `getName`، نوع الإعداد، والقيمة الحالية، واترك الضبط دون تغيير ما لم تعرف المعنى والنطاق المتوقعين. حتى للأنواع المعروفة، تحقق ما إذا كان نفس النوع يظهر أكثر من مرة قبل اختيار قيمة. تُظهر مقالة [Connector](/slides/ar/php-java/connector/) هذا الوضع مع ضبط انحناء الموصل.
+
+المثال الكامل التالي يُنشئ إصدارات افتراضية ومُعدلة لثلاثة أشكال مُعدة مسبقًا. يكرّر عبر كل ضبط، يُظهر اسمه ونوعه، يغيّر القيم المتعلقة بالحجم عبر `setRawValue`، يغيّر الزوايا عبر `setAngleValue`، ويحفظ النتيجة. العمود الأيسر يحتفظ بالهندسة الافتراضية؛ العمود الأيمن يُظهر المستطيل الدائري المُعدل، السهم رباعي الاتجاهات، والفطيرة.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    // إضافة رؤوس لأعمدة الشكل الافتراضي والعمود المعدل.
+    $defaultColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+    $defaultColumnLabel->getTextFrame()->setText("Default preset geometry");
+    $adjustedColumnLabel = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+    $adjustedColumnLabel->getTextFrame()->setText("Modified adjustment values");
+
+    $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+    $modifiedRoundedRectangle = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+    $modifiedRoundedRectangle->setName("ModifiedRoundedRectangle");
+
+    $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+    $modifiedArrow = $slide->getShapes()->addAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+    $modifiedArrow->setName("ModifiedQuadArrow");
+
+    $slide->getShapes()->addAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+    $modifiedPie = $slide->getShapes()->addAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+    $modifiedPie->setName("ModifiedPie");
+
+    $shapesToAdjust = [
+        $modifiedRoundedRectangle,
+        $modifiedArrow,
+        $modifiedPie
+    ];
+
+    foreach ($shapesToAdjust as $shape) {
+        $adjustmentCount = java_values($shape->getAdjustments()->size());
+        for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+            $adjustment = $shape->getAdjustments()->get_Item($adjustmentIndex);
+            $shapeName = java_values($shape->getName());
+            $adjustmentName = java_values($adjustment->getName());
+            $adjustmentType = java_values($adjustment->getType());
+            echo $shapeName . " / " . $adjustmentName . ": " . $adjustmentType . PHP_EOL;
+
+            switch ($adjustmentType) {
+                case ShapeAdjustmentType::CornerSize:
+                    $adjustment->setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType::ArrowTailThickness:
+                    $adjustment->setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadLength:
+                    $adjustment->setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType::ArrowheadWidth:
+                    $adjustment->setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType::StartAngle:
+                    $adjustment->setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType::EndAngle:
+                    $adjustment->setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType::Custom:
+                    echo "Custom adjustment '" . $adjustmentName . "' was not changed." . PHP_EOL;
+                    break;
+            }
+        }
+    }
+
+    $presentation->save("preset-shape-adjustments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+التفحص الدلالي للنوع قبل تغيير قيمة يجعل الكود واضحًا بشأن قصده ويتجنب افتراض أن فهرس مجموعة معين له نفس المعنى عبر أشكال مُعدة مسبقًا مختلفة.
+
 ## **تعديل مجموعة الأشكال**
 
-تُنفّذ طرق الإضافة، الاستنساخ، الحذف وإعادة الترتيب على المجموعة فورًا. إذا غيّرت عملية ما عدد أو ترتيب الأشكال، لا تستمر في الاعتماد على الفهارس التي تم التقاطها قبل تلك العملية.
+طرق الإضافة، الاستنساخ، الإزالة، وإعادة الترتيب تعمل على المجموعة مباشرة. إذا غيّرت عملية ما عدد أو ترتيب الأشكال، لا تستمر بالاعتماد على الفهارس التي التُقطت قبل تلك العملية.
 
 ### **استنساخ شكل**
 
-[ShapeCollection::addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addclone/) ينشئ نسخة مستقلة ويضيفها إلى نهاية المجموعة المستهدفة. [ShapeCollection::insertClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/insertclone/) أيضًا ينشئ نسخة لكنه يضعها عند فهرس z-order محدد. تُعيد التحميلات التي تقبل إحداثيات نقل النسخة دون تغيير حجمها؛ والتحميلات التي تضم العرض والارتفاع يمكنها تغيير الحجم كذلك.
+[ShapeCollection::addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addclone/) يُنشئ نسخة مستقلة ويضيفها إلى مجموعة الوجهة. [ShapeCollection::insertClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/insertclone/) يُنشئ نسخة أيضًا لكنه يضعها عند فهرس z-order محدد. التحميلات التي تقبل إحداثيات تنقل الاستنساخ دون تغيير حجمه؛ التحميلات التي تقبل العرض والارتفاع يمكنها تغيير حجمه أيضًا.
 
-المثال ينشئ شريحة هدف، يستنسخ مستطيلًا مسمى إلى الأمام، ويُدرج استنساخًا ثانٍ إلى الخلف. لا تُغيّر التعديلات على أي من النسختين الشكل الأصلي.
+المثال يُنشئ شريحة هدف، يستنسخ مستطيلًا معنونًا إلى الأمام، ويُدرج استنساخًا ثانيًا إلى الخلف. التغييرات على أي استنساخ لا تُعدّل الشكل الأصلي.
 
 ```php
 use aspose\slides\Presentation;
@@ -159,13 +262,13 @@ try {
 }
 ```
 
-الاستنساخ ينسخ محتوى الشكل وتنسيقه، بما في ذلك اسمه والنص البديل. عيّن معرفات منطقية جديدة للنسخة عندما يجب أن تكون هذه القيم فريدة. الموارد المستخدمة بواسطة الأشكال المعقّدة تُدار بواسطة العرض التقديمي، لكن النسخة تظل عنصرًا جديدًا في المجموعة بمعرف شكل جديد.
+الاستنساخ ينسخ محتوى الشكل وتنسيقه، بما في ذلك اسمه والنص البديل. عيّن معرّفات منطقية جديدة للاستنساخ عندما يجب أن تكون تلك القيم فريدة. الموارد المستخدمة من قبل الأشكال المعقدة تُدار بواسطة العرض التقديمي، لكن الاستنساخ يظل عنصرًا جديدًا في المجموعة بمعرف شكل جديد.
 
 ### **إزالة الأشكال**
 
-[ShapeCollection::remove](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/remove/) يحذف كائن شكل محدد من مجموعته. عند إزالة متعددة متطابقة أثناء تكرار مُرقم، انتقل من النهاية لضمان بقاء كل فهرس متبقٍ صالحًا.
+[ShapeCollection::remove](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/remove/) يحذف كائن شكل محدد من مجموعته. عند إزالة مطابقة متعددة أثناء تكرار بالفهارس، عدّ من النهاية بحيث يظل كل فهرس متبقٍ صالحًا.
 
-هذا المثال يزيل كل شكل يحمل اسمًا معينًا. يقرأ الشكل عند الفهرس الحالي، وليس عنصرًا ثابتًا في المجموعة، ولا يقوم بتحويل الشكل بلا ضرورة.
+المثال يزيل كل شكل يحمل اسمًا معينًا. يقرأ الشكل عند الفهرس الحالي، وليس عنصر مجموعة ثابت، ولا يقوم بتحويل الشكل دون ضرورة.
 
 ```php
 use aspose\slides\Presentation;
@@ -200,11 +303,11 @@ try {
 }
 ```
 
-بعد الإزالة، يتغيّر عدد الأشكال وفهارس الأشكال اللاحقة. تُعَدّ المراجع إلى الأشكال غير المتأثرة أكثر موثوقية من الفهارس المحفوظة. ضع في اعتبارك الموصلات، الحركات وغيرها من ميزات العرض التي قد تشير إلى الكائن المُزالة؛ حذف شكل مرئي يمكن أن يغيّر أكثر من مظهر الشريحة.
+بعد الإزالة، يتغير عدد الأشكال وفهارس الأشكال المتأخرة. المراجع إلى الأشكال غير المتأثرة تظل أكثر موثوقية من الفهارس المحفوظة. ضع في اعتبارك الموصلات، والرسوم المتحركة، وميزات العرض التقديمي الأخرى التي قد تشير إلى الكائن المُزال؛ إزالة شكل مرئي قد تغير أكثر من مظهر الشريحة.
 
 ### **إخفاء شكل**
 
-ضبط [Shape::setHidden](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/sethidden/) إلى `true` يبقي الشكل في المجموعة لكن يمنعه من الظهور في عرض الشرائح العادي. يبقى فهرسه، تنسيقه ومحتواه متاحًا للكود، لذا فإن الإخفاء مناسب للعناصر الاختيارية التي قد تُستعاد لاحقًا.
+تعيين [Shape::setHidden](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/sethidden/) إلى `true` يبقي الشكل في المجموعة لكنه يمنعه من الظهور في عرض الشرائح العادي. يظل فهرسه وتنسيقه ومحتواه متاحًا للكود، لذا يكون الإخفاء مناسبًا للعناصر الاختيارية التي قد تُستعاد لاحقًا.
 
 ```php
 use aspose\slides\Presentation;
@@ -237,11 +340,11 @@ try {
 }
 ```
 
-الإخفاء ليس حذفًا ولا أمانًا. لا يزال بإمكان المستخدم أو الكود اكتشاف الكائن وإظهاره مرة أخرى، ويظل جزءًا من ملف العرض التقديمي.
+الإخفاء ليس حذفًا ولا أمانًا. لا يزال بإمكان المستخدم أو الكود اكتشاف الكائن وإلغاء إخفائه، وهو يظل جزءًا من ملف العرض التقديمي.
 
-### **تغيير ترتيب Z-Order**
+### **تغيير ترتيب Z**
 
-الأشكال المتداخلة تُرسم بحسب ترتيب المجموعة. [ShapeCollection::reorder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/reorder/) ينقل شكلًا موجودًا إلى فهرس هدف دون استنساخه. الفهرس `0` هو الخلف؛ `size() - 1` هو الأمام.
+الأشكال المتداخلة تُرسم بترتيب المجموعة. [ShapeCollection::reorder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/reorder/) ينقل شكلًا موجودًا إلى فهرس هدف دون استنساخه. الفهرس `0` هو الخلف؛ `size() - 1` هو الأمام.
 
 ```php
 use aspose\slides\FillType;
@@ -271,13 +374,13 @@ try {
 }
 ```
 
-يُنشأ المستطيل أولًا ويقَع في البداية خلف الشكل البيضاوي. نقلّه إلى الفهرس النهائي يجعله في الأمام. احرص على ضبط ترتيب Z بعد إضافة أو استنساخ جميع الأشكال ذات الصلة، لأن هذه العمليات تُضيف أو تُدرج عناصر جديدة في المجموعة وقد تُغيّر الترتيب المقصود.
+يُنشأ المستطيل أولاً ويقع في البداية خلف الشكل البيضاوي. نقله إلى الفهرس النهائي يضعه في المقدمة. أكّد ترتيب Z بعد إضافة أو استنساخ جميع الأشكال ذات الصلة، لأن تلك العمليات تُضيف أو تُدرج عناصر مجموعة جديدة وقد تُغيّر التكدس المقصود.
 
 ## **فحص الأشكال على شرائح التخطيط**
 
-الشرائح العادية، وشُرائح التخطيط، وشرائح القالب لها مجموعات أشكال منفصلة. الشكل في مجموعة التخطيط ليس هو نفسه الشكل المتموضع بالمثل على شريحة عادية. فحص أشكال التخطيط ضروري عندما تحتاج إلى فهم أو تعديل التنسيق المزوّد من قبل التخطيط.
+الشرائح العادية، شرائح التخطيط، والشرائح الرئيسية لها مجموعات أشكال منفصلة. الشكل في مجموعة التخطيط ليس نفس الكائن كما هو الشكل المماثل على شريحة عادية. افحص أشكال التخطيط عندما تحتاج إلى فهم أو تعديل التنسيق المزوّد من قبل التخطيط.
 
-المثال التالي يقرأ كل [FillFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getfillformat/) و[LineFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getlineformat/) للأشكال في التخطيط دون افتراض أن كل شكل هو `AutoShape`.
+المثال التالي يقرأ كل [FillFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getfillformat/) و [LineFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getlineformat/) لشكل التخطيط دون افتراض أن كل شكل هو `AutoShape`.
 
 ```php
 use aspose\slides\Presentation;
@@ -304,11 +407,11 @@ try {
 }
 ```
 
-تحرير التخطيط قد يؤثّر على عدة شرائح تستخدمه. قبل تعديل شكل التخطيط، حدّد ما إذا كانت الشريحة العادية ترث الكائن أو تحتوي على تعديل محلي، واختبر كل شريحة تستخدم ذلك التخطيط.
+تحرير تخطيط يمكن أن يؤثر على عدة شرائح تستخدمه. قبل تغيير شكل التخطيط، حدّد ما إذا كانت الشريحة العادية ترث الكائن أو تحتوي على تجاوز محلي، واختبر كل شريحة تستخدم ذلك التخطيط.
 
 ## **تصدير شكل إلى SVG**
 
-[Shape::writeAsSvg](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/writeassvg/) يكتب محتوى شكل واحد مُرَسَم إلى تدفق. النتيجة تحتوي على الشكل فقط، لا خلفية الشريحة بأكملها أو الأشكال المجاورة.
+[Shape::writeAsSvg](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/writeassvg/) يكتب محتوى شكل مُرَسَم إلى تدفق. النتيجة تحتوي على الشكل فقط، لا خلفية الشريحة بالكامل ولا الأشكال المجاورة.
 
 ```php
 use aspose\slides\Presentation;
@@ -339,13 +442,13 @@ try {
 }
 ```
 
-حافظ على فتح العرض التقديمي أثناء التصدير. يعتمد الإخراج على تنسيق الشكل وعلى موارد مثل الخطوط والصور. إذا كنت بحاجة إلى المكوّن الكامل، صدّر الشريحة بدلاً من الشكل الفردي. المالك هو من يُحمّل التدفق ويجب أن يغلقه.
+احتفظ بالعرض التقديمي مفتوحًا أثناء التصدير. يعتمد الناتج على تنسيق الشكل وعلى موارد مثل الخطوط والصور. إذا كنت تحتاج إلى التركيبة الكاملة، صدّر الشريحة بدلاً من شكل منفرد. المتصل يمتلك التدفق ويجب أن يغلقه.
 
 ## **محاذاة الأشكال**
 
-تُطابق التحميلات [SlideUtil::alignShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideutil/alignshapes/) إما جميع الأشكال أو فهارس المجموعة المختارة. يحدّد [ShapesAlignmentType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapesalignmenttype/) الحافة أو الخط المركزي أو وضعية التوزيع. اضبط `alignToSlide` إلى `true` لاستخدام حواف الشريحة؛ واضبطه إلى `false` لمحاذاة الأشكال المحددة بالنسبة لبعضها البعض.
+التحميلات [SlideUtil::alignShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideutil/alignshapes/) تُطابق إما جميع الأشكال أو الفهارس المحددة في المجموعة. [ShapesAlignmentType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapesalignmenttype/) يحدد الحافة، أو خط الوسط، أو وضع التوزيع. اضبط `alignToSlide` إلى `true` لاستخدام حواف الشريحة؛ اضبطه إلى `false` لمحاذاة الأشكال المختارة بالنسبة لبعضها البعض.
 
-هذا المثال يَمحِّز ثلاثة أشكال إلى الحافة العليا للشريحة. تُحوّل مراجع الأشكال المرجعة إلى فهارسها الحالية مباشرة قبل المحاذاة.
+المثال يطابق ثلاثة أشكال إلى الحافة العلوية للشريحة. تُحوَّل مراجع الأشكال المرجعة إلى فهارسها الحالية مباشرةً قبل المحاذاة.
 
 ```php
 use aspose\slides\Presentation;
@@ -378,17 +481,17 @@ try {
 }
 ```
 
-المحاذاة تُغيّر المواقع، لا ترتيب Z. عادةً ما تتطلب المحاذاة النسبية شكلين على الأقل، بينما تحتاج التوزيعات الأفقية أو العمودية إلى عدد كافٍ من الأشكال لتحديد المسافات. أعد حساب الفهارس إذا عدّلت المجموعة قبل استدعاء الطريقة.
+المحاذاة تغيّر المواقع، لا ترتيب Z. المحاذاة النسبية عادةً تحتاج على الأقل إلى شكلين، بينما التوزيع الأفقي أو العمودي يحتاج إلى عدد كافٍ من الأشكال لتحديد الفواصل. أعد حساب الفهارس إذا عدّلت المجموعة قبل استدعاء الطريقة.
 
 ## **انعكاس شكل**
 
-تخزن فئة [ShapeFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapeframe/) الموقع، الحجم، إعدادات الانعكاس الأفقي والعمودي، والدوران. قيم `getFlipH` و`getFlipV` تستخدم [NullableBool](https://reference.aspose.com/slides/ar/php-java/aspose.slides/nullablebool/): `True` يفعّل الانعكاس، `False` يوقفه، و`NotDefined` يحافظ على الحالة غير المحددة/الافتراضية.
+الفئة [ShapeFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapeframe/) تخزن الموقع، الحجم، إعدادات الانعكاس الأفقي والعمودي، والدوران. قيم `getFlipH` و `getFlipV` تستخدم [NullableBool](https://reference.aspose.com/slides/ar/php-java/aspose.slides/nullablebool/): `True` يُفعّل الانعكاس، `False` يُعطّل، و `NotDefined` يحافظ على الحالة غير المحددة/الافتراضية.
 
-العرض التقديمي المدخل أدناه يحتوي على شكل غير مقلوب.
+العرض التقديمي المدخل أدناه يحتوي على شكل غير معكوس.
 
-![The shape before flipping](shape_to_be_flipped.png)
+![الشكل قبل الانعكاس](shape_to_be_flipped.png)
 
-المثال يحافظ على كل قيم الإطار الأخرى ويستبدل إعدادات الانعكاس فقط. هذا مهم لأن تعيين [Frame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/setframe/) جديد يستبدل الإطار بالكامل.
+المثال يحافظ على كل قيمة إطار أخرى ويستبدل إعدادات الانعكاس فقط. هذا مهم لأن تعيين [Frame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/setframe/) جديد يستبدل الإطار بالكامل.
 
 ```php
 use aspose\slides\NullableBool;
@@ -414,20 +517,24 @@ try {
 }
 ```
 
-الشكل المحفوظ مُنعكس أفقياً وعمودياً مع الحفاظ على موقعه وحجمه ودورانه.
+الشكل المُحفظ يصبح مرآة أفقياً وعمودياً مع الحفاظ على موقعه، حجمه، ودورانه.
 
-![The shape after flipping](flipped_shape.png)
+![الشكل بعد الانعكاس](flipped_shape.png)
 
-## **FAQ**
+## **الأسئلة الشائعة**
 
-**هل يجب استخدام فهرس المجموعة كمعرّف للشكل؟**
+**هل يجب علي استخدام فهرس المجموعة كمعرّف للشكل؟**
 
-فقط للمعالجة قصيرة الأمد عندما لا تتغير المجموعة قبل استخدام الفهرس. يُفضَّل اعتماد `Name` أو `AlternativeText` حسب اتفاقية القالب، أو `OfficeInteropShapeId` للأعمال التي تعتمد على interop بنطاق الشريحة.
+فقط للمعالجة قصيرة الأمد عندما لا تتغير المجموعة قبل استخدام الفهرس. يفضَّل استخدام `Name` أو `AlternativeText` بعد التحقق من صحتها في القوالب المُنشأة، أو `OfficeInteropShapeId` لأعمال Interop بنطاق الشريحة.
 
 **هل إخفاء الشكل يزيله من ترتيب Z؟**
 
-لا. يبقى الشكل المخفي في المجموعة عند نفس الفهرس. يمكن العثور عليه، إعادة ترتيبه، تحريره أو إظهاره مرة أخرى.
+لا. يظل الشكل المخفي في المجموعة بنفس الفهرس. يمكن العثور عليه، إعادة ترتيبه، تحريره، أو إظهاره مرة أخرى.
 
 **لماذا ظهر الشكل المستنسخ أمام شكل آخر؟**
 
-`addClone` يُضيف النسخة إلى نهاية المجموعة، وهي أمامية في ترتيب Z. استخدم `insertClone` لاختيار الفهرس الأولي أو `reorder` بعد إضافة جميع الأشكال.
+`addClone` يضيف الاستنساخ إلى نهاية المجموعة، وهي الأمام في ترتيب Z. استخدم `insertClone` لتحديد الفهرس الأولي أو `reorder` بعد إضافة جميع الأشكال.
+
+**هل يمكنني استخدام فهرس ثابت لتحديد ضبط شكل مُعد مسبقًا؟**
+
+فقط بعد التحقق من الإعداد المسبق المحدد وتخطيط المجموعة. يفضَّل التكرار عبر `GeometryShape::getAdjustments` والتحقق من `AdjustValue::getType`؛ استخدم `AdjustValue::getName` كمعلومات إضافية عندما يظهر نفس النوع الدلالي أكثر من مرة.

@@ -10,407 +10,670 @@ keywords:
 - कनेक्टर बिंदु
 - कनेक्टर रेखा
 - कनेक्टर कोण
-- आकृतियों को कनेक्ट करें
+- कनेक्शन साइट
+- समायोजन बिंदु
+- आकृतियों को जोड़ें
 - PowerPoint
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "PowerPoint स्लाइड में रेखाओं को आरेखित करने, जोड़ने और स्वतः‑रूट करने के लिए C++ एप्लिकेशन को सक्षम बनाएं—सीधी, कोनीय और वक्र कनेक्टरों पर पूरा नियंत्रण प्राप्त करें।"
+description: "Aspose.Slides for C++ के साथ सीधे, मुड़े हुए और वक्र PowerPoint कनेक्टर्स को जोड़ना, संलग्न करना, पुनःमार्गित करना, समायोजित करना और निरीक्षण करना सीखें।"
 ---
 ## **परिचय**
 
-PowerPoint कनेक्टर एक विशेष रेखा है जो दो आकृतियों को जोड़ती या लिंक करती है और स्लाइड पर आकृतियों को स्थानांतरित या पुनःस्थित करने पर भी उनसे जुड़ी रहती है।  
+एक कनेक्टर वह रेखा है जो दो आकृतियों से जुड़ी रह सकती है जब भी कोई भी आकृति गतिशील हो। इसके सिरे कनेक्शन साइट्स से जुड़ते हैं, जो PowerPoint में हरे बिंदुओं द्वारा दर्शाए जाते हैं। कुछ मुड़ी हुई और वक्र कनेक्टर्स में समायोजन बिंदु भी होते हैं, जो नारंगी बिंदुओं द्वारा दर्शाए जाते हैं, और व्यक्तिगत कनेक्टर खंडों की स्थिति को नियंत्रित करते हैं।
 
-कनेक्टर आम तौर पर *connection dots* (हरे बिंदु) से जुड़े होते हैं, जो सभी आकृतियों में डिफ़ॉल्ट रूप से मौजूद होते हैं। कर्सर के पास आने पर कनेक्शन डॉट दिखते हैं।  
+Aspose.Slides कनेक्टर्स को [IConnector](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iconnector/) इंटरफ़ेस के माध्यम से प्रदर्शित करता है। आप इन्हें बना सकते हैं, उनके सिरों को आकृतियों से जोड़ सकते हैं, कनेक्शन साइट चुन सकते हैं, उन्हें पुनःमार्गित कर सकते हैं, और उन कनेक्टर्स की ज्यामिति को बदल सकते हैं जिनमें समायोजन बिंदु होते हैं।
 
-*Adjustment points* (नारंगी बिंदु), जो केवल कुछ कनेक्टरों में होते हैं, का उपयोग कनेक्टरों की स्थिति और आकार को बदलने के लिये किया जाता है।  
+## **कनेक्टर प्रकार**
 
-## **कनेक्टर के प्रकार**
-
-PowerPoint में आप सीधी,_elbow_ (कोणीय) और वक्र कनेक्टरों का उपयोग कर सकते हैं।  
-
-Aspose.Slides ये कनेक्टर प्रदान करता है:
+[ShapeType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/shapetype/) enumeration में सीधी, मुड़ी हुई और वक्र कनेक्टर प्रीसेट्स शामिल हैं। नीचे दी गई तालिका उपलब्ध कनेक्टर ज्यामिति और प्रत्येक प्रीसेट द्वारा परिभाषित समायोजन बिंदुओं की संख्या दिखाती है।
 
 | कनेक्टर | छवि | समायोजन बिंदुओं की संख्या |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **कनेक्टर का उपयोग करके आकृतियों को जोड़ें**
+समायोजन बिंदुओं की संख्या और उनका अर्थ चुने गए कनेक्टर प्रीसेट का हिस्सा होते हैं। यह न मानें कि दो अलग-अलग कनेक्टर प्रकार समान संग्रह लेआउट प्रदर्शित करते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation/) क्लास का एक उदाहरण बनाएँ।  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. `Shapes` ऑब्जेक्ट द्वारा प्रदान की गई `AddAutoShape` मेथड का उपयोग करके स्लाइड में दो [AutoShape](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.auto_shape) जोड़ें।  
-4. कनेक्टर प्रकार को परिभाषित करके `Shapes` ऑब्जेक्ट द्वारा प्रदान की गई `AddConnector` मेथड का उपयोग करके एक कनेक्टर जोड़ें।  
-5. कनेक्टर का उपयोग करके आकृतियों को जोड़ें।  
-6. सबसे छोटे कनेक्शन पथ को लागू करने के लिए `Reroute` मेथड को कॉल करें।  
-7. प्रस्तुति को सहेजें।  
+## **दो आकृतियों को जोड़ें**
 
-यह C++ कोड दिखाता है कि दो आकृतियों (एक दीर्घवृत्त और एक आयत) के बीच एक कनेक्टर (एक बेंट कनेक्टर) कैसे जोड़ें:
+एक कनेक्टर जोड़ने के लिए [IShapeCollection::AddConnector](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/addconnector/) का उपयोग करें, और इसके सिरों को जोड़ने के लिए क्रमशः [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) और [IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) को कॉल करें। दोनों सिरों के जुड़ने के बाद, [IConnector::Reroute](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iconnector/reroute/) आकृतियों के बीच एक छोटा मार्ग चुनता है।
 
-```c++
-// दस्तावेज़ निर्देशिका का पथ।
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+निम्न उदाहरण में एक वक्र कनेक्टर के साथ अंडाकार और आयताकार को जोड़ा गया है:
 
-	// इच्छित प्रस्तुति लोड करता है
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-	// पहली स्लाइड तक पहुँचता है
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// विशिष्ट स्लाइड के लिए आकार संग्रह तक पहुँचता है
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// एक दीर्घवृत्त ऑटोशेप जोड़ता है
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// एक आयत ऑटोशेप जोड़ता है
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// स्लाइड आकार संग्रह में एक कनेक्टर आकार जोड़ता है
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// कनेक्टर का उपयोग करके आकारों को जोड़ता है
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// ररूट कॉल करता है जो आकारों के बीच स्वत: सबसे छोटा पथ सेट करता है
-	connector->Reroute();
-	
-	// प्रस्तुति को सहेजता है
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
+`IConnector::Reroute` कॉल करने से [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) और [IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/) मान बदल सकते हैं। यदि उन साइटों को स्थिर रखना हो तो पुनःमार्गित करने के बाद विशिष्ट कनेक्शन साइट्स असाइन करें।
+{{% /alert %}}
 
-`connector->Reroute` मेथड एक कनेक्टर को पुन:मार्गित करता है और इसे आकृतियों के बीच सबसे छोटा संभव पथ लेने के लिए बाध्य करता है। अपने उद्देश्य को प्राप्त करने के लिये, यह मेथड `StartShapeConnectionSiteIndex` और `EndShapeConnectionSiteIndex` बिंदुओं को बदल सकता है। 
+## **कनेक्शन साइट चुनें**
 
-{{% /alert %}} 
+प्रत्येक कनेक्टेबल आकृति अपने साइटों की संख्या [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/get_connectionsitecount/) द्वारा रिपोर्ट करती है। साइट इंडेक्स को कनेक्टर के सिरे पर असाइन करने से पहले शून्य-आधारित साइट इंडेक्स को सत्यापित करें; साइट गिनती आकृति ज्यामिति के अनुसार भिन्न होती है।
 
-## **कनेक्शन डॉट निर्दिष्ट करें**
+यह उदाहरण अंडाकार पर विशेष साइट मौजूद होने पर कनेक्टर को उस साइट से जोड़ता है:
 
-यदि आप कनेक्टर को आकृतियों पर विशिष्ट डॉट्स के माध्यम से दो आकृतियों को जोड़ना चाहते हैं, तो आपको अपने पसंदीदा कनेक्शन डॉट्स इस प्रकार निर्दिष्ट करने होंगे:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation/) क्लास का एक उदाहरण बनाएँ।  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. `Shapes` ऑब्जेक्ट द्वारा प्रदान की गई `AddAutoShape` मेथड का उपयोग करके स्लाइड में दो [AutoShape](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.auto_shape) जोड़ें।  
-4. कनेक्टर प्रकार को परिभाषित करके `Shapes` ऑब्जेक्ट द्वारा प्रदान की गई `AddConnector` मेथड का उपयोग करके एक कनेक्टर जोड़ें।  
-5. कनेक्टर का उपयोग करके आकृतियों को जोड़ें।  
-6. आकृतियों पर अपने पसंदीदा कनेक्शन डॉट्स सेट करें।  
-7. प्रस्तुति को सहेजें।  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-यह C++ कोड दर्शाता है कि एक पसंदीदा कनेक्शन डॉट कैसे निर्दिष्ट किया जाता है:
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-```c++
-	// दस्तावेज़ निर्देशिका का पथ।
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// इच्छित प्रस्तुति लोड करता है
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// पहली स्लाइड तक पहुँचता है
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// विशिष्ट स्लाइड के लिए आकृति संग्रह तक पहुँचता है
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// एक दीर्घवृत्त ऑटोशेप जोड़ता है
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// एक आयत ऑटोशेप जोड़ता है
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// स्लाइड के आकार संग्रह में एक कनेक्टर आकार जोड़ता है
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// कनेक्टर का उपयोग करके आकारों को जोड़ता है
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// दीर्घवृत्त आकृति पर पसंदीदा कनेक्शन डॉट सूचकांक सेट करता है
-	int wantedIndex = 6;
-
-	// जाँचता है कि पसंदीदा सूचकांक अधिकतम साइट सूचकांक गणना से कम है या नहीं
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// दीर्घवृत्त ऑटोशेप पर पसंदीदा कनेक्शन डॉट सेट करता है
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// प्रस्तुति को सहेजता है
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
 ## **कनेक्टर बिंदु को समायोजित करें**
 
-आप एक मौजूदा कनेक्टर को उसके समायोजन बिंदुओं के माध्यम से समायोजित कर सकते हैं। केवल उन कनेक्टरों को जो समायोजन बिंदु रखते हैं, इस प्रकार बदला जा सकता है। **[कनेक्टर के प्रकार.](/slides/hi/cpp/connector/#types-of-connectors)** के तहत तालिका देखें।  
+समायोजन बिंदुओं वाले कनेक्टर्स इन्हें [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/hi/cpp/aspose.slides/igeometryshape/get_adjustments/) के माध्यम से उजागर करते हैं। प्रत्येक [IAdjustValue](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iadjustvalue/) की जाँच करें और उसके [IAdjustValue::get_Type](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iadjustvalue/get_type/) को समझें, फिर [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iadjustvalue/set_rawvalue/) बदलें। प्रीसेट आकृति समायोजन की सामान्य नियम [Shape Manipulation](/slides/hi/cpp/shape-manipulations/) में वर्णित हैं।
 
-### **सरल मामला**
+समायोजन बिंदुओं की संख्या, क्रम, अर्थ और वैध मान सीमा कनेक्टर प्रीसेट पर निर्भर करती है। `IAdjustValue::get_Type` द्वारा लौटाए गए प्रकार केवल पढ़ने योग्य होते हैं, जबकि कच्चा समायोजन मान लिखने योग्य होता है। जब एक कनेक्टर में समान अर्थ वाले कई समायोजन होते हैं, तो पढ़ने‑योग्य [IAdjustValue::get_Name](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iadjustvalue/get_name/) अतिरिक्त पहचान प्रदान करता है।
 
-एक ऐसा मामला मानिए जहाँ दो आकृतियों (A और B) के बीच का कनेक्टर तीसरी आकृति (C) के माध्यम से गुजरता है:
+### **एक बाधा के आसपास मार्ग बनाएं**
+
+निम्न लेआउट में दो आकृतियों के बीच एक `ShapeType::BentConnector5` कनेक्टर तीसरी आकृति के माध्यम से गुजरता है:
 
 ![connector-obstruction](connector-obstruction.png)
 
-कोड:
+यह कोड बाधित कनेक्टर बनाता है:
 
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-तीसरी आकृति से बचने या उसे बायपास करने के लिये, हम कनेक्टर को इस प्रकार उसकी लंबवत रेखा को बाईं ओर ले जाकर समायोजित कर सकते हैं:
+ऊर्ध्वाधर मोड़ को बदलने से मार्ग बदल जाता है और कनेक्टर बाधा को पार करता है:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+संग्रह इंडेक्स `1` को हमेशा ऊर्ध्वाधर मोड़ मानने के बजाय, यह उदाहरण `ShapeAdjustmentType::ConnectorBendPositionY` खोजता है और केवल तब बदलता है जब अपेक्षित अर्थ वाला प्रकार मौजूद हो:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
-### **जटिल मामलों**
+`ShapeType::BentConnector5` में दो `ShapeAdjustmentType::ConnectorBendPositionX` और एक `ShapeAdjustmentType::ConnectorBendPositionY` समायोजन होते हैं। यदि आवश्यक प्रकार कई बार आता है, तो चयन से पहले `IAdjustValue::get_Name` और उस प्रीसेट की ज्ञात ज्यामिति देखें। यदि कोई समायोजन `ShapeAdjustmentType::Custom` रिपोर्ट करता है, तो उसके अर्थ और सीमा को प्रीसेट‑विशिष्ट मानें और तभी बदलें जब वह अनुबंध ज्ञात हो।
 
- अधिक जटिल समायोजन करने के लिये, आपको निम्न बातों को ध्यान में रखना होगा:
+## **समायोजन मानों को कनेक्टर ज्यामिति से जोड़ें**
 
-* कनेक्टर का समायोज्य बिंदु एक सूत्र से दृढ़ता से जुड़ा होता है जो उसके स्थान की गणना करता है। इसलिए बिंदु के स्थान में बदलाव कनेक्टर के आकार को बदल सकता है।  
-* कनेक्टर के समायोजन बिंदु एक एरे में कठोर क्रम में परिभाषित होते हैं। समायोजन बिंदुओं को कनेक्टर के प्रारम्भ बिंदु से अंत बिंदु तक क्रमांकित किया जाता है।  
-* समायोजन बिंदु मान कनेक्टर आकृति की चौड़ाई/ऊँचाई के प्रतिशत को दर्शाते हैं।  
-  * आकृति को कनेक्टर के प्रारम्भ और अंत बिंदुओं को 1000 से गुणा करके सीमित किया जाता है।  
-  * पहला बिंदु, दूसरा बिंदु, और तीसरा बिंदु क्रमशः चौड़ाई का प्रतिशत, ऊँचाई का प्रतिशत, और फिर से चौड़ाई का प्रतिशत परिभाषित करते हैं।  
-* उन गणनाओं के लिये जो कनेक्टर के समायोजन बिंदुओं के निर्देशांक निर्धारित करती हैं, आपको कनेक्टर के घूर्णन और उसके प्रतिबिंब को ध्यान में रखना होगा। **Note** कि **[कनेक्टर के प्रकार](/slides/hi/cpp/connector/#types-of-connectors)** में दिखाए गये सभी कनेक्टरों का घूर्णन कोण 0 है।  
+मुड़े हुए कनेक्टर्स के लिए, समायोजन मान व्यक्तिगत खंडों की स्थितियों का अनुमान लगाने में उपयोग किए जा सकते हैं। ये गणनाएँ कनेक्टर प्रीसेट के विशिष्ट हैं:
 
-#### **मामला 1**
+- `ShapeType::BentConnector4` सामान्यतः एक `ShapeAdjustmentType::ConnectorBendPositionX` और एक `ShapeAdjustmentType::ConnectorBendPositionY` समायोजन उजागर करता है।
+- इन मोड़ स्थितियों के लिए, `RawValue / 100000.0f` नीचे दिखाए गए उदाहरणों में उपयोग किए गए कनेक्टर फ्रेम की चौड़ाई या ऊँचाई का भाग देता है।
+- एक कनेक्टर फ्रेम को घुमा या उलटा जा सकता है, इसलिए फ्रेम निर्देशांक को स्लाइड निर्देशांकों के साथ तुलना करने से पहले परिवर्तित करना आवश्यक है।
 
-एक ऐसा मामला मानिए जहाँ दो टेक्स्ट फ्रेम ऑब्जेक्ट कनेक्टर द्वारा जुड़े हुए हैं:
+निम्न उदाहरण पहले `IAdjustValue::get_Type` द्वारा समायोजन प्रकार पहचानते हैं। वे संग्रह इंडेक्स को पोर्टेबल पहचानकर्ता के रूप में उपयोग नहीं करते।
+
+### **अघूर्णित कनेक्टर**
+
+प्रारंभिक लेआउट में दो टेक्स्ट आकृतियाँ एक `ShapeType::BentConnector4` द्वारा जुड़ी हैं:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-कोड:
+यह उदाहरण कनेक्टर का निरीक्षण करता है और उसकी क्षैतिज एवं अनुलंब मोड़ समायोजन प्राप्त करता है:
 
-```c++
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति वर्ग का उदाहरण बनाता है
-auto pres = System::MakeObject<Presentation>();
-// प्रस्तुति में पहली स्लाइड प्राप्त करता है
-auto slide = pres->get_Slides()->idx_get(0);
-// पहली स्लाइड से आकृतियाँ प्राप्त करता है
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto shapes = slide->get_Shapes();
-// ऐसे आकृतियों को जोड़ता है जो कनेक्टर के माध्यम से जुड़ी होंगी
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// एक कनेक्टर जोड़ता है
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// कनेक्टर की दिशा निर्दिष्ट करता है
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// कनेक्टर रेखा की मोटाई निर्दिष्ट करता है
-lineFormat->set_Width(3);
-// कनेक्टर का रंग निर्दिष्ट करता है
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
 
-// कनेक्टर के साथ आकृतियों को आपस में जोड़ता है
-connector->set_StartShapeConnectedTo(shapeFrom);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// कनेक्टर के समायोजन बिंदु प्राप्त करता है
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
-**समायोजन**
+दोनों मोड़ों को बदलने के लिए, प्रत्येक अपेक्षित प्रकार को खोजें और दोनों मिलने के बाद ही मान बदलें:
 
-हम कनेक्टर के समायोजन बिंदु मानों को क्रमशः चौड़ाई और ऊँचाई के प्रतिशत को 20 % और 200 % बढ़ाकर बदल सकते हैं:
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-```c++
-// समायोजन बिंदुओं के मान बदलता है
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-परिणाम:
+परिणामस्वरूप कनेक्टर के क्षैतिज और अनुलंब खंड स्थानांतरित हो जाते हैं:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-कनेक्टर के व्यक्तिगत भागों के निर्देशांक और आकार निर्धारित करने वाली मॉडल बनाने के लिये, चलिए कनेक्टर के `connector.Adjustments[0]` बिंदु पर क्षैतिज घटक के अनुरूप एक आकृति बनाते हैं:
+अर्थपूर्ण प्रकार ज्ञात होने पर, उनके मानों को कनेक्टर‑फ्रेम निर्देशांक में परिवर्तित किया जा सकता है। यह उदाहरण दो मोड़ समायोजनों द्वारा नियंत्रित अनुलंब खंड पर एक पतली आयत खींचता है:
 
-```c++
-// कनेक्टर का लंबवत घटक बनाएं
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-परिणाम:
+गाइड आकृति गणना किए गए खंड को चिह्नित करती है:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **मामला 2**
+### **घुमाया या उलटा कनेक्टर**
 
-**मामला 1** में हमने बुनियादी सिद्धांतों का उपयोग करके एक सरल कनेक्टर समायोजन ऑपरेशन दिखाया। सामान्य परिस्थितियों में, आपको कनेक्टर के घूर्णन और उसकी प्रस्तुति (`connector.Rotation`, `connector.Frame.FlipH`, और `connector.Frame.FlipV` द्वारा सेट) को ध्यान में रखना होगा। अब हम प्रक्रिया को प्रदर्शित करेंगे।
+जब समान कनेक्टर ज्यामिति लंबवत रूप से उन्मुख होती है, तो उसके [IShape::get_Frame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/get_frame/), [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapeframe/get_fliph/), और [IShapeFrame::get_FlipV](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapeframe/get_flipv/) मान कनेक्टर‑फ्रेम निर्देशांक से स्लाइड निर्देशांक के परिवर्तन पर प्रभाव डालते हैं।
 
-पहले, स्लाइड में एक नया टेक्स्ट फ्रेम ऑब्जेक्ट (**To 1**) जोड़ें (कनेक्शन के प्रयोजन से) और एक नया (हरा) कनेक्टर बनाएँ जो इसे पहले बनाए गए ऑब्जेक्ट्स से जोड़े।
+यह उदाहरण लंबवत उन्मुख कनेक्टर बनाता और समायोजित करता है:
 
-```c++
-// एक नया बाइंडिंग ऑब्जेक्ट बनाता है
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// एक नया कनेक्टर बनाता है
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// नए बनाए गए कनेक्टर का उपयोग करके ऑब्जेक्ट्स को जोड़ता है
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// कनेक्टर के समायोजन बिंदु प्राप्त करता है
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// समायोजन बिंदुओं के मान बदलता है
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-परिणाम:
+समायोजित कनेक्टर आकृतियों के बीच लंबवत रूप से दिखता है:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-दूसरे, एक ऐसी आकृति बनाएँ जो नए कनेक्टर के समायोजन बिंदु `connector.Adjustments[0]` के माध्यम से गुजरने वाले क्षैतिज घटक से मेल खाती हो। हम `connector.Rotation`, `connector.Frame.FlipH`, और `connector.Frame.FlipV` के मानों का उपयोग करके घूर्णन के लिये सामान्य निर्देशांक परिवर्तन सूत्र लागू करेंगे:
+किसी भी घूर्णन कोन `alpha` के लिए, कनेक्टर‑फ्रेम बिंदु `(x, y)` को फ्रेम केंद्र `(x0, y0)` के चारों ओर घुमाएँ:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-हमारे मामले में, ऑब्जेक्ट का घूर्णन कोण 90 डिग्री है और कनेक्टर लंबवत प्रदर्शित हो रहा है, इसलिए संबंधित कोड यह है:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```c++
+निम्न कोड इस उदाहरण में उपयोग किए गए 90‑डिग्री अभिविन्यास को संभालता है और संबंधित कनेक्टर खंड पर एक लाल गाइड खींचता है:
 
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-परिणाम:
+समन्वय परिवर्तन के बाद लाल गाइड गणना किए गए खंड को चिह्नित करता है:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-हमने सरल समायोजन और घूर्णन कोण वाले जटिल समायोजन बिंदुओं से संबंधित गणनाओं को प्रदर्शित किया। प्राप्त ज्ञान का उपयोग करके आप अपना स्वयं का मॉडल विकसित कर सकते हैं (या कोड लिख सकते हैं) ताकि `GraphicsPath` ऑब्जेक्ट प्राप्त किया जाए या विशिष्ट स्लाइड निर्देशांक के आधार पर कनेक्टर के समायोजन बिंदु मान सेट किए जा सकें।  
+ये सूत्र उदाहरणों में उपयोग किए गए प्रीसेट्स का वर्णन करते हैं, न कि सार्वभौमिक कनेक्टर मॉडल का। समान गणना को किसी अन्य प्रीसेट पर लागू करने से पहले समायोजन प्रकार, फ्रेम अभिविन्यास और मान श्रेणियों को सत्यापित करें।
 
-## **कनेक्टर लाइनों का कोण खोजें**
+## **कनेक्टर दिशा कोण खोजें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation/) क्लास का एक उदाहरण बनाएँ।  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. कनेक्टर लाइन आकृति तक पहुँचें।  
-4. लाइन की चौड़ाई, ऊँचाई, आकृति फ्रेम की ऊँचाई और आकृति फ्रेम की चौड़ाई का उपयोग करके कोण की गणना करें।  
+एक सीधी कनेक्टर की दिशा उसकी चौड़ाई और ऊँचाई से निर्धारित की जा सकती है, जिसमें क्षैतिज और अनुलंब फ्लिप शामिल होते हैं। निम्न उदाहरण स्लाइड निर्देशांक में सकारात्मक क्षैतिज अक्ष से घड़ी की दिशा में कोण रिपोर्ट करता है:
 
-यह C++ कोड एक ऐसी ऑपरेशन को दर्शाता है जहाँ हमने कनेक्टर लाइन आकृति के लिये कोण की गणना की:
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
 
-```c++
-void ConnectorLineAngle()
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// दस्तावेज़ निर्देशिका का पथ।
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// इच्छित प्रस्तुति लोड करता है
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// पहली स्लाइड तक पहुँचता है
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// स्लाइड्स की आकार संग्रह तक पहुँचता है
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-//double ConnectorLineAngle::getDirection(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे पता करूँ कि कोई कनेक्टर किसी विशिष्ट आकृति से “चिपक” सकता है?**  
-जाँचें कि आकृति [connection sites](https://reference.aspose.com/slides/hi/cpp/aspose.slides/shape/get_connectionsitecount/) प्रदान करती है या नहीं। यदि कोई नहीं है या गणना शून्य है, तो चिपकाने की सुविधा उपलब्ध नहीं है; ऐसी स्थिति में आप मुक्त अंत बिंदु उपयोग कर सकते हैं और उन्हें मैन्युअली स्थित कर सकते हैं। कनेक्शन से पहले साइट गणना की जाँच करना समझदारी है।  
+**मैं कैसे पता करूँ कि कोई कनेक्टर आकृति से जुड़ सकता है या नहीं?**
 
-**यदि मैं जुड़े हुए आकृतियों में से एक को हटाता हूँ तो कनेक्टर क्या करता है?**  
-इसके अंत मोड़ दिए जाएंगे; कनेक्टर स्लाइड पर एक सामान्य रेखा के रूप में बच जाता है जिसके पास मुक्त प्रारम्भ/समाप्त बिंदु होते हैं। आप इसे हटाना या कनेक्शन पुनः निर्धारित करना चुन सकते हैं, और आवश्यकता अनुसार [reroute](https://reference.aspose.com/slides/hi/cpp/aspose.slides/connector/reroute/) भी कर सकते हैं।  
+आकृति के `IShape::get_ConnectionSiteCount` मान को जांचें। सकारात्मक गिनती दर्शाती है कि आकृति कनेक्शन साइट्स उजागर करती है। कनेक्टर के किसी भी सिरे को असाइन करने से पहले चयनित साइट इंडेक्स को सत्यापित करें।
 
-**क्या स्लाइड को किसी अन्य प्रस्तुति में कॉपी करने पर कनेक्टर बाइंडिंग्स संरक्षित रहती हैं?**  
-आमतौर पर हाँ, बशर्ते लक्ष्य आकृतियों को भी कॉपी किया गया हो। यदि स्लाइड को बिना जुड़े हुए आकृतियों के किसी अन्य फ़ाइल में सम्मिलित किया जाता है, तो अंत बिंदु मुक्त हो जाते हैं और आपको उन्हें पुनः संलग्न करना पड़ेगा।
+**क्या मैं कनेक्टर समायोजन को उसके संग्रह इंडेक्स से पहचान सकता हूँ?**
+
+इंडेक्स केवल ज्ञात कनेक्टर प्रीसेट और संग्रह लेआउट के लिए अर्थपूर्ण होता है। मान बदलने से पहले `IAdjustValue::get_Type` जांचें, और जब समान अर्थ वाला प्रकार एक से अधिक बार आता है तो अतिरिक्त जानकारी के लिए `IAdjustValue::get_Name` का उपयोग करें।
+
+**जब जुड़ी हुई आकृति हटाई जाती है तो क्या होता है?**
+
+संबंधित कनेक्टर का सिरा डिस्कनेक्ट हो जाता है। कनेक्टर स्लाइड पर बना रहता है और उसे हटाया, मुक्त रेखा के रूप में स्थित या किसी अन्य आकृति से जोड़ा जा सकता है।
+
+**क्या स्लाइड कॉपी करने पर कनेक्टर बाइंडिंग्स बरकरार रहती हैं?**
+
+आमतौर पर बाइंडिंग्स बरकरार रहती हैं जब जुड़ी हुई आकृतियों को स्लाइड के साथ कॉपी किया जाता है। यदि कनेक्टर को उसके लक्षित आकृतियों में से एक के बिना कॉपी किया जाता है, तो प्रभावित सिरे को फिर से जोड़ना होगा।

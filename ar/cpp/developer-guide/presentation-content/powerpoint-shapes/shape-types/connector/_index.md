@@ -10,410 +10,670 @@ keywords:
 - نقطة الموصل
 - خط الموصل
 - زاوية الموصل
+- موقع الاتصال
+- نقطة تعديل
 - ربط الأشكال
 - PowerPoint
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تمكين تطبيقات C++ من رسم وربط وخطوط التوجيه التلقائي في شرائح PowerPoint — الحصول على تحكم كامل في الموصلات المستقيمة، والمقوسة، والمنحنية."
+description: "تعلم كيفية إضافة وربط وإعادة توجيه وتعديل وفحص الموصلات المستقيمة، المنحنية والمنحرفة في PowerPoint باستخدام Aspose.Slides للـ C++."
 ---
+## **نظرة عامة**
 
-موصل PowerPoint هو خط خاص يربط شكلين معًا ويبقى ملتصقًا بالأشكال حتى عند تحريكها أو إعادة وضعها على الشريحة المحددة.
+الموصل هو خط يمكن أن يبقى مرتبطًا بشكليّن عندما يتحرك أي من الشكلين. نهاياته ترتبط بمواقع الاتصال، التي تُظهر بنقاط خضراء في PowerPoint. بعض الموصلات المنحنية والمنحرفة تكشف أيضًا عن نقاط تعديل، تُظهر بنقاط برتقالية، تتحكم في موضع أجزاء الموصل الفردية.
 
-عادةً ما يتم توصيل الموصلات بـ *نقاط الاتصال* (النقاط الخضراء)، التي تتوفر على جميع الأشكال بشكل افتراضي. تظهر نقاط الاتصال عندما يقترب المؤشر منها.
-
-*نقاط الضبط* (النقاط البرتقالية)، التي تتوفر فقط على بعض الموصلات، تُستخدم لتعديل موضع وشكل الموصلات.
+تمثل Aspose.Slides الموصلات من خلال واجهة [IConnector](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iconnector/). يمكنك إنشاءها، ربط نهاياتها بالأشكال، اختيار مواقع الاتصال، إعادة توجيهها، وتعديل هندسة الموصلات التي تحتوي على نقاط تعديل.
 
 ## **أنواع الموصلات**
 
-في PowerPoint، يمكنك استخدام الموصلات المستقيمة، والمقوسة (ذات الزاوية)، والمنحنية.
+تتضمن تعداد [ShapeType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/shapetype/) إعدادات موصل مستقيم، منحني، ومنحنى مسبقة. تُظهر الجدول التالي هندسات الموصل المتاحة وعدد نقاط التعديل المحددة لكل إعداد مسبق.
 
-توفر Aspose.Slides هذه الموصلات:
+| الموصل | الصورة | عدد نقاط التعديل |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| الموصل                         | الصورة                                                       | عدد نقاط الضبط |
-| ------------------------------ | ------------------------------------------------------------ | -------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0              |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0              |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0              |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1              |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2              |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3              |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0              |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1              |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2              |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3              |
+عدد ومعنى نقاط التعديل جزء من الإعداد المسبق المختار للموصل. لا تفترض أن نوعي موصل مختلفين يقدمان نفس تخطيط المجموعة.
 
-## **ربط الأشكال باستخدام الموصلات**
+## **ربط شكلين**
 
-1. أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/).
-1. احصل على مرجع الشريحة عبر فهرسها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape) إلى الشريحة باستخدام الطريقة `AddAutoShape` الموجودة في كائن `Shapes`.
-1. أضف موصلًا باستخدام الطريقة `AddConnector` الموجودة في كائن `Shapes` مع تحديد نوع الموصل.
-1. اربط الأشكال بالموصل.
-1. استدعِ الطريقة `Reroute` لتطبيق أقصر مسار اتصال.
-1. احفظ العرض التقديمي.
+استخدم [IShapeCollection::AddConnector](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/addconnector/) لإضافة موصل، واستدعِ [IConnector::set_StartShapeConnectedTo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iconnector/set_startshapeconnectedto/) و[IConnector::set_EndShapeConnectedTo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iconnector/set_endshapeconnectedto/) لربط نهاياته. بعد ربط النهايتين، يختار [IConnector::Reroute](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iconnector/reroute/) مسارًا قصيرًا بين الشكلين.
 
- يوضح هذا الكود C++ كيفيّة إضافة موصل (موصل منحني) بين شكلين (إهليلج ومربع):
-```c++
-// مسار دليل المستندات.
-	const String outPath = u"../out/ConnectShapesUsingConnectors_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+المثال التالي يربط إهليلجًا ومستطيلًا بموصل منحني:
 
-	// يقوم بتحميل العرض التقديمي المطلوب.
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-	// يصل إلى الشريحة الأولى.
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-	// يصل إلى مجموعة الأشكال لشريحة معينة.
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
+System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
-	// يضيف شكل أوتوشيب بيضاوي.
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
 
-	// يضيف شكل أوتوشيب مستطيل.
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
+connector->Reroute();
 
-	// يضيف شكل موصل إلى مجموعة أشكال الشريحة.
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-
-	// يربط الأشكال باستخدام الموصل.
-	connector->set_StartShapeConnectedTo ( ellipse);
-	connector->set_EndShapeConnectedTo (rect);
-
-	// يقوم باستدعاء Reroute الذي يحدد أقصر مسار تلقائي بين الأشكال.
-	connector->Reroute();
-	
-	// يحفظ العرض التقديمي.
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"connected-shapes.pptx", SaveFormat::Pptx);
 ```
 
+{{% alert color="warning" title="Warning" %}}
+استدعاء `IConnector::Reroute` قد يغيّر قيمتي [IConnector::set_StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iconnector/set_startshapeconnectionsiteindex/) و[IConnector::set_EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iconnector/set_endshapeconnectionsiteindex/). عيّن مواقع الاتصال المحددة بعد إعادة التوجيه إذا كان يجب أن تظل تلك المواقع ثابتة.
+{{% /alert %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **اختيار موقع الاتصال**
 
-تقوم الطريقة `connector->Reroute` بإعادة توجيه الموصل وتفرض عليه أخذ أقصر مسار ممكن بين الأشكال. لتحقيق ذلك، قد تقوم الطريقة بتغيير نقاط `StartShapeConnectionSiteIndex` و`EndShapeConnectionSiteIndex`.
+كل شكل قابل للربط يُبلغ عن عدد المواقع عبر [IShape::get_ConnectionSiteCount](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_connectionsitecount/). تحقق من صحة فهرس موقعٍ صفر‑مبني قبل تعيينه لنهاية الموصل؛ عدد المواقع يختلف حسب هندسة الشكل.
 
-{{% /alert %}} 
+هذا المثال يربط الموصل بموقع محدد على الإهليلج عندما يكون ذلك الموقع موجودًا:
 
-## **تحديد نقطة اتصال**
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-إذا رغبت في ربط موصل بين شكلين باستخدام نقاط محددة على الأشكال، عليك تحديد نقاط الاتصال المفضلة بهذه الطريقة:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-1. أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/).
-1. احصل على مرجع الشريحة عبر فهرسها.
-1. أضف شكلين [AutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape) إلى الشريحة باستخدام الطريقة `AddAutoShape` الموجودة في كائن `Shapes`.
-1. أضف موصلًا باستخدام الطريقة `AddConnector` الموجودة في كائن `Shapes` مع تحديد نوع الموصل.
-1. اربط الأشكال بالموصل.
-1. عيّن نقاط الاتصال المفضلة على الأشكال.
-1. احفظ العرض التقديمي.
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
 
- يوضح هذا الكود C++ عملية تحديد نقطة اتصال مفضلة:
-```c++
-	// مسار دليل المستندات.
-	const String outPath = u"../out/ConnectShapeUsingConnectionSite_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
+auto ellipse = shapes->AddAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+auto rectangle = shapes->AddAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+auto connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
 
-	// يحمل العرض التقديمي المطلوب
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+connector->set_StartShapeConnectedTo(ellipse);
+connector->set_EndShapeConnectedTo(rectangle);
 
-	// يصل إلى الشريحة الأولى
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+int32_t preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse->get_ConnectionSiteCount())
+{
+    connector->set_StartShapeConnectionSiteIndex(preferredSiteIndex);
+}
+else
+{
+    Console::WriteLine(u"The ellipse has only {0} connection sites.", ellipse->get_ConnectionSiteCount());
+}
 
-	// يصل إلى مجموعة الأشكال لشريحة محددة
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// يضيف شكل أوتوشيب بيضاوي
-	SharedPtr<IAutoShape> ellipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-
-	// يضيف شكل أوتوشيب مستطيل
-	SharedPtr<IAutoShape> rect = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
-
-	// يضيف شكل موصل إلى مجموعة أشكال الشريحة
-	SharedPtr<IConnector> connector = shapes->AddConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
-
-	// يربط الأشكال باستخدام الموصل
-	connector->set_StartShapeConnectedTo(ellipse);
-	connector->set_EndShapeConnectedTo(rect);
-
-
-	// يحدد فهرس نقطة الاتصال المفضلة على شكل البيضاوي
-	int wantedIndex = 6;
-
-	// يتحقق ما إذا كان الفهرس المفضل أصغر من العدد الأقصى لنقاط الموقع
-	if (ellipse->get_ConnectionSiteCount() > wantedIndex)
-	{
-		// يحدد نقطة الاتصال المفضلة على شكل أوتوشيب البيضاوي
-		connector->set_StartShapeConnectionSiteIndex ( wantedIndex);
-	}
-
-	// يحفظ العرض التقديمي
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"specific-connection-site.pptx", SaveFormat::Pptx);
 ```
 
+## **تعديل نقطة الموصل**
 
-## **ضبط نقطة موصل**
+الموصلات التي تحتوي على نقاط تعديل تكشف عنها عبر [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igeometryshape/get_adjustments/). افحص كل [IAdjustValue](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iadjustvalue/) وتحقق من [IAdjustValue::get_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iadjustvalue/get_type/) قبل تغيير [IAdjustValue::set_RawValue](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iadjustvalue/set_rawvalue/). القواعد العامة لتحديد تعديلات الشكل المسبقة موثقة في [Shape Manipulation](/slides/ar/cpp/shape-manipulations/).
 
-يمكنك ضبط موصل موجود عبر نقاط الضبط الخاصة به. لا يمكن تعديل سوى الموصلات التي تمتلك نقاط ضبط. راجع الجدول تحت **[أنواع الموصلات.](/slides/ar/cpp/connector/#types-of-connectors)**
+عدد وترتيب ومعنى ونطاق القيم الصالحة لتعديلات الموصل تعتمد على الإعداد المسبق للموصل. النوع الذي تُرجعه `IAdjustValue::get_Type` هو للقراءة فقط، بينما قيمة التعديل الخام قابلة للكتابة. طريقة القراءة فقط [IAdjustValue::get_Name](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iadjustvalue/get_name/) توفر تعريفًا إضافيًا عندما يحتوي الموصل على أكثر من تعديل من نفس النوع الدلالي.
 
-### **حالة بسيطة**
+### **توجيه حول عائق**
 
-تخيّل حالة حيث يمر موصل بين شكلين (A و B) عبر شكل ثالث (C):
+في التخطيط التالي، موصل `ShapeType::BentConnector5` بين شكلين يمر عبر شكل ثالث:
 
 ![connector-obstruction](connector-obstruction.png)
 
-الكود:
-```c++
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto shapes = slide->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 300.0f, 150.0f, 150.0f, 75.0f);
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 400.0f, 100.0f, 50.0f);
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 70.0f, 30.0f);
+هذا الكود يُنشئ الموصل المعترض:
 
-auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20.0f, 20.0f, 400.0f, 300.0f);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
 
 auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
 auto lineFillFormat = lineFormat->get_FillFormat();
 lineFillFormat->set_FillType(FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-
-connector->set_StartShapeConnectedTo(shapeFrom);
-connector->set_EndShapeConnectedTo(shapeTo);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_StartShapeConnectionSiteIndex(2);
+
+presentation->Save(u"connector-obstruction.pptx", SaveFormat::Pptx);
 ```
 
-
-لتجنب أو تجاوز الشكل الثالث، يمكننا ضبط الموصل بنقل خطه العمودي إلى اليسار بهذه الطريقة:
+تحريك الانحناء العمودي يغيّر المسار بحيث يتجاوز الموصل العائق:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-```c++
-auto adj2 = connector->get_Adjustments()->idx_get(1);
-adj2->set_RawValue(adj2->get_RawValue() + 10000);
+
+بدلاً من افتراض أن الفهرس 1 في المجموعة يمثل دائمًا الانحناء العمودي، يبحث هذا المثال عن `ShapeAdjustmentType::ConnectorBendPositionY` ويغيّره فقط عندما يكون النوع الدلالي المتوقع موجودًا:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+shapes->AddAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+auto connector = shapes->AddConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend->set_RawValue(60000);
+    presentation->Save(u"connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+}
 ```
 
+الموصل `ShapeType::BentConnector5` يحتوي على تعديلين من النوع `ShapeAdjustmentType::ConnectorBendPositionX` وتعديل واحد من النوع `ShapeAdjustmentType::ConnectorBendPositionY`. إذا ظهر النوع الذي تحتاجه أكثر من مرة، افحص `IAdjustValue::get_Name` والهندسة المعروفة لذلك الإعداد قبل اختيار أحدهما. إذا أبلغ تعديل عن `ShapeAdjustmentType::Custom`، فاعتبر معناه ونطاقه خاصًا بالإعداد المسبق ولا تُغيّره إلا إذا كان العقد معروفًا.
 
-### **حالات معقّدة** 
+## **ربط قيم التعديل بهندسة الموصل**
 
-لإجراء تعديلات أكثر تعقيدًا، عليك مراعاة الأمور التالية:
+بالنسبة للموصلات المنحنية، يمكن استخدام قيم التعديل لتقدير مواضع القطاعات الفردية. هذه الحسابات خاصة بإعداد الموصل:
 
-* نقطة الضبط في الموصل مرتبطة ارتباطًا وثيقًا بمعادلة تحسب وتحدد موقعها. لذا قد يتغيّر شكل الموصل عند تعديل موقع النقطة.
-* تُعرّف نقاط الضبط بترتيب صارم داخل مصفوفة. تُرقم النقاط من نقطة بداية الموصل إلى نهايته.
-* تعكس قيم نقاط الضبط النسبة المئوية لعرض/ارتفاع شكل الموصل. 
-  * يُحدّد الشكل بنقطة البداية والنهاية مضروبة في 1000. 
-  * النقطة الأولى، الثانية، والثالثة تُحدّد النسبة من العرض، النسبة من الارتفاع، والنسبة من العرض مرة أخرى على التوالي.
-* لحساب إحداثيات نقاط الضبط، يجب أخذ دوران الموصل وانعكاسه في الاعتبار. **ملاحظة** أن زاوية الدوران لجميع الموصلات الموضحة تحت **[أنواع الموصلات](/slides/ar/cpp/connector/#types-of-connectors)** هي 0.
+- `ShapeType::BentConnector4` عادةً يكشف عن تعديل واحد من النوع `ShapeAdjustmentType::ConnectorBendPositionX` وتعديل واحد من النوع `ShapeAdjustmentType::ConnectorBendPositionY`.
+- لهذه المواقع المنحنية، ينتج `RawValue / 100000.0f` كسر عرض أو ارتفاع إطار الموصل المستخدمة في الأمثلة أدناه.
+- يمكن تدوير إطار الموصل أو عكسه، لذا يجب تحويل إحداثيات الإطار قبل مقارنتها بإحداثيات الشريحة.
 
-#### **الحالة 1**
+الأمثلة التالية تستخدم `IAdjustValue::get_Type` لتحديد التعديلات أولاً. لا تتعامل مع فهارس المجموعة كمعرّفات محمولة.
 
-تخيّل حالة يتم فيها ربط كائني إطار نصي معًا عبر موصل:
+### **موصل غير مدور**
+
+التخطيط الأولي يحتوي على شكلين نصيين متصلين بموصل `ShapeType::BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-الكود:
-```c++
-// ينشئ فئة العرض التقديمي التي تمثل ملف PPTX
-auto pres = System::MakeObject<Presentation>();
-// يحصل على الشريحة الأولى في العرض التقديمي
-auto slide = pres->get_Slides()->idx_get(0);
-// يحصل على الأشكال من الشريحة الأولى
-auto shapes = slide->get_Shapes();
-// يضيف أشكالًا سيتم ربطها معًا عبر موصل
-auto shapeFrom = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 60.0f, 25.0f);
-shapeFrom->get_TextFrame()->set_Text(u"From");
-auto shapeTo = shapes->AddAutoShape(ShapeType::Rectangle, 500.0f, 100.0f, 60.0f, 25.0f);
-shapeTo->get_TextFrame()->set_Text(u"To");
-// يضيف موصلًا
-auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
-auto lineFormat = connector->get_LineFormat();
-// يحدد اتجاه الموصل
-lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
-// يحدد سمك خط الموصل
-lineFormat->set_Width(3);
-// يحدد لون الموصل
-auto lineFillFormat = lineFormat->get_FillFormat();
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Crimson());
+هذا المثال يفحص الموصل ويحصل على تعديلات الانحناء الأفقي والعمودي:
 
-// يربط الأشكال معًا باستخدام الموصل
-connector->set_StartShapeConnectedTo(shapeFrom);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
+lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Crimson());
+lineFormat->set_Width(3);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(3);
-connector->set_EndShapeConnectedTo(shapeTo);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(2);
 
-// يحصل على نقاط الضبط للموصل
 auto adjustments = connector->get_Adjustments();
-auto adjValue_0 = adjustments->idx_get(0);
-auto adjValue_1 = adjustments->idx_get(1);
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    Console::WriteLine(u"{0}: type = {1}, raw value = {2}", adjustment->get_Name(), static_cast<int32_t>(adjustment->get_Type()), adjustment->get_RawValue());
+}
 ```
 
+لتغيير الانحنائين، ابحث عن كل نوع متوقع وعدّل القيم فقط بعد العثور على كلاهما:
 
-**الضبط**
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-يمكننا تغيير قيم نقاط الضبط بزيادة النسبة المئوية للعرض والارتفاع المقابلة بنسبة 20% و200% على التوالي:
-```c++
-// يغيّر قيم نقاط الضبط
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+    presentation->Save(u"connector-adjusted.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-النتيجة:
+النتيجة هي موصل تحركت قطعه الأفقية والعمودية:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-لتعريف نموذج يتيح لنا تحديد إحداثيات وشكل الأجزاء الفردية للموصل، لننشئ شكلاً يطابق المكوّن الأفقي للموصل عند النقطة `connector.Adjustments[0]`:
-```c++
-// ارسم المكوّن العمودي للموصل
-float x = connector->get_X() + connector->get_Width() * adjValue_0->get_RawValue() / 100000;
-float y = connector->get_Y();
-float height = connector->get_Height() * adjValue_1->get_RawValue() / 100000;
-shapes->AddAutoShape(ShapeType::Rectangle, x, y, 0.0f, height);
+بمجرد معرفة الأنواع الدلالية، يمكن تحويل قيمها إلى إحداثيات إطار الموصل. هذا المثال يرسم مستطيلًا رقيقًا فوق القطعة العمودية التي يتحكم فيها تعديليا الانحناء:
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(3);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(2);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    float x = connector->get_X() + connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float y = connector->get_Y();
+    float height = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    shapes->AddAutoShape(ShapeType::Rectangle, x, y, 1, height);
+    presentation->Save(u"connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-النتيجة:
+الشكل الدليل يوضح القطعة المحسوبة:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **الحالة 2**
+### **موصل مدور أو مقلوب**
 
-في **الحالة 1**، عرضنا عملية ضبط موصل بسيطة باستخدام مبادئ أساسية. في الحالات العادية، يجب مراعاة دوران الموصل وعرضه (واللذين يتم تعيينهما عبر `connector.Rotation`، `connector.Frame.FlipH`، و`connector.Frame.FlipV`). الآن سنوضح العملية.
+عند توجيه نفس هندسة الموصل عموديًا، تؤثر قيم [IShape::get_Frame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_frame/)، [IShapeFrame::get_FlipH](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapeframe/get_fliph/)، و[IShapeFrame::get_FlipV](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapeframe/get_flipv/) على التحويل من إحداثيات إطار الموصل إلى إحداثيات الشريحة.
 
-أولاً، أضف كائن إطار نصي جديد (**To 1**) إلى الشريحة (لغرض الاتصال) وأنشئ موصلًا (أخضر) يربطه بالكائنات التي أُنشئت مسبقًا.
-```c++
-// ينشئ كائن ربط جديد
-auto shapeTo_1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 400.0f, 60.0f, 25.0f);
-shapeTo_1->get_TextFrame()->set_Text(u"To 1");
-// ينشئ موصلًا جديدًا
-connector = shapes->AddConnector(ShapeType::BentConnector4, 20.0f, 20.0f, 400.0f, 300.0f);
+هذا المثال يُنشئ ويُعدل الموصل الموجه عموديًا:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+sourceShape->get_TextFrame()->set_Text(u"From");
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+targetShape->get_TextFrame()->set_Text(u"To 1");
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+auto lineFormat = connector->get_LineFormat();
 lineFormat->set_EndArrowheadStyle(LineArrowheadStyle::Triangle);
+auto lineFillFormat = lineFormat->get_FillFormat();
+lineFillFormat->set_FillType(FillType::Solid);
+lineFillFormat->get_SolidFillColor()->set_Color(Color::get_MediumAquamarine());
 lineFormat->set_Width(3);
-lineFillFormat->set_FillType(Aspose::Slides::FillType::Solid);
-lineFillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_MediumAquamarine());
-// يربط الكائنات باستخدام الموصل الذي تم إنشاؤه حديثًا
-connector->set_StartShapeConnectedTo(shapeFrom);
+connector->set_StartShapeConnectedTo(sourceShape);
 connector->set_StartShapeConnectionSiteIndex(2);
-connector->set_EndShapeConnectedTo(shapeTo_1);
+connector->set_EndShapeConnectedTo(targetShape);
 connector->set_EndShapeConnectionSiteIndex(3);
-// يحصل على نقاط الضبط للموصل
-adjValue_0 = adjustments->idx_get(0);
-adjValue_1 = adjustments->idx_get(1);
-// يغيّر قيم نقاط الضبط
-adjValue_0->set_RawValue(adjValue_0->get_RawValue() + 20000);
-adjValue_1->set_RawValue(adjValue_1->get_RawValue() + 200000);
+
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 20000);
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        adjustment->set_RawValue(adjustment->get_RawValue() + 200000);
+    }
+}
+
+presentation->Save(u"vertical-connector-adjusted.pptx", SaveFormat::Pptx);
 ```
 
-
-النتيجة:
+الموصل المعدل يظهر عموديًا بين الشكلين:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ثانيًا، لننشئ شكلاً يطابق المكوّن الأفقي للموصل الذي يمر عبر نقطة الضبط الجديدة `connector.Adjustments[0]`. سنستخدم القيم المستخرجة من `connector.Rotation`، `connector.Frame.FlipH`، و`connector.Frame.FlipV` ونطبق صيغة تحويل الإحداثيات للدوران حول نقطة معينة x₀:
+لزاوية دوران عشوائية `alpha`، دوّر نقطة إطار الموصل `(x, y)` حول مركز الإطار `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-في حالتنا، زاوية دوران الكائن هي 90 درجة والموصل معروض عموديًا، لذا يكون الكود المقابل:
-```c++
+الكود التالي يتعامل مع التوجيه بزاوية 90 درجة المستخدم في هذا المثال ويرسم دليلًا أحمر فوق القطعة المقابلة للموصل:
 
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IConnector.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shapes = slide->get_Shapes();
+
+auto sourceShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+auto targetShape = shapes->AddAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+auto connector = shapes->AddConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+connector->set_StartShapeConnectedTo(sourceShape);
+connector->set_StartShapeConnectionSiteIndex(2);
+connector->set_EndShapeConnectedTo(targetShape);
+connector->set_EndShapeConnectionSiteIndex(3);
+
+SharedPtr<IAdjustValue> horizontalBend;
+SharedPtr<IAdjustValue> verticalBend;
+auto adjustments = connector->get_Adjustments();
+for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+{
+    auto adjustment = adjustments->idx_get(adjustmentIndex);
+    if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment->get_Type() == ShapeAdjustmentType::ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend == nullptr || verticalBend == nullptr)
+{
+    Console::WriteLine(u"The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend->set_RawValue(horizontalBend->get_RawValue() + 20000);
+    verticalBend->set_RawValue(verticalBend->get_RawValue() + 200000);
+
+    float x = connector->get_X();
+    float y = connector->get_Y();
+    auto frame = connector->get_Frame();
+    if (frame->get_FlipH() == NullableBool::True)
+    {
+        x += connector->get_Width();
+    }
+    if (frame->get_FlipV() == NullableBool::True)
+    {
+        y += connector->get_Height();
+    }
+
+    x += connector->get_Width() * horizontalBend->get_RawValue() / 100000.0f;
+    float rotatedX = frame->get_CenterX() - y + frame->get_CenterY();
+    float rotatedY = x - frame->get_CenterX() + frame->get_CenterY();
+    float segmentWidth = connector->get_Height() * verticalBend->get_RawValue() / 100000.0f;
+    auto guide = shapes->AddAutoShape(ShapeType::Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    auto guideLineFillFormat = guide->get_LineFormat()->get_FillFormat();
+    guideLineFillFormat->set_FillType(FillType::Solid);
+    guideLineFillFormat->get_SolidFillColor()->set_Color(Color::get_Red());
+
+    presentation->Save(u"rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+}
 ```
 
-
-النتيجة:
+الدليل الأحمر يوضح القطعة المحسوبة بعد تحويل الإحداثيات:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-لقد عرضنا حسابات تشمل تعديلات بسيطة ونقاط ضبط معقدة (نقاط ضبط ذات زوايا دوران). باستخدام المعرفة المكتسبة، يمكنك إنشاء نموذجك الخاص (أو كتابة كود) للحصول على كائن `GraphicsPath` أو حتى ضبط قيم نقاط ضبط الموصل بناءً على إحداثيات شريحة معينة.
+هذه الصيغ تصف الإعدادات المستخدمة في الأمثلة، ليست نموذجًا عالميًا للموصل. تحقق من أنواع التعديل، توجيه الإطار، ونطاقات القيم قبل تطبيق نفس الحساب على إعداد مختلف.
 
-## **إيجاد زاوية خطوط الموصل**
+## **إيجاد زاوية اتجاه الموصل**
 
-1. أنشئ كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation/).
-1. احصل على مرجع الشريحة عبر فهرسها.
-1. الوصول إلى شكل خط الموصل.
-1. استخدم عرض الخط، ارتفاعه، ارتفاع إطار الشكل، وعرض إطار الشكل لحساب الزاوية.
+يمكن حساب اتجاه موصل مستقيم من عرضه وارتفاعه، مع تطبيق الانعكاسات الأفقية والعمودية. المثال التالي يُظهر الزاوية في اتجاه عقارب الساعة من المحور الأفقي الموجب في إحداثيات الشريحة:
 
-يُظهر هذا الكود C++ عملية حساب زاوية شكل خط الموصل:
-```c++
-void ConnectorLineAngle()
+```cpp
+#include <DOM/IConnector.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/math.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+auto frame = connector->get_Frame();
+
+bool flipH = frame->get_FlipH() == NullableBool::True;
+bool flipV = frame->get_FlipV() == NullableBool::True;
+float deltaX = connector->get_Width() * (flipH ? -1 : 1);
+float deltaY = connector->get_Height() * (flipV ? -1 : 1);
+double angle = Math::Atan2(deltaY, deltaX) * 180.0 / Math::PI;
+
+if (angle < 0)
 {
-
-	// مسار دليل المستندات.
-	const String outPath = u"../out/ConnectorLineAngle_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// يحمّل العرض التقديمي المطلوب
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	// يصل إلى الشريحة الأولى
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	for (int i = 0; i < slide->get_Shapes()->get_Count(); i++)
-	{
-		double dir = 0.0;
-		// يصل إلى مجموعة الأشكال في الشريحة
-		System::SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(i);
-
-		if (System::ObjectExt::Is<AutoShape>(shape))
-		{
-			SharedPtr<AutoShape> aShape = ExplicitCast<Aspose::Slides::AutoShape>(shape);
-			if (aShape->get_ShapeType() == ShapeType::Line)
-			{
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(), aShape->get_Frame()->get_FlipV());
-
-			}
-		}
-
-		else if (System::ObjectExt::Is<Connector>(shape))
-		{
-				SharedPtr<Connector> aShape = ExplicitCast<Aspose::Slides::Connector>(shape);
-//				dir = getDirection(aShape->get_Width(), aShape->get_Height(), Convert::ToBoolean(aShape->get_Frame()->get_FlipH()), Convert::ToBoolean(aShape->get_Frame()->get_FlipV()));
-				dir = getDirection(aShape->get_Width(), aShape->get_Height(), aShape->get_Frame()->get_FlipH(),aShape->get_Frame()->get_FlipV());
-		}
-
-		Console::WriteLine(dir);
-	
-	}
-
-
+    angle += 360;
 }
-// الدالة getDirection الخاصة بـ ConnectorLineAngle(float w, float h, NullableBool flipH, NullableBool flipV)
-double getDirection(float w, float h, Aspose::Slides::NullableBool flipH, Aspose::Slides::NullableBool flipV)
-{
-	float endLineX = w;
 
-	if (flipH == NullableBool::True)
-		endLineX= endLineX * -1;
-	else
-		endLineX=endLineX *  1;
-	//float endLineX = w * (flipH ? -1 : 1);
-	float endLineY = h;
-	if (flipV == NullableBool::True)
-		endLineY = endLineY * -1;
-	else
-		endLineY = endLineY *  1;
-	//	float endLineY = h * (flipV ? -1 : 1);
-	float endYAxisX = 0;
-	float endYAxisY = h;
-	double angle = (Math::Atan2(endYAxisY, endYAxisX) - Math::Atan2(endLineY, endLineX));
-	if (angle < 0) angle += 2 * Math::PI;
-	return angle * 180.0 / Math::PI;
-}
+Console::WriteLine(u"Connector direction: {0:F2} degrees", angle);
 ```
-
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني معرفة ما إذا كان يمكن "اللصق" بالموصل إلى شكل معين؟**
+**كيف يمكنني معرفة ما إذا كان الموصل يمكنه الارتباط بشكل؟**
 
-تحقق مما إذا كان الشكل يوفّر [نقاط اتصال](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_connectionsitecount/). إذا لم تكن هناك نقاط أو كان عددها صفرًا، فإن اللصق غير متاح؛ في هذه الحالة استخدم نقاط النهاية الحرة وضعها يدويًا. من المنطقي فحص عدد المواقع قبل الإرفاق.
+تحقق من قيمة `IShape::get_ConnectionSiteCount` للشكل. عدد موجب يعني أن الشكل يُظهر مواقع اتصال. تحقق من صحة فهرس الموقع المختار قبل تعيينه لأي طرف من أطراف الموصل.
 
-**ماذا يحدث للموصل إذا حذفت أحد الأشكال المرتبطة؟**
+**هل يمكنني تحديد تعديل الموصل بواسطة فهرس المجموعة؟**
 
-ستنفصل نهاياته؛ يظل الموصل على الشريحة كخط عادي بنقطة بداية/نهاية حرة. يمكنك إما حذفه أو إعادة تعيين الاتصالات، وإذا لزم الأمر، [إعادة توجيه](https://reference.aspose.com/slides/cpp/aspose.slides/connector/reroute/).
+الفهرس ذو معنى فقط لإعداد موصل معروف وتخطيط مجموعة معروف. افحص `IAdjustValue::get_Type` قبل تعديل قيمة، واستخدم `IAdjustValue::get_Name` كمعلومات إضافية عندما يتكرر نفس النوع الدلالي أكثر من مرة.
 
-**هل تُحافظ ربطات الموصل عند نسخ شريحة إلى عرض تقديمي آخر؟**
+**ماذا يحدث عندما يُحذف الشكل المتصل؟**
 
-عمومًا نعم، بشرط نسخ الأشكال المستهدفة أيضًا. إذا أُدخلت الشريحة في ملف آخر دون الأشكال المتصلة، تصبح النهايات حرة وستحتاج إلى إرفاقها مرة أخرى.
+تنقسم النهاية المقابلة للموصل. يظل الموصل على الشريحة ويمكن حذفه أو وضعه كخط حر أو ربطه بشكل آخر.
+
+**هل تُحافظ روابط الموصل عند نسخ الشريحة؟**
+
+تُحافظ الروابط عادةً عند نسخ الأشكال المتصلة مع الشريحة. إذا نُسخ موصل دون أحد الأشكال المستهدفة، يجب ربط الطرف المتأثر مرة أخرى.

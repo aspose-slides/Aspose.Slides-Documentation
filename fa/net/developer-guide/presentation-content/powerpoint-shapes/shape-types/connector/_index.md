@@ -1,378 +1,517 @@
 ---
-title: مدیریت اتصال‌گرها در ارائه‌ها در .NET
-linktitle: اتصال‌گر
+title: مدیریت اتصال‌دهنده‌ها در ارائه‌های .NET
+linktitle: اتصال‌دهنده
 type: docs
 weight: 10
 url: /fa/net/connector/
 keywords:
-- اتصال‌گر
-- نوع اتصال‌گر
-- نقطه اتصال‌گر
-- خط اتصال‌گر
-- زاویه اتصال‌گر
-- اتصال اشکال
-- پاورپوینت
+- اتصال‌دهنده
+- نوع اتصال‌دهنده
+- نقطه اتصال‌دهنده
+- خط اتصال‌دهنده
+- زاویه اتصال‌دهنده
+- محل اتصال
+- نقطه تنظیم
+- اتصال شکل‌ها
+- PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "به برنامه‌های .NET امکان دهید خطوط را در اسلایدهای PowerPoint ترسیم، متصل و به‌صورت خودکار مسیر دهند — کنترل کامل بر اتصال‌گرهای مستقیم، زاویه‌دار و منحنی را به دست آورید."
+description: "بیاموزید چگونه با Aspose.Slides برای .NET، اتصال‌دهنده‌های مستقیم، خمیده و منحنی PowerPoint را اضافه، وصل، مسیردهی مجدد، تنظیم و بررسی کنید."
 ---
-## **مقدمه**
+## **نمای کلی**
 
-یک اتصال‌گر پاورپوینت یک خط خاص است که دو شکل را به هم متصل یا لینک می‌کند و حتی زمانی که آنها در یک اسلاید جابجا یا موقعیتشان تغییر می‌کند، به شکل‌ها چسبیده می‌ماند.
+یک اتصال‌دهنده خطی است که می‌تواند به دو شکل متصل بماند حتی زمانی که یکی از شکل‌ها حرکت می‌کند. انتهای آن به مکان‌های اتصال (connection sites) که در PowerPoint با نقاط سبز نشان داده می‌شوند، متصل می‌شود. برخی از اتصال‌دهنده‌های خمیده و منحنی نیز نقاط تنظیم (adjustment points) دارند که با نقاط نارنجی نشان داده می‌شوند و موقعیت بخش‌های مختلف اتصال‌دهنده را کنترل می‌کنند.
 
-اتصال‌گرها معمولاً به *نقطه‌های اتصال* (نقطه‌های سبز) متصل می‌شوند که به طور پیش‌فرض بر تمام شکل‌ها وجود دارند. نقطه‌های اتصال زمانی ظاهر می‌شوند که نشانگر به آنها نزدیک شود.
+Aspose.Slides اتصال‌دهنده‌ها را از طریق رابط [IConnector](https://reference.aspose.com/slides/fa/net/aspose.slides/iconnector/) ارائه می‌کند. می‌توانید آن‌ها را ایجاد کنید، انتهاهایشان را به شکل‌ها وصل کنید، مکان‌های اتصال را انتخاب کنید، مسیر آن‌ها را تغییر دهید و هندسهٔ اتصال‌دهنده‌هایی که نقاط تنظیم دارند را اصلاح کنید.
 
-*نقاط تنظیم* (نقطه‌های نارنجی) که فقط در برخی اتصال‌گرها وجود دارند، برای تغییر موقعیت و شکل اتصال‌گرها استفاده می‌شوند.
+## **انواع اتصال‌دهنده**
 
-## **انواع اتصال‌گرها**
+در شمارش [ShapeType](https://reference.aspose.com/slides/fa/net/aspose.slides/shapetype/) پیش‌فرض‌های اتصال‌دهندهٔ مستقیم، خمیده و منحنی موجود است. جدول زیر هندسهٔ اتصال‌دهنده‌های موجود و تعداد نقاط تنظیم تعریف‌شده برای هر پیش‌فرض را نشان می‌دهد.
 
-در پاورپوینت می‌توانید از اتصال‌گرهای مستقیم، زاویه‌دار (elbow) و منحنی استفاده کنید.  
-Aspose.Slides این اتصال‌گرها را فراهم می‌کند:
+| اتصال‌دهنده | تصویر | تعداد نقاط تنظیم |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| اتصال‌گر | تصویر | تعداد نقاط تنظیم |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+تعداد و معنای نقاط تنظیم جزئی از پیش‌فرض انتخاب شدهٔ اتصال‌دهنده هستند. فرض نکنید که دو نوع اتصال‌دهندهٔ متفاوت، همان چیدمان مجموعه را ارائه می‌دهند.
 
-## **اتصال اشکال با استفاده از اتصال‌گرها**
+## **اتصال دو شکل**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.
-1. دو [AutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/autoshape/) را به اسلاید اضافه کنید با استفاده از متد `AddAutoShape` که توسط شیء `Shapes` در دسترس است.
-1. یک اتصال‌گر را با استفاده از متد `AddConnector` که توسط شیء `Shapes` در دسترس است، با تعریف نوع اتصال‌گر اضافه کنید.
-1. اشکال را با استفاده از اتصال‌گر متصل کنید.
-1. متد `Reroute` را صدا بزنید تا کوتاه‌ترین مسیر اتصال اعمال شود.
-1. ارائه را ذخیره کنید.
+از متد [IShapeCollection.AddConnector](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addconnector/) برای افزودن یک اتصال‌دهنده استفاده کنید و ویژگی‌های [StartShapeConnectedTo](https://reference.aspose.com/slides/fa/net/aspose.slides/connector/startshapeconnectedto/) و [EndShapeConnectedTo](https://reference.aspose.com/slides/fa/net/aspose.slides/connector/endshapeconnectedto/) را تعیین کنید. پس از اتصال هر دو انتها، متد [IConnector.Reroute](https://reference.aspose.com/slides/fa/net/aspose.slides/iconnector/reroute/) مسیر کوتاه‌تری بین شکل‌ها انتخاب می‌کند.
 
-این کد C# نشان می‌دهد چگونه یک اتصال‌گر (یک اتصال‌گر خمیده) بین دو شکل (یک بیضی و یک مستطیل) اضافه کنید:
+مثال زیر یک بیضی و یک مستطیل را با یک اتصال‌دهندهٔ خمیده متصل می‌کند:
 
-```c#
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-using (Presentation input = new Presentation())
-{                
-    // مجموعه اشکال اسلاید خاصی را دسترسی می‌دهد
-    IShapeCollection shapes = input.Slides[0].Shapes;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // یک شکل خودکار بیضی اضافه می‌کند
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // یک شکل خودکار مستطیل اضافه می‌کند
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // یک شکل اتصال‌گر را به مجموعه اشکال اسلاید اضافه می‌کند
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // اشکال را با استفاده از اتصال‌گر متصل می‌کند
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // متد Reroute را فراخوانی می‌کند که کوتاه‌ترین مسیر خودکار بین اشکال را تنظیم می‌کند
-    connector.Reroute();
-
-    // ارائه را ذخیره می‌کند
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`متد Connector.Reroute` مسیر اتصال‌گر را بازتنظیم می‌کند و آن را مجبور می‌سازد تا کوتاه‌ترین مسیر ممکن بین اشکال را بگیرد. برای رسیدن به این هدف، این متد ممکن است نقاط `StartShapeConnectionSiteIndex` و `EndShapeConnectionSiteIndex` را تغییر دهد. 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
+فراخوانی `Reroute` می‌تواند مقادیر [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/fa/net/aspose.slides/connector/startshapeconnectionsiteindex/) و [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/fa/net/aspose.slides/connector/endshapeconnectionsiteindex/) را تغییر دهد. پس از تغییر مسیر، در صورت نیاز به ثابت ماندن این سایت‌ها، آن‌ها را به‌صورت explícit تعیین کنید.
+{{% /alert %}}
 
-## **مشخص کردن نقطه اتصال**
+## **انتخاب مکان اتصال**
 
-اگر می‌خواهید یک اتصال‌گر دو شکل را با استفاده از نقاط خاصی در اشکال متصل کند، باید نقاط اتصال مورد نظر خود را به این شکل مشخص کنید:
+هر شکلی که قابلیت اتصال دارد، تعداد سایت‌های خود را از طریق [ConnectionSiteCount](https://reference.aspose.com/slides/fa/net/aspose.slides/shape/connectionsitecount/) گزارش می‌کند. قبل از اختصاص یک شاخص سایت صفر‌محور به انتهای اتصال‌دهنده، این مقدار را اعتبارسنجی کنید؛ تعداد سایت‌ها بسته به هندسهٔ شکل متفاوت است.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.
-1. دو [AutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/autoshape/) را به اسلاید اضافه کنید با استفاده از متد `AddAutoShape` که توسط شیء `Shapes` در دسترس است.
-1. یک اتصال‌گر را با استفاده از متد `AddConnector` که توسط شیء `Shapes` در دسترس است، با تعریف نوع اتصال‌گر اضافه کنید.
-1. اشکال را با استفاده از اتصال‌گر متصل کنید.
-1. نقاط اتصال مورد نظر خود را روی اشکال تنظیم کنید.
-1. ارائه را ذخیره کنید.
+این مثال اتصال‌دهنده را به یک سایت خاص در بیضی متصل می‌کند در صورتی که آن سایت موجود باشد:
 
-```c#
-// یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
-using (Presentation presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // مجموعه اشکال اسلاید خاصی را دسترسی می‌دهد
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // یک شکل اتصال‌گر را به مجموعه اشکال اسلاید اضافه می‌کند
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // یک شکل خودکار بیضی اضافه می‌کند
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // یک شکل خودکار مستطیل اضافه می‌کند
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // اشکال را با استفاده از اتصال‌گر متصل می‌کند
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // شاخص نقطه اتصال مطلوب را برای شکل بیضی تنظیم می‌کند
-    uint wantedIndex = 6;
-
-    // بررسی می‌کند که آیا شاخص مطلوب کمتر از حداکثر شمارش سایت است یا خیر
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // نقطه اتصال مطلوب را برای شکل خودکار بیضی تنظیم می‌کند
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // ارائه را ذخیره می‌کند
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
-## **تنظیم نقطه اتصال‌گر**
+## **تنظیم یک نقطهٔ اتصال‌دهنده**
 
-می‌توانید یک اتصال‌گر موجود را از طریق نقاط تنظیم آن تنظیم کنید. تنها اتصال‌گرهایی که نقاط تنظیم دارند می‌توانند به این روش تغییر پیدا کنند. جدول زیر را در بخش **[انواع اتصال‌گرها](/slides/fa/net/connector/#types-of-connectors)** ببینید.
+اتصال‌دهنده‌های دارای نقاط تنظیم، این نقاط را از طریق [IGeometryShape.Adjustments](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometryshape/adjustments/) در دسترس می‌گذارند. پیش از تغییر [RawValue](https://reference.aspose.com/slides/fa/net/aspose.slides/adjustvalue/rawvalue/) هر [IAdjustValue](https://reference.aspose.com/slides/fa/net/aspose.slides/iadjustvalue/)، نوع آن را از طریق ویژگی [Type](https://reference.aspose.com/slides/fa/net/aspose.slides/adjustvalue/type/) بررسی کنید. قوانین کلی شناسایی تنظیمات پیش‌فرض در بخش [Shape Manipulation](/slides/fa/net/shape-manipulations/) توضیح داده شده است.
 
-### **مورد ساده**
+تعداد، ترتیب، معنا و بازهٔ مقادیر معتبر تنظیمات اتصال‌دهنده به پیش‌فرض آن وابسته است. ویژگی `Type` فقط خواندنی است، در حالی که مقدار تنظیم قابل نوشتن است. ویژگی فقط خواندنی [Name](https://reference.aspose.com/slides/fa/net/aspose.slides/adjustvalue/name/) برای تشخیص بیشتر زمانی که یک اتصال‌دهنده بیش از یک تنظیم از نوع معنایی یکسان دارد، مفید است.
 
-یک مورد را در نظر بگیرید که در آن یک اتصال‌گر بین دو شکل (A و B) از یک شکل سوم (C) عبور می‌کند:
+### **مسیر دور یک مانع**
 
-![مشکل اتصال](connector-obstruction.png)
+در طرح زیر، یک اتصال‌دهندهٔ `BentConnector5` بین دو شکل از طریق یک شکل سوم عبور می‌کند:
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+![connector-obstruction](connector-obstruction.png)
+
+این کد اتصال‌دهندهٔ مسدود شده را می‌سازد:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-برای اجتناب یا دور زدن شکل سوم، می‌توانیم اتصال‌گر را با جابجایی خط عمودی آن به سمت چپ این‌گونه تنظیم کنیم:
+جابه‌جا کردن خم عمودی مسیر را تغییر می‌دهد تا اتصال‌دهنده از مانع دور بگیرد:
 
-![مشکل اتصال اصلاح شده](connector-obstruction-fixed.png)
+![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
-```
+به‌جای این‌که فرض کنید شاخص مجموعهٔ `1` همیشه نمایانگر خم عمودی است، این مثال به دنبال `ConnectorBendPositionY` می‌گردد و فقط در صورت وجود نوع معنایی مورد انتظار آن را تغییر می‌دهد:
 
-### **موارد پیچیده**
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-برای انجام تنظیمات پیچیده‌تر، باید این موارد را در نظر بگیرید:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-* نقطه قابل تنظیم یک اتصال‌گر به‌ شدت به فرمولی که موقعیت آن را محاسبه و تعیین می‌کند مرتبط است. بنابراین تغییر مکان نقطه ممکن است شکل اتصال‌گر را تغییر دهد.
-* نقاط تنظیم یک اتصال‌گر در یک آرایه به‌صورت ترتیب سخت‌گیرانه‌ای تعریف می‌شوند. نقاط تنظیم از نقطه شروع اتصال‌گر تا انتهای آن شماره‌گذاری می‌شوند.
-* مقادیر نقاط تنظیم درصد عرض/ارتفاع شکل اتصال‌گر را نشان می‌دهند.
-  * شکل توسط نقاط شروع و پایان اتصال‌گر ضرب در ۱۰۰۰ محدود می‌شود.
-  * نقطه اول، نقطه دوم و نقطه سوم به ترتیب درصد از عرض، درصد از ارتفاع و دوباره درصد از عرض را تعریف می‌کنند.
-* برای محاسباتی که مختصات نقاط تنظیم یک اتصال‌گر را تعیین می‌کنند، باید چرخش اتصال‌گر و انعکاس آن را در نظر بگیرید. **نکته** این است که زاویه چرخش تمام اتصال‌گرهای نشان‌داده‌شده در زیر **[انواع اتصال‌گرها](/slides/fa/net/connector/#types-of-connectors)** صفر است.
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
-#### **مورد 1**
-
-یک مورد را در نظر بگیرید که در آن دو شیء قاب متن از طریق یک اتصال‌گر به هم متصل هستند:
-
-![اتصال‌گر شکل پیچیده](connector-shape-complex.png)
-
-```c#
-// یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
-Presentation pres = new Presentation();
-// اسلاید اول ارائه را دریافت می‌کند
-ISlide sld = pres.Slides[0];
-// اشکالی که از طریق یک اتصال‌گر به هم وصل می‌شوند را اضافه می‌کند
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// یک اتصال‌گر اضافه می‌کند
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// جهت اتصال‌گر را مشخص می‌کند
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// رنگ اتصال‌گر را مشخص می‌کند
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
+```
+
+یک `BentConnector5` دو تنظیم `ConnectorBendPositionX` و یک تنظیم `ConnectorBendPositionY` دارد. اگر نوع مورد نیاز بیش از یک بار وجود داشته باشد، قبل از انتخاب یکی، ویژگی `Name` و هندسهٔ شناخته‌شدهٔ آن پیش‌فرض را بررسی کنید. اگر یک تنظیم مقدار `ShapeAdjustmentType.Custom` برگرداند، معنای آن و بازهٔ مقادیر را به‌عنوان تنظیمات خاص پیش‌فرض در نظر بگیرید و تا زمان آگاهی از قرارداد آن، آن را تغییر ندهید.
+
+## **رابطهٔ مقادیر تنظیم با هندسهٔ اتصال‌دهنده**
+
+برای اتصال‌دهنده‌های خمیده، مقادیر تنظیم می‌توانند برای تخمین موقعیت بخش‌های جداگانه استفاده شوند. این محاسبات به پیش‌فرض اتصال‌دهنده وابسته‌اند:
+
+- `BentConnector4` به‌طور معمول یک تنظیم `ConnectorBendPositionX` و یک تنظیم `ConnectorBendPositionY` را ارائه می‌دهد.
+- برای این موقعیت‌های خم، عبارت `RawValue / 100000f` کسر عرض یا ارتفاع چارچوب اتصال‌دهنده را که در مثال‌های زیر استفاده می‌شود، تولید می‌کند.
+- چارچوب اتصال‌دهنده ممکن است چرخش یا وارونگی داشته باشد، بنابراین مختصات چارچوب باید قبل از مقایسه با مختصات اسلاید تبدیل شوند.
+
+مثال‌های زیر ابتدا با استفاده از `Type` تنظیمات را شناسایی می‌کنند و به‌جای استفاده از شاخص‌های مجموعه به‌عنوان شناسه‌های قابل حمل رفتار می‌کنند.
+
+#### **اتصال‌دهنده بدون چرخش**
+
+طرح اولیه شامل دو شکل متنی است که توسط یک `BentConnector4` به هم متصل هستند:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+این مثال اتصال‌دهنده را بررسی کرده و تنظیمات خم افقی و عمودی آن را دریافت می‌کند:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// ضخامت خط اتصال‌گر را مشخص می‌کند
 connector.LineFormat.Width = 3;
-
-// اشکال را با استفاده از اتصال‌گر به هم متصل می‌کند
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// نقاط تنظیم اتصال‌گر را دریافت می‌کند
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**تنظیم**
+برای تغییر هر دو خم، هر نوع مورد انتظار را پیدا کنید و مقدارها را فقط پس از یافتن هر دو تغییر دهید:
 
-می‌توانیم مقادیر نقاط تنظیم اتصال‌گر را با افزایش درصد عرض و ارتفاع متناظر به ترتیب ۲۰٪ و ۲۰۰٪ تغییر دهیم:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// مقادیر نقاط تنظیم را تغییر می‌دهد
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-![اتصال‌گر تنظیم شده 1](connector-adjusted-1.png)
+نتیجه یک اتصال‌دهنده است که بخش‌های افقی و عمودی آن جابه‌جا شده‌اند:
 
-برای تعریف مدلی که به ما امکان تعیین مختصات و شکل اجزای فردی اتصال‌گر را بدهد، بیایید یک شکل ایجاد کنیم که به مؤلفه افقی اتصال‌گر در نقطه connector.Adjustments[0] مربوط باشد:
+![connector-adjusted-1](connector-adjusted-1.png)
 
-```c#
-// رسم مؤلفه عمودی اتصال‌گر
+پس از شناسایی انواع معنایی، مقادیر می‌توانند به مختصات چارچوب اتصال‌دهنده تبدیل شوند. این مثال یک مستطیل نازک بر روی بخش عمودی که توسط دو تنظیم خم کنترل می‌شود می‌کشد:
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-![اتصال‌گر تنظیم شده 2](connector-adjusted-2.png)
+شکل راهنما بخش محاسبه‌شده را نشان می‌دهد:
 
-#### **مورد 2**
+![connector-adjusted-2](connector-adjusted-2.png)
 
-در **مورد 1**، یک عملیات ساده تنظیم اتصال‌گر را با استفاده از اصول پایه نشان دادیم. در شرایط معمول، باید چرخش اتصال‌گر و نمایش آن (که توسط connector.Rotation، connector.Frame.FlipH و connector.Frame.FlipV تنظیم می‌شوند) را در نظر بگیرید. اکنون فرآیند را نشان می‌دهیم.
+#### **اتصال‌دهنده چرخیده یا وارونه**
 
-ابتدا، یک شیء قاب متن جدید (**To 1**) را به اسلاید اضافه کنیم (برای مقاصد اتصال) و یک اتصال‌گر (سبز) جدید ایجاد کنیم که آن را به اشیائی که قبلاً ساخته‌ایم متصل کند.
+زمانی که همان هندسهٔ اتصال‌دهنده به‌صورت عمودی جهت‌دار می‌شود، مقادیر [Frame](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/frame/)، [FlipH](https://reference.aspose.com/slides/fa/net/aspose.slides/shapeframe/fliph/)، و [FlipV](https://reference.aspose.com/slides/fa/net/aspose.slides/shapeframe/flipv/) بر تبدیل مختصات چارچوب به مختصات اسلاید تأثیر می‌گذارند.
 
-```c#
-// یک شیء بایندینگ جدید ایجاد می‌کند
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// یک اتصال‌گر جدید ایجاد می‌کند
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+این مثال اتصال‌دهندهٔ عمودی را می‌سازد و تنظیم می‌کند:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// اشیاء را با استفاده از اتصال‌گر تازه ایجاد شده متصل می‌کند
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// نقاط تنظیم اتصال‌گر را دریافت می‌کند
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// مقادیر نقاط تنظیم را تغییر می‌دهد 
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
-```
 
-![اتصال‌گر تنظیم شده 3](connector-adjusted-3.png)
-
-دوم، بیایید یک شکل ایجاد کنیم که به مؤلفه افقی اتصال‌گر که از نقطه تنظیم جدید connector.Adjustments[0] عبور می‌کند، مرتبط باشد. مقادیر داده‌های connector برای connector.Rotation، connector.Frame.FlipH و connector.Frame.FlipV را استفاده می‌کنیم و فرمول تبدیل مختصات مشهور برای چرخش حول یک نقطه x0 را اعمال می‌کنیم:
-
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
-
-در مورد ما، زاویه چرخش شیء ۹۰ درجه است و اتصال‌گر به صورت عمودی نمایش داده می‌شود، بنابراین این کد مربوطه است:
-
-```c#
-// مختصات اتصال‌گر را ذخیره می‌کند
-x = connector.X;
-y = connector.Y;
-// در صورت ظاهر شدن، مختصات اتصال‌گر را اصلاح می‌کند
-if (connector.Frame.FlipH == NullableBool.True)
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
-}
-if (connector.Frame.FlipV == NullableBool.True)
-{
-    y += connector.Height;
-}
-// مقدار نقطه تنظیم را به عنوان مختصات می‌گیرد
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  مختصات را تبدیل می‌کند چون Sin(90) = 1 و Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// عرض مؤلفه افقی را با استفاده از مقدار نقطه تنظیم دوم تعیین می‌کند
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
-
-```
-
-![اتصال‌گر تنظیم شده 4](connector-adjusted-4.png)
-
-ما محاسباتی شامل تنظیمات ساده و نقاط تنظیم پیچیده (نقاط تنظیم با زاویه چرخش) را نشان دادیم. با استفاده از این دانش، می‌توانید مدل خود را توسعه دهید (یا کدی بنویسید) تا یک شیء `GraphicsPath` دریافت کنید یا حتی مقادیر نقاط تنظیم اتصال‌گر را بر اساس مختصات خاص اسلاید تنظیم کنید.
-
-## **یافتن زاویه خطوط اتصال‌گر**
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.
-1. دسترسی به شکل خط اتصال‌گر.
-1. از عرض و ارتفاع خط، ارتفاع و عرض فریم شکل برای محاسبه زاویه استفاده کنید.
-
-این کد C# عملیاتی را نشان می‌دهد که در آن زاویه یک شکل خط اتصال‌گر را محاسبه کردیم:
-
-```c#
-public static void Run()
-{
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
     {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
 
-        Console.WriteLine(dir);
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+```
+
+اتصال‌دهندهٔ تنظیم‌شده به‌صورت عمودی بین شکل‌ها ظاهر می‌شود:
+
+![connector-adjusted-3](connector-adjusted-3.png)
+
+برای زاویهٔ چرخش دلخواه `alpha`، نقطهٔ چارچوب اتصال‌دهنده `(x, y)` را حول مرکز چارچوب `(x0, y0)` می‌چرخانیم:
+
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
+
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+کد زیر چرخش 90 درجه مورد استفاده در این مثال را مدیریت کرده و یک راهنمای قرمز بر روی بخش متناظر از اتصال‌دهنده می‌کشد:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
     }
 
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
+```
+
+راهنمای قرمز پس از تبدیل مختصات، بخش محاسبه‌شده را نشان می‌دهد:
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+این فرمول‌ها تنها پیش‌فرض‌های استفاده‌شده در مثال‌ها را توصیف می‌کنند، نه یک مدل عمومی برای تمام انواع اتصال‌دهنده. قبل از اعمال محاسبه مشابه به پیش‌فرض دیگر، انواع تنظیمات، جهت‌گیری چارچوب و بازهٔ مقادیر را اعتبارسنجی کنید.
+
+## **یافتن زاویهٔ جهت اتصال‌دهنده**
+
+جهت یک اتصال‌دهندهٔ مستقیم می‌تواند از عرض و ارتفاع آن محاسبه شود، به‌علاوه‌ی چرخش افقی و عمودی اعمال‌شده. مثال زیر زاویهٔ ساعتگرد را نسبت به محور افقی مثبت در مختصات اسلاید گزارش می‌کند:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    angle += 360;
 }
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
 ## **پرسش‌های متداول**
 
-**چگونه می‌توانم تشخیص دهم که یک اتصال‌گر می‌تواند به یک شکل خاص «چسبانده» شود؟**
+**چگونه می‌توانم بفهمم یک اتصال‌دهنده می‌تواند به شکل متصل شود؟**
 
-بررسی کنید که شکل [نقاط اتصال](https://reference.aspose.com/slides/fa/net/aspose.slides/shape/connectionsitecount/) را در دسترس قرار می‌دهد. اگر هیچ‌کدام وجود نداشته باشند یا شمارنده صفر باشد، چسباندن امکان‌پذیر نیست؛ در این صورت از نقاط انتهایی آزاد استفاده کنید و آنها را به‌صورت دستی موقعیت‌دهی کنید. منطقی است قبل از الصاق، شمار نقاط اتصال را بررسی کنید.
+تعداد `ConnectionSiteCount` شکل را بررسی کنید. مقدار مثبت یعنی شکل دارای سایت‌های اتصال است. قبل از اختصاص شاخص سایت به هر انتهای اتصال‌دهنده، آن را اعتبارسنجی کنید.
 
-**اگر یکی از اشکال متصل‌شده را حذف کنم، چه اتفاقی برای اتصال‌گر می‌افتد؟**
+**آیا می‌توانم یک تنظیم اتصال‌دهنده را با شاخص مجموعه شناسایی کنم؟**
 
-سرهای آن جدا می‌شوند؛ اتصال‌گر به عنوان یک خط عادی با شروع/پایان آزاد بر روی اسلاید باقی می‌ماند. می‌توانید آن را حذف کنید یا ارتباطات را دوباره اختصاص دهید و در صورت نیاز، [بازتنظیم](https://reference.aspose.com/slides/fa/net/aspose.slides/connector/reroute/) کنید.
+یک شاخص تنها برای پیش‌فرض شناخته‌شدهٔ اتصال‌دهنده و چیدمان مجموعه معنا دارد. قبل از تغییر مقدار، `IAdjustValue.Type` را بررسی کنید و در صورتی که همان نوع معنایی چندبار ظاهر شود، از `IAdjustValue.Name` برای اطلاعات اضافی استفاده کنید.
 
-**آیا اتصال‌گرها هنگام کپی یک اسلاید به ارائه دیگری حفظ می‌شوند؟**
+**وقتی شکلی که به آن متصل است حذف شود چه اتفاقی می‌افتد؟**
 
-عموماً بله، به‌شرطی که اشکال هدف نیز کپی شوند. اگر اسلاید بدون اشکال متصل‌شده به فایل دیگری اضافه شود، سرها آزاد می‌شوند و باید دوباره متصل شوند.
+پایان مربوط به اتصال‌دهنده جدا می‌شود. اتصال‌دهنده در اسلاید باقی می‌ماند و می‌تواند حذف شود، به‌عنوان خط آزاد قرار گیرد یا به شکل دیگری متصل شود.
+
+**آیا پیوندهای اتصال‌دهنده هنگام کپی کردن اسلاید حفظ می‌شوند؟**
+
+معمولاً پیوندها هنگام کپی کردن شکل‌های متصل همراه با اسلاید حفظ می‌شوند. اگر یک اتصال‌دهنده بدون یکی از شکل‌های هدفش کپی شود، باید انتهای تحت‌تأثیر دوباره متصل گردد.

@@ -1,5 +1,5 @@
 ---
-title: Gestire i connettori nelle presentazioni con Java
+title: Gestire i connettori nelle presentazioni in Java
 linktitle: Connettore
 type: docs
 weight: 10
@@ -10,29 +10,27 @@ keywords:
 - punto del connettore
 - linea del connettore
 - angolo del connettore
+- punto di connessione
+- punto di regolazione
 - collegare forme
 - PowerPoint
 - presentazione
 - Java
 - Aspose.Slides
-description: "Consenti alle app Java di disegnare, collegare e auto‑instradare linee nelle diapositive PowerPoint—ottieni il controllo completo su connettori lineari, a gomito e curvi."
+description: "Impara come aggiungere, collegare, ricalcolare, regolare e ispezionare connettori lineari, piegati e curvi di PowerPoint con Aspose.Slides per Java."
 ---
-## **Introduzione**
+## **Panoramica**
 
-Un connettore PowerPoint è una linea speciale che collega o unisce due forme e rimane attaccato alle forme anche quando queste vengono spostate o riposizionate su una determinata diapositiva.  
+Un connettore è una linea che può rimanere collegata a due forme quando una delle due forme si muove. Le sue estremità si collegano a punti di connessione, rappresentati da punti verdi in PowerPoint. Alcuni connettori piegati e curvi espongono anche punti di regolazione, rappresentati da punti arancioni, che controllano la posizione dei singoli segmenti del connettore.
 
-I connettori sono tipicamente collegati a *punti di connessione* (punti verdi), che esistono su tutte le forme per impostazione predefinita. I punti di connessione appaiono quando il cursore si avvicina.  
+Aspose.Slides rappresenta i connettori tramite l'interfaccia [IConnector](https://reference.aspose.com/slides/it/java/com.aspose.slides/iconnector/). È possibile crearli, collegare le loro estremità alle forme, scegliere i punti di connessione, ricalcolarli e modificare la geometria dei connettori che hanno punti di regolazione.
 
-*Punti di regolazione* (punti arancioni), che esistono solo su alcuni connettori, sono usati per modificare le posizioni e le forme dei connettori.
+## **Tipi di connettore**
 
-## **Tipi di connettori**
+La classe [ShapeType](https://reference.aspose.com/slides/it/java/com.aspose.slides/shapetype/) include preset di connettori lineari, piegati e curvi. La tabella seguente mostra le geometrie di connettore disponibili e il numero di punti di regolazione definiti da ciascun preset.
 
-In PowerPoint, è possibile utilizzare connettori lineari, a gomito (angolati) e curvi.  
-
-Aspose.Slides fornisce questi connettori:
-
-| Connettore | Image | Numero di punti di regolazione |
-| ---------- | ----- | ------------------------------- |
+| Connettore | Immagine | Numero di punti di regolazione |
+|---|---|---|
 | `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -44,360 +42,458 @@ Aspose.Slides fornisce questi connettori:
 | `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Collegare forme usando i connettori**
+Il numero e il significato dei punti di regolazione fanno parte del preset di connettore selezionato. Non presumere che due tipi di connettore diversi espongano la stessa disposizione della raccolta.
 
-1. Crea un'istanza della classe [Presentation](https://apireference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-1. Ottieni il riferimento a una diapositiva tramite il suo indice.
-1. Aggiungi due [AutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/AutoShape) alla diapositiva usando il metodo `addAutoShape` esposto dall'oggetto `Shapes`.
-1. Aggiungi un connettore usando il metodo `addConnector` esposto dall'oggetto `Shapes` definendo il tipo di connettore.
-1. Collega le forme usando il connettore.
-1. Chiama il metodo `reroute` per applicare il percorso di connessione più breve.
-1. Salva la presentazione.  
+## **Collega due forme**
 
-Questo codice Java mostra come aggiungere un connettore (un connettore piegato) tra due forme (un'ellisse e un rettangolo):
+Usa [IShapeCollection.addConnector](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) per aggiungere un connettore, e usa [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/it/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) e [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/it/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) per collegare le sue estremità. Dopo che entrambe le estremità sono collegate, [IConnector.reroute](https://reference.aspose.com/slides/it/java/com.aspose.slides/iconnector/#reroute--) seleziona un percorso breve tra le forme.
 
-```Java
-// Istanzia una classe di presentazione che rappresenta il file PPTX
-Presentation pres = new Presentation();
+Il seguente esempio collega un'ellisse e un rettangolo con un connettore piegato:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Accede alla raccolta di forme per una diapositiva specifica
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // Aggiunge una forma automatica Ellisse
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // Aggiunge una forma automatica Rettangolo
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // Aggiunge una forma connettore alla raccolta di forme della diapositiva
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // Collega le forme usando il connettore
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    
-    // Chiama reroute che imposta il percorso più breve automatico tra le forme
     connector.reroute();
-    
-    // Salva la presentazione
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Il metodo `Connector.reroute` riorienta un connettore e lo costringe a percorrere il percorso più breve possibile tra le forme. Per raggiungere questo scopo, il metodo può modificare i punti `setStartShapeConnectionSiteIndex` e `setEndShapeConnectionSiteIndex`. 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
+Invocare `reroute` può modificare i valori di [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/it/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) e [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/it/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-). Assegna siti di connessione specifici dopo il ricalcolo se tali siti devono rimanere fissi.
+{{% /alert %}}
 
-## **Specificare un punto di connessione**
+## **Scegliere un punto di connessione**
 
-Se desideri che un connettore colleghi due forme usando punti specifici sulle forme, devi specificare i punti di connessione preferiti in questo modo:
+Ogni forma collegabile restituisce il suo numero di siti tramite [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getConnectionSiteCount--). Convalida un indice di sito preferito basato su zero prima di assegnarlo a un'estremità del connettore; il conteggio dei siti varia in base alla geometria della forma.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-1. Ottieni il riferimento a una diapositiva tramite il suo indice.
-1. Aggiungi due [AutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/AutoShape) alla diapositiva usando il metodo `addAutoShape` esposto dall'oggetto `Shapes`.
-1. Aggiungi un connettore usando il metodo `addConnector` esposto dall'oggetto `Shapes` definendo il tipo di connettore.
-1. Collega le forme usando il connettore.
-1. Imposta i punti di connessione preferiti sulle forme.
-1. Salva la presentazione.  
-
-Questo codice Java dimostra un'operazione in cui viene specificato un punto di connessione preferito:
+Questo esempio collega il connettore a un sito particolare sull'ellisse quando quel sito esiste:
 
 ```java
-// Istanzia una classe di presentazione che rappresenta un file PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Accede alla raccolta di forme per una diapositiva specifica
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Aggiunge una forma automatica Ellisse
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
 
-    // Aggiunge una forma automatica Rettangolo
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // Aggiunge una forma connettore alla raccolta di forme della diapositiva
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Collega le forme usando il connettore
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // Imposta l'indice del punto di connessione preferito sulla forma Ellisse
-    int wantedIndex = 6;
-
-    // Verifica se l'indice preferito è minore del conteggio massimo dei punti di connessione
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // Imposta il punto di connessione preferito sulla forma automatica Ellisse
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
     }
 
-    // Salva la presentazione
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Regolare un punto del connettore**
 
-Puoi regolare un connettore esistente tramite i suoi punti di regolazione. Solo i connettori con punti di regolazione possono essere modificati in questo modo. Vedi la tabella sotto **[Types of connectors.](/slides/it/java/connector/#types-of-connectors)** 
+I connettori con punti di regolazione li espongono tramite [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/it/java/com.aspose.slides/igeometryshape/#getAdjustments--). Ispeziona ogni [IAdjustValue](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/) e controlla il valore del suo [getType](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/#getType--) prima di modificarlo con [setRawValue](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/#setRawValue-long-). Le regole generali per identificare le regolazioni di forma preset sono descritte in [Shape Manipulation](/slides/it/java/shape-manipulations/).
 
-### **Caso semplice**
+Il numero, l'ordine, il significato e l'intervallo di valori validi delle regolazioni del connettore dipendono dal preset del connettore. Il tipo di regolazione è di sola lettura, mentre il valore è modificabile. Il metodo di sola lettura [getName](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/#getName--) fornisce un'ulteriore identificazione quando un connettore contiene più di una regolazione dello stesso tipo semantico.
 
-Considera un caso in cui un connettore tra due forme (A e B) passa attraverso una terza forma (C):
+### **Percorso intorno a un ostacolo**
+
+Nel layout seguente, un connettore `BentConnector5` tra due forme attraversa una terza forma:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Questo codice crea il connettore ostruito:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Per evitare o aggirare la terza forma, possiamo regolare il connettore spostando la sua linea verticale verso sinistra in questo modo:
+Spostare la piega verticale cambia il percorso in modo che il connettore aggiri l'ostacolo:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+Invece di presumere che l'indice della raccolta `1` rappresenti sempre la piega verticale, questo esempio ricerca `ConnectorBendPositionY` e la modifica solo quando il tipo semantico previsto è presente:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Casi complessi** 
+Un `BentConnector5` ha due regolazioni `ConnectorBendPositionX` e una `ConnectorBendPositionY`. Se il tipo necessario compare più volte, ispeziona `getName` e la geometria nota di quel preset prima di selezionarne una. Se una regolazione restituisce `ShapeAdjustmentType.Custom`, considerala specifica del preset e non modificarla finché non ne conosci il contratto.
 
-Per eseguire regolazioni più complesse, devi tenere in considerazione i seguenti aspetti:
+## **Relazionare i valori di regolazione alla geometria del connettore**
 
-* Il punto regolabile di un connettore è strettamente legato a una formula che calcola e determina la sua posizione. Pertanto, le modifiche alla posizione del punto possono alterare la forma del connettore.
-* I punti di regolazione di un connettore sono definiti in un ordine rigoroso in un array. I punti sono numerati dal punto di partenza del connettore fino al suo punto finale.
-* I valori dei punti di regolazione riflettono la percentuale della larghezza/altezza della forma del connettore.
-  * La forma è delimitata dai punti di inizio e fine del connettore moltiplicati per 1000.
-  * Il primo punto, il secondo punto e il terzo punto definiscono rispettivamente la percentuale rispetto alla larghezza, la percentuale rispetto all'altezza e nuovamente la percentuale rispetto alla larghezza.
-* Per i calcoli che determinano le coordinate dei punti di regolazione di un connettore, devi considerare la rotazione del connettore e il suo riflesso. **Nota** che l'angolo di rotazione per tutti i connettori mostrati sotto **[Types of connectors](/slides/it/java/connector/#types-of-connectors)** è 0.
+Per i connettori piegati, i valori di regolazione possono essere usati per stimare le posizioni dei singoli segmenti. Questi calcoli sono specifici per il preset del connettore:
 
-#### **Caso 1**
+- `BentConnector4` normalmente espone una regolazione `ConnectorBendPositionX` e una `ConnectorBendPositionY`.
+- Per queste posizioni di piega, dividere il valore restituito da `getRawValue` per `100000f` produce la frazione della larghezza o altezza del frame del connettore usata negli esempi sotto.
+- Un frame del connettore può essere ruotato o capovolto, quindi le coordinate del frame devono essere trasformate prima di confrontarle con le coordinate della diapositiva.
 
-Considera un caso in cui due oggetti di riquadro di testo sono collegati insieme tramite un connettore:
+Gli esempi seguenti usano `getType` per identificare prima le regolazioni. Non trattano gli indici della raccolta come identificatori portabili.
+
+### **Connettore non ruotato**
+
+Il layout iniziale contiene due forme di testo collegate da un `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Questo esempio ispeziona il connettore e ottiene le regolazioni di piega orizzontale e verticale:
+
 ```java
-// Istanzia una classe di presentazione che rappresenta un file PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Ottiene la prima diapositiva nella presentazione
-    ISlide sld = pres.getSlides().get_Item(0);
-    // Aggiunge forme che saranno unite tramite un connettore
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Aggiunge un connettore
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Specifica la direzione del connettore
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Specifica il colore del connettore
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Specifica lo spessore della linea del connettore
     connector.getLineFormat().setWidth(3);
-    
-    // Collega le forme insieme con il connettore
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // Ottiene i punti di regolazione per il connettore
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**Regolazione**
-
-Possiamo modificare i valori dei punti di regolazione del connettore aumentando rispettivamente la percentuale di larghezza e di altezza del 20% e del 200%:
+Per modificare entrambe le pieghe, individua ogni tipo previsto e cambia i valori solo dopo aver trovato entrambi:
 
 ```java
-// Modifica i valori dei punti di regolazione
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Il risultato:
+Il risultato è un connettore i cui segmenti orizzontali e verticali sono stati spostati:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Per definire un modello che ci permetta di determinare le coordinate e la forma delle singole parti del connettore, creiamo una forma che corrisponda alla componente orizzontale del connettore al punto `connector.getAdjustments().get_Item(0)`:
+Una volta noti i tipi semantici, i loro valori possono essere convertiti in coordinate del frame del connettore. Questo esempio disegna un rettangolo sottile sul segmento verticale controllato dalle due regolazioni di piega:
 
 ```java
-// Disegna la componente verticale del connettore
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-Il risultato:
+La forma di guida segna il segmento calcolato:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Caso 2**
+### **Connettore ruotato o capovolto**
 
-Nel **Caso 1**, abbiamo dimostrato un'operazione di regolazione semplice del connettore usando principi di base. In situazioni normali, devi considerare la rotazione del connettore e la sua visualizzazione (impostate da `connector.getRotation()`, `connector.getFrame().getFlipH()` e `connector.getFrame().getFlipV()`). Ora dimostreremo il processo.
+Quando la stessa geometria del connettore è orientata verticalmente, i valori di [IShape.getFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getFrame--), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/it/java/com.aspose.slides/shapeframe/#getFlipH--), e [ShapeFrame.getFlipV](https://reference.aspose.com/slides/it/java/com.aspose.slides/shapeframe/#getFlipV--) influenzano la conversione dalle coordinate del frame del connettore a quelle della diapositiva.
 
-Per prima cosa, aggiungiamo un nuovo oggetto di riquadro di testo (**To 1**) alla diapositiva (per scopi di collegamento) e creiamo un nuovo connettore (verde) che lo collega agli oggetti che abbiamo già creato.
+Questo esempio crea e regola il connettore orientato verticalmente:
 
 ```java
-// Crea un nuovo oggetto di binding
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Crea un nuovo connettore
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// Collega gli oggetti usando il connettore appena creato
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Ottiene i punti di regolazione del connettore
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Modifica i valori dei punti di regolazione
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Il risultato:
+Il connettore regolato appare verticalmente tra le forme:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Secondo, creiamo una forma che corrisponda alla componente orizzontale del connettore che passa attraverso il nuovo punto di regolazione del connettore `connector.getAdjustments().get_Item(0)`. Useremo i valori dei dati del connettore per `connector.getRotation()`, `connector.getFrame().getFlipH()` e `connector.getFrame().getFlipV()` e applicheremo la nota formula di conversione delle coordinate per rotazione attorno a un punto dato x0:
+Per un angolo di rotazione arbitrario `alpha`, ruota un punto del frame del connettore `(x, y)` attorno al centro del frame `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Nella nostra situazione, l'angolo di rotazione dell'oggetto è 90 gradi e il connettore è visualizzato verticalmente, quindi ecco il codice corrispondente:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+Il codice seguente gestisce l'orientamento a 90 gradi usato in questo esempio e disegna una guida rossa sul segmento corrispondente del connettore:
 
 ```java
-// Salva le coordinate del connettore
-x = connector.getX();
-y = connector.getY();
-// Corregge le coordinate del connettore nel caso appaia
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// Prende il valore del punto di regolazione come coordinata
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  Converte le coordinate poiché Sin(90) = 1 e Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// Determina la larghezza della componente orizzontale usando il valore del secondo punto di regolazione
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-Il risultato:
+La guida rossa segna il segmento calcolato dopo la trasformazione delle coordinate:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Abbiamo dimostrato calcoli che coinvolgono regolazioni semplici e punti di regolazione complessi (punti di regolazione con angoli di rotazione). Utilizzando le conoscenze acquisite, puoi sviluppare il tuo modello (o scrivere del codice) per ottenere un oggetto `GraphicsPath` o anche impostare i valori dei punti di regolazione di un connettore in base a coordinate specifiche della diapositiva.
+Queste formule descrivono i preset usati negli esempi, non un modello universale di connettore. Convalida i tipi di regolazione, l'orientamento del frame e gli intervalli di valori prima di applicare lo stesso calcolo a un preset diverso.
 
-## **Trovare l'angolo delle linee di connettore**
+## **Trovare l'angolo di direzione di un connettore**
 
-1. Crea un'istanza della classe.
-1. Ottieni il riferimento a una diapositiva tramite il suo indice.
-1. Accedi alla forma della linea del connettore.
-1. Usa la larghezza e l'altezza della linea, l'altezza del frame della forma e la larghezza del frame della forma per calcolare l'angolo.  
-
-Questo codice Java dimostra un'operazione in cui abbiamo calcolato l'angolo per una forma di linea di connettore:
+La direzione di un connettore lineare può essere calcolata dalla sua larghezza e altezza, applicando eventuali ribaltamenti orizzontali e verticali. Il seguente esempio restituisce l'angolo in senso orario rispetto all'asse orizzontale positivo nelle coordinate della diapositiva:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Come posso capire se un connettore può essere "incollato" a una forma specifica?**
+**Come posso capire se un connettore può essere collegato a una forma?**  
+Controlla il valore di [getConnectionSiteCount](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/#getConnectionSiteCount--) della forma. Un conteggio positivo indica che la forma espone punti di connessione. Convalida l'indice del sito selezionato prima di assegnarlo a una delle estremità del connettore.
 
-Verifica che la forma esponga [punti di connessione](https://reference.aspose.com/slides/it/java/com.aspose.slides/shape/#getConnectionSiteCount--). Se non ce ne sono o il conteggio è zero, l'incollaggio non è disponibile; in tal caso, usa estremità libere e posizionale manualmente. È consigliabile controllare il numero di punti prima di attaccare.
+**Posso identificare una regolazione del connettore tramite il suo indice di raccolta?**  
+Un indice è significativo solo per un preset di connettore noto e per la disposizione della raccolta. Controlla [IAdjustValue.getType](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/#getType--) prima di modificare un valore, e usa [IAdjustValue.getName](https://reference.aspose.com/slides/it/java/com.aspose.slides/iadjustvalue/#getName--) come informazione aggiuntiva quando lo stesso tipo semantico compare più volte.
 
-**Cosa succede a un connettore se elimino una delle forme collegate?**
+** Cosa succede quando una forma collegata viene eliminata?**  
+L'estremità del connettore corrispondente si stacca. Il connettore rimane sulla diapositiva e può essere eliminato, posizionato come linea libera o collegato a un'altra forma.
 
-I suoi estremi si staccheranno; il connettore rimane nella diapositiva come una linea ordinaria con inizio/fine liberi. Puoi cancellarlo oppure riassegnare le connessioni e, se necessario, [reroute](https://reference.aspose.com/slides/it/java/com.aspose.slides/connector/#reroute--).
-
-**I collegamenti dei connettori vengono conservati quando si copia una diapositiva in un'altra presentazione?**
-
-Generalmente sì, a condizione che le forme target vengano copiate anch'esse. Se la diapositiva viene inserita in un altro file senza le forme collegate, le estremità diventano libere e dovrai ricollegarle.
+**I collegamenti del connettore vengono preservati quando una diapositiva viene copiata?**  
+I collegamenti vengono generalmente preservati quando le forme collegate vengono copiate insieme alla diapositiva. Se un connettore viene copiato senza una delle sue forme target, l'estremità interessata deve essere ricollegata.

@@ -1,48 +1,51 @@
 ---
 title: مدیریت اشکال ارائه در جاوا
-linktitle: دست‌کاری اشکال
+linktitle: دستکاری اشکال
 type: docs
 weight: 40
 url: /fa/java/shape-manipulations/
 keywords:
 - شکل پاورپوینت
 - شکل ارائه
-- شکل روی اسلاید
-- پیدا کردن شکل
-- کلون کردن شکل
+- شکل در اسلاید
+- یافتن شکل
+- تکثیر شکل
 - حذف شکل
-- مخفی کردن شکل
+- مخفی‌کردن شکل
 - تغییر ترتیب شکل
-- دریافت شناسه شکل Interop
+- دریافت شناسهٔ شکل interop
 - متن جایگزین شکل
-- فرمت‌های چینش شکل
-- شکل به صورت SVG
+- نقطه تنظیم شکل
+- تنظیم پیش‌تنظیم‌شدهٔ شکل
+- هندسهٔ شکل
+- قالب‌بندی‌های طرح‌بندی شکل
+- شکل به‌صورت SVG
 - شکل به SVG
-- تراز کردن شکل
-- وارون کردن شکل
+- ترازبندی شکل
+- فلیپ شکل
 - پاورپوینت
 - ارائه
 - جاوا
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال ارائه را با Aspose.Slides برای جاوا شناسایی، کلون کنید، حذف کنید، مخفی کنید، دوباره ترتیب دهید، صادر کنید، تراز کنید و وارون کنید."
+description: "یاد بگیرید چگونه اشکال ارائه را شناسایی، تنظیم، تکثیر، حذف، مخفی‌کردن، بازنویسی، صادر کردن، ترازبندی و فلیپ کنید با Aspose.Slides برای جاوا."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-Aspose.Slides for Java اشکال موجود در یک اسلاید را به‌عنوان یک **[IShapeCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/)** مرتب‌شده نمایش می‌دهد. این مجموعه هم مکان یافتن و اصلاح اشکال است و هم منبع ترتیب انباشته‌شدن آن‌ها: اندیس `0` کم‌رنگ‌ترین شکل است، در حالی که آخرین اندیس، بالاترین شکل است.
+Aspose.Slides for Java اشکال موجود در یک اسلاید را به‌صورت یک ‎[IShapeCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/)‎ مرتب‌شده نشان می‌دهد. این مجموعه هم محلی است که می‌توانید اشکال را پیدا و اصلاح کنید و هم منبع ترتیب لایه‌بندی آن‌ها: شاخص ‎`0`‎ عقب‌ترین شکل است و آخرین شاخص جلوی‌ترین شکل است.
 
-این مقاله همین مدل را دنبال می‌کند. ابتدا توضیح می‌دهد چگونه یک شکل را به‌طور قابل‌اعتماد شناسایی کنید، سپس نشان می‌دهد چگونه اشکال را کلون، حذف، مخفی و دوباره ترتیب‌دهی کنید. بخش‌های نهایی قالب‌بندی سطح‑چیدمان، خروجی SVG، تراز و تنظیمات وارونگی را پوشش می‌دهند. هر مثال مستقل است، بنابراین می‌توانید فقط عملیاتی را که جریان کاری‌تان نیاز دارد استفاده کنید.
+این مقاله بر همین مدل بنا شده است. ابتدا نحوه شناسایی قابل‌اعتماد یک شکل و اصلاح نقاط تنظیم پیش‌تنظیم‌شدهٔ شکل را توضیح می‌دهد، سپس نحوهٔ تکثیر، حذف، مخفی‌کردن و تغییر ترتیب اشکال را نشان می‌دهد. بخش‌های نهایی به قالب‌بندی سطح طرح‌بندی، خروجی SVG، ترازبندی و تنظیمات فلیپ می‌پردازند. هر مثال مستقل است، بدین‌وسیله می‌توانید فقط عملیات‌های مورد نیاز جریان کار خود را استفاده کنید.
 
 ## **شناسایی و یافتن اشکال**
 
-اندیس‌های مجموعه برای پردازش فایلی که شناخته شده است، راحت‌اند، اما شناسه‌های پایداری نیستند. اضافه، حذف یا تغییر ترتیب یک شکل می‌تواند اندیس آن را تغییر دهد. یک شناسه را بر‑اساس نحوه‌ِ تولید و نگهداری ارائه انتخاب کنید:
+شاخص‌های مجموعه هنگام پردازش یک فایل شناخته‌شده مناسب هستند، اما شناسهٔ پایداری نیستند. افزودن، حذف یا تغییر ترتیب یک شکل می‌تواند شاخص آن را تغییر دهد. یک شناسه را بر اساس نحوهٔ نوشتن و نگهداری ارائه انتخاب کنید:
 
-- **[Name](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getName--)** برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در پنل انتخاب پاورپوینت به‌راحتی قابل‌مشاهده است. نام‌ها قابل ویرایش‌اند اما تضمینی برای یکتا بودن ندارند، بنابراین اگر کد به آن‌ها وابسته است یک قرارداد نام‌گذاری برقرار کنید.
-- **[AlternativeText](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getAlternativeText--)** وقتی توضیح دسترسی یا برچسبی که توسط نویسنده ارائه شده است، شکل را شناسایی می‌کند، مفید است. این متن برای کاربران قابل‌مشاهده است، می‌تواند محلی‌سازی یا برای دسترسی بازنویسی شود و تضمینی برای یکتا بودن ندارد. متن‌های دسترسی معنادار را به‌صورت ساکن برای کلید پایگاه‌داده استفاده نکنید.
-- **[OfficeInteropShapeId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--)** یک شناسه فقط‑خواندنی است که درون یک اسلاید یکتا است و با شناسهٔ شکلی که پاورپوینت استفاده می‌کند مطابقت دارد. هنگام یکپارچه‌سازی با پاورپوینت یا زمانی که به یک مرجع بی‌ابهام در طول عمر یک شکل نیاز دارید از آن استفاده کنید. یک شکل کلون‌شده یا بازساخته، شکل دیگری است و شناسهٔ مخصوص به خود را دریافت می‌کند.
+- ‎[Name](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getName--)‎ برای قالب‌های کنترل‌شده توسط توسعه‌دهنده مفید است و در پنل انتخاب PowerPoint به‌راحتی قابل بررسی است. نام‌ها قابل ویرایش‌اند ولی تضمین نمی‌شود که یکتا باشند، بنابراین اگر کد به آن‌ها وابسته است یک قرارداد نامگذاری برقرار کنید.
+- ‎[AlternativeText](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getAlternativeText--)‎ زمانی مفید است که توصیف دسترس‌پذیری یا برچسبی که نویسنده اضافه کرده است، پیش از این شکل را شناسایی می‌کند. این متن برای کاربران قابل مشاهده است، ممکن است بومی‌سازی یا برای دسترس‌پذیری بازنویسی شود و نیز یکتا نیست. متن دسترس‌پذیری معنادار را به‌عنوان کلید پایگاه‌داده به‌صورت مخفی استفاده نکنید.
+- ‎[OfficeInteropShapeId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--)‎ یک شناسهٔ فقط‑خواندنی است که درون یک اسلاید یکتا بوده و با شناسهٔ شکلی که PowerPoint استفاده می‌کند مطابقت دارد. هنگام ادغام با PowerPoint یا زمانی که به یک مرجع واضح در طول حیات یک شکل نیاز دارید از آن استفاده کنید. یک شکل تکثیرشده یا بازساخته یک شکل متفاوت است و شناسهٔ خودش را دریافت می‌کند.
 
-متد مرتبط **[getUniqueId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getUniqueId--)** یک شناسه با دامنهٔ ارائه برمی‌گرداند، اما این شناسه برای افزونه‌ها در نظر گرفته شده و می‌تواند دوباره اختصاص یابد. نباید به‌عنوان کلید خارجی دائم رفتار شود. اگر هویت طولانی‌مدت ضروری است، نگاشت را در داده‌های برنامه نگه داشته و اطمینان حاصل کنید که شکل مورد انتظار هنوز وجود دارد.
+متد مرتبط ‎[getUniqueId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getUniqueId--)‎ یک شناسه با دامنهٔ ارائه برمی‌گرداند، ولی این شناسه برای افزونه‌ها است و می‌تواند بازتخصیص یابد. نباید آن را به‌عنوان کلید خارجی دائم در نظر گرفت. اگر هویت طولانی‌مدت ضروری است، نگاشت را در داده‌های برنامه نگه داشته و صحت وجود شکل مورد انتظار را تأیید کنید.
 
-مثال زیر با مقایسهٔ دقیق بر اساس نام جستجو می‌کند و شناسهٔ interop scoped به اسلاید را گزارش می‌دهد. وقتی قالب شکل مورد انتظار را نداشته باشد، کد همان نتیجه را گزارش می‌کند به‌جای ادامه دادن با شیء اشتباه.
+مثال زیر با مقایسهٔ دقیق بر پایهٔ نام جستجو می‌کند و شناسهٔ interop scoped به اسلاید را گزارش می‌دهد. وقتی قالب شامل شکل مورد انتظار نباشد، کد همان نتیجه را گزارش می‌کند به‌جای ادامهٔ کار با شیء نادرست.
 
 ```java
 import com.aspose.slides.*;
@@ -69,7 +72,7 @@ try {
 }
 ```
 
-هنگامی که عملیاتی به‌نوع خاصی از شکل مربوط است، قبل از استفاده از اعضای نوع‑خاص، اینترفیس را بررسی کنید. این مثال فقط در صورتی که شیء نام‌دار یک **[IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/)** باشد، متن و متن جایگزین را به‌روزرسانی می‌کند.
+هنگامی که عملیاتی مخصوص به نوعی از شکل است، قبل از استفاده از اعضای خاص نوع، اینترفیس را بررسی کنید. این مثال متن و متن جایگزین را تنها در صورتی به‌روزرسانی می‌کند که شیء نام‌دار یک ‎[IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/)‎ باشد.
 
 ```java
 import com.aspose.slides.*;
@@ -99,15 +102,108 @@ try {
 }
 ```
 
+## **شناسایی و اصلاح تنظیمات پیش‌تنظیم‌شدهٔ شکل**
+
+اشکال هندسی پیش‌تنظیم‌شده می‌توانند نقاط تنظیمی را در اختیار بگذارند که ویژگی‌هایی مانند اندازهٔ گوشه، نسبت تیر یا زاویهٔ قوس را کنترل می‌کند. از طریق مجموعهٔ فقط‑خواندنی ‎[IGeometryShape.getAdjustments](https://reference.aspose.com/slides/fa/java/com.aspose.slides/igeometryshape/#getAdjustments--)‎ به آن دسترسی پیدا کنید. خود مجموعه توسط شکل فراهم می‌شود، ولی هر ‎[IAdjustValue](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iadjustvalue/)‎ شامل یک مقدار است که می‌توان آن را تغییر داد.
+
+فقط به یک شاخص ثابت مجموعه تکیه نکنید. از طریق تنظیمات پیمایش کنید و متد فقط‑خواندنی ‎[getType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iadjustvalue/#getType--)‎ را بررسی کنید؛ مقدار ‎[ShapeAdjustmentType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shapeadjustmenttype/)‎ توضیح می‌دهد تنظیم چه چیزی را کنترل می‌کند. متد فقط‑خواندنی ‎[getName](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iadjustvalue/#getName--)‎ اطلاعات شناسایی اضافی می‌دهد و به‌ویژه وقتی یک پیش‌تنظیم بیش از یک تنظیم با همان نوع معنایی داشته باشد مفید است.
+
+از متدی استفاده کنید که معنای تنظیم را منعکس می‌کند:
+
+| نوع تنظیم | هدف | مقدار برای تغییر |
+|---|---|---|
+| `CornerSize` | اندازهٔ گوشه‌های گرد | [setRawValue](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iadjustvalue/#setRawValue-long-) |
+| `ArrowTailThickness` | ضخامت دم تیر | `setRawValue` |
+| `ArrowheadLength` | طول سر تیر | `setRawValue` |
+| `ArrowheadWidth` | عرض سر تیر | `setRawValue` |
+| `StartAngle` | زاویهٔ شروع کیک یا قوس | [setAngleValue](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iadjustvalue/#setAngleValue-float-) |
+| `EndAngle` | زاویهٔ انتها کیک یا قوس | `setAngleValue` |
+
+`getType` و `getName` اطلاعات فقط‑خواندنی بازمی‌گردانند. `getRawValue` و `setRawValue` با یک عدد صحیح در واحدهای هندسی بومی پیش‌تنظیم کار می‌کنند، در حالی که `getAngleValue` و `setAngleValue` با زاویهٔ درجه‌ای کار می‌کنند. تعداد، ترتیب، معنا و بازهٔ معتبر تنظیمات به ‎[ShapeType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/igeometryshape/#getShapeType--)‎ پیش‌تنظیم وابسته است. مقداری که برای یک پیش‌تنظیم معتبر است ممکن است برای پیش‌تنظیم دیگری نامعتبر یا اثر متفاوتی داشته باشد.
+
+زمانی که `getType` مقدار ‎`ShapeAdjustmentType.Custom`‎ را برمی‌گرداند، API معنای استانداردی برای آن تشخیص نمی‌دهد. `getName`، نوع پیش‌تنظیم و مقدار موجود را بررسی کنید و تنظیم را دست‌نخورده بگذارید مگر این‌که معنای مورد انتظار و بازهٔ آن شناخته شود. حتی برای انواع شناخته‌شده هم قبل از انتخاب مقدار، بررسی کنید آیا همان نوع بیش از یک بار ظاهر می‌شود یا نه. مقاله ‎[Connector](/slides/fa/java/connector/)‎ این وضعیت را با تنظیمات خم‌کردن کانکتور نشان می‌دهد.
+
+مثال کامل زیر نسخه‌های پیش‌فرض و اصلاح‌شدهٔ سه شکل پیش‌تنظیم‌شده را ایجاد می‌کند. تمام تنظیمات را پیمایش می‌کند، نام و نوع را گزارش می‌دهد، مقادیر مرتبط با اندازه را با `setRawValue` تغییر می‌دهد، زاویه‌ها را با `setAngleValue` تغییر می‌دهد و نتیجه را ذخیره می‌کند. ستون چپ هندسهٔ پیش‌فرض را نگه می‌دارد؛ ستون راست مستطیل گرد تنظیم‌شده، تیر چهارطرفه و کیک را نشان می‌دهد.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // سرعنوان‌های ستون‌های شکل پیش‌فرض و تنظیم‌شده را اضافه می‌کند.
+    IAutoShape defaultColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 20, 250, 30);
+    defaultColumnLabel.getTextFrame().setText("Default preset geometry");
+    IAutoShape adjustedColumnLabel = slide.getShapes().addAutoShape(ShapeType.Rectangle, 390, 20, 250, 30);
+    adjustedColumnLabel.getTextFrame().setText("Modified adjustment values");
+
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 80, 70, 160, 70);
+    IGeometryShape modifiedRoundedRectangle = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 430, 70, 160, 70);
+    modifiedRoundedRectangle.setName("ModifiedRoundedRectangle");
+
+    slide.getShapes().addAutoShape(ShapeType.QuadArrow, 80, 180, 160, 110);
+    IGeometryShape modifiedArrow = slide.getShapes().addAutoShape(ShapeType.QuadArrow, 430, 180, 160, 110);
+    modifiedArrow.setName("ModifiedQuadArrow");
+
+    slide.getShapes().addAutoShape(ShapeType.Pie, 95, 330, 130, 130);
+    IGeometryShape modifiedPie = slide.getShapes().addAutoShape(ShapeType.Pie, 445, 330, 130, 130);
+    modifiedPie.setName("ModifiedPie");
+
+    IGeometryShape[] shapesToAdjust = {
+        modifiedRoundedRectangle,
+        modifiedArrow,
+        modifiedPie
+    };
+
+    for (IGeometryShape shape : shapesToAdjust) {
+        for (int adjustmentIndex = 0; adjustmentIndex < shape.getAdjustments().size(); adjustmentIndex++) {
+            IAdjustValue adjustment = shape.getAdjustments().get_Item(adjustmentIndex);
+            System.out.println(shape.getName() + " / " + adjustment.getName() + ": " + adjustment.getType());
+
+            switch (adjustment.getType()) {
+                case ShapeAdjustmentType.CornerSize:
+                    adjustment.setRawValue(5000);
+                    break;
+                case ShapeAdjustmentType.ArrowTailThickness:
+                    adjustment.setRawValue(25000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadLength:
+                    adjustment.setRawValue(30000);
+                    break;
+                case ShapeAdjustmentType.ArrowheadWidth:
+                    adjustment.setRawValue(40000);
+                    break;
+                case ShapeAdjustmentType.StartAngle:
+                    adjustment.setAngleValue(30);
+                    break;
+                case ShapeAdjustmentType.EndAngle:
+                    adjustment.setAngleValue(300);
+                    break;
+                case ShapeAdjustmentType.Custom:
+                    System.out.println("Custom adjustment '" + adjustment.getName() + "' was not changed.");
+                    break;
+            }
+        }
+    }
+
+    presentation.save("preset-shape-adjustments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+بررسی نوع معنایی قبل از تغییر مقدار کد را صریح می‌کند و از فرض اینکه یک شاخص خاص در همهٔ پیش‌تنظیم‌ها معنای یکسانی دارد جلوگیری می‌کند.
+
 ## **تغییر مجموعهٔ اشکال**
 
-متدهای افزودن، کلون، حذف و تغییر ترتیب بلافاصله بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، دیگر به اندیس‌های ثبت‌شده پیش از آن عملیات تکیه نکنید.
+متدهای افزودن، تکثیر، حذف و بازنویسی بلافاصله بر روی مجموعه عمل می‌کنند. اگر عملیاتی تعداد یا ترتیب اشکال را تغییر دهد، پس از آن نیازی به استفاده از شاخص‌های قبلی ندارید.
 
-### **کلون کردن یک شکل**
+### **تکثیر یک شکل**
 
-**[addClone](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-)** یک نسخهٔ مستقل می‌سازد و به انتهای مجموعه هدف اضافه می‌کند. **[insertClone](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-)** نیز یک نسخه می‌سازد اما آن را در اندیس z‑order مشخصی قرار می‌دهد. بارگذاری‌هایی که مختصات را می‌پذیرند، کلون را بدون تغییر اندازه جابه‌جا می‌کنند؛ بارگذاری‌های با عرض و ارتفاع می‌توانند آن را نیز تغییر اندازه دهند.
+[addClone](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) یک کپی مستقل ایجاد می‌کند و به‌صورت انتهایی به مجموعه هدف اضافه می‌­شود. [insertClone](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) نیز یک کپی می‌سازد ولی در شاخص z‑order مشخصی قرار می‌دهد. بارگذاری‌های پذیرش مختصات کپی را بدون تغییر اندازه جابجا می‌کند؛ بارگذاری‌های همراه با عرض و ارتفاع می‌توانند اندازه را نیز تغییر دهند.
 
-مثال یک اسلاید مقصد می‌سازد، یک مستطیل برچسب‌دار را به جلو کلون می‌کند و کلون دوم را در پشت درج می‌کند. تغییرات در هر یک از کلون‌ها شکل منبع را تغییر نمی‌دهد.
+مثال یک اسلاید مقصد می‌سازد، یک مستطیل برچسب‌دار را به جلوی اسلاید تکثیر می‌کند و یک کپی دوم را در عقب وارد می‌کند. تغییرات بر هر دو کپی منجر به تغییر شکل منبع نمی‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -146,13 +242,13 @@ try {
 }
 ```
 
-کلون کردن محتوای شکل و قالب‌بندی آن، شامل نام و متن جایگزین، را کپی می‌کند. وقتی این مقادیر باید یکتا باشند، شناسه‌های منطقی جدیدی به کلون اختصاص دهید. منابع مورد استفادهٔ اشکال پیچیده توسط ارائه مدیریت می‌شود، اما کلون همچنان یک آیتم جدید در مجموعه با هویت شکل جدید است.
+تکثیر محتوا و قالب‌بندی شکل را کپی می‌کند، شامل نام و متن جایگزین. هنگام نیاز به یکتایی این مقادیر، شناسه‌های منطقی جدیدی به کپی اختصاص دهید. منابع استفاده‌شده توسط اشکال پیچیده توسط ارائه مدیریت می‌شوند، اما یک کپی همچنان یک آیتم جدید در مجموعه با هویت شکل جدید است.
 
 ### **حذف اشکال**
 
-**[remove](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-)** یک شیء شکل خاص را از مجموعه‌اش حذف می‌کند. هنگام حذف چندین مطابقت در طول تکرار بر‑اندیس، از انتها به جلو عبور کنید تا هر اندیس باقی‌مانده معتبر بماند.
+[remove](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) یک شیء شکل خاص را از مجموعه‌اش حذف می‌کند. هنگام حذف چندین مورد هم‌زمان در طول پیمایش ایندکس‌شده، از انتها به ابتدا عبور کنید تا هر ایندکس باقی‌مانده معتبر بماند.
 
-این مثال هر شکلی که نامی معین داشته باشد حذف می‌کند. شکل را در اندیس جاری می‌خواند، نه آیتم ثابت مجموعه، و شکل را به‌طور غیرضروری کست نمی‌کند.
+این مثال تمام اشکالی را که نام تعیین‌شده دارند حذف می‌کند. شکل را در ایندکس جاری می‌خواند، نه یک آیتم ثابت مجموعه، و نیازی به تبدیل نوع غیرضروری شکل ندارد.
 
 ```java
 import com.aspose.slides.*;
@@ -183,11 +279,11 @@ try {
 }
 ```
 
-پس از حذف، تعداد اشکال و اندیس‌های اشکال بعدی تغییر می‌کند. ارجاع به اشکال بدون تغییر، نسبت به ذخیرهٔ اندیس‌های قبلی قابل‌اعتمادتر است. همچنین به ارتباط‌کننده‌ها، انیمیشن‌ها و سایر ویژگی‌های ارائه که ممکن است به شیء حذف‌شده ارجاع دهند، توجه کنید؛ حذف یک شکل قابل مشاهده می‌تواند بیش از ظاهر اسلاید تغییر ایجاد کند.
+پس از حذف، شمارش اشکال و ایندکس‌های اشکال بعدی تغییر می‌کند. ارجاعات به اشکال تحت‌تاثیر حذف کمتر پایدارند؛ بهتر است به ایندکس‌های ذخیره‌شده به‌جای اشکال مستقیم تکیه نکنید. همچنین به کانکتورها، انیمیشن‌ها و سایر ویژگی‌های ارائه که ممکن است به شیء حذف‌شده ارجاع دهند، توجه کنید؛ حذف یک شکل قابل مشاهده می‌تواند بیش از ظاهر اسلاید را تغییر دهد.
 
-### **مخفی کردن یک شکل**
+### **مخفی‌کردن یک شکل**
 
-تنظیم **[Hidden](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#setHidden-boolean-)** بر روی `true` شکل را در مجموعه نگه می‌دارد اما از نمایش در اسلایدشو معمولی جلوگیری می‌کند. اندیس، قالب‌بندی و محتوا برای کد در دسترس می‌مانند، بنابراین مخفی کردن برای عناصر اختیاری که ممکن است بعداً بازگردانده شوند مناسب است.
+تعیین مقدار ‎[Hidden](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#setHidden-boolean-)‎ به ‎`true`‎ شکل را در مجموعه نگه می‌دارد اما از نمایش در نمایش‌نامهٔ عادی جلوگیری می‌کند. ایندکس، قالب‌بندی و محتوای آن برای کد در دسترس باقی می‌مانند، بنابراین مخفی‌کردن برای عناصر اختیاری که ممکن است بعدها بازگردانده شوند مناسب است.
 
 ```java
 import com.aspose.slides.*;
@@ -214,11 +310,11 @@ try {
 }
 ```
 
-مخفی کردن حذف یا امنیت نیست. شیء هنوز می‌تواند توسط کاربر یا کد کشف و آشکار شود و بخشی از فایل ارائه باقی می‌ماند.
+مخفی‌کردن حذف یا امنیت نیست. شیء همچنان می‌تواند توسط کاربر یا کد کشف و دوباره آشکار شود و بخشی از فایل ارائه باقی می‌ماند.
 
 ### **تغییر Z‑Order**
 
-اشکال همپوشانی‌شده به ترتیب مجموعه نقاشی می‌شوند. **[reorder](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-)** یک شکل موجود را به اندیس هدفی منتقل می‌کند بدون اینکه کلون شود. اندیس `0` پشت‌ترین است؛ `size() - 1` جلوترین.
+اشکال همپوشانی‌شده به ترتیب مجموعه نقاشی می‌شوند. [reorder](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) یک شکل موجود را به یک ایندکس هدف بدون تکثیر منتقل می‌کند. شاخص ‎`0`‎ عقب است؛ ‎`size() - 1`‎ جلو.
 
 ```java
 import com.aspose.slides.*;
@@ -245,13 +341,13 @@ try {
 }
 ```
 
-مستطیل ابتدا ایجاد می‌شود و ابتدا پشت بیضی قرار دارد. انتقال آن به اندیس نهایی، آن را به جلو می‌برد. پس از اضافه یا کلون تمام اشکال مرتبط، Z‑Order را نهایی کنید، زیرا این عملیات‌ها آیتم‌های جدیدی به مجموعه اضافه یا درج می‌کنند و می‌توانند ترتیب مورد نظر را تغییر دهند.
+در ابتدا مستطیل ساخته می‌شود و پشت بیضی قرار می‌گیرد. جابه‌جایی آن به ایندکس نهایی آن را به جلو می‌برد. پس از افزودن یا تکثیر تمام اشکال مرتبط، Z‑Order را نهایی کنید، زیرا این عملیات آیتم‌های جدیدی به مجموعه اضافه یا وارد می‌کنند و می‌توانند پشتهٔ موردنظر را تغییر دهند.
 
-## **بازرسی اشکال در اسلایدهای Layout**
+## **بررسی اشکال در اسلایدهای طرح‌بندی**
 
-اسلایدهای عادی، اسلایدهای Layout و اسلایدهای Master مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ Layout همان شیء شکل در اسلاید عادی نیست. هنگام نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط یک Layout، اشکال Layout را بازبینی کنید.
+اسلایدهای عادی، اسلایدهای طرح‌بندی و اسلایدهای مستر مجموعهٔ اشکال جداگانه‌ای دارند. یک شکل در مجموعهٔ طرح‌بندی همان شیء شکل در اسلاید عادی نیست. هنگام نیاز به درک یا تغییر قالب‌بندی ارائه‌شده توسط طرح‌بندی، اشکال طرح‌بندی را بررسی کنید.
 
-مثال زیر **[FillFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getFillFormat--)** و **[LineFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getLineFormat--)** هر شکل Layout را می‌خواند بدون این‌که فرض کند هر شکل یک `AutoShape` است.
+مثال زیر ‎[FillFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getFillFormat--)‎ و ‎[LineFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getLineFormat--)‎ هر شکل طرح‌بندی را می‌خواند بدون فرض اینکه هر شکل یک ‎`AutoShape`‎ باشد.
 
 ```java
 import com.aspose.slides.*;
@@ -270,11 +366,11 @@ try {
 }
 ```
 
-ویرایش یک Layout می‌تواند بر چندین اسلایدی که از آن استفاده می‌کنند تأثیر بگذارد. قبل از تغییر یک شکل Layout، تعیین کنید آیا یک اسلاید عادی شیء را به ارث می‌برد یا یک بازنویسی محلی دارد، و هر اسلایدی که از آن Layout استفاده می‌کند تست شود.
+ویرایش یک طرح‌بندی می‌تواند بر چندین اسلایدی که از آن استفاده می‌کنند تأثیر بگذارد. قبل از تغییر شکل طرح‌بندی، تعیین کنید آیا اسلاید عادی شیء را به ارث می‌برد یا یک بازنویسی محلی دارد و هر اسلایدی که از این طرح‌بندی استفاده می‌کند را آزمایش کنید.
 
 ## **خروجی یک شکل به SVG**
 
-**[writeAsSvg](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-)** محتوای رندر شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه شامل فقط همان شکل است، نه پس‌زمینهٔ کامل اسلاید یا شکل‌های همسایه.
+[writeAsSvg](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) محتوای رندر شدهٔ یک شکل را به یک جریان می‌نویسد. نتیجه شامل فقط همان شکل است، نه پس‌زمینهٔ کل اسلاید یا اشکال همجوار.
 
 ```java
 import com.aspose.slides.*;
@@ -300,13 +396,13 @@ try {
 }
 ```
 
-در حین رندر کردن ارائه را باز نگه دارید. خروجی به قالب‌بندی شکل و به منابعی چون قلم‌ها و تصویرها وابسته است. اگر به کل ترکیب نیاز دارید، اسلاید را به‌جای یک شکل منفرد خروجی بگیرید. فراخواننده مالک جریان است و باید آن را ببندد.
+در هنگام رندر، ارائه باید باز باشد. خروجی به قالب‌بندی شکل و به منابعی مانند قلم‌ها و تصاویر وابسته است. اگر به ترکیب کامل نیاز دارید، اسلاید را به‌جای یک شکل منفرد خروجی بگیرید. صاحب جریان است و باید آن را بسته.
 
-## **تراز کردن اشکال**
+## **ترازبندی اشکال**
 
-متد **[SlideUtil.alignShapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)** overloadهایی دارد که یا همهٔ اشکال یا اندیس‌های منتخب مجموعه را تراز می‌کند. **[ShapesAlignmentType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shapesalignmenttype/)** لبه، خط مرکز یا حالت توزیع را مشخص می‌کند. `alignToSlide` را به `true` تنظیم کنید تا به لبه‌های اسلاید تراز شود؛ به `false` تنظیم کنید تا اشکال منتخب نسبت به یکدیگر تراز شوند.
+متد ‎[SlideUtil.alignShapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)‎ گزینه‌های ترازبندی تمام اشکال یا ایندکس‌های انتخاب‌شدهٔ مجموعه را دارد. ‎[ShapesAlignmentType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shapesalignmenttype/)‎ لبه، مرکز یا حالت توزیع را مشخص می‌کند. مقدار ‎`alignToSlide`‎ را به ‎`true`‎ تنظیم کنید تا از لبه‌های اسلاید استفاده شود؛ به ‎`false`‎ تنظیم کنید تا اشکال انتخابی نسبت به یک‌دیگر ترازبندی شوند.
 
-این مثال سه شکل را به لبهٔ بالا اسلاید تراز می‌کند. ارجاع‌های شکل برگردانده‌شده بلافاصله قبل از تراز به اندیس‌های فعلیشان تبدیل می‌شوند.
+این مثال سه شکل را به لبهٔ بالایی اسلاید ترازبندی می‌کند. ارجاعات به شکل‌ها بلافاصله قبل از ترازبندی به ایندکس فعلیشان تبدیل می‌شوند.
 
 ```java
 import com.aspose.slides.*;
@@ -331,17 +427,17 @@ try {
 }
 ```
 
-تراز موقعیت‌ها را تغییر می‌دهد، نه Z‑Order. تراز نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی به تعداد کافی شکل برای تعریف فاصله‌ها نیاز دارد. اگر قبل از فراخوانی متد مجموعه را تغییر می‌دهید، اندیس‌ها را مجدداً محاسبه کنید.
+ترازبندی موقعیت‌ها را تغییر می‌دهد، نه Z‑Order. ترازبندی نسبی معمولاً به حداقل دو شکل نیاز دارد، در حالی که توزیع افقی یا عمودی برای تعریف فاصله به تعداد کافی شکل نیاز دارد. اگر قبل از فراخوانی متد مجموعه را تغییر می‌دهید، ایندکس‌ها را دوباره محاسبه کنید.
 
-## **وارون کردن یک شکل**
+## **فلیپ یک شکل**
 
-کلاس **[ShapeFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shapeframe/)** موقعیت، اندازه، تنظیمات وارونگی افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر `getFlipH` و `getFlipV` از **[NullableBool](https://reference.aspose.com/slides/fa/java/com.aspose.slides/nullablebool/)** استفاده می‌کنند: `True` وارونگی را فعال می‌کند، `False` آن را غیرفعال می‌کند و `NotDefined` حالت پیش‌فرض/نامشخص را حفظ می‌کند.
+کلاس ‎[ShapeFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shapeframe/)‎ موقعیت، اندازه، تنظیمات فلیپ افقی و عمودی و چرخش را ذخیره می‌کند. مقادیر ‎`getFlipH`‎ و ‎`getFlipV`‎ از ‎[NullableBool](https://reference.aspose.com/slides/fa/java/com.aspose.slides/nullablebool/)‎ استفاده می‌کنند: ‎`True`‎ فلیپ را فعال می‌کند، ‎`False`‎ غیرفعال می‌کند و ‎`NotDefined`‎ حالت پیش‌فرض/نامشخص را حفظ می‌کند.
 
-ارائهٔ ورودی زیر شامل یک شکل بدون وارونگی است.
+ارائهٔ ورودی زیر شامل یک شکل بدون فلیپ است.
 
-![شکل قبل از وارونگی](shape_to_be_flipped.png)
+![The shape before flipping](shape_to_be_flipped.png)
 
-مثال تنها مقادیر دیگر فریم را حفظ می‌کند و فقط دو تنظیم وارونگی را جایگزین می‌کند. این مهم است چون اختصاص یک **[Frame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-)** جدید، فریم کامل را جایگزین می‌کند.
+مثال فقط دو تنظیم فلیپ را تغییر می‌دهد و سایر مقادیر ‎Frame‎ را دست‌نخورده می‌گذارد. این مهم است زیرا اختصاص یک ‎[Frame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame/)‎ جدید تمام فریم را جایگزین می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -362,20 +458,24 @@ try {
 }
 ```
 
-شکل ذخیره‌شده به‌صورت افقی و عمودی آینه‌ای می‌شود در حالی که موقعیت، اندازه و چرخش خود را حفظ می‌کند.
+شکل ذخیره‌شده به صورت افقی و عمودی معکوس می‌شود در حالی که موقعیت، اندازه و چرخش خود را حفظ می‌کند.
 
-![شکل پس از وارونگی](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**آیا باید از اندیس مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
+**آیا باید از شاخص مجموعه به‌عنوان شناسهٔ شکل استفاده کنم؟**
 
-فقط برای پردازش‌های کوتاه‌مدت که مجموعه قبل از استفاده از اندیس تغییر نمی‌کند. برای قالب‌های نویسندگی‌شده از یک قرارداد معتبر `Name` یا `AlternativeText` استفاده کنید، یا برای کارهای interop محدود به اسلاید، `OfficeInteropShapeId` را به کار ببرید.
+فقط برای پردازش‌های کوتاه‌مدتی که مجموعه قبل از استفاده از شاخص تغییر نمی‌کند. برای الگوهای نوشته‌شده یک قرارداد معتبر ‎Name یا ‎AlternativeText‎ و برای کارهای interop scoped به ‎OfficeInteropShapeId‎ ترجیح دهید.
 
-**آیا مخفی کردن یک شکل آن را از Z‑Order حذف می‌کند؟**
+**آیا مخفی‌کردن یک شکل آن را از Z‑Order حذف می‌کند؟**
 
-خیر. یک شکل مخفی در مجموعه با همان اندیس باقی می‌ماند. می‌تواند پیدا شود، دوباره ترتیب داده شود، ویرایش شود یا دوباره قابل مشاهده شود.
+نه. یک شکل مخفی در همان ایندکس مجموعه باقی می‌ماند. می‌توان آن را یافت، بازنویسی، ویرایش یا دوباره قابل مشاهده کرد.
 
-**چرا یک شکل کلون شده در جلوی شکل دیگری ظاهر شد؟**
+**چرا یک شکل تکثیر‌شده جلوی شکل دیگری ظاهر شد؟**
 
-`addClone` کلون را به انتهای مجموعه اضافه می‌کند که جلوی Z‑Order محسوب می‌شود. برای انتخاب اندیس اولیه از `insertClone` استفاده کنید یا پس از افزودن تمام شکل‌ها از `reorder` بهره ببرید.
+‎`addClone`‎ کپی را به انتهای مجموعه (پشت صحنهٔ Z‑Order) اضافه می‌کند، که جلوی Z‑Order است. برای انتخاب ایندکس اولیه از ‎`insertClone`‎ یا پس از افزودن همهٔ اشکال از ‎`reorder`‎ استفاده کنید.
+
+**آیا می‌توان از یک شاخص ثابت برای شناسایی تنظیم پیش‌تنظیم‌شدهٔ یک شکل استفاده کرد؟**
+
+فقط پس از اعتبارسنجی دقیق پیش‌تنظیم و چینش مجموعه. ترجیحاً از ‎`IGeometryShape.getAdjustments`‎ پیمایش کنید و ‎`IAdjustValue.getType`‎ را بررسی کنید؛ وقتی همان نوع معنایی بیش از یک بار ظاهر می‌شود، از ‎`IAdjustValue.getName`‎ به‌عنوان اطلاعات اضافی استفاده کنید.

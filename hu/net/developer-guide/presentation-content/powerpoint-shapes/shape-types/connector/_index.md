@@ -1,384 +1,513 @@
 ---
-title: Összekötők kezelése prezentációkban .NET-ben
-linktitle: Összekötő
+title: Kapcsolók kezelése prezentációkban .NET-ben
+linktitle: Kapcsoló
 type: docs
 weight: 10
 url: /hu/net/connector/
 keywords:
-- összekötő
-- összekötő típus
-- összekötő pont
-- összekötő vonal
-- összekötő szög
+- kapcsolat
+- kapcsolat típus
+- kapcsolat pont
+- kapcsolat vonal
+- kapcsolat szög
+- kapcsolási hely
+- állítási pont
 - alakzatok összekapcsolása
 - PowerPoint
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET alkalmazások felhatalmazása, hogy rajzoljanak, összekapcsoljanak és automatikusan útvonalat határozzanak meg a PowerPoint diákon – teljes irányítást kapjanak az egyenes, könyökös és íves összekötők felett."
+description: "Ismerje meg, hogyan adhat hozzá, csatlakoztathat, újraúthozhat, állíthat és vizsgálhat egyenes, hajlított és görbe PowerPoint kapcsolókat az Aspose.Slides for .NET segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A PowerPoint összekötő egy speciális vonal, amely két alakzatot kapcsol össze, és a alakzatokhoz rögzítve marad, még akkor is, ha azok egy adott dián mozognak vagy áthelyeződnek. 
+A csatlakozó egy vonal, amely a két alakzat mozgatása közben is csatlakoztatva maradhat mindkét alakzathoz. Végei kapcsolódási helyekhez (connection sites) csatlakoznak, amelyeket a PowerPoint zöld pontokkal jelöl. Egyes hajlított és görbe csatlakozók narancssárga pontokkal jelölt állítási pontokat is tartalmaznak, amelyek az egyes csatlakozó szegmensek pozícióját szabályozzák.
 
-Az összekötők általában *kapcsolódási pontokkal* (zöld pontok) vannak összekapcsolva, amelyek alapértelmezés szerint minden alakzaton megtalálhatók. A kapcsolódási pontok megjelennek, amikor a kurzor közel kerül hozzájuk.
+Az Aspose.Slides a csatlakozókat az [IConnector](https://reference.aspose.com/slides/hu/net/aspose.slides/iconnector/) felületen keresztül képviseli. Létrehozhatja őket, a végeket alakzatokhoz csatlakoztathatja, kiválaszthatja a kapcsolódási helyeket, újraútvonalazhatja őket, és módosíthatja a csatlakozók geometriáját, ha állítási pontokkal rendelkeznek.
 
-*Igazítási pontok* (narancssárga pontok), amelyek csak bizonyos összekötőkön léteznek, a összekötő pozíciójának és alakjának módosítására szolgálnak.
+## **Csatlakozó típusok**
 
-## **Az összekötők típusai**
+A [ShapeType](https://reference.aspose.com/slides/hu/net/aspose.slides/shapetype/) felsorolt típusok közé tartoznak a egyenes, hajlított és görbe csatlakozó előbeállítások. Az alábbi táblázat a rendelkezésre álló csatlakozó geometriákat és az egyes előbeállítások által definiált állítási pontok számát mutatja.
 
-PowerPointban használhat egyenes, könyök (szögelt) és íves összekötőket. 
+| Csatlakozó | Kép | Állítási pontok száma |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Az Aspose.Slides ezeket az összekötőket biztosítja:
+Az állítási pontok száma és jelentése az adott csatlakozó előbeállítástól függ. Ne feltételezze, hogy két különböző csatlakozó típus ugyanazt a gyűjtemény elrendezést kínálja.
 
-| Connector                      | Image                                                        | Igazítási pontok száma |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **Két alakzat összekapcsolása**
 
-## **Alakzatok összekötése összekötőkkel**
+Használja az [IShapeCollection.AddConnector](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addconnector/) metódust egy csatlakozó hozzáadásához, és állítsa be a [StartShapeConnectedTo](https://reference.aspose.com/slides/hu/net/aspose.slides/connector/startshapeconnectedto/) és [EndShapeConnectedTo](https://reference.aspose.com/slides/hu/net/aspose.slides/connector/endshapeconnectedto/) tulajdonságokat. Miután mindkét vég csatlakoztatva van, a [IConnector.Reroute](https://reference.aspose.com/slides/hu/net/aspose.slides/iconnector/reroute/) rövid útvonalat választ a alakzatok között.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen be egy dia hivatkozását az indexén keresztül.
-1. Adjon hozzá két [AutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/) elemet a diára a `Shapes` objektum által biztosított `AddAutoShape` metódus használatával.
-1. Az `AddConnector` metódus segítségével, amely a `Shapes` objektum által ki van téve, adjon hozzá egy összekötőt a kívánt összekötő típus megadásával.
-1. Kösse össze az alakzatokat az összekötővel.
-1. Hívja meg a `Reroute` metódust a legrövidebb csatlakozási útvonal alkalmazásához.
-1. Mentse el a prezentációt. 
+Az alábbi példa egy ellipszist és egy téglalapot köt össze egy hajlított csatlakozóval:
 
-Ez a C# kód bemutatja, hogyan adjon egy összekötőt (egy könyökös összekötőt) két alakzat (egy ellipszis és egy téglalap) között:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Létrehozza a PPTX fájlt reprezentáló prezentáció osztály példányát
-using (Presentation input = new Presentation())
-{                
-    // Eléri egy konkrét dia alakzatgyűjteményét
-    IShapeCollection shapes = input.Slides[0].Shapes;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Ellipszis automatikus alakzatot ad hozzá
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Téglalap automatikus alakzatot ad hozzá
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // Összekötő alakzatot ad a dia alakzatgyűjteményéhez
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Az összekötővel összekapcsolja az alakzatokat
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Meghívja a reroute függvényt, amely automatikusan beállítja a leg rövidebb útvonalat az alakzatok között
-    connector.Reroute();
-
-    // Elmenti a prezentációt
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Connector.Reroute` metódus újratervezi az összekötőt, és arra kényszeríti, hogy a lehető legrövidebb útvonalat vegye az alakzatok között. Ennek elérése érdekében a metódus módosíthatja a `StartShapeConnectionSiteIndex` és `EndShapeConnectionSiteIndex` pontokat. 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
+A `Reroute` hívás megváltoztathatja a [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/hu/net/aspose.slides/connector/startshapeconnectionsiteindex/) és [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/hu/net/aspose.slides/connector/endshapeconnectionsiteindex/) értékeket. Ha ezeknek a helyeknek rögzítve kell maradniuk, állítson be konkrét kapcsolódási helyeket az újratervezés után.
+{{% /alert %}}
 
-## **Kapcsolódási pont megadása**
-Ha egy összekötőnek konkrét pontok segítségével kell két alakzatot összekapcsolnia, a kívánt kapcsolódási pontokat a következőképpen adhatja meg:
+## **Kapcsolódási hely kiválasztása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen be egy dia hivatkozását az indexén keresztül.
-1. Adjon hozzá két [AutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/autoshape/) elemet a diára a `Shapes` objektum által biztosított `AddAutoShape` metódus használatával.
-1. Az `AddConnector` metódus segítségével, amely a `Shapes` objektum által ki van téve, adjon hozzá egy összekötőt a kívánt összekötő típus megadásával.
-1. Kösse össze az alakzatokat az összekötővel.
-1. Állítsa be a kívánt kapcsolódási pontokat az alakzatokon.
-1. Mentse el a prezentációt.
+Minden csatlakoztatható alakzat a [ConnectionSiteCount](https://reference.aspose.com/slides/hu/net/aspose.slides/shape/connectionsitecount/) segítségével adja meg a helyek számát. Érvényesítse a kívánt, nulláról induló hely indexet, mielőtt a csatlakozó végéhez rendeli; a helyek száma alakzat geometriától függ.
 
-Ez a C# kód egy olyan műveletet mutat be, ahol egy preferált kapcsolódási pont kerül meghatározásra:
+Ez a példa egy adott helyhez csatlakoztatja a csatlakozót az ellipszisen, ha az a hely létezik:
 
-```c#
-// Létrehozza a PPTX fájlt reprezentáló prezentáció osztályt
-using (Presentation presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // Eléri egy adott dia alakzatgyűjteményét
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // Összekötő alakzatot ad a dia alakzatgyűjteményéhez
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // Ellipszis automatikus alakzat hozzáadása
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // Téglalap automatikus alakzat hozzáadása
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // Az összekötővel összekapcsolja az alakzatokat
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Beállítja a kívánt kapcsolódási pont indexét az ellipszis alakzaton
-    uint wantedIndex = 6;
-
-    // Ellenőrzi, hogy a kívánt index kisebb-e a maximális pontszámnál
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // Beállítja a kívánt kapcsolódási pontot az ellipszis automatikus alakzaton
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // Elmenti a prezentációt
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
-## **Összekötő pont módosítása**
+## **Csatlakozó pont állítása**
 
-Módosíthat egy meglévő összekötőt a hozzá tartozó igazítási pontok segítségével. Csak azok az összekötők módosíthatók így, amelyek rendelkeznek igazítási pontokkal. Lásd a táblázatot a **[Az összekötők típusai.](/slides/hu/net/connector/#types-of-connectors)** alatt. 
+Az állítási pontokkal rendelkező csatlakozók ezeket a [IGeometryShape.Adjustments](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometryshape/adjustments/) tulajdonságon keresztül teszik elérhetővé. Vizsgálja meg minden [IAdjustValue](https://reference.aspose.com/slides/hu/net/aspose.slides/iadjustvalue/) elemet, és ellenőrizze a [Type](https://reference.aspose.com/slides/hu/net/aspose.slides/adjustvalue/type/) tulajdonságot, mielőtt módosítaná a [RawValue](https://reference.aspose.com/slides/hu/net/aspose.slides/adjustvalue/rawvalue/) értéket. A preset alakzatállítások azonosításának általános szabályait a [Shape Manipulation](/slides/hu/net/shape-manipulations/) dokumentumban találja.
 
-### **Egyszerű eset**
+Az állítások száma, sorrendje, jelentése és a megengedett értéktartomány a csatlakozó presettől függ. A `Type` tulajdonság csak olvasható, míg az állítási érték írható. A csak olvasható [Name](https://reference.aspose.com/slides/hu/net/aspose.slides/adjustvalue/name/) tulajdonság további azonosítást nyújt, ha a csatlakozó több, ugyanazon szemantikai típusú állítást tartalmaz.
 
-Tekintsünk egy olyan esetet, ahol egy összekötő két alakzat (A és B) között egy harmadik alakzatot (C) érint:
+### **Útvonal akadály körül**
+
+Az alábbi elrendezésben egy `BentConnector5` csatlakozó két alakzat között egy harmadik alakzaton keresztül halad:
 
 ![connector-obstruction](connector-obstruction.png)
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+Ez a kód hozza létre a blokkolt csatlakozót:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-A harmadik alakzat elkerülése vagy megkerülése érdekében a összekötőt úgy módosíthatjuk, hogy a függőleges vonalát balra mozgatjuk:
+A függőleges hajlítás mozgatásával megváltozik az útvonal, és a csatlakozó megkerüli az akadályt:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+Ahelyett, hogy feltételezné, hogy az `1` index mindig a függőleges hajlítást jelenti, ez a példa a `ConnectorBendPositionY` keresését végzi, és csak akkor módosítja, ha a várt szemantikai típus jelen van:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Bonyolult esetek** 
+Egy `BentConnector5` két `ConnectorBendPositionX` és egy `ConnectorBendPositionY` állítással rendelkezik. Ha a szükséges típus többször is előfordul, vizsgálja meg a `Name` értéket és az adott preset ismert geometriáját, mielőtt kiválasztana egyet. Ha egy állítás `ShapeAdjustmentType.Custom` értéket ad vissza, tekintse jelentését és tartományát az adott presethez köthetőnek, és csak akkor módosítsa, ha ez a szerződés ismert.
 
-Bonyolultabb igazítások elvégzéséhez a következő tényezőket kell figyelembe venni:
+## **Az állítási értékek összekapcsolása a csatlakozó geometriával**
 
-* Egy összekötő állítható pontja erősen kapcsolódik egy olyan képlethez, amely kiszámítja és meghatározza a pozícióját. Így a pont helyének módosítása megváltoztathatja az összekötő alakját.
-* Az összekötő igazítási pontjai szigorú sorrendben vannak definiálva egy tömbben. Az igazítási pontok számozása az összekötő kezdőpontjától a végpontjáig terjed.
-* Az igazítási pont értékek a csatlakozó alakzat szélességének/magasságának százalékát tükrözik. 
-  * Az alakzat a csatlakozó kezdő és végpontjaival, 1000-szeresére skálázva határolt. 
-  * Az első pont a szélesség százalékát, a második pont a magasság százalékát, a harmadik pont pedig újra a szélesség százalékát határozza meg.
-* Az összekötő igazítási pontjainak koordinátáit meghatározó számítások során figyelembe kell venni az összekötő forgását és tükröződését. **Megjegyzés** hogy a **[Az összekötők típusai](/slides/hu/net/connector/#types-of-connectors)** alatt megjelenített összes összekötő forgatási szöge 0.
+Hajlított csatlakozók esetén az állítási értékek felhasználhatók az egyes szegmensek pozíciójának becslésére. Ezek a számítások a csatlakozó presetjétől függenek:
 
-#### **Eset 1**
+- A `BentConnector4` általában egy `ConnectorBendPositionX` és egy `ConnectorBendPositionY` állítást tesz elérhetővé.
+- Ezekhez a hajlítási pozíciókhoz a `RawValue / 100000f` a csatlakozó keret szélességének vagy magasságának arányát adja meg az alábbi példákban.
+- A csatlakozó keret elforgatható vagy tükrözhető, ezért a keret koordinátákat át kell alakítani, mielőtt összehasonlítaná őket a dia koordinátáival.
 
-Tekintsünk egy olyan esetet, ahol két szövegdoboz objektum kapcsolódik egymáshoz egy összekötőn keresztül:
+Az alábbi példák először a `Type` alapján azonosítják az állításokat, és nem tekintik a gyűjtemény indexeket hordozható azonosítóknak.
+
+### **Nem forgatott csatlakozó**
+
+A kiindulási elrendezés két szöveges alakzatot kapcsol össze egy `BentConnector4`-gyel:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-```c#
-// Példányosít egy prezentáció osztályt, amely egy PPTX fájlt képvisel
-Presentation pres = new Presentation();
-// Lekéri a prezentáció első diáját
-ISlide sld = pres.Slides[0];
-// Alakzatokat ad hozzá, amelyek egy összekötővel lesznek összekötve
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// Összekötőt ad hozzá
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Megadja az összekötő irányát
+Ez a példa megvizsgálja a csatlakozót, és lekéri a vízszintes és függőleges hajlítási állításokat:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Megadja az összekötő színét
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Megadja az összekötő vonal vastagságát
 connector.LineFormat.Width = 3;
-
-// Az összekötővel összekapcsolja az alakzatokat
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Lekéri az összekötő igazítási pontjait
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**Igazítás**
+A két hajlítás módosításához keresse meg a várt típusokat, és csak akkor változtassa meg az értékeket, amikor mindkettőt megtalálta:
 
-Megváltoztathatjuk az összekötő igazítási pontjainak értékeit úgy, hogy a megfelelő szélességi és magassági százalékokat rendre 20 %‑kal és 200 %‑kal növeljük:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Módosítja az igazítási pontok értékeit
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-Az eredmény:
+Az eredmény egy olyan csatlakozó, amelynek vízszintes és függőleges szegmensei elmozdultak:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Ahhoz, hogy egy olyan modellt definiáljunk, amely lehetővé teszi az összekötő egyes részeinek koordinátáinak és alakjának meghatározását, hozzunk létre egy alakzatot, amely a connector.Adjustments[0] pontnál a vízszintes komponensnek felel meg:
+Miután a szemantikai típusok ismertté váltak, értékeiket átalakíthatja csatlakozó-keret koordinátákká. Ez a példa egy vékony téglalapot rajzol a két hajlítás által vezérelt függőleges szegmens fölé:
 
-```c#
-// Rajzolja az összekötő függőleges komponensét
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Az eredmény:
+Az útmutató alakzat jelöli a kiszámított szegmenst:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Eset 2**
+### **Forgatott vagy tükrözött csatlakozó**
 
-**Eset 1**-ben egyszerű összekötő-igazítási műveletet mutattunk be alapelvek használatával. Normál helyzetekben figyelembe kell venni az összekötő forgatását és megjelenítését (amelyeket a connector.Rotation, a connector.Frame.FlipH és a connector.Frame.FlipV állít be). Most bemutatjuk a folyamatot.
+Amikor ugyanaz a csatlakozó geometria függőlegesen van orientálva, a [Frame](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/hu/net/aspose.slides/shapeframe/fliph/), és [FlipV](https://reference.aspose.com/slides/hu/net/aspose.slides/shapeframe/flipv/) értékek befolyásolják a csatlakozó-keret koordináták slide koordinátákká konvertálását.
 
-Először adjunk egy új szövegdoboz objektumot (**To 1**) a diához (kapcsolódási célból), és hozzunk létre egy új (zöld) összekötőt, amely ezt összeköti a már létrehozott objektumokkal.
+Ez a példa létrehozza és beállítja a függőlegesen orientált csatlakozót:
 
-```c#
-// Létrehoz egy új kötési objektumot
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// Létrehoz egy új összekötőt
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Az objektumokat az újonnan létrehozott összekötővel kapcsolja össze
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// Lekéri az összekötő igazítási pontjait
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Módosítja az igazítási pontok értékeit 
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-Az eredmény:
+A módosított csatlakozó függőlegesen jelenik meg az alakzatok között:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Másodszor hozzunk létre egy alakzatot, amely a vízszintes komponenst reprezentálja az új összekötő connector.Adjustments[0] pontján keresztül. Használjuk a connector.Rotation, connector.Frame.FlipH és connector.Frame.FlipV adatait, és alkalmazzuk a népszerű koordinátakonverziós képletet egy adott x0 pont körüli forgatáshoz:
+Tetszőleges forgatási szög `alpha` esetén egy csatlakozó-keret pont `(x, y)` elforgatása a keret középpontja `(x0, y0)` körül:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-A mi esetünkben az objektum forgásszöge 90 fok, és az összekötő függőlegesen jelenik meg, ezért a megfelelő kód:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```c#
-// Mentse az összekötő koordinátáit
-x = connector.X;
-y = connector.Y;
-// Korrigálja az összekötő koordinátáit, ha megjelenik
-if (connector.Frame.FlipH == NullableBool.True)
+Az alábbi kód kezeli a példában használt 90 fokos orientációt, és piros útmutatót rajzol a megfelelő csatlakozó szegmens fölé:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
-{
-    y += connector.Height;
-}
-// Beveszi az igazítási pont értékét koordinátaként
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  Átalakítja a koordinátákat, mivel Sin(90) = 1 és Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// Meghatározza a vízszintes komponens szélességét a második igazítási pont értékével
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
 
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Az eredmény:
+A piros útmutató a koordináta-transzformáció után a kiszámított szegmenst jelöli:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Bemutattuk a egyszerű és a bonyolult (forgásszögekkel rendelkező) igazítási pontok számításait. A megszerzett tudás felhasználásával saját modellt készíthet (vagy kódot írhat), amellyel `GraphicsPath` objektumot kaphat, vagy akár a kapcsolódási pont értékeit meghatározott dia‑koordináták alapján állíthatja be.
+Ezek a képletek a példákban használt presetek leírására szolgálnak, nem egy általános csatlakozó modellre. Validálja az állítási típusokat, a keret orientációt és az értéktartományokat, mielőtt ugyanazt a számítást más presetre alkalmazná.
 
-## **Az összekötő vonalak szögének meghatározása**
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen be egy dia hivatkozását az indexén keresztül.
-1. Érje el az összekötő vonalas alakzatot.
-1. Használja a vonal szélességét, magasságát, az alakzat keretmagasságát és keretszélességét a szög kiszámításához.
+## **A csatlakozó irányszög megtalálása**
 
-```c#
-public static void Run()
+Egy egyenes csatlakozó irányát a szélesség és magasság alapján számíthatja ki, a vízszintes és függőleges tükrözéseket figyelembe véve. Az alábbi példa az óramutató járásával megegyező szöget adja meg a pozitív vízszintes tengelytől a dia koordinátákban:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Hogyan tudom megállapítani, hogy egy összekötő "ragasztható"-e egy adott alakzathoz?**
+**Hogyan tudhatom meg, hogy egy csatlakozó csatlakoztatható-e egy alakzathoz?**  
+Ellenőrizze az alakzat `ConnectionSiteCount` értékét. A pozitív szám azt jelenti, hogy az alakzat kapcsolódási helyeket biztosít. Érvényesítse a kiválasztott hely indexet, mielőtt a csatlakozó egyik végéhez rendeli.
 
-Ellenőrizze, hogy az alakzat rendelkezik-e [kapcsolódási pontokkal](https://reference.aspose.com/slides/hu/net/aspose.slides/shape/connectionsitecount/). Ha nincs, vagy a szám nulla, a ragasztás nem lehetséges; ebben az esetben használjon szabad végpontokat, és helyezze el őket manuálisan. Érdemes a pontok számát ellenőrizni a csatlakoztatás előtt.
+**Azonosíthatok-e egy csatlakozó állítást a gyűjtemény indexe alapján?**  
+Az index csak egy ismert csatlakozó preset és gyűjteményelrendezés esetén értelmezhető. Módosítás előtt ellenőrizze az `IAdjustValue.Type`-ot, és ha ugyanaz a szemantikai típus többször fordul elő, használja az `IAdjustValue.Name`-et további információként.
 
-**Mi történik az összekötővel, ha törlök egy a kapcsolódott alakzatok közül?**
+**Mi történik, ha egy csatlakoztatott alakzatot törölnek?**  
+A megfelelő csatlakozó vég leválik. A csatlakozó a dián marad, és törölhető, szabad vonalként pozícionálható, vagy újra csatlakoztatható egy másik alakzathoz.
 
-A végei leválasztásra kerülnek; az összekötő a dián egy szabad kezdő/vegpontú egyszerű vonalként marad. Törölheti, vagy újra hozzárendelheti a kapcsolatokat, és szükség esetén [újra tervezheti](https://reference.aspose.com/slides/hu/net/aspose.slides/connector/reroute/).
-
-**Megmaradnak az összekötő kapcsolatok, ha egy diát egy másik prezentációba másolok?**
-
-Általában igen, ha a cél alakzatok is másolásra kerülnek. Ha a dia egy másik fájlba kerül a kapcsolódó alakzatok nélkül, a végek szabadokká válnak, és újra kell csatlakoztatni őket.
+**Megmaradnak-e a csatlakozó kapcsolatok, amikor egy diát másolnak?**  
+Általában megmaradnak, ha a csatlakoztatott alakzatokkal együtt másolják a diát. Ha egy csatlakozót másolnak anélkül, hogy a célalakzatok egyike is másolásra kerülne, az érintett véget újra csatlakoztatni kell.

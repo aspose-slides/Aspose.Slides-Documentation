@@ -1,392 +1,513 @@
 ---
-title: ".NET'te Sunumlarda Bağlayıcıları Yönetme"
-linktitle: "Bağlayıcı"
+title: Sunumlarda .NET ile Bağlayıcıları Yönetme
+linktitle: Bağlayıcı
 type: docs
 weight: 10
 url: /tr/net/connector/
 keywords:
-- "bağlayıcı"
-- "bağlayıcı türü"
-- "bağlayıcı noktası"
-- "bağlayıcı çizgisi"
-- "bağlayıcı açısı"
-- "şekilleri bağla"
-- "PowerPoint"
-- "sunum"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "PowerPoint slaytlarında .NET uygulamalarının çizim, bağlama ve otomatik yönlendirme yapmalarını sağlayın—düz, dirsek ve eğimli bağlayıcılar üzerinde tam kontrol elde edin."
+- bağlayıcı
+- bağlayıcı türü
+- bağlayıcı noktası
+- bağlayıcı çizgi
+- bağlayıcı açı
+- bağlantı noktası
+- ayarlama noktası
+- şekilleri bağla
+- PowerPoint
+- sunum
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET ile PowerPoint’te düz, bükülmüş ve eğimli bağlayıcıları ekleme, bağlama, yeniden yönlendirme, ayarlama ve inceleme konularını öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-PowerPoint bağlayıcıları iki şekli birbiriyle bağlayan özel hatlardır ve bir slaytta hareket ettirildiklerinde ya da konumları değiştirildiğinde bile şekillere yapışık kalırlar.  
+Bir bağlayıcı, iki şekilden birinin hareket etmesi durumunda bile iki şekle bağlı kalabilen bir çizgidir. Uçları, PowerPoint’te yeşil noktalarla temsil edilen bağlantı noktalarına bağlanır. Bazı bükülmüş ve eğimli bağlayıcılar ayrıca turuncu noktalarla temsil edilen ayarlama noktalarını ortaya çıkarır; bu noktalar, bağlayıcı segmentlerinin konumunu kontrol eder.
 
-Bağlayıcılar genellikle *bağlantı noktalarına* (yeşil noktalar) bağlanır; bu noktalar tüm şekillerde varsayılan olarak bulunur. Bağlantı noktaları, imleç yaklaştığında görünür.
-
-*Ayarlama noktaları* (turuncu noktalar), yalnızca belirli bağlayıcılarda bulunur ve bağlayıcıların konum ve şekillerini değiştirmek için kullanılır.
+Aspose.Slides, bağlayıcıları [IConnector](https://reference.aspose.com/slides/tr/net/aspose.slides/iconnector/) arayüzü aracılığıyla temsil eder. Bağlayıcıları oluşturabilir, uçlarını şekillere bağlayabilir, bağlantı noktalarını seçebilir, yeniden yönlendirebilir ve ayarlama noktalarına sahip bağlayıcıların geometrisini değiştirebilirsiniz.
 
 ## **Bağlayıcı Türleri**
 
-PowerPoint’te düz, dirsek (köşeli) ve eğimli bağlayıcılar kullanabilirsiniz.  
+[ShapeType](https://reference.aspose.com/slides/tr/net/aspose.slides/shapetype/) enumerasyonu düz, bükülmüş ve eğimli bağlayıcı ön ayarlarını içerir. Aşağıdaki tablo, mevcut bağlayıcı geometrilerini ve her ön ayar tarafından tanımlanan ayarlama noktası sayısını gösterir.
 
-Aspose.Slides aşağıdaki bağlayıcıları sunar:
-
-| Bağlayıcı | Resim | Ayar noktası sayısı |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0 |
+| Bağlayıcı | Resim | Ayarlama noktası sayısı |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0 |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1 |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2 |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3 |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Bağlayıcıları Kullanarak Şekilleri Bağlama**
+Ayarlama noktalarının sayısı ve anlamı seçilen bağlayıcı ön ayarının bir parçasıdır. İki farklı bağlayıcı türünün aynı koleksiyon düzenini ortaya çıkardığını varsaymayın.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksi üzerinden bir slayt referansı alın.  
-1. `Shapes` nesnesi tarafından sunulan `AddAutoShape` yöntemiyle slayta iki [AutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/autoshape/) ekleyin.  
-1. Bağlayıcı türünü belirterek `Shapes` nesnesi tarafından sunulan `AddConnector` yöntemiyle bir bağlayıcı ekleyin.  
-1. Şekilleri bağlayıcıyla birleştirin.  
-1. En kısa bağlantı yolunu uygulamak için `Reroute` yöntemini çağırın.  
-1. Sunumu kaydedin.  
+## **İki Şekli Bağla**
 
-Bu C# kodu, iki şekil (bir elips ve bir dikdörtgen) arasında bir bükülmüş bağlayıcı eklemenizi gösterir:
+[IShapeCollection.AddConnector](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addconnector/) metodunu kullanarak bir bağlayıcı ekleyin ve onun [StartShapeConnectedTo](https://reference.aspose.com/slides/tr/net/aspose.slides/connector/startshapeconnectedto/) ve [EndShapeConnectedTo](https://reference.aspose.com/slides/tr/net/aspose.slides/connector/endshapeconnectedto/) özelliklerini atayın. Her iki uç da bağlandıktan sonra, [IConnector.Reroute](https://reference.aspose.com/slides/tr/net/aspose.slides/iconnector/reroute/) şekiller arasındaki kısa bir yolu seçer.
 
-```c#
-// PPTX dosyasını temsil eden bir sunum sınıfı örneği oluşturur
-using (Presentation input = new Presentation())
-{                
-    // Belirli bir slayt için şekil koleksiyonuna erişir
-    IShapeCollection shapes = input.Slides[0].Shapes;
+Aşağıdaki örnek, bir elips ile bir dikdörtgeni bükülmüş bir bağlayıcıyla bağlar:
 
-    // Bir Elips otomatik şekli ekler
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Bir Dikdörtgen otomatik şekli ekler
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Bağlayıcı şekli slayt şekil koleksiyonuna ekler
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Şekilleri bağlayıcıyı kullanarak bağlar
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // Şekiller arasındaki otomatik en kısa yolu ayarlayan reroute yöntemini çağırır
-    connector.Reroute();
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
+```
 
-    // Sunumu kaydeder
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
+{{% alert color="warning" title="Warning" %}}
+`Reroute` metodunu çağırmak, [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/tr/net/aspose.slides/connector/startshapeconnectionsiteindex/) ve [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/tr/net/aspose.slides/connector/endshapeconnectionsiteindex/) değerlerini değiştirebilir. Bu sitelerin sabit kalması gerekiyorsa, yeniden yönlendirmeden sonra belirli bağlantı noktalarını atayın.
+{{% /alert %}}
+
+## **Bir Bağlantı Noktası Seçme**
+
+Her bağlanabilir şekil, [ConnectionSiteCount](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/connectionsitecount/) aracılığıyla sitesayısını raporlar. Bağlayıcı ucuna atamadan önce tercih edilen sıfır‑tabanlı site indeksini doğrulayın; site sayıları şekil geometrisine göre değişir.
+
+Bu örnek, elips üzerindeki belirli bir site mevcut olduğunda bağlayıcıyı o siteye bağlar:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
+{
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Bir Bağlayıcı Noktasını Ayarlama**
 
-`Connector.Reroute` yöntemi bir bağlayıcıyı yeniden yönlendirir ve şekiller arasında mümkün olan en kısa yolu almasını zorlar. Bu amacı gerçekleştirmek için yöntem, `StartShapeConnectionSiteIndex` ve `EndShapeConnectionSiteIndex` noktalarını değiştirebilir. 
+Ayarlama noktalarına sahip bağlayıcılar, [IGeometryShape.Adjustments](https://reference.aspose.com/slides/tr/net/aspose.slides/igeometryshape/adjustments/) aracılığıyla bu noktaları ortaya çıkarır. Her bir [IAdjustValue](https://reference.aspose.com/slides/tr/net/aspose.slides/iadjustvalue/) inceleyin ve [RawValue](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/rawvalue/) değiştirmeden önce [Type](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/type/) özelliğine bakın. Önceden tanımlı şekil ayarlamalarını tanımlama kuralları [Shape Manipulation](/slides/tr/net/shape-manipulations/) içinde açıklanmıştır.
 
-{{% /alert %}} 
+Ayarlama noktalarının sayısı, sırası, anlamı ve geçerli değer aralığı bağlayıcı ön ayarına bağlıdır. `Type` özelliği yalnızca okunabilir, ayarlama değeri ise yazılabilir. Bağlayıcıda aynı anlamsal türde birden fazla ayarlama bulunduğunda, ek tanımlama sağlayan salt‑okunur [Name](https://reference.aspose.com/slides/tr/net/aspose.slides/adjustvalue/name/) özelliği kullanılabilir.
 
-## **Bağlantı Noktası Belirleme**
-Bağlayıcının iki şekli belirli noktalardan bağlamasını istiyorsanız, tercih ettiğiniz bağlantı noktalarını şu şekilde belirtmelisiniz:
+### **Bir Engel Çevresinde Yönlendirme**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksi üzerinden bir slayt referansı alın.  
-1. `Shapes` nesnesi tarafından sunulan `AddAutoShape` yöntemiyle slayta iki [AutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/autoshape/) ekleyin.  
-1. Bağlayıcı türünü belirterek `Shapes` nesnesi tarafından sunulan `AddConnector` yöntemiyle bir bağlayıcı ekleyin.  
-1. Şekilleri bağlayıcıyla birleştirin.  
-1. Şekiller üzerindeki tercih ettiğiniz bağlantı noktalarını ayarlayın.  
-1. Sunumu kaydedin.  
-
-Bu C# kodu, tercih edilen bir bağlantı noktasının nasıl belirtileceğini göstermektedir:
-
-```c#
- // PPTX dosyasını temsil eden bir sunum sınıfı örneği oluşturur
- using (Presentation presentation = new Presentation())
- {
-     // Belirli bir slayt için şekil koleksiyonuna erişir
-     IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-     // Slaytın şekil koleksiyonuna bir bağlayıcı şekli ekler
-     IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-     // Bir Elips otomatik şekli ekler
-     IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-     // Bir Dikdörtgen otomatik şekli ekler
-     IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-     // Şekilleri bağlayıcıyı kullanarak bağlar
-     connector.StartShapeConnectedTo = ellipse;
-     connector.EndShapeConnectedTo = rectangle;
-
-     // Elips şekli üzerinde tercih edilen bağlantı nokta indeksini ayarlar
-     uint wantedIndex = 6;
-
-     // Tercih edilen indeksin maksimum site indeks sayısından küçük olup olmadığını kontrol eder
-     if (ellipse.ConnectionSiteCount > wantedIndex)
-     {
-         // Elips otomatik şekline tercih edilen bağlantı noktasını ayarlar
-         connector.StartShapeConnectionSiteIndex = wantedIndex;
-     }
-
-     // Sunumu kaydeder
-     presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
- }
-```
-
-## **Bağlayıcı Noktasını Ayarlama**
-
-Mevcut bir bağlayıcıyı ayarlama noktalarıyla ayarlayabilirsiniz. Yalnızca ayarlama noktalarına sahip bağlayıcılar bu şekilde değiştirilebilir. **[Bağlayıcı Türleri](/slides/tr/net/connector/#types-of-connectors)** altındaki tabloya bakın. 
-
-### **Basit Durum**
-
-İki şekil (A ve B) arasındaki bağlayıcının üçüncü bir şekil (C) üzerinden geçtiği bir durumu düşünün:
+Aşağıdaki düzenlemede, iki şekil arasında bir `BentConnector5` üçüncü bir şekilden geçiyor:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Kod:
+Bu kod, engelli bağlayıcıyı oluşturur:
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-Üçüncü şekilden kaçınmak veya onu atlamak için bağlayıcının dikey hattını aşağıdaki gibi sola kaydırarak ayarlayabiliriz:
+Dikey bükülmeyi hareket ettirmek, bağlayıcının engeli atlayacak şekilde rotasını değiştirir:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+Koleksiyon indeksi `1` her zaman dik bükülmeyi temsil eder varsayımı yerine, bu örnek `ConnectorBendPositionY` arar ve yalnızca beklenen anlamsal tür mevcutsa değiştirir:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Karmaşık Durumlar** 
+Bir `BentConnector5` iki `ConnectorBendPositionX` ve bir `ConnectorBendPositionY` ayarlamasına sahiptir. İhtiyacınız olan tür birden çok kez görülüyorsa, birini seçmeden önce `Name` ve o ön ayarın bilinen geometrisini inceleyin. Bir ayarlama `ShapeAdjustmentType.Custom` döndürürse, anlamını ve aralığını ön ayara özgü olarak değerlendirin ve sözleşme netleşene kadar değiştirmeyin.
 
-Daha karmaşık ayarlamalar yapmak için şu hususları göz önünde bulundurmalısınız:
+## **Ayarlama Değerlerini Bağlayıcı Geometrisiyle İlişkilendirme**
 
-* Bir bağlayıcının ayarlanabilir noktası, konumunu hesaplayan ve belirleyen bir formüle sıkı sıkıya bağlıdır. Bu nedenle noktanın konumundaki değişiklikler bağlayıcının şeklini etkileyebilir.  
-* Bağlayıcının ayarlama noktaları, bir dizi içinde kesin bir sırayla tanımlanır. Ayarlama noktaları, bağlayıcının başlangıç noktasından bitiş noktasına doğru numaralandırılır.  
-* Ayarlama noktası değerleri, bağlayıcı şeklinin genişlik/yükseklik yüzdesini yansıtır.  
-  * Şekil, bağlayıcının başlangıç ve bitiş noktalarıyla çarpılan 1000 ile sınırlıdır.  
-  * İlk nokta, ikinci nokta ve üçüncü nokta sırasıyla genişlik yüzdesi, yükseklik yüzdesi ve tekrar genişlik yüzdesini tanımlar.  
-* Bir bağlayıcının ayarlama noktalarının koordinatlarını belirleyen hesaplamalarda, bağlayıcının dönüşü ve yansıması dikkate alınmalıdır. **Not**: **[Bağlayıcı Türleri](/slides/tr/net/connector/#types-of-connectors)** altındaki tüm bağlayıcıların dönüş açısı 0’dır.
+Bükülmüş bağlayıcılar için ayarlama değerleri, bireysel segmentlerin konumlarını tahmin etmekte kullanılabilir. Bu hesaplamalar bağlayıcı ön ayarına özeldir:
 
-#### **Durum 1**
+- `BentConnector4` normalde bir `ConnectorBendPositionX` ve bir `ConnectorBendPositionY` ayarlaması ortaya çıkarır.
+- Bu bükülme konumları için `RawValue / 100000f` ifadesi, aşağıdaki örneklerde kullanılan bağlayıcı çerçevesi genişliği ya da yüksekliğinin kesirini üretir.
+- Bağlayıcı çerçevesi döndürülebilir veya çevrilebilir, bu yüzden çerçeve koordinatları slayt koordinatlarıyla karşılaştırılmadan önce dönüştürülmelidir.
 
-İki metin çerçevesi nesnesinin bir bağlayıcı aracılığıyla birbirine bağlandığı bir durumu düşünün:
+Aşağıdaki örnekler, önce ayarlamaları tanımlamak için `Type` kullanır. Koleksiyon indekslerini taşınabilir tanımlayıcı olarak kullanmazlar.
+
+### **Döndürülmemiş Bağlayıcı**
+
+İlk düzen, iki metin şeklini `BentConnector4` ile birleştirir:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Kod:
+Bu örnek bağlayıcıyı inceler ve yatay ve düşey bükülme ayarlamalarını elde eder:
 
-```c#
-// PPTX dosyasını temsil eden bir sunum sınıfı örneği oluşturur
-Presentation pres = new Presentation();
-// Sunumdaki ilk slaytı alır
-ISlide sld = pres.Slides[0];
-// Bağlayıcı ile birleştirilecek şekilleri ekler
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// Bağlayıcı ekler
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Bağlayıcının yönünü belirler
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Bağlayıcının rengini belirler
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Bağlayıcı çizgisinin kalınlığını belirler
 connector.LineFormat.Width = 3;
-
-// Şekilleri bağlayıcı ile birbirine bağlar
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Bağlayıcı için ayarlama noktalarını alır
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**Ayarlama**
+Her iki bükülmeyi de değiştirmek için, beklenen her türü bulup değerleri yalnızca ikisi de bulunduğunda değiştirin:
 
-Bağlayıcının ayarlama noktası değerlerini, ilgili genişlik ve yükseklik yüzdelerini sırasıyla %20 ve %200 artırarak değiştirebiliriz:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Ayarlama noktalarının değerlerini değiştirir
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-Sonuç:
+Sonuç, yatay ve düşey segmentleri hareket etmiş bir bağlayıcıdır:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Bireysel parçaların koordinatlarını ve şeklini belirlememizi sağlayan bir model oluşturmak için, bağlayıcının `Adjustments[0]` noktasındaki yatay bileşeni temsil eden bir şekil oluşturalım:
+Anlamsal türler bilindiğinde, değerler bağlayıcı‑çerçeve koordinatlarına dönüştürülebilir. Bu örnek, iki bükülme ayarlaması tarafından kontrol edilen dikey segmentin üzerine ince bir dikdörtgen çizer:
 
-```c#
-// Bağlayıcının dikey bileşenini çizer
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Sonuç:
+Kılavuz şekil, hesaplanan segmenti işaret eder:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Durum 2**
+### **Döndürülmüş veya Çevrilmiş Bağlayıcı**
 
-**Durum 1**’de temel prensiplerle basit bir bağlayıcı ayarlama işlemi gösterdik. Normal durumlarda, bağlayıcı dönüşü ve gösterimi (`connector.Rotation`, `connector.Frame.FlipH`, `connector.Frame.FlipV`) dikkate alınmalıdır. Şimdi bu süreci göstereceğiz.
+Aynı bağlayıcı geometrisi dikey yönlendirildiğinde, [Frame](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/tr/net/aspose.slides/shapeframe/fliph/) ve [FlipV](https://reference.aspose.com/slides/tr/net/aspose.slides/shapeframe/flipv/) değerleri, bağlayıcı‑çerçeve koordinatlarından slayt koordinatlarına dönüşümü etkiler.
 
-İlk olarak, slayta yeni bir metin çerçevesi nesnesi (**To 1**) ekleyip (bağlantı amaçlı) zaten oluşturduğumuz nesnelere bağlayan yeni bir (yeşil) bağlayıcı ekleyelim.
+Bu örnek, dikey yönlendirilmiş bağlayıcıyı oluşturur ve ayarlar:
 
-```c#
-// Yeni bir bağlama nesnesi oluşturur
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// Yeni bir bağlayıcı oluşturur
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Yeni oluşturulan bağlayıcıyı kullanarak nesneleri bağlar
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// Bağlayıcı ayarlama noktalarını alır
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Ayarlama noktalarının değerlerini değiştirir
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-Sonuç:
+Ayarlanmış bağlayıcı, şekiller arasında dikey olarak görünür:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-İkinci olarak, yeni bağlayıcının ayarlama noktası `connector.Adjustments[0]` üzerinden geçen yatay bileşeni temsil eden bir şekil oluşturalım. Bağlayıcı verilerindeki `connector.Rotation`, `connector.Frame.FlipH` ve `connector.Frame.FlipV` değerlerini kullanarak, verilen bir x0 noktasına göre dönüş için yaygın koordinat dönüşüm formülünü uygulayalım:
+Herhangi bir dönüş açısı `alpha` için, bağlayıcı‑çerçeve noktası `(x, y)` çerçeve merkezi `(x0, y0)` etrafında şu şekilde döndürülür:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-Bizim durumumuzda, nesnenin dönüş açısı 90 derecedir ve bağlayıcı dikey olarak görüntülenir; bu yüzden ilgili kod şu şekildedir:
+Aşağıdaki kod, bu örnekte kullanılan 90 derece yönlendirmeyi ele alır ve ilgili bağlayıcı segmentinin üzerine kırmızı bir kılavuz çizer:
 
-```c#
-// Bağlayıcı koordinatlarını kaydeder
-x = connector.X;
-y = connector.Y;
-// Bağlayıcı koordinatlarını gerektiğinde düzeltir
-if (connector.Frame.FlipH == NullableBool.True)
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
+
+if (horizontalBend is null || verticalBend is null)
 {
-    y += connector.Height;
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
 }
-// Ayarlama noktası değerini koordinat olarak alır
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  Koordinatları dönüştürür çünkü Sin(90) = 1 ve Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// İkinci ayarlama noktası değerini kullanarak yatay bileşenin genişliğini belirler
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Sonuç:
+Koordinat dönüşümünden sonra kırmızı kılavuz, hesaplanan segmenti işaret eder:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Basit ayarlamalar ve dönüş açısı içeren karmaşık ayarlama noktalarıyla ilgili hesaplamaları gösterdik. Edindiğiniz bilgiyle, belirli slayt koordinatlarına dayalı bir `GraphicsPath` nesnesi elde etmek ya da bir bağlayıcının ayarlama nokta değerlerini ayarlamak için kendi modelinizi (veya kodunuzu) geliştirebilirsiniz.
+Bu formüller örneklerde kullanılan ön ayarları tanımlar, evrensel bir bağlayıcı modeli oluşturmaz. Farklı bir ön ayar için aynı hesabı uygulamadan önce ayarlama türlerini, çerçeve yönelimini ve değer aralıklarını doğrulayın.
 
-## **Bağlayıcı Çizgilerinin Açısını Bulma**
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksi üzerinden bir slayt referansı alın.  
-1. Bağlayıcı çizgi şeklini erişin.  
-1. Açıyı hesaplamak için çizgi genişliği, yüksekliği, şekil çerçevesi yüksekliği ve şekil çerçevesi genişliğini kullanın.  
+## **Bağlayıcı Yön Açısını Bulma**
 
-Bu C# kodu, bir bağlayıcı çizgi şeklinin açısını nasıl hesaplayacağınızı gösterir:
+Düz bir bağlayıcının yönü, genişlik ve yükseklik değerlerinden, yatay ve düşey çevirmeler uygulanarak hesaplanabilir. Aşağıdaki örnek, slayt koordinatlarında pozitif yatay eksene göre saat yönünde açıyı rapor eder:
 
-```c#
-public static void Run()
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
 ## **SSS**
 
-**Bir bağlayıcının belirli bir şekle “yapışıp yapışmadığını” nasıl anlayabilirim?**  
+**Bir bağlayıcının bir şekle bağlanıp bağlanamayacağını nasıl öğrenebilirim?**  
+Şeklin `ConnectionSiteCount` değerini kontrol edin. Pozitif bir sayı, şeklin bağlantı noktaları sunduğunu gösterir. Bağlayıcı ucuna atamadan önce seçilen site indeksini doğrulayın.
 
-Şeklin [bağlantı noktalarını](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/connectionsitecount/) expose ettiğini kontrol edin. Hiçbiri yoksa veya sayı sıfırsa, yapışma mümkün değildir; bu durumda serbest uçları kullanıp manuel konumlandırmalısınız. Bağlantı nokta sayısını eklemeden önce kontrol etmek akıllıca olur.
+**Bir bağlayıcı ayarlamasını koleksiyon indeksiyle tanımlayabilir miyim?**  
+Bir indeks yalnızca bilinen bir bağlayıcı ön ayarı ve koleksiyon düzeni için anlamlıdır. Değeri değiştirmeden önce `IAdjustValue.Type` kontrol edin ve aynı anlamsal tür birden çok kez bulunuyorsa ek bilgi için `IAdjustValue.Name` kullanın.
 
-**Bağlantılı şekillerden birini silersem bağlayıcı ne olur?**  
+**Bağlı bir şekil silindiğinde ne olur?**  
+İlgili bağlayıcı ucu ayrılır. Bağlayıcı slaytta kalır ve silinebilir, serbest bir çizgi olarak konumlandırılabilir veya başka bir şekle bağlanabilir.
 
-Uçları ayrılır; bağlayıcı slaytta serbest başlangıç/bitiş noktalarına sahip normal bir çizgi olarak kalır. Ya silebilir ya da bağlantıları yeniden atayabilir ve gerekirse [reroute](https://reference.aspose.com/slides/tr/net/aspose.slides/connector/reroute/) yapabilirsiniz.
-
-**Bir slaytı başka bir sunuma kopyaladığımda bağlayıcı bağlamaları korunur mu?**  
-
-Genellikle evet, hedef şekiller de kopyalanırsa korunur. Slayt, bağlanmış şekiller olmadan başka bir dosyaya eklenirse uçlar serbest olur ve yeniden bağlamanız gerekir.
+**Bir slayt kopyalandığında bağlayıcı bağlamaları korunur mu?**  
+Bağlı şekiller slaytla birlikte kopyalandığında bağlamalar genellikle korunur. Bir bağlayıcı, hedef şekillerinden biri olmadan kopyalanırsa, etkilenmiş uç tekrar bağlanmalıdır.

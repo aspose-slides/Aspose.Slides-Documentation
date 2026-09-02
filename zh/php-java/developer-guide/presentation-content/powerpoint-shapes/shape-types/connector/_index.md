@@ -1,37 +1,36 @@
 ---
-title: 使用 PHP 管理演示文稿中的连接线
-linktitle: 连接线
+title: 使用 PHP 管理演示文稿中的连接器
+linktitle: 连接器
 type: docs
 weight: 10
 url: /zh/php-java/connector/
 keywords:
-- 连接线
-- 连接线类型
+- 连接器
+- 连接器类型
 - 连接点
 - 连接线
 - 连接角度
+- 连接站点
+- 调整点
 - 连接形状
 - PowerPoint
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "赋能 PHP 应用在 PowerPoint 幻灯片中绘制、连接并自动路由线条 —— 完全控制直线、拐角和曲线连接线。"
+description: "了解如何使用 Aspose.Slides for PHP（via Java）添加、附加、重新路由、调整和检查直线、弯曲和曲线 PowerPoint 连接器。"
 ---
+## **概述**
 
-PowerPoint 连接线是一种特殊的线条，用于将两个形状连接或链接在一起，即使在幻灯片上移动或重新定位形状时也会保持附着。
+连接线是可以在任一形状移动时仍然连接到两个形状的线。它的两端连接到连接点，在 PowerPoint 中以绿色点表示。某些弯曲和曲线连接线还会公开调整点，以橙色点显示，用于控制各个连接线段的位置。
 
-连接线通常连接到 *连接点*（绿色点），这些点默认存在于所有形状上。当光标靠近时会显示连接点。
+Aspose.Slides 通过 [Connector](https://reference.aspose.com/slides/zh/php-java/aspose.slides/connector/) 类来表示连接线。您可以创建它们，将两端附加到形状，选择连接点，重新路由它们，并修改具有调整点的连接线的几何形状。
 
-*调整点*（橙色点）仅存在于某些连接线上，用于修改连接线的位置和形状。
+## **连接器类型**
 
-## **Types of Connectors**
+[ShapeType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shapetype/) 类包含直线、弯曲和曲线连接器预设。下表显示了可用的连接器几何形状以及每个预设定义的调整点数量。
 
-在 PowerPoint 中，您可以使用直线、拐角（有角度）和曲线连接线。
-
-Aspose.Slides 提供以下连接线：
-
-| Connector | Image | Number of adjustment points |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| 连接器 | 图像 | 调整点数量 |
+|---|---|---|
 | `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -43,327 +42,540 @@ Aspose.Slides 提供以下连接线：
 | `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **Connect Shapes Using Connectors**
+调整点的数量和含义是所选连接器预设的一部分。不要假设两种不同的连接器类型公开相同的集合布局。
 
-1. 创建 [Presentation](https://apireference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。  
-1. 通过索引获取幻灯片引用。  
-1. 使用 `Shapes` 对象的 `addAutoShape` 方法向幻灯片添加两个 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape)。  
-1. 通过定义连接线类型，使用 `Shapes` 对象的 `addConnector` 方法添加连接线。  
-1. 使用该连接线将形状连接起来。  
-1. 调用 `reroute` 方法以采用最短的连接路径。  
-1. 保存演示文稿。  
+## **连接两个形状**
 
-以下 PHP 代码演示了如何在两个形状（椭圆和矩形）之间添加一个弯曲连接线：
+使用 [ShapeCollection::addConnector](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shapecollection/addconnector/) 添加连接线，使用 [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/zh/php-java/aspose.slides/connector/setstartshapeconnectedto/) 和 [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/zh/php-java/aspose.slides/connector/setendshapeconnectedto/) 将其两端附加。两端都附加后， [Connector::reroute](https://reference.aspose.com/slides/zh/php-java/aspose.slides/connector/reroute/) 选择形状之间的短路径。
+
+以下示例使用弯曲连接器将椭圆和矩形连接起来：
+
 ```php
-// 实例化表示 PPTX 文件的演示文稿类
-  $pres = new Presentation();
-  try {
-    # 访问特定幻灯片的形状集合
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # 添加椭圆自动形状
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # 添加矩形自动形状
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # 向幻灯片形状集合中添加连接线形状
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # 使用连接线连接形状
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # 调用 reroute 方法，为形状之间设置自动最短路径
     $connector->reroute();
-    # 保存演示文稿
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
+{{% alert color="warning" title="Warning" %}}
+调用 `reroute` 可能会更改 [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) 和 [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/) 的值。如果这些连接点必须保持固定，请在重新路由后分配特定的连接点。
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% /alert %}}
 
-`Connector.reroute` 方法会重新路由连接线，使其在形状之间走最短路径。为实现此目的，方法可能会更改 `setStartShapeConnectionSiteIndex` 和 `setEndShapeConnectionSiteIndex` 坐标。 
+## **选择连接点**
 
-{{% /alert %}} 
+每个可连接的形状通过 [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/getconnectionsitecount/) 报告其连接点数量。在将其分配给连接线的端点之前，请验证首选的零基索引；连接点数量因形状几何而异。
 
-## **Specify a Connection Dot**
+以下示例在椭圆上存在该连接点时，将连接线附加到椭圆的特定连接点：
 
-如果希望连接线使用形状上的特定点进行链接，需要按以下方式指定首选的连接点：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。  
-1. 通过索引获取幻灯片引用。  
-1. 使用 `Shapes` 对象的 `addAutoShape` 方法向幻灯片添加两个 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape)。  
-1. 通过定义连接线类型，使用 `Shapes` 对象的 `addConnector` 方法添加连接线。  
-1. 使用该连接线将形状连接起来。  
-1. 在形状上设置首选的连接点。  
-1. 保存演示文稿。  
-
-以下 PHP 代码演示了如何指定首选的连接点：
 ```php
-  # 实例化表示 PPTX 文件的演示文稿类
-  $pres = new Presentation();
-  try {
-    # 访问特定幻灯片的形状集合
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # 添加椭圆自动形状
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # 添加矩形自动形状
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # 向幻灯片的形状集合中添加连接线形状
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # 使用连接线连接形状
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # 为椭圆形状设置首选连接点索引
-    $wantedIndex = 6;
-    # 检查首选索引是否小于最大站点索引计数
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # 为椭圆自动形状设置首选连接点
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # 保存演示文稿
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **调整连接点**
 
-## **Adjust a Connector Point**
+具有调整点的连接线通过 [GeometryShape::getAdjustments](https://reference.aspose.com/slides/zh/php-java/aspose.slides/geometryshape/#getadjustments) 公开它们。在使用 [AdjustValue::setRawValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/adjustvalue/setrawvalue/) 更改之前，检查每个 [AdjustValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/adjustvalue/) 并查看其 [AdjustValue::getType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/adjustvalue/#gettype) 值。关于识别预设形状调整的通用规则，请参阅 [Shape Manipulation](/slides/zh/php-java/shape-manipulations/)。
 
-您可以通过调整点对已有的连接线进行微调。仅带有调整点的连接线才可以这样操作。请参见 **[Types of connectors.](/slides/zh/php-java/connector/#types-of-connectors)** 表格。
+连接线调整的数量、顺序、含义和有效值范围取决于连接线预设。调整类型是只读的，而调整值是可写的。只读的 [AdjustValue::getName](https://reference.aspose.com/slides/zh/php-java/aspose.slides/adjustvalue/getname/) 方法提供额外的标识，当一个连接线包含多个相同语义类型的调整时尤为有用。
 
-### **Simple Case**
+### **绕过障碍物的路线**
 
-考虑一种情况：连接线在两个形状 (A 和 B) 之间经过第三个形状 (C)：
+在以下布局中，两个形状之间的 `BentConnector5` 连接线穿过第三个形状：
 
 ![connector-obstruction](connector-obstruction.png)
+
+以下代码创建了受阻的连接线：
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-为了绕过第三个形状，可以将连接线的垂直线向左移动：
+移动垂直弯曲会改变路径，使连接线绕过障碍物：
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
 
+不要假设集合索引 `1` 总是表示垂直弯曲，此示例搜索 `ConnectorBendPositionY` 并仅在出现预期语义类型时才进行更改：
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+`BentConnector5` 有两个 `ConnectorBendPositionX` 调整和一个 `ConnectorBendPositionY` 调整。如果所需的类型出现多次，请在选择之前检查 `getName` 以及该预设的已知几何形状。如果某个调整报告 `ShapeAdjustmentType::Custom`，则将其含义和范围视为特定于预设，在未明确该约定前不要更改它。
 
-### **Complex Cases** 
+## **将调整值与连接器几何关联**
 
-进行更复杂的调整时，需要考虑以下因素：
+对于弯曲连接器，调整值可用于估算各段的位置。这些计算特定于连接器预设：
 
-* 连接线的可调点与用于计算其位置的公式紧密关联，修改点的位置可能会改变连接线的形状。  
-* 连接线的调整点在数组中按严格顺序定义，编号从起点到终点依次递增。  
-* 调整点的数值反映了连接线形状宽度/高度的百分比。  
-  * 形状的边界由连接线的起点和终点乘以 1000 确定。  
-  * 第一点、第二点、第三点分别表示宽度的百分比、高度的百分比以及再次的宽度百分比。  
-* 在计算连接线调整点坐标时，需要考虑连接线的旋转和翻转。**注意**，在 **[Types of connectors](/slides/zh/php-java/connector/#types-of-connectors)** 中展示的所有连接线的旋转角度均为 0。
+- `BentConnector4` 通常会公开一个 `ConnectorBendPositionX` 调整和一个 `ConnectorBendPositionY` 调整。
+- 对于这些弯曲位置，将 `getRawValue` 返回的值除以 `100000` 可得到连接器框宽度或高度的比例，如下例所示。
+- 连接器框可以旋转或翻转，因此在与幻灯片坐标比较之前必须对框坐标进行转换。
 
-#### **Case 1**
+以下示例首先使用 `getType` 标识调整。它们不将集合索引视为可移植的标识符。
 
-考虑两个文本框对象通过连接线相连的情况：
+### **未旋转的连接器**
+
+初始布局包含两个由 `BentConnector4` 连接的文本形状：
 
 ![connector-shape-complex](connector-shape-complex.png)
+
+此示例检查连接器并获取其水平和垂直弯曲调整：
+
 ```php
-  # 实例化表示 PPTX 文件的演示文稿类
-  $pres = new Presentation();
-  try {
-    # 获取演示文稿中的第一张幻灯片
-    $sld = $pres->getSlides()->get_Item(0);
-    # 添加将通过连接线连接在一起的形状
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # 添加一个连接线
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # 指定连接线的方向
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # 指定连接线的颜色
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # 指定连接线的粗细
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # 使用连接线将形状链接在一起
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # 获取连接线的调整点
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+要更改两个弯曲，请定位每个预期类型，并在找到两者后才修改值：
 
-**Adjustment**
-
-我们可以通过将对应的宽度和高度百分比分别增加 20% 和 200% 来更改连接线的调整点数值：
 ```php
-  # 更改调整点的值
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-结果：
+结果是水平和垂直段已经移动的连接器：
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-为了构建一个模型以确定连接线各部分的坐标和形状，我们创建一个对应于 `connector.getAdjustments().get_Item(0)` 点的水平分量的形状：
+一旦知道语义类型，就可以将它们的值转换为连接器框坐标。此示例在由两个弯曲调整控制的垂直段上绘制一个细矩形：
+
 ```php
-  # 绘制连接线的垂直分量
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-结果：
+引导形状标记了计算得到的段：
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Case 2**
+### **旋转或翻转的连接器**
 
-在 **Case 1** 中，我们演示了使用基本原理进行简单的连接线调整。实际情况中，需要考虑连接线的旋转以及其显示方式（由 `connector.getRotation()`、`connector.getFrame().getFlipH()` 和 `connector.getFrame().getFlipV()` 设置）。下面演示整个过程。
+当相同的连接器几何垂直定位时，其 [Shape::getFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/getframe/)、[ShapeFrame::getFlipH](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shapeframe/getfliph/) 和 [ShapeFrame::getFlipV](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shapeframe/getflipv/) 值会影响从连接器框坐标到幻灯片坐标的转换。
 
-首先，在幻灯片上添加一个新的文本框对象（**To 1**），用于连接，然后创建一个新的（绿色）连接线将其与已创建的对象相连。
+此示例创建并调整垂直方向的连接器：
+
 ```php
-  # 创建一个新的绑定对象
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # 创建一个新的连接器
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # 使用新创建的连接器连接对象
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # 获取连接器的调整点
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # 更改调整点的值
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-结果：
+调整后的连接器垂直显示在形状之间：
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-接着，创建一个形状对应于通过新连接线的调整点 `connector.getAdjustments().get_Item(0)` 的水平分量。我们使用 `connector.getRotation()`、`connector.getFrame().getFlipH()`、`connector.getFrame().getFlipV()` 的数值，并应用围绕给定点 x0 旋转的坐标转换公式：
+对于任意旋转角度 `alpha`，将连接器框点 `(x, y)` 绕框中心 `(x0, y0)` 旋转：
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-在本例中，对象的旋转角度为 90 度，且连接线垂直显示，下面是相应的代码：
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+以下代码处理本示例中使用的 90 度方向，并在相应的连接器段上绘制红色引导线：
+
 ```php
-  # 保存连接器坐标
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # 在出现时校正连接器坐标
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # 将调整点值作为坐标
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # 转换坐标，因为 Sin(90) = 1 且 Cos(90) = 0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # 使用第二个调整点值确定水平分量的宽度
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-
-结果：
+坐标转换后，红色引导线标记了计算得到的段：
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-我们演示了涉及简单调整和带旋转角度的复杂调整点的计算。掌握这些知识后，您可以自行构建模型（或编写代码）以获取 `GraphicsPath` 对象，甚至根据特定幻灯片坐标设置连接线的调整点数值。
+这些公式描述的是示例中使用的预设，而非通用的连接器模型。在将相同计算应用于不同预设之前，请验证调整类型、框的方向和数值范围。
 
-## **Find the Angle of Connector Lines**
+## **查找连接器方向角**
 
-1. 创建类的实例。  
-1. 通过索引获取幻灯片引用。  
-1. 访问连接线形状。  
-1. 使用线的宽度、高度、形状框的宽度和高度计算角度。  
+可以根据直线连接器的宽度和高度，并考虑水平和垂直翻转来计算其方向。以下示例报告了相对于幻灯片坐标中正水平轴的顺时针角度：
 
-以下 PHP 代码演示了如何计算连接线形状的角度：
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **常见问题**
 
-## **FAQ**
+**如何判断连接器是否可以附加到形状？**
 
-**如何判断连接线是否可以“粘贴”到特定形状上？**
+检查形状的 [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/getconnectionsitecount/) 值。正值表示该形状公开连接点。在将选定的连接点索引分配给任一连接器端之前，请先验证该索引。
 
-检查形状是否公开了 [connection sites](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getconnectionsitecount/)。如果没有或计数为零，则不支持粘贴；此时应使用自由端点并手动定位。建议在附加之前先检查站点计数。
+**我可以通过集合索引识别连接器调整吗？**
 
-**如果删除了已连接的形状之一，连接线会怎样？**
+索引仅在已知的连接器预设和集合布局下才有意义。在修改值之前，请检查 [AdjustValue::getType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/adjustvalue/#gettype)，并在同一语义类型出现多次时使用 [AdjustValue::getName](https://reference.aspose.com/slides/zh/php-java/aspose.slides/adjustvalue/getname/) 作为额外信息。
 
-它的两端将被分离，连接线会以普通线的形式保留在幻灯片上，起点/终点为自由状态。您可以删除它，或重新分配连接并在需要时调用 [reroute](https://reference.aspose.com/slides/php-java/aspose.slides/connector/reroute/)。  
+**删除已连接的形状会发生什么？**
 
-**复制幻灯片到另一份演示文稿时，连接线的绑定会被保留吗？**
+相应的连接器端会被分离。连接器仍保留在幻灯片上，可以删除、作为自由线定位，或重新附加到其他形状。
 
-通常会保留，前提是目标形状也被一起复制。如果在未复制连接形状的情况下插入幻灯片，连接线的两端会变为自由端，需要重新附加。
+**复制幻灯片时，连接器绑定会被保留吗？**
+
+如果在复制幻灯片时一起复制了已连接的形状，绑定通常会被保留。如果仅复制了连接器而未复制其目标形状，则必须重新附加受影响的端点。

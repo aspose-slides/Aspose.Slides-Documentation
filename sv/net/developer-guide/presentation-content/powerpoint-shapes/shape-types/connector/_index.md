@@ -1,394 +1,519 @@
 ---
-title: Hantera kopplingar i presentationer i .NET
-linktitle: Koppling
+title: "Hantera anslutningar i presentationer i .NET"
+linktitle: "Anslutning"
 type: docs
 weight: 10
 url: /sv/net/connector/
 keywords:
-- koppling
-- kopplingstyp
-- kopplingspunkt
-- kopplingslinje
-- kopplingsvinkel
+- anslutning
+- anslutningstyp
+- anslutningspunkt
+- anslutningslinje
+- anslutningsvinkel
+- anslutningsplats
+- justeringspunkt
 - anslut former
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Ge .NET-appar möjlighet att rita, ansluta och automatiskt leda linjer i PowerPoint-bilder—få full kontroll över raka, armbågs- och kurviga kopplingar."
+description: "Lär dig hur du lägger till, fäster, omruttar, justerar och granskar raka, böjda och krökta PowerPoint-anslutningar med Aspose.Slides för .NET."
 ---
-## **Introduktion**
+## **Översikt**
 
-En PowerPoint‑koppling är en speciell linje som förbinder två former och förblir fäst vid formerna även när de flyttas eller omplaceras på en given bild. 
+En anslutning är en linje som kan förbli fäst vid två former när någon av formerna flyttas. Dess ändar fästs vid anslutningsplatser, som visas av gröna prickar i PowerPoint. Vissa böjda och krökta anslutningar visar också justeringspunkter, som visas av orange prickar, som styr positionen för enskilda anslutningssegment.
 
-Kopplingar är vanligtvis anslutna till *anslutningspunkter* (gröna prickar), som finns på alla former som standard. Anslutningspunkter visas när en muspekare kommer nära dem.
+Aspose.Slides representerar anslutningar via gränssnittet [IConnector](https://reference.aspose.com/slides/sv/net/aspose.slides/iconnector/). Du kan skapa dem, fästa deras ändar vid former, välja anslutningsplatser, omrutta dem och ändra geometrin för anslutningar som har justeringspunkter.
 
-*Justeringpunkter* (orange prickar), som bara finns på vissa kopplingar, används för att ändra kopplingarnas positioner och former.
+## **Anslutningstyper**
 
-## **Typer av kopplingar**
+Enumeringen [ShapeType](https://reference.aspose.com/slides/sv/net/aspose.slides/shapetype/) innehåller raka, böjda och krökta anslutningsförinställningar. Tabellen nedan visar tillgängliga anslutningsgeometrier och antalet justeringspunkter som definieras av varje förinställning.
 
-I PowerPoint kan du använda raka, armbåg (vinklade) och kurviga kopplingar. 
+| Anslutning | Bild | Antal justeringspunkter |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides tillhandahåller dessa kopplingar:
+Antalet och betydelsen av justeringspunkterna är en del av den valda anslutningsförinställningen. Anta inte att två olika anslutningstyper visar samma samlingslayout.
 
-| Koppling | Bild | Antal justeringspunkter |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **Anslut två former**
 
-## **Anslut former med kopplingar**
+Använd [IShapeCollection.AddConnector](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addconnector/) för att lägga till en anslutning och tilldela dess egenskaper [StartShapeConnectedTo](https://reference.aspose.com/slides/sv/net/aspose.slides/connector/startshapeconnectedto/) och [EndShapeConnectedTo](https://reference.aspose.com/slides/sv/net/aspose.slides/connector/endshapeconnectedto/). När båda ändarna är fästa väljer [IConnector.Reroute](https://reference.aspose.com/slides/sv/net/aspose.slides/iconnector/reroute/) en kort väg mellan formerna.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) .
-1. Hämta en bilds referens via dess index.
-1. Lägg till två [AutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/autoshape/) på bilden med metoden `AddAutoShape` som exponeras av `Shapes`‑objektet.
-1. Lägg till en koppling med metoden `AddConnector` som exponeras av `Shapes`‑objektet genom att ange kopplingstyp.
-1. Anslut formerna med kopplingen. 
-1. Anropa metoden `Reroute` för att tillämpa den kortaste anslutningsvägen.
-1. Spara presentationen. 
+Följande exempel ansluter en ellips och en rektangel med en böjd anslutning:
 
-Denna C#‑kod visar hur du lägger till en koppling (en böjd koppling) mellan två former (en ellips och en rektangel):
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Instansierar en presentationsklass som representerar en PPTX-fil
-using (Presentation input = new Presentation())
-{                
-    // Hämtar samlingen av former för en specifik bild
-    IShapeCollection shapes = input.Slides[0].Shapes;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Lägger till en Ellipse-autoshape
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Lägger till en rektangel-autoshape
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // Lägger till en kopplingsform till bildens formssamling
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // Ansluter formerna med kopplingen
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Anropar Reroute som sätter den automatiska kortaste vägen mellan formerna
-    connector.Reroute();
-
-    // Sparar presentationen
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
 
-Metoden `Connector.Reroute` omdirigerar en koppling och tvingar den att ta den kortaste möjliga vägen mellan former. För att uppnå detta kan metoden ändra punkterna `StartShapeConnectionSiteIndex` och `EndShapeConnectionSiteIndex`. 
+Att anropa `Reroute` kan ändra värdena [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/sv/net/aspose.slides/connector/startshapeconnectionsiteindex/) och [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/sv/net/aspose.slides/connector/endshapeconnectionsiteindex/). Tilldela specifika anslutningsplatser efter omruttning om dessa platser måste förbli fasta.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **Specificera en anslutningspunkt**
+## **Välj en anslutningsplats**
 
-Om du vill att en koppling ska länka två former med specifika punkter på formerna måste du ange dina föredragna anslutningspunkter på följande sätt:
+Varje form som kan anslutas rapporterar sitt antal platser via [ConnectionSiteCount](https://reference.aspose.com/slides/sv/net/aspose.slides/shape/connectionsitecount/). Validera ett föredraget nollbaserat platsindex innan du tilldelar det till en anslutningsände; antalet platser varierar beroende på formens geometri.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) .
-1. Hämta en bilds referens via dess index.
-1. Lägg till två [AutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/autoshape/) på bilden med metoden `AddAutoShape` som exponeras av `Shapes`‑objektet.
-1. Lägg till en koppling med metoden `AddConnector` som exponeras av `Shapes`‑objektet genom att ange kopplingstyp.
-1. Anslut formerna med kopplingen. 
-1. Ställ in dina föredragna anslutningspunkter på formerna. 
-1. Spara presentationen.
+Detta exempel fäster anslutningen på en viss plats på ellipsen när den platsen finns:
 
-Denna C#‑kod demonstrerar en operation där en föredragen anslutningspunkt specificeras:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Instansierar en presentationsklass som representerar en PPTX-fil
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // Hämtar samlingen av former för en specifik bild
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // Lägger till en kopplingsform i bildens formssamling
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // Lägger till en Ellipse-autoshape
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // Lägger till en rektangel-autoshape
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // Ansluter formerna med kopplingen
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // Anger önskat anslutningspunktindex på Ellipse‑formen
-    uint wantedIndex = 6;
-
-    // Kontrollerar om det önskade indexet är mindre än det maximala antalet anslutningsplatser
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // Anger den önskade anslutningspunkten på Ellipse‑autoshapen
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // Sparar presentationen
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
-## **Justera en kopplingspunkt**
+## **Justera en anslutningspunkt**
 
-Du kan justera en befintlig koppling via dess justeringspunkter. Endast kopplingar med justeringspunkter kan ändras på detta sätt. Se tabellen under **[Typer av kopplingar](/slides/sv/net/connector/#types-of-connectors)** 
+Anslutningar med justeringspunkter visar dem via [IGeometryShape.Adjustments](https://reference.aspose.com/slides/sv/net/aspose.slides/igeometryshape/adjustments/). Inspektera varje [IAdjustValue](https://reference.aspose.com/slides/sv/net/aspose.slides/iadjustvalue/) och kontrollera dess [Type](https://reference.aspose.com/slides/sv/net/aspose.slides/adjustvalue/type/) innan du ändrar dess [RawValue](https://reference.aspose.com/slides/sv/net/aspose.slides/adjustvalue/rawvalue/). De allmänna reglerna för att identifiera förinställda formjusteringar beskrivs i [Shape Manipulation](/slides/sv/net/shape-manipulations/).
 
-### **Enkelt fall**
+Antalet, ordningen, betydelsen och det giltiga värdeomfånget för anslutningsjusteringar beror på anslutningsförinställningen. Egenskapen `Type` är skrivskyddad, medan justeringsvärdet är skrivbart. Den skrivskyddade egenskapen [Name](https://reference.aspose.com/slides/sv/net/aspose.slides/adjustvalue/name/) ger ytterligare identifiering när en anslutning innehåller mer än en justering av samma semantiska typ.
 
-Tänk dig ett scenario där en koppling mellan två former (A och B) passerar genom en tredje form (C):
+### **Rut runt ett hinder**
+
+I följande layout passerar en `BentConnector5` mellan två former genom en tredje form:
 
 ![connector-obstruction](connector-obstruction.png)
 
-Kod:
+Denna kod skapar den blockerade anslutningen:
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-För att undvika eller gå förbi den tredje formen kan vi justera kopplingen genom att flytta dess vertikala linje åt vänster på följande sätt:
+Att flytta den vertikala böjen ändrar vägen så att anslutningen går förbi hindret:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+Istället för att anta att samlingsindex `1` alltid representerar den vertikala böjen söker detta exempel efter `ConnectorBendPositionY` och ändrar den endast när den förväntade semantiska typen finns:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Komplexa fall** 
+En `BentConnector5` har två `ConnectorBendPositionX`-justeringar och en `ConnectorBendPositionY`-justering. Om den typ du behöver förekommer mer än en gång, inspektera `Name` och den kända geometrin för den förinställningen innan du väljer en. Om en justering rapporterar `ShapeAdjustmentType.Custom`, behandla dess betydelse och intervall som förinställningsspecifika och ändra den inte förrän kontraktet är känt.
 
-För att utföra mer komplicerade justeringar måste du ta hänsyn till följande:
+## **Relatera anpassningsvärden till anslutningsgeometri**
 
-* En justeringspunkts placering är starkt kopplad till en formel som beräknar och bestämmer dess position. Så förändringar av punktens läge kan förändra kopplingens form.
-* Justeringspunkterna definieras i en strikt ordning i en array. De är numrerade från kopplingens startpunkt till dess slutpunkt.
-* Justeringspunktsvärdena avspeglar procenten av kopplingens bredd/höjd. 
-  * Formen avgränsas av kopplingens start‑ och slutpunkter multiplicerat med 1000. 
-  * Den första, andra och tredje punkten anger respektive procenten från bredden, procenten från höjden och procenten från bredden (återigen).
-* Vid beräkning av koordinaterna för en kopplings justeringspunkter måste du ta hänsyn till kopplingens rotation och dess reflektion. **Obs** att rotationsvinkeln för alla kopplingar som visas under **[Typer av kopplingar](/slides/sv/net/connector/#types-of-connectors)** är 0.
+För böjda anslutningar kan justeringsvärden användas för att uppskatta positionerna för enskilda segment. Dessa beräkningar är specifika för anslutningsförinställningen:
 
-#### **Fall 1**
+- `BentConnector4` visar normalt en `ConnectorBendPositionX` och en `ConnectorBendPositionY`-justering.
+- För dessa böjpositioner ger `RawValue / 100000f` bråkdelen av anslutningsramens bredd eller höjd som används i exemplen nedan.
+- En anslutningsram kan roteras eller speglas, så ramkoordinater måste transformeras innan de jämförs med bildens koordinater.
 
-Tänk dig ett fall där två text‑ram‑objekt länkas ihop via en koppling:
+Följande exempel använder `Type` för att först identifiera justeringarna. De behandlar inte samlingsindex som portabla identifierare.
+
+### **Oroterad anslutning**
+
+Den ursprungliga layouten innehåller två textformer anslutna med en `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-Kod:
+Detta exempel inspekterar anslutningen och hämtar dess horisontella och vertikala böjjusteringar:
 
-```c#
-// Instansierar en presentationsklass som representerar en PPTX-fil
-Presentation pres = new Presentation();
-// Hämtar den första bilden i presentationen
-ISlide sld = pres.Slides[0];
-// Lägger till former som kommer att kopplas ihop via en koppling
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
-// Lägger till en koppling
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-// Anger kopplingens riktning
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
-// Anger kopplingens färg
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
-// Anger tjockleken på kopplingens linje
 connector.LineFormat.Width = 3;
-
-// Kopplar ihop formerna med kopplingen
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
-// Hämtar justeringspunkter för kopplingen
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**Justering**
+För att ändra båda böjarna, lokalisera varje förväntad typ och modifiera värdena först när båda har hittats:
 
-Vi kan ändra värdena för kopplingens justeringspunkter genom att öka de motsvarande procenten av bredd och höjd med 20 % respektive 200 %:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Ändrar värdena för justeringspunkterna
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-Resultatet:
+Resultatet blir en anslutning vars horisontella och vertikala segment har förflyttats:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-För att definiera en modell som låter oss bestämma koordinaterna och formen för enskilda delar av kopplingen skapar vi en form som motsvarar den horisontella komponenten av kopplingen vid punkten `connector.Adjustments[0]`:
+När de semantiska typerna är kända kan deras värden konverteras till anslutningsramens koordinater. Detta exempel ritar en tunn rektangel över det vertikala segmentet som styrs av de två böjjusteringarna:
 
-```c#
-// Rita den vertikala komponenten av kopplingen
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Resultatet:
+Guideformen markerar det beräknade segmentet:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Fall 2**
+### **Roterad eller speglad anslutning**
 
-I **Fall 1** visade vi en enkel justeringsoperation med grundläggande principer. I normala situationer måste du ta hänsyn till kopplingens rotation och dess visning (som sätts av `connector.Rotation`, `connector.Frame.FlipH` och `connector.Frame.FlipV`). Vi demonstrerar nu processen.
+När samma anslutningsgeometri är orienterad vertikalt påverkar dess [Frame](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/sv/net/aspose.slides/shapeframe/fliph/), och [FlipV](https://reference.aspose.com/slides/sv/net/aspose.slides/shapeframe/flipv/) värden konverteringen från anslutningsramens koordinater till bildens koordinater.
 
-Först lägger vi till ett nytt text‑ram‑objekt (**To 1**) på bilden (för anslutningsändamål) och skapar en ny (grön) koppling som länkar den till de objekt vi redan har skapat.
+Detta exempel skapar och justerar den vertikalt orienterade anslutningen:
 
-```c#
-// Skapar ett nytt bindningsobjekt
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
-// Skapar en ny koppling
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
-// Kopplar objekt med den nyskapade kopplingen
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
-// Hämtar kopplingens justeringspunkter
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
-// Ändrar värdena för justeringspunkterna 
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-Resultatet:
+Den justerade anslutningen visas vertikalt mellan formerna:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Sedan skapar vi en form som motsvarar den horisontella komponenten av kopplingen som passerar genom den nya kopplingens justeringspunkt `connector.Adjustments[0]`. Vi använder värdena från kopplingsdata för `connector.Rotation`, `connector.Frame.FlipH` och `connector.Frame.FlipV` och tillämpar den populära koordinatkonverteringsformeln för rotation kring en given punkt x0:
+För en godtycklig rotationsvinkel `alpha`, rotera en punkt i anslutningsramen `(x, y)` kring ramcentrum `(x0, y0)`:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-I vårt fall är objektets rotationsvinkel 90 grader och kopplingen visas vertikalt, så koden blir:
+Följande kod hanterar den 90‑graders orientering som används i detta exempel och ritar en röd guide över motsvarande anslutningssegment:
 
-```c#
-// Sparar kopplingens koordinater
-x = connector.X;
-y = connector.Y;
-// Korrigerar kopplingens koordinater om den visas
-if (connector.Frame.FlipH == NullableBool.True)
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
+
+if (horizontalBend is null || verticalBend is null)
 {
-    y += connector.Height;
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
 }
-// Tar justeringspunktsvärdet som koordinat
-x += connector.Width * adjValue_0.RawValue / 100000;
-//  Omvandlar koordinaterna eftersom Sin(90) = 1 och Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// Bestämmer bredden på den horisontella komponenten med hjälp av det andra justeringspunktsvärdet
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-Resultatet:
+Den röda guiden markerar det beräknade segmentet efter koordinattransformationen:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Vi har demonstrerat beräkningar som involverar både enkla justeringar och komplicerade justeringspunkter (justeringspunkter med rotationsvinklar). Med den kunskap du nu har kan du utveckla din egen modell (eller skriva kod) för att få ett `GraphicsPath`‑objekt eller till och med sätta värden för en kopplings justeringspunkter baserat på specifika bildkoordinater.
+Dessa formler beskriver de förinställningar som används i exemplen, inte en universell anslutningsmodell. Validera justeringstyper, ramorientering och värdeintervall innan du tillämpar samma beräkning på en annan förinställning.
 
-## **Hitta vinkeln på kopplingslinjer**
+## **Hitta en anslutningsriktningens vinkel**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) .
-1. Hämta en bilds referens via dess index.
-1. Åtkomst till kopplingslinjeformen. 
-1. Använd linjens bredd, höjd, formens ramhöjd och rambredd för att beräkna vinkeln.
+Riktningen för en rak anslutning kan beräknas från dess bredd och höjd, med horisontella och vertikala speglingar tillämpade. Följande exempel rapporterar den medurs vinkel från den positiva horisontella axeln i bildkoordinater:
 
-Denna C#‑kod demonstrerar en operation där vi beräknade vinkeln för en kopplingslinjeform:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-public static void Run()
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Hur kan jag avgöra om en koppling kan "limmas" på en specifik form?**
+**Hur kan jag avgöra om en anslutning kan fästas vid en form?**
 
-Kontrollera att formen exponerar [connection sites](https://reference.aspose.com/slides/sv/net/aspose.slides/shape/connectionsitecount/). Om det inte finns några eller antalet är noll, är limning inte tillgänglig; i så fall använder du fria ändpunkter och placerar dem manuellt. Det är klokt att kontrollera antalet innan du fäster.
+Kontrollera formens `ConnectionSiteCount`. Ett positivt antal betyder att formen exponerar anslutningsplatser. Validera det valda platsindexet innan du tilldelar det till någon av anslutningens ändar.
 
-**Vad händer med en koppling om jag tar bort en av de anslutna formerna?**
+**Kan jag identifiera en anslutningsjustering via dess samlingsindex?**
 
-Dess ändar blir frikopplade; kopplingen kvarstår på bilden som en vanlig linje med fria start‑/slutpunkter. Du kan antingen radera den eller återansluta och, om behövs, [reroute](https://reference.aspose.com/slides/sv/net/aspose.slides/connector/reroute/).
+Ett index är meningsfullt endast för en känd anslutningsförinställning och samlingslayout. Kontrollera `IAdjustValue.Type` innan du ändrar ett värde, och använd `IAdjustValue.Name` som ytterligare information när samma semantiska typ förekommer mer än en gång.
 
-**Behålls kopplingsbindningar när en bild kopieras till en annan presentation?**
+**Vad händer när en ansluten form tas bort?**
 
-I allmänhet ja, förutsatt att de målformer som kopplas också kopieras. Om bilden infogas i en annan fil utan de anslutna formerna blir ändarna fria och du måste återansluta dem.
+Den motsvarande anslutningsänden blir frikopplad. Anslutningen förblir på bilden och kan tas bort, placeras som en fri linje eller fästas till en annan form.
+
+**Behålls anslutningsbindningar när en bild kopieras?**
+
+Bindningarna bevaras i regel när de anslutna formerna kopieras med bilden. Om en anslutning kopieras utan någon av sina målblade former måste den drabbade änden fästas igen.

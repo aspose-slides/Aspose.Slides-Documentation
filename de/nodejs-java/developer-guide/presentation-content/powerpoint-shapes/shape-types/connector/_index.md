@@ -1,377 +1,529 @@
 ---
-title: Verbinder
+title: Connectoren in Präsentationen mit JavaScript verwalten
+linktitle: Verbinder
 type: docs
 weight: 10
 url: /de/nodejs-java/connector/
-keywords: "Formen verbinden, Verbinder, PowerPoint-Formen, PowerPoint-Präsentation, Java, Aspose.Slides für Node.js via Java"
-description: "PowerPoint-Formen in JavaScript verbinden"
+keywords:
+- Connector
+- Connector-Typ
+- Connector-Punkt
+- Connector-Linie
+- Connector-Winkel
+- Verbindungsstelle
+- Anpassungspunkt
+- Formen verbinden
+- PowerPoint
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie gerade, gebogene und gekrümmte PowerPoint‑Connectoren mit Aspose.Slides für Node.js über Java hinzufügen, anfügen, neu routen, anpassen und untersuchen können."
 ---
+## **Übersicht**
 
-Ein PowerPoint‑Verbinder ist eine spezielle Linie, die zwei Formen miteinander verbindet oder verknüpft und an den Formen befestigt bleibt, selbst wenn sie auf einer Folie verschoben oder neu positioniert werden. 
+Ein Connector ist eine Linie, die an zwei Formen befestigt bleiben kann, wenn eine der Formen bewegt wird. Seine Enden werden an Verbindungsstellen angebracht, die in PowerPoint durch grüne Punkte dargestellt werden. Einige gebogene und gekrümmte Connectoren besitzen außerdem Anpassungspunkte, die durch orange Punkte dargestellt werden und die Position einzelner Connector‑Segmente steuern.
 
-Verbinder sind typischerweise mit *Verbindungspunkten* (grüne Punkte) verbunden, die standardmäßig auf allen Formen vorhanden sind. Verbindungspunkte erscheinen, wenn sich der Zeiger ihnen nähert.
+Aspose.Slides stellt Connectoren über die Klasse [Connector](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/connector/) dar. Sie können Connectoren erstellen, deren Enden an Formen anbinden, Verbindungsstellen auswählen, sie neu routen und die Geometrie von Connectoren mit Anpassungspunkten ändern.
 
-*Anpassungspunkte* (orange Punkte), die nur bei bestimmten Verbindern existieren, werden verwendet, um die Positionen und Formen von Verbindern zu ändern.
+## **Connector‑Typen**
 
-## **Arten von Verbindern**
+Die Klasse [ShapeType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapetype/) umfasst Vorgaben für gerade, gebogene und gekrümmte Connectoren. Die folgende Tabelle zeigt die verfügbaren Connector‑Geometrien und die Anzahl der für jede Vorgabe definierten Anpassungspunkte.
 
-In PowerPoint können Sie gerade, Ellenbogen‑(gekrümmte) und gekrümmte Verbinder verwenden. 
+| Connector | Bild | Anzahl der Anpassungspunkte |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides stellt diese Verbinder bereit:
+Die Anzahl und Bedeutung der Anpassungspunkte gehören zur jeweiligen Connector‑Vorgabe. Gehen Sie nicht davon aus, dass zwei unterschiedliche Connector‑Typen dieselbe Sammlungsstruktur besitzen.
 
-| Verbinder | Bild | Anzahl der Anpassungspunkte |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **Zwei Formen verbinden**
 
-## **Formen mit Verbindern verbinden**
+Verwenden Sie [ShapeCollection.addConnector](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/addconnector/), um einen Connector hinzuzufügen, und nutzen Sie [Connector.setStartShapeConnectedTo](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/connector/setstartshapeconnectedto/) sowie [Connector.setEndShapeConnectedTo](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/connector/setendshapeconnectedto/), um dessen Enden zu befestigen. Nachdem beide Enden angebunden sind, wählt [Connector.reroute](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/connector/reroute/) eine kurze Route zwischen den Formen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Holen Sie die Referenz einer Folie über ihren Index.
-3. Fügen Sie der Folie zwei [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) hinzu, indem Sie die Methode `addAutoShape` des `Shapes`‑Objekts verwenden.
-4. Fügen Sie einen Verbinder hinzu, indem Sie die Methode `addConnector` des `Shapes`‑Objekts verwenden und den Verbinder‑Typ definieren.
-5. Verbinden Sie die Formen mit dem Verbinder.
-6. Rufen Sie die Methode `reroute` auf, um den kürzesten Verbindungsweg anzuwenden.
-7. Speichern Sie die Präsentation. 
+Das folgende Beispiel verbindet eine Ellipse und ein Rechteck mit einem gebogenen Connector:
 
-Dieser JavaScript‑Code zeigt, wie man einen Verbinder (einen gebogenen Verbinder) zwischen zwei Formen (einer Ellipse und einem Rechteck) hinzufügt:
 ```javascript
-// Instanziiert eine Präsentationsklasse, die die PPTX-Datei darstellt
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Greift auf die Formen-Sammlung einer bestimmten Folie zu
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // Fügt eine Ellipse-Autoshape hinzu
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // Fügt eine Rechteck-Autoshape hinzu
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // Fügt der Formen-Sammlung der Folie ein Verbinder-Shape hinzu
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // Verbindet die Formen mit dem Verbinder
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // Ruft reroute auf, das den automatischen kürzesten Pfad zwischen Formen festlegt
     connector.reroute();
-    // Speichert die Präsentation
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("connected-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+{{% alert color="warning" title="Warning" %}}
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+Der Aufruf von `reroute` kann die Werte von [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) und [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/connector/setendshapeconnectionsiteindex/) ändern. Weisen Sie nach dem Rerouten konkrete Verbindungsstellen zu, wenn diese fest bleiben sollen.
 
-Die Methode `Connector.reroute` leitet einen Verbinder neu und zwingt ihn, den kürzesten möglichen Pfad zwischen Formen zu nehmen. Um dies zu erreichen, kann die Methode die Punkte `setStartShapeConnectionSiteIndex` und `setEndShapeConnectionSiteIndex` ändern. 
+{{% /alert %}}
 
-{{% /alert %}} 
+## **Eine Verbindungsstelle auswählen**
 
-## **Verbindungspunkt angeben**
+Jede verbindbare Form gibt ihre Anzahl an Verbindungsstellen über [Shape.getConnectionSiteCount](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getconnectionsitecount/) zurück. Validieren Sie einen bevorzugten nullbasierten Stellenindex, bevor Sie ihn einem Connector‑Ende zuweisen; die Anzahl variiert je nach Formgeometrie.
 
-Wenn Sie möchten, dass ein Verbinder zwei Formen über bestimmte Punkte auf den Formen verbindet, müssen Sie Ihre bevorzugten Verbindungspunkte wie folgt angeben:
+Dieses Beispiel bindet den Connector an eine bestimmte Stelle der Ellipse, sofern diese existiert:
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Holen Sie die Referenz einer Folie über ihren Index.
-3. Fügen Sie der Folie zwei [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) hinzu, indem Sie die Methode `addAutoShape` des `Shapes`‑Objekts verwenden.
-4. Fügen Sie einen Verbinder hinzu, indem Sie die Methode `addConnector` des `Shapes`‑Objekts verwenden und den Verbinder‑Typ definieren.
-5. Verbinden Sie die Formen mit dem Verbinder.
-6. Setzen Sie Ihre bevorzugten Verbindungspunkte auf den Formen.
-7. Speichern Sie die Präsentation.
-
-Dieser JavaScript‑Code demonstriert einen Vorgang, bei dem ein bevorzugter Verbindungspunkt angegeben wird:
 ```javascript
-// Instanziiert eine Präsentationsklasse, die eine PPTX-Datei repräsentiert
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Greift auf die Formen-Sammlung einer bestimmten Folie zu
-    var shapes = pres.getSlides().get_Item(0).getShapes();
-    // Fügt eine Ellipse-Autoshape hinzu
-    var ellipse = shapes.addAutoShape(aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
-    // Fügt eine Rechteck-Autoshape hinzu
-    var rectangle = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
-    // Fügt der Formen-Sammlung der Folie ein Verbinder-Shape hinzu
-    var connector = shapes.addConnector(aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
-    // Verbindet die Formen mithilfe des Verbinders
+    const slide = presentation.getSlides().get_Item(0);
+
+    const ellipse = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 40, 80, 120, 80);
+    const rectangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 320, 240, 140, 80);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector3, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
-    // Legt den bevorzugten Verbindungs-Punkt‑Index auf der Ellipse-Shape fest
-    var wantedIndex = 6;
-    // Prüft, ob der bevorzugte Index kleiner ist als die maximale Site‑Index‑Anzahl
-    if (ellipse.getConnectionSiteCount() > wantedIndex) {
-        // Setzt den bevorzugten Verbindungs‑Punkt auf der Ellipse-Autoshape
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+
+    const preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        console.log(`The ellipse has only ${ellipse.getConnectionSiteCount()} connection sites.`);
     }
-    // Speichert die Präsentation
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("specific-connection-site.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Einen Connector‑Punkt anpassen**
 
-## **Verbinder‑Punkt anpassen**
+Connectoren mit Anpassungspunkten stellen diese über [GeometryShape.getAdjustments](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/geometryshape/) bereit. Prüfen Sie jeden [AdjustValue](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/) und dessen [getType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/)-Wert, bevor Sie ihn mit [setRawValue](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/setrawvalue/) ändern. Die allgemeinen Regeln zur Identifizierung von Vorgaben‑Anpassungen werden in [Shape Manipulation](/slides/de/nodejs-java/shape-manipulations/) beschrieben.
 
-Sie können einen vorhandenen Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise geändert werden. Siehe die Tabelle unter **[Arten von Verbindern.](/slides/de/nodejs-java/connector/#types-of-connectors)**
+Die Anzahl, Reihenfolge, Bedeutung und der zulässige Wertebereich von Connector‑Anpassungen hängen von der jeweiligen Vorgabe ab. Der Anpassungstyp ist schreibgeschützt, der Anpassungswert hingegen beschreibbar. Die schreibgeschützte Methode [getName](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/getname/) liefert zusätzliche Identifikation, wenn ein Connector mehrere Anpassungen desselben semantischen Typs enthält.
 
-### **Einfacher Fall**
+### **Um ein Hindernis herumführen**
 
-Betrachten Sie den Fall, dass ein Verbinder zwischen zwei Formen (A und B) durch eine dritte Form (C) führt:
+In der folgenden Anordnung verläuft ein `BentConnector5` zwischen zwei Formen durch eine dritte Form:
 
 ![connector-obstruction](connector-obstruction.png)
+
+Dieser Code erzeugt den blockierten Connector:
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-
-Um die dritte Form zu vermeiden oder zu umfahren, können wir den Verbinder anpassen, indem wir seine vertikale Linie nach links verschieben:
+Durch Verschieben des vertikalen Bends ändert sich die Route, sodass der Connector das Hindernis umgeht:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
+
+Anstatt anzunehmen, dass Index `1` immer den vertikalen Bend darstellt, sucht dieses Beispiel nach `ConnectorBendPositionY` und ändert ihn nur, wenn der erwartete semantische Typ vorhanden ist:
+
 ```javascript
-var adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
-```
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-
-### **Komplexe Fälle** 
-
-Um kompliziertere Anpassungen vorzunehmen, müssen Sie folgende Punkte berücksichtigen:
-
-* Ein anpassbarer Punkt eines Verbinders ist eng mit einer Formel verbunden, die seine Position berechnet und bestimmt. Änderungen der Punktposition können daher die Form des Verbinders verändern.
-* Die Anpassungspunkte eines Verbinders werden in einem Array in einer festen Reihenfolge definiert. Die Punkte werden vom Start- zum Endpunkt des Verbinders nummeriert.
-* Die Werte der Anpassungspunkte geben den Prozentsatz der Breite/Höhe der Verbinderform wieder.
-  * Die Form ist durch die Start- und Endpunkte des Verbinders multipliziert mit 1000 begrenzt.
-  * Der erste Punkt, der zweite Punkt und der dritte Punkt definieren jeweils den Prozentsatz der Breite, den Prozentsatz der Höhe und erneut den Prozentsatz der Breite.
-* Für Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung des Verbinders und seine Spiegelung berücksichtigen. **Hinweis**, dass der Drehwinkel für alle unter **[Arten von Verbindern](/slides/de/nodejs-java/connector/#types-of-connectors)** gezeigten Verbinder 0 ist.
-
-#### **Fall 1**
-
-Betrachten Sie den Fall, dass zwei Textfeld‑Objekte über einen Verbinder miteinander verbunden sind:
-
-![connector-shape-complex](connector-shape-complex.png)
-```javascript
-// Instanziert eine Präsentationsklasse, die eine PPTX-Datei repräsentiert
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Holt die erste Folie der Präsentation
-    var sld = pres.getSlides().get_Item(0);
-    // Fügt Formen hinzu, die über einen Verbinder zusammengefügt werden
-    var shapeFrom = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Fügt einen Verbinder hinzu
-    var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Legt die Richtung des Verbinders fest
-    connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    // Legt die Farbe des Verbinders fest
-    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Legt die Linienstärke des Verbinders fest
-    connector.getLineFormat().setWidth(3);
-    // Verbindet die Formen mittels des Verbinders
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
-    connector.setEndShapeConnectionSiteIndex(2);
-    // Ermittelt Anpassungspunkte für den Verbinder
-    var adjValue_0 = connector.getAdjustments().get_Item(0);
-    var adjValue_1 = connector.getAdjustments().get_Item(1);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 400, 100, 50);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    const black = java.getStaticFieldValue("java.awt.Color", "BLACK");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(black);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
     }
+
+    if (verticalBend === null) {
+        console.log("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
+Ein `BentConnector5` besitzt zwei `ConnectorBendPositionX`‑Anpassungen und eine `ConnectorBendPositionY`‑Anpassung. Wenn der benötigte Typ mehr als einmal vorkommt, prüfen Sie `getName` und die bekannte Geometrie dieser Vorgabe, bevor Sie eine Auswahl treffen. Gibt eine Anpassung `ShapeAdjustmentType.Custom` zurück, behandeln Sie Bedeutung und Wertebereich als vorsppezifisch und ändern Sie sie nicht, solange die Vertragsbedingungen unbekannt sind.
 
-**Anpassung**
+## **Anpassungswerte in Beziehung zur Connector‑Geometrie setzen**
 
-Wir können die Werte der Anpassungspunkte des Verbinders ändern, indem wir den jeweiligen Prozentsatz der Breite um 20 % und den der Höhe um 200 % erhöhen:
+Bei gebogenen Connectoren können Anpassungswerte verwendet werden, um die Position einzelner Segmente abzuschätzen. Diese Berechnungen sind spezifisch für die jeweilige Connector‑Vorgabe:
+
+- `BentConnector4` stellt normalerweise eine `ConnectorBendPositionX`‑ und eine `ConnectorBendPositionY`‑Anpassung bereit.
+- Für diese Bends ergibt die Division des von `getRawValue` zurückgegebenen Werts durch `100000` den Bruchteil der Connector‑Rahmenbreite bzw. -höhe, wie in den nachfolgenden Beispielen verwendet.
+- Ein Connector‑Rahmen kann rotiert oder gespiegelt sein; daher müssen Rahmenkoordinaten vor dem Vergleich mit Folienkoordinaten transformiert werden.
+
+Die folgenden Beispiele nutzen `getType`, um zunächst die Anpassungen zu identifizieren. Sie behandeln Sammlungsindizes nicht als portable Kennungen.
+
+### **Nicht‑roter Connector**
+
+Die Ausgangsanordnung enthält zwei Textformen, die durch einen `BentConnector4` verbunden sind:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+Dieses Beispiel prüft den Connector und ermittelt seine horizontalen und vertikalen Bend‑Anpassungen:
+
 ```javascript
-// Ändert die Werte der Anpassungspunkte
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const red = java.getStaticFieldValue("java.awt.Color", "RED");
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        console.log(`${adjustment.getName()}: ${adjustment.getType()}, raw value = ${adjustment.getRawValue()}`);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+Um beide Bends zu ändern, lokalisieren Sie jeden erwarteten Typ und modifizieren Sie die Werte erst, nachdem beide gefunden wurden:
 
-Das Ergebnis:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis ist ein Connector, dessen horizontale und vertikale Segmente verschoben wurden:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Um ein Modell zu definieren, das uns ermöglicht, die Koordinaten und die Form einzelner Teile des Verbinders zu bestimmen, erstellen wir eine Form, die der horizontalen Komponente des Verbinders am Punkt `connector.getAdjustments().get_Item(0)` entspricht:
+Sind die semantischen Typen bekannt, können deren Werte in Connector‑Rahmenkoordinaten umgerechnet werden. Dieses Beispiel zeichnet ein dünnes Rechteck über das vertikale Segment, das von den beiden Bend‑Anpassungen gesteuert wird:
+
 ```javascript
-// Zeichnet die vertikale Komponente des Verbinders
-var x = connector.getX() + ((connector.getWidth() * adjValue_0.getRawValue()) / 100000);
-var y = connector.getY();
-var height = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 0, height);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 500, 100, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        const x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const y = connector.getY();
+        const height = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(x);
+        const guideY = java.newFloat(y);
+        const guideWidth = java.newFloat(1);
+        const guideHeight = java.newFloat(height);
+        slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        presentation.save("connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-
-Das Ergebnis:
+Die Hilfsform markiert das berechnete Segment:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Fall 2**
+### **Rotierter oder gespiegelter Connector**
 
-In **Fall 1** haben wir eine einfache Verbinder‑Anpassungsoperation anhand grundlegender Prinzipien demonstriert. In normalen Situationen müssen Sie die Drehung des Verbinders und seine Darstellung (die durch `connector.getRotation()`, `connector.getFrame().getFlipH()` und `connector.getFrame().getFlipV()` festgelegt werden) berücksichtigen. Wir werden nun den Vorgang demonstrieren.
+Wenn dieselbe Connector‑Geometrie vertikal ausgerichtet ist, beeinflussen die Werte von [Shape.getFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getframe/), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapeframe/getfliph/) und [ShapeFrame.getFlipV](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapeframe/getflipv/) die Umrechnung von Connector‑Rahmen‑ zu Folienkoordinaten.
 
-Zunächst fügen wir der Folie ein neues Textfeld‑Objekt (**To 1**) (zwecks Verbindung) hinzu und erstellen einen neuen (grünen) Verbinder, der es mit den bereits erstellten Objekten verbindet.  
+Dieses Beispiel erzeugt und passt den vertikal ausgerichteten Connector an:
+
 ```javascript
-// Erstellt ein neues Bindungsobjekt
-var shapeTo_1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// Erstellt einen neuen Verbinder
-connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-connector.getLineFormat().setWidth(3);
-// Verbindet Objekte mithilfe des neu erstellten Verbinders
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// Ermittelt die Anpassungspunkte des Verbinders
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// Ändert die Werte der Anpassungspunkte
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    const connectorColor = java.newInstanceSync("java.awt.Color", 102, 205, 170);
+    const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+    const triangleArrowheadStyle = java.newByte(aspose.slides.LineArrowheadStyle.Triangle);
+    connector.getLineFormat().setEndArrowheadStyle(triangleArrowheadStyle);
+    connector.getLineFormat().getFillFormat().setFillType(solidFillType);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-
-Das Ergebnis:
+Der angepasste Connector erscheint vertikal zwischen den Formen:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-Zweitens erstellen wir eine Form, die der horizontalen Komponente des Verbinders entspricht, die durch den Anpassungspunkt des neuen Verbinders `connector.getAdjustments().get_Item(0)` verläuft. Wir verwenden die Werte aus den Connector‑Daten für `connector.getRotation()`, `connector.getFrame().getFlipH()` und `connector.getFrame().getFlipV()` und wenden die bekannte Koordinaten‑Umrechnungsformel für die Rotation um einen gegebenen Punkt x0 an:
+Für einen beliebigen Rotationswinkel `alpha` wird ein Punkt `(x, y)` des Connector‑Rahmens um das Rahmenzentrum `(x0, y0)` rotiert:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-In unserem Fall beträgt der Rotationswinkel des Objekts 90 Grad und der Verbinder wird vertikal dargestellt, daher ist dies der entsprechende Code:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+Der nachfolgende Code behandelt die in diesem Beispiel genutzte 90‑Grad‑Ausrichtung und zeichnet eine rote Hilfslinie über das entsprechende Connector‑Segment:
+
 ```javascript
-// Speichert die Koordinaten des Verbinders
-x = connector.getX();
-y = connector.getY();
-// Korrigiert die Koordinaten des Verbinders, falls sie erscheinen
-if (connector.getFrame().getFlipH() == aspose.slides.NullableBool.True) {
-    x += connector.getWidth();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 60, 25);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 400, 60, 25);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    let horizontalBend = null;
+    let verticalBend = null;
+    for (let adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        const adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() === aspose.slides.ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend === null || verticalBend === null) {
+        console.log("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        let x = connector.getX();
+        let y = connector.getY();
+        if (connector.getFrame().getFlipH() === aspose.slides.NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() === aspose.slides.NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000;
+        const rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        const rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        const segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000;
+        const guideX = java.newFloat(rotatedX);
+        const guideY = java.newFloat(rotatedY);
+        const guideWidth = java.newFloat(segmentWidth);
+        const guideHeight = java.newFloat(1);
+        const guide = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, guideX, guideY, guideWidth, guideHeight);
+        const red = java.getStaticFieldValue("java.awt.Color", "RED");
+        const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+        guide.getLineFormat().getFillFormat().setFillType(solidFillType);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+        presentation.save("rotated-connector-segment-guide.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == aspose.slides.NullableBool.True) {
-    y += connector.getHeight();
-}
-// Verwendet den Wert des Anpassungspunkts als Koordinate
-x += (connector.getWidth() * adjValue_0.getRawValue()) / 100000;
-// Konvertiert die Koordinaten, da Sin(90) = 1 und Cos(90) = 0
-var xx = (connector.getFrame().getCenterX() - y) + connector.getFrame().getCenterY();
-var yy = (x - connector.getFrame().getCenterX()) + connector.getFrame().getCenterY();
-// Bestimmt die Breite der horizontalen Komponente mithilfe des Wertes des zweiten Anpassungspunkts
-var width = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
-var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
 
-
-Das Ergebnis:
+Die rote Hilfslinie markiert das nach der Koordinatentransformation berechnete Segment:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Wir haben Berechnungen gezeigt, die einfache Anpassungen und komplexe Anpassungspunkte (Anpassungspunkte mit Drehwinkeln) umfassen. Mit dem erworbenen Wissen können Sie Ihr eigenes Modell entwickeln (oder Code schreiben), um ein `GraphicsPath`‑Objekt zu erhalten oder sogar die Werte der Anpassungspunkte eines Verbinders basierend auf spezifischen Folienkoordinaten festzulegen.
+Diese Formeln beschreiben die in den Beispielen verwendeten Vorgaben, nicht ein universelles Connector‑Modell. Validieren Sie vor der Anwendung derselben Berechnung auf eine andere Vorgabe die Anpassungstypen, Rahmenorientierung und Wertebereiche.
 
-## **Winkel von Verbinder‑Linien ermitteln**
+## **Den Winkel der Connector‑Richtung ermitteln**
 
-1. Erstellen Sie eine Instanz der Klasse.
-2. Holen Sie die Referenz einer Folie über ihren Index.
-3. Greifen Sie auf die Form der Verbinder‑Linie zu.
-4. Verwenden Sie die Linienbreite, -höhe, die Rahmenhöhe der Form und die Rahmenbreite der Form, um den Winkel zu berechnen.
+Der Winkel eines geraden Connectors kann aus seiner Breite und Höhe berechnet werden, wobei horizontale und vertikale Spiegelungen berücksichtigt werden. Das folgende Beispiel gibt den im Uhrzeigersinn gemessenen Winkel zur positiven Horizontalachse in Folienkoordinaten aus:
 
-Dieser JavaScript‑Code demonstriert einen Vorgang, bei dem wir den Winkel einer Verbinder‑Linienform berechnet haben:
 ```javascript
-var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    for (var i = 0; i < slide.getShapes().size(); i++) {
-        var dir = 0.0;
-        var shape = slide.getShapes().get_Item(i);
-        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-            var ashp = shape;
-            if (ashp.getShapeType() == aspose.slides.ShapeType.Line) {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        } else if (java.instanceOf(shape, "com.aspose.slides.Connector")) {
-            var ashp = shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
-        console.log(dir);
-    }
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+    const slide = presentation.getSlides().get_Item(0);
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-```javascript
-function getDirection(w, h, flipH, flipV) {
-    let endLineX = w * (flipH ? -1 : 1);
-    let endLineY = h * (flipV ? -1 : 1);
-    
-    let endYAxisX = 0;
-    let endYAxisY = h;
-
-    let angle = Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX);
+    const flipH = connector.getFrame().getFlipH() === aspose.slides.NullableBool.True;
+    const flipV = connector.getFrame().getFlipV() === aspose.slides.NullableBool.True;
+    const deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    const deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    let angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
 
     if (angle < 0) {
-        angle += 2 * Math.PI;
+        angle += 360;
     }
 
-    return angle * 180.0 / Math.PI;
+    console.log(`Connector direction: ${angle.toFixed(2)} degrees`);
+} finally {
+    presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
-**Wie kann ich erkennen, ob ein Verbinder an einer bestimmten Form „geklebt“ werden kann?**
+**Wie kann ich feststellen, ob ein Connector an einer Form befestigt werden kann?**
 
-Überprüfen Sie, ob die Form [connection sites](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getconnectionsitecount/) bereitstellt. Wenn keine vorhanden sind oder die Anzahl null beträgt, ist das Kleben nicht verfügbar; verwenden Sie in diesem Fall freie Endpunkte und positionieren Sie diese manuell. Es ist sinnvoll, die Anzahl der Sites vor dem Anfügen zu prüfen.
+Prüfen Sie den Wert von [getConnectionSiteCount](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/getconnectionsitecount/) der Form. Ein positiver Wert bedeutet, dass die Form Verbindungsstellen bereitstellt. Validieren Sie den gewählten Stellenindex, bevor Sie ihn einem Connector‑Ende zuweisen.
 
-**Was passiert mit einem Verbinder, wenn ich eine der verbundenen Formen lösche?**
+**Kann ich eine Connector‑Anpassung anhand ihres Sammlungsindexes identifizieren?**
 
-Seine Enden werden getrennt; der Verbinder bleibt als gewöhnliche Linie mit freien Start‑/Endpunkten auf der Folie erhalten. Sie können ihn entweder löschen oder die Verbindungen neu zuweisen und bei Bedarf [reroute](https://reference.aspose.com/slides/nodejs-java/aspose.slides/connector/reroute/) verwenden.
+Ein Index ist nur für eine bekannte Connector‑Vorgabe und deren Sammlungsstruktur sinnvoll. Prüfen Sie [AdjustValue.getType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/), bevor Sie einen Wert ändern, und verwenden Sie [AdjustValue.getName](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/adjustvalue/getname/) als zusätzliche Information, wenn derselbe semantische Typ mehrfach vorkommt.
 
-**Werden Verbinder‑Verbindungen beim Kopieren einer Folie in eine andere Präsentation erhalten?**
+**Was passiert, wenn eine verbundene Form gelöscht wird?**
 
-Im Allgemeinen ja, vorausgesetzt, die Ziel‑Formen werden ebenfalls kopiert. Wenn die Folie in eine andere Datei eingefügt wird, ohne die verbundenen Formen, werden die Enden frei und Sie müssen sie erneut anfügen.
+Das zugehörige Connector‑Ende wird losgelöst. Der Connector bleibt auf der Folie erhalten und kann gelöscht, als freie Linie positioniert oder an eine andere Form angebunden werden.
+
+**Werden Connector‑Bindungen beim Kopieren einer Folie erhalten?**
+
+Bindungen bleiben in der Regel erhalten, wenn die verbundenen Formen zusammen mit der Folie kopiert werden. Wird ein Connector ohne eine seiner Ziel‑Formen kopiert, muss das betroffene Ende erneut angebunden werden.

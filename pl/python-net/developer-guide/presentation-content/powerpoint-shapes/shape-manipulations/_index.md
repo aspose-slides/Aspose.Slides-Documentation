@@ -5,44 +5,47 @@ type: docs
 weight: 40
 url: /pl/python-net/shape-manipulations/
 keywords:
-- Kształt PowerPoint
-- Kształt prezentacji
-- Kształt na slajdzie
-- Znajdź kształt
-- Klonuj kształt
-- Usuń kształt
-- Ukryj kształt
-- Zmień kolejność kształtu
-- Pobierz ID kształtu interop
-- Alternatywny tekst kształtu
-- Formaty układu kształtu
-- Kształt jako SVG
-- Kształt do SVG
-- Wyrównaj kształt
-- Odwróć kształt
+- kształt PowerPoint
+- kształt prezentacji
+- kształt na slajdzie
+- znajdowanie kształtu
+- klonowanie kształtu
+- usuwanie kształtu
+- ukrywanie kształtu
+- zmiana kolejności kształtu
+- pobieranie ID kształtu interop
+- alternatywny tekst kształtu
+- punkt dopasowania kształtu
+- wstępne dopasowanie kształtu
+- geometria kształtu
+- formaty układu kształtu
+- kształt jako SVG
+- kształt do SVG
+- wyrównanie kształtu
+- odbijanie kształtu
 - PowerPoint
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak identyfikować, klonować, usuwać, ukrywać, zmieniać kolejność, eksportować, wyrównywać i odwracać kształty prezentacji przy użyciu Aspose.Slides dla Pythona via .NET."
+description: "Dowiedz się, jak identyfikować, dostosowywać, klonować, usuwać, ukrywać, zmieniać kolejność, eksportować, wyrównywać i odbijać kształty w prezentacji za pomocą Aspose.Slides for Python via .NET."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Python via .NET reprezentuje kształty na slajdzie jako uporządkowaną [ShapeCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/). Kolekcja jest jednocześnie miejscem, w którym znajdziesz i zmodyfikujesz kształty, oraz źródłem ich kolejności nakładania: indeks `0` oznacza najoddalniejszy kształt, a ostatni indeks – najbliższy.
+Aspose.Slides dla Pythona via .NET przedstawia kształty na slajdzie jako uporządkowaną [ShapeCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/). Kolekcja jest jednocześnie miejscem, w którym znajdujesz i modyfikujesz kształty, oraz źródłem ich kolejności nakładania: indeks `0` jest najdalej z tyłu, a ostatni indeks jest najbliżej przodu.
 
-Ten artykuł podąża za tym modelem. Najpierw wyjaśnia, jak wiarygodnie zidentyfikować kształt, a potem pokazuje, jak klonować, usuwać, ukrywać i zmieniać kolejność kształtów. Ostatnie sekcje obejmują formatowanie na poziomie układu, eksport do SVG, wyrównywanie oraz ustawienia odbicia. Każdy przykład jest niezależny, więc możesz używać wyłącznie operacji wymaganych w Twoim procesie.
+Ten artykuł opiera się na tym modelu. Najpierw wyjaśnia, jak niezawodnie zidentyfikować kształt i zmodyfikować wstępnie ustawione punkty dopasowania, a następnie pokazuje, jak klonować, usuwać, ukrywać i zmieniać kolejność kształtów. Ostatnie sekcje obejmują formatowanie na poziomie układu, eksport SVG, wyrównywanie i ustawienia odbicia. Każdy przykład jest niezależny, więc możesz używać tylko operacji wymaganych w Twoim przepływie pracy.
 
-## **Identyfikacja i wyszukiwanie kształtów**
+## **Identyfikowanie i wyszukiwanie kształtów**
 
-Indeksy w kolekcji są wygodne przy przetwarzaniu znanego pliku, ale nie są stałymi identyfikatorami. Dodanie, usunięcie lub zmiana kolejności kształtu może zmienić jego indeks. Wybierz identyfikator w zależności od tego, jak prezentacja jest tworzona i utrzymywana:
+Indeksy kolekcji są wygodne przy przetwarzaniu znanego pliku, ale nie są stabilnymi identyfikatorami. Dodanie, usunięcie lub zmiana kolejności kształtu może zmienić jego indeks. Wybierz identyfikator zgodnie z tym, jak prezentacja jest tworzona i utrzymywana:
 
-- [Shape.name](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/name/) jest przydatny w szablonach kontrolowanych przez dewelopera i łatwo go sprawdzić w panelu zaznaczania programu PowerPoint. Nazwy można edytować i nie są gwarantowanie unikalne, dlatego warto ustalić konwencję nazewnictwa, jeśli kod od nich zależy.
-- [Shape.alternative_text](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/alternative_text/) jest użyteczny, gdy opis dostępności lub tag podany przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub zmieniany w celu zwiększenia dostępności i nie jest gwarantowanie unikalny. Nie wykorzystuj w ciszy znaczącego tekstu dostępności jako klucza bazodanowego.
-- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/office_interop_shape_id/) to identyfikator tylko do odczytu, unikalny w obrębie slajdu i odpowiadający identyfikatorowi kształtu używanemu przez interfejs PowerPoint. Używaj go przy integracji z PowerPointem lub gdy potrzebujesz jednoznacznego odwołania w czasie życia kształtu. Sklonowany lub odtworzony kształt jest innym kształtem i otrzymuje własny identyfikator.
+- [Shape.name](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/name/) jest przydatny w szablonach kontrolowanych przez programistów i łatwy do sprawdzenia w panelu wyboru PowerPointa. Nazwy mogą być edytowane i nie są gwarantowane jako unikalne, więc wprowadź konwencję nazewnictwa, jeśli kod od nich zależy.
+- [Shape.alternative_text](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/alternative_text/) jest przydatny, gdy opis dostępności lub tag dostarczony przez autora już identyfikuje kształt. Jest widoczny dla użytkowników, może być lokalizowany lub przepisywany w celu zapewnienia dostępności i nie jest gwarantowany jako unikalny. Nie używaj cichego przeznaczenia znaczącego tekstu dostępności jako klucza bazy danych.
+- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/office_interop_shape_id/) jest identyfikatorem tylko do odczytu, który jest unikalny w obrębie slajdu i odpowiada identyfikatorowi kształtu używanemu przez interfejs PowerPoint. Używaj go przy integracji z PowerPointem lub gdy potrzebujesz jednoznacznego odniesienia w czasie życia kształtu. Sklonowany lub odtworzony kształt jest innym kształtem i otrzymuje własny identyfikator.
 
-Powiązana własność [Shape.unique_id](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/unique_id/) ma zakres prezentacji, ale jest przeznaczona dla dodatków i może być ponownie przypisana. Nie powinna być traktowana jako trwały zewnętrzny klucz. Jeśli długoterminowa tożsamość jest istotna, przechowuj mapowanie w danych aplikacji i weryfikuj, że oczekiwany kształt nadal istnieje.
+Powiązana własność [Shape.unique_id](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/unique_id/) ma zakres prezentacji, ale jest przeznaczona dla dodatków i może być ponownie przypisana. Nie należy traktować jej jako trwałego zewnętrznego klucza. Jeśli długoterminowa tożsamość jest istotna, zachowaj mapowanie w danych aplikacji i zweryfikuj, czy oczekiwany kształt nadal istnieje.
 
-Poniższy przykład wyszukuje po `name` przy użyciu dokładnego porównania i zgłasza interopowy identyfikator scoped do slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z niewłaściwym obiektem.
+Poniższy przykład wyszukuje po `name` przy użyciu dokładnego porównania i raportuje identyfikator interop w zakresie slajdu. Gdy szablon nie zawiera oczekiwanego kształtu, kod zgłasza ten wynik zamiast kontynuować z niewłaściwym obiektem.
 
 ```python
 import aspose.slides as slides
@@ -62,7 +65,7 @@ with slides.Presentation("input.pptx") as presentation:
         print("Found {}; interop ID: {}".format(target_shape.name, target_shape.office_interop_shape_id))
 ```
 
-Gdy operacja jest specyficzna dla typu kształtu, sprawdź typ przed użyciem członków specyficznych dla typu. Ten przykład aktualizuje tekst i tekst alternatywny tylko wtedy, gdy nazwany obiekt jest [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/).
+Gdy operacja jest specyficzna dla typu kształtu, sprawdź typ przed użyciem członków specyficznych dla typu. Ten przykład aktualizuje tekst i alternatywny tekst tylko wtedy, gdy nazwany obiekt jest [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/).
 
 ```python
 import aspose.slides as slides
@@ -84,15 +87,88 @@ with slides.Presentation("input.pptx") as presentation:
         print("'StatusLabel' is missing or is not an AutoShape.")
 ```
 
-## **Modyfikacja kolekcji kształtów**
+## **Identyfikowanie i modyfikowanie wstępnie ustawionych dopasowań kształtów**
 
-Metody dodawania, klonowania, usuwania i zmiany kolejności działają na kolekcji natychmiast. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie polegaj dalej na indeksach przechwyconych przed tą operacją.
+Kształty o geometrii wstępnie ustawionej mogą udostępniać punkty dopasowania, które kontrolują cechy takie jak rozmiar narożników, proporcje strzałek lub kąty łuków. Dostęp do nich uzyskuje się przez kolekcję tylko do odczytu [GeometryShape.adjustments](https://reference.aspose.com/slides/pl/python-net/aspose.slides/geometryshape/adjustments/). Sama kolekcja jest dostarczana przez kształt, ale każdy [AdjustValue](https://reference.aspose.com/slides/pl/python-net/aspose.slides/adjustvalue/) zawiera wartość, którą można zmienić.
+
+Nie polegaj wyłącznie na stałym indeksie kolekcji. Iteruj przez dopasowania i sprawdzaj własność tylko do odczytu [AdjustValue.type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/adjustvalue/type/), której wartość [ShapeAdjustmentType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapeadjustmenttype/) opisuje, co dopasowanie kontroluje. Własność tylko do odczytu [AdjustValue.name](https://reference.aspose.com/slides/pl/python-net/aspose.slides/adjustvalue/name/) dostarcza dodatkowych informacji identyfikacyjnych i jest szczególnie przydatna, gdy wstępny zestaw zawiera więcej niż jedno dopasowanie tego samego typu semantycznego.
+
+Użyj właściwości wartości odpowiadającej znaczeniu dopasowania:
+
+| Typ dopasowania | Cel | Wartość do zmiany |
+|---|---|---|
+| `CORNER_SIZE` | Rozmiar zaokrąglonych narożników | [raw_value](https://reference.aspose.com/slides/pl/python-net/aspose.slides/adjustvalue/raw_value/) |
+| `ARROW_TAIL_THICKNESS` | Grubość ogona strzałki | `raw_value` |
+| `ARROWHEAD_LENGTH` | Długość grotu strzałki | `raw_value` |
+| `ARROWHEAD_WIDTH` | Szerokość grotu strzałki | `raw_value` |
+| `START_ANGLE` | Kąt początkowy koła lub łuku | [angle_value](https://reference.aspose.com/slides/pl/python-net/aspose.slides/adjustvalue/angle_value/) |
+| `END_ANGLE` | Kąt końcowy koła lub łuku | `angle_value` |
+
+`type` i `name` nie mogą być przypisywane. `raw_value` jest liczbą całkowitą do odczytu/zapisu w natywnych jednostkach geometrii wstępnego zestawu, natomiast `angle_value` jest wartością kąta w stopniach, którą można odczytywać i zapisywać. Liczba, kolejność, znaczenie i dopuszczalny zakres dopasowań zależą od wstępnego zestawu [GeometryShape.shape_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/geometryshape/shape_type/). Wartość ważna dla jednego wstępnego zestawu może być niewłaściwa lub mieć inny efekt dla innego.
+
+Gdy `type` ma wartość `ShapeAdjustmentType.CUSTOM`, API nie rozpoznaje standardowego znaczenia semantycznego. Sprawdź `name`, typ wstępny i istniejącą wartość, i pozostaw dopasowanie niezmienione, chyba że znane jest oczekiwane znaczenie i zakres. Nawet dla rozpoznanych typów, sprawdź, czy ten sam typ występuje więcej niż raz przed wybraniem wartości. Artykuł [Connector](/slides/pl/python-net/connector/) pokazuje tę sytuację w kontekście dopasowań zgięcia łącznika.
+
+Poniższy kompletny przykład tworzy domyślne i zmodyfikowane wersje trzech wstępnych kształtów. Iteruje przez każde dopasowanie, raportuje jego `name` i `type`, zmienia wartości związane z rozmiarem poprzez `raw_value`, zmienia kąty poprzez `angle_value` i zapisuje wynik. Lewa kolumna zachowuje domyślną geometrię; prawa kolumna pokazuje dostosowany prostokąt zaokrąglony, czterokierunkową strzałkę i kołowy wycinek.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Dodaj nagłówki dla domyślnych i zmodyfikowanych kolumn kształtów.
+    default_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 250, 30)
+    default_column_label.text_frame.text = "Default preset geometry"
+    adjusted_column_label = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 390, 20, 250, 30)
+    adjusted_column_label.text_frame.text = "Modified adjustment values"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 80, 70, 160, 70)
+    modified_rounded_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 430, 70, 160, 70)
+    modified_rounded_rectangle.name = "ModifiedRoundedRectangle"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 80, 180, 160, 110)
+    modified_arrow = slide.shapes.add_auto_shape(slides.ShapeType.QUAD_ARROW, 430, 180, 160, 110)
+    modified_arrow.name = "ModifiedQuadArrow"
+
+    slide.shapes.add_auto_shape(slides.ShapeType.PIE, 95, 330, 130, 130)
+    modified_pie = slide.shapes.add_auto_shape(slides.ShapeType.PIE, 445, 330, 130, 130)
+    modified_pie.name = "ModifiedPie"
+
+    shapes_to_adjust = [modified_rounded_rectangle, modified_arrow, modified_pie]
+
+    for shape in shapes_to_adjust:
+        for adjustment in shape.adjustments:
+            print("{} / {}: {}".format(shape.name, adjustment.name, adjustment.type.name))
+
+            if adjustment.type == slides.ShapeAdjustmentType.CORNER_SIZE:
+                adjustment.raw_value = 5000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROW_TAIL_THICKNESS:
+                adjustment.raw_value = 25000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_LENGTH:
+                adjustment.raw_value = 30000
+            elif adjustment.type == slides.ShapeAdjustmentType.ARROWHEAD_WIDTH:
+                adjustment.raw_value = 40000
+            elif adjustment.type == slides.ShapeAdjustmentType.START_ANGLE:
+                adjustment.angle_value = 30
+            elif adjustment.type == slides.ShapeAdjustmentType.END_ANGLE:
+                adjustment.angle_value = 300
+            elif adjustment.type == slides.ShapeAdjustmentType.CUSTOM:
+                print("Custom adjustment '{}' was not changed.".format(adjustment.name))
+
+    presentation.save("preset-shape-adjustments.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Sprawdzanie typu semantycznego przed zmianą wartości sprawia, że kod jest jednoznaczny co do zamiaru i unika zakładania, że konkretny indeks kolekcji ma to samo znaczenie w różnych wstępnych kształtach.
+
+## **Modyfikowanie kolekcji kształtów**
+
+Metody dodawania, klonowania, usuwania i zmiany kolejności działają na kolekcji natychmiast. Jeśli operacja zmienia liczbę lub kolejność kształtów, nie kontynuuj polegania na indeksach przechwyconych przed tą operacją.
 
 ### **Klonowanie kształtu**
 
-[ShapeCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/add_clone/) tworzy niezależną kopię i dodaje ją na końcu docelowej kolekcji. [ShapeCollection.insert_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/insert_clone/) również tworzy kopię, ale umieszcza ją pod określonym indeksem kolejności Z. Przeciążenia przyjmujące współrzędne przenoszą klon bez zmiany rozmiaru; przeciążenia z szerokością i wysokością mogą również zmieniać rozmiar.
+[ShapeCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/add_clone/) tworzy niezależną kopię i dopisuje ją do docelowej kolekcji. [ShapeCollection.insert_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/insert_clone/) także tworzy kopię, ale umieszcza ją pod określonym indeksem kolejności Z. Przeciążenia przyjmujące współrzędne przenoszą klon bez zmiany rozmiaru; przeciążenia z szerokością i wysokością mogą również zmienić jego rozmiar.
 
-Przykład tworzy slajd docelowy, klonuje oznaczony prostokąt na wierzch i wstawia drugi klon na spód. Zmiany w dowolnym klonie nie modyfikują kształtu źródłowego.
+Przykład tworzy slajd docelowy, klonuje opisany prostokąt na przednią warstwę i wstawia drugi klon z tyłu. Zmiany w którymkolwiek klonie nie modyfikują kształtu źródłowego.
 
 ```python
 import aspose.slides as slides
@@ -123,13 +199,13 @@ with slides.Presentation() as presentation:
     presentation.save("cloned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Klonowanie kopiuje zawartość i formatowanie kształtu, włączając nazwę oraz tekst alternatywny. Przypisz nowe logiczne identyfikatory klonowi, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty są obsługiwane przez prezentację, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
+Klonowanie kopiuje zawartość i formatowanie kształtu, w tym jego nazwę oraz tekst alternatywny. Przypisz nowe logiczne identyfikatory klonowi, gdy te wartości muszą być unikalne. Zasoby używane przez złożone kształty są obsługiwane przez prezentację, ale klon pozostaje nowym elementem kolekcji z nową tożsamością kształtu.
 
 ### **Usuwanie kształtów**
 
-[ShapeCollection.remove](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/remove/) usuwa konkretny obiekt kształtu z jego kolekcji. Podczas usuwania wielu dopasowań w iteracji indeksowanej, przeglądaj od końca, aby każdy pozostały indeks pozostał prawidłowy.
+[ShapeCollection.remove](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/remove/) usuwa konkretny obiekt kształtu z jego kolekcji. Podczas usuwania wielu dopasowań w trakcie iteracji indeksowanej, przechodź od końca, aby każdy pozostały indeks pozostał ważny.
 
-Ten przykład usuwa każdy kształt o wyznaczonej nazwie. Odczytuje `slide.shapes[index]`, a nie stały element kolekcji, i nie rzutuje kształtu niepotrzebnie.
+Ten przykład usuwa każdy kształt o określonej nazwie. Odczytuje `slide.shapes[index]`, a nie stały element kolekcji, i nie rzutuje kształtu niepotrzebnie.
 
 ```python
 import aspose.slides as slides
@@ -154,11 +230,11 @@ with slides.Presentation() as presentation:
     presentation.save("removed-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Po usunięciu liczba kształtów i indeksy kolejnych kształtów ulegają zmianie. Odwołania do nieusuniętych kształtów pozostają bardziej niezawodne niż zapisane indeksy. Pamiętaj także o łącznikach, animacjach i innych elementach prezentacji, które mogą odnosić się do usuniętego obiektu; usunięcie widocznego kształtu może zmienić więcej niż tylko wygląd slajdu.
+Po usunięciu liczba kształtów i indeksy kolejnych kształtów ulegają zmianie. Odwołania do niezmienionych kształtów pozostają bardziej wiarygodne niż zapisane indeksy. Weź także pod uwagę łączniki, animacje i inne elementy prezentacji, które mogą odwoływać się do usuniętego obiektu; usunięcie widocznego kształtu może zmienić więcej niż wygląd slajdu.
 
 ### **Ukrywanie kształtu**
 
-Ustawienie [Shape.hidden](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/hidden/) na `True` pozostawia kształt w kolekcji, ale zapobiega jego wyświetlaniu w normalnym pokazie slajdów. Jego indeks, formatowanie i zawartość pozostają dostępne dla kodu, więc ukrywanie jest odpowiednie dla opcjonalnych elementów, które mogą zostać przywrócone później.
+Ustawienie [Shape.hidden](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/hidden/) na `True` pozostawia kształt w kolekcji, ale zapobiega jego wyświetlaniu w normalnym pokazie slajdów. Jego indeks, formatowanie i zawartość pozostają dostępne dla kodu, więc ukrywanie jest odpowiednie dla opcjonalnych elementów, które mogą być przywrócone później.
 
 ```python
 import aspose.slides as slides
@@ -179,11 +255,11 @@ with slides.Presentation() as presentation:
     presentation.save("hidden-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ukrywanie nie jest usunięciem ani zabezpieczeniem. Obiekt nadal może być odkryty i odukryty przez użytkownika lub kod i pozostaje częścią pliku prezentacji.
+Ukrycie nie jest usunięciem ani zabezpieczeniem. Obiekt nadal może zostać wykryty i odsłonięty przez użytkownika lub kod, i pozostaje częścią pliku prezentacji.
 
-### **Zmiana kolejności Z**
+### **Zmiana kolejności Z-Order**
 
-Nakładające się kształty są rysowane w kolejności kolekcji. [ShapeCollection.reorder](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/reorder/) przenosi istniejący kształt do docelowego indeksu bez jego klonowania. Indeks `0` to tył; `len(slide.shapes) - 1` to przód.
+Nakładające się kształty są rysowane w kolejności kolekcji. [ShapeCollection.reorder](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/reorder/) przenosi istniejący kształt do docelowego indeksu bez klonowania. Indeks `0` jest tyłem; `len(slide.shapes) - 1` jest przodem.
 
 ```python
 import aspose.pydrawing as draw
@@ -206,13 +282,13 @@ with slides.Presentation() as presentation:
     presentation.save("reordered-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Prostokąt jest tworzony jako pierwszy i początkowo znajduje się pod elipsą. Przeniesienie go na ostatni indeks ustawia go na wierzchu. Ustal kolejność Z po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dopisują lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzoną warstwę.
+Prostokąt jest tworzony najpierw i początkowo znajduje się za elipsem. Przeniesienie go do ostatniego indeksu powoduje, że znajduje się z przodu. Sfinalizuj kolejność Z po dodaniu lub sklonowaniu wszystkich powiązanych kształtów, ponieważ te operacje dopisują lub wstawiają nowe elementy kolekcji i mogą zmienić zamierzoną kolejkę.
 
-## **Inspekcja kształtów w układach slajdów**
+## **Inspekcja kształtów na slajdach układu**
 
-Zwykłe slajdy, układy slajdów i slajdy wzorcowe mają oddzielne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem co podobnie położony kształt na zwykłym slajdzie. Sprawdzaj kształty układu, gdy potrzebujesz zrozumieć lub zmienić formatowanie dostarczane przez układ.
+Normalne slajdy, slajdy układu i slajdy nadrzędne mają osobne kolekcje kształtów. Kształt w kolekcji układu nie jest tym samym obiektem co podobnie pozycjonowany kształt na normalnym slajdzie. Sprawdzaj kształty układu, gdy musisz zrozumieć lub zmienić formatowanie dostarczone przez układ.
 
-Poniższy przykład odczytuje [Shape.fill_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/fill_format/) i [Shape.line_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/line_format/) każdego kształtu układu bez zakładania, że każdy kształt jest `AutoShape`.
+Poniższy przykład odczytuje [Shape.fill_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/fill_format/) i [Shape.line_format](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/line_format/) każdego kształtu układu, nie zakładając, że każdy kształt jest `AutoShape`.
 
 ```python
 import aspose.slides as slides
@@ -225,11 +301,11 @@ with slides.Presentation("input.pptx") as presentation:
             print("{} / {}: fill={}, line width={}".format(layout_slide.name, shape.name, fill_type, line_width))
 ```
 
-Edycja układu może wpłynąć na wiele slajdów, które go używają. Przed zmianą kształtu układu określ, czy zwykły slajd dziedziczy obiekt, czy zawiera lokalne nadpisanie, i przetestuj każdy slajd korzystający z tego układu.
+Edycja układu może wpływać na wiele slajdów, które go używają. Przed zmianą kształtu układu określ, czy normalny slajd dziedziczy obiekt, czy zawiera lokalne nadpisanie, i przetestuj każdy slajd korzystający z tego układu.
 
-## **Eksportowanie kształtu do SVG**
+## **Eksport kształtu do SVG**
 
-[Shape.write_as_svg](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/write_as_svg/) zapisuje wyrenderowaną zawartość jednego kształtu do strumienia. Wynik zawiera tylko kształt, a nie całe tło slajdu ani sąsiadujące kształty.
+[Shape.write_as_svg](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/write_as_svg/) zapisuje wyrenderowaną zawartość jednego kształtu do strumienia. Wynik zawiera tylko kształt, nie cały tło slajdu ani sąsiadujące kształty.
 
 ```python
 import aspose.slides as slides
@@ -245,11 +321,11 @@ with slides.Presentation("input.pptx") as presentation:
             shape.write_as_svg(svg_stream)
 ```
 
-Utrzymaj otwartą prezentację podczas renderowania. Wyjście zależy od formatowania kształtu oraz zasobów takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd, a nie pojedynczy kształt. Wywołujący jest właścicielem strumienia i musi go zamknąć.
+Utrzymuj prezentację otwartą podczas renderowania. Wyjście zależy od formatowania kształtu oraz zasobów takich jak czcionki i obrazy. Jeśli potrzebujesz całej kompozycji, wyeksportuj slajd, a nie pojedynczy kształt. Wywołujący jest właścicielem strumienia i musi go zamknąć.
 
 ## **Wyrównywanie kształtów**
 
-[SlideUtil.align_shapes](https://reference.aspose.com/slides/pl/python-net/aspose.slides.util/slideutil/align_shapes/) ma przeciążenia, które wyrównują wszystkie kształty lub wybrane indeksy kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb dystrybucji. Ustaw `align_to_slide` na `True`, aby używać krawędzi slajdu; ustaw na `False`, aby wyrównać wybrane kształty względem siebie.
+[SlideUtil.align_shapes](https://reference.aspose.com/slides/pl/python-net/aspose.slides.util/slideutil/align_shapes/) posiada przeciążenia wyrównujące wszystkie kształty lub wybrane indeksy kolekcji. [ShapesAlignmentType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapesalignmenttype/) określa krawędź, linię środkową lub tryb rozmieszczenia. Ustaw `align_to_slide` na `True`, aby używać krawędzi slajdu; ustaw na `False`, aby wyrównać wybrane kształty względem siebie nawzajem.
 
 Ten przykład wyrównuje trzy kształty do górnej krawędzi slajdu. Ich bieżące indeksy są rozwiązywane bezpośrednio przed wyrównaniem.
 
@@ -276,17 +352,17 @@ with slides.Presentation() as presentation:
     presentation.save("aligned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wyrównanie zmienia położenie, nie kolejność Z. Wyrównanie względne zazwyczaj wymaga co najmniej dwóch kształtów, podczas gdy dystrybucja pozioma lub pionowa wymaga wystarczającej liczby kształtów do określenia odstępu. Przelicz indeksy, jeśli modyfikujesz kolekcję przed wywołaniem metody.
+Wyrównanie zmienia pozycje, nie kolejność Z. Wyrównanie względne zazwyczaj wymaga co najmniej dwóch kształtów, natomiast rozmieszczenie poziome lub pionowe wymaga wystarczającej liczby kształtów, aby określić odstępy. Przelicz indeksy, jeśli zmieniasz kolekcję przed wywołaniem metody.
 
-## **Odwracanie kształtu**
+## **Odbijanie kształtu**
 
-Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odbicia poziomego i pionowego oraz obrót. Jej wartości `flip_h` i `flip_v` używają [NullableBool](https://reference.aspose.com/slides/pl/python-net/aspose.slides/nullablebool/): `TRUE` włącza odbicie, `FALSE` wyłącza, a `NOT_DEFINED` zachowuje nieokreślony lub domyślny stan.
+Klasa [ShapeFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapeframe/) przechowuje pozycję, rozmiar, ustawienia odbicia poziomego i pionowego oraz rotację. Jej wartości `flip_h` i `flip_v` używają [NullableBool](https://reference.aspose.com/slides/pl/python-net/aspose.slides/nullablebool/): `TRUE` włącza odbicie, `FALSE` wyłącza, a `NOT_DEFINED` zachowuje nieokreślony lub domyślny stan.
 
-Poniższa prezentacja wejściowa zawiera jeden nieodwrócony kształt.
+Prezentacja wejściowa poniżej zawiera jeden nieodbijany kształt.
 
 ![The shape before flipping](shape_to_be_flipped.png)
 
-Przykład zachowuje wszystkie inne wartości ramki i zmienia tylko dwa ustawienia odbicia. To ważne, ponieważ przypisanie nowego [Shape.frame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/frame/) zastępuje całą ramkę.
+Przykład zachowuje wszystkie pozostałe wartości klatki i zastępuje tylko dwa ustawienia odbicia. Jest to istotne, ponieważ przypisanie nowego [Shape.frame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/frame/) zastępuje całą klatkę.
 
 ```python
 import aspose.slides as slides
@@ -305,7 +381,7 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("flipped-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Zapisany kształt jest odbity poziomo i pionowo, zachowując jednocześnie pozycję, rozmiar i obrót.
+Zapisany kształt jest odbity poziomo i pionowo, zachowując jednocześnie pozycję, rozmiar i rotację.
 
 ![The shape after flipping](flipped_shape.png)
 
@@ -313,12 +389,16 @@ Zapisany kształt jest odbity poziomo i pionowo, zachowując jednocześnie pozyc
 
 **Czy powinienem używać indeksu kolekcji jako identyfikatora kształtu?**
 
-Tylko w krótkotrwałym przetwarzaniu, gdy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zweryfikowaną konwencję `name` lub `alternative_text` dla szablonów tworzonych przez autora, lub `office_interop_shape_id` dla pracy z interopem scoped do slajdu.
+Tylko w krótkotrwałym przetwarzaniu, gdy kolekcja nie zmieni się przed użyciem indeksu. Preferuj zweryfikowaną konwencję `name` lub `alternative_text` dla szablonów tworzonych, lub `office_interop_shape_id` do pracy z interop na poziomie slajdu.
 
 **Czy ukrycie kształtu usuwa go z kolejności Z?**
 
-Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Może być znaleziony, przestawiony, edytowany lub ponownie widoczny.
+Nie. Ukryty kształt pozostaje w kolekcji pod tym samym indeksem. Może być odnaleziony, przemieszczany, edytowany lub ponownie widoczny.
 
 **Dlaczego sklonowany kształt pojawił się przed innym kształtem?**
 
 `add_clone` dopisuje klon na koniec kolekcji, co jest przodem kolejności Z. Użyj `insert_clone`, aby wybrać początkowy indeks, lub `reorder` po dodaniu wszystkich kształtów.
+
+**Czy mogę używać stałego indeksu do identyfikacji wstępnego dopasowania kształtu?**
+
+Tylko po zweryfikowaniu dokładnego wstępu i układu kolekcji. Preferuj iterację przez `GeometryShape.adjustments` i sprawdzanie `AdjustValue.type`; użyj `AdjustValue.name` jako dodatkowej informacji, gdy ten sam typ semantyczny pojawia się więcej niż raz.

@@ -1,370 +1,580 @@
 ---
-title: PHP Kullanarak Sunularda Bağlayıcıları Yönetme
+title: PHP Kullanarak Sunumlarda Bağlayıcıları Yönet
 linktitle: Bağlayıcı
 type: docs
 weight: 10
 url: /tr/php-java/connector/
 keywords:
 - bağlayıcı
-- bağlayıcı türü
+- bağlayıcı tipi
 - bağlayıcı noktası
 - bağlayıcı çizgisi
 - bağlayıcı açısı
+- bağlantı noktası
+- ayar noktası
 - şekilleri bağla
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "PHP uygulamalarının PowerPoint slaytlarında çizim, bağlama ve otomatik yönlendirme yapabilmesini sağlar — düz, dirsek ve eğimli bağlayıcılar üzerinde tam kontrol elde edin."
+description: "Aspose.Slides for PHP via Java ile PowerPoint'teki düz, bükülmüş ve eğimli bağlayıcıları eklemeyi, bağlamayı, yeniden yönlendirmeyi, ayarlamayı ve incelemeyi öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-PowerPoint bağlayıcısı, iki şekli birbirine bağlayan veya ilişkilendiren özel bir çizgidir ve şekiller taşındığında ya da bir slaytta yeniden konumlandırıldığında bile şekillere bağlı kalır. 
+Bağlayıcı, iki şekilden biri hareket ettiğinde bile iki şekle bağlı kalabilen bir çizgidir. Uçları, PowerPoint'te yeşil noktalarla gösterilen bağlantı noktalarına bağlanır. Bazı bükülmüş ve eğimli bağlayıcılar ayrıca turuncu noktalarla temsil edilen ayar noktalarını ortaya çıkarır; bu noktalar bağlantı segmentlerinin konumunu kontrol eder.
 
-Bağlayıcılar genellikle *bağlantı noktalarına* (yeşil noktalar) bağlanır; bu noktalar varsayılan olarak tüm şekillerde bulunur. Bağlantı noktaları, imleç onlara yaklaştığında görünür.
-
-*Ayarlama noktaları* (turuncu noktalar), yalnızca belirli bağlayıcılarda bulunur ve bağlayıcıların konum ve şekillerini değiştirmek için kullanılır.
+Aspose.Slides, bağlayıcıları [Connector](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/) sınıfı aracılığıyla temsil eder. Bağlayıcıları oluşturabilir, uçlarını şekillere bağlayabilir, bağlantı noktalarını seçebilir, yeniden yönlendirebilir ve ayar noktalarına sahip bağlayıcıların geometrisini değiştirebilirsiniz.
 
 ## **Bağlayıcı Türleri**
 
-PowerPoint'te düz, dirsek (köşeli) ve eğimli bağlayıcıları kullanabilirsiniz. 
+[ShapeType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapetype/) sınıfı düz, bükülmüş ve eğimli bağlayıcı ön ayarlarını içerir. Aşağıdaki tablo, mevcut bağlayıcı geometrilerini ve her ön ayarın tanımladığı ayar noktası sayısını gösterir.
 
-Aspose.Slides bu bağlayıcıları sağlar:
+| Bağlayıcı | Görsel | Ayar noktası sayısı |
+|---|---|---|
+| `ShapeType::Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType::BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType::BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType::BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType::BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType::CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType::CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType::CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType::CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-| Bağlayıcı | Görsel | Ayarlama noktası sayısı |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+Ayarlama noktalarının sayısı ve anlamı seçilen bağlayıcı ön ayarının bir parçasıdır. İki farklı bağlayıcı tipinin aynı koleksiyon düzenini gösterdiğini varsaymayın.
 
-## **Şekilleri Bağlayıcılarla Bağlama**
+## **İki Şekli Bağla**
 
-1. Bir [Presentation](https://apireference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının örneğini oluşturun.  
-1. İndeks aracılığıyla bir slaydın referansını alın.  
-1. `Shapes` nesnesi tarafından sunulan `addAutoShape` yöntemini kullanarak slayta iki [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/AutoShape) ekleyin.  
-1. `Shapes` nesnesi tarafından sunulan `addConnector` yöntemini kullanarak bağlayıcı türünü belirterek bir bağlayıcı ekleyin.  
-1. Şekilleri bağlayıcıyı kullanarak bağlayın.  
-1. `reroute` yöntemini çağırarak en kısa bağlantı yolunu uygulayın.  
-1. Sunumu kaydedin.  
+[ShapeCollection::addConnector](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addconnector/) yöntemiyle bir bağlayıcı ekleyebilir ve uçlarını bağlamak için [Connector::setStartShapeConnectedTo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/setstartshapeconnectedto/) ve [Connector::setEndShapeConnectedTo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/setendshapeconnectedto/) kullanabilirsiniz. Her iki uç da bağlandıktan sonra, [Connector::reroute](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/reroute/) şekiller arasında kısa bir yol seçer.
 
-Bu PHP kodu, iki şekil (bir elips ve bir dikdörtgen) arasında bir bağlayıcı (bükülmüş bağlayıcı) eklemenizi gösterir:
+Aşağıdaki örnek, bir elipsi ve bir dikdörtgeni bükülmüş bir bağlayıcı ile bağlar:
 
 ```php
-// PPTX dosyasını temsil eden bir sunum sınıfını örnekler
-  $pres = new Presentation();
-  try {
-    # Belirli bir slayd için şekil koleksiyonuna erişir
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Elips otomatik şekli ekler
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Dikdörtgen otomatik şekli ekler
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Slayt şekil koleksiyonuna bir bağlayıcı şekli ekler
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Şekilleri bağlayıcıyı kullanarak bağlar
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Şekiller arasındaki otomatik en kısa yolu ayarlayan reroute metodunu çağırır
     $connector->reroute();
-    # Sunumu kaydeder
-    $pres->save("output.pptx", SaveFormat::Pptx);
+
+    $presentation->save("connected-shapes.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) $pres.dispose();
+    $presentation->dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+{{% alert color="warning" title="Warning" %}}
+`reroute` çağrısı, [Connector::setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/setstartshapeconnectionsiteindex/) ve [Connector::setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/setendshapeconnectionsiteindex/) değerlerini değiştirebilir. Bu noktalar sabit kalmalıysa, yeniden yönlendirmeden sonra belirli bağlantı noktalarını atayın.
+{{% /alert %}}
 
-`Connector.reroute` yöntemi bir bağlayıcıyı yeniden yönlendirir ve şekiller arasındaki en kısa yolu almasını zorlar. Hedefine ulaşmak için yöntem, `setStartShapeConnectionSiteIndex` ve `setEndShapeConnectionSiteIndex` noktalarını değiştirebilir. 
+## **Bağlantı Noktası Seçme**
 
-{{% /alert %}} 
+Bağlanabilir her şekil, bağlantı noktası sayısını [Shape::getConnectionSiteCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getconnectionsitecount/) yöntemiyle raporlar. Bir bağlayıcı ucuna atamadan önce tercih edilen sıfır tabanlı site dizinini doğrulayın; site sayıları şekil geometrisine göre değişir.
 
-## **Bir Bağlantı Noktası Belirtme**
-
-Bir bağlayıcının iki şekli belirli noktalar üzerinden bağlamasını istiyorsanız, tercih ettiğiniz bağlantı noktalarını şu şekilde belirtmeniz gerekir:
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının örneğini oluşturun.  
-1. İndeks aracılığıyla bir slaydın referansını alın.  
-1. `Shapes` nesnesi tarafından sunulan `addAutoShape` yöntemini kullanarak slayta iki [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/AutoShape) ekleyin.  
-1. `Shapes` nesnesi tarafından sunulan `addConnector` yöntemini kullanarak bağlayıcı türünü belirterek bir bağlayıcı ekleyin.  
-1. Şekilleri bağlayıcıyı kullanarak bağlayın.  
-1. Şekillerde tercih ettiğiniz bağlantı noktalarını ayarlayın.  
-1. Sunumu kaydedin.  
-
-Bu PHP kodu, tercih edilen bir bağlantı noktasının belirtildiği bir işlemi gösterir:
+Bu örnek, o site mevcut olduğunda bağlayıcıyı elips üzerindeki belirli bir siteye bağlar:
 
 ```php
-  # PPTX dosyasını temsil eden bir sunum sınıfını örnekler
-  $pres = new Presentation();
-  try {
-    # Belirli bir slayt için şekil koleksiyonuna erişir
-    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    # Elips otomatik şekli ekler
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    # Dikdörtgen otomatik şekli ekler
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    # Slaydın şekil koleksiyonuna bir bağlayıcı şekli ekler
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    # Şekilleri bağlayıcıyı kullanarak bağlar
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $ellipse = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 40, 80, 120, 80);
+    $rectangle = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 320, 240, 140, 80);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector3, 0, 0, 10, 10);
+
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    # Elips şekli üzerinde tercih edilen bağlantı noktası indeksini ayarlar
-    $wantedIndex = 6;
-    # Tercih edilen indeksin maksimum site indeks sayısından küçük olup olmadığını kontrol eder
-    if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      # Elips otomatik şekli üzerinde tercih edilen bağlantı noktasını ayarlar
-      $connector->setStartShapeConnectionSiteIndex($wantedIndex);
+
+    $preferredSiteIndex = 2;
+    $connectionSiteCount = java_values($ellipse->getConnectionSiteCount());
+    if ($preferredSiteIndex < $connectionSiteCount) {
+        $connector->setStartShapeConnectionSiteIndex($preferredSiteIndex);
+    } else {
+        echo "The ellipse has only " . $connectionSiteCount . " connection sites." . PHP_EOL;
     }
-    # Sunumu kaydeder
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("specific-connection-site.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Bir Bağlayıcı Noktasını Ayarlama**
+## **Bağlayıcı Noktasını Ayarla**
 
-Mevcut bir bağlayıcıyı ayarlama noktaları aracılığıyla ayarlayabilirsiniz. Yalnızca ayarlama noktalarına sahip bağlayıcılar bu şekilde değiştirilebilir. **[Bağlayıcı Türleri](/slides/tr/php-java/connector/#types-of-connectors)** altındaki tabloya bakın.
+Ayarlama noktalarına sahip bağlayıcılar, bunları [GeometryShape::getAdjustments](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometryshape/#getadjustments) aracılığıyla ortaya çıkarır. Her bir [AdjustValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/adjustvalue/) öğesini inceleyin ve [AdjustValue::setRawValue](https://reference.aspose.com/slides/tr/php-java/aspose.slides/adjustvalue/setrawvalue/) ile değiştirmeden önce [AdjustValue::getType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/adjustvalue/#gettype) değerini kontrol edin. Ön ayarlı şekil ayarlarını tanımlama konusunda genel kurallar [Shape Manipulation](/slides/tr/php-java/shape-manipulations/) içinde açıklanmıştır.
 
-### **Basit Durum**
+Bağlayıcı ayarlarının sayısı, sırası, anlamı ve geçerli değer aralığı bağlayıcı ön ayarına bağlıdır. Ayar türü yalnızca okunabilir iken, ayar değeri yazılabilir. Aynı anlamsal türe sahip birden fazla ayar içeren bağlayıcılarda ek tanımlama sağlayan yalnızca okunabilir [AdjustValue::getName](https://reference.aspose.com/slides/tr/php-java/aspose.slides/adjustvalue/getname/) yöntemidir.
 
-İki şekil (A ve B) arasındaki bir bağlayıcının üçüncü bir şekil (C) üzerinden geçtiği bir durumu düşünün:
+### **Bir Engel Çevresinde Rota**
+
+Aşağıdaki yerleşimde, iki şekil arasındaki `BentConnector5` bağlayıcısı üçüncü bir şekilden geçer:
 
 ![connector-obstruction](connector-obstruction.png)
 
+Bu kod, engelli bağlayıcıyı oluşturur:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $connector->setStartShapeConnectedTo($shapeFrom);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setStartShapeConnectionSiteIndex(2);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("connector-obstruction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Üçüncü şekilden kaçınmak veya geçmek için bağlayıcıyı dikey çizgisini sola kaydırarak şu şekilde ayarlayabiliriz:
+Dikey bükülme hareket ettirildiğinde rota değişir ve bağlayıcı engeli atlar:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```php
-  $adj2 = $connector->getAdjustments()->get_Item(1);
-  $adj2->setRawValue($adj2->getRawValue() + 10000);
+Toplu dizin `1` in her zaman dikey bükülmeyi temsil ettiğini varsaymak yerine, bu örnek `ConnectorBendPositionY` öğesini arar ve yalnızca beklenen anlamsal tür mevcut olduğunda değiştirir:
 
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(0, 0, 0));
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentName = java_values($adjustment->getName());
+        $adjustmentType = java_values($adjustment->getType());
+        $rawValue = java_values($adjustment->getRawValue());
+        echo $adjustmentName . ": " . $adjustmentType . ", raw value = " . $rawValue . PHP_EOL;
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+            break;
+        }
+    }
+
+    if ($verticalBend === null) {
+        echo "The connector does not expose a vertical bend adjustment." . PHP_EOL;
+    } else {
+        $verticalBend->setRawValue(60000);
+        $presentation->save("connector-obstruction-fixed.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Karmaşık Durumlar** 
+`BentConnector5` iki `ConnectorBendPositionX` ayarı ve bir `ConnectorBendPositionY` ayarı içerir. İhtiyacınız olan tür birden fazla kez bulunuyorsa, seçim yapmadan önce `getName` ve o ön ayarın bilinen geometrisini inceleyin. Bir ayar `ShapeAdjustmentType::Custom` rapor ediyorsa, anlamını ve aralığını ön ayara özgü olarak değerlendirin ve bu sözleşme bilinene kadar değiştirmeyin.
 
-Daha karmaşık ayarlamalar yapmak için aşağıdaki hususları dikkate almanız gerekir:
+## **Ayarlama Değerlerini Bağlayıcı Geometrisine Bağlamak**
 
-* Bir bağlayıcının ayarlanabilir noktası, konumunu hesaplayan ve belirleyen bir formülle güçlü bir şekilde bağlantılıdır. Bu yüzden noktanın konumundaki değişiklikler bağlayıcının şekilini değiştirebilir.  
-* Bir bağlayıcının ayarlama noktaları bir dizi içinde katı bir sırayla tanımlanır. Ayarlama noktaları, bağlayıcının başlangıç noktasından sonuna doğru numaralandırılır.  
-* Ayarlama noktası değerleri, bir bağlayıcı şeklinin genişlik/yükseklik oranının yüzdesini yansıtır.  
-  * Şekil, bağlayıcının başlangıç ve bitiş noktalarının 1000 ile çarpılmasıyla sınırlanır.  
-  * Birinci nokta, ikinci nokta ve üçüncü nokta sırasıyla genişlik yüzdesini, yükseklik yüzdesini ve tekrar genişlik yüzdesini tanımlar.  
-* Bir bağlayıcının ayarlama noktalarının koordinatlarını belirleyen hesaplamalar için bağlayıcının dönüşünü ve yansıtmasını göz önünde bulundurmanız gerekir. **Not**: **[Bağlayıcı Türleri](/slides/tr/php-java/connector/#types-of-connectors)** altında gösterilen tüm bağlayıcıların dönüş açısı 0'dır.
+Bükülmüş bağlayıcılar için ayar değerleri, bireysel segmentlerin konumlarını tahmin etmekte kullanılabilir. Bu hesaplamalar bağlayıcı ön ayarına özgüdür:
 
-#### **Durum 1**
+- `BentConnector4` normalde bir `ConnectorBendPositionX` ve bir `ConnectorBendPositionY` ayarı ortaya çıkar.
+- Bu bükülme konumları için, `getRawValue` tarafından döndürülen değeri `100000` ile bölmek, aşağıdaki örneklerde kullanılan bağlayıcı çerçevesi genişliğinin ya da yüksekliğinin kesirini verir.
+- Bir bağlayıcı çerçevesi döndürülebilir veya çevrilebilir, bu yüzden çerçeve koordinatları slayt koordinatlarıyla karşılaştırılmadan önce dönüştürülmelidir.
 
-İki metin çerçevesi nesnesinin bir bağlayıcı aracılığıyla birbirine bağlandığı bir durumu düşünün:
+Aşağıdaki örnekler, önce `getType` kullanarak ayarları tanımlar. Toplu dizinleri taşınabilir tanımlayıcılar olarak ele almazlar.
+
+### **Döndürülmemiş Bağlayıcı**
+
+İlk yerleşimde, bir `BentConnector4` ile bağlanmış iki metin şekli bulunur:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+Bu örnek bağlayıcıyı inceler ve yatay ve dikey bükülme ayarlarını alır:
+
 ```php
-  # PPTX dosyasını temsil eden bir sunum sınıfını örnekler
-  $pres = new Presentation();
-  try {
-    # Sunumdaki ilk slaytı alır
-    $sld = $pres->getSlides()->get_Item(0);
-    # Bağlayıcı aracılığıyla birleştirilecek şekilleri ekler
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
-    $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
-    $shapeTo->getTextFrame()->setText("To");
-    # Bir bağlayıcı ekler
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    # Bağlayıcının yönünü belirler
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    # Bağlayıcının rengini belirler
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $targetShape->getTextFrame()->setText("To");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Bağlayıcı çizgisinin kalınlığını belirler
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
     $connector->getLineFormat()->setWidth(3);
-    # Şekilleri bağlayıcı ile birbirine bağlar
-    $connector->setStartShapeConnectedTo($shapeFrom);
+    $connector->setStartShapeConnectedTo($sourceShape);
     $connector->setStartShapeConnectionSiteIndex(3);
-    $connector->setEndShapeConnectedTo($shapeTo);
+    $connector->setEndShapeConnectedTo($targetShape);
     $connector->setEndShapeConnectionSiteIndex(2);
-    # Bağlayıcı için ayarlama noktalarını alır
-    $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-    $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        echo $adjustment->getName() . ": " . $adjustment->getType() . ", raw value = " . $adjustment->getRawValue() . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Ayarlama**
-
-Bağlayıcının ayarlama noktası değerlerini, ilgili genişlik ve yükseklik yüzdesini sırasıyla %20 ve %200 artırarak değiştirebiliriz:
+Her iki bükülmeyi de değiştirmek için, her beklenen türü bulun ve her ikisi bulunduğunda değerleri değiştirin:
 
 ```php
-  # Ayarlama noktalarının değerlerini değiştirir
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+        $presentation->save("connector-adjusted.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Sonuç:
+Sonuç, yatay ve dikey segmentleri hareket etmiş bir bağlayıcıdır:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-Bağlayıcının koordinatlarını ve bireysel parçalarının şeklini belirlememizi sağlayan bir modeli tanımlamak için, connector.getAdjustments().get_Item(0) noktasındaki yatay bileşene karşılık gelen bir şekil oluşturalım:
+Anlamsal türler belirlendikten sonra, değerleri bağlayıcı-çerçeve koordinatlarına dönüştürebilirsiniz. Bu örnek, iki bükülme ayarı tarafından kontrol edilen dikey segmentin üzerine ince bir dikdörtgen çizer:
 
 ```php
-  # Bağlayıcının dikey bileşenini çizer
-  $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  $y = $connector->getY();
-  $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(3);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(2);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $x = $connectorX + $connectorWidth * $horizontalBendValue / 100000;
+        $y = $connectorY;
+        $height = $connectorHeight * $verticalBendValue / 100000;
+        $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 1, $height);
+        $presentation->save("connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Sonuç:
+Yardımcı şekil, hesaplanan segmenti işaretler:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **Durum 2**
+### **Döndürülmüş veya Çevrilmiş Bağlayıcı**
 
-**Durum 1**'de, temel prensipleri kullanarak basit bir bağlayıcı ayarlama işlemini gösterdik. Normal durumlarda, bağlayıcının dönüşünü ve görüntülenmesini (connector.getRotation(), connector.getFrame().getFlipH() ve connector.getFrame().getFlipV() tarafından ayarlanır) göz önünde bulundurmanız gerekir. Şimdi süreci göstereceğiz.
+Aynı bağlayıcı geometrisi dikey olarak yönlendirildiğinde, [Shape::getFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getframe/), [ShapeFrame::getFlipH](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapeframe/getfliph/) ve [ShapeFrame::getFlipV](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapeframe/getflipv/) değerleri, bağlayıcı-çerçeve koordinatlarından slayt koordinatlarına dönüşümü etkiler.
 
-İlk olarak, slayta yeni bir metin çerçevesi nesnesi (**To 1**) ekleyelim (bağlantı amacıyla) ve onu zaten oluşturduğumuz nesnelere bağlayan yeni (yeşil) bir bağlayıcı oluşturalım.
+Bu örnek, dikey yönlendirilmiş bağlayıcıyı oluşturur ve ayarlar:
 
 ```php
-  # Yeni bir bağlama nesnesi oluşturur
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
-  $shapeTo_1->getTextFrame()->setText("To 1");
-  # Yeni bir bağlayıcı oluşturur
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-  $connector->getLineFormat()->setWidth(3);
-  # Yeni oluşturulan bağlayıcıyı kullanarak nesneleri bağlar
-  $connector->setStartShapeConnectedTo($shapeFrom);
-  $connector->setStartShapeConnectionSiteIndex(2);
-  $connector->setEndShapeConnectedTo($shapeTo_1);
-  $connector->setEndShapeConnectionSiteIndex(3);
-  # Bağlayıcının ayarlama noktalarını alır
-  $adjValue_0 = $connector->getAdjustments()->get_Item(0);
-  $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  # Ayarlama noktalarının değerlerini değiştirir
-  $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
-  $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $sourceShape->getTextFrame()->setText("From");
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $targetShape->getTextFrame()->setText("To 1");
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(102, 205, 170));
+    $connector->getLineFormat()->setWidth(3);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 20000);
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $rawValue = java_values($adjustment->getRawValue());
+            $adjustment->setRawValue($rawValue + 200000);
+        }
+    }
+
+    $presentation->save("vertical-connector-adjusted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Sonuç:
+Ayarlanmış bağlayıcı şekiller arasında dikey olarak görünür:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-İkinci olarak, yeni bağlayıcının ayarlama noktası connector.getAdjustments().get_Item(0) üzerinden geçen bağlayıcının yatay bileşenine karşılık gelen bir şekil oluşturalım. connector.getRotation(), connector.getFrame().getFlipH() ve connector.getFrame().getFlipV() için bağlayıcı verilerindeki değerleri kullanacağız ve verilen bir x0 noktasına göre dönüş koordinat dönüşüm formülünü uygulayacağız:
+Keyfi bir `alpha` döndürme açısı için, bir bağlayıcı-çerçeve noktası `(x, y)` çerçeve merkezi `(x0, y0)` etrafında şu şekilde döndürülür:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-Bizim durumumuzda nesnenin dönüş açısı 90 derecedir ve bağlayıcı dikey olarak görüntülenir, bu yüzden ilgili kod şu şekildedir:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+Aşağıdaki kod, bu örnekte kullanılan 90 derece yönelimi işler ve ilgili bağlayıcı segmenti üzerine kırmızı bir rehber çizer:
 
 ```php
-  # Bağlayıcı koordinatlarını kaydeder
-  $x = $connector->getX();
-  $y = $connector->getY();
-  # Bağlayıcı koordinatlarını gerektiğinde düzeltir
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
-    $x += $connector->getWidth();
-  }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
-    $y += $connector->getHeight();
-  }
-  # Ayar nokta değerini koordinat olarak alır
-  $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  # Koordinatları dönüştürür; çünkü Sin(90) = 1 ve Cos(90) = 0
-  $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
-  $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  # İkinci ayar nokta değerini kullanarak yatay bileşenin genişliğini belirler
-  $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeAdjustmentType;
+use aspose\slides\ShapeType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $sourceShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+    $connector = $slide->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector->setStartShapeConnectedTo($sourceShape);
+    $connector->setStartShapeConnectionSiteIndex(2);
+    $connector->setEndShapeConnectedTo($targetShape);
+    $connector->setEndShapeConnectionSiteIndex(3);
+
+    $horizontalBend = null;
+    $verticalBend = null;
+    $adjustmentCount = java_values($connector->getAdjustments()->size());
+    for ($adjustmentIndex = 0; $adjustmentIndex < $adjustmentCount; $adjustmentIndex++) {
+        $adjustment = $connector->getAdjustments()->get_Item($adjustmentIndex);
+        $adjustmentType = java_values($adjustment->getType());
+        if ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionX) {
+            $horizontalBend = $adjustment;
+        } elseif ($adjustmentType == ShapeAdjustmentType::ConnectorBendPositionY) {
+            $verticalBend = $adjustment;
+        }
+    }
+
+    if ($horizontalBend === null || $verticalBend === null) {
+        echo "The connector does not expose the expected bend adjustments." . PHP_EOL;
+    } else {
+        $horizontalBendValue = java_values($horizontalBend->getRawValue());
+        $verticalBendValue = java_values($verticalBend->getRawValue());
+        $horizontalBendValue += 20000;
+        $verticalBendValue += 200000;
+        $horizontalBend->setRawValue($horizontalBendValue);
+        $verticalBend->setRawValue($verticalBendValue);
+
+        $frame = $connector->getFrame();
+        $connectorX = java_values($connector->getX());
+        $connectorY = java_values($connector->getY());
+        $connectorWidth = java_values($connector->getWidth());
+        $connectorHeight = java_values($connector->getHeight());
+        $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+        $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+        $centerX = java_values($frame->getCenterX());
+        $centerY = java_values($frame->getCenterY());
+
+        $x = $connectorX;
+        $y = $connectorY;
+        if ($flipH) {
+            $x += $connectorWidth;
+        }
+        if ($flipV) {
+            $y += $connectorHeight;
+        }
+
+        $x += $connectorWidth * $horizontalBendValue / 100000;
+        $rotatedX = $centerX - $y + $centerY;
+        $rotatedY = $x - $centerX + $centerY;
+        $segmentWidth = $connectorHeight * $verticalBendValue / 100000;
+        $guide = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $rotatedX, $rotatedY, $segmentWidth, 1);
+        $guide->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $guide->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new Color(255, 0, 0));
+
+        $presentation->save("rotated-connector-segment-guide.pptx", SaveFormat::Pptx);
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Sonuç:
+Kırmızı rehber, koordinat dönüşümünden sonraki hesaplanan segmenti işaretler:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-Basit ayarlamaları ve karmaşık ayarlama noktalarını (dönüş açısına sahip ayarlama noktaları) içeren hesaplamaları gösterdik. Edinilen bilgiyi kullanarak, belirli slayt koordinatlarına dayalı bir `GraphicsPath` nesnesi elde etmek veya hatta bir bağlayıcının ayarlama noktası değerlerini ayarlamak için kendi modelinizi (veya kodunuzu) geliştirebilirsiniz.
+Bu formüller, örneklerde kullanılan ön ayarları açıklar; evrensel bir bağlayıcı modeli değildir. Aynı hesabı farklı bir ön ayara uygulamadan önce ayar türlerini, çerçeve yönelimini ve değer aralıklarını doğrulayın.
 
-## **Bağlayıcı Çizgilerinin Açısını Bulma**
+## **Bağlayıcı Yön Açısını Bulma**
 
-1. Sınıfın bir örneğini oluşturun.  
-1. İndeks aracılığıyla bir slaydın referansını alın.  
-1. Bağlayıcı çizgi şekline erişin.  
-1. Çizgi genişliği, yüksekliği, şekil çerçevesi yüksekliği ve şekil çerçevesi genişliğini kullanarak açıyı hesaplayın.  
-
-Bu PHP kodu, bir bağlayıcı çizgi şeklinin açısını hesapladığımız bir işlemi gösterir:
+Düz bir bağlayıcının yönü, genişliği ve yüksekliği kullanılarak, yatay ve dikey çevirmeler uygulanarak hesaplanabilir. Aşağıdaki örnek, slayt koordinatlarında pozitif yatay eksenden saat yönünde açıyı rapor eder:
 
 ```php
-  $pres = new Presentation("ConnectorLineAngle.pptx");
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
-    for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-      $dir = 0.0;
-      $shape = $slide->getShapes()->get_Item($i);
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
-        }
-      } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
-        $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
-      }
-      echo($dir);
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 100, 100, 200, 100);
+
+    $frame = $connector->getFrame();
+    $flipH = java_values($frame->getFlipH()) == NullableBool::True;
+    $flipV = java_values($frame->getFlipV()) == NullableBool::True;
+    $width = java_values($connector->getWidth());
+    $height = java_values($connector->getHeight());
+    $deltaX = $width * ($flipH ? -1 : 1);
+    $deltaY = $height * ($flipV ? -1 : 1);
+    $angle = atan2($deltaY, $deltaX) * 180.0 / pi();
+
+    if ($angle < 0) {
+        $angle += 360;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    printf("Connector direction: %.2f degrees%s", $angle, PHP_EOL);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **SSS**
 
-**Bir bağlayıcının belirli bir şekle "yapışıp yapışmayacağını" nasıl anlayabilirim?**
+**Bir bağlayıcının bir şekle bağlanıp bağlanamayacağını nasıl anlayabilirim?**
 
-Şeklin [bağlantı noktalarını](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getconnectionsitecount/) ortaya koyup koymadığını kontrol edin. Hiçbiri yoksa veya sayı sıfırsa, yapışma mevcut değildir; bu durumda serbest uç noktalarını kullanıp manuel olarak konumlandırın. Bağlamadan önce nokta sayısını kontrol etmek mantıklıdır.
+[Shape::getConnectionSiteCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getconnectionsitecount/) değerini kontrol edin. Pozitif bir sayı, şeklin bağlantı noktaları sunduğu anlamına gelir. Bağlayıcı uçlarından birine atamadan önce seçilen site dizinini doğrulayın.
 
-**Bağlı şekillerden birini sildiğimde bağlayıcıya ne olur?**
+**Bir bağlayıcı ayarını koleksiyon indeksine göre tanımlayabilir miyim?**
 
-Uçları ayrılır; bağlayıcı slaytta serbest başlangıç/bitiş noktalarına sahip sıradan bir çizgi olarak kalır. Ya silebilir ya da bağlantıları yeniden atayabilir ve gerekirse [reroute](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/reroute/) yöntemini kullanabilirsiniz.
+Bir indeks yalnızca bilinen bir bağlayıcı ön ayarı ve koleksiyon düzeni için anlamlıdır. Bir değeri değiştirmeden önce [AdjustValue::getType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/adjustvalue/#gettype) kontrol edin ve aynı anlamsal tür birden fazla kez ortaya çıktığında ek bilgi olarak [AdjustValue::getName](https://reference.aspose.com/slides/tr/php-java/aspose.slides/adjustvalue/getname/) kullanın.
 
-**Bir slaytı başka bir sunuma kopyaladığınızda bağlayıcı bağları korunur mu?**
+**Bağlı bir şekil silindiğinde ne olur?**
 
-Genellikle evet, hedef şekiller de kopyalandığında. Slayt, bağlı şekiller olmadan başka bir dosyaya eklenirse, uçlar serbest kalır ve bunları yeniden bağlamanız gerekir.
+İlgili bağlayıcı ucu ayrılır. Bağlayıcı slaytta kalır ve silinebilir, serbest bir çizgi olarak konumlandırılabilir veya başka bir şekle bağlanabilir.
+
+**Bir slayt kopyalandığında bağlayıcı bağlamaları korunur mu?**
+
+Bağlamalar, bağlı şekiller slaytla birlikte kopyalandığında genellikle korunur. Bir bağlayıcı, hedef şekillerinden biri olmadan kopyalanırsa, etkilenen uç tekrar bağlanmalıdır.

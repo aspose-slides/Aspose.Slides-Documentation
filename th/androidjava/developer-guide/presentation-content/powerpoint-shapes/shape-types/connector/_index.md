@@ -1,404 +1,505 @@
 ---
-title: จัดการคอนเนคเตอร์ในงานนำเสนอบน Android
-linktitle: คอนเนคเตอร์
+title: จัดการคอนเน็กเตอร์ในการนำเสนอบน Android
+linktitle: คอนเน็กเตอร์
 type: docs
 weight: 10
 url: /th/androidjava/connector/
 keywords:
-- คอนเนคเตอร์
-- ประเภทคอนเนคเตอร์
-- จุดคอนเนคเตอร์
-- เส้นคอนเนคเตอร์
-- มุมคอนเนคเตอร์
-- เชื่อมต่อรูป
+- คอนเน็กเตอร์
+- ประเภทคอนเน็กเตอร์
+- จุดคอนเน็กเตอร์
+- เส้นคอนเน็กเตอร์
+- มุมคอนเน็กเตอร์
+- จุดเชื่อมต่อ
+- จุดปรับแต่ง
+- เชื่อมต่อรูปร่าง
 - PowerPoint
 - งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "เสริมความสามารถให้แอป Java วาด, เชื่อมต่อและกำหนดเส้นอัตโนมัติในสไลด์ PowerPoint บน Android — ควบคุมคอนเนคเตอร์แบบตรง, แบบโค้งมุมและแบบโค้งได้อย่างเต็มที่"
+description: "เรียนรู้วิธีเพิ่ม, เชื่อมต่อ, ปรับเส้นทางใหม่, ปรับแต่ง และตรวจสอบคอนเน็กเตอร์ PowerPoint แบบตรง, แบบบิด, และแบบโค้งด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-คอนเนคเตอร์ของ PowerPoint คือเส้นพิเศษที่เชื่อมต่อหรือเชื่อมโยงรูปสองรูปเข้าด้วยกันและยังคงติดกับรูปแม้เมื่อรูปถูกย้ายหรือเปลี่ยนตำแหน่งบนสไลด์ที่กำหนด  
+คอนเน็กเตอร์คือเส้นที่สามารถค้างอยู่กับรูปร่างสองรูปร่างได้เมื่อรูปร่างใดรูปร่างหนึ่งเคลื่อนที่ ด้านของคอนเน็กเตอร์เชื่อมต่อกับจุดเชื่อมต่อที่แสดงเป็นจุดสีเขียวใน PowerPoint คอนเน็กเตอร์ที่โค้งและบิดบางประเภทยังแสดงจุดปรับแต่งที่เป็นจุดสีส้ม ซึ่งควบคุมตำแหน่งของส่วนย่อยของคอนเน็กเตอร์แต่ละส่วน
 
-คอนเนคเตอร์มักจะเชื่อมต่อกับ *จุดเชื่อมต่อ* (จุดสีเขียว) ซึ่งมีอยู่บนรูปทั้งหมดโดยค่าเริ่มต้น จุดเชื่อมต่อจะปรากฏเมื่อเคอร์เซอร์เข้าใกล้  
+Aspose.Slides แสดงคอนเน็กเตอร์ผ่านอินเทอร์เฟซ [IConnector](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iconnector/) คุณสามารถสร้างคอนเน็กเตอร์ เชื่อมต่อด้านของคอนเน็กเตอร์กับรูปร่าง เลือกจุดเชื่อมต่อ ปรับเส้นทางใหม่ และแก้ไขเรขาคณิตของคอนเน็กเตอร์ที่มีจุดปรับแต่งได้
 
-*จุดปรับแต่ง* (จุดสีส้ม) ซึ่งมีเฉพาะบนคอนเนคเตอร์บางประเภท ใช้เพื่อปรับตำแหน่งและรูปร่างของคอนเนคเตอร์  
+## **ประเภทของคอนเน็กเตอร์**
 
-## **ประเภทของคอนเนคเตอร์**
+คลาส [ShapeType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shapetype/) มีพรีเซตของคอนเน็กเตอร์แบบตรง, บิด, และโค้ง ตารางต่อไปนี้แสดงเรขาคณิตของคอนเน็กเตอร์ที่พร้อมใช้งานและจำนวนจุดปรับแต่งที่กำหนดโดยแต่ละพรีเซต
 
-ใน PowerPoint คุณสามารถใช้คอนเนคเตอร์แบบตรง, แบบโคน (มุม) และแบบโค้ง  
+| คอนเน็กเตอร์ | รูปภาพ | จำนวนจุดปรับแต่ง |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides มีคอนเนคเตอร์เหล่านี้:
+จำนวนและความหมายของจุดปรับแต่งเป็นส่วนหนึ่งของพรีเซตคอนเน็กเตอร์ที่เลือก อย่าสันนิษฐานว่าคอนเน็กเตอร์สองประเภทที่แตกต่างกันจะเปิดเผยรูปแบบคอลเลกชันเดียวกัน
 
-| คอนเนคเตอร์ | รูปภาพ | จำนวนจุดปรับแต่ง |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **เชื่อมต่อรูปร่างสองแบบ**
 
-## **เชื่อมต่อรูปด้วยคอนเนคเตอร์**
+ใช้ [IShapeCollection.addConnector](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) เพื่อเพิ่มคอนเน็กเตอร์ และใช้ [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) และ [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) เพื่อเชื่อมต่อด้านของคอนเน็กเตอร์ หลังจากเชื่อมต่อทั้งสองด้านแล้ว [IConnector.reroute](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iconnector/#reroute--) จะเลือกเส้นทางสั้นที่สุดระหว่างรูปร่างสองแบบ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/AutoShape) สองรูปลงในสไลด์โดยใช้เมธอด `addAutoShape` ของอ็อบเจกต์ `Shapes`
-4. เพิ่มคอนเนคเตอร์โดยใช้เมธอด `addConnector` ของอ็อบเจกต์ `Shapes` โดยกำหนดประเภทของคอนเนคเตอร์
-5. เชื่อมต่อรูปด้วยคอนเนคเตอร์
-6. เรียกเมธอด `reroute` เพื่อใช้เส้นเชื่อมที่สั้นที่สุด
-7. บันทึกพรีเซนเทชัน  
-
-โค้ด Java นี้แสดงวิธีการเพิ่มคอนเนคเตอร์ (คอนเนคเตอร์แบบโค้ง) ระหว่างรูปสองรูป (รูปวงรีและสี่เหลี่ยมผืนผ้า):
-
-```Java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // เข้าถึงคอลเลกชันรูปทรงสำหรับสไลด์เฉพาะ
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // เพิ่ม autoshape รูปวงรี
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // เพิ่ม autoshape สี่เหลี่ยมผืนผ้า
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // เพิ่มรูปคอนเนคเตอร์ในคอลเลกชันรูปทรงของสไลด์
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // เชื่อมต่อรูปด้วยคอนเนคเตอร์
-    connector.setStartShapeConnectedTo(ellipse);
-    connector.setEndShapeConnectedTo(rectangle);
-    
-    // เรียกเมธอด reroute เพื่อตั้งค่าเส้นทางสั้นที่สุดอัตโนมัติระหว่างรูป
-    connector.reroute();
-    
-    // บันทึกงานนำเสนอ
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert title="NOTE"  color="warning"   %}} 
-`เมธอด Connector.reroute` จะทำการกำหนดเส้นทางใหม่ของคอนเนคเตอร์และบังคับให้มันใช้เส้นทางสั้นที่สุดระหว่างรูปต่าง ๆ เพื่อให้บรรลุเป้าหมาย เมธอดอาจเปลี่ยนจุด `setStartShapeConnectionSiteIndex` และ `setEndShapeConnectionSiteIndex` 
-{{% /alert %}} 
-
-## **ระบุดจุดเชื่อมต่อ**
-
-หากคุณต้องการให้คอนเนคเตอร์เชื่อมสองรูปโดยใช้จุดเฉพาะบนรูป คุณต้องระบุดจุดเชื่อมต่อที่ต้องการแบบนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/AutoShape) สองรูปลงในสไลด์โดยใช้เมธอด `addAutoShape` ของอ็อบเจกต์ `Shapes`
-4. เพิ่มคอนเนคเตอร์โดยใช้เมธอด `addConnector` ของอ็อบเจกต์ `Shapes` โดยกำหนดประเภทของคอนเนคเตอร์
-5. เชื่อมต่อรูปด้วยคอนเนคเตอร์
-6. ตั้งค่าจุดเชื่อมต่อที่ต้องการบนรูป
-7. บันทึกพรีเซนเทชัน  
-
-โค้ด Java นี้แสดงการดำเนินการที่ระบุดจุดเชื่อมต่อที่ต้องการ:
+ตัวอย่างต่อไปนี้เชื่อมต่อวงรีและสี่เหลี่ยมด้วยคอนเน็กเตอร์แบบบิด:
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // เข้าถึงคอลเลกชันรูปทรงสำหรับสไลด์เฉพาะ
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่ม autoshape รูปวงรี
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // เพิ่ม autoshape สี่เหลี่ยมผืนผ้า
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-    // เพิ่มรูปคอนเนคเตอร์ในคอลเลกชันรูปทรงของสไลด์
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-    // เชื่อมต่อรูปด้วยคอนเนคเตอร์
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
+    connector.reroute();
 
-    // กำหนดดัชนีจุดเชื่อมต่อที่ต้องการบนรูปวงรี
-    int wantedIndex = 6;
-
-    // ตรวจสอบว่าดัชนีที่ต้องการน้อยกว่า จำนวนดัชนีไซต์สูงสุดหรือไม่
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // กำหนดจุดเชื่อมต่อที่ต้องการบน autoshape รูปวงรี
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
-    }
-
-    // บันทึกงานนำเสนอ
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ปรับจุดคอนเนคเตอร์**
+{{% alert color="warning" title="Warning" %}}
+การเรียก `reroute` อาจทำให้ค่าของ [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) และ [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) เปลี่ยนแปลงได้ ให้กำหนดจุดเชื่อมต่อโดยเฉพาะหลังจากทำการ reroute หากจุดเหล่านั้นต้องคงที่
+{{% /alert %}}
 
-คุณสามารถปรับคอนเนคเตอร์ที่มีอยู่ผ่านจุดปรับแต่งได้ คอนเนคเตอร์ที่มีจุดปรับแต่งเท่านั้นที่สามารถแก้ไขได้ในลักษณะนี้ ดูตารางภายใต้ **[ประเภทของคอนเนคเตอร์](/slides/th/androidjava/connector/#types-of-connectors)**  
+## **เลือกจุดเชื่อมต่อ**
 
-### **กรณีง่าย**
+รูปร่างที่สามารถเชื่อมต่อได้แต่ละรูปจะรายงานจำนวนจุดของมันผ่าน [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--) ตรวจสอบดัชนีจุดฐานศูนย์ที่ต้องการก่อนกำหนดให้กับด้านของคอนเน็กเตอร์; จำนวนจุดจะแตกต่างกันตามเรขาคณิตของรูปร่าง
 
-พิจารณากรณีที่คอนเนคเตอร์ระหว่างรูปสองรูป (A และ B) ผ่านรูปที่สาม (C):
+ตัวอย่างต่อไปนี้เชื่อมคอนเน็กเตอร์กับจุดเฉพาะบนวงรีเมื่อจุดนั้นมีอยู่:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
+    }
+
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ปรับจุดคอนเน็กเตอร์**
+
+คอนเน็กเตอร์ที่มีจุดปรับแต่งจะเปิดเผยผ่าน [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/igeometryshape/#getAdjustments--) ตรวจสอบแต่ละ [IAdjustValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/) และเช็คค่า [getType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/#getType--) ก่อนเปลี่ยนค่าด้วย [setRawValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/#setRawValue-long-) กฎทั่วไปสำหรับการระบุการปรับรูปร่างพรีเซตถูกอธิบายในหัวข้อ [Shape Manipulation](/slides/th/androidjava/shape-manipulations/)
+
+จำนวน ระดับ ความหมาย และช่วงค่าที่ใช้ได้ของการปรับคอนเน็กเตอร์ขึ้นอยู่กับพรีเซตคอนเน็กเตอร์ ประเภทการปรับเป็นแบบอ่านอย่างเดียว ขณะที่ค่าการปรับสามารถเขียนได้ วิธีอ่านอย่างเดียว [getName](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/#getName--) ให้ข้อมูลระบุตัวเพิ่มเติมเมื่อคอนเน็กเตอร์มีการปรับหลายรายการที่มีประเภทความหมายเดียวกัน
+
+### **เส้นทางรอบอุปสรรค**
+
+ในเลเอาต์ต่อไปนี้ `BentConnector5` ระหว่างสองรูปร่างจะผ่านรูปร่างที่สาม:
 
 ![connector-obstruction](connector-obstruction.png)
 
+โค้ดนี้สร้างคอนเน็กเตอร์ที่ถูกบัง:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-เพื่อหลีกเลี่ยงหรือข้ามรูปที่สาม เราสามารถปรับคอนเนคเตอร์โดยย้ายเส้นแนวตั้งของมันไปทางซ้ายแบบนี้:
+การย้ายการบิดแนวตั้งทำให้เส้นทางเปลี่ยนไปเพื่อให้คอนเน็กเตอร์หลีกเลี่ยงอุปสรรค:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
+แทนที่จะสันนิษฐานว่าดัชนีคอลเลกชัน `1` แทนการบิดแนวตั้งเสมอ ตัวอย่างนี้ค้นหา `ConnectorBendPositionY` และเปลี่ยนค่าเฉพาะเมื่อพบประเภทความหมายที่คาดหวัง:
+
 ```java
-IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-adj2.setRawValue(adj2.getRawValue() + 10000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
+        }
+    }
+
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **กรณีซับซ้อน**
+`BentConnector5` มีการปรับ `ConnectorBendPositionX` สองรายการและ `ConnectorBendPositionY` หนึ่งรายการ หากประเภทที่ต้องการปรากฏมากกว่าหนึ่งครั้ง ให้ตรวจสอบ `getName` และเรขาคณิตที่รู้จักของพรีเซตก่อนเลือก หากการปรับรายงานเป็น `ShapeAdjustmentType.Custom` ให้ถือว่าความหมายและช่วงเป็นแบบพรีเซตเฉพาะและไม่เปลี่ยนจนกว่าจะทราบสัญญานั้น
 
-เพื่อทำการปรับที่ซับซ้อนยิ่งขึ้น คุณต้องคำนึงถึงสิ่งต่อไปนี้:
+## **เชื่อมค่าการปรับกับเรขาคณิตของคอนเน็กเตอร์**
 
-* จุดปรับของคอนเนคเตอร์เชื่อมโยงอย่างแน่นหนากับสูตรที่คำนวณและกำหนดตำแหน่งของมัน ดังนั้นการเปลี่ยนแปลงตำแหน่งของจุดอาจทำให้รูปร่างของคอนเนคเตอร์เปลี่ยนแปลง  
-* จุดปรับของคอนเนคเตอร์ถูกกำหนดเป็นลำดับที่เคร่งครัดในอาเรย์ จุดปรับจะถูกจัดลำดับตั้งแต่จุดเริ่มต้นของคอนเนคเตอร์จนถึงจุดสิ้นสุด  
-* ค่าจุดปรับแสดงเป็นเปอร์เซ็นต์ของความกว้าง/ความสูงของรูปร่างคอนเนคเตอร์  
-  * รูปร่างถูกกำหนดโดยจุดเริ่มและสิ้นสุดของคอนเนคเตอร์ที่คูณด้วย 1000  
-  * จุดแรก, จุดที่สอง, และจุดที่สาม กำหนดเปอร์เซ็นต์จากความกว้าง, ความสูง, และความกว้าง (อีกครั้ง) ตามลำดับ  
-* สำหรับการคำนวณที่กำหนดพิกัดของจุดปรับของคอนเนคเตอร์ คุณต้องคำนึงถึงการหมุนและการสะท้อนของคอนเนคเตอร์ด้วย **หมายเหตุ** ว่ามุมการหมุนของคอนเนคเตอร์ทั้งหมดที่แสดงภายใต้ **[ประเภทของคอนเนคเตอร์](/slides/th/androidjava/connector/#types-of-connectors)** เป็น 0  
+สำหรับคอนเน็กเตอร์แบบบิด ค่าการปรับสามารถใช้ประมาณตำแหน่งของส่วนย่อยแต่ละส่วน การคำนวณเหล่านี้เป็นแบบเฉพาะพรีเซตคอนเน็กเตอร์:
 
-#### **กรณี 1**
+- `BentConnector4` ปกติจะเปิดเผยการปรับ `ConnectorBendPositionX` หนึ่งรายการและ `ConnectorBendPositionY` หนึ่งรายการ
+- สำหรับตำแหน่งบิดเหล่านี้ การหารค่าที่ได้จาก `getRawValue` ด้วย `100000f` ให้ส่วนของความกว้างหรือความสูงของเฟรมคอนเน็กเตอร์ตามตัวอย่างด้านล่าง
+- เฟรมคอนเน็กเตอร์อาจถูกหมุนหรือกลับด้าน ดังนั้นพิกัดเฟรมต้องแปลงก่อนเปรียบเทียบกับพิกัดสไลด์
 
-พิจารณากรณีที่วัตถุ text frame สองอันเชื่อมต่อกันผ่านคอนเนคเตอร์:
+ตัวอย่างต่อไปนี้ใช้ `getType` เพื่อระบุการปรับก่อน จากนั้นจึงทำงานกับพารามิเตอร์โดยไม่พึ่งดัชนีคอลเลกชันเป็นตัวระบุที่พกพา
+
+### **การเชื่อมต่อที่ไม่มีการหมุน**
+
+เลเอาต์เริ่มต้นมีรูปร่างข้อความสองอันที่เชื่อมต่อด้วย `BentConnector4`:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
+ตัวอย่างนี้ตรวจสอบคอนเน็กเตอร์และดึงการปรับบิดแนวนอนและแนวตั้ง:
+
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์ PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // รับสไลด์แรกในงานนำเสนอ
-    ISlide sld = pres.getSlides().get_Item(0);
-    // เพิ่มรูปทรงที่จะแนบต่อกันผ่านคอนเนคเตอร์
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // เพิ่มคอนเนคเตอร์
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // กำหนดทิศทางของคอนเนคเตอร์
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // กำหนดสีของคอนเนคเตอร์
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // กำหนดความหนาของเส้นคอนเนคเตอร์
     connector.getLineFormat().setWidth(3);
-    
-    // เชื่อมต่อรูปทรงเข้าด้วยกันด้วยคอนเนคเตอร์
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.setStartShapeConnectedTo(sourceShape);
     connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setEndShapeConnectionSiteIndex(2);
-    
-    // รับจุดปรับของคอนเนคเตอร์
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
 
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-**การปรับแต่ง**
-
-เราสามารถเปลี่ยนค่าจุดปรับของคอนเนคเตอร์โดยเพิ่มเปอร์เซ็นต์ความกว้างและความสูงที่สอดคล้องกันเพิ่มขึ้น 20% และ 200% ตามลำดับ:
+เพื่อเปลี่ยนบิดทั้งสอง ให้ค้นหาประเภทที่คาดหวังแต่ละประเภทและแก้ไขค่าเฉพาะหลังจากพบทั้งสอง:
 
 ```java
-// เปลี่ยนค่าของจุดปรับ
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-ผลลัพธ์:
+ผลลัพธ์คือคอนเน็กเตอร์ที่ส่วนแนวนอนและแนวตั้งได้เคลื่อนย้าย:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-เพื่อกำหนดโมเดลที่ให้เราคำนวณพิกัดและรูปร่างของส่วนต่าง ๆ ของคอนเนคเตอร์ เราจะสร้างรูปที่สอดคล้องกับส่วนแนวนอนของคอนเนคเตอร์ที่จุด connector.getAdjustments().get_Item(0):
+เมื่อทราบประเภทเชิงความหมายแล้ว ค่าต่าง ๆ สามารถแปลงเป็นพิกัดเฟรมคอนเน็กเตอร์ ตัวอย่างนี้วาดสี่เหลี่ยมผอมเหนือส่วนแนวตั้งที่ควบคุมโดยการปรับบิดสองค่า:
 
 ```java
-// วาดส่วนแนวตั้งของคอนเนคเตอร์
-float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-float y = connector.getY();
-float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-sld.getShapes().addAutoShape( ShapeType .Rectangle, x, y, 0, height);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
-ผลลัพธ์:
+รูปแบบแสดงตำแหน่งส่วนที่คำนวณได้:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **กรณี 2**
+### **การเชื่อมต่อที่หมุนหรือกลับด้าน**
 
-ใน **กรณี 1** เราได้สาธิตการปรับคอนเนคเตอร์อย่างง่ายโดยใช้หลักพื้นฐาน ในสถานการณ์ปกติคุณต้องคำนึงถึงการหมุนของคอนเนคเตอร์และการแสดงผลของมัน (ซึ่งตั้งค่าผ่าน connector.getRotation(), connector.getFrame().getFlipH(), และ connector.getFrame().getFlipV()) ตอนนี้เราจะสาธิตกระบวนการ  
+เมื่อเรขาคณิตคอนเน็กเตอร์เดียวกันถูกวางในแนวตั้ง ค่า [IShape.getFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getFrame--), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shapeframe/#getFlipH--), และ [ShapeFrame.getFlipV](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shapeframe/#getFlipV--) มีผลต่อการแปลงจากพิกัดเฟรมคอนเน็กเตอร์เป็นพิกัดสไลด์
 
-ขั้นแรก ให้เพิ่มวัตถุ text frame ใหม่ (**To 1**) ลงในสไลด์ (เพื่อการเชื่อมต่อ) และสร้างคอนเนคเตอร์ (สีเขียว) ใหม่ที่เชื่อมต่อกับวัตถุที่เราสร้างไว้แล้ว
+ตัวอย่างนี้สร้างและปรับคอนเน็กเตอร์ที่วางในแนวตั้ง:
 
 ```java
-// สร้างอ็อบเจกต์การผูกใหม่
-IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.getTextFrame().setText("To 1");
-// สร้างคอนเนคเตอร์ใหม่
-connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-connector.getLineFormat().setWidth(3);
-// เชื่อมต่ออ็อบเจกต์โดยใช้คอนเนคเตอร์ที่สร้างใหม่
-connector.setStartShapeConnectedTo(shapeFrom);
-connector.setStartShapeConnectionSiteIndex(2);
-connector.setEndShapeConnectedTo(shapeTo_1);
-connector.setEndShapeConnectionSiteIndex(3);
-// รับจุดปรับของคอนเนคเตอร์
-adjValue_0 = connector.getAdjustments().get_Item(0);
-adjValue_1 = connector.getAdjustments().get_Item(1);
-// เปลี่ยนค่าของจุดปรับ
-adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    int connectorColor = Color.rgb(102, 205, 170);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(connectorColor);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-ผลลัพธ์:
+คอนเน็กเตอร์ที่ปรับแล้วปรากฏเป็นแนวตั้งระหว่างรูปร่าง:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-ต่อไป ให้สร้างรูปที่สอดคล้องกับส่วนแนวนอนของคอนเนคเตอร์ที่ผ่านจุดปรับของคอนเนคเตอร์ใหม่ connector.getAdjustments().get_Item(0) เราจะใช้ค่าจากข้อมูลคอนเนคเตอร์สำหรับ connector.getRotation(), connector.getFrame().getFlipH(), และ connector.getFrame().getFlipV() แล้วใช้สูตรการแปลงพิกัดที่นิยมสำหรับการหมุนรอบจุด x0:
+สำหรับมุมการหมุนใด ๆ `alpha` ให้หมุนจุดเฟรมคอนเน็กเตอร์ `(x, y)` รอบศูนย์กลางเฟรม `(x0, y0)` ดังนี้
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-ในกรณีของเรา มุมการหมุนของวัตถุคือ 90 องศาและคอนเนคเตอร์แสดงเป็นแนวตั้ง ดังนั้นนี่คือโค้ดที่สอดคล้องกัน:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+โค้ดต่อไปนี้จัดการกับการวางแนว 90 องศาที่ใช้ในตัวอย่างและวาดไกด์สีแดงเหนือส่วนคอนเน็กเตอร์ที่สอดคล้องกัน:
 
 ```java
-// บันทึกพิกัดของคอนเนคเตอร์
-x = connector.getX();
-y = connector.getY();
-// แก้ไขพิกัดของคอนเนคเตอร์ในกรณีที่ปรากฏ
-if (connector.getFrame().getFlipH() == NullableBool.True)
-{
-    x += connector.getWidth();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
 }
-if (connector.getFrame().getFlipV() == NullableBool.True)
-{
-    y += connector.getHeight();
-}
-// รับค่าจุดปรับเป็นพิกัด
-x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-//  แปลงพิกัดเนื่องจาก Sin(90) = 1 และ Cos(90) = 0
-float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-// กำหนดความก้างของส่วนแนวนอนโดยใช้ค่าจุดปรับที่สอง
-float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
 ```
 
-ผลลัพธ์:
+ไกด์สีแดงบ่งบอกส่วนที่คำนวณได้หลังจากการแปลงพิกัด:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-เราได้แสดงการคำนวณที่เกี่ยวข้องกับการปรับอย่างง่ายและจุดปรับที่ซับซ้อน (จุดปรับที่มีมุมการหมุน) ด้วยความรู้ที่ได้คุณสามารถพัฒนาโมเดลของคุณเอง (หรือเขียนโค้ด) เพื่อรับอ็อบเจกต์ `GraphicsPath` หรือแม้กระทั่งตั้งค่าจุดปรับของคอนเนคเตอร์ตามพิกัดสไลด์ที่กำหนด  
+สูตรเหล่านี้อธิบายพรีเซตที่ใช้ในตัวอย่าง ไม่ได้เป็นโมเดลคอนเน็กเตอร์สากล ตรวจสอบประเภทการปรับ, การวางเฟรม, และช่วงค่า ก่อนนำการคำนวณเดียวกันไปใช้กับพรีเซตอื่น
 
-## **หามุมของเส้นคอนเนคเตอร์**
+## **ค้นหามุมทิศทางของคอนเน็กเตอร์**
 
-1. สร้างอินสแตนซ์ของคลาส
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน
-3. เข้าถึงรูปร่างเส้นคอนเนคเตอร์
-4. ใช้ความกว้างและความสูงของเส้น, ความสูงและความกว้างของเฟรมรูปร่างเพื่อคำนวณมุม  
-
-โค้ด Java นี้แสดงการดำเนินการที่เราคำนวณมุมของรูปร่างเส้นคอนเนคเตอร์:
+ทิศทางของคอนเน็กเตอร์ตรงสามารถคำนวณจากความกว้างและความสูง พร้อมกับการพลิกแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้รายงานมุมตามเข็มนาฬิกาจากแกนแนวนอนบวกในพิกัดสไลด์:
 
 ```java
-Presentation pres = new Presentation("ConnectorLineAngle.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    Slide slide = (Slide)pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        double dir = 0.0;
-        Shape shape = (Shape)slide.getShapes().get_Item(i);
-        if (shape instanceof AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.getShapeType() == ShapeType.Line)
-            {
-                dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                        ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-            }
-        }
-        else if (shape instanceof Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                    ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-        }
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
 
-        System.out.println(dir);
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
     }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+    presentation.dispose();
 }
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบได้อย่างไรว่าคอนเนคเตอร์สามารถ 'ติด' กับรูปแบบเฉพาะได้หรือไม่?**
+**ฉันจะตรวจสอบได้อย่างไรว่าคอนเน็กเตอร์สามารถเชื่อมต่อกับรูปร่างได้หรือไม่?**
 
-ตรวจสอบว่ารูปร่างเปิดเผย [จุดเชื่อมต่อ](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shape/#getConnectionSiteCount--) หรือไม่ หากไม่มีหรือจำนวนเป็นศูนย์ การติดจะไม่สามารถทำได้; ในกรณีนั้น ใช้จุดปลายอิสระและกำหนดตำแหน่งด้วยตนเอง ควรตรวจสอบจำนวนไซต์ก่อนทำการแนบ  
+ตรวจสอบค่าของ [getConnectionSiteCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getConnectionSiteCount--) ของรูปร่าง จำนวนที่เป็นบวกหมายถึงรูปร่างเปิดเผยจุดเชื่อมต่อ ตรวจสอบดัชนีจุดที่เลือกก่อนกำหนดให้กับด้านใดด้านหนึ่งของคอนเน็กเตอร์
 
-**เกิดอะไรขึ้นกับคอนเนคเตอร์หากฉันลบรูปที่เชื่อมต่ออยู่หนึ่งรูป?**
+**ฉันสามารถระบุการปรับคอนเน็กเตอร์โดยดัชนีคอลเลกชันได้หรือไม่?**
 
-ปลายของคอนเนคเตอร์จะถูกแยกออก; คอนเนคเตอร์จะคงอยู่บนสไลด์เป็นเส้นธรรมดาที่มีจุดเริ่ม/สิ้นสุดอิสระ คุณสามารถลบมันหรือกำหนดการเชื่อมต่อใหม่และหากจำเป็นให้ [reroute](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/connector/#reroute--)  
+ดัชนีมีความหมายเฉพาะกับพรีเซตคอนเน็กเตอร์และรูปแบบคอลเลกชันที่รู้จัก ตรวจสอบ [IAdjustValue.getType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/#getType--) ก่อนแก้ค่าข้อมูล และใช้ [IAdjustValue.getName](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iadjustvalue/#getName--) เป็นข้อมูลเพิ่มเติมเมื่อประเภทเชิงความหมายเดียวกันปรากฏหลายครั้ง
 
-**การผูกคอนเนคเตอร์จะคงอยู่เมื่อคัดลอกสไลด์ไปยังพรีเซนเทชันอื่นหรือไม่?**
+**เกิดอะไรขึ้นเมื่อรูปร่างที่เชื่อมต่อถูกลบ?**
 
-โดยทั่วไปแล้วใช่ หากรูปเป้าหมายถูกคัดลอกพร้อมกัน หากสไลด์ถูกแทรกลงในไฟล์อื่นโดยไม่มีรูปที่เชื่อมต่อ ปลายของคอนเนคเตอร์จะกลายเป็นอิสระและคุณจะต้องเชื่อมต่อใหม่
+ด้านของคอนเน็กเตอร์ที่เชื่อมต่อจะถูกแยกออก คอนเน็กเตอร์ยังคงอยู่บนสไลด์และสามารถลบ ย้ายเป็นเส้นอิสระ หรือเชื่อมต่อกับรูปร่างอื่นได้
+
+**การผูกคอนเน็กเตอร์จะคงไว้เมื่อคัดลอกสไลด์หรือไม่?**
+
+โดยทั่วไปการผูกจะคงไว้เมื่อรูปร่างที่เชื่อมต่อถูกคัดลอกพร้อมสไลด์ หากคอนเน็กเตอร์ถูกคัดลอกโดยไม่มีรูปร่างเป้าหมายหนึ่งด้าน จำเป็นต้องเชื่อมต่อด้านที่ได้รับผลกระทบอีกครั้ง.

@@ -1,39 +1,37 @@
 ---
-title: ".NET में प्रस्तुतियों में कनेक्टर प्रबंधित करें"
-linktitle: "कनेक्टर"
+title: .NET में प्रस्तुतियों में कनेक्टर प्रबंधित करें
+linktitle: कनेक्टर
 type: docs
 weight: 10
 url: /hi/net/connector/
 keywords:
-- "कनेक्टर"
-- "कनेक्टर प्रकार"
-- "कनेक्टर बिंदु"
-- "कनेक्टर रेखा"
-- "कनेक्टर कोण"
-- "आकारों को कनेक्ट करें"
-- "PowerPoint"
-- "प्रस्तुति"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: ".NET ऐप्स को PowerPoint स्लाइड्स में रेखाएँ बनाने, जोड़ने और स्वचालित रूप से मार्ग निर्धारित करने के लिए सक्षम बनाएं—सीधे, एल्बो और घुमावदार कनेक्टरों पर पूर्ण नियंत्रण प्राप्त करें।"
+- कनेक्टर
+- कनेक्टर प्रकार
+- कनेक्टर बिंदु
+- कनेक्टर रेखा
+- कनेक्टर कोण
+- कनेक्शन साइट
+- समायोजन बिंदु
+- आकृतियों को जोड़ें
+- PowerPoint
+- प्रस्तुति
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET के साथ सीधी, मुड़ी और वक्र PowerPoint कनेक्टर को जोड़ना, संलग्न करना, पुनःरूट करना, समायोजित करना और निरीक्षण करना सीखें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-PowerPoint कनेक्टर एक विशेष लाइन है जो दो आकारों को एक साथ जोड़ती या लिंक करती है और स्लाइड पर आकारों को ले जाने या पुनर्स्थापित करने पर भी जुड़ी रहती है।
+एक कनेक्टर वह रेखा है जो दो आकृतियों से जुड़ी रह सकती है जब भी किसी भी आकृति को हिलाया जाता है। इसके सिरों को कनेक्शन साइटों से जोड़ा जाता है, जिन्हें PowerPoint में हरे बिंदुओं से दर्शाया जाता है। कुछ मुड़ी और वक्र कनेक्टर अतिरिक्त समायोजन बिंदु भी दिखाते हैं, जिन्हें नारंगी बिंदुओं द्वारा दर्शाया जाता है, और ये व्यक्तिगत कनेक्टर खंडों की स्थिति को नियंत्रित करते हैं।
 
-कनेक्टर आमतौर पर *कनेक्शन डॉट्स* (हरा डॉट) से जुड़े होते हैं, जो डिफ़ॉल्ट रूप से सभी आकारों पर मौजूद होते हैं। कनेक्शन डॉट्स तब दिखाई देते हैं जब कर्सर उनके पास आता है।
+Aspose.Slides कनेक्टर को [IConnector](https://reference.aspose.com/slides/hi/net/aspose.slides/iconnector/) इंटरफ़ेस के माध्यम से प्रस्तुत करता है। आप इन्हें बना सकते हैं, उनके सिरों को आकृतियों से जोड़ सकते हैं, कनेक्शन साइट चुन सकते हैं, उन्हें पुनःरूट कर सकते हैं, और उन कनेक्टरों की ज्यामिति को बदल सकते हैं जिनमें समायोजन बिंदु होते हैं।
 
-*समायोजन बिंदु* (नारंगी डॉट), जो केवल कुछ कनेक्टर में होते हैं, कनेक्टर की स्थिति और आकार को बदलने के लिए उपयोग किए जाते हैं।
+## **कनेक्टर प्रकार**
 
-## **कनेक्टर के प्रकार**
-
-PowerPoint में आप सीधा, एल्बो (कोणीय) और घुमावदार कनेक्टर का उपयोग कर सकते हैं।
-
-Aspose.Slides ये कनेक्टर प्रदान करता है:
+[ShapeType](https://reference.aspose.com/slides/hi/net/aspose.slides/shapetype/) एनीमरेशन में सीधी, मुड़ी और वक्र कनेक्टर प्रीसेट शामिल हैं। नीचे दी गई तालिका में उपलब्ध कनेक्टर ज्यामितियों और प्रत्येक प्रीसेट द्वारा परिभाषित समायोजन बिंदुओं की संख्या दर्शायी गई है।
 
 | कनेक्टर | छवि | समायोजन बिंदुओं की संख्या |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
+|---|---|---|
 | `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
 | `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
 | `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
@@ -45,342 +43,471 @@ Aspose.Slides ये कनेक्टर प्रदान करता ह�
 | `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
 | `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-## **कनेक्टर का उपयोग करके आकारों को कनेक्ट करें**
+समायोजन बिंदुओं की संख्या और उनका अर्थ चयनित कनेक्टर प्रीसेट का हिस्सा है। यह न मानें कि दो अलग-अलग कनेक्टर प्रकार समान संग्रह लेआउट दिखाएंगे।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. इंडेक्स के माध्यम से स्लाइड का रेफरेंस प्राप्त करें।  
-1. `Shapes` ऑब्जेक्ट द्वारा प्रदर्शित `AddAutoShape` मेथड का उपयोग करके स्लाइड पर दो [AutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) जोड़ें।  
-1. `Shapes` ऑब्जेक्ट द्वारा प्रदर्शित `AddConnector` मेथड का उपयोग करके कनेक्टर टाइप निर्धारित कर एक कनेक्टर जोड़ें।  
-1. कनेक्टर का उपयोग करके आकारों को जोड़ें।  
-1. सबसे छोटा कनेक्शन पाथ लागू करने के लिए `Reroute` मेथड को कॉल करें।  
-1. प्रस्तुति को सहेजें।
+## **दो आकृतियों को जोड़ें**
 
-यह C# कोड दिखाता है कि दो आकारों (एक अंडाकार और एक आयत) के बीच एक बेंट कनेक्टर कैसे जोड़ें:
+कनेक्टर जोड़ने के लिए आप [IShapeCollection.AddConnector](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addconnector/) का उपयोग कर सकते हैं, और इसके [StartShapeConnectedTo](https://reference.aspose.com/slides/hi/net/aspose.slides/connector/startshapeconnectedto/) तथा [EndShapeConnectedTo](https://reference.aspose.com/slides/hi/net/aspose.slides/connector/endshapeconnectedto/) गुण असाइन कर सकते हैं। दोनों सिरों के जुड़ जाने पर, [IConnector.Reroute](https://reference.aspose.com/slides/hi/net/aspose.slides/iconnector/reroute/) आकृतियों के बीच छोटा मार्ग चुनता है।
 
-```c#
-// एक प्रस्तुति क्लास का इंस्टेंस बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करता है
-using (Presentation input = new Presentation())
-{                
-    // किसी विशेष स्लाइड के लिए शैप्स कलेक्शन तक पहुँचता है
-    IShapeCollection shapes = input.Slides[0].Shapes;
+निम्न उदाहरण में एक एलीप्स और एक आयत को मुड़े कनेक्टर से जोड़ा गया है:
 
-    // एक एलिप्स ऑटॉशेप जोड़ता है
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // एक रेक्टैंगल ऑटॉशेप जोड़ता है
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // स्लाइड शैप्स कलेक्शन में एक कनेक्टर शेप जोड़ता है
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // कनेक्टर का उपयोग करके शैप्स को जोड़ता है
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+connector.Reroute();
 
-    // रीरूट को कॉल करता है जो शैप्स के बीच स्वचालित सबसे छोटा पाथ सेट करता है
-    connector.Reroute();
-
-    // प्रस्तुति को सहेजता है
-    input.Save("Shapes-connector.pptx", SaveFormat.Pptx);
-}
+presentation.Save("connected-shapes.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-`Connector.Reroute` मेथड कनेक्टर को फिर से रूट करता है और इसे आकारों के बीच सबसे छोटा संभव पाथ लेने के लिए मजबूर करता है। यह लक्ष्य हासिल करने के लिए मेथड `StartShapeConnectionSiteIndex` और `EndShapeConnectionSiteIndex` बिंदुओं को बदल सकता है। 
-{{% /alert %}} 
+{{% alert color="warning" title="Warning" %}}
+`Reroute` को कॉल करने से [StartShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/net/aspose.slides/connector/startshapeconnectionsiteindex/) और [EndShapeConnectionSiteIndex](https://reference.aspose.com/slides/hi/net/aspose.slides/connector/endshapeconnectionsiteindex/) मान बदल सकते हैं। यदि इन साइटों को स्थायी रखना है तो पुनःरूटिंग के बाद विशिष्ट कनेक्शन साइट असाइन करें।
+{{% /alert %}}
 
-## **कनेक्शन डॉट निर्दिष्ट करें**
-यदि आप चाहते हैं कि कनेक्टर विशिष्ट डॉट्स का उपयोग करके दो आकारों को लिंक करे, तो आप अपनी पसंदीदा कनेक्शन डॉट्स इस प्रकार निर्दिष्ट कर सकते हैं:
+## **कनेक्शन साइट चुनें**
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. इंडेक्स के माध्यम से स्लाइड का रेफरेंस प्राप्त करें।  
-1. `Shapes` ऑब्जेक्ट द्वारा प्रदर्शित `AddAutoShape` मेथड का उपयोग करके स्लाइड पर दो [AutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/autoshape/) जोड़ें।  
-1. `Shapes` ऑब्जेक्ट द्वारा प्रदर्शित `AddConnector` मेथड का उपयोग करके कनेक्टर टाइप निर्धारित कर एक कनेक्टर जोड़ें।  
-1. कनेक्टर का उपयोग करके आकारों को जोड़ें।  
-1. आकारों पर अपनी पसंदीदा कनेक्शन डॉट्स सेट करें।  
-1. प्रस्तुति को सहेजें।
+प्रत्येक कनेक्टेबल आकृति अपने साइटों की संख्या [ConnectionSiteCount](https://reference.aspose.com/slides/hi/net/aspose.slides/shape/connectionsitecount/) के माध्यम से रिपोर्ट करती है। कनेक्टर के सिर पर साइट को असाइन करने से पहले वांछित शून्य‑आधारित साइट सूचकांक को मान्य करें; साइट गणना आकृति की ज्यामिति पर निर्भर करती है।
 
-यह C# कोड दर्शाता है कि कैसे एक पसंदीदा कनेक्शन डॉट निर्दिष्ट किया जाता है:
+यह उदाहरण एलीप्स पर एक विशिष्ट साइट मौजूद होने पर कनेक्टर को उस साइट से जोड़ता है:
 
-```c#
-// एक प्रस्तुति क्लास का इंस्टेंस बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करती है
-using (Presentation presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
+connector.StartShapeConnectedTo = ellipse;
+connector.EndShapeConnectedTo = rectangle;
+
+uint preferredSiteIndex = 2;
+if (preferredSiteIndex < ellipse.ConnectionSiteCount)
 {
-    // किसी विशेष स्लाइड के लिए शैप्स कलेक्शन तक पहुँचता है
-    IShapeCollection shapes = presentation.Slides[0].Shapes;
-
-    // स्लाइड के शैप्स कलेक्शन में एक कनेक्टर शेप जोड़ता है
-    IConnector connector = shapes.AddConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
-
-    // एक एलिप्स ऑटॉशेप जोड़ता है
-    IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-    // एक रेक्टैंगल ऑटॉशेप जोड़ता है
-    IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-    // कनेक्टर का उपयोग करके शैप्स को जोड़ता है
-    connector.StartShapeConnectedTo = ellipse;
-    connector.EndShapeConnectedTo = rectangle;
-
-    // एलिप्स शेप पर पसंदीदा कनेक्शन डॉट इंडेक्स सेट करता है
-    uint wantedIndex = 6;
-
-    // जाँचता है कि पसंदीदा इंडेक्स अधिकतम साइट इंडेक्स गिनती से कम है या नहीं
-    if (ellipse.ConnectionSiteCount > wantedIndex)
-    {
-        // एलिप्स ऑटॉशेप पर पसंदीदा कनेक्शन डॉट सेट करता है
-        connector.StartShapeConnectionSiteIndex = wantedIndex;
-    }
-
-    // प्रस्तुति को सहेजता है
-    presentation.Save("Connecting_Shape_on_desired_connection_site_out.pptx", SaveFormat.Pptx);
+    connector.StartShapeConnectionSiteIndex = preferredSiteIndex;
 }
+else
+{
+    Console.WriteLine($"The ellipse has only {ellipse.ConnectionSiteCount} connection sites.");
+}
+
+presentation.Save("specific-connection-site.pptx", SaveFormat.Pptx);
 ```
 
 ## **कनेक्टर बिंदु को समायोजित करें**
 
-आप मौजूदा कनेक्टर को उसके समायोजन बिंदुओं के माध्यम से समायोजित कर सकते हैं। केवल उन कनेक्टर को इस तरह बदला जा सकता है जिनमें समायोजन बिंदु होते हैं। देखें **[कनेक्टर के प्रकार](/slides/hi/net/connector/#types-of-connectors)** के तहत तालिका।
+समायोजन बिंदु वाले कनेक्टर [IGeometryShape.Adjustments](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometryshape/adjustments/) के माध्यम से प्रदर्शित होते हैं। प्रत्येक [IAdjustValue](https://reference.aspose.com/slides/hi/net/aspose.slides/iadjustvalue/) को जाँचें और उसके [Type](https://reference.aspose.com/slides/hi/net/aspose.slides/adjustvalue/type/) को देख कर उसके [RawValue](https://reference.aspose.com/slides/hi/net/aspose.slides/adjustvalue/rawvalue/) को बदलें। प्रीसेट आकृति समायोजनों की पहचान के सामान्य नियम [Shape Manipulation](/slides/hi/net/shape-manipulations/) में वर्णित हैं।
 
-### **सरल मामला**
+समायोजन बिंदुओं की संख्या, क्रम, अर्थ तथा मान्य मान सीमा कनेक्टर प्रीसेट पर निर्भर करती है। `Type` गुण केवल‑पढ़ने योग्य है, जबकि समायोजन मान लिखने योग्य है। यदि किसी कनेक्टर में समान सेमेंटिक प्रकार के कई समायोजन हों तो अतिरिक्त पहचान के लिये केवल‑पढ़ने योग्य [Name](https://reference.aspose.com/slides/hi/net/aspose.slides/adjustvalue/name/) गुण उपयोगी रहता है।
 
-विचार करें कि दो आकारों (A और B) के बीच का कनेक्टर एक तीसरे आकार (C) के माध्यम से गुजरता है:
+### **रुकावट के चारों ओर मार्ग बनाएं**
+
+निम्न लेआउट में दो आकृतियों के बीच एक `BentConnector5` थर्ड आकृति के माध्यम से गुजरता है:
 
 ![connector-obstruction](connector-obstruction.png)
 
-कोड:
+यह कोड बाधित कनेक्टर बनाता है:
 
-```c#
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-IShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-IShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-IShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
- 
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
- 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
- 
-connector.StartShapeConnectedTo = shapeFrom;
-connector.EndShapeConnectedTo = shapeTo;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
 connector.StartShapeConnectionSiteIndex = 2;
+
+presentation.Save("connector-obstruction.pptx", SaveFormat.Pptx);
 ```
 
-तीसरे आकार से बचने या उसे बायपास करने के लिए हम कनेक्टर को इस प्रकार बाएँ की ओर उसकी वर्टिकल लाइन को स्थानांतरित करके समायोजित कर सकते हैं:
+ऊर्ध्वाधर मोड़ को बदलने से मार्ग बदल जाता है और कनेक्टर बाधा को दरकिनार कर जाता है:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```c#
-IAdjustValue adj2 = connector.Adjustments[1];
-adj2.RawValue += 10000;
+यह उदाहरण मानता नहीं है कि संग्रह सूचकांक `1` हमेशा ऊर्ध्वाधर मोड़ को दर्शाता है; यह `ConnectorBendPositionY` को खोजता है और केवल तब बदलता है जब अपेक्षित सेमेंटिक प्रकार मौजूद हो:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+slide.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+
+connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
+connector.LineFormat.FillFormat.FillType = FillType.Solid;
+connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Black;
+connector.StartShapeConnectedTo = sourceShape;
+connector.EndShapeConnectedTo = targetShape;
+connector.StartShapeConnectionSiteIndex = 2;
+
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+        break;
+    }
+}
+
+if (verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose a vertical bend adjustment.");
+}
+else
+{
+    verticalBend.RawValue = 60000;
+    presentation.Save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **जटिल मामले**
+एक `BentConnector5` में दो `ConnectorBendPositionX` समायोजन और एक `ConnectorBendPositionY` समायोजन होते हैं। यदि आवश्यक प्रकार एक से अधिक बार आता है तो चयन करने से पहले `Name` और उस प्रीसेट की ज्ञात ज्यामिति देखें। यदि किसी समायोजन का `ShapeAdjustmentType.Custom` दर्शाया गया है, तो उसका अर्थ और सीमा प्रीसेट‑विशिष्ट मानें और अनुबंध स्पष्ट होने तक उसे न बदलें।
 
-जटिल समायोजन करने के लिए आपको निम्नलिखित बातों को ध्यान में रखना होगा:
+## **समायोजन मानों को कनेक्टर ज्यामिति से जोड़ें**
 
-* कनेक्टर का समायोज्य बिंदु एक फ़ॉर्मूले से कड़ा संबंध रखता है जो उसकी स्थिति की गणना करता है। इसलिए बिंदु के स्थान में बदलाव कनेक्टर के आकार को बदल सकता है।  
-* कनेक्टर के समायोजन बिंदु एक एरे में सख्त क्रम में परिभाषित होते हैं। समायोजन बिंदु कनेक्टर के प्रारंभ बिंदु से अंत बिंदु तक क्रमांकित होते हैं।  
-* समायोजन बिंदु मान कनेक्टर आकार की चौड़ाई/ऊँचाई के प्रतिशत को दर्शाते हैं।  
-  * आकार कनेक्टर के प्रारंभ और अंत बिंदु द्वारा 1000 से गुणा करके सीमित होता है।  
-  * पहला बिंदु, दूसरा बिंदु, और तीसरा बिंदु क्रमशः चौड़ाई का प्रतिशत, ऊँचाई का प्रतिशत, और फिर से चौड़ाई का प्रतिशत परिभाषित करते हैं।  
-* कनेक्टर के समायोजन बिंदुओं के निर्देशांक निर्धारित करने वाली गणनाओं में आपको कनेक्टर के घुमाव और उसके प्रतिबिंब को ध्यान में रखना होगा। **ध्यान दें** कि सभी कनेक्टर के लिए दिखाए गए **[कनेक्टर के प्रकार](/slides/hi/net/connector/#types-of-connectors)** का घुमाव कोण 0 है।
+मुड़े कनेक्टरों के लिये, समायोजन मानों का उपयोग व्यक्तिगत खंडों की स्थितियों का अनुमान लगाने में किया जा सकता है। ये गणनाएँ कनेक्टर प्रीसेट के अनुसार विशिष्ट होती हैं:
 
-#### **मामला 1**
+- `BentConnector4` सामान्यतः एक `ConnectorBendPositionX` तथा एक `ConnectorBendPositionY` समायोजन प्रकट करता है।
+- इन मोड़ स्थितियों के लिये, `RawValue / 100000f` नीचे दिखाए गए उदाहरणों में कनेक्टर फ़्रेम की चौड़ाई या ऊँचाई के अनुपात को देता है।
+- कनेक्टर फ़्रेम को घुमाया या उलटा जा सकता है, इसलिए फ़्रेम निर्देशांक को स्लाइड निर्देशांक से तुलना करने से पहले रूपांतरित करना आवश्यक है।
 
-विचार करें कि दो टेक्स्ट फ्रेम ऑब्जेक्ट कनेक्टर के माध्यम से जुड़े हैं:
+निचे के उदाहरण पहले `Type` द्वारा समायोजन की पहचान करते हैं। वे संग्रह सूचकांकों को पोर्टेबल पहचानकर्ता के रूप में उपयोग नहीं करते।
+
+### **अघूमाया गया कनेक्टर**
+
+प्रारम्भिक लेआउट में दो टेक्स्ट आकृतियों को `BentConnector4` द्वारा जोड़ा गया है:
 
 ![connector-shape-complex](connector-shape-complex.png)
 
-कोड:
+यह उदाहरण कनेक्टर की जांच करता है और उसके क्षैतिज तथा लम्बवत मोड़ समायोजन प्राप्त करता है:
 
-```c#
- // एक प्रस्तुति क्लास का इंस्टेंस बनाता है जो PPTX फ़ाइल का प्रतिनिधित्व करती है
-Presentation pres = new Presentation();
- // प्रस्तुति में पहली स्लाइड प्राप्त करता है
-ISlide sld = pres.Slides[0];
- // ऐसे आकार जोड़ता है जो कनेक्टर के माध्यम से जुड़ेंगे
-IAutoShape shapeFrom = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-shapeFrom.TextFrame.Text = "From";
-IAutoShape shapeTo = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-shapeTo.TextFrame.Text = "To";
- // एक कनेक्टर जोड़ता है
-IConnector connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
- // कनेक्टर की दिशा निर्दिष्ट करता है
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+targetShape.TextFrame.Text = "To";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
- // कनेक्टर का रंग निर्दिष्ट करता है
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.Crimson;
- // कनेक्टर की लाइन की मोटाई निर्दिष्ट करता है
 connector.LineFormat.Width = 3;
-
- // कनेक्टर के साथ आकारों को आपस में जोड़ता है
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 3;
-connector.EndShapeConnectedTo = shapeTo;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 2;
 
- // कनेक्टर के लिए समायोजन बिंदु प्राप्त करता है
-IAdjustValue adjValue_0 = connector.Adjustments[0];
-IAdjustValue adjValue_1 = connector.Adjustments[1];
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    Console.WriteLine($"{adjustment.Name}: {adjustment.Type}, raw value = {adjustment.RawValue}");
+}
 ```
 
-**समायोजन**
+दोनों मोड़ बदलने के लिये, प्रत्येक अपेक्षित प्रकार को खोजें और दोनों को मिलने के बाद ही मान संशोधित करें:
 
-हम कनेक्टर के समायोजन बिंदु मानों को संबंधित चौड़ाई और ऊँचाई प्रतिशत को क्रमशः 20 % और 200 % बढ़ाकर बदल सकते हैं:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// समायोजन बिंदुओं के मान बदलता है
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+    presentation.Save("connector-adjusted.pptx", SaveFormat.Pptx);
+}
 ```
 
-परिणाम:
+परिणामस्वरूप कनेक्टर के क्षैतिज एवं लम्बवत खंड स्थानांतरित हो गए:
 
 ![connector-adjusted-1](connector-adjusted-1.png)
 
-व्यक्तिगत भागों के निर्देशांक और आकार निर्धारित करने वाला मॉडल बनाने के लिए, आइए एक आकार बनाते हैं जो कनेक्टर के `Adjustments[0]` बिंदु के क्षैतिज घटक के अनुरूप हो:
+एक बार सेमेंटिक प्रकार ज्ञात हो जाने पर, उनके मानों को कनेक्टर‑फ़्रेम निर्देशांक में बदला जा सकता है। यह उदाहरण दो मोड़ समायोजन द्वारा नियंत्रित लम्बवत खंड के ऊपर एक पतली आयत खींचता है:
 
-```c#
-// कनेक्टर के लंबवत घटक को बनाएं
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-float x = connector.X + connector.Width * adjValue_0.RawValue / 100000;
-float y = connector.Y;
-float height = connector.Height * adjValue_1.RawValue / 100000;
-sld.Shapes.AddAutoShape( ShapeType .Rectangle, x, y, 0, height);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 3;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 2;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
+}
+
+if (horizontalBend is null || verticalBend is null)
+{
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
+}
+else
+{
+    var x = connector.X + connector.Width * horizontalBend.RawValue / 100000f;
+    var y = connector.Y;
+    var height = connector.Height * verticalBend.RawValue / 100000f;
+    slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 1, height);
+    presentation.Save("connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-परिणाम:
+गाइड आकृति गणना किए गए खंड को दर्शाती है:
 
 ![connector-adjusted-2](connector-adjusted-2.png)
 
-#### **मामला 2**
+### **घुमाया या उलटा कनेक्टर**
 
-**मामला 1** में हमने बुनियादी सिद्धांतों का उपयोग करके एक सरल कनेक्टर समायोजन ऑपरेशन दिखाया था। सामान्य परिस्थितियों में आपको कनेक्टर का घुमाव और उसकी प्रस्तुति (जो `connector.Rotation`, `connector.Frame.FlipH`, और `connector.Frame.FlipV` द्वारा निर्धारित होती है) को ध्यान में रखना होगा। अब हम प्रक्रिया को दर्शाते हैं।
+जब समान कनेक्टर ज्यामिति को ऊर्ध्वाधर रूप में अभिविन्यस्त किया जाता है, तो उसका [Frame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/frame/), [FlipH](https://reference.aspose.com/slides/hi/net/aspose.slides/shapeframe/fliph/), और [FlipV](https://reference.aspose.com/slides/hi/net/aspose.slides/shapeframe/flipv/) मान कनेक्टर‑फ़्रेम निर्देशांक से स्लाइड निर्देशांक में रूपांतरण को प्रभावित करते हैं।
 
-पहले, स्लाइड में एक नया टेक्स्ट फ्रेम ऑब्जेक्ट (**To 1**) जोड़ें (कनेक्शन के लिए) और एक नया (हरा) कनेक्टर बनाएं जो इसे पहले बनाए गए ऑब्जेक्ट्स से जोड़ता है।
+यह उदाहरण ऊर्ध्वाधर अभिविन्यास वाले कनेक्टर को बनाता और समायोजित करता है:
 
-```c#
- // एक नया बाइंडिंग ऑब्जेक्ट बनाता है
-IAutoShape shapeTo_1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-shapeTo_1.TextFrame.Text = "To 1";
- // एक नया कनेक्टर बनाता है
-connector = sld.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+sourceShape.TextFrame.Text = "From";
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+targetShape.TextFrame.Text = "To 1";
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
 connector.LineFormat.EndArrowheadStyle = LineArrowheadStyle.Triangle;
 connector.LineFormat.FillFormat.FillType = FillType.Solid;
 connector.LineFormat.FillFormat.SolidFillColor.Color = Color.MediumAquamarine;
 connector.LineFormat.Width = 3;
- // नए बनाए गए कनेक्टर का उपयोग करके ऑब्जेक्ट्स को जोड़ता है
-connector.StartShapeConnectedTo = shapeFrom;
+connector.StartShapeConnectedTo = sourceShape;
 connector.StartShapeConnectionSiteIndex = 2;
-connector.EndShapeConnectedTo = shapeTo_1;
+connector.EndShapeConnectedTo = targetShape;
 connector.EndShapeConnectionSiteIndex = 3;
- // कनेक्टर के समायोजन बिंदु प्राप्त करता है
-adjValue_0 = connector.Adjustments[0];
-adjValue_1 = connector.Adjustments[1];
- // समायोजन बिंदुओं के मान बदलता है 
-adjValue_0.RawValue += 20000;
-adjValue_1.RawValue += 200000;
+
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
+{
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        adjustment.RawValue += 20000;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        adjustment.RawValue += 200000;
+    }
+}
+
+presentation.Save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
 ```
 
-परिणाम:
+समायोजित कनेक्टर आकृतियों के बीच ऊर्ध्वाधर रूप में दिखता है:
 
 ![connector-adjusted-3](connector-adjusted-3.png)
 
-दूसरे, एक ऐसा आकार बनाएं जो नए कनेक्टर के समायोजन बिंदु `connector.Adjustments[0]` से होकर गुजरने वाले क्षैतिज घटक के अनुरूप हो। हम कनेक्टर डेटा से `connector.Rotation`, `connector.Frame.FlipH`, और `connector.Frame.FlipV` के मान उपयोग करेंगे और दिए हुए बिंदु x₀ के चारों ओर घुमाव के लिए लोकप्रिय कोऑर्डिनेट परिवर्तन फ़ॉर्मूला लागू करेंगे:
+किसी भी घूर्णन कोण `alpha` के लिये, कनेक्टर‑फ़्रेम बिंदु `(x, y)` को फ्रेम केंद्र `(x0, y0)` के चारों ओर घुमाने का सूत्र है:
 
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;  
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
 
-हमारे मामले में वस्तु का घुमाव 90 डिग्री है और कनेक्टर लंबवत प्रदर्शित है, इसलिए संबंधित कोड यह है:
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
 
-```c#
-// कनेक्टर के निर्देशांक को सहेजता है
-x = connector.X;
-y = connector.Y;
-// यदि यह दिखाई देता है तो कनेक्टर के निर्देशांक को सही करता है
-if (connector.Frame.FlipH == NullableBool.True)
+नीचे दिया गया कोड इस उदाहरण में प्रयुक्त 90‑डिग्री अभिविन्यास को संभालता है और संबंधित कनेक्टर खंड के ऊपर लाल गाइड खींचता है:
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var sourceShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+var connector = slide.Shapes.AddConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+connector.StartShapeConnectedTo = sourceShape;
+connector.StartShapeConnectionSiteIndex = 2;
+connector.EndShapeConnectedTo = targetShape;
+connector.EndShapeConnectionSiteIndex = 3;
+
+IAdjustValue? horizontalBend = null;
+IAdjustValue? verticalBend = null;
+for (var adjustmentIndex = 0; adjustmentIndex < connector.Adjustments.Count; adjustmentIndex++)
 {
-    x += connector.Width;
+    var adjustment = connector.Adjustments[adjustmentIndex];
+    if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionX)
+    {
+        horizontalBend = adjustment;
+    }
+    else if (adjustment.Type == ShapeAdjustmentType.ConnectorBendPositionY)
+    {
+        verticalBend = adjustment;
+    }
 }
-if (connector.Frame.FlipV == NullableBool.True)
+
+if (horizontalBend is null || verticalBend is null)
 {
-    y += connector.Height;
+    Console.WriteLine("The connector does not expose the expected bend adjustments.");
 }
-// समायोजन बिंदु के मान को निर्देशांक के रूप में लेता है
-x += connector.Width * adjValue_0.RawValue / 100000;
-// निर्देशांक को परिवर्तित करता है क्योंकि Sin(90) = 1 और Cos(90) = 0
-float xx = connector.Frame.CenterX - y + connector.Frame.CenterY;
-float yy = x - connector.Frame.CenterX + connector.Frame.CenterY;
-// दूसरे समायोजन बिंदु मान का उपयोग करके क्षैतिज घटक की चौड़ाई निर्धारित करता है
-float width = connector.Height * adjValue_1.RawValue / 100000;
-IAutoShape shape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-shape.LineFormat.FillFormat.FillType = FillType.Solid;
-shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+else
+{
+    horizontalBend.RawValue += 20000;
+    verticalBend.RawValue += 200000;
+
+    var x = connector.X;
+    var y = connector.Y;
+    if (connector.Frame.FlipH == NullableBool.True)
+    {
+        x += connector.Width;
+    }
+    if (connector.Frame.FlipV == NullableBool.True)
+    {
+        y += connector.Height;
+    }
+
+    x += connector.Width * horizontalBend.RawValue / 100000f;
+    var rotatedX = connector.Frame.CenterX - y + connector.Frame.CenterY;
+    var rotatedY = x - connector.Frame.CenterX + connector.Frame.CenterY;
+    var segmentWidth = connector.Height * verticalBend.RawValue / 100000f;
+    var guide = slide.Shapes.AddAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+    guide.LineFormat.FillFormat.FillType = FillType.Solid;
+    guide.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+    presentation.Save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+}
 ```
 
-परिणाम:
+कोऑर्डिनेट परिवर्तन के बाद लाल गाइड गणना किए गए खंड को चिह्नित करता है:
 
 ![connector-adjusted-4](connector-adjusted-4.png)
 
-हमने सरल समायोजन और जटिल समायोजन बिंदुओं (घुमाव कोण के साथ) वाले गणनाएँ प्रदर्शित कीं। प्राप्त ज्ञान के साथ आप अपना मॉडल विकसित कर सकते हैं (या कोड लिख सकते हैं) ताकि `GraphicsPath` ऑब्जेक्ट प्राप्त किया जा सके या विशिष्ट स्लाइड निर्देशांक के आधार पर कनेक्टर के समायोजन बिंदु मान सेट किए जा सकें।
+ये सूत्र उदाहरणों में उपयोग किए गये प्रीसेट को दर्शाते हैं, न कि सार्वभौमिक कनेक्टर मॉडल को। समान गणना को किसी अलग प्रीसेट पर लागू करने से पहले समायोजन प्रकार, फ़्रेम अभिविन्यास और मान सीमा को सत्यापित करें।
 
-## **कनेक्टर लाइनों का कोण खोजें**
-1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।  
-1. इंडेक्स के माध्यम से स्लाइड का रेफरेंस प्राप्त करें।  
-1. कनेक्टर लाइन आकार तक पहुँचें।  
-1. कोण की गणना के लिए लाइन की चौड़ाई, ऊँचाई, आकार फ्रेम की ऊँचाई और आकार फ्रेम की चौड़ाई का उपयोग करें।
+## **कनेक्टर दिशा कोण खोजें**
 
-यह C# कोड दर्शाता है कि हमने कनेक्टर लाइन आकार के लिए कोण की गणना कैसे की:
+सीधे कनेक्टर की दिशा उसकी चौड़ाई और ऊँचाई से, साथ ही क्षैतिज तथा ऊर्ध्वाधर फ़्लिप लागू होने पर, गणना की जा सकती है। निम्न उदाहरण स्लाइड निर्देशांक में सकारात्मक क्षैतिज धुरी से घड़ियों की दिशा में कोण रिपोर्ट करता है:
 
-```c#
-public static void Run()
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+var flipH = connector.Frame.FlipH == NullableBool.True;
+var flipV = connector.Frame.FlipV == NullableBool.True;
+var deltaX = connector.Width * (flipH ? -1 : 1);
+var deltaY = connector.Height * (flipV ? -1 : 1);
+var angle = Math.Atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+if (angle < 0)
 {
-    Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-    Slide slide = (Slide)pres.Slides[0];
-    Shape shape;
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        double dir = 0.0;
-        shape = (Shape)slide.Shapes[i];
-        if (shape is AutoShape)
-        {
-            AutoShape ashp = (AutoShape)shape;
-            if (ashp.ShapeType == ShapeType.Line)
-            {
-                dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-            }
-        }
-        else if (shape is Connector)
-        {
-            Connector ashp = (Connector)shape;
-            dir = getDirection(ashp.Width, ashp.Height, Convert.ToBoolean(ashp.Frame.FlipH), Convert.ToBoolean(ashp.Frame.FlipV));
-        }
-
-        Console.WriteLine(dir);
-    }
-
+    angle += 360;
 }
-public static double getDirection(float w, float h, bool flipH, bool flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.Atan2(endYAxisY, endYAxisX) - Math.Atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
-}
+
+Console.WriteLine($"Connector direction: {angle:F2} degrees");
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे पता कर सकता हूँ कि कोई कनेक्टर किसी विशिष्ट आकार से "चिपक" सकता है?**  
-जाँचें कि आकार [कनेक्शन साइट्स](https://reference.aspose.com/slides/hi/net/aspose.slides/shape/connectionsitecount/) प्रदान करता है या नहीं। यदि कोई नहीं है या गिनती शून्य है, तो चिपकाना उपलब्ध नहीं है; इस स्थिति में आपको मुक्त एंडपॉइंट्स का उपयोग करके उन्हें मैन्युअली स्थिति देना होगा। अटैच करने से पहले साइट काउंट की जाँच करना उचित है।
+**मैं कैसे पता करूँ कि कनेक्टर किसी आकृति से जुड़ सकता है या नहीं?**  
+आकृति की `ConnectionSiteCount` जाँचें। सकारात्मक मान का अर्थ है कि आकृति कनेक्शन साइट प्रदान करती है। कनेक्टर के सिर पर साइट असाइन करने से पहले चयनित साइट सूचकांक को मान्य करें।
 
-**यदि मैं जुड़े हुए आकारों में से एक को हटाता हूँ तो कनेक्टर क्या करता है?**  
-उसके अंत डिटैच हो जाएंगे; कनेक्टर स्लाइड पर एक सामान्य लाइन के रूप में रह जाता है जिसमें मुक्त प्रारंभ/समाप्त बिंदु होते हैं। आप इसे हटाया जा सकता है या कनेक्शन को पुनः निर्धारित किया जा सकता है और आवश्यक होने पर [reroute](https://reference.aspose.com/slides/hi/net/aspose.slides/connector/reroute/) किया जा सकता है।
+**क्या मैं कनेक्टर समायोजन को उसके संग्रह सूचकांक से पहचान सकता हूँ?**  
+सूचकांक केवल तब अर्थपूर्ण होता है जब कनेक्टर प्रीसेट और संग्रह लेआउट ज्ञात हों। मान बदलने से पहले `IAdjustValue.Type` जाँचें, और जब समान सेमेंटिक प्रकार कई बार हो तो अतिरिक्त जानकारी के लिये `IAdjustValue.Name` का उपयोग करें।
 
-**क्या स्लाइड को किसी अन्य प्रस्तुति में कॉपी करने पर कनेक्टर बाइंडिंग्स संरक्षित रहती हैं?**  
-आमतौर पर हाँ, बशर्ते लक्षित आकारों को भी कॉपी किया जाए। यदि स्लाइड को किसी अन्य फ़ाइल में बिना जुड़े हुए आकारों के सम्मिलित किया जाता है, तो अंत मुक्त हो जाते हैं और आपको उन्हें पुनः अटैच करना पड़ेगा।
+**जब जुड़ी हुई आकृति को हटाया जाता है तो क्या होता है?**  
+संबंधित कनेक्टर का सिर निरब्द हो जाता है। कनेक्टर स्लाइड पर बना रहता है और आप इसे हटाकर, स्वतंत्र रेखा के रूप में रखकर, या किसी अन्य आकृति से जोड़कर उपयोग कर सकते हैं।
+
+**क्या स्लाइड कॉपी करने पर कनेक्टर बाइंडिंग्स बनी रहती हैं?**  
+यदि जुड़े हुए आकृतियों को स्लाइड के साथ कॉपी किया जाता है तो बाइंडिंग्स सामान्यतः बनी रहती हैं। यदि कनेक्टर को उसकी लक्ष्य आकृतियों में से किसी एक के बिना कॉपी किया गया है, तो प्रभावित सिर को फिर से जोड़ना आवश्यक होगा।
