@@ -1,5 +1,5 @@
 ---
-title: 在 C++ 中高效合併簡報
+title: 高效在 C++ 中合併簡報
 linktitle: 合併簡報
 type: docs
 weight: 40
@@ -19,213 +19,363 @@ keywords:
 - 結合 ODP
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++，輕鬆合併 PowerPoint (PPT、PPTX) 和 OpenDocument (ODP) 簡報，簡化您的工作流程。"
+description: "了解如何在 C++ 中透過複製投影片、控制母片與版面配置、調整投影片內容大小、保留節以及處理受保護或大型檔案，合併 PowerPoint 與 OpenDocument 簡報。"
 ---
-## **概觀**
+## **概述**
 
-Aspose.Slides 允許您透過將投影片從一個簡報複製到另一個簡報來合併簡報。本文說明如何合併整個簡報或選取的投影片、在合併過程中使用投影片母片或特定版面配置、處理具有不同投影片大小的簡報，以及將合併後的投影片新增至簡報章節。還包括與合併內容相關的實用說明，包括講者備註、評論、受密碼保護的來源檔案以及執行緒使用情形。
+Aspose.Slides for C++ 透過從一個[Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 複製投影片至另一個投影片來合併簡報。主要的操作是[ISlideCollection::AddClone](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/)，它可以保留來源投影片的格式，或將複製的投影片附加至目標簡報中的母片或版面配置。
 
-## **簡報合併**
+此文章涵蓋最常見的合併工作流程：
 
-將一個簡報合併到另一個簡報時，實際上是把它們的投影片合併成單一簡報，以取得一個檔案。
+- 合併所有投影片同時保留其來源格式；
+- 合併選取的投影片；
+- 使用目標簡報的母片；
+- 使用目標簡報的特定版面配置；
+- 在合併前正規化不同的投影片尺寸；
+- 將複製的投影片加入節；
+- 在一個端對端工作流程中合併多個簡報；
+- 處理母片、資源、備註、評論、媒體、字型、密碼、大檔案及多執行緒相關問題。
 
-{{% alert title="Info" color="info" %}}
-大多數簡報程式（PowerPoint 或 OpenOffice）都缺乏允許使用者以此方式合併簡報的功能。
+## **投影片複製對母片與版面配置的影響**
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/zh-hant/cpp/)，卻允許您以多種方式合併簡報。您可以合併所有形狀、樣式、文字、格式、評論、動畫等，而不必擔心品質或資料遺失。
+投影片的大部分外觀繼承自其版面配置與母片。因此，您選擇的複製重載決定了合併投影片在目標簡報中的整合方式。
 
-**另請參閱**
+使用[ISlideCollection::AddClone](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/)的以下方式：
 
-[Clone Slides](https://docs.aspose.com/slides/zh-hant/cpp/clone-slides/)*.*
+- `AddClone(sourceSlide)` — 保留來源投影片的版面配置與格式。必要時，來源母片會自動複製至目標簡報。Aspose.Slides 會追蹤自動複製的母片，以免相同來源母片的多個投影片被重複複製。
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 將複製的投影片附加至特定的目標[IMasterSlide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imasterslide/)。Aspose.Slides 會根據版面配置類型或名稱在該母片下尋找相符的版面配置。
+- `AddClone(sourceSlide, destinationLayout)` — 直接將複製的投影片附加至特定的目標[ILayoutSlide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ilayoutslide/)。
 
-{{% /alert %}}
+傳遞給 `AddClone` 重載的母片或版面配置必須屬於 **目標** 簡報，而非來源簡報。
 
-### **可以合併的內容**
+## **合併整個簡報並保留來源格式**
 
-使用 Aspose.Slides，您可以合併
-
-* 整個簡報。所有簡報中的投影片最終會匯聚於同一簡報
-* 指定的投影片。選取的投影片會匯聚於同一簡報
-* 同一格式的簡報（PPT 轉 PPT、PPTX 轉 PPTX 等）以及不同格式的簡報（PPT 轉 PPTX、PPTX 轉 ODP 等）相互之間。
-
-{{% alert title="Note" color="warning" %}} 
-除了簡報，Aspose.Slides 還允許您合併其他檔案：
-
-* [圖像](https://products.aspose.com/slides/zh-hant/cpp/merger/image-to-image/)，例如 [JPG 轉 JPG](https://products.aspose.com/slides/zh-hant/cpp/merger/jpg-to-jpg/) 或 [PNG 轉 PNG](https://products.aspose.com/slides/zh-hant/cpp/merger/png-to-png/)
-* 文件，例如 [PDF 轉 PDF](https://products.aspose.com/slides/zh-hant/cpp/merger/pdf-to-pdf/) 或 [HTML 轉 HTML](https://products.aspose.com/slides/zh-hant/cpp/merger/html-to-html/)
-* 以及兩種不同類型的檔案，例如 [圖像轉 PDF](https://products.aspose.com/slides/zh-hant/cpp/merger/image-to-pdf/)、[JPG 轉 PDF](https://products.aspose.com/slides/zh-hant/cpp/merger/jpg-to-pdf/) 或 [TIFF 轉 PDF](https://products.aspose.com/slides/zh-hant/cpp/merger/tiff-to-pdf/)。
-{{% /alert %}}
-
-### **合併選項**
-
-您可以套用選項以決定是否
-
-* 輸出簡報中的每張投影片保留唯一樣式  
-* 為輸出簡報中的所有投影片使用相同樣式  
-
-要合併簡報，Aspose.Slides 提供 [AddClone](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) 方法（來自 [ISlideCollection](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_slide_collection) 介面）。`AddClone` 方法有多種實作，可定義簡報合併過程的參數。每個 Presentation 物件都有一個 [Slides](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) 集合，您可以從欲合併投影片的目標簡報呼叫 `AddClone` 方法。
-
-`AddClone` 方法會回傳一個 `ISlide` 物件，該物件是來源投影片的複本。輸出簡報中的投影片僅是來源投影片的拷貝。因此，您可以對結果投影片進行變更（例如套用樣式、格式選項或版面配置），而不必擔心會影響來源簡報。
-
-## **合併簡報** 
-
-Aspose.Slides 提供 [**AddClone (ISlide)**](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) 方法，允許您在保留投影片版面配置與樣式（預設參數）的情況下合併投影片。
-
-以下 C++ 程式碼示範如何合併簡報：
+最簡單的合併方式是將來源簡報的每張投影片複製至目標簡報。當匯入的投影片應保留其原始主題、母片與版面配置關係時，這是合適的選擇。
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **使用投影片母片合併簡報**
+當來源與目標使用不同的設計時，結果簡報可能包含多個母片。這是在有意保留來源格式時的預期行為。
 
-Aspose.Slides 提供 [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) 方法，允許您在套用投影片母片簡報範本的同時合併投影片。如此一來，若有需要，您即可變更輸出簡報中投影片的樣式。
+## **合併選取的投影片**
 
-以下 C++ 程式碼示範上述操作：
+您不必複製每張投影片。以下範例僅從來源簡報匯入選取的投影片索引。
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}} 
-投影片母片的版面配置會自動判斷。若無法判斷適當的版面配置，且 `AddClone` 方法的 `allowCloneMissingLayout` 布林參數設為 true，則會使用來源投影片的版面配置。否則，會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d)。 
-{{% /alert %}}
+在從使用者輸入或外部設定取得投影片索引時，請先驗證索引的正確性。
 
-如果您希望輸出簡報的投影片使用不同的版面配置，合併時請改用 [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) 方法。
+## **使用目標母片合併投影片**
 
-## **從簡報中合併特定投影片**
-
-從多個簡報中合併特定投影片有助於建立自訂投影片組。Aspose.Slides C++ 允許您只選取並匯入所需的投影片。API 會保留原始投影片的格式、版面配置和設計。
-
-以下 C++ 程式碼建立新簡報，從兩個其他簡報中新增標題投影片，並將結果保存為檔案：
+當匯入的投影片應遵循已屬於目標簡報的母片時，請使用[AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/) 重載。
 
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Aspose.Slides 會根據來源版面配置的類型或名稱，在指定的母片下選擇適當的版面配置。若不存在相符的版面配置且 `allowCloneMissingLayout` 為 `true`，則會複製來源版面配置以便加入投影片。若為 `false`，則拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/details_pptxeditexception/)。
+
+在您希望合併失敗而非在目標母片中新增版面配置時，請使用 `false`。
+
+## **使用特定目標版面配置合併投影片**
+
+當您明確知道匯入的投影片應使用哪個目標版面配置時，請使用[AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/) 重載。
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+套用目標版面配置會改變繼承的版面配置關係；它不會重新設計來源投影片的內容。若來源與目標版面配置的佔位元件結構不同，請檢查結果以確認繼承的格式與佔位元件行為是否符合預期。
+
+## **合併具有不同投影片尺寸的簡報**
+
+尺寸不同的簡報可以合併，但將投影片複製至尺寸不同的簡報時，內容不會自動重新設計以符合新畫布。因此，形狀可能會出現移位、意外縮放，或超出可見投影片區域。
+
+實務上可先在複製前調整來源簡報的尺寸。[SlideSize::SetSize](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/slidesize/setsize/) 方法可在變更投影片尺寸的同時縮放現有內容。[SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/slidesizescaletype/) 會將內容縮放至符合指定尺寸。
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+調整尺寸會在記憶體中變更來源簡報物件。若您需要在其他操作中保持來源簡報原始不變，請為合併開啟另一個實例。
+
+## **將投影片合併至簡報節**
+
+基本的投影片複製迴圈不會重新建立來源簡報的節層級。若輸出結果需要保留節，請在目標簡報中建立或選取節，並使用[AddClone(ISlide, ISection)](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/) 明確將投影片複製至該節。
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+複製的投影片會附加至指定的目標節。若要保留多個來源節，請在目標簡報中重新建立這些節，並將每個來源投影片對應至相應的目標節。
+
+## **安全合併多個簡報**
+
+以下端對端範例將第一個簡報作為目標，對每個額外的來源正規化投影片尺寸，僅在複製時開啟來源，最後一次儲存檔案。
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
 
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-## **使用投影片版面配置合併簡報**
-
-此 C++ 程式碼示範如何在合併簡報時套用您偏好的投影片版面配置，以產生單一輸出簡報：
-
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **合併具有不同投影片大小的簡報**
+這是一個保留匯入投影片來源格式的實用基礎。如果您的輸出必須使用單一目標主題，請將簡單的 `AddClone(slide)` 呼叫替換為先前說明的目標母片或目標版面配置重載。
 
-{{% alert title="Note" color="warning" %}} 
-無法合併投影片大小不同的簡報。 
-{{% /alert %}}
+## **實務考量**
 
-若要合併兩個投影片大小不同的簡報，必須將其中一個簡報調整大小，使其尺寸與另一個簡報相符。
+### **母片、版面配置與格式忠實度**
 
-以下範例程式碼示範上述操作：
+預設的投影片複製會自動將所需的來源母片帶入目標簡報。Aspose.Slides 會為自動複製的母片維護內部登錄，以避免重複複製相同母片。手動複製的母片不會被該登錄追蹤，因此除非需要對母片結構進行明確控制，否則請避免預先複製母片。
+
+不要假設名稱相同的兩個母片或版面配置在視覺上等同。如果企業範本必須控制最終外觀，請明確選擇目標母片或版面配置，並在合併後驗證結果。
+
+### **備註與評論**
+
+講者備註與投影片評論與投影片內容相關聯，且在投影片被複製時會一併複製。Aspose.Slides 亦提供專門的 API 供[簡報備註](https://docs.aspose.com/slides/zh-hant/cpp/presentation-notes/)與[簡報評論](https://docs.aspose.com/slides/zh-hant/cpp/presentation-comments/)使用。
+
+若備註頁的格式很重要，請驗證合併後的簡報，因為備註母片是簡報層級的物件，可能在來源檔案間有所差異。對於審閱工作流程，亦請在合併不同作者或範本的檔案後驗證評論作者與線索評論。
+
+### **圖像、音訊、視訊、OLE 物件與外部連結**
+
+投影片可能參照簡報層級的資源，例如圖像、內嵌音訊、內嵌視訊與 OLE 資料。請複製整張投影片，而非僅複製可見形狀，讓 Aspose.Slides 能維持投影片與其資源的關聯。
+
+內嵌與連結的資源應分別處理。連結的音訊、視訊、OLE 物件或超連結仍依賴其外部目標；複製投影片不會將外部連結轉為內嵌內容。請在合併後的環境中測試連結資源的路徑與 URL。
+
+Aspose.Slides 明確追蹤自動複製的母片，但這不應被視為來自不相關來源簡報的相同二進位資源一定會被去除重複的通用保證。若檔案大小重要，請檢查合併後的套件並測量結果，而非依賴隱含的去重機制。
+
+### **內嵌字型與字型可用性**
+
+字型於簡報層級管理。若排版必須在不同機器上保持一致，請勿假設僅複製投影片即可保證所需字型在目標環境中可用。您可以使用[FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fontsmanager/getembeddedfonts/) 檢查內嵌字型，並依照[在簡報中嵌入字型](https://docs.aspose.com/slides/zh-hant/cpp/embedded-font/) 的說明明確管理字型嵌入。
+
+同時請確認您有權限嵌入來源檔案所使用的字型。字型授權可能限制嵌入。
+
+### **受密碼保護的簡報**
+
+必須先成功開啟受密碼保護的來源簡報，才能複製其投影片。請透過[LoadOptions::set_Password](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/loadoptions/set_password/) 提供密碼。
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
-## **將投影片合併至簡報章節**
+開啟加密的來源不會自動將相同的保護套用至目標簡報。若需要，請另行設定輸出保護。
 
-此 C++ 程式碼示範如何將特定投影片合併至簡報的章節：
+### **大型簡報與記憶體使用**
 
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+包含高解析度圖像、音訊、視訊或其他大型二進位物件的大型簡報可能消耗大量記憶體。[LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) 提供 BLOB 處理與暫存檔使用的控制。請參閱[管理簡報 BLOB](https://docs.aspose.com/slides/zh-hant/cpp/manage-blob/) 取得大型檔案的策略。
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+對於大型檔案，優先使用檔案路徑載入，盡快釋放已合併的來源簡報，除非工作流程需要檢查點，否則避免重複儲存中間結果。
 
-投影片會被加入至章節的末端。
+### **執行緒安全性**
 
-{{% alert title="Tip" color="primary" %}}
-Aspose 提供一個 [FREE Collage 網路應用程式](https://products.aspose.app/slides/zh-hant/collage)。使用此線上服務，您可以合併 [JPG 轉 JPG](https://products.aspose.app/slides/zh-hant/collage/jpg) 或 PNG 轉 PNG 圖片、建立 [相片格子](https://products.aspose.app/slides/zh-hant/collage/photo-grid) 等。 
-{{% /alert %}}
+請勿同時從多個執行緒載入、修改、儲存或複製同一個[Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/)實例。將每個簡報實例限制在單一合併操作中。若平行處理獨立工作，請使用獨立的簡報實例，並遵循[Aspose.Slides 多執行緒指南](https://docs.aspose.com/slides/zh-hant/cpp/multithreading/)。
 
-## **常見問與答**
+## **常見問題**
 
-**合併時會保留講者備註嗎？**
+**如何保留每個來源簡報的原始設計？**
 
-會。當複製投影片時，Aspose.Slides 會將所有投影片元素（包括備註、格式與動畫）一起搬移。
+使用[`AddClone(sourceSlide)`](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/)，且不提供目標母片或版面配置。Aspose.Slides 會在匯入的投影片需要時自動複製來源母片。
 
-**評論及其作者會被轉移嗎？**
+**如何讓匯入的投影片使用目標主題？**
 
-評論屬於投影片內容的一部份，會隨投影片一起複製。評論作者標籤會以評論物件的形式保留在結果簡報中。
+使用接受目標母片的重載。傳入目標簡報的母片，而非來源的母片。Aspose.Slides 會嘗試將每個來源投影片映射至該母片下的適當版面配置。
 
-**如果來源簡報受密碼保護，該怎麼處理？**
+**什麼時候應該使用特定的目標版面配置而非目標母片？**
 
-必須使用 [LoadOptions::set_Password](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/loadoptions/set_password/) 以密碼開啟（/slides/zh-hant/cpp/password-protected-presentation/），載入後即可安全地將投影片複製至未受保護或同樣受保護的目標檔案。
+當每張匯入的投影片皆應使用已知的單一版面配置時，請使用特定版面配置。當您希望 Aspose.Slides 依據來源版面配置的類型或名稱在該母片的版面配置中挑選時，請使用母片。
 
-**合併操作的執行緒安全性如何？**
+**可以合併不同投影片尺寸的簡報嗎？**
 
-請勿在 [多執行緒](/slides/zh-hant/cpp/multithreading/) 中共用同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 實例。建議的規則是「一個文件 — 一個執行緒」；不同檔案可在獨立執行緒中平行處理。
+可以，但投影片內容不會自動為目標尺寸重新設計。若需要預測的版面配置，請先使用[SlideSize::SetSize](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/slidesize/setsize/) 以及 [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/slidesizescaletype/) 重新調整來源簡報。
+
+**我可以將 PPT、PPTX 與 ODP 簡報合併為同一檔案嗎？**
+
+可以。載入每個來源簡報，將所需投影片複製至同一目標，並以支援的輸出格式儲存。因為簡報格式的功能集不完全相同，請在跨格式合併後驗證複雜內容。請參閱[支援的檔案格式](https://docs.aspose.com/slides/zh-hant/cpp/supported-file-formats/)。
+
+**來源節會自動保留嗎？**
+
+基本僅複製投影片的迴圈不會保留。若必須保留節結構，請在目標中重新建立所需節，並使用[AddClone](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/) 的節重載。
+
+**講者備註與評論會被保留嗎？**
+
+它們會隨複製的投影片一起複製。對於依賴備註母片樣式、評論作者或線索審閱資料的工作流程，請驗證合併結果，因為這些情況涉及簡報層級結構以及投影片層級內容。
+
+**音訊、視訊、OLE 物件與超連結會發生什麼事？**
+
+內嵌內容會隨複製的投影片的資源關聯一併保留。外部連結仍保持外部，合併後仍需確保其目標檔案或 URL 可用。
+
+**是否保證所有來源的內嵌字型都會在合併簡報中可用？**
+
+不要僅依賴投影片複製來部署字型。請檢查目標的內嵌字型，並在排版重要時明確管理字型嵌入或外部字型的可用性。
+
+**如何合併受密碼保護的檔案？**
+
+使用正確的[LoadOptions::set_Password](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/loadoptions/set_password/) 開啟檔案，然後正常複製投影片。輸出保護需另行設定。
+
+**該如何處理非常大型的簡報？**
+
+在大型二進位物件佔用記憶體的情況下使用 BLOB 管理，對於極大檔案優先以檔案路徑載入，及時釋放來源簡報，且僅在必要時儲存最終結果。
+
+**我可以從多個執行緒合併投影片嗎？**
+
+請勿對同一個[Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/)實例同時使用多執行緒。將每個合併作業限制在各自的簡報實例中。

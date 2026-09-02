@@ -20,262 +20,344 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Müheloses Zusammenführen von PowerPoint (PPT, PPTX) und OpenDocument (ODP)-Präsentationen in JavaScript mit Aspose.Slides für Node.js, um Ihren Arbeitsablauf zu optimieren."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen in JavaScript durch Klonen von Folien, Steuern von Mastern und Layouts, Anpassen der Foliengröße, Bewahren von Abschnitten und den Umgang mit geschützten oder großen Dateien zusammenführen."
 ---
+## **Übersicht**
 
-## **Präsentationszusammenführung**
+Aspose.Slides für Node.js über Java kombiniert Präsentationen, indem Folien von einer [Präsentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/) in eine andere geklont werden. Die Hauptoperation ist [SlideCollection.addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-), die das Format der Quellfolie erhalten oder die geklonte Folie an einen Master oder ein Layout in der Zielpräsentation anhängen kann.
 
-Wenn Sie eine Präsentation mit einer anderen zusammenführen, kombinieren Sie effektiv deren Folien in einer einzigen Präsentation, um eine Datei zu erhalten. 
+Dieser Artikel behandelt die gebräuchlichsten Zusammenführungs‑Workflows:
 
-{{% alert title="Info" color="info" %}}
+- alle Folien zusammenführen und dabei ihr Quellformat beibehalten;
+- ausgewählte Folien zusammenführen;
+- einen Master aus der Zielpräsentation anwenden;
+- ein bestimmtes Layout aus der Zielpräsentation anwenden;
+- unterschiedliche Foliengrößen vor dem Zusammenführen normalisieren;
+- geklonte Folien zu einem Abschnitt hinzufügen;
+- mehrere Präsentationen in einem End‑zu‑Ende‑Workflow zusammenführen;
+- Master, Ressourcen, Notizen, Kommentare, Medien, Schriften, Passwörter, große Dateien und Multithreading‑Probleme behandeln.
 
-Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) besitzen keine Funktionen, die es Benutzern ermöglichen, Präsentationen auf diese Weise zu kombinieren. 
+## **Wie das Klonen von Folien Master und Layouts beeinflusst**
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), ermöglicht es Ihnen jedoch, Präsentationen auf verschiedene Arten zusammenzuführen. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne sich um Qualitäts- oder Datenverlust sorgen zu müssen.
+Eine Folie erbt einen großen Teil ihres Erscheinungsbildes von ihrem Layout und Master. Aus diesem Grund bestimmt die gewählte Überladung des Klonens, wie die zusammengeführte Folie in die Zielpräsentation integriert wird.
 
-**Siehe auch**
+Verwenden Sie [SlideCollection.addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/) auf eine der folgenden Arten:
 
-[Clone Slides](https://docs.aspose.com/slides/nodejs-java/clone-slides/).
+- `addClone(sourceSlide)` — das Layout und Format der Quellfolie beibehalten. Bei Bedarf kann der Quell‑Master automatisch in die Zielpräsentation geklont werden. Aspose.Slides verfolgt automatisch geklonte Master, sodass wiederholte Folien, die denselben Quell‑Master verwenden, nicht mehrfach geklont werden.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — die geklonte Folie an einen bestimmten Ziel‑[MasterSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterslide/) anhängen. Aspose.Slides sucht unter diesem Master nach einem passenden Layout anhand des Layouttyps oder des Namens.
+- `addClone(sourceSlide, destinationLayout)` — die geklonte Folie direkt an ein bestimmtes Ziel‑[LayoutSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutslide/) anhängen.
 
-{{% /alert %}}
+Der an `addClone` übergebene Master oder das Layout muss zur **Ziel**‑Präsentation gehören, nicht zur Quell‑Präsentation.
 
-### **Was kann zusammengeführt werden**
+## **Gesamte Präsentationen zusammenführen und Quellformatierung beibehalten**
 
-Mit Aspose.Slides können Sie zusammenführen 
+Der einfachste Merge kopiert jede Folie der Quell‑Präsentation in die Ziel‑Präsentation. Dies ist die geeignete Wahl, wenn die importierten Folien ihr ursprüngliches Theme, ihren Master und ihre Layout‑Beziehungen beibehalten sollen.
 
-* gesamte Präsentationen. Alle Folien aus den Präsentationen landen in einer einzigen Präsentation
-* bestimmte Folien. Ausgewählte Folien landen in einer einzigen Präsentation
-* Präsentationen in einem Format (PPT zu PPT, PPTX zu PPTX, etc.) und in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP, etc.) miteinander. 
-
-### **Zusammenführungsoptionen**
-
-Sie können Optionen anwenden, die bestimmen, ob
-
-* jede Folie in der Ausgabepäsentation einen einzigartigen Stil beibehält
-* ein bestimmter Stil für alle Folien in der Ausgabepäsentation verwendet wird. 
-
-Um Präsentationen zusammenzuführen, stellt Aspose.Slides die [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-)‑Methoden (aus der [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection)‑Klasse) bereit. Es gibt mehrere Implementierungen der `addClone`‑Methoden, die die Parameter des Präsentationszusammenführungsprozesses festlegen. Jedes Presentation‑Objekt besitzt eine Slides‑Sammlung, sodass Sie die `addClone`‑Methode von der Präsentation aus aufrufen können, zu der Sie Folien zusammenführen möchten.
-
-Die `addClone`‑Methode gibt ein `Slide`‑Objekt zurück, das eine Kopie der Quellfolie ist. Die Folien in einer Ausgabepäsentation sind einfach eine Kopie der Folien aus der Quelle. Daher können Sie Änderungen an den resultierenden Folien vornehmen (z. B. Stile, Formatierungsoptionen oder Layouts anwenden), ohne dass die Quellpräsentationen betroffen werden. 
-
-## **Präsentationen zusammenführen** 
-
-Aspose.Slides stellt die [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-)‑Methode bereit, die es ermöglicht, Folien zu kombinieren, wobei die Folien ihre Layouts und Stile beibehalten (Standardparameter).
-
-Dieser JavaScript‑Code zeigt, wie Sie Präsentationen zusammenführen:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Die resultierende Präsentation kann mehrere Master enthalten, wenn Quell‑ und Ziel‑Präsentation unterschiedliche Designs verwenden. Das ist zu erwarten, wenn das Quellformat bewusst erhalten wird.
 
-## **Präsentationen mit Folienmaster zusammenführen**
+## **Ausgewählte Folien zusammenführen**
 
-Aspose.Slides stellt die [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-)‑Methode bereit, die es ermöglicht, Folien zu kombinieren und dabei eine Folienmaster‑Präsentationsvorlage anzuwenden. Auf diese Weise können Sie bei Bedarf den Stil der Folien in der Ausgabepäsentation ändern.
+Sie müssen nicht jede Folie klonen. Das folgende Beispiel importiert nur ausgewählte Folienindizes aus der Quell‑Präsentation.
 
-Dieser JavaScript‑Code demonstriert den beschriebenen Vorgang:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Validieren Sie Folienindizes vor dem Klonen, wenn sie aus Benutzereingaben oder externer Konfiguration stammen.
 
-{{% alert title="Note" color="warning" %}} 
+## **Folien mit einem Ziel‑Master zusammenführen**
 
-Der Folienlayout für den Folienmaster wird automatisch bestimmt. Wenn kein geeignetes Layout bestimmt werden kann, wird bei gesetztem `allowCloneMissingLayout`‑Booleschen Parameter der `addClone`‑Methode das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException) ausgelöst.
+Verwenden Sie die [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-)‑Überladung, wenn importierte Folien einem Master folgen sollen, der bereits zur Ziel‑Präsentation gehört.
 
-{{% /alert %}}
-
-Wenn die Folien in der Ausgabepäsentation ein anderes Folienlayout erhalten sollen, verwenden Sie stattdessen die Methode [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) beim Zusammenführen.
-
-## **Bestimmte Folien aus Präsentationen zusammenführen**
-
-Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um benutzerdefinierte Folienpakete zu erstellen. Aspose.Slides für Node.js via Java ermöglicht es Ihnen, nur die benötigten Folien auszuwählen und zu importieren. Die API bewahrt Formatierung, Layout und Design der Originalfolien.
-
-Der folgende JavaScript‑Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-
-## **Präsentationen mit Folienlayout zusammenführen**
-
-Dieser JavaScript‑Code zeigt, wie Sie Folien aus Präsentationen kombinieren und dabei Ihr bevorzugtes Folienlayout anwenden, um eine einzige Ausgabepäsentation zu erhalten:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Aspose.Slides wählt ein passendes Layout unter dem angegebenen Master, indem es den Typ oder Namen des Quell‑Layouts abgleicht. Existiert kein geeignetes Layout und `allowCloneMissingLayout` ist `true`, wird das Quell‑Layout geklont, damit die Folie hinzugefügt werden kann. Ist es `false`, wird eine [PptxEditException](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/pptxeditexception/) ausgelöst.
+
+Verwenden Sie `false`, wenn der Merge fehlschlagen soll, anstatt ein zusätzliches Layout in den Ziel‑Master einzufügen.
+
+## **Folien mit einem bestimmten Ziel‑Layout zusammenführen**
+
+Verwenden Sie die [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-)‑Überladung, wenn Sie genau wissen, welches Ziel‑Layout die importierten Folien verwenden sollen.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Das Anwenden eines Ziel‑Layouts ändert die ererbte Layout‑Beziehung; es gestaltet den Inhalt der Quell‑Folien nicht neu. Haben Quell‑ und Ziel‑Layout unterschiedliche Platzhalter‑Strukturen, prüfen Sie das Ergebnis, um sicherzustellen, dass das ererbte Format und das Verhalten der Platzhalter passend sind.
 
 ## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen**
 
-{{% alert title="Note" color="warning" %}} 
+Präsentationen mit unterschiedlichen Folienabmessungen können zusammengeführt werden, aber das Klonen einer Folie in eine Präsentation mit anderer Foliengröße gestaltet deren Inhalt nicht automatisch für die neue Leinwand um. Formen können daher verschoben, unerwartet skaliert oder außerhalb des sichtbaren Folienbereichs erscheinen.
 
-Sie können Präsentationen mit unterschiedlichen Foliengrößen nicht zusammenführen. 
+Ein praktischer Ansatz ist, die Quell‑Präsentation vor dem Klonen zu skalieren. Die [SlideSize.setSize](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-)‑Methode kann bestehenden Inhalt skalieren und gleichzeitig die Folienabmessungen ändern. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidesizescaletype/) skaliert Inhalte, sodass sie in die gewünschte Größe passen.
 
-{{% /alert %}}
-
-Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen so skalieren, dass ihre Größe der der anderen Präsentation entspricht. 
-
-Dieser Beispielcode demonstriert den beschriebenen Vorgang:
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Durch Skalieren wird das Quell‑Präsentationsobjekt im Speicher geändert. Wenn Sie die ursprüngliche Quell‑Präsentation für weitere Vorgänge unverändert benötigen, öffnen Sie eine separate Instanz für den Merge.
 
-## **Folien zu einem Präsentationsabschnitt zusammenführen**
+## **Folien in einen Präsentations‑Abschnitt zusammenführen**
 
-Dieser JavaScript‑Code zeigt, wie Sie eine bestimmte Folie zu einem Abschnitt in einer Präsentation zusammenführen:
+Die grundlegende Folien‑Klon‑Schleife reproduziert nicht die Abschnittshierarchie der Quell‑Präsentation. Wenn Abschnitte im Ergebnis wichtig sind, erstellen oder wählen Sie Abschnitte in der Ziel‑Präsentation und klonen Sie Folien explizit mit [addClone(Slide, Section)](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-).
+
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
+Die geklonten Folien werden an den angegebenen Ziel‑Abschnitt angehängt. Um mehrere Quell‑Abschnitte zu erhalten, reproduzieren Sie diese Abschnitte in der Ziel‑Präsentation und ordnen Sie jede Quell‑Folient dem entsprechenden Ziel‑Abschnitt zu.
 
-Die Folie wird am Ende des Abschnitts eingefügt. 
+## **Mehrere Präsentationen sicher zusammenführen**
+
+Das folgende End‑zu‑Ende‑Beispiel verwendet die erste Präsentation als Ziel, normalisiert die Foliengröße jedes zusätzlichen Quell‑Dokuments, hält jede Quelle nur geöffnet, solange sie kopiert wird, und speichert die endgültige Datei einmalig.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
+
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
+
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
+
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+Dies ist ein nützlicher Ausgangspunkt, um die Quellformatierung importierter Folien zu erhalten. Wenn Ihre Ausgabe ein einheitliches Ziel‑Theme verwenden muss, ersetzen Sie den einfachen Aufruf `addClone(sourceSlide)` durch die zuvor gezeigte passende Ziel‑Master‑ oder Ziel‑Layout‑Überladung.
+
+## **Praktische Überlegungen**
+
+### **Master, Layouts und Formattreue**
+
+Das standardmäßige Folienklonen kann einen erforderlichen Quell‑Master automatisch in die Ziel‑Präsentation übernehmen. Aspose.Slides führt ein internes Register für automatisch geklonte Master, um Wiederholungen zu vermeiden. Manuell geklonte Master werden nicht im Register erfasst, daher sollten Sie Master nicht im Voraus klonen, es sei denn, Sie benötigen explizite Kontrolle über die Master‑Struktur.
+
+Gehen Sie nicht davon aus, dass zwei Master oder Layouts mit demselben Namen visuell äquivalent sind. Wenn ein Unternehmens‑Template das endgültige Aussehen steuern muss, wählen Sie einen Ziel‑Master oder ein Ziel‑Layout explizit und prüfen Sie das Ergebnis nach dem Merge.
+
+### **Notizen und Kommentare**
+
+Sprechernotizen und Folienkommentare sind mit dem Folieninhalt verknüpft und werden beim Klonen der Folie mitkopiert. Aspose.Slides stellt zudem dedizierte APIs für [presentation notes](https://docs.aspose.com/slides/de/nodejs-java/presentation-notes/) und [presentation comments](https://docs.aspose.com/slides/de/nodejs-java/presentation-comments/) bereit.
+
+Ist das Format der Notizenseite wichtig, prüfen Sie die zusammengeführte Präsentation, da Notiz‑Master Präsentations‑Objekte sind und zwischen Quell‑Dateien variieren können. Für Review‑Workflows überprüfen Sie zudem die Autoren der Kommentare und verschachtelte Kommentare nach dem Kombinieren von Dateien unterschiedlicher Autoren oder Templates.
+
+### **Bilder, Audio, Video, OLE‑Objekte und externe Links**
+
+Folien können auf Präsentations‑Ressourcen wie Bilder, eingebettetes Audio, eingebettetes Video und OLE‑Daten verweisen. Klonen Sie die Folie selbst und nicht nur die sichtbaren Formen, damit Aspose.Slides die Beziehungen der Folie zu ihren Ressourcen beibehalten kann.
+
+Eingebettete und verknüpfte Ressourcen sollten unterschiedlich behandelt werden. Ein verknüpfter Audio‑, Video‑, OLE‑Objekt‑ oder Hyperlink bleibt von seinem externen Ziel abhängig; das Klonen einer Folie verwandelt einen externen Link nicht in eingebetteten Inhalt. Testen Sie Pfade und URLs von verknüpften Ressourcen in der Umgebung, in der die zusammengeführte Präsentation geöffnet wird.
+
+Aspose.Slides verfolgt automatisch geklonte Master, das ist jedoch keine allgemeine Garantie, dass identische Binär‑Ressourcen aus unabhängigen Quell‑Präsentationen immer dedupliziert werden. Wenn die Dateigröße entscheidend ist, prüfen Sie das zusammengeführte Paket und messen Sie das Ergebnis, anstatt sich auf implizite Deduplizierung zu verlassen.
+
+### **Eingebettete Schriften und Schriftverfügbarkeit**
+
+Schriften werden auf Präsentations‑Ebene verwaltet. Wenn die Typografie auf verschiedenen Maschinen konsistent bleiben muss, gehen Sie nicht davon aus, dass das reine Klonen von Folien garantiert, dass jede erforderliche Schrift im Ziel‑Umfeld verfügbar ist. Sie können eingebettete Schriften mit [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) prüfen und das Einbetten explizit verwalten, wie in [Embed Fonts in Presentations](https://docs.aspose.com/slides/de/nodejs-java/embedded-font/) beschrieben.
+
+Stellen Sie zudem sicher, dass Sie berechtigt sind, die in den Quell‑Dateien verwendeten Schriften einzubetten. Lizenzbedingungen können das Einbetten einschränken.
+
+### **Passwortgeschützte Präsentationen**
+
+Eine passwortgeschützte Quelle muss erfolgreich geöffnet werden, bevor ihre Folien geklont werden können. Das Passwort geben Sie über [LoadOptions.setPassword](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/loadoptions/#setPassword-String-) an.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // Mit der entschlüsselten Präsentation arbeiten.
+} finally {
+    source.dispose();
+}
+```
+
+Das Öffnen einer verschlüsselten Quelle wendet den Schutz nicht automatisch auf die Ziel‑Präsentation an. Konfigurieren Sie den Ausgabeschutz separat, falls erforderlich.
+
+### **Große Präsentationen und Speicherverbrauch**
+
+Große Präsentationen mit hochauflösenden Bildern, Audio, Video oder anderen umfangreichen Binär‑Objekten können erheblichen Speicher beanspruchen. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) bietet Steuerungen für BLOB‑Verarbeitung und temporäre Dateinutzung. Siehe [Manage Presentation BLOBs](https://docs.aspose.com/slides/de/nodejs-java/manage-blob/) für Strategien zum Umgang mit großen Dateien.
+
+Für sehr große Dateien bevorzugen Sie das Laden über Dateipfade, entsorgen Sie jede Quell‑Präsentation, sobald sie zusammengeführt wurde, und vermeiden Sie wiederholtes Speichern von Zwischenergebnissen, es sei denn, der Workflow erfordert Checkpoints.
+
+### **Threadsicherheit**
+
+Laden, speichern oder klonen Sie eine [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)-Instanz nicht in mehreren Threads. Diese Vorgänge werden für den Mehrthread‑Einsatz nicht unterstützt. Wenn Sie unabhängige Merge‑Jobs parallelisieren müssen, verwenden Sie mehrere Einzel‑Thread‑Prozesse, jeweils mit eigenen Präsentations‑Instanzen, und folgen Sie den [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/de/nodejs-java/multithreading/).
 
 ## **FAQ**
 
-**Werden Sprecher‑Notizen beim Zusammenführen erhalten?**
+**Wie behalte ich das ursprüngliche Design jeder Quell‑Präsentation bei?**
 
-Ja. Beim Klonen von Folien übernimmt Aspose.Slides alle Folienelemente, einschließlich Notizen, Formatierungen und Animationen.
+Verwenden Sie [`addClone(sourceSlide)`](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) ohne Angabe eines Ziel‑Masters oder -Layouts. Aspose.Slides kann den Quell‑Master automatisch klonen, wenn er von der importierten Folie benötigt wird.
 
-**Werden Kommentare und deren Autoren übertragen?**
+**Wie lasse ich importierte Folien das Ziel‑Theme verwenden?**
 
-Kommentare, als Teil des Folieninhalts, werden mit der Folie kopiert. Kommentar‑Autor‑Labels werden als Kommentarobjekte in der resultierenden Präsentation erhalten.
+Verwenden Sie die Überladung, die einen Ziel‑Master akzeptiert. Übergeben Sie einen Master aus der Ziel‑Präsentation, nicht aus der Quelle. Aspose.Slides versucht, jede Quell‑Folien einem passenden Layout unter diesem Master zuzuordnen.
 
-**Was ist, wenn die Quellpräsentation passwortgeschützt ist?**
+**Wann sollte ich ein bestimmtes Ziel‑Layout anstelle eines Ziel‑Masters verwenden?**
 
-Sie muss [mit dem Passwort geöffnet](/slides/de/nodejs-java/password-protected-presentation/) über [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setpassword/) werden; nach dem Laden können diese Folien sicher in eine ungeschützte Zieldatei (oder ebenfalls geschützt) geklont werden.
+Verwenden Sie ein bestimmtes Layout, wenn jede importierte Folie genau ein bekanntes Layout nutzen soll. Verwenden Sie einen Master, wenn Aspose.Slides basierend auf dem Typ oder Namen des Quell‑Layouts ein geeignetes Layout aus diesem Master auswählen soll.
 
-**Wie thread‑sicher ist der Zusammenführungs­vorgang?**
+**Können Präsentationen mit unterschiedlichen Foliengrößen zusammengeführt werden?**
 
-Verwenden Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Instanz aus mehreren Threads. Die empfohlene Regel lautet „ein Dokument – ein Thread“; verschiedene Dateien können parallel in separaten Threads bearbeitet werden.
+Ja, aber der Folieninhalt wird nicht automatisch für die Ziel‑Abmessungen neu gestaltet. Skalieren Sie die Quell‑Präsentation vorher, zum Beispiel mit [SlideSize.setSize](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) und [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidesizescaletype/).
 
-## **Siehe auch**
+**Kann ich PPT, PPTX und ODP‑Präsentationen in einer Datei zusammenführen?**
 
-Aspose bietet einen [KOSTENLOSEN Online‑Collage‑Maker](https://products.aspose.app/slides/collage). Mit diesem Online‑Dienst können Sie JPG‑zu‑JPG‑ oder PNG‑zu‑PNG‑Bilder zusammenführen, Fotogitter erstellen und mehr.
+Ja. Laden Sie jede Quell‑Präsentation, klonen Sie die gewünschten Folien in eine Ziel‑Präsentation und speichern Sie das Ergebnis in einem unterstützten Ausgabeformat. Da die Formate nicht exakt denselben Funktionsumfang bieten, prüfen Sie komplexe Inhalte nach einem formatübergreifenden Merge. Siehe [Supported File Formats](https://docs.aspose.com/slides/de/nodejs-java/supported-file-formats/).
 
-Probieren Sie den Aspose **KOSTENLOSEN Online‑Zusammenführer** aus. Er ermöglicht das Zusammenführen von PowerPoint‑Präsentationen im selben Format (z. B. PPT zu PPT, PPTX zu PPTX) oder über verschiedene Formate hinweg (z. B. PPT zu PPTX, PPTX zu ODP).
+**Werden Quell‑Abschnitte automatisch erhalten?**
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+Nicht durch eine einfache Schleife, die nur Folien klont. Replizieren Sie die erforderlichen Abschnitte in der Ziel‑Präsentation und verwenden Sie die Abschnitt‑Überladung von [addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-), wenn die Abschnittsstruktur erhalten bleiben muss.
+
+**Werden Sprechernotizen und Kommentare behalten?**
+
+Sie werden zusammen mit der geklonten Folie kopiert. Für Workflows, die die Gestaltung des Notizen‑Masters, Kommentar‑Autoren oder verschachtelte Review‑Daten betreffen, überprüfen Sie das zusammengeführte Ergebnis, da diese Szenarien ebenfalls Präsentations‑Level‑Strukturen umfassen.
+
+**Was passiert mit Audio, Video, OLE‑Objekten und Hyperlinks?**
+
+Eingebettete Inhalte werden als Teil der Ressourcen‑Beziehungen der geklonten Folie übernommen. Externe Links bleiben extern, sodass deren Ziel‑Dateien oder URLs nach dem Merge weiterhin verfügbar sein müssen.
+
+**Sind eingebettete Schriften aus jeder Quelle im zusammengeführten Dokument garantiert verfügbar?**
+
+Verlassen Sie sich nicht ausschließlich auf das Klonen von Folien für die Schriftbereitstellung. Prüfen Sie die eingebetteten Schriften im Ziel und verwalten Sie das Einbetten oder die externe Schriftverfügbarkeit explizit, wenn die Typografie wichtig ist.
+
+**Wie merge ich eine passwortgeschützte Datei?**
+
+Öffnen Sie sie mit dem korrekten [LoadOptions.setPassword](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/loadoptions/#setPassword-String-), dann klonen Sie die Folien wie gewohnt. Der Ausgabeschutz wird separat konfiguriert.
+
+**Wie gehe ich mit sehr großen Präsentationen um?**
+
+Nutzen Sie BLOB‑Verwaltung, wenn große Binär‑Objekte den Speicher stark belasten, bevorzugen Sie das Laden über Dateipfade, entsorgen Sie Quell‑Präsentationen sofort nach dem Merge und speichern Sie das Endergebnis nur einmal, wenn es benötigt wird.
+
+**Kann ich Folien aus mehreren Threads zusammenführen?**
+
+Laden, speichern oder klonen Sie Präsentations‑Instanzen nicht in mehreren Threads. Für parallele Merge‑Jobs verwenden Sie separate ein‑Thread‑Prozesse mit unabhängigen Präsentations‑Instanzen.

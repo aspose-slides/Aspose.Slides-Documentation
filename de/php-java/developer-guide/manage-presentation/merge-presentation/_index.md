@@ -19,263 +19,390 @@ keywords:
 - ODP kombinieren
 - PHP
 - Aspose.Slides
-description: "Müheloses Zusammenführen von PowerPoint‑ (PPT, PPTX) und OpenDocument‑ (ODP) Präsentationen mit Aspose.Slides für PHP via Java, zur Optimierung Ihres Workflows."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen in PHP durch Klonen von Folien, Steuerung von Mastern und Layouts, Anpassen der Foliengröße, Beibehalten von Abschnitten und Umgang mit geschützten oder großen Dateien zusammenführen."
 ---
+## **Übersicht**
 
-## **Präsentationszusammenführung**
+Aspose.Slides für PHP über Java fügt Präsentationen zusammen, indem Folien von einer [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/) in eine andere geklont werden. Die Hauptoperation ist [SlideCollection::addClone()](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/addclone/), die entweder die Formatierung der Quellfolie beibehalten oder die geklonte Folie einem Master oder Layout in der Zielpräsentation zuordnen kann.
 
-Wenn Sie eine Präsentation mit einer anderen zusammenführen, kombinieren Sie deren Folien effektiv in einer einzigen Präsentation, um eine Datei zu erhalten. 
+Dieser Artikel behandelt die gebräuchlichsten Zusammenführungs‑Workflows:
 
-{{% alert title="Info" color="info" %}}
+- Alle Folien zusammenführen und dabei deren Quellformatierung beibehalten;
+- Ausgewählte Folien zusammenführen;
+- Einen Master aus der Zielpräsentation anwenden;
+- Ein bestimmtes Layout aus der Zielpräsentation anwenden;
+- Unterschiedliche Foliengrößen vor dem Zusammenführen normalisieren;
+- Geklonte Folien zu einem Abschnitt hinzufügen;
+- Mehrere Präsentationen in einem End‑zu‑End‑Workflow zusammenführen;
+- Master, Ressourcen, Notizen, Kommentare, Medien, Schriftarten, Passwörter, große Dateien und Multithreading‑Probleme verarbeiten.
 
-Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) besitzen keine Funktionen, die es Benutzern ermöglichen, Präsentationen auf diese Weise zu kombinieren. 
+## **Wie das Klonen von Folien Master und Layouts beeinflusst**
 
-[**Aspose.Slides for PHP via Java**](https://products.aspose.com/slides/php-java/), ermöglicht jedoch das Zusammenführen von Präsentationen auf verschiedene Arten. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne Qualitäts- oder Datenverlust befürchten zu müssen.
+Eine Folie erbt einen Großteil ihres Erscheinungsbildes von ihrem Layout und Master. Aus diesem Grund bestimmt die von Ihnen gewählte Klon‑Überladung, wie die zusammengeführte Folie in die Zielpräsentation integriert wird.
 
-**Siehe auch**
+Verwenden Sie [SlideCollection::addClone()](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/addclone/) auf eine der folgenden Arten:
 
-[Folien klonen](/slides/de/php-java/clone-slides/).
+- `addClone(sourceSlide)` — die Layout‑ und Formatierung der Quellfolie beibehalten. Bei Bedarf kann der Quell‑Master automatisch in die Zielpräsentation geklont werden. Aspose.Slides verfolgt automatisch geklonte Master, sodass wiederholte Folien, die denselben Quell‑Master verwenden, diesen nicht mehrfach klonen.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — die geklonte Folie an einen bestimmten Ziel‑[MasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/) anhängen. Aspose.Slides sucht unter diesem Master nach einem passenden Layout anhand des Layout‑Typs oder Namens.
+- `addClone(sourceSlide, destinationLayout)` — die geklonte Folie direkt an einen bestimmten Ziel‑[LayoutSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/layoutslide/) anhängen.
 
-{{% /alert %}}
+Der an eine `addClone`‑Überladung übergebene Master oder das Layout muss zur **Ziel**‑Präsentation gehören, nicht zur Quellpräsentation.
 
-### **Was kann zusammengeführt werden**
+## **Gesamte Präsentationen zusammenführen und Quellformatierung beibehalten**
 
-Mit Aspose.Slides können Sie
-
-* komplette Präsentationen. Alle Folien aus den Präsentationen landen in einer einzigen Präsentation
-* bestimmte Folien. Ausgewählte Folien landen in einer einzigen Präsentation
-* Präsentationen im selben Format (PPT zu PPT, PPTX zu PPTX usw.) und in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP usw.) miteinander. 
-
-{{% alert title="Hinweis" color="warning" %}} 
-
-Neben Präsentationen ermöglicht Aspose.Slides das Zusammenführen anderer Dateien:
-
-* [Bilder](https://products.aspose.com/slides/php-java/merger/image-to-image/), wie [JPG zu JPG](https://products.aspose.com/slides/php-java/merger/jpg-to-jpg/) oder [PNG zu PNG](https://products.aspose.com/slides/php-java/merger/png-to-png/)
-* Dokumente, wie [PDF zu PDF](https://products.aspose.com/slides/php-java/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/php-java/merger/html-to-html/)
-* Und zwei unterschiedliche Dateien, wie [Bild zu PDF](https://products.aspose.com/slides/php-java/merger/image-to-pdf/), [JPG zu PDF](https://products.aspose.com/slides/php-java/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/php-java/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Zusammenführungsoptionen**
-
-Sie können Optionen festlegen, die bestimmen, ob
-
-* jede Folie in der Ausgabepäsentation einen eindeutigen Stil beibehält
-* ein bestimmter Stil für alle Folien in der Ausgabepäsentation verwendet wird. 
-
-Um Präsentationen zusammenzuführen, stellt Aspose.Slides die [addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/)‑Methoden (aus der [SlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/)‑Klasse) bereit. Es gibt mehrere Implementierungen der `addClone`‑Methoden, die die Parameter des Zusammenführungsprozesses definieren. Jede Presentation‑Objekt hat eine [slide](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getslides/)‑Sammlung, sodass Sie die `addClone`‑Methode von der Präsentation aus aufrufen können, zu der Sie Folien hinzufügen möchten.
-
-Die `addClone`‑Methode gibt ein `Slide`‑Objekt zurück, das ein Klon der Quellfolie ist. Die Folien in einer Ausgabepäsentation sind einfach Kopien der Folien aus der Quelle. Daher können Sie Änderungen an den resultierenden Folien vornehmen (z. B. Stile oder Formatierungsoptionen oder Layouts anwenden), ohne dass die Quellpräsentationen beeinflusst werden. 
-
-## **Präsentationen zusammenführen** 
-
-Aspose.Slides stellt die [addClone(Slide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/)‑Methode bereit, die das Kombinieren von Folien ermöglicht, während die Folien ihre Layouts und Stile beibehalten (Standardparameter).
-
-Dieser PHP-Code zeigt, wie Sie Präsentationen zusammenführen:
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
-
-
-## **Präsentationen mit einem Folienmaster zusammenführen**
-
-Aspose.Slides stellt die [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/)‑Methode bereit, die das Kombinieren von Folien ermöglicht, wobei eine Folienmaster‑Vorlage angewendet wird. Auf diese Weise können Sie bei Bedarf den Stil für die Folien in der Ausgabepäsentation ändern.
-
-Dieser Code demonstriert den beschriebenen Vorgang:
-```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getMasters()->get_Item(0), true);
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
-    }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
-```
-
-
-{{% alert title="Hinweis" color="warning" %}} 
-
-Das Folienlayout für den Folienmaster wird automatisch bestimmt. Wenn kein passendes Layout ermittelt werden kann und der boolesche Parameter `allowCloneMissingLayout` der `addClone`‑Methode auf true gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/php-java/aspose.slides/PptxEditException) ausgelöst.
-
-{{% /alert %}}
-
-Wenn die Folien in der Ausgabepäsentation ein anderes Folienlayout erhalten sollen, verwenden Sie stattdessen die [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/addclone/)‑Methode beim Zusammenführen.
-
-## **Bestimmte Folien aus Präsentationen zusammenführen**
-
-Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um benutzerdefinierte Folienpakete zu erstellen. Aspose.Slides for PHP via Java ermöglicht das Auswählen und Importieren nur der benötigten Folien. Die API bewahrt Formatierungen, Layout und Design der Originalfolien.
-
-Der folgende PHP-Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
-```php
-function getTitleSlide(Presentation $presentation) {
-    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
-        $slide = $presentation->getSlides()->get_Item($i);
-        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
-            return $slide;
-        }
-    }
-    return null;
-}
-```
+Die einfachste Zusammenführung kopiert jede Folie aus der Quellpräsentation in die Zielpräsentation. Diese Vorgehensweise ist geeignet, wenn die importierten Folien ihr ursprüngliches Design, ihren Master und ihre Layout‑Beziehungen beibehalten sollen.
 
 ```php
-$presentation = new Presentation();
-$presentation1 = new Presentation($folderPath . "presentation1.pptx");
-$presentation2 = new Presentation($folderPath . "presentation2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
 try {
-    $presentation->getSlides()->removeAt(0);
-    
-    $slide1 = getTitleSlide($presentation1);
+    $source = new Presentation("source.pptx");
+    try {
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
+    } finally {
+        $source->dispose();
+    }
 
-    if ($slide1 != null)
-        $presentation->getSlides()->addClone($slide1);
-
-    $slide2 = getTitleSlide($presentation2);
-
-    if ($slide2 != null)
-        $presentation->getSlides()->addClone($slide2);
-
-    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+    $destination->save("merged.pptx", SaveFormat::Pptx);
 } finally {
-    $presentation2->dispose();
-    $presentation1->dispose();
-    $presentation->dispose();
+    $destination->dispose();
 }
 ```
 
+Die resultierende Präsentation kann mehrere Master enthalten, wenn Quell‑ und Zielpräsentation unterschiedliche Designs verwenden. Das ist zu erwarten, wenn die Quellformatierung bewusst beibehalten wird.
 
-## **Präsentationen mit einem Folienlayout zusammenführen**
+## **Ausgewählte Folien zusammenführen**
 
-Dieser PHP-Code zeigt, wie Sie Folien aus Präsentationen kombinieren und dabei Ihr bevorzugtes Folienlayout anwenden, um eine einzige Ausgabepäsentation zu erhalten:
+Sie müssen nicht jede Folie klonen. Das folgende Beispiel importiert nur ausgewählte Folienindizes aus der Quellpräsentation.
+
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
+        $slideIndexes = [0, 2, 4];
+
+        foreach ($slideIndexes as $index) {
+            $destination->getSlides()->addClone($source->getSlides()->get_Item($index));
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-selected-slides.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
+Validieren Sie Folienindizes vor dem Klonen, wenn sie aus Benutzereingaben oder externer Konfiguration stammen.
+
+## **Folien mit einem Ziel‑Master zusammenführen**
+
+Verwenden Sie die [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/addclone/)‑Überladung, wenn importierte Folien einem Master folgen sollen, der bereits zur Zielpräsentation gehört.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationMaster = $destination->getMasters()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationMaster, true);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-master.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Aspose.Slides wählt unter dem angegebenen Master ein passendes Layout aus, indem es den Typ oder Namen des Quell‑Layouts abgleicht. Existiert kein geeignetes Layout und `allowCloneMissingLayout` ist `true`, wird das Quell‑Layout geklont, sodass die Folie hinzugefügt werden kann. Ist es `false`, wird eine [PptxEditException](https://reference.aspose.com/slides/de/php-java/aspose.slides/pptxeditexception/) ausgelöst.
+
+Verwenden Sie `false`, wenn die Zusammenführung fehlschlagen soll, anstatt ein zusätzliches Layout in den Ziel‑Master einzufügen.
+
+## **Folien mit einem bestimmten Ziel‑Layout zusammenführen**
+
+Verwenden Sie die [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/addclone/)‑Überladung, wenn Sie genau wissen, welches Ziel‑Layout die importierten Folien verwenden sollen.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
+    try {
+        $destinationLayout = $destination->getLayoutSlides()->get_Item(0);
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $destinationLayout);
+        }
+    } finally {
+        $source->dispose();
+    }
+
+    $destination->save("merged-with-destination-layout.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
+```
+
+Das Anwenden eines Ziel‑Layouts ändert die geerbte Layout‑Beziehung; es gestaltet den Inhalt der Quellfolie nicht neu. Haben Quell‑ und Ziel‑Layout unterschiedliche Platzhalter‑Strukturen, prüfen Sie das Ergebnis, um sicherzustellen, dass die geerbte Formatierung und das Platzhalter‑Verhalten passend sind.
 
 ## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen**
 
-{{% alert title="Hinweis" color="warning" %}} 
+Präsentationen mit unterschiedlichen Folienabmessungen können zusammengeführt werden, jedoch passt das Klonen einer Folie in eine Präsentation mit anderer Foliengröße den Inhalt nicht automatisch an die neue Zeichenfläche an. Formen können daher verschoben, unerwartet skaliert oder außerhalb des sichtbaren Folienbereichs erscheinen.
 
-Sie können keine Präsentationen mit unterschiedlichen Foliengrößen zusammenführen. 
+Ein praktischer Ansatz besteht darin, die Quellpräsentation vor dem Klonen zu skalieren. Die Methode [SlideSize::setSize()](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidesize/setsize/) kann den vorhandenen Inhalt skalieren, während die Folienabmessungen geändert werden. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidesizescaletype/) skaliert den Inhalt, sodass er in die gewünschte Größe passt.
 
-{{% /alert %}}
-
-Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen in ihrer Größe an die der anderen anpassen. 
-
-Dieser Beispielcode demonstriert den beschriebenen Vorgang:
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide);
-      }
+        $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+        $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+        $destinationWidth = java_values($destination->getSlideSize()->getSize()->getWidth());
+        $destinationHeight = java_values($destination->getSlideSize()->getSize()->getHeight());
+
+        if ($sourceWidth != $destinationWidth || $sourceHeight != $destinationHeight) {
+            $source->getSlideSize()->setSize($destinationWidth, $destinationHeight, SlideSizeScaleType::EnsureFit);
+        }
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide);
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-same-slide-size.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
+Das Skalieren ändert das Quellpräsentations‑Objekt im Speicher. Wenn die ursprüngliche Quellpräsentation für weitere Vorgänge unverändert bleiben muss, öffnen Sie für die Zusammenführung eine separate Instanz.
 
-## **Folien zu einem Präsentationsabschnitt zusammenführen**
+## **Folien in einen Präsentationsabschnitt zusammenführen**
 
-Dieser PHP-Code zeigt, wie Sie eine bestimmte Folie zu einem Abschnitt in einer Präsentation zusammenführen:
+Die grundlegende Folien‑Klon‑Schleife stellt die Abschnittshierarchie der Quellpräsentation nicht wieder her. Wenn Abschnitte im Ergebnis wichtig sind, erstellen oder wählen Sie Abschnitte in der Zielpräsentation und klonen Sie Folien explizit mit [addClone(Slide, Section)](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/addclone/) in diese.
+
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$destination = new Presentation("destination.pptx");
+try {
+    $source = new Presentation("source.pptx");
     try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres1->getSections()->get_Item(0));
-      }
+        $importedSection = $destination->getSections()->appendEmptySection("Imported slides");
+
+        foreach ($source->getSlides() as $slide) {
+            $destination->getSlides()->addClone($slide, $importedSection);
+        }
     } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+        $source->dispose();
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+
+    $destination->save("merged-with-section.pptx", SaveFormat::Pptx);
+} finally {
+    $destination->dispose();
+}
 ```
 
+Die geklonten Folien werden an den angegebenen Zielabschnitt angehängt. Um mehrere Quellabschnitte zu erhalten, erstellen Sie diese im Ziel erneut und ordnen jeder Quellfolie den entsprechenden Zielabschnitt zu.
 
-Die Folie wird am Ende des Abschnitts eingefügt. 
+## **Mehrere Präsentationen sicher zusammenführen**
 
-## **Siehe auch**
+Das folgende End‑zu‑End‑Beispiel verwendet die erste Präsentation als Ziel, normalisiert die Foliengröße jeder zusätzlichen Quelle, hält jede Quellpräsentation nur während des Kopiervorgangs geöffnet und speichert die endgültige Datei ein einziges Mal.
 
-Aspose bietet ein KOSTENLOSES Online‑Collage‑Tool an. Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) oder PNG zu PNG‑Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen und mehr.
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
 
-Probieren Sie den Aspose KOSTENLOSEN Online‑Merger. Er ermöglicht das Zusammenführen von PowerPoint‑Präsentationen im selben Format (z. B. PPT zu PPT, PPTX zu PPTX) oder über verschiedene Formate hinweg (z. B. PPT zu PPTX, PPTX zu ODP).
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideSizeScaleType;
 
-[![Aspose KOSTENLOSER Online-Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+$inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
+
+$merged = new Presentation($inputFiles[0]);
+try {
+    $mergedWidth = java_values($merged->getSlideSize()->getSize()->getWidth());
+    $mergedHeight = java_values($merged->getSlideSize()->getSize()->getHeight());
+
+    for ($fileIndex = 1; $fileIndex < count($inputFiles); $fileIndex++) {
+        $source = new Presentation($inputFiles[$fileIndex]);
+        try {
+            $sourceWidth = java_values($source->getSlideSize()->getSize()->getWidth());
+            $sourceHeight = java_values($source->getSlideSize()->getSize()->getHeight());
+
+            if ($sourceWidth != $mergedWidth || $sourceHeight != $mergedHeight) {
+                $source->getSlideSize()->setSize($mergedWidth, $mergedHeight, SlideSizeScaleType::EnsureFit);
+            }
+
+            foreach ($source->getSlides() as $slide) {
+                $merged->getSlides()->addClone($slide);
+            }
+        } finally {
+            $source->dispose();
+        }
+    }
+
+    $merged->save("merged.pptx", SaveFormat::Pptx);
+} finally {
+    $merged->dispose();
+}
+```
+
+Dies ist ein nützliches Fundament, um die Quellformatierung importierter Folien beizubehalten. Wenn Ihr Ergebnis ein einheitliches Ziel‑Design verwenden muss, ersetzen Sie den einfachen Aufruf `addClone($slide)` durch die zuvor gezeigte passende Ziel‑Master‑ oder Ziel‑Layout‑Überladung.
+
+## **Praktische Überlegungen**
+
+### **Master, Layouts und Formattreue**
+
+Das Standard‑Klonen von Folien kann einen erforderlichen Quell‑Master automatisch in die Zielpräsentation übernehmen. Aspose.Slides führt ein internes Register für automatisch geklonte Master, um ein wiederholtes Klonen desselben Masters zu vermeiden. Manuell geklonte Master werden von diesem Register nicht erfasst, daher vermeiden Sie das Vor‑Klonen von Mastern, es sei denn, Sie benötigen explizite Kontrolle über die Master‑Struktur.
+
+Gehen Sie nicht davon aus, dass zwei Master oder Layouts mit demselben Namen visuell identisch sind. Wenn eine Unternehmensvorlage das endgültige Erscheinungsbild steuern muss, wählen Sie einen Ziel‑Master oder ein Ziel‑Layout explizit und prüfen Sie das Ergebnis nach dem Zusammenführen.
+
+### **Notizen und Kommentare**
+
+Rednernotizen und Folienkommentare sind mit dem Folieninhalt verknüpft und werden beim Klonen einer Folie kopiert. Aspose.Slides stellt außerdem dedizierte APIs für [presentation notes](https://docs.aspose.com/slides/de/php-java/presentation-notes/) und [presentation comments](https://docs.aspose.com/slides/de/php-java/presentation-comments/) bereit.
+
+Wenn die Formatierung der Notizenseite wichtig ist, prüfen Sie die zusammengeführte Präsentation, da Notizen‑Master Präsentations‑Objekte sind und zwischen Quell‑Dateien variieren können. Für Review‑Workflows prüfen Sie zudem die Kommentar‑Autoren und verschachtelten Kommentare, nachdem Sie Dateien verschiedener Autoren oder Vorlagen kombiniert haben.
+
+### **Bilder, Audio, Video, OLE‑Objekte und externe Links**
+
+Folien können Präsentations‑Ressourcen wie Bilder, eingebettetes Audio, eingebettetes Video und OLE‑Daten referenzieren. Klonen Sie die Folie selbst, anstatt nur die sichtbaren Formen zu kopieren, damit Aspose.Slides die Beziehungen der Folie zu ihren Ressourcen erhalten kann.
+
+Eingebettete und verknüpfte Ressourcen sollten unterschiedlich behandelt werden. Ein verknüpftes Audio, Video, OLE‑Objekt oder Hyperlink bleibt von seinem externen Ziel abhängig; das Klonen einer Folie wandelt einen externen Link nicht in eingebetteten Inhalt um. Testen Sie Pfade und URLs verknüpfter Ressourcen in der Umgebung, in der die zusammengeführte Präsentation geöffnet wird.
+
+Aspose.Slides verfolgt explizit automatisch geklonte Master, dies sollte jedoch nicht als generelle Garantie dafür angesehen werden, dass identische Binär‑Ressourcen aus unabhängigen Quellpräsentationen stets dedupliziert werden. Wenn die Dateigröße wichtig ist, prüfen Sie das zusammengeführte Paket und messen das Ergebnis, anstatt sich auf implizite Deduplizierung zu verlassen.
+
+### **Eingebettete Schriftarten und Schriftverfügbarkeit**
+
+Schriftarten werden auf Präsentationsebene verwaltet. Wenn die Typografie auf verschiedenen Rechnern konsistent bleiben muss, gehen Sie nicht davon aus, dass das reine Klonen von Folien garantiert, dass jede benötigte Schriftart in der Zielumgebung verfügbar ist. Sie können eingebettete Schriftarten mit [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/de/php-java/aspose.slides/fontsmanager/getembeddedfonts/) prüfen und das Einbetten explizit verwalten, wie in [Embed Fonts in Presentations](https://docs.aspose.com/slides/de/php-java/embedded-font/) beschrieben.
+
+Stellen Sie außerdem sicher, dass Sie das Einbetten der in den Quell‑Dateien verwendeten Schriftarten dürfen. Schriftlizenzen können das Einbetten einschränken.
+
+### **Passwortgeschützte Präsentationen**
+
+Eine passwortgeschützte Quelle muss erfolgreich geöffnet werden, bevor ihre Folien geklont werden können. Geben Sie das Passwort über [LoadOptions::setPassword()](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/setpassword/) an.
+
+```php
+require_once("Java.inc");
+require_once("lib/aspose.slides.php");
+
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("YOUR_PASSWORD");
+
+$source = new Presentation("protected.pptx", $loadOptions);
+try {
+    // Mit der entschlüsselten Präsentation arbeiten.
+} finally {
+    $source->dispose();
+}
+```
+
+Das Öffnen einer verschlüsselten Quelle wendet nicht automatisch denselben Schutz auf die Zielpräsentation an. Konfigurieren Sie den Ausgabeschutz bei Bedarf separat.
+
+### **Große Präsentationen und Speicherverbrauch**
+
+Große Präsentationen mit hochauflösenden Bildern, Audio, Video oder anderen großen Binär‑Objekten können erheblichen Speicher beanspruchen. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) bietet Steuerungen für BLOB‑Verarbeitung und temporäre Dateinutzung. Siehe [Open Presentations](https://docs.aspose.com/slides/de/php-java/open-presentation/#open-large-presentations) für ein PHP‑via‑Java‑Beispiel für große Dateien.
+
+Bei großen Dateien laden Sie nach Möglichkeit von Dateipfaden, entsorgen Sie jede Quellpräsentation, sobald sie zusammengeführt wurde, und vermeiden Sie das wiederholte Speichern von Zwischenergebnissen, es sei denn, der Workflow erfordert Checkpoints.
+
+### **Thread‑Sicherheit**
+
+Laden, ändern, speichern oder klonen Sie [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Instanzen nicht in mehreren Threads. Diese Vorgänge werden in PHP‑via‑Java nicht für die Mehr‑Thread‑Nutzung unterstützt. Wenn Sie parallele Merge‑Jobs benötigen, führen Sie sie in separaten Single‑Thread‑Prozessen aus, wobei jeder Prozess seine eigenen Präsentations‑Instanzen verwendet, und befolgen Sie die [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/de/php-java/multithreading/).
 
 ## **FAQ**
 
-**Gibt es Beschränkungen für die Folienzahl beim Zusammenführen von Präsentationen?**
+**Wie behalte ich das ursprüngliche Design jeder Quellpräsentation bei?**
 
-Keine strikten Beschränkungen. Aspose.Slides kann große Dateien verarbeiten, aber die Leistung hängt von der Dateigröße und den Systemressourcen ab. Für sehr große Präsentationen wird empfohlen, eine 64‑Bit‑JVM zu verwenden und ausreichend Heap‑Speicher zuzuweisen.
+Verwenden Sie [`addClone(sourceSlide)`](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/addclone/) ohne Angabe eines Ziel‑Masters oder -Layouts. Aspose.Slides kann den Quell‑Master automatisch klonen, wenn er von der importierten Folie benötigt wird.
 
-**Kann ich Präsentationen mit eingebetteten Video‑ oder Audiodateien zusammenführen?**
+**Wie lasse ich importierte Folien das Ziel‑Theme verwenden?**
 
-Ja, Aspose.Slides bewahrt eingebettete Multimedia‑Inhalte in Folien, allerdings kann die endgültige Präsentation deutlich größer werden.
+Verwenden Sie die Überladung, die einen Ziel‑Master akzeptiert. Übergeben Sie einen Master aus der Zielpräsentation, nicht aus der Quelle. Aspose.Slides versucht, jede Quellfolie einem passenden Layout unter diesem Master zuzuordnen.
 
-**Werden Schriftarten beim Zusammenführen von Präsentationen beibehalten?**
+**Wann sollte ich ein bestimmtes Ziel‑Layout anstelle eines Ziel‑Masters verwenden?**
 
-Ja. Schriftarten, die in den Quellpräsentationen verwendet werden, bleiben in der Ausgabedatei erhalten, vorausgesetzt, sie sind im System installiert oder [eingebettet](/slides/de/php-java/embedded-font/).
+Verwenden Sie ein konkretes Layout, wenn jede importierte Folie ein bekanntes Layout nutzen soll. Verwenden Sie einen Master, wenn Sie möchten, dass Aspose.Slides basierend auf dem Typ oder Namen des Quell‑Layouts eines seiner Layouts auswählt.
+
+**Können Präsentationen mit unterschiedlichen Foliengrößen zusammengeführt werden?**
+
+Ja, aber Folieninhalte werden nicht automatisch an die Ziel‑Abmessungen angepasst. Skalieren Sie die Quellpräsentation zuerst, wenn Sie eine vorhersehbare Platzierung benötigen, beispielsweise mit [SlideSize::setSize()](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidesize/setsize/) und [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidesizescaletype/).
+
+**Kann ich PPT-, PPTX- und ODP‑Präsentationen zu einer Datei zusammenführen?**
+
+Ja. Laden Sie jede Quellpräsentation, klonen Sie die benötigten Folien in ein Ziel und speichern Sie das Ziel in einem unterstützten Ausgabeformat. Da Präsentationsformate nicht exakt denselben Funktionsumfang bieten, prüfen Sie komplexe Inhalte nach formatübergreifenden Zusammenführungen. Siehe [Supported File Formats](https://docs.aspose.com/slides/de/php-java/supported-file-formats/).
+
+**Werden Quellabschnitte automatisch erhalten?**
+
+Nicht durch eine einfache Schleife, die nur Folien klont. Erstellen Sie die erforderlichen Abschnitte im Ziel erneut und verwenden Sie die Abschnitts‑Überladung von [addClone](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/addclone/), wenn die Abschnittsstruktur erhalten bleiben muss.
+
+**Werden Redner‑Notizen und Kommentare erhalten?**
+
+Sie werden mit der geklonten Folie kopiert. Für Workflows, die von der Gestaltung des Notizen‑Masters, den Kommentar‑Autoren oder verschachtelten Review‑Daten abhängen, prüfen Sie das zusammengeführte Ergebnis, da diese Szenarien sowohl Präsentations‑ als auch Folien‑Strukturen betreffen.
+
+**Was passiert mit Audio, Video, OLE‑Objekten und Hyperlinks?**
+
+Eingebettete Inhalte werden als Teil der Ressourcen‑Beziehungen der geklonten Folie übernommen. Externe Links bleiben extern, sodass ihre Ziel‑Dateien oder URLs nach dem Zusammenführen weiterhin verfügbar sein müssen.
+
+**Sind eingebettete Schriftarten aus allen Quellen garantiert in der zusammengeführten Präsentation verfügbar?**
+
+Verlassen Sie sich nicht ausschließlich auf das Folienklonen für die Schriftarten‑Bereitstellung. Prüfen Sie die eingebetteten Schriftarten des Ziels und verwalten Sie das Einbetten von Schriftarten oder die Verfügbarkeit externer Schriftarten explizit, wenn Typografie wichtig ist.
+
+**Wie führe ich eine passwortgeschützte Datei zusammen?**
+
+Öffnen Sie sie mit dem richtigen [LoadOptions::setPassword()](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/setpassword/) und klonen Sie anschließend die Folien wie gewohnt. Der Ausgabeschutz wird separat konfiguriert.
+
+**Wie sollte ich sehr große Präsentationen handhaben?**
+
+Verwenden Sie das BLOB‑Management, wenn große Binär‑Objekte den Speicherverbrauch dominieren, bevorzugen Sie das Laden über Dateipfade für sehr große Dateien, entsorgen Sie Quellpräsentationen zeitnah und speichern Sie das Endergebnis nur bei Bedarf.
+
+**Kann ich Folien aus mehreren Threads zusammenführen?**
+
+Das Laden, Speichern oder Klonen von Präsentationen in mehreren Threads wird in PHP‑via‑Java nicht unterstützt. Für parallele Arbeiten verwenden Sie separate Single‑Thread‑Prozesse und halten Sie Präsentations‑Instanzen in jedem Prozess isoliert.

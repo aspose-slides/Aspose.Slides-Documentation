@@ -1,16 +1,16 @@
 ---
-title: Effektivt slå ihop presentationer i .NET
-linktitle: Slå ihop presentationer
+title: Effektivt slå samman presentationer i .NET
+linktitle: Slå samman presentationer
 type: docs
 weight: 40
 url: /sv/net/merge-presentation/
 keywords:
-- slå ihop PowerPoint
-- slå ihop presentationer
-- slå ihop bilder
-- slå ihop PPT
-- slå ihop PPTX
-- slå ihop ODP
+- slå samman PowerPoint
+- slå samman presentationer
+- slå samman bilder
+- slå samman PPT
+- slå samman PPTX
+- slå samman ODP
 - kombinera PowerPoint
 - kombinera presentationer
 - kombinera bilder
@@ -20,251 +20,316 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Möjligt att smidigt slå ihop PowerPoint (PPT, PPTX) och OpenDocument (ODP)-presentationer med Aspose.Slides för .NET, vilket förenklar ditt arbetsflöde."
+description: "Lär dig hur du slår samman PowerPoint- och OpenDocument-presentationer i .NET genom att klona bilder, kontrollera masters och layouter, ändra storlek på bildinnehåll, bevara avsnitt och hantera skyddade eller stora filer."
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig slå ihop presentationer genom att klona bilder från en presentation till en annan. Denna artikel förklarar hur du slår ihop hela presentationer eller utvalda bilder, använder en bildmaster eller en specifik layout under sammanslagningen, hanterar presentationer med olika bildstorlekar och lägger till sammanslagna bilder i ett presentationsavsnitt. Den behandlar också praktiska noteringar relaterade till sammanslaget innehåll, inklusive föreläsaranteckningar, kommentarer, lösenordsskyddade källfiler och trådanvändning.
+Aspose.Slides för .NET slår samman presentationer genom att klona bilder från en [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) till en annan. Huvudoperationen är [ISlideCollection.AddClone](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection/addclone/), som kan bevara källbildens formatering eller bifoga den klonade bilden till ett master- eller layoutobjekt i destinationspresentationen.
 
-## **Optimera sammanslagning av presentationer**
+Den här artikeln täcker de vanligaste sammanslagningsarbetsflödena:
 
-Med [Aspose.Slides för .NET](https://products.aspose.com/slides/sv/net/), kombinerar du sömlöst PowerPoint-presentationer samtidigt som du bevarar stilar, layouter och alla element. Till skillnad från andra verktyg blandar Aspose.Slides presentationer utan att kompromissa med kvalitet eller förlora data. Slå ihop hela presentationer, specifika bilder och till och med olika filformat (PPT till PPTX, osv.).
+- slå samman alla bilder medan du bevarar deras källformatering;
+- slå samman valda bilder;
+- tillämpa ett master från destinationspresentationen;
+- tillämpa en specifik layout från destinationspresentationen;
+- normalisera olika bildstorlekar innan sammanslagning;
+- lägga till klonade bilder i ett avsnitt;
+- slå samman flera presentationer i ett end-to-end-arbetsflöde;
+- hantera masters, resurser, anteckningar, kommentarer, media, teckensnitt, lösenord, stora filer och flerkörningsaspekter.
 
-### **Funktioner för sammanslagning**
+## **Hur bildkloning påverkar masters och layouter**
 
-- **Fullständig presentationssammanfogning:** Samla alla bilder i en enda fil.
-- **Specifik bildsammanfogning:** Välj och kombinera utvalda bilder.
-- **Korsformatssammanslagning:** Integrera presentationer i olika format samtidigt som integriteten bevaras.
+En bild ärver stor del av sitt utseende från sin layout och master. Av den anledningen avgör den klonings‑overload du väljer hur den sammanslagna bilden integreras i destinationspresentationen.
 
-{{% alert title="Tip" color="primary" %}}  
+Använd [ISlideCollection.AddClone](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection/addclone/) på ett av följande sätt:
 
-Letar du efter ett snabbt och **gratis onlineverktyg** för att **slå ihop PowerPoint-presentationer**? Prova [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/sv/merger).  
+- `AddClone(sourceSlide)` — bevara källbildens layout och formatering. Vid behov kan källmastern klonas automatiskt in i destinationspresentationen. Aspose.Slides spårar automatiskt klonade masters så upprepade bilder som använder samma källmaster inte orsakar att master klonas flera gånger.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — bifoga den klonade bilden till en specifik destinations-[IMasterSlide](https://reference.aspose.com/slides/sv/net/aspose.slides/imasterslide/). Aspose.Slides söker efter en matchande layout under den masteren efter layouttyp eller namn.
+- `AddClone(sourceSlide, destinationLayout)` — bifoga den klonade bilden direkt till en specifik destinations-[ILayoutSlide](https://reference.aspose.com/slides/sv/net/aspose.slides/ilayoutslide/).
 
-- **Slå enkelt ihop PowerPoint-filer**: Kombinera flera **PPT, PPTX, ODP**-presentationer till en enda fil.  
-- **Stöder olika format**: Slå ihop **PPT till PPTX**, **PPTX till ODP** och mer.  
-- **Ingen installation behövs**: Fungerar direkt i din webbläsare, snabbt och säkert.  
+Mastern eller layouten som skickas till en `AddClone`‑overload måste tillhöra **destinations**‑presentationen, inte källpresentationen.
 
-[![Slå ihop PowerPoint-filer online](slides-merger.png)](https://products.aspose.app/slides/sv/merger)  
+## **Slå samman hela presentationer och bevara källformatering**
 
-Börja slå ihop dina PowerPoint-filer med **Aspose gratis online-verktyg** idag!  
+Den enklaste sammanslagningen kopierar varje bild från källpresentationen till destinationspresentationen. Detta är rätt val när de importerade bilderna ska behålla sitt ursprungliga tema, master och layout‑relationer.
 
-{{% /alert %}}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Sammanslagning av presentationer**
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-När du [slå samman en presentation med en annan](https://products.aspose.com/slides/sv/net/merger/ppt/), kombinerar du i praktiken deras bilder i en enda presentation för att få en fil. 
-
-{{% alert title="Info" color="info" %}}
-
-De flesta presentationsprogram (PowerPoint eller OpenOffice) saknar funktioner som tillåter användare att kombinera presentationer på detta sätt. 
-
-[**Aspose.Slides för .NET**](https://products.aspose.com/slides/sv/net/) tillåter dig dock att slå ihop presentationer på olika sätt. Du kan slå ihop presentationer med alla deras former, stilar, texter, formatering, kommentarer, animationer etc. utan att behöva oroa dig för förlust av kvalitet eller data. 
-
-**Se också**
-
-[Klona bilder](https://docs.aspose.com/slides/sv/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
-
-{{% /alert %}}
-
-### **Vad kan slås ihop**
-
-Med Aspose.Slides kan du slå ihop
-
-* hela presentationer. Alla bilder från presentationerna hamnar i en enda presentation
-* specifika bilder. Utvalda bilder hamnar i en enda presentation
-* presentationer i ett format (PPT till PPT, PPTX till PPTX, osv.) och i olika format (PPT till PPTX, PPTX till ODP, osv.) med varandra. 
-
-{{% alert title="Note" color="warning" %}} 
-
-Förutom presentationer låter Aspose.Slides dig slå ihop andra filer:
-
-* [Bilder](https://products.aspose.com/slides/sv/net/merger/image-to-image/), såsom [JPG till JPG](https://products.aspose.com/slides/sv/net/merger/jpg-to-jpg/) eller [PNG till PNG](https://products.aspose.com/slides/sv/net/merger/png-to-png/)
-* Dokument, såsom [PDF till PDF](https://products.aspose.com/slides/sv/net/merger/pdf-to-pdf/) eller [HTML till HTML](https://products.aspose.com/slides/sv/net/merger/html-to-html/)
-* Och två olika filer såsom [bild till PDF](https://products.aspose.com/slides/sv/net/merger/image-to-pdf/) eller [JPG till PDF](https://products.aspose.com/slides/sv/net/merger/jpg-to-pdf/) eller [TIFF till PDF](https://products.aspose.com/slides/sv/net/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Sammanslagningsalternativ**
-
-Du kan tillämpa alternativ som bestämmer om
-
-* varje bild i den resulterande presentationen behåller en unik stil
-* en specifik stil används för alla bilder i den resulterande presentationen. 
-
-För att slå ihop presentationer tillhandahåller Aspose.Slides [AddClone](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection/methods/addclone)‑metoder (från [ISlideCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection)‑gränssnittet). Det finns flera implementationer av `AddClone`‑metoderna som definierar parametrarna för presentationssammanfogningsprocessen. Varje Presentation‑objekt har en [Slides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/properties/slides)‑samling, så du kan anropa en `AddClone`‑metod från den presentation som du vill slå ihop bilder i. 
-
-`AddClone`‑metoden returnerar ett `ISlide`‑objekt, som är en klon av källbilden. Bilderna i en utdata‑presentation är helt enkelt en kopia av bilderna från källan. Därför kan du göra ändringar i de resulterande bilderna (t.ex. tillämpa stilar eller formateringsalternativ eller layouter) utan att oroa dig för att källpresentationerna påverkas. 
-
-## **Slå ihop presentationer** 
-
-Aspose.Slides tillhandahåller [**AddClone (ISlide)**](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection/methods/addclone)‑metoden som låter dig kombinera bilder samtidigt som bilderna behåller sina layouter och stilar (standardparametrar). 
-
-Denna C#‑kod visar hur du slår ihop presentationer:
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+Den resulterande presentationen kan innehålla flera masters när käll‑ och destinationspresentationerna använder olika designer. Detta är väntat när källformatering medvetet bevaras.
+
+## **Slå samman valda bilder**
+
+Du behöver inte klona varje bild. Följande exempel importerar endast utvalda bildindex från källpresentationen.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+Validera bildindex innan kloning när de kommer från användarinmatning eller extern konfiguration.
+
+## **Slå samman bilder med ett destinationsmaster**
+
+Använd [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection/addclone/)‑overload när importerade bilder ska följa ett master som redan finns i destinationspresentationen.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+Aspose.Slides väljer en lämplig layout under den angivna mastern genom att matcha källlayoutens typ eller namn. Om ingen lämplig layout finns och `allowCloneMissingLayout` är `true` klonas källayouten så att bilden kan läggas till. Är den `false` kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/net/aspose.slides/pptxeditexception/).
+
+Använd `false` när du vill att sammanslagningen ska misslyckas istället för att införa en extra layout i destinationsmastern.
+
+## **Slå samman bilder med en specifik destinationslayout**
+
+Använd [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection/addclone/)‑overload när du exakt vet vilken destinationslayout de importerade bilderna ska använda.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+Att tillämpa en destinationslayout förändrar den ärvda layout‑relationen; den omdesignar inte innehållet i källbilden. Om käll‑ och destinationslayouter har olika platshållarstruktur, inspektera resultatet för att bekräfta att den ärvda formateringen och platshållarbeteendet är lämpligt.
+
+## **Slå samman presentationer med olika bildstorlekar**
+
+Presentationer med olika bilddimensioner kan slås samman, men kloning av en bild till en presentation med en annan bildstorlek omdesignar inte automatiskt dess innehåll för den nya duken. Former kan därför visas förskjutna, skalerade oväntat eller utanför den synliga bildytan.
+
+En praktisk metod är att ändra storlek på källpresentationen före kloning. Metoden [SlideSize.SetSize](https://reference.aspose.com/slides/sv/net/aspose.slides/slidesize/setsize/) kan skala befintligt innehåll medan bilddimensionerna ändras. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/net/aspose.slides/slidesizescaletype/) skalar innehållet så att det passar den begärda storleken.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+Att ändra storlek förändrar källpresentationens objekt i minnet. Om du behöver den ursprungliga källpresentationen oförändrad för andra operationer, öppna en separat instans för sammanslagningen.
+
+## **Slå samman bilder i ett presentationsavsnitt**
+
+Den grundläggande bildklonings‑loopen återskapar inte källpresentationens avsnittshierarki. Om avsnitt är viktiga i utdata, skapa eller välj avsnitt i destinationspresentationen och klona bilder in i dem explicit med [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection/addclone/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+De klonade bilderna läggs till i det angivna destinationsavsnittet. För att bevara flera källavsnitt, återskapa dessa avsnitt i destinationen och mappa varje källbild till motsvarande destinationsavsnitt.
+
+## **Slå samman flera presentationer säkert**
+
+Följande end-to-end‑exempel använder den första presentationen som destination, normaliserar bildstorleken för varje ytterligare källa, håller varje källa öppen endast medan den kopieras, och sparar den slutliga filen en gång.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Slå ihop presentationer med en bildmaster**
-
-Aspose.Slides tillhandahåller [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/sv/net/aspose.slides.islidecollection/addclone/methods/2)‑metoden som låter dig kombinera bilder medan du använder en bildmaster‑presentationmall. På så sätt kan du, om det behövs, ändra stilen för bilderna i den resulterande presentationen. 
-
-Denna C#‑kod demonstrerar den beskrivna operationen:
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Detta är en användbar grundlinje för att bevara källformatet på importerade bilder. Om ditt utdata måste använda ett enda destinations­tema, ersätt det enkla anropet `AddClone(slide)` med den lämpliga destinations‑master‑ eller destinations‑layout‑overload som visades tidigare.
 
-Bildlayouten för bildmastern bestäms automatiskt. När en lämplig layout inte kan avgöras, och om den booleska parametern `allowCloneMissingLayout` för `AddClone`‑metoden är satt till true, används layouten för källbilden. annars kommer [PptxEditException](https://reference.aspose.com/slides/sv/net/aspose.slides/pptxeditexception) att kastas. 
+## **Praktiska överväganden**
 
-{{% /alert %}}
+### **Masters, layouter och formateringsnoggrannhet**
 
-Om du vill att bilderna i den resulterande presentationen ska ha en annan bildlayout, använd istället [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/sv/net/aspose.slides.islidecollection/addclone/methods/1)‑metoden vid sammanslagning. 
+Standardbildkloning kan automatiskt föra in en nödvändig källmaster i destinationspresentationen. Aspose.Slides håller ett internt register för automatiskt klonade masters för att undvika att samma master klonas flera gånger. Manuellt klonade masters spåras inte av registret, så undvik förkloning av masters om du inte behöver explicit kontroll över master‑strukturen.
 
-## **Slå ihop specifika bilder från presentationer**
+Anta inte att två masters eller layouter med samma namn är visuellt likvärdiga. Om en företagsmall måste styra det slutgiltiga utseendet, välj ett destinations‑master eller en layout explicit och verifiera resultatet efter sammanslagning.
 
-Att slå ihop specifika bilder från flera presentationer är användbart för att skapa anpassade bildspel. Aspose.Slides för .NET låter dig välja och importera endast de bilder du behöver. API‑et bevarar formatering, layout och design av de ursprungliga bilderna.
+### **Anteckningar och kommentarer**
 
-Följande C#‑kod skapar en ny presentation, lägger till titelfbilder från två andra presentationer och sparar resultatet till en fil:
+Talarnoter och bildkommentarer är associerade med bildens innehåll och kopieras när en bild klonas. Aspose.Slides exponerar också dedikerade API:er för [presentation notes](https://docs.aspose.com/slides/sv/net/presentation-notes/) och [presentation comments](https://docs.aspose.com/slides/sv/net/presentation-comments/).
 
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+Om formatering av notes‑sidan är viktig, verifiera den sammanslagna presentationen eftersom notes‑masters är objekt på presentationsnivå och kan skilja sig mellan källfiler. För granskningsarbetsflöden, verifiera också kommentarförfattare och trådade kommentarer efter kombination av filer från olika författare eller mallar.
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+### **Bilder, ljud, video, OLE-objekt och externa länkar**
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+Bilder kan referera till resurser på presentationsnivå såsom bilder, inbäddat ljud, inbäddad video och OLE‑data. Klona själva bilden snarare än att bara kopiera dess synliga former så att Aspose.Slides kan bevara bildens relationer till dess resurser.
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+Inbäddade och länkade resurser bör behandlas olika. En länkad ljud‑, video‑, OLE‑objekt‑ eller hyperlänk förblir beroende av sin externa destination; att klona en bild förvandlar inte en extern länk till inbäddat innehåll. Testa sökvägar och URL:er för länkade resurser i den miljö där den sammanslagna presentationen ska öppnas.
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+Aspose.Slides spårar automatiskt klonade masters explicit, men detta bör inte ses som en generell garanti för att identiska binära resurser från orelaterade källpresentationer alltid dedupliceras. Om utfilens storlek är viktig, inspektera det sammanslagna paketet och mät resultatet istället för att förlita dig på implicit deduplicering.
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+### **Inbäddade teckensnitt och teckensnittstillgänglighet**
+
+Teckensnitt hanteras på presentationsnivå. Om typografi måste vara konsekvent över maskiner, anta inte att bildkloning ensam garanterar att varje nödvändigt teckensnitt är tillgängligt i destinationsmiljön. Du kan inspektera inbäddade teckensnitt med [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsmanager/getembeddedfonts/) och hantera inbäddning explicit som beskrivet i [Embed Fonts in Presentations](https://docs.aspose.com/slides/sv/net/embedded-font/).
+
+Verifiera även att du har tillstånd att inbädda de teckensnitt som används av källfilerna. Teckensnittslicenser kan begränsa inbäddning.
+
+### **Lösenordsskyddade presentationer**
+
+En lösenordsskyddad källa måste öppnas framgångsrikt innan dess bilder kan klonas. Ange lösenordet via [LoadOptions.Password](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/password/).
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-## **Slå ihop presentationer med en bildlayout**
+Att öppna en krypterad källa applicerar inte automatiskt samma skydd på destinationspresentationen. Konfigurera utdata‑skydd separat när det krävs.
 
-Denna C#‑kod visar hur du kombinerar bilder från presentationer samtidigt som du applicerar din föredragna bildlayout på dem för att få en utdata‑presentation:
+### **Stora presentationer och minnesanvändning**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+Stora presentationer som innehåller högupplösta bilder, ljud, video eller andra stora binära objekt kan förbruka betydande minne. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/blobmanagementoptions/) ger kontroller för BLOB‑hantering och temporär‑fil‑användning. Se [Manage Presentation BLOBs](https://docs.aspose.com/slides/sv/net/manage-blob/) för strategier med stora filer.
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+För stora filer, föredra inläsning från filvägar när det är möjligt, avlasta varje källpresentation så snart den har slagits samman, och undvik att spara mellanresultat upprepade gånger om inte arbetsflödet kräver kontrollpunkter.
 
-## **Slå ihop presentationer med olika bildstorlekar**
+### **Trådsäkerhet**
 
-{{% alert title="Note" color="warning" %}} 
-
-Du kan inte slå ihop presentationer med olika bildstorlekar. 
-
-{{% /alert %}}
-
-För att slå ihop två presentationer med olika bildstorlekar måste du ändra storleken på en av presentationerna så att den matchar storleken på den andra presentationen. 
-
-Denna exempel‑kod demonstrerar den beskrivna operationen:
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Slå ihop bilder till ett presentationsavsnitt**
-
-Denna C#‑kod visar hur du slår ihop en specifik bild till ett avsnitt i en presentation:
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-Bilden läggs till i slutet av avsnittet. 
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose tillhandahåller en [GRATIS Collage‑webbapp](https://products.aspose.app/slides/sv/collage). Med denna onlinetjänst kan du slå ihop [JPG till JPG](https://products.aspose.app/slides/sv/collage/jpg) eller PNG till PNG‑bilder, skapa [fotogallerier](https://products.aspose.app/slides/sv/collage/photo-grid) och så vidare. 
-
-{{% /alert %}}
+Ladda, modifiera, spara eller klona inte samma [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑instans samtidigt från flera trådar. Håll varje presentationsinstans begränsad till en sammanslagningsoperation. Om du parallellisearbetar oberoende jobb, använd oberoende presentationsinstanser och följ [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/sv/net/multithreading/).
 
 ## **FAQ**
 
-**Behålls föreläsaranteckningar vid sammanslagning?**
+**Hur behåller jag varje källpresentationens ursprungliga design?**
 
-Ja. När bilder klonas överför Aspose.Slides alla bildelement, inklusive anteckningar, formatering och animationer.
+Använd [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection/addclone/) utan att ange ett destinations‑master eller en layout. Aspose.Slides kan automatiskt klona källmastern när den behövs av den importerade bilden.
 
-**Överförs kommentarer och deras författare?**
+**Hur får jag att importerade bilder använder destinations‑tema?**
 
-Kommentarer, som en del av bildinnehållet, kopieras med bilden. Kommentarförfattarlappar bevaras som kommentarsobjekt i den resulterande presentationen.
+Använd overloaden som accepterar ett destinations‑master. Skicka ett master från destinationspresentationen, inte från källan. Aspose.Slides försöker kartlägga varje källbild till en lämplig layout under det mastern.
 
-**Vad händer om källpresentationen är lösenordsskyddad?**
+**När ska jag använda en specifik destinationslayout istället för ett destinations‑master?**
 
-Den måste [öppnas med lösenord](/slides/sv/net/password-protected-presentation/) via [LoadOptions.Password](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/password/). Efter inläsning kan dessa bilder säkert klonas in i en oskyddad målfil (eller även en skyddad fil).
+Använd en specifik layout när varje importerad bild ska använda en känd layout. Använd ett master när du vill att Aspose.Slides ska välja bland masterns layouter baserat på källlayoutens typ eller namn.
 
-**Hur trådsäker är sammanslagningsoperationen?**
+**Kan presentationer med olika bildstorlekar slås samman?**
 
-Använd inte samma [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑instans från [flera trådar](/slides/sv/net/multithreading/). Den rekommenderade regeln är "ett dokument — en tråd"; olika filer kan bearbetas parallellt i separata trådar.
+Ja, men bildinnehållet redesignas inte automatiskt för destinationsdimensionerna. Ändra storlek på källpresentationen först när du behöver förutsägbar placering, till exempel med [SlideSize.SetSize](https://reference.aspose.com/slides/sv/net/aspose.slides/slidesize/setsize/) och [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/net/aspose.slides/slidesizescaletype/).
+
+**Kan jag slå samman PPT-, PPTX- och ODP-presentationer till en fil?**
+
+Ja. Läs in varje källpresentation, klona de nödvändiga bilderna till en destination och spara destinationen i ett stödd format. Eftersom presentationsformat inte har exakt samma funktionsuppsättning, verifiera komplext innehåll efter kors‑format‑sammanfogningar. Se [Supported File Formats](https://docs.aspose.com/slides/sv/net/supported-file-formats/).
+
+**Bevaras källavsnitt automatiskt?**
+
+Inte med en grundläggande loop som bara klonar bilder. Återskapa de erforderliga avsnitten i destinationen och använd avsnitts‑overloaden för [AddClone](https://reference.aspose.com/slides/sv/net/aspose.slides/islidecollection/addclone/) när avsnittsstrukturen måste bevaras.
+
+**Bevaras talarnoter och kommentarer?**
+
+De kopieras med den klonade bilden. För arbetsflöden som beror på notes‑master‑styling, kommentarförfattare eller trådad granskning, verifiera det sammanslagna resultatet eftersom dessa scenarier involverar både presentations‑ och bild‑nivå‑strukturer.
+
+**Vad händer med ljud, video, OLE‑objekt och hyperlänkar?**
+
+Inbäddat innehåll för medföljer som en del av den klonade bildens resursrelationer. Externa länkar förblir externa, så deras mål‑filer eller URL:er måste fortfarande vara tillgängliga efter sammanslagning.
+
+**Är inbäddade teckensnitt från varje källa garanterade att vara tillgängliga i den sammanslagna presentationen?**
+
+Lita inte på bildkloning ensam för teckensnittsdistribution. Inspektera destinationens inbäddade teckensnitt och hantera teckensnittsinbäddning eller extern teckensnittstillgänglighet explicit när typografi är viktig.
+
+**Hur slår jag samman en lösenordsskyddad fil?**
+
+Öppna den med rätt [LoadOptions.Password](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/password/), klona sedan dess bilder på vanligt sätt. Utdata‑skydd konfigureras separat.
+
+**Hur bör jag hantera mycket stora presentationer?**
+
+Använd BLOB‑hantering när stora binära objekt dominerar minnesanvändning, föredra fil‑vägs‑laddning för mycket stora filer, avlasta källpresentationer omedelbart och spara det slutliga resultatet endast när det behövs.
+
+**Kan jag slå samman bilder från flera trådar?**
+
+Använd inte en [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑instans samtidigt från flera trådar. Håll varje sammanslagningsoperation isolerad till sina egna presentationsinstanser.

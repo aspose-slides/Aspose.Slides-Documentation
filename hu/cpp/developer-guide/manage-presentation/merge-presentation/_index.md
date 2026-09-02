@@ -1,5 +1,5 @@
 ---
-title: Hatékonyan egyesítse a prezentációkat C++-ban
+title: Prezentációk hatékony egyesítése C++-ban
 linktitle: Prezentációk egyesítése
 type: docs
 weight: 40
@@ -19,205 +19,363 @@ keywords:
 - ODP kombinálása
 - C++
 - Aspose.Slides
-description: "Az Aspose.Slides for C++ segítségével egyszerűen egyesítheti a PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációkat, egyszerűsítve a munkafolyamatát."
+description: "Ismerje meg, hogyan lehet PowerPoint és OpenDocument prezentációkat egyesíteni C++-ban diák klónozásával, a mesterek és elrendezések irányításával, a dia tartalom átméretezésével, a szakaszok megőrzésével, valamint védett vagy nagy fájlok kezelésével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi a prezentációk egyesítését úgy, hogy diák másolatát egy prezentációból a másikba helyezi. Ez a cikk bemutatja, hogyan lehet egyesíteni teljes prezentációkat vagy kiválasztott diákat, hogyan lehet egy dia master‑t vagy egy meghatározott elrendezést használni az egyesítés során, hogyan kezelhetők a különböző dia méretű prezentációk, és hogyan adhatók az egyesített diák egy prezentáció szekciójához. Emellett gyakorlati megjegyzéseket is tartalmaz az egyesített tartalommal kapcsolatban, beleértve a jegyzeteket, megjegyzéseket, jelszóval védett forrásfájlokat és a szálhasználatot.
+Az Aspose.Slides for C++ prezentációkat egyesíti úgy, hogy diákat klónoz az egyik [Prezentáció](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/)-ból a másikba. A fő művelet az [ISlideCollection::AddClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/), amely megőrizheti a forrásdia formázását, vagy a klónozott diát egy mesterhez vagy elrendezéshez csatolhatja a célnyilatkozatban.
 
-## **Prezentációk egyesítése**
+Ez a cikk a leggyakoribb egyesítési munkafolyamatokat tárgyalja:
 
-Amikor egy prezentációt egy másikba egyesít, gyakorlatilag a diák egyetlen prezentációban kerülnek össze, így egyetlen fájlt kapunk.
+- az összes dia egyesítése a forrásformázás megőrzésével;
+- kiválasztott diák egyesítése;
+- egy mester alkalmazása a célnyilatkozatból;
+- egy adott elrendezés alkalmazása a célnyilatkozatból;
+- a különböző dia méretek normalizálása egyesítés előtt;
+- klónozott diák hozzáadása egy szakaszhoz;
+- több prezentáció egyesítése egy végponttól végpontig tartó munkafolyamatban;
+- mesterek, erőforrások, jegyzetek, megjegyzések, médiák, betűk, jelszavak, nagy fájlok és többszálú megfontolások kezelése.
 
-{{% alert title="Info" color="info" %}}
-A legtöbb prezentációs program (PowerPoint vagy OpenOffice) nem rendelkezik olyan funkcióval, amely lehetővé tenné a prezentációk ilyen módon történő egyesítését. 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/hu/cpp/), azonban különböző módokon teszi lehetővé a prezentációk egyesítését. A prezentációk összes alakzatát, stílusát, szövegét, formázását, megjegyzését, animációját stb. egyesítheti minőség- vagy adatvesztés nélkül. 
-**Lásd még**
-[Dia másolása](https://docs.aspose.com/slides/hu/cpp/clone-slides/)*.*
-{{% /alert %}}
+## **Hogyan befolyásolja a dia klónozása a mestereket és elrendezéseket**
 
-### **Mi lehet egyesíteni**
+Egy dia megjelenésének nagy részét az elrendezése és a mestere adja. Emiatt a választott klónozási túlterhelés meghatározza, hogyan integrálódik a egyesített dia a célnyilatkozatba.
 
-Az Aspose.Slides segítségével egyesíthet:
+Használja az [ISlideCollection::AddClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) metódust az alábbi módokon:
 
-* teljes prezentációkat. Az összes dia a prezentációkból egy prezentációba kerül
-* meghatározott diákat. A kiválasztott diák egy prezentációba kerülnek
-* prezentációkat egy formátumban (PPT‑t PPT‑be, PPTX‑t PPTX‑be stb.) és különböző formátumokban (PPT‑t PPTX‑be, PPTX‑t ODP‑be stb.) egymásba.
+- `AddClone(sourceSlide)` — megőrzi a forrásdia elrendezését és formázását. Szükség esetén a forrás mester automatikusan klónozható a célnyilatkozatba. Az Aspose.Slides automatikusan klónozott mestereket követ, így az ugyanazt a forrás mestert használó ismétlődő diák nem okozzák a mester többszöri klónozását.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — a klónozott diát egy adott célnyilatkozat [IMasterSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslide/)-hez csatolja. Az Aspose.Slides a megadott mester alatt elrendezést keres elrendezés típus vagy név alapján.
+- `AddClone(sourceSlide, destinationLayout)` — a klónozott diát közvetlenül egy adott célnyilatkozat [ILayoutSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilayoutslide/)-hez csatolja.
 
-{{% alert title="Note" color="warning" %}} 
-A prezentációkon kívül az Aspose.Slides más fájltípusok egyesítését is lehetővé teszi:
+Az `AddClone` túlterhelésnek átadott mesternek vagy elrendezésnek a **cél** prezentációhoz kell tartoznia, nem a forráshoz.
 
-* [Képek](https://products.aspose.com/slides/hu/cpp/merger/image-to-image/), például [JPG to JPG](https://products.aspose.com/slides/hu/cpp/merger/jpg-to-jpg/) vagy [PNG to PNG](https://products.aspose.com/slides/hu/cpp/merger/png-to-png/)
-* Dokumentumok, például [PDF to PDF](https://products.aspose.com/slides/hu/cpp/merger/pdf-to-pdf/) vagy [HTML to HTML](https://products.aspose.com/slides/hu/cpp/merger/html-to-html/)
-* Két különböző fájl, például [image to PDF](https://products.aspose.com/slides/hu/cpp/merger/image-to-pdf/), [JPG to PDF](https://products.aspose.com/slides/hu/cpp/merger/jpg-to-pdf/) vagy [TIFF to PDF](https://products.aspose.com/slides/hu/cpp/merger/tiff-to-pdf/).
-{{% /alert %}}
+## **Teljes prezentációk egyesítése és a forrásformázás megőrzése**
 
-### **Egyesítési beállítások**
-
-Alkalmazhat beállításokat, amelyek meghatározzák, hogy
-
-* minden dia az eredmény‑prezentációban egyedi stílust kapjon
-* egy meghatározott stílus legyen használva az összes dián az eredmény‑prezentációban.
-
-Az prezentációk egyesítéséhez az Aspose.Slides a [AddClone](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) metódusokat (az [ISlideCollection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_slide_collection) interfészből) biztosítja. Számos `AddClone` metódusmegvalósítás létezik, amelyek a prezentációk egyesítési folyamatának paramétereit határozzák meg. Minden Presentation objektumnak van egy [Slides](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) gyűjteménye, így a kívánt prezentációból hívhatja a `AddClone` metódust.
-
-A `AddClone` metódus egy `ISlide` objektumot ad vissza, amely a forrásdia klónja. A kimeneti prezentáció diái egyszerűen a forrásdiák másolatai. Ezért a létrejött diákon (például stílusok, formázási opciók vagy elrendezések alkalmazása) változtatásokat végezhet anélkül, hogy a forrás‑prezentációk érintettek lennének.
-
-## **Prezentációk egyesítése**
-
-Az Aspose.Slides a [**AddClone (ISlide)**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) metódust biztosítja, amely lehetővé teszi a diák egyesítését úgy, hogy a diák megtartják saját elrendezésüket és stílusukat (alapértelmezett paraméterek).
-
-Ez a C++ kód bemutatja a prezentációk egyesítését:
+A legegyszerűbb egyesítés minden diát átmásol a forrás prezentációból a célnyilatkozatba. Ez a megfelelő választás, ha az importált diáknak megtartaniuk kell eredeti témájukat, mesterüket és elrendezéskapcsolataikat.
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **Prezentációk egyesítése dia masterrel**
+A létrejövő prezentáció több mestert tartalmazhat, ha a forrás és a cél különböző dizájnokat használ. Ez akkor várható, ha a forrásformázást szándékosan megőrzik.
 
-Az Aspose.Slides a [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) metódust biztosítja, amely lehetővé teszi a diák egyesítését, miközben egy dia‑master sablont alkalmaz. Így szükség esetén a kimeneti prezentáció diáinak stílusát módosíthatja.
+## **Kiválasztott diák egyesítése**
 
-Ez a C++ kód bemutatja a leírt műveletet:
+Nem kell minden diát klónozni. Az alábbi példa csak a forrás prezentációból kiválasztott diaindexeket importálja.
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}} 
-A dia‑elrendezés a dia‑masterhez automatikusan kerül meghatározásra. Ha nem határozható meg megfelelő elrendezés, és az `allowCloneMissingLayout` logikai paraméter értéke `true`, a forrásdia elrendezése lesz használva. Egyébként a [PptxEditException](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) lesz dobva. 
-{{% /alert %}}
+Érvényesítse a diaindexeket a klónozás előtt, ha azok felhasználói bemenetből vagy külső konfigurációból származnak.
 
-Ha azt szeretné, hogy a kimeneti prezentáció diái egy másik elrendezést kapjanak, használja a [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) metódust az egyesítés során.
+## **Diák egyesítése egy cél mesteren keresztül**
 
-## **Specifikus diák egyesítése prezentációkból**
-
-Több prezentációból származó specifikus diák egyesítése hasznos egyedi diakészletek létrehozásához. Az Aspose.Slides C++ lehetővé teszi, hogy csak a szükséges diákot válassza ki és importálja. Az API megőrzi az eredeti diák formázását, elrendezését és megjelenését.
-
-Az alábbi C++ kód új prezentációt hoz létre, hozzáadja a címdiákat két másik prezentációból, és elmenti az eredményt egy fájlba:
+Használja a [AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) túlterhelést, ha az importált diáknak egy már a célnyilatkozatban lévő mesterhez kell illeszkedniük.
 
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Az Aspose.Slides a megadott mester alatt a forrás elrendezés típus vagy név szerinti egyezésével választ megfelelő elrendezést. Ha nincs megfelelő elrendezés, és az `allowCloneMissingLayout` értéke `true`, a forrás elrendezés klónozódik, így a dia hozzáadható. Ha `false`, egy [PptxEditException](https://reference.aspose.com/slides/hu/cpp/aspose.slides/details_pptxeditexception/) keletkezik.
+
+Használja a `false` értéket, ha azt szeretné, hogy az egyesítés hibával érjen véget ahelyett, hogy egy további elrendezést hozna létre a célmesterben.
+
+## **Diák egyesítése egy meghatározott cél elrendezéssel**
+
+Használja a [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) túlterhelést, ha pontosan tudja, melyik cél elrendezést kell az importált diáknak használniuk.
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+A cél elrendezés alkalmazása megváltoztatja az örökölt elrendezési kapcsolatot; a forrás dia tartalmát nem alakítja át. Ha a forrás és a cél elrendezések különböző helyőrző struktúrával rendelkeznek, ellenőrizze az eredményt, hogy az örökölt formázás és a helyőrző viselkedés megfelelő legyen.
+
+## **Prezentációk egyesítése különböző dia méretekkel**
+
+Különböző dia méretekkel rendelkező prezentációk egyesíthetők, de egy dia klónozása egy másik dia mérettel rendelkező prezentációba nem alakítja át automatikusan a tartalmat az új vászonhoz. Emiatt alakzatok elhelyezkedhetnek eltolva, váratlanul méretezve vagy a látható dia területén kívül.
+
+Gyakorlati megoldás, hogy a forrás prezentációt a klónozás előtt átméretezzük. A [SlideSize::SetSize](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slidesize/setsize/) metódus képes a meglévő tartalmat a dia méretének módosítása közben átméretezni. A [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slidesizescaletype/) a tartalmat a kért mérethez igazítja.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+Az átméretezés módosítja a forrás prezentáció objektumát a memóriában. Ha az eredeti forrás prezentációt változatlanul szeretné más műveletekhez, nyisson egy külön példányt az egyesítéshez.
+
+## **Diák egyesítése egy prezentáció szakaszába**
+
+Az alapvető dia-klónozó ciklus nem hozza létre a forrás prezentáció szekcióhierarchiáját. Ha a szekciók fontosak a kimenetben, hozzon létre vagy válasszon ki szekciókat a célnyilatkozatban, és klónozza a diákot explicit módon a [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) metódussal.
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+A klónozott diák a megadott célszakcióhoz lesz hozzáfűzve. Több forrás szekció megőrzéséhez hozza létre ezeket a szekciókat a cél prezentációban, és térképezze le minden forrás diát a megfelelő célszakcióra.
+
+## **Több prezentáció biztonságos egyesítése**
+
+Az alábbi végponttól végpontig tartó példa az első prezentációt használja célként, normalizálja az egyes további források dia méretét, csak amíg másolás alatt áll nyitva tartja a forrást, és egyszer menti a végleges fájlt.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
 
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-## **Prezentációk egyesítése dia elrendezéssel**
-
-Ez a C++ kód bemutatja, hogyan lehet a diákot prezentációkból egyesíteni úgy, hogy az Ön által preferált dia‑elrendezést alkalmazza, és egyetlen kimeneti prezentációt kapjon:
-
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-## **Prezentációk egyesítése eltérő dia méretekkel**
+Ez egy hasznos alapvonal a forrásformázás megőrzéséhez az importált diák esetében. Ha a kimenetnek egyetlen cél téma használatára van szüksége, cserélje le az egyszerű `AddClone(slide)` hívást a korábban bemutatott megfelelő cél-mester vagy cél-elrendezés túlterhelésre.
 
-{{% alert title="Note" color="warning" %}} 
-Nem lehet különböző dia méretű prezentációkat egyesíteni. 
-{{% /alert %}}
+## **Gyakorlati megfontolások**
 
-Két, különböző dia mérettel rendelkező prezentáció egyesítéséhez az egyik prezentáció méretét át kell méretezni, hogy megegyezzen a másikéval.
+### **Mesterek, elrendezések és formázási hűség**
 
-Ez a minta kód szemlélteti a leírt műveletet:
+Az alapértelmezett dia-klónozás automatikusan behozhat egy szükséges forrás mestert a célnyilatkozatba. Az Aspose.Slides belső regisztert vezet az automatikusan klónozott mesterek nyomon követésére, hogy elkerülje ugyanazon mester többszöri klónozását. A manuálisan klónozott mestereket ez a regiszter nem követi, ezért kerüld a mesterek előzetes klónozását, hacsak nem szükséges a mester struktúrájának kifejezett irányítása.
+
+Ne feltételezd, hogy két ugyanolyan nevű mester vagy elrendezés vizuálisan ekvivalens. Ha egy vállalati sablonnak kell irányítania a végső megjelenést, válassz kifejezetten egy célnyilatkozat mestert vagy elrendezést, és ellenőrizd az egyesítés utáni eredményt.
+
+### **Jegyzetek és megjegyzések**
+
+Az előadói jegyzetek és dia megjegyzések a dia tartalmához kapcsolódnak, és másolásra kerülnek egy dia klónozásakor. Az Aspose.Slides külön API-kat is kínál a [prezentáció jegyzetekhez](https://docs.aspose.com/slides/hu/cpp/presentation-notes/) és a [prezentáció megjegyzésekhez](https://docs.aspose.com/slides/hu/cpp/presentation-comments/).
+
+Ha a notes-page formázás fontos, ellenőrizd az egyesített prezentációt, mert a notes mesterek prezentációszintű objektumok, és eltérhetnek a forrásfájlok között. Felülvizsgálati munkafolyamatok esetén ellenőrizd a megjegyzés szerzőit és a szálas megjegyzéseket is, ha különböző szerzők vagy sablonok fájljait kombinálod.
+
+### **Képek, hang, videó, OLE objektumok és külső hivatkozások**
+
+A diák hivatkozhat prezentációszintű erőforrásokra, például képekre, beágyazott hangra, beágyazott videóra és OLE adatokra. Klónozd a diát magát, ne csak a látható alakzatokat, hogy az Aspose.Slides fenntartsa a dia erőforráskapcsolatait.
+
+A beágyazott és a hivatkozott erőforrásokat külön kell kezelni. Egy hivatkozott hang, videó, OLE objektum vagy hiperhivatkozás továbbra is külső célra támaszkodik; a dia klónozása nem alakítja át a külső hivatkozást beágyazott tartalommal. Teszteld a hivatkozott erőforrás útvonalait és URL-jeit abban a környezetben, ahol az egyesített prezentációt megnyitják.
+
+Az Aspose.Slides automatikusan klónozott mestereket nyomon követ, de ez nem jelent általános garanciát arra, hogy a különböző forrás prezentációkból származó azonos bináris erőforrások mindig deduplikálódnak. Ha a kimeneti fájlméret fontos, vizsgáld meg az egyesített csomagot és mérd az eredményt, ahelyett, hogy implicit deduplikációra támaszkodnál.
+
+### **Beágyazott betűtípusok és betűtípus rendelkezésre állás**
+
+A betűtípusok prezentációszinten vannak kezelve. Ha a tipográfiát gépek között konzisztensnek kell tartani, ne feltételezd, hogy csak a diák klónozása garantálja, hogy minden szükséges betűtípus elérhető a cél környezetben. A beágyazott betűtípusok ellenőrzéséhez használd a [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/getembeddedfonts/) metódust, és kezeld a beágyazást kifejezetten az [Betűtípusok beágyazása a prezentációkba](https://docs.aspose.com/slides/hu/cpp/embedded-font/) leírás szerint.
+
+Ellenőrizd továbbá, hogy jogosult vagy-e a forrásfájlokban használt betűtípusok beágyazására. A betűtípus licencek korlátozhatják a beágyazást.
+
+### **Jelszóval védett prezentációk**
+
+Egy jelszóval védett forrást sikeresen meg kell nyitni, mielőtt a diái klónozhatók. A jelszót a [LoadOptions::set_Password](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_password/) segítségével add meg.
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
-## **Diák egyesítése prezentáció szekciójába**
+Egy titkosított forrás megnyitása nem alkalmaz automatikusan ugyanazt a védelmet a célnyilatkozatra. Szükség esetén külön konfiguráld a kimeneti védelmet.
 
-Ez a C++ kód bemutatja, hogyan lehet egy specifikus diát egy szekcióba egyesíteni egy prezentációban:
+### **Nagy prezentációk és memóriahasználat**
 
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+Nagy prezentációk, amelyek nagy felbontású képeket, hangot, videót vagy más nagy bináris objektumokat tartalmaznak, jelentős memóriát fogyaszthatnak. A [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) vezérli a BLOB kezelését és az ideiglenes fájlok használatát. Lásd a [Prezentáció BLOB-ok kezelése](https://docs.aspose.com/slides/hu/cpp/manage-blob/) útmutatót nagy fájl stratégiákhoz.
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+Nagy fájlok esetén előnyösebb fájlúton betölteni, ha lehetséges, a forrás prezentációkat a egyesítés után azonnal eldobni, és elkerülni az ismételt köztes mentéseket, hacsak a munkafolyamat nem igényel ellenőrzőpontokat.
 
-A dia a szekció végén kerül hozzáadásra.
+### **Szálbiztonság**
 
-{{% alert title="Tip" color="primary" %}}
-Az Aspose egy [INGYENES Collage webalkalmazást](https://products.aspose.app/slides/hu/collage) biztosít. Ezzel az online szolgáltatással [JPG to JPG](https://products.aspose.app/slides/hu/collage/jpg) vagy PNG‑t PNG‑re képeket egyesíthet, [fotórácsokat](https://products.aspose.app/slides/hu/collage/photo-grid) hozhat létre, és így tovább. 
-{{% /alert %}}
+Ne tölts be, módosíts, ments vagy klónozz ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt párhuzamosan több szálról. Tartsa minden prezentáció példányt egyetlen egyesítési művelethez. Ha független feladatokat párhuzamosít, használjon független prezentáció példányokat, és kövesse az [Aspose.Slides többszálas útmutatóját](https://docs.aspose.com/slides/hu/cpp/multithreading/).
 
 ## **GYIK**
 
-**Megmaradnak a jegyzetek az egyesítés során?**  
-Igen. A diák klónozása során az Aspose.Slides minden diaelemet átvisz, beleértve a jegyzeteket, formázást és animációkat.
+**Hogyan tarthatom meg minden forrás prezentáció eredeti dizájnját?**
 
-**A megjegyzések és szerzőik átkerülnek?**  
-A megjegyzések, mint a dia tartalmának részét képező elemek, a diával együtt másolódnak. A szerzői címkék megmaradnak a megjegyzésobjektumokként a létrehozott prezentációban.
+Használja a [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) metódust anélkül, hogy cél mestert vagy elrendezést adna meg. Az Aspose.Slides automatikusan klónozhatja a forrás mestert, ha az importált dia számára szükséges.
 
-**Mi van, ha a forrás‑prezentáció jelszóval védett?**  
-Ahol a forrás‑prezentáció jelszóval védett, azt [jelszóval kell megnyitni](/slides/hu/cpp/password-protected-presentation/) a [LoadOptions::set_Password](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_password/) használatával; a betöltés után a diák biztonságosan klónozhatók egy nem védett célfájlba (vagy egy védett fájlba is).
+**Hogyan tehetem, hogy az importált diák a cél témát használják?**
 
-**Mennyire szálbiztos az egyesítési művelet?**  
-Ne használja ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt [több szálból](/slides/hu/cpp/multithreading/). Az ajánlott szabály: „egy dokumentum – egy szál”; különböző fájlok párhuzamosan feldolgozhatók külön szálakon.
+Használja azt a túlterhelést, amely cél mestert fogad el. Adj át egy mestert a célnyilatkozatból, nem a forrásból. Az Aspose.Slides megpróbálja minden forrás diát a megfelelő elrendezéshez társítani a megadott mester alatt.
+
+**Mikor használjak konkrét cél elrendezést a cél mester helyett?**
+
+Használjon konkrét elrendezést, ha minden importált dianak egy ismert elrendezést kell használnia. Használjon mestert, amikor azt szeretné, hogy az Aspose.Slides a forrás elrendezés típusa vagy neve alapján válasszon a mester elrendezései közül.
+
+**Egyesíthetők-e különböző dia méretű prezentációk?**
+
+Igen, de a dia tartalma nem lesz automatikusan áttervezve a cél méretekhez. Először változtassa meg a forrás prezentáció méretét, ha kiszámítható elhelyezést igényel, például a [SlideSize::SetSize](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slidesize/setsize/) és a [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slidesizescaletype/) segítségével.
+
+**Egyesíthetek PPT, PPTX és ODP prezentációkat egy fájlba?**
+
+Igen. Tölts be minden forrás prezentációt, klónozd a szükséges diákat egy célba, és mentse a célt a támogatott kimeneti formátumban. Mivel a prezentáció formátumok nem támogatják pontosan ugyanazt a funkciókészletet, ellenőrizze a komplex tartalmat a formátumok közti egyesítések után. Lásd a [Támogatott fájlformátumok](https://docs.aspose.com/slides/hu/cpp/supported-file-formats/) oldalt.
+
+**Megmaradnak-e automatikusan a forrás szekciók?**
+
+Nem egy egyszerű ciklus esetén, amely csak a diák klónozását végzi. Hozza létre a szükséges szekciókat a célban, és használja a [AddClone](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) szekció túlterhelést, ha a szekció struktúrát meg kell őrizni.
+
+**Megmaradnak-e az előadói jegyzetek és megjegyzések?**
+
+Átmásolódnak a klónozott diával. Olyan munkafolyamatok esetén, amelyek a notes-mester stílusra, a megjegyzés szerzőkre vagy a szálas átnézési adatokra támaszkodnak, ellenőrizze az egyesített eredményt, mert ezek a forgatókönyvek prezentációszintű struktúrákat és dia szintű tartalmat egyaránt érintenek.
+
+**Mi történik a hanggal, videóval, OLE objektumokkal és hiperhivatkozásokkal?**
+
+A beágyazott tartalom a klónozott dia erőforráskapcsolataiként kerül át. A külső hivatkozások továbbra is külsőek maradnak, így a célfájlok vagy URL-eknek elérhetőnek kell maradniuk az egyesítés után.
+
+**Garantált-e, hogy minden forrásból származó beágyazott betűtípus elérhető lesz az egyesített prezentációban?**
+
+Ne támaszkodjon csak a diaklónozásra a betűtípusok terjesztéséhez. Ellenőrizze a cél beágyazott betűtípusait, és kezelje kifejezetten a betűtípus beágyazást vagy a külső betűtípus elérhetőséget, ha a tipográfia fontos.
+
+**Hogyan egyesíthetek jelszóval védett fájlt?**
+
+Nyissa meg a megfelelő [LoadOptions::set_Password](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_password/) használatával, majd klónozza a diákat a szokásos módon. A kimeneti védelem külön konfigurálható.
+
+**Hogyan kezeljem a nagyon nagy prezentációkat?**
+
+Használja a BLOB kezelést, ha a nagy bináris objektumok dominálják a memóriahasználatot, előnyben részesítse a fájlútvonalas betöltést nagyon nagy fájlok esetén, gyorsan dobja el a forrás prezentációkat a egyesítés után, és csak akkor mentse a végső eredményt, amikor szükséges.
+
+**Klónozhatom-e a diákat több szálról?**
+
+Ne használjon egy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt egyszerre több szálról. Tartsa minden egyes egyesítési műveletet egy saját prezentáció példányon belül.

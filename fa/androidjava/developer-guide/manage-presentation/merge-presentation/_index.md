@@ -1,5 +1,5 @@
 ---
-title: ادغام کارآمد ارائه‌ها در Android
+title: ادغام مؤثر ارائه‌ها در اندروید
 linktitle: ادغام ارائه‌ها
 type: docs
 weight: 40
@@ -17,228 +17,347 @@ keywords:
 - ترکیب PPT
 - ترکیب PPTX
 - ترکیب ODP
-- Android
-- Java
+- اندروید
+- جاوا
 - Aspose.Slides
-description: "به‌سهولة ادغام ارائه‌های PowerPoint (PPT، PPTX) و OpenDocument (ODP) با Aspose.Slides برای Android از طریق Java، و بهینه‌سازی گردش کار شما."
+description: "یاد بگیرید چگونه در اندروید ارائه‌های PowerPoint و OpenDocument را با کپی اسلایدها، کنترل masterها و layoutها، تغییر اندازه محتوای اسلاید، حفظ بخش‌ها و مدیریت فایل‌های محافظت‌شده یا بزرگ ادغام کنید."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-ادغام ارائه‌های PowerPoint و OpenDocument یک وظیفه‌ی رایج در بسیاری از برنامه‌های Android است، به‌خصوص هنگام تولید گزارش‌ها، ترکیب اسلایدها از منابع مختلف، یا خودکارسازی گردش کار ارائه‌ها. Aspose.Slides یک API قدرتمند و آسان‌استفاده برای ترکیب چندین فایل PPT، PPTX یا ODP در یک ارائه‌ی واحد بدون نیاز به نصب Microsoft PowerPoint، LibreOffice یا OpenOffice فراهم می‌کند.
+Aspose.Slides for Android via Java ارائه‌ها را با کپی کردن اسلایدها از یک [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) به ارائه دیگر ادغام می‌کند. عمل اصلی [ISlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) است که می‌تواند قالب‌بندی اسلاید منبع را حفظ کند یا اسلاید کپی‑شده را به یک master یا layout در ارائه مقصد متصل کند.
 
-در این راهنما، نحوه‌ی ادغام ارائه‌های PowerPoint و OpenDocument را با تنها چند خط کد یاد می‌گیرید. مثال‌های آماده‑استفاده ارائه می‌شود و نحوه حفظ قالب‌بندی اسلایدها، لایوت‌ها و سایر عناصر ارائه در طول فرآیند ادغام نشان داده می‌شود.
+این مقاله رایج‌ترین جریان‌های ادغام را پوشش می‌دهد:
 
-چه برنامه‌ای سازمانی و پیشرفته بسازید و چه یک ابزار ساده‌ٔ خودکارسازی، Aspose.Slides ادغام ارائه‌ها را سریع، قابل‌اعتماد و مقیاس‌پذیر می‌کند. Aspose.Slides امکان ادغام ارائه‌ها را به روش‌های مختلف فراهم می‌کند. می‌توانید ارائه‌ها را همراه با تمام شکل‌ها، سبک‌ها، متن، قالب‌بندی، نظرات، انیمیشن‌ها و موارد دیگر ترکیب کنید—بدون نگرانی دربارهٔ از دست رفتن کیفیت یا داده‌ها.
+- ادغام همه اسلایدها در حالی که قالب‌بندی منبع آن‌ها حفظ می‌شود؛
+- ادغام اسلایدهای انتخابی؛
+- اعمال master از ارائه مقصد؛
+- اعمال یک layout خاص از ارائه مقصد؛
+- نرمال‌سازی اندازه‌های مختلف اسلاید پیش از ادغام؛
+- افزودن اسلایدهای کپی‌شده به یک بخش؛
+- ادغام چندین ارائه در یک جریان کار انتها‑به‑انتها؛
+- مدیریت masterها، منابع، یادداشت‌ها، نظرات، رسانه‌ها، قلم‌ها، رمزهای عبور، فایل‌های بزرگ و مسائل مربوط به چندنخی.
 
-{{% alert color="primary" %}}
-See also:[Clone Slides](https://docs.aspose.com/slides/fa/androidjava/clone-slides/)
-{{% /alert %}}
+## **چگونگی تأثیر کپی اسلاید بر Masterها و Layoutها**
 
-### **مواردی که می‌توان ادغام کرد**
+یک اسلاید ظاهر بسیاری از ویژگی‌های خود را از layout و master ارث می‌برد. بنابراین، overloadی که برای کپی انتخاب می‌کنید، تعیین می‌کند اسلاید ادغام‌شده چگونه در ارائه مقصد یکپارچه می‌شود.
 
-با Aspose.Slides می‌توانید
+از [ISlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/) به یکی از روش‌های زیر استفاده کنید:
 
-* کل ارائه‌ها را ادغام کنید. تمام اسلایدهای موجود در ارائه‌ها در یک ارائه جمع می‌شوند
-* اسلایدهای خاص را ادغام کنید. اسلایدهای انتخابی در یک ارائه قرار می‌گیرند
-* ارائه‌ها را در یک فرمت (مثلاً PPT به PPT، PPTX به PPTX و غیره) یا در فرمت‌های متفاوت (مثلاً PPT به PPTX، PPTX به ODP و غیره) به‌یکدیگر متصل کنید
+- `addClone(sourceSlide)` — قالب‌بندی و layout اسلاید منبع را حفظ می‌کند. در صورت لزوم، master منبع می‌تواند به‌صورت خودکار به ارائه مقصد کپی شود. Aspose.Slides به‌صورت خودکار masterهای کپی‌شده را ردیابی می‌کند تا اسلایدهای تکراری که از همان master منبع استفاده می‌کنند، باعث کپی مکرر master نشوند.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — اسلاید کپی‌شده را به یک [IMasterSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslide/) مقصد خاص متصل می‌کند. Aspose.Slides با جستجوی layout مطابق با نوع یا نام زیر آن master، layout مناسب را پیدا می‌کند.
+- `addClone(sourceSlide, destinationLayout)` — اسلاید کپی‌شده را مستقیماً به یک [ILayoutSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutslide/) مقصد خاص متصل می‌کند.
 
-### **گزینه‌های ادغام**
+master یا layout که به overload `addClone` پاس می‌شود باید متعلق به **ارائه مقصد** باشد، نه ارائه منبع.
 
-می‌توانید گزینه‌هایی اعمال کنید که تعیین می‌کند:
+## **ادغام کامل ارائه‌ها و حفظ قالب‌بندی منبع**
 
-* هر اسلاید در ارائهٔ خروجی دارای سبک منحصر به فردی باشد
-* یک سبک خاص برای تمام اسلایدهای ارائهٔ خروجی استفاده شود
-
-برای ادغام ارائه‌ها، Aspose.Slides متدهای [AddClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) را از اینترفیس [ISlideCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection) فراهم می‌کند. چندین پیاده‌سازی برای متدهای `AddClone` وجود دارد که پارامترهای فرآیند ادغام را تعریف می‌کند. هر شیء Presentation دارای کالکشن [Slides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation#getSlides--) است، بنابراین می‌توانید متد `AddClone` را از ارائه‌ای که می‌خواهید اسلایدها به آن اضافه شوند، فراخوانی کنید.
-
-متد `AddClone` یک شیء `ISlide` برمی‌گرداند که کلون اسلاید منبع است. اسلایدهای ارائهٔ خروجی به سادگی کپی‌ای از اسلایدهای منبع هستند. بنابراین می‌توانید به اسلایدهای حاصل تغییراتی اعمال کنید (مثلاً اعمال سبک یا گزینه‌های قالب‌بندی یا لایوت) بدون این‌که ارائه‌های منبع تحت تأثیر قرار گیرند.
-
-## **ادغام ارائه‌ها**
-
-Aspose.Slides متد [**AddClone(ISlide)**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) را فراهم می‌کند که امکان ترکیب اسلایدها را فراهم می‌سازد در حالی که اسلایدها لایوت و سبک خود را حفظ می‌کنند (پارامترهای پیش‌فرض).
-
-این کد Java نشان می‌دهد چگونه ارائه‌ها را ادغام کنید:
+ساده‌ترین روش ادغام، کپی کردن هر اسلاید از ارائه منبع به ارائه مقصد است. این گزینه زمانی مناسب است که اسلایدهای وارد شده باید تم، master و روابط layout اصلی خود را حفظ کنند.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **ادغام ارائه‌ها با یک Slide Master**
+ارائه حاصل ممکن است چندین master داشته باشد وقتی که ارائه منبع و مقصد از طراحی‌های متفاوتی استفاده می‌کنند. این رفتار طبیعی است زیرا قالب‌بندی منبع به‌صورت عمدی حفظ شده است.
 
-Aspose.Slides متد [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) را فراهم می‌کند که امکان ترکیب اسلایدها را همراه با اعمال یک قالب Slide Master ارائه می‌دهد. به این ترتیب، در صورت نیاز می‌توانید سبک اسلایدهای ارائهٔ خروجی را تغییر دهید.
+## **ادغام اسلایدهای انتخابی**
 
-این کد Java عملیات توصیف‌شده را نشان می‌دهد:
+لازم نیست هر اسلایدی را کپی کنید. مثال زیر فقط ایندکس‌های اسلاید انتخابی را از ارائه منبع وارد می‌کند.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-طرح لایوت برای Slide Master به‌صورت خودکار تعیین می‌شود. هنگامی که لایوت مناسب نتواند تعیین شود، در صورتی که پارامتر Boolean `allowCloneMissingLayout` متد `AddClone` برابر true باشد، لایوت اسلاید منبع استفاده می‌شود. در غیر این‌صورت، استثنای [PptxEditException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/PptxEditException) پرتاب می‌شود.
-{{% /alert %}}
+قبل از کپی، ایندکس‌های اسلاید را در صورتی که از ورودی کاربر یا پیکربندی خارجی دریافت می‌شوند، اعتبارسنجی کنید.
 
-اگر می‌خواهید اسلایدهای ارائهٔ خروجی لایوت متفاوتی داشته باشند، به‌جای آن هنگام ادغام از متد [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) استفاده کنید.
+## **ادغام اسلایدها با استفاده از Master مقصد**
 
-## **ادغام اسلایدهای خاص از ارائه‌ها**
-
-ادغام اسلایدهای خاص از چندین ارائه برای ایجاد دک‌های سفارشی مفید است. Aspose.Slides for Android via Java به شما امکان می‌دهد تنها اسلایدهای مورد نیاز را انتخاب و وارد کنید. API قالب‌بندی، لایوت و طراحی اسلایدهای اصلی را حفظ می‌کند.
-
-کد Java زیر یک ارائهٔ جدید می‌سازد، اسلایدهای عنوان از دو ارائه دیگر اضافه می‌کند و نتیجه را در یک فایل ذخیره می‌نماید:
+زمانی که اسلایدهای وارد شده باید از masterی استفاده کنند که پیشاپیش در ارائه مقصد وجود دارد، overload `[addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-)` را به‌کار ببرید.
 
 ```java
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
-    
-    ISlide slide1 = getTitleSlide(presentation1);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-```java
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
-        }
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
     }
-    return null;
+
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **ادغام ارائه‌ها با یک Slide Layout**
+Aspose.Slides با مطابقت نوع یا نام layout منبع، layout مناسب را زیر master مشخص‌شده انتخاب می‌کند. اگر layout مناسبی موجود نباشد و `allowCloneMissingLayout` برابر `true` باشد، layout منبع کپی می‌شود تا اسلاید اضافه شود. اگر `false` باشد، یک [PptxEditException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pptxeditexception/) پرتاب می‌شود.
 
-این کد Java نشان می‌دهد چگونه اسلایدها را از ارائه‌ها ترکیب کنید در حالی که لایوت دلخواه خود را بر روی آن‌ها اعمال می‌کنید تا یک ارائهٔ خروجی به‌دست آید:
+وقتی می‌خواهید ادغام به‌جای افزودن یک layout جدید به master مقصد شکست بخورد، مقدار `false` را استفاده کنید.
+
+## **ادغام اسلایدها با استفاده از یک Layout مقصد خاص**
+
+وقتی دقیقاً می‌دانید اسلایدهای وارد شده باید از کدام layout مقصد استفاده کنند، overload `[addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-)` را به‌کار ببرید.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
-    }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres1 != null) pres1.dispose();
-}
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
 
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
 ```
 
-## **ادغام ارائه‌ها با اندازه‌های اسلاید متفاوت**
+اعمال layout مقصد رابطه inheritance layout را تغییر می‌دهد؛ محتوای اسلاید منبع بازطراحی نمی‌شود. اگر layoutهای منبع و مقصد ساختار placeholderهای متفاوتی داشته باشند، نتیجه را بررسی کنید تا اطمینان حاصل شود قالب‌بندی و رفتار placeholderها مناسب است.
 
-{{% alert title="Note" color="warning" %}} 
-نمی‌توانید ارائه‌ها را با اندازه‌های اسلاید متفاوت ادغام کنید. 
-{{% /alert %}}
+## **ادغام ارائه‌ها با اندازه اسلایدهای متفاوت**
 
-برای ادغام 2 ارائه با اندازه‌های اسلاید متفاوت، باید یکی از ارائه‌ها را طوری تغییر اندازه دهید که با اندازهٔ ارائه‌ دیگری مطابقت داشته باشد.
+ارائه‌هایی با ابعاد اسلاید متفاوت می‌توانند ادغام شوند، اما کپی یک اسلاید به ارائه‌ای با اندازه اسلاید دیگر به‌صورت خودکار محتوای آن را برای بوم جدید بازطراحی نمی‌کند. بنابراین اشکال ممکن است جابجا، مقیاس‌دار یا خارج از ناحیه قابل مشاهده اسلاید شوند.
 
-این نمونه کد عمل توصیف‌شده را نشان می‌دهد:
+رویکرد عملی این است که پیش از کپی، اندازه ارائه منبع را تغییر دهید. متد [SlideSize.setSize](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) می‌تواند محتوای موجود را در حین تغییر ابعاد اسلاید مقیاس کند. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slidesizescaletype/) محتوا را طوری مقیاس می‌کند که در اندازه درخواست‌شده جا بگیرد.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
-try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize((float)pres1.getSlideSize().getSize().getWidth(), (float)pres1.getSlideSize().getSize().getHeight(), SlideSizeScaleType.EnsureFit);
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
 
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    SizeF sourceSize = source.getSlideSize().getSize();
+    SizeF destinationSize = destination.getSlideSize().getSize();
+
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
+
+تغییر اندازه، شیء ارائه منبع را در حافظه تغییر می‌دهد. اگر نیاز دارید ارائه منبع اصلی برای عملیات دیگر دست نخورده بماند، یک نمونه جداگانه برای ادغام باز کنید.
 
 ## **ادغام اسلایدها به یک بخش از ارائه**
 
-این کد Java نشان می‌دهد چگونه یک اسلاید خاص را به یک بخش در ارائه ادغام کنید:
+حلقه پایه کپی اسلاید‌ها سلسله‌مراتبی بخش‌های ارائه منبع را بازتولید نمی‌کند. اگر در خروجی به بخش‌ها نیاز دارید، بخش‌ها را در ارائه مقصد ایجاد یا انتخاب کرده و اسلایدها را به‌طور صریح با `[addClone(ISlide, ISection)](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-)` به آنها کپی کنید.
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+import com.aspose.slides.*;
+
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-اسلاید در انتهای بخش اضافه می‌شود.
+اسلایدهای کپی‌شده به بخش مقصد مشخص‌شده اضافه می‌شوند. برای حفظ چندین بخش منبع، آن بخش‌ها را در مقصد بازسازی کنید و هر اسلاید منبع را به بخش مقصد متناظر نگاشت کنید.
 
-{{% alert title="Tip" color="primary" %}}
-Aspose یک برنامه وب رایگان به نام [FREE Collage](https://products.aspose.app/slides/fa/collage) ارائه می‌دهد. با استفاده از این سرویس آنلاین می‌توانید [JPG به JPG](https://products.aspose.app/slides/fa/collage/jpg) یا PNG به PNG را ترکیب کنید، [شبکه‌های تصویری](https://products.aspose.app/slides/fa/collage/photo-grid) بسازید و غیره.
-{{% /alert %}}
+## **ادغام چندین ارائه به‌صورت ایمن**
 
-## **سوالات متداول**
+مثال انتها‑به‑انتها زیر از اولین ارائه به‌عنوان مقصد استفاده می‌کند، اندازه اسلاید هر منبع اضافه را نرمال می‌کند، هر منبع را تنها در زمانی که در حال کپی است باز نگه می‌دارد و در پایان فایل نهایی را یک‌بار ذخیره می‌کند.
 
-**آیا محدودیتی برای تعداد اسلایدها هنگام ادغام ارائه‌ها وجود دارد؟**
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
 
-بدون محدودیت‌های سخت‌گیرانه. Aspose.Slides می‌تواند فایل‌های بزرگ را مدیریت کند، اما عملکرد به اندازه فایل و منابع سیستم وابسته است. برای ارائه‌های بسیار بزرگ توصیه می‌شود از JVM 64‑bit استفاده کنید و حافظه Heap کافی تخصیص دهید.
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
 
-**آیا می‌توانم ارائه‌ها را با ویدئو یا صداهای جاسازی‌شده ادغام کنم؟**
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    SizeF mergedSize = merged.getSlideSize().getSize();
 
-بله، Aspose.Slides محتوای چندرسانه‌ای جاسازی‌شده در اسلایدها را حفظ می‌کند، اما ممکن است اندازهٔ نهایی ارائه به‌طور قابل‌توجهی بزرگ‌تر شود.
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            SizeF sourceSize = source.getSlideSize().getSize();
 
-**آیا فونت‌ها هنگام ادغام ارائه‌ها حفظ می‌شوند؟**
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
 
-بله. فونت‌های استفاده‌شده در ارائه‌های منبع در فایل خروجی حفظ می‌شوند به شرطی که بر روی سیستم نصب شده باشند یا [embedded](/slides/fa/androidjava/embedded-font/).
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+این یک پایهٔ مفید برای حفظ قالب‌بندی اسلایدهای وارد شده است. اگر خروجی شما باید از یک تم واحد استفاده کند، فراخوانی ساده `addClone(slide)` را با overload مناسب master یا layout مقصد که پیشتر نشان دادیم، جایگزین کنید.
+
+## **ملاحظات عملی**
+
+### **Masterها، Layoutها و حفظ وفاداری قالب‌بندی**
+
+کپی پیش‌فرض اسلاید می‌تواند master مورد نیاز منبع را به صورت خودکار به ارائه مقصد بیاورد. Aspose.Slides یک رجیستری داخلی برای masterهای کپی‌شده به‌صورت خودکار نگه می‌دارد تا از کپی مکرر یک master جلوگیری کند. masterهای کپی‌شده به‌صورت دستی توسط این رجیستری ردیابی نمی‌شوند، بنابراین از پیش‌کپی masterها صرف‌نظر کنید مگر اینکه کنترل صریحی بر ساختار master بخواهید.
+
+فرض نکنید دو master یا layout با نام یکسان بصورت بصری برابر هستند. اگر یک قالب سازمانی باید ظاهر نهایی را کنترل کند، master یا layout مقصد را صریحاً انتخاب کنید و پس از ادغام نتیجه را تأیید نمایید.
+
+### **یادداشت‌ها و نظرات**
+
+یادداشت‌های سخنران و نظرات اسلاید به محتوی اسلاید مرتبط هستند و هنگام کپی اسلاید کپی می‌شوند. Aspose.Slides همچنین APIهای مخصوص برای [presentation notes](https://docs.aspose.com/slides/fa/androidjava/presentation-notes/) و [presentation comments](https://docs.aspose.com/slides/fa/androidjava/presentation-comments/) ارائه می‌دهد.
+
+اگر قالب‌بندی صفحه یادداشت‌ها مهم است، ارائه ادغام‌شده را بررسی کنید زیرا masterهای یادداشت‌ها در سطح ارائه قرار دارند و ممکن است بین فایل‌های منبع متفاوت باشند. برای گردش کارهای مرور، نویسندگان نظرات و نظرات تو در تو را پس از ترکیب فایل‌ها از نویسندگان یا قالب‌های مختلف نیز بررسی کنید.
+
+### **تصاویر، صدا، ویدئو، اشیای OLE و لینک‌های خارجی**
+
+اسلایدها می‌توانند به منابع سطح ارائه مانند تصاویر، صدا یا ویدئوی جاسازی‌شده و داده‌های OLE ارجاع دهند. به‌جای کپی فقط اشکال قابل مشاهده، کل اسلاید را کپی کنید تا Aspose.Slides بتواند روابط اسلاید با این منابع را حفظ کند.
+
+منابع جاسازی‌شده و لینک‌شده باید به‌صورت متفاوتی رفتار شوند. یک صدا، ویدئو، شیء OLE یا hyperlink لینک‌شده همچنان وابسته به هدف خارجی خود می‌ماند؛ کپی اسلاید یک لینک خارجی را به محتوی جاسازی‌شده تبدیل نمی‌کند. مسیرها و URLهای منابع لینک‌شده را در محیطی که ارائه ادغام‌شده باز خواهد شد، تست کنید.
+
+Aspose.Slides به‌صورت صریح masterهای کپی‌شده به‌صورت خودکار را ردیابی می‌کند، اما این به معنای تضمین کلی برای حذف تکرار منابع باینری مشابه از ارائه‌های نامرتبط نیست. اگر حجم فایل خروجی مهم است، بسته ادغام‌شده را بررسی و اندازهٔ نهایی را اندازه‌گیری کنید به‌جای این‌که به حذف تکرار ضمنی وابسته باشید.
+
+### **قلم‌های جاسازی‌شده و در دسترس بودن فونت‌ها**
+
+قلم‌ها در سطح ارائه مدیریت می‌شوند. اگر نوشتار باید در دستگاه‌های مختلف سازگار باشد، فرض نکنید که فقط کپی اسلایدها تضمین می‌کند همه فونت‌های لازم در محیط مقصد موجود باشند. می‌توانید فونت‌های جاسازی‌شده را با `[FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--)` بررسی کنید و همان‌طور که در [Embed Fonts in Presentations](https://docs.aspose.com/slides/fa/androidjava/embedded-font/) توضیح داده شده است، به‌صورت صریح آن‌ها را مدیریت کنید.
+
+همچنین اطمینان حاصل کنید که مجوزهای لازم برای جاسازی فونت‌های استفاده‌شده در فایل‌های منبع را دارید؛ برخی مجوزهای فونت ممکن است جاسازی را محدود کنند.
+
+### **ارائه‌های حفاظت‌شده با رمز عبور**
+
+منبعی که با رمز عبور محافظت شده است باید قبل از کپی اسلایدها با موفقیت باز شود. رمز عبور را از طریق `[LoadOptions.setPassword](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-)` ارائه کنید.
+
+```java
+import com.aspose.slides.*;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
+try {
+    // کار با ارائه رمزگشایی شده.
+} finally {
+    source.dispose();
+}
+```
+
+بازکردن منبع رمزگذاری‌شده به‌طور خودکار همان حفاظت را به ارائه مقصد اعمال نمی‌کند. در صورت نیاز حفاظت خروجی را به‌صورت جداگانه پیکربندی کنید.
+
+### **ارائه‌های بزرگ و استفاده از حافظه**
+
+ارائه‌های بزرگ که شامل تصاویر با وضوح بالا، صدا، ویدئو یا اشیای باینری بزرگ هستند می‌توانند حافظه قابل‌توجهی مصرف کنند. `[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--)` گزینه‌هایی برای مدیریت BLOB و استفاده از فایل‌های موقت فراهم می‌کند. برای استراتژی‌های فایل‌های بزرگ به [Manage Presentation BLOBs](https://docs.aspose.com/slides/fa/androidjava/manage-blob/) رجوع کنید.
+
+برای فایل‌های بزرگ، هنگام امکان، بارگذاری از مسیرهای فایل را ترجیح دهید، هر ارائه منبع را به‌محض اتمام ادغام dispose کنید و از ذخیره‌سازی مکرر نتایج میانی خودداری کنید مگر اینکه گردش کار به نقاط بررسی نیاز داشته باشد.
+
+### **امنیت در استفاده از چندنخی**
+
+از بارگذاری، تغییر، ذخیره یا کپی یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) به طور همزمان در چندین نخ خودداری کنید. هر نمونهٔ ارائه را به یک عملیات ادغام محدود کنید. اگر کارهای مستقل را موازی می‌کنید، از نمونه‌های مستقل استفاده کنید و راهنمایی‌های چندنخی Aspose.Slides را در [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/fa/androidjava/multithreading/) دنبال کنید.
+
+## **FAQ**
+
+**چگونه می‌توانم طراحی اصلی هر ارائه منبع را حفظ کنم؟**
+
+از [`addClone(sourceSlide)`](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) بدون ارائه master یا layout مقصد استفاده کنید. Aspose.Slides می‌تواند master منبع را به‌صورت خودکار وقتی که اسلاید وارد‌شده به آن نیاز دارد، کپی کند.
+
+**چگونه می‌توانم اسلایدهای وارد شده را به تم مقصد سازگار کنم؟**
+
+overloadی را که master مقصد را می‌پذیرد استفاده کنید. یک master از ارائه مقصد (نه منبع) پاس کنید. Aspose.Slides سعی می‌کند هر اسلاید منبع را به یک layout مناسب تحت آن master مطابقت دهد.
+
+**چه زمانی باید به‌جای master مقصد از یک layout مقصد خاص استفاده کنم؟**
+
+وقتی هر اسلاید وارد شده باید از یک layout شناخته‌شده استفاده کند، از layout خاص استفاده کنید. وقتی می‌خواهید Aspose.Slides بر اساس نوع یا نام layout منبع، بین layoutهای master انتخاب کند، از master استفاده کنید.
+
+**آیا می‌توان ارائه‌هایی با اندازه اسلاید متفاوت را ادغام کرد؟**
+
+بله، اما محتوی اسلایدها به‌صورت خودکار برای ابعاد مقصد بازطراحی نمی‌شوند. برای موقعیت‌یابی قابل پیش‌بینی، پیش از ادغام اندازه ارائه منبع را با استفاده از `[SlideSize.setSize](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-)` و `[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slidesizescaletype/)` تغییر دهید.
+
+**آیا می‌توانم فایل‌های PPT، PPTX و ODP را در یک فایل ادغام کنم؟**
+
+بله. هر ارائه منبع را بارگذاری کنید، اسلایدهای مورد نیاز را به یک مقصد کپی کنید و مقصد را در یک فرمت خروجی پشتیبانی‌شده ذخیره کنید. چون مجموعه ویژگی‌های فرمت‌های ارائه متفاوت است، پس از ادغام‌های فرمت‑متقاطع محتوی پیچیده را بررسی کنید. برای فرمت‌های پشتیبانی‌شده به [Supported File Formats](https://docs.aspose.com/slides/fa/androidjava/supported-file-formats/) مراجعه کنید.
+
+**آیا بخش‌های منبع به‌صورت خودکار حفظ می‌شوند؟**
+
+خیر. یک حلقهٔ ساده که فقط اسلایدها را کپی می‌کند این کار را انجام نمی‌دهد. برای حفظ ساختار بخش‌ها، آن‌ها را در مقصد بازسازی کنید و overload بخش `[addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-)` را به‌کار ببرید.
+
+**آیا یادداشت‌های سخنران و نظرات حفظ می‌شوند؟**
+
+آن‌ها همراه با اسلاید کپی‌شده منتقل می‌شوند. برای گردش کارهایی که به قالب‌بندی master یادداشت‌ها، نویسندگان نظرات یا داده‌های بررسی تو در تو وابسته هستند، نتیجهٔ ادغام را بررسی کنید چون این سناریوها شامل ساختارهای سطح ارائه نیز می‌شوند.
+
+**چه اتفاقی برای صدا، ویدئو، اشیای OLE و لینک‌های فراخوانی می‌افتد؟**
+
+محتویات جاسازی‌شده به‌عنوان بخشی از روابط منبع اسلاید منتقل می‌شوند. لینک‌های خارجی همچنان خارجی می‌مانند، بنابراین فایل‌ها یا URLهای هدف باید پس از ادغام در دسترس باشند.
+
+**آیا می‌توان تضمین کرد که تمام فونت‌های جاسازی‌شده از هر منبع در ارائه ادغام‌شده موجود باشند؟**
+
+به تنها کپی اسلایدها برای توزیع فونت اطمینان نکنید. فونت‌های جاسازی‌شده در مقصد را بررسی کنید و برای اطمینان از در دسترس بودن، یا به‌صورت صریح فونت‌ها را جاسازی کنید یا از دسترسی به فونت‌های خارجی اطمینان حاصل کنید.
+
+**چگونه می‌توانم یک فایل محافظت‌شده با رمز عبور را ادغام کنم؟**
+
+با `[LoadOptions.setPassword](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-)` آن را باز کنید، سپس اسلایدهایش را به‌صورت معمول کپی کنید. حفاظت خروجی به‌صورت جداگانه تنظیم می‌شود.
+
+**چگونه باید با ارائه‌های بسیار بزرگ مقابله کنم؟**
+
+از مدیریت BLOB استفاده کنید وقتی که اشیای باینری بزرگ بر استفاده از حافظه تأثیر می‌گذارند، برای فایل‌های بسیار بزرگ بارگذاری از مسیرهای فایل را ترجیح دهید، ارائه‌های منبع را به‌محض اتمام ادغام آزاد کنید و فقط در زمان نیاز نتیجهٔ نهایی را ذخیره کنید.
+
+**آیا می‌توانم اسلایدها را از چندین نخ ادغام کنم؟**
+
+از یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) به‌طور همزمان در چندین نخ استفاده نکنید. هر عملیات ادغام را به نمونه‌های جداگانه‌ای محدود کنید.

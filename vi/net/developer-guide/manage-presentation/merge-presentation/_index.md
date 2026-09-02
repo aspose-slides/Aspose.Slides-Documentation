@@ -1,248 +1,335 @@
 ---
-title: "Hiệu quả hợp nhất các bài thuyết trình trong .NET"
-linktitle: "Hợp nhất các bài thuyết trình"
+title: "Kết hợp các bản trình chiếu hiệu quả trong .NET"
+linktitle: "Kết hợp các bản trình chiếu"
 type: docs
 weight: 40
 url: /vi/net/merge-presentation/
 keywords:
-- "hợp nhất PowerPoint"
-- "hợp nhất bài thuyết trình"
-- "hợp nhất slide"
-- "hợp nhất PPT"
-- "hợp nhất PPTX"
-- "hợp nhất ODP"
 - "kết hợp PowerPoint"
-- "kết hợp bài thuyết trình"
+- "kết hợp bản trình chiếu"
 - "kết hợp slide"
 - "kết hợp PPT"
 - "kết hợp PPTX"
 - "kết hợp ODP"
-- .NET
-- C#
-- Aspose.Slides
-description: "Dễ dàng hợp nhất các bài thuyết trình PowerPoint (PPT, PPTX) và OpenDocument (ODP) bằng Aspose.Slides for .NET, giúp tối ưu hoá quy trình làm việc của bạn."
+- "gộp PowerPoint"
+- "gộp bản trình chiếu"
+- "gộp slide"
+- "gộp PPT"
+- "gộp PPTX"
+- "gộp ODP"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Tìm hiểu cách kết hợp các bản trình chiếu PowerPoint và OpenDocument trong .NET bằng cách sao chép slide, kiểm soát master và layout, thay đổi kích thước nội dung slide, giữ lại các section, và xử lý các tệp được bảo vệ hoặc lớn."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn hợp nhất các bài thuyết trình bằng cách sao chép các slide từ một bài thuyết trình sang bài thuyết trình khác. Bài viết này giải thích cách hợp nhất toàn bộ bài thuyết trình hoặc các slide đã chọn, sử dụng slide master hoặc bố cục cụ thể trong quá trình hợp nhất, xử lý các bài thuyết trình có kích thước slide khác nhau, và thêm các slide đã hợp nhất vào một phần của bài thuyết trình. Nó cũng đề cập đến các lưu ý thực tế liên quan đến nội dung đã hợp nhất, bao gồm ghi chú người thuyết trình, bình luận, tệp nguồn được bảo vệ bằng mật khẩu và việc sử dụng luồng.
+Aspose.Slides for .NET hợp nhất các bản trình chiếu bằng cách sao chép slide từ một [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) sang bản khác. Hoạt động chính là [ISlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/), có thể giữ nguyên định dạng của slide nguồn hoặc gắn slide đã sao chép vào một master hoặc layout trong bản trình chiếu đích.
 
-## **Tối ưu hoá việc hợp nhất bài thuyết trình**
+Bài viết này bao gồm các quy trình hợp nhất phổ biến nhất:
 
-Với [Aspose.Slides for .NET](https://products.aspose.com/slides/vi/net/), bạn có thể kết hợp các bài thuyết trình PowerPoint một cách liền mạch đồng thời giữ nguyên kiểu dáng, bố cục và mọi yếu tố. Không giống như các công cụ khác, Aspose.Slides hòa trộn các bài thuyết trình mà không làm giảm chất lượng hay mất dữ liệu. Hợp nhất toàn bộ bài thuyết trình, các slide cụ thể, và thậm chí các định dạng tệp khác nhau (PPT sang PPTX, v.v.).
+- hợp nhất tất cả các slide đồng thời giữ định dạng nguồn;
+- hợp nhất các slide đã chọn;
+- áp dụng master từ bản trình chiếu đích;
+- áp dụng layout cụ thể từ bản trình chiếu đích;
+- chuẩn hoá kích thước slide khác nhau trước khi hợp nhất;
+- thêm các slide đã sao chép vào một section;
+- hợp nhất nhiều bản trình chiếu trong một quy trình đầu‑cuối;
+- xử lý master, tài nguyên, ghi chú, bình luận, media, phông chữ, mật khẩu, tệp lớn và các vấn đề đa luồng.
 
-### **Các tính năng hợp nhất**
+## **Cách sao chép Slide ảnh hưởng đến Master và Layout**
 
-- **Full Presentation Merge:** Tập hợp tất cả các slide thành một tệp duy nhất.  
-- **Specific Slide Merge:** Chọn và kết hợp các slide đã chọn.  
-- **Cross-Format Merge:** Tích hợp các bài thuyết trình có định dạng khác nhau, duy trì tính toàn vẹn.  
+Slide thừa hưởng phần lớn giao diện từ layout và master của nó. Vì vậy, overload sao chép bạn chọn sẽ quyết định cách slide đã hợp nhất được tích hợp vào bản trình chiếu đích.
 
-{{% alert title="Tip" color="primary" %}}  
-Bạn đang tìm kiếm một công cụ **miễn phí trực tuyến** nhanh chóng để **hợp nhất các bài thuyết trình PowerPoint**? Hãy thử [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/vi/merger).  
-- **Merge PowerPoint files easily**: Kết hợp nhiều bài thuyết trình **PPT, PPTX, ODP** thành một tệp duy nhất.  
-- **Supports different formats**: Hợp nhất **PPT sang PPTX**, **PPTX sang ODP**, và hơn nữa.  
-- **No installation required**: Hoạt động trực tiếp trong trình duyệt của bạn, nhanh và an toàn.  
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/vi/merger)  
-Bắt đầu hợp nhất các tệp PowerPoint của bạn với **công cụ trực tuyến miễn phí của Aspose** ngay hôm nay!  
-{{% /alert %}}
+Sử dụng [ISlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/) theo một trong các cách sau:
 
-## **Hợp nhất bài thuyết trình**
+- `AddClone(sourceSlide)` — giữ nguyên layout và định dạng của slide nguồn. Khi cần, master nguồn có thể được sao chép tự động vào bản trình chiếu đích. Aspose.Slides tự động theo dõi các master đã sao chép để các slide lặp lại sử dụng cùng một master không gây sao chép lại master đó.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — gắn slide đã sao chép vào một [IMasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/) đích cụ thể. Aspose.Slides sẽ tìm layout phù hợp dưới master đó dựa trên loại hoặc tên layout.
+- `AddClone(sourceSlide, destinationLayout)` — gắn slide đã sao chép trực tiếp vào một [ILayoutSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/) đích cụ thể.
 
-Khi bạn [hợp nhất một bài thuyết trình vào bài thuyết trình khác](https://products.aspose.com/slides/vi/net/merger/ppt/), bạn thực chất đang kết hợp các slide của chúng trong một bài thuyết trình duy nhất để có được một tệp.
+Master hoặc layout được truyền vào overload `AddClone` phải thuộc về **bản trình chiếu đích**, không phải bản trình chiếu nguồn.
 
-{{% alert title="Info" color="info" %}}
-Hầu hết các chương trình thuyết trình (PowerPoint hoặc OpenOffice) không có chức năng cho phép người dùng kết hợp các bài thuyết trình theo cách này.  
+## **Hợp nhất Toàn bộ Bản Trình Chiếu và Giữ Định dạng Nguồn**
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/vi/net/) , tuy nhiên, cho phép bạn hợp nhất các bài thuyết trình theo các cách khác nhau. Bạn có thể hợp nhất các bài thuyết trình với tất cả các hình dạng, kiểu dáng, văn bản, định dạng, bình luận, hoạt ảnh, v.v. mà không phải lo lắng về việc mất chất lượng hoặc dữ liệu.  
+Cách hợp nhất đơn giản nhất là sao chép mọi slide từ bản trình chiếu nguồn sang bản trình chiếu đích. Đây là lựa chọn thích hợp khi các slide được nhập phải giữ nguyên giao diện, master và mối quan hệ layout gốc.
 
-**Xem thêm**  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-[Clone Slides](https://docs.aspose.com/slides/vi/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
-{{% /alert %}}
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-### **Có thể hợp nhất gì**
-
-Với Aspose.Slides, bạn có thể hợp nhất  
-* toàn bộ bài thuyết trình. Tất cả các slide từ các bài thuyết trình sẽ được gộp vào một bài thuyết trình  
-* các slide cụ thể. Các slide đã chọn sẽ được gộp vào một bài thuyết trình  
-* các bài thuyết trình cùng định dạng (PPT sang PPT, PPTX sang PPTX, v.v.) và các định dạng khác nhau (PPT sang PPTX, PPTX sang ODP, v.v.) với nhau.  
-
-{{% alert title="Note" color="warning" %}}  
-Ngoài các bài thuyết trình, Aspose.Slides cho phép bạn hợp nhất các tệp khác:  
-* [Images](https://products.aspose.com/slides/vi/net/merger/image-to-image/), như [JPG to JPG](https://products.aspose.com/slides/vi/net/merger/jpg-to-jpg/) hoặc [PNG to PNG](https://products.aspose.com/slides/vi/net/merger/png-to-png/)  
-* Documents, như [PDF to PDF](https://products.aspose.com/slides/vi/net/merger/pdf-to-pdf/) hoặc [HTML to HTML](https://products.aspose.com/slides/vi/net/merger/html-to-html/)  
-* Và hai loại tệp khác nhau như [image to PDF](https://products.aspose.com/slides/vi/net/merger/image-to-pdf/) hoặc [JPG to PDF](https://products.aspose.com/slides/vi/net/merger/jpg-to-pdf/) hoặc [TIFF to PDF](https://products.aspose.com/slides/vi/net/merger/tiff-to-pdf/).  
-{{% /alert %}}
-
-### **Tùy chọn hợp nhất**
-
-Bạn có thể áp dụng các tùy chọn để xác định liệu  
-* mỗi slide trong bài thuyết trình đầu ra giữ một kiểu riêng  
-* một kiểu cụ thể được sử dụng cho mọi slide trong bài thuyết trình đầu ra.  
-
-Để hợp nhất các bài thuyết trình, Aspose.Slides cung cấp các phương thức [AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/methods/addclone) (từ giao diện [ISlideCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection)). Có một số triển khai của các phương thức `AddClone` xác định các tham số quá trình hợp nhất bài thuyết trình. Mỗi đối tượng Presentation đều có một tập hợp [Slides](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/properties/slides), vì vậy bạn có thể gọi phương thức `AddClone` từ bài thuyết trình mà bạn muốn hợp nhất các slide.  
-
-Phương thức `AddClone` trả về một đối tượng `ISlide`, là bản sao của slide nguồn. Các slide trong bài thuyết trình đầu ra chỉ là bản sao của các slide từ nguồn. Do đó, bạn có thể thay đổi các slide kết quả (ví dụ, áp dụng kiểu dáng, tùy chọn định dạng hoặc bố cục) mà không lo các bài thuyết trình nguồn bị ảnh hưởng.  
-
-## **Hợp nhất các bài thuyết trình** 
-
-Aspose.Slides cung cấp phương thức [**AddClone (ISlide)**](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/methods/addclone) cho phép bạn kết hợp các slide trong khi chúng giữ nguyên bố cục và kiểu dáng (các tham số mặc định).  
-
-Đoạn mã C# dưới đây cho thấy cách hợp nhất các bài thuyết trình:  
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+Kết quả có thể chứa nhiều master khi nguồn và đích sử dụng các thiết kế khác nhau. Điều này là bình thường khi định dạng nguồn được cố ý giữ lại.
+
+## **Hợp nhất Các Slide Đã Chọn**
+
+Bạn không cần sao chép mọi slide. Ví dụ dưới đây chỉ nhập các chỉ mục slide đã chọn từ bản trình chiếu nguồn.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+Kiểm tra chỉ mục slide trước khi sao chép khi chúng được lấy từ đầu vào người dùng hoặc cấu hình bên ngoài.
+
+## **Hợp nhất Slide bằng Master Đích**
+
+Sử dụng overload [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/) khi các slide được nhập cần tuân theo một master đã thuộc về bản trình chiếu đích.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+Aspose.Slides sẽ chọn một layout phù hợp dưới master đã chỉ định bằng cách khớp loại hoặc tên layout nguồn. Nếu không tìm thấy layout phù hợp và `allowCloneMissingLayout` là `true`, layout nguồn sẽ được sao chép để slide có thể được thêm. Nếu `false`, một [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception/) sẽ được ném ra.
+
+Dùng `false` khi bạn muốn quá trình hợp nhất thất bại thay vì tạo thêm một layout vào master đích.
+
+## **Hợp nhất Slide bằng Layout Đích Cụ Thể**
+
+Sử dụng overload [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/) khi bạn biết chính xác layout đích mà các slide được nhập sẽ sử dụng.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+Áp dụng layout đích thay đổi mối quan hệ layout kế thừa; nó không thay đổi nội dung slide nguồn. Nếu layout nguồn và đích có cấu trúc placeholder khác nhau, hãy kiểm tra kết quả để xác nhận định dạng kế thừa và hành vi placeholder là phù hợp.
+
+## **Hợp nhất Bản Trình Chiếu có Kích Thước Slide Khác Nhau**
+
+Các bản trình chiếu có kích thước slide khác nhau có thể được hợp nhất, nhưng sao chép một slide vào bản trình chiếu có kích thước khác không tự động điều chỉnh nội dung cho canvas mới. Các shape có thể bị dịch chuyển, co giãn không mong muốn hoặc nằm ngoài vùng hiển thị.
+
+Một cách thực tế là thay đổi kích thước bản trình chiếu nguồn trước khi sao chép. Phương thức [SlideSize.SetSize](https://reference.aspose.com/slides/vi/net/aspose.slides/slidesize/setsize/) có thể co giãn nội dung hiện có trong khi thay đổi kích thước slide. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/vi/net/aspose.slides/slidesizescaletype/) co giãn nội dung để vừa với kích thước yêu cầu.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+Việc thay đổi kích thước sẽ sửa đổi đối tượng bản trình chiếu nguồn trong bộ nhớ. Nếu bạn cần giữ bản trình chiếu nguồn nguyên trạng cho các thao tác khác, hãy mở một thể hiện riêng cho quá trình hợp nhất.
+
+## **Hợp nhất Slide vào Section của Bản Trình Chiếu**
+
+Vòng lặp sao chép slide cơ bản không tái tạo lại cấu trúc section của bản trình chiếu nguồn. Nếu section quan trọng trong kết quả, hãy tạo hoặc chọn các section trong bản trình chiếu đích và sao chép slide vào chúng một cách rõ ràng bằng [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+Các slide đã sao chép sẽ được đính vào section đích đã chỉ định. Để giữ lại nhiều section nguồn, hãy tái tạo các section đó trong bản trình chiếu đích và ánh xạ mỗi slide nguồn tới section đích tương ứng.
+
+## **Hợp nhất Nhiều Bản Trình Chiếu Một Cách An Toàn**
+
+Ví dụ cuối‑cuối dưới đây sử dụng bản trình chiếu đầu tiên làm đích, chuẩn hoá kích thước slide của từng nguồn bổ sung, giữ mỗi nguồn mở chỉ trong lúc sao chép và lưu file cuối cùng một lần duy nhất.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Hợp nhất các bài thuyết trình với Slide Master**
-
-Aspose.Slides cung cấp phương thức [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/vi/net/aspose.slides.islidecollection/addclone/methods/2) cho phép bạn kết hợp các slide đồng thời áp dụng mẫu slide master cho bài thuyết trình. Theo cách này, nếu cần, bạn có thể thay đổi kiểu dáng cho các slide trong bài thuyết trình đầu ra.  
-
-Đoạn mã C# dưới đây minh họa thao tác đã mô tả:  
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}}  
-Bố cục slide cho slide master được xác định tự động. Khi không thể xác định bố cục thích hợp, nếu tham số boolean `allowCloneMissingLayout` của phương thức `AddClone` được đặt là true, sẽ sử dụng bố cục của slide nguồn. Ngược lại, sẽ ném ra [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception).  
-{{% /alert %}}
+Đây là một nền tảng hữu ích để giữ định dạng nguồn của các slide được nhập. Nếu đầu ra của bạn phải sử dụng một theme duy nhất, hãy thay thế lời gọi đơn giản `AddClone(slide)` bằng overload master hoặc layout đích phù hợp đã trình bày ở trên.
 
-Nếu bạn muốn các slide trong bài thuyết trình đầu ra có bố cục slide khác, hãy sử dụng phương thức [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/vi/net/aspose.slides.islidecollection/addclone/methods/1) thay thế khi hợp nhất.  
+## **Cân Nhắc Thực Tế**
 
-## **Hợp nhất các slide cụ thể từ các bài thuyết trình**
+### **Master, Layout và Độ Chính Xác Định Dạng**
 
-Hợp nhất các slide cụ thể từ nhiều bài thuyết trình hữu ích cho việc tạo bộ slide tùy chỉnh. Aspose.Slides for .NET cho phép bạn chọn và nhập chỉ những slide bạn cần. API bảo toàn định dạng, bố cục và thiết kế của các slide gốc.  
+Việc sao chép slide mặc định có thể tự động đưa master nguồn cần thiết vào bản trình chiếu đích. Aspose.Slides duy trì một registry nội bộ cho các master được sao chép tự động để tránh sao chép lại cùng một master. Các master được sao chép thủ công không được theo dõi bởi registry này, vì vậy tránh sao chép trước các master trừ khi bạn cần kiểm soát cấu trúc master một cách tường minh.
 
-Đoạn mã C# sau tạo một bài thuyết trình mới, thêm các slide tiêu đề từ hai bài thuyết trình khác và lưu kết quả vào một tệp:  
+Đừng cho rằng hai master hoặc layout cùng tên sẽ hiển thị giống nhau. Nếu một mẫu công ty phải kiểm soát giao diện cuối cùng, hãy chọn master hoặc layout đích một cách rõ ràng và xác thực kết quả sau khi hợp nhất.
 
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+### **Ghi chú và Bình luận**
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+Speaker notes và comment của slide được liên kết với nội dung slide và sẽ được sao chép khi slide được sao chép. Aspose.Slides cũng cung cấp các API chuyên biệt cho [presentation notes](https://docs.aspose.com/slides/vi/net/presentation-notes/) và [presentation comments](https://docs.aspose.com/slides/vi/net/presentation-comments/).
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+Nếu định dạng trang notes quan trọng, hãy xác nhận bản trình chiếu đã hợp nhất vì notes master là đối tượng cấp trình chiếu và có thể khác nhau giữa các tệp nguồn. Đối với quy trình xem xét, cũng cần kiểm tra tác giả comment và các comment chuỗi sau khi kết hợp các tệp từ các tác giả hoặc mẫu khác nhau.
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+### **Hình ảnh, Âm thanh, Video, Đối tượng OLE và Liên kết Ngoài**
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+Slide có thể tham chiếu tới các tài nguyên cấp trình chiếu như hình ảnh, âm thanh nhúng, video nhúng và dữ liệu OLE. Hãy sao chép toàn bộ slide thay vì chỉ sao chép các shape hiển thị để Aspose.Slides có thể duy trì mối quan hệ của slide với các tài nguyên đó.
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+Tài nguyên được nhúng và tài nguyên được liên kết cần được xử lý khác nhau. Một audio, video, OLE object hoặc hyperlink được liên kết vẫn phụ thuộc vào mục tiêu bên ngoài; sao chép slide không biến một liên kết ngoài thành nội dung nhúng. Hãy kiểm tra đường dẫn và URL của tài nguyên liên kết trong môi trường nơi bản trình chiếu hợp nhất sẽ được mở.
+
+Aspose.Slides theo dõi các master được sao chép tự động, nhưng điều này không đồng nghĩa với việc các tài nguyên nhị phân giống hệt từ các bản trình chiếu nguồn không liên quan sẽ luôn được loại bỏ trùng lặp. Nếu kích thước file đầu ra quan trọng, hãy kiểm tra gói đã hợp nhất và đo kích thước kết quả thay vì dựa vào việc loại bỏ trùng lặp ngầm.
+
+### **Phông chữ Nhúng và Tính Sẵn Có của Phông chữ**
+
+Phông chữ được quản lý ở mức trình chiếu. Nếu cần duy trì kiểu chữ nhất quán trên các máy, đừng cho rằng chỉ sao chép slide sẽ đảm bảo mọi phông chữ cần thiết đã có sẵn trong môi trường đích. Bạn có thể kiểm tra phông chữ nhúng bằng [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/vi/net/aspose.slides/fontsmanager/getembeddedfonts/) và quản lý việc nhúng một cách rõ ràng như mô tả trong [Embed Fonts in Presentations](https://docs.aspose.com/slides/vi/net/embedded-font/).
+
+Cũng cần xác nhận bạn được phép nhúng các phông chữ được sử dụng trong các tệp nguồn. Giấy phép phông chữ có thể hạn chế việc nhúng.
+
+### **Bản Trình Chiếu Bảo Vệ Mật Khẩu**
+
+Một nguồn được bảo vệ mật khẩu phải được mở thành công trước khi các slide của nó có thể được sao chép. Cung cấp mật khẩu qua [LoadOptions.Password](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/password/).
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-## **Hợp nhất các bài thuyết trình với bố cục slide**
+Mở một nguồn đã mã hoá không tự động áp dụng cùng một bảo vệ cho bản trình chiếu đích. Hãy cấu hình bảo vệ đầu ra riêng biệt khi cần.
 
-Đoạn mã C# dưới đây cho thấy cách kết hợp các slide từ các bài thuyết trình đồng thời áp dụng bố cục slide ưa thích của bạn để có một bài thuyết trình đầu ra duy nhất:  
+### **Bản Trình Chiếu Lớn và Sử Dụng Bộ Nhớ**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+Các bản trình chiếu lớn chứa hình ảnh độ phân giải cao, âm thanh, video hoặc các đối tượng nhị phân lớn khác có thể tiêu tốn đáng kể bộ nhớ. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/blobmanagementoptions/) cung cấp các tùy chọn kiểm soát việc xử lý BLOB và sử dụng tệp tạm. Xem [Manage Presentation BLOBs](https://docs.aspose.com/slides/vi/net/manage-blob/) để biết chiến lược cho tệp lớn.
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+Đối với tệp lớn, ưu tiên tải từ đường dẫn tệp khi có thể, giải phóng mỗi bản trình chiếu nguồn ngay sau khi đã hợp nhất, và tránh lưu kết quả trung gian liên tục trừ khi quy trình yêu cầu checkpoint.
 
-## **Hợp nhất các bài thuyết trình với kích thước slide khác nhau**
+### **An Toàn Đa Luồng**
 
-{{% alert title="Note" color="warning" %}}  
-Bạn không thể hợp nhất các bài thuyết trình có kích thước slide khác nhau.  
-{{% /alert %}}  
+Không tải, sửa đổi, lưu hoặc sao chép cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) đồng thời từ nhiều luồng. Giữ mỗi thể hiện bản trình chiếu trong một thao tác hợp nhất duy nhất. Nếu bạn thực hiện các công việc độc lập song song, hãy dùng các thể hiện bản trình chiếu độc lập và tuân theo [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/vi/net/multithreading/).
 
-Để hợp nhất 2 bài thuyết trình có kích thước slide khác nhau, bạn phải thay đổi kích thước một trong các bài thuyết trình sao cho kích thước của nó phù hợp với bài thuyết trình còn lại.  
+## **FAQ**
 
-Đoạn mã mẫu dưới đây minh họa thao tác đã mô tả:  
+**Làm thế nào để giữ nguyên thiết kế gốc của mỗi bản trình chiếu nguồn?**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+Sử dụng [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/) mà không cung cấp master hay layout đích. Aspose.Slides có thể tự động sao chép master nguồn khi slide nhập cần tới nó.
 
-## **Hợp nhất các slide vào một phần của bài thuyết trình**
+**Làm sao để các slide được nhập sử dụng theme của bản trình chiếu đích?**
 
-Đoạn mã C# dưới đây cho thấy cách hợp nhất một slide cụ thể vào một phần trong bài thuyết trình:  
+Sử dụng overload chấp nhận master đích. Truyền vào một master từ bản trình chiếu đích, không phải từ nguồn. Aspose.Slides sẽ cố gắng ánh xạ mỗi slide nguồn tới một layout phù hợp dưới master đó.
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
+**Khi nào nên dùng layout đích cụ thể thay vì master đích?**
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+Dùng layout cụ thể khi mọi slide nhập đều phải sử dụng một layout đã biết. Dùng master khi bạn muốn Aspose.Slides tự chọn layout trong master đó dựa trên loại hoặc tên layout nguồn.
 
-Slide sẽ được thêm vào cuối phần.  
+**Có thể hợp nhất các bản trình chiếu có kích thước slide khác nhau không?**
 
-{{% alert title="Tip" color="primary" %}}  
-Aspose cung cấp một [ứng dụng web COLLAGE MIỄN PHÍ](https://products.aspose.app/slides/vi/collage). Sử dụng dịch vụ trực tuyến này, bạn có thể hợp nhất hình ảnh [JPG sang JPG](https://products.aspose.app/slides/vi/collage/jpg) hoặc PNG sang PNG, tạo [lưới ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), và nhiều hơn nữa.  
-{{% /alert %}}
+Có, nhưng nội dung slide sẽ không được tự động thiết kế lại cho kích thước đích. Hãy thay đổi kích thước bản trình chiếu nguồn trước khi sao chép, ví dụ bằng [SlideSize.SetSize](https://reference.aspose.com/slides/vi/net/aspose.slides/slidesize/setsize/) và [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/vi/net/aspose.slides/slidesizescaletype/).
 
-## **CÂU HỎI THƯỜNG GẶP**
+**Có thể hợp nhất các tệp PPT, PPTX và ODP thành một file không?**
 
-**Ghi chú người thuyết trình có được bảo toàn khi hợp nhất không?**  
-Có. Khi sao chép slide, Aspose.Slides sẽ chuyển sang tất cả các yếu tố của slide, bao gồm ghi chú, định dạng và hoạt ảnh.  
+Có. Tải mỗi bản trình chiếu nguồn, sao chép các slide cần thiết vào một bản đích, và lưu bản đích ở định dạng đầu ra được hỗ trợ. Vì các định dạng không hỗ trợ đầy đủ các tính năng giống nhau, hãy xác nhận nội dung phức tạp sau khi hợp nhất đa định dạng. Xem [Supported File Formats](https://docs.aspose.com/slides/vi/net/supported-file-formats/).
 
-**Bình luận và tác giả của chúng có được chuyển không?**  
-Bình luận, như một phần của nội dung slide, được sao chép cùng slide. Nhãn tác giả bình luận được giữ lại dưới dạng đối tượng bình luận trong bài thuyết trình kết quả.  
+**Các section nguồn có được tự động giữ lại không?**
 
-**Nếu bài thuyết trình nguồn được bảo vệ bằng mật khẩu thì sao?**  
-Phải [mở bằng mật khẩu](/slides/vi/net/password-protected-presentation/) thông qua [LoadOptions.Password](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/password/); sau khi tải, các slide đó có thể được sao chép an toàn vào tệp đích không bảo vệ (hoặc cũng có thể bảo vệ).  
+Không, nếu chỉ dùng vòng lặp cơ bản sao chép slide. Hãy tái tạo các section cần thiết trong bản trình chiếu đích và sử dụng overload section của [AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/) khi cấu trúc section phải được bảo toàn.
 
-**Quá trình hợp nhất có an toàn trong đa luồng không?**  
-Không sử dụng cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) từ [nhiều luồng](/slides/vi/net/multithreading/). Quy tắc được khuyến nghị là “một tài liệu — một luồng”; các tệp khác nhau có thể được xử lý song song trong các luồng riêng biệt.
+**Ghi chú và bình luận có được giữ lại không?**
+
+Chúng được sao chép cùng với slide đã sao chép. Đối với quy trình phụ thuộc vào kiểu dáng notes‑master, tác giả comment hoặc dữ liệu review chuỗi, hãy kiểm tra kết quả hợp nhất vì các trường hợp này liên quan đến cấu trúc cấp trình chiếu cũng như nội dung slide.
+
+**Điều gì xảy ra với audio, video, OLE object và hyperlink?**
+
+Nội dung được nhúng sẽ được đưa vào cùng với các mối quan hệ tài nguyên của slide đã sao chép. Các liên kết ngoài vẫn giữ nguyên tính bên ngoài, vì vậy các tệp hoặc URL mục tiêu vẫn phải tồn tại sau khi hợp nhất.
+
+**Các phông chữ nhúng từ mỗi nguồn có được đảm bảo có trong bản trình chiếu hợp nhất không?**
+
+Không nên chỉ dựa vào sao chép slide để triển khai phông chữ. Kiểm tra phông chữ nhúng trong bản đích và quản lý việc nhúng phông chữ hoặc tính sẵn có của phông chữ bên ngoài một cách rõ ràng khi kiểu chữ quan trọng.
+
+**Làm sao hợp nhất một tệp được bảo vệ mật khẩu?**
+
+Mở tệp với [LoadOptions.Password](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/password/) đúng, sau đó sao chép các slide như bình thường. Bảo vệ đầu ra được cấu hình riêng.
+
+**Làm thế nào xử lý các bản trình chiếu rất lớn?**
+
+Sử dụng quản lý BLOB khi các đối tượng nhị phân lớn chiếm phần lớn bộ nhớ, ưu tiên tải từ đường dẫn tệp cho các tệp rất lớn, giải phóng nhanh các bản trình chiếu nguồn và chỉ lưu kết quả cuối cùng khi cần.
+
+**Có thể sao chép slide từ nhiều luồng không?**
+
+Không sử dụng cùng một thể hiện [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) đồng thời từ nhiều luồng. Giữ mỗi thao tác hợp nhất trong một thể hiện riêng.

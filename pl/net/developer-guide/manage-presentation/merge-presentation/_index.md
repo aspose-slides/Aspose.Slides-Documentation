@@ -1,6 +1,6 @@
 ---
 title: Efektywne scalanie prezentacji w .NET
-linktitle: Scalanie prezentacji
+linktitle: Scal prezentacje
 type: docs
 weight: 40
 url: /pl/net/merge-presentation/
@@ -20,251 +20,316 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Bezproblemowo scalaj prezentacje PowerPoint (PPT, PPTX) i OpenDocument (ODP) przy użyciu Aspose.Slides for .NET, usprawniając swój przepływ pracy."
+description: "Dowiedz się, jak scalać prezentacje PowerPoint i OpenDocument w .NET, klonując slajdy, kontrolując mastery i układy, zmieniając rozmiar zawartości slajdów, zachowując sekcje oraz obsługując pliki chronione lub duże."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia scalanie prezentacji poprzez klonowanie slajdów z jednej prezentacji do drugiej. Ten artykuł wyjaśnia, jak scalić całe prezentacje lub wybrane slajdy, używać szablonu mastera slajdów lub konkretnego układu podczas scalania, obsługiwać prezentacje o różnych rozmiarach slajdów oraz dodawać scalone slajdy do sekcji prezentacji. Omówione są również praktyczne uwagi dotyczące scalanej treści, w tym notatki prelegenta, komentarze, pliki źródłowe chronione hasłem oraz użycie wątków.
+Aspose.Slides for .NET łączy prezentacje poprzez klonowanie slajdów z jednej [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) do drugiej. Główną operacją jest [ISlideCollection.AddClone](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection/addclone/), która może zachować formatowanie źródłowego slajdu lub dołączyć sklonowany slajd do mastera lub layoutu w docelowej prezentacji.
 
-## **Optymalizacja scalania prezentacji**
+Ten artykuł opisuje najczęstsze scenariusze łączenia:
 
-Z [Aspose.Slides for .NET](https://products.aspose.com/slides/pl/net/) łatwo łączysz prezentacje PowerPoint, zachowując style, układy i wszystkie elementy. W przeciwieństwie do innych narzędzi, Aspose.Slides scala prezentacje bez utraty jakości ani danych. Scalaj całe prezentacje, konkretne slajdy oraz różne formaty plików (PPT do PPTX itp.).
+- połącz wszystkie slajdy, zachowując ich formatowanie źródłowe;
+- połącz wybrane slajdy;
+- zastosuj master z docelowej prezentacji;
+- zastosuj konkretny layout z docelowej prezentacji;
+- znormalizuj różne rozmiary slajdów przed łączeniem;
+- dodaj sklonowane slajdy do sekcji;
+- połącz kilka prezentacji w jednym kompletnym przepływie pracy;
+- obsłuż mastery, zasoby, notatki, komentarze, multimedia, czcionki, hasła, duże pliki i kwestie wielowątkowości.
 
-### **Funkcje scalania**
+## **Jak klonowanie slajdów wpływa na mastery i layouty**
 
-- **Pełne scalanie prezentacji:** Zbierz wszystkie slajdy w jednym pliku.
-- **Scalanie wybranych slajdów:** Wybierz i połącz wybrane slajdy.
-- **Scalanie międzyformatowe:** Integruj prezentacje o różnych formatach, zachowując integralność.
+Slajd dziedziczy dużą część wyglądu z swojego layoutu i mastera. Z tego powodu wybrany przeciążony operator klonowania określa, w jaki sposób połączony slajd zostanie zintegrowany z docelową prezentacją.
 
-{{% alert title="Wskazówka" color="primary" %}}  
+Użyj [ISlideCollection.AddClone](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection/addclone/) w jeden z poniższych sposobów:
 
-Szukasz szybkiego i **darmowego narzędzia online** do **scalania prezentacji PowerPoint**? Wypróbuj [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/pl/merger).  
+- `AddClone(sourceSlide)` — zachowuje layout i formatowanie źródłowego slajdu. W razie potrzeby źródłowy master może zostać automatycznie sklonowany do docelowej prezentacji. Aspose.Slides śledzi automatycznie sklonowane mastery, więc powtarzające się slajdy używające tego samego źródłowego mastera nie powodują wielokrotnego klonowania tego mastera.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — dołącza sklonowany slajd do określonego docelowego [IMasterSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/imasterslide/). Aspose.Slides wyszukuje pasujący layout pod tym masterem według typu layoutu lub nazwy.
+- `AddClone(sourceSlide, destinationLayout)` — dołącza sklonowany slajd bezpośrednio do określonego docelowego [ILayoutSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/ilayoutslide/).
 
-- **Łatwe scalanie plików PowerPoint**: Połącz wiele prezentacji **PPT, PPTX, ODP** w jeden plik.  
-- **Obsługa różnych formatów**: Scal **PPT do PPTX**, **PPTX do ODP** i inne.  
-- **Bez instalacji**: Działa bezpośrednio w przeglądarce, szybko i bezpiecznie.  
+Master lub layout przekazany do przeciążenia `AddClone` musi należeć do **docelowej** prezentacji, a nie do źródłowej.
 
-[![Scal pliki PowerPoint online](slides-merger.png)](https://products.aspose.app/slides/pl/merger)  
+## **Scalanie całych prezentacji i zachowanie formatowania źródłowego**
 
-Rozpocznij scalanie swoich plików PowerPoint już dziś z **darmowym narzędziem online Aspose**!  
+Najprostsze scalanie kopiuje każdy slajd ze źródłowej prezentacji do docelowej. Jest to właściwy wybór, gdy importowane slajdy mają zachować oryginalny motyw, master i zależności layoutu.
 
-{{% /alert %}}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Scalanie prezentacji**
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-Kiedy [scalasz jedną prezentację z drugą](https://products.aspose.com/slides/pl/net/merger/ppt/), efektywnie łączysz ich slajdy w jednej prezentacji, aby uzyskać jeden plik. 
-
-{{% alert title="Informacja" color="info" %}}
-
-Większość programów do prezentacji (PowerPoint lub OpenOffice) nie posiada funkcji umożliwiających łączenie prezentacji w taki sposób. 
-
-[Aspose.Slides for .NET](https://products.aspose.com/slides/pl/net/) umożliwia scalanie prezentacji na różne sposoby. Możesz scalić prezentacje ze wszystkimi ich kształtami, stylami, tekstami, formatowaniem, komentarzami, animacjami itp., nie obawiając się utraty jakości lub danych. 
-
-**Zobacz także**
-
-[Clone Slides](https://docs.aspose.com/slides/pl/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
-
-{{% /alert %}}
-
-### **Co można scalić**
-
-Z Aspose.Slides możesz scalić 
-
-* całe prezentacje. Wszystkie slajdy z prezentacji trafiają do jednej prezentacji
-* wybrane slajdy. Wybrane slajdy trafiają do jednej prezentacji
-* prezentacje w jednym formacie (PPT do PPT, PPTX do PPTX itp.) oraz w różnych formatach (PPT do PPTX, PPTX do ODP itp.) ze sobą. 
-
-{{% alert title="Uwaga" color="warning" %}} 
-
-Oprócz prezentacji Aspose.Slides umożliwia scalanie innych plików:
-
-* [Obrazy](https://products.aspose.com/slides/pl/net/merger/image-to-image/), np. [JPG do JPG](https://products.aspose.com/slides/pl/net/merger/jpg-to-jpg/) lub [PNG do PNG](https://products.aspose.com/slides/pl/net/merger/png-to-png/)
-* Dokumenty, np. [PDF do PDF](https://products.aspose.com/slides/pl/net/merger/pdf-to-pdf/) lub [HTML do HTML](https://products.aspose.com/slides/pl/net/merger/html-to-html/)
-* Dwa różne pliki, np. [obraz do PDF](https://products.aspose.com/slides/pl/net/merger/image-to-pdf/), [JPG do PDF](https://products.aspose.com/slides/pl/net/merger/jpg-to-pdf/) lub [TIFF do PDF](https://products.aspose.com/slides/pl/net/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Opcje scalania**
-
-Możesz zastosować opcje określające, czy
-
-* każdy slajd w wynikowej prezentacji zachowuje unikalny styl
-* określony styl jest używany dla wszystkich slajdów w wynikowej prezentacji. 
-
-Aby scalić prezentacje, Aspose.Slides udostępnia metody [AddClone](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection/methods/addclone) (z interfejsu [ISlideCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection)). Istnieje kilka implementacji metod `AddClone`, które definiują parametry procesu scalania prezentacji. Każdy obiekt Presentation ma kolekcję [Slides](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/properties/slides), więc możesz wywołać metodę `AddClone` z prezentacji, do której chcesz scalić slajdy. 
-
-Metoda `AddClone` zwraca obiekt `ISlide`, będący klonem slajdu źródłowego. Slajdy w prezentacji wynikowej są po prostu kopiami slajdów ze źródła. Dzięki temu możesz modyfikować powstałe slajdy (np. stosować style, opcje formatowania lub układy), nie martwiąc się o wpływ na prezentacje źródłowe. 
-
-## **Scalanie prezentacji** 
-
-Aspose.Slides udostępnia metodę [**AddClone (ISlide)**](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection/methods/addclone), która pozwala łączyć slajdy, zachowując ich układy i style (parametry domyślne). 
-
-Ten kod C# pokazuje, jak scalić prezentacje:
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide);
-    }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(slide);
 }
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-## **Scalanie prezentacji z szablonem mastera slajdów**
+Wynikowa prezentacja może zawierać wiele masterów, gdy źródło i cel używają różnych projektów. Jest to oczekiwane, gdy formatowanie źródłowe jest celowo zachowywane.
 
-Aspose.Slides udostępnia metodę [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/pl/net/aspose.slides.islidecollection/addclone/methods/2), która pozwala połączyć slajdy, stosując szablon mastera slajdów. Dzięki temu, w razie potrzeby, możesz zmienić styl slajdów w prezentacji wynikowej. 
+## **Scalanie wybranych slajdów**
 
-Ten kod C# demonstruje opisaną operację:
+Nie musisz klonować każdego slajdu. Poniższy przykład importuje tylko wybrane indeksy slajdów ze źródłowej prezentacji.
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
 {
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
-    }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(source.Slides[index]);
 }
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Uwaga" color="warning" %}} 
+Sprawdź poprawność indeksów slajdów przed klonowaniem, gdy pochodzą one od użytkownika lub z konfiguracji zewnętrznej.
 
-Układ slajdu dla mastera jest określany automatycznie. Gdy nie można określić odpowiedniego układu, a parametr logiczny `allowCloneMissingLayout` metody `AddClone` jest ustawiony na true, używany jest układ slajdu źródłowego. W przeciwnym razie zostanie zgłoszony [PptxEditException](https://reference.aspose.com/slides/pl/net/aspose.slides/pptxeditexception). 
+## **Scalanie slajdów przy użyciu docelowego mastera**
 
-{{% /alert %}}
+Użyj przeciążenia [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection/addclone/) gdy importowane slajdy mają korzystać z mastera, który już należy do docelowej prezentacji.
 
-Jeśli chcesz, aby slajdy w prezentacji wynikowej miały inny układ slajdu, użyj metody [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pl/net/aspose.slides.islidecollection/addclone/methods/1) podczas scalania. 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Scalanie wybranych slajdów z prezentacji**
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-Scalanie konkretnych slajdów z wielu prezentacji jest przydatne przy tworzeniu niestandardowych zestawów slajdów. Aspose.Slides for .NET umożliwia wybranie i importowanie tylko potrzebnych slajdów. API zachowuje formatowanie, układ i projekt oryginalnych slajdów.
+var destinationMaster = destination.Masters[0];
 
-Poniższy kod C# tworzy nową prezentację, dodaje slajdy tytułowe z dwóch innych prezentacji i zapisuje wynik do pliku:
-
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
+foreach (var slide in source.Slides)
 {
-    presentation.Slides.RemoveAt(0);
-
-    ISlide slide1 = GetTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
-
-    ISlide slide2 = GetTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
-
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
 }
-```
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
 ```
 
-## **Scalanie prezentacji z układem slajdu**
+Aspose.Slides wybiera odpowiedni layout pod określonym masterem, dopasowując typ lub nazwę layoutu źródłowego. Jeśli nie istnieje odpowiedni layout i `allowCloneMissingLayout` ma wartość `true`, layout źródłowy jest klonowany, aby slajd mógł zostać dodany. Jeśli ma wartość `false`, zostaje rzucony [PptxEditException](https://reference.aspose.com/slides/pl/net/aspose.slides/pptxeditexception/).
 
-Ten kod C# pokazuje, jak połączyć slajdy z prezentacji, stosując wybrany układ slajdu, aby uzyskać jedną prezentację wynikową:
+Użyj `false`, gdy chcesz, aby scalanie zakończyło się błędem zamiast wprowadzania dodatkowego layoutu do docelowego mastera.
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+## **Scalanie slajdów przy użyciu konkretnego docelowego layoutu**
+
+Użyj przeciążenia [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection/addclone/) gdy dokładnie wiesz, którego docelowego layoutu mają używać importowane slajdy.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(slide, destinationLayout);
 }
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 ```
+
+Zastosowanie docelowego layoutu zmienia dziedziczoną relację layoutu; nie przerysowuje treści slajdu źródłowego. Jeśli layouty źródłowy i docelowy mają różne struktury placeholderów, sprawdź rezultat, aby potwierdzić, że dziedziczone formatowanie i zachowanie placeholderów są odpowiednie.
 
 ## **Scalanie prezentacji o różnych rozmiarach slajdów**
 
-{{% alert title="Uwaga" color="warning" %}} 
+Prezentacje o różnych wymiarach slajdów można scalać, ale klonowanie slajdu do prezentacji o innym rozmiarze slajdu nie przerysowuje automatycznie jego treści na nowym płótnie. Kształty mogą więc być przesunięte, skalowane nieoczekiwanie lub znajdować się poza widocznym obszarem slajdu.
 
-Nie można scalić prezentacji o różnych rozmiarach slajdów. 
+Praktycznym podejściem jest zmiana rozmiaru źródłowej prezentacji przed klonowaniem. Metoda [SlideSize.SetSize](https://reference.aspose.com/slides/pl/net/aspose.slides/slidesize/setsize/) może skalować istniejącą treść przy zmianie wymiarów slajdu. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pl/net/aspose.slides/slidesizescaletype/) skaluje treść, aby pasowała do żądanego rozmiaru.
 
-{{% /alert %}}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Aby scalić dwie prezentacje o różnych rozmiarach slajdów, należy zmienić rozmiar jednej z nich, aby dopasować go do drugiej. 
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-Poniższy kod demonstruje opisane działanie:
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
 {
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
 }
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 ```
 
-## **Scalanie slajdów do sekcji prezentacji**
+Zmiana rozmiaru modyfikuje obiekt źródłowej prezentacji w pamięci. Jeśli potrzebujesz niezmienionej oryginalnej prezentacji źródłowej do innych operacji, otwórz osobną instancję do scalania.
 
-Ten kod C# pokazuje, jak scalić określony slajd do sekcji w prezentacji:
+## **Scalanie slajdów w sekcję prezentacji**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+Podstawowa pętla klonowania slajdów nie odtwarza hierarchii sekcji w źródłowej prezentacji. Jeśli sekcje mają znaczenie w wyniku, utwórz lub wybierz sekcje w docelowej prezentacji i klonuj slajdy do nich wyraźnie przy użyciu [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection/addclone/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
 {
-    for (var index = 0; index < pres2.Slides.Count; index++)
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+Sklonowane slajdy są dołączane do określonej sekcji docelowej. Aby zachować kilka sekcji źródłowych, odtwórz te sekcje w docelowej prezentacji i mapuj każdy slajd źródłowy do odpowiedniej sekcji docelowej.
+
+## **Bezpieczne scalanie wielu prezentacji**
+
+Poniższy przykład end-to-end używa pierwszej prezentacji jako docelowej, normalizuje rozmiar slajdu każdego dodatkowego źródła, utrzymuje każde źródło otwarte tylko w czasie kopiowania i zapisuje finalny plik jednorazowo.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    foreach (var slide in source.Slides)
+    {
+        merged.Slides.AddClone(slide);
+    }
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-Slajd jest dodawany na koniec sekcji. 
+Jest to przydatna podstawa do zachowania formatowania źródłowego importowanych slajdów. Jeśli wynik musi używać jednego tematu docelowego, zastąp proste wywołanie `AddClone(slide)` odpowiednim przeciążeniem destination-master lub destination-layout pokazanym wcześniej.
 
-{{% alert title="Wskazówka" color="primary" %}}
+## **Praktyczne uwagi**
 
-Aspose oferuje [DARMOWĄ aplikację internetową Collage](https://products.aspose.app/slides/pl/collage). Korzystając z tej usługi online, możesz scalić [JPG do JPG](https://products.aspose.app/slides/pl/collage/jpg) lub PNG do PNG, tworzyć [siatki zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid) i inne. 
+### **Mastery, layouty i wierność formatowania**
 
-{{% /alert %}}
+Domyślne klonowanie slajdów może automatycznie przenieść wymagany master źródłowy do docelowej prezentacji. Aspose.Slides utrzymuje wewnętrzny rejestr automatycznie klonowanych masterów, aby uniknąć wielokrotnego klonowania tego samego mastera. Ręcznie klonowane mastery nie są śledzone w tym rejestrze, więc unikaj wstępnego klonowania masterów, chyba że potrzebujesz wyraźnej kontroli nad strukturą mastera.
+
+Nie zakładaj, że dwa mastery lub layouty o tej samej nazwie są wizualnie równoważne. Jeśli szablon korporacyjny ma kontrolować końcowy wygląd, wybierz wyraźnie docelowy master lub layout i zweryfikuj rezultat po scaleniu.
+
+### **Notatki i komentarze**
+
+Notatki prelegenta i komentarze slajdów są powiązane z treścią slajdu i są kopiowane przy klonowaniu slajdu. Aspose.Slides udostępnia także dedykowane API dla [notatek prezentacji](https://docs.aspose.com/slides/pl/net/presentation-notes/) i [komentarzy prezentacji](https://docs.aspose.com/slides/pl/net/presentation-comments/).
+
+Jeśli formatowanie strony notatek jest ważne, zweryfikuj scaloną prezentację, ponieważ mastery notatek są obiektami na poziomie prezentacji i mogą się różnić między plikami źródłowymi. W procesach przeglądu zweryfikuj również autorów komentarzy i komentarze wątkowe po połączeniu plików od różnych autorów lub szablonów.
+
+### **Obrazy, audio, wideo, obiekty OLE i linki zewnętrzne**
+
+Slajdy mogą odwoływać się do zasobów na poziomie prezentacji, takich jak obrazy, osadzone audio, osadzone wideo i dane OLE. Sklonuj sam slajd, a nie tylko jego widoczne kształty, aby Aspose.Slides mógł utrzymać relacje slajdu do jego zasobów.
+
+Zasoby osadzone i linkowane należy traktować odrębnie. Linkowane audio, wideo, obiekt OLE lub hiperlink pozostają zależne od zewnętrznego celu; klonowanie slajdu nie przekształca linku zewnętrznego w treść osadzoną. Testuj ścieżki i adresy URL zasobów linkowanych w środowisku, w którym otwierana będzie scalona prezentacja.
+
+Aspose.Slides explicite śledzi automatycznie klonowane mastery, ale nie należy tego traktować jako ogólnej gwarancji, że identyczne zasoby binarne z niepowiązanych źródeł będą zawsze deduplikowane. Jeśli rozmiar pliku wyjściowego ma znaczenie, przejrzyj scalony pakiet i zmierz wynik zamiast polegać na domyślnej deduplikacji.
+
+### **Czcionki osadzone i dostępność czcionek**
+
+Czcionki są zarządzane na poziomie prezentacji. Jeśli typografia musi pozostać spójna na różnych maszynach, nie zakładaj, że samo klonowanie slajdów zapewnia dostępność każdej wymaganej czcionki w środowisku docelowym. Możesz sprawdzić osadzone czcionki za pomocą [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/pl/net/aspose.slides/fontsmanager/getembeddedfonts/) i zarządzać osadzaniem explicite, jak opisano w [Embed Fonts in Presentations](https://docs.aspose.com/slides/pl/net/embedded-font/).
+
+Sprawdź również, czy masz prawo osadzać czcionki użyte w plikach źródłowych. Licencje czcionek mogą ograniczać osadzanie.
+
+### **Prezentacje zabezpieczone hasłem**
+
+Źródło zabezpieczone hasłem musi zostać pomyślnie otwarte, zanim jego slajdy będą mogły zostać sklonowane. Podaj hasło poprzez [LoadOptions.Password](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/password/).
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
+```
+
+Otwieranie zaszyfrowanego źródła nie stosuje automatycznie takiej samej ochrony do docelowej prezentacji. Skonfiguruj ochronę wyjściową osobno, gdy jest wymagana.
+
+### **Duże prezentacje i zużycie pamięci**
+
+Duże prezentacje zawierające obrazy wysokiej rozdzielczości, audio, wideo lub inne duże obiekty binarne mogą zużywać znaczną ilość pamięci. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/blobmanagementoptions/) zapewnia kontrolę nad obsługą BLOB-ów i użyciem plików tymczasowych. Zobacz [Manage Presentation BLOBs](https://docs.aspose.com/slides/pl/net/manage-blob/) w celu strategii na duże pliki.
+
+W przypadku dużych plików, w miarę możliwości wczytuj z ścieżek plików, zwalniaj każdą źródłową prezentację natychmiast po scaleniu i unikaj wielokrotnego zapisywania wyników pośrednich, chyba że przepływ pracy wymaga punktów kontrolnych.
+
+### **Bezpieczeństwo wątków**
+
+Nie wczytuj, nie modyfikuj, nie zapisuj ani nie klonuj tej samej [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) jednocześnie z wielu wątków. Trzymaj każdą instancję prezentacji ograniczoną do jednej operacji scalania. Jeśli równolegle wykonujesz niezależne zadania, używaj niezależnych instancji prezentacji i postępuj zgodnie z [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/pl/net/multithreading/).
 
 ## **FAQ**
 
-**Czy notatki prelegenta są zachowywane podczas scalania?**
+**Jak zachować oryginalny projekt każdej źródłowej prezentacji?**
 
-Tak. Podczas klonowania slajdów Aspose.Slides przenosi wszystkie elementy slajdu, w tym notatki, formatowanie i animacje.
+Użyj [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection/addclone/) bez podawania mastera lub layoutu docelowego. Aspose.Slides może automatycznie sklonować źródłowy master, gdy jest potrzebny dla importowanego slajdu.
 
-**Czy komentarze i ich autorzy są przenoszeni?**
+**Jak sprawić, by importowane slajdy używały motywu docelowego?**
 
-Komentarze, jako część treści slajdu, są kopiowane razem ze slajdem. Etykiety autorów komentarzy są zachowywane jako obiekty komentarzy w powstałej prezentacji.
+Użyj przeciążenia, które przyjmuje master docelowy. Przekaż master z docelowej prezentacji, a nie ze źródłowej. Aspose.Slides spróbuje dopasować każdy slajd źródłowy do odpowiedniego layoutu pod tym masterem.
 
-**Co zrobić, gdy prezentacja źródłowa jest chroniona hasłem?**
+**Kiedy używać konkretnego layoutu docelowego zamiast mastera docelowego?**
 
-Należy ją [otworzyć z hasłem](/slides/pl/net/password-protected-presentation/) przy użyciu [LoadOptions.Password](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/password/); po załadowaniu slajdy można bezpiecznie sklonować do niechronionego pliku docelowego (lub również chronionego).
+Użyj konkretnego layoutu, gdy każdy importowany slajd ma korzystać z jednego znanego layoutu. Użyj mastera, gdy chcesz, aby Aspose.Slides wybierał spośród layoutów tego mastera na podstawie typu lub nazwy layoutu źródłowego.
 
-**Jak bezpieczne jest użycie wielu wątków podczas scalania?**
+**Czy prezentacje o różnych rozmiarach slajdów można scalać?**
 
-Nie używaj tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) z [wielu wątków](/slides/pl/net/multithreading/). Zalecana zasada to „jeden dokument — jeden wątek”; różne pliki mogą być przetwarzane równolegle w oddzielnych wątkach.
+Tak, ale zawartość slajdu nie jest automatycznie przerysowywana do wymiarów docelowych. Zmień rozmiar źródłowej prezentacji najpierw, gdy potrzebujesz przewidywalnego rozmieszczenia, na przykład przy użyciu [SlideSize.SetSize](https://reference.aspose.com/slides/pl/net/aspose.slides/slidesize/setsize/) i [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pl/net/aspose.slides/slidesizescaletype/).
+
+**Czy mogę scalać pliki PPT, PPTX i ODP w jeden plik?**
+
+Tak. Wczytaj każdą źródłową prezentację, sklonuj wymagane slajdy do jednej docelowej i zapisz docelową w obsługiwanym formacie wyjściowym. Ponieważ formaty prezentacji nie obsługują dokładnie tego samego zestawu funkcji, zweryfikuj złożoną zawartość po scalaniu międzyformatowym. Zobacz [Supported File Formats](https://docs.aspose.com/slides/pl/net/supported-file-formats/).
+
+**Czy sekcje źródłowe są zachowywane automatycznie?**
+
+Nie, przy podstawowej pętli, która tylko klonuje slajdy. Odtwórz wymagane sekcje w docelowej prezentacji i użyj przeciążenia sekcji [AddClone](https://reference.aspose.com/slides/pl/net/aspose.slides/islidecollection/addclone/) gdy struktura sekcji musi być zachowana.
+
+**Czy notatki prelegenta i komentarze są zachowane?**
+
+Są kopiowane wraz ze sklonowanym slajdem. Dla przepływów pracy zależnych od stylizacji mastera notatek, autorów komentarzy lub danych recenzji wątkowych, zweryfikuj wynik scalania, ponieważ te scenariusze obejmują struktury na poziomie prezentacji oraz treść slajdu.
+
+**Co się dzieje z audio, wideo, obiektami OLE i hiperłączami?**
+
+Zawartość osadzona jest przenoszona jako część relacji zasobów sklonowanego slajdu. Linki zewnętrzne pozostają zewnętrzne, więc ich pliki docelowe lub adresy URL muszą być nadal dostępne po scaleniu.
+
+**Czy osadzone czcionki ze wszystkich źródeł są gwarantowane w scalonej prezentacji?**
+
+Nie polegaj wyłącznie na klonowaniu slajdów przy wdrażaniu czcionek. Sprawdź osadzone czcionki w docelowej prezentacji i explicite zarządzaj osadzaniem czcionek lub dostępnością czcionek zewnętrznych, gdy typografia jest istotna.
+
+**Jak scalać plik zabezpieczony hasłem?**
+
+Otwórz go z poprawnym [LoadOptions.Password](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/password/), a następnie normalnie sklonuj jego slajdy. Ochrona wyjścia jest konfigurowana osobno.
+
+**Jak postępować z bardzo dużymi prezentacjami?**
+
+Używaj zarządzania BLOB, gdy duże obiekty binarne dominują w zużyciu pamięci, preferuj wczytywanie z ścieżek plików dla bardzo dużych plików, szybko zwalniaj źródłowe prezentacje i zapisuj ostateczny wynik tylko w razie potrzeby.
+
+**Czy mogę scalać slajdy z wielu wątków?**
+
+Nie używaj jednej [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) jednocześnie z wielu wątków. Trzymaj każdą operację scalania izolowaną w osobnych instancjach prezentacji.

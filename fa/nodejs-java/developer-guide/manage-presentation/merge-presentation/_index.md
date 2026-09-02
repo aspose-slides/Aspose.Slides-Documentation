@@ -1,5 +1,5 @@
 ---
-title: ترکیب کارآمد ارائه‌ها در جاوااسکریپت
+title: ادغام مؤثر ارائه‌ها در جاوااسکریپت
 linktitle: ادغام ارائه‌ها
 type: docs
 weight: 40
@@ -18,266 +18,346 @@ keywords:
 - ترکیب PPTX
 - ترکیب ODP
 - Node.js
-- JavaScript
+- جاوااسکریپت
 - Aspose.Slides
-description: "به‌راحتی ارائه‌های PowerPoint (PPT، PPTX) و OpenDocument (ODP) را در جاوااسکریپت با Aspose.Slides برای Node.js ترکیب کنید و جریان کار خود را بهینه‌سازی کنید."
+description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در جاوااسکریپت با تکثیر اسلایدها، کنترل مسترها و طرح‌بندی‌ها، تغییر اندازه محتوای اسلاید، حفظ بخش‌ها و مدیریت فایل‌های محافظت‌شده یا بزرگ ادغام کنید."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-Aspose.Slides به شما امکان ترکیب ارائه‌ها را با کپی کردن اسلایدها از یک ارائه به ارائه دیگر می‌دهد. این مقاله توضیح می‌دهد چگونه کل ارائه‌ها یا اسلایدهای انتخابی را ترکیب کنید، هنگام ترکیب از یک اسلاید مستر یا چیدمان خاصی استفاده کنید، ارائه‌هایی با اندازه اسلاید متفاوت را مدیریت کنید، و اسلایدهای ترکیب‌شده را به یک بخش ارائه اضافه کنید. همچنین نکات عملی مرتبط با محتوای ترکیب‌شده شامل یادداشت‌های سخنران، نظرات، فایل‌های منبع با رمز عبور، و استفاده از نخ‌ها را پوشش می‌دهد.
+Aspose.Slides برای Node.js از طریق Java ارائه‌ها را با تکثیر اسلایدها از یک [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) به دیگری ترکیب می‌کند. عملیات اصلی [SlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) است که می‌تواند قالب‌بندی اسلاید منبع را حفظ کند یا اسلاید تکثیر شده را به یک مستر یا طرح‌بندی در ارائه مقصد پیوست کند.
 
-## **ادغام ارائه‌ها**
+این مقاله رایج‌ترین جریان‌های کاری ادغام را پوشش می‌دهد:
 
-هنگامی که یک ارائه را به ارائه دیگر ترکیب می‌کنید، در واقع اسلایدهای آن‌ها را در یک ارائه واحد ادغام می‌کنید تا یک فایل به‌دست آورید.
+- ادغام تمام اسلایدها در حالی که قالب‌بندی منبع آن‌ها حفظ می‌شود؛  
+- ادغام اسلایدهای انتخابی؛  
+- اعمال یک مستر از ارائه مقصد؛  
+- اعمال یک طرح‌بندی خاص از ارائه مقصد؛  
+- نرمال‌سازی اندازه‌های مختلف اسلاید قبل از ادغام؛  
+- افزودن اسلایدهای تکثیر شده به یک بخش؛  
+- ادغام چندین ارائه در یک جریان کار انتها به انتها؛  
+- مدیریت مسترها، منابع، یادداشت‌ها، نظرات، رسانه‌ها، قلم‌ها، رمزهای عبور، فایل‌های بزرگ و مسائل چندنخی.
 
-{{% alert title="Info" color="info" %}}
+## **چگونه تکثیر اسلاید بر مسترها و طرح‌بندی‌ها تأثیر می‌گذارد**
 
-اکثر برنامه‌های ارائه (PowerPoint یا OpenOffice) قابلیت ترکیب ارائه‌ها به این شکل را ندارند.
+یک اسلاید بخش زیادی از ظاهر خود را از طرح‌بندی و مستر خود به ارث می‌برد. به همین دلیل، نسخه‌ی اضافه‌شده (overload) تکثیر که انتخاب می‌کنید تعیین می‌کند اسلاید ادغام‌شده چگونه در ارائه مقصد یکپارچه می‌شود.
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/fa/nodejs-java/)، با این حال، امکان ترکیب ارائه‌ها را به روش‌های مختلف فراهم می‌کند. شما می‌توانید ارائه‌ها را همراه با تمام اشکال، سبک‌ها، متن‌ها، قالب‌بندی، نظرات، انیمیشن‌ها و غیره ترکیب کنید بدون این‌که نگران از دست رفتن کیفیت یا داده‌ها باشید.
+از [SlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/) به یکی از روش‌های زیر استفاده کنید:
 
-**همچنین ببینید**
+- `addClone(sourceSlide)` — قالب‌بندی و طرح‌بندی اسلاید منبع را حفظ می‌کند. در صورت نیاز، مستر منبع می‌تواند به‌صورت خودکار به ارائه مقصد تکثیر شود. Aspose.Slides مسترهای تکثیر شده به‌صورت خودکار را ردیابی می‌کند تا اسلایدهای مکرری که از همان مستر منبع استفاده می‌کنند، مستر را چندین بار تکثیر نکنند.  
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — اسلاید تکثیر شده را به یک [MasterSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) خاص در مقصد پیوست می‌کند. Aspose.Slides یک طرح‌بندی مطابقت‌دهنده تحت آن مستر را بر اساس نوع یا نام طرح‌بندی جستجو می‌کند.  
+- `addClone(sourceSlide, destinationLayout)` — اسلاید تکثیر شده را مستقیماً به یک [LayoutSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/) خاص در مقصد پیوست می‌کند.
 
-[کپی اسلایدها](https://docs.aspose.com/slides/fa/nodejs-java/clone-slides/).
+مستر یا طرح‌بندی‌ای که به یک overload از `addClone` ارسال می‌شود باید متعلق به ارائه **مقصد** باشد، نه ارائه منبع.
 
-{{% /alert %}}
+## **ادغام کل ارائه‌ها و حفظ قالب‌بندی منبع**
 
-### **موارد قابل ترکیب**
-
-با Aspose.Slides می‌توانید ترکیب کنید:
-
-* کل ارائه‌ها. تمام اسلایدهای ارائه‌ها در یک ارائه قرار می‌گیرند
-* اسلایدهای خاص. اسلایدهای انتخاب‌شده در یک ارائه قرار می‌گیرند
-* ارائه‌ها در یک فرمت (PPT به PPT، PPTX به PPTX و غیره) و در فرمت‌های مختلف (PPT به PPTX، PPTX به ODP و غیره) به یکدیگر.
-
-### **گزینه‌های ترکیب**
-
-می‌توانید گزینه‌هایی اعمال کنید که تعیین می‌کنند آیا:
-
-* هر اسلاید در ارائه خروجی یک سبک منحصر به فرد حفظ کند
-* یک سبک خاص برای تمام اسلایدهای ارائه خروجی استفاده شود.
-
-برای ترکیب ارائه‌ها، Aspose.Slides روش‌های [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را از کلاس [SlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection) فراهم می‌کند. چندین پیاده‌سازی از متدهای `addClone` وجود دارد که پارامترهای فرآیند ترکیب ارائه را تعریف می‌کند. هر شیء Presentation دارای مجموعه‌ای به نام [Slides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getSlides--) است، بنابراین می‌توانید متد `addClone` را از ارائه‌ای که می‌خواهید اسلایدها را به آن ترکیب کنید فراخوانی کنید.
-
-متد `addClone` یک شیء `Slide` برمی‌گرداند که نسخه‌ای کلون شده از اسلاید منبع است. اسلایدهای یک ارائه خروجی به سادگی کپی اسلایدهای منبع هستند. بنابراین می‌توانید تغییرات لازم را بر روی اسلایدهای حاصل (مانند اعمال سبک‌ها، گزینه‌های قالب‌بندی یا چیدمان‌ها) بدون نگرانی از تأثیر بر ارائه‌های منبع اعمال کنید.
-
-## **ترکیب ارائه‌ها**
-
-Aspose.Slides متد [**AddClone(ISlide)**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-) را فراهم می‌کند که به شما اجازه می‌دهد اسلایدها را ترکیب کنید در حالی که اسلایدها چیدمان و سبک‌های خود را حفظ می‌کنند (پارامترهای پیش‌فرض).
-
-این کد JavaScript نشان می‌دهد چگونه ارائه‌ها را ترکیب کنید:
+ساده‌ترین روش ادغام، کپی کردن هر اسلاید از ارائه منبع به ارائه مقصد است. این گزینه زمانی مناسب است که اسلایدهای وارد شده باید تم، مستر و روابط طرح‌بندی اصلی خود را حفظ کنند.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **ترکیب ارائه‌ها با اسلاید مستر**
+ارائه نتیجه ممکن است دارای چندین مستر باشد وقتی که منبع و مقصد از طرح‌های متفاوتی استفاده می‌کنند. این حالت زمانی که قالب‌بندی منبع عمداً حفظ شده باشد، انتظار می‌رود.
 
-Aspose.Slides متد [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) را فراهم می‌کند که به شما اجازه می‌دهد اسلایدها را ترکیب کنید در حالی که قالب ارائه اسلاید مستر را اعمال می‌کنید. به این ترتیب، در صورت نیاز می‌توانید سبک اسلایدهای ارائه خروجی را تغییر دهید.
+## **ادغام اسلایدهای انتخابی**
 
-این کد JavaScript عمل توضیح‌داده‌شده را نشان می‌دهد:
+نیازی به تکثیر تمام اسلایدها ندارید. مثال زیر فقط ایندکس‌های اسلایدهای انتخابی را از ارائه منبع وارد می‌کند.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const slideIndexes = [0, 2, 4];
+
+    for (const index of slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+قبل از تکثیر، ایندکس‌های اسلاید را زمانی که از ورودی کاربر یا پیکربندی خارجی می‌آیند، اعتبارسنجی کنید.
 
-چیدمان اسلاید برای اسلاید مستر به‌صورت خودکار تعیین می‌شود. هنگامی که چیدمان مناسب نتواند تعیین شود، اگر پارامتر بولی `allowCloneMissingLayout` متد `addClone` روی true تنظیم شده باشد، چیدمان اسلاید منبع استفاده می‌شود. در غیر اینصورت، استثنای [PptxEditException](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PptxEditException) پرتاب خواهد شد.
+## **ادغام اسلایدها با استفاده از مستر مقصد**
 
-{{% /alert %}}
-
-اگر می‌خواهید اسلایدهای ارائه خروجی دارای چیدمان اسلاید متفاوتی باشند، به‌جای آن هنگام ترکیب از متد [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) استفاده کنید.
-
-## **ترکیب اسلایدهای خاص از ارائه‌ها**
-
-ترکیب اسلایدهای خاص از چندین ارائه برای ایجاد مجموعه‌های سفارشی اسلاید مفید است. Aspose.Slides for Node.js via Java به شما امکان می‌دهد فقط اسلایدهای مورد نیاز را انتخاب و وارد کنید. API قالب‌بندی، چیدمان و طراحی اسلایدهای اصلی را حفظ می‌کند.
-
-کد JavaScript زیر یک ارائه جدید می‌سازد، اسلایدهای عنوان را از دو ارائه دیگر اضافه می‌کند و نتیجه را در فایلی ذخیره می‌نماید:
-
-```js
-function getTitleSlide(presentation) {
-  for (let i = 0; i < presentation.getSlides().size(); i++) {
-    let slide = presentation.getSlides().get_Item(i);
-    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
-      return slide;
-    }
-  }
-  return null;
-}
-```
-```js
-let presentation = new aspose.slides.Presentation();
-let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
-try {
-    presentation.getSlides().removeAt(0);
-    
-    let slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    let slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-
-## **ترکیب ارائه‌ها با چیدمان اسلاید**
-
-این کد JavaScript نشان می‌دهد چگونه اسلایدها را از ارائه‌ها ترکیب کنید در حالی که چیدمان اسلاید دلخواه خود را به آن‌ها اعمال می‌کنید تا یک ارائه خروجی به‌دست آورید:
+وقتی اسلایدهای وارد شده باید تحت مستری که پیشاپیش به ارائه مقصد تعلق دارد، باشند، از overload [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) استفاده کنید.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationMaster = destination.getMasters().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationMaster, true);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-master.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **ترکیب ارائه‌ها با اندازه اسلایدهای متفاوت**
+Aspose.Slides یک طرح‌بندی مناسب زیر مستر مشخص را بر اساس تطبیق نوع یا نام طرح‌بندی منبع انتخاب می‌کند. اگر طرح‌بندی مناسبی وجود نداشته باشد و مقدار `allowCloneMissingLayout` برابر `true` باشد، طرح‌بندی منبع تکثیر می‌شود تا اسلاید اضافه شود. اگر `false` باشد، یک [PptxEditException](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pptxeditexception/) ایجاد می‌شود.
 
-{{% alert title="Note" color="warning" %}} 
+زمانی که می‌خواهید ادغام شکست بخورد به جای افزودن یک طرح‌بندی جدید به مستر مقصد، مقدار `false` را استفاده کنید.
 
-نمی‌توانید ارائه‌هایی با اندازه اسلاید متفاوت را ترکیب کنید.
+## **ادغام اسلایدها با استفاده از طرح‌بندی خاص مقصد**
 
-{{% /alert %}}
-
-برای ترکیب 2 ارائه با اندازه اسلاید متفاوت، باید یکی از ارائه‌ها را تغییر اندازه دهید تا سایز آن با ارائه دیگر مطابقت داشته باشد.
-
-این کد نمونه عمل توضیح‌داده‌شده را نمایش می‌دهد:
+وقتی دقیقاً می‌دانید اسلایدهای وارد شده باید از کدام طرح‌بندی مقصد استفاده کنند، از overload [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) استفاده کنید.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const destinationLayout = destination.getLayoutSlides().get_Item(0);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), destinationLayout);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    destination.save("merged-with-destination-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **ترکیب اسلایدها به بخش ارائه**
+اعمال یک طرح‌بندی مقصد رابطهٔ وراثتی طرح‌بندی را تغییر می‌دهد؛ اما محتوای اسلاید منبع را بازطراحی نمی‌کند. اگر طرح‌بندی‌های منبع و مقصد ساختارهای جای‌گیر متفاوتی داشته باشند، نتیجه را بررسی کنید تا تأیید کنید قالب‌بندی وراثت‌ یافته و رفتار جای‌گیرها مناسب است.
 
-این کد JavaScript نشان می‌دهد چگونه یک اسلاید خاص را به یک بخش در ارائه ترکیب کنید:
+## **ادغام ارائه‌ها با اندازه‌های اسلاید متفاوت**
+
+ارائه‌هایی با ابعاد اسلاید متفاوت می‌توانند ادغام شوند، اما تکثیر یک اسلاید به ارائه‌ای با اندازه اسلاید دیگر محتوای آن را به‌صورت خودکار برای بوم جدید بازطراحی نمی‌کند. به‌این دلیل اشکال ممکن است جابه‌جا، مقیاس‌دار به‌صورت ناخواسته یا خارج از ناحیهٔ قابل مشاهده اسلاید ظاهر شوند.
+
+یک راهکار عملی این است که قبل از تکثیر، اندازهٔ ارائه منبع را تغییر دهید. متد [SlideSize.setSize](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) می‌تواند محتوای موجود را در حین تغییر ابعاد اسلاید مقیاس‌بندی کند. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidesizescaletype/) محتوا را برای سازگاری با اندازهٔ درخواستی مقیاس می‌دهد.
 
 ```javascript
-let pres1 = new aspose.slides.Presentation("pres1.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
 try {
-    let pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
+    const sourceSize = source.getSlideSize().getSize();
+    const destinationSize = destination.getSlideSize().getSize();
+    const sizesDiffer = sourceSize.getWidth() !== destinationSize.getWidth() || 
+                        sourceSize.getHeight() !== destinationSize.getHeight();
+
+    if (sizesDiffer) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            aspose.slides.SlideSizeScaleType.EnsureFit);
     }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i));
+    }
+
+    destination.save("merged-same-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-اسلاید در انتهای بخش اضافه می‌شود.
+تغییر اندازه، شیء ارائه منبع را در حافظه تغییر می‌دهد. اگر به ارائه منبع اصلی برای عملیات دیگر بدون تغییر نیاز دارید، برای ادغام یک نمونهٔ جداگانه باز کنید.
 
-## **پرسش‌های متداول**
+## **ادغام اسلایدها در یک بخش ارائه**
 
-**آیا یادداشت‌های سخنران در هنگام ترکیب حفظ می‌شوند؟**
+حلقهٔ پایهٔ تکثیر اسلاید، سلسله‌مراتب بخش‌های ارائه منبع را بازسازی نمی‌کند. اگر بخش‌ها در خروجی مهم هستند، در ارائه مقصد بخش‌ها را ایجاد یا انتخاب کنید و اسلایدها را به‌صورت صریح با [addClone(Slide, Section)](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) به آن‌ها تکثیر کنید.
 
-بله. هنگام کلون کردن اسلایدها، Aspose.Slides تمام عناصر اسلاید شامل یادداشت‌ها، قالب‌بندی و انیمیشن‌ها را منتقل می‌کند.
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-**آیا نظرات و نویسندگان آن‌ها منتقل می‌شوند؟**
+const destination = new aspose.slides.Presentation("destination.pptx");
+const source = new aspose.slides.Presentation("source.pptx");
+try {
+    const importedSection = destination.getSections().appendEmptySection("Imported slides");
 
-نظرات به‌عنوان بخشی از محتوای اسلاید کپی می‌شوند. برچسب‌های نویسنده نظرات به‌عنوان اشیاء نظر در ارائه حاصل حفظ می‌شوند.
+    for (let i = 0; i < source.getSlides().size(); i++) {
+        destination.getSlides().addClone(source.getSlides().get_Item(i), importedSection);
+    }
 
-**اگر ارائه منبع دارای رمز عبور باشد چه می‌شود؟**
+    destination.save("merged-with-section.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
 
-باید [با رمز عبور باز شود](/slides/fa/nodejs-java/password-protected-presentation/) از طریق [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/setpassword/); پس از بارگذاری، این اسلایدها می‌توانند به‌صورت امن به فایلی بدون رمز یا حتی به فایلی محافظت‌شده دیگر کلون شوند.
+اسلایدهای تکثیر شده به بخش مقصد مشخص اضافه می‌شوند. برای حفظ چندین بخش منبع، آن بخش‌ها را در مقصد بازسازی کنید و هر اسلاید منبع را به بخش مقصد متناظر نقشه‌بندی کنید.
 
-**عملیات ترکیب تا چه حد ایمن نسبت به نخ‌ها است؟**
+## **ادغام امن چندین ارائه**
 
-از استفاده همزمان از همان شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) در [چندین نخ](/slides/fa/nodejs-java/multithreading/) خودداری کنید. قاعده پیشنهادی این است: «یک سند — یک نخ»؛ فایل‌های متفاوت می‌توانند به‌صورت موازی در نخ‌های جداگانه پردازش شوند.
+مثال انتها به انتهای زیر از اولین ارائه به‌عنوان مقصد استفاده می‌کند، اندازهٔ اسلاید هر منبع اضافه را نرمال‌سازی می‌کند، هر منبع را تنها در طول زمان کپی کردن باز نگه می‌دارد و در نهایت فایل نهایی را یک بار ذخیره می‌کند.
 
-## **موارد مرتبط**
+```javascript
+const aspose = require("aspose.slides.via.java");
 
-Aspose یک [ابزار آنلاین رایگان ساخت کلاژ](https://products.aspose.app/slides/fa/collage) فراهم می‌کند. با استفاده از این سرویس آنلاین می‌توانید تصاویر [JPG به JPG](https://products.aspose.app/slides/fa/collage/jpg) یا PNG به PNG را ترکیب کنید، [شبکه‌های عکس](https://products.aspose.app/slides/fa/collage/photo-grid) بسازید و موارد دیگر.
+const inputFiles = ["part1.pptx", "part2.pptx", "part3.pptx"];
 
-به [ادغام‌کننده رایگان آنلاین Aspose](https://products.aspose.app/slides/fa/merger) سر بزنید. این ابزار به شما امکان می‌دهد ارائه‌های PowerPoint را در همان فرمت (مثلاً PPT به PPT، PPTX به PPTX) یا بین فرمت‌های مختلف (مثلاً PPT به PPTX، PPTX به ODP) ترکیب کنید.
+const merged = new aspose.slides.Presentation(inputFiles[0]);
+try {
+    const mergedSize = merged.getSlideSize().getSize();
 
-[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/fa/merger)
+    for (let fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        const source = new aspose.slides.Presentation(inputFiles[fileIndex]);
+        try {
+            const sourceSize = source.getSlideSize().getSize();
+            const sizesDiffer = sourceSize.getWidth() !== mergedSize.getWidth() || 
+                                sourceSize.getHeight() !== mergedSize.getHeight();
+
+            if (sizesDiffer) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    aspose.slides.SlideSizeScaleType.EnsureFit);
+            }
+
+            for (let slideIndex = 0; slideIndex < source.getSlides().size(); slideIndex++) {
+                merged.getSlides().addClone(source.getSlides().get_Item(slideIndex));
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+این یک پایهٔ مفید برای حفظ قالب‌بندی منبع اسلایدهای وارد شده است. اگر خروجی شما باید از یک تم مقصد واحد استفاده کند، فراخوانی سادهٔ `addClone(sourceSlide)` را با overload مناسب مستر یا طرح‌بندی مقصد که قبلاً نشان داده شد، جایگزین کنید.
+
+## **موارد عملی**
+
+### **مسترها، طرح‌بندی‌ها و صحت قالب‌بندی**
+
+تکثیر پیش‌فرض اسلاید می‌تواند مستر مورد نیاز منبع را به‌صورت خودکار به ارائه مقصد بیاورد. Aspose.Slides یک رجیستری داخلی برای مسترهای تکثیر شده به‌صورت خودکار نگه می‌دارد تا از تکثیر مکرر همان مستر جلوگیری کند. مسترهای تکثیر شده به‌صورت دستی توسط آن رجیستری ردیابی نمی‌شوند، بنابراین از پیش تکثیر مسترها خودداری کنید مگر اینکه کنترل صریحی بر ساختار مستر نیاز داشته باشید.
+
+فرض نکنید دو مستر یا طرح‌بندی با نام یکسان از نظر بصری برابر هستند. اگر یک قالب سازمانی باید ظاهر نهایی را کنترل کند، مستر یا طرح‌بندی مقصد را به‌صورت صریح انتخاب کنید و پس از ادغام نتیجه را تأیید کنید.
+
+### **یادداشت‌ها و نظرات**
+
+یادداشت‌های سخنران و نظرات اسلاید با محتوای اسلاید مرتبط هستند و هنگام تکثیر اسلاید کپی می‌شوند. Aspose.Slides همچنین API‌های اختصاصی برای [presentation notes](https://docs.aspose.com/slides/fa/nodejs-java/presentation-notes/) و [presentation comments](https://docs.aspose.com/slides/fa/nodejs-java/presentation-comments/) فراهم می‌کند.
+
+اگر قالب‌بندی صفحهٔ یادداشت‌ها مهم است، ارائه ادغام‌شده را بررسی کنید چون مسترهای یادداشت در سطح ارائه هستند و ممکن است بین فایل‌های منبع متفاوت باشند. برای جریان‌های کاری مرور، نویسندگان نظرات و نظرات زنجیره‌ای را پس از ترکیب فایل‌ها از نویسندگان یا قالب‌های مختلف نیز بررسی کنید.
+
+### **تصاویر، صدا، ویدئو، اشیای OLE و پیوندهای خارجی**
+
+اسلایدها می‌توانند به منابع سطح ارائه مانند تصاویر، صداهای توکار، ویدئوهای توکار و داده‌های OLE ارجاع دهند. به‌جای کپی فقط اشکال قابل مشاهده، کل اسلاید را تکثیر کنید تا Aspose.Slides بتواند روابط اسلاید با منابعش را حفظ کند.
+
+منابع توکار و پیوندی باید به‌طور متفاوتی رفتار شوند. یک صدا، ویدئو، شیء OLE یا ابرپیوند لینک‌شده به هدف خارجی خود وابسته می‌ماند؛ تکثیر اسلاید لینک خارجی را به محتوا توکار تبدیل نمی‌کند. مسیرها و URLهای منابع لینک‌شده را در محیطی که ارائه ادغام‌شده باز خواهد شد، آزمایش کنید.
+
+Aspose.Slides به‌صورت صریح مسترهای تکثیر شده به‌صورت خودکار را ردیابی می‌کند، اما این نباید به‌عنوان یک تضمین کلی تلقی شود که منابع باینری یکسان از ارائه‌های منبع نامرتبط همیشه حذف تکرار می‌شوند. اگر حجم فایل خروجی مهم است، بستهٔ ادغام‌شده را بررسی و نتیجه را اندازه‌گیری کنید به‌جای تکیه بر حذف تکرار ضمنی.
+
+### **قلم‌های توکار و در دسترس بودن قلم‌ها**
+
+قلم‌ها در سطح ارائه مدیریت می‌شوند. اگر تایپوگرافی باید در دستگاه‌های مختلف یکسان بماند، فرض نکنید که تنها تکثیر اسلایدها تضمین می‌کند تمام قلم‌های مورد نیاز در محیط مقصد موجود هستند. می‌توانید قلم‌های توکار را با [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) بررسی کنید و توکار کردن را به‌صورت صریح همانند راهنمای [Embed Fonts in Presentations](https://docs.aspose.com/slides/fa/nodejs-java/embedded-font/) مدیریت کنید.
+
+همچنین اطمینان حاصل کنید که اجازه توکار کردن قلم‌های استفاده شده در فایل‌های منبع را دارید. مجوزهای قلم می‌توانند توكار کردن را محدود کنند.
+
+### **ارائه‌های دارای رمز عبور**
+
+یک منبع دارای رمز عبور باید پیش از تکثیر اسلایدهایش با موفقیت باز شود. رمز عبور را از طریق [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setPassword-String-) ارائه دهید.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+const source = new aspose.slides.Presentation("protected.pptx", loadOptions);
+try {
+    // با ارائهٔ رمزگشایی‌شده کار کنید.
+} finally {
+    source.dispose();
+}
+```
+
+باز کردن منبع رمزگذاری‌شده به‌صورت خودکار همان حفاظت را به ارائه مقصد اعمال نمی‌کند. در صورت نیاز، حفاظت خروجی را به‌صورت جداگانه پیکربندی کنید.
+
+### **ارائه‌های بزرگ و مصرف حافظه**
+
+ارائه‌های بزرگ حاوی تصاویر با وضوح بالا، صدا، ویدئو یا سایر اشیای باینری بزرگ می‌توانند حافظه‌ زیادی مصرف کنند. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) کنترل‌هایی برای مدیریت BLOB و استفاده از فایل‌های موقت ارائه می‌دهد. برای استراتژی‌های فایل‌های بزرگ، به [Manage Presentation BLOBs](https://docs.aspose.com/slides/fa/nodejs-java/manage-blob/) مراجعه کنید.
+
+برای فایل‌های بزرگ، در صورت امکان ترجیحاً از مسیرهای فایل بارگذاری کنید، هر ارائه منبع را به محض ادغام آن آزاد کنید و از ذخیره مداوم نتایج میانی خودداری کنید مگر اینکه جریان کاری به نقاط بررسی نیاز داشته باشد.
+
+### **ایمنی در چندنخی**
+
+یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) را در چندین رشته بارگذاری، ذخیره یا تکثیر نکنید. این عملیات برای استفادهٔ چندنخی پشتیبانی نمی‌شود. اگر نیاز به موازی‌سازی شغل‌های ادغام مستقل دارید، از چندین پردازش تک‌نخی استفاده کنید، هر کدام دارای نمونه‌های ارائه خود باشند و راهنمای [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/fa/nodejs-java/multithreading/) را دنبال کنید.
+
+## **سوالات متداول**
+
+**چگونه می‌توانم طراحی اصلی هر ارائه منبع را حفظ کنم؟**
+
+از [`addClone(sourceSlide)`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) بدون ارائهٔ مستر یا طرح‌بندی مقصد استفاده کنید. Aspose.Slides می‌تواند مستر منبع را به‌صورت خودکار زمانی که اسلاید وارد شده به آن نیاز دارد، تکثیر کند.
+
+**چگونه اسلایدهای وارد شده را به استفاده از تم مقصد برسانم؟**
+
+از overload ای که مستر مقصد را می‌پذیرد استفاده کنید. یک مستر از ارائه مقصد، نه منبع، عبور دهید. Aspose.Slides سعی می‌کند هر اسلاید منبع را به یک طرح‌بندی مناسب تحت آن مستر نگاشت کند.
+
+**کی باید به‌جای مستر مقصد از یک طرح‌بندی خاص مقصد استفاده کنم؟**
+
+وقتی هر اسلاید وارد شده باید از یک طرح‌بندی شناخته‌شده استفاده کند، یک طرح‌بندی خاص را به کار ببرید. وقتی می‌خواهید Aspose.Slides بر اساس نوع یا نام طرح‌بندی منبع، میان طرح‌بندی‌های مستر انتخاب کند، از مستر استفاده کنید.
+
+**آیا می‌توان ارائه‌های با اندازه اسلاید متفاوت را ادغام کرد؟**
+
+بله، اما محتوای اسلاید به‌صورت خودکار برای ابعاد مقصد بازطراحی نمی‌شود. زمانی که به‌جایگذاری پیش‌بینی‌پذیر نیاز دارید، ابتدا اندازهٔ ارائه منبع را تغییر دهید، برای مثال با [SlideSize.setSize](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) و [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidesizescaletype/).
+
+**آیا می‌توانم فایل‌های PPT، PPTX و ODP را در یک فایل ترکیب کنم؟**
+
+بله. هر ارائه منبع را بارگذاری کنید، اسلایدهای مورد نیاز را به یک مقصد تکثیر کنید و مقصد را در یک قالب خروجی پشتیبانی‌شده ذخیره کنید. چون قالب‌های ارائه دقیقاً مجموعهٔ ویژگی‌های یکسانی ندارند، پس از ادغام‌های متقابل قالب، محتوای پیچیده را بررسی کنید. به [Supported File Formats](https://docs.aspose.com/slides/fa/nodejs-java/supported-file-formats/) مراجعه نمایید.
+
+**آیا بخش‌های منبع به‌صورت خودکار حفظ می‌شوند؟**
+
+خیر، یک حلقهٔ ساده که فقط اسلایدها را تکثیر می‌کند، بخش‌های منبع را حفظ نمی‌کند. بخش‌های مورد نیاز را در مقصد بازسازی کنید و زمانی که ساختار بخش‌ها باید حفظ شود، از overload بخش [addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) استفاده کنید.
+
+**آیا یادداشت‌های سخنران و نظرات حفظ می‌شوند؟**
+
+آنها همراه با اسلاید تکثیر شده کپی می‌شوند. برای جریان‌های کاری که به قالب‌بندی notes‑master، نویسندگان نظرات یا داده‌های مرور زنجیره‌ای وابسته‌اند، نتیجه‌ی ادغام را بررسی کنید زیرا این سناریوها شامل ساختارهای سطح ارائه و همچنین محتوای سطح اسلاید می‌شوند.
+
+**چه اتفاقی برای صدا، ویدئو، اشیای OLE و ابرپیوندها می‌افتد؟**
+
+محتوای توکار به‌عنوان بخشی از روابط منابع اسلاید تکثیر شده منتقل می‌شود. لینک‌های خارجی همچنان خارجی می‌مانند، بنابراین فایل‌ها یا URLهای هدف آن‌ها باید پس از ادغام در دسترس باشند.
+
+**آیا قلم‌های توکار از هر منبع تضمین می‌شود که در ارائه ادغام‌شده موجود باشند؟**
+
+به‌تنهایی بر تکثیر اسلاید برای استقرار قلم‌ها تکیه نکنید. قلم‌های توکار مقصد را بررسی کنید و هنگام اهمیت تایپوگرافی، توکار کردن قلم یا در دسترس بودن قلم‌های خارجی را به‌صورت صریح مدیریت کنید.
+
+**چگونه یک فایل دارای رمز عبور را ادغام کنم؟**
+
+آن را با [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setPassword-String-) صحیح باز کنید، سپس اسلایدهای آن را به‌صورت معمول تکثیر کنید. حفاظت خروجی به‌صورت جداگانه پیکربندی می‌شود.
+
+**چگونه باید با ارائه‌های بسیار بزرگ برخورد کنم؟**
+
+زمانی که اشیای باینری بزرگ مصرف حافظه را فراگیری می‌کنند، از مدیریت BLOB استفاده کنید، برای فایل‌های بسیار بزرگ ترجیحاً از بارگذاری مسیر فایل استفاده کنید، ارائه‌های منبع را به‌سرعت آزاد کنید و فقط در صورت نیاز نتیجهٔ نهایی را ذخیره کنید.
+
+**آیا می‌توانم اسلایدها را از چندین رشته ادغام کنم؟**
+
+در چندین رشته نمونهٔ ارائه را بارگذاری، ذخیره یا تکثیر نکنید. برای کارهای ادغام موازی، از پروسه‌های تک‌نخی جداگانه و نمونه‌های ارائه مستقل استفاده کنید.

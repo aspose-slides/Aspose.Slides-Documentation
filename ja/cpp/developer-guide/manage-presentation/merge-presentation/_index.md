@@ -1,247 +1,381 @@
 ---
-title: C++でプレゼンテーションを効率的に結合
-linktitle: プレゼンテーションの結合
+title: C++でプレゼンテーションを効率的にマージする
+linktitle: プレゼンテーションのマージ
 type: docs
 weight: 40
 url: /ja/cpp/merge-presentation/
 keywords:
+- PowerPoint をマージ
+- プレゼンテーションをマージ
+- スライドをマージ
+- PPT をマージ
+- PPTX をマージ
+- ODP をマージ
 - PowerPoint を結合
 - プレゼンテーションを結合
 - スライドを結合
 - PPT を結合
 - PPTX を結合
 - ODP を結合
-- PowerPoint を統合
-- プレゼンテーションを統合
-- スライドを統合
-- PPT を統合
-- PPTX を統合
-- ODP を統合
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して、PowerPoint（PPT、PPTX）および OpenDocument（ODP）プレゼンテーションを簡単に結合し、ワークフローを効率化します。"
+description: "C++でスライドをクローンし、マスターやレイアウトを制御し、スライドコンテンツのサイズ変更、セクションの保持、保護されたファイルや大容量ファイルの処理を行うことで、PowerPoint および OpenDocument のプレゼンテーションをマージする方法をご紹介します。"
 ---
+## **概要**
 
-{{% alert  title="Tip" color="primary" %}} 
+Aspose.Slides for C++ は、ある[プレゼンテーション](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/)からスライドを複製して別のプレゼンテーションに統合します。主な操作は[ISlideCollection::AddClone](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/)で、元のスライドの書式を保持するか、複製されたスライドを宛先プレゼンテーションのマスターまたはレイアウトに添付できます。
 
-**Aspose 無料オンライン**の[Merger アプリ](https://products.aspose.app/slides/merger)を確認してみてください。PowerPoint プレゼンテーションを同じ形式（PPT→PPT、PPTX→PPTX など）で結合したり、異なる形式（PPT→PPTX、PPTX→ODP など）で結合したりできます。
+本記事では最も一般的なマージワークフローを取り上げます。
 
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
+- すべてのスライドを元の書式を保持したままマージする
+- 選択したスライドだけをマージする
+- 宛先プレゼンテーションのマスターを適用する
+- 宛先プレゼンテーションの特定レイアウトを適用する
+- マージ前に異なるスライドサイズを正規化する
+- 複製したスライドをセクションに追加する
+- 複数のプレゼンテーションをエンドツーエンドでマージする
+- マスター、リソース、ノート、コメント、メディア、フォント、パスワード、巨大ファイル、マルチスレッドに関する考慮事項を扱う
 
-{{% /alert %}} 
+## **スライドのクローンがマスターとレイアウトに与える影響**
 
+スライドはレイアウトとマスターから多くの外観を継承します。そのため、選択するクローンのオーバーロードにより、マージされたスライドが宛先プレゼンテーションにどのように統合されるかが決まります。
 
-## **Presentation Merging**
+以下のいずれかの方法で[ISlideCollection::AddClone](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/)を使用します。
 
-プレゼンテーションを別のものに結合すると、スライドが 1 つのプレゼンテーションにまとめられ、1 ファイルとして取得できます。 
+- `AddClone(sourceSlide)` — 元スライドのレイアウトと書式を保持します。必要に応じて、元のマスターが自動的に宛先プレゼンテーションにクローンされます。Aspose.Slides は自動クローンされたマスターを追跡し、同じ元マスターを使用するスライドが繰り返しクローンされることを防ぎます。
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 複製されたスライドを特定の宛先[IMasterSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslide/)に添付します。Aspose.Slides はマスター内でレイアウトタイプまたは名前に基づく一致レイアウトを検索します。
+- `AddClone(sourceSlide, destinationLayout)` — 複製されたスライドを特定の宛先[ILayoutSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ilayoutslide/)に直接添付します。
 
-{{% alert title="Info" color="info" %}}
+`AddClone` オーバーロードに渡すマスターまたはレイアウトは **宛先** プレゼンテーションに属している必要があり、元プレゼンテーションには属していてはいけません。
 
-多くのプレゼンテーション ソフト（PowerPoint や OpenOffice）には、プレゼンテーションをこのように結合する機能がありません。 
+## **プレゼンテーション全体をマージして元の書式を保持する**
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) は、さまざまな方法でプレゼンテーションを結合できるようにします。形状、スタイル、テキスト、書式設定、コメント、アニメーションなど、すべての要素を失うことなく結合できます。 
+最もシンプルなマージは、元プレゼンテーションのすべてのスライドを宛先プレゼンテーションにコピーすることです。インポートされたスライドが元のテーマ、マスター、レイアウトの関係を保持すべき場合に適しています。
 
-**See also**
-
-[Clone Slides](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
-
-{{% /alert %}}
-
-### **What Can Be Merged**
-
-Aspose.Slides を使用すると、次のものを結合できます  
-
-* **プレゼンテーション全体** – すべてのスライドが 1 つのプレゼンテーションに統合されます  
-* **特定のスライド** – 選択したスライドだけが 1 つのプレゼンテーションに統合されます  
-* **同じ形式**（PPT→PPT、PPTX→PPTX など）または **異なる形式**（PPT→PPTX、PPTX→ODP など）のプレゼンテーション同士の結合  
-
-{{% alert title="Note" color="warning" %}} 
-
-プレゼンテーションに加えて、Aspose.Slides は他のファイルの結合もサポートします。
-
-* [画像](https://products.aspose.com/slides/cpp/merger/image-to-image/)、例として [JPG→JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) や [PNG→PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)  
-* 文書、例として [PDF→PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) や [HTML→HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)  
-* さらに **2 種類** の異なるファイル、例として [画像→PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/) や [JPG→PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/)、[TIFF→PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/)  
-
-{{% /alert %}}
-
-### **Merging Options**
-
-次のオプションで結合方法を制御できます  
-
-* 各スライドが出力プレゼンテーションで固有のスタイルを保持するか  
-* すべてのスライドに共通のスタイルを適用するか  
-
-プレゼンテーションを結合するには、Aspose.Slides が提供する [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) メソッド（[ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection) インターフェイス）を使用します。`AddClone` メソッドには複数の実装があり、結合プロセスのパラメータを指定できます。各 Presentation オブジェクトは [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) コレクションを持っているため、スライドを結合したいプレゼンテーションから `AddClone` を呼び出します。 
-
-`AddClone` は `ISlide` オブジェクトを返し、これは元のスライドのクローンです。出力プレゼンテーションのスライドは単に元スライドのコピーであるため、元のプレゼンテーションに影響を与えることなく、スタイルや書式設定、レイアウトの変更が可能です。 
-
-## **Merge Presentations** 
-
-Aspose.Slides の [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) メソッドは、スライドのレイアウトとスタイルを保持したまま結合できます（デフォルト パラメータ）。 
-
-以下の C++ コードはプレゼンテーションの結合方法を示しています:
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+for (const auto& slide : source->get_Slides())
 {
-    pres1->get_Slides()->AddClone(slide);
+    destination->get_Slides()->AddClone(slide);
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+元と宛先でデザインが異なる場合、結果のプレゼンテーションには複数のマスターが含まれることがあります。これは元書式を意図的に保持した場合の期待通りの動作です。
 
-## **Merge Presentations with a Slide Master**
+## **選択したスライドだけをマージする**
 
-Aspose.Slides の [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) メソッドは、スライドマスター テンプレートを適用しながらスライドを結合します。これにより、必要に応じて出力プレゼンテーションのスライドスタイルを変更できます。 
+すべてのスライドをクローンする必要はありません。次の例は、元プレゼンテーションから選択されたスライドインデックスだけをインポートします。
 
-以下の C++ コードはこの操作を実演しています:
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+int32_t slideIndexes[] = {0, 2, 4};
+
+for (auto index : slideIndexes)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_Masters()->idx_get(0), true);
+    destination->get_Slides()->AddClone(source->get_Slide(index));
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
+ユーザー入力や外部設定から取得したインデックスは、クローン前に必ず検証してください。
 
-{{% alert title="Note" color="warning" %}} 
+## **宛先マスターを使用してスライドをマージする**
 
-スライドマスターのレイアウトは自動的に決定されます。適切なレイアウトが判断できない場合、`AddClone` メソッドの `allowCloneMissingLayout` ブール パラメータが true に設定されていれば、元スライドのレイアウトが使用されます。そうでなければ [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) がスローされます。 
+インポートされたスライドが、すでに宛先プレゼンテーションに存在するマスターに従う必要がある場合、[AddClone(ISlide, IMasterSlide, bool)](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/) オーバーロードを使用します。
 
-{{% /alert %}}
-
-出力プレゼンテーションのスライドに別のレイアウトを適用したい場合は、結合時に [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) メソッドを使用してください。 
-
-## **Merge Specific Slides from Presentations**
-
-複数のプレゼンテーションから特定のスライドだけを結合すると、カスタム スライド デッキを作成できます。Aspose.Slides C++ は必要なスライドのみを選択してインポートでき、元のスライドの書式、レイアウト、デザインを保持します。 
-
-以下の C++ コードは新しいプレゼンテーションを作成し、2 つの別のプレゼンテーションからタイトル スライドを追加してファイルに保存します:
 ```cpp
-SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationMaster = destination->get_Master(0);
+
+for (const auto& slide : source->get_Slides())
 {
-    for (auto&& slide : presentation->get_Slides())
+    destination->get_Slides()->AddClone(slide, destinationMaster, true);
+}
+
+destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
+```
+
+Aspose.Slides は、ソースレイアウトのタイプまたは名前に一致する適切なレイアウトを指定されたマスター下で選択します。適切なレイアウトが存在せず、`allowCloneMissingLayout` が `true` の場合、ソースレイアウトがクローンされてスライドが追加されます。`false` の場合は、[PptxEditException](https://reference.aspose.com/slides/ja/cpp/aspose.slides/details_pptxeditexception/) がスローされます。
+
+マージを失敗させて宛先マスターに余計なレイアウトを追加したくない場合は `false` を使用してください。
+
+## **特定の宛先レイアウトを使用してスライドをマージする**
+
+インポートされたスライドが正確にどの宛先レイアウトを使用すべきか分かっている場合は、[AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/) オーバーロードを使用します。
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationLayout = destination->get_LayoutSlide(0);
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, destinationLayout);
+}
+
+destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
+```
+
+宛先レイアウトを適用すると継承されたレイアウトの関係が変わりますが、ソーススライドのコンテンツ自体は再設計されません。ソースと宛先のレイアウトでプレースホルダー構造が異なる場合は、結果を確認し、継承された書式とプレースホルダー動作が期待通りか検証してください。
+
+## **異なるスライドサイズのプレゼンテーションをマージする**
+
+スライドサイズが異なるプレゼンテーションでもマージは可能ですが、別サイズのプレゼンテーションにスライドをクローンしただけではコンテンツが新しいキャンバスに合わせて自動的に再設計されません。そのため、形状がずれたり、予期せぬスケーリングが発生したり、表示領域外に出ることがあります。
+
+実用的なアプローチは、クローン前にソースプレゼンテーションのサイズを変更することです。[SlideSize::SetSize](https://reference.aspose.com/slides/ja/cpp/aspose.slides/slidesize/setsize/) メソッドは、スライド寸法を変更しながら既存コンテンツをスケールできます。[SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/ja/cpp/aspose.slides/slidesizescaletype/) は、要求されたサイズに合わせてコンテンツをフィットさせます。
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto destinationSize = destination->get_SlideSize()->get_Size();
+auto sourceSize = source->get_SlideSize()->get_Size();
+
+if (sourceSize.get_Width() != destinationSize.get_Width() || 
+    sourceSize.get_Height() != destinationSize.get_Height())
+{
+    source->get_SlideSize()->SetSize(
+        destinationSize.get_Width(), 
+        destinationSize.get_Height(), 
+        SlideSizeScaleType::EnsureFit);
+}
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide);
+}
+
+destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
+```
+
+リサイズはメモリ上のソースプレゼンテーションオブジェクトを変更します。元のソースプレゼンテーションを他の操作でそのまま保持したい場合は、マージ用に別インスタンスを開いてください。
+
+## **スライドをプレゼンテーションのセクションにマージする**
+
+基本的なスライドクローンループは、元プレゼンテーションのセクション階層を再現しません。出力でセクションが重要な場合は、宛先プレゼンテーションでセクションを作成または選択し、[AddClone(ISlide, ISection)](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/) を使ってスライドを明示的にセクションにクローンします。
+
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto destination = System::MakeObject<Presentation>(u"destination.pptx");
+auto source = System::MakeObject<Presentation>(u"source.pptx");
+
+auto importedSection = destination->get_Sections()->AppendEmptySection(u"Imported slides");
+
+for (const auto& slide : source->get_Slides())
+{
+    destination->get_Slides()->AddClone(slide, importedSection);
+}
+
+destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
+```
+
+クローンされたスライドは指定された宛先セクションに追加されます。複数の元セクションを保持したい場合は、宛先に同様のセクションを再作成し、各元スライドを対応する宛先セクションにマッピングしてください。
+
+## **複数のプレゼンテーションを安全にマージする**
+
+以下のエンドツーエンド例は、最初のプレゼンテーションを宛先として使用し、追加の各ソースのスライドサイズを正規化し、各ソースはコピー中だけ開き、最終的に一度だけファイルを保存します。
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+System::String inputFiles[] = {u"part1.pptx", u"part2.pptx", u"part3.pptx"};
+const int32_t inputFileCount = 3;
+
+auto merged = System::MakeObject<Presentation>(inputFiles[0]);
+auto mergedSize = merged->get_SlideSize()->get_Size();
+
+for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
+{
+    auto source = System::MakeObject<Presentation>(inputFiles[fileIndex]);
+    auto sourceSize = source->get_SlideSize()->get_Size();
+
+    if (sourceSize.get_Width() != mergedSize.get_Width() || 
+        sourceSize.get_Height() != mergedSize.get_Height())
     {
-        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
-        {
-            return slide;
-        }
+        source->get_SlideSize()->SetSize(
+            mergedSize.get_Width(), 
+            mergedSize.get_Height(), 
+            SlideSizeScaleType::EnsureFit);
     }
-    return nullptr;
-}
-```
 
-```cpp
-auto presentation = MakeObject<Presentation>();
-auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
-auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
-
-presentation->get_Slides()->RemoveAt(0);
-
-auto slide1 = GetTitleSlide(presentation1);
-
-if (slide1 != nullptr)
-    presentation->get_Slides()->AddClone(slide1);
-
-auto slide2 = GetTitleSlide(presentation2);
-
-if (slide2 != nullptr)
-    presentation->get_Slides()->AddClone(slide2);
-
-presentation->Save(u"combined.pptx", SaveFormat::Pptx);
-
-presentation2->Dispose();
-presentation1->Dispose();
-presentation->Dispose();
-```
-
-
-## **Merge Presentations with a Slide Layout**
-
-この C++ コードは、好みのスライド レイアウトを適用しながらプレゼンテーションのスライドを結合し、1 つの出力プレゼンテーションを作成する方法を示します:
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (const auto& slide : source->get_Slides())
+    {
+        merged->get_Slides()->AddClone(slide);
+    }
 }
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
+これはインポートされたスライドの元書式を保持するための有用なベースラインです。出力で単一の宛先テーマを使用する必要がある場合は、単純な `AddClone(slide)` 呼び出しを、前述の宛先マスターまたは宛先レイアウトオーバーロードに置き換えてください。
 
-## **Merge Presentations with Different Slide Sizes**
+## **実務上の考慮点**
 
-{{% alert title="Note" color="warning" %}} 
+### **マスター、レイアウト、書式忠実度**
 
-スライド サイズが異なるプレゼンテーションは結合できません。 
+デフォルトのスライドクローンは、必要に応じて元マスターを自動的に宛先プレゼンテーションに持ち込みます。Aspose.Slides は自動クローンされたマスターの内部レジストリを保持し、同一マスターの重複クローンを防止します。手動でクローンしたマスターはこのレジストリで追跡されないため、明確な制御が必要な場合を除き事前にマスターをクローンしないでください。
 
-{{% /alert %}}
+名前が同じでも、2 つのマスターやレイアウトが視覚的に同等であるとは限りません。企業テンプレートで最終外観を管理する必要がある場合は、宛先マスターまたはレイアウトを明示的に選択し、マージ後に結果を必ず検証してください。
 
-サイズが異なる 2 つのプレゼンテーションを結合するには、サイズが合うようにどちらかのプレゼンテーションをリサイズする必要があります。 
+### **ノートとコメント**
 
-このサンプルコードは、上記の操作を示しています:
+スピーカーノートとスライドコメントはスライドコンテンツに紐付いており、スライドをクローンすると同時にコピーされます。Aspose.Slides は[プレゼンテーションノート](https://docs.aspose.com/slides/ja/cpp/presentation-notes/)および[プレゼンテーションコメント](https://docs.aspose.com/slides/ja/cpp/presentation-comments/)用の専用 API も提供しています。
+
+ノートページの書式が重要な場合は、ノートマスターがプレゼンテーションレベルのオブジェクトであり、元ファイル間で異なる可能性があるため、マージ後のプレゼンテーションを必ず確認してください。レビュー用ワークフローでは、異なる作者やテンプレートから結合した場合のコメント作者やスレッドコメントも検証してください。
+
+### **画像、音声、動画、OLE オブジェクト、外部リンク**
+
+スライドは画像、埋め込み音声、埋め込み動画、OLE データなどのプレゼンテーションレベルのリソースを参照できます。スライド自体をクローンし、可視形状だけをコピーしないようにして、Aspose.Slides がリソースとの関係を維持できるようにしてください。
+
+埋め込みリソースとリンクリソースは別々に扱う必要があります。リンクされた音声、動画、OLE オブジェクト、ハイパーリンクは外部ターゲットに依存したままであり、スライドをクローンしても外部リンクが埋め込みコンテンツに変わることはありません。マージされたプレゼンテーションが開かれる環境で、リンクリソースのパスと URL をテストしてください。
+
+Aspose.Slides は自動クローンされたマスターを追跡しますが、これは無関係なソースプレゼンテーション間で同一バイナリリソースが常に重複除去されるという保証ではありません。出力ファイルサイズが重要な場合は、マージ後のパッケージを検査し、結果を測定して重複除去に依存しないでください。
+
+### **埋め込みフォントとフォントの可用性**
+
+フォントはプレゼンテーションレベルで管理されます。タイポグラフィをマシン間で一貫させる必要がある場合、スライドだけをクローンしただけでは必要なフォントが宛先環境に揃っているとは限りません。[FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fontsmanager/getembeddedfonts/) で埋め込みフォントを確認し、[プレゼンテーションへのフォント埋め込み](https://docs.aspose.com/slides/ja/cpp/embedded-font/) に記載の方法で明示的に管理してください。
+
+また、ソースファイルで使用されているフォントを埋め込み可能かどうか、ライセンス制限も確認してください。
+
+### **パスワード保護されたプレゼンテーション**
+
+パスワードで保護されたソースは、スライドをクローンできるようにまず正常に開く必要があります。パスワードは[LoadOptions::set_Password](https://reference.aspose.com/slides/ja/cpp/aspose.slides/loadoptions/set_password/)で指定します。
+
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres1Size = pres1->get_SlideSize()->get_Size();
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-pres2->get_SlideSize()->SetSize(pres1Size.get_Width(), pres1Size.get_Height(), SlideSizeScaleType::EnsureFit);
+using namespace Aspose::Slides;
 
-for (const auto& slide : pres2->get_Slides())
-{
-    pres1->get_Slides()->AddClone(slide);
-}
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"YOUR_PASSWORD");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
+暗号化されたソースを開いても、同じ保護が自動的に宛先プレゼンテーションに適用されるわけではありません。必要に応じて出力保護を別途設定してください。
 
-## **Merge Slides to a Presentation Section**
+### **大規模プレゼンテーションとメモリ使用量**
 
-この C++ コードは、特定のスライドをプレゼンテーションのセクションに結合する方法を示します:
-```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
-{
-    auto slide = pres2->get_Slides()->idx_get(index);
-    pres1->get_Slides()->AddClone(slide, pres1->get_Sections()->idx_get(0));
-}
+高解像度画像、音声、動画、その他大容量バイナリオブジェクトを含む大規模プレゼンテーションは、かなりのメモリを消費します。[LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/ja/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) で BLOB の取り扱いと一時ファイル使用を制御できます。大容量ファイル向けの戦略は[プレゼンテーション BLOB の管理](https://docs.aspose.com/slides/ja/cpp/manage-blob/)を参照してください。
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
-```
+大きなファイルでは、可能な限りファイルパスから読み込み、各ソースプレゼンテーションはマージ完了次第すぐに破棄し、ワークフローでチェックポイントが必要な場合を除き中間結果の保存は繰り返さないでください。
 
+### **スレッド安全性**
 
-スライドはセクションの末尾に追加されます。 
-
-{{% alert title="Tip" color="primary" %}}
-
-Aspose が提供する[無料 Collage Web アプリ](https://products.aspose.app/slides/collage)を使用すると、[JPG→JPG](https://products.aspose.app/slides/collage/jpg) や PNG→PNG 画像の結合、[フォト グリッド](https://products.aspose.app/slides/collage/photo-grid) の作成などがオンラインで行えます。 
-
-{{% /alert %}}
+同一の[プレゼンテーション](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/)インスタンスを複数スレッドから同時にロード、変更、保存、クローンしないでください。各プレゼンテーションインスタンスは1つのマージ操作に限定してください。独立したジョブを並列化する場合は、独立したプレゼンテーションインスタンスを使用し、[Aspose.Slides のマルチスレッドガイダンス](https://docs.aspose.com/slides/ja/cpp/multithreading/)に従ってください。
 
 ## **FAQ**
 
-**結合時にスピーカーノートは保持されますか？**
+**各ソースプレゼンテーションの元デザインを保持するには？**
 
-はい。スライドをクローンすると、ノート、書式設定、アニメーションを含むすべてのスライド要素が保持されます。 
+宛先マスターやレイアウトを指定せずに[`AddClone(sourceSlide)`](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/) を使用します。必要に応じて Aspose.Slides が元マスターを自動的にクローンします。
 
-**コメントとその作成者は転送されますか？**
+**インポートされたスライドに宛先テーマを適用するには？**
 
-コメントはスライド コンテンツの一部としてコピーされ、コメント作成者のラベルは結果のプレゼンテーション内のコメント オブジェクトとして残ります。 
+宛先マスターを受け取るオーバーロードを使用します。ソースではなく宛先プレゼンテーションからマスターを渡してください。Aspose.Slides は各ソーススライドをそのマスター下の適切なレイアウトにマッピングしようとします。
 
-**元のプレゼンテーションがパスワードで保護されている場合は？**
+**宛先マスターではなく特定の宛先レイアウトを使うべきケースは？**
 
-[LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) を使用してパスワードで開く必要があります（/slides/cpp/password-protected-presentation/）。ロード後、スライドは保護されていないターゲット ファイル（または保護されたファイル）に安全にクローンできます。 
+すべてのインポートスライドが同一の既知レイアウトを使用すべき場合は特定レイアウトを使用します。ソースレイアウトのタイプや名前に基づいてマスター内のレイアウトを自動選択させたい場合はマスターを使用してください。
 
-**結合操作はスレッドセーフですか？**
+**異なるスライドサイズのプレゼンテーションはマージ可能か？**
 
-同じ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) インスタンスを[複数のスレッド](/slides/ja/cpp/multithreading/)から使用しないでください。推奨ルールは「1 ドキュメント – 1 スレッド」で、別々のファイルは異なるスレッドで並列処理できます。
+可能ですが、スライドコンテンツは宛先サイズに合わせて自動的に再設計されません。予測可能な配置が必要な場合は、[SlideSize::SetSize](https://reference.aspose.com/slides/ja/cpp/aspose.slides/slidesize/setsize/) と [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/ja/cpp/aspose.slides/slidesizescaletype/) を使ってソースプレゼンテーションを事前にリサイズしてください。
+
+**PPT、PPTX、ODP のプレゼンテーションを 1 つのファイルにマージできるか？**
+
+はい。各ソースプレゼンテーションを読み込み、必要なスライドを 1 つの宛先にクローンし、サポートされている出力形式で保存します。プレゼンテーション形式間で機能セットが完全に一致しないため、クロスフォーマットマージ後は複雑なコンテンツを必ず検証してください。[対応ファイル形式](https://docs.aspose.com/slides/ja/cpp/supported-file-formats/) を参照してください。
+
+**元セクションは自動的に保持されるか？**
+
+スライドだけをクローンする基本ループでは保持されません。セクション構造が必要な場合は、宛先で必要なセクションを再作成し、[AddClone](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/) のセクションオーバーロードを使用してください。
+
+**スピーカーノートとコメントは保持されるか？**
+
+クローンされたスライドと共にコピーされます。ノートマスターの書式やコメント作者、スレッドレビュー情報に依存するワークフローの場合は、マージ結果を必ず検証してください。
+
+**音声、動画、OLE オブジェクト、ハイパーリンクはどうなるか？**
+
+埋め込みコンテンツはクローンされたスライドのリソース関係として保持されます。外部リンクは外部のままであり、マージ後もターゲットファイルや URL が利用可能である必要があります。
+
+**すべてのソースから埋め込みフォントは保証されるか？**
+
+スライドクローンだけに頼らず、フォントの展開を確認し、必要に応じて明示的に埋め込みまたは外部フォントの可用性を管理してください。
+
+**パスワード保護されたファイルをどうマージするか？**
+
+正しい[LoadOptions::set_Password](https://reference.aspose.com/slides/ja/cpp/aspose.slides/loadoptions/set_password/)で開き、その後スライドを通常通りクローンします。出力の保護は別途設定してください。
+
+**非常に大きなプレゼンテーションはどう扱うか？**
+
+BLOB 管理を使用し、大容量バイナリがメモリ使用量を支配する場合はファイルパスからのロードを優先し、ソースプレゼンテーションはマージ完了次第すぐに破棄し、必要なときだけ最終結果を保存してください。
+
+**複数スレッドからスライドをマージできるか？**
+
+同一の[プレゼンテーション](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/)インスタンスを複数スレッドで同時に使用しないでください。各マージ操作は独立したプレゼンテーションインスタンスで実行し、[Aspose.Slides のマルチスレッドガイダンス](https://docs.aspose.com/slides/ja/cpp/multithreading/)に従ってください。

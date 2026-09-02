@@ -1,5 +1,5 @@
 ---
-title: Efektivně sloučit prezentace v .NET
+title: Efektivně slučovat prezentace v .NET
 linktitle: Sloučit prezentace
 type: docs
 weight: 40
@@ -20,240 +20,316 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Bez námahy sloučte PowerPoint (PPT, PPTX) a OpenDocument (ODP) prezentace pomocí Aspose.Slides pro .NET, zjednodušíte tak svůj pracovní postup."
+description: "Zjistěte, jak v .NET sloučit prezentace PowerPoint a OpenDocument klonováním snímků, řízením masterů a rozložení, změnou velikosti obsahu snímků, zachováním sekcí a zpracováním chráněných nebo velkých souborů."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje sloučit prezentace klonováním snímků z jedné prezentace do druhé. Tento článek vysvětluje, jak sloučit celé prezentace nebo vybrané snímky, použít hlavní motiv snímku nebo konkrétní rozvržení během sloučení, pracovat s prezentacemi s různými velikostmi snímků a přidat sloučené snímky do sekce prezentace. Dále se zabývá praktickými poznámkami souvisejícími se sloučeným obsahem, včetně poznámek k řečníkovi, komentářů, souborů chráněných heslem a použití vláken.
+Aspose.Slides pro .NET slučuje prezentace klonováním snímků z jedné [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) do druhé. Hlavní operací je [ISlideCollection.AddClone](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection/addclone/), která může zachovat formátování zdrojového snímku nebo připojit klonovaný snímek k masteru nebo rozložení v cílové prezentaci.
 
-## **Optimalizace sloučení prezentací**
+Tento článek popisuje nejčastější scénáře slučování:
 
-Pomocí [Aspose.Slides for .NET](https://products.aspose.com/slides/cs/net/), plynule kombinujte PowerPoint prezentace při zachování stylů, rozvržení a všech prvků. Na rozdíl od jiných nástrojů Aspose.Slides kombinuje prezentace, aniž by snižoval kvalitu nebo ztrácel data. Sloučte celé prezentace, konkrétní snímky a dokonce různé formáty souborů (PPT na PPTX apod.).
+- sloučit všechny snímky při zachování jejich zdrojového formátování;
+- sloučit vybrané snímky;
+- použít master z cílové prezentace;
+- použít konkrétní rozložení z cílové prezentace;
+- normalizovat různé velikosti snímků před sloučením;
+- přidat klonované snímky do sekce;
+- sloučit několik prezentací v jednom kompletním workflow;
+- zpracovat mastery, zdroje, poznámky, komentáře, média, fonty, hesla, velké soubory a otázky související s multithreadingem.
 
-### **Funkce sloučení**
+## **Jak klonování snímků ovlivňuje mastery a rozložení**
 
-- **Full Presentation Merge:** Sestavit všechny snímky do jednoho souboru.  
-- **Specific Slide Merge:** Vybrat a spojit vybrané snímky.  
-- **Cross-Format Merge:** Integrovat prezentace různých formátů při zachování integrity.  
+Snímek dědí většinu svého vzhledu ze svého rozložení a masteru. Z tohoto důvodu výběr přetížení (overload) klonování určuje, jak bude sloučený snímek integrován do cílové prezentace.
 
-{{% alert title="Tip" color="primary" %}}  
-Potřebujete rychlý a **zdarma online nástroj** pro **sloučení PowerPoint prezentací**? Vyzkoušejte [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/cs/merger).  
+Použijte [ISlideCollection.AddClone](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection/addclone/) jedním z následujících způsobů:
 
-- **Merge PowerPoint files easily**: Sloučte více **PPT, PPTX, ODP** prezentací do jednoho souboru.  
-- **Supports different formats**: Sloučte **PPT na PPTX**, **PPTX na ODP**, a další.  
-- **No installation required**: Funguje přímo v prohlížeči, rychle a bezpečně.  
+- `AddClone(sourceSlide)` — zachovat rozložení a formátování zdrojového snímku. V případě potřeby může být zdrojový master automaticky klonován do cílové prezentace. Aspose.Slides sleduje automaticky klonované mastery, takže opakované snímky používající stejný zdrojový master nevedou k opakovanému klonování tohoto masteru.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — připojit klonovaný snímek k určitému cílovému [IMasterSlide](https://reference.aspose.com/slides/cs/net/aspose.slides/imasterslide/). Aspose.Slides hledá odpovídající rozložení pod tímto masterem podle typu nebo názvu rozložení.
+- `AddClone(sourceSlide, destinationLayout)` — připojit klonovaný snímek přímo k určitému cílovému [ILayoutSlide](https://reference.aspose.com/slides/cs/net/aspose.slides/ilayoutslide/).
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/cs/merger)  
+Master nebo rozložení předané přetížení `AddClone` musí patřit **cílové** prezentaci, nikoli zdrojové prezentaci.
 
-Začněte dnes sloučovat své PowerPoint soubory pomocí **zdarma online nástroje Aspose**!  
-{{% /alert %}}
+## **Sloučit celé prezentace a zachovat zdrojové formátování**
 
-## **Sloučení prezentací**
+Nejjednodušší sloučení zkopíruje každý snímek ze zdrojové prezentace do cílové prezentace. Toto je vhodná volba, když importované snímky mají zachovat svůj původní motiv, master a vztahy rozložení.
 
-Když [sloučíte jednu prezentaci s druhou](https://products.aspose.com/slides/cs/net/merger/ppt/), efektivně kombinujete jejich snímky v jedné prezentaci a získáte jeden soubor.  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-{{% alert title="Info" color="info" %}}
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-Většina programů pro prezentace (PowerPoint nebo OpenOffice) postrádá funkce, které umožňují uživatelům kombinovat prezentace tímto způsobem.  
-
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/cs/net/) vám však umožňuje sloučit prezentace různými způsoby. Můžete sloučit prezentace se všemi jejich tvary, styly, texty, formátováním, komentáři, animacemi atd., aniž byste se museli obávat ztráty kvality nebo dat.  
-
-**Viz také**  
-
-[Clone Slides](https://docs.aspose.com/slides/cs/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
-{{% /alert %}}
-
-### **Co lze sloučit**
-
-S Aspose.Slides můžete sloučit  
-
-* celé prezentace. Všechny snímky z prezentací končí v jedné prezentaci  
-* konkrétní snímky. Vybrané snímky končí v jedné prezentaci  
-* prezentace v jednom formátu (PPT na PPT, PPTX na PPTX, atd.) a v různých formátech (PPT na PPTX, PPTX na ODP, atd.) mezi sebou.  
-
-{{% alert title="Note" color="warning" %}}  
-Vedle prezentací vám Aspose.Slides umožňuje sloučit i jiné soubory:  
-
-* [Images](https://products.aspose.com/slides/cs/net/merger/image-to-image/), například [JPG na JPG](https://products.aspose.com/slides/cs/net/merger/jpg-to-jpg/) nebo [PNG na PNG](https://products.aspose.com/slides/cs/net/merger/png-to-png/)  
-* Documents, například [PDF na PDF](https://products.aspose.com/slides/cs/net/merger/pdf-to-pdf/) nebo [HTML na HTML](https://products.aspose.com/slides/cs/net/merger/html-to-html/)  
-* A dva různé soubory, například [image to PDF](https://products.aspose.com/slides/cs/net/merger/image-to-pdf/) nebo [JPG to PDF](https://products.aspose.com/slides/cs/net/merger/jpg-to-pdf/) nebo [TIFF to PDF](https://products.aspose.com/slides/cs/net/merger/tiff-to-pdf/).  
-{{% /alert %}}
-
-### **Možnosti sloučení**
-
-Můžete použít možnosti, které určují,  
-
-* každý snímek ve výstupní prezentaci si zachová jedinečný styl  
-* pro všechny snímky ve výstupní prezentaci se použije konkrétní styl.  
-
-Pro sloučení prezentací poskytuje Aspose.Slides metody [AddClone](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection/methods/addclone) (z rozhraní [ISlideCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection)). Existuje několik implementací metod `AddClone`, které definují parametry procesu sloučení prezentací. Každý objekt Presentation má kolekci [Slides](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/properties/slides), takže můžete zavolat metodu `AddClone` z prezentace, do které chcete snímky sloučit.  
-
-`AddClone` metoda vrací objekt `ISlide`, což je klon zdrojového snímku. Snímky ve výstupní prezentaci jsou jednoduše kopií snímků ze zdroje. Proto můžete upravovat výsledné snímky (např. aplikovat styly, možnosti formátování nebo rozvržení) aniž byste se museli obávat, že se změní zdrojové prezentace.  
-
-## **Sloučení prezentací**
-
-Aspose.Slides poskytuje metodu [**AddClone (ISlide)**](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection/methods/addclone), která vám umožní kombinovat snímky tak, že snímky si zachovají svá rozvržení a styly (výchozí parametry).  
-
-Tento C# kód ukazuje, jak sloučit prezentace:  
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+foreach (var slide in source.Slides)
 {
-    foreach (ISlide slide in pres2.Slides)
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
+```
+
+Výsledná prezentace může obsahovat více masterů, pokud zdroj a cíl používají odlišné designy. To je očekávané, když je zdrojové formátování úmyslně zachováno.
+
+## **Sloučit vybrané snímky**
+
+Nemusíte klonovat každý snímek. Následující příklad importuje jen vybrané indexy snímků ze zdrojové prezentace.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
+}
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
+```
+
+Ověřte indexy snímků před klonováním, pokud pocházejí od uživatele nebo z externí konfigurace.
+
+## **Sloučit snímky pomocí cílového masteru**
+
+Použijte přetížení [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection/addclone/) když mají importované snímky následovat master, který již patří cílové prezentaci.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
+}
+
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+```
+
+Aspose.Slides vybere vhodné rozložení pod zadaným masterem porovnáním typu nebo názvu zdrojového rozložení. Pokud neexistuje vhodné rozložení a `allowCloneMissingLayout` je `true`, zdrojové rozložení se klonuje, aby mohl být snímek přidán. Pokud je `false`, vyvolá se [PptxEditException](https://reference.aspose.com/slides/cs/net/aspose.slides/pptxeditexception/).
+
+Použijte `false`, když chcete, aby sloučení selhalo místo zavedení dalšího rozložení do cílového masteru.
+
+## **Sloučit snímky pomocí konkrétního cílového rozložení**
+
+Použijte přetížení [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection/addclone/) když přesně víte, které cílové rozložení mají importované snímky použít.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
+}
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+```
+
+Použití cílového rozložení mění děděný vztah rozložení; nepřetváří obsah zdrojového snímku. Pokud mají zdrojové a cílové rozložení odlišné struktury placeholderů, prověřte výsledek, aby děděné formátování a chování placeholderů bylo vhodné.
+
+## **Sloučit prezentace s různými velikostmi snímků**
+
+Prezentace s různými rozměry snímků lze sloučit, ale klonování snímku do prezentace s jinou velikostí automaticky nepřetváří jeho obsah pro nové plátno. Tvary se tak mohou jevit posunuté, neočekávaně měřené nebo mimo viditelnou oblast snímku.
+
+Praktickým přístupem je před klonováním změnit velikost zdrojové prezentace. Metoda [SlideSize.SetSize](https://reference.aspose.com/slides/cs/net/aspose.slides/slidesize/setsize/) může škálovat existující obsah při změně rozměrů snímku. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/cs/net/aspose.slides/slidesizescaletype/) škáluje obsah tak, aby se vešel do požadované velikosti.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
+{
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
+}
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+```
+
+Změna velikosti upravuje objekt zdrojové prezentace v paměti. Pokud potřebujete zachovat původní zdrojovou prezentaci beze změny pro další operace, otevřete pro sloučení samostatnou instanci.
+
+## **Sloučit snímky do sekce prezentace**
+
+Základní smyčka klonování snímků neobnovuje hierarchii sekcí zdrojové prezentace. Pokud jsou sekce důležité ve výstupu, vytvořte nebo vyberte sekce v cílové prezentaci a klonujte snímky do nich explicitně pomocí [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection/addclone/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+Klonované snímky se připojí ke specifikované cílové sekci. Pro zachování několika zdrojových sekcí je replikujte v cíli a přiřaďte každý zdrojový snímek odpovídající cílové sekci.
+
+## **Bezpečné sloučení více prezentací**
+
+Následující end-to-end příklad používá první prezentaci jako cíl, normalizuje velikost snímku každého dalšího zdroje, udržuje každý zdroj otevřený jen během kopírování a ukládá finální soubor jednorázově.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        pres1.Slides.AddClone(slide);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Sloučení prezentací s hlavním motivem snímku**
-
-Aspose.Slides poskytuje metodu [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/cs/net/aspose.slides.islidecollection/addclone/methods/2), která vám umožní kombinovat snímky při aplikaci šablony hlavního motivu snímku. Tím můžete v případě potřeby změnit styl snímků ve výstupní prezentaci.  
-
-Tento C# kód demonstruje popsanou operaci:  
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
+    foreach (var slide in source.Slides)
     {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
+        merged.Slides.AddClone(slide);
     }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}}  
-Rozvržení snímku pro hlavní motiv je určeno automaticky. Pokud nelze vhodné rozvržení zjistit a parametr `allowCloneMissingLayout` metody `AddClone` je nastaven na true, použije se rozvržení zdrojového snímku. V opačném případě bude vyhozena výjimka [PptxEditException](https://reference.aspose.com/slides/cs/net/aspose.slides/pptxeditexception).  
-{{% /alert %}}
+Toto je užitečná výchozí metoda pro zachování zdrojového formátování importovaných snímků. Pokud výstup musí použít jednotný motiv cíle, nahraďte jednoduché volání `AddClone(slide)` vhodným přetížením pro cílový master nebo cílové rozložení uvedeným dříve.
 
-Pokud chcete, aby snímky ve výstupní prezentaci měly jiné rozvržení, při sloučení použijte místo toho metodu [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cs/net/aspose.slides.islidecollection/addclone/methods/1).  
+## **Praktické úvahy**
 
-## **Sloučení konkrétních snímků z prezentací**
+### **Mastery, rozložení a přesnost formátování**
 
-Sloučení konkrétních snímků z více prezentací je užitečné při tvorbě vlastních prezentací. Aspose.Slides for .NET vám umožňuje vybrat a importovat pouze snímky, které potřebujete. API zachovává formátování, rozvržení a design původních snímků.  
+Výchozí klonování snímků může automaticky přenést potřebný zdrojový master do cílové prezentace. Aspose.Slides udržuje interní registr automaticky klonovaných masterů, aby se stejný master neklonoval opakovaně. Manuálně klonované mastery nejsou v tomto registru sledovány, proto se vyhněte předklonování masterů, pokud nepotřebujete explicitní kontrolu nad strukturou masteru.
 
-Následující C# kód vytvoří novou prezentaci, přidá úvodní snímky ze dvou dalších prezentací a uloží výsledek do souboru:  
+Neočekávejte, že dva mastery nebo rozložení se stejným názvem jsou vizuálně ekvivalentní. Pokud firemní šablona musí řídit finální vzhled, vyberte explicitně cílový master nebo rozložení a po sloučení výsledek ověřte.
 
-```cs
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
-{
-    presentation.Slides.RemoveAt(0);
+### **Poznámky a komentáře**
 
-    ISlide slide1 = GetTitleSlide(presentation1);
+Poznámky k prezentéru a komentáře ke snímkům jsou spojeny s obsahem snímku a jsou kopírovány při klonování snímku. Aspose.Slides také poskytuje dedikovaná API pro [presentation notes](https://docs.aspose.com/slides/cs/net/presentation-notes/) a [presentation comments](https://docs.aspose.com/slides/cs/net/presentation-comments/).
 
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
+Pokud je důležité formátování stránky s poznámkami, ověřte sloučenou prezentaci, protože mastery poznámek jsou objekty na úrovni prezentace a mohou se mezi zdrojovými soubory lišit. Pro revizní workflow ověřte také autory komentářů a strukturu vláken po kombinaci souborů od různých autorů nebo šablon.
 
-    ISlide slide2 = GetTitleSlide(presentation2);
+### **Obrázky, audio, video, OLE objekty a externí odkazy**
 
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
+Snímky mohou odkazovat na zdroje na úrovni prezentace, jako jsou obrázky, vložený audio, vložené video a OLE data. Klonujte celý snímek místo pouhého kopírování viditelných tvarů, aby Aspose.Slides mohl udržet vztahy snímku k jeho zdrojům.
 
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-```cs
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+Vložené a odkazované zdroje je třeba zacházet odlišně. Odkazovaný audio, video, OLE objekt nebo hypertextový odkaz zůstává závislý na externím cíli; klonování snímku neupřednostňuje externí odkaz na vložený obsah. Otestujte cesty a URL odkazovaných zdrojů v prostředí, kde bude sloučená prezentace otevřena.
+
+Aspose.Slides sleduje automaticky klonované mastery, ale to by nemělo být chápáno jako obecná záruka, že identické binární zdroje z nesouvisejících zdrojových prezentací budou vždy deduplikovány. Pokud je velikost výstupního souboru podstatná, prozkoumejte sloučený balíček a změřte výsledek namísto spoléhání se na implicitní deduplikaci.
+
+### **Vložené fonty a dostupnost fontů**
+
+Fonty jsou spravovány na úrovni prezentace. Pokud typografie musí zůstat konzistentní mezi stroji, nepředpokládejte, že klonování snímků samotných zaručuje dostupnost každého požadovaného fontu v cílovém prostředí. Vložené fonty můžete zkontrolovat pomocí [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsmanager/getembeddedfonts/) a spravovat jejich vložení explicitně, jak je popsáno v [Embed Fonts in Presentations](https://docs.aspose.com/slides/cs/net/embedded-font/).
+
+Také ověřte, že máte oprávnění vkládat fonty použité ve zdrojových souborech. Licenční podmínky fontů mohou vkládání omezovat.
+
+### **Prezentace chráněné heslem**
+
+Zdroj chráněný heslem musí být úspěšně otevřen, než lze jeho snímky klonovat. Heslo předávejte pomocí [LoadOptions.Password](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/password/).
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-## **Sloučení prezentací s rozvržením snímku**
+Otevření šifrovaného zdroje automaticky nepřenáší stejnou ochranu do cílové prezentace. Ochranu výstupu nakonfigurujte zvlášť podle potřeby.
 
-Tento C# kód ukazuje, jak kombinovat snímky z prezentací a zároveň na ně aplikovat vámi zvolené rozvržení snímku, abyste získali jednu výstupní prezentaci:  
+### **Velké prezentace a spotřeba paměti**
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+Velké prezentace obsahující vysoce rozlišené obrázky, audio, video nebo jiné rozsáhlé binární objekty mohou spotřebovávat značné množství paměti. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/blobmanagementoptions/) poskytuje řízení pro práci s BLOBy a dočasnými soubory. Viz [Manage Presentation BLOBs](https://docs.aspose.com/slides/cs/net/manage-blob/) pro strategie s velkými soubory.
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
+U velkých souborů upřednostňujte načítání z cest k souborům, pokud je to možné, uvolněte každou zdrojovou prezentaci ihned po sloučení a vyhněte se opakovanému ukládání mezivýsledků, pokud workflow nevyžaduje kontrolní body.
 
-## **Sloučení prezentací s různými velikostmi snímků**
+### **Bezpečnost vláken**
 
-{{% alert title="Note" color="warning" %}}  
-Nelze sloučit prezentace s různými velikostmi snímků.  
-{{% /alert %}}
-
-Aby bylo možné sloučit 2 prezentace s různými velikostmi snímků, musíte změnit velikost jedné z nich tak, aby odpovídala velikosti druhé prezentace.  
-
-Tento ukázkový kód demonstruje popsanou operaci:  
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
-{
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Sloučení snímků do sekce prezentace**
-
-Tento C# kód ukazuje, jak sloučit konkrétní snímek do sekce v prezentaci:  
-
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    for (var index = 0; index < pres2.Slides.Count; index++)
-    {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
-    }
-
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
-}
-```
-
-Snímek je přidán na konci sekce.  
-
-{{% alert title="Tip" color="primary" %}}  
-Aspose poskytuje [ZDARMA webovou aplikaci Collage](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete sloučit obrázky [JPG na JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG, vytvářet [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a tak dále.  
-{{% /alert %}}
+Nenačítejte, neupravujte, neukládejte ani nekloňte stejnou instanci [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) současně z více vláken. Každou instanci prezentace omezte na jednu operaci sloučení. Pokud paralelizujete nezávislé úlohy, použijte nezávislé instance prezentací a řiďte se [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/cs/net/multithreading/).
 
 ## **Často kladené otázky**
 
-**Jsou během sloučení zachovány poznámky k řečníkovi?**
+**Jak zachovat původní design každé zdrojové prezentace?**
 
-**Ano.** Při klonování snímků Aspose.Slides přenáší všechny prvky snímku, včetně poznámek, formátování a animací.  
+Použijte [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection/addclone/) bez zadání cílového masteru nebo rozložení. Aspose.Slides může automaticky klonovat zdrojový master, když jej importovaný snímek potřebuje.
 
-**Jsou komentáře a jejich autoři přeneseni?**
+**Jak přimět importované snímky použít motiv cíle?**
 
-Komentáře jako součást obsahu snímku jsou zkopírovány spolu se snímkem. Štítky autorů komentářů jsou zachovány jako objekty komentářů v výsledné prezentaci.  
+Použijte přetížení, které přijímá cílový master. Předávejte master z cílové prezentace, ne ze zdrojové. Aspose.Slides se pokusí přiřadit každý zdrojový snímek k vhodnému rozložení pod tímto masterem.
 
-**Co když je zdrojová prezentace chráněna heslem?**
+**Kdy použít konkrétní cílové rozložení místo cílového masteru?**
 
-Musí být [otevřena s heslem](/slides/cs/net/password-protected-presentation/) pomocí [LoadOptions.Password](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/password/); po načtení lze tyto snímky bezpečně klonovat do nechráněného cílového souboru (nebo také do chráněného).  
+Použijte konkrétní rozložení, když má každý importovaný snímek použít jedno známé rozložení. Použijte master, když chcete, aby Aspose.Slides vybral rozložení z masteru na základě typu nebo názvu zdrojového rozložení.
 
-**Jak je operace sloučení bezpečná pro více vláken?**
+**Lze sloučit prezentace s různými velikostmi snímků?**
 
-Nepoužívejte stejnou instanci [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) z [více vláken](/slides/cs/net/multithreading/). Doporučené pravidlo je „jeden dokument — jedno vlákno“; různé soubory lze zpracovávat paralelně v oddělených vláknech.
+Ano, ale obsah snímku se automaticky nepřetváří na nové rozměry. Pro předvídatelné umístění nejprve změňte velikost zdrojové prezentace, například pomocí [SlideSize.SetSize](https://reference.aspose.com/slides/cs/net/aspose.slides/slidesize/setsize/) a [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/cs/net/aspose.slides/slidesizescaletype/).
+
+**Mohu sloučit PPT, PPTX a ODP prezentace do jednoho souboru?**
+
+Ano. Načtěte každou zdrojovou prezentaci, klonujte požadované snímky do jedné cílové a uložte cíl v podporovaném výstupním formátu. Protože formáty prezentací nepodporují přesně stejný soubor funkcí, po cross-format sloučení ověřte složitý obsah. Viz [Supported File Formats](https://docs.aspose.com/slides/cs/net/supported-file-formats/).
+
+**Zachovají se zdrojové sekce automaticky?**
+
+Ne, základní smyčka, která klonuje jen snímky, sekce neobnoví. Vytvořte požadované sekce v cíli a použijte sekční přetížení [AddClone](https://reference.aspose.com/slides/cs/net/aspose.slides/islidecollection/addclone/), pokud má být struktura sekcí zachována.
+
+**Zachovají se poznámky a komentáře?**
+
+Ano, jsou zkopírovány s klonovaným snímkem. Pro workflow, které závisí na stylování masteru poznámek, autorech komentářů nebo vláknové revizi, ověřte sloučený výsledek, protože tyto scénáře zahrnují struktury na úrovni prezentace i obsahu snímku.
+
+**Co se stane s audiem, videem, OLE objekty a hypertextovými odkazy?**
+
+Vložený obsah je součástí vztahů zdrojových zdrojů klonovaného snímku. Externí odkazy zůstávají externí, takže jejich cílové soubory nebo URL musí být po sloučení stále dostupné.
+
+**Jsou vložené fonty ze všech zdrojů garantovány v sloučené prezentaci?**
+
+Nespoléhejte se jen na klonování snímků pro nasazení fontů. Prozkoumejte vložené fonty v cíli a explicitně spravujte vložení nebo dostupnost externích fontů, pokud je typografie důležitá.
+
+**Jak sloučit soubor chráněný heslem?**
+
+Otevřete jej s použitím správného [LoadOptions.Password](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/password/) a poté klonujte jeho snímky běžně. Ochrana výstupu se konfiguruje odděleně.
+
+**Jak mám nakládat s velmi velkými prezentacemi?**
+
+Používejte správu BLOBů, pokud velké binární objekty dominují paměti, upřednostňujte načítání z cest k souborům, okamžitě uvolněte zdrojové prezentace po jejich sloučení a finální výsledek ukládejte jen jednorázově.
+
+**Mohu klonovat snímky z více vláken?**
+
+Nenechávejte jednu instanci [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) používat současně z více vláken. Každou operaci sloučení izolujte do vlastních instancí prezentace.
