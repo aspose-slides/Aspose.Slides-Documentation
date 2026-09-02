@@ -32,9 +32,9 @@ Aspose.Slides supports two types of document properties: **Built-in** and **Cust
 
 Aspose.Slides allows you to work with presentation document properties through the [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) class. An instance of this class is returned by the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDocumentProperties) method. The following examples show how to read, modify, and manage these properties.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for Node.js via Java x.x.x will be displayed against these fields.
+Please note that the **Application** and **AppVersion** fields cannot be modified. Aspose.Slides rewrites them on every save, so a saved presentation always reports "Aspose.Slides for Node.js via Java" and the version of the library that produced it. Any value passed to `setNameOfApplication` is discarded when the presentation is written.
 
 {{% /alert %}} 
 
@@ -210,7 +210,7 @@ This example modifies the custom properties of the [PPTX ](https://docs.fileform
 
 ## **Advanced Document Properties**
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 New methods [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo), logic of the [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
 
@@ -374,16 +374,16 @@ Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) 
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## ***FAQ**
+## **FAQ**
 
-### How can I remove a built-in property from a presentation?
+**How can I remove a built-in property from a presentation?**
 
 Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
 
-### What happens if I add a custom property that already exists?
+**What happens if I add a custom property that already exists?**
 
 If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
 
-### Can I access presentation properties without fully loading the presentation?
+**Can I access presentation properties without fully loading the presentation?**
 
-Yes, you can access presentation properties without fully loading the presentation by using the `getPresentationInfo` method from the [PresentationFactory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/) class. Then, utilize the `readDocumentProperties` method provided by the [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationinfo/) class to read the properties efficiently, saving memory and improving performance.
+Yes. Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) and then [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/nodejs-java/examine-presentation/) for a complete reporting example and format-specific limitations.

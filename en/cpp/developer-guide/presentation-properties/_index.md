@@ -31,7 +31,7 @@ Aspose.Slides supports two types of document properties: **Built-in** and **Cust
 
 Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties) interface. An instance of this interface is returned by the [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_documentproperties/) method. The following examples show how to read, modify, and manage these properties.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
 Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for C++ x.x.x will be displayed against these fields.
 
@@ -178,16 +178,16 @@ Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) 
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## ***FAQ**
+## **FAQ**
 
-### How can I remove a built-in property from a presentation?
+**How can I remove a built-in property from a presentation?**
 
 Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
 
-### What happens if I add a custom property that already exists?
+**What happens if I add a custom property that already exists?**
 
 If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
 
-### Can I access presentation properties without fully loading the presentation?
+**Can I access presentation properties without fully loading the presentation?**
 
-Yes, you can access presentation properties without fully loading the presentation by using the `GetPresentationInfo` method from the [PresentationFactory](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/) class. Then, utilize the `ReadDocumentProperties` method provided by the [IPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/) interface to read the properties efficiently, saving memory and improving performance.
+Yes. Use [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) and then [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/cpp/examine-presentation/) for a complete reporting example and format-specific limitations.
