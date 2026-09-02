@@ -1,5 +1,5 @@
 ---
-title: رندر اسلایدهای ارائه به‌عنوان تصاویر SVG در PHP
+title: نمایش اسلایدهای ارائه به‌صورت تصاویر SVG در PHP
 linktitle: اسلاید به SVG
 type: docs
 weight: 50
@@ -10,82 +10,211 @@ keywords:
 - اسلاید به SVG
 - PPT به SVG
 - PPTX به SVG
-- ذخیره PPT به عنوان SVG
-- ذخیره PPTX به عنوان SVG
-- خروجی PPT به SVG
-- خروجی PPTX به SVG
-- رندر اسلاید
-- تبدیل اسلاید
-- خروجی اسلاید
-- تصویر برداری
+- گزینه‌های خروجی SVG
+- SVG تعاملی
 - PowerPoint
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید چگونه اسلایدهای PowerPoint را به‌عنوان تصاویر SVG با استفاده از Aspose.Slides for PHP via Java رندر کنید. تصاویر با کیفیت بالا با مثال‌های کد ساده."
+description: "اسلایدهای PowerPoint را به‌صورت تصاویر SVG در PHP صادر کنید و قلم‌ها، متن، تصاویر، شناسه‌ها و رویدادها را با Aspose.Slides کنترل نمایید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله توضیح می‌دهد چگونه اسلایدهای ارائه را به‌عنوان تصاویر SVG با استفاده از Aspose.Slides رندر کنیم. این مقاله قالب SVG و مزایای آن، از جمله مقیاس‌پذیری، دسترس‌پذیری و مناسب بودن برای توسعه وب را توصیف می‌کند.
+SVG یک فرمت تصویری مقیاس‌پذیر مبتنی بر XML است که برای انتشار وب، نمایشگرهای اسلاید، گردش‌های کاری دسترس‌پذیری و پردازش خودکار پس از تولید مناسب است. Aspose.Slides هر اسلاید را به یک فایل SVG جداگانه صادر می‌کند و به شما امکان کنترل نحوه نوشتن متن، قلم‌ها، تصاویر و عناصر SVG را می‌دهد.
 
-شما یاد خواهید گرفت چگونه یک فایل ارائه را بارگذاری، اسلایدهای آن را پیمایش کنید و هر اسلاید را به‌عنوان یک فایل SVG جداگانه ذخیره کنید. این مقاله فرمت‌های ارائه PowerPoint و OpenDocument شامل PPT، PPTX، ODP و PPS را پوشش می‌دهد و نشان می‌دهد چگونه تبدیل را برنامه‌نویسی کنید با استفاده از کلاس `Presentation` و متد `writeAsSvg`.
+از [SVGOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/) استفاده کنید وقتی که SVG صادر شده باید فشرده، قابل پیش‌بینی در مرورگرهای مختلف یا آماده برای استفاده تعاملی باشد.
 
-## **قالب SVG**
+## **صادرات یک اسلاید به صورت SVG**
 
-SVG که مخفف Scalable Vector Graphics است، یک نوع یا قالب گرافیکی استاندارد برای رندر تصاویر دو‌بعدی می‌باشد. SVG تصاویر را به‌صورت وکتور در XML ذخیره می‌کند و جزئیاتی را شامل می‌شود که رفتار یا ظاهر آنها را تعریف می‌نمایند. 
-
-SVG یکی از معدود قالب‌های تصویری است که در این زمینه‌ها استانداردهای بسیار بالایی را برآورده می‌کند: مقیاس‌پذیری، تعامل‌پذیری، عملکرد، دسترس‌پذیری، برنامه‌پذیری و غیره. به همین دلایل، به‌طور عمومی در توسعه وب مورد استفاده قرار می‌گیرد. 
-
-ممکن است بخواهید از فایل‌های SVG استفاده کنید وقتی که نیاز دارید
-
-- **ارائه خود را در یک *فرمت بسیار بزرگ* چاپ کنید.** تصاویر SVG می‌توانند به هر وضوح یا سطحی مقیاس‌پذیر باشند. می‌توانید تصاویر SVG را هر بار که لازم باشد بدون کاهش کیفیت تغییر اندازه دهید.
-- **نمودارها و گراف‌های اسلایدهای خود را در *رسانه‌ها یا پلتفرم‌های مختلف* استفاده کنید.** اکثر مرورگرها می‌توانند فایل‌های SVG را تفسیر کنند. 
-- **از *کوچک‌ترین اندازه ممکن برای تصاویر* استفاده کنید.** فایل‌های SVG معمولاً نسبت به معادل‌های با وضوح بالا در فرمت‌های دیگر کوچکتر هستند، به‌ویژه فرمت‌های مبتنی بر بیت‌مپ (JPEG یا PNG).
-
-## **رندر یک اسلاید به عنوان تصویر SVG**
-
-Aspose.Slides for PHP via Java به شما اجازه می‌دهد اسلایدهای ارائه خود را به‌عنوان تصاویر SVG استخراج کنید. برای تولید تصاویر SVG این مراحل را دنبال کنید:
-
-1. یک نمونه از کلاس Presentation ایجاد کنید.
-2. تمام اسلایدهای موجود در ارائه را پیمایش کنید.
-3. هر اسلاید را از طریق FileOutputStream به‌صورت یک فایل SVG جداگانه بنویسید.
-
-{{% alert color="primary" %}} 
-ممکن است بخواهید برنامه وب رایگان ما را امتحان کنید[برنامه وب رایگان](https://products.aspose.app/slides/fa/conversion/ppt-to-svg) که در آن تابع تبدیل PPT به SVG را از Aspose.Slides for PHP via Java پیاده‌سازی کرده‌ایم.
-{{% /alert %}} 
-
-این کد نمونه نشان می‌دهد چگونه PPT را به SVG با استفاده از Aspose.Slides تبدیل کنید:
+یک [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید، اسلایدی را انتخاب کنید و با [Slide.writeAsSvg](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#writeAsSvg) آن را به یک جریان بنویسید. مثال زیر هر اسلاید در یک ارائه را به صورت یک فایل SVG جداگانه صادر می‌کند.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $fileStream = new Java("java.io.FileOutputStream", "slide-" . $index . ".svg");
-      try {
-        $slide->writeAsSvg($fileStream);
-      } finally {
-        $fileStream->close();
-      }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $slideNumber = java_values($slide->getSlideNumber());
+        $outputFileName = sprintf("slide-%d.svg", $slideNumber);
+
+        $svgStream = new Java("java.io.FileOutputStream", $outputFileName);
+        $slide->writeAsSvg($svgStream);
+        $svgStream->close();
     }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **سؤالات متداول**
+نام فایل از [Slide.getSlideNumber](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#getSlideNumber) به جای اندیس حلقه استفاده می‌کند. همچنین می‌توانید یک شکل منفرد را با [Shape.writeAsSvg](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/#writeAsSvg) صادر کنید وقتی که یک نمایشگر اسلاید یا صفحه وب فقط به آن شکل نیاز دارد.
 
-**چرا ممکن است SVG تولید شده در مرورگرهای مختلف متفاوت به‌نظر برسد؟**
+## **پیکربندی خروجی SVG**
 
-پشتیبانی از ویژگی‌های خاص SVG توسط موتورهای مرورگر به‌صورت متفاوتی پیاده‌سازی شده است. پارامترهای [SVGOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/) به رفع ناسازگاری‌ها کمک می‌کنند.
+[SVGOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/) رندرینگ SVG را کنترل می‌کند. برای فریم‌های متنی، [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setUseFrameSize) فریم متن را در ناحیه رندرینگ گنجانده و [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setUseFrameRotation) تعیین می‌کند که آیا چرخش فریم اعمال شود یا نه. وقتی متن باید بدون لیگچرها رندر شود، [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) را روی `true` تنظیم کنید.
 
-**آیا امکان خروجی گرفتن نه تنها اسلایدها بلکه اشکال تک‌تکه به‌صورت SVG وجود دارد؟**
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setDisableFontLigatures(true);
+    $svgOptions->setUseFrameSize(true);
+    $svgOptions->setUseFrameRotation(false);
 
-بله. هر [shape می‌تواند به‌صورت SVG جداگانه ذخیره شود](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/writeassvg/)، که برای آیکون‌ها، پیکتوگرام‌ها و بازاستفاده از گرافیک‌ها مناسب است.
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-custom-options.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
 
-**آیا می‌توان چندین اسلاید را در یک SVG واحد (strip/document) ترکیب کرد؟**
+## **کنترل متن و قلم‌ها**
 
-سناریوی استاندارد یک اسلاید → یک SVG است. ترکیب چندین اسلاید در یک بوم SVG واحد، یک گام پس‌پردازشی است که در سطح برنامه انجام می‌شود.
+### **وکتوریزه کردن تمام متن**
+
+[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setVectorizeText) را روی `true` تنظیم کنید تا تمام متن اسلاید به صورت گرافیک‌های وکتور نوشته شود. این کار وابستگی‌های قلم را حذف می‌کند و نتیجه بصری را در مرورگرهای مختلف سازگارتر می‌کند، اما متن دیگر قابل انتخاب یا جستجو به عنوان متن SVG نیست.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setVectorizeText(true);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-vectorized-text.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+### **انتخاب نحوه پردازش قلم‌های خارجی**
+
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) از مقدار [SvgExternalFontsHandling](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgexternalfontshandling/) برای قلم‌های بارگذاری‌شده به صورت خارجی استفاده می‌کند. `AddLinksToFontFiles` را برای ارجاع به فایل‌های قلم جداگانه انتخاب کنید، `Embed` برای گنجاندن داده‌های قلم در SVG، یا `Vectorize` برای رندر کردن فقط متنی که از قلم‌های خارجی استفاده می‌کند به صورت گرافیک. قبل از جاسازی قلم‌ها، مجوزهای آن‌ها را بررسی کنید.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $linkedFontsOptions = new SVGOptions();
+    $linkedFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::AddLinksToFontFiles);
+    $linkedFontsStream = new Java("java.io.FileOutputStream", "slide-with-font-links.svg");
+    try {
+        $slide->writeAsSvg($linkedFontsStream, $linkedFontsOptions);
+    } finally {
+        $linkedFontsStream->close();
+    }
+
+    $embeddedFontsOptions = new SVGOptions();
+    $embeddedFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::Embed);
+    $embeddedFontsStream = new Java("java.io.FileOutputStream", "slide-with-embedded-fonts.svg");
+    try {
+        $slide->writeAsSvg($embeddedFontsStream, $embeddedFontsOptions);
+    } finally {
+        $embeddedFontsStream->close();
+    }
+
+    $vectorizedExternalFontsOptions = new SVGOptions();
+    $vectorizedExternalFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::Vectorize);
+    $vectorizedExternalFontsStream = new Java("java.io.FileOutputStream", "slide-with-vectorized-external-fonts.svg");
+    try {
+        $slide->writeAsSvg($vectorizedExternalFontsStream, $vectorizedExternalFontsOptions);
+    } finally {
+        $vectorizedExternalFontsStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **کاهش اندازه تصویر جاسازی‌شده**
+
+از [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setPicturesCompression) برای کاهش وضوح تصاویر جاسازی‌شده استفاده کنید، [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas) برای حذف نواحی برش‌خورده منبع، و [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setJpegQuality) برای کنترل کیفیت رمزگذاری JPEG. این تنظیمات حجم فایل را به قیمت کاهش دقت تصویر یا داده‌های نگهداری شده کاهش می‌دهند.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setPicturesCompression(PicturesCompression::Dpi150);
+    $svgOptions->setDeletePicturesCroppedAreas(true);
+    $svgOptions->setJpegQuality(80);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "compressed-slide.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **اختصاص شناسه‌های ثابت به اشکال و متن**
+
+یک callback قالب‌بندی به [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setShapeFormattingController) ارائه دهید تا برای هر شکل SVG [SvgShape.setId](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgshape/#setId) تنظیم شود. این callback می‌تواند مقادیر [SvgTSpan.setId](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgtspan/#setId) را نیز بر روی عناصر متن `tspan` تنظیم کند.
+
+PhpJavaBridge نمی‌تواند یک callback PHP را از `writeAsSvg` فراخوانی کند هنگامی که در حالت جریان اجرا می‌شود. منطق قالب‌بندی را در یک کلاس کمکی کوچک جاوا قرار دهید، آن را کامپایل کنید و فایل JAR حاصل را به مسیر کلاس‌های پل اضافه کنید. این کمک‌رسان می‌تواند از [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/#getOfficeInteropShapeId) استفاده کند که برای طول عمر شکل ثابت است و یک شمارنده تکرارپذیر برای `tspan`های متنی آن دارد. برای کد کمکی به [Java implementation of `StableSvgIdController`](/slides/fa/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) مراجعه کنید.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $shapeFormattingController = new Java("com.example.slides.StableSvgIdController");
+
+    $svgOptions = new SVGOptions();
+    $svgOptions->setShapeFormattingController($shapeFormattingController);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-stable-ids.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **افزودن هندلرهای رویداد SVG**
+
+در یک callback قالب‌بندی، با یک مقدار [SvgEvent](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgevent/) به [SvgShape.setEventHandler](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgshape/#setEventHandler) فراخوانی کنید تا یک هندلر رویداد JavaScript به شکل صادر شده اضافه شود. callback را با [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setShapeFormattingController) اختصاص دهید و تابع JavaScript را در صفحه یا سند SVG که نتیجه را میزبانی می‌کند تعریف کنید.
+
+همانند شناسه‌های ثابت، هنگام استفاده از PhpJavaBridge در حالت جریان، callback را در یک کمک‌رسان جاوا پیاده‌سازی کنید. [Java implementation of `SvgEventController`](/slides/fa/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) یک شناسه و هندلر `OnClick` را به شکلی به نام `ActionButton` اختصاص می‌دهد. آن کمک‌رسان را کامپایل کنید، به مسیر کلاس‌های پل به عنوان `com.example.slides.SvgEventController` اضافه کنید و از PHP به شکل زیر استفاده کنید:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $shapeFormattingController = new Java("com.example.slides.SvgEventController");
+
+    $svgOptions = new SVGOptions();
+    $svgOptions->setShapeFormattingController($shapeFormattingController);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "interactive-slide.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+صفحه میزبان می‌تواند تابع JavaScript اشاره‌شده توسط هندلر را تعریف کند. اختصاص شناسه‌ها و هندلرهای رویداد، نمایشگرهای اسلاید، بهبودهای دسترس‌پذیری و دیگر گردش‌های کاری تعاملی SVG را ممکن می‌سازد.
+
+## **پرسش‌های متداول**
+
+**چه وقت باید از [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setVectorizeText) به جای [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgexternalfontshandling/) استفاده کنم؟**
+
+از [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgoptions/#setVectorizeText) وقتی استفاده کنید که تمام متن باید مستقل از قلم‌ها باشد. از [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgexternalfontshandling/) زمانی استفاده کنید که فقط متنی که از قلم‌های خارجی استفاده می‌کند به گرافیک تبدیل شود.
+
+**بهترین راه برای کوچک‌تر کردن یک SVG چیست؟**
+
+با فشرده‌سازی تصاویر جاسازی‌شده، حذف نواحی برش خورده تصویر و انتخاب فایل‌های قلم مرتبط شروع کنید وقتی که محیط هدف قادر به سرو کردن آنها باشد. نتیجه را آزمایش کنید زیرا کاهش وضوح تصویر، کاهش کیفیت JPEG و متن وکتوریزه هر کدام تعادلات متفاوتی بین کیفیت و حجم دارند.
+
+**آیا می‌توانم عناصر SVG صادر شده را پس از صادرات تغییر دهم؟**
+
+بله. با استفاده از یک callback قالب‌بندی شناسه‌ها را اختصاص دهید، سپس عناصر SVG مربوطه را در ابزار پس‌پردازش یا اسکریپت مرورگر خود انتخاب کنید.

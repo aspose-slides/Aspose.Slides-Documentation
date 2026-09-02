@@ -1,71 +1,127 @@
 ---
-title: تحويل شرائح العروض التقديمية إلى صور SVG باستخدام Python
+title: تحويل شرائح العرض التقديمي إلى صور SVG في بايثون
 linktitle: شريحة إلى SVG
 type: docs
 weight: 50
 url: /ar/python-net/render-a-slide-as-an-svg-image/
 keywords:
-- شريحة إلى SVG
-- عرض تقديمي إلى SVG
 - PowerPoint إلى SVG
-- OpenDocument إلى SVG
+- العرض التقديمي إلى SVG
+- الشريحة إلى SVG
 - PPT إلى SVG
 - PPTX إلى SVG
-- ODP إلى SVG
-- عرض شريحة
-- تحويل شريحة
-- تصدير شريحة
-- صورة متجهة
+- خيارات تصدير SVG
 - PowerPoint
-- OpenDocument
-- عرض تقديمي
-- Python
+- العرض التقديمي
+- بايثون
 - Aspose.Slides
-description: "تعلم كيفية تحويل شرائح PowerPoint وOpenDocument إلى صور SVG باستخدام Aspose.Slides للـ Python عبر .NET. صور عالية الجودة مع أمثلة شيفرة بسيطة."
+description: "تصدير شرائح PowerPoint كصور SVG في بايثون والتحكم بالخطوط والنصوص والصور باستخدام Aspose.Slides."
 ---
+## **نظرة عامة**
 
-## **تحويل الشرائح إلى SVG**
+SVG هو تنسيق صورة قائم على XML وقابل للتوسّع يعمل جيدًا للنشر على الويب، وعارض الشرائح، وسير عمل إمكانية الوصول، والمعالجة اللاحقة الآلية. تقوم Aspose.Slides بتصدير كل شريحة إلى ملف SVG منفصل وتتيح لك التحكم في كيفية كتابة النصوص، الخطوط، الصور، وعناصر SVG.
 
-SVG—اختصار لـ Scalable Vector Graphics—هو نوع أو تنسيق رسومي قياسي يُستخدم لعرض الصور الثنائية الأبعاد. يقوم SVG بتخزين الصور كمتجهات في XML مع تفاصيل تحدد سلوكها أو مظهرها. 
+استخدم [SVGOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/) عندما يجب أن يكون الـ SVG المصدر مضغوطًا، أو متوقعًا عبر المتصفحات، أو جاهزًا للاستخدام التفاعلي.
 
-SVG هو أحد القليل من تنسيقات الصور التي تلبي معايير عالية جدًا في هذه الجوانب: القابلية للتوسع، التفاعل، الأداء، إمكانية الوصول، القابلية للبرمجة، وغيرها. لهذه الأسباب يُستخدم بشكل شائع في تطوير الويب. 
+## **تصدير شريحة كـ SVG**
 
-قد ترغب في استخدام ملفات SVG عندما تحتاج إلى
-- **طباعة عرضك التقديمي في *تنسيق كبير جدًا*.** يمكن للصور بصيغة SVG أن تتوسع إلى أي دقة أو مستوى. يمكنك تغيير حجم صور SVG مرات متعددة حسب الحاجة دون التضحية بالجودة.
-- **استخدام المخططات والرسوم البيانية من الشرائح في *وسائط أو منصات مختلفة**.* معظم القارئات يمكنها تفسير ملفات SVG. 
-- **استخدام *أصغر حجم ممكن للصور***. عادةً ما تكون ملفات SVG أصغر حجمًا من نظيراتها عالية الدقة في تنسيقات أخرى، خاصةً تلك التي تعتمد على البت ماب (JPEG أو PNG).
+أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/)، حدّد شريحة، واكتبها إلى تدفق. المثال التالي يصدر كل شريحة في عرض تقديمي كملف SVG منفصل.
 
-يتيح Aspose.Slides for Python عبر .NET تصدير الشرائح في عروضك التقديمية كصور SVG. اتبع الخطوات التالية لإنشاء صور SVG:
-1. إنشاء مثيل من الفئة Presentation.  
-2. التكرار عبر جميع الشرائح في العرض التقديمي.  
-3. كتابة كل شريحة إلى ملف SVG خاص بها عبر FileStream.  
-
-{{% alert color="primary" %}} 
-قد ترغب في تجربة [تطبيق الويب المجاني](https://products.aspose.app/slides/conversion/ppt-to-svg) الذي قمنا فيه بتنفيذ وظيفة تحويل PPT إلى SVG من Aspose.Slides for Python عبر .NET.
-{{% /alert %}} 
-
-يعرض هذا المثال البرمجي بلغة Python كيفية تحويل PPT إلى SVG باستخدام Aspose.Slides:
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن Presentation يمثل ملف عرض تقديمي
-pres = slides.Presentation("pres.pptx")
-
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
-
-    with open("slide-{index}.svg".format(index = index), "wb") as file:
-        slide.write_as_svg(file)
+with slides.Presentation("presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        with open("slide-{}.svg".format(slide.slide_number), "wb") as svg_stream:
+            slide.write_as_svg(svg_stream)
 ```
 
+يستخدم اسم الملف الخاصية [Slide.slide_number](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/slide_number/) بدلاً من فهرس الحلقة. يمكنك أيضًا تصدير شكل فردي باستخدام [Shape.write_as_svg](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/write_as_svg/) عندما يحتاج عارض الشرائح أو صفحة ويب إلى ذلك الشكل فقط.
 
-## **الأسئلة المتكررة**
+## **تكوين إخراج SVG**
 
-**لماذا قد يبدو الـ SVG الناتج مختلفًا عبر المتصفحات؟**  
-يتم تنفيذ دعم ميزات SVG المحددة بطرق مختلفة حسب محركات المتصفحات. تساعد معلمات [SVGOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/) في تسوية عدم التوافق.
+[SVGOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/) يتحكم في تصيير SVG. بالنسبة لإطارات النص، تشمل [SVGOptions.use_frame_size](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/use_frame_size/) إطار النص في منطقة التصيير، وتحدّد [SVGOptions.use_frame_rotation](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/use_frame_rotation/) ما إذا كان سيتم تطبيق تدوير الإطار. اضبط [SVGOptions.disable_font_ligatures](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/disable_font_ligatures/) إلى `True` عندما يجب عرض النص دون روابط حروف.
 
-**هل من الممكن تصدير ليس فقط الشرائح بل أيضًا الأشكال الفردية إلى SVG؟**  
-نعم. يمكن حفظ أي [shape can be saved as a separate SVG](https://reference.aspose.com/slides/python-net/aspose.slides/shape/write_as_svg/)، وهو ما يكون مناسبًا للأيقونات، والرسوم التوضيحية، وإعادة استخدام الرسومات.
+```py
+import aspose.slides as slides
 
-**هل يمكن دمج عدة شرائح في ملف SVG واحد (شريط/وثيقة)؟**  
-السيناريو القياسي هو شريحة واحدة → SVG واحد. دمج عدة شرائح في لوحة SVG واحدة هو خطوة ما بعد المعالجة تُجرى على مستوى التطبيق.
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.disable_font_ligatures = True
+    svg_options.use_frame_size = True
+    svg_options.use_frame_rotation = False
+
+    with open("slide-with-custom-options.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
+
+## **التحكم في النصوص والخطوط**
+
+### **تحويل كل النص إلى رسومات متجهة**
+
+اضبط [SVGOptions.vectorize_text](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/vectorize_text/) إلى `True` لكتابة كل نص الشريحة كرسومات متجهة. هذا يلغي الاعتماد على الخطوط ويجعل النتيجة البصرية أكثر اتساقًا عبر المتصفحات، لكن النص لن يكون قابلًا للتحديد أو البحث كنص SVG.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.vectorize_text = True
+
+    with open("slide-with-vectorized-text.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
+
+### **اختر طريقة معالجة الخطوط الخارجية**
+
+[SVGOptions.external_fonts_handling](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/external_fonts_handling/) يستخدم قيمة [SvgExternalFontsHandling](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgexternalfontshandling/) للخطوط التي تُحمَّل خارجيًا. اختر `ADD_LINKS_TO_FONT_FILES` للإشارة إلى ملفات خطوط منفصلة، أو `EMBED` لتضمين بيانات الخط داخل SVG، أو `VECTORIZE` لتصنيع النصوص التي تستخدم خطوطًا خارجية كرسومات. تحقق من ترخيص الخط قبل تضمينه.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    linked_fonts_options = slides.export.SVGOptions()
+    linked_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.ADD_LINKS_TO_FONT_FILES
+
+    with open("slide-with-font-links.svg", "wb") as linked_fonts_stream:
+        presentation.slides[0].write_as_svg(linked_fonts_stream, linked_fonts_options)
+
+    embedded_fonts_options = slides.export.SVGOptions()
+    embedded_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.EMBED
+
+    with open("slide-with-embedded-fonts.svg", "wb") as embedded_fonts_stream:
+        presentation.slides[0].write_as_svg(embedded_fonts_stream, embedded_fonts_options)
+
+    vectorized_external_fonts_options = slides.export.SVGOptions()
+    vectorized_external_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.VECTORIZE
+
+    with open("slide-with-vectorized-external-fonts.svg", "wb") as vectorized_external_fonts_stream:
+        presentation.slides[0].write_as_svg(vectorized_external_fonts_stream, vectorized_external_fonts_options)
+```
+
+## **تقليل حجم الصور المضمنة**
+
+استخدم [SVGOptions.pictures_compression](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/pictures_compression/) لتقليل دقة الصور المضمنة، و[SVGOptions.delete_pictures_cropped_areas](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/delete_pictures_cropped_areas/) لحذف المناطق المقتصة من المصدر، و[SVGOptions.jpeg_quality](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/jpeg_quality/) للتحكم في جودة ترميز JPEG. هذه الإعدادات تقلل حجم الملف على حساب دقة الصورة أو الاحتفاظ ببيانات الصورة.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.pictures_compression = slides.export.PicturesCompression.DPI150
+    svg_options.delete_pictures_cropped_areas = True
+    svg_options.jpeg_quality = 80
+
+    with open("compressed-slide.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
+
+## **الأسئلة الشائعة**
+
+**متى يجب أن أستخدم [SVGOptions.vectorize_text](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/vectorize_text/) بدلاً من [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgexternalfontshandling/)?**
+
+استخدم [SVGOptions.vectorize_text](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgoptions/vectorize_text/) عندما يجب أن يكون كل النص مستقلاً عن الخطوط. استخدم [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/svgexternalfontshandling/) عندما ينبغي تحويل النص الذي يستخدم خطوطًا خارجية فقط إلى رسومات.
+
+**ما هي أفضل طريقة لتصغير حجم SVG؟**
+
+ابدأ بضغط الصور المضمنة، حذف المناطق المقصوصة من الصور، واختيار ملفات خطوط مرتبطة عندما يكون بيئة الهدف قادرة على تقديمها. اختبر النتيجة لأن خفض دقة الصورة، خفض جودة JPEG، وتحويل النص إلى متجهات كل منها يؤثر على الجودة وحجم الملف بطرق مختلفة.

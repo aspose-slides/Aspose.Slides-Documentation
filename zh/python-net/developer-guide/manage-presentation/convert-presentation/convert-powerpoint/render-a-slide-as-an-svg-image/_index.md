@@ -5,74 +5,123 @@ type: docs
 weight: 50
 url: /zh/python-net/render-a-slide-as-an-svg-image/
 keywords:
-- 幻灯片转 SVG
-- 演示文稿转 SVG
 - PowerPoint 转 SVG
-- OpenDocument 转 SVG
+- 演示文稿 转 SVG
+- 幻灯片 转 SVG
 - PPT 转 SVG
 - PPTX 转 SVG
-- ODP 转 SVG
-- 渲染幻灯片
-- 转换幻灯片
-- 导出幻灯片
-- 矢量图像
+- SVG 导出选项
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Python via .NET 将 PowerPoint 和 OpenDocument 幻灯片渲染为 SVG 图像。提供高质量的视觉效果和简洁的代码示例。"
+description: "在 Python 中将 PowerPoint 幻灯片导出为 SVG 图像，并使用 Aspose.Slides 控制字体、文本和图像。"
 ---
+## **概述**
 
-## **将幻灯片转换为 SVG**
+SVG 是一种基于 XML 的可缩放图像格式，适用于网页发布、幻灯片查看器、可访问性工作流以及自动化后处理。Aspose.Slides 将每张幻灯片导出为单独的 SVG 文件，并让您控制文本、字体、图片和 SVG 元素的写入方式。
 
-SVG（Scalable Vector Graphics 的缩写）是一种用于渲染二维图像的标准图形类型或格式。SVG 将图像以 XML 中的矢量形式存储，并包含定义其行为或外观的细节。
+当导出的 SVG 必须紧凑、在浏览器间保持可预期，或准备好用于交互时，请使用 [SVGOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/)。
 
-SVG 是少数在以下方面满足极高标准的图像格式：可伸缩性、交互性、性能、可访问性、可编程性等。因此，它在 Web 开发中被广泛使用。
+## **将幻灯片导出为 SVG**
 
-您可能在以下情况下希望使用 SVG 文件：
+创建一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/)，选择幻灯片并将其写入流。下面的示例将演示文稿中的每张幻灯片导出为单独的 SVG 文件。
 
-- **以*超大尺寸*打印演示文稿。** SVG 图像可以缩放到任意分辨率或级别。您可以根据需要多次调整 SVG 图像大小，而不会降低质量。
-- **在*不同媒介或平台*中使用幻灯片中的图表和图形。** 大多数读取器都能解释 SVG 文件。
-- **使用*最小的图像尺寸*。** 与其他格式的高分辨率等效文件相比，SVG 文件通常更小，尤其是基于位图的格式（JPEG 或 PNG）。
-
-Aspose.Slides for Python via .NET 允许您将演示文稿中的幻灯片导出为 SVG 图像。按照以下步骤生成 SVG 图像：
-
-1. 创建一个 Presentation 类的实例。
-2. 遍历演示文稿中的所有幻灯片。
-3. 通过 FileStream 将每张幻灯片写入其对应的 SVG 文件。
-
-{{% alert color="primary" %}} 
-
-您可以试用我们的[免费网络应用](https://products.aspose.app/slides/conversion/ppt-to-svg)，我们在其中实现了基于 Aspose.Slides for Python via .NET 的 PPT 转 SVG 功能。
-
-{{% /alert %}} 
-
-下面的 Python 示例代码演示了如何使用 Aspose.Slides 将 PPT 转换为 SVG：
 ```py
 import aspose.slides as slides
 
-# 实例化一个表示演示文稿文件的 Presentation 对象
-pres = slides.Presentation("pres.pptx")
-
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
-
-    with open("slide-{index}.svg".format(index = index), "wb") as file:
-        slide.write_as_svg(file)
+with slides.Presentation("presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        with open("slide-{}.svg".format(slide.slide_number), "wb") as svg_stream:
+            slide.write_as_svg(svg_stream)
 ```
 
+文件名使用 [Slide.slide_number](https://reference.aspose.com/slides/zh/python-net/aspose.slides/slide/slide_number/) 而不是循环索引。当幻灯片查看器或网页只需要某个形状时，您也可以使用 [Shape.write_as_svg](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/write_as_svg/) 导出单个形状。
 
-## **FAQ**
+## **配置 SVG 输出**
 
-**导致不同浏览器中生成的 SVG 看起来不同的原因是什么？**
+[SVGOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/) 控制 SVG 渲染。对于文本框，[SVGOptions.use_frame_size](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/use_frame_size/) 将文本框包含在渲染区域内，且 [SVGOptions.use_frame_rotation](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/use_frame_rotation/) 决定是否应用框的旋转。当文本必须在不使用连字的情况下渲染时，将 [SVGOptions.disable_font_ligatures](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/disable_font_ligatures/) 设置为 `True`。
 
-不同浏览器引擎对特定 SVG 功能的支持实现各不相同。使用[SVGOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/svgoptions/) 参数可以平滑这些不兼容性。
+```py
+import aspose.slides as slides
 
-**是否可以导出不仅是幻灯片，还包括单独的形状为 SVG？**
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.disable_font_ligatures = True
+    svg_options.use_frame_size = True
+    svg_options.use_frame_rotation = False
 
-可以。任何[形状都可以保存为单独的 SVG](https://reference.aspose.com/slides/python-net/aspose.slides/shape/write_as_svg/)，这对图标、示意图以及重复使用图形非常方便。
+    with open("slide-with-custom-options.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
 
-**是否可以将多个幻灯片合并为一个 SVG（条带/文档）？**
+## **控制文本和字体**
 
-标准方案是一张幻灯片对应一个 SVG。将多张幻灯片合并到同一 SVG 画布中是需要在应用层进行的后处理步骤。
+### **向量化所有文本**
+
+将 [SVGOptions.vectorize_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/vectorize_text/) 设置为 `True`，即可将所有幻灯片文本写为向量图形。这消除了对字体的依赖，使视觉效果在不同浏览器之间更一致，但文本将不再可作为 SVG 文本进行选择或搜索。
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.vectorize_text = True
+
+    with open("slide-with-vectorized-text.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
+
+### **选择外部字体的处理方式**
+
+[SVGOptions.external_fonts_handling](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/external_fonts_handling/) 使用 [SvgExternalFontsHandling](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgexternalfontshandling/) 的取值来处理外部加载的字体。请选择 `ADD_LINKS_TO_FONT_FILES` 以引用独立的字体文件，`EMBED` 将字体数据嵌入 SVG，或 `VECTORIZE` 将仅使用外部字体的文本渲染为图形。在嵌入字体之前请确认字体授权。
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    linked_fonts_options = slides.export.SVGOptions()
+    linked_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.ADD_LINKS_TO_FONT_FILES
+
+    with open("slide-with-font-links.svg", "wb") as linked_fonts_stream:
+        presentation.slides[0].write_as_svg(linked_fonts_stream, linked_fonts_options)
+
+    embedded_fonts_options = slides.export.SVGOptions()
+    embedded_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.EMBED
+
+    with open("slide-with-embedded-fonts.svg", "wb") as embedded_fonts_stream:
+        presentation.slides[0].write_as_svg(embedded_fonts_stream, embedded_fonts_options)
+
+    vectorized_external_fonts_options = slides.export.SVGOptions()
+    vectorized_external_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.VECTORIZE
+
+    with open("slide-with-vectorized-external-fonts.svg", "wb") as vectorized_external_fonts_stream:
+        presentation.slides[0].write_as_svg(vectorized_external_fonts_stream, vectorized_external_fonts_options)
+```
+
+## **减小嵌入图像的大小**
+
+使用 [SVGOptions.pictures_compression](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/pictures_compression/) 可降低嵌入图片的分辨率，使用 [SVGOptions.delete_pictures_cropped_areas](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/delete_pictures_cropped_areas/) 可省略已裁剪的源区域，使用 [SVGOptions.jpeg_quality](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/jpeg_quality/) 可控制 JPEG 编码质量。这些设置会在降低文件大小的同时牺牲图像保真度或保留的图像数据。
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.pictures_compression = slides.export.PicturesCompression.DPI150
+    svg_options.delete_pictures_cropped_areas = True
+    svg_options.jpeg_quality = 80
+
+    with open("compressed-slide.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
+
+## **常见问题**
+
+**何时应使用 [SVGOptions.vectorize_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/vectorize_text/) 而不是 [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgexternalfontshandling/)?**
+
+当所有文本必须独立于字体时，请使用 [SVGOptions.vectorize_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgoptions/vectorize_text/)。当仅需将使用外部字体的文本转换为图形时，请使用 [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/svgexternalfontshandling/)。
+
+**缩小 SVG 的最佳方法是什么？**
+
+首先压缩嵌入的图片，删除裁剪的图像区域，并在目标环境能够提供这些文件时选择链接的字体文件。需要测试结果，因为降低图片分辨率、降低 JPEG 质量以及向量化文本各自会带来不同的质量和体积权衡。
