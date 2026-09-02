@@ -1,5 +1,5 @@
 ---
-title: Python ile Sunumlarda Resim Çerçevelerini Yönetme
+title: Presentasyonlarda Resim Çerçevelerini Python ile Yönetme
 linktitle: Resim Çerçevesi
 type: docs
 weight: 10
@@ -10,7 +10,7 @@ keywords:
 - resim çerçevesi oluştur
 - gömülü görüntü
 - bağlantılı görüntü
-- görüntü çıkar
+- görüntüyü çıkar
 - raster görüntü
 - SVG görüntü
 - görüntüyü kırp
@@ -19,28 +19,28 @@ keywords:
 - StretchOffset
 - resim çerçevesi biçimlendirme
 - göreceli ölçek
-- görüntü efekti
-- en-boy oranı
+- görsel efekt
+- en/boy oranı
 - PowerPoint
 - OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile sunumlardaki resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkarın ve sıkıştırın."
+description: "Aspose.Slides for Python via .NET ile sunumlarda resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkarın ve sıkıştırın."
 ---
 ## **Genel Bakış**
 
-Bir resim çerçevesi, bir resmi gösteren slayt şeklidir. Aspose.Slides'da, resim kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) yerleşik resim kaynaklarını [ImageCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/) aracılığıyla sahiplenirken, bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) resmin konumunu, boyutunu, çizgi biçimlendirmesini, döndürülmesini, kırpılmasını, resim efektlerini ve diğer çerçeve düzeyindeki ayarları kontrol eder.
+Bir resim çerçevesi, bir görüntüyü gösteren bir slayt şeklidir. Aspose.Slides'te, resim kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) gömülü resim kaynaklarını [ImageCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/imagecollection/) aracılığıyla sahiplenir, bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) ise resmin konumunu, boyutunu, çizgi biçimlendirmesini, döndürmeyi, kırpmayı, resim efektlerini ve diğer çerçeve‑düzeyindeki ayarları kontrol eder.
 
-Bu ayrım, aynı resmin birden fazla kez gösterilmesi gerektiğinde faydalıdır. Resmi sunuma bir kez ekleyin, döndürülen [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) nesnesini saklayın ve resim çerçeveleri oluştururken bu resim kaynağını kullanın.
+Aynı resim birden fazla kez gösterildiğinde bu ayrım yararlıdır. Resmi sunuma bir kez ekleyin, döndürülen [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) nesnesini saklayın ve resim çerçeveleri oluştururken bu resim kaynağını kullanın.
 
-Resim çerçeveleri PNG veya JPEG gibi raster görüntüleri ve SVG gibi vektör görüntüleri içerebilir. Ayrıca görüntü baytlarını sunuma depolamak yerine bağlı (linked) görüntülere de başvurabilirler. Bu seçim, taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu nedenle biçimlendirme veya optimizasyon uygulamadan önce görüntünün nasıl depolanacağına karar vermek faydalıdır.
+Resim çerçeveleri PNG veya JPEG gibi raster görselleri ve SVG gibi vektör görselleri içerebilir. Ayrıca resmi sunuma gömmek yerine bağlantılı görsellere de başvurabilirler. Bu seçim taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu nedenle biçimlendirme veya optimizasyon uygulamadan önce görselin nasıl saklanacağına karar vermek faydalıdır.
 
-## **Gömülü Bir Görüntü Ekleme ve Biçimlendirme**
+## **Gömülü Resim Ekleme ve Biçimlendirme**
 
-Gömülü bir görüntü için, görüntü verilerini sunuma ekleyin ve bir resim çerçevesi oluşturmak için [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_picture_frame/) kullanın. Görüntü, sunum paketinin bir parçası haline gelir, böylece sunum başka bir bilgisayara taşındığında kendi kendine yeterli kalır.
+Gömülü bir görsel için, görsel verisini sunuma ekleyin ve bir resim çerçevesi oluşturmak için [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_picture_frame/) kullanın. Görsel sunum paketinin bir parçası haline gelir, bu sayede sunum başka bir bilgisayara taşındığında kendi kendine yeterli kalır.
 
-Aşağıdaki örnek bir JPEG görüntüsü ekler, görüntünün yerel boyutlarında bir çerçeve oluşturur ve çizgi biçimlendirmesi ile döndürmeyi uygular:
+Aşağıdaki örnek bir JPEG görseli ekler, görselin yerel boyutlarında bir çerçeve oluşturur ve çizgi biçimlendirmesi ile döndürme uygular:
 
 ```python
 import aspose.pydrawing as draw
@@ -61,11 +61,11 @@ with slides.Presentation() as presentation:
     presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resim çerçevesi, görüntülenen geometriyi kontrol eder; çerçeve boyutunu değiştirmek, gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu ayrım, daha sonra bir görüntüyü kırpma veya sıkıştırma yaparken önemli hale gelir.
+Resim çerçevesi görüntülenen geometrini kontrol eder; çerçeve boyutunu değiştirmek, gömülü görsel kaynağında saklanan özgün piksel boyutlarını değiştirmez. Bu ayrım, daha sonra bir görseli kırpma veya sıkıştırma yaparken önem kazanır.
 
 ## **Göreceli Ölçeği Kullanma**
 
-[PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) çerçeve için [relative_scale_width](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/relative_scale_width/) ve [relative_scale_height](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/relative_scale_height/) özelliklerini sunar. `1.0` değeri, orijinal resim boyutunun %100'üne karşılık gelir. Göreceli ölçek, bir iş akışının nihai boyutları manuel olarak hesaplamak yerine kaynak görüntü boyutuna olan ilişkiyi koruması gerektiğinde faydalıdır.
+[PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) çerçeve için [relative_scale_width](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/relative_scale_width/) ve [relative_scale_height](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/relative_scale_height/) özelliklerini sunar. `1.0` değeri, orijinal resim boyutunun %100'üne karşılık gelir. Göreceli ölçek, bir iş akışının son boyutları elle hesaplamak yerine kaynak görsel boyutuyla olan ilişkiyi koruması gerektiğinde yararlıdır.
 
 ```python
 import aspose.slides as slides
@@ -83,17 +83,17 @@ with slides.Presentation() as presentation:
     presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Göreceli ölçek, çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örneklemez veya sıkıştırmaz.
+Göreceli ölçek çerçevenin ölçek ayarlarını değiştirir; gömülü görseli yeniden örneklemez veya sıkıştırmaz.
 
-## **Gömülü ve Bağlı Görüntüler**
+## **Gömülü ve Bağlantılı Görseller**
 
-Gömülü bir resim, görüntü verilerini sunum içinde depolar ve bu nedenle taşınabilirlik ve öngörülebilir render için en güvenli seçenektir. Bağlı bir resim, görüntü verilerini aynı şekilde gömmek yerine [Picture](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picture/) bağlantı yolu aracılığıyla harici bir konumda saklar.
+Gömülü bir resim, görsel verisini doğrudan sunuma kaydeder ve bu nedenle taşınabilirlik ve tahmin edilebilir render için en güvenli seçimdir. Bağlantılı bir resim, [Picture](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picture/) bağlantı yolu aracılığıyla dış bir konumu tutar; görsel verisi aynı şekilde gömülmez.
 
-Bağlı görüntüler, PPTX içinde depolanan görüntü verisi miktarını azaltabilir, ancak dış bağımlılık getirir. Bağlı dosya, sunumu açan veya render eden uygulama tarafından erişilebilir olmalıdır. Yol değişirse, dosya taşınırsa veya kaynak kullanılamaz olursa, bağlı resim beklenildiği gibi görüntülenmeyebilir. E-posta ile gönderilmesi, arşivlenmesi veya izole ortamlarda render edilmesi gereken sunumlar için gömülü görüntüler genellikle daha güvenilirdir.
+Bağlantılı görseller PPTX içinde saklanan görsel verisinin miktarını azaltabilir, ancak dış bir bağımlılık getirir. Bağlantılı dosya, sunumu açan veya render eden uygulama tarafından erişilebilir kalmalıdır. Yol değişirse, dosya taşınırsa veya kaynak bulunamazsa, bağlantılı görsel beklenildiği gibi görüntülenmeyebilir. E-posta ile gönderilmesi, arşivlenmesi veya izole ortamda render edilmesi gereken sunumlar için gömülü görseller genellikle daha güvenilirdir.
 
-### **Bağlı Bir Görüntü Ekleme**
+### **Bağlantılı Görsel Ekleme**
 
-Aşağıdaki örnek bir resim çerçevesi oluşturur ve yerel bir görüntü dosyasına işaret eder. Bu örnek yalnızca görüntü bağlamayı ele alır; video bağlama ayrı bir medya iş akışıdır ve kasıtlı olarak bu örneğe karıştırılmamıştır.
+Aşağıdaki örnek bir resim çerçevesi oluşturur ve onu yerel bir görsel dosyasına yönlendirir. Bu örnek yalnızca görsel bağlantısını ele alır; video bağlantısı ayrı bir medya iş akışıdır ve kasıtlı olarak bu örneğe dahil edilmemiştir.
 
 ```python
 import os
@@ -109,15 +109,15 @@ with slides.Presentation() as presentation:
     presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Harici dosya yönetimi kasıtlıysa bağlantılar kullanılmalıdır. Sıkıştırma yerine yalnızca bir yedek olarak kullanılmamalıdır: bozuk görüntü bağımlılıkları olan küçük bir PPTX, genellikle daha büyük, kendi kendine yeterli bir sunumdan daha az kullanışlıdır.
+Dış dosya yönetimi kasıtlıysa bağlantıları kullanın. Sıkıştırma yerine sadece bir yedek olarak kullanmayın: kırık görsel bağımlılıklarına sahip küçük bir PPTX, büyük ve kendi kendine yeterli bir sunuma göre genellikle daha az kullanışlıdır.
 
-## **Resim Çerçevelerinden Görüntüleri Çıkarma**
+## **Resim Çerçevelerinden Görselleri Çıkarma**
 
-Mevcut bir sunumdan görüntü çıkarmadan önce, şeklin gerçekten bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) olup olmadığını ve içinde gömülü bir görüntü barındırıp barındırmadığını kontrol edin. Bağlı resim çerçeveleri, aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
+Mevcut bir sunumdan görsel çıkarmadan önce, bir şeklin gerçekten bir [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) olup olmadığını ve gömülü bir görsel içerip içermediğini kontrol edin. Bağlantılı resim çerçeveleri, aynı şekilde çıkarılabilecek görsel baytlarını içermeyebilir.
 
-### **Raster Görüntü Çıkarma**
+### **Raster Görsel Çıkarma**
 
-Modern görüntü API'si doğrudan [IImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iimage/) kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
+Modern görsel API'si doğrudan [IImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iimage/) kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
 
 ```python
 import aspose.slides as slides
@@ -138,11 +138,11 @@ with slides.Presentation("sample.pptx") as presentation:
         break
 ```
 
-[IImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iimage/) üzerinden kaydetmek, çıkarılan görüntüyü istenen çıktı formatına dönüştürür. Sunumda depolanan kodlanmış baytlara, dönüştürülmüş raster dosya yerine ihtiyacınız varsa, bunun yerine [PPImage.binary_data](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/binary_data/) özelliğini kullanın.
+[IImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iimage/) üzerinden kaydetmek, çıkarılan görseli istenen çıktı formatına dönüştürür. Sunum içinde saklanan kodlanmış baytları (dönüştürülmüş raster dosyası yerine) elde etmeniz gerekiyorsa, [PPImage.binary_data](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/binary_data/) özelliğini kullanın.
 
-### **SVG Görüntüsü Çıkarma**
+### **SVG Görsel Çıkarma**
 
-SVG bir resim için, [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) bir [SvgImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/) nesnesi sunar. Bu sayede resmi önce rasterlaştırmadan doğrudan SVG verisini alabilirsiniz.
+SVG bir resim için, [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) bir [SvgImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/) nesnesi sunar. Bu, resmi önce rasterlaştırmadan SVG verisini doğrudan almanızı sağlar.
 
 ```python
 import aspose.slides as slides
@@ -165,11 +165,11 @@ with slides.Presentation("sample.pptx") as presentation:
         break
 ```
 
-SVG içeriğini SVG olarak tutmak, sunum içinde vektör kaynağını korur. PNG veya JPEG gibi raster dışa aktarmalar, bu vektör içeriğini piksellere dönüştürmek zorundadır. PDF veya SVG slayt dışa aktarma da bir render işlemi olduğundan, dışa aktarılan grafikler orijinal gömülü SVG'nin bayt‑bayt kopyası olarak değerlendirilmemelidir; orijinal vektör kaynağı gerektiğinde gömülü [SvgImage.svg_data](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/svg_data/) kullanılmalıdır.
+SVG içeriğini SVG olarak tutmak, vektör kaynağını sunum içinde korur. PNG veya JPEG gibi raster dışa aktarımlar, bu vektör içeriğini piksellere dönüştürür. PDF veya SVG slayt dışa aktarma da bir render işlemidir; bu nedenle dışa aktarılan grafikler, orijinal gömülü SVG'nin bayt‑bayt kopyası olarak ele alınmamalıdır; orijinal vektör kaynağı gerektiğinde gömülü [SvgImage.svg_data](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/svg_data/) kullanılmalıdır.
 
-## **Bir Görüntüyü Kırpma**
+## **Görseli Kırpma**
 
-Kırpma, çerçeve içinde görüntünün hangi kısmının görüleceğini değiştirir. [PictureFillFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/) üzerindeki kırpma değerleri, kaynak görüntünün boyutları üzerinden yüzde olarak verilir. Kırpma, gömülü görüntüdeki gizli pikselleri başlangıçta silmez; yalnızca görünen bölgeyi değiştirir.
+Kırpma, bir görselin çerçeve içinde hangi kısmının görüneceğini değiştirir. [PictureFillFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/) üzerindeki kırpma değerleri, kaynak görselin boyutlarının yüzdesi olarak ifade edilir. Kırpma, gizli pikselleri gömülü görselden hemen silmez; yalnızca görünür bölgeyi değiştirir.
 
 Aşağıdaki örnek bir resim çerçevesini güvenli bir şekilde bulur ve kırpma değerlerini uygular:
 
@@ -193,11 +193,11 @@ with slides.Presentation("sample.pptx") as presentation:
         presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Gizli görüntü verileri hâlâ mevcut olduğu için kırpma, daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu, geri dönüşümden daha önemliyse, sonraki bölümde açıklandığı gibi kırpılmış bölgeler fiziksel olarak kaldırılabilir.
+Gizli görsel verisi hâlâ mevcut olduğundan, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu geri dönüşümden daha önemliyse, sonraki bölümde açıklanan gibi kırpılmış bölgeler fiziksel olarak kaldırılabilir.
 
-## **Kırpılmış Görüntü Verisini Kaldırma**
+## **Kırpılmış Görsel Verisini Kaldırma**
 
-[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) mevcut kırpma dikdörtgeninin dışındaki görüntü verisini kaldırır ve ortaya çıkan görüntü kaynağını döndürür. Bu dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonraki bir kırpma geri alma işlemi için artık mevcut değildir.
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) geçerli kırpma dikdörtgeninin dışındaki görsel verisini kaldırır ve ortaya çıkan görsel kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonraki bir un‑crop işlemi için mevcut değildir.
 
 ```python
 import aspose.slides as slides
@@ -217,11 +217,11 @@ with slides.Presentation("cropped-image.pptx") as presentation:
             presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Bu yöntem sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü diğer resim çerçeveleri tarafından da kullanılıyorsa, bu çerçeveler hâlâ mevcut kaynaklarını ihtiyaç duyar; bu yüzden kırpılmış alanların silinmesi mutlaka toplam görüntü sayısını azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG’ye rasterlaştırır.
+Bu yöntem sunuma yeni bir görsel kaynağı ekleyebilir. Orijinal görsel diğer resim çerçeveleri tarafından da kullanılıyorsa, bu çerçevelerin hâlâ mevcut kaynağa ihtiyacı olur; bu nedenle kırpılmış alanların silinmesi mutlaka toplam görsel sayısını azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG’ye rasterlaştırır.
 
-## **Raster Görüntüleri Sıkıştırma**
+## **Raster Görselleri Sıkıştırma**
 
-[PictureFillFormat.compress_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/compress_image/) görüntünün gösterildiği boyuta göre raster çözünürlüğünü düşürür. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Yöntem, görüntü yeniden boyutlandırıldıysa veya kırpıldıysa `True`, hiçbir değişiklik gerekmediyse `False` döndürür.
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/compress_image/) raster görsel çözünürlüğünü, resmin gösterildiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Görsel yeniden boyutlandırıldıysa veya kırpıldıysa yöntem `True`, değişiklik gerekmediyse `False` döndürür.
 
 Standart bir hedef çözünürlük yeterli olduğunda önceden tanımlı bir [PicturesCompression](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/picturescompression/) değeri kullanın:
 
@@ -243,43 +243,17 @@ with slides.Presentation("sample.pptx") as presentation:
         presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Belirli bir hedef gerektiğinde bir enum değeri yerine pozitif bir DPI değeri özel olarak geçirilebilir.
+Belirli bir hedef gerektiğinde bir enum değeri yerine özel pozitif DPI değeri de geçilebilir.
 
-Sıkıştırma raster görüntüler için tasarlanmıştır. SVG ve metafile içeriği bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca daha düşük çözünürlük ve silinmiş kırpılmış bölgeler, optimize edilmiş sunumdan geri getirilemez. En düşük DPI’yı küresel olarak uygulamaktan ziyade, görüntünün gerçekte görüntülenecek veya dışa aktarılacak en büyük boyutuna göre bir hedef çözünürlük seçin.
+Sıkıştırma raster görseller için tasarlanmıştır. SVG ve metafile içeriği bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca düşük çözünürlük ve silinen kırpılmış bölgeler, optimize edilmiş sunumdan geri getirilemez. Hedef çözünürlüğü, görselin gerçekten görüntülenecek veya dışa aktarılacak en büyük boyutuna göre seçin; küresel olarak en düşük DPI’yı uygulamaktan kaçının.
 
-## **Görüntü Efektlerini İnceleme**
+## **Görsel Dönüşüm Efektlerini Yönetme**
 
-Resim efektleri, çerçeve tarafından kullanılan resimde depolanır. Görüntü dönüşüm koleksiyonu, şeffaflık için sabit alfa modülasyonu ve parlaklık/kontrast için parlaklık gibi efektler içerebilir. Aşağıdaki örnek, bir slayttaki ilk resim çerçevesinden her iki tür efekti güvenli bir şekilde okur:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = None
-
-    for shape in slide.shapes:
-        if isinstance(shape, slides.PictureFrame):
-            picture_frame = shape
-            break
-
-    if picture_frame is not None:
-        for effect in picture_frame.picture_format.picture.image_transform:
-            if isinstance(effect, slides.effects.AlphaModulateFixed):
-                transparency = 100 - effect.amount
-                print("Transparency: " + str(transparency))
-
-            if isinstance(effect, slides.effects.Luminance):
-                luminance = effect.get_effective()
-                print("Brightness: " + str(luminance.brightness))
-                print("Contrast: " + str(luminance.contrast))
-```
-
-[AlphaModulateFixed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/alphamodulatefixed/) ve [Luminance](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/luminance/) görüntünün çerçeve içinde nasıl render edildiğini değiştirir; orijinal gömülü görüntü baytlarını yeniden yazarlar.
+Parlaklık, kontrast, renk dönüşümleri, bulanıklaştırma, alfa efektleri, sıralı zincirler, inceleme, kaldırma ve iki‑yönlü doğrulama konularını içeren tam iş akışı için [Görsel Dönüşüm Efektleri](/slides/tr/python-net/image-transform-effects/) bölümüne bakın.
 
 ## **Resim Çerçevesi Geometrisini Kilitleme**
 
-[PictureFrameLock](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakılacağını kontrol eder. Örneğin, [aspect_ratio_locked](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) özelliği, şekil yeniden boyutlandırılırken oranının korunmasını sağlar.
+[PictureFrameLock](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakıldığını kontrol eder. Örneğin, [aspect_ratio_locked](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) özelliği, şekil yeniden boyutlandırılırken en/boy oranının korunmasını sağlar.
 
 ```python
 import aspose.slides as slides
@@ -296,13 +270,13 @@ with slides.Presentation() as presentation:
     presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kilitleme, resim çerçevesi şekline uygulanır. Kaynak görüntünün aynı en-boy oranına yeniden örneklenmesini veya kalıcı olarak değiştirilmesini zorlamaz.
+Kilitleme, yalnızca resim çerçevesi şekline uygulanır; kaynak görseli aynı en/boy oranına yeniden örneklemek veya kalıcı olarak değiştirmek zorunda bırakmaz.
 
 ## **StretchOffset Değerlerini Ayarlama**
 
-Resim doldurma modu “stretch” olduğunda, [PictureFillFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini resim çerçevesinin sınırlayıcı kutusuna göre tanımlar. Pozitif yüzde değerleri kenardan içe doğru bir boşluk oluştururken, negatif yüzde değerleri dışa doğru bir çıkıntı oluşturur.
+Resim doldurma modu “stretch” olduğunda, [PictureFillFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini resim çerçevesinin sınırlayıcı kutusuna göre tanımlar. Pozitif yüzde değerleri bir kenardan içeriye doğru bir boşluk oluştururken, negatif yüzde değerleri dışa doğru bir genişleme yaratır.
 
-Bu, kırpmadan farklıdır. Kırpma değerleri, kaynak görüntünün hangi kısmının görüleceğini belirler; stretch‑offsetler ise görünen resim doldurmasının hangi dikdörtgene uzatılacağını değiştirir.
+Bu, kırpmaktan farklıdır. Kırpma değerleri, kaynak görselin hangi kısmının görüneceğini seçerken; stretch offsetleri, görünen resim doldurmasının gerildiği dikdörtgeni değiştirir.
 
 ```python
 import aspose.slides as slides
@@ -323,43 +297,43 @@ with slides.Presentation() as presentation:
     presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Doldurma konumlandırması için stretch‑offsetler kullanın. Kaynak görüntünün kenarlarını gizlemek amaçlıysa kırpma özelliklerini kullanın.
+Doldurma yerleşimi için stretch offsetlerini kullanın. Kaynak görsel kenarlarını gizlemek istiyorsanız kırpma özelliklerini kullanın.
 
-## **Depolama, Dosya Boyutu ve Dışa Aktarma Hususları**
+## **Depolama, Dosya Boyutu ve Dışa Aktarım Hususları**
 
 Görsel depolama ve resim‑çerçeve biçimlendirmesi ayrı ayrı ele alındığında temel denge noktaları daha kolay yönetilir:
 
-- **Gömülü görüntüler** sunumu kendi kendine yeterli kılar ve paylaşım ile sunucu‑tarafı render için en güvenilir olanlardır; ancak büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
-- **Bağlı görüntüler** paketi daha küçük tutabilir, ancak sunum, dış dosyaların depolandığı yollar veya konumlar üzerinden erişilebilir olmasına bağlıdır.
-- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene kadar gömülü kalır.
-- **Sıkıştırma** aşırı büyük raster görüntüler için dosya boyutunu önemli ölçüde düşürebilir, ancak kaynak çözünürlüğünden vazgeçer. Görüntünün slayt üzerindeki hedef boyutu bilindiğinde uygulanmalıdır.
-- **SVG görüntüler** vektör korumasının önemli olduğu durumlarda SVG olarak kalmalıdır. Vektör kaynağının kendisine ihtiyaç duyduğunuzda gömülü SVG’yi doğrudan çıkarın. Raster slayt dışa aktarmaları her zaman render edilen slaytı piksele dönüştürür.
-- **Tekrarlanan görüntüler** mümkün olduğunca mevcut bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) kaynağını yeniden kullanmalı, aynı dosyanın sunuma birden fazla kez yüklenmesinden kaçınmalıdır.
+- **Gömülü görseller** sunumu kendi içinde tutar ve paylaşım ve sunucu‑tarafı render açısından en güvenilirdir; ancak büyük raster görseller PPTX boyutunu ve bellek kullanımını artırır.
+- **Bağlantılı görseller** paketi daha küçük tutabilir, fakat sunum dış dosyaların belirtilen yollar veya konumlarda mevcut olmasına bağımlıdır.
+- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene veya sıkıştırma sırasında kaldırılıncaya kadar gömülü kalır.
+- **Sıkıştırma** büyük raster görsellerin dosya boyutunu önemli ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Görselin slayt üzerindeki hedef boyutu bilindikten sonra uygulanmalıdır.
+- **SVG görseller** vektör bütünlüğünün önemli olduğu durumlarda SVG olarak kalmalıdır. Vektör kaynağı gerektiğinde gömülü SVG doğrudan çıkarılabilir. Raster slayt dışa aktarımları her zaman slaytı piksellere dönüştürür.
+- **Tekrarlanan görseller** mümkün olduğunca mevcut bir [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) kaynağını yeniden kullanmalıdır; aynı dosyanın sunuma tekrar tekrar yüklenmesinden kaçının.
 
-Büyük sunumlarda, görüntü optimizasyonu seçici olarak yapıldığında genellikle en etkili olur: logoları ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek gösterim boyutlarına göre sıkıştırın, kırpılmış pikselleri yalnızca ileride düzenleme gerekmiyorsa kaldırın ve dış bağlantılardan kaçının; dış bağımlılık yönetimi dağıtım tasarımının bir parçası değilse.
+Büyük sunumlar için görsel optimizasyonu genellikle seçici olarak yapıldığında daha etkilidir: logolar ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek gösterim boyutlarına göre sıkıştırın, kırpılmış pikselleri yalnızca sonradan düzenleme gerekmiyorsa kaldırın ve dış bağlantıları yalnızca bağımlılık yönetimi dağıtım tasarımının bir parçasıysa kullanın.
 
 ## **SSS**
 
-**Bir resim çerçevesi ile bir görüntü kaynağı arasındaki fark nedir?**
+**Resim çerçevesi ile görsel kaynağı arasındaki fark nedir?**
 
-[PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) bir sunumla ilişkili görüntü kaynağını temsil eder. [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) ise bir slaytta görüntüyü gösteren, boyut, döndürme, kırpma değerleri, efektler ve kilitler gibi çerçeve‑düzeyinde geometri ve biçimlendirme depolayan bir şekildir.
+[PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) bir sunuma bağlı görsel kaynağını temsil eder. [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) ise bir slayt üzerindeki bir şekildir; bir görseli gösterir ve boyut, döndürme, kırpma değerleri, efektler ve kilitler gibi çerçeve‑düzeyinde geometri ve biçimlendirme bilgilerini saklar.
 
-**Görüntüleri gömmeli miyim yoksa bağlamalı mı?**
+**Görselleri gömmeli mi yoksa bağlamalı mı?**
 
-Sunumun taşınabilir, arşivlenebilir veya dış kaynaklara erişim olmadan render edilmesi gerekiyorsa görüntüleri gömün. Görüntü dosyalarını PPTX dışına tutma ve dış konumların güvenilir bir şekilde sürdürülebilir olacağı durumlarda bağlayın.
+Sunumun taşınabilir, arşivlenebilir veya dış kaynaklara erişim olmadan render edilmesi gerekiyorsa görselleri gömün. Görselleri yalnızca dış dosya yönetimi kasıtlı ve dış konumlar güvenilir bir şekilde sürdürülebilir ise bağlayın; sadece sıkıştırma yerine bir yedek olarak kullanmayın.
 
 **Kırpma PPTX dosya boyutunu azaltır mı?**
 
-Tek başına azaltmaz. Normal kırpma ayarları, kaynak görüntünün bir kısmını gizler ancak alttaki pikselleri tutar. Bu pikselleri kalıcı olarak atmak için [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) kullanılmalı veya kırpma bölgelerinin kaldırıldığı görüntü sıkıştırması uygulanmalıdır.
+Kırpma tek başına dosya boyutunu azaltmaz. Normal kırpma ayarları, kaynak görselin bölümlerini gizler ancak altındaki pikselleri tutar. Bu pikselleri kalıcı olarak kaldırmak için [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) veya kırpılmış‑alan kaldırmalı bir görsel sıkıştırma kullanın.
 
-**Sıkıştırma sonrasında görüntü kalitesini geri getirebilir miyim?**
+**Sıkıştırma sonrası görsel kalitesini geri getirebilir miyim?**
 
-Hayır. Sıkıştırma depolanan raster çözünürlüğü düşürebilir ve kırpılmış bölgelerin kaldırılması görüntü verisini siler. Daha sonra yüksek çözünürlüklü düzenleme gerekebileceği durumlarda orijinal kaynak görüntüyü sunum dışında tutun.
+Hayır. Sıkıştırma saklanan raster çözünürlüğü azaltabilir ve kırpılmış bölgelerin kaldırılması görsel verisini siler. Daha sonraki yüksek çözünürlüklü düzenleme ihtimali varsa, orijinal kaynak görseli sunum dışında tutun.
 
-**SVG görüntüler nasıl işlenmeli?**
+**SVG görseller nasıl ele alınmalı?**
 
-Vektör doğruluğunun önemli olduğu durumlarda SVG içeriği SVG olarak tutulmalıdır. Gömülü [SvgImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/) doğrudan çıkarılabilir. Bir slaytı PNG veya JPEG gibi raster formata render etmek, SVG’yi slayt görüntüsünün bir parçası olarak rasterlaştırır.
+Vektör doğruluğunun önemli olduğu durumlarda SVG içeriğini SVG olarak tutun. Gömülü [SvgImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/svgimage/) doğrudan çıkarılabilir. Slaytı PNG veya JPEG gibi raster bir formata render etmek, SVG’yi slayt görüntüsünün bir parçası olarak piksellere dönüştürür.
 
-**Mevcut slaytları okurken güvenli olmayan dönüşümlerden nasıl kaçınılır?**
+**Mevcut slaytları okurken güvenli olmayan tip dönüşümlerinden nasıl kaçınırım?**
 
-Bir şeklin tipini kontrol ederek [PictureFrame]‑özel üyelerini kullanmadan önce `isinstance(shape, slides.PictureFrame)` gibi bir kontrol yapın. Bu, geçersiz dönüşümleri önler ve resim çerçevesi içermeyen slaytların güvenli bir şekilde işlenmesini sağlar.
+Şeklin tipini, resim‑çerçevesi‑özel üyeler kullanılmadan önce kontrol edin. `isinstance(shape, slides.PictureFrame)` kullanmak, geçersiz tip dönüşümlerinden kaçınır ve resim çerçeveleri içermeyen slaytların kod tarafından düzgün şekilde işlenmesini sağlar.

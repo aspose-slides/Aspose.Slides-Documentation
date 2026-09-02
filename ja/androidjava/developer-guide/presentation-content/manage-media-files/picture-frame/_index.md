@@ -1,23 +1,23 @@
 ---
-title: Android でのプレゼンテーションにおけるピクチャーフレームの管理
-linktitle: ピクチャーフレーム
+title: Android のプレゼンテーションで画像フレームを管理する
+linktitle: 画像フレーム
 type: docs
 weight: 10
 url: /ja/androidjava/picture-frame/
 keywords:
-- ピクチャーフレーム
-- ピクチャーフレームを追加
-- ピクチャーフレームを作成
+- 画像フレーム
+- 画像フレームの追加
+- 画像フレームの作成
 - 埋め込み画像
 - リンク画像
-- 画像を抽出
+- 画像の抽出
 - ラスタ画像
 - SVG 画像
-- 画像をトリミング
+- 画像のトリミング
 - トリミング領域の削除
-- 画像を圧縮
-- StretchOffset
-- ピクチャーフレームの書式設定
+- 画像の圧縮
+- ストレッチオフセット
+- 画像フレームの書式設定
 - 相対スケール
 - 画像エフェクト
 - アスペクト比
@@ -27,21 +27,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を使用して、プレゼンテーション内のピクチャーフレームを作成、書式設定、リンク、トリミング、抽出、圧縮します。"
+description: "Aspose.Slides for Android (Java) を使用して、プレゼンテーション内の画像フレームを作成、書式設定、リンク、トリミング、抽出、圧縮します。"
 ---
 ## **概要**
 
-ピクチャーフレームは画像を表示するスライドシェイプです。Aspose.Slides では、画像リソースとそれを表示するシェイプは別々のオブジェクトとして扱われます。つまり、[Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) が [IImageCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iimagecollection/) を通じて埋め込み画像リソースを所有し、[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/) が画像の位置、サイズ、線の書式設定、回転、トリミング、ピクチャーエフェクト、その他フレームレベルの設定を制御します。
+画像フレームは画像を表示するスライド シェイプです。Aspose.Slides では、画像リソースとそれを表示するシェイプは別々のオブジェクトとして扱われます。`[Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/)` は埋め込み画像リソースを `[IImageCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iimagecollection/)` を介して所有し、`[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/)` が画像の位置、サイズ、線の書式設定、回転、トリミング、画像効果、およびその他のフレームレベル設定を制御します。
 
-同じ画像を複数回表示する場合にこの分離は便利です。画像をプレゼンテーションに一度追加し、返された [IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/) を保持して、ピクチャーフレーム作成時にその画像リソースを使用します。
+この分離により、同じ画像を複数回表示する場合に便利です。画像をプレゼンテーションに一度だけ追加し、返された `[IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/)` を保持し、画像リソースを使用して画像フレームを作成します。
 
-ピクチャーフレームは PNG や JPEG といったラスタ画像や SVG といったベクタ画像を含めることができます。また、画像バイトをプレゼンテーションに格納せずにリンク画像を参照させることもできます。選択はポータビリティ、ファイルサイズ、抽出、エクスポートの挙動に影響するため、書式設定や最適化を行う前に画像の保存方法を決めておくと便利です。
+画像フレームは PNG や JPEG のようなラスタ画像、SVG のようなベクタ画像の両方を含めることができます。また、画像バイトをプレゼンテーションに保存せずにリンク画像を参照することもできます。選択は移植性、ファイル サイズ、抽出、エクスポート動作に影響するため、書式設定や最適化を行う前に画像の保存方法を決定しておくと便利です。
 
 ## **埋め込み画像の追加と書式設定**
 
-埋め込み画像の場合、画像データをプレゼンテーションに追加し、[IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) でピクチャーフレームを作成します。画像はプレゼンテーションパッケージの一部となるため、別のコンピューターに移動してもプレゼンテーションは自己完結した状態を保ちます。
+埋め込み画像の場合、画像データをプレゼンテーションに追加し、`[IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-)` で画像フレームを作成します。画像はプレゼンテーション パッケージの一部になるため、プレゼンテーションは別のコンピューターに移動しても自己完結しています。
 
-以下の例は JPEG 画像を追加し、画像の元サイズでフレームを作成し、線の書式設定と回転を適用しています：
+次の例は JPEG 画像を追加し、画像の元サイズでフレームを作成し、線の書式設定と回転を適用します。
 
 ```java
 import com.aspose.slides.*;
@@ -71,11 +71,11 @@ try {
 }
 ```
 
-ピクチャーフレームは表示されるジオメトリを制御します。フレームサイズを変更しても、埋め込み画像リソースに保存された元のピクセル寸法は変わりません。この区別は後で画像をトリミングしたり圧縮したりする際に重要になります。
+画像フレームは表示されるジオメトリを制御します。フレームのサイズを変更しても、埋め込み画像リソースに保存されている元のピクセル寸法は変わりません。この区別は、後で画像をトリミングまたは圧縮する際に重要になります。
 
 ## **相対スケールの使用**
 
-[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/) はフレームに対して幅と高さの相対スケールを [setRelativeScaleWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) と [setRelativeScaleHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) で公開しています。`1.0` の値は元画像サイズの 100% に相当します。相対スケールは、最終的な寸法を手動で計算する代わりに、元画像サイズとの比率を保持したいワークフローで便利です。
+`[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/)` は `[setRelativeScaleWidth](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-)` と `[setRelativeScaleHeight](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-)` を介してフレームの相対幅・高さスケーリングを公開します。`1.0` の値は元画像サイズの 100% に相当します。相対スケールは、最終寸法を手動で計算せずに元画像サイズとの関係を保持したいワークフローに便利です。
 
 ```java
 import com.aspose.slides.*;
@@ -102,17 +102,17 @@ try {
 }
 ```
 
-相対スケールはフレームのスケール設定を変更しますが、埋め込み画像をリサンプリングしたり圧縮したりはしません。
+相対スケールはフレームのスケール設定を変更しますが、埋め込み画像を再サンプルしたり圧縮したりはしません。
 
 ## **埋め込み画像とリンク画像**
 
-埋め込みピクチャーは画像データをプレゼンテーション内部に格納するため、ポータビリティと予測可能な描画に最も安全な選択です。リンクピクチャーは [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) メソッドで外部の場所を参照し、同様に画像データを埋め込むことはしません。
+埋め込み画像は画像データをプレゼンテーション内部に保存するため、移植性と予測可能なレンダリングに最も安全です。リンク画像は `[ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-)` メソッドで外部パスを設定し、画像データを埋め込む代わりに参照します。
 
-リンク画像は PPTX に格納される画像データ量を減らすことができますが、外部依存が発生します。リンク先ファイルがアプリケーションからアクセス可能である必要があります。パスが変更されたり、ファイルが移動されたり、リソースが利用できなくなると、リンク画像は期待通りに表示されなくなることがあります。メールで送付したり、アーカイブしたり、孤立した環境で描画する必要があるプレゼンテーションでは、埋め込み画像の方が通常は信頼性が高いです。
+リンク画像は PPTX 内の画像データ量を減らせますが、外部依存が発生します。リンク先ファイルはプレゼンテーションを開くまたはレンダリングするアプリケーションからアクセス可能である必要があります。パスが変更されたり、ファイルが移動したり、リソースが利用できなくなったりすると、リンク画像は期待通りに表示されない可能性があります。メールで送付したり、アーカイブしたり、隔離された環境でレンダリングする必要があるプレゼンテーションでは、埋め込み画像の方が通常は信頼性が高いです。
 
 ### **リンク画像の追加**
 
-以下の例はピクチャーフレームを作成し、ローカル画像ファイルへポイントさせます。画像リンクだけを扱い、動画リンクは別のメディアワークフローであり、今回の例には意図的に混ぜていません。
+次の例は画像フレームを作成し、ローカル画像ファイルへのパスを設定します。この例は画像リンクのみを扱い、動画リンクは別のメディア ワークフローであり、意図的に混在させていません。
 
 ```java
 import com.aspose.slides.*;
@@ -133,15 +133,15 @@ try {
 }
 ```
 
-外部ファイル管理が意図的な場合にリンクを使用してください。圧縮の代替としてリンクを使用しないでください。破損した画像依存関係を持つ小さな PPTX は、容量が大きく自己完結したプレゼンテーションよりも実用性が低くなります。
+外部ファイル管理が意図的な場合にリンクを使用してください。圧縮の代替としてリンクを使用しないでください。破損した画像依存関係を持つ小さな PPTX は、サイズが大きい自己完結型プレゼンテーションよりも実用的でないことが多いです。
 
-## **ピクチャーフレームから画像を抽出する**
+## **画像フレームからの画像抽出**
 
-既存のプレゼンテーションから画像を抽出する前に、対象のシェイプが実際に [IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/) であり、埋め込み画像を保持しているかを確認してください。リンクされたピクチャーフレームは同様の方法で抽出できる画像バイトを持たないことがあります。
+既存のプレゼンテーションから画像を抽出する前に、シェイプが実際に `[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/)` であり、埋め込み画像を含んでいるか確認してください。リンクされた画像フレームは同じ方法で抽出できるバイトを持たない可能性があります。
 
 ### **ラスタ画像の抽出**
 
-最新の画像 API は [IImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iimage/) を直接使用し、従来の Java 画像ラッパーは不要です。以下の例はスライド上の最初の埋め込みラスタ画像を見つけ、PNG として保存します。
+最新の画像 API は `[IImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iimage/)` を直接使用し、従来の Java 画像ラッパーは必要ありません。次の例はスライド上の最初の埋め込みラスタ画像を検索し、PNG として保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -174,11 +174,11 @@ try {
 }
 ```
 
-[IImage.save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) を使用すると、抽出した画像が要求された出力形式に変換されて保存されます。プレゼンテーションに格納されているエンコード済みバイト列が必要な場合は、画像リソースのバイナリデータを直接利用してください。
+`[IImage.save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-)` を通して保存すると、抽出された画像が要求された出力形式に変換されます。プレゼンテーションに保存されているエンコード済みバイトが必要な場合は、変換後のラスタファイルではなく画像リソースのバイナリ データを使用してください。
 
 ### **SVG 画像の抽出**
 
-SVG ピクチャーの場合、[IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/) が [ISvgImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isvgimage/) オブジェクトを公開します。これにより、まず画像をラスタライズせずに SVG データを直接取得できます。
+SVG 画像の場合、`[IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/)` は `[ISvgImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isvgimage/)` オブジェクトを公開します。これにより、画像をラスタライズせずに SVG データを直接取得できます。
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +215,13 @@ try {
 }
 ```
 
-SVG コンテンツを SVG のまま保持すると、プレゼンテーション内部にベクタ元が残ります。PNG や JPEG などのラスタエクスポートはベクタをピクセルにレンダリングします。PDF や SVG へのスライドエクスポートもレンダリング操作であるため、エクスポートされた画像は元の埋め込み SVG のバイト単位のコピーとはみなさず、元のベクタリソースが必要なときは埋め込み [ISvgImage.getSvgData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isvgimage/#getSvgData--) を使用してください。
+SVG コンテンツを SVG のまま保持すると、プレゼンテーション内にベクタ ソースが残ります。PNG や JPEG などのラスタ エクスポートはベクタ コンテンツをピクセルにレンダリングします。PDF や SVG のスライド エクスポートもレンダリング操作であるため、エクスポートされたグラフィックは元の埋め込み SVG のビット単位のコピーとして扱わず、元のベクタ リソースが必要な場合は埋め込み `[ISvgImage.getSvgData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isvgimage/#getSvgData--)` データを使用してください。
 
 ## **画像のトリミング**
 
-トリミングはフレーム内で表示される画像の領域を変更します。[IPictureFillFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/) のトリミング値は元画像サイズに対するパーセンテージです。トリミングは埋め込み画像から隠れたピクセルを即座に削除するわけではなく、表示領域だけを変えます。
+トリミングはフレーム内で画像のどの部分が表示されるかを変更します。`[IPictureFillFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/)` のトリミング値は元画像寸法のパーセンテージです。トリミングは埋め込み画像から隠れたピクセルを削除するわけではなく、表示領域のみを変更します。
 
-以下の例はピクチャーフレームを安全に取得し、トリミング値を適用します：
+次の例は画像フレームを安全に取得し、トリミング値を適用します。
 
 ```java
 import com.aspose.slides.*;
@@ -250,11 +250,11 @@ try {
 }
 ```
 
-隠れた画像データは依然として存在するため、後からトリミングを変更しても元のピクセルは失われません。ファイルサイズを最優先にする場合は、次のセクションで説明するようにトリミング領域を物理的に除去できます。
+隠れた画像データはまだ存在するため、後でトリミングを変更しても元のピクセルは失われません。ファイル サイズが重要で、可逆性が不要な場合は、次のセクションで説明するようにトリミング領域を物理的に削除できます。
 
 ## **トリミングされた画像データの削除**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) は現在のトリミング矩形外の画像データを除去し、結果として得られる画像リソースを返します。これによりファイルサイズは削減できますが、破壊的な最適化となります。プレゼンテーションを保存した後は、削除されたピクセルは元に戻せなくなります。
+`[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--)` は現在のトリミング矩形外の画像データを削除し、結果として得られた画像リソースを返します。これによりファイル サイズを削減できますが、破壊的な最適化です。プレゼンテーションを保存した後は、削除されたピクセルは元に戻せなくなります。
 
 ```java
 import com.aspose.slides.*;
@@ -282,13 +282,13 @@ try {
 }
 ```
 
-このメソッドはプレゼンテーションに新しい画像リソースを追加する可能性があります。元画像が他のピクチャーフレームでも使用されている場合、そのフレームは既存のリソースを引き続き必要とするため、トリミング領域の削除だけで画像総数が減るとは限りません。WMF や EMF コンテンツに対してこのメソッドを使用すると、トリミング結果が PNG にラスタライズされます。
+このメソッドはプレゼンテーションに新しい画像リソースを追加することがあります。元の画像が他の画像フレームでも使用されている場合、これらのフレームは既存のリソースを必要とするため、削除が必ずしも画像総数の削減につながるわけではありません。WMF や EMF コンテンツをこのメソッドでトリミングすると、結果は PNG にラスタライズされます。
 
 ## **ラスタ画像の圧縮**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) は、画像が表示されるサイズに対してラスタ画像の解像度を低減します。圧縮時にトリミング領域を同時に除去することも可能です。画像がリサイズまたはトリミングされた場合は `true`、変更が不要だった場合は `false` を返します。
+`[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-)` は画像が表示されるサイズに対する解像度を下げます。同時にトリミング領域を削除することも可能です。画像がリサイズまたはトリミングされた場合は `true`、変更が不要な場合は `false` を返します。
 
-標準的な目標解像度で十分な場合は、事前定義された [PicturesCompression](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/picturescompression/) 値を使用してください：
+標準的なターゲット解像度で十分な場合は、事前定義された `[PicturesCompression](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/picturescompression/)` 値を使用してください。
 
 ```java
 import com.aspose.slides.*;
@@ -315,56 +315,17 @@ try {
 }
 ```
 
-特定の目標が必要な場合は、事前定義値の代わりにカスタムの正の DPI 値を渡すことができます。
+特定のターゲットが必要な場合は、事前定義値の代わりに正の DPI 値をカスタムで渡すことができます。
 
-圧縮はラスタ画像を対象としています。SVG やメタファイルはこのラスタ圧縮ワークフローでは縮小されません。また、解像度を下げたりトリミング領域を削除したりした画像は最適化されたプレゼンテーションから復元できません。対象画像が実際に表示またはエクスポートされる最大サイズに合わせて目標解像度を選択し、全体的に最も低い DPI を適用するのは避けてください。
+圧縮はラスタ画像を対象としています。SVG やメタファイルのコンテンツはこのラスタ圧縮ワークフローでは縮小されません。また、解像度を下げたりトリミング領域を削除したりした場合は、最適化されたプレゼンテーションから復元できないことを忘れないでください。最も大きく表示またはエクスポートされるサイズに基づいてターゲット解像度を選択し、全体的に最小 DPI を適用しないようにしてください。
 
-## **画像エフェクトの検査**
+## **画像変形エフェクトの管理**
 
-ピクチャーエフェクトはフレームが使用する画像に保存されます。画像変換コレクションには、透明度用の固定アルファ変調や明るさ・コントラスト用のルミナンスなどのエフェクトが含まれることがあります。以下の例はスライド上の最初のピクチャーフレームから両方のエフェクトを安全に読み取ります：
+明るさ、コントラスト、カラー変換、ぼかし、アルファ効果、順序付けられたチェーン、検査、削除、往復検証を網羅する完全なワークフローについては、`[Image Transform Effects](/androidjava/image-transform-effects/)` を参照してください。
 
-```java
-import com.aspose.slides.*;
+## **画像フレームジオメトリのロック**
 
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = null;
-
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IPictureFrame) {
-            pictureFrame = (IPictureFrame) shape;
-            break;
-        }
-    }
-
-    if (pictureFrame != null) {
-        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-        for (IImageTransformOperation effect : imageTransform) {
-            if (effect instanceof IAlphaModulateFixed) {
-                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
-                float transparency = 100 - alphaModulateFixed.getAmount();
-                System.out.println("Transparency: " + transparency);
-            }
-
-            if (effect instanceof ILuminance) {
-                ILuminance luminanceEffect = (ILuminance) effect;
-                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
-                System.out.println("Brightness: " + luminance.getBrightness());
-                System.out.println("Contrast: " + luminance.getContrast());
-            }
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-これらのエフェクトはフレーム内で画像が描画される方法を変更しますが、埋め込み画像バイト自体を書き換えることはありません。
-
-## **ピクチャーフレームジオメトリのロック**
-
-[IPictureFrameLock](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframelock/) 設定は、ピクチャーフレームに対して無効にする編集操作を制御します。たとえば、[setAspectRatioLocked](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) はリサイズ時にシェイプの縦横比を保持します。
+`[IPictureFrameLock](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframelock/)` 設定は画像フレームに対してどの編集操作を無効にするかを制御します。例として `[setAspectRatioLocked](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-)` はリサイズ時に形状の比率を保持します。
 
 ```java
 import com.aspose.slides.*;
@@ -390,13 +351,13 @@ try {
 }
 ```
 
-ロックはピクチャーフレームのシェイプに適用されます。元画像自体がリサンプリングされたり、同じ縦横比に永続的に変更されたりするわけではありません。
+ロックは画像フレームのシェイプに適用されます。ソース画像が再サンプリングされたり、同じアスペクト比に永久に変更されたりすることは強制されません。
 
 ## **StretchOffset 値の調整**
 
-ピクチャーの塗りつぶしモードが stretch の場合、[IPictureFillFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/) の stretch‑offset 値はピクチャーフレームのバウンディングボックスに対する塗りつぶし矩形を定義します。正のパーセンテージはエッジからのインセットを、負のパーセンテージはアウトセットを作ります。
+画像の塗りつぶしモードがストレッチの場合、`[IPictureFillFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/)` の StretchOffset 値は画像フレームのバウンディング ボックスに対する塗りつぶし矩形を定義します。正のパーセンテージはエッジからのインセットを、負のパーセンテージはアウトセットを作ります。
 
-これはトリミングとは異なります。トリミング値は元画像のどの部分を表示するかを選択しますが、stretch offset は表示される画像が伸張される矩形そのものを変更します。
+これはトリミングとは異なります。トリミング値は元画像のどの部分が表示されるかを選択し、StretchOffset は表示される画像塗りつぶしが伸縮される矩形を変更します。
 
 ```java
 import com.aspose.slides.*;
@@ -426,34 +387,34 @@ try {
 }
 ```
 
-塗りつぶし位置を調整したいときは stretch offset を使用し、元画像の端部を隠したいときはトリミングプロパティを使用してください。
+塗りつぶし配置には StretchOffset を使用し、ソース画像の端を隠す目的にはトリミング プロパティを使用してください。
 
-## **保存、ファイルサイズ、エクスポートに関する考慮事項**
+## **保管、ファイル サイズ、エクスポート上の考慮点**
 
-画像の保存方法とピクチャーフレームの書式設定を別々に扱うと、以下のようなトレードオフが管理しやすくなります。
+画像の保管と画像フレームの書式設定を別々に扱うと、主なトレードオフが管理しやすくなります。
 
-- **埋め込み画像** はプレゼンテーションを自己完結させ、共有やサーバー側レンダリングに最も信頼性がありますが、大きなラスタ画像は PPTX のサイズとメモリ使用量を増大させます。
-- **リンク画像** はパッケージを小さく保てますが、プレゼンテーションは外部ファイルが指定パスで利用可能であることに依存します。
-- **トリミング** は当初は破壊的ではありません。隠れたピクセルは削除領域が明示的に削除または圧縮されるまで埋め込まれたままです。
-- **圧縮** は過大なラスタ画像のファイルサイズを大幅に削減できますが、元の解像度は失われます。スライド上での実際の表示サイズが確定した後に適用すべきです。
-- **SVG 画像** はベクタの保持が重要な場合は SVG のまま残してください。ベクタリソース自体が必要なときは埋め込み SVG を直接抽出します。ラスタスライドエクスポートは常に画像をピクセルに変換します。
-- **繰り返し使用される画像** は可能な限り既存の [IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/) リソースを再利用し、同じファイルを何度もプレゼンテーションに読み込むのを避けます。
+- **埋め込み画像** はプレゼンテーションを自己完結させ、共有やサーバー側レンダリングに最も信頼性がありますが、大きなラスタ画像は PPTX サイズとメモリ使用量を増加させます。
+- **リンク画像** はパッケージを小さく保てますが、プレゼンテーションは外部ファイルが指定されたパスまたは場所に残っていることに依存します。
+- **トリミング** は最初は非破壊的です。トリミング領域が明示的に削除されるか、圧縮中に除去されるまで、隠れたピクセルは埋め込まれたままです。
+- **圧縮** は過大なラスタ画像のファイル サイズを大幅に削減できますが、元の解像度を犠牲にします。スライド上の実際の表示サイズが決まってから適用すべきです。
+- **SVG 画像** はベクタ保存が重要な場合は SVG のままにすべきです。ベクタ リソース自体が必要なときは埋め込み SVG を直接抽出してください。ラスタ スライド エクスポートは常にレンダリング結果をピクセルに変換します。
+- **繰り返し使用される画像** は可能な限り既存の `[IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/)` リソースを再利用し、同じファイルを何度もプレゼンテーション ワークフローにロードしないでください。
 
-大規模なプレゼンテーションでは、画像最適化は選択的に行うのが最も効果的です。ロゴや図はベクタコンテンツとして保持し、写真は実際の表示サイズに合わせて圧縮し、後で編集が不要な場合のみトリミングピクセルを削除し、外部リンクは依存管理が設計に組み込まれている場合にのみ使用してください。
+大規模なプレゼンテーションでは、画像最適化は選択的に実施するのが効果的です。ロゴや図はベクタ コンテンツのまま保持し、写真は実際の表示サイズに合わせて圧縮し、後で編集が不要な場合にのみトリミングされたピクセルを削除し、外部リンクは依存関係管理がデプロイ設計の一部である場合にのみ使用してください。
 
 ## **FAQ**
 
-**ピクチャーフレームと画像リソースの違いは何ですか？**
+**画像フレームと画像リソースの違いは何ですか？**
 
-[IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/) はプレゼンテーションに関連付けられた画像リソースを表します。[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/) はスライド上のシェイプで、画像を表示し、サイズ、回転、トリミング値、エフェクト、ロックといったフレームレベルのジオメトリと書式設定を保持します。
+`[IPPImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ippimage/)` はプレゼンテーションに関連付けられた画像リソースを表し、`[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/)` は画像を表示し、サイズ、回転、トリミング値、エフェクト、ロックなどのフレームレベルのジオメトリと書式設定を保持するスライド上のシェイプです。
 
 **画像は埋め込むべきですか、リンクすべきですか？**
 
-プレゼンテーションをポータブルにしたり、アーカイブしたり、外部リソースにアクセスできない環境でレンダリングする必要がある場合は埋め込み画像を使用してください。画像ファイルを PPTX の外部に保持し、外部場所を確実に管理できる場合にのみリンク画像を使用してください。
+プレゼンテーションを移植可能、アーカイブ、または外部リソースなしでレンダリングする必要がある場合は埋め込み画像を使用してください。画像ファイルを PPTX の外部に保持し、外部場所を信頼できる形で管理できる場合のみリンク画像を使用してください。
 
-**トリミングは PPTX のファイルサイズを減らしますか？**
+**トリミングは PPTX のファイル サイズを削減しますか？**
 
-単体では減りません。通常のトリミング設定は画像の一部を非表示にするだけで、基になるピクセルは残ります。ピクセルを完全に削除したい場合は [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) またはトリミング領域の除去を伴う画像圧縮を使用してください。
+単体では削減しません。通常のトリミング設定は画像の一部を非表示にしますが、基になるピクセルは保持されます。ピクセルを永久に削除したい場合は `[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--)` またはトリミング領域削除を伴う画像圧縮を使用してください。
 
 **圧縮後に画像品質を復元できますか？**
 
@@ -461,8 +422,8 @@ try {
 
 **SVG 画像はどのように扱うべきですか？**
 
-ベクタの忠実度が重要な場合は SVG コンテンツを SVG のまま保持してください。埋め込み [ISvgImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isvgimage/) は直接抽出できます。スライドを PNG や JPEG などのラスタ形式にレンダリングすると、SVG はピクセルに変換されます。
+ベクタ の忠実度が重要な場合は SVG コンテンツを SVG のまま保持してください。埋め込み `[ISvgImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isvgimage/)` は直接抽出できます。スライドを PNG や JPEG などのラスタ形式にレンダリングすると、SVG はスライド画像の一部としてピクセルに変換されます。
 
-**既存のスライドを読むときに安全でないキャストを防ぐには？**
+**既存スライドを読み取るときに安全でないキャストを回避するには？**
 
-シェイプの型を使用する前に必ずチェックしてください。[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/) への `instanceof` 判定を行うことで、無効なキャストを回避し、ピクチャーフレームを含まないスライドでも安全に処理できます。
+シェイプの型を使用する前に確認してください。`instanceof` を使って `[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/)` かどうかを判定すれば、無効なキャストを防ぎ、画像フレームを含まないスライドでも安全に処理できます。

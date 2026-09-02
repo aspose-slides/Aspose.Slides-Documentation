@@ -17,8 +17,8 @@ keywords:
 - ta bort beskurna områden
 - komprimera bild
 - StretchOffset
-- formatering av bildram
-- relativ skala
+- bildramformatering
+- relativ skalning
 - bildeffekt
 - bildförhållande
 - PowerPoint
@@ -30,17 +30,17 @@ description: "Skapa, formatera, länka, beskära, extrahera och komprimera bildr
 ---
 ## **Översikt**
 
-En bildram är en bildform på en bild som visar en bild. I Aspose.Slides är bildresursen och formen som visar den separata objekt: en [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) äger inbäddade bildresurser via sin [ImageCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/imagecollection/), medan en [PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/) styr bildens position, storlek, linjeformatering, rotation, beskärning, bildeffekter och andra ram‑nivåinställningar.
+En bildram är ett bildformulär i en presentation som visar en bild. I Aspose.Slides är bildresursen och formen som visar den separata objekt: en [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) äger inbäddade bildresurser via sin [ImageCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/imagecollection/), medan en [PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/) styr bildens position, storlek, linjeformatering, rotation, beskärning, bild‑effekter och andra ram‑nivåinställningar.
 
-Denna separering är användbar när samma bild visas mer än en gång. Lägg till bilden i presentationen en gång, behåll den returnerade [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/), och använd den bildresursen när du skapar bildramar.
+Denna separation är användbar när samma bild visas mer än en gång. Lägg till bilden i presentationen en gång, behåll den returnerade [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/), och använd den bildresursen när du skapar bildramar.
 
-Bildramar kan innehålla rasterbilder såsom PNG eller JPEG samt vektor‑SVG‑bilder. De kan också referera till länkade bilder istället för att lagra bild‑bytarna i presentationen. Valet påverkar portabilitet, filstorlek, extrahering och exportbeteende, så det är bra att bestämma hur bilden ska lagras innan du tillämpar formatering eller optimering.
+Bildramar kan innehålla rasterbilder såsom PNG eller JPEG och vektor‑SVG‑bilder. De kan också referera till länkade bilder istället för att lagra bild‑bytarna i presentationen. Valet påverkar portabilitet, filstorlek, extrahering och exportbeteende, så det är bra att bestämma hur bilden ska lagras innan formatering eller optimering appliceras.
 
 ## **Lägg till och formatera en inbäddad bild**
 
 För en inbäddad bild, lägg till bilddata i presentationen och skapa en bildram med [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addpictureframe/). Bilden blir en del av presentationspaketet, så presentationen förblir självständig när den flyttas till en annan dator.
 
-Följande exempel lägger till en JPEG‑bild, skapar en ram med bildens ursprungliga dimensioner och tillämpar linjeformatering och rotation:
+Följande exempel lägger till en JPEG‑bild, skapar en ram med bildens ursprungliga dimensioner och applicerar linjeformatering och rotation:
 
 ```php
 use aspose\slides\FillType;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-Bildramen styr den visade geometrin; att ändra ramen storlek ändrar inte de ursprungliga pixel‑dimensionerna som lagras i den inbäddade bildresursen. Detta blir viktigt när man beskär eller komprimerar en bild senare.
+Bildramen styr den visade geometrin; att ändra ramens storlek ändrar inte de ursprungliga pixel‑dimensionerna som lagras i den inbäddade bildresursen. Denna skillnad blir viktig när bilden beskärs eller komprimeras senare.
 
-## **Använd relativ skala**
+## **Använd relativ skalning**
 
-[PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/) exponerar relativ bredd‑ och höjdskala för ramen via [setRelativeScaleWidth](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/setrelativescalewidth/) och [setRelativeScaleHeight](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Värdet `1.0` motsvarar 100 % av den ursprungliga bildstorleken. Relativ skala är användbar när ett arbetsflöde måste bevara relationen till källbildens storlek istället för att manuellt beräkna slutdimensioner.
+[PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/) exponerar relativ bredd‑ och höjds­skalning för ramen via [setRelativeScaleWidth](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/setrelativescalewidth/) och [setRelativeScaleHeight](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Värdet `1.0` motsvarar 100 % av den ursprungliga bildstorleken. Relativ skalning är användbar när ett arbetsflöde måste bevara förhållandet till källbildens storlek istället för att beräkna slutdimensioner manuellt.
 
 ```php
 use aspose\slides\Images;
@@ -109,17 +109,17 @@ try {
 }
 ```
 
-Relativ skala ändrar ramens skalningsinställningar; den omprovklistrar eller komprimerar inte den inbäddade bilden.
+Relativ skalning ändrar ramens skalanvändning; den återprovar eller komprimerar inte den inbäddade bilden.
 
 ## **Inbäddade och länkade bilder**
 
 En inbäddad bild lagrar bilddata i presentationen och är därför det säkraste valet för portabilitet och förutsägbar rendering. En länkad bild lagrar en extern plats via metoden [Picture::setLinkPathLong](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picture/setlinkpathlong/) istället för att bädda in bilddata på samma sätt.
 
-Länkade bilder kan minska mängden bilddata som lagras i PPTX, men de introducerar ett externt beroende. Den länkade filen måste förbli tillgänglig för applikationen som öppnar eller renderar presentationen. Om sökvägen ändras, filen flyttas eller resursen är otillgänglig, visas den länkade bilden kanske inte som förväntat. För presentationer som måste skickas via e‑post, arkiveras eller renderas i isolerade miljöer är inbäddade bilder vanligtvis mer pålitliga.
+Länkade bilder kan minska mängden bilddata som lagras i PPTX, men de introducerar ett externt beroende. Den länkade filen måste förbli åtkomlig för programmet som öppnar eller renderar presentationen. Om sökvägen ändras, filen flyttas eller resursen blir otillgänglig, visas den länkade bilden kanske inte som förväntat. För presentationer som måste e‑postas, arkiveras eller renderas i isolerade miljöer är inbäddade bilder vanligtvis mer pålitliga.
 
 ### **Lägg till en länkad bild**
 
-Följande exempel skapar en bildram och pekar den på en lokal bildfil. Det hanterar endast bildlänkning; videolänkning är ett separat medie‑arbetsflöde och blandas medvetet inte in i detta exempel.
+Följande exempel skapar en bildram och pekar den på en lokal bildfil. Det handlar endast om bildlänkning; videolänkning är ett separat mediearbetsflöde och blandas medvetet inte in i detta exempel.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,7 +140,7 @@ try {
 }
 ```
 
-Använd länkar när extern filhantering är avsiktlig. Använd dem inte bara som ett ersättningsmedel för komprimering: en liten PPTX med brutna bildberoenden är vanligtvis mindre användbar än en större självständig presentation.
+Använd länkar när extern filhantering är avsiktlig. Använd dem inte bara som ersättning för komprimering: en liten PPTX med brutna bildberoenden är vanligtvis mindre användbar än en större självständig presentation.
 
 ## **Extrahera bilder från bildramar**
 
@@ -148,7 +148,7 @@ Innan du extraherar en bild från en befintlig presentation, kontrollera att en 
 
 ### **Extrahera en rasterbild**
 
-Det moderna bild‑API‑t använder [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/) direkt. Följande exempel hittar den första inbäddade rasterbilden på en bild och sparar den som PNG:
+Det moderna bild‑API:t använder [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/) direkt. Följande exempel hittar den första inbäddade rasterbilden på en bild och sparar den som PNG:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -185,11 +185,11 @@ try {
 }
 ```
 
-Att spara via [IImage::save](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/#save) konverterar den extraherade bilden till det begärda output‑formatet. Om du behöver de kodade bytarna som lagras i presentationen snarare än en konverterad rasterfil, använd bildresursens binära data istället.
+Att spara via [IImage::save](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/#save) konverterar den extraherade bilden till det begärda utdataformatet. Om du behöver de kodade bytarna som lagras i presentationen snarare än en konverterad rasterfil, använd bildresursens binära data istället.
 
 ### **Extrahera en SVG‑bild**
 
-För en SVG‑bild, exponerar [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/) ett [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/)-objekt. Detta låter dig hämta SVG‑data direkt i stället för att rasterisera bilden först.
+För en SVG‑bild exponerar [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/) ett [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/)-objekt. Detta låter dig hämta SVG‑data direkt i stället för att rasterisera bilden först.
 
 ```php
 use aspose\slides\Presentation;
@@ -224,13 +224,13 @@ try {
 }
 ```
 
-Att behålla SVG‑innehållet som SVG bevarar vektor‑källan i presentationen. Raster‑exporter som PNG eller JPEG renderar nödvändigtvis det vektoriserade innehållet till pixlar. PDF‑ eller SVG‑bildexport är också en renderingsoperation, så de exporterade grafik‑filerna bör inte betraktas som en exakt byte‑för‑byte‑kopiering av den inbäddade SVG:n; använd den inbäddade [SvgImage::getSvgData](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/getsvgdata/) när den ursprungliga vektorresursen själv krävs.
+Att behålla SVG‑innehållet som SVG bevarar vektor‑källan i presentationen. Rasterexporter som PNG eller JPEG renderar nödvändigtvis vektor­innehållet till pixlar. PDF‑ eller SVG‑bildexport är också en renderingsoperation, så de exporterade grafikerna bör inte betraktas som en exakt byte‑för‑byte‑kopia av den inbäddade SVG:n; använd den inbäddade [SvgImage::getSvgData](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/getsvgdata/)‑datan när den ursprungliga vektorresursen själv krävs.
 
 ## **Beskär en bild**
 
-Beskärning förändrar vilken del av en bild som syns i ramen. Beskärningsvärdena på [PictureFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/) är procent av källbildens dimensioner. Beskärning tar initialt inte bort de dolda pixlarna från den inbäddade bilden; den ändrar bara den synliga regionen.
+Beskärning ändrar vilken del av en bild som är synlig i ramen. Beskärningsvärdena på [PictureFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/) är procentandelar av källbildens dimensioner. Beskärning tar initialt inte bort de dolda pixlarna från den inbäddade bilden; den ändrar bara den synliga regionen.
 
-Följande exempel hittar en bildram på ett säkert sätt och tillämpar beskärningsvärden:
+Följande exempel hittar en bildram på ett säkert sätt och applicerar beskärningsvärden:
 
 ```php
 use aspose\slides\Presentation;
@@ -262,11 +262,11 @@ try {
 }
 ```
 
-Eftersom de dolda bildbytarna fortfarande finns kvar kan beskärningen ändras senare utan att förlora de ursprungliga pixlarna. Om filstorlek är viktigare än återställningsmöjlighet kan de beskurna områdena fysiskt tas bort enligt nästa avsnitt.
+Eftersom de dolda bildbytarna fortfarande finns kvar kan beskärningen ändras senare utan att förlora de ursprungliga pixlarna. Om filstorlek är viktigare än återhämtningsmöjlighet kan de beskurna regionerna fysiskt tas bort enligt nästa avsnitt.
 
 ## **Ta bort beskurna bilddata**
 
-[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) tar bort bilddata utanför den aktuella beskärningsrektangeln och returnerar den resulterande bildresursen. Detta kan minska filstorleken, men det är en destruktiv optimering: efter att presentationen sparats är de borttagna pixlarna inte längre tillgängliga för en senare avbeskärningsoperation.
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) tar bort bilddata utanför den aktuella beskärningsrektangeln och returnerar den resulterande bildresursen. Detta kan minska filstorleken, men det är en destruktiv optimering: efter att presentationen sparats är de borttagna pixlarna inte längre tillgängliga för en senare avbeskärning.
 
 ```php
 use aspose\slides\Presentation;
@@ -297,13 +297,13 @@ try {
 }
 ```
 
-Metoden kan lägga till en ny bildresurs i presentationen. Om den ursprungliga bilden också används av andra bildramar, behöver dessa ramar fortfarande sin befintliga resurs, så att ta bort beskurna områden inte nödvändigtvis minskar det totala antalet bilder. Att beskära WMF‑ eller EMF‑innehåll med denna metod rasteriserar det beskurna resultatet till PNG.
+Metoden kan lägga till en ny bildresurs i presentationen. Om den ursprungliga bilden även används av andra bildramar, behöver de fortfarande sin befintliga resurs, så att radera beskurna områden inte nödvändigtvis minskar det totala antalet bilder. Att beskära WMF‑ eller EMF‑innehåll med denna metod rasteriserar det beskurna resultatet till PNG.
 
 ## **Komprimera rasterbilder**
 
-[PictureFillFormat::compressImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) minskar rasterbildens upplösning i förhållande till den storlek som bilden visas i. Den kan också ta bort beskurna regioner i samma operation. Metoden returnerar `true` när bilden har förändras i storlek eller beskärts och `false` när ingen förändring var nödvändig.
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) minskar rasterbildens upplösning i förhållande till den storlek som bilden visas i. Den kan också ta bort beskurna regioner i samma operation. Metoden returnerar `true` när bilden har storleksändrats eller beskärts och `false` när ingen förändring var nödvändig.
 
-Använd ett fördefinierat [PicturesCompression](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturescompression/)‑värde när en standardmål‑upplösning är tillräcklig:
+Använd ett fördefinierat [PicturesCompression](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturescompression/)‑värde när en standard mål‑upplösning är tillräcklig:
 
 ```php
 use aspose\slides\PicturesCompression;
@@ -334,60 +334,17 @@ try {
 }
 ```
 
-Ett eget positivt DPI‑värde kan anges i stället för ett fördefinierat när ett specifikt mål krävs.
+Ett eget positivt DPI‑värde kan skickas istället för ett fördefinierat värde när ett specifikt mål krävs.
 
-Komprimering är avsedd för rasterbilder. SVG‑ och metafil‑innehåll reduceras inte av detta rasterkomprimerings‑arbetsflöde. Kom också ihåg att lägre upplösning och borttagna beskurna regioner inte kan återställas från den optimerade presentationen. Välj en mål‑upplösning baserat på den största storlek som bilden faktiskt kommer att visas eller exporteras i, snarare än att globalt tillämpa lägsta DPI.
+Kompression är avsedd för rasterbilder. SVG‑ och metafil‑innehåll minskas inte av detta rasterkompressionsarbetsflöde. Kom också ihåg att lägre upplösning och borttagna beskurna regioner inte kan återställas från den optimerade presentationen. Välj en mål‑upplösning baserat på den största storlek som bilden faktiskt kommer att visas eller exporteras i, snarare än att globalt använda den lägsta DPI‑nivån.
 
-## **Inspektera bildeffekter**
+## **Hantera bildtransform‑effekter**
 
-Bildeffekter lagras på bilden som används av ramen. Bildens transform‑samling kan innehålla effekter såsom fast alfa‑modulering för transparens och luminans för ljusstyrka och kontrast. Exemplet nedan läser säkert båda typer av effekter från den första bildramen på en bild:
-
-```php
-use aspose\slides\Presentation;
-
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $pictureFrame = null;
-    $shapeCount = java_values($slide->getShapes()->size());
-
-    for ($index = 0; $index < $shapeCount; $index++) {
-        $shape = $slide->getShapes()->get_Item($index);
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
-            $pictureFrame = $shape;
-            break;
-        }
-    }
-
-    if ($pictureFrame !== null) {
-        $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
-        $effectCount = java_values($imageTransform->size());
-
-        for ($index = 0; $index < $effectCount; $index++) {
-            $effect = $imageTransform->get_Item($index);
-
-            if (java_instanceof($effect, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
-                $transparency = 100 - java_values($effect->getAmount());
-                echo "Transparency: " . $transparency . PHP_EOL;
-            }
-
-            if (java_instanceof($effect, new JavaClass("com.aspose.slides.Luminance"))) {
-                $luminance = $effect->getEffective();
-                echo "Brightness: " . java_values($luminance->getBrightness()) . PHP_EOL;
-                echo "Contrast: " . java_values($luminance->getContrast()) . PHP_EOL;
-            }
-        }
-    }
-} finally {
-    $presentation->dispose();
-}
-```
-
-Dessa effekter ändrar hur bilden renderas i ramen; de skriver inte om de ursprungliga inbäddade bild‑bytarna.
+För ett komplett arbetsflöde som täcker ljusstyrka, kontrast, färgtransformeringar, suddighet, alfa‑effekter, ordnade kedjor, inspektion, borttagning och round‑trip‑verifiering, se [Image Transform Effects](/php-java/image-transform-effects/).
 
 ## **Lås bildramens geometri**
 
-[PictureFrameLock](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframelock/)‑inställningarna styr vilka redigeringsåtgärder som inaktiveras för en bildram. Till exempel bevarar [setAspectRatioLocked](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) formens proportioner medan den ändras i storlek.
+[PictureFrameLock](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframelock/)‑inställningarna styr vilka redigeringsåtgärder som är inaktiverade för en bildram. Till exempel bevarar [setAspectRatioLocked](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) formens proportioner medan den ändras i storlek.
 
 ```php
 use aspose\slides\Images;
@@ -417,11 +374,11 @@ try {
 }
 ```
 
-Låset gäller bildramens form. Det tvingar inte källbilden att provprovklas eller permanent ändras till samma bildförhållande.
+Låset gäller bildramformen. Det tvingar inte källbilden att återprovas eller permanent förändras till samma bildförhållande.
 
 ## **Justera StretchOffset‑värdena**
 
-När bildfyllningsläget är stretch definierar stretch‑offset‑värdena på [PictureFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/) fyllningsrektangeln relativt bildramens avgränsningsruta. Positiva procent skapar ett inskjutet område från en kant, medan negativa procent skapar ett utskjutet område.
+När bildfylningsläget är stretch definierar stretch‑offset‑värdena på [PictureFillFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/) fyllningsrektangeln relativt bildramens begränsningsruta. Positiva procent skapar ett indrag från en kant, medan negativa procent skapar ett utstickande.
 
 Detta skiljer sig från beskärning. Beskärningsvärden väljer vilken del av källbilden som är synlig; stretch‑offset ändrar rektangeln som den synliga bildfyllningen sträcks in i.
 
@@ -458,43 +415,43 @@ try {
 }
 ```
 
-Använd stretch‑offset för placering av fyllning. Använd beskärnings‑egenskaper när målet är att dölja kanter i källbilden.
+Använd stretch‑offset för fyllningsplacering. Använd beskärnings‑egenskaper när målet är att dölja kanter i källbilden.
 
-## **Lagring, filstorlek och exportöverväganden**
+## **Lagring, filstorlek och exportaspekter**
 
-De huvudsakliga avvägningarna blir enklare att hantera när bildlagring och bildram‑formatering behandlas separat:
+De viktigaste avvägningarna blir enklare att hantera när bildlagring och bildram‑formatering behandlas separat:
 
-- **Inbäddade bilder** gör presentationen självständig och är de mest pålitliga för delning och server‑side rendering, men stora rasterbilder ökar PPTX‑storlek och minnesanvändning.
-- **Länkade bilder** kan hålla paketet mindre, men presentationen beror på att externa filer förblir tillgängliga på de lagrade sökvägarna eller platserna.
-- **Beskärning** är initialt icke‑destruktiv. De dolda pixlarna förblir inbäddade tills beskurna områden tas bort explicit eller under komprimering.
-- **Komprimering** kan minska filstorleken avsevärt för överdimensionerade rasterbilder, men den offrar källupplösning. Den bör tillämpas efter att den avsedda storleken på bilden på sliden är känd.
-- **SVG‑bilder** bör förbli som SVG när vektor‑bevarande är viktigt. Extrahera den inbäddade SVG:n direkt när du behöver själva vektorresursen. Raster‑export av sliden konverterar alltid den renderade sliden till pixlar.
+- **Inbäddade bilder** gör presentationen självständig och är det mest pålitliga valet för delning och server‑sida rendering, men stora rasterbilder ökar PPTX‑storlek och minnesanvändning.
+- **Länkade bilder** kan hålla paketet mindre, men presentationen är beroende av att externa filer förblir tillgängliga på de lagrade sökvägarna eller platserna.
+- **Beskärning** är initialt icke‑destruktiv. De dolda pixlarna förblir inbäddade tills beskurna områden explicit tas bort eller avlägsnas vid komprimering.
+- **Komprimering** kan minska filstorleken avsevärt för överdimensionerade rasterbilder, men den offrar källupplösning. Den bör appliceras efter att den avsedda storleken på bilden på bilden är känd.
+- **SVG‑bilder** bör behållas som SVG när vektor‑bevarande är viktigt. Extrahera den inbäddade SVG:n direkt när du behöver vektorresursen själv. Raster‑slide‑exporter konverterar alltid den renderade sliden till pixlar.
 - **Upprepade bilder** bör återanvända en befintlig [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/)‑resurs när det är möjligt i stället för att upprepade gånger ladda samma fil i presentationsarbetsflödet.
 
-För stora presentationer är bildoptimering vanligtvis mest effektiv när den utförs selektivt: behåll logotyper och diagram som vektor­innehåll, komprimera foton efter deras faktiska visningsstorlek, ta bort beskurna pixlar endast när senare redigering inte krävs, och undvik externa länkar om inte beroendehantering är en del av driftsdesignen.
+För stora presentationer är bildoptimering vanligtvis mest effektiv när den utförs selektivt: behåll logotyper och diagram som vektor­innehåll, komprimera fotografier enligt deras faktiska visningsstorlek, ta bort beskurna pixlar endast när senare redigering inte krävs, och undvik externa länkar om inte beroendehantering är en del av distributionsdesignen.
 
 ## **FAQ**
 
 **Vad är skillnaden mellan en bildram och en bildresurs?**
 
-En [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/) representerar en bildresurs som är associerad med presentationen. En [PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/) är en form på en bild som visar en bild och lagrar ram‑nivå geometri och formatering såsom storlek, rotation, beskärningsvärden, effekter och lås.
+En [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/) representerar en bildresurs som är associerad med presentationen. En [PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/) är en form på en bild som visar en bild och lagrar ram‑nivå‑geometri och formatering såsom storlek, rotation, beskärningsvärden, effekter och lås.
 
 **Ska jag bädda in eller länka bilder?**
 
-Bädda in bilder när presentationen måste vara portabel, arkiveras eller renderas utan åtkomst till externa resurser. Länka bilder endast när det är avsiktligt att hålla bildfilerna utanför PPTX och de externa platserna kan underhållas på ett tillförlitligt sätt.
+Bädda in bilder när presentationen måste vara portabel, arkiverad eller renderas utan åtkomst till externa resurser. Länka bilder endast när det är avsiktligt att hålla bildfiler utanför PPTX och de externa platserna kan underhållas på ett pålitligt sätt.
 
-**Minskar beskärning PPTX‑filens storlek?**
+**Minskar beskärning PPTX‑filstorleken?**
 
 Inte i sig. Vanliga beskärningsinställningar döljer delar av källbilden men behåller de underliggande pixlarna. Använd [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) eller bildkomprimering med borttagning av beskurna områden när dessa pixlar kan tas bort permanent.
 
-**Kan jag återställa bildkvaliteten efter komprimering?**
+**Kan jag återställa bildkvaliteten efter kompression?**
 
-Nej. Komprimering kan reducera den lagrade rasterupplösningen, och borttagning av beskurna regioner kastar bilddata. Behåll originalkällbilden utanför presentationen om hög‑upplöst redigering senare kan behövas.
+Nej. Kompression kan reducera lagrad raster‑upplösning, och att ta bort beskurna regioner kastar bort bilddata. Behåll originalbilden utanför presentationen om senare högupplöst redigering kan behövas.
 
-**Hur ska SVG‑bilder hanteras?**
+**Hur bör SVG‑bilder hanteras?**
 
-Behåll SVG‑innehållet som SVG när vektor‑fidelity är viktigt. Den inbäddade [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/) kan extraheras direkt. Att rendera en bild till ett rasterformat såsom PNG eller JPEG rasteriserar SVG:n som en del av bildens grafik.
+Behåll SVG‑innehållet som SVG när vektor‑fidelity är viktig. Den inbäddade [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/) kan extraheras direkt. Rendering av en slide till ett rasterformat som PNG eller JPEG rasteriserar SVG:n som en del av slide‑bilden.
 
-**Hur kan jag undvika osäkra type‑cast när jag läser befintliga bilder?**
+**Hur kan jag undvika osäkra typ­kastningar när jag läser befintliga slides?**
 
-Kontrollera formtypen innan du använder bildram‑specifika medlemmar. En `java_instanceof`‑kontroll mot [PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/) undviker ogiltiga cast‑ar och låter koden hantera bilder som inte innehåller bildramar.
+Kontrollera formtypen innan du använder bild‑ram‑specifika medlemmar. En `java_instanceof`‑kontroll mot [PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/) undviker ogiltiga kast och låter koden hantera slides som inte innehåller bildramar.

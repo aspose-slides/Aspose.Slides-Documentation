@@ -5,10 +5,10 @@ type: docs
 weight: 10
 url: /ar/python-net/picture-frame/
 keywords:
-- إطار الصورة
+- إطار صورة
 - إضافة إطار صورة
 - إنشاء إطار صورة
-- صورة مضمَّنة
+- صورة مضمّنة
 - صورة مرتبطة
 - استخراج صورة
 - صورة نقطية
@@ -16,31 +16,32 @@ keywords:
 - قص صورة
 - حذف المناطق المقصوصة
 - ضغط صورة
-- StretchOffset
+- إزاحة التمدد
 - تنسيق إطار الصورة
 - مقياس نسبي
-- تأثير الصورة
-- نسبة العرض إلى الارتفاع
+- تأثير صورة
+- نسبة الأبعاد
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إنشاء وتنسيق وربط وقص واستخراج وضغط إطارات الصور في العروض التقديمية باستخدام Aspose.Slides لبايثون عبر .NET."
+description: "إنشاء، تنسيق، ربط، قص، استخراج، وضغط إطارات الصور في العروض التقديمية باستخدام Aspose.Slides للبايثون عبر .NET."
 ---
 ## **نظرة عامة**
 
-إطار الصورة هو شكل شريحة يعرض صورة. في Aspose.Slides، مورد الصورة والشكل الذي يعرضها كائنات منفصلة: يمتلك كائن [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) موارد الصور المضمنة عبر [ImageCollection] الخاصة به، بينما يتحكم [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/) في موضع الصورة وحجمها وتنسيق الخط وتدويرها واقتطاعها وتأثيرات الصورة وإعدادات الإطار الأخرى.
+إطار الصورة هو شكل شريحة يعرض صورة. في Aspose.Slides، مورد الصورة والشكل الذي يعرضها كائنان منفصلان: [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) يمتلك موارد الصور المضمنة عبر [ImageCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imagecollection/)، بينما [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/) يتحكم في موضع الصورة، حجمها، تنسيق الخط، الدوران، القص، تأثيرات الصورة، وإعدادات المستوى الإطاري الأخرى.
 
-هذا الفصل مفيد عندما يتم عرض نفس الصورة أكثر من مرة. أضف الصورة إلى العرض مرة واحدة، احتفظ بـ [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) المرجع، واستخدم مورد الصورة هذا عند إنشاء إطارات الصور.
+هذا الفصل مفيد عندما يتم عرض الصورة نفسها أكثر من مرة. أضف الصورة إلى العرض مرة واحدة، احتفظ بـ [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) المرجعة، واستخدم مورد الصورة هذا عند إنشاء إطارات الصور.
 
-يمكن لإطارات الصور أن تحتوي على صور نقطية مثل PNG أو JPEG وصور متجهة SVG. يمكنها أيضاً الإشارة إلى صور مرتبطة بدلاً من تخزين بايتات الصورة في العرض. يؤثر الاختيار على القابلية للنقل، حجم الملف، الاستخراج، وسلوك التصدير، لذلك من المفيد تحديد طريقة تخزين الصورة قبل تطبيق التنسيق أو التحسين.
+يمكن لإطارات الصور احتواء صور نقطية مثل PNG أو JPEG وصور متجهة SVG. كما يمكنها الإشارة إلى صور مرتبطة بدلاً من تخزين بايتات الصورة داخل العرض. يؤثر الاختيار على القابلية للنقل، حجم الملف، الاستخراج، وسلوك التصدير، لذا من المفيد اتخاذ قرار بشأن طريقة تخزين الصورة قبل تطبيق التنسيق أو التحسين.
 
-## **إضافة وتنسيق صورة مضمنة**
+## **إضافة وتنسيق صورة مضمّنة**
 
-لصورة مضمنة، أضف بيانات الصورة إلى العرض وأنشئ إطار صورة باستخدام [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_picture_frame/). تصبح الصورة جزءًا من حزمة العرض، لذا يبقى العرض مستقلًا عند نقله إلى حاسب آخر.
+لصورة مضمّنة، أضف بيانات الصورة إلى العرض وأنشئ إطار صورة باستخدام [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_picture_frame/). تصبح الصورة جزءًا من حزمة العرض، وبالتالي يظل العرض مستقلًا عند نقله إلى كمبيوتر آخر.
 
-المثال التالي يضيف صورة JPEG، ينشئ إطارًا بأبعاد الصورة الأصلية، ويطبق تنسيق الخط والتدوير:
+المثال التالي يضيف صورة JPEG، ينشئ إطارًا بأبعاد الصورة الأصلية، ويطبق تنسيق الخط والدوران:
+
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -60,11 +61,12 @@ with slides.Presentation() as presentation:
     presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-يتحكم إطار الصورة في الهندسة المعروضة؛ تعديل حجم الإطار لا يغيّر أبعاد البيكسل الأصلية المخزنة في مورد الصورة المضمنة. يصبح هذا الفرق مهمًا عند قص أو ضغط الصورة لاحقًا.
+يتحكم إطار الصورة في الشكل المعروض؛ تغيير حجم الإطار لا يغيّر أبعاد البكسل الأصلية المخزنة في مورد الصورة المضمّن. يصبح هذا التمييز مهمًا عند قص الصورة أو ضغطها لاحقًا.
 
 ## **استخدام المقياس النسبي**
 
-[PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/) تعرض الخصائص [relative_scale_width](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/relative_scale_width/) و [relative_scale_height](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/relative_scale_height/) للإطار. القيمة `1.0` تمثل 100٪ من حجم الصورة الأصلي. المقياس النسبي مفيد عندما يحتاج سير العمل إلى الحفاظ على علاقة بحجم الصورة المصدر بدلاً من حساب الأبعاد النهائية يدويًا.
+[PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/) يكشف عن [relative_scale_width](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/relative_scale_width/) و [relative_scale_height](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/relative_scale_height/) للإطار. القيمة `1.0` تمثل 100% من حجم الصورة الأصلي. المقياس النسبي مفيد عندما يحتاج سير العمل إلى الحفاظ على علاقة بحجم الصورة المصدر بدلًا من حساب الأبعاد النهائية يدويًا.
+
 ```python
 import aspose.slides as slides
 
@@ -81,17 +83,18 @@ with slides.Presentation() as presentation:
     presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-المقياس النسبي يغير إعدادات مقياس الإطار؛ لا يعيد تشكيل أو ضغط الصورة المضمنة.
+المقياس النسبي يغيّر إعدادات مقياس الإطار؛ لا يعيد أخذ العينات ولا يضغط الصورة المضمّنة.
 
-## **الصور المضمنة والمرتبطة**
+## **الصور المضمّنة والمرتبطة**
 
-تخزن الصورة المضمنة بيانات الصورة داخل العرض وبالتالي فهي الخيار الأكمن للنقل والعرض المتوقع. تخزن الصورة المرتبطة موقعًا خارجيًا عبر مسار الارتباط [Picture](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picture/) بدلاً من تضمين بيانات الصورة بنفس الطريقة.
+الصورة المضمّنة تخزن بيانات الصورة داخل العرض وبالتالي تعتبر الخيار الأكثر أمانًا للنقل والعرض المتوقع. الصورة المرتبطة تخزن مسارًا خارجيًا عبر رابط [Picture](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picture/) بدلاً من تضمين بيانات الصورة بنفس الطريقة.
 
-يمكن للصور المرتبطة تقليل كمية بيانات الصورة المخزنة في PPTX، لكنها تُدخل تبعية خارجية. يجب أن يظل الملف المرتبط متاحًا للتطبيق الذي يفتح أو يعرض العرض. إذا تغير المسار أو تم نقل الملف أو أصبح المورد غير متاح، قد لا تُعرض الصورة المرتبطة كما هو متوقع. بالنسبة للعروض التي يجب إرسالها بالبريد أو أرشفتها أو عرضها في بيئات معزولة، تكون الصور المضمنة عادة أكثر موثوقية.
+يمكن للصور المرتبطة تقليل كمية بيانات الصورة المخزنة في PPTX، لكنها تخلق اعتمادًا خارجيًا. يجب أن يظل الملف المرتبط قابلًا للوصول للتطبيق الذي يفتح أو يعرض العرض. إذا تغير المسار أو تم نقل الملف أو أصبح المورد غير متاح، قد لا يتم عرض الصورة المرتبطة كما هو متوقع. بالنسبة للعروض التي يجب إرسالها بالبريد الإلكتروني أو أرشفتها أو عرضها في بيئات معزولة، عادةً ما تكون الصور المضمّنة أكثر موثوقية.
 
 ### **إضافة صورة مرتبطة**
 
-المثال التالي ينشئ إطار صورة ويشير إليه إلى ملف صورة محلي. يتعامل فقط مع ربط الصور؛ ربط الفيديو هو سير عمل وسائط منفصل ولا يتم دمجه عمدًا في هذا المثال.
+المثال التالي ينشئ إطار صورة ويوجهّه إلى ملف صورة محلي. يتعامل فقط مع ربط الصورة؛ ربط الفيديو هو سير عمل وسائط منفصل ولا يتم دمجه في هذا المثال عن قصد.
+
 ```python
 import os
 import aspose.slides as slides
@@ -106,15 +109,16 @@ with slides.Presentation() as presentation:
     presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-استخدم الروابط عندما يكون إدارة الملفات الخارجية مقصودة. لا تستخدمها مجرد بديل للضغط: عادةً ما يكون PPTX صغير مع تبعيات صور مكسورة أقل فائدة من عرض أكبر مستقل.
+استخدم الروابط عندما يكون إدارة الملفات الخارجية مقصودة. لا تستخدمها كبديل للضغط فقط: PPTX صغير يحتوي على تبعات صور مكسورة عادةً ما يكون أقل فائدة من عرض أكبر مكتمل ذاتيًا.
 
-## **استخراج الصور من إطارات الصورة**
+## **استخراج الصور من إطارات الصور**
 
-قبل استخراج صورة من عرض موجود، تحقق من أن الشكل هو فعليًا [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/) وأنه يحتوي على صورة مضمنة. قد لا تحتوي إطارات الصور المرتبطة على بايتات صورة يمكن استخراجها بنفس الطريقة.
+قبل استخراج صورة من عرض موجود، تحقّق أن الشكل هو فعلاً [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/) وأنّه يحتوي على صورة مضمّنة. قد لا تحتوي إطارات الصور المرتبطة على بايتات صورة يمكن استخراجها بنفس الطريقة.
 
 ### **استخراج صورة نقطية**
 
-تستخدم واجهة برمجة التطبيقات الحديثة للصور [IImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/) مباشرة. المثال التالي يجد أول صورة نقطية مضمنة على شريحة ويحفظها كـ PNG:
+واجهة برمجة التطبيقات الحديثة للصور تستخدم [IImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/) مباشرة. المثال التالي يجد أول صورة نقطية مضمّنة على شريحة ويحفظها كملف PNG:
+
 ```python
 import aspose.slides as slides
 
@@ -134,11 +138,12 @@ with slides.Presentation("sample.pptx") as presentation:
         break
 ```
 
-الحفظ عبر [IImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/) يحول الصورة المستخرجة إلى تنسيق الإخراج المطلوب. إذا كنت بحاجة إلى البايتات المشفرة المخزنة في العرض بدلاً من ملف نقطي محوَّل، استخدم خاصية [PPImage.binary_data](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/binary_data/) بدلاً من ذلك.
+الحفظ عبر [IImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iimage/) يحوّل الصورة المستخرجة إلى تنسيق الإخراج المطلوب. إذا كنت بحاجة إلى البايتات المشفرة المخزنة في العرض بدلاً من ملف نقطي محوَّل، استخدم خاصية [PPImage.binary_data](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/binary_data/) بدلاً من ذلك.
 
 ### **استخراج صورة SVG**
 
-بالنسبة لصورة SVG، تعرض [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) كائن [SvgImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/). يتيح لك ذلك استرجاع بيانات SVG مباشرةً بدلاً من تحويل الصورة إلى نقطية أولًا.
+بالنسبة لصورة SVG، يقدم [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) كائن [SvgImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/). يتيح لك ذلك استرداد بيانات SVG مباشرة بدلًا من تحويل الصورة إلى نقطية أولاً.
+
 ```python
 import aspose.slides as slides
 
@@ -160,13 +165,14 @@ with slides.Presentation("sample.pptx") as presentation:
         break
 ```
 
-الحفاظ على محتوى SVG كـ SVG يحافظ على المصدر المتجهي داخل العرض. التصديرات النقطية مثل PNG أو JPEG تُحوِّل ذلك المحتوى المتجهي إلى بكسلات بالضرورة. تصدير الشرائح إلى PDF أو SVG هو أيضًا عملية عرض، لذا لا ينبغي التعامل مع الرسومات المصدَّرة كنسخة بايت‑بايت من SVG المضمن الأصلي؛ استخدم [SvgImage.svg_data](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/svg_data/) المضمّن عندما يكون المورد المتجهي الأصلي مطلوبًا.
+الحفاظ على محتوى SVG كـ SVG يحافظ على المصدر المتجهي داخل العرض. تصديرات النقطية مثل PNG أو JPEG تفرض تحويل هذا المحتوى المتجهي إلى بكسلات. تصدير الشريحة إلى PDF أو SVG أيضًا عملية عرض، لذا لا يجب اعتبار الرسومات المصدرة نسخة بايت-ل‑بايت من SVG المضمّن الأصلي؛ استخدم [SvgImage.svg_data](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/svg_data/) المضمّن عندما يكون المورد المتجهي الأصلي مطلوبًا.
 
-## **قَص صورة**
+## **قص صورة**
 
-يقوم القص بتغيير الجزء المرئي من الصورة داخل الإطار. قيم القص في [PictureFillFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/) هي نسب مئوية لأبعاد الصورة المصدر. لا يحذف القص في البداية البكسلات المخفية من الصورة المضمنة؛ إنه يغيّر فقط المنطقة المرئية.
+يؤدي القص إلى تغيير الجزء الظاهر من الصورة داخل الإطار. قيم القص على [PictureFillFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/) هي نسب مئوية لأبعاد الصورة المصدر. لا يحذف القص في البداية البكسلات المخفية من الصورة المضمّنة؛ فقط يغيّر المنطقة الظاهرة.
 
-المثال التالي يجد إطار صورة بأمان ويطبق قيم القص:
+المثال التالي يجد إطار صورة بأمان ويطبّق قيم القص:
+
 ```python
 import aspose.slides as slides
 
@@ -187,11 +193,12 @@ with slides.Presentation("sample.pptx") as presentation:
         presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-نظرًا لأن بيانات الصورة المخفية لا تزال موجودة، يمكن تعديل القص لاحقًا دون فقدان البكسلات الأصلية. إذا كان حجم الملف أهم من القابلية للعكس، يمكن إزالة المناطق المقطوعة فعليًا كما هو موضح في القسم التالي.
+نظرًا لأن بيانات الصورة المخفية لا تزال موجودة، يمكن تغيير القص لاحقًا دون فقدان البكسلات الأصلية. إذا كان حجم الملف أكثر أهمية من القابلية للعكس، يمكن إزالة المناطق المقصوصة فعليًا كما هو موضح في القسم التالي.
 
-## **إزالة بيانات الصورة المقطوعة**
+## **إزالة بيانات الصورة المقصوصة**
 
-[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) يزيل بيانات الصورة خارج مستطيل القص الحالي ويعيد مورد الصورة الناتج. يمكن أن يقلل ذلك من حجم الملف، لكنه تحسين تدميري: بعد حفظ العرض، لا تعود البكسلات المحذوفة متاحة لعملية إلغاء القص لاحقًا.
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) يزيل بيانات الصورة خارج مستطيل القص الحالي ويعيد مورد الصورة الناتج. يمكن لهذا الإجراء تقليل حجم الملف، لكنه تحسين تدميري: بعد حفظ العرض، لا تعود البكسلات المُزالة متاحة لعملية إلغاء القص لاحقًا.
+
 ```python
 import aspose.slides as slides
 
@@ -210,13 +217,14 @@ with slides.Presentation("cropped-image.pptx") as presentation:
             presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-قد تضيف الطريقة مورد صورة جديد إلى العرض. إذا كانت الصورة الأصلية مستخدمة أيضًا من قبل إطارات صور أخرى، فإن تلك الإطارات ما زالت تحتاج إلى المورد الحالي، وبالتالي حذف مناطق القص لا يقلل بالضرورة من العدد الإجمالي للصور. قص محتوى WMF أو EMF بهذه الطريقة يحول النتيجة المقطوعة إلى PNG.
+قد تضيف الطريقة مورد صورة جديد إلى العرض. إذا كانت الصورة الأصلية تُستخدم أيضًا من قبل إطارات صور أخرى، فإن تلك الإطارات ما زالت بحاجة إلى موردها الحالي، لذا لا يؤدي حذف المناطق المقصوصة بالضرورة إلى تقليل العدد الكلي للصور. قص محتوى WMF أو EMF بهذه الطريقة يحوّل النتيجة المقصوصة إلى PNG.
 
 ## **ضغط الصور النقطية**
 
-[PictureFillFormat.compress_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/compress_image/) يقلل من دقة الصورة النقطية بالنسبة إلى الحجم الذي تُعرض به الصورة. يمكنه أيضًا إزالة المناطق المقطوعة في العملية نفسها. تُعيد الطريقة `True` عندما يتم تغيير حجم الصورة أو قصها و `False` عندما لا يكون هناك تغيير مطلوب.
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/compress_image/) يقلل دقة الصورة النقطية نسبة إلى الحجم الذي تُعرض به الصورة. يمكنه أيضًا حذف المناطق المقصوصة في نفس العملية. تُرجع الطريقة `True` عندما تُعاد تحجيم الصورة أو تُقص، وتُرجع `False` عندما لا يكون هناك تعديل ضروري.
 
-استخدم قيمة [PicturesCompression](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/picturescompression/) مسبقة التعريف عندما تكون الدقة المستهدفة القياسية كافية:
+استخدم قيمة [PicturesCompression](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/picturescompression/) محددة مسبقًا عندما يكون دقة هدف قياسية كافية:
+
 ```python
 import aspose.slides as slides
 
@@ -235,42 +243,18 @@ with slides.Presentation("sample.pptx") as presentation:
         presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-يمكن تمرير قيمة DPI إيجابية مخصصة بدلاً من قيمة تعداد عندما يكون هناك هدف محدد مطلوب.
+يمكن تمرير قيمة DPI إيجابية مخصصة بدلاً من قيمة التعداد عندما يكون هدف محدد مطلوبًا.
 
-الضغط مخصص للصور النقطية. محتوى SVG والملفات الوصفية لا يتم تقليله عبر هذا سير عمل الضغط النقطي. وتذكر أيضًا أنه لا يمكن استعادة الدقة المنخفضة أو المناطق المقطوعة المحذوفة من العرض المُحسَّن. اختر دقة مستهدفة استنادًا إلى أكبر حجم يُعرض فيه أو يُصدَّر الصورة فعليًا بدلاً من تطبيق أقل DPI على مستوى العالم.
+الضغط مخصص للصور النقطية. لا يتم تقليل محتوى SVG أو ملفات الميتافايل بهذا الإجراء. تذكّر أيضًا أن الدقة الأقل والمناطق المقصوصة المحذوفة لا يمكن استردادها من العرض المُحسّن. اختر دقة الهدف بناءً على أكبر حجم ستُعرض فيه الصورة فعليًا أو تُصَدّر بدلاً من تطبيق أدنى DPI عالميًا.
 
-## **فحص تأثيرات الصورة**
+## **إدارة تأثيرات تحويل الصورة**
 
-تُخزن تأثيرات الصورة على الصورة المستخدمة في الإطار. يمكن أن تحتوي مجموعة تحويلات الصورة على تأثيرات مثل تعديل ألفا ثابت للشفافية وتغيّر السطوع للإنارة والتباين. المثال أدناه يقرأ بأمان كلا النوعين من التأثيرات من أول إطار صورة على شريحة:
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = None
-
-    for shape in slide.shapes:
-        if isinstance(shape, slides.PictureFrame):
-            picture_frame = shape
-            break
-
-    if picture_frame is not None:
-        for effect in picture_frame.picture_format.picture.image_transform:
-            if isinstance(effect, slides.effects.AlphaModulateFixed):
-                transparency = 100 - effect.amount
-                print("Transparency: " + str(transparency))
-
-            if isinstance(effect, slides.effects.Luminance):
-                luminance = effect.get_effective()
-                print("Brightness: " + str(luminance.brightness))
-                print("Contrast: " + str(luminance.contrast))
-```
-
-[AlphaModulateFixed](https://reference.aspose.com/slides/ar/python-net/aspose.slides.effects/alphamodulatefixed/) و [Luminance](https://reference.aspose.com/slides/ar/python-net/aspose.slides.effects/luminance/) يغيّران طريقة عرض الصورة في الإطار؛ لا يعيدان كتابة بايتات الصورة المضمنة الأصلية.
+لِسير عمل كامل يغطي السطوع، التباين، تحويلات اللون، الضبابية، تأثيرات ألفا، السلاسل المرتبة، الفحص، الإزالة، والتحقق من الرحلة المتكاملة، راجع [Image Transform Effects](/slides/ar/python-net/image-transform-effects/).
 
 ## **قفل هندسة إطار الصورة**
 
-تتحكم إعدادات [PictureFrameLock](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframelock/) في عمليات التحرير التي يتم تعطيلها لإطار الصورة. على سبيل المثال، الخاصية [aspect_ratio_locked](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) تحافظ على نسب الشكل أثناء تغيير حجمه.
+إعدادات [PictureFrameLock](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframelock/) تتحكم في عمليات التحرير التي تُعطَّل لإطار الصورة. على سبيل المثال، خاصية [aspect_ratio_locked](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) تحافظ على نسب الشكل أثناء تعديل حجمه.
+
 ```python
 import aspose.slides as slides
 
@@ -286,13 +270,14 @@ with slides.Presentation() as presentation:
     presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-القفل يطبق على شكل إطار الصورة. ولا يجبر الصورة المصدر على إعادة تشكيل أو تغيير دائم إلى نفس النسبة.
+القفل يطبق على شكل إطار الصورة. لا يجبر الصورة المصدر على إعادة أخذ العينات أو تغيير دائم لنفس نسبة الأبعاد.
 
 ## **ضبط قيم StretchOffset**
 
-عند أن يكون وضع ملء الصورة هو التمدد، تحدد قيم stretch‑offset في [PictureFillFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/) مستطيل التعبئة بالنسبة إلى صندوق إطار الصورة. النسب المئوية الإيجابية تُنشئ تضمينًا من الحافة، بينما النسب السالبة تُنشئ امتدادًا.
+عندما يكون وضع ملء الصورة هو "stretch"، تُعرّف قيم stretch‑offset على [PictureFillFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/) مستطيل الملء نسبة إلى صندوق الإطار. النسب المئوية الإيجابية تُنشئ انحشارًا من الحافة، بينما النسب السلبية تُنشئ بُعدًا خارج الحافة.
 
-هذا يختلف عن القص. قيم القص تحدد أي جزء من الصورة المصدر مرئي؛ قيم stretch‑offset تغير المستطيل الذي يُمدد فيه ملء الصورة المرئي.
+هذا مختلف عن القص. قيم القص تحدد أي جزء من الصورة المصدر يكون مرئيًا؛ قيم الـ stretch‑offset تغير المستطيل الذي يُمدد فيه ملء الصورة المرئي.
+
 ```python
 import aspose.slides as slides
 
@@ -312,41 +297,43 @@ with slides.Presentation() as presentation:
     presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-استخدم stretch‑offsets لتحديد موضع التعبئة. استخدم خصائص القص عندما يكون الهدف إخفاء حواف الصورة المصدر.
+استخدم stretch‑offset لتحديد موضع الملء. استخدم خصائص القص عندما يكون الهدف إخفاء حواف الصورة المصدر.
 
 ## **الاعتبارات المتعلقة بالتخزين، حجم الملف، والتصدير**
 
-تكون المقايضات الرئيسية أسهل في الإدارة عندما يتم التعامل مع تخزين الصور وتنسيق إطارات الصورة بشكل منفصل:
+التبادلات الرئيسية تصبح أسهل في الإدارة عندما يُعامل تخزين الصورة وتنسيق إطار الصورة بشكل منفصل:
 
-- **الصور المضمنة** تجعل العرض مستقلًا وتُعَد الأكثر موثوقية للمشاركة والعرض على الخادم، لكن الصور النقطية الكبيرة تزيد من حجم PPTX واستخدام الذاكرة.
-- **الصور المرتبطة** يمكن أن تجعل الحزمة أصغر، لكن العرض يعتمد على ملفات خارجية تظل متاحة في المسارات أو المواقع المخزنة.
-- **القص** غير مدمر في البداية. تظل البكسلات المخفية مضمَّنة حتى يتم حذف المناطق المقصوصة صراحةً أو إزالتها أثناء الضغط.
-- **الضغط** يمكن أن يقلل حجم الملف بشكل كبير للصور النقطية الضخمة، لكنه يضحي بدقة المصدر. يجب تطبيقه بعد معرفة الحجم المقصود على الشريحة.
-- **صور SVG** ينبغي أن تبقى كـ SVG عندما تكون حفظ المتجهات مهمًا. استخرج SVG المضمن مباشرةً عندما تحتاج إلى المورد المتجهي نفسه. تصدير الشرائح إلى صورة نقطية يحول دائمًا الشريحة المرسومة إلى بكسلات.
-- **الصور المتكررة** ينبغي إعادة استخدام مورد [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) موجود عندما يكون ذلك ممكنًا بدلاً من تحميل نفس الملف مرارًا في سير عمل العرض.
+- **الصور المضمّنة** تجعل العرض مكتملًا ذاتيًا وهي الأكثر موثوقية للمشاركة والعرض على الخوادم، لكن الصور النقطية الكبيرة تزيد من حجم PPTX واستخدام الذاكرة.
+- **الصور المرتبطة** يمكن أن تحافظ على حجم الحزمة أصغر، لكن العرض يعتمد على ملفات خارجية تظل متاحة في المسارات أو المواقع المخزنة.
+- **القص** غير تدميري في البداية. تبقى البكسلات المخفية مضمّنة حتى تُحذف المناطق المقصوصة صراحةً أو تُزيل أثناء الضغط.
+- **الضغط** يمكن أن يقلل حجم الملف بشكل كبير للصور النقطية الضخمة، لكنه يفرط في دقة المصدر. يجب تطبيقه بعد معرفة الحجم النهائي على الشريحة.
+- **صور SVG** يجب أن تظل كـ SVG عندما تكون حفظ المتجهات مهمًا. استخرج الـ SVG المضمّن مباشرة عندما تحتاج إلى المورد المتجهي ذاته. تصدير الشريحة إلى صورة نقطية دائمًا يحوّل المحتوى المتجهي إلى بكسلات.
+- **الصور المتكررة** ينبغي إعادة استخدام مورد [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) قائم عندما يكون ذلك ممكنًا بدلاً من تحميل الملف نفسه مرارًا في سير العمل.
 
-## **الأسئلة الشائعة**
+للعروض الكبيرة، عادةً ما تكون تحسينات الصور أكثر فاعلية عند تنفيذها بشكل انتقائي: احتفظ بالشعارات والرسوم التخطيطية كالمحتوى المتجهي، اضغط الصور الفوتوغرافية وفقًا لحجم عرضها الفعلي، احذف البكسلات المقصوصة فقط عندما لا تكون هناك حاجة لتعديل لاحق، وتجنب الروابط الخارجية ما لم يكن إدارة التبعيات جزءًا من تصميم النشر.
 
-**ما الفرق بين إطار الصورة ومورد الصورة؟**
+## **الأسئلة المتكررة**
 
-يمثل [PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) مورد صورة مرتبط بالعرض. بينما [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/) هو شكل على الشريحة يعرض صورة ويخزن إعدادات الإطار مثل الحجم، التدوير، قيم القص، التأثيرات، والقفل.
+**ما الفرق بين إطار الصورة و مورد الصورة؟**
 
-**هل يجب أن أضمن الصور أم أربطها؟**
+[PPImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ppimage/) يمثل مورد الصورة المرتبط بالعرض. [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/) هو شكل على الشريحة يعرض صورة ويخزن هندسة وإعدادات الإطار مثل الحجم، الدوران، قيم القص، التأثيرات، والقفل.
 
-قم بتضمين الصور عندما يجب أن يكون العرض قابلًا للنقل أو مؤرشفًا أو معروضًا دون الحاجة إلى موارد خارجية. اربط الصور فقط عندما يكون حفظ ملفات الصور خارج PPTX مقصودًا ويمكن الحفاظ على المواقع الخارجية بشكل موثوق.
+**هل يجب أن أضمّن الصور أم أربطها؟**
 
-**هل يقلل القص حجم ملف PPTX؟**
+امضن الصور عندما يجب أن يكون العرض قابلًا للنقل، مؤرشفًا، أو مُعْرَضًا دون الحاجة إلى موارد خارجية. اربط الصور فقط عندما تكون إدارة ملفات الصور خارج PPTX مقصودة ويمكن الحفاظ على المواقع الخارجية بشكل موثوق.
 
-ليس بمفرده. إعدادات القص العادية تخفي أجزاء من الصورة المصدر ولكنها تحتفظ بالبكسلات الأساسية. استخدم [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) أو ضغط الصورة مع إزالة مناطق القص عندما يمكن حذف تلك البكسلات نهائيًا.
+**هل يقلل القص من حجم ملف PPTX؟**
+
+ليس بمفرده. إعدادات القص العادية تخفي أجزاء من الصورة المصدر ولكن تحتفظ بالبكسلات الأساسية. استخدم [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) أو ضغط الصور مع حذف المناطق المقصوصة عندما يمكن تجاهل تلك البكسلات نهائيًا.
 
 **هل يمكن استعادة جودة الصورة بعد الضغط؟**
 
-لا. يمكن للضغط تقليل دقة الصورة النقطية المخزنة، وإزالة المناطق المقصوصة تحذف بيانات الصورة. احتفظ بالصورة المصدر الأصلية خارج العرض إذا كان قد يُحتاج إلى تعديل عالي الدقة لاحقًا.
+لا. الضغط قد يقلل من دقة الصورة المخزنة، وإزالة المناطق المقصوصة تحذف بيانات الصورة. احتفظ بالصورة المصدر الأصلية خارج العرض إذا كان من المحتمل الحاجة إلى تحرير عالي الدقة لاحقًا.
 
 **كيف يجب التعامل مع صور SVG؟**
 
-حافظ على محتوى SVG كـ SVG عندما تكون دقة المتجه مهمة. يمكن استخراج [SvgImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/) المضمن مباشرةً. عرض الشريحة إلى تنسيق نقطي مثل PNG أو JPEG يحول SVG إلى بكسلات كجزء من صورة الشريحة.
+احتفظ بمحتوى SVG كـ SVG عندما تكون وفاء المتجهات مهمة. يمكن استخراج الـ [SvgImage](https://reference.aspose.com/slides/ar/python-net/aspose.slides/svgimage/) المضمّن مباشرة. عرض شريحة إلى تنسيق نقطي مثل PNG أو JPEG يحوّل الـ SVG إلى بكسلات كجزء من صورة الشريحة.
 
-**كيف يمكن تجنب عمليات التحويل غير الآمنة عند قراءة الشرائح الموجودة؟**
+**كيف أتجنب عمليات التحويل غير الآمنة عند قراءة شرائح موجودة؟**
 
-تحقق من نوع الشكل قبل استخدام أعضاء خاصة بإطار الصورة. استخدام `isinstance(shape, slides.PictureFrame)` يتجنب التحويلات غير الصالحة ويسمح للشفرة بمعالجة الشرائح التي لا تحتوي على إطارات صور.
+تحقق من نوع الشكل قبل استخدام أعضاء خاصة بإطار الصورة. استخدام `isinstance(shape, slides.PictureFrame)` يمنع التحويلات غير الصالحة ويسمح للكود بمعالجة الشرائح التي لا تحتوي على إطارات صورة.

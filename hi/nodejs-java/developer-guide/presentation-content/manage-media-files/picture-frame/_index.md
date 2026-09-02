@@ -1,47 +1,47 @@
 ---
-title: JavaScript का उपयोग करके प्रस्तुतियों में पिक्चर फ्रेम प्रबंधित करें
-linktitle: पिक्चर फ्रेम
+title: "प्रेजेंटेशन में जावास्क्रिप्ट का उपयोग कर पिक्चर फ्रेम्स प्रबंधित करें"
+linktitle: "पिक्चर फ्रेम"
 type: docs
 weight: 10
 url: /hi/nodejs-java/picture-frame/
 keywords:
-  - पिक्चर फ्रेम
-  - पिक्चर फ्रेम जोड़ें
-  - पिक्चर फ्रेम बनाएं
-  - एम्बेडेड इमेज
-  - लिंक्ड इमेज
-  - इमेज निकालें
-  - रैस्टर इमेज
-  - SVG इमेज
-  - इमेज क्रॉप करें
-  - क्रॉप्ड क्षेत्रों को हटाएं
-  - इमेज संकुचित करें
-  - StretchOffset
-  - पिक्चर फ्रेम फ़ॉर्मेटिंग
-  - रिलेटिव स्केल
-  - इमेज इफ़ेक्ट
-  - परिपत्र अनुपात
-  - PowerPoint
-  - OpenDocument
-  - प्रेजेंटेशन
-  - Node.js
-  - JavaScript
-  - Aspose.Slides
-description: Aspose.Slides for Node.js के माध्यम से Java का उपयोग करके प्रस्तुतियों में पिक्चर फ्रेम बनाएं, फ़ॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें और संकुचित करें।
+- "चित्र फ्रेम"
+- "चित्र फ्रेम जोड़ें"
+- "चित्र फ़्रेम बनाएं"
+- "संलग्न छवि"
+- "संबद्ध छवि"
+- "छवि निकालें"
+- "रेस्टर छवि"
+- "SVG छवि"
+- "छवि क्रॉप करें"
+- "क्रॉप किए क्षेत्रों को हटाएँ"
+- "छवि संपीड़ित करें"
+- "StretchOffset"
+- "चित्र फ्रेम फ़ॉर्मेटिंग"
+- "सापेक्ष स्केल"
+- "छवि प्रभाव"
+- "आस्पेक्ट अनुपात"
+- "PowerPoint"
+- "OpenDocument"
+- "प्रेजेंटेशन"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Aspose.Slides for Node.js via Java के साथ प्रेजेंटेशन में चित्र फ्रेम बनाएं, फ़ॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें, और संपीड़ित करें।"
 ---
 ## **अवलोकन**
 
-Picture frame एक slide shape है जो image दिखाता है। Aspose.Slides में, image resource और उसे प्रदर्शित करने वाला shape अलग‑अलग objects हैं: एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) अपने [ImageCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/imagecollection/) के माध्यम से एम्बेडेड इमेज resources को संभालता है, जबकि एक [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) image की स्थिति, आकार, लाइन फ़ॉर्मेटिंग, घुमाव, क्रॉपिंग, picture effects, और अन्य फ्रेम‑स्तर सेटिंग्स को नियंत्रित करता है।
+एक picture frame एक slide shape है जो एक image प्रदर्शित करता है। Aspose.Slides में, image resource और shape जो इसे प्रदर्शित करता है अलग-अलग objects हैं: एक [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) अपने [ImageCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/imagecollection/) के माध्यम से embedded image resources को own करता है, जबकि एक [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) image की position, size, line formatting, rotation, cropping, picture effects, और अन्य frame‑level सेटिंग्स को नियंत्रित करता है।
 
-यह विभाजन तब उपयोगी होता है जब एक ही image को कई बार दिखाया जाता है। image को प्रस्तुति में एक बार जोड़ें, लौटाए गए [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ppimage/) को रखें, और picture frames बनाते समय उसी image resource का उपयोग करें।
+जब एक ही image को कई बार दिखाया जाता है तो यह विभाजन उपयोगी होता है। image को presentation में एक बार जोड़ें, लौटाए गए [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ppimage/) को रखें, और picture frames बनाते समय उस image resource का उपयोग करें।
 
-Picture frames raster images जैसे PNG या JPEG तथा vector SVG images दोनों को रख सकते हैं। वे linked images को भी संदर्भित कर सकते हैं, जिससे image बाइट्स प्रस्तुति में संग्रहीत नहीं होती। यह चयन पोर्टेबिलिटी, फ़ाइल आकार, एक्सट्रैक्शन, और एक्सपोर्ट व्यवहार को प्रभावित करता है, इसलिए फ़ॉर्मेटिंग या ऑप्टिमाइज़ेशन लागू करने से पहले यह तय करना उपयोगी है कि image कैसे संग्रहीत होनी चाहिए।
+Picture frames raster images जैसे PNG या JPEG और vector SVG images दोनों को रख सकते हैं। वे linked images को भी संदर्भित कर सकते हैं, जिससे image बाइट्स को presentation में संग्रहीत न करना पड़े। यह चयन portability, फ़ाइल आकार, extraction, और export व्यवहार को प्रभावित करता है, इसलिए formatting या optimization लागू करने से पहले तय करना उपयोगी है कि image को कैसे संग्रहीत किया जाए।
 
-## **एम्बेडेड इमेज जोड़ें और फ़ॉर्मेट करें**
+## **Embedded Image को जोड़ें और स्वरूपित करें**
 
-एक एम्बेडेड इमेज के लिए, इमेज डेटा को प्रस्तुति में जोड़ें और [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) का उपयोग करके picture frame बनायें। इमेज प्रस्तुति पैकेज का हिस्सा बन जाता है, इसलिए प्रस्तुति को दूसरे कंप्यूटर पर ले जाने पर भी यह स्व-निहित रहती है।
+एक embedded image के लिए, image डेटा को presentation में जोड़ें और [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) के साथ picture frame बनाएं। image presentation पैकेज का हिस्सा बन जाता है, इसलिए presentation को दूसरे कंप्यूटर पर ले जाने पर वह स्वयं‑समावेशी रहता है।
 
-निम्न उदाहरण PNG इमेज जोड़ता है, इमेज के मूल आकार में फ्रेम बनाता है, तथा लाइन फ़ॉर्मेटिंग और घुमाव लागू करता है:
+निम्न उदाहरण एक PNG image जोड़ता है, image के मूल आकार पर एक frame बनाता है, और line formatting तथा rotation लागू करता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -72,11 +72,11 @@ try {
 }
 ```
 
-Picture frame प्रदर्शित ज्योमेट्री को नियंत्रित करता है; फ्रेम का आकार बदलने से एम्बेडेड इमेज संसाधन में संग्रहीत मूल पिक्सेल आकार नहीं बदलता। बाद में इमेज को क्रॉप या संकुचित करते समय यह अंतर महत्वपूर्ण हो जाता है।
+picture frame प्रदर्शित geometry को नियंत्रित करता है; frame का आकार बदलना मूल pixel dimensions को नहीं बदलता जो embedded image resource में संग्रहीत हैं। यह अंतर बाद में image को crop या compress करते समय महत्वपूर्ण हो जाता है।
 
-## **रिलेटिव स्केल का उपयोग करें**
+## **Relative Scale का उपयोग करें**
 
-[PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) फ्रेम के लिए रिलेटिव चौड़ाई और ऊँचाई स्केल को [setRelativeScaleWidth](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) और [setRelativeScaleHeight](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-) के माध्यम से उजागर करता है। `1.0` का मान मूल picture आकार का 100 % दर्शाता है। रिलेटिव स्केल तब उपयोगी होता है जब किसी workflow को अंतिम आयामों की मैन्युअल गणना करने की बजाय स्रोत इमेज आकार के साथ संबंध बनाए रखना हो।
+[PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) फ्रेम के लिए relative width और height scaling को [setRelativeScaleWidth](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) और [setRelativeScaleHeight](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-) के माध्यम से उजागर करता है। `1.0` का मान मूल picture आकार के 100 % के बराबर है। Relative scale उपयोगी है जब workflow को source image आकार के साथ अनुपात बनाए रखना हो, न कि अंतिम dimensions को मैन्युअल रूप से गणना करना।
 
 ```javascript
 var aspose = aspose || {};
@@ -105,17 +105,17 @@ try {
 }
 ```
 
-रिलेटिव स्केल फ्रेम की स्केल सेटिंग्स को बदलता है; यह एम्बेडेड इमेज को री‑सैंपल या संकुचित नहीं करता।
+Relative scale फ्रेम के scale सेटिंग्स को बदलता है; यह embedded image को पुनः‑सैंपल या compress नहीं करता।
 
-## **एम्बेडेड और लिंक्ड इमेजेस**
+## **Embedded और Linked Images**
 
-एक एम्बेडेड picture इमेज डेटा को प्रस्तुति के भीतर संग्रहीत करता है और इस कारण पोर्टेबिलिटी और पूर्वनिर्धारित रेंडरिंग के लिए सबसे सुरक्षित विकल्प होता है। एक लिंक्ड picture `Picture.setLinkPathLong` मेथड के माध्यम से बाहरी स्थान को स्टोर करता है, बजाय कि इमेज डेटा को उसी तरह एम्बेड करने के।
+एक embedded picture image डेटा को presentation के अंदर संग्रहीत करता है और इसलिए portability और पूर्वनिर्धारित rendering के लिए सबसे सुरक्षित विकल्प है। एक linked picture image डेटा को embedding करने के बजाय [Picture.setLinkPathLong](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) विधि के माध्यम से बाहरी स्थान को स्टोर करता है।
 
-लिंक्ड इमेजेस PPTX में संग्रहीत इमेज डेटा की मात्रा को घटा सकते हैं, लेकिन वे बाहरी निर्भरताएँ पेश करते हैं। लिंक्ड फ़ाइल को उस एप्लिकेशन को सुलभ रहना चाहिए जो प्रस्तुति को खोलता या रेंडर करता है। यदि पाथ बदलता है, फ़ाइल स्थानांतरित होती है, या संसाधन उपलब्ध नहीं रहता, तो लिंक्ड picture अपेक्षित रूप से प्रदर्शित नहीं होगा। उन प्रस्तुतियों के लिए जो ई‑मेल, आर्काइव, या अलग‑थलग वातावरण में रेंडर की जानी हों, एम्बेडेड इमेजेस आमतौर पर अधिक विश्वसनीय होती हैं।
+Linked images PPTX में संग्रहीत image डेटा की मात्रा को घटा सकते हैं, लेकिन वे एक बाहरी निर्भरता लाते हैं। लिंक्ड फ़ाइल को उस application के लिए उपलब्ध रहना चाहिए जो presentation को खोलता या रेंडर करता है। यदि path बदल जाता है, फ़ाइल स्थानांतरित हो जाती है, या resource अनुपलब्ध हो जाता है, तो linked picture अपेक्षित रूप से दिख नहीं सकता। उन presentations के लिए जो ई‑मेल, आर्काइव या अलग‑थलग वातावरण में रेंडर किए जाने चाहिए, embedded images आमतौर पर अधिक विश्वसनीय होते हैं।
 
-### **लिंक्ड इमेज जोड़ें**
+### **Linked Image जोड़ें**
 
-निम्न उदाहरण एक picture frame बनाता है और उसे स्थानीय इमेज फ़ाइल की ओर इंगित करता है। यह केवल इमेज लिंकिंग को दर्शाता है; वीडियो लिंकिंग एक अलग मीडिया workflow है और इरादतन इस उदाहरण में सम्मिलित नहीं किया गया है।
+निम्न उदाहरण एक picture frame बनाता है और उसे स्थानीय image फ़ाइल की ओर इंगित करता है। यह केवल image linking से निपटता है; video linking एक अलग media workflow है और इरादतन इस उदाहरण में नहीं मिलाया गया है।
 
 ```javascript
 var aspose = aspose || {};
@@ -136,15 +136,15 @@ try {
 }
 ```
 
-बाहरी फ़ाइल प्रबंधन जब जानबूझकर हो, तभी लिंक का उपयोग करें। इन्हें केवल संपीड़न के विकल्प के रूप में उपयोग न करें: टूटे हुए इमेज निर्भरताओं वाला छोटा PPTX अक्सर बड़े स्व‑निहित प्रस्तुति से कम उपयोगी होता है।
+जब बाहरी फ़ाइल प्रबंधन इरादा‑पूर्ण हो तो लिंक का उपयोग करें। उन्हें केवल compression का विकल्प बनाकर उपयोग न करें: टूटे हुए image dependencies वाले छोटे PPTX अक्सर बड़े self‑contained presentation से कम उपयोगी होते हैं।
 
-## **Picture Frames से इमेज निकालें**
+## **Picture Frames से Images निकालें**
 
-किसी मौजूदा प्रस्तुति से इमेज निकालने से पहले, सुनिश्चित करें कि shape वास्तव में एक [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) है और उसमें एम्बेडेड इमेज मौजूद है। लिंक्ड picture frames में वह इमेज बाइट्स नहीं हो सकते जो समान तरीके से निकाले जा सकें।
+किसी मौजूदा presentation से image निकालने से पहले, यह जाँचें कि shape वास्तव में एक [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) है और उसमें embedded image है। Linked picture frames में ऐसे image बाइट्स नहीं हो सकते जिन्हें समान तरीके से निकाला जा सके।
 
-### **Raster इमेज निकालें**
+### **Raster Image निकालें**
 
-आधुनिक इमेज API सीधे [IImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/iimage/) का उपयोग करता है। नीचे दिया गया उदाहरण पहले एम्बेडेड raster picture को खोजता है और उसे PNG के रूप में सहेजता है:
+आधुनिक image API सीधे [IImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/iimage/) का उपयोग करती है। निम्न उदाहरण first embedded raster picture को slide पर खोजता है और उसे PNG के रूप में सहेजता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -179,11 +179,11 @@ try {
 }
 ```
 
-[IImage.save](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/iimage/#save) के माध्यम से सहेजना निकाली गई इमेज को वांछित आउटपुट फ़ॉर्मेट में बदल देता है। यदि आपको प्रस्तुति में संग्रहीत एन्कोडेड बाइट्स चाहिए, तो इमेज संसाधन के बाइनरी डेटा का उपयोग करें, न कि परिवर्तित raster फ़ाइल का।
+[IImage.save](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/iimage/#save) के माध्यम से सहेजना निकाली गई image को अनुरोधित output format में बदल देता है। यदि आपको presentation में संग्रहीत encoded बाइट्स चाहिए, न कि परिवर्तित raster फ़ाइल, तो image resource के binary डेटा का उपयोग करें।
 
-### **SVG इमेज निकालें**
+### **SVG Image निकालें**
 
-SVG picture के लिए, [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ppimage/) एक [SvgImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/svgimage/) ऑब्जेक्ट उजागर करता है। इससे आप SVG डेटा को सीधे प्राप्त कर सकते हैं, बिना पहले picture को rasterize किए।
+SVG picture के लिए, [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ppimage/) एक [SvgImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/svgimage/) ऑब्जेक्ट उजागर करता है। यह आपको SVG डेटा को सीधे प्राप्त करने की अनुमति देता है, बिना पहले picture को rasterize किए।
 
 ```javascript
 var aspose = aspose || {};
@@ -215,13 +215,13 @@ try {
 }
 ```
 
-SVG को SVG के रूप में रखना प्रस्तुति के भीतर वेक्टर स्रोत को संरक्षित करता है। PNG या JPEG जैसी raster एक्सपोर्ट्स स्वाभाविक रूप से वेक्टर को पिक्सेल में रेंडर करती हैं। PDF या SVG slide export भी एक रेंडरिंग ऑपरेशन है, इसलिए निर्यातित ग्राफ़िक्स को मूल एम्बेडेड SVG की बाइट‑फ़ॉर‑बाइट कॉपी न मानें; जब मूल वेक्टर संसाधन की आवश्यकता हो तो एम्बेडेड [SvgImage.getSvgData](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/svgimage/#getSvgData--) डेटा का उपयोग करें।
+SVG सामग्री को SVG के रूप में रखना presentation के भीतर vector स्रोत को संरक्षित करता है। PNG या JPEG जैसे raster निर्यात अनिवार्य रूप से उस vector सामग्री को pixel में बदलते हैं। PDF या SVG slide export भी एक rendering ऑपरेशन है, इसलिए निर्यातित graphics को मूल embedded SVG की बाइट‑फ़ॉर‑बाइट कॉपी के रूप में नहीं माना जाना चाहिए; जब मूल vector resource की आवश्यकता हो तो embedded [SvgImage.getSvgData](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/svgimage/#getSvgData--) डेटा का उपयोग करें।
 
-## **इमेज को क्रॉप करें**
+## **Image Crop करें**
 
-क्रॉपिंग फ्रेम के भीतर इमेज के दृश्य भाग को बदलती है। [PictureFillFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/) पर क्रॉप मान स्रोत इमेज आयामों के प्रतिशत होते हैं। क्रॉपिंग प्रारम्भ में एम्बेडेड इमेज से छिपे पिक्सेल को नहीं हटाता; यह केवल दिखाई देने वाले क्षेत्र को बदलता है।
+Cropping फ्रेम के भीतर image के कौन से भाग दिखेंगे इसे बदलता है। [PictureFillFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/) पर crop मान source image dimensions के प्रतिशत होते हैं। Cropping मूल रूप से embedded image के छिपे हुए pixel को हटाता नहीं है; यह केवल दृश्यमान क्षेत्र बदलता है।
 
-निम्न उदाहरण सुरक्षित रूप से एक picture frame खोजता है और क्रॉप मान लागू करता है:
+निम्न उदाहरण एक picture frame को सुरक्षित रूप से ढूँढता है और crop मान लागू करता है:
 
 ```javascript
 var aspose = aspose || {};
@@ -253,11 +253,11 @@ try {
 }
 ```
 
-क्योंकि छिपा इमेज डेटा अभी भी मौजूद है, क्रॉप को बाद में मूल पिक्सेल खोए बिना बदला जा सकता है। यदि फ़ाइल आकार अधिक महत्वपूर्ण है और पुनः सम्पादन की आवश्यकता नहीं है, तो अगली सेक्शन में बताए अनुसार क्रॉप किए गए क्षेत्रों को शारीरिक रूप से हटाया जा सकता है।
+क्योंकि छिपा हुआ image डेटा अभी भी मौजूद है, crop को बाद में बदला जा सकता है बिना मूल pixel खोए। यदि फ़ाइल आकार अधिक महत्वपूर्ण है और पुनः‑स्वरूपण की आवश्यकता नहीं है, तो अगले अनुभाग में वर्णित अनुसार cropped क्षेत्रों को शारीरिक रूप से हटाया जा सकता है।
 
-## **क्रॉप किए गए इमेज डेटा को हटाएँ**
+## **Cropped Image Data हटाएँ**
 
-[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) वर्तमान क्रॉप रेक्टेंगल के बाहर के इमेज डेटा को हटाता है और परिणामी इमेज संसाधन लौटाता है। इससे फ़ाइल आकार घट सकता है, लेकिन यह एक विनाशकारी ऑप्टिमाइज़ेशन है: प्रस्तुति सहेजने के बाद हटाए गए पिक्सेल बाद की अनक्रॉप ऑपरेशन के लिये उपलब्ध नहीं रहेंगे।
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) वर्तमान crop rectangle के बाहर की image डेटा को हटाता है और परिणामी image resource लौटाता है। यह फ़ाइल आकार को घटा सकता है, लेकिन यह एक विनाशकारी ऑप्टिमाइज़ेशन है: presentation सहेजे जाने के बाद हटाए गए pixel आगे के uncrop संचालन के लिए उपलब्ध नहीं होते।
 
 ```javascript
 var aspose = aspose || {};
@@ -288,13 +288,13 @@ try {
 }
 ```
 
-यह मेथड प्रस्तुति में एक नया इमेज संसाधन जोड़ सकता है। यदि मूल इमेज अन्य picture frames द्वारा भी उपयोग की जा रही है, तो उन फ्रेमों को अभी भी अपने मौजूदा संसाधन की आवश्यकता होगी, इसलिए क्रॉप्ड क्षेत्रों को हटाना आवश्यक रूप से कुल इमेज की संख्या कम नहीं करता। WMF या EMF सामग्री को इस मेथड से क्रॉप करने पर परिणाम PNG में rasterize हो जाता है।
+यह विधि presentation में एक नया image resource जोड़ सकती है। यदि मूल image को अन्य picture frames भी उपयोग कर रहे हैं, तो उन frames को अभी भी अपने मौजूदा resource की आवश्यकता होगी, इसलिए cropped क्षेत्रों को हटाने से कुल image की संख्या आवश्यक रूप से नहीं घटेगी। इस विधि से WMF या EMF सामग्री को crop करने से परिणाम PNG में rasterized हो जाता है।
 
-## **Raster इमेजेस को संकुचित करें**
+## **Raster Images को Compress करें**
 
-[PictureFillFormat.compressImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) raster इमेज रिज़ॉल्यूशन को उस आकार के सापेक्ष घटाता है जिस पर picture प्रदर्शित होता है। यह एक ही ऑपरेशन में क्रॉप्ड क्षेत्रों को भी हटा सकता है। जब इमेज री‑साइज़ या क्रॉप हुई हो तो मेथड `true` लौटाता है, अन्यथा `false`।
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) raster image की resolution को उस आकार के सापेक्ष घटाता है जिस पर picture प्रदर्शित होती है। यह एक ही ऑपरेशन में cropped क्षेत्रों को भी हटा सकता है। विधि `true` लौटाती है जब image को resized या cropped किया गया हो और `false` जब कोई परिवर्तन आवश्यक न हो।
 
-जब मानक लक्ष्य रिज़ॉल्यूशन पर्याप्त हो, तो पूर्वनिर्धारित [PicturesCompression](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturescompression/) मान का उपयोग करें:
+जब एक मानक target resolution पर्याप्त हो तो एक पूर्वनिर्धारित [PicturesCompression](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturescompression/) मान का उपयोग करें:
 
 ```javascript
 var aspose = aspose || {};
@@ -324,58 +324,17 @@ try {
 }
 ```
 
-यदि विशिष्ट लक्ष्य आवश्यक हो तो पूर्वनिर्धारित मान के स्थान पर कस्टम सकारात्मक DPI मान पास किया जा सकता है।
+यदि कोई विशिष्ट target चाहिए तो पूर्वनिर्धारित मान के बजाय एक कस्टम सकारात्मक DPI मान पास किया जा सकता है।
 
-संकुचन raster इमेजेस के लिये अभिप्रेत है। SVG और मेटा‑फ़ाइल सामग्री इस raster संपीड़न workflow द्वारा नहीं घटती। यह भी याद रखें कि कम रिज़ॉल्यूशन और हटाए गए क्रॉप्ड क्षेत्रों को ऑप्टिमाइज़्ड प्रस्तुति से पुनः प्राप्त नहीं किया जा सकता। लक्ष्य रिज़ॉल्यूशन को उस सबसे बड़े आकार के आधार पर चुनें जिस पर इमेज वास्तविक रूप से देखी या निर्यात की जाएगी, न कि पूरे दस्तावेज़ में सबसे कम DPI लागू करके।
+Compression raster images के लिए अभिप्रेत है। SVG और metafile सामग्री इस raster compression workflow द्वारा नहीं घटती है। साथ ही याद रखें कि कम resolution और हटाए गए cropped क्षेत्र अनुकूलित presentation से पुनः प्राप्त नहीं किए जा सकते। लक्ष्य resolution को उस सबसे बड़े आकार के आधार पर चुनें, जिस पर image वास्तव में देखी या निर्यात की जाएगी, न कि पूरे दस्तावेज़ में सबसे कम DPI लागू करके।
 
-## **इमेज इफ़ेक्ट्स की जाँच करें**
+## **Image Transform Effects को Manage करें**
 
-Picture effects फ्रेम द्वारा उपयोग की गई picture पर संग्रहीत होते हैं। इमेज ट्रांसफ़ॉर्म कलेक्शन में पारदर्शिता के लिये फिक्स्ड अल्फा मॉड्यूलेशन और चमक‑विरोधा के लिये ल्यूमिनेंस जैसे इफ़ेक्ट्स हो सकते हैं। नीचे दिया गया उदाहरण पहले picture frame से दोनों प्रकार के इफ़ेक्ट्स को सुरक्षित रूप से पढ़ता है:
+पूर्ण workflow के लिए जो brightness, contrast, color transformations, blur, alpha effects, ordered chains, inspection, removal, और round‑trip verification को कवर करता है, देखें [Image Transform Effects](/nodejs-java/image-transform-effects/)।
 
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+## **Picture Frame Geometry को Lock करें**
 
-const presentation = new aspose.slides.Presentation("input.pptx");
-try {
-    const slide = presentation.getSlides().get_Item(0);
-    let pictureFrame = null;
-
-    for (let i = 0; i < slide.getShapes().size(); i++) {
-        const shape = slide.getShapes().get_Item(i);
-        if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
-            pictureFrame = shape;
-            break;
-        }
-    }
-
-    if (pictureFrame != null) {
-        const imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-        for (let i = 0; i < imageTransform.size(); i++) {
-            const effect = imageTransform.get_Item(i);
-            if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-                const transparency = 100 - effect.getAmount();
-                console.log("Transparency: " + transparency);
-            }
-
-            if (java.instanceOf(effect, "com.aspose.slides.ILuminance")) {
-                const luminance = effect.getEffective();
-                console.log("Brightness: " + luminance.getBrightness());
-                console.log("Contrast: " + luminance.getContrast());
-            }
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-ये इफ़ेक्ट्स फ्रेम में इमेज के रेंडरिंग को बदलते हैं; वे मूल एम्बेडेड इमेज बाइट्स को नहीं लिखते।
-
-## **Picture Frame ज्योमेट्री को लॉक करें**
-
-[PictureFrameLock](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframelock/) सेटिंग्स यह निर्धारित करती हैं कि picture frame पर कौन‑सी संपादन क्रियाएँ निष्क्रिय की गई हैं। उदाहरण के लिये, [setAspectRatioLocked](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) आकार बदलते समय shape के अनुपात को संरक्षित रखता है।
+[PictureFrameLock](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframelock/) सेटिंग्स यह नियंत्रित करती हैं कि picture frame पर कौन‑से editing operations निष्क्रिय हैं। उदाहरण के लिए, [setAspectRatioLocked](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) आकार बदलते समय shape के अनुपात को संरक्षित रखता है।
 
 ```javascript
 var aspose = aspose || {};
@@ -402,13 +361,13 @@ try {
 }
 ```
 
-यह लॉक picture frame shape पर लागू होता है। यह स्रोत इमेज को री‑सैंपल या स्थायी रूप से समान अनुपात में बदलता नहीं है।
+Lock picture frame shape पर लागू होता है। यह source image को पुनः‑सैंपल या स्थायी रूप से समान aspect ratio में बदलता नहीं है।
 
 ## **StretchOffset मानों को समायोजित करें**
 
-जब picture fill मोड stretch हो, तो [PictureFillFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/) पर stretch‑offset मान picture frame के बाउंडिंग बॉक्स के सापेक्ष fill रेक्टेंगल को परिभाषित करते हैं। सकारात्मक प्रतिशत किनारे से एक अंदरूनी अंतर बनाते हैं, जबकि नकारात्मक प्रतिशत एक बाहरूनी अंतर बनाते हैं।
+जब picture fill mode stretch हो, तो [PictureFillFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/) पर stretch‑offset मान picture frame के bounding box के सापेक्ष fill rectangle को परिभाषित करते हैं। सकारात्मक प्रतिशत किनारे से एक inset बनाते हैं, जबकि नकारात्मक प्रतिशत एक outset बनाते हैं।
 
-यह क्रॉपिंग से अलग है। क्रॉप मान स्रोत इमेज के कौन‑सा भाग दृश्यमान है, इसे चुनते हैं; stretch‑offset विज़िबल picture fill को जिस रेक्टेंगल में खींचा जाता है, उसे बदलते हैं।
+यह cropping से अलग है। Crop मान निर्धारित करता है कि source image का कौन‑सा भाग दृश्यमान है; stretch offsets उस rectangle को बदलते हैं जिसमें दृश्यमान picture fill को stretch किया जाता है।
 
 ```javascript
 var aspose = aspose || {};
@@ -440,43 +399,43 @@ try {
 }
 ```
 
-fill के स्थान निर्धारण के लिये stretch‑offset का उपयोग करें। जब लक्ष्य स्रोत‑इमेज के किनारों को छिपाना हो, तो crop गुणों का प्रयोग करें।
+fill placement के लिए stretch offsets का उपयोग करें। जब लक्ष्य source‑image किनारों को छिपाना हो तो crop properties का उपयोग करें।
 
-## **स्टोरेज, फ़ाइल आकार, और एक्सपोर्ट पर विचार**
+## **Storage, File Size, और Export पर विचार**
 
-जब image स्टोरेज और picture‑frame फ़ॉर्मेटिंग को अलग‑अलग किया जाता है, तो मुख्य ट्रेड‑ऑफ़्स को अधिक आसानी से प्रबंधित किया जा सकता है:
+मुख्य trade‑offs तब आसान होते हैं जब image storage और picture‑frame formatting को अलग‑अलग माना जाए:
 
-- **एम्बेडेड इमेजेस** प्रस्तुति को स्व‑निहित बनाती हैं और शेयरिंग एवं सर्वर‑साइड रेंडरिंग के लिये सबसे विश्वसनीय होती हैं, लेकिन बड़े raster इमेजेस PPTX आकार और मेमोरी उपयोग को बढ़ाते हैं।
-- **लिंक्ड इमेजेस** पैकेज को छोटा रख सकती हैं, लेकिन प्रस्तुति को उन बाहरी फ़ाइलों पर निर्भर रहना पड़ता है जो संग्रहीत पाथ या स्थानों पर उपलब्ध हों।
-- **क्रॉपिंग** शुरू में विनाश‑रहित होती है। छिपे पिक्सेल तब तक एम्बेडेड रहते हैं जब तक कि क्रॉप्ड क्षेत्रों को स्पष्ट रूप से हटाया या संकुचन के दौरान हटाया न जाए।
-- **संकुचन** अत्यधिक बड़े raster इमेजेस के फ़ाइल आकार को उल्लेखनीय रूप से घटा सकता है, लेकिन इसका बदला स्रोत रिज़ॉल्यूशन है। इसे स्लाइड पर वास्तविक आकार ज्ञात होने के बाद लागू करना चाहिए।
-- **SVG इमेजेस** को वेक्टर संरक्षण महत्वपूर्ण होने पर SVG ही रखना चाहिए। जब आपको स्वयं वेक्टर संसाधन चाहिए तब एम्बेडेड SVG को सीधे निकालें। Raster slide एक्सपोर्ट हमेशा रेंडर किए गए स्लाइड को पिक्सेल में बदल देता है।
-- **दोहराए गए इमेजेस** को संभव हो तो मौजूदा [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ppimage/) संसाधन का पुनः उपयोग करना चाहिए, बजाय एक ही फ़ाइल को बार‑बार लोड करने के।
+- **Embedded images** presentation को self‑contained बनाते हैं और शेयरिंग और server‑side rendering के लिए सबसे विश्वसनीय होते हैं, लेकिन बड़े raster images PPTX आकार और मेमोरी उपयोग को बढ़ाते हैं।
+- **Linked images** पैकेज को छोटा रख सकते हैं, लेकिन presentation को बाहरी फ़ाइलों के उपलब्ध रहने पर निर्भर बनाते हैं।
+- **Cropping** प्रारंभ में non‑destructive है। छिपे हुए pixel तब तक embedded रहते हैं जब तक cropped क्षेत्रों को स्पष्ट रूप से हटाया न जाए या compression के दौरान हटाया न जाए।
+- **Compression** oversized raster images के फ़ाइल आकार को काफी घटा सकता है, लेकिन यह source resolution को त्यागता है। इसे slide पर वास्तविक आकार ज्ञात होने के बाद लागू करना चाहिए।
+- **SVG images** को तब तक SVG के रूप में रखें जब तक vector preservation महत्वपूर्ण हो। जब आपको स्वयं vector resource चाहिए तो embedded SVG को सीधे निकालें। Raster slide निर्यात हमेशा rendered slide को pixel में बदल देता है।
+- **Repeated images** को संभव हो तो मौजूदा [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ppimage/) resource को पुनः प्रयोग करें, न कि एक ही फ़ाइल को बार‑बार लोड करें।
 
-बड़ी प्रस्तुतियों के लिये, इमेज ऑप्टिमाइज़ेशन सबसे प्रभावी तब होता है जब चयनात्मक रूप से किया जाए: लोगो और डायग्राम को वेक्टर सामग्री के रूप में रखें, फ़ोटोग्राफ़ को उनके वास्तविक डिस्प्ले आकार के अनुसार संकुचित करें, क्रॉप्ड पिक्सेल केवल तभी हटाएँ जब बाद में सम्पादन आवश्यक न हो, और बाहरी लिंक केवल तभी रखें जब निर्भरता प्रबंधन डिप्लॉयमेंट डिज़ाइन का हिस्सा हो।
+बड़ी presentations के लिए, image optimization आमतौर पर तब सबसे प्रभावी होता है जब चयनात्मक रूप से किया जाए: लोगो और डायग्राम को vector सामग्री के रूप में रखें, photographs को उनके वास्तविक display size के अनुसार compress करें, cropped pixel को तभी हटाएँ जब बाद में editing की आवश्यकता न हो, और जब तक dependency management deployment डिजाइन का हिस्सा न हो तब तक external links से बचें।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**Picture frame और image resource में क्या अंतर है?**
+**picture frame और image resource में क्या अंतर है?**
 
-एक [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ppimage/) प्रस्तुति से संबद्ध इमेज resource को दर्शाता है। एक [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) स्लाइड पर वह shape है जो इमेज प्रदर्शित करता है और फ्रेम‑स्तर ज्योमेट्री तथा फ़ॉर्मेटिंग (जैसे आकार, घुमाव, क्रॉप मान, इफ़ेक्ट्स, लॉक) को संग्रहीत करता है।
+एक [PPImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ppimage/) presentation से जुड़ा एक image resource दर्शाता है। एक [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) slide पर वह shape है जो image प्रदर्शित करता है और frame‑level geometry और formatting जैसे size, rotation, crop values, effects, और locks को संग्रहीत करता है।
 
-**मुझे इमेज को एम्बेड करना चाहिए या लिंक करना?**
+**मुझे images को embed करना चाहिए या link?**
 
-जब प्रस्तुति को पोर्टेबल, आर्काइव या बाहरी संसाधनों के बिना रेंडर करना आवश्यक हो, तो इमेज को एम्बेड करें। केवल तब लिंक करें जब इमेज फ़ाइलों को PPTX से बाहर रखना इरादतन हो और बाहरी स्थानों को विश्वसनीय रूप से बनाए रखा जा सके।
+जब presentation को portable, archived, या बाहरी resources के बिना rendered होना हो तो images को embed करें। केवल तभी images को link करें जब image फ़ाइलों को PPTX के बाहर रखने का उद्देश्य हो और बाहरी स्थानों को विश्वसनीय रूप से बनाए रखा जा सके।
 
-**क्या क्रॉपिंग PPTX फ़ाइल आकार को कम करती है?**
+**क्या cropping से PPTX फ़ाइल आकार कम होता है?**
 
-स्वतः नहीं। सामान्य क्रॉप सेटिंग्स स्रोत इमेज के हिस्सों को छुपाती हैं लेकिन मूल पिक्सेल रखती हैं। जब उन पिक्सेल को स्थायी रूप से हटाया जा सके, तो आप [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) या क्रॉप्ड‑एरिया हटाने के साथ इमेज संपीड़न का उपयोग कर सकते हैं।
+स्वयं नहीं। सामान्य crop सेटिंग्स source image के हिस्सों को छुपाती हैं लेकिन नीचे के pixel को रखती हैं। उन pixel को स्थायी रूप से निकालने के लिए [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) या cropped‑area removal के साथ image compression का उपयोग करें।
 
-**क्या संपीड़न के बाद इमेज गुणवत्ता पुनः प्राप्त की जा सकती है?**
+**क्या compression के बाद image गुणवत्ता को पुनः प्राप्त किया जा सकता है?**
 
-नहीं। संपीड़न संग्रहीत raster रिज़ॉल्यूशन को घटा देता है, और क्रॉप्ड क्षेत्रों को हटाने से इमेज डेटा स्थायी रूप से मिट जाता है। यदि बाद में उच्च‑रिज़ॉल्यूशन संपादन की संभावना हो, तो मूल स्रोत इमेज को प्रस्तुति से बाहर रखें।
+नहीं। Compression संग्रहीत raster resolution को घटा सकता है, और cropped क्षेत्रों को हटाने से image डेटा समाप्त हो जाता है। यदि बाद में high‑resolution editing की आवश्यकता हो तो मूल source image को presentation के बाहर रखें।
 
-**SVG इमेजेस को कैसे संभालें?**
+**SVG images को कैसे संभालना चाहिए?**
 
-जब वेक्टर फ़िडेलिटी महत्त्वपूर्ण हो, तो SVG सामग्री को SVG के रूप में रखें। एम्बेडेड [SvgImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/svgimage/) को सीधे निकाला जा सकता है। स्लाइड को PNG या JPEG जैसे raster फ़ॉर्मेट में निर्यात करने से SVG पिक्सेल में rasterize हो जाता है।
+जब vector fidelity महत्वपूर्ण हो तो SVG सामग्री को SVG के रूप में रखें। embedded [SvgImage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/svgimage/) को सीधे निकाला जा सकता है। slide को PNG या JPEG जैसे raster format में निर्यात करने से SVG slide image का हिस्सा बन जाता है।
 
-**मौजूदा स्लाइड्स पढ़ते समय असुरक्षित कास्ट से कैसे बचें?**
+**मौजूदा slides पढ़ते समय unsafe casts से कैसे बचें?**
 
-shape प्रकार की जाँच करने के बाद ही picture‑frame‑विशिष्ट सदस्य का उपयोग करें। `java.instanceOf` जांच के साथ [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) को सत्यापित करने से अमान्य कास्ट से बचा जा सकता है और कोड उन स्लाइड्स को संभाल सकता है जिनमें picture frames नहीं हैं।
+shape type को picture‑frame‑specific members उपयोग करने से पहले जाँचें। [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/) के विरुद्ध `java.instanceOf` जांच के माध्यम से invalid casts से बचें और कोड को उन slides को संभालने दें जिनमें picture frames नहीं हैं।

@@ -1,23 +1,23 @@
 ---
-title: Správa rámů obrázků v prezentacích pro Android
-linktitle: Rám obrázku
+title: Správa obrázkových rámců v prezentacích na Androidu
+linktitle: Obrázkový rámec
 type: docs
 weight: 10
 url: /cs/androidjava/picture-frame/
 keywords:
-- rám obrázku
-- přidat rám obrázku
-- vytvořit rám obrázku
+- obrázkový rámec
+- přidat obrázkový rámec
+- vytvořit obrázkový rámec
 - vložený obrázek
 - propojený obrázek
 - extrahovat obrázek
 - rastrový obrázek
 - SVG obrázek
-- oříznout obrázek
-- smazat oříznuté oblasti
+- ořezat obrázek
+- odstranit oříznuté oblasti
 - komprimovat obrázek
 - StretchOffset
-- formátování rámu obrázku
+- formátování obrázkového rámce
 - relativní měřítko
 - efekt obrázku
 - poměr stran
@@ -27,22 +27,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Vytvořte, formátujte, propojujte, ořezejte, extrahujte a komprimujte rámové obrázky v prezentacích pomocí Aspose.Slides pro Android prostřednictvím Javy."
+description: "Vytvořte, formátujte, propojte, ořízněte, extrahujte a komprimujte obrázkové rámečky v prezentacích pomocí Aspose.Slides pro Android v Javě."
 ---
 ## **Přehled**
 
-Rám obrázku je tvar snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, samostatné objekty: [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím svého [IImageCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagecollection/), zatímco [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) řídí pozici obrázku, velikost, formátování čáry, rotaci, ořez, efekty obrázku a další nastavení na úrovni rámu.
+Obrázkový rámeček je tvar slidu, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, samostatné objekty: [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím své [IImageCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagecollection/), zatímco [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) řídí pozici, velikost, formátování čar, otočení, ořez, efekty obrázku a další nastavení na úrovni rámce.
 
-Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/), a použijte tento zdroj obrázku při vytváření rámů obrázků.
+Toto oddělení je užitečné, když se stejný obrázek zobrazuje vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/), a použijte tento zdroj obrázku při vytváření obrázkových rámců.
 
-Rámové obrázky mohou obsahovat rastrové obrázky, jako jsou PNG nebo JPEG, a vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo ukládání bajtů obrázku v prezentaci. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je užitečné se rozhodnout, jak má být obrázek uložen, ještě před aplikací formátování nebo optimalizace.
+Obrázkové rámečky mohou obsahovat rastrové obrázky, jako jsou PNG nebo JPEG, a vektorové obrázky SVG. Mohou také odkazovat na propojené obrázky místo ukládání bajtů obrázku do prezentace. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je užitečné rozhodnout, jak má být obrázek uložen, ještě před aplikací formátování nebo optimalizace.
 
 ## **Přidání a formátování vloženého obrázku**
 
-U vloženého obrázku přidejte data obrázku do prezentace a vytvořte rám obrázku pomocí [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstává samostatná, když je přesunuta na jiný počítač.
+Pro vložený obrázek přidejte data obrázku do prezentace a vytvořte obrázkový rámec pomocí [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná, i když je přesunuta na jiný počítač.
 
-Následující příklad přidá JPEG obrázek, vytvoří rám s původními rozměry obrázku a použije formátování čáry a rotaci:
-
+Následující příklad přidá JPEG obrázek, vytvoří rámec v původních rozměrech obrázku a použije formátování čar a otočení:
 ```java
 import com.aspose.slides.*;
 import android.graphics.Color;
@@ -71,12 +70,11 @@ try {
 }
 ```
 
-Rám obrázku řídí zobrazovanou geometrii; změna velikosti rámu nemění původní rozměry v pixelech uložené ve vloženém zdroji obrázku. Toto rozlišení se stává důležitým při následném ořezu nebo kompresi obrázku.
+Obrázkový rámeček řídí zobrazovanou geometrii; změna velikosti rámce nemění původní pixelové rozměry uložené ve vloženém zdroji obrázku. Toto rozlišení je důležité při pozdějším ořezu nebo kompresi obrázku.
 
 ## **Použití relativního měřítka**
 
-[IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) umožňuje relativní měřítko šířky a výšky rámu pomocí [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když pracovní postup potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
-
+[IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) poskytuje relativní škálování šířky a výšky rámce pomocí [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když workflow potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
 ```java
 import com.aspose.slides.*;
 
@@ -102,18 +100,17 @@ try {
 }
 ```
 
-Relativní měřítko mění nastavení měřítka rámu; nepřevzorkovává ani nekonprezuje vložený obrázek.
+Relativní měřítko mění nastavení měřítka rámce; nepřevzorkuje ani nekomprimuje vložený obrázek.
 
 ## **Vložené a propojené obrázky**
 
-Vložený obrázek ukládá data obrázku uvnitř prezentace a je proto nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí metody [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) místo vložení dat obrázku stejným způsobem.
+Vložený obrázek ukládá data obrázku uvnitř prezentace a je tak nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí metody [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) místo vložení dat obrázku stejným způsobem.
 
-Propojené obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která otevírá nebo vykresluje prezentaci. Pokud se cesta změní, soubor je přesunut nebo není zdroj dostupný, může být propojený obrázek zobrazen neočekávaně. Pro prezentace, které musí být zasílány e-mailem, archivovány nebo vykreslovány v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
+Propojené obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj není dostupný, může být propojený obrázek zobrazen jinak, než se očekává. Pro prezentace, které musí být posílány e-mailem, archivovány nebo vykreslovány v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
 
 ### **Přidání propojeného obrázku**
 
-Následující příklad vytvoří rám obrázku a nasměruje jej na lokální soubor obrázku. Zabývá se jen propojováním obrázků; propojování videí je samostatný mediální tok a není úmyslně zahrnut do tohoto příkladu.
-
+Následující příklad vytvoří obrázkový rámec a nasměruje jej na místní soubor obrázku. Zabývá se pouze propojením obrázku; propojení videa je samostatný mediální workflow a záměrně není v tomto příkladu kombinováno.
 ```java
 import com.aspose.slides.*;
 import java.io.File;
@@ -133,16 +130,15 @@ try {
 }
 ```
 
-Používejte odkazy, když je správa externích souborů záměrná. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s poškozenými závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
+Používejte odkazy, když je správa externích souborů záměrná. Nepoužívejte je pouze jako náhradu za kompresi: malý PPTX s poškozenými závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
 
-## **Extrahování obrázků z rámů**
+## **Extrahování obrázků z obrázkových rámců**
 
-Před extrahováním obrázku z existující prezentace zkontrolujte, že tvar je skutečně [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) a že obsahuje vložený obrázek. Propojené rámové obrázky nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
+Před extrahováním obrázku z existující prezentace ověřte, že tvar je skutečně [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) a že obsahuje vložený obrázek. Propojené obrázkové rámečky nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
 
 ### **Extrahování rastrového obrázku**
 
-Moderní API pro obrázky používá přímo [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/) a nevyžaduje starší Java obal obrázku. Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
-
+Moderní API pro obrázky používá přímo [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/) a nevyžaduje starší Java obalovou třídu obrázku. Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
 ```java
 import com.aspose.slides.*;
 
@@ -174,12 +170,11 @@ try {
 }
 ```
 
-Uložení přes [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) převede extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete zakódované bajty uložené v prezentaci místo převedeného rastrového souboru, použijte binární data zdroje obrázku.
+Ukládání pomocí [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete kódované bajty uložené v prezentaci místo konvertovaného rastrového souboru, použijte binární data zdroje obrázku.
 
 ### **Extrahování SVG obrázku**
 
-Pro SVG obrázek [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) poskytuje objekt [ISvgImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku nejprve.
-
+Pro SVG obrázek [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) poskytuje objekt [ISvgImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgimage/). To vám umožní získat SVG data přímo, místo aby byl obrázek nejprve rasterizován.
 ```java
 import com.aspose.slides.*;
 import java.io.FileOutputStream;
@@ -215,14 +210,13 @@ try {
 }
 ```
 
-Uchování SVG obsahu jako SVG zachovává vektorový zdroj v prezentaci. Rasterové exporty jako PNG nebo JPEG nutně převádějí tento vektorový obsah na pixely. Export snímku do PDF nebo SVG je také operací renderování, takže exportovaná grafika by neměla být považována za přesnou kopii původního vloženého SVG; použijte vložená data [ISvgImage.getSvgData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgimage/#getSvgData--) , pokud je požadován samotný vektorový zdroj.
+Uchování SVG obsahu jako SVG zachovává vektorový zdroj uvnitř prezentace. Rastrové exporty jako PNG nebo JPEG nutně převádějí tento vektorový obsah na pixely. Export snímků do PDF nebo SVG je také operace vykreslování, takže exportovaná grafika by neměla být považována za bit‑po‑bit kopii původního vloženého SVG; použijte vložená data [ISvgImage.getSvgData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgimage/#getSvgData--) , když je požadován samotný vektorový zdroj.
 
 ## **Ořez obrázku**
 
-Ořez mění, která část obrázku je viditelná uvnitř rámu. Hodnoty ořezu na [IPictureFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořez neodstraňuje skryté pixely z vloženého obrázku, pouze mění viditelnou oblast.
+Ořezání mění, která část obrázku je viditelná uvnitř rámce. Hodnoty ořezu na [IPictureFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořezání zpočátku nesmaže skryté pixely z vloženého obrázku; pouze mění viditelnou oblast.
 
-Následující příklad bezpečně najde rám obrázku a použije hodnoty ořezu:
-
+Následující příklad bezpečně najde obrázkový rámec a aplikuje hodnoty ořezu:
 ```java
 import com.aspose.slides.*;
 
@@ -250,12 +244,11 @@ try {
 }
 ```
 
-Protože skrytá data obrázku jsou stále přítomna, může být ořez později změněn bez ztráty původních pixelů. Pokud je velikost souboru důležitější než reverzibilita, mohou být oříznuté oblasti fyzicky odstraněny, jak je popsáno v následující sekci.
+Protože jsou skrytá data obrázku stále přítomna, lze ořez později změnit, aniž by se ztratily původní pixely. Pokud je velikost souboru důležitější než možnost vrácení, lze oříznuté oblasti fyzicky odstranit, jak je popsáno v následující sekci.
 
 ## **Odstranění oříznutých dat obrázku**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací vzniklý zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace nejsou odstraněné pixely již k dispozici pro pozdější operaci odořezování.
-
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací výsledný zdroj obrázku. Toto může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace již odstraněné pixely nejsou k dispozici pro pozdější operaci zrušení ořezu.
 ```java
 import com.aspose.slides.*;
 
@@ -282,14 +275,13 @@ try {
 }
 ```
 
-Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek také používán jinými rámy obrázků, tyto rámce stále potřebují svůj existující zdroj, takže odstranění oříznutých oblastí nemusí nutně snížit celkový počet obrázků. Ořezávání WMF nebo EMF obsahu touto metodou rasterizuje oříznutý výsledek do PNG.
+Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek také používán dalšími obrázkovými rámečky, tyto rámečky stále potřebují svůj existující zdroj, takže mazání oříznutých oblastí nutně nesníží celkový počet obrázků. Ořezávání obsahu WMF nebo EMF pomocí této metody rasterizuje oříznutý výsledek do PNG.
 
-## **Kompresní rastrových obrázků**
+## **Komprese rastrových obrázků**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) snižuje rozlišení rastrového obrázku vzhledem k velikosti, při které je obrázek zobrazován. Může také v rámci stejné operace odstranit oříznuté oblasti. Metoda vrací `true`, když byl obrázek změněn velikostně nebo oříznut, a `false`, když nebyla nutná žádná změna.
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) snižuje rozlišení rastrového obrázku vzhledem k velikosti, ve které je obrázek zobrazen. Může také v rámci jedné operace odstranit oříznuté oblasti. Metoda vrací `true`, když byl obrázek změněn velikostně nebo oříznut, a `false`, když nebyla nutná žádná změna.
 
-Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/picturescompression/) , když je standardní cílové rozlišení dostatečné:
-
+Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/picturescompression/) , když je standardní cílové rozlišení dostačující:
 ```java
 import com.aspose.slides.*;
 
@@ -315,57 +307,17 @@ try {
 }
 ```
 
-Místo předdefinované hodnoty lze předat vlastní kladnou hodnotu DPI, pokud je požadován konkrétní cíl.
+Vlastní kladná hodnota DPI může být předána místo předdefinované hodnoty, pokud je požadován konkrétní cíl.
 
-Kompresí jsou určeny rastrové obrázky. SVG a obsah meta souborů nejsou tímto rasterovým kompresním procesem zmenšeny. Také si pamatujte, že nižší rozlišení a odstraněné oříznuté oblasti nelze z optimalizované prezentace obnovit. Zvolte cílové rozlišení podle největší velikosti, při které bude obrázek skutečně zobrazen nebo exportován, namísto použití nejnižšího DPI globálně.
+Kompresní operace je určena pro rastrové obrázky. SVG a obsah metafile nejsou tímto workflow pro rasterovou kompresi zmenšeny. Také si uvědomte, že nižší rozlišení a odstraněné oříznuté oblasti nelze z optimalizované prezentace obnovit. Vyberte cílové rozlišení na základě největší velikosti, při které bude obrázek skutečně zobrazen nebo exportován, místo aby se globálně použilo nejnižší DPI.
 
-## **Prozkoumání efektů obrázku**
+## **Správa transformačních efektů obrázku**
 
-Efekty obrázku jsou uloženy na obrázku použitém rámem. Kolekce transformací obrázku může obsahovat efekty jako pevná alfa modulace pro průhlednost a luminanci pro jas a kontrast. Níže uvedený příklad bezpečně načte oba typy efektů z prvního rámu obrázku na snímku:
+Pro kompletní workflow zahrnující jas, kontrast, barevné transformace, rozostření, alfa efekty, řazené řetězce, kontrolu, odstranění a ověření round‑trip, viz [Image Transform Effects](/androidjava/image-transform-effects/).
 
-```java
-import com.aspose.slides.*;
+## **Uzamčení geometrie obrázkového rámce**
 
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = null;
-
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IPictureFrame) {
-            pictureFrame = (IPictureFrame) shape;
-            break;
-        }
-    }
-
-    if (pictureFrame != null) {
-        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-        for (IImageTransformOperation effect : imageTransform) {
-            if (effect instanceof IAlphaModulateFixed) {
-                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
-                float transparency = 100 - alphaModulateFixed.getAmount();
-                System.out.println("Transparency: " + transparency);
-            }
-
-            if (effect instanceof ILuminance) {
-                ILuminance luminanceEffect = (ILuminance) effect;
-                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
-                System.out.println("Brightness: " + luminance.getBrightness());
-                System.out.println("Contrast: " + luminance.getContrast());
-            }
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-Tyto efekty mění, jak je obrázek vykreslen v rámci; nepřepisují původní bajty vloženého obrázku.
-
-## **Uzamčení geometrie rámu obrázku**
-
-Nastavení [IPictureFrameLock](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframelock/) řídí, které operace úprav jsou pro rám obrázku zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) zachovává proporce tvaru během změny velikosti.
-
+Nastavení [IPictureFrameLock](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframelock/) řídí, které operace úprav jsou pro obrázkový rámec zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) zachovává proporce tvaru při změně velikosti.
 ```java
 import com.aspose.slides.*;
 
@@ -390,14 +342,13 @@ try {
 }
 ```
 
-Uzamčení se vztahuje na tvar rámu obrázku. Neukládá zdrojovému obrázku nutnost být převzorkován nebo trvale změněn na stejný poměr stran.
+Uzamčení se vztahuje na tvar obrázkového rámce. Nevyžaduje, aby byl zdrojový obrázek převzorkován nebo trvale změněn na stejný poměr stran.
 
 ## **Úprava hodnot StretchOffset**
 
-Když je režim výplně obrázku natažený, hodnoty stretch-offset na [IPictureFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/) definují výplňový obdélník vzhledem k ohraničujícímu rámečku rámu obrázku. Kladná procenta vytvoří vnitřní odsazení od hrany, zatímco záporná procenta vytvoří vnější odsazení.
+Když je režim výplně obrázku natažený, hodnoty stretch-offset na [IPictureFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/) definují výplňový obdélník relativně k ohraničujícímu rámečku obrázkového rámce. Kladná procenta vytvoří odsazení od okraje, zatímco záporná procenta vytvoří vyčnívání.
 
 Toto se liší od ořezu. Hodnoty ořezu vybírají, která část zdrojového obrázku je viditelná; stretch offsety mění obdélník, do kterého je viditelná výplň obrázku natažena.
-
 ```java
 import com.aspose.slides.*;
 
@@ -426,43 +377,43 @@ try {
 }
 ```
 
-Používejte stretch offsety pro umístění výplně. Používejte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
+Použijte stretch offsety pro umístění výplně. Použijte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
 
 ## **Úvahy o úložišti, velikosti souboru a exportu**
 
-Hlavní kompromisy jsou snazší spravovat, když jsou úložiště obrázků a formátování rámu obrázku řešeny odděleně:
+Hlavní kompromisy jsou snáze říditelné, když jsou úložiště obrázků a formátování obrázkových rámců řešeny odděleně:
 
-- **Vložené obrázky** dělají prezentaci samostatnou a jsou nejspolehlivější pro sdílení a serverové vykreslování, ale velké rastrové obrázky zvyšují velikost PPTX a spotřebu paměti.
+- **Vložené obrázky** činí prezentaci samostatnou a jsou nejspolehlivější pro sdílení a serverové vykreslování, ale velké rastrové obrázky zvětšují velikost PPTX a spotřebu paměti.
 - **Propojené obrázky** mohou udržet balíček menší, ale prezentace závisí na tom, že externí soubory zůstanou dostupné na uložených cestách nebo umístěních.
-- **Ořez** je zpočátku neškodlivý. Skryté pixely zůstávají vložené, dokud nejsou oříznuté oblasti výslovně smazány nebo odstraněny během komprese.
-- **Kompresí** lze výrazně snížit velikost souboru u příliš velkých rastrových obrázků, ale snižuje rozlišení zdroje. Měla by být aplikována po určení zamýšlené velikosti na snímku.
-- **SVG obrázky** by měly zůstat jako SVG, když je důležité zachovat vektor. Vložený SVG extrahujte přímo, pokud potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
-- **Opakované obrázky** by měly v případě možnosti znovu použít existující zdroj [IPPImage] místo opakovaného načítání stejného souboru do pracovního postupu prezentace.
+- **Ořez** je zpočátku nedestruktivní. Skryté pixely zůstávají vložené, dokud nejsou ořezané oblasti výslovně smazány nebo odstraněny během komprese.
+- **Komprese** může výrazně snížit velikost souboru u příliš velkých rastrových obrázků, ale snižuje zdrojové rozlišení. Měla by být aplikována po určení zamýšlené velikosti na snímku.
+- **SVG obrázky** by měly zůstat jako SVG, když je důležitá zachování vektoru. Extrahujte vložené SVG přímo, když potřebujete samotný vektorový zdroj. Rastrové exporty snímků vždy převádějí vykreslený snímek na pixely.
+- **Opakované obrázky** by měly při možnosti znovu použít existující zdroj [IPPImage] když je to možné místo opakovaného načítání stejného souboru do workflow prezentace.
 
-U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když je prováděna selektivně: uchovávejte loga a diagramy jako vektorový obsah, komprimujte fotografie podle jejich skutečné velikosti zobrazení, odstraňujte oříznuté pixely pouze když není vyžadována následná úprava, a vyhýbejte se externím odkazům, pokud není správa závislostí součástí návrhu nasazení.
+U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když je prováděna selektivně: uchovávejte loga a diagramy ve vektorovém formátu, komprimujte fotografie podle jejich skutečné zobrazovací velikosti, odstraňujte oříznuté pixely pouze když následná úprava není vyžadována, a vyhněte se externím odkazům, pokud řízení závislostí není součástí návrhu nasazení.
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi rámem obrázku a zdrojem obrázku?**
+**Jaký je rozdíl mezi obrázkovým rámcem a zdrojem obrázku?**
 
-[IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) představuje zdroj obrázku spojený s prezentací. [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) je tvar na snímku, který zobrazuje obrázek a ukládá geometrii a formátování na úrovni rámu, jako jsou velikost, rotace, hodnoty ořezu, efekty a uzamčení.
+[IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) představuje zdroj obrázku spojený s prezentací. [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) je tvar na snímku, který zobrazuje obrázek a ukládá geometrii a formátování na úrovni rámce, jako jsou velikost, otočení, hodnoty ořezu, efekty a zamknutí.
 
-**Mám obrázky vložit nebo propojovat?**
+**Mám obrázky vkládat nebo propojovat?**
 
-Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslená bez přístupu k externím zdrojům. Propojujte obrázky jen když je úmyslné mít soubory obrázků mimo PPTX a externí umístění lze spolehlivě udržovat.
+Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslovaná bez přístupu k externím zdrojům. Propojujte obrázky pouze když je záměrem uchovávat soubory obrázků mimo PPTX a externí umístění lze spolehlivě udržovat.
 
 **Snižuje ořez velikost souboru PPTX?**
 
-Nevytváří to samo o sobě. Normální nastavení ořezu skryje části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) nebo kompresi obrázku s odstraněním oříznutých oblastí, když lze tyto pixely trvale odstranit.
+Nevýsledkuje to samostatně. Normální nastavení ořezu skryje části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) nebo kompresi obrázku s odstraňováním oříznutých oblastí, pokud lze tyto pixely trvale zahodit.
 
 **Mohu po kompresi obnovit kvalitu obrázku?**
 
-Ne. Komprese může snížit uložené rastrové rozlišení a odstranění oříznutých oblastí vymaže data obrázku. Uchovávejte původní zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava ve vysokém rozlišení.
+Ne. Komprese může snížit uložené rastrové rozlišení a odstranění oříznutých oblastí zahodí data obrázku. Uchovejte originální zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava v vysokém rozlišení.
 
 **Jak by měly být SVG obrázky zpracovány?**
 
-Uchovávejte SVG obsah jako SVG, když je důležitá vektorová věrnost. Vložený [ISvgImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgimage/) lze extrahovat přímo. Vykreslení snímku do rastrového formátu jako PNG nebo JPEG rasterizuje SVG jako součást obrázku snímku.
+Uchovávejte SVG obsah jako SVG, když je věrnost vektoru důležitá. Vložené [ISvgImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgimage/) lze extrahovat přímo. Vykreslení snímku do rastru, jako je PNG nebo JPEG, rasterizuje SVG jako součást obrázku snímku.
 
-**Jak se vyvarovat nebezpečným přetypováním při čtení existujících snímků?**
+**Jak se vyhnout nebezpečným přetypováním při čtení existujících snímků?**
 
-Zkontrolujte typ tvaru před použitím členů specifických pro rám obrázku. Kontrola `instanceof` proti [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) zabraňuje neplatným přetypováním a umožní kódu zpracovat snímky, které neobsahují rám obrázku.
+Zkontrolujte typ tvaru před použitím členů specifických pro obrázkový rámec. Kontrola `instanceof` vůči [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) zabraňuje neplatným přetypováním a umožňuje kódu zpracovat snímky, které neobsahují obrázkové rámečky.

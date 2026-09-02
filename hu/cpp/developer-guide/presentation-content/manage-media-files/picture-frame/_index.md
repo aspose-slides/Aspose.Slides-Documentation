@@ -1,5 +1,5 @@
 ---
-title: Képkeretek kezelése bemutatókban C++ használatával
+title: Képkeretek kezelése prezentációkban C++ használatával
 linktitle: Képkeret
 type: docs
 weight: 10
@@ -9,7 +9,7 @@ keywords:
 - képkeret hozzáadása
 - képkeret létrehozása
 - beágyazott kép
-- kapcsolt kép
+- összekapcsolt kép
 - kép kinyerése
 - raszteres kép
 - SVG kép
@@ -18,29 +18,29 @@ keywords:
 - kép tömörítése
 - StretchOffset
 - képkeret formázása
-- relatív skála
-- képhatás
+- relatív méretezés
+- kép hatás
 - oldalarány
 - PowerPoint
 - OpenDocument
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Képkeretek létrehozása, formázása, összekapcsolása, vágása, kinyerése és tömörítése bemutatókban az Aspose.Slides for C++ segítségével."
+description: "Képkeretek létrehozása, formázása, összekapcsolása, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for C++ segítségével."
 ---
 ## **Áttekintés**
 
-A képkeret egy dián lévő alakzat, amely egy képet jelenít meg. Az Aspose.Slides-ben a kép erőforrás és a képet megjelenítő alakzat különálló objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) beágyazott kép erőforrásokat birtokol a [image collection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_images/) segítségével, míg egy [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgását, vágását, képhatásait és egyéb keretszintű beállításokat.
+A képkeret egy diára helyezett alakzat, amely képet jelenít meg. Az Aspose.Slides‑ben a kép erőforrás és a megjelenítő alakzat külön objektumok: a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) beágyazott képernyüröket tárol a [képgyűjtemény](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_images/) segítségével, míg egy [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgatását, vágását, képhatásait és egyéb keretszintű beállításait.
 
-Ez a szétválasztás hasznos, ha ugyanazt a képet többször jelenítik meg. A képet egyszer hozzáadja a bemutatóhoz, megőrzi a visszaadott [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/), és ezt a kép erőforrást használja a képkeretek létrehozásakor.
+Ez a szétválasztás akkor hasznos, ha ugyanaz a kép többször jelenik meg. A képet egyszer adjuk hozzá a prezentációhoz, tartsuk meg a visszaadott [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) objektumot, és használjuk ezt a kép erőforrást a képkeretek létrehozásakor.
 
-A képkeretek tartalmazhatnak raszteres képeket, például PNG vagy JPEG, valamint vektoros SVG képeket. Ezenkívül hivatkozhatnak kapcsolt képekre is, ahelyett, hogy a képadatokat a bemutatóban tárolnák. Ez a választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért célszerű eldönteni, hogyan legyen a kép tárolva, mielőtt formázást vagy optimalizálást alkalmaznánk.
+A képkeretek raszteres képeket (például PNG vagy JPEG) és vektorgrafikus SVG képeket is tartalmazhatnak. Emellett hivatkozhatnak összekapcsolt képekre is a kép bájtjainak prezentációba ágyazása helyett. A választás hat a hordozhatóságra, fájlméretre, kinyerésre és exportálásra, ezért célszerű eldönteni, hogyan kell a képet tárolni a formázás vagy optimalizálás alkalmazása előtt.
 
 ## **Beágyazott kép hozzáadása és formázása**
 
-Beágyazott kép esetén adja hozzá a képadatokat a bemutatóhoz, és hozzon létre egy képkeretet az [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shapecollection/addpictureframe/) segítségével. A kép a bemutató csomag részévé válik, így a bemutató önálló marad, ha egy másik számítógépre kerül.
+Beágyazott kép esetén adjuk hozzá a képadatokat a prezentációhoz, és hozzunk létre egy képkeretet az [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shapecollection/addpictureframe/) metódussal. A kép a prezentáció csomag része lesz, így a prezentáció önálló marad, amikor egy másik számítógépre kerül.
 
-Az alábbi példa JPEG képet ad hozzá, a kép natív méretében hoz létre egy keretet, és vonalformázást és forgatást alkalmaz:
+Az alábbi példa JPEG képet ad hozzá, a kép natív méreteire hoz létre egy keretet, és vonalformázást valamint forgatást alkalmaz:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -80,11 +80,11 @@ presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A képkeret szabályozza a megjelenített geometriai adatokat; a keret méretének módosítása nem változtatja meg az eredeti pixelméreteket, amelyek a beágyazott kép erőforrásban tárolva vannak. Ez a különbség későbbi képvágás vagy -tömörítés esetén fontos lesz.
+A képkeret szabályozza a megjelenített geometriát; a keret méretének módosítása nem változtatja meg az eredeti, a beágyazott kép erőforrásban tárolt pixelméreteket. Ez a különbség későbbi vágás vagy tömörítés során fontos lehet.
 
-## **Relatív skála használata**
+## **Relatív méretezés használata**
 
-[IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) relatív szélesség‑ és magasság‑skálázást biztosít a kerethez. Az `1.0` érték az eredeti kép 100 %-a. A relatív skála hasznos, ha a munkafolyamatnak a forráskép méretéhez viszonyított arányt kell megőriznie a végső méretek kézi kiszámítása helyett.
+[IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) lehetővé teszi a keret relatív szélesség‑ és magasság‑méretezését. Az `1.0` érték az eredeti kép 100 %-ának felel meg. A relatív méretezés akkor hasznos, ha egy munkafolyamatnak meg kell őriznie a kapcsolatot a forráskép méretével, a végleges méretek kézi számítása nélkül.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -116,17 +116,17 @@ presentation->Save(u"relative-scale.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A relatív skála módosítja a keret skála beállításait; nem resample‑eli vagy tömöríti a beágyazott képet.
+A relatív méretezés módosítja a keret méretbeállításait; nem mintavételezi vagy tömöríti a beágyazott képet.
 
-## **Beágyazott és kapcsolt képek**
+## **Beágyazott és összekapcsolt képek**
 
-Egy beágyazott kép a képadatokat a bemutatóban tárolja, ezért a legbiztonságosabb választás a hordozhatóság és az előre látható renderelés szempontjából. Egy kapcsolt kép az [ISlidesPicture](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidespicture/) link útvonalán keresztül tárolja a külső helyet, ahelyett, hogy a képadatokat ugyanúgy beágyazná.
+A beágyazott kép a képadatokat a prezentáción belül tárolja, ezért a hordozhatóság és a kiszámítható megjelenítés szempontjából a legbiztonságosabb választás. Egy összekapcsolt kép a [ISlidesPicture](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidespicture/) hivatkozási útvonalán keresztül tárol egy külső helyet, a képadatokat nem ágyazza be ugyanígy.
 
-A kapcsolt képek csökkenthetik a PPTX‑ben tárolt képadatok mennyiségét, de külső függőséget vezetnek be. A kapcsolt fájlnak elérhetőnek kell maradnia az alkalmazás számára, amely megnyitja vagy rendereli a bemutatót. Ha az útvonal megváltozik, a fájl áthelyezésre kerül, vagy az erőforrás nem érhető el, a kapcsolt kép nem jelenik meg a várt módon. Azoknál a bemutatóknál, amelyeket e‑mailben kell elküldeni, archiválni vagy izolált környezetben renderelni, a beágyazott képek általában megbízhatóbbak.
+Az összekapcsolt képek csökkenthetik a PPTX‑ben tárolt képadatok mennyiségét, de külső függőséget vezetnek be. A hivatkozott fájlnak elérhetőnek kell maradnia a prezentációt megnyitó vagy renderelő alkalmazás számára. Ha az útvonal megváltozik, a fájl átkerül, vagy az erőforrás nem érhető el, az összekapcsolt kép nem jelenik meg a várt módon. Azoknál a prezentációknál, amelyeket e‑mailben, archívumban vagy elszigetelt környezetben kell megjeleníteni, a beágyazott képek általában megbízhatóbbak.
 
-### **Kapcsolt kép hozzáadása**
+### **Összekapcsolt kép hozzáadása**
 
-Az alábbi példa egy képkeretet hoz létre, és egy helyi képfájlra mutat. Csak a kép kapcsolásával foglalkozik; a videó kapcsolás egy külön médiamunkafolyamat, és szándékosan nincs keverve ebbe a példába.
+Az alábbi példa egy képkeretet hoz létre, és egy helyi képfájlra mutat. Csak a kép összekapcsolásával foglalkozik; a videó összekapcsolása egy külön média‑munkafolyamat, és szándékosan nincs belekeverve ebbe a példába.
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -155,15 +155,15 @@ presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Használjon linkeket, ha a külső fájlkezelés szándékos. Ne használja őket csupán tömörítés helyettesítésére: egy kis PPTX törött képfüggőségekkel általában kevésbé hasznos, mint egy nagyobb önálló bemutató.
+Használjunk összekapcsolásokat, ha a külső fájlkezelés szándékos. Ne használjuk őket csak a tömörítés helyettesítésére: egy kis PPTX, amelyben a képfüggőségek töröttek, általában kevésbé hasznos, mint egy nagyobb, önálló prezentáció.
 
 ## **Képek kinyerése képkeretekből**
 
-Mielőtt képet nyerne ki egy meglévő bemutatóból, ellenőrizze, hogy az alakzat valóban egy [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/), és hogy beágyazott képet tartalmaz. A kapcsolt képkeretek esetleg nem tartalmaznak képadatokat, amelyeket ugyanígy ki lehetne nyerni.
+Mielőtt képet nyernénk ki egy meglévő prezentációból, ellenőrizzük, hogy az alakzat valóban egy [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/), és tartalmaz-e beágyazott képet. Az összekapcsolt képkeretek nem feltétlenül tartalmaznak olyan kép‑bájtokat, amelyeket ugyanúgy ki lehetne nyerni.
 
-### **Raszeres kép kinyerése**
+### **Raszteres kép kinyerése**
 
-A modern kép‑API közvetlenül a [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/)-t használja. Az alábbi példa megtalálja az első beágyazott raszteres képet egy dián, és PNG‑ként menti el:
+A modern kép‑API közvetlenül a [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/) használatával működik. Az alábbi példa megtalálja az első beágyazott raszteres képet a dián, és PNG‑ként menti el:
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -205,11 +205,11 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-A [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/) használatával mentés a kinyert képet a kért kimeneti formátumba konvertálja. Ha a bemutatóban tárolt kódolt bájtokra van szüksége egy konvertált raszteres fájl helyett, akkor a kép erőforrás bináris adatait használja.
+A [IImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/) használatával a kinyert képet a kért kimeneti formátumra konvertáljuk. Ha a prezentációban tárolt kódolt bájtokra van szükség, a konvertált raszteres fájl helyett a kép erőforrás bináris adatait kell felhasználni.
 
 ### **SVG kép kinyerése**
 
-SVG kép esetén a [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) egy [ISvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/) objektumot exponál. Ez lehetővé teszi, hogy közvetlenül a SVG adatot nyerje ki, a kép rasterizálása nélkül.
+SVG kép esetén a [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) egy [ISvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/) objektumot biztosít. Ennek segítségével közvetlenül lekérhető az SVG adat anélkül, hogy előbb rasterizálnánk a képet.
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -257,11 +257,11 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-A SVG tartalom SVG‑ként tartása megőrzi a vektoros forrást a bemutatóban. A raszteres exportok, például PNG vagy JPEG, kötelezően pixelre renderelik ezt a vektort. A PDF vagy SVG diaexport is egy renderelési művelet, ezért az exportált grafika nem tekinthető az eredeti beágyazott SVG bit‑pontos másolatának; használja a beágyazott [ISvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/) adatot, ha maga a vektoros erőforrás szükséges.
+Az SVG tartalom SVG‑ként való megtartása megőrzi a vektoros forrást a prezentáción belül. A PNG vagy JPEG‑hez hasonló raszteres exportok kötelezően a vektoros tartalmat pixelekre konvertálják. A PDF vagy SVG diakivitel szintén egy renderelési művelet, ezért a exportált grafika nem tekinthető az eredeti beágyazott SVG‑nek bit‑pontos másolatának; használjuk a beágyazott [ISvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/) adatot, ha a vektoros erőforrásra van szükség.
 
 ## **Kép vágása**
 
-A vágás megváltoztatja, hogy a kép mely része látható a kereten belül. A [IPictureFillFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/) vágási értékei a forráskép dimenzióinak százalékában vannak megadva. A vágás kezdetben nem törli a rejtett pixeleket a beágyazott képből; csak a látható régiót módosítja.
+A vágás megváltoztatja, hogy a kép mely része látható a kereten belül. A [IPictureFillFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/) vágási értékei a forráskép méreteinek százalékában vannak megadva. A vágás kezdetben nem törli a rejtett pixeleket a beágyazott képből; csak a látható területet módosítja.
 
 Az alábbi példa biztonságosan megtalál egy képkeretet, és alkalmazza a vágási értékeket:
 
@@ -304,11 +304,11 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Mivel a rejtett képadatok továbbra is jelen vannak, a vágás később megváltoztatható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb a visszavonhatóságnál, a vágott területek fizikailag eltávolíthatók a következő szakaszban leírtak szerint.
+Mivel a rejtett képadat továbbra is jelen van, a vágás később megváltoztatható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb a visszavonhatóságnál, a vágott területeket a következő szakaszban leírtnak megfelelően fizikailag eltávolíthatjuk.
 
 ## **Vágott képadatok eltávolítása**
 
-[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) eltávolítja a képadatokat a jelenlegi vágási téglalapon kívül, és visszaadja a kapott kép erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a bemutató mentése után a eltávolított pixelek már nem állnak rendelkezésre egy későbbi „un‑crop” művelethez.
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) eltávolítja a képadatokat a jelenlegi vágási téglalapon kívül, és visszaadja a keletkezett kép erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a prezentáció mentése után a eltávolított pixelek már nem állnak rendelkezésre egy későbbi „un‑crop” művelethez.
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -350,13 +350,13 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-A metódus új kép erőforrást adhat a bemutatóhoz. Ha az eredeti kép más képkeretek által is használva van, azoknak továbbra is szükségük van a meglévő erőforrásra, így a vágott területek törlése nem feltétlenül csökkenti a képek teljes számát. WMF vagy EMF tartalom vágása ezzel a metódussal a vágott eredményt PNG‑re rasterizálja.
+A metódus új kép erőforrást adhat a prezentációhoz. Ha az eredeti képet más képkeretek is használják, azoknak továbbra is a meglévő erőforrásra van szükségük, így a vágott területek törlése nem feltétlenül csökkenti a képek összes számát. WMF vagy EMF tartalom vágása ezzel a módszerrel a vágott eredményt PNG‑be rasterizálja.
 
-## **Raszeres képek tömörítése**
+## **Raszteres képek tömörítése**
 
-[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/compressimage/) csökkenti a raszteres kép felbontását a kép megjelenítési méretéhez viszonyítva. Ugyanabban a műveletben eltávolíthatja a vágott területeket is. A metódus `true`‑t ad vissza, ha a képet átméretezte vagy levágta, és `false`‑t, ha nem volt szükség változtatásra.
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/compressimage/) csökkenti a raszteres kép felbontását a megjelenítési mérethez képest. Ugyanebben a műveletben eltávolíthatók a vágott területek is. A metódus `true`‑t ad vissza, ha a képet átméretezték vagy levágták, és `false`‑t, ha nem volt szükség változtatásra.
 
-Használjon előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/picturescompression/) értéket, ha egy szabványos célfelbontás elegendő:
+Használjunk előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/picturescompression/) értéket, ha egy szabványos célfelbontás elegendő:
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -397,77 +397,17 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Egy egyedi pozitív DPI érték átadható az enumerációs érték helyett, ha egy konkrét cél szükséges.
+Egy egyéni, pozitív DPI érték is megadható enum érték helyett, ha egy konkrét cél szükséges.
 
-A tömörítés raszteres képekre vonatkozik. Az SVG és a metafájl tartalom nem csökken ezen a raszteres tömörítési munkafolyamaton. Emellett ne feledje, hogy az alacsonyabb felbontás és a törölt vágott területek nem állíthatók vissza az optimalizált bemutatóból. Válasszon célfelbontást a legnagyobb megjelenítési vagy exportálási méret alapján, nem pedig a legkisebb DPI globális alkalmazásával.
+A tömörítés raszteres képekre szánt. SVG és metafájl tartalom nem csökken ezen raszteres tömörítési munkafolyamat során. Emellett ne feledjük, hogy a kisebb felbontás és a törölt vágott területek nem állíthatók helyre az optimalizált prezentációból. Válasszunk célfelbontást a legnagyobb megjelenítési vagy exportálási méret alapján, nem pedig a legalacsonyabb DPI‑t globálisan alkalmazva.
 
-## **Képhatások ellenőrzése**
+## **Kép‑transzformációs hatások kezelése**
 
-A képhatások a keret által használt képen tárolódnak. A kép‑transzformációs gyűjtemény tartalmazhat olyan hatásokat, mint a fix alfa‑moduláció az átlátszósághoz és a luminancia a fényerő és kontraszt szabályozásához. Az alábbi példa biztonságosan beolvassa mindkét hatást az első dián lévő képkeretből:
-
-```cpp
-#include <DOM/Effects/IAlphaModulateFixed.h>
-#include <DOM/Effects/IImageTransformOperationCollection.h>
-#include <DOM/Effects/ILuminance.h>
-#include <DOM/Effects/ILuminanceEffectiveData.h>
-#include <DOM/IPictureFillFormat.h>
-#include <DOM/IPictureFrame.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlidesPicture.h>
-#include <DOM/Presentation.h>
-#include <system/console.h>
-#include <system/object_ext.h>
-#include <system/smart_ptr.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Effects;
-using namespace System;
-
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-SharedPtr<IPictureFrame> pictureFrame;
-
-for (auto&& shape : slide->get_Shapes())
-{
-    if (ObjectExt::Is<IPictureFrame>(shape))
-    {
-        pictureFrame = ExplicitCast<IPictureFrame>(shape);
-        break;
-    }
-}
-
-if (pictureFrame != nullptr)
-{
-    auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-
-    for (auto&& effect : imageTransform)
-    {
-        if (ObjectExt::Is<IAlphaModulateFixed>(effect))
-        {
-            auto alphaModulateFixed = ExplicitCast<IAlphaModulateFixed>(effect);
-            auto transparency = 100.0f - alphaModulateFixed->get_Amount();
-            Console::WriteLine(String(u"Transparency: ") + transparency);
-        }
-
-        if (ObjectExt::Is<ILuminance>(effect))
-        {
-            auto luminanceEffect = ExplicitCast<ILuminance>(effect);
-            auto luminance = luminanceEffect->GetEffective();
-            Console::WriteLine(String(u"Brightness: ") + luminance->get_Brightness());
-            Console::WriteLine(String(u"Contrast: ") + luminance->get_Contrast());
-        }
-    }
-}
-
-presentation->Dispose();
-```
-
-Ezek a hatások megváltoztatják, hogyan renderelődik a kép a keretben; nem írják felül az eredeti beágyazott kép bájtjait.
+A fényerő, kontraszt, színátalakítások, elmosás, alfa‑hatások, sorozatos láncok, ellenőrzés, eltávolítás és körkörös ellenőrzés teljes munkafolyamatához lásd a [Image Transform Effects](/slides/hu/cpp/image-transform-effects/) oldalt.
 
 ## **Képkeret geometria zárolása**
 
-Az [IPictureFrameLock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframelock/) beállításai szabályozzák, hogy mely szerkesztési műveletek vannak letiltva egy képkeretnél. Például a [aspect-ratio lock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) megőrzi az alakzat arányait átméretezés közben.
+Az [IPictureFrameLock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframelock/) beállítások szabályozzák, hogy mely szerkesztési műveletek legyenek letiltva egy képkeretnél. Például a [aspect‑ratio lock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) megtartja az alakzat arányait átméretezés közben.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -499,13 +439,13 @@ presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-A zárolás a képkeret alakzatra vonatkozik. Nem kényszeríti a forrásképet, hogy ugyanarra az arányra legyen resample‑elve vagy véglegesen módosítva.
+A zár a képkeret alakzatra vonatkozik. Nem kényszeríti a forrásképet, hogy újramintavételezve vagy véglegesen ugyanazzal az oldalaránnyal rendelkezzen.
 
-## **StretchOffset értékek beállítása**
+## **StretchOffset értékek módosítása**
 
-Ha a kép kitöltési módja „stretch”, a [IPictureFillFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/) stretch‑offset értékei a kitöltési téglalapot határozzák meg a képkeret határoló dobozához képest. Pozitív százalékok széltől befelé hoznak, míg negatív százalékok kifelé nyújtanak.
+Ha a kép kitöltési mód a nyújtás, akkor az [IPictureFillFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/) stretch‑offset értékei a kitöltés téglalapját határozzák meg a képkeret határoló dobozához képest. A pozitív százalékok a szél felől belső eltolást hoznak létre, míg a negatív százalékok a külső eltolást.
 
-Ez különbözik a vágástól. A vágási értékek kiválasztják, hogy a forráskép mely része legyen látható; a stretch‑offsetok pedig a téglalapot változtatják, amelybe a látható képkitöltés nyúlik.
+Ez eltér a vágástól. A vágási értékek azt határozzák meg, hogy a forráskép mely része látható; a stretch‑offsetok a látható képkitöltés téglalapját módosítják.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -542,43 +482,43 @@ presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Használja a stretch‑offsetokat kitöltés elhelyezéséhez. Használja a vágási tulajdonságokat, ha a cél a forráskép széleinek elrejtése.
+Használjuk a stretch‑offsetokat a kitöltés elhelyezéséhez. A vágási tulajdonságokat akkor alkalmazzuk, ha a cél a forráskép széleinek elrejtése.
 
 ## **Tárolás, fájlméret és exportálási megfontolások**
 
-A fő kompromisszumok könnyebben kezelhetők, ha a kép tárolást és a képkeret formázását külön kezelik:
+A fő kompromisszumok könnyebben kezelhetők, ha a képtárolást és a képkeret‑formázást külön kezeljük:
 
-- **Beágyazott képek** önállóvá teszik a bemutatót, és a legmegbízhatóbbak megosztáskor és szerveroldali rendereléskor, de a nagy raszteres képek növelik a PPTX méretét és a memóriahasználatot.
-- **Kapcsolt képek** kisebb csomagot tarthatnak, de a bemutató a külső fájlok elérhetőségétől függ a tárolt útvonalakon vagy helyeken.
-- **Vágás** eleve nem destruktív. A rejtett pixelek beágyazva maradnak, amíg a vágott területeket explicit módon nem törlik vagy a tömörítés során nem távolítják el.
-- **Tömörítés** jelentősen csökkentheti a fájlméretet túlméretezett raszteres képek esetén, de a forrás felbontást feláldozza. A dián való végső méret ismerete után kell alkalmazni.
-- **SVG képek** legyenek SVG formátumban, ha a vektoros megőrzés fontos. A beágyazott SVG közvetlen kinyerése akkor hasznos, ha maga a vektoros erőforrás szükséges. A raszteres diaexportok mindig a dia renderelt képét pixelekre konvertálják.
-- **Ismétlődő képek** esetén használja újra a meglévő [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) erőforrást, ahelyett, hogy ugyanazt a fájlt többször betöltené a bemutató munkafolyamatába.
+- **Beágyazott képek** önállóvá teszik a prezentációt, és a megosztás valamint a szerver‑oldali renderelés során a legmegbízhatóbbak, de a nagy raszteres képek növelik a PPTX méretét és memóriaigényét.
+- **Összekapcsolt képek** kisebb csomagméretet biztosíthatnak, de a prezentáció függ a külső fájlok elérhetőségétől a tárolt útvonalakon vagy helyeken.
+- **Vágás** kezdetben nem destruktív. A rejtett pixelek a vágott területek explicite törléséig vagy tömörítés során maradnak beágyazva.
+- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlméretezett raszteres képeknél, de a forrásfelbontást feláldozza. A várt dián‑méret ismerete után kell alkalmazni.
+- **SVG képek** esetén maradjanak SVG‑ként, ha a vektor megőrzése fontos. A beágyazott SVG közvetlen kinyerése szükség esetén a vektor‑erőforrást adja. A raszteres diakivitelek mindig pixelekre konvertálják a renderelt diát.
+- **Ismétlődő képek** esetén használjunk már létező [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) erőforrást, ahelyett, hogy ugyanazt a fájlt többször betöltenénk a munkafolyamatba.
 
-Nagy bemutatók esetén a képoptimalizálás általában a leghatékonyabb, ha szelektíven hajtják végre: tartsuk a logókat és diagramokat vektoros tartalomként, tömörítsük a fényképeket a tényleges megjelenítési méretük szerint, távolítsuk el a vágott pixeleket csak akkor, ha a későbbi szerkesztés nem szükséges, és kerüljük a külső linkeket, hacsak a függőségkezelés nem része a telepítési tervezésnek.
+Nagy prezentációknál a képoptimalizálás általában akkor a leghatékonyabb, ha szelektíven történik: a logókat és diagramokat vektoros tartalomként tartsuk, a fényképeket a valós megjelenítési méret szerint tömörítsük, a vágott pixeleket csak akkor távolítsuk el, ha későbbi szerkesztés nem szükséges, és kerüljük a külső hivatkozásokat, hacsak a függőség‑kezelés nem része a kiépítési tervezésnek.
 
 ## **GYIK**
 
-**Mi a különbség a képkeret és a kép erőforrás között?**
+**Mi a különbség egy képkeret és egy kép erőforrás között?**
 
-Az [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) egy a bemutatóhoz kapcsolódó kép erőforrást képvisel. Az [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) egy dián lévő alakzat, amely egy képet jelenít meg, és keretszintű geometriai és formázási adatokat tárol, mint például méret, forgatás, vágási értékek, hatások és zárolások.
+Az [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) egy a prezentációhoz társított kép erőforrást képviseli. Az [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) egy dián elhelyezett alakzat, amely képet jelenít meg, és tárolja a keretszintű geometriát és formázást, például méretet, forgatást, vágási értékeket, hatásokat és zárolásokat.
 
-**Be kellene-e ágyaznom vagy kapcsolnom a képeket?**
+**Beágyazzam vagy összekapcsoljam a képeket?**
 
-Ágyazza be a képeket, ha a bemutatónak hordozhatónak, archiválhatónak vagy külső erőforrások hozzáférése nélkül renderelhetőnek kell lennie. Kapcsolja csak akkor a képeket, ha a képfájlok kívül tartása szándékos, és a külső helyek megbízhatóan karbantarthatók.
+Beágyazzuk a képeket, ha a prezentációnak hordozhatónak, archiváltnak vagy külső erőforrások nélkül renderelhetőnek kell lennie. Összekapcsoljuk a képeket csak akkor, ha szándékosan szeretnénk a képfájlokat a PPTX‑en kívül tartani, és a külső helyek megbízhatóan karbantarthatók.
 
-**Csökkenti a vágás a PPTX fájlméretet?**
+**Csökkenti-e a vágás a PPTX fájlméretét?**
 
-Nem önmagában. A normál vágási beállítások elrejtik a forráskép részeit, de a pixeleket a háttérben megtartják. Használja az [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) metódust vagy a kép tömörítést vágott‑terület eltávolítással, ha ezeket a pixeleket véglegesen el lehet távolítani.
+Nem önmagában. A normál vágási beállítások elrejtik a forráskép részeit, de a pixeleket megtartják. Használjuk a [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) vagy a képtömörítést vágott‑terület‑eltávolítással, ha ezek a pixelek véglegesen eldobhatók.
 
-**Vissza tudom-e állítani a kép minőségét a tömörítés után?**
+**Visszaállítható a képminőség a tömörítés után?**
 
-Nem. A tömörítés csökkentheti a tárolt raszteres felbontást, és a vágott területek eltávolítása adatvesztést eredményez. Tartsa meg az eredeti forrásképet a bemutatón kívül, ha később nagy felbontású szerkesztésre lesz szükség.
+Nem. A tömörítés csökkentheti a tárolt raszteres felbontást, és a vágott területek eltávolítása törli a képadatot. Tartsa meg az eredeti forrásképet a prezentáción kívül, ha később magas felbontású szerkesztésre lehet szükség.
 
 **Hogyan kell kezelni az SVG képeket?**
 
-Tartsa a SVG tartalmat SVG‑ként, ha a vektoros hűség fontos. A beágyazott [ISvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/) közvetlenül kinyerhető. A diát raster formátumra, például PNG‑re vagy JPEG‑re renderelő exportálás a SVG‑t pixelekre rasterizálja.
+Tartsa meg az SVG tartalmat SVG‑ként, ha a vektoros pontosság fontos. A beágyazott [ISvgImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/isvgimage/) közvetlenül kinyerhető. A diát PNG vagy JPEG formátumba exportálni rasterizálja az SVG‑t a diakép részeként.
 
-**Hogyan kerülhetem el a nem biztonságos cast‑okat meglévő diák olvasásakor?**
+**Hogyan kerülhető el a veszélyes cast használata meglévő diák olvasásakor?**
 
-Ellenőrizze az alakzat típusát, mielőtt képkeret‑specifikus tagokhoz férne hozzá. Tesztelje az alakzatot [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) használatával, mielőtt futásidejű cast‑ot végez, és a cast eredményét helyi változóba rendelje, mielelőtt a képkeret‑specifikus tagokhoz hozzáférne.
+Ellenőrizzük az alakzat típusát, mielőtt képkeret‑specifikus tagokat használunk. Teszteljük az alakzatot [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/)‑vel, mielőtt futásidejű castet végeznénk, és a cast eredményét helyi változóba rendeljük a képkeret‑specifikus tagok elérése előtt.

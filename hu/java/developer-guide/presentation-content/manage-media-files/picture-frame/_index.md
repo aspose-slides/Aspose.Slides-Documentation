@@ -1,46 +1,46 @@
 ---
-title: "Képkeretek kezelése prezentációkban Java használatával"
-linktitle: "Képkeret"
+title: Képkockák kezelése prezentációkban Java használatával
+linktitle: Képkocka
 type: docs
 weight: 10
 url: /hu/java/picture-frame/
 keywords:
-- "képkeret"
-- "képkeret hozzáadása"
-- "képkeret létrehozása"
-- "beágyazott kép"
-- "linkelt kép"
-- "kép kinyerése"
-- "raszteres kép"
-- "SVG kép"
-- "kép vágása"
-- "vágott területek törlése"
-- "kép tömörítése"
-- "StretchOffset"
-- "képkeret formázása"
-- "relatív méretezés"
-- "képhatás"
-- "oldalarány"
-- "PowerPoint"
-- "OpenDocument"
-- "prezentáció"
-- "Java"
-- "Aspose.Slides"
-description: "Képkeretek létrehozása, formázása, linkelése, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for Java segítségével."
+- képkocka
+- képkocka hozzáadása
+- képkocka létrehozása
+- beágyazott kép
+- csatolt kép
+- kép kinyerése
+- raszteres kép
+- SVG kép
+- kép vágása
+- vágott területek törlése
+- kép tömörítése
+- StretchOffset
+- képkocka formázása
+- relatív méretezés
+- kép hatás
+- oldalarány
+- PowerPoint
+- OpenDocument
+- prezentáció
+- Java
+- Aspose.Slides
+description: Képkockák létrehozása, formázása, csatolása, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for Java segítségével.
 ---
 ## **Áttekintés**
 
-A képkeret egy dia alakzat, amely egy képet jelenít meg. Az Aspose.Slides-ban a képernyk erőforrás és a megjelenítő alakzat külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) birtokolja a beágyazott képernyk erőforrásokat az [IImageCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimagecollection/) segítségével, míg egy [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgását, vágását, képhatásait és egyéb keretszintű beállításokat.
+A képkocka egy diára helyezett alakzat, amely képet jelenít meg. Az Aspose.Slides‑ben a képernyő erőforrás és a megjelenítő alakzat külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) beágyazott képernyő erőforrásokat tárol a [IImageCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimagecollection/) segítségével, míg egy [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgását, vágását, képhatásait és egyéb keretszintű beállításait.
 
-Ez a szétválasztás hasznos, ha ugyanazt a képet többször is megjelenítjük. Adja hozzá a képet egyszer a prezentációhoz, tartsa meg a visszaadott [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/)-t, és használja ezt a képernyk erőforrást a képkeretek létrehozásakor.
+Ez a szétválasztás akkor hasznos, amikor ugyanaz a kép többször jelenik meg. A képet egyszer adjuk hozzá a prezentációhoz, tartsuk meg a visszakapott [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/), és használjuk ezt a képernyő erőforrást képkockák létrehozásakor.
 
-A képkeretek tartalmazhatnak raszteres képeket, például PNG vagy JPEG, valamint vektoriális SVG képeket. Hivatkozhatnak linkelt képekre is, ahelyett, hogy a kép bájtjait a prezentációban tárolnák. A választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért hasznos eldönteni, hogyan legyen a kép tárolva a formázás vagy optimalizálás alkalmazása előtt.
+A képkockák raszteres képeket (például PNG vagy JPEG) és vektoros SVG képeket is tartalmazhatnak. A beágyazott képadat helyett hivatkozhatnak csatolt képekre is. A választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért célszerű eldönteni, hogyan legyen a kép tárolva, mielőtt formázást vagy optimalizálást alkalmaznánk.
 
-## **Beágyazott Kép Hozzáadása és Formázása**
+## **Beágyazott kép hozzáadása és formázása**
 
-Beágyazott kép esetén adja hozzá a kép adatot a prezentációhoz, és hozza létre a képkeretet az [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) használatával. A kép a prezentáció csomagjának része lesz, így a prezentáció önálló marad, ha másik számítógépre kerül.
+Beágyazott kép esetén adjuk hozzá a képadatot a prezentációhoz, és hozzunk létre egy képkockát a [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) metódussal. A kép a prezentációcsomag része lesz, így a prezentáció önálló marad, ha másik számítógépre helyezzük.
 
-Az alábbi példa egy JPEG képet ad hozzá, a kép natív méreteivel hoz létre egy keretet, és vonalformázást valamint forgatást alkalmaz:
+A következő példa egy JPEG képet ad hozzá, a kép natív méreteivel hoz létre egy keretet, és vonalformázást valamint forgatást alkalmaz:
 
 ```java
 import com.aspose.slides.*;
@@ -70,11 +70,11 @@ try {
 }
 ```
 
-A képkeret vezérli a megjelenített geometriát; a keret méretének módosítása nem változtatja meg az eredeti pixelméreteket, amelyek a beágyazott képernyk erőforrásban vannak tárolva. Ez a megkülönböztetés fontos lesz később, ha vágni vagy tömöríteni szeretnénk a képet.
+A képkocka szabályozza a megjelenített geometriát; a keret méretének módosítása nem változtatja meg az eredeti, beágyazott képernyő erőforrásban tárolt pixelméreteket. Ez a különbség későbbi vágás vagy tömörítés esetén fontos.
 
-## **Relatív Méretezés Használata**
+## **Relatív méretezés használata**
 
-[IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) relatív szélesség- és magasságméretezést tesz elérhetővé a keret számára a [setRelativeScaleWidth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) és a [setRelativeScaleHeight](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) metódusokkal. Az `1.0` érték az eredeti képméret 100%-ának felel meg. A relatív méretezés hasznos, ha a munkafolyamatnak a forráskép méretéhez való viszonyt kell megőriznie a végső méretek manuális kiszámítása helyett.
+[IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) relatív szélesség‑ és magasság‑skálázást biztosít a kerethez a [setRelativeScaleWidth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) és a [setRelativeScaleHeight](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) metódusokkal. Az `1.0` érték az eredeti képméret 100 %-át jelenti. A relatív skálázás akkor hasznos, ha a munkafolyamatnak meg kell őriznie a kapcsolatot a forráskép méretével a végleges méretek kézi kiszámítása helyett.
 
 ```java
 import com.aspose.slides.*;
@@ -101,17 +101,17 @@ try {
 }
 ```
 
-A relatív méretezés a keret skálabeállításait módosítja; nem újramintavételezi vagy tömöríti a beágyazott képet.
+A relatív skála a keret skála beállításait módosítja; nem próbálja újramintavételezni vagy tömöríteni a beágyazott képet.
 
-## **Beágyazott és Linkelt Képek**
+## **Beágyazott és csatolt képek**
 
-A beágyazott kép a képadatokat a prezentáción belül tárolja, ezért a legbiztonságosabb választás a hordozhatóság és a kiszámítható megjelenítés szempontjából. A linkelt kép a [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) metódussal külső helyet tárol, ahelyett, hogy a képadatot ugyanúgy beágyazná.
+A beágyazott kép a képadatot a prezentáción belül tárolja, ezért a legbiztonságosabb választás a hordozhatóság és az előre kiszámítható megjelenítés szempontjából. A csatolt kép a [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) metódussal egy külső helyet tárol ahelyett, hogy a képadatot ugyanúgy beágyazná.
 
-A linkelt képek csökkenthetik a PPTX-ben tárolt képadatok mennyiségét, de külső függőséget hoznak létre. A linkelt fájlnak elérhetőnek kell maradnia azon alkalmazás számára, amely megnyitja vagy rendereli a prezentációt. Ha az elérési út megváltozik, a fájl áthelyezésre kerül, vagy a forrás nem érhető el, a linkelt kép nem jelenhet meg a várt módon. Azoknál a prezentációknál, amelyeket e-mailben kell elküldeni, archiválni vagy izolált környezetben renderelni, a beágyazott képek általában megbízhatóbbak.
+A csatolt képek csökkenthetik a PPTX‑ben tárolt képadatok mennyiségét, de külső függőséget hoznak létre. A csatolt fájlnak elérhetőnek kell maradnia azon alkalmazás számára, amely a prezentációt megnyitja vagy rendereli. Ha az elérési út megváltozik, a fájlt áthelyezik, vagy az erőforrás nem érhető el, a csatolt kép nem jelenhet meg a várt módon. Azoknál a prezentációknál, amelyeket e‑mailben kell küldeni, archiválni vagy elszigetelt környezetben renderelni, a beágyazott képek általában megbízhatóbbak.
 
-### **Linkelt Kép Hozzáadása**
+### **Csatolt kép hozzáadása**
 
-Az alábbi példa egy képkeretet hoz létre, és egy helyi képfájlra mutat. Csak a képlinkelést mutatja be; a videólinkelés egy külön médiamunkafolyamat, és szándékosan nincs belekeverve ebbe a példába.
+Az alábbi példa egy képkockát hoz létre, és egy helyi képfájlra mutat. A példa csak a kép csatolásával foglalkozik; a videó csatolás egy külön média‑munkafolyamat, amelyet szándékosan nem keverünk ebbe a példába.
 
 ```java
 import com.aspose.slides.*;
@@ -132,15 +132,15 @@ try {
 }
 ```
 
-Használjon linkeket, ha a külső fájlkezelés szándékos. Ne használja őket csupán tömörítés helyettesítésére: egy kis PPTX törött képfüggőségekkel általában kevésbé hasznos, mint egy nagyobb, önálló prezentáció.
+Használjunk hivatkozásokat, ha a külső fájlkezelés szándékos. Ne használjuk őket csak a tömörítés helyettesítésére: egy kis PPTX, amelyben törött képfüggőségek vannak, általában kevésbé hasznos, mint egy nagyobb, önálló prezentáció.
 
-## **Képek Kinyerése a Képkeretekből**
+## **Képek kinyerése képkockákból**
 
-Mielőtt képet nyerne ki egy meglévő prezentációból, ellenőrizze, hogy a forma valóban egy [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/), és tartalmaz-e beágyazott képet. A linkelt képkeretek nem feltétlenül tartalmaznak olyan képbyte-okat, amelyeket ugyanúgy ki lehetne nyerni.
+Mielőtt képet nyernénk ki egy meglévő prezentációból, ellenőrizzük, hogy a alakzat valóban [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/), és tartalmaz-e beágyazott képet. A csatolt képkockák esetleg nem tartalmaznak olyan képadatot, amely ugyanúgy kinyerhető lenne.
 
-### **Raszteres Kép Kinyerése**
+### **Raszteres kép kinyerése**
 
-A modern kép API közvetlenül az [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/) használatát javasolja, és nem igényli a régebbi Java képburkolót. Az alábbi példa megtalálja az első beágyazott raszteres képet egy dián, és PNG formátumban menti el:
+A modern kép‑API közvetlenül az [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/) típust használja, és nem igényli a régebbi Java kép‑csomagolót. A következő példa megtalálja az első beágyazott raszteres képet egy dián, és PNG‑képként menti el:
 
 ```java
 import com.aspose.slides.*;
@@ -173,11 +173,11 @@ try {
 }
 ```
 
-Az [IImage.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/#save-java.lang.String-int-) használata a kinyert képet a kért kimeneti formátumba konvertálja. Ha a prezentációban tárolt kódolt bájtokra van szüksége, a kép erőforrás bináris adatát kell felhasználni a konvertált raszteres fájl helyett.
+Az [IImage.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/#save-java.lang.String-int-) metódus segítségével a kinyert képet a kívánt kimeneti formátumba konvertáljuk. Ha a prezentációban tárolt enkódolt bájtokra van szükség, nem konvertált raszteres fájlra, akkor használjuk a kép erőforrás bináris adatait.
 
-### **SVG Kép Kinyerése**
+### **SVG kép kinyerése**
 
-SVG kép esetén az [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) egy [ISvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/) objektumot tesz elérhetővé. Ez közvetlenül visszaadhatja az SVG adatot anélkül, hogy a képet előbb raszteresítené.
+SVG kép esetén az [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) egy [ISvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/) objektumot ad vissza. Ez lehetővé teszi, hogy közvetlenül lekérdezzük az SVG adatot a rasterizálás nélkül.
 
 ```java
 import com.aspose.slides.*;
@@ -214,13 +214,13 @@ try {
 }
 ```
 
-Az SVG tartalom megőrzése SVG-ként fenntartja a vektorforrást a prezentáción belül. A PNG vagy JPEG‑ként történő raszteres exportoknak szükségük van a vektort pixelre ábrázolni. A PDF vagy SVG diaexport is egy renderelési művelet, ezért az exportált grafika nem tekinthető az eredeti beágyazott SVG bájt‑szintű másolatának; ha az eredeti vektorforrásra van szükség, használja a beágyazott [ISvgImage.getSvgData](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/#getSvgData--) adatot.
+Az SVG tartalom SVG‑ként való megtartása megőrzi a vektoros forrást a prezentáción belül. A PNG vagy JPEG‑s raster exportok szükségszerűen a vektoros tartalmat képpontokká alakítják. A PDF vagy SVG diakivitel is egy renderelési művelet, ezért az exportált graphics‑et nem szabad a beágyazott SVG‑bitenkénti másolatának tekinteni; használjuk a beágyazott [ISvgImage.getSvgData](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/#getSvgData--) adatot, ha az eredeti vektoros erőforrásra van szükség.
 
-## **Kép Vágása**
+## **Kép vágása**
 
-A vágás meghatározza, hogy a kép mely része látható a kereten belül. Az [IPictureFillFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/) vágási értékei a forráskép méretének százalékában vannak megadva. A vágás eleinte nem törli a rejtett pixeleket a beágyazott képből; csak a látható területet módosítja.
+A vágás meghatározza, hogy a kép mely része látható a kereten belül. Az [IPictureFillFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/) vágási értékei a forráskép méretének százalékában vannak megadva. A vágás kezdetben nem törli a rejtett képpontokat a beágyazott képből; csak a látható régiót változtatja.
 
-Az alábbi példa biztonságosan megtalál egy képkeretet, és alkalmazza a vágási értékeket:
+Az alábbi példa biztonságosan megtalál egy képkockát, és alkalmazza a vágási értékeket:
 
 ```java
 import com.aspose.slides.*;
@@ -249,11 +249,11 @@ try {
 }
 ```
 
-Mivel a rejtett képadatok továbbra is jelen vannak, a vágás később módosítható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb, mint a visszafordíthatóság, a vágott területek fizikai eltávolítása a következő szakaszban leírt módon lehetséges.
+Mivel a rejtett képadatok még mindig jelen vannak, a vágás később megváltoztatható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb, mint a visszavonhatóság, a vágott területeket a következő szakaszban fizikai törléssel csökkenthetjük.
 
-## **Vágott Képadatok Eltávolítása**
+## **Vágott képadatok eltávolítása**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) eltávolítja a képadatot a jelenlegi vágás téglalapon kívül, és visszaadja a keletkezett kép erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a prezentáció mentése után a törölt pixelek már nem állnak rendelkezésre egy későbbi "vágás visszavonása" művelethez.
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) eltávolítja a jelenlegi vágási téglalap kívül eső képadatokat, és visszaadja a keletkezett képernyő erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a prezentáció mentése után a törölt pixelek már nem állnak rendelkezésre a későbbi „uncrop” művelethez.
 
 ```java
 import com.aspose.slides.*;
@@ -281,13 +281,13 @@ try {
 }
 ```
 
-A metódus új kép erőforrást adhat a prezentációhoz. Ha az eredeti képet másik képkeretek is használják, azoknak továbbra is szükségük van a meglévő erőforrásra, így a vágott területek törlése nem feltétlenül csökkenti a képek teljes számát. WMF vagy EMF tartalom vágása ezzel a módszerrel a vágott eredményt PNG‑re raszteresíti.
+A metódus új képernyő erőforrást adhat a prezentációhoz. Ha az eredeti képet más képkockák is használják, azoknak továbbra is szükségük van a meglévő erőforrásra, így a vágott területek törlése nem feltétlenül csökkenti a képek számát. WMF vagy EMF tartalom vágása ezzel a módszerrel a vágott eredményt PNG‑re rasterizálja.
 
-## **Raszteres Képek Tömörítése**
+## **Raszteres képek tömörítése**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) csökkenti a raszteres kép felbontását a megjelenítés méretéhez képest. Ugyanebben a műveletben eltávolíthatja a vágott területeket is. A metódus `true`‑t ad vissza, ha a képet átméretezték vagy levágták, és `false`‑t, ha nem volt szükség változtatásra.
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) csökkenti a raszteres kép felbontását a kép megjelenített méretéhez képest. Ugyanebben a műveletben eltávolíthatóak a vágott régiók is. A metódus `true` értékkel tér vissza, ha a képet átméretezték vagy levágták, és `false`‑val, ha nincs szükség változtatásra.
 
-Használjon előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/java/com.aspose.slides/picturescompression/) értéket, ha egy standard célfelbontás elegendő:
+Használjunk előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/java/com.aspose.slides/picturescompression/) értéket, ha egy szabványos célfelbontás elegendő:
 
 ```java
 import com.aspose.slides.*;
@@ -314,56 +314,17 @@ try {
 }
 ```
 
-Egy saját, pozitív DPI érték is megadható előre definiált érték helyett, ha konkrét célra van szükség.
+Egy egyedi, pozitív DPI‑érték is megadható, ha konkrét cél felbontás szükséges.
 
-A tömörítés raszteres képekre vonatkozik. SVG és metafájl tartalom nem csökken ezzel a raszteres tömörítési munkafolyamattal. Emellett ne feledje, hogy az alacsonyabb felbontású és a törölt vágott területek már nem állíthatók helyre optimalizált prezentációból. Válasszon célfelbontást a legnagyobb megtekintési vagy exportálási méret alapján, nem pedig a legalacsonyabb DPI érték globális alkalmazásával.
+A tömörítés raszteres képekre vonatkozik. SVG és metafájl tartalom nem csökken ezen raszteres tömörítési munkafolyamat során. Emellett ne feledjük, hogy az alacsonyabb felbontású és a törölt vágott részek nem állíthatók vissza az optimalizált prezentációból. Válasszunk célfelbontást a legnagyobb megjelenítési vagy exportálási méret alapján, nem pedig a legkisebb DPI‑t globálisan alkalmazva.
 
-## **Képhatások Ellenőrzése**
+## **Kép‑transzformációs hatások kezelése**
 
-A képhatásokat a keret által használt képen tárolja. A képtranszformációk gyűjteménye tartalmazhat olyan hatásokat, mint a rögzített alfa-moduláció a transparenciához és a luminancia a fényerő és kontraszt beállításához. Az alábbi példa biztonságosan beolvassa mindkét típusú hatást az első dia képkeretéből:
+A teljes munkafolyamat, amely fényerő, kontraszt, színátalakítás, elmosás, alfa‑hatás, sorozatos láncok, ellenőrzés, eltávolítás és round‑trip ellenőrzés lefedi, megtalálható a [Kép‑transzformációs hatások](/java/image-transform-effects/) oldalon.
 
-```java
-import com.aspose.slides.*;
+## **Képkocka geometria zárolása**
 
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = null;
-
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IPictureFrame) {
-            pictureFrame = (IPictureFrame) shape;
-            break;
-        }
-    }
-
-    if (pictureFrame != null) {
-        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-        for (IImageTransformOperation effect : imageTransform) {
-            if (effect instanceof IAlphaModulateFixed) {
-                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
-                float transparency = 100 - alphaModulateFixed.getAmount();
-                System.out.println("Transparency: " + transparency);
-            }
-
-            if (effect instanceof ILuminance) {
-                ILuminance luminanceEffect = (ILuminance) effect;
-                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
-                System.out.println("Brightness: " + luminance.getBrightness());
-                System.out.println("Contrast: " + luminance.getContrast());
-            }
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-Ezek a hatások módosítják a kép megjelenítését a kereten belül; nem írják felül az eredeti beágyazott kép byte-okat.
-
-## **Képkeret Geometria Zárolása**
-
-Az [IPictureFrameLock](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframelock/) beállításai szabályozzák, hogy mely szerkesztési műveletek vannak letiltva egy képkeretnél. Például a [setAspectRatioLocked](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) megőrzi az alakzat arányait átméretezés közben.
+Az [IPictureFrameLock](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframelock/) beállításai szabályozzák, hogy mely szerkesztési műveletek legyenek letiltva a képkockán. Például a [setAspectRatioLocked](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) megőrzi az alakzat arányait átméretezéskor.
 
 ```java
 import com.aspose.slides.*;
@@ -389,13 +350,13 @@ try {
 }
 ```
 
-A zár a képkeret alakzatra vonatkozik. Nem kényszeríti a forrásképet, hogy újramintavételezve vagy véglegesen ugyanarra az arányra legyen módosítva.
+A zárolás a képkocka alakzatra vonatkozik. Nem kényszeríti a forrásképet újramintavételezésre vagy állandóan ugyanolyan oldalarányra módosításra.
 
-## **StretchOffset Értékek Állítása**
+## **A StretchOffset értékek módosítása**
 
-Amikor a kép kitöltési módja "stretch", a [IPictureFillFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/) stretch‑offset értékei definiálják a kitöltőtéglalapot a képkeret határoló dobozához képest. A pozitív százalékok egy belső margót hoznak létre az él mentén, míg a negatív százalékok egy külső kitolást eredményeznek.
+Ha a kép kitöltési módja a \"stretch\", akkor a [IPictureFillFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/) stretch‑offset értékei a kitöltő téglalapot a képkocka keretehez viszonyítva definiálják. A pozitív százalékos értékek befelé tolják az éleket, a negatívak kifelé.
 
-Ez eltér a vágástól. A vágási értékek meghatározzák, hogy a forráskép mely része látható; a stretch‑offsetok a látható kép kitöltő téglalapját módosítják.
+Ez különbözik a vágástól. A vágási értékek azt határozzák meg, hogy a forráskép mely része látható; a stretch‑offsetok a látható kép kitöltésének téglalapját módosítják.
 
 ```java
 import com.aspose.slides.*;
@@ -425,43 +386,43 @@ try {
 }
 ```
 
-Használja a stretch‑offsetokat a kitöltés elhelyezésére. Használja a vágási tulajdonságokat, ha a cél a forráskép széleinek elrejtése.
+Használjuk a stretch‑offsetokat a kitöltési pozíció meghatározásához. A vágási tulajdonságokat akkor alkalmazzuk, ha a forráskép széleket szeretnénk elrejteni.
 
-## **Tárolás, Fájlméret és Export Szempontok**
+## **Tárolás, fájlméret és exportálási megfontolások**
 
-A fő kompromisszumok könnyebben kezelhetők, ha a kép tárolását és a képkeret formázását különválasztjuk:
+A fő kompromisszumok könnyebben kezelhetők, ha a képtárolás és a képkocka‑formázás különállóan történik:
 
-- **Beágyazott képek** önállóvá teszik a prezentációt, és a megosztás valamint a szerveroldali renderelés szempontjából a legmegbízhatóbbak, de a nagy raszteres képek növelik a PPTX méretét és a memóriahasználatot.
-- **Linkelt képek** csökkenthetik a csomag méretét, ám a prezentáció függ a külső fájlok rendelkezésre állásától a tárolt útvonalakon vagy helyeken.
-- **Vágás** kezdetben nem destruktív. A rejtett pixelek beágyazva maradnak, amíg a vágott területeket kifejezetten nem törlik vagy a tömörítés során nem távolítják el.
-- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlméretezett raszteres képek esetén, de a forrásfelbontást feláldozza. Alkalmazza akkor, amikor a dián való végső méret ismert.
-- **SVG képek** esetén maradjon SVG, ha a vektor megőrzése fontos. A beágyazott SVG-t közvetlenül nyerje ki, ha magára a vektor erőforrásra van szükség. A raszteres diaexportok mindig a megjelenített diát pixelekre konvertálják.
-- **Ismétlődő képek** esetén használja újra a meglévő [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) erőforrást, ahelyett, hogy ugyanazt a fájlt többször betöltené a prezentációs munkafolyamatba.
+- **Beágyazott képek** önállóvá teszik a prezentációt, és a legmegbízhatóbbak a megosztás és a szerver‑oldali renderelés során, de a nagy raszteres képek növelik a PPTX méretét és a memóriahasználatot.
+- **Csatolt képek** kisebb csomagot eredményezhetnek, de a prezentáció függ a külső fájlok elérhetőségétől a tárolt útvonalakon vagy helyeken.
+- **Vágás** kezdetben nem destruktív. A rejtett pixelek beágyazottak maradnak, amíg a vágott területeket explicit módon nem töröljük vagy nem távolítjuk el a tömörítés során.
+- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlméretezett raszteres képeknél, de árul a forrás felbontásáért. A képernyőn ténylegesen megjelenített méret ismerete után alkalmazandó.
+- **SVG képek** esetén maradjanak SVG‑ként, ha a vektoros megőrzés fontos. A beágyazott SVG közvetlen kinyerése akkor hasznos, ha magára a vektoros erőforrásra van szükség. A raster diakivitelek (PNG, JPEG) mindig a megjelenített diát konvertálják pixelekké.
+- **Ismétlődő képek** esetén a [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) erőforrás újrahasználata ajánlott ahelyett, hogy ugyanazt a fájlt többször betöltenénk a munkafolyamatba.
 
-Nagy prezentációk esetén a képoptimalizálás általában akkor a leghatékonyabb, ha szelektíven végzi: a logókat és diagramokat vegye vektoros tartalomként, a fényképeket a tényleges megjelenítési méretüknek megfelelően tömörítse, csak akkor távolítsa el a vágott pixeleket, ha későbbi szerkesztésre nincs szükség, és kerülje a külső linkeket, hacsak a függőségkezelés nem része a telepítési tervnek.
+Nagyméretű prezentációk esetén a képoptimalizálás általában akkor a leghatékonyabb, ha szelektíven történik: tartsuk a logókat és diagramokat vektoros tartalomként, a fényképeket a tényleges megjelenítési méret szerint tömörítsük, a vágott pixeleket csak akkor távolítsuk el, ha későbbi szerkesztésre nincs szükség, és kerüljük a külső hivatkozásokat, kivéve ha a függőségkezelés része a telepítési tervnek.
 
 ## **GYIK**
 
-**Mi a különbség egy képkeret és egy képernyk erőforrás között?**
+**Mi a különbség a képkocka és a képernyő erőforrás között?**
 
-Egy [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) egy a prezentációhoz kapcsolódó képernyk erőforrást képvisel. Egy [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) egy dián lévő alakzat, amely megjelenít egy képet, és keretszintű geometriát és formázást tárol, például méretet, forgatást, vágási értékeket, hatásokat és zárolásokat.
+Az [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) egy a prezentációhoz társított képernyő erőforrást képvisel. Az [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) egy dián elhelyezett alakzat, amely képet jelenít meg, és a keretszintű geometriát és formázást (méret, forgatás, vágási értékek, hatások, zárolások) tárolja.
 
-**Be kell-e ágyazni vagy linkelni a képeket?**
+**Be kell-e ágyazni vagy csatolni a képeket?**
 
-Ágyazza be a képeket, ha a prezentáció hordozhatóságra, archiválásra vagy külső erőforrások nélkül történő renderelésre szorul. Linkelje a képeket csak akkor, ha a képfájlok tárolása a PPTX‑en kívül szándékos, és a külső helyeket megbízhatóan képes fenntartani.
+Ágyazzuk be a képeket, ha a prezentációnak hordozhatónak, archiválhatónak vagy külső erőforrások hozzáférése nélkül kell renderelődjön. Csak akkor csatoljunk képeket, ha a képfájlok külső tárolása szándékos, és a külső helyek megbízhatóan karbantarthatók.
 
 **Csökkenti-e a vágás a PPTX fájlméretét?**
 
-Nem önmagában. A normál vágási beállítások elrejtik a forráskép részeit, de megtartják az alatta lévő pixeleket. Használja a [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) vagy a kép tömörítést vágott‑terület-eltávolítással, ha ezeket a pixeleket véglegesen el lehet dobni.
+Nem önmagában. A normál vágási beállítások csak elrejtik a forráskép részeit, de a pixeleket megtartják. Használjuk a [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) vagy a képtömörítést vágott területek eltávolításával, ha ezeket a pixeleket véglegesen el lehet dobni.
 
-**Visszaállítható-e a képminőség a tömörítés után?**
+**Visszaállítható-e a kép minősége a tömörítés után?**
 
-Nem. A tömörítés csökkentheti a tárolt raszteres felbontást, és a vágott területek eltávolítása adatok elvesztését eredményezi. Tartsa meg az eredeti forrásképet a prezentáción kívül, ha később nagy felbontású szerkesztésre lehet szükség.
+Nem. A tömörítés csökkentheti a tárolt raszteres felbontást, a vágott területek eltávolítása pedig véglegesen törli a képadatot. Ha később nagy felbontású szerkesztésre van szükség, a forrásképet tartsuk meg a prezentáción kívül.
 
-**Hogyan kell kezelni az SVG képeket?**
+**Hogyan kezeljük az SVG képeket?**
 
-Tartsa meg az SVG tartalmat SVG‑ként, ha a vektor pontosság számít. A beágyazott [ISvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/) közvetlenül kinyerhető. Egy dia raster formátumba (PNG, JPEG) renderelése közben az SVG vektort pixelekre alakítja.
+Tartsuk meg az SVG tartalmat SVG‑ként, ha a vektoros hűség lényeges. A beágyazott [ISvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/) közvetlenül kinyerhető. Egy diához PNG vagy JPEG‑re való raster exportálás a SVG‑t pixelekre konvertálja.
 
-**Hogyan kerülhető el a nem biztonságos castolás a meglévő diák olvasásakor?**
+**Hogyan kerülhető el a nem biztonságos cast használata meglévő diák olvasásakor?**
 
-Ellenőrizze a forma típusát, mielőtt képkeretre jellemző tagokat használna. Egy `instanceof` ellenőrzés a [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) ellen elkerüli az érvénytelen castolásokat, és lehetővé teszi a kód számára, hogy megfelelően kezelje a nem képkeretet tartalmazó diákat.
+Ellenőrizzük az alakzat típusát, mielőtt képkocka‑specifikus tagokat használnánk. Egy `instanceof` ellenőrzés a [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) ellen biztosítja, hogy a cast érvényes, és lehetővé teszi a kód számára, hogy kezelje azokat a diákot, amelyek nem tartalmaznak képkockákat.

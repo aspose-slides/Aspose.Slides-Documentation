@@ -1,5 +1,5 @@
 ---
-title: Presentasyonlarda Resim Çerçevelerini C++ ile Yönetme
+title: C++ Kullanarak Sunumlarda Resim Çerçevelerini Yönetme
 linktitle: Resim Çerçevesi
 type: docs
 weight: 10
@@ -18,7 +18,7 @@ keywords:
 - görüntüyü sıkıştır
 - StretchOffset
 - resim çerçevesi biçimlendirme
-- göreceli ölçek
+- bağıl ölçek
 - görüntü efekti
 - en-boy oranı
 - PowerPoint
@@ -26,21 +26,21 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile sunumlarda resim çerçevelerini oluşturma, biçimlendirme, bağlama, kırpma, çıkarma ve sıkıştırma."
+description: "Aspose.Slides for C++ ile sunumlarda resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkarın ve sıkıştırın."
 ---
 ## **Genel Bakış**
 
-Bir resim çerçevesi, görüntüyü gösteren bir slayt şeklidir. Aspose.Slides içinde, görüntü kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) gömülü görüntü kaynaklarını [image collection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_images/) aracılığıyla sahip olur, bir [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) ise görüntünün konumunu, boyutunu, kenar biçimlendirmesini, dönüşünü, kırpmasını, resim efektlerini ve diğer çerçeve düzeyindeki ayarları kontrol eder.
+Bir resim çerçevesi, bir resmi görüntüleyen slayt şeklidir. Aspose.Slides'ta, görüntü kaynağı ve onu görüntüleyen şekil ayrı nesnelerdir: bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) kendi [görüntü koleksiyonu](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_images/) aracılığıyla gömülü görüntü kaynaklarını sahiplenirken, bir [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) görüntünün konumunu, boyutunu, çizgi biçimlendirmesini, döndürmesini, kırpmasını, resim efektlerini ve diğer çerçeve düzeyindeki ayarları kontrol eder.
 
-Bu ayrım, aynı görüntünün birden çok kez gösterildiği durumlarda yararlıdır. Görüntüyü sunuma bir kez ekleyin, döndürülen [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) yi saklayın ve resim çerçeveleri oluştururken bu görüntü kaynağını kullanın.
+Bu ayrım, aynı görüntünün birden fazla kez gösterildiği durumlarda yararlıdır. Görüntüyü sunuma bir kez ekleyin, döndürülen [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) nesnesini saklayın ve resim çerçeveleri oluştururken bu görüntü kaynağını kullanın.
 
-Resim çerçeveleri PNG veya JPEG gibi raster görüntülerin yanı sıra vektör SVG görüntülerini de içerebilir. Ayrıca görüntüyü sunuma gömmek yerine bağlantılı (linked) görüntülere de başvurabilirler. Seçim, taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu yüzden biçimlendirme veya optimizasyon uygulamadan önce görüntünün nasıl depolanacağına karar vermek faydalıdır.
+Resim çerçeveleri PNG veya JPEG gibi raster görüntüleri ve SVG gibi vektör görüntüleri içerebilir. Ayrıca görüntü baytlarını sunuma depolamak yerine bağlantılı görüntülere de başvurabilirler. Bu seçim, taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu nedenle biçimlendirme veya optimizasyon uygulamadan önce görüntünün nasıl depolanacağına karar vermek faydalıdır.
 
-## **Gömülü Bir Görüntü Ekle ve Biçimlendir**
+## **Gömülü Bir Görüntüyü Ekle ve Biçimlendir**
 
-Gömülü bir görüntü için, görüntü verisini sunuma ekleyin ve [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/shapecollection/addpictureframe/) ile bir resim çerçevesi oluşturun. Görüntü sunum paketinin bir parçası hâline gelir, bu yüzden sunum başka bir bilgisayara taşındığında bile kendine yeterli kalır.
+Gömülü bir görüntü için, görüntü verilerini sunuma ekleyin ve [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/shapecollection/addpictureframe/) ile bir resim çerçevesi oluşturun. Görüntü, sunum paketinin bir parçası haline gelir, böylece sunum başka bir bilgisayara taşındığında da bağımsız kalır.
 
-Aşağıdaki örnek bir JPEG görüntüsü ekler, görüntünün yerel boyutlarında bir çerçeve oluşturur ve kenar biçimlendirmesi ile dönüş uygulamaktadır:
+Aşağıdaki örnek bir JPEG görüntüsü ekler, görüntünün yerel boyutlarında bir çerçeve oluşturur ve çizgi biçimlendirmesi ile döndürme uygular:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -80,11 +80,11 @@ presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Resim çerçevesi görüntülenen geometrinin kontrolünü sağlar; çerçeve boyutunun değiştirilmesi gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu fark, daha sonra görüntüyü kırpma veya sıkıştırma yaparken önem kazanır.
+Resim çerçevesi görüntülenen geometriyi kontrol eder; çerçeve boyutunu değiştirmek gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu ayrım, daha sonra görüntüyü kırpma veya sıkıştırma yapıldığında önem kazanır.
 
-## **Göreceli Ölçeği Kullan**
+## **Bağıl Ölçeği Kullan**
 
-[IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) çerçeve için göreceli genişlik ve yükseklik ölçeklendirmesini ortaya koyar. `1.0` değeri, orijinal resim boyutunun %100’üne karşılık gelir. Göreceli ölçek, bir iş akışının son boyutları manuel olarak hesaplamak yerine kaynak görüntü boyutuyla ilişkili kalmasını gerektirdiğinde yararlıdır.
+[IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) çerçeve için bağıl genişlik ve yükseklik ölçeklemesini sunar. `1.0` değeri, orijinal resim boyutunun %100'üne karşılık gelir. Bağıl ölçek, bir iş akışının son boyutları manuel olarak hesaplamak yerine kaynak görüntü boyutuna bir ilişki koruması gerektiğinde kullanışlıdır.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -116,17 +116,17 @@ presentation->Save(u"relative-scale.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Göreceli ölçek çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örneklemez veya sıkıştırmaz.
+Bağıl ölçek, çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örnekleme veya sıkıştırma yapmaz.
 
 ## **Gömülü ve Bağlantılı Görüntüler**
 
-Gömülü bir resim, görüntü verisini sunum içinde depolar ve bu nedenle taşınabilirlik ve öngörülebilir render için en güvenli seçenektir. Bağlantılı bir resim ise [ISlidesPicture](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidespicture/) bağlantı yolu aracılığıyla dış bir konumu saklar; görüntü verisi aynı şekilde gömülmez.
+Gömülü bir resim, görüntü verilerini sunum içinde depolar ve bu yüzden taşınabilirlik ve öngörülebilir render için en güvenli seçenektir. Bağlantılı bir resim, aynı şekilde görüntü verilerini gömmek yerine [ISlidesPicture](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidespicture/) bağlantı yolu aracılığıyla harici bir konumu saklar.
 
-Bağlantılı görüntüler PPTX içindeki veri miktarını azaltabilir, ancak dış bir bağımlılık getirir. Bağlantılı dosya, sunumu açan veya render eden uygulama tarafından erişilebilir kalmalıdır. Yol değişirse, dosya taşınırsa veya kaynak kullanılamaz hâle gelirse, bağlantılı resim beklendiği gibi görüntülenmeyebilir. E-posta ile gönderilmesi, arşivlenmesi veya izole ortamlarda render edilmesi gereken sunumlar için gömülü görüntüler genellikle daha güvenilirdir.
+Bağlantılı görüntüler PPTX içinde depolanan görüntü verisi miktarını azaltabilir, ancak dış bağımlılık getirir. Bağlantılı dosya, sunumu açan veya render eden uygulama tarafından erişilebilir olmalıdır. Yol değişirse, dosya taşınırsa veya kaynak kullanılamaz olursa, bağlantılı resim beklendiği gibi görüntülenmeyebilir. E-posta ile gönderilmesi, arşivlenmesi veya izole ortamda render edilmesi gereken sunumlar için gömülü görüntüler genellikle daha güvenilirdir.
 
 ### **Bağlantılı Bir Görüntü Ekle**
 
-Aşağıdaki örnek bir resim çerçevesi oluşturur ve yerel bir görüntü dosyasına işaret eder. Sadece görüntü bağlantılamayı ele alır; video bağlantısı ayrı bir medya iş akışıdır ve bu örneğe bilinçli olarak dahil edilmemiştir.
+Aşağıdaki örnek bir resim çerçevesi oluşturur ve onu yerel bir görüntü dosyasına yönlendirir. Bu sadece görüntü bağlantısını gösterir; video bağlantısı ayrı bir medya iş akışıdır ve kasıtlı olarak bu örneğe karıştırılmamıştır.
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -155,15 +155,15 @@ presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Dış dosya yönetimi amaçlanıyorsa bağlantıları kullanın. Sıkıştırmanın yerine sadece bir ikame olarak kullanmayın: kırık görüntü bağımlılıkları olan küçük bir PPTX, daha büyük kendi kendine yeten bir sunumdan genellikle daha az faydalıdır.
+Dış dosya yönetimi kasıtlıysa bağlantıları kullanın. Sıkıştırma yerine sadece bir yedekleme olarak kullanmayın: kırık görüntü bağımlılıklarına sahip küçük bir PPTX, genellikle daha büyük, bağımsız bir sunumdan daha az kullanışlıdır.
 
-## **Resim Çerçevelerinden Görüntü Çıkar**
+## **Resimleri Resim Çerçevelerinden Çıkar**
 
-Mevcut bir sunumdan görüntü çıkarmadan önce, bir şeklin gerçekten bir [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) olup olmadığını ve gömülü bir görüntü içerdiğini kontrol edin. Bağlantılı resim çerçeveleri, aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
+Mevcut bir sunumdan bir görüntüyü çıkarmadan önce, bir şeklin gerçekten bir [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) olduğu ve gömülü bir görüntü içerdiği doğrulanmalıdır. Bağlantılı resim çerçeveleri aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
 
 ### **Raster Görüntü Çıkar**
 
-Modern görüntü API’si doğrudan [IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
+Modern görüntü API'si doğrudan [IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -205,11 +205,11 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-[IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) üzerinden kaydetmek, çıkarılan görüntüyü istenen çıktıya dönüştürür. Sunum içinde saklanan kodlanmış baytlara (dönüştürülmüş raster dosyası yerine) ihtiyacınız varsa, görüntü kaynağının ikili verisini kullanın.
+[IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) üzerinden kaydetmek, çıkarılan görüntüyü istenen çıktı formatına dönüştürür. Sunumda saklanan kodlanmış baytlara ihtiyacınız varsa, dönüştürülmüş raster dosya yerine görüntü kaynağının ikili verisini kullanın.
 
 ### **SVG Görüntü Çıkar**
 
-SVG resmi için, [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) bir [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) nesnesi sunar. Böylece resmi rasterleştirmeden doğrudan SVG verisini alabilirsiniz.
+SVG resmi için, [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) bir [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) nesnesi sunar. Bu sayede SVG verisini doğrudan alabilir, resmi önce rasterleştirmeniz gerekmez.
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -257,11 +257,11 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-SVG içeriğini SVG olarak tutmak, vektör kaynağını sunum içinde korur. PNG veya JPEG gibi raster dışa aktarmalar bu vektör içeriği piksellere çevirir. PDF veya SVG slayt dışa aktarma da bir render işlemidir; dışa aktarılan grafik, orijinal gömülü SVG’nin bayt‑bayt kopyası olarak ele alınmamalıdır; orijinal vektör kaynağı gerektiğinde gömülü [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) verisi kullanılmalıdır.
+SVG içeriğini SVG olarak tutmak, vektör kaynağını sunum içinde korur. PNG veya JPEG gibi raster dışa aktarmalar bu vektör içeriği piksel olarak render eder. PDF veya SVG slayt dışa aktarması da bir render işlemi olduğundan, dışa aktarılan grafikler orijinal gömülü SVG'nin bayt‑bayt kopyası olarak görülmemelidir; orijinal vektör kaynağı gerektiğinde gömülü [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) verisi kullanılmalıdır.
 
 ## **Bir Görüntüyü Kırp**
 
-Kırpma, bir görüntünün çerçeve içinde hangi kısmının görüneceğini değiştirir. [IPictureFillFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/) üzerindeki kırpma değerleri, kaynak görüntünün boyutlarının yüzdesi olarak verilir. Kırpma, gömülü görüntüden gizli pikselleri başlangıçta silmez; sadece görünür bölgeyi değiştirir.
+Kırpma, çerçeve içinde görüntünün hangi kısmının görüneceğini değiştirir. [IPictureFillFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/) üzerindeki kırpma değerleri, kaynak görüntü boyutlarının yüzdesidir. Kırpma, gömülü görüntüden gizli pikselleri başlangıçta silmez; sadece görünür bölgeyi değiştirir.
 
 Aşağıdaki örnek bir resim çerçevesini güvenli bir şekilde bulur ve kırpma değerlerini uygular:
 
@@ -304,11 +304,11 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Gizli görüntü verisi hâlâ mevcut olduğu için, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu daha önemliyse ve geri dönüşüm gerekmezse, kırpılmış bölgeler sonraki bölümde fiziksel olarak kaldırılabilir.
+Gizli görüntü verisi hâlâ mevcut olduğundan, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu, geri dönüşümden daha çok bir sorun ise, sonraki bölümde açıklanan şekilde kırpılmış bölgeler fiziksel olarak kaldırılabilir.
 
 ## **Kırpılmış Görüntü Verisini Kaldır**
 
-[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) mevcut kırpma dikdörtgeni dışındaki görüntü verisini siler ve sonuçta oluşan görüntü kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonraki bir kırpma geri alma işleminde bulunamaz.
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) mevcut kırpma dikdörtgeni dışındaki görüntü verisini kaldırır ve sonuçtaki görüntü kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonraki bir kırpmayı geri alma işlemi için mevcut değildir.
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -350,13 +350,13 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Yöntem sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü başka resim çerçeveleri tarafından da kullanılıyorsa, bu çerçevelerin hâlâ mevcut kaynaklara ihtiyacı olur; bu yüzden kırpılmış alanların silinmesi mutlaka toplam görüntü sayısını azaltmaz. WMF veya EMF içeriklerini bu yöntemle kırpmak, kırpılmış sonucu PNG’ye rasterleştirir.
+Bu yöntem sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü diğer resim çerçeveleri tarafından da kullanılıyorsa, bu çerçeveler hâlâ mevcut kaynaklarını gerektirir; bu nedenle kırpılmış bölgelerin silinmesi toplam görüntü sayısını mutlaka azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG'ye rasterleştirir.
 
 ## **Raster Görüntüleri Sıkıştır**
 
-[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/compressimage/) raster görüntü çözünürlüğünü, resmin görüntülendiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Yöntem, görüntü yeniden boyutlandırıldıysa veya kırpıldıysa `true`, hiçbir değişiklik gerekmediyse `false` döndürür.
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/compressimage/) raster görüntü çözünürlüğünü, resmin görüntülendiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Yöntem, resim yeniden boyutlandırıldıysa veya kırpıldıysa `true`, hiçbir değişiklik gerekmediyse `false` döndürür.
 
-Standart bir hedef çözünürlük yeterli olduğunda, önceden tanımlı bir [PicturesCompression](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/picturescompression/) değeri kullanın:
+Standart bir hedef çözünürlük yeterli olduğunda önceden tanımlanmış bir [PicturesCompression](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/picturescompression/) değeri kullanın:
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -397,77 +397,17 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Belirli bir hedef gerektiğinde enum değeri yerine pozitif bir DPI değeri özel olarak geçirilebilir.
+Belirli bir hedef gerektiğinde bir enum değeri yerine özel pozitif DPI değeri de geçirilebilir.
 
-Sıkıştırma raster görüntüler için tasarlanmıştır. SVG ve metafile içerikleri bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca düşük çözünürlük ve silinen kırpılmış bölgeler, optimize edilmiş sunumdan geri getirilemez. Hedef çözünürlüğü, görüntünün gerçek izlenme veya dışa aktarılma boyutuna göre seçin; tüm PPTX boyunca en düşük DPI’yı uygulamaktan kaçının.
+Sıkıştırma raster görüntüler için tasarlanmıştır. SVG ve metafile içeriği bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca düşük çözünürlük ve silinmiş kırpılmış bölgelerin optimize edilmiş sunumdan geri getirilemeyeceğini unutmayın. Hedef çözünürlüğü, görüntünün gerçekte görüntülenecek veya dışa aktarılacak en büyük boyutuna göre seçin; küresel olarak en düşük DPI'yı uygulamaktan kaçının.
 
-## **Görüntü Efektlerini İncele**
+## **Görüntü Dönüşüm Efektlerini Yönet**
 
-Resim efektleri, çerçeve tarafından kullanılan resimde depolanır. Görüntü dönüşüm koleksiyonu, şeffaflık için sabit alfa modülasyonu ve parlaklık/kontrast için ışıklılık gibi efektler içerebilir. Aşağıdaki örnek, bir slayttaki ilk resim çerçevesinden her iki tür efekti de güvenli bir şekilde okur:
-
-```cpp
-#include <DOM/Effects/IAlphaModulateFixed.h>
-#include <DOM/Effects/IImageTransformOperationCollection.h>
-#include <DOM/Effects/ILuminance.h>
-#include <DOM/Effects/ILuminanceEffectiveData.h>
-#include <DOM/IPictureFillFormat.h>
-#include <DOM/IPictureFrame.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlidesPicture.h>
-#include <DOM/Presentation.h>
-#include <system/console.h>
-#include <system/object_ext.h>
-#include <system/smart_ptr.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Effects;
-using namespace System;
-
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-SharedPtr<IPictureFrame> pictureFrame;
-
-for (auto&& shape : slide->get_Shapes())
-{
-    if (ObjectExt::Is<IPictureFrame>(shape))
-    {
-        pictureFrame = ExplicitCast<IPictureFrame>(shape);
-        break;
-    }
-}
-
-if (pictureFrame != nullptr)
-{
-    auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-
-    for (auto&& effect : imageTransform)
-    {
-        if (ObjectExt::Is<IAlphaModulateFixed>(effect))
-        {
-            auto alphaModulateFixed = ExplicitCast<IAlphaModulateFixed>(effect);
-            auto transparency = 100.0f - alphaModulateFixed->get_Amount();
-            Console::WriteLine(String(u"Transparency: ") + transparency);
-        }
-
-        if (ObjectExt::Is<ILuminance>(effect))
-        {
-            auto luminanceEffect = ExplicitCast<ILuminance>(effect);
-            auto luminance = luminanceEffect->GetEffective();
-            Console::WriteLine(String(u"Brightness: ") + luminance->get_Brightness());
-            Console::WriteLine(String(u"Contrast: ") + luminance->get_Contrast());
-        }
-    }
-}
-
-presentation->Dispose();
-```
-
-Bu efektler, resmin çerçevede nasıl render edildiğini değiştirir; orijinal gömülü görüntü baytlarını yeniden yazarlar.
+Parlaklık, kontrast, renk dönüşümleri, bulanıklaştırma, alfa efektleri, sıralı zincirler, denetleme, kaldırma ve çift yönlü doğrulama gibi tam bir iş akışı için [Image Transform Effects](/slides/tr/cpp/image-transform-effects/) bölümüne bakın.
 
 ## **Resim Çerçevesi Geometrisini Kilitle**
 
-[IPictureFrameLock](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakılacağını kontrol eder. Örneğin, [aspect-ratio lock](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) yeniden boyutlandırma sırasında şeklin oranlarını korur.
+[IPictureFrameLock](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakıldığını kontrol eder. Örneğin, [aspect-ratio lock](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) yeniden boyutlandırma sırasında şeklin oranını korur.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -499,13 +439,13 @@ presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Kilit, resim çerçevesi şekline uygulanır. Kaynak görüntünün aynı en-boy oranına yeniden örneklenmesini veya kalıcı olarak değiştirilmesini zorlamaz.
+Kilitleme, resim çerçevesi şekline uygulanır. Kaynak görüntünün aynı en boy oranına yeniden örneklenmesini veya kalıcı olarak değiştirilmesini zorlamaz.
 
 ## **StretchOffset Değerlerini Ayarla**
 
-Resim doldurma modu stretch olduğunda, [IPictureFillFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini resim çerçevesinin sınırlayıcı kutusuna göre tanımlar. Pozitif yüzdeler bir kenardan içe doğru bir iç boşluk oluştururken, negatif yüzdeler dışa doğru bir çıkıntı oluşturur.
+Resim doldurma modu stretch olduğunda, [IPictureFillFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini resim çerçevesinin sınırlayıcı kutusuna göre tanımlar. Pozitif yüzde değerleri bir kenardan içe doğru bir boşluk oluştururken, negatif yüzde değerleri dışa doğru bir genişleme yapar.
 
-Bu, kırpmadan farklıdır. Kırpma değerleri, kaynaktan hangi kısmın görüneceğini seçerken; stretch offset’leri, görünür resim doldurmasının hangi dikdörtgene gerileceğini değiştirir.
+Bu, kırpmadan farklıdır. Kırpma değerleri kaynak görüntünün hangi kısmının görüneceğini seçerken, stretch offsetler görüntünün uzatılacağı dikdörtgeni değiştirir.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -542,43 +482,43 @@ presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Doldurma yerleşimi için stretch offset’leri kullanın. Kaynak görüntünün kenarlarını gizleme amacınız varsa kırpma özelliklerini kullanın.
+Doldurma yerleştirmesi için stretch offsetleri kullanın. Kaynak görüntünün kenarlarını gizlemek istiyorsanız kırpma özelliklerini kullanın.
 
 ## **Depolama, Dosya Boyutu ve Dışa Aktarma Hususları**
 
-Görüntü depolama ve resim‑çerçeve biçimlendirmesinin ayrı ayrı ele alındığı zaman temel dengelemeler daha kolay yönetilir:
+Görüntü depolama ve resim‑çerçeve biçimlendirmesi ayrı ayrı ele alındığında temel tavizler yönetimi daha kolaydır:
 
-- **Gömülü görüntüler** sunumu kendi içinde tutar ve paylaşım ve sunucu‑tarafı render için en güvenilir olandır; ancak büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
-- **Bağlantılı görüntüler** paketi daha küçük tutabilir, fakat sunum, belirtilen yollar veya konumlardaki dış dosyaların mevcut olmasına bağımlıdır.
-- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene veya sıkıştırma sırasında kaldırılana kadar gömülü kalır.
-- **Sıkıştırma**, aşırı büyük raster görüntüler için dosya boyutunu önemli ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Kaydedilmeden önce slayt üzerindeki hedef boyut bilindiğinde uygulanmalıdır.
-- **SVG görüntüler**, vektör korumasının önemli olduğu durumlarda SVG olarak tutulmalıdır. Vektör kaynağı gerektiğinde gömülü SVG doğrudan çıkarılabilir. Raster slayt dışa aktarmaları her zaman slaytı piksellere dönüştürür.
-- **Tekrarlanan görüntüler**, aynı dosyayı tekrar‑tekrar yüklemek yerine mevcut bir [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) kaynağını yeniden kullanmalıdır.
+- **Gömülü görüntüler** sunumu bağımsız hâle getirir ve paylaşım ve sunucu tarafı render için en güvenilir olandır, ancak büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
+- **Bağlantılı görüntüler** paketi daha küçük tutabilir, ancak sunumun dış dosyaların belirtilen yollar veya konumlarda mevcut olmasına bağımlı olmasını gerektirir.
+- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene veya sıkıştırma sırasında kaldırılıncaya kadar gömülü kalır.
+- **Sıkıştırma**, aşırı büyük raster görüntüler için dosya boyutunu önemli ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Slayt üzerindeki hedef boyut bilindikten sonra uygulanmalıdır.
+- **SVG görüntüler**, vektör korumasının önemli olduğu durumlarda SVG olarak kalmalıdır. Vektör kaynağı gerektiğinde gömülü SVG doğrudan çıkarılabilir. Raster slayt dışa aktarmaları her zaman render edilen slaytı piksele dönüştürür.
+- **Tekrarlanan görüntüler**, mümkün olduğunda aynı [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) kaynağını yeniden kullanmalı, aynı dosyayı sunuma defalarca yüklemekten kaçınmalıdır.
 
-Büyük sunumlarda, görüntü optimizasyonu genellikle seçici olarak yapıldığında daha etkilidir: logoları ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek gösterim boyutlarına göre sıkıştırın, kırpılmış pikselleri yalnızca daha sonra düzenleme gerekmiyorsa kaldırın ve dış bağlantılardan kaçının, dış bağımlılık yönetimi dağıtım tasarımının bir parçası değilse.
+Büyük sunumlar için görüntü optimizasyonu genellikle seçici olarak yapıldığında en etkilidir: logoları ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek gösterim boyutuna göre sıkıştırın, kırpılmış pikselleri yalnızca daha sonra düzenleme gerekmiyorsa kaldırın ve dış bağlantıları yalnızca bağımlılık yönetimi dağıtım tasarımının bir parçasıysa kullanın.
 
 ## **SSS**
 
-**Resim çerçevesi ile görüntü kaynağı arasındaki fark nedir?**
+**Bir resim çerçevesi ile bir görüntü kaynağı arasındaki fark nedir?**
 
-[IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) sunuma ait bir görüntü kaynağını temsil eder. [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) ise bir slaytta görüntüyü gösteren, çerçeve‑düzeyi geometri ve biçimlendirme (boyut, dönüş, kırpma değerleri, efektler, kilitler) saklayan bir şekildir.
+[IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) sunuma bağlı bir görüntü kaynağını temsil eder. [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) bir slayttaki şekildir ve bir görüntüyü gösterir; çerçeve‑seviyesinde boyut, döndürme, kırpma değerleri, efektler ve kilitlemeler gibi biçimlendirmeleri depolar.
 
-**Görüntüleri gömmeli mi yoksa bağlamalı mı?**
+**Görüntüleri gömmeli miyim yoksa bağlamalı mı?**
 
-Sunumun taşınabilir, arşivlenebilir veya dış kaynaklara erişim olmadan render edilmesi gerekiyorsa görüntüleri gömün. Görüntü dosyalarını PPTX dışına tutmak ve dış konumların güvenilir bir şekilde korunabileceği durumlarda yalnızca bağlayın.
+Sunumun taşınabilir, arşivlenebilir veya dış kaynaklar olmadan render edilmesi gerekiyorsa görüntüleri gömün. Görüntü dosyalarını PPTX dışına tutmak ve dış konumların güvenilir şekilde yönetilebileceği durumlarda yalnızca bağlayın.
 
 **Kırpma PPTX dosya boyutunu azaltır mı?**
 
-Kendiliğinden değil. Normal kırpma ayarları, kaynak görüntünün bir kısmını gizler fakat alttaki pikselleri tutar. Kırpılmış pikselleri kalıcı olarak silmek için [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) veya kırpma‑alanı kaldırma ile sıkıştırma kullanılmalıdır.
+Tek başına azaltmaz. Normal kırpma ayarları, kaynak görüntünün parçalarını gizler ancak altındaki pikselleri tutar. Kırpılmış bölgeleri tamamen kaldırmak için [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) veya kırpılmış alan kaldırma içeren görüntü sıkıştırmasını kullanın.
 
-**Sıkıştırma sonrası görüntü kalitesini geri getirebilir miyim?**
+**Sıkıştırmadan sonra görüntü kalitesini geri getirebilir miyim?**
 
-Hayır. Sıkıştırma saklanan raster çözünürlüğü azaltır ve kırpılmış bölgelerin kaldırılması görüntü verisini yok eder. Daha sonraki yüksek‑çözünürlük düzenlemeleri gerekebileceği durumlarda orijinal kaynak görüntüyü sunum dışında tutun.
+Hayır. Sıkıştırma depolanan raster çözünürlüğü düşürebilir ve kırpılmış bölgelerin kaldırılması görüntü verisini yok eder. Daha sonra yüksek çözünürlüklü düzenleme gerekebileceği durumlarda orijinal kaynak görüntüyü sunum dışında tutun.
 
 **SVG görüntüler nasıl ele alınmalı?**
 
-Vektör bütünlüğünün önemli olduğu durumlarda SVG içeriğini SVG olarak tutun. Gömülü [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) doğrudan çıkarılabilir. PNG veya JPEG gibi raster formata bir slayt render edildiğinde SVG, slayt görüntüsünün bir parçası olarak piksellere rasterleştirilir.
+Vektör bütünlüğünün önemsediği durumlarda SVG içeriğini SVG olarak tutun; gömülü [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) doğrudan çıkarılabilir. PNG veya JPEG gibi raster formatlara slayt render edildiğinde SVG piksele rasterleştirilir.
 
-**Mevcut slaytları okurken güvenli olmayan tip dönüşümlerinden nasıl kaçınırım?**
+**Mevcut slaytları okurken güvenli olmayan tip dönüşümlerinden nasıl kaçınılır?**
 
-Resim‑çerçevesi‑özel üyeleri kullanmadan önce şekil tipini kontrol edin. Çalışma zamanında tip dönüşümü uygulamadan önce şekli [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) ile test edin ve tip dönüşüm sonucunu yerel bir değişkene atayın.
+Resim‑çerçeve‑özel üyeleri kullanmadan önce şekil tipini kontrol edin. [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) ile denetleyin, ardından çalışma zamanında tip dönüşümünü uygulayın ve dönüşüm sonucunu yerel bir değişkende tutarak çerçeve‑özel üyelere erişin.

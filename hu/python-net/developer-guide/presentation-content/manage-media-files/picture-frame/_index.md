@@ -1,5 +1,5 @@
 ---
-title: Képkeretek kezelése prezentációkban Python használatával
+title: Képkeretek kezelése prezentációkban Python nyelven
 linktitle: Képkeret
 type: docs
 weight: 10
@@ -9,7 +9,7 @@ keywords:
 - képkeret hozzáadása
 - képkeret létrehozása
 - beágyazott kép
-- linkelt kép
+- kapcsolt kép
 - kép kinyerése
 - raszteres kép
 - SVG kép
@@ -19,28 +19,28 @@ keywords:
 - StretchOffset
 - képkeret formázása
 - relatív méretezés
-- kép hatás
+- kép hatása
 - oldalarány
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-description: Képkeretek létrehozása, formázása, összekapcsolása, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for Python via .NET használatával.
+description: "Képkeretek létrehozása, formázása, összekapcsolása, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for Python via .NET segítségével."
 ---
 ## **Áttekintés**
 
-A picture frame egy diaképdoboz, amely képet jelenít meg. Az Aspose.Slides-ben a kép erőforrás és a megjelenítő alakzat külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) beágyazott képerny erőforrásokat birtokol a [ImageCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imagecollection/) segítségével, míg egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgatását, vágását, képhatásait és egyéb keretszintű beállításait.
+A picture frame egy dián lévő alakzat, amely képet jelenít meg. Az Aspose.Slides-ben a képernyöforrás és a megjelenítő alakzat külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) beágyazott képforrásokat birtokol a [ImageCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imagecollection/) segítségével, míg egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgatását, vágását, kép hatásait és egyéb keretszintű beállításokat.
 
-Ez a felosztás akkor hasznos, amikor ugyanaz a kép többször jelenik meg. Adjunk hozzá a képhez egyszer a prezentációhoz, tartsuk meg a visszaadott [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/), és használjuk ezt a kép erőforrást picture frame-ek létrehozásakor.
+Ez a szétválasztás akkor hasznos, ha ugyanaz a kép többször is megjelenik. Addja a képet egyszer a prezentációhoz, tartsa meg a visszaadott [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/), és használja azt a képforrást képkeretek létrehozásakor.
 
-A picture frame-ek raster képeket (például PNG vagy JPEG) és vektor SVG képeket is tartalmazhatnak. Emellett hivatkozhatnak linkelt képekre is, ahelyett, hogy a kép bájtjait tárolnák a prezentációban. A választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért hasznos előre eldönteni, hogyan legyen a kép tárolva a formázás vagy optimalizálás előtt.
+A képkeretek raster képeket, például PNG vagy JPEG, valamint vektor SVG képeket is tartalmazhatnak. Ezenkívül hivatkozhatnak kapcsolt képekre is, ahelyett, hogy a kép bájtjait a prezentációban tárolnák. A választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért hasznos meghatározni, hogyan legyen a kép tárolva a formázás vagy optimalizálás előtt.
 
 ## **Beágyazott kép hozzáadása és formázása**
 
-Beágyazott kép esetén adjuk hozzá a kép adatot a prezentációhoz, és hozzunk létre egy picture frame-et a [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_picture_frame/) segítségével. A kép a prezentációcsomag részévé válik, így a prezentáció önálló marad, ha egy másik számítógépre kerül.
+Beágyazott kép esetén adja hozzá a kép adatát a prezentációhoz, és hozzon létre egy képkeretet a [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shapecollection/add_picture_frame/) segítségével. A kép a prezentáció csomagjának része lesz, így a prezentáció önmagában tartalmazza magát, amikor másik számítógépre kerül.
 
-Az alábbi példa JPEG képet ad hozzá, a kép natív méreteiben hoz létre egy keretet, és vonalformázást valamint forgatást alkalmaz:
+Az alábbi példa JPEG képet ad hozzá, keretet hoz létre a kép natív méreteiben, és vonalformázást valamint forgatást alkalmaz:
 
 ```python
 import aspose.pydrawing as draw
@@ -61,11 +61,11 @@ with slides.Presentation() as presentation:
     presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A picture frame szabályozza a megjelenített geometriát; a keret méretének módosítása nem változtatja meg az eredeti pixelméreteket, amelyeket a beágyazott kép erőforrás tárol. Ez a megkülönböztetés akkor válik fontosá, ha később vágunk vagy tömörítünk egy képet.
+A picture frame szabályozza a megjelenített geometriát; a keret méretének módosítása nem változtatja meg az eredeti, a beágyazott képforrásban tárolt pixelméreteket. Ez a különbség későbbi vágás vagy tömörítés esetén fontos.
 
 ## **Relatív méretezés használata**
 
-A [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) rendelkezik a [relative_scale_width](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/relative_scale_width/) és a [relative_scale_height](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/relative_scale_height/) tulajdonságokkal. Az `1.0` érték az eredeti kép méretének 100%-ának felel meg. A relatív méretezés akkor hasznos, amikor egy munkafolyamatnak meg kell őriznie a kapcsolatot a forráskép méretével, ahelyett, hogy manuálisan számolná ki a végleges méreteket.
+A [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) a [relative_scale_width](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/relative_scale_width/) és a [relative_scale_height](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/relative_scale_height/) értékeket exponálja a kerethez. Az `1.0` érték az eredeti kép 100%-ának felel meg. A relatív méretezés akkor hasznos, ha a munkafolyamatnak meg kell őriznie a kapcsolatot a forráskép méretével a végleges méretek kézi számítása helyett.
 
 ```python
 import aspose.slides as slides
@@ -83,17 +83,17 @@ with slides.Presentation() as presentation:
     presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A relatív méretezés megváltoztatja a keret méretbeállításait; nem mintavételezi vagy tömöríti a beágyazott képet.
+A relatív méretezés a keret méretbeállításait változtatja; nem mintavételezi vagy tömöríti a beágyazott képet.
 
-## **Beágyazott és linkelt képek**
+## **Beágyazott és kapcsolt képek**
 
-A beágyazott picture a kép adatot a prezentáción belül tárolja, ezért a legbiztonságosabb választás a hordozhatóság és az előre kiszámítható megjelenítés szempontjából. Egy linkelt picture a [Picture](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picture/) linkútvonalon keresztül tárolja a külső helyet, ahelyett, hogy a kép adatot beágyazná ugyanúgy.
+A beágyazott kép a képadatot a prezentáció belsejében tárolja, ezért a hordozhatóság és az előre látható megjelenítés szempontjából a legbiztonságosabb választás. A kapcsolt kép a [Picture](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picture/) hivatkozási útvonalán keresztül külső helyet tárol a képadatok beágyazása helyett.
 
-A linkelt képek csökkenthetik a PPTX-ben tárolt kép adat mennyiségét, de külső függőséget hoznak be. A linkelt fájlnak elérhetőnek kell maradnia azon alkalmazás számára, amely megnyitja vagy rendereli a prezentációt. Ha az útvonal megváltozik, a fájl átkerül, vagy az erőforrás nem érhető el, a linkelt picture előre nem látható módon nem jelenik meg. Azoknál a prezentációknál, amelyeket e‑mailben kell küldeni, archiválni kell, vagy izolált környezetben kell renderelni, a beágyazott képek általában megbízhatóbbak.
+A kapcsolt képek csökkenthetik a PPTX-ben tárolt képadatok mennyiségét, de külső függőséget hoznak létre. A kapcsolt fájlnak elérhetőnek kell maradnia ahhoz az alkalmazáshoz, amely megnyitja vagy rendereli a prezentációt. Ha az útvonal megváltozik, a fájl áthelyezésre kerül vagy az erőforrás nem hozzáférhető, a kapcsolt kép nem biztos, hogy a várt módon jelenik meg. Olyan prezentációk esetén, amelyeket e‑mailben kell elküldeni, archiválni vagy elszigetelt környezetben renderelni, a beágyazott képek általában megbízhatóbbak.
 
-### **Linkelt kép hozzáadása**
+### **Kapcsolt kép hozzáadása**
 
-Az alábbi példa egy picture frame-et hoz létre, és egy helyi kép fájlra mutat. Csak a kép linkelésével foglalkozik; a video linkelés egy külön médiamunkafolyamat, és szándékosan nincs keverve ebbe a példába.
+Az alábbi példa egy picture frame-et hoz létre, és egy helyi képfájlra mutat. Csak a kép hivatkozását kezeli; a videó hivatkozás egy külön médiamunkafolyamat, és szándékosan nincs keverve ebben a példában.
 
 ```python
 import os
@@ -109,15 +109,15 @@ with slides.Presentation() as presentation:
     presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Használjunk linkeket, ha a külső fájlkezelés szándékos. Ne használjuk őket pusztán a tömörítés helyettesítésére: egy kis PPTX, amelyben törött kép függőségek vannak, általában kevésbé hasznos, mint egy nagyobb, önálló prezentáció.
+Használjon hivatkozásokat, ha a külső fájlkezelés szándékos. Ne használja őket csupán a tömörítés pótlására: egy kisebb PPTX törött képfüggőségekkel általában kevésbé hasznos, mint egy nagyobb, önmagában álló prezentáció.
 
-## **Képek kinyerése picture frame-ekből**
+## **Képek kinyerése képkeretekből**
 
-Mielőtt képet nyernénk ki egy meglévő prezentációból, ellenőrizzük, hogy a forma valóban egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/), és hogy beágyazott képet tartalmaz‑e. A linkelt picture frame-ek nem feltétlenül tartalmaznak kivonható kép bájtokat.
+Mielőtt képet nyerne ki egy meglévő prezentációból, ellenőrizze, hogy az alakzat valóban egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/), és hogy beágyazott képet tartalmaz-e. A kapcsolt képkeretek nem feltétlenül tartalmaznak képbyte-okat, amelyeket ugyanúgy ki lehetne nyerni.
 
-### **Raster kép kinyerése**
+### **Rasterkép kinyerése**
 
-A modern kép API közvetlenül a [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) használja. Az alábbi példa megtalálja az első beágyazott raster képet a dián, és PNG‑ként menti el:
+A modern kép API közvetlenül a [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) használatával működik. Az alábbi példa megtalálja az első beágyazott raster képet egy dián, és PNG‑ként menti el:
 
 ```python
 import aspose.slides as slides
@@ -138,11 +138,11 @@ with slides.Presentation("sample.pptx") as presentation:
         break
 ```
 
-A [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) használatával a kinyert kép a kért kimeneti formátumba konvertálódik. Ha a prezentációban tárolt kódolt bájtokra van szükség a konvertált raster fájl helyett, használja a [PPImage.binary_data](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/binary_data/) tulajdonságot.
+A [IImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/iimage/) használatával a kinyert kép a kért kimeneti formátumba konvertálódik. Ha a prezentációban tárolt kódolt byte-okat szeretné megkapni egy konvertált raster fájl helyett, akkor használja a [PPImage.binary_data](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/binary_data/) tulajdonságot.
 
 ### **SVG kép kinyerése**
 
-SVG picture esetén a [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) egy [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) objektumot tesz elérhetővé. Ez lehetővé teszi az SVG adat közvetlen lekérését, a picture rasterizálása előtt.
+SVG kép esetén a [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) egy [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) objektumot exponál. Ez lehetővé teszi az SVG adat közvetlen lekérését a kép rasterizálása nélkül.
 
 ```python
 import aspose.slides as slides
@@ -165,13 +165,13 @@ with slides.Presentation("sample.pptx") as presentation:
         break
 ```
 
-Az SVG tartalom SVG‑ként történő megtartása megőrzi a vektor forrást a prezentáción belül. A raster exportok, mint a PNG vagy JPEG, a vektort pixelekké alakítják. A PDF vagy SVG diák exportálása szintén egy renderelési művelet, ezért az exportált grafikákat nem szabad az eredeti beágyazott SVG pontos byte‑másolataként kezelni; használja a beágyazott [SvgImage.svg_data](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/svg_data/)‑t, ha a vektor erőforrásra magára van szükség.
+Az SVG tartalom SVG‑ként való megtartása megőrzi a vektoralapot a prezentációban. A PNG vagy JPEG‑hez hasonló raster exportok kötelezően a vektort pixelekre renderelik. A PDF vagy SVG diaexport is egy renderelési művelet, ezért az exportált grafikákat nem szabad eredeti beágyazott SVG‑nek bit‑pontos másolatának tekinteni; használja a beágyazott [SvgImage.svg_data](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/svg_data/) értéket, ha maga a vektor erőforrás szükséges.
 
 ## **Kép vágása**
 
-A vágás megváltoztatja, hogy a kép mely része látható a kereten belül. A [PictureFillFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/) vágási értékei a forráskép méreteinek százalékában vannak megadva. A vágás kezdetben nem törli a rejtett pixeleket a beágyazott képből; csak a látható régiót változtatja meg.
+A vágás megváltoztatja, hogy a kép mely része látható a keretben. A [PictureFillFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/) vágási értékei a forráskép méretének százalékában vannak megadva. A vágás kezdetben nem törli a rejtett pixeleket a beágyazott képből; csak a látható régiót módosítja.
 
-Az alábbi példa biztonságosan megtalál egy picture frame‑et, és alkalmaz vágási értékeket:
+Az alábbi példa biztonságosan megtalálja a picture frame‑et, és alkalmazza a vágási értékeket:
 
 ```python
 import aspose.slides as slides
@@ -193,11 +193,11 @@ with slides.Presentation("sample.pptx") as presentation:
         presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Mivel a rejtett képadat továbbra is jelen van, a vágás később módosítható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb, mint a visszavonhatóság, a vágott területek fizikai eltávolíthatók a következő szakaszban leírt módon.
+Mivel a rejtett képadatok továbbra is jelen vannak, a vágás később módosítható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb, mint a visszafordíthatóság, a vágott területek fizikailag eltávolíthatók a következő szakaszban leírtak szerint.
 
-## **Vágott képadat eltávolítása**
+## **Vágott képadatok eltávolítása**
 
-A [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) eltávolítja a képadatot a jelenlegi vágási téglalapon kívül, és visszaadja az eredményül kapott kép erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a prezentáció mentése után a eltávolított pixelek már nem állnak rendelkezésre későbbi visszavágási művelethez.
+A [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) eltávolítja a képadatot az aktuális vágási téglalapon kívül, és visszaadja a kapott képforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizálás: a prezentáció mentése után a törölt pixelek már nem állnak rendelkezésre egy későbbi „un‑crop” művelethez.
 
 ```python
 import aspose.slides as slides
@@ -217,11 +217,11 @@ with slides.Presentation("cropped-image.pptx") as presentation:
             presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A metódus új kép erőforrást adhat a prezentációhoz. Ha az eredeti kép más picture frame‑ek által is használva van, azoknak továbbra is szükségük van a meglévő erőforrásra, ezért a vágott területek törlése nem feltétlenül csökkenti a képek teljes számát. WMF vagy EMF tartalom vágása ezzel a módszerrel rasterizálja a vágott eredményt PNG‑be.
+A metódus új képforrást adhat a prezentációhoz. Ha az eredeti képet más picture frame‑ek is használják, ezeknek továbbra is a meglévő forrásra van szükségük, így a vágott területek törlése nem feltétlenül csökkenti a képek összes számát. WMF vagy EMF tartalom ilyen módszerrel történő vágása a vágott eredményt PNG‑be rasterizálja.
 
 ## **Raster képek tömörítése**
 
-A [PictureFillFormat.compress_image](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/compress_image/) csökkenti a raster kép felbontását a kép megjelenítési méretéhez képest. Ugyanabban a műveletben eltávolíthatja a vágott területeket is. A metódus `True`‑t ad vissza, ha a kép mérete megváltozott vagy vágás történt, és `False`‑t, ha nincs szükség változtatásra.
+A [PictureFillFormat.compress_image](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/compress_image/) a raster kép felbontását csökkenti a kép megjelenítési méretéhez képest. Ugyanebben a műveletben eltávolíthatja a vágott területeket is. A metódus `True`‑t ad vissza, ha a képet átméretezték vagy levágták, és `False`‑t, ha nem volt szükség változtatásra.
 
 Használjon előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/picturescompression/) értéket, ha egy szabványos célfelbontás elegendő:
 
@@ -243,43 +243,17 @@ with slides.Presentation("sample.pptx") as presentation:
         presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Egyedi pozitív DPI érték is megadható enum helyett, ha egy konkrét célra van szükség.
+Egyedi pozitív DPI érték is megadható enum érték helyett, ha egy konkrét célpont szükséges.
 
-A tömörítés raster képekre vonatkozik. SVG és metafájl tartalom nem csökken ezzel a raster tömörítési munkafolyamattal. Ne feledje, hogy az alacsonyabb felbontás és a törölt vágott régiók nem állíthatók vissza az optimalizált prezentációból. Válasszon célfelbontást a kép legnagyobb megjelenítési vagy export mérete alapján, ne pedig a legalacsonyabb DPI-t alkalmazza globálisan.
+A tömörítés raster képekre van tervezve. SVG‑ és metafájl tartalom nem csökken ezzel a raster tömörítési munkafolyamattal. Emlékezzen arra is, hogy az alacsonyabb felbontású és a törölt vágott területek nem állíthatók vissza az optimalizált prezentációból. Válasszon célfelbontást a legnagyobb megjelenítési vagy export méret alapján, ne pedig a legalacsonyabb DPI‑t globálisan alkalmazza.
 
-## **Kép hatások vizsgálata**
+## **Képtranszformációs hatások kezelése**
 
-A kép hatásokat a frame által használt picture tárolja. A kép transzformációs gyűjtemény tartalmazhat hatásokat, mint például a fix alfa moduláció a átlátszósághoz és a luminancia a fényerő és kontraszt beállításához. Az alábbi példa biztonságosan beolvassa mindkét típusú hatást az első picture frame‑ről a dián:
+A teljes munkafolyamatért, amely lefedi a fényerő, kontraszt, színtranszformációk, elmosás, alfa‑hatások, láncok rendezését, ellenőrzését, eltávolítását és kerek‑úton való ellenőrzését, lásd a [Image Transform Effects](/slides/hu/python-net/image-transform-effects/) oldalt.
 
-```python
-import aspose.slides as slides
+## **Képkeret geometria zárolása**
 
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = None
-
-    for shape in slide.shapes:
-        if isinstance(shape, slides.PictureFrame):
-            picture_frame = shape
-            break
-
-    if picture_frame is not None:
-        for effect in picture_frame.picture_format.picture.image_transform:
-            if isinstance(effect, slides.effects.AlphaModulateFixed):
-                transparency = 100 - effect.amount
-                print("Transparency: " + str(transparency))
-
-            if isinstance(effect, slides.effects.Luminance):
-                luminance = effect.get_effective()
-                print("Brightness: " + str(luminance.brightness))
-                print("Contrast: " + str(luminance.contrast))
-```
-
-Az [AlphaModulateFixed](https://reference.aspose.com/slides/hu/python-net/aspose.slides.effects/alphamodulatefixed/) és a [Luminance](https://reference.aspose.com/slides/hu/python-net/aspose.slides.effects/luminance/) megváltoztatja, hogyan jelenik meg a kép a keretben; nem írja felül az eredeti beágyazott kép bájtjait.
-
-## **Picture Frame geometria zárolása**
-
-A [PictureFrameLock](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframelock/) beállítások határozzák meg, hogy mely szerkesztési műveletek vannak letiltva egy picture frame‑nél. Például a [aspect_ratio_locked](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) tulajdonság megőrzi a forma arányait, amikor az méreteződik.
+A [PictureFrameLock](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframelock/) beállítások határozzák meg, hogy mely szerkesztési műveletek vannak letiltva egy picture frame‑nél. Például az [aspect_ratio_locked](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) tulajdonság megőrzi az alakzat arányait átméretezés közben.
 
 ```python
 import aspose.slides as slides
@@ -296,13 +270,13 @@ with slides.Presentation() as presentation:
     presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A zárolás a picture frame alakzatra vonatkozik. Nem kényszeríti a forrásképet, hogy ugyanarra az arányra legyen újramintavéve vagy végleg módosítva.
+A zárolás a picture frame alakzatra vonatkozik. Nem kényszeríti a forrásképet a mintavételezésre vagy arra, hogy állandóan ugyanazzal az aránnyal rendelkezzen.
 
-## **StretchOffset értékek beállítása**
+## **StretchOffset értékek módosítása**
 
-Amikor a kép kitöltési mód a nyújtás, a [PictureFillFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/) stretch‑offset értékei határozzák meg a kitöltési téglalapot a picture frame körülhatároló dobozához képest. A pozitív százalékok a szél felől beljebb hoznak, míg a negatív százalékok kifelé tolásra használhatók.
+Amikor a kép kitöltési mód stretch, a [PictureFillFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/) stretch‑offset értékei a kitöltő téglalapot definiálják a picture frame körülhatároló dobozához képest. A pozitív százalékok a szél felől beljebb hoznak, a negatív százalékok pedig kifelé.
 
-Ez különbözik a vágástól. A vágási értékek kiválasztják, hogy a forráskép mely része látható; a stretch offsetek megváltoztatják a téglalapot, amelybe a látható kép kitöltése nyújtva kerül.
+Ez különbözik a vágástól. A vágási értékek azt határozzák meg, hogy a forráskép mely része látható; a stretch‑offsetok a látható kitöltés téglalapját változtatják meg.
 
 ```python
 import aspose.slides as slides
@@ -323,43 +297,37 @@ with slides.Presentation() as presentation:
     presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Használja a stretch offseteket a kitöltés elhelyezéséhez. Használja a vágási tulajdonságokat, ha a cél a forráskép széleit elrejteni.
+Használja a stretch‑offsetokat a kitöltés elhelyezéséhez. Használja a vágási tulajdonságokat, ha a cél a forráskép széleinek elrejtése.
 
-## **Tárolás, fájlméret és export szempontok**
+## **Tárolás, fájlméret és exportálási megfontolások**
 
-A fő kompromisszumok kezelése egyszerűbb, ha a kép tárolását és a picture‑frame formázást külön kezeljük:
+A fő kompromisszumok könnyebben kezelhetők, ha a kép tárolását és a képkeret formázását különválasztjuk:
 
-- **Beágyazott képek** önállóvá teszik a prezentációt, és a legmegbízhatóbbak a megosztás és szerveroldali renderelés esetén, de nagy raster képek növelik a PPTX méretét és a memóriahasználatot.
-- **Linkelt képek** kisebb csomagot eredményezhetnek, de a prezentáció függ a külső fájlok elérhetőségétől a tárolt útvonalakon vagy helyeken.
-- **Vágás** kezdetben nem destruktív. A rejtett pixelek beágyazva maradnak, amíg a vágott területek kifejezetten nincsenek törölve vagy a tömörítés során el nem távolítva.
-- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlméretezett raster képek esetén, de feláldozza a forrás felbontást. A dián megjelenítendő méret ismertét követően kell alkalmazni.
-- **SVG képek** esetén a SVG megőrzése fontos, ha a vektor megőrzése lényeges. Közvetlenül kinyerhető a beágyazott SVG, ha a vektor erőforrásra van szükség. A raster diák exportok mindig a slide képeit pixelekké konvertálják.
-- **Ismétlődő képek** esetén használja újra a meglévő [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) erőforrást, ahelyett, hogy ugyanazt a fájlt többször betöltené a prezentációs munkafolyamatba.
+- **Beágyazott képek** önmagukban tartalmazzák a prezentációt, és a legmegbízhatóbbak megosztás és szerveroldali renderelés esetén, de a nagy raster képek növelik a PPTX méretét és memóriahasználatát.  
+- **Kapcsolt képek** kisebbre tarthatják a csomagot, de a prezentáció függ a külső fájlok elérhetőségétől a tárolt útvonalakon vagy helyeken.  
+- **Vágás** kezdetben nem destruktív. A rejtett pixelek beágyazva maradnak, amíg a vágott területeket kifejezetten nem törlik vagy a tömörítés során nem távolítják el.  
+- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlméretezett raster képeknél, de az eredeti felbontást feláldozza. A vágott képméret ismeretében kell alkalmazni.  
+- **SVG képek** maradjanak SVG‑ként, ha fontos a vektor megőrzése. A beágyazott SVG közvetlenül kinyerhető, ha magára a vektor erőforrásra van szükség. A raster diaexportok mindig a renderelt diát konvertálják pixelekké.  
+- **Ismétlődő képek** lehetőség szerint használják ugyanazt a meglévő [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) erőforrást, ahelyett, hogy ugyanazt a fájlt többször betöltenék a prezentációs munkafolyamatba.
 
-Nagy prezentációknál a képoptimalizálás általában akkor a leghatékonyabb, ha szelektíven történik: tartsuk a logókat és diagramokat vektor tartalomként, tömörítsük a fényképeket a tényleges megjelenítési méretüknek megfelelően, távolítsuk el a vágott pixeleket csak akkor, ha a későbbi szerkesztés nem szükséges, és kerüljük a külső linkeket, hacsak a függőségkezelés nem része a telepítési tervnek.
+Nagy prezentációk esetén a képoptimalizálás általában a leginkább hatékony, ha szelektíven történik: tartsa a logókat és diagramokat vektor tartalomként, tömörítse a fényképeket a valós megjelenítési méretüknek megfelelően, csak akkor távolítsa el a vágott pixeleket, ha későbbi szerkesztés nem szükséges, és kerülje a külső hivatkozásokat, hacsak a függőségkezelés nem része a telepítési tervezésnek.
 
 ## **GYIK**
 
-**Mi a különbség a picture frame és a kép erőforrás között?**
+**Mi a különbség a picture frame és egy képforrás között?**  
+A [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) egy a prezentációhoz kapcsolódó képforrást reprezentál. Egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) egy dián lévő alakzat, amely képet jelenít meg, és keretszintű geometriát és formázást (méret, forgatás, vágási értékek, hatások, zárolások) tárol.
 
-Egy [PPImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ppimage/) kép erőforrást képvisel, amely a prezentációhoz van kapcsolva. Egy [PictureFrame](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pictureframe/) egy alakzat a dián, amely képet jelenít meg, és a keretszintű geometriát és formázást tárolja, mint a méret, forgatás, vágási értékek, hatások és zárolások.
+**Beágyazzam vagy kapcsoljam a képeket?**  
+Beágyazza a képeket, ha a prezentációnak hordozhatónak, archiválhatónak vagy külső erőforrások hozzáférése nélkül renderelhetőnek kell lennie. Kapcsolja a képeket csak akkor, ha a képfájlok külső tárolása szándékos, és a külső helyek megbízhatóan karbantarthatók.
 
-**Beágyazzam vagy linkeljem a képeket?**
+**Csökkenti-e a vágás a PPTX fájlméretét?**  
+Nem önmagában. A normál vágási beállítások elrejtik a forráskép részeit, de megtartják az alatta lévő pixeleket. Használja a [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) vagy a képtömörítést vágott terület eltávolítással, ha ezeket a pixeleket véglegesen el lehet dobni.
 
-Beágyazzon képeket, ha a prezentáció hordozhatónak, archiválhatónak vagy külső erőforrások nélkül renderelhetőnek kell lennie. Linkelje a képeket csak akkor, ha a képfájlok kívül tartása szándékos, és a külső helyek megbízhatóan karbantarthatók.
+**Vissza tudom állítani a képminőséget a tömörítés után?**  
+Nem. A tömörítés csökkentheti a tárolt raster felbontást, és a vágott területek eltávolítása adatvesztést eredményez. Ha később nagy felbontású szerkesztésre van szükség, tartsa meg az eredeti forrásképet a prezentáción kívül.
 
-**Csökkenti-e a vágás a PPTX fájlméretet?**
+**Hogyan kell kezelni az SVG képeket?**  
+Tartsa meg az SVG tartalmat SVG‑ként, ha a vektor pontossága számít. A beágyazott [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) közvetlenül kinyerhető. A dia raster formátumra (PNG vagy JPEG) történő renderelése a SVG‑t pixelekre alakítja.
 
-Nem önmagában. A normál vágási beállítások elrejtik a forráskép részeit, de a pixeleket megtartják. Használja a [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/hu/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) vagy a kép tömörítést vágott terület eltávolítással, ha ezek a pixelek véglegesen eldobhatók.
-
-**Visszaállítható-e a képminőség a tömörítés után?**
-
-Nem. A tömörítés csökkentheti a tárolt raster felbontást, és a vágott régiók eltávolítása adatvesztést eredményez. Tartsa meg az eredeti forrásképet a prezentáció kívül, ha később nagy felbontású szerkesztésre lehet szükség.
-
-**Hogyan kell kezelni az SVG képeket?**
-
-Tartsa meg az SVG tartalmat SVG‑ként, ha a vektor pontossága fontos. A beágyazott [SvgImage](https://reference.aspose.com/slides/hu/python-net/aspose.slides/svgimage/) közvetlenül kinyerhető. A slide raster formátumba, például PNG vagy JPEG, való exportálása rasterizálja az SVG‑t a slide képként.
-
-**Hogyan kerülhető el az unsafe cast a meglévő diák olvasásakor?**
-
-Ellenőrizze a forma típusát, mielőtt picture‑frame‑specifikus tagokat használna. Az `isinstance(shape, slides.PictureFrame)` használata elkerüli a hibás cast‑ot, és lehetővé teszi, hogy a kód kezelje azokat a diákot, amelyek nem tartalmaznak picture frame‑eket.
+**Hogyan kerülhetem el a nem biztonságos cast‑eket létező diák olvasásakor?**  
+Ellenőrizze az alakzat típusát a picture‑frame‑specifikus tagok használata előtt. Az `isinstance(shape, slides.PictureFrame)` használata megakadályozza az érvénytelen cast‑eket, és lehetővé teszi, hogy a kód a nem picture frame‑et tartalmazó diákra is helyesen reagáljon.

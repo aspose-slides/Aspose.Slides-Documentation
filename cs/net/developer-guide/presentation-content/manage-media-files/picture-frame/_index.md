@@ -1,23 +1,23 @@
 ---
-title: Správa obrázkových rámečků v prezentacích v .NET
-linktitle: Obrázkový rámeček
+title: Správa rámečků obrázků v prezentacích v .NET
+linktitle: Rámeček obrázku
 type: docs
 weight: 10
 url: /cs/net/picture-frame/
 keywords:
-- obrázkový rámeček
-- přidat obrázkový rámeček
-- vytvořit obrázkový rámeček
+- rámeček obrázku
+- přidat rámeček obrázku
+- vytvořit rámeček obrázku
 - vložený obrázek
 - propojený obrázek
 - extrahovat obrázek
 - rastrový obrázek
 - SVG obrázek
-- ořezat obrázek
-- smazat oříznuté oblasti
+- oříznout obrázek
+- smazat ořezané oblasti
 - komprimovat obrázek
 - StretchOffset
-- formátování obrázkového rámečku
+- formátování rámečku obrázku
 - relativní měřítko
 - efekt obrázku
 - poměr stran
@@ -27,21 +27,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte obrázkové rámečky v prezentacích pomocí Aspose.Slides pro .NET."
+description: Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte rámečky obrázků v prezentacích pomocí Aspose.Slides pro .NET.
 ---
 ## **Přehled**
 
-Obrázkový rámeček je objekt snímku, který zobrazí obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, samostatné objekty: [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím své kolekce [Images](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/images/), zatímco [IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) řídí pozici obrázku, velikost, formátování čáry, otočení, ořez, efekty obrázku a další nastavení na úrovni rámečku.
+Rámeček obrázku je tvar snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, samostatné objekty: [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím své kolekce [Images](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/images/), zatímco [IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) řídí polohu obrázku, velikost, formátování čáry, rotaci, ořez, efekty obrázku a další nastavení na úrovni rámce.
 
-Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, udržujte vrácený [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/), a použijte tento zdroj obrázku při vytváření obrázkových rámečků.
+Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/), a použijte tento zdroj obrázku při vytváření rámečků obrázku.
 
-Obrázkové rámečky mohou obsahovat rastrové obrázky jako PNG nebo JPEG a vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo uložení bajtů obrázku v prezentaci. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování exportu, takže je užitečné rozhodnout, jak má být obrázek uložen, ještě před aplikací formátování nebo optimalizace.
+Rámečky obrázku mohou obsahovat rastrové obrázky jako PNG nebo JPEG a vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo ukládání bajtů obrázku do prezentace. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je vhodné rozhodnout, jak bude obrázek uložen, ještě před aplikací formátování nebo optimalizace.
 
 ## **Přidání a formátování vloženého obrázku**
 
-U vloženého obrázku přidejte data obrázku do prezentace a vytvořte obrázkový rámeček pomocí [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addpictureframe/). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná při přesunu na jiný počítač.
+U vloženého obrázku přidejte data obrázku do prezentace a vytvořte rámeček obrázku pomocí [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addpictureframe/). Obrázek se tak stane součástí balíčku prezentace, takže prezentace zůstane samostatná při přesunu na jiný počítač.
 
-Následující příklad přidá JPEG obrázek, vytvoří rámeček v nativních rozměrech obrázku a použije formátování čáry a otočení:
+Následující příklad přidá JPEG obrázek, vytvoří rámec s původními rozměry obrázku a aplikuje formátování čáry a rotaci:
 
 ```csharp
 using System.Drawing;
@@ -64,11 +64,11 @@ pictureFrame.Rotation = 15;
 presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-Obrázkový rámeček řídí zobrazovanou geometrii; změna velikosti rámečku nemění původní rozměry pixelů uložených ve vloženém zdroji obrázku. Tento rozdíl je důležitý při pozdějším ořezávání nebo kompresi obrázku.
+Rámeček obrázku řídí zobrazovanou geometrii; změna velikosti rámce nemění původní pixelové rozměry uložené ve vloženém zdroji obrázku. Toto rozlišení je důležité při pozdějším ořezávání nebo kompresi obrázku.
 
 ## **Použití relativního měřítka**
 
-[IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) poskytuje relativní měřítko šířky a výšky pro rámeček. Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když pracovní postup potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
+[IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) poskytuje relativní měřítko šířky a výšky pro rámec. Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když workflow potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
 
 ```csharp
 using System.IO;
@@ -88,17 +88,17 @@ pictureFrame.RelativeScaleHeight = 0.8f;
 presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-Relativní měřítko mění nastavení měřítka rámečku; neprovádí přeškálování ani kompresi vloženého obrázku.
+Relativní měřítko mění nastavení měřítka rámce; nepřevzorkovává ani nekonprimuje vložený obrázek.
 
 ## **Vložené a propojené obrázky**
 
-Vložený obrázek ukládá data obrázku uvnitř prezentace a je proto nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění prostřednictvím cesty odkazu [ISlidesPicture](https://reference.aspose.com/slides/cs/net/aspose.slides/islidespicture/) místo vložení dat obrázku stejným způsobem.
+Vložený obrázek ukládá data obrázku uvnitř prezentace a je proto nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí cesty odkazu [ISlidesPicture](https://reference.aspose.com/slides/cs/net/aspose.slides/islidespicture/) místo vložení dat obrázku stejným způsobem.
 
-Propojené obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj není dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které musí být e‑mailem odeslány, archivovány nebo vykresleny v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
+Propojené obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj nebude dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které je třeba posílat e‑mailem, archivovat nebo vykreslovat v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
 
 ### **Přidání propojeného obrázku**
 
-Následující příklad vytvoří obrázkový rámeček a nasměruje jej na místní soubor obrázku. Zabývá se jen propojením obrázku; propojení videa je samostatný mediální pracovní postup a není v tomto příkladu úmyslně smícháno.
+Následující příklad vytvoří rámeček obrázku a nasměruje jej na lokální soubor obrázku. Zabývá se pouze odkazováním na obrázek; odkazování na video je samostatný mediální workflow a není v tomto příkladu zamícháno.
 
 ```csharp
 using System.IO;
@@ -114,15 +114,15 @@ pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image
 presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-Používejte odkazy, když je externí správa souborů úmyslná. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s nefunkčními závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
+Používejte odkazy, když je externí správa souborů úmyslná. Nepoužívejte je jen jako náhradu komprese: malý PPTX s poškozenými závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
 
-## **Extrahování obrázků z rámečků**
+## **Extrahování obrázků z rámečků obrázku**
 
-Před extrahováním obrázku z existující prezentace ověřte, že tvar je skutečně [IPictureFrame] a že obsahuje vložený obrázek. Propojené rámečky obrázků nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
+Než extrahujete obrázek z existující prezentace, ověřte, že tvar je skutečně [IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) a že obsahuje vložený obrázek. Propojené rámečky obrázku nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
 
 ### **Extrahování rastrového obrázku**
 
-Moderní API obrázku používá přímo [IImage] a nevyžaduje starší obal systému obrázků. Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
+Moderní API pro obrázky používá přímo [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) a nevyžaduje starší obal systémového obrázku. Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
 
 ```csharp
 using System;
@@ -150,11 +150,11 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-Ukládání přes [IImage] převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete kódované bajty uložené v prezentaci místo převedeného rastrového souboru, použijte binární data zdroje obrázku.
+Ukládání přes [IImage](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete kódované bajty uložené v prezentaci místo konvertovaného rastrového souboru, použijte binární data zdroje obrázku.
 
 ### **Extrahování SVG obrázku**
 
-Pro SVG obrázek [IPPImage] poskytuje objekt [ISvgImage]. To vám umožní získat data SVG přímo místo rasterizace obrázku nejprve.
+Pro SVG obrázek [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) poskytuje objekt [ISvgImage](https://reference.aspose.com/slides/cs/net/aspose.slides/isvgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku nejprve.
 
 ```csharp
 using System.IO;
@@ -182,13 +182,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-Uchování obsahu SVG jako SVG zachovává vektorový zdroj uvnitř prezentace. Rasterové exporty jako PNG nebo JPEG nutně renderují tento vektorový obsah do pixelů. Export snímku do PDF nebo SVG je také renderovací operací, takže exportovaná grafika by neměla být považována za bit‑po‑bitovou kopii původního vloženého SVG; použijte vložená data [ISvgImage], když je vyžadován samotný vektorový zdroj.
+Uchování SVG obsahu jako SVG zachovává vektorový zdroj uvnitř prezentace. Rasterové exporty jako PNG nebo JPEG nutně vykreslují tento vektorový obsah do pixelů. Export snímku do PDF nebo SVG je také operace vykreslování, takže exportovaná grafika by neměla být považována za 1 : 1 kopii původního vloženého SVG; použijte vložená data [ISvgImage] při požadavku na samotný vektorový zdroj.
 
-## **Ořezání obrázku**
+## **Oříznutí obrázku**
 
-Ořezávání mění, která část obrázku je viditelná uvnitř rámečku. Hodnoty ořezu na [IPictureFillFormat] jsou procenta rozměrů zdrojového obrázku. Ořezování zpočátku nesmaže skryté pixely z vloženého obrázku; jen mění viditelnou oblast.
+Ořez mění, která část obrázku je viditelná uvnitř rámce. Hodnoty ořezu na [IPictureFillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořezování zpočátku nesmaže skryté pixely ze vloženého obrázku; pouze mění viditelnou oblast.
 
-Následující příklad bezpečně najde obrázkový rámeček a použije hodnoty ořezu:
+Následující příklad bezpečně najde rámeček obrázku a aplikuje hodnoty ořezu:
 
 ```csharp
 using System.Linq;
@@ -209,11 +209,11 @@ if (pictureFrame != null)
 }
 ```
 
-Protože skrytá data obrázku jsou stále přítomna, lze ořez později změnit bez ztráty původních pixelů. Pokud je velikost souboru důležitější než reverzibilita, lze oříznuté oblasti fyzicky odstranit, jak je popsáno v následující sekci.
+Protože skrytá data obrázku jsou stále přítomna, lze ořez později změnit bez ztráty původních pixelů. Pokud je velikost souboru důležitější než možnost zpětného ořezu, lze ořezané oblasti fyzicky odstranit, jak je popsáno v následující sekci.
 
-## **Odstranění oříznutých dat obrázku**
+## **Odstranění ořezaných dat obrázku**
 
-[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací vzniklý zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace nejsou odstraněné pixely nadále k dispozici pro pozdější operaci odořezání.
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací vzniklý zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace nejsou odstraněné pixely již k dispozici pro pozdější operaci „uncrop“.
 
 ```csharp
 using System.Linq;
@@ -234,13 +234,13 @@ if (pictureFrame != null)
 }
 ```
 
-Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek také používán jinými obrázkovými rámečky, tyto rámečky stále potřebují svůj existující zdroj, takže odstranění oříznutých oblastí nutně nesnižuje celkový počet obrázků. Ořezávání obsahu WMF nebo EMF touto metodou rasterizuje oříznutý výsledek do PNG.
+Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek používán i v dalších rámečcích, tyto rámečky stále potřebují svůj existující zdroj, takže smazání ořezaných oblastí nemusí nutně snížit celkový počet obrázků. Ořez WMF nebo EMF obsahu touto metodou rasterizuje ořezaný výsledek do PNG.
 
-## **Komprese rastrových obrázků**
+## **Kompresní rastrových obrázků**
 
-[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/compressimage/) snižuje rozlišení rastrového obrázku vzhledem k velikosti, ve které je obrázek zobrazen. Může také v rámci stejné operace odstranit oříznuté oblasti. Metoda vrací `true`, když byl obrázek změněn velikosti nebo oříznut, a `false`, když nebyla nutná žádná změna.
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/compressimage/) snižuje rozlišení rastrového obrázku relativně k velikosti, ve které je obrázek zobrazován. Stejně tak může v rámci stejné operace odstranit ořezané oblasti. Metoda vrací `true`, když byl obrázek změněn velikostí nebo oříznut, a `false`, když nebyla nutná žádná změna.
 
-Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/net/aspose.slides.export/picturescompression/), když je dostačující standardní cílové rozlišení:
+Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/net/aspose.slides.export/picturescompression/), když stačí standardní cílové rozlišení:
 
 ```csharp
 using System;
@@ -260,49 +260,17 @@ if (pictureFrame != null)
 }
 ```
 
-Místo enum hodnoty lze předat vlastní kladnou hodnotu DPI, pokud je požadován konkrétní cíl.
+Místo hodnoty výčtu můžete předat vlastní kladnou hodnotu DPI, pokud je požadován konkrétní cíl.
 
-Komprese je určena pro rastrové obrázky. SVG a obsah metafile nejsou tímto rasterovým kompresním pracovním postupem zmenšeny. Také si pamatujte, že nižší rozlišení a smazané oříznuté oblasti nelze z optimalizované prezentace obnovit. Vyberte cílové rozlišení na základě největší velikosti, při které bude obrázek skutečně prohlížen nebo exportován, místo aby se globálně aplikovalo nejnižší DPI.
+Kompresi je určena pro rastrové obrázky. SVG a obsah metafile se touto rasterovou kompresí nesnižují. Také pamatujte, že nižší rozlišení a smazané ořezané oblasti nelze z optimalizované prezentace obnovit. Vyberte cílové rozlišení podle největší velikosti, při které bude obrázek skutečně zobrazován nebo exportován, místo globálního nastavení nejnižšího DPI.
 
-## **Kontrola efektů obrázku**
+## **Správa transformačních efektů obrázku**
 
-Efekty obrázku jsou uloženy na obrázku použitém rámečkem. Kolekce transformací obrázku může obsahovat efekty jako pevná alfa modulace pro průhlednost a luminance pro jas a kontrast. Níže uvedený příklad bezpečně čte oba typy efektů z prvního obrázkového rámečku na snímku:
+Pro kompletní workflow zahrnující jas, kontrast, barevné transformace, rozostření, alfa efekty, řazené řetězce, inspekci, odstranění a ověření round‑trip viz [Image Transform Effects](/slides/cs/net/image-transform-effects/).
 
-```csharp
-using System;
-using System.Linq;
-using Aspose.Slides;
-using Aspose.Slides.Effects;
+## **Uzamčení geometrie rámečku obrázku**
 
-using var presentation = new Presentation("sample.pptx");
-var slide = presentation.Slides[0];
-var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
-
-if (pictureFrame != null)
-{
-    foreach (var effect in pictureFrame.PictureFormat.Picture.ImageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparency = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Transparency: " + transparency);
-        }
-
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            Console.WriteLine("Brightness: " + luminance.Brightness);
-            Console.WriteLine("Contrast: " + luminance.Contrast);
-        }
-    }
-}
-```
-
-Tyto efekty mění, jak je obrázek vykreslen v rámečku; nepřepisují původní bajty vloženého obrázku.
-
-## **Uzamčení geometrie obrázkového rámečku**
-
-Nastavení [IPictureFrameLock] řídí, které operace úprav jsou pro obrázkový rámeček zakázány. Například uzamčení poměru stran zachovává proporce tvaru během změny velikosti.
+Nastavení [IPictureFrameLock](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframelock/) řídí, které operace úprav jsou pro rámeček obrázku zakázány. Například zamykání poměru stran zachovává proporce tvaru během změny velikosti.
 
 ```csharp
 using System.IO;
@@ -321,13 +289,13 @@ pictureFrame.PictureFrameLock.AspectRatioLocked = true;
 presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-Uzamčení se vztahuje na tvar obrázkového rámečku. Nenutí zdrojový obrázek, aby byl přeškálován nebo trvale změněn na stejný poměr stran.
+Uzamčení se vztahuje na tvar rámečku obrázku. Neznamená to, že by zdrojový obrázek byl převezen nebo trvale změněn na stejný poměr stran.
 
 ## **Úprava hodnot StretchOffset**
 
-Když je režim výplně obrázku nastaven na roztažení, hodnoty stretch‑offset na [IPictureFillFormat] definují výplňový obdélník relativně k ohraničujícímu rámečku obrázku. Kladná procenta vytvoří vnitřní odsazení od hrany, záporná procenta vytvoří vnější výstupek.
+Když je režim výplně obrázku „stretch“, hodnoty stretch‑offset na [IPictureFillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/) definují výplňový obdélník relativně k ohraničujícímu rámečku obrázku. Kladná procenta vytvářejí vnitřní odsazení od okraje, záporná procenta vytvářejí vnější posun.
 
-To se liší od ořezávání. Hodnoty ořezu určují, která část zdrojového obrázku je viditelná; stretch offsety mění obdélník, do kterého je viditelná výplň obrázku roztažena.
+To se liší od ořezu. Hodnoty ořezu určují, která část zdrojového obrázku je viditelná; offsety roztažení mění obdélník, do kterého je viditelná výplň obrázku natažena.
 
 ```csharp
 using System.IO;
@@ -350,43 +318,43 @@ pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
 presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
 ```
 
-Používejte stretch offsety pro umístění výplně. Používejte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
+Používejte offsety roztažení pro umístění výplně. Používejte vlastnosti ořezu, když chcete skrýt okraje zdrojového obrázku.
 
 ## **Úvahy o úložišti, velikosti souboru a exportu**
 
-Hlavní kompromisy jsou snáze říditelné, když jsou úložiště obrázků a formátování rámečků řešeny odděleně:
+Hlavní kompromisy je snazší řídit, když jsou úložiště obrázků a formátování rámečků oddělené:
 
-- **Vložené obrázky** dělají prezentaci samostatnou a jsou nejspolehlivější pro sdílení a renderování na serveru, ale velké rastrové obrázky zvětšují velikost PPTX a spotřebu paměti.
-- **Propojené obrázky** mohou udržet balík menší, ale prezentace závisí na dostupnosti externích souborů na uložených cestách nebo místech.
-- **Ořezávání** je zpočátku neškodné. Skryté pixely zůstávají vloženy, dokud nejsou oříznuté oblasti výslovně smazány nebo odstraněny během komprese.
-- **Komprese** může výrazně snížit velikost souboru u příliš velkých rastrových obrázků, ale snižuje rozlišení zdroje. Měla by být použita po určení požadované velikosti na snímku.
-- **SVG obrázky** by měly zůstat ve formátu SVG, pokud je důležité zachování vektorové podoby. Vložte vložený SVG přímo, když potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
-- **Opakované obrázky** by měly při možnosti znovu použít existující zdroj [IPPImage] místo opakovaného načítání stejného souboru do pracovního postupu prezentace.
+- **Vložené obrázky** dělají prezentaci samostatnou a jsou nejspolehlivější pro sdílení a server‑side vykreslování, ale velké rastrové obrázky zvyšují velikost PPTX a spotřebu paměti.
+- **Propojené obrázky** mohou udržet balíček menší, ale prezentace závisí na dostupnosti externích souborů na uložených cestách nebo umístěních.
+- **Ořez** je zpočátku nedestruktivní. Skryté pixely zůstávají vložené, dokud nejsou ořezané oblasti explicitně smazány nebo odstraněny během komprese.
+- **Kompresi** může podstatně snížit velikost souboru u příliš velkých rastrových obrázků, ale snižuje rozlišení zdroje. Měla by být použita po určení zamýšlené velikosti na snímku.
+- **SVG obrázky** by měly zůstat jako SVG, když je důležitá zachování vektoru. Vytáhněte vložené SVG přímo, pokud potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
+- **Opakované obrázky** by měly opětovně používat existující zdroj [IPPImage], pokud je to možné, místo opakovaného načítání stejného souboru do workflow prezentace.
 
-U velkých prezentací je optimalizace obrázků obvykle nejužitečnější, když je prováděna selektivně: loga a diagramy ponechte jako vektorový obsah, fotografie komprimujte podle jejich skutečné zobrazovací velikosti, oříznuté pixely odstraňte jen pokud další úpravy nejsou vyžadovány, a vyhněte se externím odkazům, pokud správa závislostí není součástí návrhu nasazení.
+U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když je prováděna selektivně: udržujte loga a diagramy jako vektorový obsah, komprimujte fotografie podle jejich skutečné zobrazovací velikosti, odstraňujte ořezané pixely jen pokud není potřeba další úpravy, a vyhýbejte se externím odkazům, pokud není správa závislostí součástí návrhu nasazení.
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi obrázkovým rámečkem a zdrojem obrázku?**
+**Jaký je rozdíl mezi rámečkem obrázku a zdrojem obrázku?**
 
-[IPPImage] představuje zdroj obrázku spojený s prezentací. [IPictureFrame] je tvar na snímku, který zobrazí obrázek a ukládá geometrii a formátování na úrovni rámečku, jako jsou velikost, otočení, hodnoty ořezu, efekty a uzamčení.
+[IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) představuje zdroj obrázku přidružený k prezentaci. [IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) je tvar na snímku, který zobrazí obrázek a ukládá geometrii a formátování na úrovni rámce, jako jsou velikost, rotace, hodnoty ořezu, efekty a zamykání.
 
-**Mám obrázky vložit nebo propojit?**
+**Mám obrázky vkládat nebo propojovat?**
 
-Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslená bez přístupu k externím zdrojům. Propojujte obrázky jen když je úmyslné mít soubory obrázků mimo PPTX a externí umístění lze spolehlivě udržovat.
+Vkládejte obrázky, když musí být prezentace přenosná, archivovatelná nebo vykreslena bez přístupu k externím zdrojům. Propojujte obrázky pouze tehdy, když je úmyslné mít soubory obrázků mimo PPTX a lze spolehlivě udržovat externí umístění.
 
-**Snižuje ořezávání velikost souboru PPTX?**
+**Snižuje ořez velikost souboru PPTX?**
 
-Ne samostatně. Normální nastavení ořezu skrývá části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [IPictureFillFormat.DeletePictureCroppedAreas] nebo kompresi obrázku s odstraněním oříznutých oblastí, když lze tyto pixely trvale odstranit.
+Ne samostatně. Normální nastavení ořezu skrývá části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) nebo kompresi obrázku s odstraněním ořezaných oblastí, když lze tyto pixely trvale odstranit.
 
-**Mohu po kompresi obnovit kvalitu obrázku?**
+**Lze po kompresi obnovit kvalitu obrázku?**
 
-Ne. Komprese může snížit uložené rastrové rozlišení a odstranění oříznutých oblastí ztrácí data obrázku. Pokud může být později potřeba úprava v vysokém rozlišení, uchovejte originální zdrojový obrázek mimo prezentaci.
+Ne. Komprese může snížit uložené rastrové rozlišení a odstranění ořezaných oblastí zahazuje data obrázku. Uchovejte původní zdrojový obrázek mimo prezentaci, pokud může být v budoucnu potřeba úprava ve vysokém rozlišení.
 
-**Jak by se měly nakládat SVG obrázky?**
+**Jak zacházet s SVG obrázky?**
 
-Uchovávejte obsah SVG jako SVG, když je důležitá vektorová věrnost. Vložený [ISvgImage] lze extrahovat přímo. Renderování snímku do rastrového formátu jako PNG nebo JPEG rasterizuje SVG jako součást obrázku snímku.
+Uchovávejte SVG obsah jako SVG, když je důležitá věrnost vektoru. Vložený [ISvgImage](https://reference.aspose.com/slides/cs/net/aspose.slides/isvgimage/) lze extrahovat přímo. Vykreslení snímku do rastrového formátu jako PNG nebo JPEG rasterizuje SVG jako součást obrázku snímku.
 
-**Jak mohu zabránit nebezpečným převodům typů při čtení existujících snímků?**
+**Jak předejít nebezpečným přetypováním při čtení existujících snímků?**
 
-Zkontrolujte typ tvaru před použitím členů specifických pro obrázkový rámeček. Porovnávání vzorů s [IPictureFrame] nebo filtrování kolekce tvarů podle tohoto rozhraní zabraňuje neplatným převodům a umožňuje kódu zpracovat snímky, které neobsahují obrázkové rámečky.
+Před použitím členů specifických pro rámeček obrázku zkontrolujte typ tvaru. Vzorové porovnání s [IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) nebo filtrování kolekce tvarů podle tohoto rozhraní zabraňuje neplatným přetypováním a umožňuje kódu zpracovat snímky, které neobsahují rámečky obrázku.

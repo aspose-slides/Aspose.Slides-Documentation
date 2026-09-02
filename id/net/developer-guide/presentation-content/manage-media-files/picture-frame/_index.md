@@ -8,7 +8,7 @@ keywords:
 - bingkai gambar
 - tambahkan bingkai gambar
 - buat bingkai gambar
-- gambar terbenam
+- gambar tertanam
 - gambar tertaut
 - ekstrak gambar
 - gambar raster
@@ -17,7 +17,7 @@ keywords:
 - hapus area yang dipotong
 - kompres gambar
 - StretchOffset
-- pemformatan bingkai gambar
+- format bingkai gambar
 - skala relatif
 - efek gambar
 - rasio aspek
@@ -29,19 +29,19 @@ keywords:
 - Aspose.Slides
 description: "Buat, format, tautkan, potong, ekstrak, dan kompres bingkai gambar dalam presentasi dengan Aspose.Slides untuk .NET."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Picture frame adalah bentuk slide yang menampilkan gambar. Pada Aspose.Slides, sumber gambar dan bentuk yang menampilkannya adalah objek terpisah: sebuah [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) memiliki sumber gambar terbenam melalui koleksi [Images](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/images/), sementara sebuah [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) mengontrol posisi gambar, ukuran, pemformatan garis, rotasi, pemotongan, efek gambar, dan pengaturan tingkat bingkai lainnya.
+Bingkai gambar adalah bentuk slide yang menampilkan sebuah gambar. Di Aspose.Slides, sumber gambar dan bentuk yang menampilkannya adalah objek terpisah: sebuah [Presentasi](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) memiliki sumber daya gambar yang tertanam melalui koleksi [Images](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/images/)-nya, sementara sebuah [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) mengontrol posisi gambar, ukuran, format garis, rotasi, pemotongan, efek gambar, dan pengaturan tingkat bingkai lainnya.
 
-Pemisan ini berguna ketika gambar yang sama ditampilkan lebih dari satu kali. Tambahkan gambar ke presentasi sekali saja, simpan [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) yang dikembalikan, dan gunakan sumber gambar tersebut saat membuat picture frame.
+Pemisahan ini berguna ketika gambar yang sama ditampilkan lebih dari satu kali. Tambahkan gambar ke presentasi satu kali, simpan [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) yang dikembalikan, dan gunakan sumber gambar tersebut saat membuat bingkai gambar.
 
-Picture frame dapat berisi gambar raster seperti PNG atau JPEG serta gambar vektor SVG. Mereka juga dapat merujuk ke gambar yang ditautkan alih‑alih menyimpan byte gambar dalam presentasi. Pilihan ini memengaruhi portabilitas, ukuran file, ekstraksi, dan perilaku ekspor, sehingga berguna untuk memutuskan bagaimana gambar harus disimpan sebelum menerapkan pemformatan atau optimasi.
+Bingkai gambar dapat berisi gambar raster seperti PNG atau JPEG dan gambar vektor SVG. Mereka juga dapat merujuk ke gambar terhubung alih‑alih menyimpan byte gambar dalam presentasi. Pilihan ini memengaruhi portabilitas, ukuran file, ekstraksi, dan perilaku ekspor, jadi sebaiknya tentukan bagaimana gambar harus disimpan sebelum menerapkan pemformatan atau optimasi.
 
-## **Menambahkan dan Memformat Gambar Terbenam**
+## **Menambahkan dan Memformat Gambar yang Tertanam**
 
-Untuk gambar terbenam, tambahkan data gambar ke presentasi dan buat picture frame dengan [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addpictureframe/). Gambar menjadi bagian dari paket presentasi, sehingga presentasi tetap mandiri ketika dipindahkan ke komputer lain.
+Untuk gambar yang tertanam, tambahkan data gambar ke presentasi dan buat bingkai gambar dengan [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addpictureframe/). Gambar menjadi bagian dari paket presentasi, sehingga presentasi tetap berdiri sendiri ketika dipindahkan ke komputer lain.
 
-Contoh berikut menambahkan gambar JPEG, membuat bingkai dengan dimensi asli gambar, dan menerapkan pemformatan garis serta rotasi:
+Contoh berikut menambahkan gambar JPEG, membuat bingkai dengan dimensi asli gambar, dan menerapkan format garis serta rotasi:
 
 ```csharp
 using System.Drawing;
@@ -64,11 +64,11 @@ pictureFrame.Rotation = 15;
 presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-Picture frame mengontrol geometri yang ditampilkan; mengubah ukuran bingkai tidak mengubah dimensi piksel asli yang disimpan dalam sumber gambar terbenam. Perbedaan ini menjadi penting saat memotong atau mengompresi gambar kemudian.
+Bingkai gambar mengontrol geometri yang ditampilkan; mengubah ukuran bingkai tidak mengubah dimensi piksel asli yang disimpan dalam sumber daya gambar yang tertanam. Perbedaan ini menjadi penting ketika memotong atau mengompresi gambar di kemudian hari.
 
 ## **Menggunakan Skala Relatif**
 
-[IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) menyediakan skala lebar dan tinggi relatif untuk bingkai. Nilai `1.0` sesuai dengan 100% ukuran gambar asli. Skala relatif berguna ketika alur kerja perlu mempertahankan hubungan dengan ukuran gambar sumber alih‑alih menghitung dimensi akhir secara manual.
+[IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) menyediakan skala lebar dan tinggi relatif untuk bingkai. Nilai `1.0` sesuai dengan 100 % ukuran gambar asli. Skala relatif berguna ketika alur kerja perlu mempertahankan hubungan dengan ukuran gambar sumber alih‑alih menghitung dimensi akhir secara manual.
 
 ```csharp
 using System.IO;
@@ -88,17 +88,17 @@ pictureFrame.RelativeScaleHeight = 0.8f;
 presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-Skala relatif mengubah pengaturan skala bingkai; tidak melakukan resample atau kompresi pada gambar terbenam.
+Skala relatif mengubah pengaturan skala bingkai; ia tidak melakukan resampling atau kompresi pada gambar yang tertanam.
 
-## **Gambar Terbenam dan Tertaut**
+## **Gambar yang Tertanam dan Tertaut**
 
-Gambar terbenam menyimpan data gambar di dalam presentasi dan karenanya merupakan pilihan paling aman untuk portabilitas dan rendering yang dapat diprediksi. Gambar tertaut menyimpan lokasi eksternal melalui jalur tautan [ISlidesPicture](https://reference.aspose.com/slides/id/net/aspose.slides/islidespicture/) alih‑alih menyematkan data gambar dengan cara yang sama.
+Gambar yang tertanam menyimpan data gambar di dalam presentasi dan oleh karena itu merupakan pilihan paling aman untuk portabilitas dan rendering yang dapat diprediksi. Gambar yang tertaut menyimpan lokasi eksternal melalui jalur tautan [ISlidesPicture](https://reference.aspose.com/slides/id/net/aspose.slides/islidespicture/) alih‑alih menanam data gambar dengan cara yang sama.
 
-Gambar tertaut dapat mengurangi jumlah data gambar yang disimpan dalam PPTX, tetapi memperkenalkan ketergantungan eksternal. File tertaut harus tetap dapat diakses oleh aplikasi yang membuka atau merender presentasi. Jika jalur berubah, file dipindahkan, atau sumber tidak tersedia, gambar tertaut mungkin tidak ditampilkan sebagaimana mestinya. Untuk presentasi yang harus dikirim melalui email, diarsipkan, atau dirender dalam lingkungan terisolasi, gambar terbenam biasanya lebih dapat diandalkan.
+Gambar yang tertaut dapat mengurangi jumlah data gambar yang disimpan dalam PPTX, tetapi mereka memperkenalkan ketergantungan eksternal. File yang ditautkan harus tetap dapat diakses oleh aplikasi yang membuka atau merender presentasi. Jika jalur berubah, file dipindahkan, atau sumber tidak tersedia, gambar yang tertaut mungkin tidak ditampilkan sebagaimana mestinya. Untuk presentasi yang harus dikirim lewat email, diarsipkan, atau dirender di lingkungan terisolasi, gambar yang tertanam biasanya lebih dapat diandalkan.
 
-### **Menambahkan Gambar Tertaut**
+### **Menambahkan Gambar yang Tertaut**
 
-Contoh berikut membuat picture frame dan menunjukannya ke file gambar lokal. Contoh ini hanya menangani penautan gambar; penautan video merupakan alur media terpisah dan sengaja tidak dicampur dalam contoh ini.
+Contoh berikut membuat bingkai gambar dan menunjukkannya ke file gambar lokal. Contoh ini hanya menangani penautan gambar; penautan video merupakan alur kerja media terpisah dan sengaja tidak digabungkan dalam contoh ini.
 
 ```csharp
 using System.IO;
@@ -114,15 +114,15 @@ pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image
 presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-Gunakan tautan ketika manajemen file eksternal memang diinginkan. Jangan menggunakannya sekadar sebagai pengganti kompresi: PPTX kecil dengan ketergantungan gambar yang rusak biasanya kurang berguna dibandingkan presentasi yang lebih besar dan mandiri.
+Gunakan tautan ketika manajemen file eksternal memang disengaja. Jangan gunakan hanya sebagai pengganti kompresi: PPTX kecil dengan ketergantungan gambar yang rusak biasanya kurang berguna dibandingkan presentasi yang lebih besar dan berdiri sendiri.
 
-## **Mengekstrak Gambar dari Picture Frame**
+## **Mengekstrak Gambar dari Bingkai Gambar**
 
-Sebelum mengekstrak gambar dari presentasi yang ada, periksa bahwa bentuk tersebut memang sebuah [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) dan bahwa ia berisi gambar terbenam. Picture frame tertaut mungkin tidak berisi byte gambar yang dapat diekstrak dengan cara yang sama.
+Sebelum mengekstrak gambar dari presentasi yang ada, periksa bahwa sebuah bentuk memang merupakan [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) dan bahwa ia berisi gambar yang tertanam. Bingkai gambar yang tertaut mungkin tidak berisi byte gambar yang dapat diekstrak dengan cara yang sama.
 
 ### **Mengekstrak Gambar Raster**
 
-API gambar modern menggunakan [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) secara langsung dan tidak memerlukan pembungkus sistem‑gambar lama. Contoh berikut menemukan gambar raster terbenam pertama pada slide dan menyimpannya sebagai PNG:
+API gambar modern menggunakan [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) secara langsung dan tidak memerlukan pembungkus sistem‑gambar lama. Contoh berikut menemukan gambar raster tertanam pertama pada sebuah slide dan menyimpannya sebagai PNG:
 
 ```csharp
 using System;
@@ -150,7 +150,7 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-Menyimpan melalui [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) mengonversi gambar yang diekstrak ke format keluaran yang diminta. Jika Anda membutuhkan byte yang dikodekan yang disimpan dalam presentasi alih‑alih file raster yang telah dikonversi, gunakan data biner sumber gambar tersebut.
+Menyimpan melalui [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) mengonversi gambar yang diekstrak ke format output yang diminta. Jika Anda memerlukan byte terkode yang disimpan dalam presentasi alih‑alih file raster yang telah dikonversi, gunakan data biner sumber gambar tersebut.
 
 ### **Mengekstrak Gambar SVG**
 
@@ -182,13 +182,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-Menjaga konten SVG sebagai SVG mempertahankan sumber vektor di dalam presentasi. Ekspor raster seperti PNG atau JPEG secara otomatis merender konten vektor ke piksel. Ekspor slide ke PDF atau SVG juga merupakan operasi rendering, sehingga grafik yang diekspor tidak boleh dianggap sebagai salinan byte‑per‑byte dari SVG terbenam asli; gunakan data [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/) yang terbenam ketika sumber vektor asli diperlukan.
+Menyimpan konten SVG sebagai SVG mempertahankan sumber vektor di dalam presentasi. Ekspor raster seperti PNG atau JPEG secara otomatis merender konten vektor tersebut menjadi piksel. Ekspor slide ke PDF atau SVG juga merupakan operasi rendering, sehingga grafik yang diekspor tidak boleh dianggap sebagai salinan byte‑per‑byte dari SVG yang tertanam; gunakan data [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/) yang tertanam bila sumber vektor asli diperlukan.
 
 ## **Memotong Gambar**
 
-Pemotongan mengubah bagian gambar yang terlihat di dalam bingkai. Nilai pemotongan pada [IPictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/) adalah persentase dari dimensi gambar sumber. Pemotongan tidak secara langsung menghapus piksel tersembunyi dari gambar terbenam; hanya mengubah wilayah yang terlihat.
+Pemotongan mengubah bagian gambar yang terlihat di dalam bingkai. Nilai pemotongan pada [IPictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/) adalah persentase dari dimensi gambar sumber. Pemotongan tidak langsung menghapus piksel tersembunyi dari gambar yang tertanam; ia hanya mengubah wilayah yang terlihat.
 
-Contoh berikut menemukan picture frame dengan aman dan menerapkan nilai pemotongan:
+Contoh berikut menemukan bingkai gambar secara aman dan menerapkan nilai pemotongan:
 
 ```csharp
 using System.Linq;
@@ -209,11 +209,11 @@ if (pictureFrame != null)
 }
 ```
 
-Karena data gambar tersembunyi masih ada, pemotongan dapat diubah nanti tanpa kehilangan piksel asli. Jika ukuran file lebih penting daripada kemampuan kembali, wilayah yang dipotong dapat dihapus secara fisik seperti yang dijelaskan pada bagian berikutnya.
+Karena data gambar tersembunyi masih ada, pemotongan dapat diubah nanti tanpa kehilangan piksel asli. Jika ukuran file lebih penting daripada kemampuan untuk membatalkan, wilayah yang dipotong dapat dihapus secara fisik seperti yang dijelaskan pada bagian berikutnya.
 
 ## **Menghapus Data Gambar yang Dipotong**
 
-[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) menghapus data gambar di luar persegi pemotongan saat ini dan mengembalikan sumber gambar hasilnya. Ini dapat mengurangi ukuran file, tetapi merupakan optimasi destruktif: setelah presentasi disimpan, piksel yang dihapus tidak lagi tersedia untuk operasi un‑crop di kemudian hari.
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) menghapus data gambar di luar persegi potong saat ini dan mengembalikan sumber gambar yang dihasilkan. Ini dapat mengurangi ukuran file, tetapi merupakan optimasi destruktif: setelah presentasi disimpan, piksel yang dihapus tidak lagi tersedia untuk operasi un‑crop di kemudian hari.
 
 ```csharp
 using System.Linq;
@@ -234,11 +234,11 @@ if (pictureFrame != null)
 }
 ```
 
-Metode ini mungkin menambahkan sumber gambar baru ke presentasi. Jika gambar asli juga digunakan oleh picture frame lain, frame‑frame tersebut masih memerlukan sumber yang ada, sehingga penghapusan area yang dipotong tidak selalu mengurangi total jumlah gambar. Memotong konten WMF atau EMF dengan metode ini merasterkan hasil yang dipotong ke PNG.
+Metode ini dapat menambahkan sumber gambar baru ke presentasi. Jika gambar asli juga digunakan oleh bingkai gambar lain, bingkai‑bingkai tersebut tetap memerlukan sumber yang ada, sehingga penghapusan wilayah yang dipotong tidak selalu mengurangi total jumlah gambar. Memotong konten WMF atau EMF dengan metode ini merasterkan hasil yang dipotong menjadi PNG.
 
 ## **Mengompresi Gambar Raster**
 
-[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/compressimage/) mengurangi resolusi gambar raster relatif terhadap ukuran saat gambar ditampilkan. Metode ini juga dapat menghapus wilayah yang dipotong dalam satu operasi. Metode mengembalikan `true` ketika gambar diubah ukurannya atau dipotong dan `false` ketika tidak ada perubahan yang diperlukan.
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/compressimage/) mengurangi resolusi gambar raster relatif terhadap ukuran gambar saat ditampilkan. Ia juga dapat menghapus wilayah yang dipotong dalam operasi yang sama. Metode mengembalikan `true` ketika gambar diubah ukurannya atau dipotong dan `false` ketika tidak ada perubahan yang diperlukan.
 
 Gunakan nilai [PicturesCompression](https://reference.aspose.com/slides/id/net/aspose.slides.export/picturescompression/) yang telah ditentukan sebelumnya ketika resolusi target standar sudah cukup:
 
@@ -260,49 +260,17 @@ if (pictureFrame != null)
 }
 ```
 
-Nilai DPI positif khusus dapat diberikan alih‑alih nilai enum ketika target spesifik diperlukan.
+Nilai DPI positif khusus dapat diberikan alih‑alih nilai enum ketika target khusus diperlukan.
 
-Kompresi ditujukan untuk gambar raster. Konten SVG dan metafile tidak berkurang oleh alur kerja kompresi raster ini. Ingat bahwa resolusi lebih rendah dan wilayah yang dipotong yang dihapus tidak dapat dipulihkan dari presentasi yang telah dioptimasi. Pilih resolusi target berdasarkan ukuran terbesar di mana gambar akan benar‑benar dilihat atau diekspor, bukan dengan menerapkan DPI terendah secara global.
+Kompresi dimaksudkan untuk gambar raster. Konten SVG dan metafile tidak berkurang oleh alur kerja kompresi raster ini. Ingat juga bahwa resolusi lebih rendah dan wilayah yang dipotong yang dihapus tidak dapat dipulihkan dari presentasi yang telah dioptimasi. Pilih resolusi target berdasarkan ukuran terbesar di mana gambar sebenarnya akan dilihat atau diekspor, bukan dengan menerapkan DPI terendah secara global.
 
-## **Memeriksa Efek Gambar**
+## **Mengelola Efek Transformasi Gambar**
 
-Efek gambar disimpan pada gambar yang digunakan oleh bingkai. Koleksi transformasi gambar dapat berisi efek seperti modulasi alfa tetap untuk transparansi dan luminansi untuk kecerahan serta kontras. Contoh di bawah ini membaca kedua jenis efek dengan aman dari picture frame pertama pada slide:
+Untuk alur kerja lengkap yang mencakup kecerahan, kontras, transformasi warna, blur, efek alfa, rantai berurutan, inspeksi, penghapusan, dan verifikasi putar‑balik, lihat [Image Transform Effects](/slides/id/net/image-transform-effects/).
 
-```csharp
-using System;
-using System.Linq;
-using Aspose.Slides;
-using Aspose.Slides.Effects;
+## **Mengunci Geometri Bingkai Gambar**
 
-using var presentation = new Presentation("sample.pptx");
-var slide = presentation.Slides[0];
-var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
-
-if (pictureFrame != null)
-{
-    foreach (var effect in pictureFrame.PictureFormat.Picture.ImageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparency = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Transparency: " + transparency);
-        }
-
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            Console.WriteLine("Brightness: " + luminance.Brightness);
-            Console.WriteLine("Contrast: " + luminance.Contrast);
-        }
-    }
-}
-```
-
-Efek‑efek ini mengubah cara gambar dirender dalam bingkai; mereka tidak menulis ulang byte gambar terbenam asli.
-
-## **Mengunci Geometri Picture Frame**
-
-Pengaturan [IPictureFrameLock](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframelock/) mengontrol operasi penyuntingan mana yang dinonaktifkan untuk picture frame. Misalnya, kunci rasio‑aspek mempertahankan proporsi bentuk saat diubah ukurannya.
+Pengaturan [IPictureFrameLock](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframelock/) mengontrol operasi penyuntingan mana yang dinonaktifkan untuk sebuah bingkai gambar. Misalnya, kunci rasio‑aspek menjaga proporsi bentuk saat ukuran diubah.
 
 ```csharp
 using System.IO;
@@ -321,13 +289,13 @@ pictureFrame.PictureFrameLock.AspectRatioLocked = true;
 presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-Kunci ini berlaku pada shape picture frame. Tidak memaksa gambar sumber untuk di‑resample atau secara permanen diubah menjadi rasio‑aspek yang sama.
+Kunci ini berlaku pada bentuk bingkai gambar. Ia tidak memaksa gambar sumber untuk di‑resample atau diubah secara permanen menjadi rasio‑aspek yang sama.
 
 ## **Menyesuaikan Nilai StretchOffset**
 
-Saat mode isian gambar adalah stretch, nilai stretch‑offset pada [IPictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/) mendefinisikan persegi isian relatif terhadap kotak pembatas picture frame. Persentase positif menciptakan inset dari tepi, sementara persentase negatif menciptakan outset.
+Ketika mode isian gambar adalah stretch, nilai stretch‑offset pada [IPictureFillFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/) menentukan persegi isian relatif terhadap kotak pembatas bingkai gambar. Persentase positif membuat inset dari tepi, sementara persentase negatif membuat outset.
 
-Ini berbeda dari pemotongan. Nilai pemotongan memilih bagian gambar sumber yang terlihat; stretch offset mengubah persegi tempat isian gambar yang terlihat diregangkan.
+Ini berbeda dari pemotongan. Nilai pemotongan memilih bagian gambar sumber yang terlihat; stretch offset mengubah persegi di mana isian gambar yang terlihat diregangkan.
 
 ```csharp
 using System.IO;
@@ -350,43 +318,43 @@ pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
 presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
 ```
 
-Gunakan stretch offset untuk penempatan isian. Gunakan properti pemotongan ketika tujuan Anda adalah menyembunyikan tepi gambar sumber.
+Gunakan stretch offset untuk penempatan isian. Gunakan properti pemotongan ketika tujuan Anda menyembunyikan tepi gambar sumber.
 
 ## **Penyimpanan, Ukuran File, dan Pertimbangan Ekspor**
 
-Pertukaran utama menjadi lebih mudah dikelola ketika penyimpanan gambar dan pemformatan picture‑frame diperlakukan secara terpisah:
+Pertukaran utama lebih mudah dikelola ketika penyimpanan gambar dan pemformatan bingkai gambar diperlakukan secara terpisah:
 
-- **Gambar terbenam** membuat presentasi mandiri dan paling andal untuk berbagi serta rendering sisi server, tetapi gambar raster besar meningkatkan ukuran PPTX dan penggunaan memori.
-- **Gambar tertaut** dapat menjaga paket tetap lebih kecil, tetapi presentasi bergantung pada file eksternal yang tetap tersedia pada jalur atau lokasi yang disimpan.
-- **Pemotongan** pada awalnya non‑destruktif. Piksel tersembunyi tetap terbenam sampai area yang dipotong secara eksplisit dihapus atau dihapus selama kompresi.
-- **Kompresi** dapat mengurangi ukuran file secara signifikan untuk gambar raster berukuran berlebih, tetapi mengorbankan resolusi sumber. Harus diterapkan setelah ukuran pada slide yang dimaksud diketahui.
-- **Gambar SVG** harus tetap sebagai SVG ketika preservasi vektor penting. Ekstrak SVG terbenam langsung ketika Anda membutuhkan sumber vektor itu sendiri. Ekspor slide raster selalu mengonversi slide yang dirender ke piksel.
-- **Gambar berulang** sebaiknya menggunakan kembali sumber [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) yang ada bila memungkinkan alih‑alih memuat file yang sama berulang kali ke alur kerja presentasi.
+- **Gambar tertanam** membuat presentasi berdiri sendiri dan paling dapat diandalkan untuk berbagi serta rendering sisi‑server, tetapi gambar raster besar meningkatkan ukuran PPTX dan penggunaan memori.
+- **Gambar tertaut** dapat membuat paket lebih kecil, tetapi presentasi bergantung pada file eksternal yang tetap tersedia di jalur atau lokasi yang disimpan.
+- **Pemotongan** pada awalnya tidak destruktif. Piksel tersembunyi tetap tertanam hingga wilayah yang dipotong dihapus secara eksplisit atau dihapus selama kompresi.
+- **Kompresi** dapat mengurangi ukuran file secara signifikan untuk gambar raster yang terlalu besar, tetapi mengorbankan resolusi sumber. Kompresi sebaiknya diterapkan setelah ukuran pada slide yang diinginkan diketahui.
+- **Gambar SVG** sebaiknya tetap sebagai SVG ketika preservasi vektor penting. Ekstrak SVG yang tertanam secara langsung ketika Anda membutuhkan sumber vektor itu sendiri. Ekspor slide raster selalu mengonversi slide yang dirender menjadi piksel.
+- **Gambar berulang** sebaiknya menggunakan kembali sumber [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) yang ada bila memungkinkan alih‑alih memuat berulang kali file yang sama ke dalam alur kerja presentasi.
 
-Untuk presentasi besar, optimasi gambar biasanya paling efektif bila dilakukan secara selektif: pertahankan logo dan diagram sebagai konten vektor, kompres foto sesuai ukuran tampilan sebenarnya, hapus piksel yang dipotong hanya ketika penyuntingan selanjutnya tidak diperlukan, dan hindari tautan eksternal kecuali manajemen ketergantungan termasuk dalam desain penyebaran.
+Untuk presentasi besar, optimasi gambar biasanya paling efektif bila dilakukan secara selektif: pertahankan logo dan diagram sebagai konten vektor, kompres foto sesuai ukuran tampilan sebenarnya, hapus piksel yang dipotong hanya ketika penyuntingan di kemudian tidak diperlukan, dan hindari tautan eksternal kecuali manajemen ketergantungan menjadi bagian dari desain penyebaran.
 
 ## **FAQ**
 
-**Apa perbedaan antara picture frame dan sumber gambar?**
+**Apa perbedaan antara bingkai gambar dan sumber gambar?**
 
-[IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) mewakili sumber gambar yang terkait dengan presentasi. [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) adalah shape pada slide yang menampilkan gambar dan menyimpan geometri serta pemformatan tingkat bingkai seperti ukuran, rotasi, nilai pemotongan, efek, dan kunci.
+[IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) mewakili sumber gambar yang terkait dengan presentasi. [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) adalah bentuk pada slide yang menampilkan gambar dan menyimpan geometri serta pemformatan tingkat bingkai seperti ukuran, rotasi, nilai pemotongan, efek, dan kunci.
 
 **Haruskah saya menanamkan atau menautkan gambar?**
 
-Tanamkan gambar ketika presentasi harus portabel, diarsipkan, atau dirender tanpa akses ke sumber eksternal. Tautkan gambar hanya ketika menyimpan file gambar di luar PPTX memang diinginkan dan lokasi eksternal dapat dipertahankan secara andal.
+Tanamkan gambar ketika presentasi harus portabel, diarsipkan, atau dirender tanpa akses ke sumber eksternal. Tautkan gambar hanya ketika menyimpan file gambar di luar PPTX memang disengaja dan lokasi eksternal dapat dipertahankan secara andal.
 
 **Apakah pemotongan mengurangi ukuran file PPTX?**
 
-Tidak secara langsung. Pengaturan pemotongan standar menyembunyikan bagian gambar sumber tetapi tetap menyimpan piksel di bawahnya. Gunakan [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) atau kompresi gambar dengan penghapusan area yang dipotong ketika piksel tersebut dapat dibuang secara permanen.
+Tidak secara langsung. Pengaturan pemotongan standar menyembunyikan bagian gambar sumber tetapi tetap menyimpan piksel di bawahnya. Gunakan [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) atau kompresi gambar dengan penghapusan wilayah yang dipotong ketika piksel tersebut dapat dibuang secara permanen.
 
-**Dapatkah saya mengembalikan kualitas gambar setelah kompresi?**
+**Bisakah saya mengembalikan kualitas gambar setelah kompresi?**
 
-Tidak. Kompresi dapat mengurangi resolusi raster yang disimpan, dan menghapus wilayah yang dipotong membuang data gambar. Simpan gambar sumber asli di luar presentasi jika penyuntingan resolusi tinggi di masa mendatang mungkin diperlukan.
+Tidak. Kompresi dapat mengurangi resolusi raster yang disimpan, dan penghapusan wilayah yang dipotong membuang data gambar. Simpan gambar sumber asli di luar presentasi bila pengeditan beresolusi tinggi di kemudian hari mungkin diperlukan.
 
-**Bagaimana seharusnya menangani gambar SVG?**
+**Bagaimana seharusnya gambar SVG ditangani?**
 
-Pertahankan konten SVG sebagai SVG ketika fidelitas vektor penting. [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/) yang terbenam dapat diekstrak langsung. Merender slide ke format raster seperti PNG atau JPEG akan merasterkan SVG sebagai bagian dari gambar slide.
+Pertahankan konten SVG sebagai SVG ketika keakuratan vektor penting. [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/) yang tertanam dapat diekstrak secara langsung. Merender slide ke format raster seperti PNG atau JPEG merasterkan SVG sebagai bagian dari gambar slide.
 
 **Bagaimana cara menghindari cast tidak aman saat membaca slide yang ada?**
 
-Periksa tipe shape sebelum menggunakan anggota khusus picture‑frame. Pencocokan pola dengan [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) atau memfilter koleksi shape berdasarkan antarmuka tersebut menghindari cast tidak valid dan memungkinkan kode menangani slide yang tidak berisi picture frame.
+Periksa tipe bentuk sebelum menggunakan anggota khusus bingkai gambar. Pencocokan pola dengan [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) atau memfilter koleksi bentuk berdasarkan antarmuka tersebut menghindari cast yang tidak valid dan memungkinkan kode menangani slide yang tidak berisi bingkai gambar.

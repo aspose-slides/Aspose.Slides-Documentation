@@ -1,47 +1,47 @@
 ---
-title: .NET में प्रस्तुतियों में Picture Frames प्रबंधित करें
-linktitle: चित्र फ्रेम
+title: प्रेजेंटेशन में .NET के साथ पिक्चर फ्रेम का प्रबंधन
+linktitle: पिक्चर फ्रेम
 type: docs
 weight: 10
 url: /hi/net/picture-frame/
 keywords:
-- चित्र फ्रेम
-- चित्र फ्रेम जोड़ें
-- चित्र फ्रेम बनाएँ
+- पिक्चर फ्रेम
+- पिक्चर फ्रेम जोड़ें
+- पिक्चर फ्रेम बनाएं
 - एम्बेडेड इमेज
 - लिंक्ड इमेज
 - इमेज निकालें
-- रेस्टर इमेज
+- रास्टर इमेज
 - SVG इमेज
 - इमेज क्रॉप करें
 - क्रॉप्ड क्षेत्रों को हटाएँ
-- इमेज संपीड़ित करें
+- इमेज कॉम्प्रेस करें
 - StretchOffset
-- चित्र फ्रेम फ़ॉर्मेटिंग
-- सापेक्ष स्केल
+- पिक्चर फ्रेम फ़ॉर्मेटिंग
+- रिलेटिव स्केल
 - इमेज इफ़ेक्ट
-- अस्पेक्ट रेशियो
+- एस्पेक्ट रैशियो
 - PowerPoint
 - OpenDocument
-- प्रस्तुति
+- प्रेजेंटेशन
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET के लिए Aspose.Slides के साथ प्रस्तुतियों में चित्र फ्रेम बनाएं, फ़ॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें और संपीड़ित करें।"
+description: "Aspose.Slides for .NET के साथ प्रेजेंटेशन में पिक्चर फ्रेम बनाएं, फ़ॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें और कॉम्प्रेस करें।"
 ---
 ## **परिचय**
 
-एक picture frame एक slide shape है जो एक image दिखाता है। Aspose.Slides में, image resource और उसे दिखाने वाला shape अलग-अलग objects हैं: एक [प्रस्तुति](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) अपनी [Images](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/images/) collection के माध्यम से एम्बेडेड image resources का स्वामित्व रखता है, जबकि एक [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) image की position, size, line formatting, rotation, cropping, picture effects, और अन्य frame‑level settings को नियंत्रित करता है।
+Picture frame एक स्लाइड शेप है जो इमेज दिखाता है। Aspose.Slides में, इमेज रिसोर्स और उसे दिखाने वाला शेप अलग-अलग ऑब्जेक्ट हैं: एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) अपने [Images](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/images/) कलेक्शन के माध्यम से एम्बेडेड इमेज रिसोर्सेज़ को रखता है, जबकि एक [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) इमेज की पोज़िशन, साइज, लाइन फ़ॉर्मेटिंग, रोटेशन, क्रॉपिंग, पिक्चर इफ़ेक्ट्स और अन्य फ्रेम‑लेवल सेटिंग्स को नियंत्रित करता है।
 
-यह विभाजन तब उपयोगी होता है जब एक ही image को एक से अधिक बार दिखाया जाता है। image को प्रस्तुति में एक बार जोड़ें, लौटाए गए [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) को रखें, और picture frames बनाते समय उसी image resource का उपयोग करें।
+यह अलगाव तब उपयोगी होता है जब एक ही इमेज को एक से अधिक बार दिखाया जाता है। इमेज को प्रेजेंटेशन में एक बार जोड़ें, लौटाए गए [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) को रखें, और पिक्चर फ्रेम बनाते समय उसी इमेज रिसोर्स का उपयोग करें।
 
-Picture frames PNG या JPEG जैसे raster images और SVG जैसे vector images को रख सकते हैं। वे presentation में image bytes को संग्रहीत करने के बजाय linked images का भी संदर्भ ले सकते हैं। यह चयन portability, file size, extraction, और export behavior को प्रभावित करता है, इसलिए formatting या optimization लागू करने से पहले यह तय करना उपयोगी है कि image को कैसे संग्रहीत किया जाए।
+Picture frames में PNG या JPEG जैसे रास्टर इमेज और SVG जैसे वेक्टर इमेज दोनों हो सकते हैं। वे इमेज डेटा को प्रेजेंटेशन में स्टोर करने के बजाय लिंक्ड इमेज को भी संदर्भित कर सकते हैं। यह चयन पोर्टेबिलिटी, फ़ाइल आकार, एक्सट्रैक्शन और एक्सपोर्ट व्यवहार को प्रभावित करता है, इसलिए फ़ॉर्मेटिंग या ऑप्टिमाइज़ेशन लागू करने से पहले यह तय करना उपयोगी है कि इमेज कैसे संग्रहीत होनी चाहिए।
 
-## **एक एम्बेडेड छवि जोड़ें और स्वरूपित करें**
+## **एम्बेडेड इमेज जोड़ें और फ़ॉर्मेट करें**
 
-एक एम्बेडेड image के लिए, image डेटा को प्रस्तुति में जोड़ें और [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addpictureframe/) के साथ एक picture frame बनाएं। image प्रस्तुति पैकेज का हिस्सा बन जाता है, इसलिए प्रस्तुति को दूसरी कंप्यूटर पर ले जाने पर भी वह self‑contained रहता है।
+एंबेडेड इमेज के लिए, इमेज डेटा को प्रेजेंटेशन में जोड़ें और [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addpictureframe/) के साथ एक पिक्चर फ्रेम बनाएं। इमेज प्रेजेंटेशन पैकेज का हिस्सा बन जाता है, इसलिए प्रेजेंटेशन को दूसरी कंप्यूटर पर ले जाने पर भी वह स्वयं‑समावेशी रहता है।
 
-निम्न उदाहरण JPEG image जोड़ता है, image के मूल dimensions पर एक फ्रेम बनाता है, और line formatting तथा rotation लागू करता है:
+निम्न उदाहरण एक JPEG इमेज जोड़ता है, इमेज के मूल आकार पर एक फ्रेम बनाता है, और लाइन फ़ॉर्मेटिंग और रोटेशन लागू करता है:
 
 ```csharp
 using System.Drawing;
@@ -64,11 +64,11 @@ pictureFrame.Rotation = 15;
 presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-picture frame प्रदर्शित geometry को नियंत्रित करता है; फ्रेम आकार बदलने से एम्बेडेड image resource में संग्रहीत मूल pixel dimensions नहीं बदलते। यह अंतर बाद में image को crop या compress करने पर महत्वपूर्ण हो जाता है।
+पिक्चर फ्रेम प्रदर्शित जियोमेट्री को नियंत्रित करता है; फ्रेम का आकार बदलने से एम्बेडेड इमेज रिसोर्स में संग्रहीत मूल पिक्सेल आयाम नहीं बदलते। यह अंतर बाद में इमेज को क्रॉप या कॉम्प्रेस करते समय महत्वपूर्ण हो जाता है।
 
-## **सापेक्ष स्केल का उपयोग करें**
+## **रिलेटिव स्केल का उपयोग करें**
 
-[IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) फ्रेम के लिए relative width और height scaling प्रदान करता है। `1.0` का मान मूल picture size के 100 % के बराबर है। Relative scale तब उपयोगी होता है जब workflow को source image size के साथ अनुपात बनाए रखना पड़ता है, न कि अंतिम dimensions को मैन्युअली गणना करना।
+[IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) फ्रेम के लिए रिलेटिव चौड़ाई और ऊँचाई स्केलिंग को उजागर करता है। `1.0` का मान मूल चित्र आकार के 100 % के अनुरूप है। रिलेटिव स्केल तब उपयोगी होता है जब वर्कफ़्लो को स्रोत इमेज आकार के साथ एक संबंध बनाए रखना हो, न कि मैन्युअल रूप से अंतिम आयाम की गणना करना।
 
 ```csharp
 using System.IO;
@@ -88,17 +88,17 @@ pictureFrame.RelativeScaleHeight = 0.8f;
 presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-Relative scale फ्रेम की scale settings बदलता है; यह एम्बेडेड image को resample या compress नहीं करता।
+रिलेटिव स्केल फ्रेम की स्केल सेटिंग्स को बदलता है; यह एम्बेडेड इमेज को री‑सैंपल या कॉम्प्रेस नहीं करता।
 
 ## **एम्बेडेड और लिंक्ड इमेजेज**
 
-एक एम्बेडेड picture image डेटा को प्रस्तुति के अंदर संग्रहीत करता है और इस कारण portability और predictable rendering के लिए सबसे सुरक्षित विकल्प है। एक लिंक्ड picture [ISlidesPicture](https://reference.aspose.com/slides/hi/net/aspose.slides/islidespicture/) लिंक पथ के माध्यम से बाहरी स्थान को संदर्भित करता है, न कि image डेटा को उसी तरह embed करता है।
+एक एम्बेडेड पिक्चर इमेज डेटा को प्रेजेंटेशन के अंदर स्टोर करता है और इसलिए पोर्टेबिलिटी और पूर्वानुमेय रेंडरिंग के लिए सबसे सुरक्षित विकल्प है। एक लिंक्ड पिक्चर [ISlidesPicture](https://reference.aspose.com/slides/hi/net/aspose.slides/islidespicture/) लिंक पाथ के माध्यम से बाहरी लोकेशन को स्टोर करता है, न कि इमेज डेटा को उसी तरह एम्बेड करता है।
 
-लिंक्ड इमेजेज PPTX में संग्रहीत image डेटा की मात्रा को कम कर सकते हैं, लेकिन वे एक बाहरी निर्भरता पेश करते हैं। लिंक्ड फ़ाइल को उस application के लिए उपलब्ध रहना चाहिए जो प्रस्तुति को खोलता या render करता है। यदि path बदलता है, फ़ाइल मूव हो जाती है, या resource अनुपलब्ध हो जाता है, तो लिंक्ड picture अपेक्षित रूप से नहीं दिखेगा। उन प्रस्तुतियों के लिए जिन्हें ईमेल, आर्काइव, या isolated environments में render करना है, एम्बेडेड इमेजेज आमतौर पर अधिक भरोसेमंद होते हैं।
+लिंक्ड इमेज PPTX में संग्रहीत इमेज डेटा की मात्रा को कम कर सकते हैं, लेकिन वे एक बाहरी निर्भरता पेश करते हैं। लिंक्ड फ़ाइल को उस एप्लिकेशन के लिए सुलभ रहना चाहिए जो प्रेजेंटेशन को खोलता या रेंडर करता है। यदि पाथ बदलता है, फ़ाइल स्थानांतरित होती है, या रिसोर्स उपलब्ध नहीं रहता, तो लिंक्ड पिक्चर अपेक्षित रूप से प्रदर्शित नहीं हो सकता। उन प्रेजेंटेशनों के लिए जो ई‑मेल, आर्काइव या अलग‑थलग वातावरण में रेंडर किए जाने चाहिए, एम्बेडेड इमेज आमतौर पर अधिक विश्वसनीय होते हैं।
 
-### **एक लिंक्ड इमेज जोड़ें**
+### **लिंक्ड इमेज जोड़ें**
 
-निम्न उदाहरण एक picture frame बनाता है और उसे एक स्थानीय image फ़ाइल की ओर पॉइंट करता है। यह केवल image linking को ही दर्शाता है; video linking एक अलग media workflow है और जानबूझकर इस उदाहरण में सम्मिलित नहीं किया गया है।
+निम्न उदाहरण एक पिक्चर फ्रेम बनाता है और उसे स्थानीय इमेज फ़ाइल की ओर इंगित करता है। यह केवल इमेज लिंकिंग को संभालता है; वीडियो लिंकिंग एक अलग मीडिया वर्कफ़्लो है और इरादतन इस उदाहरण में मिश्रित नहीं है।
 
 ```csharp
 using System.IO;
@@ -114,15 +114,15 @@ pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image
 presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-बाहरी फ़ाइल प्रबंधन इरादतन होने पर लिंक का उपयोग करें। उन्हें केवल compression के विकल्प के रूप में प्रयोग न करें: एक छोटा PPTX जिसमें टूटे हुए image dependencies हों, आमतौर पर एक बड़े self‑contained प्रस्तुति से कम उपयोगी होता है।
+जब बाहरी फ़ाइल प्रबंधन इरादतन हो तो लिंक का उपयोग करें। उन्हें केवल कॉम्प्रेशन के विकल्प के रूप में उपयोग न करें: टूटे हुए इमेज डिपेंडेंसी वाले छोटे PPTX अक्सर बड़े स्वयं‑समावेशी प्रेजेंटेशन की तुलना में कम उपयोगी होते हैं।
 
-## **Picture Frames से इमेजेज निकालें**
+## **पिक्चर फ्रेम से इमेज एक्सट्रैक्ट करें**
 
-किसी मौजूदा प्रस्तुति से image निकालने से पहले, यह जांचें कि shape वास्तव में एक [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) है और उसमें एम्बेडेड image मौजूद है। लिंक्ड picture frames में वह image bytes नहीं हो सकते जिन्हें उसी तरह निकाल सकें।
+किसी मौजूदा प्रेजेंटेशन से इमेज एक्सट्रैक्ट करने से पहले, यह जांचें कि आकार वास्तव में एक [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) है और उसमें एम्बेडेड इमेज है। लिंक्ड पिक्चर फ्रेम में संभवतः इमेज बाइट्स नहीं होते जो समान तरीके से एक्सट्रैक्ट किए जा सकें।
 
-### **एक Raster Image निकालें**
+### **रास्टर इमेज एक्सट्रैक्ट करें**
 
-आधुनिक image API सीधे [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) का उपयोग करता है और पुराने system‑image wrapper की आवश्यकता नहीं होती। निम्न उदाहरण पहले एम्बेडेड raster picture को slide पर खोजता है और उसे PNG के रूप में सहेजता है:
+आधुनिक इमेज API सीधे [IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) का उपयोग करती है और पुराने सिस्टम‑इमेज रैपर की आवश्यकता नहीं होती। निम्न उदाहरण पहले स्लाइड पर पहली एम्बेडेड रास्टर पिक्चर खोजता है और उसे PNG के रूप में सेव करता है:
 
 ```csharp
 using System;
@@ -150,11 +150,11 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-[IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) के माध्यम से सहेजना extracted image को अनुरोधित output format में बदल देता है। यदि आपको presentation में संग्रहीत encoded bytes चाहिए, न कि रूपांतरित raster फ़ाइल, तो image resource के binary डेटा का उपयोग करें।
+[IImage](https://reference.aspose.com/slides/hi/net/aspose.slides/iimage/) के माध्यम से सेव करने से एक्सट्रैक्टेड इमेज को अनुरोधित आउटपुट फ़ॉर्मेट में बदल दिया जाता है। यदि आपको प्रेजेंटेशन में संग्रहीत एन्कोडेड बाइट्स चाहिए बनाम एक परिवर्तित रास्टर फ़ाइल, तो इमेज रिसोर्स का बाइनरी डेटा उपयोग करें।
 
-### **एक SVG Image निकालें**
+### **SVG इमेज एक्सट्रैक्ट करें**
 
-एक SVG picture के लिए, [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) एक [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) object उजागर करता है। यह आपको SVG डेटा को सीधे प्राप्त करने देता है, बिना पहले picture को rasterize किए।
+SVG पिक्चर के लिए, [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) एक [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) ऑब्जेक्ट उजागर करता है। इससे आप SVG डेटा को सीधे प्राप्त कर सकते हैं, बिना पहले पिक्चर को रास्टराइज़ किए।
 
 ```csharp
 using System.IO;
@@ -182,13 +182,13 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-SVG को SVG के रूप में रखना presentation के भीतर vector source को संरक्षित करता है। PNG या JPEG जैसे raster export को वह vector content को pixels में render करना पड़ता है। PDF या SVG slide export भी एक rendering प्रक्रिया है, इसलिए एक्सपोर्ट किए गए graphics को मूल एम्बेडेड SVG की बाइट‑फॉर‑बाइट कॉपी नहीं माना जाना चाहिए; जब मूल vector resource की आवश्यकता हो तो एम्बेडेड [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) डेटा का उपयोग करें।
+SVG सामग्री को SVG के रूप में रखने से वेक्टर स्रोत प्रेजेंटेशन के भीतर बना रहता है। PNG या JPEG जैसे रास्टर एग्ज़ोर्ट आवश्यक रूप से उस वेक्टर सामग्री को पिक्सेल में रेंडर करते हैं। PDF या SVG स्लाइड एक्सपोर्ट भी एक रेंडरिंग ऑपरेशन है, इसलिए एक्सपोर्टेड ग्राफ़िक्स को मूल एम्बेडेड SVG की बाइट‑फ़ॉर‑बाइट कॉपी नहीं माना जाना चाहिए; जब मूल वेक्टर रिसोर्स स्वयं आवश्यक हो तो एम्बेडेड [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) डेटा का उपयोग करें।
 
-## **एक Image को Crop करें**
+## **इमेज को क्रॉप करें**
 
-Cropping फ्रेम के अंदर image के कौन से भाग दिखेंगे, इसे बदलता है। [IPictureFillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/) पर crop values source image dimensions के प्रतिशत होते हैं। Cropping प्रारम्भ में एम्बेडेड image से छिपे हुए pixels को हटाता नहीं है; यह केवल दृश्य क्षेत्र को बदलता है।
+क्रॉपिंग फ्रेम के भीतर इमेज के कौन से हिस्से दिखेंगे, इसे बदलता है। [IPictureFillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/) पर क्रॉप वैल्यूज़ स्रोत इमेज आयामों का प्रतिशत होते हैं। क्रॉपिंग प्रारंभ में एम्बेडेड इमेज से छिपे पिक्सेल को हटाती नहीं है; यह केवल दृश्यमान क्षेत्र को बदलती है।
 
-निम्न उदाहरण एक picture frame को सुरक्षित रूप से ढूँढता है और crop values लागू करता है:
+निम्न उदाहरण सुरक्षित रूप से एक पिक्चर फ्रेम खोजता है और क्रॉप वैल्यूज़ लागू करता है:
 
 ```csharp
 using System.Linq;
@@ -209,11 +209,11 @@ if (pictureFrame != null)
 }
 ```
 
-क्योंकि छिपा हुआ image डेटा अभी भी मौजूद है, crop को बाद में मूल pixels खोए बिना बदला जा सकता है। यदि फाइल आकार अधिक महत्वपूर्ण है और reversibility की आवश्यकता नहीं है, तो अगले खंड में वर्णित अनुसार cropped regions को शारीरिक रूप से हटाया जा सकता है।
+क्योंकि छिपा हुआ इमेज डेटा अभी भी मौजूद है, क्रॉप को बाद में मूल पिक्सेल खोए बिना बदला जा सकता है। यदि फ़ाइल आकार अधिक महत्वपूर्ण है और पुनर्प्राप्ति की आवश्यकता नहीं है, तो अगले सेक्शन में वर्णित अनुसार क्रॉप्ड क्षेत्रों को शारीरिक रूप से हटाया जा सकता है।
 
-## **क्रॉप्ड Image डेटा हटाएँ**
+## **क्रॉप्ड इमेज डेटा हटाएं**
 
-[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) वर्तमान crop rectangle के बाहर की image डेटा को हटाता है और resultant image resource लौटाता है। यह फाइल आकार को कम कर सकता है, लेकिन यह एक destructive optimization है: प्रस्तुति सेव होने के बाद हटाए गए pixels बाद में uncrop ऑपरेशन के लिए उपलब्ध नहीं रहते।
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) वर्तमान क्रॉप रेक्टैंगल के बाहर के इमेज डेटा को हटाता है और परिणामी इमेज रिसोर्स लौटाता है। यह फ़ाइल आकार कम कर सकता है, लेकिन यह एक विनाशकारी ऑप्टिमाइज़ेशन है: प्रेजेंटेशन सेव होने के बाद हटाए गए पिक्सेल बाद में अनक्रॉप ऑपरेशन के लिए उपलब्ध नहीं रहते।
 
 ```csharp
 using System.Linq;
@@ -234,13 +234,13 @@ if (pictureFrame != null)
 }
 ```
 
-इस method से प्रस्तुति में एक नया image resource जुड़ सकता है। यदि मूल image को अन्य picture frames भी उपयोग कर रहे हैं, तो उन frames को अभी भी अपने मौजूदा resource की आवश्यकता होगी, इसलिए cropped areas को हटाना जरूरी नहीं कि कुल image संख्या को घटाए। WMF या EMF content को इस method से crop करने पर परिणाम PNG में rasterize हो जाता है।
+यह मेथड प्रेजेंटेशन में एक नया इमेज रिसोर्स जोड़ सकता है। यदि मूल इमेज अन्य पिक्चर फ्रेम द्वारा भी उपयोग की जा रही है, तो उन फ्रेम को अभी भी अपना मौजूदा रिसोर्स चाहिए रहता है, इसलिए क्रॉप्ड क्षेत्रों को हटाने से कुल इमेज की संख्या अनिवार्य रूप से नहीं घटती। इस मेथड से WMF या EMF सामग्री को क्रॉप करने पर परिणाम PNG में रास्टराइज़ हो जाता है।
 
-## **Raster Image को Compress करें**
+## **रास्टर इमेज कॉम्प्रेस करें**
 
-[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/compressimage/) raster image resolution को उस size के सापेक्ष घटाता है जिस पर picture प्रदर्शित होती है। यह उसी ऑपरेशन में cropped regions को भी हटा सकता है। यह method तब `true` लौटाता है जब image को resized या cropped किया गया हो और `false` जब कोई बदलाव आवश्यक न हो।
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/compressimage/) रास्टर इमेज रिज़ॉल्यूशन को उस आकार के सापेक्ष कम करता है जिस पर चित्र दर्शाया जाता है। यह उसी ऑपरेशन में क्रॉप्ड क्षेत्रों को भी हटा सकता है। मेथड `true` लौटाता है जब इमेज को रीसाइज़ या क्रॉप किया गया हो और `false` जब कोई बदलाव आवश्यक न हो।
 
-एक मानक target resolution पर्याप्त होने पर पूर्वपरिभाषित [PicturesCompression](https://reference.aspose.com/slides/hi/net/aspose.slides.export/picturescompression/) मान का उपयोग करें:
+जब एक मानक लक्ष्य रिज़ॉल्यूशन पर्याप्त हो तो पूर्वपरिभाषित [PicturesCompression](https://reference.aspose.com/slides/hi/net/aspose.slides.export/picturescompression/) वैल्यू का उपयोग करें:
 
 ```csharp
 using System;
@@ -260,49 +260,17 @@ if (pictureFrame != null)
 }
 ```
 
-यदि कोई विशिष्ट target चाहिए तो enum मान के बजाय एक कस्टम सकारात्मक DPI मान पास किया जा सकता है।
+यदि विशिष्ट लक्ष्य आवश्यक हो तो एनीम वैल्यू के बजाय कस्टम पॉज़िटिव DPI मान पास किया जा सकता है।
 
-Compression raster image के लिए अभिप्रेत है। SVG और metafile सामग्री इस raster compression workflow द्वारा नहीं घटती। यह भी याद रखें कि कम resolution और हटाए गए cropped regions को अनुकूलित प्रस्तुति से पुनः प्राप्त नहीं किया जा सकता। लक्ष्य resolution को उस अधिकतम size के आधार पर चुनें जिस पर image वास्तव में देखी या एक्सपोर्ट की जाएगी, न कि वैश्विक रूप से सबसे कम DPI लागू करके।
+कॉम्प्रेशन रास्टर इमेज के लिए अभिप्रेत है। SVG और मेटाफाइल सामग्री इस रास्टर कॉम्प्रेशन वर्कफ़्लो से नहीं घटती। यह भी याद रखें कि कम रिज़ॉल्यूशन और हटाए गए क्रॉप्ड क्षेत्रों को ऑप्टिमाइज़्ड प्रेजेंटेशन से पुनः प्राप्त नहीं किया जा सकता। लक्ष्य रिज़ॉल्यूशन को उस अधिकतम आकार के आधार पर चुनें जिस पर इमेज वास्तव में देखी या एक्सपोर्ट की जाएगी, न कि ग्लोबली सबसे कम DPI लागू करके।
 
-## **Image Effects की निरीक्षण करें**
+## **इमेज ट्रांसफ़ॉर्म इफ़ेक्ट्स प्रबंधित करें**
 
-Picture effects frame द्वारा उपयोग किए गए picture पर संग्रहीत होते हैं। image transform collection में transparency के लिए fixed alpha modulation और brightness‑contrast के लिए luminance जैसे प्रभाव हो सकते हैं। नीचे दिया गया उदाहरण पहले picture frame से दोनों प्रकार के प्रभावों को सुरक्षित रूप से पढ़ता है:
+ब्राइटनेस, कॉन्ट्रास्ट, कलर ट्रांसफ़ॉर्मेशन, ब्लर, अल्फा इफ़ेक्ट्स, ऑर्डर्ड चेन, इंस्पेक्शन, रिमूवल और राउंड‑ट्रिप वेरिफिकेशन को कवर करने वाले पूर्ण वर्कफ़्लो के लिए देखें [Image Transform Effects](/slides/hi/net/image-transform-effects/)।
 
-```csharp
-using System;
-using System.Linq;
-using Aspose.Slides;
-using Aspose.Slides.Effects;
+## **पिक्चर फ्रेम जियोमेट्री को लॉक करें**
 
-using var presentation = new Presentation("sample.pptx");
-var slide = presentation.Slides[0];
-var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
-
-if (pictureFrame != null)
-{
-    foreach (var effect in pictureFrame.PictureFormat.Picture.ImageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparency = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Transparency: " + transparency);
-        }
-
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            Console.WriteLine("Brightness: " + luminance.Brightness);
-            Console.WriteLine("Contrast: " + luminance.Contrast);
-        }
-    }
-}
-```
-
-ये प्रभाव frame में image के render होने के तरीके को बदलते हैं; वे मूल एम्बेडेड image bytes को पुनः लिखते नहीं हैं।
-
-## **Picture Frame Geometry को लॉक करें**
-
-[IPictureFrameLock](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframelock/) सेटिंग्स यह नियंत्रित करती हैं कि picture frame के कौन से editing operations अक्षम हों। उदाहरण के लिये, aspect‑ratio lock आकार बदलते समय shape के अनुपात को बरकरार रखता है।
+[IPictureFrameLock](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframelock/) सेटिंग्स यह नियंत्रित करती हैं कि पिक्चर फ्रेम के लिए कौन‑से एडिटिंग ऑपरेशन निष्क्रिय हैं। उदाहरण के लिए, एस्पेक्ट‑रैशियो लॉक आकार बदलते समय शेप के अनुपात को बनाए रखता है।
 
 ```csharp
 using System.IO;
@@ -321,13 +289,13 @@ pictureFrame.PictureFrameLock.AspectRatioLocked = true;
 presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-लॉक picture frame shape पर लागू होता है। यह source image को resample या स्थायी रूप से समान aspect ratio में बदलता नहीं है।
+लॉक पिक्चर फ्रेम शेप पर लागू होता है। यह स्रोत इमेज को री‑सैंपल या स्थायी रूप से उसी एस्पेक्ट रैशियो में बदलने के लिए बाध्य नहीं करता।
 
-## **StretchOffset मानों को समायोजित करें**
+## **StretchOffset वैल्यू समायोजित करें**
 
-जब picture fill mode stretch हो, तो [IPictureFillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/) पर stretch‑offset मान picture frame की bounding box के सापेक्ष fill rectangle को परिभाषित करते हैं। सकारात्मक प्रतिशत किनारे से एक inset बनाते हैं, जबकि नकारात्मक प्रतिशत एक outset बनाते हैं।
+जब पिक्चर फ़िल मोड स्ट्रेच हो, तो [IPictureFillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/) पर स्ट्रेच‑ऑफ़सेट वैल्यूज़ पिक्चर फ्रेम के बाउंडिंग बॉक्स के सापेक्ष फ़िल रेक्टैंगल को परिभाषित करती हैं। पॉज़िटिव प्रतिशत किनारे से इनसेट बनाते हैं, जबकि नेगेटिव प्रतिशत आउटसेट बनाते हैं।
 
-यह cropping से अलग है। Crop values यह चुनते हैं कि source image का कौन सा भाग दिखे; stretch offsets वह rectangle बदलते हैं जिसमें दृश्य picture fill को stretch किया जाता है।
+यह क्रॉपिंग से अलग है। क्रॉप वैल्यूज़ स्रोत इमेज के कौन से भाग दिखेंगे, इसे चुनती हैं; स्ट्रेच ऑफ़सेट दृश्य पिक्चर फ़िल को फैलाने वाले रेक्टैंगल को बदलते हैं।
 
 ```csharp
 using System.IO;
@@ -350,43 +318,43 @@ pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
 presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
 ```
 
-fill placement के लिए stretch offsets का उपयोग करें। जब लक्ष्य source‑image किनारों को छिपाना हो तो crop properties का उपयोग करें।
+फ़िल प्लेसमेंट के लिए स्ट्रेच ऑफ़सेट का उपयोग करें। जब लक्ष्य स्रोत‑इमेज किनारों को छिपाना हो तो क्रॉप प्रॉपर्टीज़ का उपयोग करें।
 
-## **स्टोरेज, फाइल साइज, और एक्सपोर्ट विचार**
+## **स्टोरेज, फ़ाइल आकार, और एक्सपोर्ट विचार**
 
-जब image स्टोरेज और picture‑frame formatting को अलग‑अलग माना जाता है तो मुख्य trade‑offs को प्रबंधित करना सरल हो जाता है:
+मुख्य ट्रेड‑ऑफ़ तब आसान होते हैं जब इमेज स्टोरेज और पिक्चर‑फ़्रेम फ़ॉर्मेटिंग को अलग‑अलग संभाला जाए:
 
-- **Embedded images** प्रस्तुति को self‑contained बनाते हैं और शेयरिंग तथा server‑side rendering के लिये सबसे भरोसेमंद होते हैं, लेकिन बड़े raster images PPTX आकार और मेमोरी उपयोग को बढ़ाते हैं।
-- **Linked images** पैकेज को छोटा रख सकते हैं, लेकिन प्रस्तुति को बाहरी फ़ाइलों की उपलब्धता पर निर्भर बनाते हैं।
-- **Cropping** प्रारम्भ में non‑destructive होता है। छिपे हुए pixels तब तक एम्बेडेड रहते हैं जब तक cropped areas को स्पष्ट रूप से delete या compression के दौरान हटाया न जाए।
-- **Compression** अत्यधिक बड़े raster images के फाइल आकार को काफी घटा सकता है, लेकिन यह source resolution की कीमत पर होता है। इसे स्लाइड पर वास्तविक आकार ज्ञात होने के बाद लागू करना चाहिए।
-- **SVG images** को तब तक SVG के रूप में रखें जब तक vector preservation महत्वपूर्ण न हो। जब आपको स्वयं vector resource चाहिए तो एम्बेडेड SVG को सीधे निकालें। Raster slide exports हमेशा rendered slide को pixels में बदलते हैं।
-- **Repeated images** को संभव हो तो मौजूदा [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) resource को पुनः उपयोग करें, बजाय प्रत्येक बार वही फ़ाइल प्रस्तुति workflow में लोड करने के।
+- **Embedded images** प्रेजेंटेशन को स्वयं‑समावेशी बनाते हैं और शेयरिंग तथा सर्वर‑साइड रेंडरिंग के लिए सबसे विश्वसनीय होते हैं, लेकिन बड़े रास्टर इमेज PPTX आकार और मेमोरी उपयोग को बढ़ाते हैं।
+- **Linked images** पैकेज को छोटा रख सकते हैं, लेकिन प्रेजेंटेशन को बाहरी फ़ाइलों के उपलब्ध रहने पर निर्भर होना पड़ता है।
+- **Cropping** प्रारम्भ में नॉन‑डिस्ट्रक्टिव है। छिपे पिक्सेल एम्बेडेड रहते हैं जब तक कि क्रॉप्ड एरिया स्पष्ट रूप से डिलीट या कॉम्प्रेशन के दौरान हटाया न जाए।
+- **Compression** ओवरसाइज़्ड रास्टर इमेज के फ़ाइल आकार को काफी घटा सकता है, लेकिन यह स्रोत रिज़ॉल्यूशन का त्याग है। इसे स्लाइड पर इच्छित आकार ज्ञात होने के बाद लागू किया जाना चाहिए।
+- **SVG images** को वेक्टर संरक्षण आवश्यक होने पर SVG के रूप में ही रखना चाहिए। जब आपको स्वयं वेक्टर रिसोर्स चाहिए तो एम्बेडेड SVG को सीधे एक्सट्रैक्ट करें। रास्टर स्लाइड एक्सपोर्ट हमेशा रेंडर की गई स्लाइड को पिक्सेल में बदल देता है।
+- **Repeated images** को संभव हो तो मौजूदा [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) रिसोर्स को पुन: उपयोग करना चाहिए, न कि एक ही फ़ाइल को बार‑बार प्रेजेंटेशन वर्कफ़्लो में लोड करना।
 
-बड़े presentations के लिये, image optimization सामान्यतया तब सबसे प्रभावी होती है जब चयनित रूप से किया जाए: logos और diagrams को vector सामग्री के रूप में रखें, photographs को उनके वास्तविक display size के अनुसार compress करें, cropped pixels को केवल तब हटाएँ जब बाद में editing आवश्यक न हो, और बाहरी लिंक को तब तक न अपनाएँ जब तक dependency management deployment design का हिस्सा न हो।
+बड़े प्रेजेंटेशन के लिए इमेज ऑप्टिमाइज़ेशन आमतौर पर चयनात्मक रूप से सबसे प्रभावी होता है: लोगो और डायग्राम को वेक्टर कंटेंट के रूप में रखें, फोटोज़ को उनके वास्तविक डिस्प्ले आकार के अनुसार कॉम्प्रेस करें, क्रॉप्ड पिक्सेल केवल तब हटाएँ जब बाद में एडिटिंग आवश्यक न हो, और बाहरी लिंक तभी रखें जब डिपेंडेंसी मैनेजमेंट डिप्लॉयमेंट डिज़ाइन का हिस्सा हो।
 
 ## **FAQ**
 
-**एक picture frame और एक image resource में क्या अंतर है?**
+**पिक्चर फ्रेम और इमेज रिसोर्स में क्या अंतर है?**
 
-एक [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) प्रस्तुति से जुड़ा image resource दर्शाता है। एक [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) slide पर वह shape है जो image दिखाता है और फ्रेम‑level geometry तथा formatting जैसे size, rotation, crop values, effects, और locks को संग्रहीत करता है।
+[IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) प्रेजेंटेशन से जुड़ा इमेज रिसोर्स दर्शाता है। [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) एक स्लाइड पर वह शेप है जो इमेज दिखाता है और फ़्रेम‑लेवल जियोमेट्री एवं फ़ॉर्मेटिंग जैसे साइज, रोटेशन, क्रॉप वैल्यूज़, इफ़ेक्ट्स और लॉक संग्रहीत करता है।
 
-**मुझे image को embed करना चाहिए या link करना चाहिए?**
+**मुझे इमेज एम्बेड करनी चाहिए या लिंक?**
 
-जब प्रस्तुति को portable, archived, या बाहरी resources के बिना render करना आवश्यक हो तो image को embed करें। बाहरी फ़ाइलों को बाहर रखने का इरादा हो और वह स्थान विश्वसनीय रूप से बनाए रखे जा सकें तभी image को link करें।
+जब प्रेजेंटेशन को पोर्टेबल, आर्काइव या बाहरी रिसोर्स के बिना रेंडर करने की आवश्यकता हो तो इमेज एम्बेड करें। लिंक केवल तभी उपयोग करें जब इमेज फ़ाइलों को PPTX के बाहर रखने का इरादा हो और बाहरी लोकेशन को विश्वसनीय रूप से बनाए रखा जा सके।
 
-**क्या cropping PPTX फाइल साइज को कम करता है?**
+**क्या क्रॉपिंग से PPTX फ़ाइल आकार घटता है?**
 
-स्वयं नहीं। सामान्य crop सेटिंग्स source image के भाग को छुपाती हैं लेकिन अंतर्निहित pixels को रखती हैं। जब उन pixels को स्थायी रूप से हटाया जा सकता हो तो [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) या crop‑area removal के साथ image compression का उपयोग करें।
+स्वयं नहीं। सामान्य क्रॉप सेटिंग्स स्रोत इमेज के हिस्सों को छुपाती हैं लेकिन अंतर्निहित पिक्सेल को रखती हैं। फ़ाइल आकार घटाने के लिए [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/hi/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) या क्रॉप्ड‑एरिया हटाने के साथ इमेज कॉम्प्रेशन का उपयोग करें।
 
-**क्या मैं compression के बाद image की गुणवत्ता पुनः प्राप्त कर सकता हूँ?**
+**क्या मैं कॉम्प्रेशन के बाद इमेज क्वालिटी को पुनः प्राप्त कर सकता हूँ?**
 
-नहीं। Compression संग्रहीत raster resolution को घटा देता है, और cropped regions को हटाने से image डेटा हट जाता है। यदि बाद में उच्च‑resolution editing की सम्भावना हो तो मूल source image को प्रस्तुति के बाहर रखें।
+नहीं। कॉम्प्रेशन संग्रहीत रास्टर रिज़ॉल्यूशन को घटा सकता है, और क्रॉप्ड क्षेत्रों को हटाने से इमेज डेटा स्थायी रूप से ख़तम हो जाता है। यदि बाद में हाई‑रिज़ॉल्यूशन एडिटिंग की संभावना हो तो मूल स्रोत इमेज को प्रेजेंटेशन के बाहर रखें।
 
-**SVG images को कैसे संभालना चाहिए?**
+**SVG इमेज को कैसे हैंडल करना चाहिए?**
 
-जब vector fidelity मायने रखती है तो SVG सामग्री को SVG के रूप में रखें। एम्बेडेड [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) को सीधे निकाल सकते हैं। स्लाइड को PNG या JPEG जैसे raster format में render करने से SVG को pixels में बदल दिया जाता है।
+जब वेक्टर फ़िडेलिटी महत्वपूर्ण हो तो SVG को SVG के रूप में रखें। एम्बेडेड [ISvgImage](https://reference.aspose.com/slides/hi/net/aspose.slides/isvgimage/) को सीधे एक्सट्रैक्ट किया जा सकता है। स्लाइड को PNG या JPEG जैसे रास्टर फ़ॉर्मेट में एक्सपोर्ट करने से SVG को पिक्सेल में रेंडर किया जाता है।
 
-**मैं existing slides पढ़ते समय unsafe casts से कैसे बचूँ?**
+**मौजूदा स्लाइड पढ़ते समय अनसेफ़ कास्ट से कैसे बचें?**
 
-shape type को उपयोग करने से पहले जांचें। [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) के साथ pattern matching या shape collection को उस interface द्वारा फ़िल्टर करने से invalid casts से बचा जा सकता है और कोड उन slides को संभाल सकता है जिनमें picture frames नहीं होते।
+शेप टाइप को उपयोग करने से पहले जांचें कि वह एक [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) है या नहीं। पैटर्न मैचिंग या इंटरफ़ेस द्वारा shape कलेक्शन को फ़िल्टर करने से इनवैलिड कास्ट से बचा जा सकता है और कोड उन स्लाइडों को भी संभाल सकता है जिनमें पिक्चर फ्रेम नहीं हैं।

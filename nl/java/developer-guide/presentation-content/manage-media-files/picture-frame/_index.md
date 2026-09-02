@@ -1,15 +1,15 @@
 ---
-title: Beheer afbeeldingsframes in presentaties met Java
+title: Beheer afbeeldingframes in presentaties met Java
 linktitle: Afbeeldingsframe
 type: docs
 weight: 10
 url: /nl/java/picture-frame/
 keywords:
-- afbeeldingsframe
-- afbeeldingsframe toevoegen
-- afbeeldingsframe maken
-- ingebedde afbeelding
-- gelinkte afbeelding
+- afbeeldingframe
+- afbeeldingframe toevoegen
+- afbeeldingframe maken
+- ingesloten afbeelding
+- gekoppelde afbeelding
 - afbeelding extraheren
 - rasterafbeelding
 - SVG-afbeelding
@@ -17,7 +17,7 @@ keywords:
 - bijgesneden gebieden verwijderen
 - afbeelding comprimeren
 - StretchOffset
-- opmaak van afbeeldingsframe
+- afbeeldingframe-opmaak
 - relatieve schaal
 - afbeeldingseffect
 - beeldverhouding
@@ -26,21 +26,21 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Maak, formatteer, link, snijd bij, extraheer en comprimeer afbeeldingsframes in presentaties met Aspose.Slides voor Java."
+description: "Maak, formatteer, koppel, snijd bij, extraheer en comprimeer afbeeldingframes in presentaties met Aspose.Slides voor Java."
 ---
 ## **Overzicht**
 
-Een picture frame is een slide‑vorm die een afbeelding weergeeft. In Aspose.Slides zijn de afbeeldingsbron en de vorm die deze weergeeft afzonderlijke objecten: een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/) bezit ingebedde afbeeldingsbronnen via zijn [IImageCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iimagecollection/), terwijl een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) de positie, grootte, lijnopmaak, rotatie, bijsnijden, picture‑effects en andere frame‑niveau instellingen regelt.
+Een afbeeldingframe is een dia‑vorm die een afbeelding weergeeft. In Aspose.Slides zijn de afbeeldingsbron en de vorm die deze weergeeft aparte objecten: een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/) bezit ingesloten afbeeldingsbronnen via zijn [IImageCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iimagecollection/), terwijl een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) de positie, grootte, lijnopmaak, rotatie, bijsnijden, afbeeldingseffecten en andere instellingen op frame‑niveau regelt.
 
-Deze scheiding is nuttig wanneer dezelfde afbeelding meer dan één keer wordt getoond. Voeg de afbeelding één keer toe aan de presentatie, bewaar de geretourneerde [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/), en gebruik die afbeeldingsbron bij het maken van picture frames.
+Deze scheiding is handig wanneer dezelfde afbeelding meer dan één keer wordt getoond. Voeg de afbeelding één keer toe aan de presentatie, bewaar de geretourneerde [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/), en gebruik die afbeeldingsbron bij het maken van afbeeldingframes.
 
-Picture frames kunnen rasterafbeeldingen zoals PNG of JPEG en vector‑SVG‑afbeeldingen bevatten. Ze kunnen ook verwijzen naar gelinkte afbeeldingen in plaats van de afbeeldingsbytes op te slaan in de presentatie. De keuze beïnvloedt draagbaarheid, bestandsgrootte, extractie en exportgedrag, dus het is handig om vooraf te beslissen hoe de afbeelding moet worden opgeslagen voordat formatering of optimalisatie wordt toegepast.
+Afbeeldingframes kunnen raster‑afbeeldingen zoals PNG of JPEG en vector‑SVG‑afbeeldingen bevatten. Ze kunnen ook verwijzen naar gekoppelde afbeeldingen in plaats van de afbeeldingsbytes in de presentatie op te slaan. De keuze beïnvloedt draagbaarheid, bestandsgrootte, extractie en exportgedrag, dus het is nuttig om vóór het toepassen van opmaak of optimalisatie te bepalen hoe de afbeelding moet worden opgeslagen.
 
-## **Een Ingebedde Afbeelding Toevoegen en Formatteren**
+## **Ingesloten afbeelding toevoegen en opmaken**
 
-Voor een ingebedde afbeelding voeg je de afbeeldingsdata toe aan de presentatie en maak je een picture frame met [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). De afbeelding wordt onderdeel van het presentatiedossier, zodat de presentatie zelf‑containend blijft wanneer deze naar een andere computer wordt verplaatst.
+Voor een ingesloten afbeelding voeg je de afbeeldingsdata toe aan de presentatie en maak je een afbeeldingframe met [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). De afbeelding wordt onderdeel van het presentatiedossier, zodat de presentatie zelf‑containend blijft wanneer deze naar een andere computer wordt verplaatst.
 
-Het volgende voorbeeld voegt een JPEG‑afbeelding toe, maakt een frame met de originele afmetingen van de afbeelding en past lijnopmaak en rotatie toe:
+Het volgende voorbeeld voegt een JPEG‑afbeelding toe, maakt een frame met de oorspronkelijke afmetingen van de afbeelding, en past lijnopmaak en rotatie toe:
 
 ```java
 import com.aspose.slides.*;
@@ -70,11 +70,11 @@ try {
 }
 ```
 
-Het picture frame bepaalt de weergegeven geometrie; het wijzigen van de frame‑grootte verandert de oorspronkelijke pixelafmetingen die zijn opgeslagen in de ingebedde afbeeldingsbron. Dit onderscheid wordt belangrijk bij later bijsnijden of comprimeren van een afbeelding.
+Het afbeeldingframe bepaalt de weergegeven geometrie; het wijzigen van de frame‑grootte verandert niet de oorspronkelijke pixelafmetingen die in de ingesloten afbeeldingsbron zijn opgeslagen. Dit onderscheid wordt belangrijk bij het later bijsnijden of comprimeren van een afbeelding.
 
-## **Relatieve Schaling Gebruiken**
+## **Relatieve schaal gebruiken**
 
-[IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) biedt relatieve breedte‑ en hoogte‑schaling voor het frame via [setRelativeScaleWidth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) en [setRelativeScaleHeight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Een waarde van `1.0` komt overeen met 100 % van de oorspronkelijke afbeeldinggrootte. Relatieve schaal is handig wanneer een workflow de relatie tot de bronafbeeldingsgrootte moet behouden in plaats van de uiteindelijke afmetingen handmatig te berekenen.
+[IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) biedt relatieve breedte‑ en hoogte‑schaal voor het frame via [setRelativeScaleWidth](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) en [setRelativeScaleHeight](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Een waarde van `1.0` komt overeen met 100 % van de oorspronkelijke afbeeldingsgrootte. Relatieve schaal is nuttig wanneer een workflow de verhouding tot de bronafbeelding moet behouden in plaats van handmatig eindafmetingen te berekenen.
 
 ```java
 import com.aspose.slides.*;
@@ -101,17 +101,17 @@ try {
 }
 ```
 
-Relatieve schaal wijzigt de schaalinstellingen van het frame; ze resamplet of comprimeert de ingebedde afbeelding niet.
+Relatieve schaal wijzigt de schaalinstellingen van het frame; het scant of comprimeert de ingesloten afbeelding niet opnieuw.
 
-## **Ingebedde en Gelinkte Afbeeldingen**
+## **Ingesloten en gekoppelde afbeeldingen**
 
-Een ingebedde picture slaat afbeeldingsdata op binnen de presentatie en is daarom de veiligste keuze voor draagbaarheid en voorspelbare rendering. Een gelinkte picture slaat een externe locatie op via de methode [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) in plaats van de afbeeldingsdata op dezelfde manier in te sluiten.
+Een ingesloten afbeelding slaat afbeeldingsdata op binnen de presentatie en is daarom de veiligste keuze voor draagbaarheid en voorspelbare weergave. Een gekoppelde afbeelding slaat een externe locatie op via de methode [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) in plaats van de afbeeldingsdata in te sluiten.
 
-Gelinkte afbeeldingen kunnen de hoeveelheid beelddata in de PPTX verminderen, maar ze introduceren een externe afhankelijkheid. Het gelinkte bestand moet toegankelijk blijven voor de applicatie die de presentatie opent of rendert. Als het pad verandert, het bestand wordt verplaatst of de bron niet beschikbaar is, wordt de gelinkte picture mogelijk niet zoals verwacht weergegeven. Voor presentaties die per e‑mail moeten worden verzonden, gearchiveerd of gerenderd in geïsoleerde omgevingen, zijn ingebedde afbeeldingen doorgaans betrouwbaarder.
+Gekoppelde afbeeldingen kunnen de hoeveelheid afbeeldingsdata in het PPTX‑bestand verminderen, maar voegen een externe afhankelijkheid toe. Het gekoppelde bestand moet toegankelijk blijven voor de applicatie die de presentatie opent of rendert. Als het pad wijzigt, het bestand wordt verplaatst, of de bron niet beschikbaar is, wordt de gekoppelde afbeelding mogelijk niet weergegeven zoals verwacht. Voor presentaties die per e‑mail moeten worden verzonden, gearchiveerd, of in geïsoleerde omgevingen moeten worden gerenderd, zijn ingesloten afbeeldingen doorgaans betrouwbaarder.
 
-### **Een Gelinkte Afbeelding Toevoegen**
+### **Gekoppelde afbeelding toevoegen**
 
-Het volgende voorbeeld maakt een picture frame aan en wijst het naar een lokaal afbeeldingsbestand. Het behandelt alleen afbeeldingslinking; video‑linking is een afzonderlijke mediavoorziening en wordt opzettelijk niet gemengd in dit voorbeeld.
+Het volgende voorbeeld maakt een afbeeldingframe en wijst het naar een lokaal afbeeldingsbestand. Het behandelt uitsluitend afbeeldingskoppeling; video‑koppeling is een afzonderlijke mediaprocedure en wordt opzettelijk niet gemengd in dit voorbeeld.
 
 ```java
 import com.aspose.slides.*;
@@ -132,15 +132,15 @@ try {
 }
 ```
 
-Gebruik links wanneer extern bestandsbeheer opzettelijk is. Gebruik ze niet louter als vervanging voor compressie: een kleine PPTX met gebroken afbeeldingsafhankelijkheden is meestal minder bruikbaar dan een grotere zelf‑containende presentatie.
+Gebruik koppelingen wanneer extern bestandsbeheer opzettelijk is. Gebruik ze niet enkel als vervanging voor compressie: een klein PPTX‑bestand met defecte afbeeldingsafhankelijkheden is meestal minder bruikbaar dan een groter zelf‑containend document.
 
-## **Afbeeldingen Uit Picture Frames Extracten**
+## **Afbeeldingen uit afbeeldingframes extraheren**
 
-Controleer vóór het extraheren van een afbeelding uit een bestaande presentatie of een vorm daadwerkelijk een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) is en dat deze een ingebedde afbeelding bevat. Gelinkte picture frames kunnen mogelijk geen afbeeldingsbytes bevatten die op dezelfde manier geëxtraheerd kunnen worden.
+Voordat je een afbeelding uit een bestaande presentatie extraheert, controleer je of een vorm daadwerkelijk een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) is en of deze een ingesloten afbeelding bevat. Gekoppelde afbeeldingframes bevatten mogelijk geen afbeeldingsbytes die op dezelfde manier kunnen worden geëxtraheerd.
 
-### **Een Raster‑Afbeelding Extracten**
+### **Rasterafbeelding extraheren**
 
-De moderne afbeelding‑API gebruikt direct [IImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iimage/) en vereist niet langer de oudere Java‑image‑wrapper. Het volgende voorbeeld vindt de eerste ingebedde raster‑picture op een dia en slaat deze op als PNG:
+De moderne afbeeldings‑API gebruikt [IImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iimage/) rechtstreeks en vereist niet langer de oudere Java‑afbeeldingswrapper. Het volgende voorbeeld zoekt de eerste ingesloten raster‑afbeelding op een dia en slaat deze op als PNG:
 
 ```java
 import com.aspose.slides.*;
@@ -173,11 +173,11 @@ try {
 }
 ```
 
-Opslaan via [IImage.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iimage/#save-java.lang.String-int-) converteert de geëxtraheerde afbeelding naar het gevraagde output‑formaat. Als je de gecodeerde bytes nodig hebt die in de presentatie zijn opgeslagen in plaats van een geconverteerd raster‑bestand, gebruik dan de binaire data van de afbeeldingsbron.
+Opslaan via [IImage.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iimage/#save-java.lang.String-int-) converteert de geëxtraheerde afbeelding naar het opgegeven uitvoerformaat. Als je de gecodeerde bytes wilt hebben die in de presentatie zijn opgeslagen in plaats van een geconverteerd raster‑bestand, gebruik dan de binaire gegevens van de afbeeldingsbron.
 
-### **Een SVG‑Afbeelding Extracten**
+### **SVG‑afbeelding extraheren**
 
-Voor een SVG‑picture geeft de [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/) een [ISvgImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isvgimage/) object bloot. Hiermee kun je de SVG‑data direct ophalen in plaats van de afbeelding eerst te rasteriseren.
+Voor een SVG‑afbeelding maakt de [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/) een [ISvgImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isvgimage/)‑object beschikbaar. Hiermee kun je de SVG‑data direct ophalen in plaats van de afbeelding eerst te rasteren.
 
 ```java
 import com.aspose.slides.*;
@@ -214,13 +214,13 @@ try {
 }
 ```
 
-Het behouden van SVG‑content als SVG behoudt de vectorbron binnen de presentatie. Raster‑exports zoals PNG of JPEG moeten die vectorcontent renderen naar pixels. PDF‑ of SVG‑dia‑export is eveneens een render‑operatie, zodat de geëxporteerde grafieken niet moeten worden beschouwd als een bit‑voor‑bit‑kopie van de oorspronkelijke ingebedde SVG; gebruik de ingebedde [ISvgImage.getSvgData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isvgimage/#getSvgData--) data wanneer de originele vector‑resource zelf vereist is.
+Het bewaren van SVG‑inhoud als SVG behoudt de vector‑bron binnen de presentatie. Raster‑exports zoals PNG of JPEG renderen die vectorinhoud noodzakelijkerwijs naar pixels. PDF‑ of SVG‑dia‑export is eveneens een render‑actie, dus de geëxporteerde graphics moeten niet worden gezien als een bit‑voor‑bit‑kopie van de oorspronkelijke ingesloten SVG; gebruik de embedded [ISvgImage.getSvgData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isvgimage/#getSvgData--) data wanneer de oorspronkelijke vector‑resource zelf vereist is.
 
-## **Een Afbeelding Bijsnijden**
+## **Afbeelding bijsnijden**
 
-Bijsnijden bepaalt welk deel van een afbeelding zichtbaar is binnen het frame. De bijsnijdwaarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/) zijn percentages van de bronafbeeldingsafmetingen. Bijsnijden verwijdert de verborgen pixels niet meteen uit de ingebedde afbeelding; het verandert alleen het zichtbare gebied.
+Bijsnijden verandert welk deel van een afbeelding zichtbaar is binnen het frame. De bijsnijdwaarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/) zijn percentages van de bronafbeeldingsafmetingen. Bijsnijden verwijdert de verborgen pixels niet direct uit de ingesloten afbeelding; het wijzigt alleen het zichtbare gebied.
 
-Het volgende voorbeeld vindt veilig een picture frame en past bijsnijdwaarden toe:
+Het volgende voorbeeld zoekt veilig een afbeeldingframe en past bijsnijdwaarden toe:
 
 ```java
 import com.aspose.slides.*;
@@ -249,11 +249,11 @@ try {
 }
 ```
 
-Omdat de verborgen afbeeldingsdata nog steeds aanwezig is, kan de bijsnijding later worden aangepast zonder de originele pixels te verliezen. Als bestandsgrootte belangrijker is dan herroepbaarheid, kunnen de bijgesneden gebieden fysiek worden verwijderd zoals beschreven in de volgende sectie.
+Aangezien de verborgen afbeeldingsdata nog steeds aanwezig is, kan de bijsnijding later worden aangepast zonder de originele pixels te verliezen. Als bestandsgrootte belangrijker is dan omkeerbaarheid, kunnen de bijgesneden gebieden fysiek worden verwijderd zoals beschreven in de volgende sectie.
 
-## **Bijsneden Afbeeldingsdata Verwijderen**
+## **Bijsneden afbeeldingsgegevens verwijderen**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) verwijdert afbeeldingsdata buiten het huidige bijsnijd‑rechthoek en retourneert de resulterende afbeeldingsbron. Dit kan de bestandsgrootte verkleinen, maar het is een destructieve optimalisatie: nadat de presentatie is opgeslagen, zijn de verwijderde pixels niet meer beschikbaar voor een latere uncrop‑bewerking.
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) verwijdert afbeeldingsdata buiten de huidige bijsnijdrechthoek en retourneert de resulterende afbeeldingsbron. Dit kan de bestandsgrootte verkleinen, maar het is een destructieve optimalisatie: nadat de presentatie is opgeslagen, zijn de verwijderde pixels niet meer beschikbaar voor een latere onbijsnijd‑bewerking.
 
 ```java
 import com.aspose.slides.*;
@@ -281,13 +281,13 @@ try {
 }
 ```
 
-De methode kan een nieuwe afbeeldingsbron aan de presentatie toevoegen. Als de originele afbeelding ook door andere picture frames wordt gebruikt, hebben die frames hun bestaande bron nog steeds nodig, dus het verwijderen van bijgesneden gebieden verkleint niet per se het totale aantal afbeeldingen. Het bijsnijden van WMF‑ of EMF‑content met deze methode rasteriseert het bijgesneden resultaat naar PNG.
+De methode kan een nieuwe afbeeldingsbron aan de presentatie toevoegen. Als de oorspronkelijke afbeelding ook door andere afbeeldingframes wordt gebruikt, hebben die frames nog steeds hun bestaande bron nodig, dus het verwijderen van bijgesneden gebieden verkleint niet noodzakelijkerwijs het totale aantal afbeeldingen. Het bijsnijden van WMF‑ of EMF‑inhoud met deze methode rastert het bijgesneden resultaat naar PNG.
 
-## **Raster‑Afbeeldingen Comprimeren**
+## **Rasterafbeeldingen comprimeren**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) vermindert de raster‑afbeeldingsresolutie ten opzichte van de grootte waarop de picture wordt weergegeven. Het kan ook bijgesneden gebieden verwijderen in dezelfde bewerking. De methode retourneert `true` wanneer de afbeelding is aangepast of bijgesneden en `false` wanneer er geen wijziging nodig was.
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) vermindert de resolutie van raster‑afbeeldingen relatief ten opzichte van de grootte waarin de afbeelding wordt weergegeven. Het kan tevens bijgesneden gebieden in dezelfde bewerking verwijderen. De methode retourneert `true` wanneer de afbeelding is aangepast of bijgesneden en `false` wanneer geen wijziging nodig was.
 
-Gebruik een vooraf gedefinieerde [PicturesCompression](https://reference.aspose.com/slides/nl/java/com.aspose.slides/picturescompression/) waarde wanneer een standaard doelresolutie voldoende is:
+Gebruik een vooraf gedefinieerde [PicturesCompression](https://reference.aspose.com/slides/nl/java/com.aspose.slides/picturescompression/)‑waarde wanneer een standaard doelresolutie voldoende is:
 
 ```java
 import com.aspose.slides.*;
@@ -314,56 +314,17 @@ try {
 }
 ```
 
-Een aangepaste positieve DPI‑waarde kan worden doorgegeven in plaats van een vooraf gedefinieerde waarde wanneer een specifiek doel vereist is.
+Een aangepaste positieve DPI‑waarde kan worden meegegeven in plaats van een vooraf gedefinieerde waarde wanneer een specifiek doel nodig is.
 
-Compressie is bedoeld voor raster‑afbeeldingen. SVG‑ en metafile‑content wordt niet gereduceerd door deze raster‑compressieworkflow. Houd er ook rekening mee dat een lagere resolutie en verwijderde bijgesneden gebieden niet kunnen worden hersteld uit de geoptimaliseerde presentatie. Kies een doelresolutie op basis van de grootste weergave‑ of exportgrootte van de afbeelding in plaats van de laagste DPI globaal toe te passen.
+Compressie is bedoeld voor raster‑afbeeldingen. SVG‑ en metafile‑inhoud wordt niet verkleind door deze raster‑compressieworkflow. Houd er ook rekening mee dat een lagere resolutie en verwijderde bijgesneden gebieden niet kunnen worden hersteld uit de geoptimaliseerde presentatie. Kies een doelresolutie op basis van de grootste weergave‑ of exportgrootte van de afbeelding in plaats van overal de laagste DPI toe te passen.
 
-## **Afbeeldingseffecten Inspecteren**
+## **Beheer afbeeldingstransformatiereffecten**
 
-Picture‑effects worden opgeslagen op de picture die door het frame wordt gebruikt. De afbeeldingstransformatie‑collectie kan effecten bevatten zoals vaste alfa‑modulatie voor transparantie en luminantie voor helderheid en contrast. Het onderstaande voorbeeld leest veilig beide soorten effecten van het eerste picture frame op een dia:
+Voor een volledige workflow die helderheid, contrast, kleurtransformaties, vervaging, alfa‑effecten, geordende ketens, inspectie, verwijdering en round‑trip‑verificatie omvat, zie [Image Transform Effects](/java/image-transform-effects/).
 
-```java
-import com.aspose.slides.*;
+## **Geometrie van afbeeldingframe vergrendelen**
 
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = null;
-
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IPictureFrame) {
-            pictureFrame = (IPictureFrame) shape;
-            break;
-        }
-    }
-
-    if (pictureFrame != null) {
-        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-        for (IImageTransformOperation effect : imageTransform) {
-            if (effect instanceof IAlphaModulateFixed) {
-                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
-                float transparency = 100 - alphaModulateFixed.getAmount();
-                System.out.println("Transparency: " + transparency);
-            }
-
-            if (effect instanceof ILuminance) {
-                ILuminance luminanceEffect = (ILuminance) effect;
-                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
-                System.out.println("Brightness: " + luminance.getBrightness());
-                System.out.println("Contrast: " + luminance.getContrast());
-            }
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-Deze effecten wijzigen hoe de afbeelding in het frame wordt gerenderd; ze herschrijven de originele ingebedde afbeeldingsbytes niet.
-
-## **Picture Frame‑Geometrie Vergrendelen**
-
-De instellingen van [IPictureFrameLock](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframelock/) bepalen welke bewerkingsbewerkingen voor een picture frame zijn uitgeschakeld. Bijvoorbeeld, [setAspectRatioLocked](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) behoudt de verhoudingen van de vorm tijdens het schalen.
+De [IPictureFrameLock](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframelock/)‑instellingen bepalen welke bewerkingsacties voor een afbeeldingframe zijn uitgeschakeld. Bijvoorbeeld, [setAspectRatioLocked](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) behoudt de verhoudingen van de vorm terwijl deze wordt geschaald.
 
 ```java
 import com.aspose.slides.*;
@@ -389,13 +350,13 @@ try {
 }
 ```
 
-De vergrendeling is van toepassing op de picture‑frame‑vorm. Ze dwingt de bronafbeelding niet tot hersampling of permanente wijziging naar dezelfde beeldverhouding.
+De vergrendeling geldt voor de afbeeldingframe‑vorm. Het dwingt de bronafbeelding niet om opnieuw te worden gesampeld of permanent dezelfde beeldverhouding aan te nemen.
 
-## **De StretchOffset‑Waarden Aanpassen**
+## **StretchOffset‑waarden aanpassen**
 
-Wanneer de picture‑vulmodus stretch is, definiëren de stretch‑offset‑waarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/) het vulrechthoek relatief ten opzichte van de begrenzende box van het picture frame. Positieve percentages creëren een inset vanaf een rand, terwijl negatieve percentages een outset creëren.
+Wanneer de opvulmodus van de afbeelding “stretch” is, definieren de stretch‑offset‑waarden op [IPictureFillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/) het opvul‑rechthoek ten opzichte van de omvattende doos van het afbeeldingframe. Positieve percentages creëren een inkeping vanaf een rand, terwijl negatieve percentages een uitsteeksel vormen.
 
-Dit verschilt van bijsnijden. Bijsnijwaarden bepalen welk deel van de bronafbeelding zichtbaar is; stretch‑offsets veranderen het rechthoek waarin de zichtbare picture‑vulling wordt uitgerekt.
+Dit is anders dan bijsnijden. Bijsnijdwaarden bepalen welk deel van de bronafbeelding zichtbaar is; stretch‑offsets wijzigen het rechthoek waarin de zichtbare afbeelding‑vulling wordt uitgerekt.
 
 ```java
 import com.aspose.slides.*;
@@ -425,43 +386,43 @@ try {
 }
 ```
 
-Gebruik stretch‑offsets voor vulplaatsing. Gebruik bijsnijd‑eigenschappen wanneer het doel is om bron‑afbeeldingsranden te verbergen.
+Gebruik stretch‑offsets voor plaatsing van de vulling. Gebruik bijsnijd‑eigenschappen wanneer het doel is om randen van de bronafbeelding te verbergen.
 
-## **Opslag, Bestandsgrootte en Export‑Overwegingen**
+## **Opslag, bestandsgrootte en exportoverwegingen**
 
-De belangrijkste afwegingen worden overzichtelijker wanneer afbeelding‑opslag en picture‑frame‑formattering afzonderlijk worden behandeld:
+De belangrijkste afwegingen zijn gemakkelijker te beheren wanneer afbeeldingsopslag en afbeeldingframe‑opmaak afzonderlijk worden behandeld:
 
-- **Ingebedde afbeeldingen** maken de presentatie zelf‑containend en zijn het meest betrouwbaar voor delen en server‑side rendering, maar grote raster‑afbeeldingen verhogen de PPTX‑grootte en het geheugen‑gebruik.
-- **Gelinkte afbeeldingen** kunnen het pakket kleiner houden, maar de presentatie is afhankelijk van externe bestanden die beschikbaar moeten blijven op de opgeslagen paden of locaties.
-- **Bijsnijden** is aanvankelijk niet‑destructief. De verborgen pixels blijven ingebed tot bijgesneden gebieden expliciet worden verwijderd of tijdens compressie.
-- **Compressie** kan de bestandsgrootte aanzienlijk verkleinen voor te grote raster‑afbeeldingen, maar het verrekent de bronresolutie. Het dient te worden toegepast nadat de beoogde weergavegrootte op de dia bekend is.
-- **SVG‑afbeeldingen** moeten als SVG blijven wanneer vectorbehoud belangrijk is. Extract de ingebedde SVG direct wanneer je de vector‑resource zelf nodig hebt. Raster‑dia‑exports converteren altijd de gerenderde dia naar pixels.
-- **Herhaalde afbeeldingen** moeten, waar mogelijk, een bestaande [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/) bron hergebruiken in plaats van dezelfde bestand steeds opnieuw te laden in de presentatieworkflow.
+- **Ingesloten afbeeldingen** maken de presentatie zelf‑containend en zijn het meest betrouwbaar voor delen en server‑side rendering, maar grote raster‑afbeeldingen verhogen de PPTX‑grootte en het geheugen‑gebruik.
+- **Gekoppelde afbeeldingen** kunnen het pakket kleiner houden, maar de presentatie is afhankelijk van externe bestanden die beschikbaar moeten blijven op de opgeslagen paden of locaties.
+- **Bijsnijden** is aanvankelijk niet‑destructief. De verborgen pixels blijven ingesloten tot bijgesneden gebieden expliciet worden verwijderd of tijdens compressie.
+- **Compressie** kan de bestandsgrootte aanzienlijk verkleinen voor te grote raster‑afbeeldingen, maar gaat ten koste van de bronresolutie. Het dient pas te worden toegepast nadat de beoogde weergave‑grootte op de dia bekend is.
+- **SVG‑afbeeldingen** moeten als SVG behouden blijven wanneer vectorpreservatie belangrijk is. Extraheer de ingesloten SVG rechtstreeks wanneer je de vector‑resource zelf nodig hebt. Raster‑dia‑exports zetten de gerenderde dia altijd om naar pixels.
+- **Herhaalde afbeeldingen** moeten, wanneer mogelijk, een bestaande [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/)‑resource hergebruiken in plaats van herhaaldelijk hetzelfde bestand te laden in de workflow.
 
-Voor grote presentaties is afbeelding‑optimalisatie doorgaans het meest effectief wanneer deze selectief wordt uitgevoerd: houd logo's en diagrammen als vectorcontent, comprimeer foto’s volgens hun werkelijke weergavegrootte, verwijder bijgesneden pixels alleen wanneer latere bewerking niet nodig is, en vermijd externe links tenzij afhankelijkheidsbeheer deel uitmaakt van het implementatie‑ontwerp.
+Voor grote presentaties is beeldoptimalisatie doorgaans het meest effectief wanneer deze selectief wordt toegepast: houd logo’s en diagrammen als vectorinhoud, comprimeer foto’s volgens hun werkelijke weergavegrootte, verwijder bijgesneden pixels alleen wanneer later bewerken niet vereist is, en vermijd externe koppelingen tenzij afhankelijkheidsbeheer deel uitmaakt van het implementatie‑ontwerp.
 
 ## **FAQ**
 
-**Wat is het verschil tussen een picture frame en een afbeeldingsresource?**
+**Wat is het verschil tussen een afbeeldingframe en een afbeeldingsbron?**
 
-Een [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/) vertegenwoordigt een afbeeldingsresource die aan de presentatie is gekoppeld. Een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) is een vorm op een dia die een afbeelding weergeeft en frame‑niveau geometrie en opmaak opslaat, zoals grootte, rotatie, bijsnijdwaarden, effecten en vergrendelingen.
+Een [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ippimage/) vertegenwoordigt een afbeeldingsbron die aan de presentatie is gekoppeld. Een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) is een vorm op een dia die een afbeelding weergeeft en frame‑niveau geometrie en opmaak opslaat, zoals grootte, rotatie, bijsnijdwaarden, effecten en vergrendelingen.
 
-**Moet ik afbeeldingen embedden of linken?**
+**Moet ik afbeeldingen insluiten of koppelen?**
 
-Embed afbeeldingen wanneer de presentatie draagbaar, gearchiveerd of gerenderd moet kunnen worden zonder toegang tot externe bronnen. Link afbeeldingen alleen wanneer het bewust is om afbeeldingsbestanden buiten de PPTX te houden en de externe locaties betrouwbaar kunnen worden beheerd.
+Sluit afbeeldingen in wanneer de presentatie draagbaar, gearchiveerd of gerenderd moet kunnen worden zonder toegang tot externe bronnen. Koppel afbeeldingen alleen wanneer het opzettelijk is om afbeeldingsbestanden buiten het PPTX‑bestand te houden en de externe locaties betrouwbaar beheerd kunnen worden.
 
 **Vermindert bijsnijden de PPTX‑bestandsgrootte?**
 
-Niet op zichzelf. Normale bijsnijdinstellingen verbergen delen van de bronafbeelding maar behouden de onderliggende pixels. Gebruik [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) of compressie met verwijdering van bijgesneden gebieden wanneer die pixels permanent kunnen worden verwijderd.
+Niet op zichzelf. Normale bijsnijdinstellingen verbergen delen van de bronafbeelding maar behouden de onderliggende pixels. Gebruik [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) of afbeeldingcompressie met verwijdering van bijgesneden gebieden wanneer die pixels permanent kunnen worden verwijderd.
 
-**Kan ik de beeldkwaliteit na compressie herstellen?**
+**Kan ik de beeldkwaliteit herstellen na compressie?**
 
-Nee. Compressie kan de opgeslagen rasterresolutie verlagen, en het verwijderen van bijgesneden gebieden verwijdert afbeeldingsdata. Houd de originele bronafbeelding buiten de presentatie als later bewerken met hoge resolutie nodig kan zijn.
+Nee. Compressie kan de opgeslagen rasterresolutie verlagen en het verwijderen van bijgesneden gebieden wist afbeeldingsdata. Bewaar de originele bronafbeelding buiten de presentatie als later bewerken met hoge resolutie vereist kan zijn.
 
-**Hoe moet ik met SVG‑afbeeldingen omgaan?**
+**Hoe moeten SVG‑afbeeldingen worden behandeld?**
 
-Behoud SVG‑content als SVG wanneer vector‑fidelity van belang is. De ingebedde [ISvgImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isvgimage/) kan direct worden geëxtraheerd. Het renderen van een dia naar een rasterformaat zoals PNG of JPEG rasteriseert de SVG als onderdeel van de dia‑afbeelding.
+Behoud SVG‑inhoud als SVG wanneer vector‑fidelity belangrijk is. De ingesloten [ISvgImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isvgimage/) kan direct geëxtraheerd worden. Het renderen van een dia naar een rasterformaat zoals PNG of JPEG rastert de SVG als onderdeel van de dia‑afbeelding.
 
-**Hoe kan ik onveilige casts vermijden bij het lezen van bestaande dia’s?**
+**Hoe kan ik onveilige casts vermijden bij het lezen van bestaande dia's?**
 
-Controleer het vormtype voordat je picture‑frame‑specifieke leden gebruikt. Een `instanceof`‑controle tegen [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) voorkomt ongeldige casts en stelt de code in staat om dia’s zonder picture frames adequaat af te handelen.
+Controleer het vormtype voordat je leden gebruikt die specifiek zijn voor afbeeldingframes. Een `instanceof`‑controle tegen [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframe/) voorkomt ongeldige casts en stelt de code in staat om dia's die geen afbeeldingframes bevatten correct af te handelen.

@@ -14,7 +14,7 @@ keywords:
 - Rasterbild
 - SVG-Bild
 - Bild zuschneiden
-- Beschnittene Bereiche löschen
+- zugeschnittene Bereiche löschen
 - Bild komprimieren
 - StretchOffset
 - Bildrahmen-Formatierung
@@ -26,21 +26,21 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Bildrahmen in Präsentationen mit Aspose.Slides für C++ erstellen, formatieren, verknüpfen, zuschneiden, extrahieren und komprimieren."
+description: "Erstellen, formatieren, verknüpfen, zuschneiden, extrahieren und komprimieren Sie Bildrahmen in Präsentationen mit Aspose.Slides für C++."
 ---
 ## **Übersicht**
 
-Ein Bildrahmen ist ein Folienobjekt, das ein Bild anzeigt. In Aspose.Slides sind die Bildressource und das Objekt, das sie anzeigt, getrennte Objekte: eine [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) besitzt eingebettete Bildressourcen über ihre [image collection](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_images/), während ein [IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) die Position, Größe, Linienformatierung, Drehung, Zuschneiden, Bildeffekte und andere rahmenbezogene Einstellungen des Bildes steuert.
+Ein Bildrahmen ist eine Folienform, die ein Bild darstellt. In Aspose.Slides sind die Bildressource und die Form, die sie anzeigt, separate Objekte: eine [Präsentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/) besitzt eingebettete Bildressourcen über ihre [Bildersammlung](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_images/), während ein [IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) Position, Größe, Linienformatierung, Drehung, Zuschneiden, Bildeffekte und andere rahmenbezogene Einstellungen des Bildes steuert.
 
-Diese Trennung ist nützlich, wenn dasselbe Bild mehr als einmal angezeigt wird. Fügen Sie das Bild einmal zur Präsentation hinzu, behalten Sie das zurückgegebene [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/) und verwenden Sie diese Bildressource beim Erstellen von Bildrahmen.
+Diese Trennung ist nützlich, wenn dasselbe Bild mehr als einmal angezeigt werden soll. Fügen Sie das Bild einmal zur Präsentation hinzu, behalten Sie das zurückgegebene [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/) und verwenden Sie diese Bildressource beim Erstellen von Bildrahmen.
 
-Bildrahmen können Rasterbilder wie PNG oder JPEG sowie Vektor‑SVG‑Bilder enthalten. Sie können sich auch auf verknüpfte Bilder beziehen, anstatt die Bildbytes in der Präsentation zu speichern. Die Wahl beeinflusst Portabilität, Dateigröße, Extraktion und Exportverhalten, sodass es sinnvoll ist, vor der Formatierung oder Optimierung zu entscheiden, wie das Bild gespeichert werden soll.
+Bildrahmen können Rasterbilder wie PNG oder JPEG sowie Vektor‑SVG‑Bilder enthalten. Sie können auch auf verknüpfte Bilder verweisen, anstatt die Bildbytes in der Präsentation zu speichern. Die Wahl beeinflusst Portabilität, Dateigröße, Extraktion und Exportverhalten, sodass es sinnvoll ist, vor der Formatierung oder Optimierung zu entscheiden, wie das Bild gespeichert werden soll.
 
 ## **Ein eingebettetes Bild hinzufügen und formatieren**
 
-Für ein eingebettetes Bild fügen Sie die Bilddaten zur Präsentation hinzu und erstellen einen Bildrahmen mit [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/shapecollection/addpictureframe/). Das Bild wird Teil des Präsentationspakets, sodass die Präsentation selbständig bleibt, wenn sie auf einen anderen Computer verschoben wird.
+Für ein eingebettetes Bild fügen Sie die Bilddaten zur Präsentation hinzu und erstellen einen Bildrahmen mit [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/shapecollection/addpictureframe/). Das Bild wird Teil des Präsentationspakets, sodass die Präsentation selbstständig bleibt, wenn sie auf einen anderen Computer verschoben wird.
 
-Das nachfolgende Beispiel fügt ein JPEG‑Bild hinzu, erstellt einen Rahmen in den nativen Abmessungen des Bildes und wendet Linienformatierung sowie Drehung an:
+Das folgende Beispiel fügt ein JPEG‑Bild hinzu, erstellt einen Rahmen in den nativen Abmessungen des Bildes und wendet Linienformatierung sowie Drehung an:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -80,11 +80,11 @@ presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Der Bildrahmen steuert die dargestellte Geometrie; das Ändern der Rahmengröße ändert nicht die ursprünglichen Pixelabmessungen, die in der eingebetteten Bildressource gespeichert sind. Diese Unterscheidung wird wichtig, wenn das Bild später beschnitten oder komprimiert wird.
+Der Bildrahmen steuert die angezeigte Geometrie; das Ändern der Rahmen‑Größe ändert nicht die ursprünglichen Pixelabmessungen, die in der eingebetteten Bildressource gespeichert sind. Diese Unterscheidung wird wichtig, wenn das Bild später zugeschnitten oder komprimiert wird.
 
 ## **Relative Skalierung verwenden**
 
-[IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) bietet relative Breiten‑ und Höhen‑skalierung für den Rahmen. Ein Wert von `1.0` entspricht 100 % der ursprünglichen Bildgröße. Relative Skalierung ist nützlich, wenn ein Workflow ein Verhältnis zur Originalbildgröße beibehalten muss, anstatt die endgültigen Abmessungen manuell zu berechnen.
+[IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) bietet relative Breiten‑ und Höhenskalierung für den Rahmen. Ein Wert von `1.0` entspricht 100 % der ursprünglichen Bildgröße. Relative Skalierung ist nützlich, wenn ein Workflow eine Beziehung zur Ausgangsbildgröße beibehalten muss, anstatt die Endabmessungen manuell zu berechnen.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -120,13 +120,13 @@ Relative Skalierung ändert die Skalierungseinstellungen des Rahmens; sie resamp
 
 ## **Eingebettete und verknüpfte Bilder**
 
-Ein eingebettetes Bild speichert Bilddaten innerhalb der Präsentation und ist daher die sicherste Wahl für Portabilität und vorhersehbare Darstellung. Ein verknüpftes Bild speichert den externen Speicherort über den [ISlidesPicture](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidespicture/)‑Linkpfad, anstatt die Bilddaten auf dieselbe Weise einzubetten.
+Ein eingebettetes Bild speichert Bilddaten innerhalb der Präsentation und ist damit die sicherste Wahl für Portabilität und vorhersehbare Darstellung. Ein verknüpftes Bild speichert über den [ISlidesPicture](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidespicture/) Linkpfad einen externen Speicherort, anstatt die Bilddaten einzubetten.
 
-Verknüpfte Bilder können die Menge der in der PPTX gespeicherten Bilddaten verringern, führen jedoch eine externe Abhängigkeit ein. Die verknüpfte Datei muss für die Anwendung, die die Präsentation öffnet oder rendert, zugänglich bleiben. Ändert sich der Pfad, wird die Datei verschoben oder ist die Ressource nicht verfügbar, wird das verknüpfte Bild möglicherweise nicht wie erwartet angezeigt. Für Präsentationen, die per E‑Mail versendet, archiviert oder in isolierten Umgebungen gerendert werden müssen, sind eingebettete Bilder in der Regel zuverlässiger.
+Verknüpfte Bilder können die Menge an Bilddaten im PPTX reduzieren, führen jedoch eine externe Abhängigkeit ein. Die verknüpfte Datei muss für die Anwendung, die die Präsentation öffnet oder rendert, zugänglich bleiben. Ändert sich der Pfad, wird die Datei verschoben oder die Ressource ist nicht verfügbar, wird das verknüpfte Bild möglicherweise nicht wie erwartet angezeigt. Für Präsentationen, die per E‑Mail verschickt, archiviert oder in isolierten Umgebungen gerendert werden, sind eingebettete Bilder in der Regel zuverlässiger.
 
 ### **Ein verknüpftes Bild hinzufügen**
 
-Das nachfolgende Beispiel erstellt einen Bildrahmen und verweist ihn auf eine lokale Bilddatei. Es befasst sich ausschließlich mit Bildverknüpfungen; Video‑Verknüpfungen sind ein separater Medien‑Workflow und werden bewusst nicht in dieses Beispiel gemischt.
+Das folgende Beispiel erstellt einen Bildrahmen und verweist auf eine lokale Bilddatei. Es behandelt ausschließlich das Bild‑Linking; das Verknüpfen von Videos ist ein separater Medien‑Workflow und wird bewusst nicht mit diesem Beispiel vermischt.
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -155,15 +155,15 @@ presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Verwenden Sie Verknüpfungen, wenn die Verwaltung externer Dateien beabsichtigt ist. Verwenden Sie sie nicht nur als Ersatz für Kompression: Eine kleine PPTX mit defekten Bildabhängigkeiten ist in der Regel weniger nützlich als eine größere, eigenständige Präsentation.
+Verwenden Sie Links, wenn das Management externer Dateien beabsichtigt ist. Nutzen Sie sie nicht lediglich als Ersatz für Kompression: ein kleiner PPTX mit defekten Bildabhängigkeiten ist meist weniger nützlich als eine größere, eigenständige Präsentation.
 
 ## **Bilder aus Bildrahmen extrahieren**
 
-Bevor Sie ein Bild aus einer bestehenden Präsentation extrahieren, prüfen Sie, ob ein Objekt tatsächlich ein [IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) ist und ein eingebettetes Bild enthält. Verknüpfte Bildrahmen enthalten möglicherweise keine Bildbytes, die auf dieselbe Weise extrahiert werden können.
+Bevor Sie ein Bild aus einer bestehenden Präsentation extrahieren, prüfen Sie, ob die Form tatsächlich ein [IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) ist und ein eingebettetes Bild enthält. Verknüpfte Bildrahmen enthalten möglicherweise keine Bildbytes, die auf dieselbe Weise extrahiert werden können.
 
 ### **Ein Rasterbild extrahieren**
 
-Die moderne Bild‑API verwendet [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) direkt. Das nachfolgende Beispiel findet das erste eingebettete Rasterbild auf einer Folie und speichert es als PNG:
+Die moderne Bild‑API verwendet [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) direkt. Das folgende Beispiel findet das erste eingebettete Rasterbild auf einer Folie und speichert es als PNG:
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -205,11 +205,11 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-Das Speichern über [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) konvertiert das extrahierte Bild in das angeforderte Ausgabeformat. Wenn Sie die codierten Bytes benötigen, die in der Präsentation gespeichert sind, anstatt einer konvertierten Rasterdatei, verwenden Sie stattdessen die Binärdaten der Bildressource.
+Das Speichern über [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/) konvertiert das extrahierte Bild in das gewünschte Ausgabeformat. Wenn Sie die im Präsentationspaket kodierten Bytes benötigen, verwenden Sie stattdessen die binären Daten der Bildressource.
 
 ### **Ein SVG‑Bild extrahieren**
 
-Für ein SVG‑Bild stellt das [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/) ein [ISvgImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/isvgimage/)‑Objekt bereit. Damit können Sie die SVG‑Daten direkt abrufen, anstatt das Bild zuerst zu rasterisieren.
+Für ein SVG‑Bild stellt das [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/) ein [ISvgImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/isvgimage/)‑Objekt bereit. Damit können Sie die SVG‑Daten direkt abrufen, ohne das Bild zuerst zu rasterisieren.
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -257,13 +257,13 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-Das Beibehalten von SVG‑Inhalten als SVG bewahrt die Vektorquelle innerhalb der Präsentation. Rasterexporte wie PNG oder JPEG rendern diesen Vektorinhalt notwendigerweise in Pixel. Der PDF‑ oder SVG‑Folienexport ist ebenfalls ein Rendering‑Vorgang, sodass die exportierten Grafiken nicht als exakte Kopie des original eingebetteten SVG behandelt werden sollten; verwenden Sie die eingebetteten [ISvgImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/isvgimage/)‑Daten, wenn die ursprüngliche Vektorressource selbst benötigt wird.
+SVG‑Inhalte als SVG zu behalten bewahrt die Vektor‑Quelle innerhalb der Präsentation. Raster‑Exporte wie PNG oder JPEG rendern diesen Vektorinhalt zwangsläufig zu Pixeln. PDF‑ oder SVG‑Folienexporte sind ebenfalls Rendering‑Operationen, sodass die exportierten Grafiken nicht als exakte Kopie des ursprünglichen eingebetteten SVG behandelt werden sollten; verwenden Sie die eingebetteten [ISvgImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/isvgimage/)‑Daten, wenn die originale Vektor‑Ressource benötigt wird.
 
 ## **Ein Bild zuschneiden**
 
-Das Zuschneiden ändert, welcher Teil eines Bildes im Rahmen sichtbar ist. Die Zuschneide‑Werte auf [IPictureFillFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/) sind Prozentsätze der Abmessungen des Quellbildes. Das Zuschneiden löscht die verborgenen Pixel nicht sofort aus dem eingebetteten Bild; es ändert nur den sichtbaren Bereich.
+Zuschneiden ändert, welcher Bildteil im Rahmen sichtbar ist. Die Zuschneidewerte auf [IPictureFillFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/) sind Prozentsätze der Quelle‑Bildabmessungen. Das Zuschneiden löscht die versteckten Pixel des eingebetteten Bildes nicht sofort; es ändert lediglich den sichtbaren Bereich.
 
-Das nachfolgende Beispiel findet sicher einen Bildrahmen und wendet Zuschneide‑Werte an:
+Das folgende Beispiel findet sicher einen Bildrahmen und wendet Zuschneidewerte an:
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -304,11 +304,11 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Da die verborgenen Bilddaten weiterhin vorhanden sind, kann der Zuschnitt später geändert werden, ohne die Originalpixel zu verlieren. Wenn die Dateigröße wichtiger ist als die Rückgängig‑Machbarkeit, können die zugeschnittenen Bereiche wie im nächsten Abschnitt beschrieben physisch entfernt werden.
+Da die versteckten Bilddaten weiterhin vorhanden sind, kann das Zuschneiden später geändert werden, ohne die Originalpixel zu verlieren. Wenn die Dateigröße wichtiger ist als die Rückgängig‑Machbarkeit, können die zugeschnittenen Bereiche wie im nächsten Abschnitt beschrieben physisch entfernt werden.
 
 ## **Zugeschnittene Bilddaten entfernen**
 
-[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) entfernt Bilddaten außerhalb des aktuellen Zuschnittsrechtecks und gibt die resultierende Bildressource zurück. Dies kann die Dateigröße reduzieren, ist jedoch eine destruktive Optimierung: Nach dem Speichern der Präsentation stehen die entfernten Pixel nicht mehr für einen späteren Entzuschneide‑Vorgang zur Verfügung.
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) entfernt Bilddaten außerhalb des aktuellen Zuschneide‑Rechtecks und gibt die resultierende Bildressource zurück. Dies kann die Dateigröße reduzieren, ist jedoch eine destruktive Optimierung: Nachdem die Präsentation gespeichert wurde, stehen die entfernten Pixel nicht mehr für ein späteres „Uncrop“ zur Verfügung.
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -350,13 +350,13 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Die Methode kann der Präsentation eine neue Bildressource hinzufügen. Wenn das Originalbild auch von anderen Bildrahmen verwendet wird, benötigen diese Rahmen weiterhin ihre vorhandene Ressource, sodass das Löschen zugeschnittener Bereiche nicht unbedingt die Gesamtzahl der Bilder reduziert. Das Zuschneiden von WMF‑ oder EMF‑Inhalten mit dieser Methode rastert das zugeschnittene Ergebnis zu PNG.
+Die Methode kann eine neue Bildressource zur Präsentation hinzufügen. Wird das Originalbild zudem von anderen Bildrahmen verwendet, benötigen diese weiterhin ihre vorhandene Ressource, sodass das Löschen zugeschnittener Bereiche nicht zwangsläufig die Gesamtzahl der Bilder reduziert. Das Zuschneiden von WMF‑ oder EMF‑Inhalten mit dieser Methode rastert das Ergebnis zu PNG.
 
 ## **Rasterbilder komprimieren**
 
-[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/compressimage/) reduziert die Auflösung von Rasterbildern relativ zu der Größe, in der das Bild angezeigt wird. Es kann gleichzeitig zugeschnittene Bereiche entfernen. Die Methode gibt `true` zurück, wenn das Bild skaliert oder zugeschnitten wurde, und `false`, wenn keine Änderung erforderlich war.
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/compressimage/) reduziert die Auflösung eines Rasterbildes relativ zu der Größe, in der das Bild angezeigt wird. Es kann gleichzeitig zugeschnittene Bereiche entfernen. Die Methode gibt `true` zurück, wenn das Bild skaliert oder zugeschnitten wurde, und `false`, wenn keine Änderung erforderlich war.
 
-Verwenden Sie einen vordefinierten [PicturesCompression](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/picturescompression/)‑Wert, wenn eine standardisierte Zielauflösung ausreichend ist:
+Verwenden Sie einen vordefinierten [PicturesCompression](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/picturescompression/)‑Wert, wenn eine Standard‑Zielauflösung ausreicht:
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -397,77 +397,17 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Ein individuell positives DPI kann anstelle eines Aufzählungswerts übergeben werden, wenn ein spezifisches Ziel erforderlich ist.
+Ein benutzerdefinierter positiver DPI‑Wert kann anstelle eines Enum‑Werts übergeben werden, wenn ein spezielles Ziel erforderlich ist.
 
-Kompression ist für Rasterbilder gedacht. SVG‑ und Metadatei‑Inhalte werden durch diesen Raster‑Kompressions‑Workflow nicht reduziert. Denken Sie auch daran, dass niedrigere Auflösung und gelöschte zugeschnittene Bereiche nicht aus der optimierten Präsentation wiederhergestellt werden können. Wählen Sie eine Zielauflösung basierend auf der größten Größe, in der das Bild tatsächlich angezeigt oder exportiert wird, anstatt global die niedrigste DPI zu verwenden.
+Kompression ist für Rasterbilder gedacht. SVG‑ und Metadatei‑Inhalte werden durch diesen Raster‑Kompressions‑Workflow nicht reduziert. Denken Sie auch daran, dass niedrigere Auflösung und gelöschte zugeschnittene Bereiche aus der optimierten Präsentation nicht wiederhergestellt werden können. Wählen Sie eine Zielauflösung basierend auf der größten Größe, in der das Bild tatsächlich angezeigt oder exportiert wird, anstatt global die niedrigste DPI anzuwenden.
 
-## **Bildeffekte untersuchen**
+## **Bildtransformations‑Effekte verwalten**
 
-Bildeffekte werden auf dem vom Rahmen verwendeten Bild gespeichert. Die Bild‑Transformations‑Sammlung kann Effekte wie feste Alpha‑Modulation für Transparenz und Luminanz für Helligkeit und Kontrast enthalten. Das folgende Beispiel liest sicher beide Arten von Effekten aus dem ersten Bildrahmen einer Folie:
-
-```cpp
-#include <DOM/Effects/IAlphaModulateFixed.h>
-#include <DOM/Effects/IImageTransformOperationCollection.h>
-#include <DOM/Effects/ILuminance.h>
-#include <DOM/Effects/ILuminanceEffectiveData.h>
-#include <DOM/IPictureFillFormat.h>
-#include <DOM/IPictureFrame.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlidesPicture.h>
-#include <DOM/Presentation.h>
-#include <system/console.h>
-#include <system/object_ext.h>
-#include <system/smart_ptr.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Effects;
-using namespace System;
-
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-SharedPtr<IPictureFrame> pictureFrame;
-
-for (auto&& shape : slide->get_Shapes())
-{
-    if (ObjectExt::Is<IPictureFrame>(shape))
-    {
-        pictureFrame = ExplicitCast<IPictureFrame>(shape);
-        break;
-    }
-}
-
-if (pictureFrame != nullptr)
-{
-    auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-
-    for (auto&& effect : imageTransform)
-    {
-        if (ObjectExt::Is<IAlphaModulateFixed>(effect))
-        {
-            auto alphaModulateFixed = ExplicitCast<IAlphaModulateFixed>(effect);
-            auto transparency = 100.0f - alphaModulateFixed->get_Amount();
-            Console::WriteLine(String(u"Transparency: ") + transparency);
-        }
-
-        if (ObjectExt::Is<ILuminance>(effect))
-        {
-            auto luminanceEffect = ExplicitCast<ILuminance>(effect);
-            auto luminance = luminanceEffect->GetEffective();
-            Console::WriteLine(String(u"Brightness: ") + luminance->get_Brightness());
-            Console::WriteLine(String(u"Contrast: ") + luminance->get_Contrast());
-        }
-    }
-}
-
-presentation->Dispose();
-```
-
-Diese Effekte ändern, wie das Bild im Rahmen gerendert wird; sie überschreiben nicht die originalen eingebetteten Bildbytes.
+Für einen vollständigen Workflow zu Helligkeit, Kontrast, Farbtransformationen, Weichzeichnung, Alpha‑Effekten, geordneten Ketten, Inspektion, Entfernung und Rundreise‑Verifizierung siehe [Image Transform Effects](/slides/de/cpp/image-transform-effects/).
 
 ## **Geometrie des Bildrahmens sperren**
 
-Die [IPictureFrameLock](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframelock/)‑Einstellungen steuern, welche Bearbeitungsoperationen für einen Bildrahmen deaktiviert sind. Zum Beispiel bewahrt die [aspect‑ratio lock](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) die Proportionen der Form, während sie skaliert wird.
+Die Einstellungen des [IPictureFrameLock](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframelock/) bestimmen, welche Bearbeitungsoperationen für einen Bildrahmen deaktiviert werden. Beispielsweise bewahrt das [Seitenverhältnis‑Sperren](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) die Proportionen der Form beim Skalieren.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -499,13 +439,13 @@ presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Die Sperre gilt für das Bildrahmen‑Shape. Sie zwingt das Quellbild nicht, neu gesampelt zu werden oder dauerhaft das gleiche Seitenverhältnis anzunehmen.
+Die Sperre gilt für die Bildrahmen‑Form. Sie zwingt das Quell‑Bild nicht, neu gesampelt oder dauerhaft auf dasselbe Seitenverhältnis geändert zu werden.
 
 ## **StretchOffset‑Werte anpassen**
 
-Wenn der Bild‑Füllmodus „stretch“ ist, definieren die Stretch‑Offset‑Werte auf [IPictureFillFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/) das Füllrechteck relativ zur Begrenzungsbox des Bildrahmens. Positive Prozentsätze erzeugen einen Einzug von einer Kante, während negative Prozentsätze ein Herausstehen erzeugen.
+Wenn der Bildfüllmodus „Strecken“ ist, definieren die Stretch‑Offset‑Werte auf [IPictureFillFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/) das Füllrechteck relativ zur Begrenzungsbox des Bildrahmens. Positive Prozentsätze erzeugen einen Einzug von einer Kante, während negative Prozentsätze ein Herausstehen erzeugen.
 
-Dies unterscheidet sich vom Zuschneiden. Zuschneide‑Werte bestimmen, welcher Teil des Quellbildes sichtbar ist; Stretch‑Offsets ändern das Rechteck, in das die sichtbare Bildfüllung gestreckt wird.
+Das ist anders als Zuschneiden. Zuschneidewerte bestimmen, welcher Teil des Quell‑Bildes sichtbar ist; Stretch‑Offsets ändern das Rechteck, in das die sichtbare Bildfüllung gestreckt wird.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -542,43 +482,43 @@ presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Verwenden Sie Stretch‑Offsets für die Platzierung der Füllung. Verwenden Sie Zuschneide‑Eigenschaften, wenn das Ziel darin besteht, Kanten des Quellbildes zu verbergen.
+Verwenden Sie Stretch‑Offsets für die Platzierung der Füllung. Verwenden Sie Zuschneide‑Eigenschaften, wenn das Ziel darin besteht, Kanten des Quell‑Bildes zu verbergen.
 
 ## **Speicher, Dateigröße und Export‑Überlegungen**
 
 Die wichtigsten Kompromisse lassen sich leichter handhaben, wenn Bildspeicherung und Bildrahmen‑Formatierung getrennt betrachtet werden:
 
-- **Eingebettete Bilder** machen die Präsentation eigenständig und sind am zuverlässigsten für das Teilen und serverseitige Rendern, aber große Rasterbilder erhöhen die PPTX‑Größe und den Speicherverbrauch.
-- **Verknüpfte Bilder** können das Paket kleiner halten, aber die Präsentation ist von externen Dateien abhängig, die an den gespeicherten Pfaden oder Orten verfügbar bleiben müssen.
+- **Eingebettete Bilder** machen die Präsentation eigenständig und sind die zuverlässigste Wahl für das Teilen und serverseitige Rendern, aber große Rasterbilder erhöhen die PPTX‑Größe und den Speicherverbrauch.
+- **Verknüpfte Bilder** können das Paket kleiner halten, jedoch hängt die Präsentation von externen Dateien ab, die an den gespeicherten Pfaden oder Standorten verfügbar bleiben müssen.
 - **Zuschneiden** ist zunächst nicht destruktiv. Die versteckten Pixel bleiben eingebettet, bis zugeschnittene Bereiche explizit gelöscht oder während der Kompression entfernt werden.
-- **Kompression** kann die Dateigröße bei übergroßen Rasterbildern erheblich reduzieren, kostet jedoch die Quellauflösung. Sie sollte nach Bekanntwerden der endgültigen Größe auf der Folie angewendet werden.
-- **SVG‑Bilder** sollten als SVG erhalten bleiben, wenn die Vektorpreservation wichtig ist. Extrahieren Sie das eingebettete SVG direkt, wenn Sie die Vektorressource selbst benötigen. Raster‑Folien‑Exporte konvertieren stets die gerenderte Folie in Pixel.
-- **Wiederholte Bilder** sollten nach Möglichkeit eine vorhandene [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/)‑Ressource wiederverwenden, anstatt dieselbe Datei wiederholt in den Präsentations‑Workflow zu laden.
+- **Kompression** kann die Dateigröße bei übergroßen Rasterbildern erheblich reduzieren, kostet jedoch Auflösung der Quelle. Sie sollte erst nach Festlegung der endgültigen Größe auf der Folie angewendet werden.
+- **SVG‑Bilder** sollten als SVG erhalten bleiben, wenn die Vektor‑Erhaltung wichtig ist. Extrahieren Sie das eingebettete SVG direkt, wenn Sie die Vektor‑Ressource selbst benötigen. Raster‑Folien‑Exporte konvertieren die gerenderte Folie stets zu Pixeln.
+- **Wiederholte Bilder** sollten nach Möglichkeit eine vorhandene [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/)‑Ressource wiederverwenden, anstatt dieselbe Datei mehrfach in den Workflow zu laden.
 
-Für große Präsentationen ist Bildoptimierung meist am effektivsten, wenn sie selektiv durchgeführt wird: Logos und Diagramme als Vektorinhalt behalten, Fotos gemäß ihrer tatsächlichen Anzeigengröße komprimieren, zugeschnittene Pixel nur entfernen, wenn eine spätere Bearbeitung nicht erforderlich ist, und externe Verknüpfungen vermeiden, sofern das Abhängigkeits‑Management nicht Teil des Bereitstellungsdesigns ist.
+Bei großen Präsentationen ist Bildoptimierung meist am effektivsten, wenn sie selektiv durchgeführt wird: Logos und Diagramme als Vektor‑Inhalt behalten, Fotos gemäß ihrer tatsächlichen Anzeigengröße komprimieren, zugeschnittene Pixel nur entfernen, wenn nachträgliche Bearbeitung nicht nötig ist, und externe Links nur einsetzen, wenn das Abhängigkeits‑Management Teil des Bereitstellungs‑Designs ist.
 
 ## **FAQ**
 
 **Was ist der Unterschied zwischen einem Bildrahmen und einer Bildressource?**
 
-Ein [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/) stellt eine Bildressource dar, die mit der Präsentation verknüpft ist. Ein [IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) ist ein Shape auf einer Folie, das ein Bild anzeigt und rahmenbezogene Geometrie und Formatierungen wie Größe, Drehung, Zuschneide‑Werte, Effekte und Sperren speichert.
+Ein [IPPImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/ippimage/) stellt eine Bildressource dar, die mit der Präsentation verknüpft ist. Ein [IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) ist eine Form auf einer Folie, die ein Bild anzeigt und rahmenbezogene Geometrie sowie Formatierung wie Größe, Drehung, Zuschneidewerte, Effekte und Sperren speichert.
 
 **Sollte ich Bilder einbetten oder verknüpfen?**
 
-Betten Sie Bilder ein, wenn die Präsentation portabel, archiviert oder ohne Zugriff auf externe Ressourcen gerendert werden muss. Verknüpfen Sie Bilder nur, wenn das Halten von Bilddateien außerhalb der PPTX beabsichtigt ist und die externen Orte zuverlässig verwaltet werden können.
+Betten Sie Bilder ein, wenn die Präsentation portabel, archiviert oder ohne Zugriff auf externe Ressourcen gerendert werden muss. Verknüpfen Sie Bilder nur, wenn das Auslagern von Bilddateien aus dem PPTX beabsichtigt ist und die externen Speicherorte zuverlässig verwaltet werden können.
 
 **Reduziert Zuschneiden die PPTX‑Dateigröße?**
 
-Nicht von selbst. Normale Zuschneide‑Einstellungen verbergen Teile des Quellbildes, behalten aber die zugrunde liegenden Pixel. Verwenden Sie [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) oder Bildkompression mit Entfernen zugeschnittener Bereiche, wenn diese Pixel dauerhaft verworfen werden können.
+Nicht von selbst. Normale Zuschneide‑Einstellungen verbergen Teile des Quell‑Bildes, behalten aber die zugrunde liegenden Pixel. Verwenden Sie [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) oder Bildkompression mit Entfernen zugeschnittener Bereiche, wenn diese Pixel dauerhaft verworfen werden können.
 
 **Kann ich die Bildqualität nach der Kompression wiederherstellen?**
 
-Nein. Kompression kann die gespeicherte Rasterauflösung verringern, und das Entfernen zugeschnittener Bereiche verwirft Bilddaten. Bewahren Sie das originale Quellbild außerhalb der Präsentation auf, wenn später eine hochauflösende Bearbeitung erforderlich sein könnte.
+Nein. Kompression kann die gespeicherte Rasterauflösung reduzieren, und das Entfernen zugeschnittener Bereiche verwirft Bilddaten. Bewahren Sie das ursprüngliche Quell‑Bild außerhalb der Präsentation auf, wenn später eine Bearbeitung in hoher Auflösung erforderlich sein könnte.
 
 **Wie sollten SVG‑Bilder behandelt werden?**
 
-Bewahren Sie SVG‑Inhalte als SVG auf, wenn Vektor‑Treue wichtig ist. Das eingebettete [ISvgImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/isvgimage/) kann direkt extrahiert werden. Das Rendern einer Folie in ein Rasterformat wie PNG oder JPEG rasterisiert das SVG als Teil des Folienbildes.
+Behalten Sie SVG‑Inhalte als SVG, wenn die Vektor‑Treue wichtig ist. Das eingebettete [ISvgImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/isvgimage/) kann direkt extrahiert werden. Das Rendern einer Folie in ein Rasterformat wie PNG oder JPEG rasterisiert das SVG als Teil des Folienbildes.
 
 **Wie kann ich unsichere Casts beim Lesen vorhandener Folien vermeiden?**
 
-Prüfen Sie den Shape‑Typ, bevor Sie bildrahmenspezifische Member verwenden. Testen Sie das Shape mit [IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) vor dem Anwenden eines Laufzeit‑Casts und weisen Sie das Cast‑Ergebnis einer lokalen Variable zu, bevor Sie bildrahmenspezifische Member ansprechen.
+Prüfen Sie den Formtyp, bevor Sie bildrahmenspezifische Member verwenden. Testen Sie die Form mit [IPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipictureframe/) vor dem Anwenden eines Laufzeit‑Casts und weisen Sie das Cast‑Ergebnis einer lokalen Variable zu, bevor Sie bildrahmenspezifische Member ansprechen.

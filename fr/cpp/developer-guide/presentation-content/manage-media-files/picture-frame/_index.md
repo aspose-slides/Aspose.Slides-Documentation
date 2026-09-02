@@ -11,13 +11,13 @@ keywords:
 - image incorporée
 - image liée
 - extraire l'image
-- image matricielle
+- image raster
 - image SVG
 - recadrer l'image
 - supprimer les zones recadrées
 - compresser l'image
 - StretchOffset
-- mise en forme du cadre d'image
+- formatage du cadre d'image
 - échelle relative
 - effet d'image
 - rapport d'aspect
@@ -26,21 +26,21 @@ keywords:
 - présentation
 - C++
 - Aspose.Slides
-description: "Créer, formater, lier, recadrer, extraire et compresser les cadres d'image dans les présentations avec Aspose.Slides pour C++."
+description: "Créer, formater, lier, recadrer, extraire et compresser des cadres d'image dans les présentations avec Aspose.Slides pour C++."
 ---
 ## **Vue d'ensemble**
 
-Un cadre d'image est une forme de diapositive qui affiche une image. Dans Aspose.Slides, la ressource image et la forme qui l'affiche sont des objets distincts : une [Presentation](https://reference.aspose.com/slides/fr/cpp/aspose.slides/presentation/) possède des ressources d'images incorporées via sa [image collection](https://reference.aspose.com/slides/fr/cpp/aspose.slides/presentation/get_images/), tandis qu'un [IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) contrôle la position, la taille, le format de ligne, la rotation, le recadrage, les effets d'image et les autres paramètres au niveau du cadre.
+Un cadre d'image est une forme de diapositive qui affiche une image. Dans Aspose.Slides, la ressource d'image et la forme qui l'affiche sont des objets séparés : une [Presentation](https://reference.aspose.com/slides/fr/cpp/aspose.slides/presentation/) possède des ressources d'image incorporées via sa [image collection](https://reference.aspose.com/slides/fr/cpp/aspose.slides/presentation/get_images/), tandis qu'un [IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) contrôle la position, la taille, le formatage des lignes, la rotation, le recadrage, les effets d'image et d'autres paramètres au niveau du cadre.
 
-Cette séparation est utile lorsqu'une même image est affichée plusieurs fois. Ajoutez l'image à la présentation une fois, conservez le [IPPImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ippimage/) retourné, et utilisez cette ressource image lors de la création de cadres d'image.
+Cette séparation est utile lorsque la même image est affichée plusieurs fois. Ajoutez l'image à la présentation une fois, conservez le [IPPImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ippimage/) renvoyé, et utilisez cette ressource d'image lors de la création de cadres d'image.
 
-Les cadres d'image peuvent contenir des images matricielles telles que PNG ou JPEG ainsi que des images vectorielles SVG. Ils peuvent également référencer des images liées au lieu de stocker les octets d'image dans la présentation. Ce choix influence la portabilité, la taille du fichier, l'extraction et le comportement d'exportation, il est donc utile de décider comment l'image doit être stockée avant d'appliquer le formatage ou l'optimisation.
+Les cadres d'image peuvent contenir des images raster telles que PNG ou JPEG et des images vectorielles SVG. Ils peuvent également faire référence à des images liées au lieu de stocker les octets de l'image dans la présentation. Le choix affecte la portabilité, la taille du fichier, l'extraction et le comportement d'exportation, il est donc utile de décider comment l'image doit être stockée avant d'appliquer le formatage ou l'optimisation.
 
 ## **Ajouter et formater une image incorporée**
 
-Pour une image incorporée, ajoutez les données d'image à la présentation et créez un cadre d'image avec [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/shapecollection/addpictureframe/). L'image fait alors partie du package de la présentation, de sorte que la présentation reste autonome lorsqu'elle est déplacée vers un autre ordinateur.
+Pour une image incorporée, ajoutez les données d'image à la présentation et créez un cadre d'image avec [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/shapecollection/addpictureframe/). L'image devient partie du package de présentation, de sorte que la présentation reste autonome lorsqu'elle est déplacée vers un autre ordinateur.
 
-L'exemple suivant ajoute une image JPEG, crée un cadre aux dimensions natives de l'image et applique un format de ligne ainsi qu'une rotation :
+L'exemple suivant ajoute une image JPEG, crée un cadre aux dimensions natives de l'image et applique le formatage des lignes ainsi que la rotation :
 
 ```cpp
 #include <DOM/FillType.h>
@@ -80,11 +80,11 @@ presentation->Save(u"picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Le cadre d'image contrôle la géométrie affichée ; changer la taille du cadre ne modifie pas les dimensions en pixels d'origine stockées dans la ressource image incorporée. Cette distinction devient importante lors d'un recadrage ou d'une compression d'image ultérieure.
+Le cadre d'image contrôle la géométrie affichée ; modifier la taille du cadre ne change pas les dimensions en pixels d'origine stockées dans la ressource d'image incorporée. Cette distinction devient importante lors du recadrage ou de la compression d'une image ultérieure.
 
-## **Utiliser une échelle relative**
+## **Utiliser l'échelle relative**
 
-[IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) expose le redimensionnement relatif en largeur et en hauteur pour le cadre. Une valeur de `1.0` correspond à 100 % de la taille d'origine de l'image. L'échelle relative est utile lorsqu'un flux de travail doit préserver une relation avec la taille de l'image source au lieu de calculer manuellement les dimensions finales.
+[IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) expose le redimensionnement relatif en largeur et en hauteur du cadre. Une valeur de `1.0` correspond à 100 % de la taille originale de l'image. L'échelle relative est utile lorsqu'un flux de travail doit préserver la relation avec la taille de l'image source au lieu de calculer manuellement les dimensions finales.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -116,17 +116,17 @@ presentation->Save(u"relative-scale.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-L'échelle relative modifie les paramètres de mise à l'échelle du cadre ; elle ne rééchantillonne ni ne compresse pas l'image incorporée.
+L'échelle relative modifie les paramètres d'échelle du cadre ; elle ne rééchantillonne pas et ne compresse pas l'image incorporée.
 
 ## **Images incorporées et liées**
 
-Une image incorporée stocke les données d'image à l'intérieur de la présentation et constitue donc le choix le plus sûr pour la portabilité et le rendu prévisible. Une image liée stocke un emplacement externe via le chemin de lien [ISlidesPicture](https://reference.aspose.com/slides/fr/cpp/aspose.slides/islidespicture/) au lieu d'incorporer les données d'image de la même façon.
+Une image incorporée stocke les données d'image à l'intérieur de la présentation et constitue donc le choix le plus sûr pour la portabilité et un rendu prévisible. Une image liée stocke un emplacement externe via le chemin de lien [ISlidesPicture](https://reference.aspose.com/slides/fr/cpp/aspose.slides/islidespicture/) au lieu d'incorporer les données d'image de la même façon.
 
-Les images liées peuvent réduire la quantité de données d'image stockées dans le PPTX, mais elles introduisent une dépendance externe. Le fichier lié doit rester accessible à l'application qui ouvre ou rend la présentation. Si le chemin change, si le fichier est déplacé ou si la ressource est indisponible, l'image liée peut ne pas s'afficher comme prévu. Pour les présentations qui doivent être envoyées par courriel, archivées ou rendues dans des environnements isolés, les images incorporées sont généralement plus fiables.
+Les images liées peuvent réduire la quantité de données d'image stockées dans le PPTX, mais elles introduisent une dépendance externe. Le fichier lié doit rester accessible à l'application qui ouvre ou rend la présentation. Si le chemin change, le fichier est déplacé ou la ressource devient indisponible, l'image liée peut ne pas s'afficher comme prévu. Pour les présentations qui doivent être envoyées par courriel, archivées ou rendues dans des environnements isolés, les images incorporées sont généralement plus fiables.
 
 ### **Ajouter une image liée**
 
-L'exemple suivant crée un cadre d'image et le pointe vers un fichier image local. Il ne traite que le lien d'image ; le lien vidéo est un flux média distinct et n'est intentionnellement pas mêlé à cet exemple.
+L'exemple suivant crée un cadre d'image et le pointe vers un fichier image local. Il ne traite que de la liaison d'image ; la liaison vidéo fait partie d'un flux de travail multimédia distinct et n'est pas mélangée à cet exemple.
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -155,15 +155,15 @@ presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Utilisez les liens lorsque la gestion de fichiers externes est intentionnelle. Ne les utilisez pas simplement comme substitut à la compression : un petit PPTX avec des dépendances d'image cassées est généralement moins utile qu'une présentation plus volumineuse et autonome.
+Utilisez les liens lorsque la gestion de fichiers externes est intentionnelle. Ne les utilisez pas simplement comme substitut à la compression : un petit PPTX avec des dépendances d'image cassées est généralement moins utile qu'une présentation autonome plus volumineuse.
 
-## **Extraire des images depuis des cadres d'image**
+## **Extraire des images des cadres d'image**
 
-Avant d'extraire une image d'une présentation existante, vérifiez qu'une forme est réellement un [IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) et qu'elle contient une image incorporée. Les cadres d'image liés peuvent ne pas contenir d'octets d'image exploitables de la même façon.
+Avant d'extraire une image d'une présentation existante, vérifiez qu'une forme est réellement un [IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) et qu'elle contient une image incorporée. Les cadres d'image liés peuvent ne pas contenir d'octets d'image qui peuvent être extraits de la même manière.
 
-### **Extraire une image matricielle**
+### **Extraire une image raster**
 
-L'API moderne d'image utilise directement [IImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/iimage/). L'exemple suivant trouve la première image matricielle incorporée sur une diapositive et l'enregistre au format PNG :
+L'API d'image moderne utilise directement [IImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/iimage/). L'exemple suivant trouve la première image raster incorporée sur une diapositive et l'enregistre au format PNG :
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -205,11 +205,11 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-Sauvegarder via [IImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/iimage/) convertit l'image extraite vers le format de sortie demandé. Si vous avez besoin des octets encodés stockés dans la présentation plutôt que d'un fichier matriciel converti, utilisez les données binaires de la ressource image.
+L'enregistrement via [IImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/iimage/) convertit l'image extraite au format de sortie demandé. Si vous avez besoin des octets encodés stockés dans la présentation plutôt qu'un fichier raster converti, utilisez les données binaires de la ressource d'image à la place.
 
 ### **Extraire une image SVG**
 
-Pour une image SVG, le [IPPImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ippimage/) expose un objet [ISvgImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/isvgimage/). Cela vous permet de récupérer directement les données SVG au lieu de rasteriser d'abord l'image.
+Pour une image SVG, le [IPPImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ippimage/) expose un objet [ISvgImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/isvgimage/). Cela vous permet de récupérer les données SVG directement au lieu de rasteriser d'abord l'image.
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -257,13 +257,13 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-Conserver le contenu SVG sous forme de SVG préserve la source vectorielle dans la présentation. Les exportations matricielles telles que PNG ou JPEG rendent nécessairement ce contenu vectoriel en pixels. L'exportation de diapositives au format PDF ou SVG est également une opération de rendu, de sorte que les graphiques exportés ne doivent pas être considérés comme une copie octet pour octet du SVG incorporé ; utilisez les données [ISvgImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/isvgimage/) incorporées lorsque la ressource vectorielle d'origine est requise.
+Conserver le contenu SVG en tant que SVG préserve la source vectorielle à l'intérieur de la présentation. Les exportations raster comme PNG ou JPEG rendent nécessairement ce contenu vectoriel en pixels. L'exportation de diapositives au format PDF ou SVG est également une opération de rendu, de sorte que les graphiques exportés ne doivent pas être traités comme une copie octet à octet du SVG incorporé d'origine ; utilisez les données [ISvgImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/isvgimage/) incorporées lorsque la ressource vectorielle originale elle‑même est requise.
 
 ## **Recadrer une image**
 
-Le recadrage modifie la partie de l'image visible à l'intérieur du cadre. Les valeurs de recadrage sur [IPictureFillFormat](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/) sont des pourcentages des dimensions de l'image source. Le recadrage ne supprime pas immédiatement les pixels cachés de l'image incorporée ; il ne fait que changer la région visible.
+Le recadrage modifie la partie de l'image visible à l'intérieur du cadre. Les valeurs de recadrage sur [IPictureFillFormat](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/) sont des pourcentages des dimensions de l'image source. Le recadrage ne supprime pas initialement les pixels masqués de l'image incorporée ; il ne fait que changer la région visible.
 
-L'exemple suivant trouve en toute sécurité un cadre d'image et applique les valeurs de recadrage :
+L'exemple suivant trouve un cadre d'image en toute sécurité et applique les valeurs de recadrage :
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -304,11 +304,11 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Comme les données d'image cachées sont toujours présentes, le recadrage peut être modifié ultérieurement sans perdre les pixels d'origine. Si la taille du fichier est plus importante que la réversibilité, les régions recadrées peuvent être supprimées physiquement comme décrit dans la section suivante.
+Comme les données d'image cachées sont toujours présentes, le recadrage peut être modifié ultérieurement sans perdre les pixels d'origine. Si la taille du fichier importe davantage que la réversibilité, les régions recadrées peuvent être supprimées physiquement comme décrit dans la section suivante.
 
 ## **Supprimer les données d'image recadrées**
 
-[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) supprime les données d'image situées en dehors du rectangle de recadrage actuel et renvoie la ressource image résultante. Cela peut réduire la taille du fichier, mais il s'agit d'une optimisation destructive : une fois la présentation enregistrée, les pixels supprimés ne sont plus disponibles pour une opération de décadrage ultérieure.
+[IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) supprime les données d'image situées en dehors du rectangle de recadrage actuel et renvoie la ressource d'image résultante. Cela peut réduire la taille du fichier, mais il s'agit d'une optimisation destructive : après l'enregistrement de la présentation, les pixels supprimés ne sont plus disponibles pour une opération de décadrage ultérieure.
 
 ```cpp
 #include <DOM/IPPImage.h>
@@ -350,13 +350,13 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-La méthode peut ajouter une nouvelle ressource image à la présentation. Si l'image d'origine est également utilisée par d'autres cadres d'image, ces cadres conservent toujours leur ressource existante, de sorte que la suppression des zones recadrées ne réduit pas nécessairement le nombre total d'images. Le recadrage de contenu WMF ou EMF avec cette méthode rasterise le résultat recadré en PNG.
+La méthode peut ajouter une nouvelle ressource d'image à la présentation. Si l'image d'origine est également utilisée par d'autres cadres d'image, ces cadres ont toujours besoin de leur ressource existante, de sorte que la suppression des zones recadrées ne réduit pas nécessairement le nombre total d'images. Recadrer du contenu WMF ou EMF avec cette méthode rasterise le résultat recadré en PNG.
 
-## **Compresser les images matricielles**
+## **Compresser les images raster**
 
-[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/compressimage/) réduit la résolution de l'image matricielle par rapport à la taille à laquelle l'image est affichée. Elle peut également supprimer les zones recadrées dans la même opération. La méthode renvoie `true` lorsque l'image a été redimensionnée ou recadrée et `false` lorsqu'aucune modification n'était nécessaire.
+[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/compressimage/) réduit la résolution d'une image raster par rapport à la taille à laquelle l'image est affichée. Elle peut également supprimer les régions recadrées dans la même opération. La méthode renvoie `true` lorsque l'image a été redimensionnée ou recadrée et `false` lorsqu'aucun changement n'était nécessaire.
 
-Utilisez une valeur prédéfinie de [PicturesCompression](https://reference.aspose.com/slides/fr/cpp/aspose.slides.export/picturescompression/) lorsqu'une résolution cible standard suffit :
+Utilisez une valeur prédéfinie [PicturesCompression](https://reference.aspose.com/slides/fr/cpp/aspose.slides.export/picturescompression/) lorsqu'une résolution cible standard est suffisante :
 
 ```cpp
 #include <DOM/IPictureFillFormat.h>
@@ -397,77 +397,17 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-Une valeur DPI positive personnalisée peut être passée à la place d'une valeur d'énumération lorsqu'une cible précise est requise.
+Une valeur DPI positive personnalisée peut être passée à la place d'une valeur d'énumération lorsqu'une cible spécifique est requise.
 
-La compression s'applique aux images matricielles. Le contenu SVG et les métafichiers ne sont pas réduits par ce flux de travail de compression matricielle. Gardez également à l'esprit que la résolution inférieure et les zones recadrées supprimées ne peuvent pas être récupérées à partir de la présentation optimisée. Choisissez une résolution cible basée sur la plus grande taille à laquelle l'image sera réellement visualisée ou exportée plutôt que d'appliquer le DPI le plus bas globalement.
+La compression est destinée aux images raster. Le contenu SVG et les métas fichiers ne sont pas réduits par ce flux de travail de compression raster. Gardez également à l'esprit que la résolution inférieure et les régions recadrées supprimées ne peuvent pas être récupérées à partir de la présentation optimisée. Choisissez une résolution cible en fonction de la plus grande taille à laquelle l'image sera réellement visualisée ou exportée, plutôt que d'appliquer le DPI le plus bas globalement.
 
-## **Inspecter les effets d'image**
+## **Gérer les effets de transformation d'image**
 
-Les effets d'image sont stockés sur l'image utilisée par le cadre. La collection de transformations d'image peut contenir des effets tels que la modulation alpha fixe pour la transparence et la luminance pour la luminosité et le contraste. L'exemple ci‑dessous lit en toute sécurité les deux types d'effets du premier cadre d'image d'une diapositive :
-
-```cpp
-#include <DOM/Effects/IAlphaModulateFixed.h>
-#include <DOM/Effects/IImageTransformOperationCollection.h>
-#include <DOM/Effects/ILuminance.h>
-#include <DOM/Effects/ILuminanceEffectiveData.h>
-#include <DOM/IPictureFillFormat.h>
-#include <DOM/IPictureFrame.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlidesPicture.h>
-#include <DOM/Presentation.h>
-#include <system/console.h>
-#include <system/object_ext.h>
-#include <system/smart_ptr.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Effects;
-using namespace System;
-
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto slide = presentation->get_Slide(0);
-SharedPtr<IPictureFrame> pictureFrame;
-
-for (auto&& shape : slide->get_Shapes())
-{
-    if (ObjectExt::Is<IPictureFrame>(shape))
-    {
-        pictureFrame = ExplicitCast<IPictureFrame>(shape);
-        break;
-    }
-}
-
-if (pictureFrame != nullptr)
-{
-    auto imageTransform = pictureFrame->get_PictureFormat()->get_Picture()->get_ImageTransform();
-
-    for (auto&& effect : imageTransform)
-    {
-        if (ObjectExt::Is<IAlphaModulateFixed>(effect))
-        {
-            auto alphaModulateFixed = ExplicitCast<IAlphaModulateFixed>(effect);
-            auto transparency = 100.0f - alphaModulateFixed->get_Amount();
-            Console::WriteLine(String(u"Transparency: ") + transparency);
-        }
-
-        if (ObjectExt::Is<ILuminance>(effect))
-        {
-            auto luminanceEffect = ExplicitCast<ILuminance>(effect);
-            auto luminance = luminanceEffect->GetEffective();
-            Console::WriteLine(String(u"Brightness: ") + luminance->get_Brightness());
-            Console::WriteLine(String(u"Contrast: ") + luminance->get_Contrast());
-        }
-    }
-}
-
-presentation->Dispose();
-```
-
-Ces effets modifient la façon dont l'image est rendue dans le cadre ; ils ne réécrivent pas les octets d'image incorporés d'origine.
+Pour un flux de travail complet couvrant la luminosité, le contraste, les transformations de couleur, le flou, les effets alpha, les chaînes ordonnées, l'inspection, la suppression et la vérification en aller‑retour, voir [Image Transform Effects](/slides/fr/cpp/image-transform-effects/).
 
 ## **Verrouiller la géométrie du cadre d'image**
 
-Les paramètres du [IPictureFrameLock](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframelock/) contrôlent quelles opérations d'édition sont désactivées pour un cadre d'image. Par exemple, le [verrouillage du rapport d'aspect](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) préserve les proportions de la forme lors du redimensionnement.
+Les paramètres [IPictureFrameLock](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframelock/) contrôlent quelles opérations d'édition sont désactivées pour un cadre d'image. Par exemple, le [aspect-ratio lock](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframelock/set_aspectratiolocked/) préserve les proportions de la forme pendant son redimensionnement.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -499,13 +439,13 @@ presentation->Save(u"locked-picture-frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Le verrouillage s'applique à la forme du cadre d'image. Il ne force pas l'image source à être rééchantillonnée ou modifiée de façon permanente au même rapport d'aspect.
+Le verrou s'applique à la forme du cadre d'image. Il ne force pas l'image source à être rééchantillonnée ou modifiée de façon permanente pour correspondre au même ratio d'aspect.
 
 ## **Ajuster les valeurs StretchOffset**
 
-Lorsque le mode de remplissage d'image est « stretch », les valeurs de stretch‑offset sur [IPictureFillFormat](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/) définissent le rectangle de remplissage relatif à la boîte englobante du cadre d'image. Des pourcentages positifs créent un retrait depuis un bord, tandis que des pourcentages négatifs créent un débordement.
+Lorsque le mode de remplissage d'image est étiré, les valeurs stretch‑offset sur [IPictureFillFormat](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/) définissent le rectangle de remplissage par rapport à la boîte englobante du cadre d'image. Des pourcentages positifs créent un retrait depuis un bord, tandis que des pourcentages négatifs créent un débordement.
 
-Ceci diffère du recadrage. Les valeurs de recadrage sélectionnent quelle partie de l'image source est visible ; les offsets de stretch modifient le rectangle dans lequel le remplissage d'image visible est étiré.
+Ceci est différent du recadrage. Les valeurs de recadrage sélectionnent la partie de l'image source qui est visible ; les offsets d'étirement modifient le rectangle dans lequel le remplissage d'image visible est étiré.
 
 ```cpp
 #include <DOM/IImageCollection.h>
@@ -542,43 +482,43 @@ presentation->Save(u"stretch-offsets.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Utilisez les offsets de stretch pour le placement du remplissage. Utilisez les propriétés de recadrage lorsque l'objectif est de masquer les bords de l'image source.
+Utilisez les offsets d'étirement pour le placement du remplissage. Utilisez les propriétés de recadrage lorsque le but est de masquer les bords de l'image source.
 
-## **Stockage, taille du fichier et considérations d'exportation**
+## **Considérations de stockage, de taille de fichier et d'exportation**
 
-Les principaux compromis sont plus faciles à gérer lorsque le stockage d'image et le formatage du cadre d'image sont traités séparément :
+Les principaux compromis sont plus faciles à gérer lorsque le stockage des images et le formatage des cadres d'image sont traités séparément :
 
-- **Images incorporées** rendent la présentation autonome et sont les plus fiables pour le partage et le rendu côté serveur, mais les grandes images matricielles augmentent la taille du PPTX et l'utilisation de la mémoire.
+- **Images incorporées** rendent la présentation autonome et sont les plus fiables pour le partage et le rendu côté serveur, mais les grandes images raster augmentent la taille du PPTX et l'utilisation de la mémoire.
 - **Images liées** peuvent garder le package plus petit, mais la présentation dépend de la disponibilité des fichiers externes aux chemins ou emplacements stockés.
-- **Recadrage** est initialement non destructif. Les pixels cachés restent incorporés jusqu'à ce que les zones recadrées soient explicitement supprimées ou éliminées lors de la compression.
-- **Compression** peut réduire sensiblement la taille du fichier pour les images matricielles surdimensionnées, mais elle sacrifie la résolution source. Elle doit être appliquée après que la taille finale sur la diapositive soit connue.
-- **Images SVG** doivent rester au format SVG lorsque la préservation vectorielle est importante. Extrayez le SVG incorporé directement lorsque vous avez besoin de la ressource vectorielle elle‑même. Les exportations de diapositives en mode raster convertissent toujours la diapositive rendue en pixels.
-- **Images répétées** doivent réutiliser une ressource [IPPImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ippimage/) existante lorsque cela est possible au lieu de charger à nouveau le même fichier dans le flux de travail de la présentation.
+- **Recadrage** est initialement non destructif. Les pixels masqués restent incorporés jusqu'à ce que les zones recadrées soient explicitement supprimées ou retirées lors de la compression.
+- **Compression** peut réduire la taille du fichier de manière significative pour les images raster surdimensionnées, mais elle sacrifie la résolution source. Elle doit être appliquée après que la taille finale sur la diapositive soit connue.
+- **Images SVG** doivent rester au format SVG lorsque la préservation vectorielle est importante. Extrayez le SVG incorporé directement lorsque vous avez besoin de la ressource vectorielle elle‑même. Les exportations de diapositives raster convertissent toujours la diapositive rendue en pixels.
+- **Images répétées** doivent réutiliser une ressource [IPPImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ippimage/) existante chaque fois que possible au lieu de charger à nouveau le même fichier dans le flux de travail de la présentation.
 
-Pour les présentations volumineuses, l'optimisation des images est généralement la plus efficace lorsqu'elle est effectuée sélectivement : conservez les logos et diagrammes sous forme de contenu vectoriel, compressez les photographies en fonction de leur taille d'affichage réelle, supprimez les pixels recadrés uniquement lorsque l'édition ultérieure n'est pas requise, et évitez les liens externes sauf si la gestion des dépendances fait partie de la conception du déploiement.
+Pour les présentations volumineuses, l'optimisation des images est généralement la plus efficace lorsqu'elle est effectuée de façon sélective : conservez les logos et les diagrammes en tant que contenu vectoriel, compressez les photographies en fonction de leur taille d'affichage réelle, supprimez les pixels recadrés uniquement lorsque des modifications ultérieures ne sont pas requises, et évitez les liens externes à moins que la gestion des dépendances ne fasse partie de la conception du déploiement.
 
 ## **FAQ**
 
 **Quelle est la différence entre un cadre d'image et une ressource d'image ?**
 
-Un [IPPImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ippimage/) représente une ressource image associée à la présentation. Un [IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) est une forme sur une diapositive qui affiche une image et stocke la géométrie et le formatage au niveau du cadre tels que la taille, la rotation, les valeurs de recadrage, les effets et les verrous.
+Un [IPPImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ippimage/) représente une ressource d'image associée à la présentation. Un [IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) est une forme sur une diapositive qui affiche une image et stocke la géométrie et le formatage au niveau du cadre tels que la taille, la rotation, les valeurs de recadrage, les effets et les verrous.
 
 **Dois‑je incorporer ou lier les images ?**
 
-Incorporez les images lorsque la présentation doit être portable, archivées ou rendues sans accès à des ressources externes. Liez les images uniquement lorsque le maintien des fichiers image en dehors du PPTX est intentionnel et que les emplacements externes peuvent être maintenus de façon fiable.
+Incorporez les images lorsque la présentation doit être portable, archivée ou rendue sans accès à des ressources externes. Liez les images uniquement lorsque le fait de garder les fichiers image à l'extérieur du PPTX est intentionnel et que les emplacements externes peuvent être maintenus de façon fiable.
 
 **Le recadrage réduit‑il la taille du fichier PPTX ?**
 
-Pas en soi. Les paramètres de recadrage normaux masquent des parties de l'image source tout en conservant les pixels sous‑jacents. Utilisez [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) ou la compression d'image avec suppression des zones recadrées lorsque ces pixels peuvent être éliminés définitivement.
+Pas en soi. Les réglages de recadrage ordinaires masquent des parties de l'image source tout en conservant les pixels sous‑jacents. Utilisez [IPictureFillFormat::DeletePictureCroppedAreas](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) ou la compression d'image avec suppression des zones recadrées lorsque ces pixels peuvent être supprimés de façon permanente.
 
 **Puis‑je restaurer la qualité de l'image après compression ?**
 
-Non. La compression peut réduire la résolution raster stockée, et la suppression des zones recadrées élimine les données d'image. Conservez l'image source originale en dehors de la présentation si un futur travail en haute résolution peut être requis.
+Non. La compression peut réduire la résolution raster stockée, et la suppression des régions recadrées supprime les données d'image. Conservez l'image source originale en dehors de la présentation si un futur montage en haute résolution peut être nécessaire.
 
-**Comment les images SVG doivent‑elles être gérées ?**
+**Comment doit‑on gérer les images SVG ?**
 
-Conservez le contenu SVG au format SVG lorsque la fidélité vectorielle compte. L'[ISvgImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/isvgimage/) incorporé peut être extrait directement. Rendre une diapositive vers un format raster tel que PNG ou JPEG rasterise le SVG dans le cadre de l'image de la diapositive.
+Conservez le contenu SVG en tant que SVG lorsque la fidélité vectorielle compte. L'[ISvgImage](https://reference.aspose.com/slides/fr/cpp/aspose.slides/isvgimage/) incorporé peut être extrait directement. Le rendu d'une diapositive au format raster tel que PNG ou JPEG rasterise le SVG dans le cadre de l'image de la diapositive.
 
-**Comment éviter les casts non sécurisés lors de la lecture de diapositives existantes ?**
+**Comment éviter les castings dangereux lors de la lecture de diapositives existantes ?**
 
-Vérifiez le type de forme avant d'utiliser les membres spécifiques au cadre d'image. Testez la forme avec [IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) avant d'effectuer un cast à l'exécution, et affectez le résultat du cast à une variable locale avant d'accéder aux membres spécifiques au cadre d'image.
+Vérifiez le type de forme avant d'utiliser les membres spécifiques au cadre d'image. Testez la forme avec [IPictureFrame](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ipictureframe/) avant d'appliquer un cast à l'exécution, et affectez le résultat du cast à une variable locale avant d'accéder aux membres propres au cadre d'image.

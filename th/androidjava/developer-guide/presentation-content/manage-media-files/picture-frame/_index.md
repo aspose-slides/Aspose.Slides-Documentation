@@ -1,24 +1,24 @@
 ---
-title: จัดการเฟรมรูปภาพในการนำเสนอบน Android
-linktitle: เฟรมรูปภาพ
+title: จัดการกรอบรูปภาพในงานนำเสนอบน Android
+linktitle: กรอบรูปภาพ
 type: docs
 weight: 10
 url: /th/androidjava/picture-frame/
 keywords:
-- เฟรมรูปภาพ
-- เพิ่มเฟรมรูปภาพ
-- สร้างเฟรมรูปภาพ
+- กรอบรูปภาพ
+- เพิ่มกรอบรูปภาพ
+- สร้างกรอบรูปภาพ
 - ภาพที่ฝังไว้
 - ภาพที่เชื่อมโยง
 - สกัดภาพ
 - ภาพราสเตอร์
 - ภาพ SVG
-- ครอบภาพ
-- ลบพื้นที่ที่ครอบ
+- ครอปภาพ
+- ลบพื้นที่ที่ครอป
 - บีบอัดภาพ
 - StretchOffset
-- การจัดรูปแบบเฟรมรูปภาพ
-- สเกลสัมพัทธ์
+- การจัดรูปแบบกรอบรูปภาพ
+- สเกลเชิงสัมพัทธ์
 - เอฟเฟกต์ภาพ
 - อัตราส่วน
 - PowerPoint
@@ -27,21 +27,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "สร้าง, จัดรูปแบบ, เชื่อมโยง, ครอบ, สกัดและบีบอัดเฟรมรูปภาพในงานนำเสนอด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
+description: "สร้าง จัดรูปแบบ เชื่อมโยง ครอป สกัด และบีบอัดกรอบรูปภาพในงานนำเสนอด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Picture frame คือรูปแบบสไลด์ที่แสดงรูปภาพ ใน Aspose.Slides, แหล่งภาพและรูปแบบที่แสดงภาพนั้นเป็นออบเจกต์แยกกัน: a [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) owns embedded image resources through its [IImageCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimagecollection/), while an [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) controls the image's position, size, line formatting, rotation, cropping, picture effects, and other frame-level settings.
+กรอบรูปภาพเป็นรูปร่างบนสไลด์ที่แสดงภาพหนึ่งภาพ ใน Aspose.Slides, แหล่งข้อมูลภาพและรูปร่างที่แสดงภาพนั้นเป็นวัตถุต่างกัน: [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) มีทรัพยากรภาพที่ฝังอยู่ผ่าน [IImageCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimagecollection/), ขณะที่ [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) ควบคุมตำแหน่งของภาพ, ขนาด, การจัดรูปแบบเส้น, การหมุน, การครอป, เอฟเฟกต์รูปภาพ, และการตั้งค่าอื่น ๆ ระดับกรอบ
 
-การแยกนี้มีประโยชน์เมื่อภาพเดียวกันถูกแสดงหลายครั้ง ให้เพิ่มภาพลงในพรีเซนเทชันครั้งเดียว, เก็บ [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) ที่คืนค่า, แล้วใช้แหล่งภาพนั้นเมื่อสร้าง picture frames.
+การแยกนี้มีประโยชน์เมื่อภาพเดียวกันแสดงหลายครั้ง เพิ่มภาพเข้าไปในงานนำเสนอเพียงครั้งเดียว, เก็บออบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) ที่คืนค่า, แล้วใช้แหล่งข้อมูลภาพนั้นเมื่อสร้างกรอบรูปภาพ
 
-Picture frames สามารถบรรจุ raster image เช่น PNG หรือ JPEG และ vector SVG image ได้. พวกเขายังสามารถอ้างอิงภาพที่เชื่อมโยงแทนการเก็บไบต์ของภาพในพรีเซนเทชันได้. ตัวเลือกนี้มีผลต่อความพกพา, ขนาดไฟล์, การสกัดและพฤติกรรมการส่งออก, ดังนั้นจึงควรตัดสินใจว่าจะเก็บภาพอย่างไรก่อนทำการจัดรูปแบบหรือการปรับให้เหมาะสม.
+กรอบรูปภาพสามารถบรรจุภาพแบบราสเตอร์เช่น PNG หรือ JPEG และภาพเวกเตอร์ SVG ได้ นอกจากนี้ยังสามารถอ้างอิงถึงภาพที่เชื่อมโยงแทนการเก็บไบต์ของภาพไว้ในงานนำเสนอ ตัวเลือกนี้มีผลต่อความพกพา, ขนาดไฟล์, การสกัดและการส่งออก ดังนั้นจึงควรตัดสินใจว่าจะเก็บภาพอย่างไรก่อนทำการจัดรูปแบบหรือเพิ่มประสิทธิภาพ
 
-## **เพิ่มและจัดรูปแบบ Embedded Image**
+## **เพิ่มและจัดรูปแบบภาพที่ฝังไว้**
 
-สำหรับภาพที่ฝังไว้, ให้เพิ่มข้อมูลภาพลงในพรีเซนเทชันและสร้าง picture frame ด้วย [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). ภาพจะกลายเป็นส่วนหนึ่งของแพ็กเกจพรีเซนเทชัน, ทำให้พรีเซนเทชันยังคงเป็นอันหนึ่งอันเดียวเมื่อย้ายไปยังคอมพิวเตอร์เครื่องอื่น.
+สำหรับภาพที่ฝังไว้ ให้เพิ่มข้อมูลภาพเข้าไปในงานนำเสนอและสร้างกรอบรูปภาพด้วย [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). ภาพจะกลายเป็นส่วนหนึ่งของแพคเกจงานนำเสนอ ดังนั้นงานนำเสนอจะคงเป็นอิสระเมื่อย้ายไปยังคอมพิวเตอร์เครื่องอื่น
 
-ตัวอย่างต่อไปนี้เพิ่มภาพ JPEG, สร้างเฟรมที่ขนาดดั้งเดิมของภาพ, และใช้การจัดรูปแบบเส้นและการหมุน:
+ตัวอย่างต่อไปนี้เพิ่มภาพ JPEG, สร้างกรอบที่มีขนาดตามมิติพื้นฐานของภาพ, แล้วกำหนดการจัดรูปแบบเส้นและการหมุน:
 
 ```java
 import com.aspose.slides.*;
@@ -71,11 +71,11 @@ try {
 }
 ```
 
-picture frame ควบคุมเรขาคณิตที่แสดง; การเปลี่ยนขนาดเฟรมไม่ทำให้มิติพิกเซลดั้งเดิมของแหล่งภาพที่ฝังไว้เปลี่ยนแปลง. ความแตกต่างนี้สำคัญเมื่อทำการครอบหรือบีบอัดภาพในภายหลัง.
+กรอบรูปภาพควบคุมรูปทรงที่แสดง; การเปลี่ยนขนาดกรอบไม่ได้เปลี่ยนมิติพิกเซลดั้งเดิมที่เก็บอยู่ในแหล่งข้อมูลภาพที่ฝังไว้ ความแตกต่างนี้สำคัญเมื่อต้องครอปหรือบีบอัดภาพในภายหลัง
 
-## **ใช้ Relative Scale**
+## **ใช้สเกลเชิงสัมพัทธ์**
 
-[IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) เปิดเผยการสเกลความกว้างและความสูงแบบสัมพัทธ์สำหรับเฟรมผ่าน [setRelativeScaleWidth](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) และ [setRelativeScaleHeight](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). ค่า `1.0` หมายถึง 100% ของขนาดรูปภาพดั้งเดิม. การสเกลแบบสัมพัทธ์เป็นประโยชน์เมื่อ workflow ต้องการคงความสัมพันธ์กับขนาดภาพต้นฉบับแทนการคำนวณขนาดสุดท้ายด้วยตนเอง.
+[IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) เปิดให้ปรับสเกลความกว้างและความสูงเชิงสัมพันธ์ของกรอบผ่าน [setRelativeScaleWidth](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) และ [setRelativeScaleHeight](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). ค่า `1.0` หมายถึง 100 % ของขนาดภาพต้นฉบับ สเกลเชิงสัมพันธ์มีประโยชน์เมื่อเวิร์กโฟลว์ต้องคงอัตราส่วนต่อขนาดภาพต้นแบบแทนการคำนวณขนาดสุดท้ายด้วยตนเอง
 
 ```java
 import com.aspose.slides.*;
@@ -102,17 +102,17 @@ try {
 }
 ```
 
-Relative scale ปรับการตั้งค่าสเกลของเฟรม; มันไม่ได้ทำการรีสแแปลหรือบีบอัดภาพที่ฝังไว้.
+การปรับสเกลเชิงสัมพันธ์เปลี่ยนการตั้งค่าสเกลของกรอบ; มันไม่ได้ทำการรีแซมป์หรือบีบอัดภาพที่ฝังไว้
 
-## **Embedded and Linked Images**
+## **ภาพที่ฝังไว้และภาพที่เชื่อมโยง**
 
-ภาพที่ฝังไว้ (embedded picture) เก็บข้อมูลภาพภายในพรีเซนเทชันและจึงเป็นทางเลือกที่ปลอดภัยที่สุดสำหรับความพกพาและการเรนเดอร์ที่คาดเดาได้. ภาพที่เชื่อมโยง (linked picture) เก็บตำแหน่งภายนอกผ่านเมธอด [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) แทนการฝังข้อมูลภาพในแบบเดียวกัน.
+ภาพที่ฝังไว้จะเก็บข้อมูลภาพภายในงานนำเสนอ จึงเป็นตัวเลือกที่ปลอดภัยที่สุดสำหรับความพกพาและการเรนเดอร์ที่คาดเดาได้ ส่วนภาพที่เชื่อมโยงจะเก็บตำแหน่งภายนอกผ่านเมธอด [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) แทนการฝังข้อมูลภาพแบบเดียวกัน
 
-ภาพที่เชื่อมโยงสามารถลดปริมาณข้อมูลภาพที่เก็บใน PPTX ได้, แต่ก็สร้างการพึ่งพิงภายนอก. ไฟล์ที่เชื่อมโยงต้องสามารถเข้าถึงได้โดยแอปพลิเคชันที่เปิดหรือเรนเดอร์พรีเซนเทชัน. หากเส้นทางเปลี่ยน, ไฟล์ถูกย้าย, หรือแหล่งข้อมูลไม่พร้อมใช้งาน, ภาพที่เชื่อมโยงอาจไม่แสดงตามที่คาดหวัง. สำหรับพรีเซนเทชันที่ต้องส่งทางอีเมล, จัดเก็บ, หรือเรนเดอร์ในสภาพแวดล้อมแยก, ภาพที่ฝังไว้มักจะเชื่อถือได้มากกว่า.
+ภาพที่เชื่อมโยงสามารถลดปริมาณข้อมูลภาพที่เก็บในไฟล์ PPTX ได้แต่ทำให้เกิดการพึ่งพาไฟล์ภายนอก ไฟล์ที่เชื่อมโยงต้องยังคงเข้าถึงได้สำหรับแอปพลิเคชันที่เปิดหรือเรนเดอร์งานนำเสนอ หากเส้นทางเปลี่ยน, ไฟล์ถูกย้าย, หรือทรัพยากรไม่พร้อมใช้งาน, ภาพที่เชื่อมโยงอาจไม่แสดงตามที่คาดหวัง สำหรับงานนำเสนอที่ต้องการส่งอีเมล, เก็บเป็นไฟล์เก่า, หรือเรนเดอร์ในสภาพแวดล้อมแยก, ภาพที่ฝังไว้โดยทั่วไปจะเชื่อถือได้มากกว่า
 
-### **เพิ่ม Linked Image**
+### **เพิ่มภาพที่เชื่อมโยง**
 
-ตัวอย่างต่อไปนี้สร้าง picture frame และชี้ไปที่ไฟล์ภาพภายในเครื่อง. ตัวอย่างนี้จัดการเฉพาะการเชื่อมโยงภาพ; การเชื่อมโยงวิดีโอเป็น workflow สื่อแยกและไม่ได้ผสมไว้ในตัวอย่างนี้.
+ตัวอย่างต่อไปนี้สร้างกรอบรูปภาพและชี้ไปยังไฟล์ภาพภายในเครื่อง มุ่งเน้นเฉพาะการเชื่อมโยงภาพ; การเชื่อมโยงวิดีโอเป็นเวิร์กโฟลว์สื่อที่แยกออกจากกันและไม่ได้ผสมไว้ในตัวอย่างนี้
 
 ```java
 import com.aspose.slides.*;
@@ -133,15 +133,15 @@ try {
 }
 ```
 
-ใช้ลิงก์เมื่อการจัดการไฟล์ภายนอกเป็นเจตนา. อย่าใช้ลิงก์เป็นทางเลือกแทนการบีบอัด: PPTX ขนาดเล็กที่มีการพึ่งพาภาพเสียหายมักจะใช้งานได้น้อยกว่าพรีเซนเทชันขนาดใหญ่ที่เป็นอันหนึ่งอันเดียว.
+ใช้ลิงก์เมื่อการจัดการไฟล์ภายนอกเป็นเจตนา อย่าใช้เป็นวิธีทดแทนการบีบอัด: PPTX ขนาดเล็กที่มีการเชื่อมโยงภาพขัดข้องมักไม่มีประโยชน์เท่ากับงานนำเสนอที่มีขนาดใหญ่แต่เป็นอิสระ
 
-## **สกัด Images จาก Picture Frames**
+## **สกัดภาพจากกรอบรูปภาพ**
 
-ก่อนสกัดภาพจากพรีเซนเทชันที่มีอยู่, ตรวจสอบว่า shape เป็น [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) จริง ๆ และว่ามีภาพที่ฝังไว้. picture frames ที่เชื่อมโยงอาจไม่มีไบต์ของภาพที่สามารถสกัดได้ในลักษณะเดียวกัน.
+ก่อนสกัดภาพจากงานนำเสนอที่มีอยู่, ตรวจสอบให้แน่ใจว่ารูปร่างเป็น [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) จริงและมีภาพที่ฝังอยู่ กรอบรูปภาพที่เชื่อมโยงอาจไม่มีไบต์ของภาพที่สามารถสกัดได้ในลักษณะเดียวกัน
 
-### **สกัด Raster Image**
+### **สกัดภาพราสเตอร์**
 
-API ภาพสมัยใหม่ใช้ [IImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimage/) โดยตรงและไม่ต้องการ wrapper ของ Java เวอร์ชันเก่า. ตัวอย่างต่อไปนี้ค้นหา raster picture ที่ฝังไว้แรกบนสไลด์และบันทึกเป็น PNG:
+API ภาพสมัยใหม่ใช้ [IImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimage/) โดยตรงและไม่ต้องอาศัย Java wrapper รุ่นเก่า ตัวอย่างต่อไปนี้ค้นหาภาพราสเตอร์ที่ฝังอยู่เป็นภาพแรกบนสไลด์และบันทึกเป็น PNG
 
 ```java
 import com.aspose.slides.*;
@@ -174,11 +174,11 @@ try {
 }
 ```
 
-การบันทึกผ่าน [IImage.save](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) จะแปลงภาพที่สกัดเป็นรูปแบบผลลัพธ์ที่ร้องขอ. หากต้องการไบต์ที่เข้ารหัสเก็บในพรีเซนเทชันแทนไฟล์ raster ที่แปลงแล้ว, ให้ใช้ข้อมูลไบต์ของแหล่งภาพโดยตรง.
+การบันทึกโดยใช้ [IImage.save](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) จะเปลี่ยนภาพที่สกัดเป็นรูปแบบผลลัพธ์ที่ร้องขอ หากต้องการไบต์ที่เข้ารหัสเก็บไว้ในงานนำเสนอแทนไฟล์ราสเตอร์ที่แปลงแล้ว, ให้ใช้ข้อมูลไบนารีของแหล่งภาพโดยตรง
 
-### **สกัด SVG Image**
+### **สกัดภาพ SVG**
 
-สำหรับภาพ SVG, [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) เปิดเผยอ็อบเจ็กต์ [ISvgImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isvgimage/). สิ่งนี้ทำให้คุณดึงข้อมูล SVG ตรง ๆ แทนการเรนเดอร์ภาพก่อน.
+สำหรับภาพ SVG, [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) เปิดให้เข้าถึงออบเจ็กต์ [ISvgImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isvgimage/) ซึ่งทำให้คุณดึงข้อมูล SVG โดยตรงแทนการทำเรสเตอร์ก่อน
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +215,13 @@ try {
 }
 ```
 
-การเก็บ SVG เป็น SVG จะคงแหล่งเวกเตอร์ไว้ในพรีเซนเทชัน. การส่งออก raster เช่น PNG หรือ JPEG จำเป็นต้องเรนเดอร์เวกเตอร์นั้นเป็นพิกเซล. การส่งออกสไลด์เป็น PDF หรือ SVG ก็เป็นการเรนเดอร์เช่นกัน, ดังนั้นกราฟิกที่ส่งออกไม่ควรถือเป็นสำเนาไบต์ต่อไบต์ของ SVG ที่ฝังไว้; ให้ใช้ข้อมูลจาก [ISvgImage.getSvgData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isvgimage/#getSvgData--) เมื่อต้องการแหล่งเวกเตอร์ดั้งเดิม.
+การเก็บเนื้อหา SVG เป็น SVG จะรักษาแหล่งเวกเตอร์ไว้ในงานนำเสนอ การส่งออกเป็นราสเตอร์เช่น PNG หรือ JPEG จะต้องเรนเดอร์เวกเตอร์เป็นพิกเซล การส่งออกสไลด์เป็น PDF หรือ SVG ก็เป็นกระบวนการเรนเดอร์เช่นกัน ดังนั้นกราฟิกที่ส่งออกไม่ควรถือว่าเป็นสำเนาไบต์ต่อไบต์ของ SVG ที่ฝังไว้; ให้ใช้ข้อมูลที่ได้จาก [ISvgImage.getSvgData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isvgimage/#getSvgData--) เมื่อจำเป็นต้องใช้แหล่งเวกเตอร์ดั้งเดิม
 
-## **ครอบ Image**
+## **ครอปภาพ**
 
-การครอบเปลี่ยนส่วนที่มองเห็นของภาพภายในเฟรม. ค่าครอบบน [IPictureFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/) เป็นเปอร์เซ็นต์ของมิติภาพต้นฉบับ. การครอบไม่ลบพิกเซลที่ซ่อนอยู่จากภาพที่ฝังไว้; มันเพียงเปลี่ยนพื้นที่ที่มองเห็น.
+การครอปรูปเปลี่ยนส่วนของภาพที่มองเห็นได้ภายในกรอบ ค่าโครปบน [IPictureFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/) เป็นเปอร์เซ็นต์ของมิติภาพต้นฉบับ การครอปไม่ได้ลบพิกเซลที่ซ่อนไว้จากภาพที่ฝังไว้; มันเพียงเปลี่ยนพื้นที่ที่มองเห็น
 
-ตัวอย่างต่อไปนี้ค้นหา picture frame อย่างปลอดภัยและใช้ค่าครอบ:
+ตัวอย่างต่อไปนี้ค้นหากรอบรูปภาพอย่างปลอดภัยและใช้ค่าโครป:
 
 ```java
 import com.aspose.slides.*;
@@ -250,11 +250,11 @@ try {
 }
 ```
 
-เนื่องจากข้อมูลภาพที่ซ่อนอยู่ยังคงอยู่, การครอบสามารถเปลี่ยนแปลงในภายหลังได้โดยไม่สูญเสียพิกเซลดั้งเดิม. หากขนาดไฟล์สำคัญกว่าการย้อนกลับ, พื้นที่ที่ครอบสามารถลบออกได้จริงตามที่อธิบายในส่วนต่อไป.
+เนื่องจากข้อมูลภาพที่ซ่อนอยู่ยังคงอยู่, สามารถเปลี่ยนค่าโครปภายหลังโดยไม่สูญเสียพิกเซลดั้งเดิม หากขนาดไฟล์เป็นข้อกำหนดสำคัญกว่าการกลับคืนค่า, พื้นที่ที่ครอปสามารถลบออกอย่างเป็นกายภาพตามที่อธิบายในส่วนถัดไป
 
-## **ลบข้อมูลภาพที่ถูกครอบ**
+## **ลบข้อมูลภาพที่ถูกครอป**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) ลบข้อมูลภาพที่อยู่นอกสี่เหลี่ยมครอบปัจจุบันและคืนค่าแหล่งภาพที่ได้. วิธีนี้สามารถลดขนาดไฟล์ได้, แต่เป็นการปรับให้เหมาะสมที่ทำลายข้อมูล: หลังจากบันทึกพรีเซนเทชัน, พิกเซลที่ลบแล้วจะไม่สามารถกู้คืนได้สำหรับการยกเลิกครอบในภายหลัง.
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) จะลบข้อมูลภาพที่อยู่นอกสี่เหลี่ยมครอปปัจจุบันและคืนค่าแหล่งภาพที่ได้ผลลัพธ์ การทำเช่นนี้สามารถลดขนาดไฟล์ได้ แต่เป็นการเพิ่มประสิทธิภาพแบบทำลาย: หลังจากบันทึกงานนำเสนอแล้ว พิกเซลที่ถูกลบจะไม่มีให้ใช้สำหรับการทำ “uncrop” อีกต่อไป
 
 ```java
 import com.aspose.slides.*;
@@ -282,13 +282,13 @@ try {
 }
 ```
 
-เมธอดอาจเพิ่มแหล่งภาพใหม่เข้าไปในพรีเซนเทชัน. หากภาพต้นฉบับถูกใช้โดย picture frames อื่น, เฟรมเหล่านั้นยังต้องการแหล่งเดิม, ดังนั้นการลบพื้นที่ที่ครอบอาจไม่ได้ลดจำนวนภาพทั้งหมด. การครอบ WMF หรือ EMF ด้วยเมธอดนี้จะเรนเดอร์ผลลัพธ์ที่ครอบเป็น PNG.
+เมธอดอาจเพิ่มแหล่งภาพใหม่เข้าสู่งานนำเสนอ หากภาพต้นฉบับถูกใช้โดยกรอบรูปภาพอื่น ๆ อยู่, กรอบเหล่านั้นยังต้องใช้แหล่งเดิมของตน, ดังนั้นการลบพื้นที่ที่ครอปไม่ได้จำเป็นต้องลดจำนวนภาพทั้งหมด การครอปเนื้อหา WMF หรือ EMF ด้วยเมธอดนี้จะทำให้ผลลัพธ์ที่ครอปเป็น PNG
 
-## **บีบอัด Raster Images**
+## **บีบอัดภาพราสเตอร์**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) ลดความละเอียดของ raster image ตามขนาดที่ภาพแสดง. มันยังสามารถลบพื้นที่ที่ครอบในขั้นตอนเดียว. เมธอดคืนค่า `true` เมื่อภาพถูกปรับขนาดหรือครอบและ `false` เมื่อไม่มีการเปลี่ยนแปลงใด ๆ ที่จำเป็น.
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) ลดความละเอียดของภาพราสเตอร์ตามขนาดที่ภาพถูกแสดง มันสามารถลบพื้นที่ที่ครอปในขั้นตอนเดียวได้ เมธอดจะคืนค่า `true` เมื่อภาพถูกปรับขนาดหรือครอปและ `false` เมื่อไม่จำเป็นต้องเปลี่ยน
 
-ใช้ค่าพรีดิฟายน์ [PicturesCompression](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/picturescompression/) เมื่อเป้าหมายความละเอียดมาตรฐานเพียงพอ:
+ใช้ค่า [PicturesCompression](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/picturescompression/) ที่กำหนดไว้ล่วงหน้าเมื่อความละเอียดเป้าหมายมาตรฐานเพียงพอ:
 
 ```java
 import com.aspose.slides.*;
@@ -315,56 +315,17 @@ try {
 }
 ```
 
-ค่าสำหรับ DPI บวกแบบกำหนดเองสามารถส่งแทนค่าพรีดิฟายน์เมื่อจำเป็นต้องมีเป้าหมายเฉพาะ.
+สามารถส่งค่าความละเอียด DPI เชิงบวกที่กำหนดเองแทนค่าที่กำหนดไว้ล่วงหน้าเมื่อจำเป็นต้องมีเป้าหมายเฉพาะ
 
-การบีบอัดออกแบบมาสำหรับ raster images. เนื้อหา SVG และ metafile ไม่ถูกลดลงโดย workflow การบีบอัด raster นี้. อย่าลืมว่าความละเอียดที่ต่ำลงและพื้นที่ที่ลบแล้วไม่สามารถกู้คืนจากพรีเซนเทชันที่ปรับให้เหมาะสมได้. เลือกความละเอียดเป้าหมายตามขนาดสูงสุดที่ภาพจะถูกมองเห็นหรือส่งออกจริง ๆ แทนการใช้ DPI ต่ำสุดทั่วทั้งไฟล์.
+การบีบอัดมีจุดประสงค์เพื่อภาพราสเตอร์ เท่านั้น เนื้อหา SVG และเมต้าไฟล์ไม่ถูกลดลงโดยเวิร์กโฟลว์การบีบอัดราสเตอร์นี้ นอกจากนี้จำไว้ว่า ความละเอียดต่ำและการลบพื้นที่ที่ครอปแล้วไม่สามารถกู้คืนจากงานนำเสนอที่ผ่านการเพิ่มประสิทธิภาพได้ เลือกความละเอียดเป้าหมายตามขนาดที่ภาพจะถูกดูหรือส่งออกจริง ๆ แทนการกำหนด DPI ต่ำสุดทั่วทั้งงานนำเสนอ
 
-## **ตรวจสอบ Image Effects**
+## **จัดการเอฟเฟกต์การแปลงภาพ**
 
-เอฟเฟกต์ของรูปภาพถูกเก็บบนรูปภาพที่ใช้โดยเฟรม. คอลเลกชันการแปลงภาพสามารถมีเอฟเฟกต์เช่นการโมดูเลชันอัลฟ่าเพื่อความโปร่งใสและลูมินานซ์เพื่อความสว่างและคอนทราสต์. ตัวอย่างด้านล่างอ่านเอฟเฟกต์ทั้งสองประเภทจาก picture frame แรกบนสไลด์อย่างปลอดภัย:
+สำหรับเวิร์กโฟลว์ครบถ้วนที่ครอบคลุมความสว่าง, ความคอนทราสต์, การแปลงสี, เบลอ, เอฟเฟกต์อัลฟ่า, เชนสั่ง, การตรวจสอบ, การลบ, และการตรวจสอบรอบ ๆ, ดูที่ [Image Transform Effects](/androidjava/image-transform-effects/)
 
-```java
-import com.aspose.slides.*;
+## **ล็อกรูปทรงของกรอบรูปภาพ**
 
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = null;
-
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IPictureFrame) {
-            pictureFrame = (IPictureFrame) shape;
-            break;
-        }
-    }
-
-    if (pictureFrame != null) {
-        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-        for (IImageTransformOperation effect : imageTransform) {
-            if (effect instanceof IAlphaModulateFixed) {
-                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
-                float transparency = 100 - alphaModulateFixed.getAmount();
-                System.out.println("Transparency: " + transparency);
-            }
-
-            if (effect instanceof ILuminance) {
-                ILuminance luminanceEffect = (ILuminance) effect;
-                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
-                System.out.println("Brightness: " + luminance.getBrightness());
-                System.out.println("Contrast: " + luminance.getContrast());
-            }
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-เอฟเฟกต์เหล่านี้เปลี่ยนวิธีที่ภาพถูกเรนเดอร์ในเฟรม; พวกมันไม่ได้เขียนทับไบต์ของภาพที่ฝังไว้เดิม.
-
-## **ล็อก Geometry ของ Picture Frame**
-
-การตั้งค่า [IPictureFrameLock](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframelock/) ควบคุมการดำเนินการแก้ไขที่ปิดใช้งานสำหรับ picture frame. ตัวอย่างเช่น, [setAspectRatioLocked](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) รักษาอัตราส่วนของรูปแบบขณะปรับขนาด.
+การตั้งค่าใน [IPictureFrameLock](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframelock/) ควบคุมว่าการทำงานแก้ไขใดบ้างที่ถูกปิดใช้งานสำหรับกรอบรูปภาพ ตัวอย่างเช่น [setAspectRatioLocked](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) จะรักษาส่วนสัดส่วนของรูปร่างขณะปรับขนาด
 
 ```java
 import com.aspose.slides.*;
@@ -390,13 +351,13 @@ try {
 }
 ```
 
-การล็อกใช้กับ shape ของ picture frame. มันไม่ได้บังคับให้ภาพต้นฉบับถูกรีสแแปลหรือเปลี่ยนแปลงถาวรให้ตรงกับอัตราส่วนเดียวกัน.
+การล็อกมีผลกับรูปร่างของกรอบรูปภาพ ไม่ได้บังคับให้ภาพต้นฉบับต้องรีแซมพลหรือเปลี่ยนสัดส่วนอย่างถาวร
 
 ## **ปรับค่า StretchOffset**
 
-เมื่อโหมด fill ของรูปภาพเป็น stretch, ค่า stretch‑offset บน [IPictureFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/) กำหนดสี่เหลี่ยม fill ที่สัมพันธ์กับกล่องขอบของ picture frame. เปอร์เซ็นต์บวกสร้างการเยื้องจากข้าง, ส่วนเปอร์เซ็นต์ลบสร้างการขยายออก.
+เมื่อโหมดการเติมรูปเป็นแบบ stretch, ค่าการยืด-offset บน [IPictureFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/) จะกำหนดสี่เหลี่ยมเติมสัมพันธ์กับกล่องขอบของกรอบรูปภาพ ค่าร้อยละบวกสร้างช่องว่างจากขอบ, ส่วนค่าร้อยละลบสร้างการขยายออก
 
-สิ่งนี้แตกต่างจากการครอบ. ค่าครอบเลือกส่วนของภาพต้นฉบับที่มองเห็น; stretch offsets เปลี่ยนสี่เหลี่ยมที่ภาพ fill ถูกยืดขยายเข้าไป.
+นี่ต่างจากการครอป ค่าโครปเลือกส่วนของภาพต้นฉบับที่จะแสดง; ส่วนการยืด-offset ปรับสี่เหลี่ยมที่ภาพเติมจะถูกยืดให้เต็ม
 
 ```java
 import com.aspose.slides.*;
@@ -426,43 +387,43 @@ try {
 }
 ```
 
-ใช้ stretch offsets สำหรับการวาง fill. ใช้คุณลักษณะการครอบเมื่อเป้าหมายคือซ่อนขอบของภาพต้นฉบับ.
+ใช้การยืด-offset เพื่อกำหนดตำแหน่งการเติม ใช้คุณสมบัติการครอปเมื่อเป้าหมายคือซ่อนขอบของภาพต้นฉบับ
 
-## **การจัดเก็บ, ขนาดไฟล์, และข้อควรพิจารณาการส่งออก**
+## **เรื่องการจัดเก็บ, ขนาดไฟล์, และการส่งออก**
 
-ข้อแลกเปลี่ยนหลักง่ายต่อการจัดการเมื่อการจัดเก็บภาพและการจัดรูปแบบ picture‑frame แยกจากกัน:
+การพิจารณาหลัก ๆ จะจัดการได้ง่ายขึ้นเมื่อการจัดเก็บภาพและการจัดรูปแบบกรอบรูปภาพถูกแยกออกจากกัน:
 
-- **Embedded images** ทำให้พรีเซนเทชันเป็นอันหนึ่งอันเดียวและเป็นทางเลือกที่น่าเชื่อถือที่สุดสำหรับการแบ่งปันและการเรนเดอร์บนเซิร์ฟเวอร์, แต่ภาพ raster ขนาดใหญ่จะเพิ่มขนาด PPTX และการใช้หน่วยความจำ.
-- **Linked images** สามารถทำให้แพ็กเกจเล็กลง, แต่พรีเซนเทชันจะพึ่งพาไฟล์ภายนอกที่ต้องคงอยู่ที่ตำแหน่งหรือเส้นทางที่จัดเก็บ.
-- **Cropping** ในตอนแรกไม่ทำลายข้อมูล. พิกเซลที่ซ่อนอยู่ยังคงฝังไว้จนกว่าจะลบพื้นที่ที่ครอบโดยชัดเจนหรือถูกลบระหว่างการบีบอัด.
-- **Compression** สามารถลดขนาดไฟล์ได้อย่างมากสำหรับ raster image ที่ใหญ่เกินไป, แต่จะลดความละเอียดต้นฉบับ. ควรใช้หลังจากทราบขนาดที่จะแสดงบนสไลด์แล้ว.
-- **SVG images** ควรคงเป็น SVG เมื่อการคงรักษาเวกเตอร์สำคัญ. สกัด SVG ที่ฝังไว้โดยตรงเมื่อคุณต้องการทรัพยากรเวกเตอร์นั้นเอง. การส่งออกสไลด์เป็น raster เช่น PNG หรือ JPEG จะต้องแปลงเวกเตอร์เป็นพิกเซล.
-- **Repeated images** ควรใช้แหล่ง [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) ที่มีอยู่แล้วเมื่อเป็นไปได้แทนการโหลดไฟล์เดียวกันหลายครั้งเข้าสู่ workflow ของพรีเซนเทชัน.
+- **ภาพที่ฝังไว้** ทำให้งานนำเสนอเป็นอิสระและเป็นตัวเลือกที่เชื่อถือได้สูงสุดสำหรับการแชร์และการเรนเดอร์บนเซิร์ฟเวอร์ แต่ภาพราสเตอร์ขนาดใหญ่จะทำให้ไฟล์ PPTX ใหญ่ขึ้นและใช้หน่วยความจำมากขึ้น
+- **ภาพที่เชื่อมโยง** สามารถทำให้แพคเกจมีขนาดเล็กลงได้ แต่การนำเสนอต้องพึ่งพาไฟล์ภายนอกที่ยังคงเข้าถึงได้ตามเส้นทางหรือที่ตั้งที่บันทึกไว้
+- **การครอป** เริ่มต้นเป็นแบบไม่ทำลาย พิกเซลที่ซ่อนอยู่ยังคงฝังอยู่จนกว่าจะลบพื้นที่ที่ครอปออกโดยเจตนาหรือระหว่างการบีบอัด
+- **การบีบอัด** สามารถลดขนาดไฟล์ได้อย่างมากสำหรับภาพราสเตอร์ขนาดใหญ่เกินไป แต่จะเสียความละเอียดต้นฉบับ ควรทำหลังจากทราบขนาดที่จะแสดงบนสไลด์แล้ว
+- **ภาพ SVG** ควรคงอยู่เป็น SVG เมื่อความสมบูรณ์ของเวกเตอร์สำคัญ สกัด SVG ที่ฝังไว้โดยตรงเมื่อคุณต้องการแหล่งเวกเตอร์เอง การส่งออกสไลด์เป็นราสเตอร์จะเปลี่ยนสไลด์เป็นพิกเซลเสมอ
+- **ภาพที่ใช้ซ้ำ** ควรใช้แหล่งภาพ [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) เดิมเมื่อเป็นไปได้แทนการโหลดไฟล์เดียวกันหลายครั้งในเวิร์กโฟลว์ของงานนำเสนอ
 
-สำหรับพรีเซนเทชันขนาดใหญ่, การปรับภาพมักจะได้ผลดีที่สุดเมื่อทำแบบเลือกเลือก: เก็บโลโก้และไดอะแกรมเป็นเนื้อหาเวกเตอร์, บีบอัดภาพถ่ายตามขนาดการแสดงผลจริง, ลบพิกเซลที่ครอบเมื่อไม่ต้องการการแก้ไขต่อไป, และหลีกเลี่ยงลิงก์ภายนอกเว้นเสียแต่การจัดการการพึ่งพาเป็นส่วนหนึ่งของการออกแบบการเผยแพร่.
+สำหรับงานนำเสนอขนาดใหญ่ การเพิ่มประสิทธิภาพภาพมักจะได้ผลที่สุดเมื่อทำแบบเลือกใช้: เก็บโลโก้และแผนภาพเป็นเนื้อหาเวกเตอร์, บีบอัดภาพถ่ายตามขนาดการแสดงจริง, ลบพิกเซลที่ครอปเมื่อไม่ต้องการแก้ไขต่อ, และหลีกเลี่ยงลิงก์ภายนอกเว้นแต่การจัดการการพึ่งพาจะเป็นส่วนหนึ่งของการออกแบบการปรับใช้
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่าง picture frame กับ image resource คืออะไร?**
+**กรอบรูปภาพต่างจากแหล่งข้อมูลภาพอย่างไร?**
 
-[IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) แทนแหล่งภาพที่เชื่อมโยงกับพรีเซนเทชัน. [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) คือ shape บนสไลด์ที่แสดงภาพและเก็บเรขาคณิตและการจัดรูปแบบระดับเฟรมเช่น ขนาด, การหมุน, ค่าครอบ, เอฟเฟกต์, และการล็อก.
+[IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) แทนแหล่งข้อมูลภาพที่เชื่อมโยงกับงานนำเสนอ ส่วน [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) เป็นรูปร่างบนสไลด์ที่แสดงภาพและเก็บเราจัดรูปแบบระดับกรอบ เช่น ขนาด, การหมุน, ค่าครอป, เอฟเฟกต์, และการล็อก
 
-**ควรฝังหรือเชื่อมโยงภาพ?**
+**ควรฝังภาพหรือเชื่อมโยงภาพ?**
 
-ฝังภาพเมื่อพรีเซนเทชันต้องพกพาได้, จัดเก็บ, หรือเรนเดอร์โดยไม่ต้องเข้าถึงทรัพยากรภายนอก. เชื่อมโยงภาพเฉพาะเมื่อการเก็บไฟล์ภาพแยกออกจาก PPTX เป็นเจตนาและตำแหน่งภายนอกสามารถดูแลได้อย่างเชื่อถือได้.
+ฝังภาพเมื่อจำเป็นต้องให้งานนำเสนอเป็นอิสระ, เก็บเป็นไฟล์เก่า, หรือเรนเดอร์โดยไม่ต้องพึ่งพาแหล่งภายนอก เชื่อมโยงภาพเฉพาะเมื่อต้องการเก็บไฟล์ภาพแยกจาก PPTX อย่างตั้งใจและสามารถดูแลตำแหน่งภายนอกได้อย่างเสถียร
 
-**การครอบลดขนาดไฟล์ PPTX หรือไม่?**
+**การครอปทำให้ไฟล์ PPTX เล็กลงหรือไม่?**
 
-ไม่โดยตรง. การตั้งค่าครอบปกติจะซ่อนส่วนของภาพต้นฉบับแต่ยังคงเก็บพิกเซลไว้. ใช้ [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) หรือการบีบอัดภาพพร้อมการลบพื้นที่ที่ครอบเมื่อต้องการลบพิกเซลเหล่านั้นอย่างถาวร.
+ไม่โดยตรง การตั้งค่าครอปทั่วไปจะซ่อนส่วนของภาพต้นฉบับแต่ยังคงเก็บพิกเซลไว้ ใช้ [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) หรือการบีบอัดพร้อมการลบพื้นที่ที่ครอปเมื่อพิกเซลดังกล่าวสามารถลบได้ถาวร
 
 **สามารถกู้คืนคุณภาพภาพหลังการบีบอัดได้หรือไม่?**
 
-ไม่ได้. การบีบอัดสามารถลดความละเอียด raster ที่จัดเก็บได้, และการลบพื้นที่ที่ครอบจะทำให้ข้อมูลภาพหายไป. เก็บภาพต้นฉบับนอกพรีเซนเทชันหากอาจต้องการแก้ไขความละเอียดสูงในภายหลัง.
+ไม่ได้ การบีบอัดอาจลดความละเอียดของราสเตอร์และการลบพื้นที่ที่ครอปจะทำให้ข้อมูลภาพหายไป หากอาจต้องแก้ไขด้วยความละเอียดสูงในภายหลัง ควรเก็บภาพต้นฉบับแยกไว้เป็นไฟล์ภายนอก
 
-**ควรจัดการกับ SVG images อย่างไร?**
+**ควรจัดการกับภาพ SVG อย่างไร?**
 
-เก็บเนื้อหา SVG ยังคงเป็น SVG เมื่อความแม่นยำของเวกเตอร์สำคัญ. สามารถสกัด [ISvgImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isvgimage/) ที่ฝังไว้โดยตรง. การเรนเดอร์สไลด์เป็นรูปแบบ raster เช่น PNG หรือ JPEG จะทำให้ SVG แปลงเป็นพิกเซล.
+เก็บเนื้อหา SVG เป็น SVG เมื่อความแม่นยำของเวกเตอร์สำคัญ สามารถสกัด [ISvgImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isvgimage/) ที่ฝังไว้โดยตรง การเรนเดอร์สไลด์เป็นรูปแบบราสเตอร์เช่น PNG หรือ JPEG จะทำให้ SVG ถูกเรนเดอร์เป็นพิกเซล
 
-**จะหลีกเลี่ยง unsafe casts เมื่ออ่านสไลด์ที่มีอยู่ได้อย่างไร?**
+**จะหลีกเลี่ยงการแคสท์ที่ไม่ปลอดภัยเมื่ออ่านสไลด์ที่มีอยู่ได้อย่างไร?**
 
-ตรวจสอบประเภทของ shape ก่อนใช้สมาชิกเฉพาะ picture‑frame. การตรวจสอบ `instanceof` กับ [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) จะช่วยหลีกเลี่ยงการ cast ที่ไม่ถูกต้องและทำให้โค้ดจัดการกับสไลด์ที่ไม่มี picture frames ได้อย่างปลอดภัย.
+ตรวจสอบประเภทของรูปร่างก่อนใช้งานสมาชิกเฉพาะกรอบรูปภาพ การตรวจสอบ `instanceof` ต่อ [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) จะป้องกันการแคสท์ที่ไม่ถูกต้องและช่วยให้โค้ดจัดการสไลด์ที่ไม่มีกรอบรูปภาพได้อย่างเหมาะสม

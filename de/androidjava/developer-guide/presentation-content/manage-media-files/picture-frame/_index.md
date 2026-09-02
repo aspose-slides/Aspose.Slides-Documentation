@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Bildrahmen in Präsentationen unter Android
+title: Verwalten von Bildrahmen in Präsentationen auf Android
 linktitle: Bildrahmen
 type: docs
 weight: 10
@@ -9,7 +9,7 @@ keywords:
 - Bildrahmen hinzufügen
 - Bildrahmen erstellen
 - eingebettetes Bild
-- verlinktes Bild
+- verknüpftes Bild
 - Bild extrahieren
 - Rasterbild
 - SVG-Bild
@@ -17,7 +17,7 @@ keywords:
 - Beschnittene Bereiche löschen
 - Bild komprimieren
 - StretchOffset
-- Bildrahmenformatierung
+- Bildrahmen-Formatierung
 - relative Skalierung
 - Bildeffekt
 - Seitenverhältnis
@@ -27,21 +27,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Erstellen, formatieren, verlinken, zuschneiden, extrahieren und komprimieren von Bildrahmen in Präsentationen mit Aspose.Slides für Android über Java."
+description: "Erstellen, formatieren, verknüpfen, zuschneiden, extrahieren und komprimieren Sie Bildrahmen in Präsentationen mit Aspose.Slides für Android über Java."
 ---
 ## **Übersicht**
 
-Ein Bildrahmen ist eine Folienform, die ein Bild anzeigt. In Aspose.Slides sind die Bildressource und die Form, die das Bild anzeigt, separate Objekte: ein [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) besitzt eingebettete Bildressourcen über seine [IImageCollection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimagecollection/), während ein [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) die Position, Größe, Linienformatierung, Drehung, Beschneidung, Bildeffekte und andere rahmenbezogene Einstellungen des Bildes steuert.
+Ein Bildrahmen ist eine Folienform, die ein Bild anzeigt. In Aspose.Slides sind die Bildressource und die Form, die sie anzeigt, separate Objekte: eine [Präsentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) verwaltet eingebettete Bildressourcen über ihre [IImageCollection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimagecollection/), während ein [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) die Position, Größe, Linienformatierung, Drehung, Beschneidung, Bildeffekte und andere rahmenbezogene Einstellungen des Bildes steuert.
 
-Diese Trennung ist nützlich, wenn dasselbe Bild mehrmals angezeigt werden soll. Fügen Sie das Bild einmal zur Präsentation hinzu, behalten Sie das zurückgegebene [IPPImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ippimage/) und verwenden Sie diese Bildressource beim Erzeugen von Bildrahmen.
+Diese Trennung ist nützlich, wenn dasselbe Bild mehrmals angezeigt wird. Fügen Sie das Bild einmal zur Präsentation hinzu, behalten Sie das zurückgegebene [IPPImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ippimage/), und verwenden Sie diese Bildressource beim Erstellen von Bildrahmen.
 
-Bildrahmen können Rasterbilder wie PNG oder JPEG sowie Vektor‑SVG‑Bilder enthalten. Sie können zudem auf verlinkte Bilder verweisen, anstatt die Bildbytes in der Präsentation zu speichern. Die Wahl wirkt sich auf Portabilität, Dateigröße, Extraktion und Exportverhalten aus, sodass es sinnvoll ist, vor dem Anwenden von Formatierungen oder Optimierungen zu entscheiden, wie das Bild gespeichert werden soll.
+Bildrahmen können Rasterbilder wie PNG oder JPEG sowie Vektor‑SVG‑Bilder enthalten. Sie können zudem auf verknüpfte Bilder verweisen, anstatt die Bildbytes in der Präsentation zu speichern. Die Wahl wirkt sich auf Portabilität, Dateigröße, Extraktion und Exportverhalten aus, sodass es sinnvoll ist, vor dem Anwenden von Formatierungen oder Optimierungen zu entscheiden, wie das Bild gespeichert werden soll.
 
-## **Ein eingebettetes Bild hinzufügen und formatieren**
+## **Einbetten und Formatieren eines eingebetteten Bildes**
 
-Für ein eingebettetes Bild fügen Sie die Bilddaten der Präsentation hinzu und erstellen einen Bildrahmen mit [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Das Bild wird Teil des Präsentationspakets, sodass die Präsentation selbständig bleibt, wenn sie auf einen anderen Computer verschoben wird.
+Für ein eingebettetes Bild fügen Sie die Bilddaten zur Präsentation hinzu und erstellen Sie einen Bildrahmen mit [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Das Bild wird Teil des Präsentationspakets, sodass die Präsentation selbstständig bleibt, wenn sie auf einen anderen Computer verschoben wird.
 
-Das folgende Beispiel fügt ein JPEG‑Bild hinzu, erstellt einen Rahmen in den nativen Abmessungen des Bildes und wendet Linienformatierung und Drehung an:
+Das folgende Beispiel fügt ein JPEG‑Bild hinzu, erstellt einen Rahmen mit den nativen Abmessungen des Bildes und wendet Linienformatierung sowie Drehung an:
 
 ```java
 import com.aspose.slides.*;
@@ -75,7 +75,7 @@ Der Bildrahmen steuert die angezeigte Geometrie; das Ändern der Rahmen‑Größ
 
 ## **Relative Skalierung verwenden**
 
-[IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) stellt die relative Breiten‑ und Höhen‑Skalierung für den Rahmen über [setRelativeScaleWidth](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) und [setRelativeScaleHeight](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) bereit. Ein Wert von `1.0` entspricht 100 % der ursprünglichen Bildgröße. Relative Skalierung ist nützlich, wenn ein Workflow die Beziehung zur Quellbildgröße erhalten soll, anstatt die Endabmessungen manuell zu berechnen.
+[IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) stellt relative Breiten‑ und Höhen‑Skalierung für den Rahmen über [setRelativeScaleWidth](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) und [setRelativeScaleHeight](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) bereit. Ein Wert von `1.0` entspricht 100 % der Originalgröße des Bildes. Relative Skalierung ist nützlich, wenn ein Workflow das Verhältnis zur Originalbildgröße erhalten soll, anstatt die endgültigen Abmessungen manuell zu berechnen.
 
 ```java
 import com.aspose.slides.*;
@@ -102,17 +102,17 @@ try {
 }
 ```
 
-Relative Skalierung ändert die Skalierungseinstellungen des Rahmens; sie führt nicht zu einer Resampling‑ oder Komprimierung des eingebetteten Bildes.
+Relative Skalierung ändert die Skalierungseinstellungen des Rahmens; sie resampelt oder komprimiert das eingebettete Bild nicht.
 
-## **Eingebettete und verlinkte Bilder**
+## **Eingebettete und verknüpfte Bilder**
 
-Ein eingebettetes Bild speichert Bilddaten innerhalb der Präsentation und ist daher die sicherste Wahl für Portabilität und vorhersehbare Darstellung. Ein verlinktes Bild speichert einen externen Pfad über die Methode [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) anstelle der Einbettung der Bilddaten.
+Ein eingebettetes Bild speichert Bilddaten innerhalb der Präsentation und ist daher die sicherste Wahl für Portabilität und vorhersehbare Darstellung. Ein verknüpftes Bild speichert einen externen Pfad über die Methode [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) anstelle der Einbettung der Bilddaten.
 
-Verlinkte Bilder können die Menge an Bilddaten im PPTX reduzieren, führen jedoch eine externe Abhängigkeit ein. Die verlinkte Datei muss für die Anwendung, die die Präsentation öffnet oder rendert, zugänglich bleiben. Ändert sich der Pfad, wird die Datei verschoben oder steht die Ressource nicht mehr zur Verfügung, wird das verlinkte Bild möglicherweise nicht wie erwartet angezeigt. Für Präsentationen, die per E‑Mail verschickt, archiviert oder in isolierten Umgebungen gerendert werden sollen, sind eingebettete Bilder in der Regel zuverlässiger.
+Verknüpfte Bilder können die Menge an Bilddaten im PPTX reduzieren, führen jedoch eine externe Abhängigkeit ein. Die verknüpfte Datei muss für die Anwendung, die die Präsentation öffnet oder rendert, erreichbar bleiben. Ändert sich der Pfad, wird die Datei verschoben oder die Ressource ist nicht verfügbar, wird das verknüpfte Bild möglicherweise nicht wie erwartet angezeigt. Für Präsentationen, die per E‑Mail verschickt, archiviert oder in isolierten Umgebungen gerendert werden sollen, sind eingebettete Bilder in der Regel zuverlässiger.
 
-### **Ein verlinktes Bild hinzufügen**
+### **Verknüpftes Bild hinzufügen**
 
-Das folgende Beispiel erstellt einen Bildrahmen und verweist auf eine lokale Bilddatei. Es beschäftigt sich ausschließlich mit dem Bild‑Linking; Video‑Linking ist ein separater Medien‑Workflow und wird hier bewusst nicht gemischt.
+Das folgende Beispiel erstellt einen Bildrahmen und verweist auf eine lokale Bilddatei. Es behandelt ausschließlich die Bildverknüpfung; das Verknüpfen von Videos ist ein separater Medien‑Workflow und wird in diesem Beispiel bewusst nicht gemischt.
 
 ```java
 import com.aspose.slides.*;
@@ -133,15 +133,15 @@ try {
 }
 ```
 
-Verwenden Sie Links, wenn ein externer Dateimanagement‑Ansatz beabsichtigt ist. Nutzen Sie sie nicht einfach als Ersatz für Kompression: ein kleiner PPTX mit defekten Bildabhängigkeiten ist meist weniger brauchbar als eine größere, in sich geschlossene Präsentation.
+Verwenden Sie Verknüpfungen, wenn die externe Dateiverwaltung beabsichtigt ist. Nutzen Sie sie nicht lediglich als Ersatz für Kompression: ein kleiner PPTX mit defekten Bildabhängigkeiten ist in der Regel weniger nützlich als eine größere, eigenständige Präsentation.
 
 ## **Bilder aus Bildrahmen extrahieren**
 
-Bevor Sie ein Bild aus einer bestehenden Präsentation extrahieren, prüfen Sie, ob eine Form tatsächlich ein [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) ist und ob sie ein eingebettetes Bild enthält. Verlinkte Bildrahmen enthalten möglicherweise keine Bildbytes, die auf dieselbe Weise extrahiert werden können.
+Bevor Sie ein Bild aus einer bestehenden Präsentation extrahieren, prüfen Sie, ob die Form tatsächlich ein [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) ist und ob sie ein eingebettetes Bild enthält. Verknüpfte Bildrahmen enthalten möglicherweise keine Bildbytes, die auf dieselbe Weise extrahiert werden können.
 
-### **Ein Rasterbild extrahieren**
+### **Rasterbild extrahieren**
 
-Die moderne Bild‑API verwendet [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/) direkt und erfordert nicht mehr den veralteten Java‑Wrapper. Das folgende Beispiel findet das erste eingebettete Rasterbild auf einer Folie und speichert es als PNG:
+Die moderne Bild‑API verwendet [IImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/) direkt und erfordert nicht mehr den älteren Java‑Bild‑Wrapper. Das folgende Beispiel findet das erste eingebettete Rasterbild auf einer Folie und speichert es als PNG:
 
 ```java
 import com.aspose.slides.*;
@@ -174,11 +174,11 @@ try {
 }
 ```
 
-Das Speichern über [IImage.save](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) konvertiert das extrahierte Bild in das gewünschte Ausgabeformat. Wenn Sie die im Präsentations‑Container gespeicherten kodierten Bytes benötigen, verwenden Sie stattdessen die binären Daten der Bildressource.
+Das Speichern über [IImage.save](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) konvertiert das extrahierte Bild in das gewünschte Ausgabeformat. Wenn Sie die codierten Bytes benötigen, die in der Präsentation gespeichert sind, anstatt einer konvertierten Rasterdatei, verwenden Sie stattdessen die Binärdaten der Bildressource.
 
-### **Ein SVG‑Bild extrahieren**
+### **SVG‑Bild extrahieren**
 
-Für ein SVG‑Bild stellt das [IPPImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ippimage/) ein [ISvgImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isvgimage/)‑Objekt bereit. Damit können Sie die SVG‑Daten direkt abrufen, ohne das Bild zuerst zu rasterisieren.
+Für ein SVG‑Bild stellt das [IPPImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ippimage/) ein [ISvgImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isvgimage/)‑Objekt bereit. Damit können Sie die SVG‑Daten direkt abrufen, anstatt das Bild zuerst zu rasterisieren.
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +215,13 @@ try {
 }
 ```
 
-Das Beibehalten des SVG‑Inhalts als SVG bewahrt die Vektorquelle innerhalb der Präsentation. Rasterexporte wie PNG oder JPEG rendern diesen Vektorinhalt zwangsläufig zu Pixeln. PDF‑ oder SVG‑Folienexporte sind ebenfalls Rendering‑Operationen, sodass die exportierten Grafiken nicht als exakte Kopie des eingebetteten SVG betrachtet werden sollten; verwenden Sie die eingebetteten [ISvgImage.getSvgData](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isvgimage/#getSvgData--)‑Daten, wenn die ursprüngliche Vektorressource selbst benötigt wird.
+Das Beibehalten von SVG‑Inhalten als SVG bewahrt die Vektor‑Quelle innerhalb der Präsentation. Raster‑Exporte wie PNG oder JPEG rendern diesen Vektorinhalt zwangsläufig zu Pixeln. Der PDF‑ oder SVG‑Folien‑Export ist ebenfalls ein Rendering‑Vorgang, sodass die exportierten Grafiken nicht als exakte Kopie des ursprünglichen eingebetteten SVG behandelt werden sollten; verwenden Sie die Daten von [ISvgImage.getSvgData](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isvgimage/#getSvgData--) wenn die originale Vektor‑Ressource selbst benötigt wird.
 
-## **Ein Bild beschneiden**
+## **Ein Bild zuschneiden**
 
-Das Beschneiden verändert, welcher Bildteil im Rahmen sichtbar ist. Die Beschneidungswerte auf [IPictureFillFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/) sind Prozentsätze der Quellbildabmessungen. Beim Beschneiden werden die verborgenen Pixel des eingebetteten Bildes zunächst nicht gelöscht; es wird lediglich der sichtbare Bereich geändert.
+Das Zuschneiden ändert, welcher Bildteil innerhalb des Rahmens sichtbar ist. Die Zuschneide‑Werte auf [IPictureFillFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/) sind Prozentsätze der Quellbild‑Abmessungen. Beim Zuschneiden werden die verborgenen Pixel des eingebetteten Bildes zunächst nicht gelöscht; es wird nur der sichtbare Bereich geändert.
 
-Das folgende Beispiel findet sicher einen Bildrahmen und wendet Beschneidungswerte an:
+Das folgende Beispiel findet einen Bildrahmen sicher und wendet Zuschneide‑Werte an:
 
 ```java
 import com.aspose.slides.*;
@@ -250,11 +250,11 @@ try {
 }
 ```
 
-Da die versteckten Bilddaten weiterhin vorhanden sind, kann das Beschneiden später geändert werden, ohne die Originalpixel zu verlieren. Wenn die Dateigröße wichtiger ist als die Wiederherstellbarkeit, können die beschnittenen Bereiche wie im nächsten Abschnitt beschrieben physisch entfernt werden.
+Da die verborgenen Bilddaten weiterhin vorhanden sind, kann das Zuschneiden später geändert werden, ohne die Originalpixel zu verlieren. Wenn die Dateigröße wichtiger ist als die Rückgängig‑Möglichkeit, können die beschnittenen Bereiche wie im nächsten Abschnitt beschrieben physisch entfernt werden.
 
-## **Beschnittene Bilddaten entfernen**
+## **Zugeschnittene Bilddaten entfernen**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) entfernt Bilddaten außerhalb des aktuellen Beschneidungsrechtecks und gibt die resultierende Bildressource zurück. Das kann die Dateigröße reduzieren, ist jedoch eine destruktive Optimierung: Nach dem Speichern der Präsentation stehen die entfernten Pixel nicht mehr für ein späteres „Uncrop“ zur Verfügung.
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) entfernt Bilddaten außerhalb des aktuellen Beschnittrechtecks und gibt die resultierende Bildressource zurück. Dies kann die Dateigröße reduzieren, ist jedoch eine destruktive Optimierung: Nach dem Speichern der Präsentation sind die entfernten Pixel nicht mehr für einen späteren Un‑Crop‑Vorgang verfügbar.
 
 ```java
 import com.aspose.slides.*;
@@ -282,11 +282,11 @@ try {
 }
 ```
 
-Die Methode kann eine neue Bildressource zur Präsentation hinzufügen. Wenn das Originalbild zudem von anderen Bildrahmen verwendet wird, benötigen diese weiterhin ihre bestehende Ressource, sodass das Löschen beschnittener Bereiche nicht zwangsläufig die Gesamtzahl der Bilder reduziert. Das Beschneiden von WMF‑ oder EMF‑Inhalten mit dieser Methode rasterisiert das beschnittene Ergebnis zu PNG.
+Die Methode kann eine neue Bildressource zur Präsentation hinzufügen. Wird das Originalbild auch von anderen Bildrahmen verwendet, benötigen diese weiterhin ihre vorhandene Ressource, sodass das Löschen beschnittener Bereiche nicht zwingend die Gesamtzahl der Bilder verringert. Das Beschneiden von WMF‑ oder EMF‑Inhalten mit dieser Methode rasterisiert das Ergebnis zu PNG.
 
 ## **Rasterbilder komprimieren**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) reduziert die Auflösung von Rasterbildern relativ zu der Größe, in der das Bild angezeigt wird. Gleichzeitig kann es beschnittene Regionen entfernen. Die Methode gibt `true` zurück, wenn das Bild verkleinert oder beschnitten wurde, und `false`, wenn keine Änderung erforderlich war.
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) reduziert die Rasterbild‑Auflösung relativ zur Größe, mit der das Bild angezeigt wird. Es kann außerdem beschnittene Regionen im selben Vorgang entfernen. Die Methode liefert `true`, wenn das Bild verkleinert oder beschnitten wurde, und `false`, wenn keine Änderung erforderlich war.
 
 Verwenden Sie einen vordefinierten [PicturesCompression](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/picturescompression/)‑Wert, wenn eine Standard‑Zielauflösung ausreicht:
 
@@ -317,54 +317,15 @@ try {
 
 Ein benutzerdefinierter positiver DPI‑Wert kann anstelle eines vordefinierten Werts übergeben werden, wenn ein spezifisches Ziel erforderlich ist.
 
-Kompression ist für Rasterbilder gedacht. SVG‑ und Metadatei‑Inhalte werden durch diesen Raster‑Kompressions‑Workflow nicht reduziert. Denken Sie zudem daran, dass eine niedrigere Auflösung und gelöschte beschnittene Bereiche nicht aus der optimierten Präsentation wiederhergestellt werden können. Wählen Sie eine Zielauflösung basierend auf der größten Anzeige‑ oder Exportgröße, bei der das Bild tatsächlich betrachtet wird, anstatt global die niedrigste DPI zu verwenden.
+Kompression ist für Rasterbilder gedacht. SVG‑ und Metadatei‑Inhalte werden durch diesen Raster‑Kompressions‑Workflow nicht reduziert. Denken Sie außerdem daran, dass eine niedrigere Auflösung und gelöschte Beschnittbereiche nicht aus der optimierten Präsentation wiederhergestellt werden können. Wählen Sie eine Zielauflösung basierend auf der größten Größe, in der das Bild tatsächlich betrachtet oder exportiert wird, anstatt global die niedrigste DPI zu verwenden.
 
-## **Bildeffekte untersuchen**
+## **Bildtransformations‑Effekte verwalten**
 
-Bildeffekte werden auf dem Bild gespeichert, das vom Rahmen verwendet wird. Die Bild‑Transformations‑Sammlung kann Effekte wie feste Alpha‑Modulation für Transparenz und Luminanz für Helligkeit und Kontrast enthalten. Das folgende Beispiel liest sicher beide Arten von Effekten vom ersten Bildrahmen einer Folie:
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IPictureFrame pictureFrame = null;
-
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IPictureFrame) {
-            pictureFrame = (IPictureFrame) shape;
-            break;
-        }
-    }
-
-    if (pictureFrame != null) {
-        IImageTransformOperationCollection imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-        for (IImageTransformOperation effect : imageTransform) {
-            if (effect instanceof IAlphaModulateFixed) {
-                IAlphaModulateFixed alphaModulateFixed = (IAlphaModulateFixed) effect;
-                float transparency = 100 - alphaModulateFixed.getAmount();
-                System.out.println("Transparency: " + transparency);
-            }
-
-            if (effect instanceof ILuminance) {
-                ILuminance luminanceEffect = (ILuminance) effect;
-                ILuminanceEffectiveData luminance = luminanceEffect.getEffective();
-                System.out.println("Brightness: " + luminance.getBrightness());
-                System.out.println("Contrast: " + luminance.getContrast());
-            }
-        }
-    }
-} finally {
-    presentation.dispose();
-}
-```
-
-Diese Effekte verändern, wie das Bild im Rahmen gerendert wird; sie überschreiben nicht die ursprünglichen eingebetteten Bildbytes.
+Für einen vollständigen Workflow, der Helligkeit, Kontrast, Farbtransformationen, Unschärfe, Alpha‑Effekte, geordnete Ketten, Inspektion, Entfernung und Rundreise‑Verifikation abdeckt, siehe [Image Transform Effects](/androidjava/image-transform-effects/).
 
 ## **Geometrie des Bildrahmens sperren**
 
-Die Einstellungen von [IPictureFrameLock](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframelock/) kontrollieren, welche Bearbeitungsoperationen für einen Bildrahmen deaktiviert sind. Beispielsweise bewahrt [setAspectRatioLocked](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) die Proportionen der Form, während sie skaliert wird.
+Die Einstellungen von [IPictureFrameLock](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframelock/) steuern, welche Bearbeitungsoperationen für einen Bildrahmen deaktiviert sind. Zum Beispiel bewahrt [setAspectRatioLocked](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) die Proportionen der Form, während sie skaliert wird.
 
 ```java
 import com.aspose.slides.*;
@@ -390,13 +351,13 @@ try {
 }
 ```
 
-Die Sperre gilt für die Bildrahmen‑Form. Sie zwingt das Quellbild nicht zu einem Resampling oder zu einer permanenten Änderung des Seitenverhältnisses.
+Die Sperre gilt für die Bildrahmen‑Form. Sie zwingt das Quellbild nicht, neu gesampelt oder dauerhaft auf dasselbe Seitenverhältnis geändert zu werden.
 
 ## **StretchOffset‑Werte anpassen**
 
-Wenn der Bildfüll‑Modus „stretch“ ist, definieren die stretch‑offset‑Werte auf [IPictureFillFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/) das Füllrechteck relativ zur Begrenzungsbox des Bildrahmens. Positive Prozentsätze erzeugen einen Einschub von einer Kante, während negative Prozentsätze ein Herausstehen bewirken.
+Wenn der Bildfüll‑Modus „stretch“ ist, definieren die Stretch‑Offset‑Werte auf [IPictureFillFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/) das Füllrechteck relativ zur Begrenzungsbox des Bildrahmens. Positive Prozentsätze erzeugen einen Einschub von einer Kante, während negative Prozentsätze ein Herausragen erzeugen.
 
-Das unterscheidet sich vom Beschneiden. Beschneidungswerte wählen, welcher Teil des Quellbilds sichtbar ist; stretch‑Offsets verändern das Rechteck, in das die sichtbare Bildfüllung gestreckt wird.
+Dies unterscheidet sich vom Zuschneiden. Zuschneide‑Werte bestimmen, welcher Teil des Quellbildes sichtbar ist; Stretch‑Offsets ändern das Rechteck, in das die sichtbare Bildfüllung gestreckt wird.
 
 ```java
 import com.aspose.slides.*;
@@ -426,43 +387,43 @@ try {
 }
 ```
 
-Verwenden Sie stretch‑Offsets für die Platzierung der Füllung. Verwenden Sie Beschneidungseigenschaften, wenn das Ziel ist, Bildrandbereiche zu verbergen.
+Verwenden Sie Stretch‑Offsets für die Platzierung der Füllung. Nutzen Sie Zuschneide‑Eigenschaften, wenn das Ziel darin besteht, Bildrandbereiche zu verbergen.
 
-## **Speicherung, Dateigröße und Export‑Überlegungen**
+## **Speicher, Dateigröße und Exportüberlegungen**
 
-Die wichtigsten Kompromisse lassen sich leichter managen, wenn Bildspeicherung und Bildrahmen‑Formatierung getrennt betrachtet werden:
+Die wichtigsten Abwägungen lassen sich leichter handhaben, wenn Bildspeicherung und Bildrahmen‑Formatierung getrennt betrachtet werden:
 
-- **Eingebettete Bilder** machen die Präsentation eigenständig und sind am zuverlässigsten für das Teilen und serverseitige Rendering, aber große Rasterbilder vergrößern die PPTX‑Größe und den Speicherverbrauch.
-- **Verlinkte Bilder** können das Paket schlanker halten, aber die Präsentation ist von externen Dateien abhängig, die unter den gespeicherten Pfaden verfügbar bleiben müssen.
-- **Beschneiden** ist zunächst nicht‑destruktiv. Die verborgenen Pixel bleiben eingebettet, bis beschnittene Bereiche explizit gelöscht oder während der Kompression entfernt werden.
-- **Kompression** kann die Dateigröße bei zu großen Rasterbildern erheblich reduzieren, geht jedoch zulasten der Quellauflösung. Sie sollte erst nach Festlegung der gewünschten Anzeigegröße auf der Folie angewendet werden.
-- **SVG‑Bilder** sollten als SVG erhalten bleiben, wenn die Vektorpreservation wichtig ist. Extrahieren Sie das eingebettete SVG direkt, wenn Sie die Vektor‑Ressource selbst benötigen. Raster‑Folienexporte konvertieren die gerenderte Folie immer zu Pixeln.
+- **Eingebettete Bilder** machen die Präsentation eigenständig und sind am zuverlässigsten für das Teilen und serverseitige Rendern, aber große Rasterbilder erhöhen die PPTX‑Größe und den Speicherverbrauch.
+- **Verknüpfte Bilder** können das Paket kleiner halten, jedoch hängt die Präsentation von externen Dateien ab, die an den gespeicherten Pfaden oder Standorten verfügbar bleiben müssen.
+- **Zuschneiden** ist zunächst nicht destruktiv. Die verborgenen Pixel bleiben eingebettet, bis beschnittene Bereiche explizit gelöscht oder bei der Kompression entfernt werden.
+- **Kompression** kann die Dateigröße bei übergroßen Rasterbildern deutlich reduzieren, geht jedoch mit einem Verlust der Quellauflösung einher. Sie sollte erst angewendet werden, wenn die gewünschte Größe auf der Folie bekannt ist.
+- **SVG‑Bilder** sollten als SVG erhalten bleiben, wenn die Vektor‑Erhaltung wichtig ist. Extrahieren Sie das eingebettete SVG direkt, wenn Sie die Vektor‑Ressource selbst benötigen. Raster‑Slide‑Exporte wandeln das gerenderte Folienbild immer in Pixel um.
 - **Wiederholte Bilder** sollten nach Möglichkeit eine vorhandene [IPPImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ippimage/)‑Ressource wiederverwenden, anstatt dieselbe Datei mehrfach in den Präsentations‑Workflow zu laden.
 
-Bei großen Präsentationen ist eine gezielte Bildoptimierung meist am effektivsten: Logos und Diagramme als Vektor‑Inhalt behalten, Fotos gemäß ihrer tatsächlichen Anzeigengröße komprimieren, beschnittene Pixel nur entfernen, wenn nachträgliche Bearbeitung nicht mehr nötig ist, und externe Links nur einsetzen, wenn das Abhängigkeits‑Management Teil des Bereitstellungs‑Designs ist.
+Bei großen Präsentationen ist Bildoptimierung in der Regel am effektivsten, wenn sie selektiv durchgeführt wird: Logos und Diagramme als Vektor‑Inhalt behalten, Fotos gemäß ihrer tatsächlichen Anzeigengröße komprimieren, beschnittene Pixel nur entfernen, wenn nachträgliche Bearbeitung nicht erforderlich ist, und externe Verknüpfungen vermeiden, sofern das Abhängigkeits‑Management nicht Teil des Deployments‑Designs ist.
 
 ## **FAQ**
 
 **Was ist der Unterschied zwischen einem Bildrahmen und einer Bildressource?**
 
-Ein [IPPImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ippimage/) stellt eine Bildressource dar, die mit der Präsentation verknüpft ist. Ein [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) ist eine Form auf einer Folie, die ein Bild anzeigt und rahmenbezogene Geometrie sowie Formatierung wie Größe, Drehung, Beschneidungswerte, Effekte und Sperren speichert.
+Ein [IPPImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ippimage/) repräsentiert eine Bildressource, die mit der Präsentation verbunden ist. Ein [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) ist eine Form auf einer Folie, die ein Bild anzeigt und rahmenbezogene Geometrie sowie Formatierungen wie Größe, Drehung, Zuschneide‑Werte, Effekte und Sperren speichert.
 
-**Sollte ich Bilder einbetten oder verlinken?**
+**Sollte ich Bilder einbetten oder verknüpfen?**
 
-Betten Sie Bilder ein, wenn die Präsentation portabel, archiviert oder ohne Zugriff auf externe Ressourcen gerendert werden muss. Verlinken Sie Bilder nur, wenn das Auslagern der Bilddateien aus der PPTX beabsichtigt ist und die externen Speicherorte zuverlässig verwaltet werden können.
+Betten Sie Bilder ein, wenn die Präsentation portabel, archiviert oder ohne Zugriff auf externe Ressourcen gerendert werden muss. Verknüpfen Sie Bilder nur, wenn das Auslagern von Bilddateien aus dem PPTX beabsichtigt ist und die externen Speicherorte zuverlässig gepflegt werden können.
 
-**Reduziert Beschneiden die PPTX‑Dateigröße?**
+**Verringert Zuschneiden die PPTX‑Dateigröße?**
 
-Nicht von selbst. Normale Beschneidungseinstellungen verbergen Bildteile, behalten aber die zugrunde liegenden Pixel. Verwenden Sie [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) oder Bildkompression mit Entfernung beschnittener Bereiche, wenn diese Pixel dauerhaft verworfen werden können.
+Nicht allein. Normale Zuschneide‑Einstellungen verbergen Teile des Quellbildes, behalten jedoch die zugrunde liegenden Pixel. Verwenden Sie [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) oder Bildkompression mit Entfernung beschnittener Bereiche, wenn diese Pixel dauerhaft verworfen werden können.
 
 **Kann ich die Bildqualität nach der Kompression wiederherstellen?**
 
-Nein. Die Kompression kann die gespeicherte Rasterauflösung reduzieren, und das Entfernen beschnittener Regionen verwirft Bilddaten. Halten Sie das ursprüngliche Quellbild außerhalb der Präsentation, falls später eine hochauflösende Bearbeitung nötig sein könnte.
+Nein. Kompression kann die gespeicherte Rasterauflösung reduzieren, und das Entfernen beschnittener Regionen verwirft Bilddaten. Bewahren Sie das Original‑Quellbild außerhalb der Präsentation auf, falls später eine hochauflösende Bearbeitung erforderlich sein könnte.
 
 **Wie sollten SVG‑Bilder behandelt werden?**
 
-Bewahren Sie SVG‑Inhalte als SVG auf, wenn die Vektorreproduzierbarkeit wichtig ist. Das eingebettete [ISvgImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isvgimage/) kann direkt extrahiert werden. Das Rendern einer Folie zu einem Rasterformat wie PNG oder JPEG rasterisiert das SVG als Teil des Folien‑Bildes.
+Behalten Sie SVG‑Inhalte als SVG, wenn Vektor‑Treue wichtig ist. Das eingebettete [ISvgImage](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isvgimage/) kann direkt extrahiert werden. Das Rendern einer Folie in ein Rasterformat wie PNG oder JPEG rasterisiert das SVG als Teil des Folienbildes.
 
 **Wie kann ich unsichere Casts beim Lesen vorhandener Folien vermeiden?**
 
-Überprüfen Sie den Formtyp, bevor Sie bild‑rahmenspezifische Member verwenden. Ein `instanceof`‑Check gegen [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) verhindert ungültige Casts und ermöglicht dem Code, Folien zu behandeln, die keinen Bildrahmen enthalten.
+Überprüfen Sie den Formtyp, bevor Sie bildrahmenspezifische Member verwenden. Ein `instanceof`‑Check gegen [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/) verhindert ungültige Casts und ermöglicht dem Code, Folien zu behandeln, die keinen Bildrahmen enthalten.
