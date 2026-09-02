@@ -1,5 +1,5 @@
 ---
-title: Tổng quan về các tính năng
+title: Tổng quan các tính năng
 type: docs
 weight: 20
 url: /vi/php-java/features-overview/
@@ -9,104 +9,102 @@ keywords:
 - định dạng tệp
 - chuyển đổi
 - kết xuất
-- in ấn
 - định dạng
 - PowerPoint
 - OpenDocument
 - trình chiếu
 - PHP
 - Aspose.Slides
-description: "Khám phá Aspose.Slides for PHP via Java: một API mạnh mẽ để tạo, chỉnh sửa, tự động hoá và chuyển đổi các trình chiếu PowerPoint và OpenDocument một cách hiệu quả."
+description: "Khám phá Aspose.Slides for PHP via Java: một API mạnh mẽ để tạo, chỉnh sửa, tự động hoá và chuyển đổi các bản trình chiếu PowerPoint và OpenDocument một cách hiệu quả."
 ---
 ## **Nền tảng được hỗ trợ**
-Aspose.Slides for PHP via Java là API không phụ thuộc vào nền tảng. Nó có thể được sử dụng trên bất kỳ nền tảng nào (Windows, Linux, macOS, v.v.) mà PHP 7 trở lên được cài đặt. Oracle JDK 7 trở lên là yêu cầu bổ sung.
+Aspose.Slides for PHP via Java là một API độc lập với nền tảng. Nó có thể được sử dụng trên bất kỳ nền tảng nào (Windows, Linux, macOS, v.v.) nơi đã cài đặt PHP 7 trở lên. Oracle JDK 7 trở lên là yêu cầu bổ sung.
 
-## **Định dạng tệp và chuyển đổi**
-Aspose.Slides for PHP via Java hỗ trợ hầu hết các định dạng tài liệu PowerPoint. Nó cũng cho phép bạn xuất chúng sang các định dạng tệp phổ biến mà các tổ chức sử dụng và chia sẻ với nhau. Xem chi tiết sau:
+## **Định dạng tệp và Chuyển đổi**
+Aspose.Slides for PHP via Java hỗ trợ hầu hết các định dạng tài liệu PowerPoint. Nó cũng cho phép bạn xuất chúng sang các định dạng tệp phổ biến mà các tổ chức sử dụng và chia sẻ với nhau. Xem chi tiết dưới đây:
 
 |**Tính năng**|**Mô tả**|
 | :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for PHP via Java cung cấp tốc độ xử lý nhanh nhất cho định dạng tài liệu trình chiếu này.|
-|Chuyển đổi PPT sang PPTX|Aspose.Slides for PHP via Java hỗ trợ chuyển đổi PPT sang PPTX|
-|Portable Document Format (PDF)|Bạn có thể xuất tất cả các định dạng tệp được hỗ trợ sang tài liệu Adobe Portable Document Format (PDF) bằng một phương thức duy nhất.|
-|XML Parser Specification (XPS)|Bạn có thể xuất tất cả các định dạng tệp được hỗ trợ sang tài liệu XML Parser Specification (XPS) bằng một phương thức duy nhất.|
+|Microsoft PowerPoint (PPT)|Aspose.Slides for PHP via Java cung cấp quá trình xử lý nhanh nhất cho định dạng tài liệu trình chiếu này.|
+|PPT to PPTX conversion|Aspose.Slides for PHP via Java hỗ trợ chuyển đổi PPT sang PPTX|
+|Portable Document Format (PDF)|Bạn có thể xuất tất cả các định dạng tệp được hỗ trợ sang tài liệu Adobe Portable Document Format (PDF) bằng một phương pháp duy nhất.|
+|XML Parser Specification (XPS)|Bạn có thể xuất tất cả các định dạng tệp được hỗ trợ sang tài liệu XML Parser Specification (XPS) bằng một phương pháp duy nhất.|
 |Tagged Image File Format (TIFF)|Bạn có thể xuất tất cả các định dạng tệp trình chiếu được hỗ trợ sang Tagged Image File Format (TIFF).|
-|Chuyển đổi PPTX sang HTML|Aspose.Slides for PHP via Java hỗ trợ chuyển đổi PresentationEx sang định dạng HTML.|
+|PPTX To HTML Conversion|Aspose.Slides for PHP via Java hỗ trợ chuyển đổi PresentationEx sang định dạng HTML.|
 
-## **Kết xuất trình chiếu**
-Aspose.Slides for PHP via Java hỗ trợ kết xuất chất lượng cao các slide trong trình chiếu sang các định dạng đồ họa khác nhau. Xem chi tiết sau:
-
-|**Tính năng**|**Mô tả**|
-| :- | :- |
-|Định dạng hình ảnh được Java hỗ trợ|Sử dụng Aspose.Slides for PHP via Java, bạn có thể kết xuất slide và hình ảnh trên slide sang tất cả các định dạng đồ họa mà Java hỗ trợ như TIFF, PNG, BMP, JPEG, GIF.|
-|Định dạng SVG|Aspose.Slides for PHP via Java cũng cung cấp các phương thức tích hợp cho phép bạn xuất slide trình chiếu sang định dạng Scalable Vector Graphics (SVG).|
-|In trình chiếu|Các phiên bản mới nhất của Aspose.Slides for PHP via Java cung cấp các phương thức in tích hợp với các tùy chọn khác nhau.|
-
-## **Các tính năng nội dung**
-Aspose.Slides for PHP via Java cho phép bạn truy cập, sửa đổi hoặc tạo hầu hết các mục hoặc nội dung của tài liệu trình chiếu. Xem chi tiết sau:
+## **Kết xuất Trình chiếu**
+Aspose.Slides for PHP via Java hỗ trợ kết xuất các slide trong trình chiếu với độ trung thực cao sang các định dạng đồ họa khác nhau. Xem chi tiết dưới đây:
 
 |**Tính năng**|**Mô tả**|
 | :- | :- |
-|Slide chủ đề|Slide chủ đề xác định bố cục của các slide bình thường. Aspose.Slides for PHP via Java cho phép bạn truy cập và sửa đổi các Slide chủ đề của tài liệu trình chiếu.|
-|Slide bình thường|Với Aspose.Slides for PHP via Java, bạn có thể tạo các slide mới với các loại khác nhau; bạn cũng có thể truy cập và sửa đổi các slide hiện có trong trình chiếu.|
-|Sao chép / Nhân bản slide|Có các phương thức tích hợp do Aspose.Slides for PHP via Java cung cấp, cho phép bạn sao chép hoặc nhân bản các slide hiện có trong một trình chiếu. Bạn cũng có thể sử dụng các slide đã sao chép và nhân bản từ một trình chiếu sang trình chiếu khác. Vì một slide kế thừa bố cục từ slide chủ đề, các phương thức nhân bản tích hợp sẽ tự động sao chép slide chủ đề khi nhân bản.|
-|Quản lý các phần của slide|Các phương thức để tổ chức slide thành các phần khác nhau trong một trình chiếu.|
-|Trình giữ chỗ và Trình giữ chỗ văn bản|Bạn có thể truy cập các trình giữ chỗ và trình giữ chỗ văn bản trong một slide. Hơn nữa, bạn có thể tạo một slide có trình giữ chỗ văn bản từ đầu bằng phương thức thích hợp.|
-|Tiêu đề và Chân trang|Aspose.Slides for PHP via Java hỗ trợ xử lý tiêu đề/chân trang trong các slide.|
-|Ghi chú trong slide|Với Aspose.Slides for PHP via Java, bạn có thể truy cập và sửa đổi ghi chú gắn với một slide và cũng có thể thêm ghi chú mới.|
-|Tìm kiếm hình dạng|Bạn cũng có thể tìm một hình dạng cụ thể trong slide bằng cách sử dụng văn bản thay thế gắn với hình dạng đó.|
-|Nền|Aspose.Slides for PHP via Java cho phép bạn làm việc với nền gắn với slide chủ đề hoặc slide bình thường trong một trình chiếu.|
-|Hộp văn bản|Hộp văn bản có thể được tạo từ đầu. Bạn có thể truy cập các hộp văn bản hiện có. Bạn cũng có thể sửa đổi nội dung của chúng mà không làm mất định dạng văn bản gốc.|
-|Hình chữ nhật|Bạn có thể tạo hoặc sửa đổi các hình chữ nhật bằng Aspose.Slides for PHP via Java.|
-|Hình đa đường|Bạn có thể tạo hoặc sửa đổi các hình đa đường bằng Aspose.Slides for PHP via Java.|
-|Hình elip|Bạn có thể tạo hoặc sửa đổi các hình elip bằng Aspose.Slides for PHP via Java.|
-|Nhóm hình dạng|Aspose.Slides for PHP via Java hỗ trợ nhóm hình dạng.|
-|Hình tự động|Aspose.Slides for PHP via Java hỗ trợ hình tự động.|
-|SmartArt|Aspose.Slides for PHP via Java cung cấp hỗ trợ cho các hình SmartArt trong MS PowerPoint.|
-|Biểu đồ|Aspose.Slides for PHP via Java cung cấp hỗ trợ cho các biểu đồ MSO trong PowerPoint.|
-|Serial hóa hình dạng|Aspose.Slides for PHP via Java hỗ trợ một số lượng lớn các hình dạng. Khi Aspose.Slides for PHP via Java chưa hỗ trợ một hình dạng nào đó, bạn có thể sử dụng phương thức serial hóa để xuất hình dạng đó từ một slide hiện có. Nhờ vậy, bạn có thể tái sử dụng hình dạng theo nhu cầu của mình.|
-|Khung hình ảnh|Bạn có thể quản lý hình ảnh trong các khung hình ảnh bằng Aspose.Slides for PHP via Java.|
-|Khung âm thanh|Bạn có thể liên kết hoặc nhúng các tệp âm thanh trong các khung âm thanh trên slide bằng Aspose.Slides for PHP via Java.|
-|Khung video|Bạn có thể xử lý các tệp video trong các khung video. Aspose.Slides for PHP via Java cũng hỗ trợ video liên kết và video nhúng.|
-|Khung OLE|Bạn có thể quản lý các đối tượng OLE trong các khung OLE bằng Aspose.Slides for PHP via Java.|
-|Bảng|Aspose.Slides for PHP via Java hỗ trợ bảng trong các slide.|
-|Điều khiển ActiveX|Hỗ trợ điều khiển ActiveX.|
-|Macro VBA|Hỗ trợ quản lý macro VBA trong các trình chiếu.|
-|Khung văn bản|Bạn có thể truy cập văn bản của bất kỳ hình dạng nào thông qua khung văn bản gắn với hình dạng đó.|
-|Quét văn bản|Bạn có thể quét văn bản trong một trình chiếu ở mức trình chiếu hoặc slide thông qua các phương thức quét tích hợp.|
-|Hoạt ảnh|Bạn có thể áp dụng hoạt ảnh cho các hình dạng.|
-|Trình chiếu|Aspose.Slides for PHP via Java hỗ trợ trình chiếu và chuyển đổi slide.|
+|Java Supported Image Formats|Với Aspose.Slides for PHP via Java, bạn có thể kết xuất các slide và hình ảnh trên slide sang mọi định dạng đồ họa được Java hỗ trợ như TIFF, PNG, BMP, JPEG, GIF.|
+|SVG Format|Aspose.Slides for PHP via Java cũng cung cấp các phương pháp tích hợp cho phép bạn xuất các slide trình chiếu sang định dạng Scalable Vector Graphics (SVG).|
 
-## **Các tính năng định dạng**
-Với Aspose.Slides for PHP via Java, bạn có thể định dạng văn bản và hình dạng trên các slide trong trình chiếu. Xem chi tiết sau:
+## **Tính năng Nội dung**
+Aspose.Slides for PHP via Java cho phép bạn truy cập, sửa đổi hoặc tạo hầu hết mọi mục hoặc nội dung của tài liệu trình chiếu. Xem chi tiết dưới đây:
 
 |**Tính năng**|**Mô tả**|
 | :- | :- |
-|Định dạng văn bản|<p>Trong Aspose.Slides for PHP via Java, bạn có thể quản lý văn bản thông qua các khung văn bản gắn với các hình dạng. Do đó, bạn có thể định dạng văn bản bằng các đoạn và phần gắn với các khung văn bản. Các phần tử văn bản này có thể được định dạng thông qua Aspose.Slides for PHP via Java.</p><p>- Kiểu phông chữ</p><p>- Cỡ phông chữ</p><p>- Màu phông chữ</p><p>- Độ sáng phông chữ</p><p>- Căn đoạn</p><p>- Đánh dấu đầu dòng</p><p>- Hướng đoạn</p>|
-|Định dạng hình dạng|<p>Trong Aspose.Slides for PHP via Java, thành phần cơ bản của một slide là một hình dạng. Bạn có thể định dạng các thành phần hình dạng này bằng Aspose.Slides for PHP via Java:</p><p>- Vị trí</p><p>- Kích thước</p><p>- Đường viền</p><p>- Đổ màu (bao gồm Mẫu, Gradient, Đặc chất)</p><p>- Văn bản</p><p>- Hình ảnh</p>|
+|Master Slides|Master Slides xác định bố cục của các slide thường. Aspose.Slides for PHP via Java cho phép bạn truy cập và sửa đổi Master Slides của tài liệu trình chiếu|
+|Normal Slides|Với Aspose.Slides for PHP via Java, bạn có thể tạo các slide mới với các loại khác nhau; bạn cũng có thể truy cập và sửa đổi các slide hiện có trong trình chiếu|
+|Cloning / Copying Slides|Có các phương pháp tích hợp được cung cấp bởi Aspose.Slides for PHP via Java cho phép bạn sao chép hoặc nhân bản các slide hiện có trong một trình chiếu. Bạn cũng có thể sử dụng các slide đã sao chép và nhân bản từ một trình chiếu sang trình chiếu khác. Vì một slide kế thừa bố cục từ master slide, các phương pháp nhân bản tích hợp sẽ tự động sao chép master khi nhân bản|
+|Managing Slides sections|Phương pháp để tổ chức các slide thành các phần khác nhau trong một trình chiếu|
+|Place Holders and Text Holders|Bạn có thể truy cập các place holder và text holder trong một slide. Hơn nữa, bạn có thể tạo một slide với text holder từ đầu bằng phương pháp thích hợp|
+|Header and Footers|Aspose.Slides for PHP via Java tạo điều kiện cho việc xử lý header/footer trong các slide|
+|Notes in Slides|Với Aspose.Slides for PHP via Java, bạn có thể truy cập và sửa đổi ghi chú liên quan đến một slide và cũng có thể thêm ghi chú mới|
+|Finding a Shape|Bạn cũng có thể tìm một hình dạng cụ thể trong slide bằng văn bản thay thế (alternative text) liên kết với hình dạng đó|
+|Backgrounds|Aspose.Slides for PHP via Java cho phép bạn làm việc với nền (background) liên quan đến master hoặc slide thường trong một trình chiếu|
+|Text Boxes|Text box có thể được tạo từ đầu. Bạn có thể truy cập các text box hiện có. Bạn cũng có thể sửa đổi nội dung văn bản của chúng mà không mất định dạng văn bản gốc|
+|Rectangle Shapes|Bạn có thể tạo hoặc sửa đổi hình chữ nhật với Aspose.Slides for PHP via Java|
+|Poly Line Shapes|Bạn có thể tạo hoặc sửa đổi hình poly line với Aspose.Slides for PHP via Java|
+|Ellipse Shapes|Bạn có thể tạo hoặc sửa đổi hình ellipse với Aspose.Slides for PHP via Java|
+|Group Shapes|Aspose.Slides for PHP via Java hỗ trợ nhóm hình dạng|
+|Auto Shapes|Aspose.Slides for PHP via Java hỗ trợ auto shapes|
+|SmartArt|Aspose.Slides for PHP via Java cung cấp hỗ trợ cho các hình dạng SmartArt trong MS PowerPoint|
+|Charts|Aspose.Slides for PHP via Java cung cấp hỗ trợ cho các biểu đồ MSO trong PowerPoint|
+|Shapes Serialization|Aspose.Slides for PHP via Java hỗ trợ một số lượng lớn các hình dạng. Khi Aspose.Slides for PHP via Java không hỗ trợ một hình dạng nào đó, bạn có thể sử dụng phương pháp tuần tự hoá để tuần tự hoá hình dạng đó từ một slide hiện có. Bằng cách này, bạn có thể sử dụng lại hình dạng theo yêu cầu của mình|
+|Picture Frames|Bạn có thể quản lý hình ảnh trong picture frames với Aspose.Slides for PHP via Java|
+|Audio Frames|Bạn có thể liên kết hoặc nhúng tệp âm thanh trong audio frames trên slide với Aspose.Slides for PHP via Java|
+|Video Frames|Bạn có thể xử lý các tệp video trong video frames. Aspose.Slides for PHP via Java cũng hỗ trợ video được liên kết và nhúng|
+|OLE Frame|Bạn có thể quản lý OLE Objects trong OLE frames với Aspose.Slides for PHP via Java|
+|Tables|Aspose.Slides for PHP via Java hỗ trợ bảng trong slide|
+|ActiveX Controls|Hỗ trợ ActiveX controls|
+|VBA Macros|Hỗ trợ quản lý VBA macro trong trình chiếu.|
+|Text Frame|Bạn có thể truy cập văn bản của bất kỳ hình dạng nào thông qua text frame liên kết với hình dạng đó|
+|Text Scanning|Bạn có thể quét văn bản trong một trình chiếu ở mức trình chiếu hoặc slide thông qua các phương pháp quét tích hợp|
+|Animations|Bạn có thể áp dụng hoạt ảnh cho các hình dạng|
+|Slide Shows|Aspose.Slides for PHP via Java hỗ trợ slide shows và chuyển đổi slide|
 
-## **Câu hỏi thường gặp**
+## **Các tính năng Định dạng**
+Aspose.Slides for PHP via Java cho phép bạn định dạng văn bản và hình dạng trên các slide trong trình chiếu. Xem chi tiết dưới đây:
 
-**Tôi có cần cài đặt Microsoft PowerPoint trên máy chủ/PC để thư viện hoạt động không?**
+|**Tính năng**|**Mô tả**|
+| :- | :- |
+|Text Formatting|<p>Trong Aspose.Slides for PHP via Java, bạn có thể quản lý văn bản thông qua các text frame liên kết với các hình dạng. Do đó, bạn có thể định dạng văn bản bằng các đoạn văn và phần liên kết với các text frame. Các phần tử văn bản này có thể được định dạng thông qua Aspose.Slides for PHP via Java.</p><p>- Kiểu phông chữ</p><p>- Kích thước phông chữ</p><p>- Màu phông chữ</p><p>- Tông màu phông chữ</p><p>- Căn lề đoạn văn</p><p>- Đánh dấu đoạn văn</p><p>- Định hướng đoạn văn</p>|
+|Shape Formatting|<p>Trong Aspose.Slides for PHP via Java, phần tử cơ bản của một slide là shape. Bạn có thể định dạng các phần tử shape này với Aspose.Slides for PHP via Java:</p><p>- Vị trí</p><p>- Kích thước</p><p>- Đường viền</p><p>- Đổ đầy (bao gồm Pattern, Gradient, Solid)</p><p>- Văn bản</p><p>- Hình ảnh</p>|
+
+## **FAQ**
+
+### Tôi có cần cài đặt Microsoft PowerPoint trên máy chủ/PC để thư viện hoạt động không?
 
 Không. PowerPoint không bắt buộc; Aspose.Slides là một engine độc lập để tạo, chỉnh sửa, chuyển đổi và kết xuất trình chiếu.
 
-**Multithreading hoạt động như thế nào? Có thể xử lý song song không?**
+### Đa luồng hoạt động như thế nào? Có thể xử lý song song không?
 
-An toàn khi xử lý các tài liệu khác nhau trong các luồng riêng biệt; cùng một [bản trình chiếu](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) không được sử dụng bởi [nhiều luồng](/slides/vi/php-java/multithreading/) cùng lúc.
+Việc xử lý các tài liệu khác nhau trong các luồng riêng biệt là an toàn; đối tượng [presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) không được sử dụng đồng thời bởi [multiple threads](/slides/vi/php-java/multithreading/).
 
-**Có hỗ trợ mật khẩu và mã hóa file không?**
+### Có hỗ trợ mật khẩu tệp và mã hóa không?
 
-Có. [Bạn có thể](/slides/vi/php-java/password-protected-presentation/) mở các trình chiếu đã mã hóa, đặt hoặc xóa mật khẩu mở và ghi, và kiểm tra trạng thái bảo vệ.
+Có. [Bạn có thể](/slides/vi/php-java/password-protected-presentation/) mở các trình chiếu đã được mã hóa, đặt hoặc xóa mật khẩu mở và ghi, và kiểm tra trạng thái bảo vệ.
 
-**Tôi có phải lo lắng về các gói phông chữ trong container Linux không?**
+### Tôi có cần quan tâm tới các gói phông chữ trong container Linux không?
 
-Có. Được khuyến nghị cài đặt các gói phông chữ phổ biến và/hoặc [đặc tả thư mục phông chữ](/slides/vi/php-java/custom-font/) trong ứng dụng của bạn để tránh việc thay thế không mong muốn.
+Có. Đề nghị cài đặt các gói phông chữ thông dụng và/hoặc rõ ràng [định nghĩa thư mục phông chữ](/slides/vi/php-java/custom-font/) trong ứng dụng của bạn để tránh các thay thế không mong muốn.
 
-**Có giới hạn nào trong phiên bản dùng thử không?**
+### Có giới hạn nào trong phiên bản dùng thử không?
 
-Trong [chế độ dùng thử](/slides/vi/php-java/licensing/), một dấu nước sẽ được thêm vào đầu ra và một số giới hạn sẽ áp dụng; một [giấy phép tạm thời 30 ngày](https://purchase.aspose.com/temporary-license/) có sẵn để kiểm tra đầy đủ tính năng.
+Trong [chế độ đánh giá](/slides/vi/php-java/licensing/), một watermark được thêm vào đầu ra và một số giới hạn được áp dụng; một [giấy phép tạm thời 30 ngày](https://purchase.aspose.com/temporary-license/) có sẵn để thử nghiệm đầy đủ tính năng.
 
-**Có hỗ trợ nhập các định dạng bên ngoài vào trình chiếu (PDF/HTML → PPTX) không?**
+### Có hỗ trợ nhập các định dạng bên ngoài vào trình chiếu (PDF/HTML → PPTX) không?
 
 Có. Bạn có thể thêm [trang PDF và nội dung HTML](/slides/vi/php-java/import-presentation/) vào một trình chiếu, chuyển chúng thành các slide.

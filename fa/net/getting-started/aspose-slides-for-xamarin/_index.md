@@ -6,52 +6,48 @@ url: /fa/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
 - توسعه موبایل
-- Android
-- PowerPoint
-- OpenDocument
+- اندروید
+- پاورپوینت
+- سند باز
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "اپلیکیشن‌های موبایل Xamarin را با C# بسازید تا بتوانید ارائه‌ها را با Aspose.Slides مشاهده، ویرایش و تبدیل کنید و از ویژگی‌های پیشرفته برای PPT, PPTX و ODP بر روی Android بهره‌مند شوید."
+description: "برنامه‌های موبایل Xamarin را با C# بسازید تا ارائه‌ها را با Aspose.Slides مشاهده، ویرایش و تبدیل کنید؛ ویژگی‌های غنی برای PPT، PPTX و ODP در اندروید را پشتیبانی می‌کند."
 ---
 ## **مقدمه**
 
-Xamarin یک چارچوب برای توسعهٔ موبایل در ‎.NET C# است. Xamarin ابزارها و کتابخانه‌هایی دارد که قابلیت‌های پلتفرم ‎.NET را گسترش می‌دهند. این چارچوب به توسعه‌دهندگان امکان می‌دهد برنامه‌هایی برای سیستم‌عامل **Android** بسازند.
+Xamarin یک چارچوب استفاده‌شده برای توسعه موبایل در .NET C# است. Xamarin ابزارها و کتابخانه‌هایی دارد که قابلیت‌های پلتفرم .NET را گسترش می‌دهند. این امکان را به توسعه‌دهندگان می‌دهد تا برنامه‌هایی برای سیستم‌عامل **Android** بسازند. 
 
-{{% alert color="primary" %}} 
-
-برای توسعه در Xamarin، برنامه‌نویسان می‌توانند از محیط‌های توسعهٔ معمول خود (C#، Visual Studio و کتابخانه‌های شخص ثالث) استفاده کنند.
-
+{{% alert color="info" %}} 
+برای توسعه در Xamarin، برنامه‌نویسان می‌توانند از محیط‌های توسعه معمول خود (C#، Visual Studio، و کتابخانه‌های شخص ثالث) استفاده کنند.
 {{% /alert %}}
 
-API Aspose.Slides بر روی پلتفرم Xamarin کار می‌کند. برای این منظور، بستهٔ ‎.NET Aspose.Slides یک ‎DLL جداگانه برای Xamarin اضافه می‌کند. Aspose.Slides برای Xamarin بیشترین ویژگی‌های موجود در نسخهٔ ‎.NET را پشتیبانی می‌کند:
+API Aspose.Slides بر روی پلتفرم Xamarin کار می‌کند. برای این هدف، بسته Aspose.Slides .NET یک DLL جداگانه برای Xamarin اضافه می‌کند. Aspose.Slides برای Xamarin بیشترین ویژگی‌های موجود در نسخه .NET را پشتیبانی می‌کند:
 
-- تبدیل و مشاهدهٔ ارائه‌ها.
-- ویرایش محتواهای ارائه: متن، اشکال، نمودارها، SmartArt، صدا/تصویر، قلم‌ها و غیره.
-- کار با انیمیشن، افکت‌های دو‑بعدی، WordArt و غیره.
-- کار با فراداده‌ها و خصوصیات سند.
-- چاپ، کلونینگ، ادغام، مقایسه، تقسیم و غیره.
+- تبدیل و مشاهده ارائه‌ها.
+- ویرایش محتویات در ارائه‌ها: متن، اشکال، نمودارها، SmartArt، صدا/ویدئو، قلم‌ها و غیره.
+- مدیریت/پرداختن به انیمیشن، افکت‌های دو بعدی، WordArt و غیره.
+- مدیریت/پرداختن به متادیتا و ویژگی‌های سند.
+- کلون کردن، ادغام، مقایسه، تقسیم و غیره.
 
-ما در بخشی دیگر نزدیک به انتهای این صفحه، مقایسهٔ کامل ویژگی‌ها را ارائه داده‌ایم.
+ما مقایسه‌ای از تمام ویژگی‌ها در بخش دیگری نزدیک به پایین این صفحه ارائه دادیم.
 
-در API Aspose.Slides برای Xamarin، کلاس‌ها، فضای‌نام‌ها، منطق و رفتار تا حد امکان مشابه نسخهٔ ‎.NET هستند. می‌توانید برنامه‌های ‎.NET Aspose.Slides خود را با هزینهٔ کم به Xamarin منتقل کنید.
-
+در API Aspose.Slides برای Xamarin، کلاس‌ها، فضاهای نام، منطق و رفتار تا حد امکان مشابه نسخه .NET هستند. می‌توانید برنامه‌های Aspose.Slides .NET خود را با هزینه‌های کم به Xamarin منتقل کنید.
 
 ## **مثال سریع**
-می‌توانید از Aspose.Slides برای Xamarin استفاده کنید تا برنامهٔ C# خود را از طریق Slides for Android بسازید و به کار ببرید.
 
-ما یک مثال از برنامهٔ Android با Xamarin که از Aspose.Slides برای نمایش اسلایدهای ارائه استفاده می‌کند و با لمس، یک شکل جدید به اسلاید اضافه می‌کند، ارائه می‌دهیم. می‌توانید کد کامل این مثال‌ها را در [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) پیدا کنید.
+می‌توانید از Aspose.Slides برای Xamarin استفاده کنید تا برنامه C# خود را از طریق Slides for Android بسازید و به‌کار بگیرید.
 
-بیایید با ایجاد یک برنامهٔ Xamarin Android شروع کنیم:
+ما یک مثال از برنامه Android با Xamarin که از Aspose.Slides برای نمایش اسلایدهای ارائه استفاده می‌کند و با لمس یک شکل جدید به اسلاید اضافه می‌کند، ارائه می‌دهیم. می‌توانید کد کامل مثال‌ها را در [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) پیدا کنید.
+
+بیایید با ایجاد یک برنامه Xamarin Android شروع کنیم:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-ابتدا یک طرح محتوا می‌سازیم که شامل یک ImageView، دکمه‌های Prev و Next می‌شود:
+ابتدا یک طرح محتوا می‌سازیم که شامل یک ImageView، دکمه‌های Prev و Next خواهد بود:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
-
-
 
 **XML - content_main.xml - ایجاد طرح محتوا**
 ``` 
@@ -97,12 +93,13 @@ API Aspose.Slides بر روی پلتفرم Xamarin کار می‌کند. برا�
 </LinearLayout>
 ```
 
-
-در اینجا، کتابخانهٔ "Aspose.Slides.Droid.dll" که شامل یک ارائهٔ نمونه ("HelloWorld.pptx") است را به دارایی‌های برنامهٔ Xamarin اضافه می‌کنیم و مقداردهی اولیه آن را به MainActivity می‌افزاییم:
+در اینجا، کتابخانه "Aspose.Slides.Droid.dll" که شامل یک ارائه نمونه ("HelloWorld.pptx") است، به دارایی‌های (Assets) برنامه Xamarin ارجاع می‌دهیم و مقداردهی اولیه آن را به MainActivity اضافه می‌کنیم:
 
 **C# - MainActivity.cs - مقداردهی اولیه**
-
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -136,11 +133,13 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-بیایید تابعی برای نمایش اسلایدهای Prev و Next هنگام لمس دکمه‌ها اضافه کنیم:
+بیایید تابعی را اضافه کنیم تا هنگام فشار دکمه‌ها، اسلایدهای Prev و Next نمایش داده شوند:
 
-**C# - MainActivity.cs - نمایش اسلایدها با کلیک دکمه‌های Prev و Next**
-
+**C# - MainActivity.cs - نمایش اسلایدها در کلیک دکمه‌های Prev و Next**
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -270,12 +269,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
+در نهایت، بیایید تابعی برای افزودن یک شکل بیضی در هنگام لمس اسلاید پیاده‌سازی کنیم:
 
-
-در پایان، تابعی برای افزودن یک شکل بیضی به هنگام لمس اسلاید پیاده‌سازی می‌کنیم:
-
-**C# - MainActivity.cs - افزودن بیضی با کلیک اسلاید**
-
+**C# - MainActivity.cs - افزودن بیضی با کلیک بر اسلاید**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -306,18 +302,16 @@ public class MainActivity : AppCompatActivity
 ```
 
 هر کلیک بر روی اسلاید ارائه، یک بیضی با رنگ تصادفی اضافه می‌کند:
-
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
-
 
 ## **ویژگی‌های پشتیبانی‌شده**
 
-|**ویژگی‌ها**|**Aspose.Slides برای ‎.NET**|**Aspose.Slides برای Xamarin**|
+|**ویژگی‌ها**|**Aspose.Slides برای .NET**|**Aspose.Slides برای Xamarin**|
 | :- | :- | :- |
-|**ویژگی‌های ارائه**| | |
+|**ویژگی‌های ارائه:**| | |
 |ایجاد ارائه‌های جدید|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|قالب‌های PowerPoint 97 - 2003 باز/ذخیره|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|قالب‌های PowerPoint 2007 باز/ذخیره|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|باز/ذخیره قالب‌های PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|باز/ذخیره قالب‌های PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |پشتیبانی از افزونه‌های PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |پشتیبانی از افزونه‌های PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |پشتیبانی از ویژگی‌های PowerPoint 2016|محدود|محدود|
@@ -327,12 +321,12 @@ public class MainActivity : AppCompatActivity
 |PPTX در PPT|محدود|محدود|
 |پردازش تم‌ها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |پردازش ماکروها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|پردازش خصوصیات سند|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|حفاظت با رمز عبور|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|پردازش ویژگی‌های سند|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|حفاظت با رمزعبور|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |استخراج سریع متن|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |جاسازی قلم‌ها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |رندر کردن نظرات|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|وقفهٔ وظایف طولانی‌مدت|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|قطع‌کردن کارهای طولانی مدت|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**قالب‌های خروجی:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -341,53 +335,53 @@ public class MainActivity : AppCompatActivity
 |ODP|محدود|محدود|
 |SWF|محدود|محدود|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**قالب‌های ورودی:**| | |
+|**قالب‌های واردات:**| | |
 |HTML|محدود|محدود|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ویژگی‌های اسلایدهای اصلی:**| | |
 |دسترسی به تمام اسلایدهای اصلی موجود|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |ایجاد/حذف اسلایدهای اصلی|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|کلونینگ اسلایدهای اصلی|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**ویژگی‌های اسلایدهای چیدمان:**| | |
-|دسترسی به تمام اسلایدهای چیدمان موجود|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ایجاد/حذف اسلایدهای چیدمان|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|کلونینگ اسلایدهای چیدمان|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|کلون کردن اسلایدهای اصلی|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**ویژگی‌های اسلایدهای طرح‌بندی:**| | |
+|دسترسی به تمام اسلایدهای طرح‌بندی موجود|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|ایجاد/حذف اسلایدهای طرح‌بندی|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|کلون کردن اسلایدهای طرح‌بندی|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ویژگی‌های اسلاید:**| | |
 |دسترسی به تمام اسلایدهای موجود|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ایجاد/حذف اسلاید|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|کلونینگ اسلاید|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|ایجاد/حذف اسلایدها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|کلون کردن اسلایدها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |خروجی اسلایدها به تصویر|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |ایجاد/ویرایش/حذف بخش‌های اسلاید|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ویژگی‌های اسلایدهای یادداشت:**| | |
 |دسترسی به تمام اسلایدهای یادداشت موجود|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ویژگی‌های شکل:**| | |
 |دسترسی به تمام اشکال اسلاید|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|اضافه کردن اشکال جدید|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|کلونینگ اشکال|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|خروجی اشکال جداگانه به تصویر|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**انواع شکل‌های پشتیبانی‌شده:**| | |
-|تمام انواع شکل‌های از پیش تعریف‌شده|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|قاب‌های تصویر|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|جداول|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|افزودن اشکال جدید|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|کلون کردن اشکال|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|خروجی جدای اشکال به تصویر|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**انواع اشکال پشتیبانی‌شده:**| | |
+|تمام انواع اشکال پیش‌تعریف‌شده|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|فریم‌های تصویر|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|جدول‌ها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |نمودارها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|نقشه‌خوانی قدیمی|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|دیاگرام قدیمی|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE، اشیاء ActiveX|محدود|محدود|
-|قاب‌های ویدئویی|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|قاب‌های صوتی|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|اتصال‌ها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**ویژگی‌های گروه‌اشکال:**| | |
-|دسترسی به گروه‌اشکال|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ایجاد گروه‌اشکال|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|لغو گروه‌سازی اشکال موجود|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**ویژگی‌های افکت‌های شکل:**| | |
+|OLE, ActiveX objects|محدود|محدود|
+|فریم‌های ویدئو|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|فریم‌های صدا|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|کانکتورها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**ویژگی‌های گروه اشکال:**| | |
+|دسترسی به گروه اشکال|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|ایجاد گروه اشکال|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|جداسازی گروه‌های اشکال موجود|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**ویژگی‌های اثرات شکل:**| | |
 |افکت‌های 2D|محدود|محدود|
 |افکت‌های 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**ویژگی‌های متن:**| | |
 |قالب‌بندی پاراگراف‌ها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|قالب‌بندی قسمت‌ها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|قالب‌بندی بخش‌ها|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**ویژگی‌های انیمیشن:**| | |
 |خروجی انیمیشن به SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |خروجی انیمیشن به HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

@@ -13,47 +13,42 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Vytvářejte mobilní aplikace Xamarin v C# pro prohlížení, editaci a konverzi prezentací s Aspose.Slides, podporující bohaté funkce pro PPT, PPTX a ODP na Androidu."
+description: "Vytvářejte mobilní aplikace Xamarin v jazyce C# pro prohlížení, úpravu a konverzi prezentací pomocí Aspose.Slides, podporující bohaté funkce pro PPT, PPTX a ODP na Androidu."
 ---
 ## **Úvod**
 
-Xamarin je framework používaný pro vývoj mobilních aplikací v .NET C#. Xamarin poskytuje nástroje a knihovny, které rozšiřují možnosti platformy .NET. Umožňuje vývojářům vytvářet aplikace pro operační systém **Android**.
+Xamarin je framework používaný pro mobilní vývoj v .NET C#. Xamarin má nástroje a knihovny, které rozšiřují možnosti platformy .NET. Umožňuje vývojářům vytvářet aplikace pro operační systém **Android**.
 
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 Pro vývoj v Xamarin mohou programátoři používat své běžné vývojové prostředí (C#, Visual Studio a knihovny třetích stran).
-
 {{% /alert %}}
 
-Aspose.Slides API funguje na platformě Xamarin. K tomu Aspose.Slides .NET balíček přidává samostatný DLL pro Xamarin. Aspose.Slides pro Xamarin podporuje většinu funkcí dostupných ve verzi .NET:
+API Aspose.Slides funguje na platformě Xamarin. K tomu přidává balíček Aspose.Slides .NET samostatnou DLL pro Xamarin. Aspose.Slides pro Xamarin podporuje většinu funkcí dostupných ve verzi .NET:
 
-- konverzi a prohlížení prezentací.
-- úpravu obsahu v prezentacích: text, tvary, grafy, SmartArt, audio/video, písma atd.
-- práci s animacemi, 2D efekty, WordArt atd.
-- práci s metadaty a vlastnostmi dokumentu.
-- tisk, klonování, slučování, porovnávání, rozdělování atd.
+- převod a prohlížení prezentací.
+- úprava obsahu v prezentacích: text, tvary, grafy, SmartArt, audio/video, fonty atd.
+- zpracování animací, 2D efektů, WordArt atd.
+- zpracování metadat a vlastností dokumentu.
+- klonování, slučování, porovnávání, rozdělování atd.
 
-V jiné sekci blízko konce této stránky jsme poskytli srovnání kompletních funkcí.
+Poskytli jsme srovnání všech funkcí v jiné sekci blízko konce této stránky.
 
-V API Aspose.Slides pro Xamarin jsou třídy, jmenné prostory, logika a chování co nejvíce podobné verzi .NET. Vaše aplikace Aspose.Slides .NET můžete migrovat na Xamarin s minimálními náklady.
-
+V API Aspose.Slides pro Xamarin jsou třídy, jmenné prostory, logika a chování co nejvíce podobné verzi .NET. Můžete migrovat své aplikace Aspose.Slides .NET do Xamarin s minimálními náklady.
 
 ## **Rychlý příklad**
-Můžete použít Aspose.Slides pro Xamarin k vytvoření a využití vaší C# aplikace přes Slides pro Android.
+Můžete použít Aspose.Slides pro Xamarin k vytvoření a využití své C# aplikace prostřednictvím Slides for Android.
 
-Poskytujeme příklad Android aplikace pomocí Xamarin, která používá Aspose.Slides k zobrazení snímků prezentace a po doteku přidá nový tvar na snímek. Kompletní zdrojové kódy příkladů najdete na [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Poskytujeme příklad Android aplikace pomocí Xamarin, která používá Aspose.Slides k zobrazování snímků prezentací a přidává nový tvar na snímek při dotyku. Kompletní zdrojové kódy příkladů najdete na [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
-Začněme vytvořením Xamarin Android aplikace:
+Začněme vytvořením aplikace Xamarin Android:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Nejprve vytvoříme rozložení obsahu, které bude obsahovat ImageView, tlačítka Prev a Next:
+Nejprve vytvoříme rozvržení obsahu, které bude obsahovat zobrazení obrázku, tlačítka Prev a Next:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
-
-
-**XML – content_main.xml – Vytvoření rozložení obsahu**
+**XML – content_main.xml – Vytvoření rozvržení obsahu**
 ``` 
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -97,13 +92,13 @@ Nejprve vytvoříme rozložení obsahu, které bude obsahovat ImageView, tlačí
 </LinearLayout>
 ```
 
-
-
-Zde odkazujeme na knihovnu „Aspose.Slides.Droid.dll“, která obsahuje ukázkovou prezentaci („HelloWorld.pptx“) vloženou do složky Assets Xamarin aplikace a přidává její inicializaci do MainActivity:
+Zde odkazujeme na knihovnu "Aspose.Slides.Droid.dll", která obsahuje ukázkovou prezentaci ("HelloWorld.pptx") v Assets Xamarin aplikace a přidává její inicializaci do MainActivity:
 
 **C# – MainActivity.cs – Inicializace**
-
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -137,11 +132,12 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Přidáme funkci pro zobrazení snímků Prev a Next při klepnutí na tlačítka:
-
+Přidáme funkci pro zobrazení snímků Prev a Next při stisknutí tlačítek:
 **C# – MainActivity.cs – Zobrazení snímků při kliknutí na tlačítka Prev a Next**
-
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -271,12 +267,8 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-
-
-Nakonec implementujeme funkci, která při dotyku na snímku přidá elipsu:
-
+Nakonec implementujeme funkci pro přidání eliptického tvaru při dotyku snímku:
 **C# – MainActivity.cs – Přidání elipsy kliknutím na snímek**
-
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -306,89 +298,87 @@ Nakonec implementujeme funkci, která při dotyku na snímku přidá elipsu:
 }
 ```
 
-Každé kliknutí na snímek prezentace přidá elipsu s náhodnou barvou:
-
+Každé kliknutí na snímek prezentace přidá elipsu náhodné barvy:
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
-
 
 ## **Podporované funkce**
 
 |**FUNKCE**|**Aspose.Slides pro .NET**|**Aspose.Slides pro Xamarin**|
 | :- | :- | :- |
 |**Funkce prezentace**:| | |
-|Vytváření nových prezentací|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Otevírání/ukládání formátů PowerPoint 97‑2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Otevírání/ukládání formátů PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Vytvořit nové prezentace|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Formáty PowerPoint 97 - 2003 otevřít/uložit|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Formáty PowerPoint 2007 otevřít/uložit|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Podpora rozšíření PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Podpora rozšíření PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Podpora funkcí PowerPoint 2016|omezený|omezený|
-|Podpora funkcí PowerPoint 2019|omezený|omezený|
-|Konverze PPT na PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Konverze PPTX na PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX v PPT|omezený|omezený|
+|Podpora funkcí PowerPoint 2016|restricted|restricted|
+|Podpora funkcí PowerPoint 2019|restricted|restricted|
+|PPT → PPTX konverze|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX → PPT konverze|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX v PPT|restricted|restricted|
 |Zpracování motivů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Zpracování maker|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Zpracování vlastností dokumentu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Ochrana heslem|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Rychlé získávání textu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Vkládání písem|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Rychlé extrahování textu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Vkládání fontů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vykreslování komentářů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Přerušení dlouhotrvajících úkolů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Exportní formáty:**| | |
+|Přerušení dlouhotrvajících úloh|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Formáty exportu:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|omezený|omezený|
-|SWF|omezený|omezený|
+|ODP|restricted|restricted|
+|SWF|restricted|restricted|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Importní formáty:**| | |
-|HTML|omezený|omezený|
+|**Formáty importu:**| | |
+|HTML|restricted|restricted|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkce hlavních snímků:**| | |
 |Přístup ke všem existujícím hlavním snímkům|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vytváření/odstraňování hlavních snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Klónování hlavních snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funkce rozvržení snímků:**| | |
-|Přístup ke všem existujícím rozvrhům snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Vytváření/odstraňování rozvrhů snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Klónování rozvrhů snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Klonování hlavních snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Funkce rozložení snímků:**| | |
+|Přístup ke všem existujícím rozložení snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Vytváření/odstraňování rozložení snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Klonování rozložení snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkce snímků:**| | |
 |Přístup ke všem existujícím snímkům|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vytváření/odstraňování snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Klónování snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Klonování snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Export snímků do obrázků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Vytváření/upravování/odstraňování sekcí snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funkce poznámkových snímků:**| | |
+|Vytváření/editace/odstraňování sekcí snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Funkce poznámkových snímků**:| | |
 |Přístup ke všem existujícím poznámkovým snímkům|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkce tvarů:**| | |
-|Přístup ke všem tvarům na snímku|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Přístup ke všem tvarům snímků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Přidávání nových tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Klónování tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Export samostatných tvarů do obrázků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Klonování tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Export jednotlivých tvarů do obrázků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Podporované typy tvarů:**| | |
 |Všechny předdefinované typy tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Rámečky obrázků|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tabulky|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Grafy|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Legacy diagram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Starší diagram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, ActiveX objekty|omezený|omezený|
+|OLE, ActiveX objekty|restricted|restricted|
 |Video rámečky|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Audio rámečky|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Spojnice|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Funkce seskupených tvarů:**| | |
+|Konektory|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Funkce seskupování tvarů:**| | |
 |Přístup ke skupinovým tvarům|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Vytváření skupinových tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Rozdělení existujících skupinových tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Rozdělování existujících skupinových tvarů|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkce efektů tvarů:**| | |
-|2D efekty|omezený|omezený|
+|2D efekty|restricted|restricted|
 |3D efekty|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|**Textové funkce:**| | |
+|**Funkce textu:**| | |
 |Formátování odstavců|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Formátování částí textu|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Formátování částí|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Funkce animace:**| | |
 |Export animace do SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Export animace do HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

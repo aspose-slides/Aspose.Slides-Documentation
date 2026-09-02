@@ -4,41 +4,40 @@ type: docs
 weight: 30
 url: /ar/net/aspose-slides-for-openxml/
 ---
-
 ## **ما هو OpenXML؟**
-OpenXML SDK هو مجموعة أدوات .NET من Microsoft لمعالجة صيغ ملفات Microsoft Office 2007 وما فوق. هذه الصيغ هي في الأساس حزم مضغوطة وOpen XML SDK for Office يبسط مهمة التعامل مع حزم Open XML وعناصر مخطط Open XML الأساسية داخل الحزمة. الفئات في Open XML SDK تغلف العديد من المهام الشائعة التي يؤديها المطورون على حزم Open XML، بحيث يمكنك تنفيذ عمليات معقدة ببضع أسطر من الشيفرة.
+OpenXML SDK هو مجموعة تطوير برامج (SDK) من .NET من مايكروسوفت لمعالجة صيغ ملفات Microsoft Office 2007 وما بعدها. هذه الصيغ هي أساسًا حزم مضغوطة، ويُبسّط Open XML SDK للـ Office مهمة التعامل مع حزم Open XML والعناصر المخططة في مخطط Open XML داخل الحزمة. تُغلف الفئات في Open XML SDK العديد من المهام الشائعة التي يقوم بها المطورون على حزم Open XML، بحيث يمكنك تنفيذ عمليات معقدة ب few سطرًا من الشيفرة.
 
-بعد تثبيت Open XML SDK 2.5، افتح مشروعك أو تطبيقك الحالي في Visual Studio، أو أنشئ مشروعًا أو تطبيقًا جديدًا. ثم، في مشروعك أو تطبيقك، أضف مراجع للمكونات التالية:
+بعد تثبيت Open XML SDK 2.5، افتح مشروعك أو تطبيقك الحالي في Visual Studio، أو أنشئ مشروعًا أو تطبيقًا جديدًا. ثم، في مشروعك أو تطبيقك، أضف المراجع إلى المكونات التالية:
 
 - DocumentFormat.OpenXml
 - WindowsBase
 ## **Aspose.Slides for .NET**
-Aspose.Slides for .NET هو مكوّن فريد لإدارة PowerPoint® يتيح لتطبيقات .NET قراءة وكتابة ومعالجة مستندات PowerPoint دون استخدام Microsoft PowerPoint.
+Aspose.Slides for .NET هو مكوّن فريد لإدارة PowerPoint® يتيح لتطبيقات .NET قراءة وكتابة وتحريك مستندات PowerPoint دون الحاجة إلى Microsoft PowerPoint.
 
-Aspose.Slides for .NET هو المكوّن .NET الأول والوحيد الذي يوفر وظائف لإدارة مستندات PowerPoint داخل تطبيقاتك الخاصة. كما هو الحال مع جميع مكونات Aspose .NET، تم كتابة Aspose.Slides بلغة C# مُدارة، بأسعار معقولة وسرعة فائقة.
+Aspose.Slides for .NET هو أول مكوّن .NET وحيد يوفر وظائف إدارة مستندات PowerPoint داخل تطبيقاتك الخاصة. وكما هو الحال مع جميع مكوّنات Aspose .NET، تم كتابة Aspose.Slides بلغة C# المُدارة، وهو مُسعّر بشكل رائع وسريع للغاية.
 ## **Aspose.Slides for OpenXML**
 ## **المقدمة**
-قد يحتاج المطورون الباحثون عن مكتبات صيغ الملفات إلى استعراض الميزات التي تقدمها المكتبات المتوفرة في السوق. بشكل رئيسي، يتم اعتبار عاملين عند اختيار خيار:
+المطورون الذين يبحثون عن مكتبات صيغ الملفات قد يحتاجون إلى استعراض الميزات التي توفرها المكتبات المتاحة في السوق. يُؤخذ في الاعتبار عادةً عاملان عند اختيار خيار:
 
 - الميزات
 - الجهد المطلوب لاستخدام المكتبة
 
-إذا كنت مطور .NET تبحث عن مكتبة صيغ ملفات أسرع، سهلة وخفيفة لمعالجة الملفات، قد تحتاج إلى مقارنة VSTO (Visual Studio tool for Office) مع Aspose. في هذه الحالة، سيساعدك هذا المشروع على مقارنة الميزات والشيفرة في كلتا المكتبتين.
+إذا كنت مطور .NET وتبحث عن مكتبة صيغ ملفات أسرع، سهلة وخفيفة لمعالجة الملفات، قد تحتاج إلى مقارنة VSTO (Visual Studio tool for Office) مع Aspose. في هذه الحالة، سيساعدك هذا المشروع على مقارنة الميزات والشيفرة في كلا المكتبتين.
 ## **متطلبات النظام والمنصات المدعومة**
 ### **متطلبات النظام**
-إحدى الإصدارات التالية أو أكثر من Visual Studio Tools for Office:
+إحدى الإصدارات التالية أو أكثر من أدوات Visual Studio للـ Office:
 
 - Microsoft Visual Studio 2005 Tools for the Microsoft Office System
 - Microsoft Visual Studio 2005 Tools for the 2007 Microsoft Office System
 - Visual Studio 2008 Professional Edition
 - Visual Studio 2008 Team Suite Edition
-- نسخة واحدة من Microsoft Office:
+- أحد إصدارات Microsoft Office:
 - Microsoft Office Professional 2003 SP1
 - نظام Microsoft Office 2007
 ### **أنظمة التشغيل المدعومة**
 - Windows 2000; Windows Server 2003; Windows Vista; Windows XP
 ### **إصدارات .NET Framework المدعومة**
-- فقط .NET framework 2.0 أو أعلى.
+- فقط .NET Framework 2.0 أو أعلى.
 ## **التنزيل**
 يمكنك تنزيل أحدث الشيفرة على:
 
@@ -46,31 +45,31 @@ Aspose.Slides for .NET هو المكوّن .NET الأول والوحيد الذ
 - [Sourceforge](http://goo.gl/AWc3J3)
 - [Bitbucket](http://goo.gl/8B9p3b)
 ## **التثبيت**
-لفتح المشروع تحتاج إلى تنزيل وتثبيت أحدث نسخة من Aspose.Slides for .NET من [here](http://www.aspose.com/.net/powerpoint-component.aspx) وإدراجها في المشروع.
+لفتح المشروع تحتاج إلى تنزيل وتثبيت أحدث إصدار من Aspose.Slides for .NET من [here](http://www.aspose.com/.net/powerpoint-component.aspx) وإدراجه في المشروع.
 ## **الدعم، التوسيع والمساهمة**
 ### **الدعم**
-نحن نقدم دعمًا مجانيًا. أي شخص يستخدم منتجنا، سواءً اشترى النسخة أو يستخدم نسخة تجريبية، يستحق اهتمامنا الكامل واحترامنا.
+نحن نقدم دعمًا مجانيًا. أي شخص يستخدم منتجنا، سواءً كان قد اشترى النسخة أو يستخدم نسخة تجريبية، يستحق كامل اهتمامنا واحترامنا.
 
-يمكنك تسجيل أي مشكلات أو اقتراحات تتعلق بـ Aspose .NET for OpenXML عبر أي من المنصات التالية:
+يمكنك تسجيل أي مشكلات أو اقتراحات تتعلق بـ Aspose .NET for OpenXML باستخدام أي من المنصات التالية:
 
 - [Github](http://goo.gl/UHkCJe)
 - [Sourceforge](http://goo.gl/f8zdLU)
 - [Bitbucket](http://goo.gl/1Eo1DQ)
 ### **التوسيع والمساهمة**
-شيفرة المقارنة لـ Aspose.Slides for .NET وشفرة مصدر OpenXML متاحة على مواقع التواصل البرمجي الرئيسية المذكورة أدناه. يُشجع المطورون على تنزيل الشيفرة المصدرية للانتقال من OpenXML إلى Aspose.Slides حسب متطلباتهم.
-### **شفرة المصدر**
-يمكنك الحصول على أحدث شفرة مصدر من أحد المواقع التالية.
+شيفرة المقارنة بين Aspose.Slides for .NET و OpenXML متاحة على مواقع الترميز الاجتماعية الرئيسية المذكورة أدناه. يُشجّع المطورون على تنزيل الشيفرة لت迁移 من OpenXML إلى Aspose.Slides حسب احتياجاتهم.
+### **الشيفرة المصدرية**
+يمكنك الحصول على أحدث الشيفرة المصدرية من أحد المواقع التالية:
 
 - [Github](https://goo.gl/gN0nf2)
 - [Sourceforge](https://goo.gl/noku6v)
 - [Bitbucket](https://goo.gl/T83r2D)
-### **كيفية تكوين شفرة المصدر**
-الرجاء اتباع الخطوات البسيطة التالية للبدء:
+### **كيفية تكوين الشيفرة المصدرية**
+يرجى اتباع الخطوات البسيطة التالية للبدء:
 
-- تنزيل/استنساخ شفرة المصدر.
-- فتح Visual Studio 2010 واختيار File > Open Project.
-- استعراض إلى أحدث شفرة مصدر قمت بتنزيلها وفتح ملف .sln.
-## **أمثلة شيفرة عينة**
+- تنزيل/استنساخ الشيفرة المصدرية.
+- فتح Visual Studio 2010 واختيار ملف > فتح مشروع.
+- تصفح إلى الشيفرة المصدرية التي تم تنزيلها وافتح ملف .sln.
+## **أمثلة على شيفرات العينة**
 يتضمن هذا القسم المواضيع التالية:
 
 - [Code Comparison for common features with OpenXML](/slides/ar/net/code-comparison-for-common-features-with-openxml/)
@@ -101,7 +100,7 @@ Aspose.Slides for .NET هو المكوّن .NET الأول والوحيد الذ
   - [High level Programming with Presentation Document Object Model](/slides/ar/net/high-level-programming-with-presentation-document-object-model/)
     - [Assemble Slides](/slides/ar/net/assemble-slides/)
     - [Find and Replace in Presentation](/slides/ar/net/find-and-replace-in-presentation/)
-  - [Rendering and Printing of Presentation](/slides/ar/net/rendering-and-printing-of-presentation/)
+  - [Presentation Rendering](/slides/ar/net/presentation-rendering/)
     - [Conversion to Tiff with Notes](/slides/ar/net/conversion-to-tiff-with-notes/)
     - [Rendered As Tiff](/slides/ar/net/rendered-as-tiff/)
     - [Rendered As Tiff By User Defined Dimension](/slides/ar/net/rendered-as-tiff-by-user-defined-dimension/)

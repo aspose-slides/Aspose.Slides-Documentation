@@ -1,38 +1,38 @@
 ---
-title: "Aspose.Slides Pythonhoz .NET-en keresztül"
-second_title: "Aspose.Slides Pythonhoz"
+title: Aspose.Slides for Python via .NET
+second_title: Aspose.Slides for Python
 type: docs
 weight: 35
 url: /hu/python-net/
 is_root: true
 keywords:
-- "Aspose.Slides Pythonhoz"
-- "PowerPoint automatizálás Pythonban"
-- "Python PPT könyvtár"
-- "PowerPoint PDF-be exportálása Pythonban"
-- "PowerPoint SVG-be exportálása Pythonban"
-- "PowerPoint szerkesztése Pythonban"
-- "Python PowerPoint Microsoft Office nélkül"
-- "PPTX kezelése Pythonnal"
-- "diák előnézete Pythonban"
-- "Python hang hozzáadása diákhoz"
-- "PowerPoint"
-- "OpenDocument"
-- "Python"
-- "Aspose.Slides"
-description: "Az Aspose.Slides for Python via .NET átfogó funkciókészletet kínál, többek között szöveg, alakzat, táblázat és animáció kezelését, hang és videó hozzáadását a diákhoz, a diák előnézetét, valamint exportálást SVG, PDF és egyéb formátumokba."
+- Aspose.Slides for Python
+- PowerPoint automatizálás Pythonban
+- Python PPT könyvtár
+- PowerPoint exportálása PDF-be Pythonban
+- PowerPoint exportálása SVG-be Pythonban
+- PowerPoint szerkesztése Pythonban
+- Python PowerPoint Microsoft Office nélkül
+- PPTX kezelése Pythonnal
+- diák előnézete Pythonban
+- Python hang hozzáadása diákhoz
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET átfogó funkciókészletet kínál, beleértve a szöveg, alakzatok, táblázatok és animációk kezelését, hang és videó hozzáadását a diákhoz, a diák előnézetét, valamint az exportálást SVG, PDF és egyéb formátumokba."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-**Üdvözli az Aspose.Slides for Python via .NET-et**
+**Üdvözöljük az Aspose.Slides for Python via .NET**
 
-![Aspose.Slides for Python via .NET terméklógó](aspose_slides-for-python.png)
+![Aspose.Slides for Python via .NET Product Logo](aspose_slides-for-python.png)
 
-Az Aspose.Slides for Python via .NET egy robusztus osztálykönyvtár, amely lehetővé teszi alkalmazásai számára, hogy Microsoft PowerPoint® szükségessége nélkül olvassanak és írjanak PowerPoint® prezentációkat.
+Az Aspose.Slides for Python via .NET egy robusztus osztálykönyvtár, amely lehetővé teszi alkalmazásai számára PowerPoint® prezentációk olvasását és írását anélkül, hogy a Microsoft PowerPoint®-ra szükség lenne.
 
-Ez az első és egyetlen összetevő, amely teljes körű PowerPoint® dokumentumkezelést biztosít Python fejlesztők számára.
+Ez az első és egyetlen komponens, amely teljes körű PowerPoint® dokumentumkezelést biztosít Python fejlesztők számára.
 
-Az Aspose.Slides for Python via .NET számos funkciót tartalmaz, például szöveggel, alakzatokkal, táblázatokkal és animációkkal való munkát; hang és videó hozzáadását; diák előnézetét; valamint diák exportálását SVG, PDF és egyéb formátumokba.
+Az Aspose.Slides for Python via .NET számos funkciót tartalmaz, például a szöveggel, alakzatokkal, táblázatokkal és animációkkal való munkát; hang- és videó hozzáadását; diák előnézetét; valamint a diák exportálását SVG, PDF és egyéb formátumokba.
 
 {{% /alert %}}
 
@@ -42,11 +42,11 @@ Az Aspose.Slides for Python via .NET számos funkciót tartalmaz, például szö
 pip install aspose.slides
 ```
 
-A csomag tartalmazza a szükséges .NET futtatókörnyezetet, így nincs más telepítendő, és a Microsoft PowerPoint sem szükséges. Python 3.7 vagy újabb Windows, Linux vagy macOS rendszereken.
+A csomag magával szállítja a szükséges .NET futtatókörnyezetet, így nincs más telepítendő, és a Microsoft PowerPoint sem szükséges. Python 3.7 vagy újabb Windows, Linux vagy macOS rendszeren.
 
 ## PowerPoint prezentáció létrehozása Pythonban
 
-Ez a példa egy prezentációt hoz létre, szöveges alakzatot ad az első diára, és az eredményt PPTX‑ként és PDF‑ként is elmenti.
+Ez a példa egy prezentációt hoz létre, szöveges alakzatot ad az első diára, és elmenti az eredményt PPTX és PDF formátumban is.
 
 ```python
 import aspose.slides as slides
@@ -60,13 +60,13 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pdf", slides.export.SaveFormat.PDF)
 ```
 
-A futtatás `presentation.pptx` (kb. 34 KB) és `presentation.pdf` (kb. 36 KB) fájlokat ír a munkakönyvtárba.
+A futtatás eredményeként a `presentation.pptx` (kb. 34 KB) és a `presentation.pdf` (kb. 36 KB) fájlok kerülnek a munkakönyvtárba.
 
-Licenc nélkül a könyvtár értékelő módban működik, amely vízjelet ad hozzá és korlátozza a diák számát. Lásd a [Licencelés](/slides/hu/python-net/licensing/) részt a licenc alkalmazásához.
+Licenc nélkül a könyvtár értékelő módban fut, amely vízjelet ad hozzá és korlátozza a diák számát. Lásd a [Licencelés](/slides/hu/python-net/licensing/) oldalt a licenc alkalmazásához.
 
-## Aspose.Slides for Python via .NET erőforrások
+## Aspose.Slides for Python via .NET források
 
-Fedezze fel ezeket a hasznos forrásokat:
+Fedezze fel ezeket a hasznos forrásokat::
 
 - [Aspose.Slides for Python via .NET online dokumentáció](/slides/hu/python-net/)
 - [Aspose.Slides for Python via .NET funkciók](/slides/hu/python-net/features-overview/)
@@ -74,7 +74,7 @@ Fedezze fel ezeket a hasznos forrásokat:
 - [Aspose.Slides for Python via .NET termékoldal](https://products.aspose.com/slides/hu/python-net/)
 - [Aspose.Slides for Python via .NET letöltése](https://releases.aspose.com/slides/hu/python-net/)
 - [Aspose.Slides for Python via .NET PyPi csomag telepítése](https://pypi.org/project/aspose.slides/)
-- [Aspose.Slides for Python via .NET API referencia útmutató](https://reference.aspose.com/slides/hu/python-net/)
+- [Aspose.Slides for Python via .NET API referenciakönyv](https://reference.aspose.com/slides/hu/python-net/)
 - [Aspose.Slides for Python via .NET ingyenes támogatási fórum](https://forum.aspose.com/c/slides/hu/11)
 - [Aspose.Slides for Python via .NET fizetett támogatási helpdesk](https://helpdesk.aspose.com/)
 
@@ -82,24 +82,24 @@ Fedezze fel ezeket a hasznos forrásokat:
 
 ### Mi az Aspose.Slides for Python via .NET?
 
-Az Aspose.Slides for Python via .NET egy hatékony Python könyvtár, amely lehetővé teszi PowerPoint prezentációk (PPT, PPTX, ODP) programozott létrehozását, szerkesztését és konvertálását a Microsoft PowerPoint telepítése nélkül.
+Az Aspose.Slides for Python via .NET egy hatékony Python könyvtár, amely lehetővé teszi PowerPoint prezentációk (PPT, PPTX, ODP) programozott létrehozását, szerkesztését és konvertálását anélkül, hogy a Microsoft PowerPoint telepítve legyen.
 
 ### Milyen prezentációs funkciókat támogat az Aspose.Slides?
 
-A könyvtár támogatja a szöveg, alakzatok, táblázatok, diagramok, animációk, mesterdiák, hang, videó és egyéb elemek kezelését. Emellett lehetővé teszi a diák előnézetét, renderelését, nyomtatását és exportálását PDF, SVG, HTML és képek formátumaiba.
+A könyvtár támogatja a szöveg, alakzatok, táblázatok, diagramok, animációk, mesterdiák, hang, videó és egyéb elemek kezelését. Emellett lehetővé teszi a diák előnézetét, renderelését és exportálását PDF, SVG, HTML és képek formátumába.
 
-### Konvertálhatok prezentációkat más formátumokba az Aspose.Slides segítségével?
+### Konvertálhatok-e prezentációkat más formátumokba az Aspose.Slides segítségével?
 
-Igen. Az Aspose.Slides lehetővé teszi a PowerPoint fájlok konvertálását PDF, SVG, HTML, JPG, PNG, TIFF és más formátumokba magas pontossággal és teljesítménnyel.
+Igen. Az Aspose.Slides lehetővé teszi a PowerPoint fájlok konvertálását PDF, SVG, HTML, JPG, PNG, TIFF és egyéb formátumokba magas pontossággal és teljesítménnyel.
 
 ### Szükséges a Microsoft PowerPoint az Aspose.Slides használatához?
 
-Nem. Az Aspose.Slides egy önálló API, és nem igényel Microsoft Office‑t vagy más külső szoftvert.
+Nem. Az Aspose.Slides egy önálló API, amely nem igényli a Microsoft Office-t vagy más harmadik féltől származó szoftvert.
 
 ### Milyen platformokat támogat az Aspose.Slides for Python via .NET?
 
-Keresztplatformos, és működik Windows, Linux és macOS környezetekben.
+Keresztplatformos, és Windows, Linux, valamint macOS környezetekben működik.
 
-### Hogyan kezdjek hozzá az Aspose.Slides for Python használatához?
+### Hogyan kezdhetem el az Aspose.Slides for Python használatát?
 
-Telepítheti a PyPi‑n keresztül, és felfedezheti a [Fejlesztői útmutatót](/slides/hu/python-net/developer-guide/) a példákkal, API hivatkozásokkal és oktatóanyagokkal.
+Telepítheti a PyPi-n keresztül, és felfedezheti a [Fejlesztői útmutatót](/slides/hu/python-net/developer-guide/) a példák, API hivatkozások és oktatóanyagok megtekintéséhez.

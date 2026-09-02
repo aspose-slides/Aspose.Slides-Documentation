@@ -12,7 +12,7 @@ keywords:
 - Εξαγωγή PowerPoint σε PDF με Python
 - Εξαγωγή PowerPoint σε SVG με Python
 - Επεξεργασία PowerPoint με Python
-- PowerPoint Python χωρίς Microsoft Office
+- Python PowerPoint χωρίς Microsoft Office
 - Διαχείριση PPTX με Python
 - Προεπισκόπηση διαφανειών με Python
 - Python προσθήκη ήχου σε διαφάνειες
@@ -20,19 +20,19 @@ keywords:
 - OpenDocument
 - Python
 - Aspose.Slides
-description: "Το Aspose.Slides for Python μέσω .NET προσφέρει ένα πλήρες σύνολο λειτουργιών, συμπεριλαμβανομένης της διαχείρισης κειμένου, σχημάτων, πινάκων και κινήσεων, της προσθήκης ήχου και βίντεο στις διαφάνειες, της προεπισκόπησης των διαφανειών και της εξαγωγής σε SVG, PDF και άλλα."
+description: "Το Aspose.Slides για Python μέσω .NET προσφέρει ένα ολοκληρωμένο σύνολο λειτουργιών, συμπεριλαμβανομένης της διαχείρισης κειμένου, σχημάτων, πινάκων και κινούμενων γραφικών, προσθήκης ήχου και βίντεο σε διαφάνειες, προεπισκόπησης διαφανειών και εξαγωγής σε SVG, PDF και άλλα."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-**Καλώς ήρθατε στο Aspose.Slides for Python μέσω .NET**
+**Καλωσήρθατε στο Aspose.Slides for Python μέσω .NET**
 
-![Λογότυπο προϊόντος Aspose.Slides for Python μέσω .NET](aspose_slides-for-python.png)
+![Λογότυπο Προϊόντος Aspose.Slides για Python μέσω .NET](aspose_slides-for-python.png)
 
-Το Aspose.Slides for Python μέσω .NET είναι μία ισχυρή βιβλιοθήκη κλάσεων που επιτρέπει στις εφαρμογές σας να διαβάζουν και να γράφουν παρουσιάσεις PowerPoint® χωρίς να απαιτείται το Microsoft PowerPoint®.
+Το Aspose.Slides for Python μέσω .NET είναι μια ισχυρή βιβλιοθήκη κλάσεων που επιτρέπει στις εφαρμογές σας να διαβάζουν και να γράφουν παρουσιάσεις PowerPoint® χωρίς να απαιτείται το Microsoft PowerPoint®.
 
-Είναι το πρώτο και το μοναδικό στοιχείο που παρέχει πλήρη διαχείριση εγγράφων PowerPoint® για προγραμματιστές Python.
+Είναι το πρώτο και μοναδικό στοιχείο που παρέχει πλήρη διαχείριση εγγράφων PowerPoint® για προγραμματιστές Python.
 
-Το Aspose.Slides for Python μέσω .NET περιλαμβάνει ένα ευρύ φάσμα λειτουργιών όπως εργασία με κείμενο, σχήματα, πίνακες και κινήσεις· προσθήκη ήχου και βίντεο· προεπισκόπηση διαφανειών· και εξαγωγή διαφανειών σε μορφές όπως SVG, PDF και άλλα.
+Το Aspose.Slides for Python μέσω .NET περιλαμβάνει μια ευρεία γκάμα λειτουργιών, όπως εργασία με κείμενο, σχήματα, πίνακες και κινούμενα γραφικά· προσθήκη ήχου και βίντεο· προεπισκόπηση διαφανειών· και εξαγωγή διαφανειών σε μορφές όπως SVG, PDF και άλλα.
 
 {{% /alert %}}
 
@@ -42,11 +42,11 @@ description: "Το Aspose.Slides for Python μέσω .NET προσφέρει έ�
 pip install aspose.slides
 ```
 
-Το πακέτο περιλαμβάνει το .NET runtime που χρειάζεται, επομένως δεν υπάρχει κάτι άλλο για εγκατάσταση και το Microsoft PowerPoint δεν απαιτείται. Python 3.7 ή νεότερο σε Windows, Linux ή macOS.
+Το πακέτο περιλαμβάνει το απαιτούμενο runtime του .NET, έτσι δεν υπάρχει κάτι άλλο για εγκατάσταση και το Microsoft PowerPoint δεν απαιτείται. Python 3.7 ή νεότερο σε Windows, Linux ή macOS.
 
-## Δημιουργία παρουσίασης PowerPoint σε Python
+## Δημιουργία Παρουσίασης PowerPoint σε Python
 
-Αυτό το παράδειγμα δημιουργεί μια παρουσίαση, προσθέτει ένα σχήμα με κείμενο στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα τόσο σε PPTX όσο και σε PDF.
+Αυτό το παράδειγμα δημιουργεί μια παρουσίαση, προσθέτει ένα σχήμα με κείμενο στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα και ως PPTX και ως PDF.
 
 ```python
 import aspose.slides as slides
@@ -60,33 +60,33 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pdf", slides.export.SaveFormat.PDF)
 ```
 
-Η εκτέλεση του δημιουργεί το `presentation.pptx` (περίπου 34 KB) και το `presentation.pdf` (περίπου 36 KB) στον τρέχοντα φάκελο εργασίας.
+Η εκτέλεση του δημιουργεί το `presentation.pptx` (περίπου 34 KB) και το `presentation.pdf` (περίπου 36 KB) στον τρέχοντα φάκελο.
 
 Χωρίς άδεια η βιβλιοθήκη λειτουργεί σε λειτουργία αξιολόγησης, η οποία προσθέτει υδατογράφημα και περιορίζει τον αριθμό των διαφανειών. Δείτε [Licensing](/slides/el/python-net/licensing/) για να εφαρμόσετε μία.
 
-## Πόροι Aspose.Slides for Python μέσω .NET
+## Πόροι Aspose.Slides για Python μέσω .NET
 
-Εξερευνήστε αυτούς τους χρήσιμους πόρους::
+Εξερευνήστε αυτούς τους χρήσιμους πόρους:
 
-- [Διαδικτυακή Τεκμηρίωση Aspose.Slides for Python μέσω .NET](/slides/el/python-net/)
-- [Λειτουργίες Aspose.Slides for Python μέσω .NET](/slides/el/python-net/features-overview/)
-- [Σημειώσεις Έκδοσης Aspose.Slides for Python μέσω .NET](https://releases.aspose.com/slides/el/python-net/release-notes/)
-- [Σελίδα Προϊόντος Aspose.Slides for Python μέσω .NET](https://products.aspose.com/slides/el/python-net/)
-- [Λήψη Aspose.Slides for Python μέσω .NET](https://releases.aspose.com/slides/el/python-net/)
-- [Εγκατάσταση Πακέτου PyPi Aspose.Slides for Python μέσω .NET](https://pypi.org/project/aspose.slides/)
-- [Οδηγός Αναφοράς API Aspose.Slides for Python μέσω .NET](https://reference.aspose.com/slides/el/python-net/)
-- [Δωρεάν Φόρουμ Υποστήριξης Aspose.Slides for Python μέσω .NET](https://forum.aspose.com/c/slides/el/11)
-- [Πληρωμένη Υποστήριξη Helpdesk Aspose.Slides for Python μέσω .NET](https://helpdesk.aspose.com/)
+- [Τεκμηρίωση Online Aspose.Slides για Python μέσω .NET](/slides/el/python-net/)
+- [Λειτουργίες Aspose.Slides για Python μέσω .NET](/slides/el/python-net/features-overview/)
+- [Σημειώσεις Έκδοσης Aspose.Slides για Python μέσω .NET](https://releases.aspose.com/slides/el/python-net/release-notes/)
+- [Σελίδα Προϊόντος Aspose.Slides για Python μέσω .NET](https://products.aspose.com/slides/el/python-net/)
+- [Λήψη Aspose.Slides για Python μέσω .NET](https://releases.aspose.com/slides/el/python-net/)
+- [Εγκατάσταση Πακέτου PyPi Aspose.Slides για Python μέσω .NET](https://pypi.org/project/aspose.slides/)
+- [Οδηγός Αναφοράς API Aspose.Slides για Python μέσω .NET](https://reference.aspose.com/slides/el/python-net/)
+- [Δωρεάν Φόρουμ Υποστήριξης Aspose.Slides για Python μέσω .NET](https://forum.aspose.com/c/slides/el/11)
+- [Πληρωμένο Helpdesk Υποστήριξης Aspose.Slides για Python μέσω .NET](https://helpdesk.aspose.com/)
 
 ## Συχνές Ερωτήσεις
 
 ### Τι είναι το Aspose.Slides for Python μέσω .NET;
 
-Το Aspose.Slides for Python μέσω .NET είναι μια ισχυρή βιβλιοθήκη Python που σας επιτρέπει να δημιουργείτε, να επεξεργάζεστε και να μετατρέπετε παρουσιάσεις PowerPoint (PPT, PPTX, ODP) προγραμματιστικά χωρίς την εγκατάσταση του Microsoft PowerPoint.
+Το Aspose.Slides for Python μέσω .NET είναι μια ισχυρή βιβλιοθήκη Python που σας επιτρέπει να δημιουργείτε, να επεξεργάζεστε και να μετατρέπετε παρουσιάσεις PowerPoint (PPT, PPTX, ODP) προγραμματιστικά χωρίς εγκατεστημένο το Microsoft PowerPoint.
 
 ### Ποιες λειτουργίες παρουσίασης υποστηρίζει το Aspose.Slides;
 
-Η βιβλιοθήκη υποστηρίζει τη διαχείριση κειμένου, σχημάτων, πινάκων, διαγραμμάτων, κινήσεων, κύριων διαφανειών, ήχου, βίντεο και άλλων. Επιτρέπει επίσης προεπισκόπηση διαφανειών, απόδοση, εκτύπωση και εξαγωγή σε μορφές όπως PDF, SVG, HTML και εικόνες.
+Η βιβλιοθήκη υποστηρίζει τη διαχείριση κειμένου, σχημάτων, πινάκων, διαγραμμάτων, κινούμενων γραφικών, κύριων διαφανειών, ήχου, βίντεο και άλλα. Επίσης επιτρέπει προεπισκόπηση διαφανειών, απόδοση και εξαγωγή σε μορφές όπως PDF, SVG, HTML και εικόνες.
 
 ### Μπορώ να μετατρέψω παρουσιάσεις σε άλλες μορφές χρησιμοποιώντας το Aspose.Slides;
 
@@ -94,12 +94,12 @@ with slides.Presentation() as presentation:
 
 ### Απαιτείται το Microsoft PowerPoint για τη χρήση του Aspose.Slides;
 
-Όχι. Το Aspose.Slides είναι ένα αυτόνομο API και δεν απαιτεί το Microsoft Office ούτε κανένα λογισμικό τρίτου.
+Όχι. Το Aspose.Slides είναι ένα αυτόνομο API και δεν απαιτεί το Microsoft Office ή οποιοδήποτε λογισμικό τρίτου.
 
-### Ποιες πλατφόρμες υποστηρίζει το Aspose.Slides for Python μέσω .NET;
+### Πλατφόρμες υποστήριξης του Aspose.Slides for Python μέσω .NET;
 
-Είναι δια-πλατφορμικός και λειτουργεί σε περιβάλλοντα Windows, Linux και macOS.
+Είναι πλατφόρμα-ανεξάρτητο και λειτουργεί σε περιβάλλοντα Windows, Linux και macOS.
 
 ### Πώς μπορώ να ξεκινήσω με το Aspose.Slides for Python;
 
-Μπορείτε να το εγκαταστήσετε μέσω PyPi και να εξερευνήσετε τον [Οδηγός Προγραμματιστή](/slides/el/python-net/developer-guide/) για να ξεκινήσετε με παραδείγματα, αναφορές API και εκπαιδευτικά.
+Μπορείτε να το εγκαταστήσετε μέσω PyPi και να εξερευνήσετε τον [Developer Guide](/slides/el/python-net/developer-guide/) για να ξεκινήσετε με παραδείγματα, αναφορές API και tutorials.

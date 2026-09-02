@@ -9,110 +9,108 @@ keywords:
 - fájlformátum
 - konverzió
 - renderelés
-- nyomtatás
 - formázás
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for Python via .NET-et: egy hatékony API, amely lehetővé teszi PowerPoint és OpenDocument prezentációk hatékony létrehozását, szerkesztését, automatizálását és konvertálását."
+description: "Fedezze fel az Aspose.Slides for Python via .NET-et: egy erőteljes API a PowerPoint és OpenDocument prezentációk hatékony létrehozásához, szerkesztéséhez, automatizálásához és konvertálásához."
 ---
 ## **Támogatott platformok**
-Az Aspose.Slides for Python via .NET a Windows x64 vagy x86, valamint a különféle Linux‑disztribúciók Python 3.5 vagy újabb verzióval telepítve támogatott. A cél‑Linux platformhoz további követelmények szükségesek:
-- GCC‑6 futásidejű könyvtárak (vagy újabb)
-- A .NET Core Runtime függőségei. Maga a .NET Core Runtime telepítése NEM szükséges
-- Python 3.5‑3.7 esetén a `pymalloc` változatú Python‑t kell használni. A `--with-pymalloc` opció alapértelmezésben engedélyezett. Általában a `pymalloc` változatú Python‑t az `m` utótaggal jelölik a fájlnévben.
-- `libpython` megosztott Python‑könyvtár. A `--enable-shared` opció alapértelmezésben le van tiltva, egyes Python‑disztribúciók nem tartalmazzák a `libpython` megosztott könyvtárat. Néhány Linux platformon a `libpython` telepíthető a csomagkezelővel, például: `sudo apt-get install libpython3.7`. Gyakori probléma, hogy a `libpython` könyvtár más helyen van telepítve, mint a rendszer alapértelmezett megosztott könyvtárak könyvtára. A problémát megoldhatja a Python‑fordítás során megadott alternatív könyvtárúthasználattal, vagy létrehozhat szimbolikus linket a `libpython` fájlra a rendszer szabványos megosztott könyvtárak helyén. Általában a `libpython` megosztott könyvtár fájlneve `libpythonX.Ym.so.1.0` Python 3.5‑3.7 esetén, vagy `libpythonX.Y.so.1.0` Python 3.8 vagy újabb esetén (például: `libpython3.7m.so.1.0`, `libpython3.9.so.1.0`).
+Az Aspose.Slides for Python via .NET platformok Windows x64 vagy x86, valamint a Python 3.5 vagy újabb verziója telepítve lévő számos Linux‑disztribúció esetén használhatók. A cél Linux platformhoz további követelmények vannak:
+- GCC‑6 futtatókörnyezet‑könyvtárak (vagy újabb)
+- A .NET Core Runtime függőségei. A .NET Core Runtime telepítése NEM szükséges
+- Python 3.5‑3.7 esetén: A `pymalloc`‑tal készült Python szükséges. A `--with-pymalloc` Python build opció alapértelmezés szerint engedélyezett. Általában a `pymalloc`‑tal készült Python a fájlnévben `m` végződéssel van jelölve.
+- `libpython` megosztott Python könyvtár. A `--enable-shared` Python build opció alapértelmezés szerint ki van kapcsolva, egyes Python disztribúciók nem tartalmazzák a `libpython` megosztott könyvtárat. Néhány Linux platformon a `libpython` megosztott könyvtár telepíthető a csomagkezelővel, például: `sudo apt-get install libpython3.7`. A gyakori probléma, hogy a `libpython` könyvtár más helyen van telepítve, mint a rendszer alapértelmezett megosztott könyvtárainak helye. A problémát megoldhatja, ha a Python build opciókkal alternatív könyvtárúthoz állítja be a könyvtárat a Python fordításakor, vagy szimbolikus linket hoz létre a `libpython` könyvtárfájlra a rendszer standard megosztott könyvtárak helyén. Általában a `libpython` megosztott könyvtár fájlneve `libpythonX.Ym.so.1.0` a Python 3.5‑3.7 esetén, vagy `libpythonX.Y.so.1.0` a Python 3.8 vagy újabb esetén (például: `libpython3.7m.so.1.0`, `libpython3.9.so.1.0`).
 
-Ha további platformok támogatására van szüksége, keresse a „testvértermékeket” – Aspose.Slides for .NET vagy Aspose.Slides for Java.
+Ha további platformok támogatására van szükség, keresse a „testvér” termékeket: Aspose.Slides for .NET vagy Aspose.Slides for Java.
 
 ## **Fájlformátumok és konverziók**
-Az Aspose.Slides for Python via .NET támogatja a legtöbb PowerPoint dokumentumformátumot, és lehetővé teszi azok exportálását a szervezetek által széles körben használt formátumokba. Tekintse meg az alábbi részleteket:
+Aspose.Slides for Python via .NET a legtöbb PowerPoint dokumentumformátumot támogatja. Lehetővé teszi ezen formátumok exportálását a szervezetek által széles körben használt és cserélt népszerű formátumokba is. Tekintse meg a részleteket:
 
 |**Funkció**|**Leírás**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/hu/python-net/ppt-vs-pptx/)|Az Aspose.Slides for Python via .NET a leggyorsabb feldolgozást biztosít ennél a prezentációs dokumentumformátúrnál.|
-|[PPT‑től PPTX‑ig konverzió](/slides/hu/python-net/convert-ppt-to-pptx/)|Az Aspose.Slides for Python via .NET támogatja a PPT‑ről PPTX‑re történő átalakítást.|
-|[Portable Document Format (PDF)](/slides/hu/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot Adobe Portable Document Format (PDF) dokumentumokká.|
-|[XML Parser Specification (XPS)](https://docs.aspose.com/slides/hu/python-net/convert-powerpoint-to-xps/)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot XML Parser Specification (XPS) dokumentumokká.|
+|[Microsoft PowerPoint (PPT)](/slides/hu/python-net/ppt-vs-pptx/)|Az Aspose.Slides for Python via .NET a leggyorsabb feldolgozást biztosít ehhez a prezentációs dokumentumformátumhoz.|
+|[PPT to PPTX conversion](/slides/hu/python-net/convert-ppt-to-pptx/)|Az Aspose.Slides for Python via .NET támogatja a PPT‑ról PPTX‑re konvertálást.|
+|[Portable Document Format (PDF)](/slides/hu/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot az Adobe Portable Document Format (PDF) dokumentumokba.|
+|[XML Parser Specification (XPS)](https://docs.aspose.com/slides/hu/python-net/convert-powerpoint-to-xps/)|Egyetlen metódussal exportálhatja az összes támogatott fájlformátumot az XML Parser Specification (XPS) dokumentumokba.|
 |[Tagged Image File Format (TIFF)](/slides/hu/python-net/convert-powerpoint-to-tiff/)|Exportálhatja az összes támogatott prezentációs fájlformátumot Tagged Image File Format (TIFF) formátumba.|
-|[PPTX‑tól HTML‑ig konverzió] (https://docs.aspose.com/slides/hu/python-net/convert-powerpoint-to-html/)|Az Aspose.Slides for Python via .NET támogatja a PresentationEx HTML formátumba történő konvertálását.|
+|[PPTX To HTML Conversion](https://docs.aspose.com/slides/hu/python-net/convert-powerpoint-to-html/)|Az Aspose.Slides for Python via .NET támogatja a PresentationEx HTML‑re konvertálását.|
 
-## **Renderelés és nyomtatás**
-Az Aspose.Slides for Python via .NET lehetővé teszi a diákat nagy pontossággal különféle grafikus formátumokba renderelni. Tekintse meg a részleteket:
+## **Prezentáció renderelése**
+Aspose.Slides for Python via .NET támogatja a diák magas hűségű renderelését a prezentációs dokumentumokban különböző grafikus formátumokba. Tekintse meg a részleteket:
 
 |**Funkció**|**Leírás**|
 | :- | :- |
-|.NET támogatott képfájlformátumok|Az Aspose.Slides for Python via .NET segítségével a prezentációs diák és a diákon levő képek renderelhetők minden .NET‑támogatott grafikus formátumba, például TIFF, PNG, BMP, JPEG, GIF és metafájlok.|
-|SVG formátum|Az Aspose.Slides for Python via .NET beépített metódusokat biztosít, amelyekkel a prezentációs diák exportálhatók Scalable Vector Graphics (SVG) formátumba.|
-|Prezentáció nyomtatása|Az Aspose.Slides for Python via .NET legújabb verziói beépített nyomtatási metódusokat kínálnak különböző lehetőségekkel.|
+|.NET Supported Image Formats|Az Aspose.Slides for Python via .NET‑el mindegyik, a .NET által támogatott grafikus formátumba renderelheti a prezentációs diákot és a diákon lévő képeket, például TIFF, PNG, BMP, JPEG, GIF és metafájlok.|
+|SVG Format|Az Aspose.Slides for Python via .NET beépített metódusokat is biztosít, amelyekkel a prezentációs diákot Scalable Vector Graphics (SVG) formátumba exportálhatja.|
 
 ## **Tartalmi funkciók**
-Az Aspose.Slides for Python via .NET lehetővé teszi a prezentációk szinte minden elemének vagy tartalmának elérését, módosítását vagy létrehozását. Tekintse meg a részleteket:
+Aspose.Slides for Python via .NET lehetővé teszi, hogy a prezentációs dokumentumok szinte minden eleméhez hozzáférjen, módosítsa vagy létrehozza azt. Tekintse meg a részleteket:
 
 |**Funkció**|**Leírás**|
 | :- | :- |
-|Mesterdiák|A mesterdiák meghatározzák a normál diák elrendezését. Az Aspose.Slides for Python via .NET segítségével elérheti és módosíthatja a prezentációk mesterdiáit.|
-|Normál diák|Az Aspose.Slides for Python via .NET használatával új diák különböző típusait hozhatja létre; továbbá hozzáférhet és módosíthatja a már létező diákat a prezentációkban.|
-|Diák klónozása / másolása|Az Aspose.Slides for Python via .NET beépített metódusai lehetővé teszik meglévő diák klónozását vagy másolását egy prezentáción belül. Másolt és klónozott diák használhatók egyik prezentációból a másikba. Mivel egy dia a mesterdiától örököl elrendezést, a beépített klónozási metódusok automatikusan másolják a mestert.|
-|Dia‑szekciók kezelése|Metódusok a diák különböző szekciókba rendezéséhez egy prezentáción belül.|
-|Helyőrzők és szöveghelyőrzők|Hozzáférhet a helyőrzőkhöz és szöveghelyőrzőkhöz egy diában. Emellett új diát hozhat létre szöveghelyőrzőkkel a megfelelő metódus segítségével.|
-|Fejléc és lábléc|Az Aspose.Slides for Python via .NET megkönnyíti a fejléc/lábléc kezelését a diákon.|
-|Megjegyzések a diákban|Az Aspose.Slides for Python via .NET lehetővé teszi a diákhoz kapcsolódó megjegyzések elérését, módosítását és új megjegyzések hozzáadását.|
-|Alakzat keresése|Megtalálhat egy adott alakzatot egy diában a hozzá tartozó alternatív szöveg alapján.|
-|Háttérképek|Az Aspose.Slides for Python via .NET segítségével a mester- vagy normál dia hátterével dolgozhat.|
-|Szövegdobozok|Szövegdobozok létrehozhatók a semmiből, elérhetők a már létező dobozok, és módosítható a bennük lévő szöveg az eredeti formázás megtartásával.|
-|Téglalap alakzatok|Téglalap alakzatokat hozhat létre vagy módosíthat a Aspose.Slides for Python via .NET‑el.|
-|Vonalas alakzatok|Vonalas (poly line) alakzatok létrehozása vagy módosítása lehetséges.|
-|Ellipszis alakzatok|Ellipszis alakzatok létrehozhatók vagy módosíthatók.|
-|Csoportos alakzatok|Az Aspose.Slides for Python via .NET támogatja a csoportos alakzatokat.|
-|Auto alakzatok|Az Aspose.Slides for Python via .NET támogatja az auto alakzatokat.|
-|SmartArt|Az Aspose.Slides for Python via .NET támogatja a SmartArt alakzatokat a MS PowerPointban.|
-|Diagramok|Az Aspose.Slides for Python via .NET támogatja a MSO diagramokat a PowerPointban.|
-|Alakzatok sorosítása|Az Aspose.Slides for Python via .NET sokféle alakzatot támogat. Ha egy alakzat nincs natívan támogatva, egy sorosítási módszerrel exportálhatja azt egy meglévő diáról, majd később újra felhasználhatja igényei szerint.|
-|Képkocka keretek|Képek kezelése képkocka keretekben az Aspose.Slides for Python via .NET‑el.|
-|Hangkeretek|Hangfájlok hivatkozása vagy beágyazása hangkeretekbe a diákon.|
-|Videokeretek|Videófájlok kezelése videokeretekben; az Aspose.Slides for Python via .NET támogatja a hivatkozott és beágyazott videókat is.|
-|OLE keret|OLE objektumok kezelése OLE keretekben.|
-|Táblázatok|Az Aspose.Slides for Python via .NET támogatja a táblázatokat a diákon.|
+|Mester dia|A mester diák határozzák meg a normál diák elrendezését. Az Aspose.Slides for Python via .NET lehetővé teszi a mester diák hozzáférését és módosítását a prezentációs dokumentumokban.|
+|Normál dia|Az Aspose.Slides for Python via .NET‑el új, különböző típusú diák létrehozhatók; a meglévő diákhoz is hozzáférhet és módosíthatja őket a prezentációkban.|
+|Diák klónozása / másolása|Az Aspose.Slides for Python via .NET beépített metódusai lehetővé teszik egy meglévő dia klónozását vagy másolását egy prezentáción belül. Másolt és klónozott diák használhatók egy prezentációból a másikba is. Mivel egy dia az elrendezést a mester diáktól örökli, a beépített klónozási metódusok automatikusan átmásolják a mestert klónozáskor.|
+|Diaké szakaszok kezelése|Metódusok a diák különböző szakaszokba szervezéséhez egy prezentáción belül.|
+|Helyőrzők és szöveghelyőrzők|Hozzáférhet a helyőrzőkhöz és szöveghelyőrzőkhöz egy dián. Ezen felül létrehozhat egy diát szöveghelyőrzőkkel teljesen a nulláról a megfelelő metódus használatával.|
+|Fejléc és lábléc|Az Aspose.Slides for Python via .NET megkönnyíti a fejlécek/lábfejek kezelését a diákon.|
+|Megjegyzések a diákon|Az Aspose.Slides for Python via .NET‑el hozzáférhet és módosíthatja egy dia megjegyzéseit, valamint új megjegyzéseket is hozzáadhat.|
+|Alakzat keresése|Egy adott alakzatot a hozzá tartozó alternatív szöveg alapján is megtalálhatja egy dián.|
+|Háttér|Az Aspose.Slides for Python via .NET lehetővé teszi a háttérrel való munkát, amely egy mester vagy normál dia része a prezentációban.|
+|Szövegdobozok|Szövegdobozok hozhatók létre a semmiből. Létező szövegdobozokhoz is hozzáférhet. A szövegeket módosíthatja anélkül, hogy az eredeti formázás elveszne.|
+|Téglalap alakzatok|Téglalap alakzatok létrehozhatók vagy módosíthatók az Aspose.Slides for Python via .NET‑el.|
+|Polivonalak|Polivonalak létrehozhatók vagy módosíthatók az Aspose.Slides for Python via .NET‑el.|
+|Ellipszis alakzatok|Ellipszis alakzatok létrehozhatók vagy módosíthatók az Aspose.Slides for Python via .NET‑el.|
+|Csoport alakzatok|Az Aspose.Slides for Python via .NET támogatja a csoportosított alakzatokat.|
+|Automatikus alakzatok|Az Aspose.Slides for Python via .NET támogatja az automatikus alakzatokat.|
+|SmartArt|Az Aspose.Slides for Python via .NET támogatja a SmartArt alakzatokat az MS PowerPointben.|
+|Diagramok|Az Aspose.Slides for Python via .NET támogatja az MSO diagramokat a PowerPointben.|
+|Alakzatok sorosítása|Az Aspose.Slides for Python via .NET sok alakzatot támogat. Ha egy alakzat nincs támogatva, egy sorosítási módszerrel az adott alakzatot egy meglévő diáról sorosíthatja, így a továbbiakban igényei szerint felhasználható.|
+|Képkockák|Képek kezelhetők képkockákban az Aspose.Slides for Python via .NET‑el.|
+|Hangkeretek|Hangfájlok hivatkozhatók vagy beágyazhatók hangkeretekbe a diákon az Aspose.Slides for Python via .NET‑el.|
+|Videokeretek|Videofájlok kezelhetők videokeretekben. Az Aspose.Slides for Python via .NET támogatja a hivatkozott és beágyazott videókat is.|
+|OLE keret|OLE objektumok kezelhetők OLE keretekben az Aspose.Slides for Python via .NET‑el.|
+|Táblázatok|Az Aspose.Slides for Python via .NET táblázatokat támogat a diákon.|
 |ActiveX vezérlők|ActiveX vezérlők támogatása.|
 |VBA makrók|VBA makrók kezelése a prezentációkban.|
-|Szövegkeret|Bármely alakzat szövege elérhető a hozzá tartozó szövegkereten keresztül.|
-|Szöveg beolvasása|Beépített beolvasási metódusokkal szöveget olvashat a prezentációból vagy diáról.|
-|Animációk|Animációk alkalmazása alakzatokra.|
-|Diavetítések|Az Aspose.Slides for Python via .NET támogatja a diavetítéseket és a diák közötti átmeneteket.|
+|Szövegkeret|Bármely alakzathoz tartozó szöveghez hozzáférhet a szövegkeret segítségével.|
+|Szöveg beolvasása|A prezentáció vagy dia szintjén beolvashatja a szöveget beépített beolvasási metódusokkal.|
+|Animációk|Animációk alkalmazhatók alakzatokra.|
+|Diavetítések|Az Aspose.Slides for Python via .NET támogatja a diavetítéseket és diaátmeneteket.|
 
 ## **Formázási funkciók**
-Az Aspose.Slides for Python via .NET segítségével szövegeket és alakzatokat formázhat a diákon. Tekintse meg a részleteket:
+Az Aspose.Slides for Python via .NET‑el formázhatja a szövegeket és alakzatokat a prezentációs diákon. Tekintse meg a részleteket:
 
 |**Funkció**|**Leírás**|
 | :- | :- |
-|Szövegformázás|<p>Az Aspose.Slides for Python via .NET‑ben a szövegek a formához tartozó szövegkeretekben kezelhetők. Így a bekezdésekkel és szakaszokkal formázhatja a szöveget. A következő elemek formázhatók:</p><p>- Betűtípus</p><p>- Betűméret</p><p>- Betűszín</p><p>- Betűárnyalatok</p><p>- Bekezdésigazítás</p><p>- Bekezdés felsorolás</p><p>- Bekezdés orientáció</p>|
-|Alakzatformázás|<p>Az Aspose.Slides for Python via .NET‑ben a dia alapeleme a forma. A következő tulajdonságok formázhatók:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (minta, színátmenet, egyszínű)</p><p>- Szöveg</p><p>- Kép</p>|
+|Text Formatting|<p>Az Aspose.Slides for Python via .NET‑ben a szövegeket a alakzatokhoz tartozó szövegkereteken keresztül kezelheti. Így a szövegeket a szövegkeretekhez tartozó bekezdések és részletek segítségével formázhatja. Ezeket a szövegelemeket az Aspose.Slides for Python via .NET segítségével formázhatja.</p><p>- Betűtípus</p><p>- Betűméret</p><p>- Betűszín</p><p>- Betűárnyalatok</p><p>- Bekezdés igazítása</p><p>- Bekezdés felsorolása</p><p>- Bekezdés tájolása</p>|
+|Shape Formatting|<p>Az Aspose.Slides for Python via .NET‑ben a dia alapvető eleme egy alakzat. Ezeket az alakzat elemeket az Aspose.Slides for Python via .NET segítségével formázhatja:</p><p>- Pozíció</p><p>- Méret</p><p>- Vonal</p><p>- Kitöltés (beleértve a mintát, gradientet, szilárdot)</p><p>- Szöveg</p><p>- Kép</p>|
 
-## **GYIK**
+## **FAQ**
 
-**Szükséges-e a Microsoft PowerPoint telepítése a szerveren/PC‑n, hogy a könyvtár működjön?**
+### Szükséges-e a Microsoft PowerPoint telepítése a szerveren/PC‑n a könyvtár működéséhez?
 
 Nem. A PowerPoint nem szükséges; az Aspose.Slides egy önálló motor a prezentációk létrehozásához, szerkesztéséhez, konvertálásához és rendereléséhez.
 
-**Hogyan működik a többszálúság? Párhuzamosítható-e a feldolgozás?**
+### Hogyan működik a több szálas feldolgozás? Párhuzamosítható a feldolgozás?
 
-Biztonságos különböző dokumentumok feldolgozása külön szálakon; ugyanazt a [prezentáció](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumot nem szabad [több szál](/slides/hu/python-net/multithreading/) egyszerre használni.
+Biztonságosan feldolgozhat különböző dokumentumokat külön szálakon; ugyanazt a [presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumot nem szabad [multiple threads](/slides/hu/python-net/multithreading/) egyidejűleg használni.
 
-**Támogatottak-e a fájljelszavak és a titkosítás?**
+### Támogatottak-e a fájljelszavak és a titkosítás?
 
-Igen. [Megnyithat](/slides/hu/python-net/password-protected-presentation/) titkosított prezentációkat, beállíthat vagy eltávolíthat nyitási és írási jelszót, valamint ellenőrizheti a védelmi állapotot.
+Igen. [You can](/slides/hu/python-net/password-protected-presentation/) megnyithat titkosított prezentációkat, beállíthat vagy eltávolíthat nyitási és írási jelszót, és ellenőrizheti a védelem állapotát.
 
-**Fontcsomagokra kell gondolni Linux konténerekben?**
+### Kell-e foglalkozni a betűcsomagokkal Linux konténerekben?
 
-Igen. Ajánlott a gyakori fontcsomagok telepítése és/vagy a [font könyvtárak explicite megadása](/slides/hu/python-net/custom-font/) az alkalmazásban a váratlan helyettesítések elkerülése érdekében.
+Igen. Ajánlott a gyakori betűcsomagok telepítése és/vagy a [specify font directories](/slides/hu/python-net/custom-font/) kifejezett megadása az alkalmazásban a váratlan helyettesítések elkerülése érdekében.
 
-**Vannak korlátozások az értékelő verzióban?**
+### Vannak-e korlátozások az értékelő verzióban?
 
-Az [értékelő módban](/slides/hu/python-net/licensing/) egy vízjel kerül a kimenetre, és bizonyos korlátozások érvényesek; egy [30 napos ideiglenes licenc](https://purchase.aspose.com/temporary-license/) elérhető a teljes funkcionalitás teszteléséhez.
+Az [evaluation mode](/slides/hu/python-net/licensing/) esetén egy vízjel kerül a kimenetre, és bizonyos korlátozások érvényesek; egy [30‑day temporary license](https://purchase.aspose.com/temporary-license/) elérhető a teljes funkcionalitású teszteléshez.
 
-**Támogatott-e külső formátumok importálása egy prezentációba (PDF/HTML → PPTX)?**
+### Támogatott-e külső formátumok importálása egy prezentációba (PDF/HTML → PPTX)?
 
-Igen. [PDF oldalak és HTML tartalom](/slides/hu/python-net/import-presentation/) hozzáadhatók egy prezentációhoz, ezzel diák lesznek.
+Igen. PDF‑oldalakat és HTML‑tartalmat [PDF pages and HTML content](/slides/hu/python-net/import-presentation/) adhat egy prezentációhoz, amelyet diákra konvertál.

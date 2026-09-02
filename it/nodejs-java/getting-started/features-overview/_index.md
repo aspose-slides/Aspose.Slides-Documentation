@@ -9,7 +9,6 @@ keywords:
 - formato file
 - conversione
 - rendering
-- stampa
 - formattazione
 - PowerPoint
 - OpenDocument
@@ -17,97 +16,96 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Scopri Aspose.Slides per Node.js via Java: una potente API per creare, modificare, automatizzare e convertire presentazioni PowerPoint e OpenDocument in modo efficiente."
+description: "Scopri Aspose.Slides for Node.js via Java: una potente API per creare, modificare, automatizzare e convertire presentazioni PowerPoint e OpenDocument in modo efficiente."
 ---
 ## **Piattaforme supportate**
 Aspose.Slides for Node.js via Java è un'API indipendente dalla piattaforma. Può essere utilizzata su qualsiasi piattaforma (Windows, Linux, macOS, ecc.) dove è installato Node.js 7 o superiore. Oracle JDK 8 o superiore è un altro requisito.
 
 ## **Formati file e conversioni**
-Aspose.Slides for Node.js via Java supporta la maggior parte dei formati di documenti PowerPoint. Consente anche di esportarli nei formati di file più diffusi che le organizzazioni usano e condividono tra loro. Consulta i dettagli qui di seguito:
+Aspose.Slides for Node.js via Java supporta la maggior parte dei formati di documento PowerPoint. Consente inoltre di esportarli nei formati di file più popolari usati dalle organizzazioni per condividere i contenuti. Consulta questi dettagli:
 
 |**Funzionalità**|**Descrizione**|
 | :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for Node.js via Java offre l'elaborazione più veloce per questo formato di documento di presentazione.|
-|PPT to PPTX conversion|Aspose.Slides for Node.js via Java supporta la conversione da PPT a PPTX|
-|Portable Document Format (PDF)|È possibile esportare tutti i formati di file supportati in documenti Adobe Portable Document Format (PDF) con un unico metodo.|
-|XML Parser Specification (XPS)|È possibile esportare tutti i formati di file supportati in documenti XML Parser Specification (XPS) con un unico metodo.|
-|Tagged Image File Format (TIFF)|È possibile esportare tutti i formati di file di presentazione supportati in Tagged Image File Format (TIFF).|
+|Microsoft PowerPoint (PPT)|Aspose.Slides for Node.js via Java fornisce l'elaborazione più veloce per questo formato di documento di presentazione.|
+|PPT to PPTX conversion|Aspose.Slides for Node.js via Java supporta la conversione da PPT a PPTX.|
+|Portable Document Format (PDF)|Puoi esportare tutti i formati di file supportati in documenti Adobe Portable Document Format (PDF) con un unico metodo.|
+|XML Parser Specification (XPS)|Puoi esportare tutti i formati di file supportati in documenti XML Parser Specification (XPS) con un unico metodo.|
+|Tagged Image File Format (TIFF)|Puoi esportare tutti i formati di file di presentazione supportati in Tagged Image File Format (TIFF).|
 |PPTX To HTML Conversion|Aspose.Slides for Node.js via Java supporta la conversione di PresentationEx in formato HTML.|
 
-## **Rendering e stampa**
-Aspose.Slides for Node.js via Java supporta il rendering ad alta fedeltà delle diapositive di una presentazione in diversi formati grafici. Consulta i dettagli qui di seguito:
+## **Rendering di presentazioni**
+Aspose.Slides for Node.js via Java supporta il rendering ad alta fedeltà delle diapositive di una presentazione in diversi formati grafici. Consulta questi dettagli:
 
 |**Funzionalità**|**Descrizione**|
 | :- | :- |
-|Java Supported Image Formats|Utilizzando Aspose.Slides for Node.js via Java, è possibile renderizzare le diapositive della presentazione e le immagini sulle diapositive in tutti i formati grafici supportati da Java, come TIFF, PNG, BMP, JPEG, GIF.|
-|SVG Format|Aspose.Slides for Node.js via Java fornisce inoltre metodi integrati che consentono di esportare le diapositive della presentazione in formati Scalable Vector Graphics (SVG).|
-|Presentation Printing|Le versioni più recenti di Aspose.Slides for Node.js via Java forniscono metodi di stampa integrati con diverse opzioni.|
+|Formati immagine supportati da Java|Utilizzando Aspose.Slides for Node.js via Java, è possibile renderizzare le diapositive della presentazione e le immagini sulle diapositive in tutti i formati grafici supportati da Java, come TIFF, PNG, BMP, JPEG, GIF.|
+|Formato SVG|Aspose.Slides for Node.js via Java fornisce anche metodi integrati che consentono di esportare le diapositive della presentazione nei formati Scalable Vector Graphics (SVG).|
 
 ## **Funzionalità del contenuto**
-Aspose.Slides per Node.js via Java consente di accedere, modificare o creare quasi tutti gli elementi o i contenuti dei documenti di presentazione. Consulta i dettagli qui di seguito:
+Aspose.Slides for Node.js via Java consente di accedere, modificare o creare praticamente tutti gli elementi o contenuti dei documenti di presentazione. Consulta questi dettagli:
 
 |**Funzionalità**|**Descrizione**|
 | :- | :- |
-|Master Slides|Le master slide definiscono il layout delle slide normali. Aspose.Slides for Node.js via Java consente di accedere e modificare le Master Slide dei documenti di presentazione|
-|Normal Slides|Con Aspose.Slides for Node.js via Java è possibile creare nuove slide di diversi tipi; è inoltre possibile accedere e modificare le slide esistenti nelle presentazioni|
-|Cloning / Copying Slides|Sono disponibili metodi integrati forniti da Aspose.Slides for Node.js via Java che consentono di clonare o copiare le slide esistenti all'interno di una presentazione. È inoltre possibile utilizzare slide copiate e clonate da una presentazione all'altra. Poiché una slide eredita il layout dalla master slide, i metodi di clonazione integrati copiano automaticamente la master durante la clonazione|
-|Managing Slides sections|Metodi per organizzare le slide in diverse sezioni all'interno di una presentazione|
-|Place Holders and Text Holders|È possibile accedere ai segnaposti e ai segnaposti di testo in una slide. Inoltre, è possibile creare una slide con segnaposti di testo da zero utilizzando il metodo appropriato|
-|Header and Footers|Aspose.Slides for Node.js via Java semplifica la gestione di intestazioni e piè di pagina nelle slide|
-|Notes in Slides|Con Aspose.Slides for Node.js via Java è possibile accedere e modificare le note associate a una slide e anche aggiungere nuove note|
-|Finding a Shape|È inoltre possibile trovare una forma specifica in una slide utilizzando il testo alternativo associato alla forma|
-|Backgrounds|Aspose.Slides for Node.js via Java consente di gestire gli sfondi associati a una master slide o a una slide normale in una presentazione|
-|Text Boxes|Le caselle di testo possono essere create da zero. È possibile accedere alle caselle di testo esistenti. È inoltre possibile modificare i loro testi senza perdere il formato originale|
-|Rectangle Shapes|È possibile creare o modificare forme rettangolari con Aspose.Slides for Node.js via Java|
-|Poly Line Shapes|È possibile creare o modificare forme a polilinea con Aspose.Slides for Node.js via Java|
-|Ellipse Shapes|È possibile creare o modificare forme ellittiche con Aspose.Slides for Node.js via Java|
-|Group Shapes|Aspose.Slides for Node.js via Java supporta le forme raggruppate|
-|Auto Shapes|Aspose.Slides for Node.js via Java supporta le forme automatiche|
-|SmartArt|Aspose.Slides for Node.js via Java fornisce supporto per le forme SmartArt in MS PowerPoint|
-|Charts|Aspose.Slides for Node.js via Java fornisce supporto per i grafici MSO in PowerPoint|
-|Shapes Serialization|Aspose.Slides for Node.js via Java supporta un gran numero di forme. Quando Aspose.Slides for Node.js via Java non supporta una forma, è possibile utilizzare un metodo di serializzazione per serializzare quella forma da una slide esistente. In questo modo è possibile riutilizzare la forma secondo le proprie esigenze|
-|Picture Frames|È possibile gestire le immagini nei riquadri immagine con Aspose.Slides for Node.js via Java|
-|Audio Frames|È possibile collegare o incorporare file audio nei riquadri audio sulle slide con Aspose.Slides for Node.js via Java|
-|Video Frames|È possibile gestire file video nei riquadri video. Aspose.Slides for Node.js via Java fornisce anche supporto per video collegati e incorporati|
-|OLE Frame|È possibile gestire oggetti OLE nei riquadri OLE con Aspose.Slides per Node.js via Java|
-|Tables|Aspose.Slides per Node.js via Java supporta le tabelle nelle slide|
-|ActiveX Controls|Supporto per i controlli ActiveX|
-|VBA Macros|Supporto per la gestione delle macro VBA all'interno delle presentazioni|
-|Text Frame|È possibile accedere al testo di qualsiasi forma attraverso il riquadro testo associato a quella forma|
-|Text Scanning|È possibile scansionare il testo in una presentazione a livello di presentazione o di slide tramite metodi di scansione integrati|
-|Animations|È possibile applicare animazioni alle forme|
-|Slide Shows|Aspose.Slides per Node.js via Java supporta le presentazioni a diapositive e le transizioni tra diapositive|
+|Diapositive master|Le diapositive master definiscono il layout delle diapositive normali. Aspose.Slides for Node.js via Java consente di accedere e modificare le diapositive master dei documenti di presentazione.|
+|Diapositive normali|Con Aspose.Slides for Node.js via Java, è possibile creare nuove diapositive di diversi tipi; è inoltre possibile accedere e modificare le diapositive esistenti nelle presentazioni.|
+|Clonazione / Copia di diapositive|Esistono metodi integrati forniti da Aspose.Slides for Node.js via Java che consentono di clonare o copiare diapositive esistenti all'interno di una presentazione. È inoltre possibile utilizzare diapositive copiate e clonate da una presentazione all'altra. Poiché una diapositiva eredita il layout dalla diapositiva master, i metodi di clonazione integrati copiano automaticamente il master durante la clonazione.|
+|Gestione delle sezioni delle diapositive|Metodi per organizzare le diapositive in diverse sezioni all'interno di una presentazione.|
+|Segnaposti e segnaposti testo|Puoi accedere ai segnaposti e ai segnaposti di testo in una diapositiva. Inoltre, è possibile creare una diapositiva con segnaposti di testo da zero utilizzando il metodo appropriato.|
+|Intestazioni e piè di pagina|Aspose.Slides for Node.js via Java facilita la gestione di intestazioni/​piè di pagina nelle diapositive.|
+|Note nelle diapositive|Con Aspose.Slides for Node.js via Java, è possibile accedere e modificare le note associate a una diapositiva e anche aggiungere nuove note.|
+|Ricerca di una forma|Puoi anche trovare una forma particolare in una diapositiva utilizzando il testo alternativo associato alla forma.|
+|Sfondi|Aspose.Slides for Node.js via Java consente di lavorare con gli sfondi associati a una diapositiva master o normale in una presentazione.|
+|Caselle di testo|Le caselle di testo possono essere create da zero. È possibile accedere alle caselle di testo esistenti. È inoltre possibile modificare i loro testi senza perdere il formato originale del testo.|
+|Forme rettangolari|Puoi creare o modificare forme rettangolari con Aspose.Slides for Node.js via Java.|
+|Forme polilinea|Puoi creare o modificare forme polilinea con Aspose.Slides for Node.js via Java.|
+|Forme ellittiche|Puoi creare o modificare forme ellittiche con Aspose.Slides for Node.js via Java.|
+|Forme raggruppate|Aspose.Slides for Node.js via Java supporta le forme raggruppate.|
+|Forme automatiche|Aspose.Slides for Node.js via Java supporta le forme automatiche.|
+|SmartArt|Aspose.Slides for Node.js via Java fornisce supporto per le forme SmartArt in MS PowerPoint.|
+|Grafici|Aspose.Slides for Node.js via Java fornisce supporto per i grafici MSO in PowerPoint.|
+|Serializzazione delle forme|Aspose.Slides for Node.js via Java supporta un gran numero di forme. Quando Aspose.Slides for Node.js via Java non supporta una forma, è possibile utilizzare un metodo di serializzazione attraverso il quale è possibile serializzare quella forma da una diapositiva esistente. In questo modo, è possibile utilizzare la forma successivamente secondo le proprie esigenze.|
+|Cornici immagine|Puoi gestire le immagini nelle cornici immagine con Aspose.Slides for Node.js via Java.|
+|Cornici audio|Puoi collegare o incorporare file audio in cornici audio sulle diapositive con Aspose.Slides for Node.js via Java.|
+|Cornici video|Puoi gestire i file video nelle cornici video. Aspose.Slides for Node.js via Java fornisce inoltre supporto per video collegati e incorporati.|
+|Cornice OLE|Puoi gestire gli oggetti OLE nelle cornici OLE con Aspose.Slides for Node.js via Java.|
+|Tabelle|Aspose.Slides for Node.js via Java supporta le tabelle nelle diapositive.|
+|Controlli ActiveX|Supporto per i controlli ActiveX.|
+|Macro VBA|Supporto per la gestione delle macro VBA all'interno delle presentazioni.|
+|Cornice testo|Puoi accedere al testo di qualsiasi forma tramite la cornice testo associata a quella forma.|
+|Scansione del testo|Puoi scansionare il testo in una presentazione a livello di presentazione o di diapositiva tramite metodi di scansione integrati.|
+|Animazioni|Puoi applicare animazioni alle forme.|
+|Presentazioni|Aspose.Slides for Node.js via Java supporta le presentazioni e le transizioni di diapositiva.|
 
 ## **Funzionalità di formattazione**
-Con Aspose.Slides per Node.js via Java è possibile formattare testi e forme sulle slide delle presentazioni. Consulta i dettagli qui di seguito:
+Con Aspose.Slides for Node.js via Java, è possibile formattare testi e forme sulle diapositive delle presentazioni. Consulta questi dettagli:
 
 |**Funzionalità**|**Descrizione**|
 | :- | :- |
-|Text Formatting|<p>In Aspose.Slides for Node.js via Java, è possibile gestire i testi tramite i riquadri testo associati alle forme. Pertanto, è possibile formattare i testi utilizzando i paragrafi e le parti associate ai riquadri testo. Questi elementi di testo possono essere formattati tramite Aspose.Slides for Node.js via Java.</p><p>- Tipo di carattere</p><p>- Dimensione del carattere</p><p>- Colore del carattere</p><p>- Sfumature del carattere</p><p>- Allineamento del paragrafo</p><p>- Elenco puntato del paragrafo</p><p>- Orientamento del paragrafo</p>|
-|Shape Formatting|<p>In Aspose.Slides for Node.js via Java, l'elemento base di una slide è una forma. È possibile formattare questi elementi forma con Aspose.Slides for Node.js via Java:</p><p>- Posizione</p><p>- Dimensione</p><p>- Linea</p><p>- Riempimento (inclusi Pattern, Gradiente, Solido)</p><p>- Testo</p><p>- Immagine</p>|
+|Formattazione del testo|<p>In Aspose.Slides for Node.js via Java, è possibile gestire i testi tramite le cornici testo associate alle forme. Pertanto, è possibile formattare i testi utilizzando i paragrafi e le sezioni associate alle cornici testo. Questi elementi di testo possono essere formattati tramite Aspose.Slides for Node.js via Java.</p><p>- Tipo di carattere</p><p>- Dimensione del carattere</p><p>- Colore del carattere</p><p>- Toni del carattere</p><p>- Allineamento del paragrafo</p><p>- Elenchi puntati del paragrafo</p><p>- Orientamento del paragrafo</p>|
+|Formattazione della forma|<p>In Aspose.Slides for Node.js via Java, l'elemento base di una diapositiva è una forma. È possibile formattare questi elementi forma con Aspose.Slides for Node.js via Java:</p><p>- Posizione</p><p>- Dimensione</p><p>- Linea</p><p>- Riempimento (inclusi Pattern, Gradiente, Solido)</p><p>- Testo</p><p>- Immagine</p>|
 
 ## **FAQ**
 
-**Devo installare Microsoft PowerPoint sul server/PC perché la libreria funzioni?**
+### Devo installare Microsoft PowerPoint sul server/PC affinché la libreria funzioni?
 
-No. PowerPoint non è richiesto; Aspose.Slides è un motore autonomo per creare, modificare, convertire e rendere presentazioni.
+No. PowerPoint non è necessario; Aspose.Slides è un motore autonomo per creare, modificare, convertire e renderizzare presentazioni.
 
-**Come funziona il multithreading? È possibile parallelizzare l'elaborazione?**
+### Come funziona il multithreading? È possibile parallelizzare l'elaborazione?
 
-È sicuro elaborare documenti diversi in thread diversi; lo stesso [presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) object non deve essere utilizzato da [multiple threads](/slides/it/nodejs-java/multithreading/) contemporaneamente.
+È sicuro elaborare documenti diversi in thread diversi; lo stesso oggetto [presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) non deve essere utilizzato da [multiple threads](/slides/it/nodejs-java/multithreading/) contemporaneamente.
 
-**Sono supportate le password dei file e la crittografia?**
+### Le password dei file e la crittografia sono supportate?
 
-Sì. [Puoi](/slides/it/nodejs-java/password-protected-presentation/) aprire presentazioni crittografate, impostare o rimuovere una password di apertura e scrittura, e verificare lo stato di protezione.
+Sì. [È possibile](/slides/it/nodejs-java/password-protected-presentation/) aprire presentazioni crittografate, impostare o rimuovere una password di apertura e scrittura, e verificare lo stato di protezione.
 
-**Devo preoccuparmi dei pacchetti di font nei container Linux?**
+### Devo preoccuparmi dei pacchetti di font nei container Linux?
 
-Sì. È consigliato installare pacchetti di font comuni e/o specificare esplicitamente le [specificare le directory dei font](/slides/it/nodejs-java/custom-font/) nella tua applicazione per evitare sostituzioni inattese.
+Sì. È consigliato installare i pacchetti di font comuni e/o specificare esplicitamente le [directory dei font](/slides/it/nodejs-java/custom-font/) nella tua applicazione per evitare sostituzioni inaspettate.
 
-**Ci sono limitazioni nella versione di valutazione?**
+### Ci sono limitazioni nella versione di valutazione?
 
 In [modalità di valutazione](/slides/it/nodejs-java/licensing/), viene aggiunta una filigrana all'output e si applicano alcune limitazioni; è disponibile una [licenza temporanea di 30 giorni](https://purchase.aspose.com/temporary-license/) per testare tutte le funzionalità.
 
-**È supportata l'importazione di formati esterni in una presentazione (PDF/HTML → PPTX)?**
+### L'importazione di formati esterni in una presentazione (PDF/HTML → PPTX) è supportata?
 
-Sì. È possibile aggiungere [pagine PDF e contenuto HTML](/slides/it/nodejs-java/import-presentation/) a una presentazione, trasformandole in slide.
+Sì. È possibile aggiungere [pagine PDF e contenuti HTML](/slides/it/nodejs-java/import-presentation/) a una presentazione, trasformandoli in diapositive.

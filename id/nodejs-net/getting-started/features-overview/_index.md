@@ -5,68 +5,67 @@ weight: 20
 url: /id/nodejs-net/features-overview/
 ---
 ## **Platform yang Didukung**
-Aspose.Slides for Node.js via .NET adalah API yang independen platform. Ini dapat digunakan pada platform apa pun (Windows, Linux, MacOS, dll.) di mana Node.js 7 atau lebih tinggi terinstal. Oracle JDK 8 atau lebih tinggi merupakan persyaratan lain.
+Aspose.Slides for Node.js via .NET adalah API independen platform. Itu dapat digunakan pada platform apa pun (Windows, Linux, MacOS, dll.) di mana Node.js 7 atau lebih tinggi telah diinstal. Oracle JDK 8 atau lebih tinggi adalah persyaratan lainnya.
 
 ## **Format File dan Konversi**
-Aspose.Slides for Node.js via .NET mendukung sebagian besar format dokumen PowerPoint. Ini juga memungkinkan Anda mengekspor mereka ke format file populer yang digunakan organisasi dan dibagikan di antara mereka. Lihat detail berikut:
+Aspose.Slides for Node.js via .NET mendukung kebanyakan format dokumen PowerPoint. Ini juga memungkinkan Anda mengekspor mereka ke format file populer yang digunakan dan dibagikan antar organisasi. Lihat detail berikut:
 
-|**Fitur**|**Deskripsi**|
+|**Feature**|**Description**|
 | :- | :- |
 |Microsoft PowerPoint (PPT)|Aspose.Slides for Node.js via .NET menyediakan pemrosesan tercepat untuk format dokumen presentasi ini.|
-|Konversi PPT ke PPTX|Aspose.Slides for Node.js via .NET mendukung konversi PPT ke PPTX|
+|PPT to PPTX conversion|Aspose.Slides for Node.js via .NET mendukung konversi PPT ke PPTX|
 |Portable Document Format (PDF)|Anda dapat mengekspor semua format file yang didukung ke dokumen Adobe Portable Document Format (PDF) dengan satu metode.|
 |XML Parser Specification (XPS)|Anda dapat mengekspor semua format file yang didukung ke dokumen XML Parser Specification (XPS) dengan satu metode.|
 |Tagged Image File Format (TIFF)|Anda dapat mengekspor semua format file presentasi yang didukung ke Tagged Image File Format (TIFF).|
-|Konversi PPTX ke HTML|Aspose.Slides for Node.js via .NET mendukung konversi PresentationEx ke format HTML.|
+|PPTX To HTML Conversion|Aspose.Slides for Node.js via .NET mendukung konversi PresentationEx ke format HTML.|
 
-## **Rendering dan Pencetakan**
-Aspose.Slides for Node.js via .NET mendukung rendering dengan fidelitas tinggi dari slide dalam presentasi ke berbagai format grafis. Lihat detail berikut:
+## **Rendering Presentasi**
+Aspose.Slides for Node.js via .NET mendukung rendering tingkat tinggi slide dalam presentasi ke berbagai format grafis. Lihat detail berikut:
 
-|**Fitur**|**Deskripsi**|
+|**Feature**|**Description**|
 | :- | :- |
 |.NET Supported Image Formats|Dengan menggunakan Aspose.Slides for Node.js via .NET, Anda dapat merender slide presentasi dan gambar pada slide ke semua format grafis yang didukung .NET seperti TIFF, PNG, BMP, JPEG, GIF.|
-|Format SVG|Aspose.Slides for Node.js via .NET juga menyediakan metode bawaan yang memungkinkan Anda mengekspor slide presentasi ke format Scalable Vector Graphics (SVG).|
-|Pencetakan Presentasi|Versi terbaru Aspose.Slides for Node.js via .NET menyediakan metode pencetakan bawaan dengan berbagai opsi.|
+|SVG Format|Aspose.Slides for Node.js via .NET juga menyediakan metode bawaan yang memungkinkan Anda mengekspor slide presentasi ke format Scalable Vector Graphics (SVG).|
 
 ## **Fitur Konten**
 Aspose.Slides for Node.js via .NET memungkinkan Anda mengakses, memodifikasi, atau membuat hampir semua item atau konten dokumen presentasi. Lihat detail berikut:
 
-|**Fitur**|**Deskripsi**|
+|**Feature**|**Description**|
 | :- | :- |
-|Master Slides|Master Slides mendefinisikan tata letak slide normal. Aspose.Slides for Node.js via .NET memungkinkan Anda mengakses dan memodifikasi Master Slides dari dokumen presentasi|
-|Normal Slides|Dengan Aspose.Slides for Node.js via .NET, Anda dapat membuat slide baru berbagai jenis; Anda juga dapat mengakses dan memodifikasi slide yang sudah ada dalam presentasi|
-|Menggandakan / Menyalin Slide|Ada metode bawaan yang disediakan oleh Aspose.Slides for Node.js via .NET yang memungkinkan Anda menggandakan atau menyalin slide yang ada dalam sebuah presentasi. Anda juga dapat menggunakan slide yang disalin dan digandakan dari satu presentasi ke presentasi lain. Karena sebuah slide mewarisi tata letaknya dari master slide, metode penggandaan bawaan secara otomatis menyalin master saat menggandakan|
-|Mengelola Bagian Slide|Metode untuk mengatur slide dalam berbagai bagian di dalam sebuah presentasi|
-|Penampung Tempat dan Penampung Teks|Anda dapat mengakses place holders dan text holders dalam sebuah slide. Selain itu, Anda dapat membuat slide dengan text holders dari awal menggunakan metode yang sesuai|
-|Header dan Footer|Aspose.Slides for Node.js via .NET memudahkan penanganan header/footer pada slide|
-|Catatan pada Slide|Dengan Aspose.Slides for Node.js via .NET, Anda dapat mengakses dan memodifikasi catatan yang terkait dengan slide serta menambahkan catatan baru|
-|Menemukan Bentuk|Anda dapat menemukan bentuk tertentu dari slide menggunakan teks alternatif yang terkait dengan bentuk tersebut|
-|Latar Belakang|Aspose.Slides for Node.js via .NET memungkinkan Anda bekerja dengan latar belakang yang terkait dengan master atau slide normal dalam sebuah presentasi|
-|Kotak Teks|Kotak teks dapat dibuat dari awal. Anda dapat mengakses kotak teks yang sudah ada. Anda juga dapat memodifikasi teksnya tanpa kehilangan format teks asli|
-|Bentuk Persegi Panjang|Anda dapat membuat atau memodifikasi bentuk persegi panjang dengan Aspose.Slides for Node.js via .NET|
-|Bentuk Garis Polyline|Anda dapat membuat atau memodifikasi bentuk garis polyline dengan Aspose.Slides for Node.js via .NET|
-|Bentuk Elips|Anda dapat membuat atau memodifikasi bentuk Elips dengan Aspose.Slides for Node.js via .NET|
-|Group Shapes|Aspose.Slides for Node.js via .NET mendukung group shapes|
-|Auto Shapes|Aspose.Slides for Node.js via .NET mendukung auto shapes|
-|SmartArt|Aspose.Slides for Node.js via .NET menyediakan dukungan untuk bentuk SmartArt di MS PowerPoint|
-|Charts|Aspose.Slides for Node.js via .NET menyediakan dukungan untuk MSO Charts di PowerPoint|
-|Serialisasi Bentuk|Aspose.Slides for Node.js via .NET mendukung banyak bentuk. Ketika Aspose.Slides for Node.js via .NET tidak mendukung sebuah bentuk, Anda dapat menggunakan metode serialisasi yang memungkinkan Anda menyerialisasi bentuk tersebut dari slide yang ada. Dengan cara ini, Anda dapat menggunakan bentuk tersebut lebih lanjut sesuai kebutuhan Anda|
-|Picture Frames|Anda dapat mengelola gambar dalam picture frames dengan Aspose.Slides for Node.js via .NET|
-|Audio Frames|Anda dapat menautkan atau menyematkan file audio dalam audio frames pada slide dengan Aspose.Slides for Node.js via .NET|
-|Video Frames|Anda dapat menangani file video dalam video frames. Aspose.Slides for Node.js via .NET juga menyediakan dukungan untuk video yang ditautkan dan disematkan|
-|OLE Frame|Anda dapat mengelola OLE Objects dalam OLE frames dengan Aspose.Slides for Node.js via .NET|
-|Tables|Aspose.Slides for Node.js via .NET mendukung tabel dalam slide|
-|ActiveX Controls|Dukungan untuk kontrol ActiveX|
-|VBA Macros|Dukungan untuk mengelola VBA macros di dalam presentasi|
-|Text Frame|Anda dapat mengakses teks pada bentuk apa pun melalui text frame yang terkait dengan bentuk tersebut|
-|Text Scanning|Anda dapat memindai teks dalam presentasi pada tingkat presentasi atau slide melalui metode pemindaian bawaan|
-|Animations|Anda dapat menerapkan animasi pada bentuk|
-|Slide Shows|Aspose.Slides for Node.js via .NET mendukung slide shows dan transisi slide|
+|Master Slides|Master Slides menentukan tata letak slide normal. Aspose.Slides for Node.js via .NET memungkinkan Anda mengakses dan memodifikasi Master Slides dari dokumen presentasi.|
+|Normal Slides|Dengan Aspose.Slides for Node.js via .NET, Anda dapat membuat slide baru dengan berbagai jenis; Anda juga dapat mengakses dan memodifikasi slide yang ada dalam presentasi.|
+|Cloning / Copying Slides|Ada metode bawaan yang disediakan oleh Aspose.Slides for Node.js via .NET yang memungkinkan Anda menggandakan atau menyalin slide yang ada dalam sebuah presentasi. Anda juga dapat menggunakan slide yang disalin dan digandakan dari satu presentasi ke presentasi lain. Karena slide mewarisi tata letaknya dari master slide, metode penggandaan bawaan secara otomatis menyalin master saat menggandakan.|
+|Managing Slides sections|Metode untuk mengatur slide dalam berbagai bagian di dalam sebuah presentasi.|
+|Place Holders and Text Holders|Anda dapat mengakses placeholder dan text holder dalam sebuah slide. Selain itu, Anda dapat membuat slide dengan text holder dari awal menggunakan metode yang sesuai.|
+|Header and Footers|Aspose.Slides for Node.js via .NET memudahkan penanganan header/footer dalam slide.|
+|Notes in Slides|Dengan Aspose.Slides for Node.js via .NET, Anda dapat mengakses dan memodifikasi catatan yang terkait dengan slide serta menambahkan catatan baru.|
+|Finding a Shape|Anda juga dapat menemukan shape tertentu dari slide menggunakan teks alternatif yang terkait dengan shape tersebut.|
+|Backgrounds|Aspose.Slides for Node.js via .NET memungkinkan Anda bekerja dengan latar belakang yang terkait dengan master atau slide normal dalam sebuah presentasi.|
+|Text Boxes|Text box dapat dibuat dari awal. Anda dapat mengakses text box yang ada. Anda juga dapat memodifikasi teksnya tanpa kehilangan format teks asli.|
+|Rectangle Shapes|Anda dapat membuat atau memodifikasi shape persegi panjang dengan Aspose.Slides for Node.js via .NET.|
+|Poly Line Shapes|Anda dapat membuat atau memodifikasi shape poly line dengan Aspose.Slides for Node.js via .NET.|
+|Ellipse Shapes|Anda dapat membuat atau memodifikasi shape ellipse dengan Aspose.Slides for Node.js via .NET.|
+|Group Shapes|Aspose.Slides for Node.js via .NET mendukung group shapes.|
+|Auto Shapes|Aspose.Slides for Node.js via .NET mendukung auto shapes.|
+|SmartArt|Aspose.Slides for Node.js via .NET menyediakan dukungan untuk shape SmartArt di MS PowerPoint.|
+|Charts|Aspose.Slides for Node.js via .NET menyediakan dukungan untuk MSO Charts di PowerPoint.|
+|Shapes Serialization|Aspose.Slides for Node.js via .NET mendukung sejumlah besar shape. Ketika Aspose.Slides for Node.js via .NET tidak memiliki dukungan untuk sebuah shape, Anda dapat menggunakan metode serialisasi untuk men-serialize shape tersebut dari slide yang ada. Dengan cara ini, Anda dapat menggunakan shape tersebut lebih lanjut sesuai kebutuhan Anda.|
+|Picture Frames|Anda dapat mengelola gambar dalam frame gambar dengan Aspose.Slides for Node.js via .NET.|
+|Audio Frames|Anda dapat menautkan atau menyematkan file audio dalam frame audio pada slide dengan Aspose.Slides for Node.js via .NET.|
+|Video Frames|Anda dapat menangani file video dalam frame video. Aspose.Slides for Node.js via .NET juga menyediakan dukungan untuk video yang ditautkan dan disematkan.|
+|OLE Frame|Anda dapat mengelola OLE Objects dalam frame OLE dengan Aspose.Slides for Node.js via .NET.|
+|Tables|Aspose.Slides for Node.js via .NET mendukung tabel dalam slide.|
+|ActiveX Controls|Dukungan untuk kontrol ActiveX.|
+|VBA Macros|Dukungan untuk mengelola VBA macro di dalam presentasi.|
+|Text Frame|Anda dapat mengakses teks pada shape apa pun melalui text frame yang terkait dengan shape tersebut.|
+|Text Scanning|Anda dapat memindai teks dalam presentasi pada tingkat presentasi atau slide melalui metode pemindaian bawaan.|
+|Animations|Anda dapat menerapkan animasi pada shape.|
+|Slide Shows|Aspose.Slides for Node.js via .NET mendukung slide show dan transisi slide.|
 
 ## **Fitur Pemformatan**
-Dengan Aspose.Slides for Node.js via .NET, Anda dapat memformat teks dan bentuk pada slide dalam presentasi. Lihat detail berikut:
+Dengan Aspose.Slides for Node.js via .NET, Anda dapat memformat teks dan shape pada slide dalam presentasi. Lihat detail berikut:
 
-|**Fitur**|**Deskripsi**|
+|**Feature**|**Description**|
 | :- | :- |
-|Pemformatan Teks|<p>Di Aspose.Slides for Node.js via .NET, Anda dapat mengelola teks melalui text frame yang terkait dengan bentuk. Dengan demikian, Anda dapat memformat teks menggunakan paragraf dan bagian yang terkait dengan text frame. Elemen teks ini dapat diformat melalui Aspose.Slides for Node.js via .NET.</p><p>- Jenis Font</p><p>- Ukuran Font</p><p>- Warna Font</p><p>- Nuansa Font</p><p>- Perataan Paragraf</p><p>- Penomoran Paragraf</p><p>- Orientasi Paragraf</p>|
-|Pemformatan Bentuk|<p>Di Aspose.Slides for Node.js via .NET, elemen dasar slide adalah shape. Anda dapat memformat elemen shape ini dengan Aspose.Slides for Node.js via .NET:</p><p>- Posisi</p><p>- Ukuran</p><p>- Garis</p><p>- Isi (termasuk Pola, Gradien, Solid)</p><p>- Teks</p><p>- Gambar</p>|
+|Text Formatting|<p>Dalam Aspose.Slides for Node.js via .NET, Anda dapat mengelola teks melalui text frame yang terkait dengan shape. Oleh karena itu, Anda dapat memformat teks menggunakan paragraf dan bagian yang terkait dengan text frame. Elemen teks ini dapat diformat melalui Aspose.Slides for Node.js via .NET.</p><p>- Jenis Font</p><p>- Ukuran Font</p><p>- Warna Font</p><p>- Nuansa Font</p><p>- Perataan Paragraf</p><p>- Bullet Paragraf</p><p>- Orientasi Paragraf</p>|
+|Shape Formatting|<p>Dalam Aspose.Slides for Node.js via .NET, elemen dasar sebuah slide adalah shape. Anda dapat memformat elemen shape ini dengan Aspose.Slides for Node.js via .NET:</p><p>- Posisi</p><p>- Ukuran</p><p>- Garis</p><p>- Isi (termasuk Pola, Gradien, Solid)</p><p>- Teks</p><p>- Gambar</p>|
