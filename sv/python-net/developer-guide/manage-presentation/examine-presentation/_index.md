@@ -25,15 +25,15 @@ description: "Utforska bilder, struktur och metadata i PowerPoint- och OpenDocum
 ---
 ## **Översikt**
 
-Den här artikeln visar hur du granskar presentationsinformation i Aspose.Slides. Den förklarar hur du fastställer ett presentations nuvarande format utan att ladda hela filen, läser dess dokumentegenskaper och uppdaterar dessa egenskaper vid behov.
+Den här artikeln visar hur man granskar presentationsinformation i Aspose.Slides. Den förklarar hur man bestämmer en presentations nuvarande format utan att läsa in hela filen, läser dess dokumentegenskaper och uppdaterar dessa egenskaper vid behov.
 
-Exemplen är baserade på API:erna [PresentationInfo](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/) och [DocumentProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/) och demonstrerar typiska operationer för att arbeta med presentationsmetadata.
+Exemplen är baserade på API:erna [PresentationInfo](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentationinfo/) och [DocumentProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/) och demonstrerar vanliga operationer för att arbeta med presentationsmetadata.
 
 ## **Kontrollera ett presentationsformat**
 
 Innan du arbetar med en presentation kan du vilja ta reda på vilket format (PPT, PPTX, ODP och andra) presentationen för närvarande har.
 
-Du kan kontrollera en presentations format utan att ladda presentationen. Se denna Python-kod:
+Du kan kontrollera en presentations format utan att läsa in presentationen. Se den här Python-koden:
 
 ```py
 import aspose.slides as slides
@@ -50,7 +50,7 @@ print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 
 ## **Hämta presentationsegenskaper**
 
-Den här Python-koden visar hur du hämtar presentationsegenskaper (information om presentationen):
+Denna Python-kod visar hur du hämtar presentationsegenskaper (information om presentationen):
 
 ```py
 import aspose.slides as slides
@@ -62,7 +62,7 @@ print(props.subject)
 print(props.title)
 ```
 
-Du kanske vill se [egenskaperna under klassen DocumentProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/#properties) .
+Du kanske vill se [properties under the DocumentProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/documentproperties/#properties) klassen.
 
 ## **Uppdatera presentationsegenskaper**
 
@@ -72,16 +72,19 @@ Låt oss säga att vi har en PowerPoint-presentation med dokumentegenskaperna so
 
 ![Originala dokumentegenskaper för PowerPoint-presentationen](input_properties.png)
 
-Detta kodexempel visar hur du redigerar vissa presentationsegenskaper:
+Det här kodexemplet visar hur du redigerar några presentationsegenskaper:
 
 ```py
+import aspose.slides as slides
+import datetime
+
 file_name = "sample.pptx"
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+info = slides.PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
 properties.title = "My title"
-properties.last_saved_time = datetime.now()
+properties.last_saved_time = datetime.datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)
@@ -95,29 +98,27 @@ Resultaten av att ändra dokumentegenskaperna visas nedan.
 
 För att få mer information om en presentation och dess säkerhetsattribut kan du finna dessa länkar användbara:
 
-- [Kontrollera om en presentation är krypterad](https://docs.aspose.com/slides/sv/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kontrollera om en presentation är skrivskyddad (endast läsning)](https://docs.aspose.com/slides/sv/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kontrollera om en presentation är lösenordsskyddad innan den laddas](https://docs.aspose.com/slides/sv/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bekräfta lösenordet som används för att skydda en presentation](https://docs.aspose.com/slides/sv/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Lösenordsskydda presentationer](/slides/sv/python-net/password-protected-presentation/)
+- [Skrivskydda presentationer](/slides/sv/python-net/write-protected-presentation/)
 
 ## **FAQ**
 
 **Hur kan jag kontrollera om typsnitt är inbäddade och vilka de är?**
 
-Leta efter [information om inbäddade typsnitt](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) på presentationsnivå, jämför sedan dessa poster med mängden [typsnitt som faktiskt används i innehållet](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_fonts/) för att identifiera vilka typsnitt som är kritiska för rendering.
+Leta efter [embedded-font information](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) på presentationsnivå, jämför sedan dessa poster med mängden [fonts actually used across content](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsmanager/get_fonts/) för att identifiera vilka typsnitt som är kritiska för återgivning.
 
 **Hur kan jag snabbt avgöra om filen har dolda bilder och hur många?**
 
 Iterera genom [slide collection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/) och inspektera varje bilds [visibility flag](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slide/hidden/).
 
-**Kan jag upptäcka om anpassad bildstorlek och orientering används, och om de skiljer sig från standardvärdena?**
+**Kan jag upptäcka om anpassad bildstorlek och orientering används, och om de skiljer sig från standardinställningarna?**
 
 Ja. Jämför den aktuella [slide size](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/slide_size/) och orienteringen med standardinställningarna; detta hjälper dig förutse beteendet vid utskrift och export.
 
 **Finns det ett snabbt sätt att se om diagram refererar till externa datakällor?**
 
-Ja. Gå igenom alla [charts](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chart/), kontrollera deras [data source](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdata/data_source_type/), och notera om data är intern eller länkbaserad, inklusive eventuella brutna länkar.
+Ja. Gå igenom alla [charts](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chart/), kontrollera deras [data source](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdata/data_source_type/), och notera om datan är intern eller länkbaserad, inklusive eventuella brutna länkar.
 
 **Hur kan jag bedöma 'tunga' bilder som kan sakta rendering eller PDF-export?**
 
-För varje bild räknar du objekt och letar efter stora bilder, transparens, skuggor, animationer och multimedia; tilldela ett ungefärligt komplexitetspoäng för att flagga potentiella prestandaproblem.
+För varje bild räknar du objekt och letar efter stora bilder, transparens, skuggor, animationer och multimedia; tilldela ett grovt komplexitetsvärde för att identifiera potentiella prestandaflaskhalsar.

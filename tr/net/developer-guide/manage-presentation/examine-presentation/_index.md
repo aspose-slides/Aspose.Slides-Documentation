@@ -1,5 +1,5 @@
 ---
-title: .NET'te Sunum Bilgilerini Al ve Güncelle
+title: .NET'te Sunum Bilgilerini Getirme ve Güncelleme
 linktitle: Sunum Bilgileri
 type: docs
 weight: 30
@@ -22,57 +22,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarındaki slaytları, yapıyı ve meta verileri .NET kullanarak keşfedin; daha hızlı içgörüler ve daha akıllı içerik denetimleri sağlayın."
+description: ".NET kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve meta verileri keşfedin; daha hızlı içgörüler ve daha akıllı içerik denetimleri için."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde sunum bilgilerini nasıl inceleyeceğinizi gösterir. Sunumun tam dosyasını yüklemeden mevcut formatını nasıl belirleyeceğinizi, belge özelliklerini nasıl okuyacağınızı ve gerektiğinde bu özellikleri nasıl güncelleyeceğinizi açıklar.
+Bu makale, Aspose.Slides'da sunum bilgilerini nasıl inceleyeceğinizi gösterir. Sunumun tam dosyasını yüklemeden mevcut formatını belirleme, belge özelliklerini okuma ve gerektiğinde bu özellikleri güncelleme yöntemlerini açıklar.
 
-Örnekler, [PresentationInfo](https://reference.aspose.com/slides/tr/net/aspose.slides/presentationinfo/) ve [DocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/) API'lerine dayanmakta olup, sunum meta verileriyle çalışmak için tipik işlemleri göstermektedir.
+Örnekler, [PresentationInfo](https://reference.aspose.com/slides/tr/net/aspose.slides/presentationinfo/) ve [DocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/) API'lerine dayanır ve sunum meta verileriyle çalışmak için tipik işlemleri gösterir.
 
-## **Bir Sunum Formatını Kontrol Etme**
+## **Sunum Formatını Kontrol Et**
 
-Bir sunum üzerinde çalışmadan önce, sunumun o anda hangi formatta (PPT, PPTX, ODP ve diğerleri) olduğunu öğrenmek isteyebilirsiniz.
+Sunum üzerinde çalışmadan önce, mevcut formatının (PPT, PPTX, ODP ve diğerleri) ne olduğunu öğrenmek isteyebilirsiniz.
 
-Sunumu yüklemeden bir sunumun formatını kontrol edebilirsiniz. Aşağıdaki C# koduna bakın:
+Sunumun formatını sunumu yüklemeden kontrol edebilirsiniz. Aşağıdaki C# koduna bakın:
 
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 Console.WriteLine(info.LoadFormat); // PPTX
 
-IPPresentationInfo info2 = PresentationFactory.Instance.GetPresentationInfo("pres.ppt");
+IPresentationInfo info2 = PresentationFactory.Instance.GetPresentationInfo("pres.ppt");
 Console.WriteLine(info2.LoadFormat); // PPT
 
-IPPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres.odp");
+IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres.odp");
 Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
-## **Sunum Özelliklerini Almak**
+## **Sunum Özelliklerini Al**
 
-Bu C# kodu, sunum özelliklerini (sunum hakkındaki bilgileri) nasıl alacağınızı gösterir:
+Bu C# kodu, sunum özelliklerini (sunumla ilgili bilgileri) nasıl alacağınızı gösterir:
 
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 IDocumentProperties props = info.ReadDocumentProperties();
 Console.WriteLine(props.CreatedTime);
 Console.WriteLine(props.Subject);
 Console.WriteLine(props.Title);
-// ...
+// ..
 ```
 
-DocumentProperties sınıfı altındaki [özellikleri](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/#properties) görebilirsiniz.
+DocumentProperties sınıfı altındaki [özellikler](https://reference.aspose.com/slides/tr/net/aspose.slides/documentproperties/#properties) sınıfına bakabilirsiniz.
 
-## **Sunum Özelliklerini Güncelleme**
+## **Sunum Özelliklerini Güncelle**
 
-Aspose.Slides, sunum özelliklerinde değişiklik yapmanızı sağlayan [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) metodunu sunar.
+Aspose.Slides, sunum özelliklerinde değişiklik yapmanıza olanak tanıyan [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) yöntemini sağlar.
 
-Aşağıda gösterilen belge özelliklerine sahip bir PowerPoint sunumumuz olduğunu varsayalım.
+Diyelim ki aşağıda gösterilen belge özelliklerine sahip bir PowerPoint sunumumuz var.
 
 ![PowerPoint sunumunun orijinal belge özellikleri](input_properties.png)
 
 Bu kod örneği, bazı sunum özelliklerini nasıl düzenleyeceğinizi gösterir:
 
 ```c#
+using Aspose.Slides;
+
 string fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
@@ -85,37 +91,35 @@ info.UpdateDocumentProperties(properties);
 info.WriteBindedPresentation(fileName);
 ```
 
-Belge özelliklerinin değiştirilmesinin sonuçları aşağıda gösterilmiştir.
+Belge özelliklerini değiştirmenin sonuçları aşağıda gösterilmiştir.
 
-![PowerPoint sunumunun değiştirilmiş belge özellikleri](output_properties.png)
+![PowerPoint sunumunun değiştirilen belge özellikleri](output_properties.png)
 
-## **Yararlı Bağlantılar**
+## **Faydalı Bağlantılar**
 
-Bir sunum ve güvenlik özellikleri hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılar yararlı olabilir:
+Bir sunum ve güvenlik nitelikleri hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılar faydalı olabilir:
 
-- [Bir Sunumun Şifrelenip Şifrelenmediğini Kontrol Etme](https://docs.aspose.com/slides/tr/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Bir Sunumun Yazma Koruması (salt okunur) olup olmadığını Kontrol Etme](https://docs.aspose.com/slides/tr/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Bir Sunumu Yüklemeden Önce Parola Koruması Olup Olmadığını Kontrol Etme](https://docs.aspose.com/slides/tr/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bir Sunumu Koruyan Parolayı Doğrulama](https://docs.aspose.com/slides/tr/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Sunumları Parola ile Koru](/slides/tr/net/password-protected-presentation/)
+- [Sunumları Yazma Korumasına Al](/slides/tr/net/write-protected-presentation/)
 
 ## **SSS**
 
-**Yazı tiplerinin gömülü olup olmadığını ve hangileri olduğunu nasıl kontrol edebilirim?**
+**Sunularda fontların gömülü olup olmadığını ve hangi fontların gömülü olduğunu nasıl kontrol edebilirim?**
 
-Sunum seviyesindeki [embedded-font information](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/getembeddedfonts/) arayın, ardından bu girdileri [fonts actually used across content](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/getfonts/) kümesiyle karşılaştırarak hangi yazı tiplerinin render için kritik olduğunu belirleyin.
+Sunum seviyesinde [embedded-font information](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/getembeddedfonts/) arayın, ardından bu girdileri içerik boyunca kullanılan [fonts actually used across content](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/getfonts/) ile karşılaştırarak hangi fontların render için kritik olduğunu belirleyin.
 
-**Dosyanın gizli slaytları olup olmadığını ve kaç tane olduğunu hızlıca nasıl öğrenebilirim?**
+**Dosyada gizli slaytların olup olmadığını ve sayısını nasıl hızla öğrenebilirim?**
 
-[slide collection](https://reference.aspose.com/slides/tr/net/aspose.slides/slidecollection/) içinde döngü yapın ve her slaydın [visibility flag](https://reference.aspose.com/slides/tr/net/aspose.slides/slide/hidden/) özelliğini inceleyin.
+[slide collection](https://reference.aspose.com/slides/tr/net/aspose.slides/slidecollection/) üzerinden döngü yapın ve her slaydın [visibility flag](https://reference.aspose.com/slides/tr/net/aspose.slides/slide/hidden/) özelliğini inceleyin.
 
-**Özel slayt boyutu ve yönlendirmesi kullanılıyor mu, varsayılanlardan farklı mı olduğunu tespit edebilir miyim?**
+**Özel slayt boyutu ve yönünün kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**
 
-Evet. Mevcut [slide size](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/slidesize/) ve yönlendirmeyi standart ön ayarlarla karşılaştırın; bu, yazdırma ve dışa aktarım davranışını öngörmeye yardımcı olur.
+Evet. Mevcut [slide size](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/slidesize/) ve yönü standart ön ayarlarla karşılaştırın; bu, baskı ve dışa aktarma davranışını önceden tahmin etmeye yardımcı olur.
 
-**Grafiklerin dış veri kaynaklarına başvurup başvurmadığını hızlı bir şekilde görebilir miyim?**
+**Grafiklerin harici veri kaynaklarına başvurup başvurmadığını hızlıca görmek mümkün mü?**
 
-Evet. Tüm [charts](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chart/) üzerinde gezinerek, [data source](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartdata/datasourcetype/) kontrol edin ve verinin dahili mi yoksa bağlantı temelli mi olduğunu, varsa kırık bağlantıları not edin.
+Evet. Tüm [charts](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chart/) öğelerini dolaşın, [data source](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/chartdata/datasourcetype/) tipini kontrol edin ve verinin içsel mi yoksa bağlantı bazlı mı olduğunu, ayrıca kırık bağlantılar olup olmadığını not edin.
 
-**Render veya PDF dışa aktarımını yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
+**Render veya PDF dışa aktarmayı yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
 
-Her slayt için nesne sayılarını toplayın ve büyük görüntüler, şeffaflık, gölgeler, animasyonlar ve multimedya gibi öğeleri arayın; potansiyel performans darboğazlarını işaretlemek için kabaca bir karmaşıklık puanı atayın.
+Her slayt için nesne sayısını sayın ve büyük resimler, şeffaflık, gölgeler, animasyonlar ve multimedya öğelerini kontrol edin; potansiyel performans sorunlarını işaretlemek için kabaca bir karmaşıklık puanı atayın.

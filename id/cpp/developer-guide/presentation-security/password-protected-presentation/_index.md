@@ -1,295 +1,238 @@
 ---
-title: Amankan Presentasi dengan Kata Sandi di C++
+title: Lindungi Presentasi dengan Kata Sandi di C++
 linktitle: Proteksi Kata Sandi
 type: docs
 weight: 20
 url: /id/cpp/password-protected-presentation/
 keywords:
-- Kunci PowerPoint
-- Kunci presentasi
-- Buka kunci PowerPoint
-- Buka kunci presentasi
-- Lindungi PowerPoint
-- Lindungi presentasi
-- Tetapkan kata sandi
-- Tambahkan kata sandi
-- Enkripsi PowerPoint
-- Enkripsi presentasi
-- Dekripsi PowerPoint
-- Dekripsi presentasi
-- Proteksi tulis
-- Keamanan PowerPoint
-- Keamanan presentasi
-- Hapus kata sandi
-- Hapus proteksi
-- Hapus enkripsi
-- Nonaktifkan kata sandi
-- Nonaktifkan proteksi
-- Hapus proteksi tulis
+- presentasi dengan proteksi kata sandi
+- kata sandi pembuka
+- enkripsi PowerPoint
+- dekripsi PowerPoint
+- validasi kata sandi presentasi
+- periksa kata sandi presentasi
+- buka presentasi terenkripsi
+- hapus enkripsi
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara dengan mudah mengunci dan membuka kunci presentasi PowerPoint dan OpenDocument yang dilindungi kata sandi dengan Aspose.Slides untuk C++. Amankan presentasi Anda."
+description: "Enkripsi, deteksi, validasi, buka, dan dekripsi presentasi PowerPoint PPT dan PPTX yang dilindungi kata sandi di C++ dengan Aspose.Slides."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Ketika Anda melindungi presentasi dengan kata sandi, artinya Anda menetapkan kata sandi yang memberlakukan batasan tertentu pada presentasi. Untuk menghapus batasan tersebut, kata sandi harus dimasukkan. Presentasi yang dilindungi kata sandi dianggap sebagai presentasi terkunci.
+Kata sandi pembuka mengenkripsi presentasi. Kata sandi yang benar diperlukan untuk memuat dan melihat konten presentasi, sehingga perlindungan ini memberikan kerahasiaan.
 
-Biasanya, Anda dapat menetapkan kata sandi untuk memberlakukan batasan ini pada sebuah presentasi:
+Kata sandi pembuka berbeda dari kata sandi proteksi penulisan. Proteksi penulisan membatasi modifikasi tetapi tidak mengenkripsi konten atau mencegah presentasi dimuat. Untuk mengelola kata sandi dalam memodifikasi presentasi, lihat [Proteksi Penulisan Presentasi](/slides/id/cpp/write-protected-presentation/).
 
-- **Modifikasi**
+Alur kerja di bawah ini berlaku untuk presentasi PPT dan PPTX. Contoh-contoh menggunakan kedua format di mana perilaku berbasis file dan berbasis aliran penting.
 
-  Jika Anda ingin hanya pengguna tertentu yang dapat memodifikasi presentasi Anda, Anda dapat menetapkan batasan modifikasi. Batasan ini mencegah orang mengubah, memodifikasi, atau menyalin hal dalam presentasi Anda (kecuali mereka memasukkan kata sandi).
+## **Enkripsi Presentasi dengan Kata Sandi Pembuka**
 
-  Namun, dalam kasus ini, bahkan tanpa kata sandi, pengguna tetap dapat mengakses dokumen Anda dan membukanya. Dalam mode hanya-baca ini, pengguna dapat melihat isi atau hal—tautan hiperteks, animasi, efek, dan lainnya—di dalam presentasi Anda, tetapi mereka tidak dapat menyalin item atau menyimpan presentasi.
+Gunakan [IProtectionManager::Encrypt](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprotectionmanager/encrypt/) untuk menetapkan kata sandi pembuka. Kemudian gunakan [IPresentation::Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/save/) untuk menyimpan presentasi yang dienkripsi.
 
-- **Pembukaan**
+Contoh berikut mengenkripsi presentasi PPTX:
 
-  Jika Anda ingin hanya pengguna tertentu yang dapat membuka presentasi Anda, Anda dapat menetapkan batasan pembukaan. Batasan ini mencegah orang bahkan melihat isi presentasi Anda (kecuali mereka memasukkan kata sandi).
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-  Secara teknis, batasan pembukaan juga mencegah pengguna memodifikasi presentasi Anda: Ketika orang tidak dapat membuka sebuah presentasi, mereka tidak dapat mengubah atau membuat perubahan pada presentasi tersebut.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-  **Catatan** bahwa ketika Anda melindungi presentasi dengan kata sandi untuk mencegah pembukaan, file presentasi menjadi terenkripsi.
-
-## **Cara Melindungi Presentasi dengan Kata Sandi Secara Online**
-
-1. Buka halaman [**Aspose.Slides Lock**](https://products.aspose.app/slides/id/lock) kami. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Klik **Drop or upload your files**.
-
-3. Pilih file yang ingin Anda lindungi dengan kata sandi di komputer Anda. 
-
-4. Masukkan kata sandi pilihan Anda untuk perlindungan edit; Masukkan kata sandi pilihan Anda untuk perlindungan tampilan. 
-
-5. Jika Anda ingin pengguna melihat presentasi Anda sebagai salinan final, centang kotak **Mark as final**.
-
-6. Klik **PROTECT NOW.** 
-
-7. Klik **DOWNLOAD NOW.**
-
-## **Proteksi Kata Sandi untuk Presentasi di Aspose.Slides**
-**Format yang Didukung**
-
-Aspose.Slides mendukung proteksi kata sandi, enkripsi, dan operasi serupa untuk presentasi dalam format berikut:
-
-- PPTX dan PPT - Presentasi Microsoft PowerPoint
-- ODP - Presentasi OpenDocument
-- OTP - Template Presentasi OpenDocument
-
-**Operasi yang Didukung**
-
-Aspose.Slides memungkinkan Anda menggunakan proteksi kata sandi pada presentasi untuk mencegah perubahan dengan cara berikut:
-
-- Mengenkripsi sebuah presentasi
-- Menetapkan proteksi tulis pada sebuah presentasi
-
-**Operasi Lainnya**
-
-Aspose.Slides memungkinkan Anda melakukan tugas lain yang melibatkan proteksi kata sandi dan enkripsi dengan cara berikut:
-
-- Mendekripsi sebuah presentasi; membuka presentasi yang terenkripsi
-- Menghapus enkripsi; menonaktifkan proteksi kata sandi
-- Menghapus proteksi tulis dari sebuah presentasi
-- Mendapatkan properti sebuah presentasi yang terenkripsi
-- Memeriksa apakah sebuah presentasi dienkripsi
-- Memeriksa apakah sebuah presentasi dilindungi kata sandi.
-
-## **Enkripsi Presentasi**
-
-Anda dapat mengenkripsi sebuah presentasi dengan menetapkan kata sandi. Kemudian, untuk memodifikasi presentasi yang terkunci, pengguna harus memasukkan kata sandi.
-
-Untuk mengenkripsi atau melindungi presentasi dengan kata sandi, Anda harus menggunakan metode encrypt (dari [ProtectionManager](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.protection_manager)) untuk menetapkan kata sandi pada presentasi. Anda memberikan kata sandi ke metode encrypt dan menggunakan metode save untuk menyimpan presentasi yang kini sudah terenkripsi.
-
-Kode contoh ini menunjukkan cara mengenkripsi sebuah presentasi:
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Tetapkan Proteksi Tulis pada Presentasi** 
+## **Muat Presentasi yang Dienkripsi**
 
-Anda dapat menambahkan tanda “Do not modify” pada sebuah presentasi. Dengan cara ini, Anda memberi tahu pengguna bahwa Anda tidak mengizinkan mereka mengubah presentasi.  
+Setel [LoadOptions::set_Password](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_password/) ke kata sandi pembuka dan terapkan opsi ke [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) saat memuat file. Memuat akan gagal ketika kata sandi pembuka diperlukan tetapi kata sandi yang diberikan tidak ada atau salah.
 
-**Catatan** bahwa proses proteksi tulis tidak mengenkripsi presentasi. Oleh karena itu, pengguna—jika mereka memang ingin—dapat memodifikasi presentasi, tetapi untuk menyimpan perubahan, mereka harus membuat presentasi dengan nama yang berbeda. 
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-Untuk menetapkan proteksi tulis, Anda harus menggunakan metode setWriteProtection. Kode contoh ini menunjukkan cara menetapkan proteksi tulis pada sebuah presentasi:
+using namespace Aspose::Slides;
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
-
-presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
-presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
-```
-
-## **Muat Presentasi yang Terenkripsi**
-
-Aspose.Slides memungkinkan Anda memuat berkas terenkripsi dengan memberikan kata sandinya. Untuk mendekripsi sebuah presentasi, Anda harus memanggil metode [RemoveEncryption](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) tanpa parameter. Selanjutnya Anda harus memasukkan kata sandi yang benar untuk memuat presentasi.
-
-Kode contoh ini menunjukkan cara mendekripsi sebuah presentasi: 
-
-``` cpp
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
 
-// bekerja dengan presentasi terdekripsi
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+
+// Bekerja dengan presentasi yang telah didekripsi.
 ```
 
 ## **Hapus Enkripsi dari Presentasi**
 
-Anda dapat menghapus enkripsi atau proteksi kata sandi pada sebuah presentasi. Dengan cara ini, pengguna dapat mengakses atau memodifikasi presentasi tanpa batasan. 
+Muat presentasi dengan kata sandi pembukanya, panggil [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprotectionmanager/removeencryption/), dan simpan hasilnya. Presentasi yang disimpan kemudian dapat dimuat tanpa kata sandi.
 
-Untuk menghapus enkripsi atau proteksi kata sandi, Anda harus memanggil metode [RemoveEncryption](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d). Kode contoh ini menunjukkan cara menghapus enkripsi dari sebuah presentasi:
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-``` cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
+
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **Hapus Proteksi Tulis dari Presentasi**
+## **Validasi Kata Sandi Pembuka Sebelum Memuat**
 
-Anda dapat menggunakan Aspose.Slides untuk menghapus proteksi tulis yang digunakan pada file presentasi. Dengan cara ini, pengguna dapat memodifikasi sesuka hati—dan tidak akan ada peringatan saat mereka melakukan tugas tersebut.
+Gunakan [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) untuk memperoleh [IPresentationInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentationinfo/) tanpa membuat instance presentasi lengkap. Periksa [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) sebelum meminta atau memvalidasi kata sandi. Ketika perlindungan ada, validasi nilai yang diberikan dengan [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentationinfo/checkpassword/).
 
-Anda dapat menghapus proteksi tulis dari sebuah presentasi dengan menggunakan metode [RemoveWriteProtection](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50). Kode contoh ini menunjukkan cara menghapus proteksi tulis dari sebuah presentasi:
+### **Alur Kerja Berbasis Jalur File**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+Contoh berikut memvalidasi kata sandi pembuka untuk file PPTX, meneruskan nilai yang telah divalidasi ke [LoadOptions::set_Password](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_password/), dan kemudian memuat presentasi lengkap:
 
-presentation->get_ProtectionManager()->RemoveWriteProtection();
-presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
-```
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/string.h>
 
-## **Dapatkan Properti Presentasi yang Terenkripsi**
+using namespace Aspose::Slides;
+using namespace System;
 
-Biasanya, pengguna kesulitan mengambil properti dokumen dari presentasi yang terenkripsi atau dilindungi kata sandi. Namun, Aspose.Slides menyediakan mekanisme yang memungkinkan Anda melindungi presentasi dengan kata sandi sambil tetap memungkinkan akses ke properti dokumennya.
+String filePath = u"protected-presentation.pptx";
+String password = u"open_password";
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(filePath);
 
-**Catatan**: Secara default, ketika Aspose.Slides mengenkripsi sebuah presentasi, properti dokumen presentasi juga dilindungi kata sandi. Jika Anda perlu membuat properti dokumen dapat diakses bahkan setelah enkripsi, Aspose.Slides memungkinkan Anda melakukan hal tersebut.
-
-Jika Anda ingin pengguna tetap dapat mengakses properti sebuah presentasi yang terenkripsi, berikan `false` ke metode `set_EncryptDocumentProperties` pada [IProtectionManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprotectionmanager/). Kode contoh ini menunjukkan cara mengenkripsi presentasi sambil tetap memberikan pengguna akses ke properti dokumennya:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
-
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
-presentation->get_ProtectionManager()->Encrypt(u"123123");
-presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Muat Hanya Properti Dokumen dari Presentasi yang Terenkripsi**
-
-Untuk memeriksa metadata sebuah presentasi yang terenkripsi tanpa memuat slide atau konten lainnya, buat objek [LoadOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/) dan atur [set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) ke `true`. Dalam mode ini, Aspose.Slides mengabaikan kata sandi dan hanya memuat properti dokumen yang dapat diakses publik.
-
-Contoh kode berikut membaca properti dokumen bawaan dan khusus melalui [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/get_documentproperties/):
-
-``` cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_OnlyLoadDocumentProperties(true);
-
-auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
-auto documentProperties = presentation->get_DocumentProperties();
-
-// Read built-in document properties.
-auto title = documentProperties->get_Title();
-auto author = documentProperties->get_Author();
-Console::WriteLine(String(u"Title: ") + title);
-Console::WriteLine(String(u"Author: ") + author);
-
-// Read custom document properties.
-int customPropertyCount = documentProperties->get_CountOfCustomProperties();
-
-for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+if (!presentationInfo->get_IsPasswordProtected())
 {
-    auto propertyName = documentProperties->GetCustomPropertyName(propertyIndex);
-    auto propertyValue = documentProperties->idx_get(propertyName);
-    auto propertyValueText = ObjectExt::ToString(propertyValue);
-
-    Console::WriteLine(propertyName + u": " + propertyValueText);
+    Console::WriteLine(u"The presentation does not have an opening password.");
 }
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(filePath, loadOptions);
 
-presentation->Dispose();
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-Alur kerja ini hanya berfungsi ketika properti dokumen dibiarkan tidak terenkripsi (publik) saat presentasi dienkripsi. Jika properti dokumen terenkripsi, mengatur `LoadOptions::set_OnlyLoadDocumentProperties` ke `true` akan menyebabkan pengecualian karena kata sandi diabaikan dalam mode ini. Untuk mengakses properti dokumen yang terenkripsi atau memuat presentasi lengkap, termasuk slide dan konten lainnya, berikan kata sandi yang benar dengan `LoadOptions::set_Password` pada [LoadOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/).
+### **Alur Kerja Aliran**
 
-## **Periksa Apakah Presentasi Dilindungi Kata Sandi**
+Versi overload aliran dari [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) menyediakan alur kerja yang sama. Atur ulang posisi aliran yang dapat dicari sebelum memuat presentasi lengkap dari aliran tersebut.
 
-Sebelum Anda memuat sebuah presentasi, Anda mungkin ingin memeriksa dan memastikan bahwa presentasi tersebut tidak dilindungi kata sandi. Dengan cara ini, Anda dapat menghindari kesalahan dan masalah serupa yang muncul ketika presentasi yang dilindungi kata sandi dimuat tanpa kata sandinya.
+Contoh berikut menggunakan file PPT:
 
-Kode C++ ini menunjukkan cara memeriksa sebuah presentasi untuk melihat apakah ia dilindungi kata sandi (tanpa memuat presentasi itu sendiri):
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string.h>
 
-```c++
-auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
-System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
-                           presentationInfo->get_IsPasswordProtected());
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+String password = u"open_password";
+auto presentationStream = File::OpenRead(u"protected-presentation.ppt");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(presentationStream);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    presentationStream->set_Position(0);
+
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(presentationStream, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **Periksa Apakah Presentasi Dienkripsi**
+### **Nilai Kembalian CheckPassword**
 
-Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi dienkripsi. Untuk melakukan tugas ini, Anda dapat menggunakan metode [get_IsEncrypted()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68), yang mengembalikan `true` jika presentasi dienkripsi atau `false` jika tidak dienkripsi. 
+[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentationinfo/checkpassword/) mengembalikan `true` hanya ketika presentasi memiliki kata sandi pembuka dan kata sandi yang diberikan benar. Itu mengembalikan `false` dalam masing-masing kasus berikut:
 
-Kode contoh ini menunjukkan cara memeriksa apakah sebuah presentasi dienkripsi:
+- Kata sandi tidak benar.
+- Presentasi tidak memiliki kata sandi pembuka.
+- Kata sandi yang diberikan null atau kosong.
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+Perilaku ini sama untuk presentasi PPT dan PPTX.
+
+## **Periksa Apakah Presentasi yang Dimuat Dienkripsi**
+
+Setelah memuat presentasi dengan kata sandi yang benar, periksa [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprotectionmanager/get_isencrypted/) untuk memastikan bahwa presentasi sumber dienkripsi. Untuk mendeteksi perlindungan kata sandi pembuka sebelum memuat, gunakan `IPresentationInfo::get_IsPasswordProtected` seperti yang ditunjukkan di atas.
+
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
+Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
 ```
 
-## **Periksa Apakah Presentasi Dilindungi Tulis**
+## **Rekomendasi Keamanan**
 
-Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi dilindungi tulisan. Untuk melakukan tugas ini, Anda dapat menggunakan metode [get_IsWriteProtected()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2), yang mengembalikan `true` jika presentasi dilindungi tulisan atau `false` jika tidak. 
-
-Kode contoh ini menunjukkan cara memeriksa apakah sebuah presentasi dilindungi tulisan:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
-
-bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
-```
-
-## **Verifikasi Penggunaan Kata Sandi Presentasi**
-
-Anda mungkin ingin memeriksa dan memastikan bahwa kata sandi tertentu telah digunakan untuk melindungi dokumen presentasi. Aspose.Slides menyediakan cara untuk memvalidasi kata sandi. 
-
-Kode contoh ini menunjukkan cara memvalidasi sebuah kata sandi:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-// periksa apakah "pass" cocok dengan
-bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
-```
-
-Itu mengembalikan `true` jika presentasi telah dienkripsi dengan kata sandi yang ditentukan. Jika tidak, mengembalikan `false`. 
-
-{{% alert color="primary" title="Lihat juga" %}} 
-- [Digital Signature in PowerPoint](/slides/id/cpp/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Keamanan" %}}
+Jangan mencatat kata sandi pembuka atau menyertakannya dalam pesan diagnostik. Hindari upaya validasi berulang yang tidak diperlukan, simpan kata sandi di memori hanya selama diperlukan, dan gunakan kembali hasil validasi yang berhasil ketika langsung memuat presentasi.
 {{% /alert %}}
 
-## **FAQ**
+## **Lindungi Presentasi dengan Kata Sandi Secara Online**
 
-**Metode enkripsi apa yang didukung oleh Aspose.Slides?**
+1. Buka aplikasi [Aspose.Slides Lock](https://products.aspose.app/slides/id/lock).
+1. Pilih atau unggah presentasi.
+1. Masukkan kata sandi untuk perlindungan tampilan.
+1. Opsional, masukkan kata sandi terpisah untuk perlindungan edit.
+1. Terapkan perlindungan dan unduh file yang dihasilkan.
 
-Aspose.Slides mendukung metode enkripsi modern, termasuk algoritma berbasis AES, yang memastikan tingkat keamanan data tinggi untuk presentasi Anda.
+{{% alert color="info" title="Lihat juga" %}}
+- [Proteksi Penulisan Presentasi](/slides/id/cpp/write-protected-presentation/)
+- [Tanda Tangan Digital di PowerPoint](/slides/id/cpp/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
-**Apa yang terjadi jika kata sandi yang salah dimasukkan saat mencoba membuka sebuah presentasi?**
+## **Tanya Jawab**
 
-Sebuah pengecualian akan dilemparkan jika kata sandi yang salah digunakan, memberi tahu bahwa akses ke presentasi ditolak. Hal ini membantu mencegah akses tidak sah dan melindungi konten presentasi.
+**Apa perbedaan antara kata sandi pembuka dan kata sandi proteksi penulisan?**
 
-**Apakah ada dampak kinerja saat bekerja dengan presentasi yang dilindungi kata sandi?**
+Kata sandi pembuka mengenkripsi presentasi dan diperlukan untuk memuat kontennya. Kata sandi proteksi penulisan membatasi modifikasi tanpa mengenkripsi konten.
 
-Proses enkripsi dan dekripsi dapat menambah sedikit beban selama operasi membuka dan menyimpan. Dalam kebanyakan kasus, dampak kinerja ini minimal dan tidak secara signifikan memengaruhi waktu pemrosesan keseluruhan tugas presentasi Anda.
+**Apakah saya dapat memvalidasi kata sandi pembuka tanpa memuat semua slide?**
+
+Ya. Dapatkan informasi presentasi, periksa apakah perlindungan kata sandi pembuka ada, dan validasi kata sandi sebelum membuat instance presentasi lengkap.
+
+**Apakah alur kerja pemeriksaan kata sandi mendukung PPT dan PPTX?**
+
+Ya. Deteksi dan validasi kata sandi berbasis jalur file maupun aliran berperilaku sama untuk presentasi PPT dan PPTX.

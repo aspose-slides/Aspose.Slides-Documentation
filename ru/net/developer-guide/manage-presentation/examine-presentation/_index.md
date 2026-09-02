@@ -9,7 +9,7 @@ keywords:
 - свойства презентации
 - свойства документа
 - получить свойства
-- читать свойства
+- прочитать свойства
 - изменить свойства
 - модифицировать свойства
 - обновить свойства
@@ -22,23 +22,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Изучайте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с помощью .NET для более быстрых инсайтов и более умных аудитов контента."
+description: "Изучайте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с помощью .NET для более быстрых выводов и более умных проверок содержимого."
 ---
+## **Обзор**
 
-Aspose.Slides for .NET позволяет исследовать презентацию, чтобы узнать её свойства и понять её поведение. 
+В этой статье показано, как просматривать информацию о презентации в Aspose.Slides. Описывается, как определить текущий формат презентации без загрузки полного файла, прочитать её свойства документа и при необходимости обновить эти свойства.
 
-{{% alert title="Info" color="info" %}} 
+Примеры основаны на API [PresentationInfo](https://reference.aspose.com/slides/ru/net/aspose.slides/presentationinfo/) и [DocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/documentproperties/) и демонстрируют типичные операции работы с метаданными презентации.
 
-Классы [PresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo) и [DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/) содержат свойства и методы, используемые в приведённых ниже операциях.
+## **Проверка формата презентации**
 
-{{% /alert %}} 
+Прежде чем работать с презентацией, возможно, вы захотите узнать, в каком формате (PPT, PPTX, ODP и другие) она находится в данный момент.
 
-## **Check a Presentation Format**
+Можно проверить формат презентации без её загрузки. См. пример кода на C#:
 
-Прежде чем работать с презентацией, вы можете захотеть узнать, в каком формате (PPT, PPTX, ODP и другие) она находится в данный момент.
-
-Вы можете проверить формат презентации без её загрузки. См. этот код C#:
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 Console.WriteLine(info.LoadFormat); // PPTX
 
@@ -49,32 +49,36 @@ IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres
 Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
+## **Получение свойств презентации**
 
-## **Get Presentation Properties**
+Этот пример кода на C# показывает, как получить свойства презентации (информацию о презентации):
 
-Этот код C# демонстрирует, как получить свойства презентации (информацию о презентации):
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 IDocumentProperties props = info.ReadDocumentProperties();
 Console.WriteLine(props.CreatedTime);
 Console.WriteLine(props.Subject);
 Console.WriteLine(props.Title);
-// ..
+// ...
 ```
 
+Возможно, вам будет интересно посмотреть [свойства в классе DocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/documentproperties/#properties).
 
-Возможно, вам будет интересно посмотреть [свойства в классе DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties).
+## **Обновление свойств презентации**
 
-## **Update Presentation Properties**
+Aspose.Slides предоставляет метод [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/presentationinfo/methods/updatedocumentproperties), позволяющий вносить изменения в свойства презентации.
 
-Aspose.Slides предоставляет метод [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties), который позволяет вносить изменения в свойства презентации.
+Предположим, у нас есть презентация PowerPoint со свойствами документа, показанными ниже.
 
-Предположим, у нас есть PowerPoint‑презентация со свойствами документа, показанными ниже.
+![Исходные свойства документа PowerPoint‑презентации](input_properties.png)
 
-![Original document properties of the PowerPoint presentation](input_properties.png)
+Этот пример кода показывает, как изменить некоторые свойства презентации:
 
-В этом примере кода показано, как отредактировать некоторые свойства презентации:
 ```c#
+using Aspose.Slides;
+
 string fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
@@ -87,38 +91,35 @@ info.UpdateDocumentProperties(properties);
 info.WriteBindedPresentation(fileName);
 ```
 
-
 Результаты изменения свойств документа показаны ниже.
 
-![Changed document properties of the PowerPoint presentation](output_properties.png)
+![Изменённые свойства документа PowerPoint‑презентации](output_properties.png)
 
-## **Useful Links**
+## **Полезные ссылки**
 
-Чтобы получить больше информации о презентации и её параметрах безопасности, могут быть полезны следующие ссылки:
+Чтобы получить более подробную информацию о презентации и её параметрах безопасности, вам могут пригодиться следующие ссылки:
 
-- [Checking whether a Presentation is Encrypted](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Презентации с паролем](/slides/ru/net/password-protected-presentation/)
+- [Презентации с защитой от записи](/slides/ru/net/write-protected-presentation/)
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**How can I check whether fonts are embedded and which ones they are?**
+**Как проверить, встроены ли шрифты и какие именно?**
 
-Ищите информацию о [embedded-font](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) на уровне презентации, затем сравните эти записи с набором [fonts actually used across content](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getfonts/), чтобы определить, какие шрифты критичны для рендеринга.
+Ищите информацию о [встроенных шрифтах](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsmanager/getembeddedfonts/) на уровне презентации, затем сравните эти записи с набором [шрифтов, реально используемых в содержимом](https://reference.aspose.com/slides/ru/net/aspose.slides/fontsmanager/getfonts/), чтобы определить, какие шрифты критичны для отображения.
 
-**How can I quickly tell if the file has hidden slides and how many?**
+**Как быстро определить, есть ли в файле скрытые слайды, и их количество?**
 
-Пройдитесь по [slide collection](https://reference.aspose.com/slides/net/aspose.slides/slidecollection/) и проверьте у каждой слайда [visibility flag](https://reference.aspose.com/slides/net/aspose.slides/slide/hidden/).
+Пройдитесь по [коллекции слайдов](https://reference.aspose.com/slides/ru/net/aspose.slides/slidecollection/) и проверьте у каждого слайда его [флаг видимости](https://reference.aspose.com/slides/ru/net/aspose.slides/slide/hidden/).
 
-**Can I detect whether custom slide size and orientation are used, and whether they differ from the defaults?**
+**Можно ли определить, используется ли пользовательский размер и ориентация слайда, и отличаются ли они от значений по умолчанию?**
 
-Да. Сравните текущий [slide size](https://reference.aspose.com/slides/net/aspose.slides/presentation/slidesize/) и ориентацию со стандартными предустановками; это помогает предвидеть поведение при печати и экспорте.
+Да. Сравните текущий [размер слайда](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/slidesize/) и ориентацию со стандартными предустановками; это помогает предвидеть поведение при печати и экспорте.
 
-**Is there a quick way to see if charts reference external data sources?**
+**Есть ли быстрый способ увидеть, ссылаются ли диаграммы на внешние источники данных?**
 
-Да. Пройдитесь по всем [charts](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), проверьте их [data source](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/), и отметьте, являются ли данные внутренними или ссылочными, включая любые битые ссылки.
+Да. Пройдитесь по всем [диаграммам](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/chart/), проверьте их [источник данных](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/chartdata/datasourcetype/), и определите, является ли данные внутренними или ссылочными, включая любые неработающие ссылки.
 
-**How can I assess 'heavy' slides that may slow rendering or PDF export?**
+**Как оценить «тяжёлые» слайды, которые могут замедлять рендеринг или экспорт в PDF?**
 
-Для каждого слайда подсчитайте количество объектов и ищите большие изображения, прозрачность, тени, анимации и мультимедиа; присвойте приблизительный показатель сложности, чтобы выделить потенциальные узкие места производительности.
+Для каждого слайда подсчитайте количество объектов и ищите крупные изображения, прозрачность, тени, анимацию и мультимедиа; присвойте приблизительный показатель сложности, чтобы отметить потенциальные узкие места в производительности.

@@ -1,298 +1,228 @@
 ---
-title: Javaでパスワードによるプレゼンテーションの保護
+title: Javaでプレゼンテーションをパスワード保護する
 linktitle: パスワード保護
 type: docs
 weight: 20
 url: /ja/java/password-protected-presentation/
 keywords:
-- PowerPointのロック
-- プレゼンテーションのロック
-- PowerPointのロック解除
-- プレゼンテーションのロック解除
-- PowerPointの保護
-- プレゼンテーションの保護
-- パスワードの設定
-- パスワードの追加
+- パスワード保護されたプレゼンテーション
+- 開封パスワード
 - PowerPointの暗号化
-- プレゼンテーションの暗号化
 - PowerPointの復号化
-- プレゼンテーションの復号化
-- 書き込み保護
-- PowerPointのセキュリティ
-- プレゼンテーションのセキュリティ
-- パスワードの削除
-- 保護の削除
+- プレゼンテーションパスワードの検証
+- プレゼンテーションパスワードのチェック
+- 暗号化されたプレゼンテーションを開く
 - 暗号化の削除
-- パスワードの無効化
-- 保護の無効化
-- 書き込み保護の削除
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、パスワードで保護された PowerPoint および OpenDocument プレゼンテーションを簡単にロック・アンロックする方法を学びましょう。プレゼンテーションを安全に保護します。"
+description: "Aspose.Slides を使用して、Java でパスワード保護された PowerPoint PPT および PPTX プレゼンテーションを暗号化、検出、検証、開封、復号化します。"
 ---
 ## **概要**
 
-プレゼンテーションにパスワード保護を設定すると、プレゼンテーションに対して一定の制限を課すパスワードを設定したことになります。これらの制限を解除するには、パスワードを入力する必要があります。パスワード保護されたプレゼンテーションは、ロックされたプレゼンテーションと見なされます。
+開封パスワードはプレゼンテーションを暗号化します。正しいパスワードが必要になるため、プレゼンテーションの内容を読み込み・表示できず、この保護は機密性を提供します。
 
-通常、プレゼンテーションに対してこれらの制限を課すためにパスワードを設定できます：
+開封パスワードは書き込み保護パスワードとは異なります。書き込み保護は変更を制限しますが、コンテンツを暗号化したりプレゼンテーションの読み込みを防止したりはしません。プレゼンテーションの変更用パスワードを管理するには、[Write-Protect Presentations](/slides/ja/java/write-protected-presentation/) を参照してください。
 
-- **編集**
+以下のワークフローは PPT と PPTX の両方のプレゼンテーションに適用されます。例では、ファイルベースとストリームベースの動作が重要になる場合の両形式を使用しています。
 
-特定のユーザーだけにプレゼンテーションの編集を許可したい場合、編集制限を設定できます。この制限により、パスワードを提供しない限り、プレゼンテーション内の要素を編集、変更、またはコピーすることができません。  
+## **開封パスワードでプレゼンテーションを暗号化する**
 
-ただし、パスワードがなくてもユーザーはドキュメントにアクセスして開くことは可能です。この読み取り専用モードでは、ユーザーはプレゼンテーション内のコンテンツ（ハイパーリンク、アニメーション、エフェクト、その他の要素を含む）を閲覧できますが、項目をコピーしたりプレゼンテーションを保存したりすることはできません。
+[IProtectionManager.encrypt](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) を使用して開封パスワードを設定します。その後、[IPresentation.save](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) を使用して暗号化されたプレゼンテーションを保存します。
 
-- **開く**
-
-特定のユーザーだけにプレゼンテーションの閲覧を許可したい場合、開封制限を設定できます。この制限により、パスワードを提供しない限り、プレゼンテーションの内容さえ閲覧できなくなります。  
-
-技術的には、開封制限はユーザーがプレゼンテーションを編集できないようにもします。プレゼンテーションを開けなければ、編集や変更を行うことはできません。
-
-**注:** 開封を防止するためにプレゼンテーションにパスワード保護を設定すると、プレゼンテーションファイルは暗号化されます。
-
-## **Aspose.Slides のパスワード保護**
-**サポートされている形式**
-
-Aspose.Slides は、これらの形式のプレゼンテーションに対してパスワード保護、暗号化、および類似の操作をサポートします: 
-
-- PPTX and PPT - Microsoft PowerPoint プレゼンテーション 
-- ODP - OpenDocument プレゼンテーション 
-- OTP - OpenDocument プレゼンテーションテンプレート 
-
-**サポートされている操作**
-
-Aspose.Slides は、以下の方法でプレゼンテーションの変更を防止するためにパスワード保護を使用できます：
-
-- プレゼンテーションの暗号化
-- プレゼンテーションへの書き込み保護の設定
-
-**その他の操作**
-
-Aspose.Slides は、パスワード保護と暗号化に関するその他のタスクを以下の方法で実行できます：
-
-- プレゼンテーションの復号化; 暗号化されたプレゼンテーションの開封
-- 暗号化の除去; パスワード保護の無効化
-- プレゼンテーションから書き込み保護を除去
-- 暗号化されたプレゼンテーションのプロパティ取得
-- プレゼンテーションが暗号化されているか確認
-- プレゼンテーションがパスワード保護されているか確認。
-
-## **パスワードでプレゼンテーションを保護する**
-
-パスワードを設定することでプレゼンテーションを暗号化できます。その後、ロックされたプレゼンテーションを編集するには、ユーザーがパスワードを提供する必要があります。 
-
-プレゼンテーションを暗号化またはパスワード保護するには、[IProtectionManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IProtectionManager) の encrypt メソッドを使用してプレゼンテーションにパスワードを設定します。encrypt メソッドにパスワードを渡し、save メソッドで暗号化されたプレゼンテーションを保存します。 
-
-このサンプルコードは、プレゼンテーションを暗号化する方法を示しています：
+次の例は PPTX プレゼンテーションを暗号化します。
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **プレゼンテーションに書き込み保護を設定する**
-
-プレゼンテーションに「編集しないでください」というマークを追加できます。これにより、ユーザーにプレゼンテーションを変更しないよう伝えることができます。  
-
-**注:** 書き込み保護のプロセスはプレゼンテーションを暗号化しません。そのため、ユーザーは（本当に望む場合）プレゼンテーションを編集できますが、変更を保存するには別名でプレゼンテーションを作成する必要があります。 
-
-書き込み保護を設定するには、[setWriteProtection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) メソッドを使用します。このサンプルコードは、プレゼンテーションに書き込み保護を設定する方法を示しています：
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **暗号化されたプレゼンテーションを読み込む**
-
-Aspose.Slides は、パスワードを渡すことで暗号化されたファイルの読み込みを可能にします。プレゼンテーションを復号化するには、パラメーターなしで [removeEncryption](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IProtectionManager#removeEncryption--) メソッドを呼び出す必要があります。その後、正しいパスワードを入力してプレゼンテーションを読み込むことになります。 
-
-このサンプルコードは、プレゼンテーションを復号化する方法を示しています： 
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
-try {
-    // 復号化されたプレゼンテーションで作業する
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **プレゼンテーションから暗号化を除去する**
-
-プレゼンテーションの暗号化またはパスワード保護を除去できます。これにより、ユーザーは制限なくプレゼンテーションにアクセスしたり編集したりできるようになります。 
-
-暗号化またはパスワード保護を除去するには、[removeEncryption](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IProtectionManager#removeEncryption--) メソッドを呼び出す必要があります。このサンプルコードは、プレゼンテーションから暗号化を除去する方法を示しています。
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
-try {
-    presentation.getProtectionManager().removeEncryption();
-    presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **プレゼンテーションから書き込み保護を除去する**
-
-Aspose.Slides を使用して、プレゼンテーションファイルに設定された書き込み保護を除去できます。これにより、ユーザーは好きなように編集でき、編集時に警告が表示されなくなります。
-
-プレゼンテーションから書き込み保護を除去するには、[removeWriteProtection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IProtectionManager#removeWriteProtection--) メソッドを使用します。このサンプルコードは、プレゼンテーションから書き込み保護を除去する方法を示しています：
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **暗号化されたプレゼンテーションのプロパティ取得**
-
-通常、ユーザーは暗号化またはパスワード保護されたプレゼンテーションのドキュメントプロパティの取得に苦労します。ただし、Aspose.Slides は、プレゼンテーションにパスワード保護を設定しつつ、ユーザーがプロパティにアクセスできる仕組みを提供します。  
-
-**注:** デフォルトでは、Aspose.Slides がプレゼンテーションを暗号化すると、プレゼンテーションのドキュメントプロパティもパスワード保護されます。暗号化後もドキュメントプロパティにアクセスできるようにしたい場合、Aspose.Slides はそれを可能にします。  
-
-暗号化されたプレゼンテーションのプロパティにユーザーがアクセスできるようにしたい場合は、[IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) に `false` を渡します。このサンプルコードは、プレゼンテーションを暗号化しつつ、ユーザーがドキュメントプロパティにアクセスできる方法を示しています：
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(false);
-    presentation.getProtectionManager().encrypt("123123");
-    presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **暗号化されたプレゼンテーションからドキュメントプロパティのみを読み込む**
-
-暗号化されたプレゼンテーションのスライドやその他のコンテンツを読み込まずにメタデータを確認するには、[LoadOptions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/loadoptions/) オブジェクトを作成し、[setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iloadoptions/#setOnlyLoadDocumentProperties-boolean-) に `true` を渡します。このモードでは、Aspose.Slides はパスワードを無視し、公開されているドキュメントプロパティのみを読み込みます。  
-
-以下のコード例は、[IPresentation.getDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentation/#getDocumentProperties--) を使用して組み込みおよびカスタムドキュメントプロパティを読み取ります。
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setOnlyLoadDocumentProperties(true);
-
-Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
-try {
-    IDocumentProperties documentProperties = presentation.getDocumentProperties();
-
-    // 組み込みドキュメントプロパティを読み取る。
-    System.out.println("Title: " + documentProperties.getTitle());
-    System.out.println("Author: " + documentProperties.getAuthor());
-
-    // カスタムドキュメントプロパティを読み取る。
-    int customPropertyCount = documentProperties.getCountOfCustomProperties();
-
-    for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++) {
-        String propertyName = documentProperties.getCustomPropertyName(propertyIndex);
-        Object propertyValue = documentProperties.get_Item(propertyName);
-
-        System.out.println(propertyName + ": " + propertyValue);
-    }
 } finally {
     presentation.dispose();
 }
 ```
 
-このワークフローは、プレゼンテーションが暗号化された際にドキュメントプロパティが暗号化されていない（公開）場合にのみ動作します。ドキュメントプロパティが暗号化されている場合、`loadOptions.setOnlyLoadDocumentProperties` に `true` を渡すと、パスワードが無視されるため例外が発生します。暗号化されたドキュメントプロパティにアクセスするか、スライドやその他のコンテンツを含む完全なプレゼンテーションを読み込むには、[ILoadOptions.setPassword](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) を使用して正しいパスワードを提供してください。
+## **暗号化されたプレゼンテーションの読み込み**
 
-## **プレゼンテーションがパスワード保護されているか確認する**
-
-プレゼンテーションを読み込む前に、パスワードで保護されていないか確認したい場合があります。これにより、パスワード保護されたプレゼンテーションをパスワードなしで読み込んだ際に発生するエラーや類似の問題を回避できます。  
-
-この Java コードは、プレゼンテーションを実際に読み込まずにパスワード保護されているかどうかを調べる方法を示しています：
+[ILoadOptions.setPassword](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) に開封パスワードを設定し、ファイルの読み込み時にオプションを [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) に渡します。開封パスワードが必要なのに提供されたパスワードが欠如または不正確な場合、読み込みは失敗します。
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    // 復号化されたプレゼンテーションで作業します。
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **プレゼンテーションが暗号化されているか確認する**
+## **プレゼンテーションから暗号化を削除する**
 
-Aspose.Slides は、プレゼンテーションが暗号化されているかどうかを確認できます。この作業には、プレゼンテーションが暗号化されている場合は `true`、されていない場合は `false` を返す [isEncrypted](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IProtectionManager#isEncrypted--) プロパティを使用します。  
-
-このサンプルコードは、プレゼンテーションが暗号化されているかどうかを確認する方法を示しています：
+プレゼンテーションを開封パスワードで読み込み、[IProtectionManager.removeEncryption](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iprotectionmanager/#removeEncryption--) を呼び出してから保存します。保存されたプレゼンテーションはパスワードなしで読み込めるようになります。
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    presentation.getProtectionManager().removeEncryption();
+    presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **読み込む前に開封パスワードを検証する**
+
+[IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) を使用して、完全なプレゼンテーションインスタンスを作成せずに [IPresentationInfo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentationinfo/) を取得します。パスワードを要求または検証する前に、[IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) を確認してください。保護が存在する場合、提供された値を [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) で検証します。
+
+### **ファイルパス ワークフロー**
+
+次の例は PPTX ファイルの開封パスワードを検証し、検証済みの値を [ILoadOptions.setPassword](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) に渡してから、完全なプレゼンテーションを読み込みます。
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **ストリーム ワークフロー**
+
+[IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) のストリームオーバーロードも同様のワークフローを提供します。ストリームから完全なプレゼンテーションを読み込む前に、シーク可能なストリームの位置をリセットしてください。
+
+次の例は PPT ファイルを使用します。
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
+try {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
+} finally {
+    presentationStream.close();
+}
+```
+
+### **checkPassword の戻り値**
+
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) は、プレゼンテーションに開封パスワードが設定されており、提供されたパスワードが正しい場合にのみ `true` を返します。次の場合は `false` を返します。
+
+- パスワードが正しくない。
+- プレゼンテーションに開封パスワードが設定されていない。
+- 提供されたパスワードが `null` または空文字列である。
+
+この動作は PPT と PPTX の両方で同じです。
+
+## **読み込んだプレゼンテーションが暗号化されているか確認する**
+
+正しいパスワードでプレゼンテーションを読み込んだ後、[IProtectionManager.isEncrypted](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) を確認して、元のプレゼンテーションが暗号化されていたかどうかを検証します。読み込み前に開封パスワード保護を検出するには、上記のように `IPresentationInfo.isPasswordProtected` を使用してください。
+
+```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **プレゼンテーションが書き込み保護されているか確認する**
+## **セキュリティに関する推奨事項**
 
-Aspose.Slides は、プレゼンテーションが書き込み保護されているかどうかを確認できます。この作業には、プレゼンテーションが書き込み保護されている場合は `true`、されていない場合は `false` を返す [isWriteProtected](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IProtectionManager#isWriteProtected--) プロパティを使用します。  
+{{% alert color="warning" title="セキュリティ" %}}
+開封パスワードをログに記録したり診断メッセージに含めたりしないでください。不必要な繰り返し検証は避け、パスワードは必要な間だけメモリに保持し、プレゼンテーションをすぐに読み込む場合は成功した検証結果を再利用してください。
+{{% /alert %}}
 
-このサンプルコードは、プレゼンテーションが書き込み保護されているかどうかを確認する方法を示しています：
+## **プレゼンテーションをオンラインでパスワード保護する**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. [Aspose.Slides Lock](https://products.aspose.app/slides/ja/lock) アプリケーションを開きます。
+2. プレゼンテーションを選択するかアップロードします。
+3. ビュー保護用のパスワードを入力します。
+4. 必要に応じて編集保護用の別のパスワードを入力します。
+5. 保護を適用し、結果のファイルをダウンロードします。
 
-## **特定のパスワードが使用されたか検証または確認する**
-
-特定のパスワードがプレゼンテーションドキュメントの保護に使用されたかを確認したい場合があります。Aspose.Slides はパスワードの検証手段を提供します。  
-
-このサンプルコードは、パスワードを検証する方法を示しています：
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // "pass" が一致するか確認する
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-指定したパスワードでプレゼンテーションが暗号化されている場合は `true` を返し、そうでない場合は `false` を返します。
-
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="参考" %}}
+- [Write-Protect Presentations](/slides/ja/java/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/ja/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**Aspose.Slides がサポートする暗号化方式は何ですか？**
+**開封パスワードと書き込み保護パスワードの違いは何ですか？**
 
-Aspose.Slides は、AES ベースのアルゴリズムを含む最新の暗号化方式をサポートしており、プレゼンテーションのデータセキュリティを高いレベルで確保します。
+開封パスワードはプレゼンテーションを暗号化し、コンテンツの読み込みに必要です。書き込み保護パスワードはコンテンツを暗号化せずに変更を制限します。
 
-**プレゼンテーションを開く際に誤ったパスワードを入力した場合はどうなりますか？**
+**すべてのスライドを読み込まずに開封パスワードを検証できますか？**
 
-誤ったパスワードが使用されると例外がスローされ、プレゼンテーションへのアクセスが拒否されたことが通知されます。これにより、未許可のアクセスを防止し、コンテンツが保護されます。
+はい。プレゼンテーション情報を取得し、開封パスワード保護の有無を確認した上で、完全なプレゼンテーションインスタンスを作成せずにパスワードを検証できます。
 
-**パスワード保護されたプレゼンテーションを扱う際にパフォーマンスへの影響はありますか？**
+**パスワード検証のワークフローは PPT と PPTX の両方に対応していますか？**
 
-暗号化および復号化の処理により、開く際や保存する際に若干のオーバーヘッドが生じる可能性があります。ほとんどの場合、このパフォーマンスへの影響は最小限で、プレゼンテーションの処理全体の時間に大きな影響はありません。
+はい。ファイルパスおよびストリームベースのパスワード検出と検証は、PPT と PPTX のプレゼンテーションで同様に動作します。

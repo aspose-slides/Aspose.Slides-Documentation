@@ -1,11 +1,11 @@
 ---
-title: بازیابی و به‌روزرسانی اطلاعات ارائه در پایتون
+title: دریافت و به‌روزرسانی اطلاعات ارائه در پایتون
 linktitle: اطلاعات ارائه
 type: docs
 weight: 30
 url: /fa/python-net/examine-presentation/
 keywords:
-- فرمت ارائه
+- قالب ارائه
 - خصوصیات ارائه
 - خصوصیات سند
 - دریافت خصوصیات
@@ -16,24 +16,24 @@ keywords:
 - بررسی PPTX
 - بررسی PPT
 - بررسی ODP
-- پاورپوینت
-- اُپن‌داکیومنت
+- PowerPoint
+- OpenDocument
 - ارائه
-- پایتون
+- Python
 - Aspose.Slides
-description: "اسلایدها، ساختار و فراداده‌ها را در ارائه‌های پاورپوینت و اُپن‌داکیومنت با استفاده از پایتون بررسی کنید تا بینش‌های سریع‌تر و بررسی‌های محتوا هوشمندانه‌تری داشته باشید."
+description: "اسلایدها، ساختار و فراداده‌ها را در ارائه‌های PowerPoint و OpenDocument با استفاده از پایتون بررسی کنید تا بینش‌های سریع‌تر و ارزیابی‌های محتوا هوشمندتر به‌دست آید."
 ---
 ## **بررسی کلی**
 
-این مقاله نشان می‌دهد چگونه اطلاعات ارائه در Aspose.Slides را بررسی کنید. توضیح می‌دهد چگونه می‌توان فرمت فعلی یک ارائه را بدون بارگذاری کامل فایل تشخیص داد، خصوصیات سند آن را بخوانید و در صورت نیاز آن خصوصیات را به‌روز کنید.
+این مقاله نحوه بررسی اطلاعات ارائه در Aspose.Slides را نشان می‌دهد. توضیح می‌دهد چگونه می‌توان قالب فعلی یک ارائه را بدون بارگذاری کامل فایل تعیین کرد، خصوصیات سند آن را بخوانید و در صورت نیاز آن خصوصیات را به‌روزرسانی کنید.
 
-مثال‌ها بر پایهٔ APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/documentproperties/) تهیه شده‌اند و عملیات معمول برای کار با فراداده‌های ارائه را نشان می‌دهند.
+نمونه‌ها بر پایهٔ APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/documentproperties/) ساخته شده‌اند و عملیات معمول کار با فراداده‌های ارائه را نشان می‌دهند.
 
-## **بررسی فرمت یک ارائه**
+## **بررسی قالب ارائه**
 
-قبل از کار با یک ارائه ممکن است بخواهید متوجه شوید که در حال حاضر این ارائه در چه فرمت (PPT، PPTX، ODP و غیره) است.
+قبل از کار با یک ارائه، ممکن است بخواهید بدانید در حال حاضر قالب آن (PPT، PPTX، ODP و غیره) چیست.
 
-می‌توانید فرمت یک ارائه را بدون بارگذاری آن بررسی کنید. مثال پایتون زیر را ببینید:
+می‌توانید قالب یک ارائه را بدون بارگذاری آن بررسی کنید. مثال پایتون زیر را ببینید:
 
 ```py
 import aspose.slides as slides
@@ -62,26 +62,29 @@ print(props.subject)
 print(props.title)
 ```
 
-ممکن است بخواهید خصوصیات را در کلاس [DocumentProperties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/documentproperties/#properties) ببینید.
+ممکن است بخواهید [خصوصیات را در کلاس DocumentProperties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/documentproperties/#properties) مشاهده کنید.
 
 ## **به‌روزرسانی خصوصیات ارائه**
 
 Aspose.Slides متد [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) را فراهم می‌کند که به شما امکان می‌دهد تغییراتی در خصوصیات ارائه اعمال کنید.
 
-فرض کنید یک ارائه PowerPoint با خصوصیات سند زیر داریم.
+فرض کنید یک ارائه PowerPoint داریم که خصوصیات سند آن به شکل زیر نمایش داده شده است.
 
-![خصوصیات سند اصلی ارائه PowerPoint](input_properties.png)
+![ویژگی‌های اصلی سند ارائهٔ پاورپوینت](input_properties.png)
 
 این مثال کد نشان می‌دهد چگونه برخی از خصوصیات ارائه را ویرایش کنید:
 
 ```py
+import aspose.slides as slides
+import datetime
+
 file_name = "sample.pptx"
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+info = slides.PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
 properties.title = "My title"
-properties.last_saved_time = datetime.now()
+properties.last_saved_time = datetime.datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)
@@ -89,35 +92,33 @@ info.write_binded_presentation(file_name)
 
 نتایج تغییر خصوصیات سند در زیر نشان داده شده است.
 
-![خصوصیات سند تغییر یافتهٔ ارائه PowerPoint](output_properties.png)
+![ویژگی‌های تغییر یافتهٔ سند ارائهٔ پاورپوینت](output_properties.png)
 
 ## **لینک‌های مفید**
 
-برای دریافت اطلاعات بیشتر دربارهٔ یک ارائه و ویژگی‌های امنیتی آن، ممکن است این لینک‌ها مفید باشند:
+برای دریافت اطلاعات بیشتر دربارهٔ یک ارائه و ویژگی‌های امنیتی آن، ممکن است این لینک‌ها برای شما مفید باشند:
 
-- [بررسی اینکه آیا یک ارائه رمزگذاری شده است](https://docs.aspose.com/slides/fa/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [بررسی اینکه آیا یک ارائه فقط‑خواندنی است](https://docs.aspose.com/slides/fa/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [بررسی اینکه آیا یک ارائه قبل از بارگذاری دارای رمز عبور است](https://docs.aspose.com/slides/fa/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [تایید رمز عبور استفاده‌شده برای حفاظت از یک ارائه](https://docs.aspose.com/slides/fa/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/fa/python-net/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/fa/python-net/write-protected-presentation/)
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم بررسی کنم که فونت‌ها جاسازی شده‌اند و کدام‌ها؟**
+**چگونه می‌توانم بررسی کنم که آیا فونت‌ها تعبیه شده‌اند و کدام‌ها هستند؟**
 
-در سطح ارائه به دنبال اطلاعات [embedded-font](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) بگردید، سپس آن ورودی‌ها را با مجموعهٔ [فونت‌های واقعی استفاده‌شده در محتوا](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/get_fonts/) مقایسه کنید تا فونت‌های حیاتی برای رندرینگ شناسایی شوند.
+به دنبال اطلاعات [embedded-font](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) در سطح ارائه بگردید، سپس این ورودی‌ها را با مجموعهٔ [فونت‌های واقعاً استفاده‌شده در محتوا](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/get_fonts/) مقایسه کنید تا شناسایی کنید کدام فونت‌ها برای رندرینگ حیاتی هستند.
 
-**چگونه می‌توانم سریعاً بفهمم آیا فایل اسلایدهای مخفی دارد و چند تا هستند؟**
+**چگونه می‌توانم سریعاً بفهمم فایل اسلایدهای مخفی دارد و چند تا هستند؟**
 
-از طریق [slide collection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slidecollection/) پیمایش کنید و برای هر اسلاید پرچم [visibility](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/hidden/) آن را بررسی کنید.
+در [slide collection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slidecollection/) پیمایش کنید و برای هر اسلاید پرچم [visibility flag](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/hidden/) آن را بررسی کنید.
 
-**آیا می‌توانم تشخیص دهم که اندازه و جهت سفارشی اسلاید استفاده شده‌اند و آیا با پیش‌فرض‌ها متفاوت هستند؟**
+**آیا می‌توانم تشخیص دهم که اندازه و جهت سفارشی اسلاید استفاده شده است و آیا از پیش‌فرض‌ها متفاوت است؟**
 
-بله. اندازهٔ فعلی [slide size](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/slide_size/) و جهت آن را با پیش‌تنظیمات استاندارد مقایسه کنید؛ این کار به پیش‌بینی رفتار هنگام چاپ و خروجی کمک می‌کند.
+بله. اندازهٔ فعلی [slide size](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/slide_size/) و جهت آن را با پیش‌تنظیمات استاندارد مقایسه کنید؛ این کار به پیش‌بینی رفتار برای چاپ و خروجی‌گیری کمک می‌کند.
 
-**آیا راه سریع برای دیدن این که نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
+**آیا راهی سریع برای دیدن این که نمودارها به منابع دادهٔ خارجی ارجاع می‌دهند وجود دارد؟**
 
-بله. تمام [charts](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/) را مرور کنید، منبع دادهٔ آن‌ها را با [data source](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdata/data_source_type/) بررسی کنید و مشخص کنید آیا داده داخلی است یا بر پایهٔ لینک، از جمله لینک‌های شکسته.
+بله. تمام [charts](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chart/) را مرور کنید، منبع دادهٔ آن‌ها را بررسی کنید ([data source](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdata/data_source_type/)) و مشخص کنید آیا داده‌ها داخلی هستند یا مبتنی بر لینک، از جمله هر لینک شکسته‌ای.
 
-**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندرینگ یا خروجی PDF را کند کنند ارزیابی کنم؟**
+**چگونه می‌توانم «اسلایدهای سنگین» که ممکن است رندرینگ یا خروجی PDF را کند کنند ارزیابی کنم؟**
 
-برای هر اسلاید تعداد اشیا را شمارش کنید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و چندرسانه‌ای‌ها بگردید؛ یک امتیاز پیچیدگی تقریبی اختصاص دهید تا نقاط فشار عملکردی محتمل شناسایی شوند.
+برای هر اسلاید، تعداد اشیاء را شمارش کنید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و رسانه‌های چندرسانه‌ای بگردید؛ یک امتیاز پیچیدگی تقریبی اختصاص دهید تا نقاط فشار عملکردی محتمل را برجسته کنید.

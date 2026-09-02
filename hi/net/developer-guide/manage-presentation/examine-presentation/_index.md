@@ -1,11 +1,11 @@
 ---
-title: .NET में प्रस्तुति जानकारी प्राप्त करें और अपडेट करें
-linktitle: प्रस्तुति जानकारी
+title: ".NET में प्रस्तुति जानकारी प्राप्त करें और अपडेट करें"
+linktitle: "प्रस्तुति जानकारी"
 type: docs
 weight: 30
 url: /hi/net/examine-presentation/
 keywords:
-- प्रस्तुति फ़ॉर्मेट
+- प्रस्तुति प्रारूप
 - प्रस्तुति गुण
 - दस्तावेज़ गुण
 - गुण प्राप्त करें
@@ -22,21 +22,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडाटा को खोजें, ताकि तेज़ अंतर्दृष्टि और अधिक समझदार सामग्री ऑडिट मिल सकें।"
+description: ".NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटा डेटा का अन्वेषण करें, तेज़ अंतर्दृष्टियों और अधिक बुद्धिमान सामग्री ऑडिट के लिए।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-यह लेख दिखाता है कि Aspose.Slides में प्रस्तुति जानकारी को कैसे निरीक्षण करें। यह बताता है कि पूरी फ़ाइल लोड किए बिना प्रस्तुति के वर्तमान फ़ॉर्मेट को कैसे निर्धारित करें, उसके दस्तावेज़ गुण पढ़ें, और आवश्यकता पड़ने पर उन गुणों को अपडेट करें।
+यह लेख दिखाता है कि Aspose.Slides में प्रस्तुति जानकारी कैसे जांचें। यह समझाता है कि पूरी फ़ाइल लोड किए बिना प्रस्तुति के वर्तमान प्रारूप को कैसे निर्धारित किया जाए, उसकी दस्तावेज़ गुण पढ़ें, और आवश्यकता पड़ने पर उन गुणों को अपडेट करें।
 
-उदाहरण [PresentationInfo](https://reference.aspose.com/slides/hi/net/aspose.slides/presentationinfo/) और [DocumentProperties](https://reference.aspose.com/slides/hi/net/aspose.slides/documentproperties/) APIs पर आधारित हैं और प्रस्तुति मेटाडाटा के साथ काम करने के सामान्य संचालन दर्शाते हैं।
+उदाहरण [PresentationInfo](https://reference.aspose.com/slides/hi/net/aspose.slides/presentationinfo/) और [DocumentProperties](https://reference.aspose.com/slides/hi/net/aspose.slides/documentproperties/) APIs पर आधारित हैं और प्रस्तुति मेटा डेटा के साथ काम करने के सामान्य कार्यों को प्रदर्शित करते हैं।
 
-## **प्रस्तुति फ़ॉर्मेट जाँचें**
+## **प्रस्तुति प्रारूप जाँचें**
 
-प्रस्तुति पर काम करने से पहले, आप यह जानना चाह सकते हैं कि वर्तमान में प्रस्तुति किस फ़ॉर्मेट (PPT, PPTX, ODP, और अन्य) में है।
+किसी प्रस्तुति पर काम करने से पहले, आप यह जानना चाह सकते हैं कि वर्तमान में प्रस्तुति किस प्रारूप (PPT, PPTX, ODP, आदि) में है।
 
-आप प्रस्तुति को लोड किए बिना उसकी फ़ॉर्मेट जाँच सकते हैं। इस C# कोड को देखें:
+आप प्रस्तुति को लोड किए बिना उसके प्रारूप की जाँच कर सकते हैं। यह C# कोड देखें:
 
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 Console.WriteLine(info.LoadFormat); // PPTX
 
@@ -49,30 +51,34 @@ Console.WriteLine(info3.LoadFormat); // ODP
 
 ## **प्रस्तुति गुण प्राप्त करें**
 
-यह C# कोड आपको दिखाता है कि प्रस्तुति गुण (प्रस्तुति के बारे में जानकारी) कैसे प्राप्त करें:
+यह C# कोड दिखाता है कि प्रस्तुति गुण (प्रस्तुति की जानकारी) कैसे प्राप्त करें:
 
 ```c#
+using Aspose.Slides;
+
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
 IDocumentProperties props = info.ReadDocumentProperties();
 Console.WriteLine(props.CreatedTime);
 Console.WriteLine(props.Subject);
 Console.WriteLine(props.Title);
-// ..
+// .. 
 ```
 
-आप [DocumentProperties वर्ग के तहत गुण](https://reference.aspose.com/slides/hi/net/aspose.slides/documentproperties/#properties) क्लास देखना चाह सकते हैं।
+आप [DocumentProperties](https://reference.aspose.com/slides/hi/net/aspose.slides/documentproperties/#properties) वर्ग के अंतर्गत [गुणों] को देखना चाह सकते हैं।
 
 ## **प्रस्तुति गुण अपडेट करें**
 
-Aspose.Slides [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/hi/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) मेथड प्रदान करता है जो आपको प्रस्तुति गुणों में परिवर्तन करने देता है।
+Aspose.Slides [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/hi/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) मेथड प्रदान करता है जो प्रस्तुति गुणों में परिवर्तन करने की अनुमति देता है।
 
-मान लीजिए हमारे पास नीचे दिखाए गए दस्तावेज़ गुणों वाले एक PowerPoint प्रस्तुति है।
+मान लीजिए हमारे पास नीचे दिखाए गए दस्तावेज़ गुणों वाली एक PowerPoint प्रस्तुति है।
 
-![PowerPoint प्रस्तुति के मूल दस्तावेज़ गुण](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
-यह कोड उदाहरण बताता है कि कुछ प्रस्तुति गुणों को कैसे संपादित करें:
+यह कोड उदाहरण दिखाता है कि कुछ प्रस्तुति गुणों को कैसे संपादित करें:
 
 ```c#
+using Aspose.Slides;
+
 string fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
@@ -85,37 +91,35 @@ info.UpdateDocumentProperties(properties);
 info.WriteBindedPresentation(fileName);
 ```
 
-दस्तावेज़ गुणों को बदलने के परिणाम नीचे दिखाए गए हैं।
+दस्तावेज़ गुणों में परिवर्तन के परिणाम नीचे दिखाए गए हैं।
 
-![PowerPoint प्रस्तुति के बदलते दस्तावेज़ गुण](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
-## **उपयोगी लिंक**
+## **उपयोगी लिंक्स**
 
-प्रस्तुति और उसकी सुरक्षा विशेषताओं के बारे में अधिक जानकारी प्राप्त करने के लिए, ये लिंक उपयोगी हो सकते हैं:
+प्रस्तुति और उसकी सुरक्षा विशेषताओं के बारे में अधिक जानकारी प्राप्त करने के लिए, आप इन लिंक्स को उपयोगी पा सकते हैं:
 
-- [जांचना कि क्या प्रस्तुति एन्क्रिप्टेड है](https://docs.aspose.com/slides/hi/net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [जांचना कि क्या प्रस्तुति लिखने से सुरक्षित (केवल पढ़ने योग्य) है](https://docs.aspose.com/slides/hi/net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [जांचना कि क्या प्रस्तुति लोड करने से पहले पासवर्ड द्वारा सुरक्षित है](https://docs.aspose.com/slides/hi/net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [प्रस्तुति को सुरक्षित करने के लिए उपयोग किए गए पासवर्ड की पुष्टि](https://docs.aspose.com/slides/hi/net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/hi/net/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/hi/net/write-protected-presentation/)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं यह कैसे जाँच सकता हूँ कि फ़ॉन्ट एंबेडेड हैं और कौन से हैं?**
+**फ़ॉन्ट एम्बेडेड हैं या नहीं और कौन‑से हैं, यह कैसे जाँचें?**
 
-प्रेजेंटेशन स्तर पर [embedded-font information](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsmanager/getembeddedfonts/) देखें, फिर उन प्रविष्टियों की तुलना [fonts actually used across content](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsmanager/getfonts/) के सेट से करें ताकि पता चल सके कि कौन से फ़ॉन्ट रेंडरिंग के लिए महत्वपूर्ण हैं।
+प्रस्तुति स्तर पर [embedded-font information](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsmanager/getembeddedfonts/) देखें, फिर उन प्रविष्टियों की तुलना [फ़ॉन्ट्स जो वास्तव में सामग्री में उपयोग किए गए हैं](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsmanager/getfonts/) से करें ताकि रेंडरिंग के लिए महत्वपूर्ण फ़ॉन्ट्स पहचान सकें।
 
-**मैं जल्दी से कैसे जान सकता हूँ कि फ़ाइल में छिपे स्लाइड्स हैं और उनकी संख्या कितनी है?**
+**फ़ाइल में छिपी हुई स्लाइड्स हैं या नहीं और उनकी संख्या कैसे जल्दी पता करें?**
 
-[slide collection](https://reference.aspose.com/slides/hi/net/aspose.slides/slidecollection/) पर इटरेट करें और प्रत्येक स्लाइड के [visibility flag](https://reference.aspose.com/slides/hi/net/aspose.slides/slide/hidden/) को inspect करें।
+[slide collection](https://reference.aspose.com/slides/hi/net/aspose.slides/slidecollection/) के माध्यम से इटरैट करें और प्रत्येक स्लाइड के [visibility flag](https://reference.aspose.com/slides/hi/net/aspose.slides/slide/hidden/) को जांचें।
 
-**क्या मैं पहचान सकता हूँ कि कस्टम स्लाइड आकार और अभिविन्यास उपयोग में हैं, और क्या वे डिफॉल्ट से अलग हैं?**
+**क्या मैं कस्टम स्लाइड आकार और अभिमुखता का पता लगा सकता हूँ, और क्या वे डिफ़ॉल्ट से अलग हैं?**
 
-हाँ। वर्तमान [slide size](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/slidesize/) और अभिविन्यास की तुलना मानक प्रीसेट्स से करें; यह प्रिंटिंग और निर्यात के लिए व्यवहार का अनुमान लगाने में मदद करता है।
+हां। वर्तमान [slide size](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/slidesize/) और अभिमुखता की तुलना मानक प्रीसेट्स से करें; यह प्रिंटिंग और एक्सपोर्ट के व्यवहार का अनुमान लगाने में मदद करता है।
 
-**क्या चार्ट्स बाहरी डेटा स्रोतों को संदर्भित करते हैं, यह देखने का त्वरित तरीका है?**
+**क्या चार्ट्स बाहरी डेटा स्रोतों को संदर्भित कर रहे हैं, यह जल्दी कैसे देखें?**
 
-हाँ। सभी [charts](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chart/) को ट्रैवर्स करें, उनके [data source](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chartdata/datasourcetype/) को जांचें, और नोट करें कि डेटा आंतरिक है या लिंक-आधारित, साथ ही किसी भी टूटे हुए लिंक को।
+हां। सभी [charts](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chart/) को ट्रैवर्स करें, उनके [data source](https://reference.aspose.com/slides/hi/net/aspose.slides.charts/chartdata/datasourcetype/) को जांचें, और नोट करें कि डेटा आंतरिक है या लिंक‑आधारित, जिसमें कोई टूटे हुए लिंक भी शामिल हों।
 
-**मैं 'भारी' स्लाइड्स का आकलन कैसे करूँ जो रेंडरिंग या PDF निर्यात को धीमा कर सकती हैं?**
+**'भारी' स्लाइड्स का आकलन कैसे करें जो रेंडरिंग या PDF एक्सपोर्ट को धीमा कर सकती हैं?**
 
-प्रत्येक स्लाइड के लिए, ऑब्जेक्ट काउंट गिनें और बड़े इमेज, ट्रांसपेरेंसी, शैडो, एनीमेशन एवं मल्टीमीडिया देखें; संभावित प्रदर्शन हॉटस्पॉट को चिन्हित करने के लिए एक मोटा जटिलता स्कोर निर्धारित करें।
+प्रत्येक स्लाइड के लिए ऑब्जेक्ट काउंट गिनें और बड़ी इमेजेज़, ट्रांसपेरेंसी, शैडोज़, एनीमेशन और मल्टीमीडिया देखिए; संभावित प्रदर्शन समस्याओं को चिन्हित करने के लिए एक मोटा जटिलता स्कोर असाइन करें।

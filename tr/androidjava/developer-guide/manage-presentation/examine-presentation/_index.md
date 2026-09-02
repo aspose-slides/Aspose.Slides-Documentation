@@ -22,13 +22,13 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Java kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve meta verileri keşfedin, daha hızlı içgörüler ve daha akıllı içerik denetimleri için."
+description: "Java kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve meta verileri keşfedin; daha hızlı içgörüler ve akıllı içerik denetimleri sağlayın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde sunum bilgilerini nasıl inceleyeceğinizi gösterir. Tam dosyayı yüklemeden bir sunumun mevcut formatını belirleme, belge özelliklerini okuma ve gerektiğinde bu özellikleri güncelleme yöntemlerini açıklar.
+Bu makale, Aspose.Slides içinde sunum bilgilerini nasıl inceleyeceğinizi gösterir. Tam dosyayı yüklemeden bir sunumun mevcut formatını nasıl belirleyeceğinizi, belge özelliklerini okuyacağınızı ve gerektiğinde bu özellikleri nasıl güncelleyeceğinizi açıklar.
 
-Örnekler, [PresentationInfo](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationinfo/) ve [DocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/documentproperties/) API'lerine dayanmakta ve sunum meta verileriyle çalışmak için tipik işlemleri göstermektedir.
+Örnekler, [PresentationInfo](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationinfo/) ve [DocumentProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/documentproperties/) API'lerine dayanmaktadır ve sunum meta verileriyle çalışmak için tipik işlemleri göstermektedir.
 
 ## **Sunum Formatını Kontrol Et**
 
@@ -37,6 +37,8 @@ Bir sunum üzerinde çalışmadan önce, sunumun şu anda hangi formatta (PPT, P
 Sunumun formatını sunumu yüklemeden kontrol edebilirsiniz. Aşağıdaki Java koduna bakın:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -52,15 +54,17 @@ System.out.println(info3.getLoadFormat()); // ODP
 Bu Java kodu, sunum özelliklerini (sunum hakkında bilgi) nasıl alacağınızı gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// ..
+// .. 
 ```
 
-DocumentProperties sınıfı altındaki [DocumentProperties sınıfı altındaki özellikler](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) görmek isteyebilirsiniz.
+DocumentProperties sınıfı altındaki [özellikleri](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) görebilirsiniz.
 
 ## **Sunum Özelliklerini Güncelle**
 
@@ -73,6 +77,9 @@ Aşağıda gösterilen belge özelliklerine sahip bir PowerPoint sunumumuz oldu�
 Bu kod örneği, bazı sunum özelliklerini nasıl düzenleyeceğinizi gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -85,37 +92,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-Belge özelliklerini değiştirmenin sonuçları aşağıda gösterilmiştir.
+Belge özelliklerini değiştirme sonuçları aşağıda gösterilmiştir.
 
-![PowerPoint sunumunun değiştirilen belge özellikleri](output_properties.png)
+![PowerPoint sunumunun değiştirilmiş belge özellikleri](output_properties.png)
 
-## **Faydalı Bağlantılar**
+## **Yararlı Bağlantılar**
 
-Bir sunum ve güvenlik özellikleri hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılar yararlı olabilir:
+Bir sunum ve güvenlik özellikleri hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılar faydalı olabilir:
 
-- [Sunumun Şifreli Olup Olmadığını Kontrol Etme](https://docs.aspose.com/slides/tr/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Sunumun Yazma Koruması (salt okunur) Olup Olmadığını Kontrol Etme](https://docs.aspose.com/slides/tr/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Sunumu Yüklemeden Önce Parola Koruması Olup Olmadığını Kontrol Etme](https://docs.aspose.com/slides/tr/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Sunumu Koruyan Parolayı Doğrulama](https://docs.aspose.com/slides/tr/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Sunumları Parola ile Koruma](/slides/tr/androidjava/password-protected-presentation/)
+- [Sunumları Yazma Korumasıyla Koruma](/slides/tr/androidjava/write-protected-presentation/)
 
 ## **SSS**
 
 **Yazı tiplerinin gömülü olup olmadığını ve hangi yazı tiplerinin gömülü olduğunu nasıl kontrol edebilirim?**
 
-Sunum seviyesinde [gömülü-yazı tipi bilgisi](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) bilgisine bakın, ardından bu girişleri [içerikte gerçekte kullanılan yazı tipleri](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsmanager/#getFonts--) içinde kullanılan yazı tipleriyle karşılaştırarak görüntüleme için kritik olan yazı tiplerini belirleyin.
+Sunum seviyesinde [gömülü yazı tipi bilgisi](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) arayın, ardından bu girdileri [içerikte gerçek olarak kullanılan yazı tipleri](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsmanager/#getFonts--) ile karşılaştırarak hangi yazı tiplerinin render için kritik olduğunu belirleyin.
 
-**Dosyanın gizli slaytları olup olmadığını ve sayısını nasıl hızlıca öğrenebilirim?**
+**Dosyanın gizli slaytları olup olmadığını ve kaç tane olduğunu hızlıca nasıl öğrenebilirim?**
 
-[slayt koleksiyonu](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slidecollection/) üzerinden döngü yapın ve her slaydın [görünürlük bayrağı](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slide/#getHidden--) özelliğini inceleyin.
+[slayt koleksiyonunu](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slidecollection/) dolaşın ve her bir slaydın [görünürlük bayrağını](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slide/#getHidden--) inceleyin.
 
-**Özel slayt boyutu ve yöneliminin kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**
+**Özel slayt boyutu ve yönü kullanılıp kullanılmadığını ve bunların varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**
 
-Evet. Mevcut [slayt boyutu](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getSlideSize--) ve yönelimi standart ön ayarlarla karşılaştırın; bu, yazdırma ve dışa aktarma davranışını öngörmeye yardımcı olur.
+Evet. Mevcut [slayt boyutunu](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getSlideSize--) ve yönünü standart ön ayarlarla karşılaştırın; bu, yazdırma ve dışa aktarma davranışını öngörmeye yardımcı olur.
 
-**Grafiklerin harici veri kaynaklarına başvurup başvurmadığını hızlıca görebilir miyim?**
+**Grafiklerin harici veri kaynaklarına başvurduğunu hızlıca görebileceğim bir yol var mı?**
 
-Evet. Tüm [grafikler](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chart/) üzerinde gezinin, [veri kaynağı](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) öğelerini kontrol edin ve verinin dahili mi yoksa bağlantı tabanlı mı olduğunu, kırık bağlantılar dahil, not alın.
+Evet. Tüm [grafikleri](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chart/) gezinin, [veri kaynaklarını](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) kontrol edin ve verinin dahili mi yoksa bağlantı temelli mi olduğunu, kırık bağlantılar dahil, not edin.
 
-**Renderlama veya PDF dışa aktarımı yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
+**Render'ı veya PDF dışa aktarımını yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
 
-Her slayt için nesne sayılarını toplayın ve büyük görseller, saydamlık, gölgeler, animasyonlar ve multimedya gibi öğelere bakın; potansiyel performans sorunlarını işaretlemek için kabaca bir karmaşıklık puanı atayın.
+Her bir slayt için nesne sayılarını toplayın ve büyük görüntüler, şeffaflık, gölgeler, animasyonlar ve multimedya gibi öğelere bakın; potansiyel performans sorunlarını işaretlemek için kaba bir karmaşıklık puanı atayın.

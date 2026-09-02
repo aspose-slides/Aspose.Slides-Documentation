@@ -1,41 +1,43 @@
 ---
-title: دریافت و به‌روزرسانی اطلاعات ارائه در جاوا
+title: بازگردانی و به‌روزرسانی اطلاعات ارائه در جاوا
 linktitle: اطلاعات ارائه
 type: docs
 weight: 30
 url: /fa/java/examine-presentation/
 keywords:
 - فرمت ارائه
-- خصوصیات ارائه
-- خصوصیات سند
-- دریافت خصوصیات
-- خواندن خصوصیات
-- تغییر خصوصیات
-- اصلاح خصوصیات
-- به‌روزرسانی خصوصیات
+- ویژگی‌های ارائه
+- ویژگی‌های سند
+- دریافت ویژگی‌ها
+- خواندن ویژگی‌ها
+- تغییر ویژگی‌ها
+- اصلاح ویژگی‌ها
+- به‌روزرسانی ویژگی‌ها
 - بررسی PPTX
 - بررسی PPT
 - بررسی ODP
-- پاورپوینت
+- PowerPoint
 - OpenDocument
 - ارائه
-- جاوا
+- Java
 - Aspose.Slides
-description: "کاوش اسلایدها، ساختار و فراداده‌ها در ارائه‌های PowerPoint و OpenDocument با استفاده از Java برای دریافت سریع‌تر بینش‌ها و ارزیابی‌های هوشمند محتوا."
+description: "اسلایدها، ساختار و متادیتا را در ارائه‌های PowerPoint و OpenDocument با استفاده از جاوا بررسی کنید تا بینش‌های سریع‌تر و ارزیابی‌های محتوا هوشمندانه‌تری به‌دست آورید."
 ---
 ## **نمای کلی**
 
-این مقاله نشان می‌دهد که چگونه اطلاعات ارائه را در Aspose.Slides بررسی کنید. توضیح می‌دهد که چگونه فرمت فعلی یک ارائه را بدون بارگذاری کامل فایل تعیین کنید، خصوصیات سند آن را بخوانید و در صورت نیاز این خصوصیات را به‌روز کنید.
+این مقاله نشان می‌دهد چگونه می‌توان اطلاعات ارائه را در Aspose.Slides بررسی کرد. توضیح می‌دهد چگونه می‌توان فرمت فعلی یک ارائه را بدون بارگذاری کامل فایل تشخیص داد، ویژگی‌های سند آن را خواند و در صورت نیاز این ویژگی‌ها را به‌روزرسانی کرد.
 
-مثال‌ها بر پایهٔ APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/documentproperties/) ساخته شده‌اند و عملیات معمول برای کار با فراداده‌های ارائه را نشان می‌دهند.
+مثال‌ها بر پایه APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/documentproperties/) هستند و عملیات معمولی برای کار با متادیتای ارائه را نشان می‌دهند.
 
 ## **بررسی فرمت ارائه**
 
-قبل از کار روی یک ارائه، ممکن است بخواهید فرمت (PPT، PPTX، ODP و ...) که ارائه در حال حاضر دارد را بیابید.
+قبل از کار بر روی یک ارائه، ممکن است بخواهید بفهمید که این ارائه در حال حاضر در چه فرمتی (PPT، PPTX، ODP و غیره) قرار دارد.
 
-می‌توانید فرمت یک ارائه را بدون بارگذاری آن بررسی کنید. به این کد جاوا مراجعه کنید:
+می‌توانید فرمت ارائه را بدون بارگذاری آن بررسی کنید. به این کد Java نگاه کنید:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -46,11 +48,13 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-## **دریافت خصوصیات ارائه**
+## **دریافت ویژگی‌های ارائه**
 
-این کد جاوا نشان می‌دهد که چگونه خصوصیات ارائه (اطلاعات دربارهٔ ارائه) را دریافت کنید:
+این کد Java نشان می‌دهد چگونه می‌توان ویژگی‌های ارائه (اطلاعات درباره ارائه) را دریافت کرد:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
@@ -59,19 +63,22 @@ System.out.println(props.getTitle());
 // .. 
 ```
 
-ممکن است بخواهید [خصوصیات زیر کلاس DocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/documentproperties/#DocumentProperties--) را ببینید.
+ممکن است بخواهید ویژگی‌های موجود در کلاس [DocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/documentproperties/#DocumentProperties--) را ببینید.
 
-## **به‌روزرسانی خصوصیات ارائه**
+## **به‌روزرسانی ویژگی‌های ارائه**
 
-Aspose.Slides متد [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) را فراهم می‌کند که به شما امکان می‌دهد تغییراتی در خصوصیات ارائه اعمال کنید.
+Aspose.Slides متد [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) را فراهم می‌کند که امکان تغییر ویژگی‌های ارائه را می‌دهد.
 
-فرض کنید یک ارائه PowerPoint با خصوصیات سند زیر داریم.
+فرض کنید یک ارائه PowerPoint با ویژگی‌های سند زیر داریم.
 
-![خصوصیات سند اصلی ارائه PowerPoint](input_properties.png)
+![ویژگی‌های سند اصلی ارائه PowerPoint](input_properties.png)
 
-این مثال کد نشان می‌دهد که چگونه برخی از خصوصیات ارائه را ویرایش کنید:
+این مثال کد نشان می‌دهد چگونه می‌توان برخی از ویژگی‌های ارائه را ویرایش کرد:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -84,37 +91,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-نتایج تغییر خصوصیات سند در زیر نشان داده شده‌اند.
+نتایج تغییر ویژگی‌های سند در زیر نشان داده شده است.
 
-![خصوصیات سند تغییر یافتهٔ ارائه PowerPoint](output_properties.png)
+![ویژگی‌های سند تغییر یافته ارائه PowerPoint](output_properties.png)
 
 ## **لینک‌های مفید**
 
-برای دریافت اطلاعات بیشتر دربارهٔ یک ارائه و ویژگی‌های امنیتی آن، ممکن است این لینک‌ها مفید باشند:
+برای دریافت اطلاعات بیشتر درباره یک ارائه و ویژگی‌های امنیتی آن، ممکن است این لینک‌ها برای شما مفید باشند:
 
-- [بررسی اینکه آیا یک ارائه رمزگذاری شده است](https://docs.aspose.com/slides/fa/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [بررسی اینکه آیا یک ارائه محافظت‌شده از نوشتن (فقط-خواندنی) است](https://docs.aspose.com/slides/fa/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [بررسی اینکه آیا یک ارائه قبل از بارگذاری با رمز عبور محافظت شده است](https://docs.aspose.com/slides/fa/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [تأیید رمز عبوری که برای محافظت از یک ارائه استفاده شده است](https://docs.aspose.com/slides/fa/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/fa/java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/fa/java/write-protected-presentation/)
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و کدام یک هستند؟**
+**چگونه می‌توانم بررسی کنم که آیا قلم‌ها به‌صورت جاسازی شده موجود هستند و کدام‌ها؟**
 
-در سطح ارائه به دنبال [اطلاعات قلم‌های جاسازی‌شده](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) بگردید، سپس آن ورودی‌ها را با مجموعهٔ [قلم‌های واقعی مورد استفاده در محتوا](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsmanager/#getFonts--) مقایسه کنید تا قلم‌های بحرانی برای رندر را شناسایی کنید.
+به دنبال اطلاعات [embedded-font](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) در سطح ارائه بگردید، سپس آن ورودی‌ها را با مجموعهٔ [قلم‌های واقعاً استفاده‌شده در محتوا](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsmanager/#getFonts--) مقایسه کنید تا قلم‌های بحرانی برای رندر را شناسایی کنید.
 
-**چگونه می‌توانم به‌سرعت بفهمم که آیا فایل اسلایدهای مخفی دارد و چه تعداد؟**
+**چگونه می‌توانم به‌سرعت تشخیص دهم آیا فایل اسلایدهای پنهان دارد و چندتا؟**
 
-از طریق [مجموعه اسلایدها](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slidecollection/) مرور کنید و پرچم [قابلیت نمایش](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slide/#getHidden--) هر اسلاید را بررسی کنید.
+از طریق [slide collection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slidecollection/) عبور کنید و پرچم [visibility](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slide/#getHidden--) هر اسلاید را بررسی کنید.
 
-**آیا می‌توانم تشخیص دهم که اندازه و جهت‌گیری اسلاید سفارشی استفاده شده است و آیا با پیش‌فرض‌ها متفاوت است؟**
+**آیا می‌توانم تشخیص دهم آیا اندازه و جهت سفارشی اسلاید استفاده شده‌اند و آیا با پیش‌فرض‌ها متفاوت هستند؟**
 
-بله. اندازهٔ فعلی [اسلاید](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlideSize--) و جهت‌گیری آن را با تنظیمات پیش‌فرض مقایسه کنید؛ این کار به پیش‌بینی رفتار برای چاپ و خروجی کمک می‌کند.
+بله. اندازهٔ فعلی [slide size](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlideSize--) و جهت آن را با پیش‌تنظیمات استاندارد مقایسه کنید؛ این کار به پیش‌بینی رفتار هنگام چاپ و خروجی کمک می‌کند.
 
-**آیا راه سریع برای بررسی این که آیا نمودارها به منابع دادهٔ خارجی ارجاع می‌دهند وجود دارد؟**
+**آیا راهی سریع برای مشاهده این‌که آیا نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
 
-بله. تمام [نمودارها](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chart/) را پیمایش کنید، منبع دادهٔ آن‌ها را بررسی کنید و تعیین کنید که داده داخلی است یا بر پایهٔ لینک، شامل هر لینک شکسته‌ای.
+بله. تمام [charts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chart/) را پیمایش کنید، منبع دادهٔ آن‌ها را بررسی کنید ([data source](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chartdata/#getDataSourceType--)) و ببینید داده داخلی است یا به‌صورت لینک و حتی آیا لینک شکسته است یا نه.
 
 **چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند ارزیابی کنم؟**
 
-برای هر اسلاید، تعداد اشیاء را شمارش کنید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و چندرسانه‌ای بگردید؛ یک امتیاز پیچیدگی تقریبی اختصاص دهید تا نقاط دشوار عملکرد را شناسایی کنید.
+برای هر اسلاید، شمارش اشیاء را انجام دهید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و رسانه‌های چندرسانه‌ای باشید؛ امتیاز پیچیدگی تخمینی بدهید تا نقاط احتمالی کاهش عملکرد را شناسایی کنید.

@@ -1,286 +1,200 @@
 ---
-title: .NET 中以密碼保護的投影片安全性
+title: 在 .NET 中對簡報設定密碼保護
 linktitle: 密碼保護
 type: docs
 weight: 20
 url: /zh-hant/net/password-protected-presentation/
 keywords:
-- 鎖定 PowerPoint
-- 鎖定投影片
-- 解除鎖定 PowerPoint
-- 解除鎖定投影片
-- 保護 PowerPoint
-- 保護投影片
-- 設定密碼
-- 新增密碼
+- 已加密的簡報
+- 開啟密碼
 - 加密 PowerPoint
-- 加密投影片
 - 解密 PowerPoint
-- 解密投影片
-- 寫入保護
-- PowerPoint 安全性
-- 投影片安全性
-- 移除密碼
-- 移除保護
+- 驗證簡報密碼
+- 檢查簡報密碼
+- 開啟已加密的簡報
 - 移除加密
-- 停用密碼
-- 停用保護
-- 移除寫入保護
 - PowerPoint
-- OpenDocument
-- 投影片
+- PPT
+- PPTX
+- 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for .NET 輕鬆鎖定與解除鎖定受密碼保護的 PowerPoint 與 OpenDocument 投影片，為您的投影片提供安全保護。"
+description: "在 C# 中使用 Aspose.Slides for .NET 加密、偵測、驗證、開啟及解密受密碼保護的 PowerPoint PPT 與 PPTX 簡報。"
 ---
-## **簡介**
+## **概觀**
 
-當您對投影片設定密碼保護時，表示您正在設定一組密碼，以對投影片實施特定限制。若要移除這些限制，必須輸入密碼。受密碼保護的投影片被視為已鎖定的投影片。
+開啟密碼會加密簡報。必須提供正確的密碼才能載入與檢視簡報內容，因而提供保密性。
 
-通常，您可以設定密碼以對投影片強制這些限制：
+開啟密碼與寫入保護密碼不同。寫入保護會限制修改，但不加密內容，也不阻止載入簡報。若要管理簡報的修改密碼，請參閱[寫入保護簡報](/slides/zh-hant/net/write-protected-presentation/)。
 
-- **修改**
+以下工作流程同時適用於 PPT 與 PPTX 簡報。範例在兩種格式下皆有展示其檔案基礎與串流基礎行為的重要性。
 
-如果您只希望特定使用者修改您的投影片，您可以設定修改限制。此限制會阻止未提供密碼的人對投影片的元素進行修改、變更或複製。  
+## **使用開啟密碼加密簡報**
 
-然而，即使未輸入密碼，使用者仍可存取並開啟您的文件。於唯讀模式下，使用者可以檢視投影片內的內容——包括超連結、動畫、特效與其他元素——但無法複製項目或儲存投影片。
+使用[IProtectionManager.Encrypt](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iprotectionmanager/encrypt/) 指定開啟密碼。然後使用[IPresentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentation/save/) 以保存加密後的簡報。
 
-- **開啟**
+以下範例會加密 PPTX 簡報：
 
-如果您只希望特定使用者開啟您的投影片，您可以設定開啟限制。此限制會阻止未提供密碼的人甚至檢視投影片的內容。  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-從技術上說，開啟限制同時也會阻止使用者修改投影片——若無法開啟投影片，就無法對其進行修改或變更。
-
-**注意：**當您以密碼保護投影片以防止開啟時，投影片檔案會被加密。
-
-## **Aspose.Slides 中的密碼保護**
-
-**支援的格式**
-
-Aspose.Slides 支援以下格式的投影片進行密碼保護、加密等操作：
-
-- PPTX 和 PPT – Microsoft PowerPoint 投影片
-- ODP – OpenDocument 投影片
-- OTP – OpenDocument 投影片範本
-
-**支援的操作**
-
-Aspose.Slides 允許您以以下方式使用密碼保護來防止投影片被修改：
-
-- 加密投影片
-- 對投影片設定寫入保護
-
-**其他操作**
-
-Aspose.Slides 允許您以以下方式執行與密碼保護和加密相關的其他工作：
-
-- 解密投影片；開啟加密的投影片
-- 移除加密；停用密碼保護
-- 從投影片中移除寫入保護
-- 取得加密投影片的屬性
-- 在載入之前檢查投影片是否受密碼保護
-- 檢查投影片是否已加密
-- 檢查投影片是否受密碼保護
-
-## **使用密碼保護投影片**
-
-您可以透過設定密碼來加密投影片。之後，要修改已鎖定的投影片，使用者必須提供密碼。
-
-為了加密（或密碼保護）投影片，請使用來自[ProtectionManager](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/protectionmanager)的`Encrypt`方法設定密碼。將密碼傳遞給`Encrypt`方法，然後使用`Save`方法儲存已加密的投影片。
-
-此範例程式碼示範如何加密投影片：
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **對投影片設定寫入保護**
-
-您可以在投影片上加入「請勿修改」的標記。此標記告知使用者您不希望他們對投影片進行變更。
-
-**注意：**寫入保護過程不會加密投影片。因此，使用者—如果他們願意—仍可修改投影片，但若要儲存變更，必須以不同的檔名儲存。
-
-要設定寫入保護，請使用`SetWriteProtection`方法。此範例程式碼示範如何對投影片設定寫入保護：
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **載入加密的投影片**
-
-Aspose.Slides 允許您在提供正確密碼的情況下載入加密的投影片。此範例程式碼示範如何載入加密的投影片：
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // 使用已解密的投影片。
-}
-```
-
-## **從投影片中移除加密**
-
-您可以移除投影片的加密或密碼保護，讓使用者可以無限制地存取或修改投影片。
-
-若要移除加密或密碼保護，請呼叫[RemoveEncryption](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/protectionmanager/methods/removeencryption)方法。此範例程式碼示範如何從投影片中移除加密：
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **從投影片中移除寫入保護**
-
-您可以使用 Aspose.Slides 移除投影片檔案的寫入保護。這樣，使用者即可任意修改投影片，且在執行此類操作時不會收到任何警告。
-
-您可以透過使用[RemoveWriteProtection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/protectionmanager/methods/removewriteprotection)方法移除寫入保護。此範例程式碼示範如何從投影片中移除寫入保護：
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **取得加密投影片的屬性**
-
-通常，使用者難以取得加密或受密碼保護投影片的文件屬性。然而，Aspose.Slides 提供了一種機制，允許您在對投影片設定密碼保護的同時，仍保留使用者存取其屬性的能力。
-
-**注意：**預設情況下，Aspose.Slides 加密投影片時，投影片的文件屬性也會受到密碼保護。如需在加密後仍能存取文件屬性，Aspose.Slides 允許您這麼做。
-
-若要讓使用者在加密投影片後仍能存取其屬性，請將[IProtectionManager](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iprotectionmanager/)的`EncryptDocumentProperties`屬性設為`false`。此範例程式碼示範如何在加密投影片的同時，仍提供使用者存取文件屬性的功能：
-
-```c#
 using var presentation = new Presentation("pres.pptx");
 
-presentation.ProtectionManager.EncryptDocumentProperties = false;
-presentation.ProtectionManager.Encrypt("123123");
+presentation.ProtectionManager.Encrypt("open_password");
 presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
-## **僅從加密投影片載入文件屬性**
+## **載入已加密的簡報**
 
-若要在不載入投影片頁面或其他內容的情況下檢查加密投影片的中繼資料，請建立一個[LoadOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/)物件，並將[OnlyLoadDocumentProperties](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/onlyloaddocumentproperties/)設為`true`。在此模式下，Aspose.Slides 會忽略密碼，只載入可公開存取的文件屬性。
+將[LoadOptions.Password](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/password/) 設為開啟密碼，並在載入檔案時將此選項傳遞給[Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/)。如果需要開啟密碼但未提供或提供的密碼不正確，載入將失敗。
 
-以下程式碼範例透過[IPresentation.DocumentProperties](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentation/documentproperties/)讀取內建與自訂文件屬性：
+```csharp
+using Aspose.Slides;
 
-```c#
-var loadOptions = new LoadOptions
-{
-    OnlyLoadDocumentProperties = true
-};
-
+var loadOptions = new LoadOptions { Password = "open_password" };
 using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
-var documentProperties = presentation.DocumentProperties;
 
-// Read built-in document properties.
-Console.WriteLine("Title: " + documentProperties.Title);
-Console.WriteLine("Author: " + documentProperties.Author);
+// 使用已解密的簡報。
+```
 
-// Read custom document properties.
-var customPropertyCount = documentProperties.CountOfCustomProperties;
+## **移除簡報的加密**
 
-for (var propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+使用開啟密碼載入簡報，呼叫[IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iprotectionmanager/removeencryption/)，然後保存結果。之後即可在不提供密碼的情況下載入已保存的簡報。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
+
+## **載入前驗證開啟密碼**
+
+使用[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentationfactory/getpresentationinfo/) 取得[IPresentationInfo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentationinfo/)，而不必建立完整的簡報實例。於請求或驗證密碼之前，先檢查[IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentationinfo/ispasswordprotected/)。若存在保護，請使用[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentationinfo/checkpassword/) 來驗證提供的密碼。
+
+### **檔案路徑工作流程**
+
+以下範例驗證 PPTX 檔案的開啟密碼，將驗證後的值傳遞給[LoadOptions.Password](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/password/)，然後載入完整的簡報：
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    var propertyName = documentProperties.GetCustomPropertyName(propertyIndex);
-    var propertyValue = documentProperties[propertyName];
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
 
-    Console.WriteLine(propertyName + ": " + propertyValue);
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-此工作流程僅在投影片加密時，文件屬性保持未加密（公開）時有效。若文件屬性已加密，將`OnlyLoadDocumentProperties`設為`true`會拋出例外，因為此模式下會忽略密碼。若要存取加密的文件屬性或載入完整的投影片（包括頁面與其他內容），請在[LoadOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/)中提供正確的`Password`值。
+### **串流工作流程**
 
-## **檢查投影片是否受密碼保護**
+[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentationfactory/getpresentationinfo/) 的串流重載提供相同的工作流程。在從該串流載入完整簡報之前，請先重設可查詢串流的位置。
 
-在載入投影片之前，您可能想先確認該投影片未受到密碼保護。這可避免在未提供正確密碼而載入受密碼保護的投影片時發生錯誤或類似問題。
+以下範例使用 PPT 檔案：
 
-此 C# 程式碼示範如何在不實際載入投影片的情況下檢查投影片是否受密碼保護：
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
 
-## **檢查投影片是否已加密**
-
-Aspose.Slides 允許您檢查投影片是否已加密。您可以使用[IsEncrypted](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/protectionmanager/properties/isencrypted)屬性，若投影片已加密則返回`true`，否則返回`false`。
-
-此範例程式碼示範如何檢查投影片是否已加密：
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+if (!presentationInfo.IsPasswordProtected)
 {
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **檢查投影片是否寫入受保護**
+### **CheckPassword 回傳值**
 
-Aspose.Slides 允許您檢查投影片是否寫入受保護。您可以使用[IsWriteProtected](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/protectionmanager/properties/iswriteprotected)屬性，若投影片寫入受保護則返回`true`，否則返回`false`。
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentationinfo/checkpassword/) 只在簡報具備開啟密碼且提供的密碼正確時回傳 `true`。在以下情況皆會回傳 `false`：
 
-此範例程式碼示範如何檢查投影片是否寫入受保護：
+- 密碼不正確。
+- 簡報沒有開啟密碼。
+- 提供的密碼為 `null` 或空字串。
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
+PPT 與 PPTX 簡報的行為相同。
+
+## **檢查已載入的簡報是否已加密**
+
+使用正確密碼載入簡報後，檢查[IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iprotectionmanager/isencrypted/) 以確認來源簡報已被加密。若要在載入前偵測開啟密碼保護，可使用上方示範的 `IPresentationInfo.IsPasswordProtected`。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **驗證投影片密碼的使用**
+## **安全性建議**
 
-您可能想要確認特定密碼已被用於保護投影片文件。Aspose.Slides 提供驗證密碼的方式。
-
-此範例程式碼示範如何驗證密碼：
-
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // 檢查密碼是否匹配。
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-若投影片已使用指定密碼加密，則返回`true`；否則返回`false`。
-
-{{% alert color="primary" title="另請參閱" %}} 
-- [PowerPoint 的數位簽章](/slides/zh-hant/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="安全性" %}}
+不要記錄開啟密碼或將其包含在診斷訊息中。避免不必要的重複驗證嘗試，僅在需要時將密碼保留於記憶體中，並在立即載入簡報時重複使用成功的驗證結果。
 {{% /alert %}}
 
-## **線上密碼保護投影片**
+## **線上為簡報設定密碼保護**
 
-1. 前往我們的 [**Aspose.Slides Lock**](https://products.aspose.app/slides/zh-hant/lock) 頁面。 
-2. 點擊 **Drop or upload your files**。 
-3. 在電腦上選取您想要設定密碼保護的檔案。 
-4. 輸入您希望的編輯保護密碼以及檢視保護密碼。 
-5. 如果您希望使用者將投影片視為最終版本，勾選 **Mark as final** 核取方塊。 
-6. 點擊 **PROTECT NOW.** 
-7. 點擊 **DOWNLOAD NOW.** 
+1. 開啟 [Aspose.Slides Lock](https://products.aspose.app/slides/zh-hant/lock) 應用程式。
+2. 選取或上傳簡報。
+3. 輸入檢視保護的密碼。
+4. （可選）為編輯保護輸入另一組密碼。
+5. 套用保護並下載產生的檔案。
 
-![密碼保護 PowerPoint 投影片](slides-lock.png)
+{{% alert color="info" title="另請參閱" %}}
+- [寫入保護簡報](/slides/zh-hant/net/write-protected-presentation/)
+- [PowerPoint 數位簽章](/slides/zh-hant/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
 ## **常見問題**
 
-**What encryption methods are supported by Aspose.Slides?**  
-Aspose.Slides 支援現代加密方法，包括基於 AES 的演算法，確保您的投影片具備高度的資料安全性。
+**開啟密碼與寫入保護密碼有何不同？**
 
-**What happens if an incorrect password is entered when attempting to open a presentation?**  
-若使用錯誤的密碼，系統會拋出例外，提示您無法存取投影片。此機制有助於防止未授權存取，保護投影片內容。
+開啟密碼會加密簡報，且必須提供才能載入其內容。寫入保護密碼則僅限制修改，且不會加密內容。
 
-**Are there any performance implications when working with password-protected presentations?**  
-加密與解密過程在開啟與儲存時可能會產生輕微的額外負擔。大多數情況下，此效能影響很小，不會顯著延長投影片任務的總處理時間。
+**我可以在不載入所有投影片的情況下驗證開啟密碼嗎？**
+
+可以。取得簡報資訊，檢查是否存在開啟密碼保護，並在建立完整簡報實例之前驗證密碼。
+
+**密碼驗證工作流程是否同時支援 PPT 與 PPTX？**
+
+支援。檔案路徑與串流方式的密碼偵測與驗證在 PPT 與 PPTX 簡報中行為相同。

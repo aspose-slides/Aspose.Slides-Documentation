@@ -1,5 +1,5 @@
 ---
-title: Informatie over presentaties ophalen en bijwerken op Android
+title: Ophalen en bijwerken van presentatiesinformatie op Android
 linktitle: Presentatie-informatie
 type: docs
 weight: 30
@@ -22,21 +22,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ontdek dia's, structuur en metadata in PowerPoint- en OpenDocument-presentaties met Java voor snellere inzichten en slimmere inhoudsaudits."
+description: "Verken dia's, structuur en metadata in PowerPoint- en OpenDocument-presentaties met Java voor snellere inzichten en slimmere inhoudscontroles."
 ---
 ## **Overzicht**
 
-Dit artikel laat zien hoe u presentatiesinformatie in Aspose.Slides kunt inspecteren. Het legt uit hoe u het huidige formaat van een presentatie kunt bepalen zonder het volledige bestand te laden, de documenteigenschappen kunt lezen en deze eigenschappen kunt bijwerken wanneer nodig.
+Dit artikel toont hoe u presentatiesinformatie in Aspose.Slides kunt inspecteren. Het legt uit hoe u het huidige formaat van een presentatie kunt bepalen zonder het volledige bestand te laden, de documenteigenschappen kunt lezen en deze eigenschappen kunt bijwerken wanneer dat nodig is.
 
-De voorbeelden zijn gebaseerd op de [PresentationInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationinfo/) en [DocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/documentproperties/) API's en demonstreren typische bewerkingen voor het werken met presentatiemetadata.
+De voorbeelden zijn gebaseerd op de [PresentationInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationinfo/) en [DocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/documentproperties/) API's en demonstreren typische bewerkingen voor het werken met presentatiemeta‑gegevens.
 
-## **Formaat van een presentatie controleren**
+## **Controleer het formaat van een presentatie**
 
-Voordat u aan een presentatie werkt, wilt u misschien weten in welk formaat (PPT, PPTX, ODP en anderen) de presentatie zich momenteel bevindt.
+Voordat u aan een presentatie werkt, wilt u misschien weten in welk formaat (PPT, PPTX, ODP en andere) de presentatie momenteel staat.
 
 U kunt het formaat van een presentatie controleren zonder de presentatie te laden. Zie deze Java‑code:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -47,32 +49,37 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-## **Presentatie‑eigenschappen ophalen**
+## **Verkrijg presentatie‑eigenschappen**
 
-Deze Java‑code laat zien hoe u presentatieseigenschappen (informatie over de presentatie) kunt ophalen:
+Deze Java‑code toont u hoe u presentatie‑eigenschappen kunt ophalen (informatie over de presentatie):
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// .. 
+// ..
 ```
 
-U wilt misschien de eigenschappen bekijken onder de klasse DocumentProperties.
+U kunt de [eigenschappen onder de DocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) klasse bekijken.
 
-## **Presentatie‑eigenschappen bijwerken**
+## **Werk presentatie‑eigenschappen bij**
 
-Aspose.Slides biedt de [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) methode die u in staat stelt wijzigingen aan te brengen in presentatieseigenschappen.
+Aspose.Slides biedt de [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) methode die u in staat stelt wijzigingen aan te brengen in presentatie‑eigenschappen.
 
-Stel dat we een PowerPoint‑presentatie hebben met de onderstaande documenteigenschappen.
+Stel, we hebben een PowerPoint‑presentatie met de onderstaande documenteigenschappen.
 
 ![Originele documenteigenschappen van de PowerPoint‑presentatie](input_properties.png)
 
-Dit code‑voorbeeld laat zien hoe u enkele presentatieseigenschappen kunt bewerken:
+Dit code‑voorbeeld toont u hoe u enkele presentatie‑eigenschappen kunt bewerken:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -93,29 +100,27 @@ De resultaten van het wijzigen van de documenteigenschappen worden hieronder get
 
 Voor meer informatie over een presentatie en de beveiligingsattributen kunt u deze links nuttig vinden:
 
-- [Controleren of een presentatie versleuteld is](https://docs.aspose.com/slides/nl/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Controleren of een presentatie alleen-lezen is (schrijfbeveiligd)](https://docs.aspose.com/slides/nl/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Controleren of een presentatie met wachtwoord beschermd is voordat deze wordt geladen](https://docs.aspose.com/slides/nl/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bevestigen van het wachtwoord dat is gebruikt om een presentatie te beschermen](https://docs.aspose.com/slides/nl/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Presentaties met wachtwoord beveiligen](/slides/nl/androidjava/password-protected-presentation/)
+- [Presentaties met schrijfbeveiliging](/slides/nl/androidjava/write-protected-presentation/)
 
 ## **FAQ**
 
 **Hoe kan ik controleren of lettertypen zijn ingesloten en welke dat zijn?**
 
-Zoek naar ingesloten‑lettertype‑informatie op presentatieniveau en vergelijk die vermeldingen vervolgens met de set van daadwerkelijk gebruikte lettertypen in de inhoud om te bepalen welke lettertypen essentieel zijn voor het renderen.
+Zoek naar [informatie over ingesloten lettertypen](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) op presentatieniveau, en vergelijk vervolgens die vermeldingen met de set van [lettertypen die daadwerkelijk in de inhoud worden gebruikt](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fontsmanager/#getFonts--) om te bepalen welke lettertypen cruciaal zijn voor het renderen.
 
-**Hoe kan ik snel zien of het bestand verborgen dia’s bevat en hoeveel?**
+**Hoe kan ik snel bepalen of het bestand verborgen dia's bevat en hoeveel?**
 
-Itereer door de slide‑collection en inspecteer de zichtbaarheids‑vlag van elke dia.
+Itereer door de [dia‑collectie](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/slidecollection/) en inspecteer de [zichtbaarheids‑vlag](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/slide/#getHidden--) van elke dia.
 
 **Kan ik detecteren of een aangepaste dia‑grootte en -oriëntatie worden gebruikt, en of deze afwijken van de standaardinstellingen?**
 
-Ja. Vergelijk de huidige slide‑size en oriëntatie met de standaardpresets; dit helpt om het gedrag bij afdrukken en export te anticiperen.
+Ja. Vergelijk de huidige [dia‑grootte](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getSlideSize--) en oriëntatie met de standaardpresets; dit helpt om het gedrag bij afdrukken en export te voorspellen.
 
-**Is er een snelle manier om te zien of grafieken externe gegevensbronnen refereren?**
+**Is er een snelle manier om te zien of grafieken externe gegevensbronnen gebruiken?**
 
-Ja. Doorloop alle charts, controleer hun data‑source en noteer of de data intern of via een link is, inclusief eventuele gebroken links.
+Ja. Doorloop alle [grafieken](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chart/), controleer hun [gegevensbron](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) en noteer of de gegevens intern of op een koppeling gebaseerd zijn, inclusief eventuele verbroken koppelingen.
 
-**Hoe kan ik ‘zware’ dia's beoordelen die mogelijk het renderen of PDF‑export vertragen?**
+**Hoe kan ik 'zware' dia's beoordelen die het renderen of PDF‑export kunnen vertragen?**
 
-Voor elke dia tel je het aantal objecten en zoek je naar grote afbeeldingen, transparantie, schaduwen, animaties en multimedia; ken een ruwe complexiteitsscore toe om potentiële prestatieknelpunten te markeren.
+Tel per dia het aantal objecten en zoek naar grote afbeeldingen, transparantie, schaduwen, animaties en multimedia; wijs een ruwe complexiteitsscore toe om mogelijke prestatiefocuspunten te markeren.

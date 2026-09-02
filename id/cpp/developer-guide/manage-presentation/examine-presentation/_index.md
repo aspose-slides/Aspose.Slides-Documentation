@@ -8,7 +8,7 @@ keywords:
 - format presentasi
 - properti presentasi
 - properti dokumen
-- dapatkan properti
+- ambil properti
 - baca properti
 - ubah properti
 - modifikasi properti
@@ -21,21 +21,28 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Jelajahi slide, struktur, dan metadata dalam presentasi PowerPoint dan OpenDocument menggunakan C++ untuk wawasan yang lebih cepat dan audit konten yang lebih cerdas."
+description: "Jelajahi slide, struktur, dan metadata dalam presentasi PowerPoint dan OpenDocument menggunakan C++ untuk wawasan lebih cepat dan audit konten yang lebih cerdas."
 ---
 ## **Ikhtisar**
 
 Artikel ini menunjukkan cara memeriksa informasi presentasi di Aspose.Slides. Artikel ini menjelaskan cara menentukan format saat ini dari sebuah presentasi tanpa memuat seluruh file, membaca properti dokumennya, dan memperbarui properti tersebut bila diperlukan.
 
-Contoh-contoh didasarkan pada API [PresentationInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentationinfo/) dan [DocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/documentproperties/) serta menunjukkan operasi umum untuk bekerja dengan metadata presentasi.
+Contoh-contoh didasarkan pada API [PresentationInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentationinfo/) dan [DocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/documentproperties/) serta mendemonstrasikan operasi tipikal untuk bekerja dengan metadata presentasi.
 
 ## **Periksa Format Presentasi**
 
-Sebelum mengerjakan sebuah presentasi, Anda mungkin ingin mengetahui format (PPT, PPTX, ODP, dan lainnya) yang sedang digunakan oleh presentasi tersebut.
+Sebelum mengerjakan sebuah presentasi, Anda mungkin ingin mengetahui format apa (PPT, PPTX, ODP, dan lainnya) yang sedang digunakan oleh presentasi tersebut.
 
-Anda dapat memeriksa format presentasi tanpa memuat presentasi tersebut. Lihat kode C++ berikut:
+Anda dapat memeriksa format presentasi tanpa memuat presentasi. Lihat kode C++ berikut:
 
 ``` cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 // PPTX
 Console::WriteLine(ObjectExt::ToString(info->get_LoadFormat()));
@@ -51,28 +58,43 @@ Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 
 ## **Dapatkan Properti Presentasi**
 
-Kode C++ berikut menunjukkan cara mendapatkan properti presentasi (informasi tentang presentasi):
+Kode C++ ini menunjukkan cara mendapatkan properti presentasi (informasi tentang presentasi):
 
 ``` cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 auto props = info->ReadDocumentProperties();
 Console::WriteLine(ObjectExt::ToString(props->get_CreatedTime()));
 Console::WriteLine(props->get_Subject());
 Console::WriteLine(props->get_Title());
-// .. 
+// ...
 ```
 
 ## **Perbarui Properti Presentasi**
 
-Aspose.Slides menyediakan metode [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) yang memungkinkan Anda mengubah properti presentasi.
+Aspose.Slides menyediakan metode [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) yang memungkinkan Anda melakukan perubahan pada properti presentasi.
 
-Misalkan kami memiliki presentasi PowerPoint dengan properti dokumen seperti yang ditunjukkan di bawah ini.
+Misalkan kita memiliki presentasi PowerPoint dengan properti dokumen seperti yang ditunjukkan di bawah.
 
-![Properti dokumen asli dari presentasi PowerPoint](input_properties.png)
+![Properti dokumen asli presentasi PowerPoint](input_properties.png)
 
 Contoh kode ini menunjukkan cara mengedit beberapa properti presentasi:
 
 ```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/date_time.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto fileName = u"sample.pptx";
 
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
@@ -85,7 +107,7 @@ info->UpdateDocumentProperties(properties);
 info->WriteBindedPresentation(fileName);
 ```
 
-Hasil perubahan properti dokumen ditampilkan di bawah ini.
+Hasil perubahan properti dokumen ditampilkan di bawah.
 
 ![Properti dokumen yang diubah dari presentasi PowerPoint](output_properties.png)
 
@@ -93,29 +115,27 @@ Hasil perubahan properti dokumen ditampilkan di bawah ini.
 
 Untuk mendapatkan informasi lebih lanjut tentang sebuah presentasi dan atribut keamanannya, Anda mungkin menemukan tautan berikut berguna:
 
-- [Memeriksa apakah Presentasi terenkripsi](https://docs.aspose.com/slides/id/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Memeriksa apakah Presentasi dilindungi tulis (baca-saja)](https://docs.aspose.com/slides/id/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Memeriksa apakah Presentasi dilindungi kata sandi sebelum dimuat](https://docs.aspose.com/slides/id/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Mengonfirmasi Kata Sandi yang Digunakan untuk Melindungi Presentasi](https://docs.aspose.com/slides/id/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Presentasi dengan Proteksi Kata Sandi](/slides/id/cpp/password-protected-presentation/)
+- [Presentasi dengan Proteksi Penulisan](/slides/id/cpp/write-protected-presentation/)
 
 ## **FAQ**
 
-**Bagaimana cara memeriksa apakah font tertanam dan font mana saja yang tertanam?**
+**Bagaimana cara memeriksa apakah font tersemat dan yang mana?**
 
-Cari informasi [informasi font tertanam](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsmanager/getembeddedfonts/) pada tingkat presentasi, lalu bandingkan entri tersebut dengan kumpulan [font yang sebenarnya digunakan dalam konten](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsmanager/getfonts/) untuk mengidentifikasi font mana yang penting untuk proses rendering.
+Cari informasi [embedded-font](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsmanager/getembeddedfonts/) pada level presentasi, lalu bandingkan entri tersebut dengan kumpulan [font yang sebenarnya digunakan dalam konten](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsmanager/getfonts/) untuk mengidentifikasi font mana yang penting untuk rendering.
 
 **Bagaimana cara cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
 
-Iterasi melalui [koleksi slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/slidecollection/) dan periksa [flag visibilitas](https://reference.aspose.com/slides/id/cpp/aspose.slides/slide/get_hidden/) setiap slide.
+Iterasi melalui [slide collection](https://reference.aspose.com/slides/id/cpp/aspose.slides/slidecollection/) dan periksa [visibility flag](https://reference.aspose.com/slides/id/cpp/aspose.slides/slide/get_hidden/) setiap slide.
 
-**Apakah saya dapat mendeteksi apakah ukuran dan orientasi slide kustom digunakan, dan apakah berbeda dari default?**
+**Bisakah saya mendeteksi apakah ukuran dan orientasi slide khusus digunakan, dan apakah berbeda dari default?**
 
-Ya. Bandingkan [ukuran dan orientasi slide saat ini](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_slidesize/) dengan preset standar; ini membantu memperkirakan perilaku saat mencetak dan mengekspor.
+Ya. Bandingkan [slide size and orientation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_slidesize/) saat ini dengan preset standar; hal ini membantu memperkirakan perilaku saat mencetak dan mengekspor.
 
-**Apakah ada cara cepat untuk melihat apakah diagram merujuk ke sumber data eksternal?**
+**Apakah ada cara cepat untuk melihat apakah chart merujuk ke sumber data eksternal?**
 
-Ya. Telusuri semua [diagram](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chart/), periksa [sumber data](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) mereka, dan catat apakah data bersifat internal atau berbasis tautan, termasuk tautan yang rusak.
+Ya. Jelajahi semua [charts](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chart/), periksa [data source](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) mereka, dan catat apakah data bersifat internal atau berbasis tautan, termasuk tautan yang rusak.
 
-**Bagaimana saya dapat menilai slide 'berat' yang dapat memperlambat rendering atau ekspor PDF?**
+**Bagaimana cara menilai slide 'berat' yang mungkin memperlambat rendering atau ekspor PDF?**
 
-Untuk setiap slide, hitung jumlah objek dan cari gambar besar, transparansi, bayangan, animasi, serta multimedia; beri skor kompleksitas kasar untuk menandai potensi titik panas kinerja.
+Untuk setiap slide, hitung jumlah objek dan cari gambar besar, transparansi, bayangan, animasi, serta multimedia; berikan skor kompleksitas kasar untuk menandai area berpotensi menurunkan kinerja.

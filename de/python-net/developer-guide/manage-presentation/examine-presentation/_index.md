@@ -1,5 +1,5 @@
 ---
-title: Abrufen und Aktualisieren von Präsentationsinformationen in Python
+title: Präsentationsinformationen in Python abrufen und aktualisieren
 linktitle: Präsentationsinformationen
 type: docs
 weight: 30
@@ -23,20 +23,18 @@ keywords:
 - Aspose.Slides
 description: "Untersuchen Sie Folien, Struktur und Metadaten in PowerPoint- und OpenDocument-Präsentationen mit Python für schnellere Einblicke und intelligentere Inhaltsprüfungen."
 ---
+## **Übersicht**
 
-Aspose.Slides für Python via .NET ermöglicht es Ihnen, eine Präsentation zu untersuchen, um ihre Eigenschaften zu ermitteln und ihr Verhalten zu verstehen. 
+Dieser Artikel zeigt, wie Sie Präsentationsinformationen in Aspose.Slides inspizieren können. Er erklärt, wie Sie das aktuelle Format einer Präsentation bestimmen, ohne die gesamte Datei zu laden, deren Dokumenteigenschaften lesen und bei Bedarf diese Eigenschaften aktualisieren können.
 
-{{% alert title="Info" color="info" %}} 
+Die Beispiele basieren auf den APIs [PresentationInfo](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentationinfo/) und [DocumentProperties](https://reference.aspose.com/slides/de/python-net/aspose.slides/documentproperties/) und demonstrieren typische Vorgänge zum Arbeiten mit Präsentationsmetadaten.
 
-Die Klassen [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) und [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) enthalten die Eigenschaften und Methoden, die hier verwendet werden. 
+## **Prüfen eines Präsentationsformats**
 
-{{% /alert %}} 
+Bevor Sie an einer Präsentation arbeiten, möchten Sie möglicherweise herausfinden, in welchem Format (PPT, PPTX, ODP und andere) die Präsentation derzeit vorliegt.
 
-## **Prüfen des Präsentationsformats**
+Sie können das Format einer Präsentation prüfen, ohne die Präsentation zu laden. Siehe diesen Python-Code:
 
-Bevor Sie an einer Präsentation arbeiten, möchten Sie möglicherweise herausfinden, in welchem Format (PPT, PPTX, ODP und andere) sich die Präsentation aktuell befindet.
-
-Sie können das Format einer Präsentation überprüfen, ohne sie zu laden. Siehe diesen Python-Code:
 ```py
 import aspose.slides as slides
 
@@ -50,10 +48,10 @@ info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
 print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 ```
 
-
 ## **Abrufen von Präsentationseigenschaften**
 
-Dieser Python-Code zeigt Ihnen, wie Sie Präsentationseigenschaften (Informationen zur Präsentation) erhalten:
+Dieser Python-Code zeigt, wie Sie Präsentationseigenschaften (Informationen zur Präsentation) abrufen können:
+
 ```py
 import aspose.slides as slides
 
@@ -64,63 +62,63 @@ print(props.subject)
 print(props.title)
 ```
 
-
-Sie möchten möglicherweise die [Eigenschaften der DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/#properties) Klasse sehen.
+Möglicherweise möchten Sie die [Eigenschaften in der Klasse DocumentProperties](https://reference.aspose.com/slides/de/python-net/aspose.slides/documentproperties/#properties) sehen.
 
 ## **Aktualisieren von Präsentationseigenschaften**
 
-Aspose.Slides stellt die Methode [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) zur Verfügung, mit der Sie Änderungen an Präsentationseigenschaften vornehmen können.
+Aspose.Slides stellt die Methode [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) bereit, mit der Sie Änderungen an Präsentationseigenschaften vornehmen können.
 
-Nehmen wir an, wir haben eine PowerPoint‑Präsentation mit den unten gezeigten Dokumenteigenschaften.
+Angenommen, wir haben eine PowerPoint‑Präsentation mit den unten gezeigten Dokumenteigenschaften.
 
-![Originale Dokumenteigenschaften der PowerPoint-Präsentation](input_properties.png)
+![Ursprüngliche Dokumenteigenschaften der PowerPoint‑Präsentation](input_properties.png)
 
-Dieses Codebeispiel zeigt Ihnen, wie Sie einige Präsentationseigenschaften bearbeiten:
+Dieses Codebeispiel zeigt, wie Sie einige Präsentationseigenschaften bearbeiten können:
+
 ```py
+import aspose.slides as slides
+import datetime
+
 file_name = "sample.pptx"
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+info = slides.PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
 properties.title = "My title"
-properties.last_saved_time = datetime.now()
+properties.last_saved_time = datetime.datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)
 ```
 
-
 Die Ergebnisse der Änderung der Dokumenteigenschaften werden unten angezeigt.
 
-![Geänderte Dokumenteigenschaften der PowerPoint-Präsentation](output_properties.png)
+![Geänderte Dokumenteigenschaften der PowerPoint‑Präsentation](output_properties.png)
 
 ## **Nützliche Links**
 
-Um weitere Informationen zu einer Präsentation und ihren Sicherheitsaspekten zu erhalten, können diese Links hilfreich sein:
+Um weitere Informationen zu einer Präsentation und ihren Sicherheitsattributen zu erhalten, könnten diese Links nützlich sein:
 
-- [Prüfen, ob eine Präsentation verschlüsselt ist](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Prüfen, ob eine Präsentation schreibgeschützt (nur lesbar) ist](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Prüfen, ob eine Präsentation vor dem Laden passwortgeschützt ist](https://docs.aspose.com/slides/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bestätigen des zum Schutz einer Präsentation verwendeten Passworts](https://docs.aspose.com/slides/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Präsentationen mit Passwort schützen](/slides/de/python-net/password-protected-presentation/)
+- [Präsentationen vor Schreibzugriff schützen](/slides/de/python-net/write-protected-presentation/)
 
 ## **FAQ**
 
-**Wie kann ich überprüfen, ob Schriftarten eingebettet sind und welche es sind?**
+**Wie kann ich prüfen, ob Schriftarten eingebettet sind und welche das sind?**
 
-Suchen Sie nach [embedded-font information](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) auf Präsentationsebene und vergleichen Sie diese Einträge mit der Menge der [fonts actually used across content](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_fonts/), um zu ermitteln, welche Schriftarten für die Wiedergabe kritisch sind.
+Suchen Sie nach [Informationen zu eingebetteten Schriftarten](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) auf Präsentationsebene und vergleichen Sie diese Einträge mit der Menge der [tatsächlich im Inhalt verwendeten Schriftarten](https://reference.aspose.com/slides/de/python-net/aspose.slides/fontsmanager/get_fonts/), um zu ermitteln, welche Schriftarten für die Darstellung kritisch sind.
 
-**Wie kann ich schnell feststellen, ob die Datei verborgene Folien enthält und wie viele?**
+**Wie kann ich schnell erkennen, ob die Datei versteckte Folien enthält und wie viele?**
 
-Iterieren Sie durch die [slide collection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) und prüfen Sie das [visibility flag](https://reference.aspose.com/slides/python-net/aspose.slides/slide/hidden/) jeder Folie.
+Durchlaufen Sie die [Folien‑Sammlung](https://reference.aspose.com/slides/de/python-net/aspose.slides/slidecollection/) und prüfen Sie das [Sichtbarkeits‑Flag](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/hidden/) jeder Folie.
 
-**Kann ich erkennen, ob eine benutzerdefinierte Foliengröße und -ausrichtung verwendet wird und ob sie von den Vorgaben abweicht?**
+**Kann ich erkennen, ob eine benutzerdefinierte Foliengröße und Ausrichtung verwendet werden und ob sie von den Vorgaben abweichen?**
 
-Ja. Vergleichen Sie die aktuelle [slide size](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slide_size/) und Ausrichtung mit den Standard‑Presets; das hilft, das Verhalten beim Drucken und Exportieren vorherzusehen.
+Ja. Vergleichen Sie die aktuelle [Foliengröße](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/slide_size/) und Ausrichtung mit den Standard‑Voreinstellungen; dies hilft, das Verhalten beim Drucken und Export vorherzusehen.
 
-**Gibt es eine schnelle Möglichkeit zu sehen, ob Diagramme externe Datenquellen referenzieren?**
+**Gibt es eine schnelle Möglichkeit zu prüfen, ob Diagramme externe Datenquellen referenzieren?**
 
-Ja. Durchsuchen Sie alle [charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), prüfen Sie deren [data source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/), und notieren Sie, ob die Daten intern oder verlinkt sind, einschließlich eventueller defekter Links.
+Ja. Durchlaufen Sie alle [Diagramme](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chart/), prüfen Sie deren [Datenquelle](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/data_source_type/) und stellen Sie fest, ob die Daten intern oder verlinkt sind, einschließlich etwaiger defekter Links.
 
-**Wie kann ich „schwere“ Folien beurteilen, die das Rendern oder den PDF-Export verlangsamen könnten?**
+**Wie kann ich „schwere“ Folien bewerten, die die Darstellung oder den PDF‑Export verlangsamen könnten?**
 
-Für jede Folie zählen Sie Objektanzahlen und achten auf große Bilder, Transparenz, Schatten, Animationen und Multimedia; vergeben Sie einen groben Komplexitäts‑Score, um potenzielle Performance‑Hotspots zu kennzeichnen.
+Zählen Sie für jede Folie die Objektanzahl und achten Sie auf große Bilder, Transparenz, Schatten, Animationen und Multimedia; vergeben Sie eine grobe Komplexitätsbewertung, um potenzielle Performance‑Engpässe zu kennzeichnen.

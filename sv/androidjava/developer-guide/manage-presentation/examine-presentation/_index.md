@@ -13,9 +13,9 @@ keywords:
 - ändra egenskaper
 - modifiera egenskaper
 - uppdatera egenskaper
-- undersöka PPTX
-- undersöka PPT
-- undersöka ODP
+- granska PPTX
+- granska PPT
+- granska ODP
 - PowerPoint
 - OpenDocument
 - presentation
@@ -26,17 +26,19 @@ description: "Utforska bilder, struktur och metadata i PowerPoint- och OpenDocum
 ---
 ## **Översikt**
 
-Den här artikeln visar hur du inspekterar presentationsinformation i Aspose.Slides. Den förklarar hur du avgör en presentations aktuella format utan att läsa in hela filen, läser dess dokumentegenskaper och uppdaterar dessa egenskaper när det behövs.
+Den här artikeln visar hur du granskar presentationsinformation i Aspose.Slides. Den förklarar hur du bestämmer en presentations aktuella format utan att läsa in hela filen, läser dess dokumentegenskaper och uppdaterar dessa egenskaper vid behov.
 
-Exemplen baseras på API:erna [PresentationInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentationinfo/) och [DocumentProperties](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/documentproperties/) och demonstrerar typiska operationer för att arbeta med presentationsmetadata.
+Exemplen bygger på API:erna [PresentationInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentationinfo/) och [DocumentProperties](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/documentproperties/) och demonstrerar typiska operationer för att arbeta med presentationsmetadata.
 
-## **Kontrollera presentationsformat**
+## **Kontrollera ett presentationsformat**
 
 Innan du arbetar med en presentation kan du vilja ta reda på vilket format (PPT, PPTX, ODP och andra) presentationen för närvarande har.
 
-Du kan kontrollera en presentations format utan att läsa in presentationen. Se denna Java-kod:
+Du kan kontrollera en presentations format utan att läsa in presentationen. Se den här Java-koden:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -49,15 +51,17 @@ System.out.println(info3.getLoadFormat()); // ODP
 
 ## **Hämta presentationsegenskaper**
 
-Denna Java-kod visar hur du hämtar presentationsegenskaper (information om presentationen):
+Den här Java-koden visar hur du hämtar presentationsegenskaper (information om presentationen):
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// ..
+// ...
 ```
 
 Du kanske vill se [egenskaperna under DocumentProperties](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) klassen.
@@ -70,9 +74,12 @@ Låt oss säga att vi har en PowerPoint-presentation med dokumentegenskaperna so
 
 ![Ursprungliga dokumentegenskaper för PowerPoint-presentationen](input_properties.png)
 
-Detta kodexempel visar hur du redigerar vissa presentationsegenskaper:
+Det här kodexemplet visar hur du redigerar vissa presentationsegenskaper:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -91,12 +98,10 @@ Resultaten av att ändra dokumentegenskaperna visas nedan.
 
 ## **Användbara länkar**
 
-För att få mer information om en presentation och dess säkerhetsattribut kan du finna dessa länkar användbara:
+För att få mer information om en presentation och dess säkerhetsegenskaper kan du finna dessa länkar användbara:
 
-- [Kontrollera om en presentation är krypterad](https://docs.aspose.com/slides/sv/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kontrollera om en presentation är skrivskyddad (skrivskyddad)](https://docs.aspose.com/slides/sv/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kontrollera om en presentation är lösenordsskyddad innan den läses in](https://docs.aspose.com/slides/sv/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bekräfta lösenordet som används för att skydda en presentation](https://docs.aspose.com/slides/sv/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Lösenordsskydda presentationer](/slides/sv/androidjava/password-protected-presentation/)
+- [Skrivskydda presentationer](/slides/sv/androidjava/write-protected-presentation/)
 
 ## **Vanliga frågor**
 
@@ -106,16 +111,16 @@ Leta efter [information om inbäddade teckensnitt](https://reference.aspose.com/
 
 **Hur kan jag snabbt avgöra om filen har dolda bilder och hur många?**
 
-Iterera genom [bildsamlingen](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slidecollection/) och inspektera varje bilds [synlighetsflagga](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slide/#getHidden--).
+Iterera igenom [bildsamlingen](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slidecollection/) och inspektera varje bilds [synlighetsflagga](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/slide/#getHidden--).
 
-**Kan jag upptäcka om anpassad bildstorlek och orientering används, och om de skiljer sig från standardvärdena?**
+**Kan jag upptäcka om anpassad bildstorlek och -orientering används, och om de skiljer sig från standardvärdena?**
 
-Ja. Jämför den aktuella [bildstorleken](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getSlideSize--) och orienteringen med standardinställningarna; detta hjälper dig förutse beteende vid utskrift och export.
+Ja. Jämför den aktuella [bildstorleken](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getSlideSize--) och orienteringen med standardinställningarna; detta hjälper dig att förutse beteendet vid utskrift och export.
 
 **Finns det ett snabbt sätt att se om diagram refererar till externa datakällor?**
 
-Ja. Gå igenom alla [diagram](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chart/), kontrollera deras [datakälla](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) och notera om data är intern eller baserad på en länk, inklusive eventuella brutna länkar.
+Ja. Gå igenom alla [diagram](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chart/), kontrollera deras [datakälla](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartdata/#getDataSourceType--), och notera om data är intern eller länkbaserad, inklusive eventuella brutna länkar.
 
 **Hur kan jag bedöma 'tunga' bilder som kan sakta ner rendering eller PDF-export?**
 
-För varje bild, räkna antalet objekt och leta efter stora bilder, transparens, skuggor, animationer och multimedia; tilldela ett grovt komplexitetspoäng för att flagga potentiella prestandaproblem.
+För varje bild, räkna objekt och leta efter stora bilder, transparens, skuggor, animationer och multimedia; tilldela ett grovt komplexitetsvärde för att markera potentiella prestandaproblem.

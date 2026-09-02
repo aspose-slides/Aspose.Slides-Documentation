@@ -1,5 +1,5 @@
 ---
-title: Načíst a aktualizovat informace o prezentaci na Androidu
+title: Načtení a aktualizace informací o prezentaci na Androidu
 linktitle: Informace o prezentaci
 type: docs
 weight: 30
@@ -22,21 +22,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí Javy pro rychlejší poznatky a chytřejší audity obsahu."
+description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí jazyka Java pro rychlejší poznatky a chytřejší audit obsahu."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak prozkoumat informace o prezentaci v Aspose.Slides. Vysvětluje, jak určit aktuální formát prezentace bez načtení celé souboru, přečíst její vlastnosti dokumentu a v případě potřeby tyto vlastnosti aktualizovat.
+Tento článek ukazuje, jak prozkoumat informace o prezentaci v Aspose.Slides. Vysvětluje, jak určit aktuální formát prezentace bez načtení celého souboru, přečíst její vlastnosti dokumentu a v případě potřeby tyto vlastnosti aktualizovat.
 
-Příklady jsou založeny na API [PresentationInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentationinfo/) a [DocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/documentproperties/) a demonstrují typické operace pro práci s metadaty prezentace.
+Příklady jsou založeny na API [PresentationInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentationinfo/) a [DocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/documentproperties/) a demonstrují typické operace při práci s metadaty prezentace.
 
-## **Zkontrolovat formát prezentace**
+## **Zkontrolujte formát prezentace**
 
-Před prací s prezentací možná budete chtít zjistit, v jakém formátu (PPT, PPTX, ODP a dalších) je prezentace momentálně uložena.
+Před prací s prezentací možná budete chtít zjistit, v jakém formátu (PPT, PPTX, ODP a dalších) se prezentace momentálně nachází.
 
-Formát prezentace můžete zkontrolovat bez načítání samotné prezentace. Viz následující Java kód:
+Formát prezentace můžete zjistit bez načtení samotné prezentace. Viz tento Java kód:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -47,32 +49,37 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-## **Získat vlastnosti prezentace**
+## **Získejte vlastnosti prezentace**
 
 Tento Java kód ukazuje, jak získat vlastnosti prezentace (informace o prezentaci):
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// .. 
+// ..
 ```
 
-Můžete se také podívat na [vlastnosti ve třídě DocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) .
+Možná budete chtít zobrazit [vlastnosti ve třídě DocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) .
 
-## **Aktualizovat vlastnosti prezentace**
+## **Aktualizujte vlastnosti prezentace**
 
 Aspose.Slides poskytuje metodu [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) , která umožňuje provádět změny ve vlastnostech prezentace.
 
-Předpokládejme, že máme PowerPointovou prezentaci s následujícími vlastnostmi dokumentu.
+Předpokládejme, že máme PowerPoint prezentaci s vlastnostmi dokumentu zobrazenými níže.
 
-![Původní vlastnosti dokumentu PowerPointové prezentace](input_properties.png)
+![Původní vlastnosti dokumentu PowerPoint prezentace](input_properties.png)
 
-Tento příklad kódu ukazuje, jak upravit některé vlastnosti prezentace:
+Tento ukázkový kód ukazuje, jak upravit některé vlastnosti prezentace:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -87,35 +94,33 @@ info.writeBindedPresentation(fileName);
 
 Výsledky změny vlastností dokumentu jsou zobrazeny níže.
 
-![Změněné vlastnosti dokumentu PowerPointové prezentace](output_properties.png)
+![Změněné vlastnosti dokumentu PowerPoint prezentace](output_properties.png)
 
 ## **Užitečné odkazy**
 
-Pro získání dalších informací o prezentaci a jejích bezpečnostních atributech vám mohou být užitečné následující odkazy:
+Pro další informace o prezentaci a jejích bezpečnostních atributech mohou být následující odkazy užitečné:
 
-- [Kontrola, zda je prezentace šifrována](https://docs.aspose.com/slides/cs/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kontrola, zda je prezentace chráněna před zápisem (pouze ke čtení)](https://docs.aspose.com/slides/cs/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kontrola, zda je prezentace chráněna heslem před načtením](https://docs.aspose.com/slides/cs/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Potvrzení hesla použitého k ochraně prezentace](https://docs.aspose.com/slides/cs/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Ochrana prezentací heslem](/slides/cs/androidjava/password-protected-presentation/)
+- [Ochrana prezentací před zápisem](/slides/cs/androidjava/write-protected-presentation/)
 
 ## **Často kladené otázky**
 
 **Jak mohu zkontrolovat, zda jsou písma vložena a která to jsou?**
 
-Vyhledejte [informace o vložených písmech](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) na úrovni prezentace a porovnejte je se seznamem [písmen skutečně použitých v obsahu](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsmanager/#getFonts--) pro určení, která písma jsou klíčová pro vykreslování.
+Hledejte informace o [vložených písmech](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) na úrovni prezentace a poté porovnejte tyto položky se seznamem [písmen skutečně použitých v obsahu](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsmanager/#getFonts--) a identifikujte, která písma jsou kritická pro vykreslování.
 
-**Jak mohu rychle zjistit, zda soubor obsahuje skryté snímky a kolik jich je?**
+**Jak rychle zjistit, zda soubor obsahuje skryté snímky a kolik jich je?**
 
-Procházejte [kolekci snímků](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidecollection/) a kontrolujte u každého snímku jeho [vlajku viditelnosti](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slide/#getHidden--).
+Projděte [kolekci snímků](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidecollection/) a zkontrolujte příznak [viditelnosti každého snímku](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slide/#getHidden--).
 
-**Mohu zjistit, zda je použita vlastní velikost a orientace snímku a zda se liší od výchozích hodnot?**
+**Mohu zjistit, zda je použita vlastní velikost a orientace snímku a zda se liší od výchozích?**
 
 Ano. Porovnejte aktuální [velikost snímku](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getSlideSize--) a orientaci se standardními předvolbami; to pomáhá předvídat chování při tisku a exportu.
 
-**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí datové zdroje?**
+**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí zdroje dat?**
 
-Ano. Procházejte všechny [grafy](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chart/), zkontrolujte jejich [datový zdroj](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) a zaznamenejte, zda jsou data interní nebo založená na odkazu, včetně případných poškozených odkazů.
+Ano. Procházejte všechny [grafy](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chart/), zkontrolujte jejich [zdroj dat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) a zaznamenejte, zda jsou data interní nebo odkazována, včetně případných nefunkčních odkazů.
 
-**Jak mohu posoudit „těžké“ snímky, které mohou zpomalit vykreslování nebo export do PDF?**
+**Jak mohu posoudit „těžké“ snímky, které mohou zpomalovat vykreslování nebo export do PDF?**
 
-Pro každý snímek spočítejte počet objektů a hledejte velké obrázky, průhlednost, stíny, animace a multimédia; přiřaďte přibližné skóre složitosti a označte potenciální úzká místa výkonu.
+U každého snímku spočítejte počet objektů a hledejte velké obrázky, průhlednost, stíny, animace a multimédia; přiřaďte přibližné skóre složitosti, abyste označili potenciální výkonnostní úzká místa.

@@ -1,295 +1,238 @@
 ---
-title: Zabezpečené prezentace pomocí hesel v C++
+title: Prezentace chráněné heslem v C++
 linktitle: Ochrana heslem
 type: docs
 weight: 20
 url: /cs/cpp/password-protected-presentation/
 keywords:
-- zamknout PowerPoint
-- zamknout prezentaci
-- odemknout PowerPoint
-- odemknout prezentaci
-- chránit PowerPoint
-- chránit prezentaci
-- nastavit heslo
-- přidat heslo
+- prezentace chráněná heslem
+- otevírací heslo
 - šifrovat PowerPoint
-- šifrovat prezentaci
 - dešifrovat PowerPoint
-- dešifrovat prezentaci
-- ochrana před zápisem
-- bezpečnost PowerPoint
-- bezpečnost prezentace
-- odstranit heslo
-- odstranit ochranu
+- ověřit heslo prezentace
+- zkontrolovat heslo prezentace
+- otevřít šifrovanou prezentaci
 - odstranit šifrování
-- zakázat heslo
-- zakázat ochranu
-- odstranit ochranu před zápisem
 - PowerPoint
-- OpenDocument
-- presentation
+- PPT
+- PPTX
+- prezentace
 - C++
 - Aspose.Slides
-description: "Naučte se snadno zamykat a odemykat prezentace PowerPoint a OpenDocument chráněné heslem pomocí Aspose.Slides pro C++. Zabezpečte své prezentace."
+description: "Šifrujte, detekujte, ověřujte, otevírejte a dešifrujte prezentace PowerPoint PPT a PPTX chráněné heslem v C++ pomocí Aspose.Slides."
 ---
-## **Úvod**
+## **Přehled**
 
-Když chráníte prezentaci heslem, nastavujete heslo, které vynucuje určitá omezení na prezentaci. Pro odstranění omezení je nutné heslo zadat. Prezentace chráněná heslem je považována za uzamčenou prezentaci.
+Otevírací heslo šifruje prezentaci. Správné heslo je vyžadováno k načtení a zobrazení obsahu prezentace, takže tato ochrana poskytuje důvěrnost.
 
-Obvykle můžete nastavit heslo, které tato omezení na prezentaci vynutí:
+Otevírací heslo se liší od hesla pro ochranu proti zápisu. Ochrana proti zápisu omezuje úpravy, ale nešifruje obsah ani nebrání načtení prezentace. Pro správu hesel pro úpravu prezentací viz [Write-Protect Presentations](/slides/cs/cpp/write-protected-presentation/).
 
-- **Změna**
+Níže uvedené postupy platí pro prezentace ve formátech PPT i PPTX. Příklady používají oba formáty tam, kde je důležité chování založené na souborech i na streamech.
 
-  Pokud chcete, aby jen určití uživatelé mohli upravovat vaši prezentaci, můžete nastavit omezení úprav. Toto omezení zabraňuje lidem upravovat, měnit nebo kopírovat obsah vaší prezentace (pokud neuvedou heslo).
+## **Šifrování prezentace pomocí otevíracího hesla**
 
-  V tomto případě však uživatel bez hesla bude moci dokument otevřít a zobrazit jej v režimu jen pro čtení. Uživateli se zobrazí obsah – hypertextové odkazy, animace, efekty a další – ale nemůže kopírovat položky ani uložit prezentaci.
+Použijte [IProtectionManager::Encrypt](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iprotectionmanager/encrypt/) k přiřazení otevíracího hesla. Poté použijte [IPresentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/save/) k uložení šifrované prezentace.
 
-- **Otevření**
+Následující příklad šifruje prezentaci PPTX:
 
-  Pokud chcete, aby jen určití uživatelé mohli otevřít vaši prezentaci, můžete nastavit omezení otevření. Toto omezení zabraňuje lidem vůbec zobrazit obsah prezentace (pokud neuvedou heslo).
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-  Technicky omezení otevření také zabraňuje uživatelům upravovat prezentaci: Když lidé nemohou prezentaci otevřít, nemohou ji měnit ani provádět změny.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-  **Poznámka**: Když chráníte prezentaci heslem tak, aby se zabránilo jejímu otevření, soubor prezentace se zašifruje.
-
-## **Jak chránit prezentaci heslem online**
-
-1. Přejděte na naši stránku [**Aspose.Slides Lock**](https://products.aspose.app/slides/cs/lock).
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Klikněte na **Drop or upload your files**.
-
-3. Vyberte soubor, který chcete chránit heslem, ve svém počítači.
-
-4. Zadejte požadované heslo pro ochranu úprav; Zadejte požadované heslo pro ochranu zobrazení.
-
-5. Pokud chcete, aby uživatelé viděli vaši prezentaci jako finální kopii, zaškrtněte políčko **Mark as final**.
-
-6. Klikněte na **PROTECT NOW**.
-
-7. Klikněte na **DOWNLOAD NOW**.
-
-## **Ochrana heslem pro prezentace v Aspose.Slides**
-**Podporované formáty**
-
-Aspose.Slides podporuje ochranu heslem, šifrování a podobné operace pro prezentace v těchto formátech:
-
-- PPTX a PPT – Microsoft PowerPoint Presentation  
-- ODP – OpenDocument Presentation  
-- OTP – OpenDocument Presentation Template  
-
-**Podporované operace**
-
-Aspose.Slides umožňuje použít ochranu heslem na prezentacích, aby se zabránilo úpravám těmito způsoby:
-
-- Šifrování prezentace  
-- Nastavení ochrany před zápisem pro prezentaci  
-
-**Další operace**
-
-Aspose.Slides umožňuje provádět další úlohy související s ochranou heslem a šifrováním takto:
-
-- Dešifrování prezentace; otevření zašifrované prezentace  
-- Odstranění šifrování; deaktivace ochrany heslem  
-- Odstranění ochrany před zápisem z prezentace  
-- Získání vlastností zašifrované prezentace  
-- Kontrola, zda je prezentace zašifrována  
-- Kontrola, zda je prezentace chráněna heslem  
-
-## **Zašifrovat prezentaci**
-
-Můžete zašifrovat prezentaci nastavením hesla. Pak uživatel, který chce upravit uzamčenou prezentaci, musí heslo zadat.
-
-Pro šifrování nebo ochranu heslem prezentace použijte metodu encrypt (z třídy [ProtectionManager](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.protection_manager)). Heslo předáte metodě encrypt a pomocí metody save uložíte nyní zašifrovanou prezentaci.
-
-Níže je ukázkový kód, který ukazuje, jak prezentaci zašifrovat:
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Nastavit ochranu před zápisem pro prezentaci**
+## **Načtení šifrované prezentace**
 
-Můžete přidat značku „Do not modify“ (Upravit zakázáno) do prezentace. Tímto způsobem můžete uživatelům sdělit, že nechcete, aby prováděli změny v prezentaci.
+Nastavte [LoadOptions::set_Password](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_password/) na otevírací heslo a předávejte možnosti do [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) při načítání souboru. Načtení selže, pokud je vyžadováno otevírací heslo, ale dodané heslo chybí nebo je nesprávné.
 
-**Poznámka**: Proces ochrany před zápisem nešifruje prezentaci. Uživatelé – pokud opravdu chtějí – mohou prezentaci upravit, ale pro uložení změn budou muset vytvořit soubor s jiným názvem.
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-Pro nastavení ochrany před zápisem použijte metodu setWriteProtection. Tento ukázkový kód ukazuje, jak nastavit ochranu před zápisem pro prezentaci:
+using namespace Aspose::Slides;
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
 
-presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
-presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+
+// Pracujte s dešifrovanou prezentací.
 ```
 
-## **Načíst zašifrovanou prezentaci**
+## **Odstranění šifrování z prezentace**
 
-Aspose.Slides umožňuje načíst zašifrovaný soubor předáním jeho hesla. Pro dešifrování prezentace musíte zavolat metodu [RemoveEncryption](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) bez parametrů. Poté budete muset zadat správné heslo pro načtení prezentace.
+Načtěte prezentaci s jejím otevíracím heslem, zavolejte [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iprotectionmanager/removeencryption/) a uložte výsledek. Uloženou prezentaci lze poté načíst bez hesla.
 
-Níže je ukázkový kód, který ukazuje, jak dešifrovat prezentaci:
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-``` cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
 
-// práce s odšifrovanou prezentací
-```
-
-## **Odstranit šifrování z prezentace**
-
-Můžete odstranit šifrování nebo ochranu heslem z prezentace. Tímto způsobem uživatelé získají přístup k prezentaci nebo ji mohou upravovat bez omezení.
-
-Pro odstranění šifrování nebo ochrany heslem zavolejte metodu [RemoveEncryption](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d). Tento ukázkový kód ukazuje, jak odstranit šifrování z prezentace:
-
-``` cpp
-auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **Odstranit ochranu před zápisem z prezentace**
+## **Ověření otevíracího hesla před načtením**
 
-Můžete použít Aspose.Slides k odstranění ochrany před zápisem použité na soubor prezentace. Tímto způsobem mohou uživatelé upravovat podle libosti a neobdrží žádná varování při provádění takových úkolů.
+Použijte [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) k získání [IPresentationInfo](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentationinfo/) bez vytvoření kompletní instance prezentace. Zkontrolujte [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) před požádáním o heslo nebo jeho ověřením. Pokud je ochrana přítomna, ověřte zadanou hodnotu pomocí [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentationinfo/checkpassword/).
 
-Ochranu před zápisem z prezentace odstraníte pomocí metody [RemoveWriteProtection](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50). Tento ukázkový kód ukazuje, jak odstranit ochranu před zápisem z prezentace:
+### **Postup pomocí cesty k souboru**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+Následující příklad ověřuje otevírací heslo pro soubor PPTX, předává ověřenou hodnotu do [LoadOptions::set_Password](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_password/) a poté načítá kompletní prezentaci:
 
-presentation->get_ProtectionManager()->RemoveWriteProtection();
-presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
-```
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/string.h>
 
-## **Získat vlastnosti zašifrované prezentace**
+using namespace Aspose::Slides;
+using namespace System;
 
-Obvykle uživatelé mají potíže získat vlastnosti dokumentu zašifrované nebo chráněné heslem prezentace. Aspose.Slides však poskytuje mechanismus, který umožňuje chránit prezentaci heslem a současně umožnit přístup k jejím vlastnostem dokumentu.
+String filePath = u"protected-presentation.pptx";
+String password = u"open_password";
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(filePath);
 
-**Poznámka:** Ve výchozím nastavení, když Aspose.Slides zašifruje prezentaci, jsou také vlastnosti dokumentu prezentace chráněny heslem. Pokud potřebujete, aby byly vlastnosti dokumentu přístupné i po šifrování, Aspose.Slides to umožňuje.
-
-Pokud chcete, aby uživatelé i nadále mohli přistupovat k vlastnostem zašifrované prezentace, předaďte `false` metodě `set_EncryptDocumentProperties` rozhraní [IProtectionManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iprotectionmanager/). Tento ukázkový kód ukazuje, jak zašifrovat prezentaci a přitom uživatelům umožnit přístup k jejím vlastnostem dokumentu:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
-
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
-presentation->get_ProtectionManager()->Encrypt(u"123123");
-presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Načíst pouze vlastnosti dokumentu z zašifrované prezentace**
-
-Chcete‑li prozkoumat metadata zašifrované prezentace, aniž byste načetli snímky nebo jiný obsah, vytvořte objekt [LoadOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/) a nastavte [set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) na `true`. V tomto režimu Aspose.Slides ignoruje heslo a načte pouze veřejně přístupné vlastnosti dokumentu.
-
-Následující ukázka kódu čte vestavěné i uživatelské vlastnosti dokumentu pomocí [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/get_documentproperties/):
-
-``` cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_OnlyLoadDocumentProperties(true);
-
-auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
-auto documentProperties = presentation->get_DocumentProperties();
-
-// Read built-in document properties.
-auto title = documentProperties->get_Title();
-auto author = documentProperties->get_Author();
-Console::WriteLine(String(u"Title: ") + title);
-Console::WriteLine(String(u"Author: ") + author);
-
-// Read custom document properties.
-int customPropertyCount = documentProperties->get_CountOfCustomProperties();
-
-for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+if (!presentationInfo->get_IsPasswordProtected())
 {
-    auto propertyName = documentProperties->GetCustomPropertyName(propertyIndex);
-    auto propertyValue = documentProperties->idx_get(propertyName);
-    auto propertyValueText = ObjectExt::ToString(propertyValue);
-
-    Console::WriteLine(propertyName + u": " + propertyValueText);
+    Console::WriteLine(u"The presentation does not have an opening password.");
 }
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(filePath, loadOptions);
 
-presentation->Dispose();
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-Tento postup funguje pouze v případě, že byly vlastnosti dokumentu při šifrování ponechány nezašifrované (veřejné). Pokud jsou vlastnosti dokumentu zašifrovány, nastavení `LoadOptions::set_OnlyLoadDocumentProperties` na `true` způsobí výjimku, protože v tomto režimu je heslo ignorováno. Pro přístup k zašifrovaným vlastnostem dokumentu nebo pro načtení celé prezentace, včetně snímků a dalšího obsahu, poskytněte správné heslo pomocí `LoadOptions::set_Password` v [LoadOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/).
+### **Postup se streamem**
 
-## **Zkontrolovat, zda je prezentace chráněna heslem**
+Přetížení pro stream metody [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) poskytuje stejný postup. Před načtením kompletní prezentace ze streamu resetujte pozici vyhledatelného (seekable) streamu.
 
-Před načtením prezentace možná budete chtít zkontrolovat a potvrdit, že prezentace není chráněna heslem. Tím se vyhnete chybám a podobným problémům, které nastanou, když je prezentace chráněná heslem načtena bez hesla.
+Následující příklad používá soubor PPT:
 
-Tento C++ kód ukazuje, jak analyzovat prezentaci a zjistit, zda je chráněna heslem (bez načtení samotné prezentace):
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string.h>
 
-```c++
-auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
-System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
-                           presentationInfo->get_IsPasswordProtected());
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+String password = u"open_password";
+auto presentationStream = File::OpenRead(u"protected-presentation.ppt");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(presentationStream);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    presentationStream->set_Position(0);
+
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(presentationStream, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **Zkontrolovat, zda je prezentace zašifrována**
+### **Návratové hodnoty CheckPassword**
 
-Aspose.Slides umožňuje zkontrolovat, zda je prezentace zašifrována. K tomuto úkolu můžete použít metodu [get_IsEncrypted()](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68), která vrací `true`, pokud je prezentace zašifrována, nebo `false`, pokud není.
+[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentationinfo/checkpassword/) vrací `true` pouze tehdy, když má prezentace otevírací heslo a zadané heslo je správné. Vrací `false` v každém z následujících případů:
 
-Tento ukázkový kód ukazuje, jak zkontrolovat, zda je prezentace zašifrována:
+- Heslo je nesprávné.
+- Prezentace nemá otevírací heslo.
+- Zadané heslo je null nebo prázdné.
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+Chování je stejné pro prezentace PPT i PPTX.
+
+## **Ověření, zda je načtená prezentace šifrována**
+
+Po načtení prezentace se správným heslem zkontrolujte [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iprotectionmanager/get_isencrypted/), abyste potvrdili, že zdrojová prezentace byla šifrována. Pro detekci ochrany otevíracím heslem před načtením použijte `IPresentationInfo::get_IsPasswordProtected`, jak je uvedeno výše.
+
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
+Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
 ```
 
-## **Zkontrolovat, zda je prezentace chráněna proti zápisu**
+## **Doporučení pro zabezpečení**
 
-Aspose.Slides umožňuje zkontrolovat, zda je prezentace chráněna proti zápisu. K tomuto úkolu můžete použít metodu [get_IsWriteProtected()](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2), která vrací `true`, pokud je prezentace zašifrována, nebo `false`, pokud není.
+{{% alert color="warning" title="Security" %}}
+Nezaznamenávejte otevírací hesla ani je neuvádějte v diagnostických zprávách. Vyhněte se zbytečným opakovaným pokusům o ověření, uchovávejte hesla v paměti jen po dobu, kdy jsou potřeba, a při okamžitém načtení prezentace znovu použijte úspěšný výsledek ověření.
+{{% /alert %}}
 
-Tento ukázkový kód ukazuje, jak zkontrolovat, zda je prezentace chráněna proti zápisu:
+## **Ochrana prezentace heslem online**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+1. Otevřete aplikaci [Aspose.Slides Lock](https://products.aspose.app/slides/cs/lock).
+2. Vyberte nebo nahrajte prezentaci.
+3. Zadejte heslo pro ochranu při prohlížení.
+4. Volitelně zadejte samostatné heslo pro ochranu úprav.
+5. Aplikujte ochranu a stáhněte výsledný soubor.
 
-bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
-```
-
-## **Ověřit použití hesla v prezentaci**
-
-Možná budete chtít ověřit, že konkrétní heslo bylo použito k ochraně dokumentu prezentace. Aspose.Slides poskytuje prostředky pro validaci hesla.
-
-Tento ukázkový kód ukazuje, jak validovat heslo:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-// zkontrolujte, zda "pass" odpovídá
-bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
-```
-
-Vrací `true`, pokud byla prezentace zašifrována zadaným heslem. V opačném případě vrací `false`.
-
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/cs/cpp/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/cs/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jaké šifrovací metody Aspose.Slides podporuje?**
+**Jaký je rozdíl mezi otevíracím heslem a heslem pro ochranu proti zápisu?**
 
-Aspose.Slides podporuje moderní šifrovací metody, včetně algoritmů založených na AES, čímž zajišťuje vysokou úroveň zabezpečení dat vašich prezentací.
+Otevírací heslo šifruje prezentaci a je vyžadováno k načtení jejího obsahu. Heslo pro ochranu proti zápisu omezuje úpravy bez šifrování obsahu.
 
-**Co se stane, když je při pokusu o otevření prezentace zadáno nesprávné heslo?**
+**Mohu ověřit otevírací heslo, aniž bych načetl všechny snímky?**
 
-Vyvolá se výjimka, která upozorní, že přístup k prezentaci byl odmítnut. To pomáhá předcházet neoprávněnému přístupu a chrání obsah prezentace.
+Ano. Získejte informace o prezentaci, ověřte, zda je přítomna ochrana otevíracím heslem, a heslo ověřte před vytvořením kompletní instance prezentace.
 
-**Mají prezentace chráněné heslem dopad na výkon?**
+**Podporují postupy ověřování hesla jak PPT, tak PPTX?**
 
-Proces šifrování a dešifrování může během operací otevírání a ukládání způsobit mírný overhead. Ve většině případů je tento dopad na výkon minimální a významně neovlivňuje celkovou dobu zpracování úkolů s prezentacemi.
+Ano. Detekce a ověřování hesla na základě cesty k souboru i streamu se chovají stejně pro prezentace PPT i PPTX.

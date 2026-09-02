@@ -1,296 +1,238 @@
 ---
-title: C++에서 비밀번호로 프레젠테이션 보호
-linktitle: 비밀번호 보호
+title: C++에서 프레젠테이션 암호 보호
+linktitle: 암호 보호
 type: docs
 weight: 20
 url: /ko/cpp/password-protected-presentation/
 keywords:
-- PowerPoint 잠금
-- 프레젠테이션 잠금
-- PowerPoint 잠금 해제
-- 프레젠테이션 잠금 해제
-- PowerPoint 보호
-- 프레젠테이션 보호
-- 비밀번호 설정
-- 비밀번호 추가
+- 암호 보호된 프레젠테이션
+- 오프닝 비밀번호
 - PowerPoint 암호화
-- 프레젠테이션 암호화
 - PowerPoint 복호화
-- 프레젠테이션 복호화
-- 쓰기 보호
-- PowerPoint 보안
-- 프레젠테이션 보안
-- 비밀번호 제거
-- 보호 제거
+- 프레젠테이션 비밀번호 검증
+- 프레젠테이션 비밀번호 확인
+- 암호화된 프레젠테이션 열기
 - 암호화 제거
-- 비밀번호 비활성화
-- 보호 비활성화
-- 쓰기 보호 제거
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 비밀번호로 보호된 PowerPoint 및 OpenDocument 프레젠테이션을 손쉽게 잠그고 해제하는 방법을 배우세요. 프레젠테이션을 안전하게 보호하세요."
+description: "C++와 Aspose.Slides를 사용하여 암호 보호된 PowerPoint PPT 및 PPTX 프레젠테이션을 암호화, 감지, 검증, 열기 및 복호화합니다."
 ---
-## **소개**
+## **Overview**
 
-프레젠테이션에 비밀번호 보호를 설정하면 비밀번호를 설정하여 프레젠테이션에 특정 제한을 적용한다는 의미입니다. 제한을 해제하려면 비밀번호를 입력해야 합니다. 비밀번호로 보호된 프레젠테이션은 잠긴 프레젠테이션으로 간주됩니다.
+오프닝 비밀번호는 프레젠테이션을 암호화합니다. 올바른 비밀번호가 있어야 프레젠테이션 내용을 로드하고 볼 수 있으므로 이 보호는 기밀성을 제공합니다.
 
-일반적으로, 이러한 제한을 적용하기 위해 프레젠테이션에 비밀번호를 설정할 수 있습니다:
+오프닝 비밀번호는 쓰기 보호 비밀번호와 다릅니다. 쓰기 보호는 수정을 제한하지만 내용을 암호화하거나 프레젠테이션 로드를 방지하지 않습니다. 프레젠테이션 수정을 위한 비밀번호를 관리하려면 [프레젠테이션 쓰기 보호](/slides/ko/cpp/write-protected-presentation/)를 참조하십시오.
 
-- **수정**
+아래 워크플로는 PPT와 PPTX 프레젠테이션 모두에 적용됩니다. 예제는 파일 기반 및 스트림 기반 동작이 중요한 경우 두 형식을 모두 사용합니다.
 
-  특정 사용자만 프레젠테이션을 수정하도록 하고 싶다면 수정 제한을 설정할 수 있습니다. 이 제한은 비밀번호를 제공하지 않는 한 사용자가 프레젠테이션의 내용을 수정, 변경 또는 복사하는 것을 방지합니다.
+## **Encrypt a Presentation with an Opening Password**
 
-  하지만 이 경우 비밀번호 없이도 사용자는 문서에 접근하고 열 수 있습니다. 읽기 전용 모드에서는 사용자가 프레젠테이션 내부의 내용(하이퍼링크, 애니메이션, 효과 등)을 볼 수 있지만 항목을 복사하거나 프레젠테이션을 저장할 수 없습니다.
+오프닝 비밀번호를 할당하려면 [IProtectionManager::Encrypt](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iprotectionmanager/encrypt/)를 사용합니다. 그런 다음 암호화된 프레젠테이션을 저장하려면 [IPresentation::Save](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentation/save/)를 사용합니다.
 
-- **열기**
+다음 예제는 PPTX 프레젠테이션을 암호화합니다:
 
-  특정 사용자만 프레젠테이션을 열도록 하고 싶다면 열기 제한을 설정할 수 있습니다. 이 제한은 비밀번호를 제공하지 않는 한 사용자가 프레젠테이션의 내용을 보는 것조차 방지합니다.
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-  기술적으로, 열기 제한은 사용자가 프레젠테이션을 수정하는 것도 방지합니다. 사용자가 프레젠테이션을 열 수 없으면 수정하거나 변경할 수 없습니다.  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-  **Note** 프레젠테이션을 열기 방지 목적으로 비밀번호 보호를 설정하면 프레젠테이션 파일이 암호화됩니다.
-
-## **온라인에서 프레젠테이션에 비밀번호 보호하는 방법**
-
-1. 우리의 [**Aspose.Slides Lock**](https://products.aspose.app/slides/ko/lock) 페이지로 이동합니다. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. **Drop or upload your files**를 클릭합니다.
-
-3. 컴퓨터에서 비밀번호 보호할 파일을 선택합니다. 
-
-4. 편집 보호를 위한 원하는 비밀번호를 입력합니다; 보기 보호를 위한 원하는 비밀번호를 입력합니다. 
-
-5. 사용자가 프레젠테이션을 최종 사본으로 보도록 하려면 **Mark as final** 체크박스를 선택합니다.
-
-6. **PROTECT NOW.**를 클릭합니다. 
-
-7. **DOWNLOAD NOW.**를 클릭합니다.
-
-## **Aspose.Slides에서 프레젠테이션에 대한 비밀번호 보호**
-
-**지원 형식**
-
-Aspose.Slides는 다음 형식의 프레젠테이션에 대해 비밀번호 보호, 암호화 및 유사한 작업을 지원합니다: 
-
-- PPTX 및 PPT - Microsoft PowerPoint 프레젠테이션 
-- ODP - OpenDocument 프레젠테이션 
-- OTP - OpenDocument 프레젠테이션 템플릿 
-
-**지원 작업**
-
-Aspose.Slides는 다음과 같은 방법으로 프레젠테이션에 비밀번호 보호를 적용하여 수정 방지를 할 수 있습니다:
-
-- 프레젠테이션 암호화
-- 프레젠테이션에 쓰기 보호 설정
-
-**기타 작업**
-
-Aspose.Slides는 비밀번호 보호 및 암호화와 관련된 다른 작업을 다음과 같이 수행할 수 있습니다:
-
-- 프레젠테이션 복호화; 암호화된 프레젠테이션 열기
-- 암호화 제거; 비밀번호 보호 비활성화
-- 프레젠테이션에서 쓰기 보호 제거
-- 암호화된 프레젠테이션의 속성 가져오기
-- 프레젠테이션이 암호화되었는지 확인
-- 프레젠테이션이 비밀번호로 보호되었는지 확인.
-
-## **프레젠테이션 암호화**
-
-비밀번호를 설정하여 프레젠테이션을 암호화할 수 있습니다. 잠긴 프레젠테이션을 수정하려면 사용자가 비밀번호를 제공해야 합니다.
-
-프레젠테이션을 암호화하거나 비밀번호 보호하려면 [ProtectionManager](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.protection_manager)의 encrypt 메서드를 사용하여 프레젠테이션에 비밀번호를 설정해야 합니다. 비밀번호를 encrypt 메서드에 전달하고 save 메서드로 암호화된 프레젠테이션을 저장합니다. 
-
-다음 샘플 코드는 프레젠테이션을 암호화하는 방법을 보여줍니다:
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **프레젠테이션에 쓰기 보호 설정**
+## **Load an Encrypted Presentation**
 
-프레젠테이션에 “수정 금지”라는 표시를 추가할 수 있습니다. 이렇게 하면 사용자가 프레젠테이션을 변경하지 않도록 알릴 수 있습니다.  
+[LoadOptions::set_Password](https://reference.aspose.com/slides/ko/cpp/aspose.slides/loadoptions/set_password/)에 오프닝 비밀번호를 설정하고 파일을 로드할 때 해당 옵션을 [Presentation](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/)에 전달합니다. 오프닝 비밀번호가 필요하지만 제공된 비밀번호가 없거나 올바르지 않은 경우 로드에 실패합니다.
 
-**Note** 쓰기 보호 과정은 프레젠테이션을 암호화하지 않습니다. 따라서 사용자는 원한다면 프레젠테이션을 수정할 수 있지만, 변경 사항을 저장하려면 다른 이름으로 프레젠테이션을 생성해야 합니다. 
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-쓰기 보호를 설정하려면 setWriteProtection 메서드를 사용해야 합니다. 다음 샘플 코드는 프레젠테이션에 쓰기 보호를 설정하는 방법을 보여줍니다:
+using namespace Aspose::Slides;
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
 
-presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
-presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+
+// 복호화된 프레젠테이션 작업.
 ```
 
-## **암호화된 프레젠테이션 로드**
+## **Remove Encryption from a Presentation**
 
-Aspose.Slides를 사용하면 암호와 함께 암호화된 파일을 로드할 수 있습니다. 프레젠테이션을 복호화하려면 매개변수 없이 [RemoveEncryption](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) 메서드를 호출해야 합니다. 그런 다음 올바른 비밀번호를 입력하여 프레젠테이션을 로드합니다. 
+오프닝 비밀번호로 프레젠테이션을 로드하고, [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iprotectionmanager/removeencryption/)를 호출한 뒤 결과를 저장합니다. 저장된 프레젠테이션은 비밀번호 없이 로드할 수 있습니다.
 
-다음 샘플 코드는 프레젠테이션을 복호화하는 방법을 보여줍니다:
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-``` cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
 
-// 복호화된 프레젠테이션 작업
-```
-
-## **프레젠테이션에서 암호화 제거**
-
-프레젠테이션의 암호화 또는 비밀번호 보호를 제거할 수 있습니다. 이렇게 하면 사용자는 제한 없이 프레젠테이션에 접근하거나 수정할 수 있습니다. 
-
-암호화 또는 비밀번호 보호를 제거하려면 [RemoveEncryption](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) 메서드를 호출해야 합니다. 다음 샘플 코드는 프레젠테이션에서 암호화를 제거하는 방법을 보여줍니다:
-
-``` cpp
-auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **프레젠테이션에서 쓰기 보호 제거**
+## **Validate an Opening Password Before Loading**
 
-Aspose.Slides를 사용하여 프레젠테이션 파일에 적용된 쓰기 보호를 제거할 수 있습니다. 이렇게 하면 사용자는 원하는대로 수정할 수 있으며, 작업 시 경고가 표시되지 않습니다.
+[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/)를 사용하여 전체 프레젠테이션 인스턴스를 만들지 않고도 [IPresentationInfo](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentationinfo/)를 얻습니다. 비밀번호가 필요한지 확인하려면 [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/)를 검사하십시오. 보호가 있는 경우 제공된 값을 [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentationinfo/checkpassword/)로 검증합니다.
 
-프레젠테이션에서 쓰기 보호를 제거하려면 [RemoveWriteProtection](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50) 메서드를 사용합니다. 다음 샘플 코드는 프레젠테이션에서 쓰기 보호를 제거하는 방법을 보여줍니다:
+### **File-Path Workflow**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+다음 예제는 PPTX 파일에 대한 오프닝 비밀번호를 검증하고, 검증된 값을 [LoadOptions::set_Password](https://reference.aspose.com/slides/ko/cpp/aspose.slides/loadoptions/set_password/)에 전달한 뒤 전체 프레젠테이션을 로드합니다:
 
-presentation->get_ProtectionManager()->RemoveWriteProtection();
-presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
-```
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/string.h>
 
-## **암호화된 프레젠테이션의 속성 가져오기**
+using namespace Aspose::Slides;
+using namespace System;
 
-일반적으로 사용자는 암호화되거나 비밀번호로 보호된 프레젠테이션의 문서 속성을 가져오는 데 어려움을 겪습니다. 그러나 Aspose.Slides는 프레젠테이션을 비밀번호로 보호하면서도 문서 속성에 접근할 수 있는 메커니즘을 제공합니다.
+String filePath = u"protected-presentation.pptx";
+String password = u"open_password";
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(filePath);
 
-**Note:** 기본적으로 Aspose.Slides가 프레젠테이션을 암호화하면 프레젠테이션의 문서 속성도 비밀번호로 보호됩니다. 암호화 후에도 문서 속성에 접근할 수 있도록 하려면 Aspose.Slides에서 이를 지원합니다.
-
-사용자가 암호화된 프레젠테이션의 속성에 계속 접근하도록 하려면 [IProtectionManager](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iprotectionmanager/)의 `set_EncryptDocumentProperties` 메서드에 `false`를 전달합니다. 다음 샘플 코드는 프레젠테이션을 암호화하면서도 사용자에게 문서 속성 접근을 허용하는 방법을 보여줍니다:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
-
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
-presentation->get_ProtectionManager()->Encrypt(u"123123");
-presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **암호화된 프레젠테이션에서 문서 속성만 로드**
-
-암호화된 프레젠테이션의 슬라이드나 기타 콘텐츠를 로드하지 않고 메타데이터를 확인하려면 [LoadOptions](https://reference.aspose.com/slides/ko/cpp/aspose.slides/loadoptions/) 개체를 생성하고 [set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/ko/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/)를 `true`로 설정합니다. 이 모드에서는 Aspose.Slides가 비밀번호를 무시하고 공개적으로 접근 가능한 문서 속성만 로드합니다.
-
-다음 코드 예제는 [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentation/get_documentproperties/)를 통해 기본 및 사용자 정의 문서 속성을 읽습니다:
-
-``` cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_OnlyLoadDocumentProperties(true);
-
-auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
-auto documentProperties = presentation->get_DocumentProperties();
-
-// Read built-in document properties.
-auto title = documentProperties->get_Title();
-auto author = documentProperties->get_Author();
-Console::WriteLine(String(u"Title: ") + title);
-Console::WriteLine(String(u"Author: ") + author);
-
-// Read custom document properties.
-int customPropertyCount = documentProperties->get_CountOfCustomProperties();
-
-for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+if (!presentationInfo->get_IsPasswordProtected())
 {
-    auto propertyName = documentProperties->GetCustomPropertyName(propertyIndex);
-    auto propertyValue = documentProperties->idx_get(propertyName);
-    auto propertyValueText = ObjectExt::ToString(propertyValue);
-
-    Console::WriteLine(propertyName + u": " + propertyValueText);
+    Console::WriteLine(u"The presentation does not have an opening password.");
 }
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(filePath, loadOptions);
 
-presentation->Dispose();
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-이 워크플로는 프레젠테이션을 암호화할 때 문서 속성이 암호화되지 않고 공개된 경우에만 작동합니다. 문서 속성이 암호화된 경우 `LoadOptions::set_OnlyLoadDocumentProperties`를 `true`로 설정하면 비밀번호가 무시되어 예외가 발생합니다. 암호화된 문서 속성에 접근하거나 슬라이드 및 기타 콘텐츠를 포함한 전체 프레젠테이션을 로드하려면 [LoadOptions](https://reference.aspose.com/slides/ko/cpp/aspose.slides/loadoptions/)에서 `LoadOptions::set_Password`에 올바른 비밀번호를 제공하십시오.
+### **Stream Workflow**
 
-## **프레젠테이션이 비밀번호로 보호되었는지 확인**
+[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/)의 스트림 오버로드도 동일한 워크플로를 제공합니다. 스트림에서 전체 프레젠테이션을 로드하기 전에 검색 가능한 스트림의 위치를 재설정하십시오.
 
-프레젠테이션을 로드하기 전에 해당 프레젠테이션이 비밀번호로 보호되지 않았는지 확인하고자 할 수 있습니다. 이렇게 하면 비밀번호가 없는 상태로 비밀번호 보호된 프레젠테이션을 로드할 때 발생하는 오류 및 유사 문제를 방지할 수 있습니다.
+다음 예제는 PPT 파일을 사용합니다:
 
-다음 C++ 코드는 프레젠테이션을 로드하지 않고 비밀번호 보호 여부를 검사하는 방법을 보여줍니다:
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string.h>
 
-```c++
-auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
-System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
-                           presentationInfo->get_IsPasswordProtected());
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+String password = u"open_password";
+auto presentationStream = File::OpenRead(u"protected-presentation.ppt");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(presentationStream);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    presentationStream->set_Position(0);
+
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(presentationStream, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **프레젠테이션이 암호화되었는지 확인**
+### **CheckPassword Return Values**
 
-Aspose.Slides를 사용하면 프레젠테이션이 암호화되었는지 확인할 수 있습니다. 이를 위해 [get_IsEncrypted()](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68) 메서드를 사용할 수 있으며, 프레젠테이션이 암호화된 경우 `true`, 암호화되지 않은 경우 `false`를 반환합니다. 
+[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentationinfo/checkpassword/)은 프레젠테이션에 오프닝 비밀번호가 존재하고 제공된 비밀번호가 올바른 경우에만 `true`를 반환합니다. 다음 경우에는 `false`를 반환합니다:
 
-다음 샘플 코드는 프레젠테이션이 암호화되었는지 확인하는 방법을 보여줍니다:
+- 비밀번호가 올바르지 않은 경우.
+- 프레젠테이션에 오프닝 비밀번호가 없는 경우.
+- 제공된 비밀번호가 null이거나 비어 있는 경우.
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+동작은 PPT와 PPTX 프레젠테이션 모두에 동일합니다.
+
+## **Check Whether a Loaded Presentation Is Encrypted**
+
+올바른 비밀번호로 프레젠테이션을 로드한 후 [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iprotectionmanager/get_isencrypted/)를 검사하여 원본 프레젠테이션이 암호화되었는지 확인합니다. 로드하기 전에 오프닝 비밀번호 보호를 감지하려면 위에서 설명한 대로 `IPresentationInfo::get_IsPasswordProtected`를 사용하십시오.
+
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
+Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
 ```
 
-## **프레젠테이션이 쓰기 보호되었는지 확인**
+## **Security Recommendations**
 
-Aspose.Slides를 사용하면 프레젠테이션이 쓰기 보호되었는지 확인할 수 있습니다. 이를 위해 [get_IsWriteProtected()](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2) 메서드를 사용할 수 있으며, 프레젠테이션이 암호화된 경우 `true`, 암호화되지 않은 경우 `false`를 반환합니다. 
-
-다음 샘플 코드는 프레젠테이션이 쓰기 보호되었는지 확인하는 방법을 보여줍니다:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
-
-bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
-```
-
-## **프레젠테이션 비밀번호 사용 확인**
-
-특정 비밀번호가 프레젠테이션 문서를 보호하는 데 사용되었는지 확인하고자 할 수 있습니다. Aspose.Slides는 비밀번호를 검증할 수 있는 방법을 제공합니다. 
-
-다음 샘플 코드는 비밀번호를 검증하는 방법을 보여줍니다:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-// "pass"가 일치하는지 확인
-bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
-```
-
-지정된 비밀번호로 프레젠테이션이 암호화된 경우 `true`를 반환합니다. 그렇지 않으면 `false`를 반환합니다.
-
-{{% alert color="primary" title="See also" %}} 
-- [Digital Signature in PowerPoint](/slides/ko/cpp/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="보안" %}}
+오프닝 비밀번호를 로그에 기록하거나 진단 메시지에 포함하지 마십시오. 불필요한 반복 검증 시도를 피하고, 비밀번호는 필요한 기간 동안만 메모리에 유지하며, 프레젠테이션을 즉시 로드할 경우 성공적인 검증 결과를 재사용하십시오.
 {{% /alert %}}
 
-## **자주 묻는 질문**
+## **Password-Protect a Presentation Online**
 
-**Aspose.Slides에서 지원하는 암호화 방법은 무엇인가요?**
+1. [Aspose.Slides Lock](https://products.aspose.app/slides/ko/lock) 애플리케이션을 엽니다.
+2. 프레젠테이션을 선택하거나 업로드합니다.
+3. 보기 보호용 비밀번호를 입력합니다.
+4. 필요에 따라 편집 보호용 별도 비밀번호를 입력합니다.
+5. 보호를 적용하고 결과 파일을 다운로드합니다.
 
-Aspose.Slides는 AES 기반 알고리즘을 포함한 최신 암호화 방식을 지원하며, 프레젠테이션 데이터 보안을 높은 수준으로 유지합니다.
+{{% alert color="info" title="추가 보기" %}}
+- [프레젠테이션 쓰기 보호](/slides/ko/cpp/write-protected-presentation/)
+- [PowerPoint 디지털 서명](/slides/ko/cpp/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
-**프레젠테이션을 열 때 잘못된 비밀번호를 입력하면 어떻게 되나요?**
+## **FAQ**
 
-잘못된 비밀번호를 사용하면 예외가 발생하여 프레젠테이션 접근이 거부되었음을 알립니다. 이는 무단 접근을 방지하고 프레젠테이션 내용을 보호하는 데 도움이 됩니다.
+**오프닝 비밀번호와 쓰기 보호 비밀번호의 차이점은 무엇인가요?**
 
-**비밀번호로 보호된 프레젠테이션을 사용할 때 성능에 영향을 미치나요?**
+오프닝 비밀번호는 프레젠테이션을 암호화하고 내용을 로드하려면 필요합니다. 쓰기 보호 비밀번호는 내용을 암호화하지 않고 수정만 제한합니다.
 
-암호화 및 복호화 과정은 열기 및 저장 작업 시 약간의 오버헤드를 초래할 수 있습니다. 대부분의 경우 이 성능 영향은 미미하며 프레젠테이션 작업 전체 처리 시간에 큰 영향을 주지 않습니다.
+**전체 슬라이드를 로드하지 않고 오프닝 비밀번호를 검증할 수 있나요?**
+
+예. 프레젠테이션 정보를 얻고, 오프닝 비밀번호 보호가 있는지 확인한 뒤 전체 프레젠테이션 인스턴스를 만들지 않고도 비밀번호를 검증할 수 있습니다.
+
+**비밀번호 검증 워크플로는 PPT와 PPTX 모두를 지원하나요?**
+
+예. 파일 경로 및 스트림 기반 비밀번호 감지와 검증은 PPT와 PPTX 프레젠테이션 모두에서 동일하게 동작합니다.

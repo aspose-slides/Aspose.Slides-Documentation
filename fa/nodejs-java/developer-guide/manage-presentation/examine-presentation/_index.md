@@ -17,26 +17,29 @@ keywords:
 - بررسی PPT
 - بررسی ODP
 - پاورپوینت
-- OpenDocument
+- سند باز
 - ارائه
 - Node.js
 - جاوااسکریپت
 - Aspose.Slides
-description: "اسلایدها، ساختار و متادیتا را در ارائه‌های PowerPoint و OpenDocument با استفاده از جاوااسکریپت برای دریافت سریع‌تر بینش‌ها و ارزیابی هوشمند محتوا بررسی کنید."
+description: "اسلایدها، ساختار و متادیتا را در ارائه‌های پاورپوینت و سند باز بررسی کنید با استفاده از جاوااسکریپت برای دریافت سریع‌تر بینش‌ها و ارزیابی هوشمندانه‌تری از محتوا."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله نشان می‌دهد چگونه می‌توان اطلاعات ارائه را در Aspose.Slides بررسی کرد. همچنین توضیح می‌دهد چگونه می‌توان قالب فعلی یک ارائه را بدون بارگذاری کامل فایل تعیین کرد، ویژگی‌های سند آن را خواند و در صورت نیاز آن ویژگی‌ها را به‌روزرسانی کرد.
+این مقاله نشان می‌دهد چگونه اطلاعات ارائه را در Aspose.Slides بررسی کنید. توضیح می‌دهد چگونه می‌توانید قالب فعلی یک ارائه را بدون بارگذاری کامل فایل تعیین کنید، ویژگی‌های سند آن را بخوانید و در صورت نیاز این ویژگی‌ها را به‌روزرسانی کنید.
 
-مثال‌ها بر پایهٔ API‌های [PresentationInfo](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/documentproperties/) هستند و عملیات معمول برای کار با فراداده‌های ارائه را نشان می‌دهند.
+مثال‌ها بر پایهٔ APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/documentproperties/) هستند و عملیات معمول برای کار با فراداده‌های ارائه را نشان می‌دهند.
 
 ## **بررسی قالب ارائه**
 
-قبل از کار با یک ارائه، ممکن است بخواهید متوجه شوید که ارائه در حال حاضر به چه قالبی (PPT، PPTX، ODP و سایر) است.
+قبل از کار با یک ارائه، ممکن است بخواهید قالب (PPT، PPTX، ODP و غیره) که ارائه در حال حاضر دارد را بیابید.
 
-می‌توانید قالب یک ارائه را بدون بارگذاری آن بررسی کنید. به این کد جاوااسکریپت نگاه کنید:
+می‌توانید قالب ارائه را بدون بارگذاری فایل بررسی کنید. این کد جاوااسکریپت را ببینید:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
@@ -47,30 +50,37 @@ console.log(info3.getLoadFormat());// ODP
 
 ## **دریافت ویژگی‌های ارائه**
 
-این کد جاوااسکریپت نشان می‌دهد چگونه می‌توانید ویژگی‌های ارائه (اطلاعاتی دربارهٔ ارائه) را دریافت کنید:
+این کد جاوااسکریپت به شما نشان می‌دهد چگونه ویژگی‌های ارائه (اطلاعات دربارهٔ ارائه) را دریافت کنید:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
 console.log(props.getSubject());
 console.log(props.getTitle());
-// ..
+// ...
 ```
 
-ممکن است بخواهید [خواص زیر کلاس DocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) را مشاهده کنید.
+ممکن است بخواهید [ویژگی‌های تحت کلاس DocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) را مشاهده کنید.
 
 ## **به‌روزرسانی ویژگی‌های ارائه**
 
-Aspose.Slides متد [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) را فراهم می‌کند که به شما اجازه می‌دهد تغییراتی در ویژگی‌های ارائه اعمال کنید.
+Aspose.Slides متد [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) را فراهم می‌کند که امکان تغییر ویژگی‌های ارائه را می‌دهد.
 
-فرض کنید یک ارائه PowerPoint با ویژگی‌های سند زیر داریم.
+فرض کنید یک ارائهٔ PowerPoint با ویژگی‌های سند زیر داریم.
 
-![ویژگی‌های سند اصلی ارائه PowerPoint](input_properties.png)
+![ویژگی‌های سند اصلی ارائهٔ PowerPoint](input_properties.png)
 
-این مثال کد نشان می‌دهد چگونه می‌توانید برخی از ویژگی‌های ارائه را ویرایش کنید:
+این مثال کد نشان می‌دهد چگونه برخی از ویژگی‌های ارائه را ویرایش کنید:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -83,37 +93,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-نتایج تغییر ویژگی‌های سند در زیر نشان داده شده‌اند.
+نتایج تغییر ویژگی‌های سند در زیر نشان داده شده است.
 
-![ویژگی‌های سند تغییر یافته ارائه PowerPoint](output_properties.png)
+![ویژگی‌های سند تغییر یافتهٔ ارائهٔ PowerPoint](output_properties.png)
 
-## **لینک‌های مفید**
+## **پیوندهای مفید**
 
-برای دریافت اطلاعات بیشتر در مورد یک ارائه و ویژگی‌های امنیتی آن، ممکن است این لینک‌ها برای شما مفید باشند:
+برای دریافت اطلاعات بیشتر دربارهٔ یک ارائه و ویژگی‌های امنیتی آن، ممکن است این پیوندها مفید باشند:
 
-- [بررسی اینکه آیا یک ارائه رمزگذاری شده است](https://docs.aspose.com/slides/fa/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [بررسی اینکه آیا یک ارائه محافظت نوشتنی (فقط‑خواندنی) است](https://docs.aspose.com/slides/fa/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [بررسی اینکه آیا یک ارائه قبل از بارگذاری با رمز عبور محافظت می‌شود](https://docs.aspose.com/slides/fa/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [تأیید رمز عبوری که برای محافظت از ارائه استفاده شده است](https://docs.aspose.com/slides/fa/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [رمزنگاری ارائه‌ها](/slides/fa/nodejs-java/password-protected-presentation/)
+- [قفل‌کردن نوشتن در ارائه‌ها](/slides/fa/nodejs-java/write-protected-presentation/)
 
-## **سؤال‌وپاسخ**
+## **FAQ**
 
-**چگونه می‌توانم بررسی کنم آیا فونت‌ها تعبیه شده‌اند و کدام‌ها؟**
+**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و کدام‌ها هستند؟**
 
-به دنبال [اطلاعات فونت تعبیه‌شده](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) در سطح ارائه بگردید، سپس آن ورودی‌ها را با مجموعهٔ [فونت‌های واقعی استفاده‌شده در محتوا](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fontsmanager/getfonts/) مقایسه کنید تا تعیین کنید کدام فونت‌ها برای رندر کردن حیاتی هستند.
+به دنبال [اطلاعات قلم‌های جاسازی‌شده](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) در سطح ارائه بگردید، سپس این ورودی‌ها را با مجموعهٔ [قلم‌های واقعاً استفاده‌شده در محتوا](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fontsmanager/getfonts/) مقایسه کنید تا قلم‌های بحرانی برای رندر را شناسایی کنید.
 
-**چگونه می‌توانم به سرعت تشخیص دهم آیا فایل اسلایدهای مخفی دارد و تعداد آنها چقدر است؟**
+**چگونه می‌توانم به سرعت تشخیص دهم که فایل اسلایدهای مخفی دارد و چه تعداد؟**
 
-از طریق [مجموعه اسلایدها](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/) حلقه بزنید و پرچم [قابلیت نمایش](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/gethidden/) هر اسلاید را بررسی کنید.
+از طریق [کلیکسیون اسلایدها](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/) پیمایش کنید و پرچم [قابلیت نمایش هر اسلاید](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/gethidden/) را بررسی کنید.
 
-**آیا می‌توانم تشخیص دهم آیا اندازه و جهت اسلاید سفارشی استفاده می‌شود و آیا از پیش‌فرض‌ها متفاوت هستند؟**
+**آیا می‌توانم تشخیص دهم که اندازه و جهت سفارشی اسلاید استفاده شده است و آیا با مقادیر پیش‌فرض متفاوت هستند؟**
 
-بله. اندازهٔ فعلی [اسلاید](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getslidesize/) و جهت آن را با پیش‌تنظیمات استاندارد مقایسه کنید؛ این کار به پیش‌بینی رفتار برای چاپ و خروجی‌گیری کمک می‌کند.
+بله. اندازهٔ فعلی [اسلاید](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getslidesize/) و جهت آن را با پیش‌تنظیم‌های استاندارد مقایسه کنید؛ این کار به پیش‌بینی رفتار هنگام چاپ و خروجی‌گیری کمک می‌کند.
 
-**آیا روش سریعی برای مشاهده این که آیا نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
+**آیا راهی سریع برای مشاهده این‌که نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
 
-بله. تمام [نمودارها](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chart/) را پیمایش کنید، [منبع دادهٔ آنها](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) را بررسی کنید و تعیین کنید داده‌ها داخلی هستند یا مبتنی بر لینک، شامل هر لینک خراب.
+بله. تمام [نمودارها](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chart/) را طی کنید، منبع دادهٔ آن‌ها را بررسی کنید ([نوع منبع داده](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartdata/getdatasourcetype/)) و ببینید داده داخلی است یا بر پایهٔ لینک، شامل هر لینک شکسته‌ای.
 
-**چگونه می‌توانم اسلایدهای «سنگین» را که ممکن است رندر یا خروجی PDF را کند کنند ارزیابی کنم؟**
+**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند ارزیابی کنم؟**
 
-برای هر اسلید، تعداد اشیاء را شمارش کنید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و مولتی‌مدیا باشید؛ یک امتیاز پیچیدگی تقریبی اختصاص دهید تا نقاط بحرانی عملکرد را مشخص کنید.
+برای هر اسلاید، تعداد اشیا را بشمارید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و مولتی‌مدیا بگردید؛ یک امتیاز پیچیدگی تقریبی اختصاص دهید تا نقاط داغ عملکردی ممکن را علامت‌گذاری کنید.

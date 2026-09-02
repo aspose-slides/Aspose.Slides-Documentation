@@ -1,337 +1,225 @@
 ---
-title: Jelszóval védett bemutatók biztosítása PHP-ben
+title: Jelszóval védett bemutatók PHP-ben
 linktitle: Jelszóvédelem
 type: docs
 weight: 20
 url: /hu/php-java/password-protected-presentation/
 keywords:
-- PowerPoint zárolása
-- bemutató zárolása
-- PowerPoint feloldása
-- bemutató feloldása
-- PowerPoint védelme
-- bemutató védelme
-- jelszó beállítása
-- jelszó hozzáadása
+- jelszóval védett bemutató
+- nyitó jelszó
 - PowerPoint titkosítása
-- bemutató titkosítása
 - PowerPoint visszafejtése
-- bemutató visszafejtése
-- írásvédelem
-- PowerPoint biztonság
-- bemutató biztonság
-- jelszó eltávolítása
-- védelem eltávolítása
+- bemutató jelszavának ellenőrzése
+- bemutató jelszó ellenőrzése
+- titkosított bemutató megnyitása
 - titkosítás eltávolítása
-- jelszó letiltása
-- védelem letiltása
-- írásvédelem eltávolítása
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - bemutató
 - PHP
 - Aspose.Slides
-description: Ismerje meg, hogyan lehet könnyedén zárolni és feloldani jelszóval védett PowerPoint és OpenDocument bemutatókat az Aspose.Slides PHP verzióval. Tegye biztonságossá bemutatóit.
+description: "Titkosíts, detektálj, ellenőriz, nyisd meg, és fejtsd vissza a jelszóval védett PowerPoint PPT és PPTX bemutatókat PHP-ben az Aspose.Slides használatával."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Amikor jelszóval védi a bemutatót, azt jelenti, hogy egy jelszót állít be, amely bizonyos korlátozásokat alkalmaz a bemutatóra. A korlátozások eltávolításához a jelszót be kell írni. A jelszóval védett bemutatót lezárt bemutatónak tekintik.
+A nyitó jelszó titkosítja a bemutatót. A helyes jelszó szükséges a bemutató tartalmának betöltéséhez és megtekintéséhez, így ez a védelem titoktartást biztosít.
 
-Általában beállíthat jelszót, hogy ezeket a korlátozásokat a bemutatón alkalmazza:
+A nyitó jelszó különbözik az írásvédelmi jelszótól. Az írásvédelem korlátozza a módosítást, de nem titkosítja a tartalmat, és nem akadályozza meg a bemutató betöltését. A bemutatók módosításához használt jelszavak kezelése érdekében lásd a [Írásvédett bemutatók](/slides/hu/php-java/write-protected-presentation/).
 
-- **Módosítás**
+Az alábbi munkafolyamatok PPT és PPTX bemutatókra egyaránt vonatkoznak. A példák mindkét formátumot használják, ahol a fájl- és adatfolyam-alapú viselkedés fontos.
 
-  Ha csak bizonyos felhasználókat szeretne engedélyezni a bemutató módosítására, beállíthat egy módosítási korlátozást. Ez a korlátozás megakadályozza, hogy valaki módosítsa, változtassa vagy másolja a bemutató tartalmát (kivéve ha megadja a jelszót).  
+## **Bemutató titkosítása nyitó jelszóval**
 
-  Azonban ebben az esetben a felhasználó a jelszó nélkül is hozzáférhet a dokumentumhoz és megnyithatja azt. Olvasási módban a felhasználó megtekintheti a bemutató tartalmát, például a hiperhivatkozásokat, animációkat, effektusokat stb., de nem másolhat elemeket, és nem mentheti a bemutatót. 
+Használd a [ProtectionManager::encrypt](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#encrypt) metódust a nyitó jelszó megadásához. Ezután a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódussal mentheted a titkosított bemutatót.
 
-- **Megnyitás**
-
-  Ha csak bizonyos felhasználók nyithassák meg a bemutatót, beállíthat egy megnyitási korlátozást. Ez a korlátozás megakadályozza, hogy bárki megtekintse a bemutató tartalmát (kivéve ha megadja a jelszót).
-
-  Technikai szempontból a megnyitási korlátozás megakadályozza a bemutató módosítását is: Ha valaki nem tudja megnyitni a bemutatót, nem tudja módosítani vagy változtatni azt.  
-  
-  **Megjegyzés** hogy amikor jelszóval védi a bemutatót a megnyitás megakadályozásához, a bemutató fájl titkosítva lesz.
-
-## **Hogyan védje jelszóval a bemutatót online**
-
-1. Látogassa meg a [**Aspose.Slides Lock**](https://products.aspose.app/slides/hu/lock) oldalt. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Kattintson a **Drop or upload your files** gombra.
-
-3. Válassza ki a számítógépén lévő, jelszóval védeni kívánt fájlt. 
-
-4. Adja meg a kívánt jelszót a szerkesztési védelemhez; adja meg a kívánt jelszót a megtekintési védelemhez. 
-
-5. Ha azt szeretné, hogy a felhasználók a bemutatót végleges példányként lássák, jelölje be a **Mark as final** jelölőnégyzetet.
-
-6. Kattintson a **PROTECT NOW.** gombra. 
-
-7. Kattintson a **DOWNLOAD NOW.** gombra.
-
-## **Jelszóvédelem a bemutatókhoz az Aspose.Slides-ben**
-**Támogatott formátumok**
-
-Az Aspose.Slides jelszóvédelem, titkosítás és hasonló műveletek támogatását biztosítja a következő formátumokban:
-
-- PPTX és PPT – Microsoft PowerPoint bemutató 
-- ODP – OpenDocument bemutató 
-- OTP – OpenDocument bemutató sablon 
-
-**Támogatott műveletek**
-
-Az Aspose.Slides lehetővé teszi, hogy jelszóvédelem használatával megakadályozza a bemutatók módosítását a következő módokon:
-
-- Bemutató titkosítása
-- Írásvédettség beállítása a bemutatóhoz
-
-**Egyéb műveletek**
-
-Az Aspose.Slides lehetővé teszi, hogy egyéb jelszóvédelemmel és titkosítással kapcsolatos feladatokat hajtson végre a következő módokon:
-
-- Bemutató visszafejtése; titkosított bemutató megnyitása
-- Titkosítás eltávolítása; jelszóvédelem letiltása
-- Írásvédelem eltávolítása a bemutatóból
-- Titkosított bemutató tulajdonságainak lekérése
-- Annak ellenőrzése, hogy a bemutató titkosított-e
-- Annak ellenőrzése, hogy a bemutató jelszóval védett-e.
-
-## **Bemutató titkosítása**
-
-A bemutatót jelszó beállításával titkosíthatja. A zárolt bemutató módosításához a felhasználónak meg kell adnia a jelszót. 
-
-A bemutató titkosításához vagy jelszóval való védelméhez használni kell az encrypt metódust (a [ProtectionManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/)‑ból) a jelszó beállításához. A jelszót az encrypt metódusnak adja át, majd a save metódussal mentse a most titkosított bemutatót.
-
-Ez a mintakód bemutatja, hogyan titkosítható a bemutató:
+A következő példa egy PPTX bemutatót titkosít:
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->encrypt("123123");
-    $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **Írásvédelem beállítása a bemutatóhoz**
-
-A bemutatóhoz hozzáadhat egy „Ne módosítsa” feliratot. Így jelezheti a felhasználóknak, hogy nem szeretné, ha módosítanák a bemutatót.  
-
-**Megjegyzés** hogy az írásvédettség nem titkosítja a bemutatót. Ezért a felhasználók – ha akarják – módosíthatják a bemutatót, de a változtatások mentéséhez másik névvel kell menteniük a bemutatót. 
-
-Az írásvédelem beállításához a [setWriteProtection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#setWriteProtection) metódust kell használnia. Ez a mintakód bemutatja, hogyan állíthat be írásvédelmet a bemutatóhoz:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setWriteProtection("123123");
-    $presentation->save("write-protected-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Titkosított bemutató betöltése**
-
-Az Aspose.Slides lehetővé teszi, hogy egy titkosított fájlt a jelszó megadásával betöltse. A bemutató visszafejtéséhez hívja meg a [removeEncryption](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#removeEncryption) metódust paraméterek nélkül. Ezután meg kell adnia a helyes jelszót a bemutató betöltéséhez.
-
-Ez a mintakód bemutatja, hogyan fejthető vissza egy bemutató: 
-
-```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
-    # dolgozz a visszafejtett bemutatóval
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Titkosítás eltávolítása egy bemutatóból**
-
-Eltávolíthatja a bemutató titkosítását vagy jelszóvédelmét. Így a felhasználók korlátozás nélkül férnek hozzá vagy módosíthatják a bemutatót. 
-
-A titkosítás vagy jelszóvédelem eltávolításához hívja meg a [removeEncryption](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#removeEncryption) metódust. Ez a mintakód bemutatja, hogyan távolítható el a titkosítás egy bemutatóból:
-
-```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
-    $presentation->getProtectionManager()->removeEncryption();
-    $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Írásvédelem eltávolítása egy bemutatóból**
-
-Az Aspose.Slides segítségével eltávolíthatja a bemutató fájlra alkalmazott írásvédelmet. Így a felhasználók szabadon módosíthatnak, és nem kapnak figyelmeztetést ilyen műveletek végrehajtásakor.
-
-Az írásvédelem eltávolítható a [removeWriteProtection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#removeWriteProtection) metódus használatával. Ez a mintakód megmutatja, hogyan távolítható el az írásvédelem egy bemutatóból:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->removeWriteProtection();
-    $presentation->save("write-protection-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Titkosított bemutató tulajdonságainak lekérése**
-
-Általában a felhasználók nehezen jutnak hozzá egy titkosított vagy jelszóval védett bemutató dokumentumtulajdonságaihoz. Az Aspose.Slides azonban olyan mechanizmust kínál, amely lehetővé teszi a bemutató jelszóval való védelmét, miközben a felhasználók továbbra is hozzáférhetnek a tulajdonságokhoz.  
-
-**Megjegyzés:** Alapértelmezés szerint, amikor az Aspose.Slides titkosít egy bemutatót, a bemutató dokumentumtulajdonságai is jelszóval védettek. Ha a dokumentumtulajdonságok hozzáférhetők maradjanak a titkosítás után is, az Aspose.Slides ezt lehetővé teszi.  
-
-Ha azt szeretné, hogy a felhasználók továbbra is elérhessék egy titkosított bemutató tulajdonságait, adja át a `false` értéket a [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) metódusnak. Ez a mintakód bemutatja, hogyan titkosítható egy bemutató, miközben a felhasználók hozzáférhetnek a dokumentumtulajdonságaihoz:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
-    $presentation->getProtectionManager()->encrypt("123123");
-    $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Csak a dokumentumtulajdonságok betöltése egy titkosított bemutatóból**
-
-A titkosított bemutató metaadatait a diák vagy egyéb tartalom betöltése nélkül is megvizsgálhatja, ha létrehoz egy [LoadOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/) objektumot, és `true` értéket ad át a [setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) metódusnak. Ebben a módban az Aspose.Slides figyelmen kívül hagyja a jelszót, és csak a nyilvánosan elérhető dokumentumtulajdonságokat tölti be.
-
-Az alábbi kódrészlet beépített és egyéni dokumentumtulajdonságokat olvas a [Presentation::getDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getDocumentProperties) segítségével:
-
-```php
-$loadOptions = new LoadOptions();
-$loadOptions->setOnlyLoadDocumentProperties(true);
-
-$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+$presentation = new Presentation("pres.pptx");
 try {
-    $documentProperties = $presentation->getDocumentProperties();
-
-    # Olvassa be a beépített dokumentumtulajdonságokat.
-    echo("Title: " . $documentProperties->getTitle() . "\n");
-    echo("Author: " . $documentProperties->getAuthor() . "\n");
-
-    # Olvassa be az egyéni dokumentumtulajdonságokat.
-    $customPropertyCount = java_values($documentProperties->getCountOfCustomProperties());
-
-    for ($propertyIndex = 0; $propertyIndex < $customPropertyCount; $propertyIndex++) {
-        $propertyName = $documentProperties->getCustomPropertyName($propertyIndex);
-        $propertyValue = java_values($documentProperties->get_Item($propertyName));
-
-        echo($propertyName . ": " . $propertyValue . "\n");
-    }
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Ez a munkafolyamat csak akkor működik, ha a dokumentumtulajdonságokat a bemutató titkosításakor nyilvános (nem titkosított) állapotban hagyták. Ha a dokumentumtulajdonságok titkosítva vannak, a `true` érték átadása a [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) metódusnak kivételt okoz, mivel ebben a módban a jelszó figyelmen kívül marad.  
+## **Titkosított bemutató betöltése**
 
-A titkosított dokumentumtulajdonságok eléréséhez vagy a teljes bemutató betöltéséhez, beleértve a diák és egyéb tartalmakat, adja meg a megfelelő jelszót a [LoadOptions::setPassword](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setPassword) metóduson keresztül.
-
-## **Ellenőrizze, hogy a bemutató jelszóval védett-e**
-
-Mielőtt betöltene egy bemutatót, érdemes ellenőrizni, hogy a bemutató nincs-e jelszóval védve. Így elkerülhetők a hibák és hasonló problémák, amelyek akkor merülnek fel, ha jelszóval védett bemutatót jelszó nélkül próbálnak betölteni.  
-
-Ez a PHP kód megmutatja, hogyan vizsgálhatja meg egy bemutatót annak ellenőrzésére, hogy jelszóval védett-e (a bemutató tényleges betöltése nélkül):
+Állítsd be a [LoadOptions::setPassword](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setPassword) metódust a nyitó jelszóra, és add át a beállításokat a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) betöltésekor. A betöltés sikertelen, ha nyitó jelszó szükséges, de a megadott jelszó hiányzik vagy helytelen.
 
 ```php
-  $presentationInfo = PresentationFactory->getInstance()->getPresentationInfo("example.pptx");
-  echo("The presentation is password protected: " . $presentationInfo->isPasswordProtected());
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
+    # Dolgozz a visszafejtett bemutatóval.
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ellenőrizze, hogy a bemutató titkosított-e**
+## **Titkosítás eltávolítása a bemutatóból**
 
-Az Aspose.Slides lehetővé teszi, hogy ellenőrizze, titkosított-e a bemutató. Ehhez használhatja az [isEncrypted](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#isEncrypted) metódust, amely `true` értéket ad vissza, ha a bemutató titkosított, vagy `false` értéket, ha nem titkosított.  
-
-Ez a mintakód bemutatja, hogyan ellenőrizhető, hogy egy bemutató titkosított-e:
+Töltsd be a bemutatót a nyitó jelszavával, hívd meg a [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#removeEncryption) metódust, majd mentsd el az eredményt. A mentett bemutató azt követően jelszó nélkül is betölthető.
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
+    $presentation->getProtectionManager()->removeEncryption();
+    $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Nyitó jelszó ellenőrzése betöltés előtt**
+
+Használd a [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/#getPresentationInfo) metódust a [PresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/) beszerzéséhez anélkül, hogy teljes bemutató példányt hoznál létre. Ellenőrizd a [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#isPasswordProtected) állapotát, mielőtt jelszót kérnél vagy validálnál. Ha védelem van, ellenőrizd a megadott értéket a [PresentationInfo::checkPassword](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#checkPassword) metódussal.
+
+### **Fájlútvonal munkafolyamat**
+
+A következő példa egy PPTX fájl nyitó jelszavát ellenőrzi, a validált értéket átadja a [LoadOptions::setPassword](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setPassword) metódusnak, majd betölti a teljes bemutatót:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$filePath = "protected-presentation.pptx";
+$password = "open_password";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+
+if (!$presentationInfo->isPasswordProtected()) {
+    echo("The presentation does not have an opening password.\n");
+} elseif (!$presentationInfo->checkPassword($password)) {
+    echo("The opening password is incorrect.\n");
+} else {
+    $loadOptions = new LoadOptions();
+    $loadOptions->setPassword($password);
+
+    $presentation = new Presentation($filePath, $loadOptions);
+    try {
+        echo("The presentation was validated and loaded successfully.\n");
+    } finally {
+        $presentation->dispose();
+    }
+}
+```
+
+### **Adatfolyam munkafolyamat**
+
+A [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/#getPresentationInfo) adatfolyam túlterhelése ugyanazt a munkafolyamatot biztosítja. Állítsd vissza a kereshető adatfolyam pozícióját, mielőtt a teljes bemutatót betöltenéd ebből az adatfolyamból.
+
+A következő példa egy PPT fájlt használ:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$password = "open_password";
+
+$presentationStream = new Java("java.io.FileInputStream", "protected-presentation.ppt");
+try {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($presentationStream);
+
+    if (!$presentationInfo->isPasswordProtected()) {
+        echo("The presentation does not have an opening password.\n");
+    } elseif (!$presentationInfo->checkPassword($password)) {
+        echo("The opening password is incorrect.\n");
+    } else {
+        $presentationStream->getChannel()->position(0);
+
+        $loadOptions = new LoadOptions();
+        $loadOptions->setPassword($password);
+
+        $presentation = new Presentation($presentationStream, $loadOptions);
+        try {
+            echo("The presentation was validated and loaded successfully.\n");
+        } finally {
+            $presentation->dispose();
+        }
+    }
+} finally {
+    $presentationStream->close();
+}
+```
+
+### **checkPassword visszatérési értékek**
+
+A [PresentationInfo::checkPassword](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#checkPassword) csak akkor ad `true` értéket, ha a bemutató nyitó jelszóval védett és a megadott jelszó helyes. Minden alábbi esetben `false` értéket ad:
+
+- A jelszó helytelen.
+- A bemutató nem rendelkezik nyitó jelszóval.
+- A megadott jelszó `null` vagy üres.
+
+A viselkedés PPT és PPTX bemutatókra egyaránt ugyanaz.
+
+## **Ellenőrizd, hogy a betöltött bemutató titkosított-e**
+
+A megfelelő jelszóval betöltött bemutató után vizsgáld meg a [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#isEncrypted) metódust, hogy megerősítsd a forrásbemutató titkosítását. A nyitó jelszóval való védelem betöltés előtt történő felismeréséhez használd a [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#isPasswordProtected) metódust, ahogy fentebb is bemutattuk.
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $isEncrypted = $presentation->getProtectionManager()->isEncrypted();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    echo("The presentation is encrypted: " . ($isEncrypted ? "true" : "false") . "\n");
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ellenőrizze, hogy a bemutató írásvédett-e**
+## **Biztonsági ajánlások**
 
-Az Aspose.Slides lehetővé teszi, hogy ellenőrizze, írásvédett-e a bemutató. Ehhez használhatja az [isWriteProtected](https://reference.aspose.com/slides/hu/php-java/aspose.slides/protectionmanager/#isWriteProtected) metódust, amely `true` értéket ad vissza, ha a bemutató írásvédett, vagy `false` értéket, ha nem írásvédett.  
+{{% alert color="warning" title="Biztonság" %}}
+Ne naplózd a nyitó jelszavakat, és ne szerepeltessük őket diagnosztikai üzenetekben. Kerüld a szükségtelen ismételt ellenőrzési kísérleteket, tartsd a jelszavakat a memóriában csak a szükséges ideig, és ismételd fel a sikeres ellenőrzés eredményét, ha a bemutatót azonnal betöltöd.
+{{% /alert %}}
 
-Ez a mintakód bemutatja, hogyan ellenőrizhető, hogy egy bemutató írásvédett-e:
+## **Bemutató jelszóval való védelme online**
 
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $isEncrypted = $presentation->getProtectionManager()->isWriteProtected();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+1. Nyisd meg az [Aspose.Slides Lock](https://products.aspose.app/slides/hu/lock) alkalmazást.
+1. Válaszd ki vagy töltsd fel a bemutatót.
+1. Adj meg egy jelszót a megtekintési védelemhez.
+1. Opcionálisan adj meg egy külön jelszót a szerkesztési védelemhez.
+1. Alkalmazd a védelmet, és töltsd le a kapott fájlt.
 
-## **Ellenőrizze vagy erősítse meg, hogy egy adott jelszót használtak**
-
-Lehet, hogy ellenőrizni és megerősíteni szeretné, hogy egy konkrét jelszót használtak a bemutató dokumentum védelmére. Az Aspose.Slides lehetőséget biztosít a jelszó ellenőrzésére.  
-
-Ez a mintakód bemutatja, hogyan validálhatja a jelszót:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    # ellenőrizze, hogy a "pass" egyezik-e
-    $isWriteProtected = $presentation->getProtectionManager()->checkWriteProtection("my_password");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-A metódus `true` értéket ad vissza, ha a bemutatót a megadott jelszóval titkosították, egyébként `false` értéket. 
-
-{{% alert color="primary" title="See also" %}} 
-- [Digital Signature in PowerPoint](/slides/hu/php-java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Lásd még" %}}
+- [Írásvédett bemutatók](/slides/hu/php-java/write-protected-presentation/)
+- [Digitális aláírás a PowerPointban](/slides/hu/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **GYIK**
 
-**Milyen titkosítási módszereket támogat az Aspose.Slides?**
+**Mi a különbség a nyitó jelszó és az írásvédelmi jelszó között?**
 
-Az Aspose.Slides modern titkosítási módszereket támogat, köztük az AES-alapú algoritmusokat, ezzel magas szintű adatbiztonságot biztosítva a bemutatói számára.
+A nyitó jelszó titkosítja a bemutatót, és szükséges a tartalom betöltéséhez. Az írásvédelmi jelszó a módosítást korlátozza anélkül, hogy a tartalmat titkosítaná.
 
-**Mi történik, ha helytelen jelszót adnak meg a bemutató megnyitásakor?**
+**Ellenőrizhetem a nyitó jelszót a diák teljes betöltése nélkül?**
 
-Hibát (kivételt) vált ki, ha helytelen jelszót adnak meg, jelezve, hogy a bemutatóhoz való hozzáférés megtagadva. Ez megakadályozza a jogosulatlan hozzáférést és védi a bemutató tartalmát.
+Igen. Szerezd meg a bemutató információit, ellenőrizd, hogy nyitó jelszóval védett-e, és validáld a jelszót, mielőtt teljes bemutató példányt hoznál létre.
 
-**Vannak-e teljesítménybeli hatások a jelszóval védett bemutatók kezelésekor?**
+**A jelszó-ellenőrző munkafolyamatok támogatják a PPT és PPTX formátumot is?**
 
-A titkosítási és visszafejtési folyamat kis mértékű overhead-et okozhat a megnyitás és mentés során. A legtöbb esetben ez a teljesítménybeli hatás minimális, és nem befolyásolja jelentősen a bemutatók feldolgozási idejét.
+Igen. A fájlútvonal és adatfolyam‑alapú jelszó‑detektálás és validálás ugyanúgy működik PPT és PPTX bemutatók esetén.

@@ -1,6 +1,6 @@
 ---
-title: "Načíst a aktualizovat informace o prezentaci v JavaScriptu"
-linktitle: "Informace o prezentaci"
+title: Získání a aktualizace informací o prezentaci v JavaScriptu
+linktitle: Informace o prezentaci
 type: docs
 weight: 30
 url: /cs/nodejs-java/examine-presentation/
@@ -9,34 +9,37 @@ keywords:
 - vlastnosti prezentace
 - vlastnosti dokumentu
 - získat vlastnosti
-- číst vlastnosti
+- načíst vlastnosti
 - změnit vlastnosti
 - upravit vlastnosti
 - aktualizovat vlastnosti
-- zkoumat PPTX
-- zkoumat PPT
-- zkoumat ODP
+- prozkoumat PPTX
+- prozkoumat PPT
+- prozkoumat ODP
 - PowerPoint
 - OpenDocument
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí JavaScriptu pro rychlejší přehledy a chytřejší kontrolu obsahu."
+description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí JavaScriptu pro rychlejší poznatky a inteligentnější audity obsahu."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak prozkoumat informace o prezentaci v Aspose.Slides. Vysvětluje, jak určit aktuální formát prezentace, aniž byste načetli celý soubor, přečíst její vlastnosti dokumentu a v případě potřeby tyto vlastnosti aktualizovat.
+Tento článek ukazuje, jak prohlížet informace o prezentaci v Aspose.Slides. Vysvětluje, jak zjistit aktuální formát prezentace, aniž byste načítali celý soubor, přečíst její vlastnosti dokumentu a v případě potřeby tyto vlastnosti aktualizovat.
 
 Příklady jsou založeny na API [PresentationInfo](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentationinfo/) a [DocumentProperties](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/documentproperties/) a demonstrují typické operace pro práci s metadaty prezentace.
 
 ## **Zkontrolovat formát prezentace**
 
-Před prací s prezentací možná budete chtít zjistit, v jakém formátu (PPT, PPTX, ODP a další) je prezentace momentálně.
+Před prací s prezentací můžete chtít zjistit, v jakém formátu (PPT, PPTX, ODP a další) je prezentace právě nyní.
 
-Formát prezentace můžete zkontrolovat, aniž byste ji načetli. Viz tento JavaScriptový kód:
+Formát prezentace můžete zkontrolovat, aniž byste prezentaci načítali. Viz tento JavaScript kód:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
@@ -47,30 +50,37 @@ console.log(info3.getLoadFormat());// ODP
 
 ## **Získat vlastnosti prezentace**
 
-Tento JavaScriptový kód vám ukazuje, jak získat vlastnosti prezentace (informace o prezentaci):
+Tento JavaScript kód vám ukazuje, jak získat vlastnosti prezentace (informace o prezentaci):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
 console.log(props.getSubject());
 console.log(props.getTitle());
-// ..
+// ...
 ```
 
-Možná budete chtít zobrazit [vlastnosti ve třídě DocumentProperties](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) .
+Můžete se podívat na [vlastnosti ve třídě DocumentProperties](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--).
 
 ## **Aktualizovat vlastnosti prezentace**
 
-Aspose.Slides poskytuje metodu [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), která vám umožní provádět změny ve vlastnostech prezentace.
+Aspose.Slides poskytuje metodu [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), která vám umožní provádět změny vlastností prezentace.
 
-Řekněme, že máme PowerPointovou prezentaci s následujícími vlastnostmi dokumentu.
+Řekněme, že máme PowerPoint prezentaci s dokumentovými vlastnostmi zobrazenými níže.
 
-![Původní vlastnosti dokumentu PowerPointové prezentace](input_properties.png)
+![Původní dokumentové vlastnosti PowerPoint prezentace](input_properties.png)
 
 Tento příklad kódu vám ukazuje, jak upravit některé vlastnosti prezentace:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -83,37 +93,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-Výsledky změny vlastností dokumentu jsou zobrazeny níže.
+Výsledky změny dokumentových vlastností jsou zobrazeny níže.
 
-![Změněné vlastnosti dokumentu PowerPointové prezentace](output_properties.png)
+![Změněné dokumentové vlastnosti PowerPoint prezentace](output_properties.png)
 
 ## **Užitečné odkazy**
 
-Pro získání dalších informací o prezentaci a jejích bezpečnostních atributech můžete najít tyto odkazy užitečné:
+Pro získání více informací o prezentaci a jejích bezpečnostních atributech mohou být tyto odkazy užitečné:
 
-- [Kontrola, zda je prezentace šifrována](https://docs.aspose.com/slides/cs/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kontrola, zda je prezentace chráněna proti zápisu (jen pro čtení)](https://docs.aspose.com/slides/cs/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kontrola, zda je prezentace chráněna heslem před jejím načtením](https://docs.aspose.com/slides/cs/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Potvrzení hesla použitého k ochraně prezentace](https://docs.aspose.com/slides/cs/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Zabezpečit prezentace heslem](/slides/cs/nodejs-java/password-protected-presentation/)
+- [Zabránit zápisu prezentací](/slides/cs/nodejs-java/write-protected-presentation/)
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Jak mohu zkontrolovat, zda jsou písma vložena, a která to jsou?**
+**Jak mohu zkontrolovat, zda jsou fonty vloženy a které jsou?**
 
-Hledejte [informace o vložených písmenech](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) na úrovni prezentace a poté porovnejte tyto položky se sadou [přesně použitých písem v obsahu](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/getfonts/). Tím zjistíte, která písma jsou pro vykreslování kritická.
+Hledejte [informace o vložených fontech](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) na úrovni prezentace a poté porovnejte tyto položky se sadou [fontů skutečně používaných v obsahu](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/getfonts/), abyste určili, které fonty jsou pro renderování kritické.
 
-**Jak mohu rychle zjistit, zda soubor obsahuje skryté snímky a kolik jich je?**
+**Jak rychle zjistit, zda soubor obsahuje skryté snímky a kolik jich je?**
 
-Procházejte [kolekci snímků](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidecollection/) a zkontrolujte [vlajku viditelnosti](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/gethidden/) každého snímku.
+Projděte [kolekci snímků](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidecollection/) a zkontrolujte [vlajku viditelnosti](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/gethidden/) každého snímku.
 
-**Mohu zjistit, zda jsou použity vlastní velikost a orientace snímků, a zda se liší od výchozích?**
+**Mohu zjistit, zda jsou použity vlastní velikost a orientace snímku, a zda se liší od výchozích?**
 
-Ano. Porovnejte aktuální [velikost snímku](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getslidesize/) a orientaci s výchozími přednastaveními; to pomáhá předvídat chování při tisku a exportu.
+Ano. Porovnejte aktuální [velikost snímku](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getslidesize/) a orientaci se standardními předvolbami; to pomáhá předvídat chování při tisku a exportu.
 
-**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí zdroje dat?**
+**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí datové zdroje?**
 
-Ano. Procházejte všechny [grafy](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chart/), zkontrolujte jejich [zdroj dat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), a zaznamenejte, zda jsou data interní nebo odkazována, včetně jakýchkoli poškozených odkazů.
+Ano. Projděte všechny [grafy](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chart/), zkontrolujte jejich [datový zdroj](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), a zjistěte, zda jsou data interní nebo odkazována, včetně případných poškozených odkazů.
 
-**Jak mohu posoudit 'těžké' snímky, které mohou zpomalit vykreslování nebo export do PDF?**
+**Jak mohu posoudit „těžké“ snímky, které mohou zpomalit renderování nebo export do PDF?**
 
-Pro každý snímek spočítejte počet objektů a hledejte velké obrázky, průhlednost, stíny, animace a multimédia; přiřaďte hrubé skóre složitosti, abyste označili potenciální úzká místa výkonnosti.
+Pro každý snímek spočítejte počet objektů a hledejte velké obrázky, průhlednost, stíny, animace a multimédia; přiřaďte přibližné hodnocení složitosti, abyste označili potenciální úzká místa výkonu.

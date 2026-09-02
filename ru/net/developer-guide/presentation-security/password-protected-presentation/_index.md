@@ -1,289 +1,200 @@
 ---
-title: Защита презентаций паролями в .NET
+title: Защита паролем презентаций в .NET
 linktitle: Защита паролем
 type: docs
 weight: 20
 url: /ru/net/password-protected-presentation/
 keywords:
-- заблокировать PowerPoint
-- заблокировать презентацию
-- разблокировать PowerPoint
-- разблокировать презентацию
-- защитить PowerPoint
-- защитить презентацию
-- установить пароль
-- добавить пароль
-- зашифровать PowerPoint
-- зашифровать презентацию
-- расшифровать PowerPoint
-- расшифровать презентацию
-- защита от записи
-- безопасность PowerPoint
-- безопасность презентации
-- удалить пароль
-- снять защиту
-- удалить шифрование
-- отключить пароль
-- отключить защиту
-- снять защиту от записи
+- презентация с защитой паролем
+- пароль открытия
+- шифрование PowerPoint
+- расшифровка PowerPoint
+- проверка пароля презентации
+- проверка пароля презентации
+- открытие зашифрованной презентации
+- удаление шифрования
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как без труда блокировать и разблокировать презентации PowerPoint и OpenDocument, защищённые паролем, с помощью Aspose.Slides для .NET. Защитите свои презентации."
+description: "Шифрование, обнаружение, проверка, открытие и расшифровка презентаций PowerPoint PPT и PPTX, защищённых паролем, на C# с Aspose.Slides для .NET."
 ---
-## **Введение**
+## **Обзор**
 
-Когда вы устанавливаете пароль на презентацию, вы задаёте пароль, который вводит определённые ограничения для презентации. Чтобы снять эти ограничения, необходимо ввести пароль. Презентация, защищённая паролем, считается заблокированной презентацией.
+Пароль открытия шифрует презентацию. Правильный пароль требуется для загрузки и просмотра содержимого презентации, поэтому эта защита обеспечивает конфиденциальность.
 
-Обычно вы можете задать пароль, чтобы применить эти ограничения к презентации:
+Пароль открытия отличается от пароля защиты от записи. Защита от записи ограничивает изменение, но не шифрует содержимое и не препятствует загрузке презентации. Для управления паролями при изменении презентаций см. [Write-Protect Presentations](/slides/ru/net/write-protected-presentation/).
 
-- **Изменение**
+Приведённые ниже рабочие процессы применимы как к презентациям PPT, так и PPTX. Примеры используют оба формата, где важно их поведение при работе с файлами и потоками.
 
-Если вы хотите, чтобы только определённые пользователи могли изменять вашу презентацию, вы можете установить ограничение на изменение. Это ограничение препятствует людям изменять, менять или копировать элементы в вашей презентации, если они не введут пароль.  
+## **Зашифровать презентацию паролем открытия**
 
-Тем не менее, даже без пароля пользователь всё равно сможет открыть ваш документ. В режиме только для чтения пользователь может просматривать содержимое — включая гиперссылки, анимацию, эффекты и другие элементы — но он не может копировать элементы или сохранять презентацию.
+Используйте [IProtectionManager.Encrypt](https://reference.aspose.com/slides/ru/net/aspose.slides/iprotectionmanager/encrypt/) для назначения пароля открытия. Затем используйте [IPresentation.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/save/) для сохранения зашифрованной презентации.
 
-- **Открытие**
+Следующий пример шифрует презентацию PPTX:
 
-Если вы хотите, чтобы только определённые пользователи могли открывать вашу презентацию, вы можете установить ограничение на открытие. Это ограничение препятствует людям даже просматривать содержимое вашей презентации без ввода пароля.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Технически ограничение на открытие также препятствует пользователям изменять ваши презентации — если человек не может открыть презентацию, он не может её изменить или внести в неё правки.
-
-**Примечание:** Когда вы защищаете презентацию паролем, чтобы запретить её открытие, файл презентации шифруется.
-
-## **Защита паролем в Aspose.Slides**
-
-**Поддерживаемые форматы**
-
-Aspose.Slides поддерживает защиту паролем, шифрование и аналогичные операции для презентаций следующих форматов:
-
-- PPTX и PPT — презентации Microsoft PowerPoint  
-- ODP — презентации OpenDocument  
-- OTP — шаблоны презентаций OpenDocument  
-
-**Поддерживаемые операции**
-
-Aspose.Slides позволяет использовать защиту паролем для предотвращения изменений презентации следующими способами:
-
-- Шифрование презентации  
-- Установка защиты от записи для презентации  
-
-**Другие операции**
-
-Aspose.Slides позволяет выполнять дополнительные задачи, связанные с защитой паролем и шифрованием, следующими способами:
-
-- Расшифровка презентации; открытие зашифрованной презентации  
-- Снятие шифрования; отключение защиты паролем  
-- Снятие защиты от записи с презентации  
-- Получение свойств зашифрованной презентации  
-- Проверка, защищена ли презентация паролем, перед её загрузкой  
-- Проверка, зашифрована ли презентация  
-- Проверка, защищена ли презентация паролем  
-
-## **Защита презентации паролем**
-
-Вы можете зашифровать презентацию, задав пароль. Затем, чтобы изменить заблокированную презентацию, пользователь должен ввести пароль.
-
-Чтобы зашифровать (или защитить паролем) презентацию, используйте метод `Encrypt` из [ProtectionManager](https://reference.aspose.com/slides/ru/net/aspose.slides/protectionmanager), передав пароль в метод `Encrypt`, а затем сохраните презентацию с помощью метода `Save`.
-
-Следующий пример кода показывает, как зашифровать презентацию:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Установка защиты от записи для презентации** 
-
-Вы можете добавить пометку «Не изменять» к презентации. Это сообщает пользователям, что вы не хотите, чтобы они вносили изменения в презентацию.
-
-**Примечание:** Процесс установки защиты от записи не шифрует презентацию. Поэтому пользователи — если захотят — могут изменить её, но для сохранения изменений им придётся сохранять файл под другим именем.
-
-Чтобы установить защиту от записи, используйте метод `SetWriteProtection`. Этот пример кода показывает, как установить защиту от записи для презентации:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Загрузка зашифрованной презентации**
-
-Aspose.Slides позволяет загрузить зашифрованную презентацию, указав правильный пароль. Этот пример кода показывает, как загрузить зашифрованную презентацию:
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // Работа с дешифрованной презентацией.
-}
-```
-
-## **Удаление шифрования из презентации**
-
-Вы можете удалить шифрование или защиту паролем из презентации, позволяя пользователям получать к ней доступ или изменять её без ограничений.
-
-Чтобы удалить шифрование или защиту паролем, вызовите метод [RemoveEncryption](https://reference.aspose.com/slides/ru/net/aspose.slides/protectionmanager/methods/removeencryption). Этот пример кода показывает, как удалить шифрование из презентации:
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Удаление защиты от записи из презентации**
-
-Вы можете использовать Aspose.Slides для снятия защиты от записи с файла презентации. После этого пользователи смогут изменять её как захотят — и не будут получать предупреждений при выполнении таких действий.
-
-Снять защиту от записи можно с помощью метода [RemoveWriteProtection](https://reference.aspose.com/slides/ru/net/aspose.slides/protectionmanager/methods/removewriteprotection). Этот пример кода показывает, как снять защиту от записи с презентации:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Получение свойств зашифрованной презентации**
-
-Обычно пользователям трудно получить свойства документа зашифрованной или защищённой паролем презентации. Тем не менее Aspose.Slides предлагает механизм, позволяющий защитить презентацию паролем и одновременно сохранять возможность доступа к её свойствам.
-
-**Примечание:** По умолчанию, когда Aspose.Slides шифрует презентацию, свойства документа презентации также защищаются паролем. Если вам необходимо, чтобы свойства документа оставались доступными даже после шифрования, Aspose.Slides позволяет это сделать.
-
-Если вы хотите, чтобы пользователи могли обращаться к свойствам зашифрованной презентации, установите свойство `EncryptDocumentProperties` интерфейса [IProtectionManager](https://reference.aspose.com/slides/ru/net/aspose.slides/iprotectionmanager/) в `false`. Этот пример кода показывает, как зашифровать презентацию, оставив свойства документа доступными:
-
-```c#
 using var presentation = new Presentation("pres.pptx");
 
-presentation.ProtectionManager.EncryptDocumentProperties = false;
-presentation.ProtectionManager.Encrypt("123123");
+presentation.ProtectionManager.Encrypt("open_password");
 presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Загрузка только свойств документа из зашифрованной презентации**
+## **Загрузить зашифрованную презентацию**
 
-Чтобы просмотреть метаданные зашифрованной презентации без загрузки её слайдов или другого содержимого, создайте объект [LoadOptions](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/) и установите [OnlyLoadDocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) в `true`. В этом режиме Aspose.Slides игнорирует пароль и загружает только публично доступные свойства документа.
+Установите [LoadOptions.Password](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/password/) в значение пароля открытия и передайте параметры в [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) при загрузке файла. Загрузка завершается ошибкой, если нужен пароль открытия, но предоставленный пароль отсутствует или неверен.
 
-Следующий пример кода читает встроенные и пользовательские свойства документа через [IPresentation.DocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/documentproperties/):
+```csharp
+using Aspose.Slides;
 
-```c#
-var loadOptions = new LoadOptions
-{
-    OnlyLoadDocumentProperties = true
-};
-
+var loadOptions = new LoadOptions { Password = "open_password" };
 using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
-var documentProperties = presentation.DocumentProperties;
 
-// Read built-in document properties.
-Console.WriteLine("Title: " + documentProperties.Title);
-Console.WriteLine("Author: " + documentProperties.Author);
+// Работайте с расшифрованной презентацией.
+```
 
-// Read custom document properties.
-var customPropertyCount = documentProperties.CountOfCustomProperties;
+## **Снять шифрование с презентации**
 
-for (var propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+Загрузите презентацию, указав её пароль открытия, вызовите [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/ru/net/aspose.slides/iprotectionmanager/removeencryption/) и сохраните результат. Сохранённую презентацию затем можно загрузить без пароля.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
+
+## **Проверить пароль открытия перед загрузкой**
+
+Используйте [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationfactory/getpresentationinfo/) для получения [IPresentationInfo](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationinfo/) без создания полного экземпляра презентации. Проверьте [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationinfo/ispasswordprotected/) перед запросом или проверкой пароля. Если защита присутствует, проверьте предоставленное значение с помощью [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationinfo/checkpassword/).
+
+### **Рабочий процесс с путем к файлу**
+
+Следующий пример проверяет пароль открытия для файла PPTX, передаёт проверенное значение в [LoadOptions.Password](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/password/), а затем загружает полную презентацию:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    var propertyName = documentProperties.GetCustomPropertyName(propertyIndex);
-    var propertyValue = documentProperties[propertyName];
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
 
-    Console.WriteLine(propertyName + ": " + propertyValue);
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-Этот сценарий работает только когда свойства документа оставлены незашифрованными (публичными) при шифровании презентации. Если свойства документа зашифрованы, установка `OnlyLoadDocumentProperties` в `true` приводит к исключению, поскольку пароль в таком режиме игнорируется. Чтобы получить доступ к зашифрованным свойствам документа или загрузить полную презентацию, включая слайды и другое содержимое, укажите правильное значение `Password` в [LoadOptions](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/).
+### **Рабочий процесс с потоком**
 
-## **Проверка, защищена ли презентация паролем**
+Перегрузка потока метода [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationfactory/getpresentationinfo/) обеспечивает тот же рабочий процесс. Сбросьте позицию позиционируемого потока перед загрузкой полной презентации из этого потока.
 
-Прежде чем загрузить презентацию, вы можете проверять, не была ли она защищена паролем. Это помогает избежать ошибок и подобных проблем, возникающих при попытке загрузить защищённую паролем презентацию без правильного пароля.
+Следующий пример использует файл PPT:
 
-Этот код на C# показывает, как определить, защищена ли презентация паролем, без её фактической загрузки:
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
 
-## **Проверка, зашифрована ли презентация**
-
-Aspose.Slides позволяет проверить, зашифрована ли презентация. Для этого вы можете использовать свойство [IsEncrypted](https://reference.aspose.com/slides/ru/net/aspose.slides/protectionmanager/properties/isencrypted), которое возвращает `true`, если презентация зашифрована, и `false` в противном случае.
-
-Этот пример кода показывает, как проверить, зашифрована ли презентация:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+if (!presentationInfo.IsPasswordProtected)
 {
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **Проверка, защищена ли презентация от записи**
+### **Возвратные значения CheckPassword**
 
-Aspose.Slides позволяет проверить, защищена ли презентация от записи. Для этого вы можете использовать свойство [IsWriteProtected](https://reference.aspose.com/slides/ru/net/aspose.slides/protectionmanager/properties/iswriteprotected), которое возвращает `true`, если презентация защищена от записи, и `false` в противном случае.
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationinfo/checkpassword/) возвращает `true` только когда у презентации установлен пароль открытия и предоставленный пароль правильный. Он возвращает `false` в каждом из следующих случаев:
 
-Этот пример кода показывает, как проверить, защищена ли презентация от записи:
+- Пароль неверен.
+- У презентации нет пароля открытия.
+- Предоставленный пароль `null` или пустой.
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
+Поведение одинаково для презентаций PPT и PPTX.
+
+## **Проверить, зашифрована ли загруженная презентация**
+
+После загрузки презентации с правильным паролем проверьте [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/ru/net/aspose.slides/iprotectionmanager/isencrypted/), чтобы подтвердить, что исходная презентация была зашифрована. Чтобы обнаружить защиту паролем открытия до загрузки, используйте `IPresentationInfo.IsPasswordProtected`, как показано выше.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **Проверка использования пароля для презентации**
+## **Рекомендации по безопасности**
 
-Вам может потребоваться убедиться, что конкретный пароль был использован для защиты документа презентации. Aspose.Slides предоставляет средства для проверки пароля.
+{{% alert color="warning" title="Security" %}}
+Не записывайте пароли открытия в журналы и не включайте их в диагностические сообщения. Избегайте ненужных повторных попыток проверки, держите пароли в памяти только столько, сколько необходимо, и повторно используйте успешный результат проверки при немедленной загрузке презентации.
+{{% /alert %}}
 
-Этот пример кода показывает, как валидировать пароль:
+## **Защитить презентацию паролем онлайн**
 
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // Проверьте, совпадает ли пароль.
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
+1. Откройте приложение [Aspose.Slides Lock](https://products.aspose.app/slides/ru/lock).
+2. Выберите или загрузите презентацию.
+3. Введите пароль для защиты просмотра.
+4. При желании введите отдельный пароль для защиты редактирования.
+5. Примените защиту и загрузите полученный файл.
 
-Метод возвращает `true`, если презентация зашифрована указанным паролем; в противном случае — `false`.
-
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/ru/net/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/ru/net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **Защита презентации паролем онлайн**
+## **Вопросы и ответы**
 
-1. Перейдите на страницу нашего [**Aspose.Slides Lock**](https://products.aspose.app/slides/ru/lock).  
-2. Нажмите **Drop or upload your files**.  
-3. Выберите файл, который хотите защитить паролем, на вашем компьютере.  
-4. Введите желаемый пароль для защиты от редактирования и желаемый пароль для защиты от просмотра.  
-5. Если вы хотите, чтобы пользователи видели вашу презентацию как окончательную копию, установите флажок **Mark as final**.  
-6. Нажмите **PROTECT NOW.**  
-7. Нажмите **DOWNLOAD NOW.**
+**В чем разница между паролем открытия и паролем защиты от записи?**
 
-![Password protect PowerPoint presentations](slides-lock.png)
+Пароль открытия шифрует презентацию и требуется для загрузки её содержимого. Пароль защиты от записи ограничивает изменение без шифрования содержимого.
 
-## **FAQ**
+**Могу ли я проверить пароль открытия без загрузки всех слайдов?**
 
-**Какие методы шифрования поддерживает Aspose.Slides?**
+Да. Получите информацию о презентации, проверьте наличие защиты паролем открытия и проверьте пароль до создания полного экземпляра презентации.
 
-Aspose.Slides поддерживает современные методы шифрования, включая алгоритмы на базе AES, обеспечивая высокий уровень защиты данных ваших презентаций.
+**Поддерживают ли рабочие процессы проверки пароля как PPT, так и PPTX?**
 
-**Что происходит, если при попытке открыть презентацию ввести неправильный пароль?**
-
-Выбрасывается исключение, информирующее о том, что доступ к презентации отклонён. Это помогает предотвратить неавторизованный доступ и защищает содержимое презентации.
-
-**Есть ли какие‑либо последствия для производительности при работе с паролем защищёнными презентациями?**
-
-Процессы шифрования и дешифрования могут добавить небольшую нагрузку при открытии и сохранении файлов. В большинстве случаев влияние на производительность минимально и не оказывает значительного влияния на общее время обработки задач с презентациями.
+Да. Обнаружение и проверка пароля по пути к файлу и по потоку ведут себя одинаково для презентаций PPT и PPTX.

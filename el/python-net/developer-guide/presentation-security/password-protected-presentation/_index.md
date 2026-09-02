@@ -1,294 +1,186 @@
 ---
-title: Ασφαλείς παρουσιάσεις με κωδικούς πρόσβασης χρησιμοποιώντας Python
-linktitle: Προστασία με κωδικό πρόσβασης
+title: Προστασία Παρουσιάσεων με Κωδικό σε Python
+linktitle: Προστασία Κωδικού
 type: docs
 weight: 20
 url: /el/python-net/password-protected-presentation/
 keywords:
-- κλείδωμα PowerPoint
-- κλείδωμα παρουσίασης
-- ξεκλείδωμα PowerPoint
-- ξεκλείδωμα παρουσίασης
-- προστασία PowerPoint
-- προστασία παρουσίασης
-- ορισμός κωδικού
-- προσθήκη κωδικού
+- παρουσίαση με προστασία κωδικού
+- κωδικός άνοιγμα
 - κρυπτογράφηση PowerPoint
-- κρυπτογράφηση παρουσίασης
 - αποκρυπτογράφηση PowerPoint
-- αποκρυπτογράφηση παρουσίασης
-- προστασία εγγραφής
-- ασφάλεια PowerPoint
-- ασφάλεια παρουσίασης
-- αφαίρεση κωδικού
-- αφαίρεση προστασίας
+- επικύρωση κωδικού παρουσίασης
+- έλεγχος κωδικού παρουσίασης
+- άνοιγμα κρυπτογραφημένης παρουσίασης
 - αφαίρεση κρυπτογράφησης
-- απενεργοποίηση κωδικού
-- απενεργοποίηση προστασίας
-- αφαίρεση προστασίας εγγραφής
-- παρουσίαση PowerPoint
+- PowerPoint
+- PPT
+- PPTX
+- παρουσίαση
 - Python
 - Aspose.Slides
-description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε με ευκολία παρουσιάσεις PowerPoint και OpenDocument που προστατεύονται με κωδικό πρόσβασης, χρησιμοποιώντας το Aspose.Slides για Python μέσω .NET. Αυξήστε την παραγωγικότητά σας και ασφαλίστε τις παρουσιάσεις σας με τον βήμα-βήμα οδηγό μας."
+description: "Κρυπτογραφήστε, ανιχνεύστε, επικυρώστε, ανοίξτε και αποκρυπτογραφήστε παρουσιάσεις PowerPoint PPT και PPTX προστατευμένες με κωδικό σε Python με το Aspose.Slides."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Όταν προστατεύετε μια παρουσίαση με κωδικό πρόσβασης, σημαίνει ότι ορίζετε έναν κωδικό που επιβάλλει συγκεκριμένους περιορισμούς στην παρουσίαση. Για να αφαιρέσετε τους περιορισμούς, πρέπει να εισαχθεί ο κωδικός πρόσβασης. Μια παρουσίαση προστατευμένη με κωδικό θεωρείται κλειδωμένη παρουσίαση.
+Ένας κωδικός πρόσβασης άνοιγμα κρυπτογραφεί μια παρουσίαση. Ο σωστός κωδικός πρόσβασης απαιτείται για τη φόρτωση και την προβολή του περιεχομένου της παρουσίασης, οπότε αυτή η προστασία παρέχει εμπιστευτικότητα.
 
-Συνήθως, μπορείτε να ορίσετε έναν κωδικό για να επιβάλετε αυτούς τους περιορισμούς σε μια παρουσίαση:
+Ο κωδικός πρόσβασης άνοιγμα διαφέρει από τον κωδικό προστασίας εγγραφής. Η προστασία εγγραφής περιορίζει την τροποποίηση αλλά δεν κρυπτογραφεί το περιεχόμενο ούτε εμποδίζει τη φόρτωση της παρουσίασης. Για τη διαχείριση κωδικών πρόσβασης για τροποποίηση παρουσιάσεων, δείτε [Προστασία Παρουσιάσεων από Εγγραφή](/slides/el/python-net/write-protected-presentation/).
 
-- **Τροποποίηση**
+Οι παρακάτω ροές εργασίας εφαρμόζονται τόσο σε παρουσιάσεις PPT όσο και PPTX. Τα παραδείγματα χρησιμοποιούν και τις δύο μορφές όταν η συμπεριφορά τους βάσει αρχείου ή ροής είναι σημαντική.
 
-  Αν θέλετε μόνο ορισμένοι χρήστες να τροποποιούν την παρουσίασή σας, μπορείτε να ορίσετε περιορισμό τροποποίησης. Αυτός ο περιορισμός αποτρέπει τους ανθρώπους από το να τροποποιούν, αλλάζουν ή αντιγράφουν στοιχεία στην παρουσίασή σας (εκτός εάν παρέχουν τον κωδικό πρόσβασης). 
+## **Κρυπτογράφηση Παρουσίασης με Κωδικό Άνοιγμα**
 
-  Ωστόσο, σε αυτή την περίπτωση, ακόμη και χωρίς τον κωδικό πρόσβασης, ένας χρήστης θα μπορεί να έχει πρόσβαση στο έγγραφό σας και να το ανοίξει. Σε αυτή τη λειτουργία μόνο ανάγνωσης, ο χρήστης μπορεί να δει το περιεχόμενο ή στοιχεία—υπερσυνδέσμους, κινούμενα σχέδια, εφέ κλπ—μέσα στην παρουσίαση, αλλά δεν μπορεί να αντιγράψει στοιχεία ή να αποθηκεύσει την παρουσίαση. 
+Χρησιμοποιήστε [ProtectionManager.encrypt](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/encrypt/) για να ορίσετε έναν κωδικό άνοιγμα. Στη συνέχεια, χρησιμοποιήστε [Presentation.save](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/save/) για να αποθηκεύσετε την κρυπτογραφημένη παρουσίαση.
 
-- **Άνοιγμα**
-
-  Αν θέλετε μόνο ορισμένοι χρήστες να ανοίγουν την παρουσίασή σας, μπορείτε να ορίσετε περιορισμό ανοίγματος. Αυτός ο περιορισμός αποτρέπει τους ανθρώπους ακόμη και από το να δουν το περιεχόμενο της παρουσίασής σας (εκτός εάν παρέχουν τον κωδικό πρόσβασης).
-
-  Τεχνικά, ο περιορισμός ανοίγματος αποτρέπει επίσης τους χρήστες από την τροποποίηση των παρουσιάσεων σας: Όταν οι άνθρωποι δεν μπορούν να ανοίξουν μια παρουσίαση, δεν μπορούν να την τροποποιήσουν ή να κάνουν αλλαγές σε αυτήν. 
-
-  **Σημείωση** ότι όταν προστατεύετε μια παρουσίαση με κωδικό πρόσβασης για να αποτρέψετε το άνοιγμα, το αρχείο της παρουσίασης κρυπτογραφείται.
-
-## Πώς να προστατεύσετε μια παρουσίαση με κωδικό πρόσβασης online
-
-1. Μεταβείτε στη σελίδα μας [**Aspose.Slides Lock**](https://products.aspose.app/slides/el/lock). 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Κάντε κλικ **Αποθέστε ή ανεβάστε τα αρχεία σας**.
-
-3. Επιλέξτε το αρχείο που θέλετε να προστατεύσετε με κωδικό πρόσβασης από τον υπολογιστή σας. 
-
-4. Εισάγετε τον προτιμώμενο κωδικό πρόσβασης για προστασία επεξεργασίας· Εισάγετε τον προτιμώμενο κωδικό πρόσβασης για προστασία προβολής. 
-
-5. Αν θέλετε οι χρήστες να δουν την παρουσίασή σας ως τελική αντίγραφο, τσεκάρετε το πλαίσιο ελέγχου **Σήμανση ως τελική**.
-
-6. Κάντε κλικ **ΠΡΟΣΤΑΣΤΕ ΤΩΡΑ.** 
-
-7. Κάντε κλικ **ΚΑΤΩΨΥΡΩΣΤΕ ΤΩΡΑ.**
-
-## **Προστασία με κωδικό πρόσβασης για παρουσιάσεις στο Aspose.Slides**
-**Υποστηριζόμενες μορφές**
-
-Το Aspose.Slides υποστηρίζει προστασία με κωδικό πρόσβασης, κρυπτογράφηση και παρόμοιες λειτουργίες για παρουσιάσεις στις ακόλουθες μορφές: 
-
-- PPTX και PPT - Παρουσίαση Microsoft PowerPoint 
-- ODP - Παρουσίαση OpenDocument 
-- OTP - Πρότυπο Παρουσίασης OpenDocument 
-
-**Υποστηριζόμενες λειτουργίες**
-
-Το Aspose.Slides σας επιτρέπει να χρησιμοποιήσετε προστασία με κωδικό πρόσβασης σε παρουσιάσεις για να αποτρέψετε τροποποιήσεις με τους εξής τρόπους:
-
-- Κρυπτογράφηση μιας παρουσίασης
-- Ορισμός προστασίας εγγραφής σε μια παρουσίαση
-
-**Άλλες λειτουργίες**
-
-Το Aspose.Slides σας επιτρέπει να εκτελέσετε άλλες εργασίες που αφορούν την προστασία με κωδικό πρόσβασης και την κρυπτογράφηση με τους εξής τρόπους:
-
-- Αποκρυπτογράφηση μιας παρουσίασης· άνοιγμα κρυπτογραφημένης παρουσίασης
-- Αφαίρεση κρυπτογράφησης· απενεργοποίηση προστασίας με κωδικό πρόσβασης
-- Αφαίρεση προστασίας εγγραφής από μια παρουσίαση
-- Λήψη των ιδιοτήτων μιας κρυπτογραφημένης παρουσίασης
-- Έλεγχος εάν μια παρουσίαση είναι κρυπτογραφημένη
-- Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό πρόσβασης.
-
-## **Κρυπτογράφηση μιας παρουσίασης**
-
-Μπορείτε να κρυπτογραφήσετε μια παρουσίαση ορίζοντας έναν κωδικό πρόσβασης. Στη συνέχεια, για να τροποποιήσετε την κλειδωμένη παρουσίαση, ο χρήστης πρέπει να παρέχει τον κωδικό πρόσβασης. 
-
-Για να κρυπτογραφήσετε ή να προστατεύσετε με κωδικό πρόσβασης μια παρουσίαση, πρέπει να χρησιμοποιήσετε τη μέθοδο encrypt (από [ProtectionManager](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/)) για να ορίσετε έναν κωδικό πρόσβασης στην παρουσίαση. Περνάτε τον κωδικό στην μέθοδο encrypt και χρησιμοποιείτε τη μέθοδο save για να αποθηκεύσετε την τώρα κρυπτογραφημένη παρουσίαση. 
-
-Αυτό το δείγμα κώδικα δείχνει πώς να κρυπτογραφήσετε μια παρουσίαση:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt("123123")
-    pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ορισμός προστασίας εγγραφής σε μια παρουσίαση** 
-
-Μπορείτε να προσθέσετε μια ένδειξη «Μην τροποποιήσετε» σε μια παρουσίαση. Με αυτόν τον τρόπο, ενημερώνετε τους χρήστες ότι δεν θέλετε να κάνουν αλλαγές στην παρουσίαση.  
-
-**Σημείωση** ότι η διαδικασία προστασίας εγγραφής δεν κρυπτογραφεί την παρουσίαση. Συνεπώς, οι χρήστες—αν το θέλουν πραγματικά—μπορούν να τροποποιήσουν την παρουσίαση, αλλά για να αποθηκεύσουν τις αλλαγές, θα πρέπει να δημιουργήσουν μια παρουσίαση με διαφορετικό όνομα. 
-
-Για να ορίσετε προστασία εγγραφής, πρέπει να χρησιμοποιήσετε τη μέθοδο setWriteProtection. Αυτό το δείγμα κώδικα δείχνει πώς να ορίσετε προστασία εγγραφής σε μια παρουσίαση:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.set_write_protection("123123")
-    pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Αποκρυπτογράφηση μιας παρουσίασης· άνοιγμα κρυπτογραφημένης παρουσίασης**
-
-Το Aspose.Slides σάς επιτρέπει να φορτώσετε ένα κρυπτογραφημένο αρχείο παρέχοντας τον κωδικό πρόσβασης του. Για να αποκρυπτογραφήσετε μια παρουσίαση, πρέπει να καλέσετε τη μέθοδο [remove_encryption](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/) χωρίς παραμέτρους. Στη συνέχεια θα πρέπει να εισάγετε τον σωστό κωδικό πρόσβασης για να φορτώσετε την παρουσίαση. 
-
-Αυτό το δείγμα κώδικα δείχνει πώς να αποκρυπτογραφήσετε μια παρουσίαση: 
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    print(pres.document_properties.author)
-```
-
-## **Αφαίρεση κρυπτογράφησης· απενεργοποίηση προστασίας με κωδικό πρόσβασης**
-
-Μπορείτε να αφαιρέσετε την κρυπτογράφηση ή την προστασία με κωδικό πρόσβασης σε μια παρουσίαση. Με αυτόν τον τρόπο, οι χρήστες μπορούν να έχουν πρόσβαση ή να τροποποιούν την παρουσίαση χωρίς περιορισμούς. 
-
-Για να αφαιρέσετε την κρυπτογράφηση ή την προστασία με κωδικό πρόσβασης, πρέπει να καλέσετε τη μέθοδο [remove_encryption](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/). Αυτό το δείγμα κώδικα δείχνει πώς να αφαιρέσετε την κρυπτογράφηση από μια παρουσίαση:
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    pres.protection_manager.remove_encryption()
-    pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Αφαίρεση προστασίας εγγραφής από μια παρουσίαση**
-
-Μπορείτε να χρησιμοποιήσετε το Aspose.Slides για να αφαιρέσετε την προστασία εγγραφής που χρησιμοποιείται σε ένα αρχείο παρουσίασης. Με αυτόν τον τρόπο, οι χρήστες μπορούν να τροποποιούν όπως θέλουν—και δεν λαμβάνουν προειδοποιήσεις όταν εκτελούν τέτοιες ενέργειες.
-
-Μπορείτε να αφαιρέσετε την προστασία εγγραφής από μια παρουσίαση χρησιμοποιώντας τη μέθοδο [remove_write_protection](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/). Αυτό το δείγμα κώδικα δείχνει πώς να αφαιρέσετε την προστασία εγγραφής από μια παρουσίαση:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    pres.protection_manager.remove_write_protection()
-    pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Λήψη ιδιοτήτων κρυπτογραφημένης παρουσίασης**
-
-Συνήθως, οι χρήστες δυσκολεύονται να ανακτήσουν τις ιδιότητες του εγγράφου μιας κρυπτογραφημένης ή προστατευμένης με κωδικό παρουσίασης. Ωστόσο, το Aspose.Slides προσφέρει έναν μηχανισμό που σας επιτρέπει να προστατεύσετε με κωδικό πρόσβασης μια παρουσίαση διατηρώντας παράλληλα τη δυνατότητα των χρηστών να έχουν πρόσβαση στις ιδιότητές της. 
-
-**Σημείωση:** Από προεπιλογή, όταν το Aspose.Slides κρυπτογραφεί μια παρουσίαση, οι ιδιότητες εγγράφου της παρουσίασης προστατεύονται επίσης με κωδικό πρόσβασης. Εάν χρειάζεται να κάνετε τις ιδιότητες εγγράφου προσβάσιμες ακόμη και μετά την κρυπτογράφηση, το Aspose.Slides σας επιτρέπει να το κάνετε ακριβώς αυτό. 
-
-Αν θέλετε οι χρήστες να διατηρήσουν τη δυνατότητα πρόσβασης στις ιδιότητες μιας κρυπτογραφημένης παρουσίασης, ορίστε την ιδιότητα `encrypt_document_properties` του [ProtectionManager](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/) σε `False`. Αυτό το δείγμα κώδικα δείχνει πώς να κρυπτογραφήσετε μια παρουσίαση διατηρώντας παράλληλα την πρόσβαση των χρηστών στις ιδιότητες εγγράφου:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("pres.pptx") as presentation:
-    presentation.protection_manager.encrypt_document_properties = False
-    presentation.protection_manager.encrypt("123123")
-    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Φόρτωση μόνο ιδιοτήτων εγγράφου από κρυπτογραφημένη παρουσίαση**
-
-Για να ελέγξετε τα μεταδεδομένα μιας κρυπτογραφημένης παρουσίασης χωρίς να φορτώσετε τις διαφάνειες ή άλλο περιεχόμενο, δημιουργήστε ένα αντικείμενο [LoadOptions](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/) και ορίστε το [only_load_document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/only_load_document_properties/) σε `True`. Σε αυτή τη λειτουργία, το Aspose.Slides αγνοεί τον κωδικό πρόσβασης και φορτώνει μόνο τις ιδιότητες εγγράφου που είναι δημόσια προσβάσιμες. 
-
-Το παρακάτω παράδειγμα κώδικα διαβάζει ενσωματωμένες ιδιότητες εγγράφου και καταγράφει προσαρμοσμένες ιδιότητες εγγράφου μέσω του [Presentation.document_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/document_properties/):
-
-```py
-import aspose.slides as slides
-
-load_options = slides.LoadOptions()
-load_options.only_load_document_properties = True
-
-with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
-    document_properties = presentation.document_properties
-
-    # Ανάγνωση ενσωματωμένων ιδιοτήτων εγγράφου.
-    print("Title: " + document_properties.title)
-    print("Author: " + document_properties.author)
-
-    # Καταγραφή προσαρμοσμένων ιδιοτήτων εγγράφου.
-    custom_property_count = document_properties.count_of_custom_properties
-
-    for property_index in range(custom_property_count):
-        property_name = document_properties.get_custom_property_name(property_index)
-        print(property_name)
-```
-
-Αυτή η ροή εργασίας λειτουργεί μόνο όταν οι ιδιότητες εγγράφου έχουν μείνει μη κρυπτογραφημένες (δημόσιες) όταν η παρουσίαση κρυπτογραφήστηκε. Εάν οι ιδιότητες εγγράφου είναι κρυπτογραφημένες, ο ορισμός του `only_load_document_properties` σε `True` προκαλεί εξαίρεση επειδή ο κωδικός πρόσβασης αγνοείται σε αυτή τη λειτουργία. Για να έχετε πρόσβαση σε κρυπτογραφημένες ιδιότητες εγγράφου ή να φορτώσετε την πλήρη παρουσίαση, συμπεριλαμβανομένων των διαφανειών και άλλου περιεχομένου, δώστε τη σωστή τιμή `password` στο [LoadOptions](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/).
-
-## **Έλεγχος εάν μια παρουσίαση είναι προστατευμένη με κωδικό πρόσβασης πριν τη φορτώσετε**
-
-Πριν φορτώσετε μια παρουσίαση, ίσως θέλετε να ελέγξετε και να επιβεβαιώσετε ότι η παρουσίαση δεν είναι προστατευμένη με κωδικό πρόσβασης. Με αυτόν τον τρόπο, αποφεύγετε σφάλματα και παρόμοια προβλήματα που προκύπτουν όταν μια παρουσίαση προστατευμένη με κωδικό φορτώνεται χωρίς τον κωδικό. 
-
-Αυτός ο κώδικας Python δείχνει πώς να εξετάσετε μια παρουσίαση για να δείτε εάν είναι προστατευμένη με κωδικό πρόσβασης (χωρίς να φορτώσετε την ίδια την παρουσίαση):
+Το παρακάτω παράδειγμα κρυπτογραφεί μια παρουσίαση PPTX:
 
 ```python
 import aspose.slides as slides
 
-presentationInfo = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print("The presentation is password protected: " + str(presentationInfo.is_password_protected))
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Έλεγχος εάν μια παρουσίαση είναι κρυπτογραφημένη**
+## **Φόρτωση Κρυπτογραφημένης Παρουσίασης**
 
-Το Aspose.Slides σας επιτρέπει να ελέγξετε εάν μια παρουσίαση είναι κρυπτογραφημένη. Για να εκτελέσετε αυτήν τη εργασία, μπορείτε να χρησιμοποιήσετε την ιδιότητα [is_encrypted](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/) η οποία επιστρέφει `True` αν η παρουσίαση είναι κρυπτογραφημένη ή `False` αν δεν είναι κρυπτογραφημένη. 
+Ορίστε [LoadOptions.password](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/password/) στον κωδικό άνοιγμα και περάστε τις επιλογές στο [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) κατά τη φόρτωση του αρχείου. Η φόρτωση αποτυγχάνει όταν απαιτείται κωδικός άνοιγμα αλλά ο δοθέν κωδικός λείπει ή είναι λανθασμένος.
 
-Αυτό το δείγμα κώδικα δείχνει πώς να ελέγξετε εάν μια παρουσίαση είναι κρυπτογραφημένη:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    print(str(pres.protection_manager.is_encrypted))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    # Εργαστείτε με την αποκρυπτογραφημένη παρουσίαση.
+    pass
 ```
 
-## **Έλεγχος εάν μια παρουσίαση είναι προστατευμένη εγγραφής**
+## **Αφαίρεση Κρυπτογράφησης από Παρουσίαση**
 
-Το Aspose.Slides σας επιτρέπει να ελέγξετε εάν μια παρουσίαση είναι προστατευμένη εγγραφής. Για να εκτελέσετε αυτήν τη δουλειά, μπορείτε να χρησιμοποιήσετε την ιδιότητα [is_write_protected](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/) η οποία επιστρέφει `True` αν η παρουσίαση είναι κρυπτογραφημένη ή `False` αν δεν είναι κρυπτογραφημένη. 
+Φορτώστε την παρουσίαση με τον κωδικό άνοιγμα, καλέστε [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/remove_encryption/), και αποθηκεύστε το αποτέλεσμα. Η αποθηκευμένη παρουσίαση μπορεί στη συνέχεια να φορτωθεί χωρίς κωδικό.
 
-Αυτό το δείγμα κώδικα δείχνει πώς να ελέγξετε εάν μια παρουσίαση είναι προστατευμένη εγγραφής:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    print(str(pres.protection_manager.is_write_protected))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    presentation.protection_manager.remove_encryption()
+    presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Επικύρωση ή επιβεβαίωση ότι ένας συγκεκριμένος κωδικός έχει χρησιμοποιηθεί για την προστασία μιας παρουσίασης**
+## **Επικύρωση Κωδικού Άνοιγμα Πριν τη Φόρτωση**
 
-Μπορεί να θέλετε να ελέγξετε και να επιβεβαιώσετε ότι ένας συγκεκριμένος κωδικός πρόσβασης έχει χρησιμοποιηθεί για την προστασία ενός εγγράφου παρουσίασης. Το Aspose.Slides παρέχει τα μέσα για την επικύρωση ενός κωδικού. 
+Χρησιμοποιήστε [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationfactory/get_presentation_info/) για να αποκτήσετε το [PresentationInfo](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/) χωρίς να δημιουργήσετε μια πλήρη παρουσίαση. Ελέγξτε το [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/is_password_protected/) πριν ζητήσετε ή επικυρώσετε έναν κωδικό. Όταν υπάρχει προστασία, επικυρώστε την παρεχόμενη τιμή με το [PresentationInfo.check_password](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/check_password/).
 
-Αυτό το δείγμα κώδικα δείχνει πώς να επικυρώσετε έναν κωδικό:
+### **Ροή Εργασίας με Διάδρομο Αρχείου**
 
-```py
+Το παρακάτω παράδειγμα επικυρώνει έναν κωδικό άνοιγμα για ένα αρχείο PPTX, περνά την επικυρωμένη τιμή στο [LoadOptions.password](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/password/), και κατόπιν φορτώνει την πλήρη παρουσίαση:
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    # ελέγξτε αν το "pass" ταιριάζει
-    matched = pres.protection_manager.check_write_protection("my_password")
-    print(str(matched))
+file_path = "protected-presentation.pptx"
+password = "open_password"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+
+if not presentation_info.is_password_protected:
+    print("The presentation does not have an opening password.")
+elif not presentation_info.check_password(password):
+    print("The opening password is incorrect.")
+else:
+    load_options = slides.LoadOptions()
+    load_options.password = password
+
+    with slides.Presentation(file_path, load_options) as presentation:
+        print("The presentation was validated and loaded successfully.")
 ```
 
-Επιστρέφει `True` εάν η παρουσίαση έχει κρυπτογραφηθεί με τον καθορισμένο κωδικό πρόσβασης. Διαφορετικά, επιστρέφει `False`. 
+### **Ροή Εργασίας με Ροή**
 
-{{% alert color="primary" title="Δείτε επίσης" %}} 
-- [Ψηφιακή υπογραφή σε PowerPoint](/slides/el/python-net/digital-signature-in-powerpoint/)
+Η υπερφόρτωση ροής του [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationfactory/get_presentation_info/) παρέχει την ίδια ροή εργασίας. Επαναφέρετε τη θέση μιας αναζητήσιμης ροής πριν τη φόρτωση της πλήρους παρουσίασης από αυτή τη ροή.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί ένα αρχείο PPT:
+
+```python
+import aspose.slides as slides
+
+password = "open_password"
+
+with open("protected-presentation.ppt", "rb") as presentation_stream:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(presentation_stream)
+
+    if not presentation_info.is_password_protected:
+        print("The presentation does not have an opening password.")
+    elif not presentation_info.check_password(password):
+        print("The opening password is incorrect.")
+    else:
+        presentation_stream.seek(0)
+        load_options = slides.LoadOptions()
+        load_options.password = password
+
+        with slides.Presentation(presentation_stream, load_options) as presentation:
+            print("The presentation was validated and loaded successfully.")
+```
+
+### **Τιμές Επιστροφής CheckPassword**
+
+[PresentationInfo.check_password](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentationinfo/check_password/) επιστρέφει `True` μόνο όταν η παρουσίαση διαθέτει κωδικό άνοιγμα και ο παρεχόμενος κωδικός είναι σωστός. Επιστρέφει `False` σε κάθε μία από τις παρακάτω περιπτώσεις:
+
+- Ο κωδικός είναι λανθασμένος.
+- Η παρουσίαση δεν διαθέτει κωδικό άνοιγμα.
+- Ο παρεχόμενος κωδικός είναι `None` ή κενός.
+
+Η συμπεριφορά είναι η ίδια για παρουσιάσεις PPT και PPTX.
+
+## **Έλεγχος Αν Η Φορτωμένη Παρουσίαση Είναι Κρυπτογραφημένη**
+
+Μετά τη φόρτωση μιας παρουσίασης με τον σωστό κωδικό, ελέγξτε το [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/el/python-net/aspose.slides/protectionmanager/is_encrypted/) για να επιβεβαιώσετε ότι η αρχική παρουσίαση ήταν κρυπτογραφημένη. Για την ανίχνευση προστασίας με κωδικό άνοιγμα πριν τη φόρτωση, χρησιμοποιήστε `PresentationInfo.is_password_protected` όπως φαίνεται παραπάνω.
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    is_encrypted = presentation.protection_manager.is_encrypted
+    print("The presentation is encrypted: " + str(is_encrypted))
+```
+
+## **Συστάσεις Ασφάλειας**
+
+{{% alert color="warning" title="Security" %}}
+Να μην καταγράφετε τους κωδικούς άνοιγμα ή να τους συμπεριλαμβάνετε σε διαγνωστικά μηνύματα. Αποφύγετε περιττές επαναλαμβανόμενες προσπάθειες επικύρωσης, κρατήστε τους κωδικούς στη μνήμη μόνο όσο χρειάζεται, και επαναχρησιμοποιήστε ένα επιτυχές αποτέλεσμα επικύρωσης όταν φορτώνετε άμεσα την παρουσίαση.
+{{% /alert %}}
+
+## **Προστασία Παρουσίασης με Κωδικό Online**
+
+1. Ανοίξτε την εφαρμογή [Aspose.Slides Lock](https://products.aspose.app/slides/el/lock).
+2. Επιλέξτε ή ανεβάστε την παρουσίαση.
+3. Εισάγετε έναν κωδικό για προστασία προβολής.
+4. Προαιρετικά, εισάγετε έναν ξεχωριστό κωδικό για προστασία επεξεργασίας.
+5. Εφαρμόστε την προστασία και κατεβάστε το προκύπτων αρχείο.
+
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/el/python-net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/el/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Ποιες μέθοδοι κρυπτογράφησης υποστηρίζονται από το Aspose.Slides;**
+**Ποια είναι η διαφορά μεταξύ κωδικού άνοιγμα και κωδικού προστασίας εγγραφής;**
 
-Το Aspose.Slides υποστηρίζει σύγχρονες μεθόδους κρυπτογράφησης, συμπεριλαμβανομένων αλγορίθμων βασισμένων σε AES, εξασφαλίζοντας υψηλό επίπεδο ασφάλειας δεδομένων για τις παρουσιάσεις σας.
+Ένας κωδικός άνοιγμα κρυπτογραφεί την παρουσίαση και απαιτείται για τη φόρτωση του περιεχομένου της. Ένας κωδικός προστασίας εγγραφής περιορίζει τη τροποποίηση χωρίς να κρυπτογραφεί το περιεχόμενο.
 
-**Τι συμβαίνει αν εισαχθεί εσφαλμένος κωδικός πρόσβασης κατά την προσπάθεια ανοίγματος μιας παρουσίασης;**
+**Μπορώ να επικυρώσω έναν κωδικό άνοιγμα χωρίς να φορτώσω όλες τις διαφάνειες;**
 
-Εκκρεμεί εξαίρεση εάν χρησιμοποιηθεί εσφαλμένος κωδικός πρόσβασης, ειδοποιώντας ότι η πρόσβαση στην παρουσίαση απορρίπτεται. Αυτό βοηθά στην αποτροπή μη εξουσιοδοτημένης πρόσβασης και προστατεύει το περιεχόμενο της παρουσίασης.
+Ναι. Αποκτήστε πληροφορίες παρουσίασης, ελέγξτε εάν υπάρχει προστασία κωδικού άνοιγμα και επικυρώστε τον κωδικό πριν δημιουργήσετε μια πλήρη παρουσίαση.
 
-**Υπάρχουν επιπτώσεις στην απόδοση όταν εργάζεστε με παρουσιάσεις που προστατεύονται με κωδικό πρόσβασης;**
+**Υποστηρίζουν οι ροές ελέγχου κωδικού και τα δύο PPT και PPTX;**
 
-Η διαδικασία κρυπτογράφησης και αποκρυπτογράφησης μπορεί να προσθέσει ένα μικρό επιπλέον φορτίο κατά τις λειτουργίες ανοίγματος και αποθήκευσης. Στις περισσότερες περιπτώσεις, αυτό το κόστος απόδοσης είναι ελάχιστο και δεν επηρεάζει σημαντικά το συνολικό χρόνο επεξεργασίας των εργασιών σας με τις παρουσιάσεις.
+Ναι. Ο εντοπισμός και η επικύρωση κωδικού βάσει διαδρομής αρχείου ή ροής λειτουργούν με τον ίδιο τρόπο για παρουσιάσεις PPT και PPTX.

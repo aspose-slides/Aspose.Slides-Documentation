@@ -1,294 +1,186 @@
 ---
-title: امن‌سازی ارائه‌ها با رمز عبور با استفاده از پایتون
-linktitle: محافظت با رمز عبور
+title: حفاظت با رمز عبور ارائه‌ها در پایتون
+linktitle: حفاظت رمز عبور
 type: docs
 weight: 20
 url: /fa/python-net/password-protected-presentation/
 keywords:
-- قفل‌کردن پاورپوینت
-- قفل‌کردن ارائه
-- بازکردن قفل پاورپوینت
-- بازکردن قفل ارائه
-- محافظت از پاورپوینت
-- محافظت از ارائه
-- تنظیم رمز عبور
-- افزودن رمز عبور
-- رمزنگاری پاورپوینت
-- رمزنگاری ارائه
-- رمزگشایی پاورپوینت
-- رمزگشایی ارائه
-- محافظت نوشتن
-- امنیت پاورپوینت
-- امنیت ارائه
-- حذف رمز عبور
-- حذف محافظت
+- ارائه محافظت‌شده با رمز عبور
+- رمز عبور باز کردن
+- رمزنگاری PowerPoint
+- رمزگشایی PowerPoint
+- اعتبارسنجی رمز عبور ارائه
+- بررسی رمز عبور ارائه
+- باز کردن ارائه رمزگذاری‌شده
 - حذف رمزگذاری
-- غیرفعال‌سازی رمز عبور
-- غیرفعال‌سازی محافظت
-- حذف محافظت نوشتن
-- ارائه پاورپوینت
+- PowerPoint
+- PPT
+- PPTX
+- ارائه
 - پایتون
 - Aspose.Slides
-description: "یاد بگیرید چگونه به‌راحتی ارائه‌های پاورپوینت و OpenDocument محافظت‌شده با رمز عبور را با Aspose.Slides برای پایتون از طریق .NET قفل و باز کنید. بهره‌وری خود را افزایش داده و ارائه‌های خود را با راهنمای گام به گام ما ایمن کنید."
+description: "رمزنگاری، شناسایی، اعتبارسنجی، باز کردن و رمزگشایی ارائه‌های PowerPoint PPT و PPTX محافظت‌شده با رمز عبور در پایتون با Aspose.Slides."
 ---
-## **مقدمه**
+## **مروری کلی**
 
-زمانی که یک ارائه را با رمز عبور محافظت می‌کنید، در واقع رمز عبوری تنظیم می‌کنید که محدودیت‌های خاصی را بر روی ارائه اعمال می‌کند. برای حذف این محدودیت‌ها، باید رمز عبور وارد شود. یک ارائهٔ محافظت‌شده با رمز عبور به‌عنوان یک ارائهٔ قفل‌شده در نظر گرفته می‌شود.
+یک رمز عبور برای باز کردن یک ارائه را رمزگذاری می‌کند. برای بارگذاری و مشاهده محتوای ارائه، رمز عبور صحیح لازم است، بنابراین این حفاظت محرمانگی را فراهم می‌کند.
 
-به‌طور معمول می‌توانید یک رمز عبور تنظیم کنید تا این محدودیت‌ها را بر روی یک ارائه اعمال کنید:
+رمز عبور باز کردن با رمز عبور محافظت نوشتن متفاوت است. محافظت نوشتن محدودیت در اصلاح ایجاد می‌کند اما محتوا را رمزگذاری نمی‌کند و مانع بارگذاری ارائه نمی‌شود. برای مدیریت رمزهای عبور برای اصلاح ارائه‌ها، به [Write-Protect Presentations](/slides/fa/python-net/write-protected-presentation/) مراجعه کنید.
 
-- **تغییر**
+گردش کارهای زیر برای ارائه‌های PPT و PPTX هر دو اعمال می‌شود. مثال‌ها هر دو فرمت را به کار می‌برند جایی که رفتار مبتنی بر فایل و مبتنی بر جریان اهمیت دارد.
 
-  اگر می‌خواهید فقط کاربران خاصی بتوانند ارائه شما را تغییر دهند، می‌توانید یک محدودیت تغییر تنظیم کنید. این محدودیت افراد را از تغییر، اصلاح یا کپی کردن موارد در ارائه‌تان (مگر اینکه رمز عبور را ارائه دهند) منع می‌کند.
+## **رمزگذاری یک ارائه با رمز عبور باز کردن**
 
-  اما در این حالت، حتی بدون رمز عبور، کاربر می‌تواند به سند شما دسترسی پیدا کرده و آن را باز کند. در این حالت فقط‑خواندنی، کاربر می‌تواند محتویات یا مواردی مانند پیوندها، انیمیشن‌ها، افکت‌ها و سایر موارد داخل ارائه را ببیند، اما نمی‌تواند موارد را کپی کند یا ارائه را ذخیره نماید.
+از [ProtectionManager.encrypt](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/encrypt/) برای اختصاص یک رمز عبور باز کردن استفاده کنید. سپس از [Presentation.save](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/save/) برای ذخیره ارائه رمزگذاری‌شده استفاده کنید.
 
-- **باز کردن**
-
-  اگر می‌خواهید فقط کاربران خاصی بتوانند ارائه شما را باز کنند، می‌توانید یک محدودیت باز کردن تنظیم کنید. این محدودیت افراد را حتی از مشاهدهٔ محتویات ارائه شما (مگر اینکه رمز عبور را ارائه دهند) منع می‌کند.
-
-  از نظر فنی، محدودیت باز کردن همچنین مانع کاربران از تغییر ارائه می‌شود: وقتی کاربران نمی‌توانند یک ارائه را باز کنند، نمی‌توانند آن را تغییر دهند یا اصلاح نمایند.  
-
-  **توجه** داشته باشید که وقتی یک ارائه را برای جلوگیری از باز کردن با رمز عبور محافظت می‌کنید، فایل ارائه رمزگذاری می‌شود.
-
-## نحوهٔ محافظت با رمز عبور از یک ارائه به‌صورت آنلاین
-
-1. به صفحهٔ [**Aspose.Slides Lock**](https://products.aspose.app/slides/fa/lock) ما بروید. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. روی **کشیدن یا بارگذاری فایل‌های خود** کلیک کنید.
-
-3. فایلی که می‌خواهید با رمز عبور محافظت کنید را از رایانهٔ خود انتخاب کنید. 
-
-4. رمز عبور دلخواه خود را برای حفاظت از ویرایش وارد کنید؛ رمز عبور دلخواه خود را برای حفاظت از نمایش وارد کنید. 
-
-5. اگر می‌خواهید کاربران ارائه را به‌عنوان نسخهٔ نهایی ببینند، گزینهٔ **Mark as final** را علامت بزنید.
-
-6. روی **PROTECT NOW.** کلیک کنید. 
-
-7. روی **DOWNLOAD NOW.** کلیک کنید.
-
-## **محافظت از رمز عبور برای ارائه‌ها در Aspose.Slides**
-**فرمت‌های پشتیبانی‌شده**
-
-Aspose.Slides از محافظت با رمز عبور، رمزگذاری و عملیات مشابه برای ارائه‌ها در این فرمت‌ها پشتیبانی می‌کند:
-
-- PPTX و PPT - Microsoft PowerPoint Presentation  
-- ODP - OpenDocument Presentation  
-- OTP - OpenDocument Presentation Template  
-
-**عملیات‌های پشتیبانی‌شده**
-
-Aspose.Slides به شما امکان می‌دهد با استفاده از محافظت با رمز عبور از ارائه‌ها در این روش‌ها جلوگیری از تغییرات کنید:
-
-- رمزنگاری یک ارائه
-- تنظیم حفاظت نوشتن برای یک ارائه
-
-**عملیات‌های دیگر**
-
-Aspose.Slides به شما امکان انجام کارهای دیگر مرتبط با محافظت با رمز عبور و رمزگذاری را به این شکل می‌دهد:
-
-- رمزگشایی یک ارائه؛ باز کردن یک ارائه رمزنگاری‌شده
-- حذف رمزگذاری؛ غیرفعال‌سازی محافظت با رمز عبور
-- حذف حفاظت نوشتن از یک ارائه
-- دریافت ویژگی‌های یک ارائه رمزنگاری‌شده
-- بررسی اینکه آیا یک ارائه رمزنگاری شده است
-- بررسی اینکه آیا یک ارائه با رمز عبور محافظت شده است.
-
-## **رمزنگاری یک ارائه**
-
-می‌توانید یک ارائه را با تنظیم یک رمز عبور رمزنگاری کنید. سپس برای ویرایش ارائهٔ قفل‌شده، کاربر باید رمز عبور را ارائه دهد.
-
-برای رمزنگاری یا محافظت با رمز عبور از یک ارائه، باید از متد encrypt (از [ProtectionManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/)) استفاده کنید تا یک رمز عبور برای ارائه تنظیم شود. رمز عبور را به متد encrypt می‌گذرانید و سپس با استفاده از متد save ارائهٔ اکنون رمزنگاری‌شده را ذخیره می‌کنید.
-
-این نمونه کد نشان می‌دهد چگونه یک ارائه را رمزنگاری کنید:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt("123123")
-    pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **تنظیم حفاظت نوشتن برای یک ارائه** 
-
-می‌توانید علامتی با متن «تغییر نکنید» به یک ارائه اضافه کنید. به این ترتیب می‌توانید به کاربران اطلاع دهید که نمی‌خواهید آن‌ها تغییراتی در ارائه ایجاد کنند.  
-
-**توجه** داشته باشید که فرآیند حفاظت نوشتن ارائه را رمزگذاری نمی‌کند. بنابراین، کاربران—اگر بخواهند—می‌توانند ارائه را تغییر دهند، اما برای ذخیرهٔ تغییرات باید یک ارائه با نام متفاوت ایجاد کنند.
-
-برای تنظیم حفاظت نوشتن، باید از متد setWriteProtection استفاده کنید. این نمونه کد نشان می‌دهد چگونه یک حفاظت نوشتن برای یک ارائه تنظیم کنید:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.set_write_protection("123123")
-    pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **رمزگشایی یک ارائه؛ باز کردن یک ارائه رمزنگاری‌شده**
-
-Aspose.Slides به شما امکان می‌دهد یک فایل رمزنگاری‌شده را با عبور دادن رمز عبور آن بارگذاری کنید. برای رمزگشایی یک ارائه، باید متد [remove_encryption](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/) را بدون پارامتر فراخوانی کنید. سپس باید رمز عبور صحیح را وارد کنید تا ارائه بارگذاری شود.
-
-این نمونه کد نشان می‌دهد چگونه یک ارائه را رمزگشایی کنید: 
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    print(pres.document_properties.author)
-```
-
-## **حذف رمزگذاری؛ غیرفعال‌سازی محافظت با رمز عبور**
-
-می‌توانید رمزگذاری یا محافظت با رمز عبور یک ارائه را حذف کنید. به این ترتیب، کاربران می‌توانند بدون محدودیت به ارائه دسترسی داشته یا آن را تغییر دهند.
-
-برای حذف رمزگذاری یا محافظت با رمز عبور، باید متد [remove_encryption](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/) را فراخوانی کنید. این نمونه کد نشان می‌دهد چگونه رمزگذاری یک ارائه را حذف کنید:
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    pres.protection_manager.remove_encryption()
-    pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **حذف حفاظت نوشتن از یک ارائه**
-
-می‌توانید از Aspose.Slides برای حذف حفاظتی که بر روی فایل ارائه اعمال شده استفاده کنید. به این ترتیب، کاربران می‌توانند به دلخواه تغییرات خود را اعمال کنند—و هنگام انجام این کار هیچ هشدارى دریافت نمی‌کنند.
-
-می‌توانید حفاظتی نوشتن را از یک ارائه با استفاده از متد [remove_write_protection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/) حذف کنید. این نمونه کد نشان می‌دهد چگونه حفاظت نوشتن را از یک ارائه حذف کنید:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    pres.protection_manager.remove_write_protection()
-    pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **دریافت ویژگی‌های یک ارائه رمزنگاری‌شده**
-
-به‌طور معمول، کاربران برای بازیابی ویژگی‌های سند یک ارائهٔ رمزنگاری‌شده یا محافظت‌شده با رمز عبور با مشکل مواجه می‌شوند. با این حال، Aspose.Slides مکانیسمی فراهم می‌کند که به شما اجازه می‌دهد یک ارائه را با رمز عبور محافظت کنید و همچنان توانایی دسترسی کاربران به ویژگی‌های آن حفظ شود.
-
-**توجه:** به‌صورت پیش‌فرض، وقتی Aspose.Slides یک ارائه را رمزنگاری می‌کند، ویژگی‌های سند ارائه نیز با رمز عبور محافظت می‌شوند. اگر نیاز دارید ویژگی‌های سند حتی پس از رمزگذاری در دسترس باشند، Aspose.Slides امکان این را به‌دقت فراهم می‌کند.
-
-اگر می‌خواهید کاربران همچنان بتوانند به ویژگی‌های یک ارائهٔ رمزنگاری‌شده دسترسی داشته باشند، مقدار ویژگی `encrypt_document_properties` در [ProtectionManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/) را روی `False` تنظیم کنید. این نمونه کد نشان می‌دهد چگونه یک ارائه را رمزنگاری کنید در حالی که همچنان به کاربران دسترسی به ویژگی‌های سند آن را می‌دهید:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("pres.pptx") as presentation:
-    presentation.protection_manager.encrypt_document_properties = False
-    presentation.protection_manager.encrypt("123123")
-    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **بارگذاری فقط ویژگی‌های سند از یک ارائه رمزنگاری‌شده**
-
-برای بررسی متادیتای یک ارائهٔ رمزنگاری‌شده بدون بارگذاری اسلایدها یا محتویات دیگر، یک شیء [LoadOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/) ایجاد کنید و مقدار [only_load_document_properties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/only_load_document_properties/) را روی `True` تنظیم کنید. در این حالت، Aspose.Slides رمز عبور را نادیده می‌گیرد و فقط ویژگی‌های سندی که به‌صورت عمومی در دسترس هستند را بارگذاری می‌کند.
-
-کد زیر ویژگی‌های سند داخلی را می‌خواند و ویژگی‌های سفارشی سند را از طریق [Presentation.document_properties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/document_properties/) فهرست می‌کند:
-
-```py
-import aspose.slides as slides
-
-load_options = slides.LoadOptions()
-load_options.only_load_document_properties = True
-
-with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
-    document_properties = presentation.document_properties
-
-    # خواندن ویژگی‌های سند داخلی.
-    print("Title: " + document_properties.title)
-    print("Author: " + document_properties.author)
-
-    # فهرست کردن ویژگی‌های سفارشی سند.
-    custom_property_count = document_properties.count_of_custom_properties
-
-    for property_index in range(custom_property_count):
-        property_name = document_properties.get_custom_property_name(property_index)
-        print(property_name)
-```
-
-این جریان کار فقط زمانی کار می‌کند که ویژگی‌های سند هنگام رمزگذاری ارائه به‌صورت عمومی (غیر رمزگذاری‌شده) باقی مانده باشند. اگر ویژگی‌های سند رمزگذاری شوند، تنظیم `only_load_document_properties` به `True` منجر به استثنا می‌شود چون در این حالت رمز عبور نادیده گرفته می‌شود. برای دسترسی به ویژگی‌های سند رمزگذاری‌شده یا بارگذاری کامل ارائه، شامل اسلایدها و سایر محتویات، مقدار صحیح `password` را در [LoadOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/) فراهم کنید.
-
-## **بررسی اینکه آیا یک ارائه قبل از بارگذاری با رمز عبور محافظت شده است**
-
-قبل از اینکه یک ارائه را بارگذاری کنید، ممکن است بخواهید بررسی کنید و تأیید کنید که ارائه با رمز عبور محافظت نشده است. به این ترتیب می‌توانید از بروز خطاها و مشکلات مشابهی که هنگام بارگذاری یک ارائهٔ محافظت‌شده با رمز عبور بدون داشتن رمز عبور رخ می‌دهد، جلوگیری کنید.
-
-این کد پایتون نشان می‌دهد چگونه یک ارائه را بررسی کنید تا ببینید آیا با رمز عبور محافظت شده است (بدون بارگذاری خود ارائه):
+مثال زیر یک ارائه PPTX را رمزگذاری می‌کند:
 
 ```python
 import aspose.slides as slides
 
-presentationInfo = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print("The presentation is password protected: " + str(presentationInfo.is_password_protected))
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **بررسی اینکه آیا یک ارائه رمزنگاری شده است**
+## **بارگذاری یک ارائه رمزگذاری‌شده**
 
-Aspose.Slides به شما امکان می‌دهد بررسی کنید که آیا یک ارائه رمزنگاری شده است یا خیر. برای انجام این کار، می‌توانید از ویژگی [is_encrypted](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/) استفاده کنید که در صورتی که ارائه رمزنگاری شده باشد `True` و در غیر این صورت `False` برمی‌گرداند. 
+با تنظیم [LoadOptions.password](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/password/) به رمز عبور باز کردن و ارسال این گزینه‌ها به [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) هنگام بارگذاری فایل، عمل بارگذاری انجام می‌شود. اگر رمز عبور باز کردن لازم باشد ولی رمز ارائه‌شده گمشده یا نادرست باشد، بارگذاری با خطا مواجه می‌شود.
 
-این نمونه کد نشان می‌دهد چگونه بررسی کنید که آیا یک ارائه رمزنگاری شده است:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    print(str(pres.protection_manager.is_encrypted))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    # با ارائه رمزگشایی‌شده کار کنید.
+    pass
 ```
 
-## **بررسی اینکه آیا یک ارائه حفاظت نوشتن دارد**
+## **حذف رمزگذاری از یک ارائه**
 
-Aspose.Slides به شما امکان می‌دهد بررسی کنید که آیا یک ارائه حفاظت نوشتن دارد یا خیر. برای انجام این کار، می‌توانید از ویژگی [is_write_protected](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/) استفاده کنید که در صورتی که ارائه رمزنگاری شده باشد `True` و در غیر این صورت `False` برمی‌گرداند. 
+ارائه را با رمز عبور باز کردن آن بارگذاری کنید، [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/remove_encryption/) را فراخوانی کنید و نتیجه را ذخیره نمایید. پس از ذخیره، می‌توان ارائه را بدون نیاز به رمز عبور بارگذاری کرد.
 
-این نمونه کد نشان می‌دهد چگونه بررسی کنید که آیا یک ارائه حفاظت نوشتن دارد:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    print(str(pres.protection_manager.is_write_protected))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    presentation.protection_manager.remove_encryption()
+    presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **اعتبارسنجی یا تأیید اینکه یک رمز عبور خاص برای محافظت از یک ارائه استفاده شده است**
+## **اعتبارسنجی رمز عبور باز کردن قبل از بارگذاری**
 
-ممکن است بخواهید بررسی کنید و تأیید کنید که یک رمز عبور خاص برای محافظت از سند ارائه استفاده شده است. Aspose.Slides ابزارهایی برای اعتبارسنجی یک رمز عبور فراهم می‌کند. 
+از [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationfactory/get_presentation_info/) برای دریافت [PresentationInfo](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/) بدون ایجاد یک نمونه کامل از ارائه استفاده کنید. پیش از درخواست یا اعتبارسنجی رمز عبور، [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/is_password_protected/) را بررسی کنید. زمانی که حفاظت وجود دارد، مقدار ارائه‌شده را با [PresentationInfo.check_password](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/check_password/) اعتبارسنجی کنید.
 
-این نمونه کد نشان می‌دهد چگونه یک رمز عبور را اعتبارسنجی کنید:
+### **گردش کار مسیر پرونده**
 
-```py
+مثال زیر رمز عبور باز کردن را برای یک فایل PPTX اعتبارسنجی می‌کند، مقدار اعتبارسنجی‌شده را به [LoadOptions.password](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/password/) می‌گذارد و سپس ارائه کامل را بارگذاری می‌نماید:
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    # بررسی کنید آیا "pass" با آن مطابقت دارد
-    matched = pres.protection_manager.check_write_protection("my_password")
-    print(str(matched))
+file_path = "protected-presentation.pptx"
+password = "open_password"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+
+if not presentation_info.is_password_protected:
+    print("The presentation does not have an opening password.")
+elif not presentation_info.check_password(password):
+    print("The opening password is incorrect.")
+else:
+    load_options = slides.LoadOptions()
+    load_options.password = password
+
+    with slides.Presentation(file_path, load_options) as presentation:
+        print("The presentation was validated and loaded successfully.")
 ```
 
-این مقدار `True` برمی‌گرداند اگر ارائه با رمز عبور مشخص شده رمزنگاری شده باشد. در غیر این صورت، `False` برمی‌گرداند. 
+### **گردش کار جریان**
 
-{{% alert color="primary" title="همچنین ببینید" %}} 
-- [امضا دیجیتال در پاورپوینت](/slides/fa/python-net/digital-signature-in-powerpoint/)
+بارگذاری جریان‌ای از [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationfactory/get_presentation_info/) همان گردش کار را فراهم می‌کند. قبل از بارگذاری ارائه کامل از آن جریان، موقعیت یک جریان قابل جستجو را بازنشانی کنید.
+
+مثال زیر از یک فایل PPT استفاده می‌کند:
+
+```python
+import aspose.slides as slides
+
+password = "open_password"
+
+with open("protected-presentation.ppt", "rb") as presentation_stream:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(presentation_stream)
+
+    if not presentation_info.is_password_protected:
+        print("The presentation does not have an opening password.")
+    elif not presentation_info.check_password(password):
+        print("The opening password is incorrect.")
+    else:
+        presentation_stream.seek(0)
+        load_options = slides.LoadOptions()
+        load_options.password = password
+
+        with slides.Presentation(presentation_stream, load_options) as presentation:
+            print("The presentation was validated and loaded successfully.")
+```
+
+### **مقادیر بازگشت CheckPassword**
+
+[PresentationInfo.check_password](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/check_password/) فقط زمانی که ارائه دارای رمز عبور باز کردن باشد و رمز ارائه‌شده صحیح باشد، `True` باز می‌گرداند. در هر یک از موارد زیر `False` باز می‌گردد:
+
+- رمز عبور نادرست است.
+- ارائه رمز عبور باز کردن ندارد.
+- رمز عبور ارائه‌شده `None` یا خالی است.
+
+این رفتار برای ارائه‌های PPT و PPTX یکسان است.
+
+## **بررسی اینکه آیا یک ارائه بارگذاری‌شده رمزگذاری‌شده است**
+
+پس از بارگذاری یک ارائه با رمز عبور صحیح، [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/fa/python-net/aspose.slides/protectionmanager/is_encrypted/) را بررسی کنید تا تأیید کنید که ارائه منبع رمزگذاری شده است. برای شناسایی حفاظت با رمز عبور باز کردن قبل از بارگذاری، از `PresentationInfo.is_password_protected` همان‌طور که در بالا نشان داده شد، استفاده کنید.
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    is_encrypted = presentation.protection_manager.is_encrypted
+    print("The presentation is encrypted: " + str(is_encrypted))
+```
+
+## **توصیه‌های امنیتی**
+
+{{% alert color="warning" title="Security" %}}
+رمزهای عبور باز کردن را در لاگ‌ها ثبت نکنید و در پیام‌های تشخیصی گنجانده نشود. از تلاش‌های تکراری و غیرضروری برای اعتبارسنجی جلوگیری کنید، رمزها را در حافظه تنها به مدت لازم نگه دارید و نتایج اعتبارسنجی موفق را هنگام بارگذاری فوری ارائه مجددا استفاده کنید.
+{{% /alert %}}
+
+## **حفاظت با رمز عبور از یک ارائه به‌صورت آنلاین**
+
+1. برنامه [Aspose.Slides Lock](https://products.aspose.app/slides/fa/lock) را باز کنید.
+1. ارائه را انتخاب یا بارگذاری کنید.
+1. رمز عبوری برای حفاظت نمایش وارد کنید.
+1. در صورت نیاز رمز عبور جداگانه‌ای برای حفاظت ویرایش وارد کنید.
+1. محافظت را اعمال کرده و فایل حاصل را دانلود کنید.
+
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/fa/python-net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/fa/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **سوالات متداول**
 
-**کدام روش‌های رمزنگاری توسط Aspose.Slides پشتیبانی می‌شوند؟**
+**تفاوت رمز عبور باز کردن و رمز عبور محافظت نوشتن چیست؟**
 
-Aspose.Slides از روش‌های مدرن رمزنگاری، از جمله الگوریتم‌های مبتنی بر AES، پشتیبانی می‌کند تا سطح بالایی از امنیت داده‌ها برای ارائه‌های شما تضمین شود.
+یک رمز عبور باز کردن ارائه را رمزگذاری می‌کند و برای بارگذاری محتوای آن لازم است. یک رمز عبور محافظت نوشتن محدودیت در اصلاح ایجاد می‌کند بدون اینکه محتوا را رمزگذاری کند.
 
-**چه اتفاقی می‌افتد اگر رمز عبور نادرست وارد شود هنگام تلاش برای باز کردن یک ارائه؟**
+**آیا می‌توانم یک رمز عبور باز کردن را بدون بارگذاری تمام اسلایدها اعتبارسنجی کنم؟**
 
-اگر رمز عبور نادرست استفاده شود، استثنایی پرتاب می‌شود که به شما اطلاع می‌دهد دسترسی به ارائه رد شده است. این امر از دسترسی غیرمجاز جلوگیری کرده و محتویات ارائه را محافظت می‌کند.
+بله. اطلاعات ارائه را به‌دست آورید، بررسی کنید آیا حفاظت با رمز عبور باز کردن وجود دارد یا خیر، و قبل از ایجاد یک نمونه کامل از ارائه، رمز عبور را اعتبارسنجی کنید.
 
-**آیا هنگام کار با ارائه‌های محافظت‌شده با رمز عبور، تاثیری بر عملکرد وجود دارد؟**
+**آیا گردش کارهای بررسی رمز عبور هر دو PPT و PPTX را پشتیبانی می‌کنند؟**
 
-فرآیند رمزگذاری و رمزگشایی ممکن است کمی بار اضافی در حین عملیات باز کردن و ذخیره‌سازی ایجاد کند. در بیشتر موارد، این تاثیر بر عملکرد کم است و به‌طور قابل توجهی زمان پردازش کلی وظایف ارائه شما را تحت‌الشعاع قرار نمی‌دهد.
+بله. شناسایی و اعتبارسنجی رمز عبور بر پایه مسیر فایل و جریان برای ارائه‌های PPT و PPTX به‌صورت یکسان عمل می‌کند.

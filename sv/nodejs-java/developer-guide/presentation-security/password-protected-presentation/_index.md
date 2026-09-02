@@ -1,335 +1,222 @@
 ---
-title: Säkra presentationer med lösenord i JavaScript
+title: Lösenordsskydda presentationer i JavaScript
 linktitle: Lösenordsskydd
 type: docs
 weight: 20
 url: /sv/nodejs-java/password-protected-presentation/
 keywords:
-- Låsa PowerPoint
-- Låsa presentation
-- Låsa upp PowerPoint
-- Låsa upp presentation
-- Skydda PowerPoint
-- Skydda presentation
-- Ange lösenord
-- Lägg till lösenord
-- Kryptera PowerPoint
-- Kryptera presentation
-- Dekryptera PowerPoint
-- Dekryptera presentation
-- Skrivskydd
-- PowerPoint-säkerhet
-- Presentationssäkerhet
-- Ta bort lösenord
-- Ta bort skydd
-- Ta bort kryptering
-- Inaktivera lösenord
-- Inaktivera skydd
-- Ta bort skrivskydd
+- lösenordsskyddad presentation
+- öppningslösenord
+- kryptera PowerPoint
+- dekryptera PowerPoint
+- validera presentationslösenord
+- kontrollera presentationslösenord
+- öppna krypterad presentation
+- ta bort kryptering
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Låser och låser upp lösenordsskyddade PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Node.js via Java utan ansträngning. Skydda dina presentationer."
+description: "Kryptera, upptäck, validera, öppna och dekryptera lösenordsskyddade PowerPoint PPT- och PPTX-presentationer i JavaScript med Aspose.Slides."
 ---
-## **Introduktion**
+## **Översikt**
 
-När du lösenordsskyddar en presentation betyder det att du ställer in ett lösenord som verkställar vissa begränsningar på presentationen. För att ta bort begränsningarna måste lösenordet anges. En lösenordsskyddad presentation anses vara en låst presentation.
+Ett öppningslösenord krypterar en presentation. Det korrekta lösenordet krävs för att läsa in och visa presentationens innehåll, så detta skydd ger konfidentialitet.
 
-Vanligtvis kan du ange ett lösenord för att verkställa dessa begränsningar på en presentation:
+Ett öppningslösenord skiljer sig från ett skrivskyddslösenord. Skrivskydd begränsar ändring men krypterar inte innehållet och hindrar inte presentationen från att läsas in. För att hantera lösenord för att ändra presentationer, se [Skrivskydda presentationer](/slides/sv/nodejs-java/write-protected-presentation/).
 
-- **Modifiering**
+Arbetsflödena nedan gäller både PPT‑ och PPTX‑presentationer. Exemplen använder båda formaten där deras fil‑baserade och strömbaserade beteende är viktigt.
 
-  Om du vill att endast vissa användare ska kunna ändra din presentation kan du ange en ändringsbegränsning. Begränsningen här förhindrar att personer modifierar, ändrar eller kopierar saker i din presentation (såvida de inte anger lösenordet). 
+## **Kryptera en presentation med ett öppningslösenord**
 
-  Dock kan en användare i detta fall, även utan lösenordet, komma åt ditt dokument och öppna det. I detta skrivskyddade läge kan användaren se innehållet eller saker – hyperlänkar, animationer, effekter och andra – i din presentation, men de kan inte kopiera objekt eller spara presentationen. 
+Använd [ProtectionManager.encrypt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#encrypt) för att tilldela ett öppningslösenord. Använd sedan [Presentation.save](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#save) för att spara den krypterade presentationen.
 
-- **Öppning**
-
-  Om du vill att endast vissa användare ska kunna öppna din presentation kan du ange en öppningsbegränsning. Begränsningen här förhindrar att personer ens visar innehållet i din presentation (såvida de inte anger lösenordet).
-
-  Tekniskt sett förhindrar öppningsbegränsningen också att användare modifierar dina presentationer: När personer inte kan öppna en presentation kan de inte göra ändringar i den. 
-
-  **Obs** att när du lösenordsskyddar en presentation för att förhindra öppning blir presentationsfilen krypterad.
-
-## **Hur du lösenordsskyddar en presentation online**
-
-1. Gå till vår [**Aspose.Slides Lås**](https://products.aspose.app/slides/sv/lock) sida. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Klicka på **Släpp eller ladda upp dina filer**.
-
-3. Välj den fil du vill lösenordsskydda på din dator. 
-
-4. Ange ditt föredragna lösenord för redigeringsskydd; Ange ditt föredragna lösenord för visningsskydd. 
-
-5. Om du vill att användare ska se din presentation som den slutgiltiga kopian, markera kryssrutan **Markera som slutgiltig**.
-
-6. Klicka på **SKYDDA NU.** 
-
-7. Klicka på **LADDA NER NU.**
-
-## **Lösenordsskydd för presentationer i Aspose.Slides**
-**Stödda format**
-
-Aspose.Slides stödjer lösenordsskydd, kryptering och liknande operationer för presentationer i följande format: 
-
-- PPTX och PPT - Microsoft PowerPoint-presentation 
-- ODP - OpenDocument-presentation 
-- OTP -  OpenDocument-presentationmall 
-
-**Stödda operationer**
-
-Aspose.Slides låter dig använda lösenordsskydd på presentationer för att förhindra ändringar på följande sätt:
-
-- Kryptera en presentation
-- Ställa in skrivskydd för en presentation
-
-**Övriga operationer**
-
-Aspose.Slides låter dig utföra andra uppgifter som involverar lösenordsskydd och kryptering på följande sätt:
-
-- Dekryptera en presentation; öppna en krypterad presentation
-- Ta bort kryptering; inaktivera lösenordsskydd
-- Ta bort skrivskydd från en presentation
-- Hämta egenskaperna för en krypterad presentation
-- Kontrollera om en presentation är krypterad
-- Kontrollera om en presentation är lösenordsskyddad.
-
-## **Kryptera en presentation**
-
-Du kan kryptera en presentation genom att ange ett lösenord. För att ändra den låsta presentationen måste en användare ange lösenordet.
-
-För att kryptera eller lösenordsskydda en presentation måste du använda encrypt‑metoden (från [ProtectionManager](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ProtectionManager)) för att ange ett lösenord för presentationen. Du skickar lösenordet till encrypt‑metoden och använder save‑metoden för att spara den nu krypterade presentationen.
-
-Den här exempel‑koden visar hur du krypterar en presentation:
+Följande exempel krypterar en PPTX‑presentation:
 
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
-    presentation.save("encrypted-pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Ställa in skrivskydd för en presentation**
-
-Du kan lägga till en markering som säger ”Do not modify” i en presentation. På så sätt kan du tala om för användarna att du inte vill att de ska göra ändringar i presentationen.  
-
-**Obs** att skrivskyddsprocessen inte krypterar presentationen. Därför kan användare—om de faktiskt vill—modifiera presentationen, men för att spara ändringarna måste de skapa en presentation med ett annat namn. 
-
-För att ställa in ett skrivskydd måste du använda metoden [setWriteProtection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ProtectionManager#setWriteProtection-java.lang.String-) . Den här exempel‑koden visar hur du sätter ett skrivskydd på en presentation:
-
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Dekryptera en presentation; öppna en krypterad presentation**
-
-Aspose.Slides låter dig läsa in en krypterad fil genom att ange dess lösenord. För att dekryptera en presentation måste du anropa metoden [removeEncryption](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--) utan parametrar. Du måste sedan ange rätt lösenord för att läsa in presentationen.
-
-Den här exempel‑koden visar hur du dekrypterar en presentation: 
-
-```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
-try {
-    // arbeta med dekrypterad presentation
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Ta bort kryptering; inaktivera lösenordsskydd**
-
-Du kan ta bort krypteringen eller lösenordsskyddet på en presentation. På så sätt kan användare få åtkomst till eller ändra presentationen utan begränsningar. 
-
-För att ta bort kryptering eller lösenordsskydd måste du anropa metoden [removeEncryption](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ProtectionManager#removeEncryption--) . Den här exempel‑koden visar hur du tar bort kryptering från en presentation:
-
-```javascript
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("123123");
-var presentation = new aspose.slides.Presentation("pres.pptx", loadOptions);
-try {
-    presentation.getProtectionManager().removeEncryption();
-    presentation.save("encryption-removed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Ta bort skrivskydd från en presentation**
-
-Du kan använda Aspose.Slides för att ta bort skrivskyddet som använts på en presentationsfil. På så sätt kan användare modifiera som de vill—utan några varningar när de utför sådana uppgifter.
-
-Du kan ta bort skrivskyddet från en presentation genom att använda metoden [removeWriteProtection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ProtectionManager#removeWriteProtection--) . Den här exempel‑koden visar hur du tar bort skrivskyddet från en presentation:
-
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Hämta egenskaper för en krypterad presentation**
-
-Vanligtvis har användare svårt att hämta dokumentegenskaperna för en krypterad eller lösenordsskyddad presentation. Aspose.Slides erbjuder dock en mekanism som låter dig lösenordsskydda en presentation samtidigt som användarna fortfarande kan komma åt dess egenskaper.
-
-**Obs:** Som standard, när Aspose.Slides krypterar en presentation, är presentationens dokumentegenskaper också lösenordsskyddade. Om du behöver göra dokumentegenskaperna tillgängliga även efter kryptering, möjliggör Aspose.Slides just det.
-
-Om du vill att användare ska behålla möjligheten att komma åt egenskaperna för en krypterad presentation, skicka `false` till `setEncryptDocumentProperties` på [ProtectionManager](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/). Den här exempel‑koden visar hur du krypterar en presentation samtidigt som du ger användarna åtkomst till dess dokumentegenskaper:
-
-```javascript
-const presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(false);
-    presentation.getProtectionManager().encrypt("123123");
-    presentation.save("encrypted-pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Läs endast dokumentegenskaper från en krypterad presentation**
-
-För att inspektera metadata för en krypterad presentation utan att läsa in dess bilder eller annat innehåll, skapa ett [LoadOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/)‑objekt och skicka `true` till `setOnlyLoadDocumentProperties`. I detta läge ignorerar Aspose.Slides lösenordet och läser endast de dokumentegenskaper som är offentligt tillgängliga.
-
-Följande kodexempel läser inbyggda och anpassade dokumentegenskaper via `getDocumentProperties` på [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/):
-
-```javascript
-const loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setOnlyLoadDocumentProperties(true);
-
-const presentation = new aspose.slides.Presentation("encrypted-pres.pptx", loadOptions);
-try {
-    const documentProperties = presentation.getDocumentProperties();
-
-    // Läs inbyggda dokumentegenskaper.
-    console.log("Title: " + documentProperties.getTitle());
-    console.log("Author: " + documentProperties.getAuthor());
-
-    // Läs anpassade dokumentegenskaper.
-    const customPropertyCount = documentProperties.getCountOfCustomProperties();
-
-    for (let propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++) {
-        const propertyName = documentProperties.getCustomPropertyName(propertyIndex);
-        const propertyValue = documentProperties.get_Item(propertyName);
-
-        console.log(propertyName + ": " + propertyValue);
-    }
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("encrypted-pres.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Detta arbetsflöde fungerar endast när dokumentegenskaperna lämnades okrypterade (publika) när presentationen krypterades. Om dokumentegenskaperna är krypterade orsakar att skicka `true` till `LoadOptions.setOnlyLoadDocumentProperties` ett undantag eftersom lösenordet ignoreras i detta läge. För att få åtkomst till krypterade dokumentegenskaper eller läsa in hela presentationen, inklusive dess bilder och annat innehåll, ange rätt lösenord via `LoadOptions.setPassword` på [LoadOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/).
+## **Ladda en krypterad presentation**
 
-## **Kontrollera om en presentation är lösenordsskyddad innan den laddas**
-
-Innan du laddar en presentation kan du vilja kontrollera och bekräfta att presentationen inte är skyddad med ett lösenord. På så sätt undviker du fel och liknande problem som uppstår när en lösenordsskyddad presentation laddas utan sitt lösenord.
-
-Denna JavaScript‑kod visar hur du undersöker en presentation för att se om den är lösenordsskyddad (utan att läsa in själva presentationen):
+Ange [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword) till öppningslösenordet och skicka alternativet till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) när filen läses in. Inläsning misslyckas när ett öppningslösenord krävs men det angivna lösenordet saknas eller är felaktigt.
 
 ```javascript
-var presentationInfo = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-console.log("The presentation is password protected: " + presentationInfo.isPasswordProtected());
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    // Arbeta med den avkrypterade presentationen.
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Kontrollera om en presentation är krypterad**
+## **Ta bort kryptering från en presentation**
 
-Aspose.Slides låter dig kontrollera om en presentation är krypterad. För att utföra detta kan du använda egenskapen [isEncrypted](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ProtectionManager#isEncrypted--) , som returnerar `true` om presentationen är krypterad eller `false` om den inte är krypterad.
-
-Den här exempel‑koden visar hur du kontrollerar om en presentation är krypterad:
+Läs in presentationen med dess öppningslösenord, anropa [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) och spara resultatet. Den sparade presentationen kan sedan läsas in utan lösenord.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    var isEncrypted = presentation.getProtectionManager().isEncrypted();
+    presentation.getProtectionManager().removeEncryption();
+    presentation.save("encryption-removed.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
+    presentation.dispose();
+}
+```
+
+## **Validera ett öppningslösenord innan inläsning**
+
+Använd [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) för att erhålla [PresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/) utan att skapa en komplett presentationsinstans. Kontrollera [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) innan du begär eller validerar ett lösenord. När skydd finns, validera det angivna värdet med [PresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#checkPassword).
+
+### **Fil‑sökvägsarbetsflöde**
+
+Följande exempel validerar ett öppningslösenord för en PPTX‑fil, skickar det validerade värdet till [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword) och laddar sedan den kompletta presentationen:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "protected-presentation.pptx";
+const password = "open_password";
+const presentationInfo = slides.PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    console.log("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    console.log("The opening password is incorrect.");
+} else {
+    const loadOptions = new slides.LoadOptions();
+    loadOptions.setPassword(password);
+
+    const presentation = new slides.Presentation(filePath, loadOptions);
+    try {
+        console.log("The presentation was validated and loaded successfully.");
+    } finally {
         presentation.dispose();
     }
 }
 ```
 
-## **Kontrollera om en presentation är skrivskyddad**
+### **Strömningsarbetsflöde**
 
-Aspose.Slides låter dig kontrollera om en presentation är skrivskyddad. För att utföra detta kan du använda egenskapen [isWriteProtected](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ProtectionManager#isWriteProtected--) , som returnerar `true` om presentationen är skrivskyddad eller `false` om den inte är skrivskyddad.
+Använd [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) för att inspektera en Node.js‑läsbar ström. Efter att inspektionen har konsumerats, skapa en ny ström innan du läser in den kompletta presentationen med [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#createPresentationFromStream).
 
-Den här exempel‑koden visar hur du kontrollerar om en presentation är skrivskyddad:
+Följande exempel använder en PPT‑fil:
 
 ```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    var isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+
+const filePath = "protected-presentation.ppt";
+const password = "open_password";
+const presentationFactory = slides.PresentationFactory.getInstance();
+const infoStream = fs.createReadStream(filePath);
+
+slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, infoStream, function(infoError, presentationInfo) {
+    if (infoError) {
+        console.log("The presentation information could not be read: " + infoError.message);
+    } else if (!presentationInfo.isPasswordProtected()) {
+        console.log("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        console.log("The opening password is incorrect.");
+    } else {
+        const loadOptions = new slides.LoadOptions();
+        loadOptions.setPassword(password);
+        const presentationStream = fs.createReadStream(filePath);
+
+        slides.Presentation.createPresentationFromStream(presentationStream, loadOptions, function(loadError, presentation) {
+            if (loadError) {
+                console.log("The presentation could not be loaded: " + loadError.message);
+            } else {
+                try {
+                    console.log("The presentation was validated and loaded successfully.");
+                } finally {
+                    presentation.dispose();
+                }
+            }
+        });
     }
+});
+```
+
+### **checkPassword‑returvärden**
+
+[PresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#checkPassword) returnerar `true` endast när presentationen har ett öppningslösenord och det angivna lösenordet är korrekt. Det returnerar `false` i alla följande fall:
+
+- Lösenordet är felaktigt.
+- Presentationen har inget öppningslösenord.
+- Det angivna lösenordet är `null` eller tomt.
+
+Beteendet är detsamma för PPT‑ och PPTX‑presentationer.
+
+## **Kontrollera om en inläst presentation är krypterad**
+
+Efter att ha läst in en presentation med rätt lösenord, inspektera [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) för att bekräfta att källpresentationen var krypterad. För att upptäcka öppningslösenordsskydd innan inläsning, använd [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) som visat ovan.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    const isEncrypted = presentation.getProtectionManager().isEncrypted();
+    console.log("The presentation is encrypted: " + isEncrypted);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Validera eller bekräfta att ett specifikt lösenord har använts för att skydda en presentation**
+## **Säkerhetsrekommendationer**
 
-Du kanske vill kontrollera och bekräfta att ett specifikt lösenord har använts för att skydda ett presentationsdokument. Aspose.Slides erbjuder möjlighet att validera ett lösenord. 
-
-Den här exempel‑koden visar hur du validerar ett lösenord:
-
-```javascript
-var presentation = new aspose.slides.Presentation("pres.pptx");
-try {
-    // kontrollera om "pass" matchar
-    var isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-Den returnerar `true` om presentationen har krypterats med det angivna lösenordet. Annars returnerar den `false`.
-
-{{% alert color="primary" title="See also" %}} 
-- [Digital Signature in PowerPoint](/slides/sv/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+Logga inte öppningslösenord eller inkludera dem i diagnostiska meddelanden. Undvik onödiga upprepade valideringsförsök, behåll lösenord enbart i minnet så länge de behövs, och återanvänd ett lyckat valideringsresultat när du omedelbart laddar in presentationen.
 {{% /alert %}}
 
-## **FAQ**
+## **Lösenordsskydda en presentation online**
 
-**Vilka krypteringsmetoder stöds av Aspose.Slides?**
+1. Öppna applikationen [Aspose.Slides Lock](https://products.aspose.app/slides/sv/lock).
+2. Välj eller ladda upp presentationen.
+3. Ange ett lösenord för visningsskydd.
+4. Ange eventuellt ett separat lösenord för redigeringsskydd.
+5. Verkställ skyddet och ladda ner den resulterande filen.
 
-Aspose.Slides stödjer moderna krypteringsmetoder, inklusive AES‑baserade algoritmer, vilket säkerställer en hög nivå av dataskydd för dina presentationer.
+{{% alert color="info" title="See also" %}}
+- [Skrivskydda presentationer](/slides/sv/nodejs-java/write-protected-presentation/)
+- [Digital signatur i PowerPoint](/slides/sv/nodejs-java/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
-**Vad händer om ett felaktigt lösenord anges när du försöker öppna en presentation?**
+## **Vanliga frågor**
 
-Ett undantag kastas om ett felaktigt lösenord används, vilket varnar dig att åtkomst till presentationen nekas. Detta hjälper till att förhindra obehörig åtkomst och skyddar presentationsinnehållet.
+**Vad är skillnaden mellan ett öppningslösenord och ett skrivskyddslösenord?**
 
-**Finns det några prestandapåverkan när du arbetar med lösenordsskyddade presentationer?**
+Ett öppningslösenord krypterar presentationen och krävs för att läsa in dess innehåll. Ett skrivskyddslösenord begränsar ändring utan att kryptera innehållet.
 
-Krypterings‑ och dekrypteringsprocessen kan medföra en liten extra belastning vid öppnings‑ och sparningsoperationer. I de flesta fall är denna prestandapåverkan minimal och påverkar inte nämnvärt den totala bearbetningstiden för dina presentationsuppgifter.
+**Kan jag validera ett öppningslösenord utan att ladda alla bilder?**
+
+Ja. Hämta presentationsinformation, kontrollera om öppningslösenordsskydd finns, och validera lösenordet innan du skapar en komplett presentationsinstans.
+
+**Stöder arbetsflödena för lösenordsverifiering både PPT och PPTX?**
+
+Ja. Fil‑sökvägs‑ och strömbaserad lösenorddetektering och validering fungerar likadant för PPT‑ och PPTX‑presentationer.

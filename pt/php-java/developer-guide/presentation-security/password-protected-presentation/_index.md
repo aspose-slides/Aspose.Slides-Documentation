@@ -1,335 +1,225 @@
 ---
-title: Apresentações Seguras com Senhas em PHP
-linktitle: Proteção por Senha
+title: Apresentações protegidas por senha em PHP
+linktitle: Proteção por senha
 type: docs
 weight: 20
 url: /pt/php-java/password-protected-presentation/
 keywords:
-- bloquear PowerPoint
-- bloquear apresentação
-- desbloquear PowerPoint
-- desbloquear apresentação
-- proteger PowerPoint
-- proteger apresentação
-- definir senha
-- adicionar senha
+- apresentação protegida por senha
+- senha de abertura
 - criptografar PowerPoint
-- criptografar apresentação
 - descriptografar PowerPoint
-- descriptografar apresentação
-- proteção contra gravação
-- segurança do PowerPoint
-- segurança da apresentação
-- remover senha
-- remover proteção
+- validar senha da apresentação
+- verificar senha da apresentação
+- abrir apresentação criptografada
 - remover criptografia
-- desativar senha
-- desativar proteção
-- remover proteção contra gravação
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - apresentação
 - PHP
 - Aspose.Slides
-description: "Aprenda como bloquear e desbloquear facilmente apresentações PowerPoint e OpenDocument protegidas por senha com Aspose.Slides para PHP. Proteja suas apresentações."
+description: "Criptografe, detecte, valide, abra e descriptografe apresentações PowerPoint PPT e PPTX protegidas por senha em PHP com Aspose.Slides."
 ---
-## **Introdução**
+## **Visão geral**
 
-Quando você protege uma apresentação com senha, está definindo uma senha que impõe determinadas restrições à apresentação. Para remover as restrições, a senha deve ser inserida. Uma apresentação protegida por senha é considerada uma apresentação bloqueada.
+Uma senha de abertura criptografa uma apresentação. A senha correta é necessária para carregar e visualizar o conteúdo da apresentação, portanto essa proteção fornece confidencialidade.
 
-Normalmente, você pode definir uma senha para aplicar essas restrições a uma apresentação:
+Uma senha de abertura é diferente de uma senha de proteção contra gravação. A proteção contra gravação restringe a modificação, mas não criptografa o conteúdo nem impede que a apresentação seja carregada. Para gerenciar senhas para modificar apresentações, veja [Write-Protect Presentations](/slides/pt/php-java/write-protected-presentation/).
 
-- **Modificação**
+Os fluxos de trabalho abaixo se aplicam tanto a apresentações PPT quanto PPTX. Os exemplos usam ambos os formatos onde o comportamento baseado em arquivo e em fluxo é importante.
 
-  Se quiser que apenas usuários específicos modifiquem sua apresentação, pode definir uma restrição de modificação. Essa restrição impede que as pessoas modifiquem, alterem ou copiem itens na sua apresentação (a menos que forneçam a senha).
+## **Criptografar uma apresentação com uma senha de abertura**
 
-  Contudo, nesse caso, mesmo sem a senha, o usuário poderá acessar seu documento e abri‑lo. Nesse modo somente‑leitura, o usuário pode visualizar o conteúdo — hiperlinks, animações, efeitos e outros — dentro da apresentação, mas não pode copiar itens nem salvar a apresentação.
+Use [ProtectionManager::encrypt](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#encrypt) para atribuir uma senha de abertura. Em seguida, use [Presentation::save](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/#save) para persistir a apresentação criptografada.
 
-- **Abertura**
-
-  Se quiser que apenas usuários específicos abram sua apresentação, pode definir uma restrição de abertura. Essa restrição impede que as pessoas visualizem o conteúdo da sua apresentação (a menos que forneçam a senha).
-
-  Tecnicamente, a restrição de abertura também impede que os usuários modifiquem suas apresentações: quando as pessoas não podem abrir uma apresentação, elas não podem modificar nem fazer alterações nela.  
-
-  **Nota** que ao proteger uma apresentação com senha para impedir a abertura, o arquivo da apresentação passa a ser criptografado.
-
-## **Como Proteger uma Apresentação com Senha Online**
-
-1. Acesse a nossa página [**Aspose.Slides Lock**](https://products.aspose.app/slides/pt/lock).
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Clique em **Drop or upload your files**.
-
-3. Selecione o arquivo que deseja proteger com senha no seu computador.
-
-4. Insira a senha preferida para proteção de edição; insira a senha preferida para proteção de visualização.
-
-5. Se quiser que os usuários vejam sua apresentação como a cópia final, marque a caixa de seleção **Mark as final**.
-
-6. Clique em **PROTEGER AGORA.**
-
-7. Clique em **BAIXAR AGORA.**
-
-## **Proteção por Senha para Apresentações no Aspose.Slides**
-**Formatos suportados**
-
-Aspose.Slides oferece suporte a proteção por senha, criptografia e operações semelhantes para apresentações nos seguintes formatos:
-
-- PPTX e PPT – Microsoft PowerPoint Presentation  
-- ODP – OpenDocument Presentation  
-- OTP – OpenDocument Presentation Template  
-
-**Operações suportadas**
-
-Aspose.Slides permite usar proteção por senha em apresentações para impedir modificações das seguintes maneiras:
-
-- Criptografar uma apresentação  
-- Definir proteção contra gravação em uma apresentação  
-
-**Outras operações**
-
-Aspose.Slides permite executar outras tarefas relacionadas à proteção por senha e criptografia das seguintes formas:
-
-- Descriptografar uma apresentação; abrir uma apresentação criptografada  
-- Remover criptografia; desativar a proteção por senha  
-- Remover a proteção contra gravação de uma apresentação  
-- Obter as propriedades de uma apresentação criptografada  
-- Verificar se uma apresentação está criptografada  
-- Verificar se uma apresentação está protegida por senha  
-
-## **Criptografar uma Apresentação**
-
-Você pode criptografar uma apresentação definindo uma senha. Em seguida, para modificar a apresentação bloqueada, o usuário precisa fornecer a senha.
-
-Para criptografar ou proteger por senha uma apresentação, use o método **encrypt** (de [ProtectionManager](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/)) para definir uma senha para a apresentação. Você passa a senha ao método **encrypt** e usa o método **save** para salvar a apresentação agora criptografada.
-
-Este código de exemplo mostra como criptografar uma apresentação:
+O exemplo a seguir criptografa uma apresentação PPTX:
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->encrypt("123123");
-    $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **Definir Proteção Contra Gravação em uma Apresentação**
-
-Você pode adicionar uma marca indicando “Não modificar” a uma apresentação. Dessa forma, informa aos usuários que você não deseja que eles façam alterações na apresentação.
-
-**Nota** que o processo de proteção contra gravação não criptografa a apresentação. Portanto, os usuários — se realmente quiserem — podem modificar a apresentação, mas, para salvar as alterações, precisarão criar a apresentação com um nome diferente.
-
-Para definir uma proteção contra gravação, use o método [setWriteProtection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#setWriteProtection). Este código de exemplo mostra como definir proteção contra gravação em uma apresentação:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setWriteProtection("123123");
-    $presentation->save("write-protected-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Carregar uma Apresentação Criptografada**
-
-Aspose.Slides permite carregar um arquivo criptografado passando sua senha. Para descriptografar uma apresentação, chame o método [removeEncryption](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#removeEncryption) sem parâmetros. Em seguida, será necessário inserir a senha correta para carregar a apresentação.
-
-Este código de exemplo mostra como descriptografar uma apresentação:
-
-```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
-    # trabalhar com a apresentação descriptografada
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Remover Criptografia de uma Apresentação**
-
-Você pode remover a criptografia ou a proteção por senha de uma apresentação. Dessa forma, os usuários podem acessar ou modificar a apresentação sem restrições.
-
-Para remover a criptografia ou a proteção por senha, chame o método [removeEncryption](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#removeEncryption). Este código de exemplo mostra como remover a criptografia de uma apresentação:
-
-```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setPassword("123123");
-  $presentation = new Presentation("pres.pptx", $loadOptions);
-  try {
-    $presentation->getProtectionManager()->removeEncryption();
-    $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Remover Proteção Contra Gravação de uma Apresentação**
-
-Você pode usar Aspose.Slides para remover a proteção contra gravação aplicada a um arquivo de apresentação. Assim, os usuários podem modificar livremente e não recebem avisos ao executar essas tarefas.
-
-Remova a proteção contra gravação de uma apresentação usando o método [removeWriteProtection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#removeWriteProtection). Este código de exemplo mostra como remover a proteção contra gravação de uma apresentação:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->removeWriteProtection();
-    $presentation->save("write-protection-removed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Obter Propriedades de uma Apresentação Criptografada**
-
-Normalmente, os usuários têm dificuldades para recuperar as propriedades de documento de uma apresentação criptografada ou protegida por senha. Contudo, Aspose.Slides oferece um mecanismo que permite proteger a apresentação com senha e, ainda assim, manter a capacidade dos usuários de acessar suas propriedades.
-
-**Nota:** Por padrão, quando Aspose.Slides criptografa uma apresentação, as propriedades de documento da apresentação também ficam protegidas por senha. Se precisar que as propriedades de documento permaneçam acessíveis mesmo após a criptografia, Aspose.Slides permite fazer exatamente isso.
-
-Se quiser que os usuários mantenham a capacidade de acessar as propriedades de uma apresentação criptografada, passe `false` para [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties). Este código de exemplo demonstra como criptografar uma apresentação mantendo o acesso dos usuários às propriedades de documento:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
-    $presentation->getProtectionManager()->encrypt("123123");
-    $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-## **Carregar Apenas as Propriedades de Documento de uma Apresentação Criptografada**
-
-Para inspecionar os metadados de uma apresentação criptografada sem carregar seus slides ou outro conteúdo, crie um objeto [LoadOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/) e passe `true` para [setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties). Nesse modo, Aspose.Slides ignora a senha e carrega apenas as propriedades de documento que são publicamente acessíveis.
-
-O exemplo abaixo lê propriedades de documento incorporadas e personalizadas por meio de [Presentation::getDocumentProperties](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/#getDocumentProperties):
-
-```php
-$loadOptions = new LoadOptions();
-$loadOptions->setOnlyLoadDocumentProperties(true);
-
-$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+$presentation = new Presentation("pres.pptx");
 try {
-    $documentProperties = $presentation->getDocumentProperties();
-
-    # Ler propriedades de documento incorporadas.
-    echo("Title: " . $documentProperties->getTitle() . "\n");
-    echo("Author: " . $documentProperties->getAuthor() . "\n");
-
-    # Ler propriedades de documento personalizadas.
-    $customPropertyCount = java_values($documentProperties->getCountOfCustomProperties());
-
-    for ($propertyIndex = 0; $propertyIndex < $customPropertyCount; $propertyIndex++) {
-        $propertyName = $documentProperties->getCustomPropertyName($propertyIndex);
-        $propertyValue = java_values($documentProperties->get_Item($propertyName));
-
-        echo($propertyName . ": " . $propertyValue . "\n");
-    }
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Esse fluxo funciona apenas quando as propriedades de documento foram deixadas sem criptografia (públicas) ao criptografar a apresentação. Se as propriedades de documento estiverem criptografadas, passar `true` para [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) gera uma exceção porque a senha é ignorada neste modo. Para acessar propriedades de documento criptografadas ou carregar a apresentação completa, incluindo slides e demais conteúdos, forneça a senha correta através de [LoadOptions::setPassword](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#setPassword).
+## **Carregar uma apresentação criptografada**
 
-## **Verificar se uma Apresentação Está Protegida por Senha**
-
-Antes de carregar uma apresentação, talvez queira verificar e confirmar que a apresentação não está protegida por senha. Dessa forma, evita erros e problemas semelhantes que surgem quando uma apresentação protegida por senha é carregada sem a sua senha.
-
-Este código PHP mostra como examinar uma apresentação para saber se está protegida por senha (sem carregar a própria apresentação):
+Defina [LoadOptions::setPassword](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#setPassword) com a senha de abertura e passe as opções para [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) ao carregar o arquivo. O carregamento falha quando uma senha de abertura é necessária, mas a senha fornecida está ausente ou incorreta.
 
 ```php
-  $presentationInfo = PresentationFactory->getInstance()->getPresentationInfo("example.pptx");
-  echo("The presentation is password protected: " . $presentationInfo->isPasswordProtected());
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
+    # Trabalhe com a apresentação descriptografada.
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Verificar se uma Apresentação Está Criptografada**
+## **Remover criptografia de uma apresentação**
 
-Aspose.Slides permite verificar se uma apresentação está criptografada. Para executar essa tarefa, use o método [isEncrypted](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#isEncrypted), que retorna `true` se a apresentação estiver criptografada ou `false` caso contrário.
-
-Este código de exemplo mostra como verificar se uma apresentação está criptografada:
+Carregue a apresentação com sua senha de abertura, chame [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#removeEncryption) e salve o resultado. A apresentação salva pode então ser carregada sem senha.
 
 ```php
-  $presentation = new Presentation("pres.pptx");
-  try {
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
+    $presentation->getProtectionManager()->removeEncryption();
+    $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Validar uma senha de abertura antes de carregar**
+
+Use [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentationfactory/#getPresentationInfo) para obter [PresentationInfo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentationinfo/) sem criar uma instância completa da apresentação. Verifique [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentationinfo/#isPasswordProtected) antes de solicitar ou validar uma senha. Quando a proteção está presente, valide o valor fornecido com [PresentationInfo::checkPassword](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentationinfo/#checkPassword).
+
+### **Fluxo de Trabalho por Caminho de Arquivo**
+
+O exemplo a seguir valida uma senha de abertura para um arquivo PPTX, passa o valor validado para [LoadOptions::setPassword](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#setPassword) e então carrega a apresentação completa:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$filePath = "protected-presentation.pptx";
+$password = "open_password";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+
+if (!$presentationInfo->isPasswordProtected()) {
+    echo("The presentation does not have an opening password.\n");
+} elseif (!$presentationInfo->checkPassword($password)) {
+    echo("The opening password is incorrect.\n");
+} else {
+    $loadOptions = new LoadOptions();
+    $loadOptions->setPassword($password);
+
+    $presentation = new Presentation($filePath, $loadOptions);
+    try {
+        echo("The presentation was validated and loaded successfully.\n");
+    } finally {
+        $presentation->dispose();
+    }
+}
+```
+
+### **Fluxo de Trabalho com Stream**
+
+A sobrecarga de stream de [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentationfactory/#getPresentationInfo) fornece o mesmo fluxo de trabalho. Redefina a posição de um stream pesquisável antes de carregar a apresentação completa a partir desse stream.
+
+O exemplo a seguir usa um arquivo PPT:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+
+$password = "open_password";
+
+$presentationStream = new Java("java.io.FileInputStream", "protected-presentation.ppt");
+try {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($presentationStream);
+
+    if (!$presentationInfo->isPasswordProtected()) {
+        echo("The presentation does not have an opening password.\n");
+    } elseif (!$presentationInfo->checkPassword($password)) {
+        echo("The opening password is incorrect.\n");
+    } else {
+        $presentationStream->getChannel()->position(0);
+
+        $loadOptions = new LoadOptions();
+        $loadOptions->setPassword($password);
+
+        $presentation = new Presentation($presentationStream, $loadOptions);
+        try {
+            echo("The presentation was validated and loaded successfully.\n");
+        } finally {
+            $presentation->dispose();
+        }
+    }
+} finally {
+    $presentationStream->close();
+}
+```
+
+### **Valores de Retorno de checkPassword**
+
+[PresentationInfo::checkPassword](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentationinfo/#checkPassword) retorna `true` somente quando a apresentação tem uma senha de abertura e a senha fornecida está correta. Retorna `false` em cada um destes casos:
+
+- A senha está incorreta.
+- A apresentação não tem senha de abertura.
+- A senha fornecida é `null` ou vazia.
+
+O comportamento é o mesmo para apresentações PPT e PPTX.
+
+## **Verificar se uma apresentação carregada está criptografada**
+
+Depois de carregar uma apresentação com a senha correta, inspecione [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#isEncrypted) para confirmar que a apresentação original estava criptografada. Para detectar proteção por senha de abertura antes de carregar, use [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentationinfo/#isPasswordProtected) conforme mostrado acima.
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
+try {
     $isEncrypted = $presentation->getProtectionManager()->isEncrypted();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    echo("The presentation is encrypted: " . ($isEncrypted ? "true" : "false") . "\n");
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Verificar se uma Apresentação Está Protegida contra Gravação**
+## **Recomendações de Segurança**
 
-Aspose.Slides permite verificar se uma apresentação está protegida contra gravação. Para executar essa tarefa, use o método [isWriteProtected](https://reference.aspose.com/slides/pt/php-java/aspose.slides/protectionmanager/#isWriteProtected), que retorna `true` se a apresentação estiver protegida contra gravação ou `false` caso contrário.
+{{% alert color="warning" title="Segurança" %}}
+Não registre senhas de abertura nem as inclua em mensagens de diagnóstico. Evite tentativas repetidas de validação desnecessárias, mantenha as senhas na memória apenas enquanto forem necessárias e reutilize um resultado de validação bem-sucedido ao carregar a apresentação imediatamente.
+{{% /alert %}}
 
-Este código de exemplo mostra como verificar se uma apresentação está protegida contra gravação:
+## **Proteger uma apresentação com senha online**
 
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    $isEncrypted = $presentation->getProtectionManager()->isWriteProtected();
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
+1. Abra o aplicativo [Aspose.Slides Lock](https://products.aspose.app/slides/pt/lock).
+1. Selecione ou faça upload da apresentação.
+1. Digite uma senha para proteção de visualização.
+1. Opcionalmente, insira uma senha separada para proteção de edição.
+1. Aplique a proteção e faça download do arquivo resultante.
 
-## **Validar ou Confirmar que uma Senha Específica Foi Usada**
-
-Pode ser necessário verificar e confirmar que uma senha específica foi usada para proteger um documento de apresentação. Aspose.Slides fornece os meios para validar uma senha.
-
-Este código de exemplo mostra como validar uma senha:
-
-```php
-  $presentation = new Presentation("pres.pptx");
-  try {
-    # verificar se "pass" corresponde a
-    $isWriteProtected = $presentation->getProtectionManager()->checkWriteProtection("my_password");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-Ele retorna `true` se a apresentação foi criptografada com a senha especificada. Caso contrário, retorna `false`. 
-
-{{% alert color="primary" title="Veja também" %}} 
+{{% alert color="info" title="Veja também" %}}
+- [Proteger Apresentações contra Gravação](/slides/pt/php-java/write-protected-presentation/)
 - [Assinatura Digital no PowerPoint](/slides/pt/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**Quais métodos de criptografia são suportados pelo Aspose.Slides?**
+**Qual é a diferença entre uma senha de abertura e uma senha de proteção contra gravação?**
 
-Aspose.Slides oferece suporte a métodos de criptografia modernos, incluindo algoritmos baseados em AES, garantindo um alto nível de segurança dos dados das suas apresentações.
+Uma senha de abertura criptografa a apresentação e é necessária para carregar seu conteúdo. Uma senha de proteção contra gravação restringe a modificação sem criptografar o conteúdo.
 
-**O que acontece se uma senha incorreta for inserida ao tentar abrir uma apresentação?**
+**Posso validar uma senha de abertura sem carregar todos os slides?**
 
-Uma exceção é lançada se uma senha incorreta for usada, indicando que o acesso à apresentação foi negado. Isso ajuda a impedir o acesso não autorizado e protege o conteúdo da apresentação.
+Sim. Obtenha informações da apresentação, verifique se a proteção por senha de abertura está presente e valide a senha antes de criar uma instância completa da apresentação.
 
-**Existem implicações de desempenho ao trabalhar com apresentações protegidas por senha?**
+**Os fluxos de trabalho de verificação de senha suportam tanto PPT quanto PPTX?**
 
-O processo de criptografia e descriptografia pode introduzir um pequeno overhead durante as operações de abertura e salvamento. Na maioria dos casos, esse impacto de desempenho é mínimo e não afeta significativamente o tempo total de processamento das suas tarefas de apresentação.
+Sim. A detecção e validação de senha baseada em caminho de arquivo e em stream se comportam da mesma forma para apresentações PPT e PPTX.

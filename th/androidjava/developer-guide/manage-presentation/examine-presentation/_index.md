@@ -22,21 +22,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "สำรวจสไลด์ โครงสร้าง และเมตาดาต้าในการนำเสนอ PowerPoint และ OpenDocument ด้วย Java เพื่อให้ได้ความเข้าใจที่เร็วขึ้นและการตรวจสอบเนื้อหาที่ฉลาดขึ้น"
+description: "สำรวจสไลด์, โครงสร้างและเมตาดาต้าในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Java เพื่อให้ได้ข้อมูลเชิงลึกที่เร็วขึ้นและการตรวจสอบเนื้อหาที่ชาญฉลาดยิ่งขึ้น"
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีการตรวจสอบข้อมูลการนำเสนอใน Aspose.Slides โดยอธิบายวิธีการกำหนดรูปแบบปัจจุบันของการนำเสนอโดยไม่ต้องโหลดไฟล์เต็ม, อ่านคุณสมบัติของเอกสาร, และอัปเดตคุณสมบัตินั้นเมื่อจำเป็น
+บทความนี้แสดงวิธีตรวจสอบข้อมูลการนำเสนอใน Aspose.Slides โดยอธิบายวิธีกำหนดรูปแบบปัจจุบันของการนำเสนอโดยไม่ต้องโหลดไฟล์เต็ม อ่านคุณสมบัติของเอกสาร และอัปเดตคุณสมบัตินั้นเมื่อจำเป็น
 
-ตัวอย่างนี้อ้างอิงจาก API [PresentationInfo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationinfo/) และ [DocumentProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/documentproperties/) และแสดงการดำเนินการทั่วไปสำหรับการทำงานกับ metadata ของการนำเสนอ
+ตัวอย่างอ้างอิงจาก API [PresentationInfo](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentationinfo/) และ [DocumentProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/documentproperties/) ซึ่งสาธิตการทำงานทั่วไปกับ metadata ของการนำเสนอ
 
 ## **ตรวจสอบรูปแบบการนำเสนอ**
 
-ก่อนทำงานกับการนำเสนอ คุณอาจต้องการทราบว่าการนำเสนออยู่ในรูปแบบใด (PPT, PPTX, ODP และอื่น ๆ) ในขณะนี้
+ก่อนที่จะทำงานกับการนำเสนอ คุณอาจต้องการทราบว่าการนำเสนอนั้นอยู่ในรูปแบบใด (PPT, PPTX, ODP หรืออื่น ๆ) ในขณะนี้
 
-คุณสามารถตรวจสอบรูปแบบของการนำเสนอโดยไม่ต้องโหลดการนำเสนอได้ ดูตัวอย่างโค้ด Java นี้:
+คุณสามารถตรวจสอบรูปแบบของการนำเสนอโดยไม่ต้องโหลดไฟล์ได้ ดูตัวอย่างโค้ด Java นี้:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -49,30 +51,35 @@ System.out.println(info3.getLoadFormat()); // ODP
 
 ## **รับคุณสมบัติของการนำเสนอ**
 
-โค้ด Java นี้แสดงวิธีการรับคุณสมบัติของการนำเสนอ (ข้อมูลเกี่ยวกับการนำเสนอ):
+โค้ด Java นี้แสดงวิธีดึงคุณสมบัติของการนำเสนอ (ข้อมูลเกี่ยวกับการนำเสนอ):
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// อื่นๆ 
+// ..
 ```
 
-คุณอาจต้องการดู [คุณสมบัติภายใต้คลาส DocumentProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--)
+คุณอาจต้องการดู [properties under the DocumentProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) คลาส
 
 ## **อัปเดตคุณสมบัติของการนำเสนอ**
 
-Aspose.Slides มีเมธอด [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) ที่ให้คุณทำการเปลี่ยนแปลงคุณสมบัติของการนำเสนอ
+Aspose.Slides มีเมธอด [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) ที่ให้คุณทำการเปลี่ยนแปลงคุณสมบัติของการนำเสนอได้
 
-สมมติว่าเรามีการนำเสนอ PowerPoint ที่มีคุณสมบัติของเอกสารแสดงด้านล่างนี้.
+สมมติว่าเรามีไฟล์ PowerPoint ที่มีคุณสมบัติเอกสารแสดงด้านล่าง
 
-![คุณสมบัติเอกสารต้นฉบับของการนำเสนอ PowerPoint](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
 ตัวอย่างโค้ดนี้แสดงวิธีแก้ไขคุณสมบัติบางอย่างของการนำเสนอ:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -85,37 +92,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-ผลลัพธ์ของการเปลี่ยนแปลงคุณสมบัติของเอกสารแสดงด้านล่างนี้.
+ผลลัพธ์ของการเปลี่ยนแปลงคุณสมบัติเอกสารแสดงด้านล่าง
 
-![คุณสมบัติเอกสารที่เปลี่ยนแปลงของการนำเสนอ PowerPoint](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **ลิงก์ที่เป็นประโยชน์**
 
-เพื่อรับข้อมูลเพิ่มเติมเกี่ยวกับการนำเสนอและคุณลักษณะด้านความปลอดภัย คุณอาจพบว่าลิงก์ต่อไปนี้เป็นประโยชน์:
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการนำเสนอและคุณสมบัติด้านความปลอดภัย คุณอาจพบลิงก์เหล่านี้มีประโยชน์:
 
-- [ตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่](https://docs.aspose.com/slides/th/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [ตรวจสอบว่าการนำเสนอถูกป้องกันการเขียน (อ่านอย่างเดียว) หรือไม่](https://docs.aspose.com/slides/th/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [ตรวจสอบว่าการนำเสนอถูกป้องกันด้วยรหัสผ่านก่อนโหลดหรือไม่](https://docs.aspose.com/slides/th/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [ยืนยันรหัสผ่านที่ใช้ป้องกันการนำเสนอ](https://docs.aspose.com/slides/th/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [การป้องกันด้วยรหัสผ่านสำหรับงานนำเสนอ](/slides/th/androidjava/password-protected-presentation/)
+- [การป้องกันการเขียนสำหรับงานนำเสนอ](/slides/th/androidjava/write-protected-presentation/)
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันจะตรวจสอบได้อย่างไรว่าตัวอักษรถูกฝังและมีตัวไหนบ้าง?**
+**ฉันจะตรวจสอบได้อย่างไรว่าแบบอักษรถูกฝังไว้และเป็นแบบใดบ้าง?**
 
-ค้นหา [ข้อมูลตัวอักษรถูกฝัง](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) ที่ระดับการนำเสนอ แล้วเปรียบเทียบรายการเหล่านั้นกับชุดของ [ตัวอักษรที่ใช้งานจริงในเนื้อหา](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsmanager/#getFonts--) เพื่อระบุว่าตัวอักษรใดเป็นสำคัญต่อการเรนเดอร์
+ค้นหาข้อมูล [embedded-font information](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) ระดับการนำเสนอ แล้วเปรียบเทียบรายการนั้นกับชุด [fonts actually used across content](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsmanager/#getFonts--) เพื่อระบุว่าแบบอักษรใดสำคัญต่อการเรนเดอร์
 
-**ฉันจะตรวจสอบได้อย่างรวดเร็วว่าไฟล์มีสไลด์ที่ซ่อนอยู่หรือไม่และจำนวนเท่าไร?**
+**ฉันจะบอกได้อย่างรวดเร็วว่าไฟล์มีสไลด์ซ่อนอยู่หรือไม่และมีจำนวนเท่าไร?**
 
-วนรอบผ่าน [คอลเลคชันสไลด์](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidecollection/) และตรวจสอบ [แฟล็กการมองเห็น](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slide/#getHidden--) ของแต่ละสไลด์
+วนลูปผ่าน [slide collection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidecollection/) และตรวจสอบ [visibility flag](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slide/#getHidden--) ของแต่ละสไลด์
 
-**ฉันสามารถตรวจจับได้หรือไม่ว่าใช้ขนาดและแนวทางสไลด์ที่กำหนดเองหรือไม่ และว่ามันต่างจากค่าเริ่มต้นหรือไม่?**
+**ฉันจะตรวจจับได้หรือไม่ว่ามีการใช้ขนาดและแนวกำหนดสไลด์แบบกำหนดเองและว่ามันแตกต่างจากค่าเริ่มต้นหรือไม่?**
 
-ได้. เปรียบเทียบ [ขนาดสไลด์](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getSlideSize--) และการวางแนวปัจจุบันกับค่าพรีเซ็ตมาตรฐาน เพื่อช่วยคาดการณ์พฤติกรรมในการพิมพ์และการส่งออก
+ได้ครับ เปรียบเทียบ [slide size](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getSlideSize--) ปัจจุบันและแนวกับค่าพรีเซ็ตมาตรฐาน ซึ่งช่วยคาดการณ์พฤติกรรมเมื่อต้องพิมพ์หรือส่งออก
 
 **มีวิธีเร็ว ๆ ที่จะดูว่ากราฟอ้างอิงแหล่งข้อมูลภายนอกหรือไม่?**
 
-ได้. ท่องทุก [กราฟ](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chart/) ตรวจสอบ [แหล่งข้อมูล](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) และบันทึกว่าข้อมูลเป็นภายในหรือแบบลิงก์ รวมถึงลิงก์ที่เสียหาย
+มีครับ ให้เดินทางผ่าน [charts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chart/) ทั้งหมด ตรวจสอบ [data source](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) ของแต่ละกราฟ แล้วบันทึกว่าข้อมูลเป็นภายในหรือเชื่อมโยงจากภายนอก รวมถึงลิงก์ที่เสียหายด้วย
 
-**ฉันจะประเมินสไลด์ที่หนักซึ่งอาจทำให้การเรนเดอร์หรือการส่งออก PDF ช้าได้อย่างไร?**
+**ฉันจะประเมินสไลด์ 'หนัก' ที่อาจทำให้การเรนเดอร์หรือการส่งออกเป็น PDF ช้าได้อย่างไร?**
 
-สำหรับแต่ละสไลด์ ให้นับจำนวนวัตถุและตรวจหาภาพขนาดใหญ่, ความโปร่งใส, เงา, แอนิเมชัน, และมัลติมีเดีย; แล้วกำหนดคะแนนความซับซ้อนโดยประมาณเพื่อระบุจุดบอดที่อาจส่งผลต่อประสิทธิภาพ
+สำหรับแต่ละสไลด์ ให้นับจำนวนอ็อบเจกต์และมองหารูปภาพขนาดใหญ่ ความโปร่งแสง เงา แอนิเมชัน และสื่อมัลติมีเดีย แล้วกำหนดคะแนนความซับซ้อนโดยประมาณเพื่อระบุจุดที่อาจเป็นคอขวดด้านประสิทธิภาพ

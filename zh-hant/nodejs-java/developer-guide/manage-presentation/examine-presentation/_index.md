@@ -22,13 +22,13 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 JavaScript 探索 PowerPoint 與 OpenDocument 簡報中的投影片、結構與中繼資料，以獲得更快速的洞見與更智慧的內容稽核。"
+description: "使用 JavaScript 探索 PowerPoint 與 OpenDocument 簡報中的投影片、結構與中繼資料，以獲得更快速的洞察與更智慧的內容稽核。"
 ---
 ## **概觀**
 
-本文說明如何在 Aspose.Slides 中檢查簡報資訊。它解釋了如何在不載入完整檔案的情況下判斷簡報的目前格式、讀取其文件屬性，並在需要時更新這些屬性。
+本文說明如何在 Aspose.Slides 中檢查簡報資訊。它解釋了如何在不載入完整檔案的情況下判斷簡報的目前格式、讀取其文件屬性，以及在需要時更新這些屬性。
 
-這些範例基於 [PresentationInfo](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentationinfo/) 與 [DocumentProperties](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/documentproperties/) API，展示了處理簡報中繼資料的典型操作。
+範例基於 [PresentationInfo](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentationinfo/) 與 [DocumentProperties](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/documentproperties/) API，示範了處理簡報中繼資料的典型操作。
 
 ## **檢查簡報格式**
 
@@ -37,40 +37,50 @@ description: "使用 JavaScript 探索 PowerPoint 與 OpenDocument 簡報中的�
 您可以在不載入簡報的情況下檢查其格式。請參考以下 JavaScript 程式碼：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-console.log(info.getLoadFormat());// PPTX 格式
+console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-console.log(info2.getLoadFormat());// PPT 格式
+console.log(info2.getLoadFormat());// PPT
 var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-console.log(info3.getLoadFormat());// ODP 格式
+console.log(info3.getLoadFormat());// ODP
 ```
 
 ## **取得簡報屬性**
 
-此 JavaScript 程式碼示範如何取得簡報屬性（簡報的資訊）：
+此 JavaScript 程式碼示範如何取得簡報屬性（關於簡報的資訊）：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
 console.log(props.getSubject());
 console.log(props.getTitle());
-// ...
+// ……
 ```
 
-您可能想查看 [DocumentProperties](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) 類別下的屬性。
+您也可以查看 [DocumentProperties 類別下的屬性](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--)。
 
 ## **更新簡報屬性**
 
-Aspose.Slides 提供 [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) 方法，讓您可以修改簡報屬性。
+Aspose.Slides 提供 [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) 方法，讓您可以變更簡報屬性。
 
 假設我們有一個 PowerPoint 簡報，其文件屬性如下所示。
 
 ![PowerPoint 簡報的原始文件屬性](input_properties.png)
 
-以下程式碼範例示範如何編輯部分簡報屬性：
+以下程式碼示範如何編輯部分簡報屬性：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -83,37 +93,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-變更文件屬性的結果顯示如下。
+變更文件屬性的結果如下所示。
 
 ![PowerPoint 簡報的變更後文件屬性](output_properties.png)
 
-## **實用連結**
+## **有用的連結**
 
-若要取得有關簡報及其安全屬性的更多資訊，以下連結可能對您有幫助：
+若想取得更多關於簡報及其安全屬性的資訊，以下連結可能有幫助：
 
-- [檢查簡報是否已加密](https://docs.aspose.com/slides/zh-hant/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [檢查簡報是否為寫入保護（唯讀）](https://docs.aspose.com/slides/zh-hant/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [在載入前檢查簡報是否受密碼保護](https://docs.aspose.com/slides/zh-hant/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [確認用於保護簡報的密碼](https://docs.aspose.com/slides/zh-hant/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/zh-hant/nodejs-java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/zh-hant/nodejs-java/write-protected-presentation/)
 
 ## **常見問題**
 
-**如何檢查字型是否已嵌入以及是哪一些字型？**
+**如何確認是否已嵌入字型以及是哪些字型？**
 
-在簡報層級查找 [embedded-font information](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/)，然後將這些條目與 [fonts actually used across content](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fontsmanager/getfonts/) 的集合比較，以辨識哪些字型對於渲染至關重要。
+請在簡報層級檢查 [embedded-font 資訊](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/)，再將這些條目與實際在內容中使用的 [字型清單](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fontsmanager/getfonts/) 進行比對，以辨識哪些字型對於呈現至關重要。
 
-**如何快速判斷檔案是否有隱藏投影片以及隱藏的數量？**
+**如何快速判斷檔案是否有隱藏投影片以及有多少張？**
 
-遍歷 [slide collection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/) 並檢查每張投影片的 [visibility flag](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/gethidden/)。
+遍歷 [投影片集合](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/)，檢查每張投影片的 [可見性旗標](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/gethidden/)。
 
-**我能偵測是否使用自訂投影片尺寸與方向，且是否與預設值不同嗎？**
+**我能偵測是否使用自訂投影片大小與方向，且是否與預設不同嗎？**
 
-可以。比較目前的 [slide size](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/getslidesize/) 與方向與標準預設，這有助於預測列印和匯出的行為。
+可以。比較目前的 [投影片大小](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/getslidesize/) 與方向，與標準預設值做比對；這有助於預測列印與匯出的行為。
 
-**是否有快速方法查看圖表是否參照外部資料來源？**
+**有沒有快速方法查看圖表是否參考外部資料來源？**
 
-可以。遍歷所有 [charts](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chart/)，檢查其 [data source](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdata/getdatasourcetype/)，並註明資料是內部還是連結型，包括任何斷開的連結。
+可以。遍歷所有 [圖表](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chart/)，檢查其 [資料來源類型](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdata/getdatasourcetype/)，並註明資料是內部還是連結式，亦包括任何失效的連結。
 
-**如何評估可能導致渲染或 PDF 輸出緩慢的「繁重」投影片？**
+**如何評估「較重」的投影片，避免降低渲染或 PDF 匯出的速度？**
 
-對每張投影片統計物件數量，留意大型影像、透明度、陰影、動畫及多媒體，根據這些因素給予粗略的複雜度分數，以標示潛在的效能瓶頸。
+對每張投影片，統計物件數量，留意大型圖片、透明度、陰影、動畫與多媒體檔案；根據這些指標給予粗略的複雜度分數，以標示可能的效能瓶頸。

@@ -1,52 +1,61 @@
 ---
-title: プレゼンテーションの検査
+title: JavaScript でプレゼンテーション情報を取得および更新する
+linktitle: プレゼンテーション情報
 type: docs
 weight: 30
 url: /ja/nodejs-java/examine-presentation/
 keywords:
-- PowerPoint
-- プレゼンテーション
 - プレゼンテーション形式
-- プレゼンテーションプロパティ
-- ドキュメントプロパティ
-- プロパティ取得
-- プロパティ読み取り
-- プロパティ変更
-- プロパティ修正
-- PPTX
-- PPT
+- プレゼンテーション プロパティ
+- ドキュメント プロパティ
+- プロパティの取得
+- プロパティの読み取り
+- プロパティの変更
+- プロパティの修正
+- プロパティの更新
+- PPTX の検査
+- PPT の検査
+- ODP の検査
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Node.js
 - JavaScript
-- Node
-description: "Node で PowerPoint プレゼンテーションのプロパティを読み取り・変更"
+- Aspose.Slides
+description: "JavaScript を使用して PowerPoint および OpenDocument のプレゼンテーション内のスライド、構造、メタデータを調査し、迅速なインサイトとスマートなコンテンツ監査を実現します。"
 ---
+## **概要**
 
-Aspose.Slides for Node.js via Java を使用すると、プレゼンテーションを調べてそのプロパティを確認し、動作を理解できます。
+この記事では、Aspose.Slides でプレゼンテーション情報を検査する方法を示します。ファイル全体を読み込まずにプレゼンテーションの現在の形式を判断し、ドキュメント プロパティを読み取り、必要に応じてそれらのプロパティを更新する方法を説明します。
 
-{{% alert title="Info" color="info" %}} 
+例は [PresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/) と [DocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/) API を基にしており、プレゼンテーション メタデータを操作する典型的な手順を示しています。
 
-ここで使用する操作に必要なプロパティとメソッドは、[PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo) と [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) クラスに含まれています。
+## **プレゼンテーション形式の確認**
 
-{{% /alert %}} 
+プレゼンテーションに取り掛かる前に、現在の形式（PPT、PPTX、ODP など）が何であるかを確認したい場合があります。
 
-## **プレゼンテーションの形式を確認する**
+プレゼンテーションをロードせずに形式を確認できます。次の JavaScript コードをご覧ください。
 
-プレゼンテーションを操作する前に、現在の形式（PPT、PPTX、ODP など）が何であるかを確認したくなることがあります。
-
-プレゼンテーションをロードせずに形式を確認できます。以下の JavaScript コードをご覧ください：
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-console.log(info.getLoadFormat());// PPTX形式
+console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-console.log(info2.getLoadFormat());// PPT形式
+console.log(info2.getLoadFormat());// PPT
 var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-console.log(info3.getLoadFormat());// ODP形式
+console.log(info3.getLoadFormat());// ODP
 ```
 
-
-## **プレゼンテーションのプロパティを取得する**
+## **プレゼンテーション プロパティの取得**
 
 この JavaScript コードは、プレゼンテーションのプロパティ（プレゼンテーションに関する情報）を取得する方法を示しています：
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
@@ -55,19 +64,23 @@ console.log(props.getTitle());
 // ..
 ```
 
+[DocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) クラス内のプロパティを確認したい場合があります。
 
-DocumentProperties クラスの [プロパティ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) を確認したくなるかもしれません。
+## **プレゼンテーション プロパティの更新**
 
-## **プレゼンテーションのプロパティを更新する**
+Aspose.Slides は、プレゼンテーション プロパティを変更できる [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) メソッドを提供しています。
 
-Aspose.Slides は、プレゼンテーションのプロパティを変更できる [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) メソッドを提供しています。
+以下のようなドキュメント プロパティが設定された PowerPoint プレゼンテーションがあるとします。
 
-以下に示すようなドキュメントプロパティを持つ PowerPoint プレゼンテーションがあるとします。
+![PowerPoint プレゼンテーションの元のドキュメント プロパティ](input_properties.png)
 
-![PowerPoint プレゼンテーションの元のドキュメントプロパティ](input_properties.png)
+このコード例は、いくつかのプレゼンテーション プロパティを編集する方法を示しています：
 
-このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示しています：
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -80,38 +93,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
+プロパティを変更した結果は以下のとおりです。
 
-ドキュメントプロパティを変更した結果は以下のとおりです。
-
-![PowerPoint プレゼンテーションの変更後のドキュメントプロパティ](output_properties.png)
+![PowerPoint プレゼンテーションの変更後ドキュメント プロパティ](output_properties.png)
 
 ## **便利なリンク**
 
-プレゼンテーションとそのセキュリティ属性に関する詳細情報を得るには、以下のリンクが役立つかもしれません：
+プレゼンテーションとそのセキュリティ属性についてさらに情報を得るには、次のリンクが役立つ場合があります。
 
-- [プレゼンテーションが暗号化されているかどうかの確認](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [プレゼンテーションが書き込み保護（読み取り専用）されているかどうかの確認](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [プレゼンテーションをロードする前にパスワードで保護されているかどうかの確認](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [プレゼンテーションを保護するために使用されたパスワードの確認](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [プレゼンテーションのパスワード保護](/slides/ja/nodejs-java/password-protected-presentation/)
+- [プレゼンテーションの書き込み保護](/slides/ja/nodejs-java/write-protected-presentation/)
 
-## **FAQ**
+## **よくある質問**
 
-**フォントが埋め込まれているか、どのフォントが埋め込まれているかをどう確認できますか？**
+**フォントが埋め込まれているか、どのフォントが埋め込まれているかを確認するにはどうすればよいですか？**
 
-プレゼンテーションレベルで [embedded-font information](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) を探し、次にそれらのエントリを [実際にコンテンツで使用されているフォント](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getfonts/) の集合と比較して、レンダリングに重要なフォントを特定します。
+プレゼンテーション レベルで [embedded-font 情報](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) を探し、[実際にコンテンツで使用されているフォント](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/fontsmanager/getfonts/) の集合と比較して、レンダリングに必須のフォントを特定します。
 
-**ファイルに非表示スライドがあるか、またその数をすばやく確認する方法は？**
+**ファイルに非表示スライドが含まれているか、その数を素早く知るには？**
 
-[slide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) を反復処理し、各スライドの [visibility flag](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/gethidden/) を確認します。
+[スライド コレクション](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slidecollection/) を走査し、各スライドの [可視性フラグ](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/gethidden/) を確認します。
 
-**カスタムスライドサイズと向きが使用されているか、デフォルトと異なるかを検出できますか？**
+**カスタム スライドサイズや向きが使用されているか、デフォルトと異なるかを検出できますか？**
 
-はい。現在の [slide size](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslidesize/) と向きを標準のプリセットと比較します。これにより、印刷やエクスポート時の動作を予測できます。
+はい。現在の [スライドサイズ](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getslidesize/) と向きを標準プリセットと比較します。これにより、印刷やエクスポート時の挙動を予測できます。
 
-**チャートが外部データソースを参照しているかどうかをすばやく確認する方法はありますか？**
+**チャートが外部データ ソースを参照しているかすぐに確認する方法はありますか？**
 
-はい。すべての [charts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) を走査し、各々の [data source](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) を確認して、データが内部かリンクベースか、破損したリンクがあるかどうかを記録します。
+はい。すべての [チャート](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chart/) を走査し、[データ ソース](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) をチェックして、内部かリンクベースか、壊れたリンクがないかを確認します。
 
-**レンダリングや PDF エクスポートを遅くする可能性のある「重い」スライドをどのように評価できますか？**
+**レンダリングや PDF エクスポートを遅くする可能性のある「重い」スライドを評価するには？**
 
-各スライドについてオブジェクト数を集計し、大きな画像、透過、影、アニメーション、マルチメディアなどを調べます。おおまかな複雑度スコアを付与し、パフォーマンス上のボトルネックになり得る箇所を示します。
+各スライドについてオブジェクト数を集計し、大きな画像、透過、影、アニメーション、マルチメディアなどを探して、概算の複雑度スコアを付け、パフォーマンス上のボトルネックとなり得るスライドをフラグします。

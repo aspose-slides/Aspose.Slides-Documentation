@@ -1,299 +1,229 @@
 ---
-title: Android에서 비밀번호로 프레젠테이션 보호
+title: Android에서 프레젠테이션에 비밀번호 보호 적용
 linktitle: 비밀번호 보호
 type: docs
 weight: 20
 url: /ko/androidjava/password-protected-presentation/
 keywords:
-- PowerPoint 잠금
-- 프레젠테이션 잠금
-- PowerPoint 잠금 해제
-- 프레젠테이션 잠금 해제
-- PowerPoint 보호
-- 프레젠테이션 보호
-- 비밀번호 설정
-- 비밀번호 추가
+- 비밀번호 보호 프레젠테이션
+- 오프닝 비밀번호
 - PowerPoint 암호화
-- 프레젠테이션 암호화
 - PowerPoint 복호화
-- 프레젠테이션 복호화
-- 쓰기 보호
-- PowerPoint 보안
-- 프레젠테이션 보안
-- 비밀번호 제거
-- 보호 제거
-- 암호화 제거
-- 비밀번호 비활성화
-- 보호 비활성화
-- 쓰기 보호 제거
+- 프레젠테이션 비밀번호 검증
+- 프레젠테이션 비밀번호 확인
+- 암호화된 프레젠테이션 열기
+- 암호 제거
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - 프레젠테이션
 - Android
 - Java
 - Aspose.Slides
-description: "Java를 통해 Android용 Aspose.Slides로 비밀번호로 보호된 PowerPoint 및 OpenDocument 프레젠테이션을 손쉽게 잠그고 해제하세요. 프레젠테이션을 안전하게 보호합니다."
+description: "Aspose.Slides for Android를 사용하여 Java로 비밀번호 보호된 PowerPoint PPT 및 PPTX 프레젠테이션을 암호화하고, 감지하고, 검증하고, 열고, 복호화합니다."
 ---
-## **소개**
+## **개요**
 
-프레젠테이션에 비밀번호 보호를 설정하면 프레젠테이션에 특정 제한을 적용하는 비밀번호를 설정하는 것입니다. 제한을 제거하려면 비밀번호를 입력해야 합니다. 비밀번호로 보호된 프레젠테이션은 잠긴 프레젠테이션으로 간주됩니다.
+오프닝 비밀번호는 프레젠테이션을 암호화합니다. 올바른 비밀번호가 있어야 프레젠테이션 내용을 로드하고 볼 수 있으므로 이 보호는 기밀성을 제공합니다.
 
-일반적으로 이러한 제한을 적용하기 위해 프레젠테이션에 비밀번호를 설정할 수 있습니다:
+오프닝 비밀번호는 쓰기 보호 비밀번호와 다릅니다. 쓰기 보호는 수정은 제한하지만 내용을 암호화하거나 프레젠테이션 로드를 방지하지 않습니다. 프레젠테이션 수정용 비밀번호를 관리하려면 [Write-Protect Presentations](/slides/ko/androidjava/write-protected-presentation/)를 참조하십시오.
 
-- **수정**
+아래 워크플로는 PPT와 PPTX 프레젠테이션 모두에 적용됩니다. 예제는 파일 기반 및 스트림 기반 동작이 중요한 경우 두 형식을 모두 사용합니다.
 
-  특정 사용자만 프레젠테이션을 수정하도록 하려면 수정 제한을 설정할 수 있습니다. 이 제한은 비밀번호를 제공하지 않는 한 사용자가 프레젠테이션의 내용을 수정, 변경 또는 복사하는 것을 방지합니다.
+## **오프닝 비밀번호로 프레젠테이션 암호화**
 
-  그러나 이 경우 비밀번호가 없어도 사용자는 문서에 접근하여 열 수 있습니다. 읽기 전용 모드에서는 사용자가 프레젠테이션 내부의 하이퍼링크, 애니메이션, 효과 등 콘텐츠를 볼 수 있지만 항목을 복사하거나 프레젠테이션을 저장할 수 없습니다.
+오프닝 비밀번호를 지정하려면 [IProtectionManager.encrypt](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-)를 사용하십시오. 그런 다음 암호화된 프레젠테이션을 저장하려면 [IPresentation.save](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-)를 사용합니다.
 
-- **열기**
-
-  특정 사용자만 프레젠테이션을 열 수 있도록 하려면 열기 제한을 설정할 수 있습니다. 이 제한은 비밀번호를 제공하지 않는 한 사용자가 프레젠테이션 내용을 볼 수 없게 합니다.
-
-  기술적으로 열기 제한은 사용자가 프레젠테이션을 수정하는 것도 방지합니다. 사용자가 프레젠테이션을 열 수 없으면 수정하거나 변경할 수 없습니다.  
-
-  **Note** 프레젠테이션을 비밀번호 보호하여 열기를 차단하면 프레젠테이션 파일이 암호화됩니다.
-
-## **Aspose.Slides에서 프레젠테이션 비밀번호 보호**
-**지원 형식**
-
-Aspose.Slides는 다음 형식의 프레젠테이션에 대해 비밀번호 보호, 암호화 및 유사한 작업을 지원합니다:
-
-- PPTX 및 PPT - Microsoft PowerPoint Presentation 
-- ODP - OpenDocument Presentation 
-- OTP - OpenDocument Presentation Template 
-
-**지원 작업**
-
-Aspose.Slides를 사용하면 다음 방법으로 프레젠테이션의 수정을 방지하기 위해 비밀번호 보호를 적용할 수 있습니다:
-
-- 프레젠테이션 암호화
-- 프레젠테이션에 쓰기 보호 설정
-
-**기타 작업**
-
-Aspose.Slides를 사용하면 다음 방법으로 비밀번호 보호 및 암호화와 관련된 기타 작업을 수행할 수 있습니다:
-
-- 프레젠테이션 복호화; 암호화된 프레젠테이션 열기
-- 암호화 제거; 비밀번호 보호 비활성화
-- 프레젠테이션의 쓰기 보호 제거
-- 암호화된 프레젠테이션의 속성 가져오기
-- 프레젠테이션이 암호화되었는지 확인
-- 프레젠테이션이 비밀번호 보호되었는지 확인
-
-## **프레젠테이션 암호화**
-
-비밀번호를 설정하여 프레젠테이션을 암호화할 수 있습니다. 그러면 잠긴 프레젠테이션을 수정하려면 사용자가 비밀번호를 제공해야 합니다. 
-
-프레젠테이션을 암호화하거나 비밀번호 보호하려면 [IProtectionManager](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IProtectionManager)의 `encrypt` 메서드를 사용하여 프레젠테이션에 비밀번호를 설정합니다. 비밀번호를 `encrypt` 메서드에 전달하고 `save` 메서드를 사용해 이제 암호화된 프레젠테이션을 저장합니다.
-
-다음 샘플 코드는 프레젠테이션을 암호화하는 방법을 보여줍니다:
+다음 예제는 PPTX 프레젠테이션을 암호화합니다:
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **프레젠테이션에 쓰기 보호 설정**
-
-프레젠테이션에 “수정 금지” 표시를 추가할 수 있습니다. 이를 통해 사용자가 프레젠테이션을 수정하지 않도록 알릴 수 있습니다.  
-
-**Note** 쓰기 보호 과정은 프레젠테이션을 암호화하지 않습니다. 따라서 사용자는 실제로 원한다면 프레젠테이션을 수정할 수 있지만, 변경 사항을 저장하려면 다른 이름으로 프레젠테이션을 만들어야 합니다. 
-
-쓰기 보호를 설정하려면 [setWriteProtection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) 메서드를 사용합니다. 다음 샘플 코드는 프레젠테이션에 쓰기 보호를 설정하는 방법을 보여줍니다:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **암호화된 프레젠테이션 로드**
-
-Aspose.Slides는 비밀번호를 전달하여 암호화된 파일을 로드할 수 있게 해줍니다. 프레젠테이션을 복호화하려면 매개변수가 없는 [removeEncryption](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) 메서드를 호출해야 합니다. 그런 다음 올바른 비밀번호를 입력하여 프레젠테이션을 로드합니다.
-
-다음 샘플 코드는 프레젠테이션을 복호화하는 방법을 보여줍니다: 
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
-try {
-    // 복호화된 프레젠테이션으로 작업
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **프레젠테이션에서 암호화 제거**
-
-프레젠테이션의 암호화 또는 비밀번호 보호를 제거할 수 있습니다. 이렇게 하면 사용자가 제한 없이 프레젠테이션에 접근하거나 수정할 수 있게 됩니다. 
-
-암호화 또는 비밀번호 보호를 제거하려면 [removeEncryption](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) 메서드를 호출합니다. 다음 샘플 코드는 프레젠테이션에서 암호화를 제거하는 방법을 보여줍니다:
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
-try {
-    presentation.getProtectionManager().removeEncryption();
-    presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **프레젠테이션에서 쓰기 보호 제거**
-
-Aspose.Slides를 사용하여 프레젠테이션 파일에 적용된 쓰기 보호를 제거할 수 있습니다. 이렇게 하면 사용자는 자유롭게 수정할 수 있으며, 해당 작업을 수행할 때 경고가 표시되지 않습니다.
-
-[removeWriteProtection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--) 메서드를 사용하여 프레젠테이션의 쓰기 보호를 제거합니다. 다음 샘플 코드는 프레젠테이션에서 쓰기 보호를 제거하는 방법을 보여줍니다:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **암호화된 프레젠테이션 속성 가져오기**
-
-일반적으로 사용자는 암호화되거나 비밀번호로 보호된 프레젠테이션의 문서 속성을 가져오는 데 어려움을 겪습니다. 그러나 Aspose.Slides는 프레젠테이션을 비밀번호 보호하면서도 사용자가 속성에 접근할 수 있는 메커니즘을 제공합니다.
-
-**Note:** 기본적으로 Aspose.Slides가 프레젠테이션을 암호화하면 해당 프레젠테이션의 문서 속성 또한 비밀번호로 보호됩니다. 암호화 후에도 문서 속성을 접근 가능하게 하려면 Aspose.Slides에서 이를 지원합니다.
-
-사용자가 암호화된 프레젠테이션의 속성에 접근하도록 허용하려면 [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-)에 `false`를 전달합니다. 다음 샘플 코드는 문서 속성을 제공하면서 프레젠테이션을 암호화하는 방법을 보여줍니다:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(false);
-    presentation.getProtectionManager().encrypt("123123");
-    presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **암호화된 프레젠테이션에서 문서 속성만 로드**
-
-슬라이드나 기타 콘텐츠를 로드하지 않고 암호화된 프레젠테이션의 메타데이터만 검사하려면 [LoadOptions](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/loadoptions/) 객체를 생성하고 `true`를 [setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iloadoptions/#setOnlyLoadDocumentProperties-boolean-)에 전달합니다. 이 모드에서는 Aspose.Slides가 비밀번호를 무시하고 공개적으로 접근 가능한 문서 속성만 로드합니다.
-
-다음 코드 예제는 [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--)를 통해 내장 및 사용자 지정 문서 속성을 읽는 방법을 보여줍니다:
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setOnlyLoadDocumentProperties(true);
-
-Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
-try {
-    IDocumentProperties documentProperties = presentation.getDocumentProperties();
-
-    // 내장 문서 속성을 읽습니다.
-    System.out.println("Title: " + documentProperties.getTitle());
-    System.out.println("Author: " + documentProperties.getAuthor());
-
-    // 사용자 정의 문서 속성을 읽습니다.
-    int customPropertyCount = documentProperties.getCountOfCustomProperties();
-
-    for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++) {
-        String propertyName = documentProperties.getCustomPropertyName(propertyIndex);
-        Object propertyValue = documentProperties.get_Item(propertyName);
-
-        System.out.println(propertyName + ": " + propertyValue);
-    }
 } finally {
     presentation.dispose();
 }
 ```
 
-이 워크플로는 프레젠테이션을 암호화할 때 문서 속성이 암호화되지 않고 (공개) 남아 있는 경우에만 작동합니다. 문서 속성이 암호화된 경우 `loadOptions.setOnlyLoadDocumentProperties`에 `true`를 전달하면 비밀번호가 무시되어 예외가 발생합니다. 암호화된 문서 속성에 접근하거나 슬라이드 및 기타 콘텐츠를 포함한 전체 프레젠테이션을 로드하려면 [ILoadOptions.setPassword](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-)를 통해 올바른 비밀번호를 제공하십시오.
+## **암호화된 프레젠테이션 로드**
 
-## **프레젠테이션이 비밀번호 보호되었는지 확인**
-
-프레젠테이션을 로드하기 전에 해당 프레젠테이션이 비밀번호로 보호되어 있지 않은지 확인하고 싶을 수 있습니다. 이렇게 하면 비밀번호가 없는 상태에서 비밀번호 보호된 프레젠테이션을 로드할 때 발생하는 오류와 유사한 문제를 피할 수 있습니다.
-
-다음 Java 코드는 프레젠테이션을 실제로 로드하지 않고 비밀번호 보호 여부를 확인하는 방법을 보여줍니다:
+[ILoadOptions.setPassword](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-)를 오프닝 비밀번호로 설정하고 파일을 로드할 때 해당 옵션을 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/)에 전달하십시오. 오프닝 비밀번호가 필요하지만 제공된 비밀번호가 없거나 올바르지 않을 경우 로드가 실패합니다.
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    // 복호화된 프레젠테이션으로 작업합니다.
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **프레젠테이션이 암호화되었는지 확인**
+## **프레젠테이션에서 암호 제거**
 
-Aspose.Slides를 사용하면 프레젠테이션이 암호화되었는지 확인할 수 있습니다. 이 작업을 수행하려면 `isEncrypted` 속성을 사용하면 되며, 프레젠테이션이 암호화된 경우 `true`, 그렇지 않은 경우 `false`를 반환합니다.
-
-다음 샘플 코드는 프레젠테이션이 암호화되었는지 확인하는 방법을 보여줍니다:
+오프닝 비밀번호를 사용해 프레젠테이션을 로드하고 [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iprotectionmanager/#removeEncryption--)을 호출한 뒤 결과를 저장합니다. 저장된 프레젠테이션은 이후 비밀번호 없이 로드할 수 있습니다.
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    presentation.getProtectionManager().removeEncryption();
+    presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **로드 전 오프닝 비밀번호 검증**
+
+[IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-)를 사용하여 전체 프레젠테이션 인스턴스를 생성하지 않고도 [IPresentationInfo](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ipresentationinfo/)를 가져옵니다. 비밀번호를 요청하거나 검증하기 전에 [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ipresentationinfo/#isPasswordProtected--)를 확인하십시오. 보호가 존재하면 제공된 값을 [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-)으로 검증합니다.
+
+### **파일 경로 워크플로**
+
+다음 예제는 PPTX 파일에 대한 오프닝 비밀번호를 검증하고, 검증된 값을 [ILoadOptions.setPassword](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-)에 전달한 후 전체 프레젠테이션을 로드합니다:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **스트림 워크플로**
+
+[IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-)의 스트림 오버로드는 동일한 워크플로를 제공합니다. 해당 스트림에서 전체 프레젠테이션을 로드하기 전에 탐색 가능한 스트림의 위치를 재설정하십시오.
+
+다음 예제는 PPT 파일을 사용합니다:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
+try {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
+} finally {
+    presentationStream.close();
+}
+```
+
+### **checkPassword 반환 값**
+
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-)는 프레젠테이션에 오프닝 비밀번호가 있고 제공된 비밀번호가 올바른 경우에만 `true`를 반환합니다. 다음 경우에는 `false`를 반환합니다:
+
+- 비밀번호가 올바르지 않습니다.
+- 프레젠테이션에 오프닝 비밀번호가 없습니다.
+- 제공된 비밀번호가 `null`이거나 비어 있습니다.
+
+동작은 PPT와 PPTX 프레젠테이션 모두에서 동일합니다.
+
+## **로드된 프레젠테이션이 암호화되었는지 확인**
+
+올바른 비밀번호로 프레젠테이션을 로드한 후, [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iprotectionmanager/#isEncrypted--)을 확인하여 원본 프레젠테이션이 암호화되었는지 확인합니다. 로드하기 전에 오프닝 비밀번호 보호를 감지하려면 위에서 보여준 대로 `IPresentationInfo.isPasswordProtected`를 사용하십시오.
+
+```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **프레젠테이션이 쓰기 보호되었는지 확인**
+## **보안 권장 사항**
 
-Aspose.Slides를 사용하면 프레젠테이션이 쓰기 보호되었는지 확인할 수 있습니다. 이 작업을 수행하려면 `isWriteProtected` 속성을 사용하면 되며, 프레젠테이션이 암호화된 경우 `true`, 그렇지 않은 경우 `false`를 반환합니다.
+{{% alert color="warning" title="Security" %}}
+오프닝 비밀번호를 로그에 기록하거나 진단 메시지에 포함하지 마십시오. 불필요한 반복 검증 시도를 피하고, 비밀번호를 필요한 동안만 메모리에 유지하며, 프레젠테이션을 즉시 로드할 때 성공적인 검증 결과를 재사용하십시오.
+{{% /alert %}}
 
-다음 샘플 코드는 프레젠테이션이 쓰기 보호되었는지 확인하는 방법을 보여줍니다:
+## **온라인으로 프레젠테이션에 비밀번호 보호 적용**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. [Aspose.Slides Lock](https://products.aspose.app/slides/ko/lock) 애플리케이션을 엽니다.
+2. 프레젠테이션을 선택하거나 업로드합니다.
+3. 보호용 비밀번호를 입력합니다.
+4. 선택적으로 편집 보호용 별도 비밀번호를 입력합니다.
+5. 보호를 적용하고 결과 파일을 다운로드합니다.
 
-## **특정 비밀번호가 사용되었는지 확인 또는 검증**
-
-프레젠테이션 문서를 보호하는 데 특정 비밀번호가 사용되었는지 확인하고 싶을 수 있습니다. Aspose.Slides는 비밀번호를 검증할 수 있는 기능을 제공합니다. 
-
-다음 샘플 코드는 비밀번호를 검증하는 방법을 보여줍니다:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // "pass"가 일치하는지 확인
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-비밀번호가 지정된 비밀번호로 프레젠테이션이 암호화된 경우 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다. 
-
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/ko/androidjava/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/ko/androidjava/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Aspose.Slides에서 지원하는 암호화 방법은 무엇입니까?**
+**오프닝 비밀번호와 쓰기 보호 비밀번호의 차이점은 무엇인가요?**
 
-Aspose.Slides는 AES 기반 알고리즘을 포함한 최신 암호화 방법을 지원하여 프레젠테이션의 데이터 보안을 높은 수준으로 확보합니다.
+오프닝 비밀번호는 프레젠테이션을 암호화하고 내용 로드에 필요합니다. 쓰기 보호 비밀번호는 내용을 암호화하지 않고 수정만 제한합니다.
 
-**프레젠테이션을 열 때 잘못된 비밀번호를 입력하면 어떻게 됩니까?**
+**전체 슬라이드를 로드하지 않고 오프닝 비밀번호를 검증할 수 있나요?**
 
-잘못된 비밀번호를 사용하면 예외가 발생하여 프레젠테이션에 대한 접근이 거부됩니다. 이는 무단 접근을 방지하고 프레젠테이션 콘텐츠를 보호하는 데 도움이 됩니다.
+예. 프레젠테이션 정보를 가져오고 오프닝 비밀번호 보호가 있는지 확인한 뒤 전체 프레젠테이션 인스턴스를 만들기 전에 비밀번호를 검증합니다.
 
-**비밀번호 보호된 프레젠테이션을 사용할 때 성능에 영향을 미칩니까?**
+**비밀번호 검증 워크플로가 PPT와 PPTX 모두를 지원하나요?**
 
-암호화 및 복호화 과정으로 인해 열기와 저장 작업 시 약간의 오버헤드가 발생할 수 있습니다. 대부분의 경우 이 성능 영향은 미미하며 전체 작업 시간에 큰 영향을 주지 않습니다.
+예. 파일 경로 및 스트림 기반 비밀번호 감지와 검증은 PPT와 PPTX 프레젠테이션에서 동일하게 작동합니다.

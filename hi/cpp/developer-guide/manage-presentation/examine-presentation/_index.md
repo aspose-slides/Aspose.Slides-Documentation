@@ -1,41 +1,48 @@
 ---
-title: C++ में प्रस्तुति जानकारी प्राप्त करें और अद्यतन करें
+title: C++ में प्रस्तुति जानकारी प्राप्त करें और अपडेट करें
 linktitle: प्रस्तुति जानकारी
 type: docs
 weight: 30
 url: /hi/cpp/examine-presentation/
 keywords:
 - प्रस्तुति स्वरूप
-- प्रस्तुति गुण
-- दस्तावेज़ गुण
-- गुण प्राप्त करें
-- गुण पढ़ें
-- गुण बदलें
-- गुण संशोधित करें
-- गुण अद्यतन करें
-- PPTX जांचें
-- PPT जांचें
-- ODP जांचें
-- पावरपॉइंट
-- ओपनडॉक्यूमेंट
+- प्रस्तुति प्रॉपर्टीज़
+- डॉक्यूमेंट प्रॉपर्टीज़
+- प्रॉपर्टीज़ प्राप्त करें
+- प्रॉपर्टीज़ पढ़ें
+- प्रॉपर्टीज़ बदलें
+- प्रॉपर्टीज़ संशोधित करें
+- प्रॉपर्टीज़ अपडेट करें
+- PPTX जाँचें
+- PPT जाँचें
+- ODP जाँचें
+- PowerPoint
+- OpenDocument
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडेटा का अन्वेषण करें, तेज़ अंतर्दृष्टि और अधिक बुद्धिमान सामग्री ऑडिट के लिए।"
+description: "C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडेटा का अन्वेषण करें, तेज़ अंतर्दृष्टि और स्मार्ट सामग्री ऑडिट्स के लिए।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-यह लेख दिखाता है कि Aspose.Slides में प्रस्तुति जानकारी कैसे निरीक्षण करें। यह समझाता है कि पूरी फ़ाइल लोड किए बिना प्रस्तुति का वर्तमान स्वरूप कैसे निर्धारित करें, उसके दस्तावेज़ गुणों को पढ़ें, और आवश्यकतानुसार उन गुणों को अद्यतित करें।
+यह लेख दर्शाता है कि Aspose.Slides में प्रस्तुति जानकारी कैसे निरीक्षण की जाए। यह बताता है कि पूरी फ़ाइल को लोड किए बिना प्रस्तुति के वर्तमान फ़ॉर्मेट का निर्धारण कैसे किया जाए, उसकी डॉक्यूमेंट प्रॉपर्टीज़ को पढ़ा जाए, और आवश्यकता पड़ने पर उन प्रॉपर्टीज़ को अपडेट किया जाए।
 
-उदाहरण [PresentationInfo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentationinfo/) और [DocumentProperties](https://reference.aspose.com/slides/hi/cpp/aspose.slides/documentproperties/) APIs पर आधारित हैं और प्रस्तुति मेटाडेटा के साथ काम करने के सामान्य कार्यों को दर्शाते हैं।
+उदाहरण [PresentationInfo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentationinfo/) और [DocumentProperties](https://reference.aspose.com/slides/hi/cpp/aspose.slides/documentproperties/) APIs पर आधारित हैं और प्रस्तुति मेटाडेटा के साथ काम करने के सामान्य कार्यों को प्रदर्शित करते हैं।
 
-## **प्रस्तुति स्वरूप जांचें**
+## **प्रस्तुति फ़ॉर्मेट जाँचें**
 
-प्रस्तुति पर काम करने से पहले, आप यह जानना चाह सकते हैं कि वर्तमान में प्रस्तुति किस स्वरूप (PPT, PPTX, ODP, और अन्य) में है।
+कोई प्रस्तुति पर काम करने से पहले, आप यह जानना चाह सकते हैं कि वर्तमान में प्रस्तुति किस फ़ॉर्मेट (PPT, PPTX, ODP और अन्य) में है।
 
-आप प्रस्तुति को लोड किए बिना उसकी स्वरूप जांच सकते हैं। इस C++ कोड को देखें:
+आप प्रस्तुति को लोड किए बिना उसकी फ़ॉर्मेट जाँच सकते हैं। इस C++ कोड को देखें:
 
 ``` cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 // PPTX
 Console::WriteLine(ObjectExt::ToString(info->get_LoadFormat()));
@@ -49,30 +56,45 @@ auto info3 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.odp
 Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 ```
 
-## **प्रस्तुति गुण प्राप्त करें**
+## **प्रस्तुति प्रॉपर्टीज़ प्राप्त करें**
 
-यह C++ कोड दिखाता है कि आप प्रस्तुति गुण (प्रस्तुति के बारे में जानकारी) कैसे प्राप्त कर सकते हैं:
+यह C++ कोड दर्शाता है कि आप प्रस्तुति प्रॉपर्टीज़ (प्रस्तुति की जानकारी) कैसे प्राप्त कर सकते हैं:
 
 ``` cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
 auto props = info->ReadDocumentProperties();
 Console::WriteLine(ObjectExt::ToString(props->get_CreatedTime()));
 Console::WriteLine(props->get_Subject());
 Console::WriteLine(props->get_Title());
-// इत्यादि
+// .. 
 ```
 
-## **प्रस्तुति गुण अद्यतन करें**
+## **प्रस्तुति प्रॉपर्टीज़ अपडेट करें**
 
-Aspose.Slides [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) मेथड प्रदान करता है जो आपको प्रस्तुति गुणों में परिवर्तन करने की अनुमति देता है।
+Aspose.Slides [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) मेथड प्रदान करता है जो आपको प्रस्तुति प्रॉपर्टीज़ में बदलाव करने की अनुमति देता है।
 
-मान लीजिए हमारे पास एक PowerPoint प्रस्तुति है जिसमें नीचे दिखाए गए दस्तावेज़ गुण हैं।
+मान लीजिए हमारे पास एक PowerPoint प्रस्तुति है जिसकी डॉक्यूमेंट प्रॉपर्टीज़ नीचे दिखायी गई हैं।
 
-![PowerPoint प्रस्तुति के मूल दस्तावेज़ गुण](input_properties.png)
+![PowerPoint प्रस्तुति की मूल डॉक्यूमेंट प्रॉपर्टीज़](input_properties.png)
 
-यह कोड उदाहरण दिखाता है कि आप कुछ प्रस्तुति गुणों को कैसे संपादित कर सकते हैं:
+यह कोड उदाहरण दर्शाता है कि आप कुछ प्रस्तुति प्रॉपर्टीज़ को कैसे संपादित कर सकते हैं:
 
 ```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/date_time.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto fileName = u"sample.pptx";
 
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
@@ -85,37 +107,35 @@ info->UpdateDocumentProperties(properties);
 info->WriteBindedPresentation(fileName);
 ```
 
-दस्तावेज़ गुणों को बदलने के परिणाम नीचे दिखाए गए हैं।
+डॉक्यूमेंट प्रॉपर्टीज़ बदलने के परिणाम नीचे दिखाए गए हैं।
 
-![PowerPoint प्रस्तुति के बदले हुए दस्तावेज़ गुण](output_properties.png)
+![PowerPoint प्रस्तुति की बदली हुई डॉक्यूमेंट प्रॉपर्टीज़](output_properties.png)
 
 ## **उपयोगी लिंक**
 
 प्रस्तुति और उसकी सुरक्षा विशेषताओं के बारे में अधिक जानकारी के लिए, आप इन लिंक को उपयोगी पा सकते हैं:
 
-- [प्रस्तुति एन्क्रिप्टेड है या नहीं जांचना](https://docs.aspose.com/slides/hi/cpp/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [प्रस्तुति लिखित संरक्षित (केवल-पढ़ने योग्य) है या नहीं जांचना](https://docs.aspose.com/slides/hi/cpp/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [लोड करने से पहले प्रस्तुति पासवर्ड द्वारा संरक्षित है या नहीं जांचना](https://docs.aspose.com/slides/hi/cpp/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [प्रस्तुति को संरक्षित करने के लिए उपयोग किए गए पासवर्ड की पुष्टि करना](https://docs.aspose.com/slides/hi/cpp/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [प्रस्तुति को पासवर्ड से सुरक्षित करें](/slides/hi/cpp/password-protected-presentation/)
+- [प्रस्तुति को लिखने से सुरक्षित करें](/slides/hi/cpp/write-protected-presentation/)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं यह कैसे जांच सकता हूँ कि फ़ॉन्ट एम्बेडेड हैं या नहीं और कौन‑से हैं?**
+**मैं यह कैसे जाँच सकता हूँ कि फ़ॉन्ट्स एम्बेडेड हैं या नहीं और कौन से हैं?**
 
-प्रस्तुति स्तर पर [embedded-font information](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsmanager/getembeddedfonts/) देखें, फिर उन प्रविष्टियों की तुलना [fonts actually used across content](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsmanager/getfonts/) के सेट से करें ताकि यह पहचान सकें कि कौन‑से फ़ॉन्ट रेंडरिंग के लिए महत्वपूर्ण हैं।
+[एम्बेडेड फ़ॉन्ट जानकारी](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsmanager/getembeddedfonts/) देखें, फिर उन प्रविष्टियों की तुलना [वास्तविक में उपयोग किए गए फ़ॉन्ट्स](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsmanager/getfonts/) के सेट से करें ताकि यह पहचाना जा सके कि रेंडरिंग के लिए कौन से फ़ॉन्ट्स महत्वपूर्ण हैं।
 
-**मैं कैसे जल्दी पता कर सकता हूँ कि फ़ाइल में छिपी स्लाइड्स हैं और उनकी संख्या क्या है?**
+**मैं जल्दी से कैसे पता कर सकता हूँ कि फ़ाइल में छुपी हुई स्लाइड्स हैं या नहीं और उनकी संख्या क्या है?**
 
-[slide collection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/slidecollection/) के माध्यम से इटरेट करें और प्रत्येक स्लाइड का [visibility flag](https://reference.aspose.com/slides/hi/cpp/aspose.slides/slide/get_hidden/) जांचें।
+स्लाइड संग्रह [स्लाइड संग्रह](https://reference.aspose.com/slides/hi/cpp/aspose.slides/slidecollection/) के माध्यम से इटररेट करें और प्रत्येक स्लाइड के [विज़िबिलिटी फ़्लैग](https://reference.aspose.com/slides/hi/cpp/aspose.slides/slide/get_hidden/) को जांचें।
 
-**क्या मैं पता लगा सकता हूँ कि कस्टम स्लाइड आकार और अभिविन्यास उपयोग हो रहा है या नहीं, और क्या वे डिफ़ॉल्ट से भिन्न हैं?**
+**क्या मैं यह पता लगा सकता हूँ कि कस्टम स्लाइड आकार और ओरिएंटेशन इस्तेमाल हुए हैं या नहीं, और क्या वे डिफ़ॉल्ट से अलग हैं?**
 
-हाँ। वर्तमान [slide size and orientation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_slidesize/) की तुलना मानक प्रीसेट्स से करें; यह प्रिंटिंग और निर्यात के व्यवहार का अनुमान लगाने में मदद करता है।
+हाँ। वर्तमान [स्लाइड आकार और ओरिएंटेशन](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_slidesize/) की तुलना मानक प्रीसेट्स से करें; इससे प्रिंटिंग और एक्सपोर्ट के व्यवहार का अनुमान लगाना मदद मिलती है।
 
-**क्या चार्ट्स बाहरी डेटा स्रोतों को संदर्भित कर रहे हैं, इसे देखना कोई तेज़ तरीका है?**
+**क्या चार्ट्स बाहरी डेटा स्रोतों का रेफ़रेंस करते हैं, यह देखने का कोई तेज़ तरीका है?**
 
-हाँ। सभी [charts](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/chart/) को ट्रैवर्स करें, उनके [data source](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) की जांच करें, और यह नोट करें कि डेटा आंतरिक है या लिंक‑आधारित, साथ ही किसी भी टूटे हुए लिंक को।
+हाँ। सभी [चार्ट्स](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/chart/) को ट्रैवर्स करें, उनके [डेटा स्रोत](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) की जाँच करें, और नोट करें कि डेटा आंतरिक है या लिंक-आधारित, साथ ही कोई टूटे हुए लिंक भी।
 
-**मैं 'भारी' स्लाइड्स का कैसे मूल्यांकन कर सकता हूँ जो रेंडरिंग या PDF निर्यात को धीमा कर सकती हैं?**
+**मैं 'भारी' स्लाइड्स का मूल्यांकन कैसे कर सकता हूँ जो रेंडरिंग या PDF एक्सपोर्ट को धीमा कर सकती हैं?**
 
-प्रत्येक स्लाइड के लिए, ऑब्जेक्ट की गिनती करें और बड़े इमेज, ट्रांसपैरेंसी, शैडोज़, एनीमेशन्स और मल्टीमीडिया की तलाश करें; संभावित प्रदर्शन मुद्दों को चिन्हित करने के लिए एक मोटा जटिलता स्कोर असाइन करें।
+प्रत्येक स्लाइड के लिए, ऑब्जेक्ट काउंट गिनें और बड़े इमेजेज़, ट्रांसपेरेंसी, शैडो, एनीमेशन और मल्टीमीडिया की तलाश करें; संभावित प्रदर्शन समस्याओं को चिन्हित करने के लिए एक मोटा जटिलता स्कोर असाइन करें।

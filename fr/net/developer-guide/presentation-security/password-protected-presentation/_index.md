@@ -1,289 +1,200 @@
 ---
-title: Sécuriser les présentations avec des mots de passe en .NET
+title: Protéger les présentations par mot de passe en .NET
 linktitle: Protection par mot de passe
 type: docs
 weight: 20
 url: /fr/net/password-protected-presentation/
 keywords:
-- verrouiller PowerPoint
-- verrouiller la présentation
-- déverrouiller PowerPoint
-- déverrouiller la présentation
-- protéger PowerPoint
-- protéger la présentation
-- définir un mot de passe
-- ajouter un mot de passe
+- présentation protégée par mot de passe
+- mot de passe d'ouverture
 - chiffrer PowerPoint
-- chiffrer la présentation
 - déchiffrer PowerPoint
-- déchiffrer la présentation
-- protection en écriture
-- sécurité PowerPoint
-- sécurité de la présentation
-- supprimer le mot de passe
-- supprimer la protection
+- valider le mot de passe de la présentation
+- vérifier le mot de passe de la présentation
+- ouvrir une présentation chiffrée
 - supprimer le chiffrement
-- désactiver le mot de passe
-- désactiver la protection
-- supprimer la protection en écriture
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Découvrez comment verrouiller et déverrouiller facilement les présentations PowerPoint et OpenDocument protégées par mot de passe avec Aspose.Slides pour .NET. Sécurisez vos présentations."
+description: "Chiffrez, détectez, validez, ouvrez et déchiffrez des présentations PowerPoint PPT et PPTX protégées par mot de passe en C# avec Aspose.Slides pour .NET."
 ---
-## **Introduction**
+## **Vue d'ensemble**
 
-Lorsque vous protégez une présentation par mot de passe, vous définissez un mot de passe qui impose certaines restrictions à la présentation. Pour supprimer ces restrictions, le mot de passe doit être saisi. Une présentation protégée par mot de passe est considérée comme une présentation verrouillée.
+Un mot de passe d'ouverture chiffre une présentation. Le mot de passe correct est requis pour charger et afficher le contenu de la présentation, ce qui assure la confidentialité.
 
-En général, vous pouvez définir un mot de passe pour imposer ces restrictions à une présentation :
+Un mot de passe d'ouverture diffère d'un mot de passe de protection en écriture. La protection en écriture limite les modifications mais ne chiffre pas le contenu et n'empêche pas le chargement de la présentation. Pour gérer les mots de passe destinés à modifier les présentations, consultez [Protéger les présentations en écriture](/slides/fr/net/write-protected-presentation/).
 
-- **Modification**
+Les flux de travail ci‑dessous s'appliquent aux présentations PPT et PPTX. Les exemples utilisent les deux formats lorsque leur comportement basé sur des fichiers ou des flux est important.
 
-Si vous voulez que seuls certains utilisateurs puissent modifier votre présentation, vous pouvez définir une restriction de modification. Cette restriction empêche les personnes de modifier, changer ou copier des éléments de votre présentation, à moins qu’elles ne fournissent le mot de passe.  
+## **Chiffrer une présentation avec un mot de passe d'ouverture**
 
-Cependant, même sans le mot de passe, un utilisateur pourra toujours accéder à votre document et l’ouvrir. En mode lecture seule, l’utilisateur peut consulter le contenu — y compris les hyperliens, animations, effets et autres éléments — de votre présentation, mais il ne peut ni copier d’éléments ni enregistrer la présentation.
+Utilisez [IProtectionManager.Encrypt](https://reference.aspose.com/slides/fr/net/aspose.slides/iprotectionmanager/encrypt/) pour attribuer un mot de passe d'ouverture. Puis utilisez [IPresentation.Save](https://reference.aspose.com/slides/fr/net/aspose.slides/ipresentation/save/) pour enregistrer la présentation chiffrée.
 
-- **Ouverture**
+L'exemple suivant chiffre une présentation PPTX :
 
-Si vous voulez que seuls certains utilisateurs puissent ouvrir votre présentation, vous pouvez définir une restriction d’ouverture. Cette restriction empêche les personnes de même voir le contenu de votre présentation, à moins qu’elles ne fournissent le mot de passe.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Techniquement, la restriction d’ouverture empêche également les utilisateurs de modifier vos présentations — si les gens ne peuvent pas ouvrir une présentation, ils ne peuvent pas la modifier ni y apporter de changements.
+using var presentation = new Presentation("pres.pptx");
 
-**Remarque :** Lorsque vous protégez une présentation par mot de passe pour empêcher l’ouverture, le fichier de présentation devient chiffré.
-
-## **Protection par mot de passe dans Aspose.Slides**
-
-**Formats pris en charge**
-
-Aspose.Slides prend en charge la protection par mot de passe, le chiffrement et des opérations similaires pour les présentations aux formats suivants :
-
-- PPTX et PPT – Présentations Microsoft PowerPoint
-- ODP – Présentations OpenDocument
-- OTP – Modèles de présentation OpenDocument
-
-**Opérations prises en charge**
-
-Aspose.Slides vous permet d’utiliser la protection par mot de passe sur les présentations afin d’empêcher les modifications de la manière suivante :
-
-- Chiffrer une présentation
-- Appliquer une protection en écriture sur une présentation
-
-**Autres opérations**
-
-Aspose.Slides vous permet d’effectuer des tâches supplémentaires liées à la protection par mot de passe et au chiffrement de la manière suivante :
-
-- Déchiffrer une présentation ; ouvrir une présentation chiffrée
-- Supprimer le chiffrement ; désactiver la protection par mot de passe
-- Supprimer la protection en écriture d’une présentation
-- Récupérer les propriétés d’une présentation chiffrée
-- Vérifier si une présentation est protégée par mot de passe avant de la charger
-- Vérifier si une présentation est chiffrée
-- Vérifier si une présentation est protégée par mot de passe
-
-## **Protéger une présentation avec un mot de passe**
-
-Vous pouvez chiffrer une présentation en définissant un mot de passe. Ensuite, pour modifier la présentation verrouillée, l’utilisateur doit fournir le mot de passe.
-
-Pour chiffrer (ou protéger par mot de passe) une présentation, utilisez la méthode `Encrypt` de [ProtectionManager](https://reference.aspose.com/slides/fr/net/aspose.slides/protectionmanager) pour définir un mot de passe. Passez le mot de passe à la méthode `Encrypt`, puis utilisez la méthode `Save` pour enregistrer la présentation maintenant chiffrée.
-
-Ce code d’exemple montre comment chiffrer une présentation :
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Appliquer une protection en écriture sur une présentation** 
-
-Vous pouvez ajouter une mention « Do not modify » à une présentation. Cela informe les utilisateurs que vous ne voulez pas qu’ils modifient la présentation.
-
-**Remarque :** Le processus de protection en écriture ne chiffre pas la présentation. Ainsi, les utilisateurs—s’ils le souhaitent—peuvent modifier la présentation, mais pour enregistrer les changements, ils devront l’enregistrer sous un autre nom.
-
-Pour appliquer une protection en écriture, utilisez la méthode `SetWriteProtection`. Ce code d’exemple montre comment appliquer une protection en écriture sur une présentation :
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
-}
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
 ## **Charger une présentation chiffrée**
 
-Aspose.Slides vous permet de charger une présentation chiffrée en transmettant le mot de passe correct. Ce code d’exemple montre comment charger une présentation chiffrée :
+Définissez [LoadOptions.Password](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/password/) sur le mot de passe d'ouverture et transmettez les options à [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation/) lors du chargement du fichier. Le chargement échoue lorsqu'un mot de passe d'ouverture est requis mais que le mot de passe fourni est absent ou incorrect.
 
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // Travailler avec la présentation déchiffrée.
-}
-```
+```csharp
+using Aspose.Slides;
 
-## **Supprimer le chiffrement d’une présentation**
-
-Vous pouvez supprimer le chiffrement ou la protection par mot de passe d’une présentation, permettant aux utilisateurs d’y accéder ou de la modifier sans restriction.
-
-Pour supprimer le chiffrement ou la protection par mot de passe, appelez la méthode [RemoveEncryption](https://reference.aspose.com/slides/fr/net/aspose.slides/protectionmanager/methods/removeencryption). Ce code d’exemple montre comment supprimer le chiffrement d’une présentation :
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Supprimer la protection en écriture d’une présentation**
-
-Vous pouvez utiliser Aspose.Slides pour supprimer la protection en écriture d’un fichier de présentation. Ainsi, les utilisateurs peuvent la modifier à leur guise et ne recevront aucun avertissement lors de ces opérations.
-
-Vous pouvez supprimer la protection en écriture en utilisant la méthode [RemoveWriteProtection](https://reference.aspose.com/slides/fr/net/aspose.slides/protectionmanager/methods/removewriteprotection). Ce code d’exemple montre comment supprimer la protection en écriture d’une présentation :
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Obtenir les propriétés d’une présentation chiffrée**
-
-En général, les utilisateurs ont du mal à récupérer les propriétés du document d’une présentation chiffrée ou protégée par mot de passe. Cependant, Aspose.Slides offre un mécanisme qui permet de protéger une présentation par mot de passe tout en conservant la possibilité pour les utilisateurs d’accéder à ses propriétés.
-
-**Remarque :** Par défaut, lorsque Aspose.Slides chiffre une présentation, les propriétés du document de la présentation sont également protégées par mot de passe. Si vous devez rendre les propriétés du document accessibles même après chiffrement, Aspose.Slides vous le permet.
-
-Si vous souhaitez que les utilisateurs conservent la capacité d’accéder aux propriétés d’une présentation chiffrée, définissez la propriété `EncryptDocumentProperties` de [IProtectionManager](https://reference.aspose.com/slides/fr/net/aspose.slides/iprotectionmanager/) sur `false`. Ce code d’exemple montre comment chiffrer une présentation tout en permettant aux utilisateurs d’accéder à ses propriétés de document :
-
-```c#
-using var presentation = new Presentation("pres.pptx");
-
-presentation.ProtectionManager.EncryptDocumentProperties = false;
-presentation.ProtectionManager.Encrypt("123123");
-presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-```
-
-## **Charger uniquement les propriétés du document d’une présentation chiffrée**
-
-Pour inspecter les métadonnées d’une présentation chiffrée sans charger ses diapositives ou autre contenu, créez un objet [LoadOptions](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/) et définissez [OnlyLoadDocumentProperties](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) sur `true`. Dans ce mode, Aspose.Slides ignore le mot de passe et ne charge que les propriétés du document accessibles publiquement.
-
-L’exemple de code suivant lit les propriétés intégrées et personnalisées du document via [IPresentation.DocumentProperties](https://reference.aspose.com/slides/fr/net/aspose.slides/ipresentation/documentproperties/) :
-
-```c#
-var loadOptions = new LoadOptions
-{
-    OnlyLoadDocumentProperties = true
-};
-
+var loadOptions = new LoadOptions { Password = "open_password" };
 using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
-var documentProperties = presentation.DocumentProperties;
 
-// Read built-in document properties.
-Console.WriteLine("Title: " + documentProperties.Title);
-Console.WriteLine("Author: " + documentProperties.Author);
+// Travaillez avec la présentation déchiffrée.
+```
 
-// Read custom document properties.
-var customPropertyCount = documentProperties.CountOfCustomProperties;
+## **Supprimer le chiffrement d'une présentation**
 
-for (var propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+Chargez la présentation avec son mot de passe d'ouverture, appelez [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/fr/net/aspose.slides/iprotectionmanager/removeencryption/), puis enregistrez le résultat. La présentation enregistrée peut alors être chargée sans mot de passe.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
+
+## **Valider un mot de passe d'ouverture avant le chargement**
+
+Utilisez [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/fr/net/aspose.slides/ipresentationfactory/getpresentationinfo/) pour obtenir [IPresentationInfo](https://reference.aspose.com/slides/fr/net/aspose.slides/ipresentationinfo/) sans créer une instance complète de présentation. Vérifiez [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/fr/net/aspose.slides/ipresentationinfo/ispasswordprotected/) avant de demander ou de valider un mot de passe. Lorsqu'une protection est présente, validez la valeur fournie avec [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/fr/net/aspose.slides/ipresentationinfo/checkpassword/).
+
+### **Flux de travail par chemin de fichier**
+
+L'exemple suivant valide un mot de passe d'ouverture pour un fichier PPTX, transmet la valeur validée à [LoadOptions.Password](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/password/), puis charge la présentation complète :
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    var propertyName = documentProperties.GetCustomPropertyName(propertyIndex);
-    var propertyValue = documentProperties[propertyName];
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
 
-    Console.WriteLine(propertyName + ": " + propertyValue);
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-Ce flux de travail ne fonctionne que lorsque les propriétés du document ont été laissées non chiffrées (publiques) lors du chiffrement de la présentation. Si les propriétés du document sont chiffrées, définir `OnlyLoadDocumentProperties` sur `true` entraîne une exception, car le mot de passe est ignoré dans ce mode. Pour accéder aux propriétés du document chiffrées ou charger la présentation complète, y compris ses diapositives et autre contenu, fournissez la valeur correcte `Password` dans [LoadOptions](https://reference.aspose.com/slides/fr/net/aspose.slides/loadoptions/) .
+### **Flux de travail par flux**
 
-## **Vérifier si une présentation est protégée par mot de passe**
+La surcharge de flux de [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/fr/net/aspose.slides/ipresentationfactory/getpresentationinfo/) fournit le même flux de travail. Réinitialisez la position d'un flux à recherche avant de charger la présentation complète depuis ce flux.
 
-Avant de charger une présentation, vous pouvez vérifier qu’elle n’a pas été protégée par un mot de passe. Cela vous aide à éviter les erreurs et problèmes similaires qui surviennent lorsqu’une présentation protégée par mot de passe est chargée sans le bon mot de passe.
+L'exemple suivant utilise un fichier PPT :
 
-Ce code C# montre comment examiner une présentation pour savoir si elle est protégée par mot de passe sans réellement la charger :
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
 
-## **Vérifier si une présentation est chiffrée**
-
-Aspose.Slides vous permet de vérifier si une présentation est chiffrée. Pour cela, vous pouvez utiliser la propriété [IsEncrypted](https://reference.aspose.com/slides/fr/net/aspose.slides/protectionmanager/properties/isencrypted), qui renvoie `true` si la présentation est chiffrée ou `false` sinon.
-
-Ce code d’exemple montre comment vérifier si une présentation est chiffrée :
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+if (!presentationInfo.IsPasswordProtected)
 {
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **Vérifier si une présentation est protégée en écriture**
+### **Valeurs de retour de CheckPassword**
 
-Aspose.Slides vous permet de vérifier si une présentation est protégée en écriture. Pour cela, vous pouvez utiliser la propriété [IsWriteProtected](https://reference.aspose.com/slides/fr/net/aspose.slides/protectionmanager/properties/iswriteprotected), qui renvoie `true` si la présentation est protégée en écriture ou `false` sinon.
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/fr/net/aspose.slides/ipresentationinfo/checkpassword/) renvoie `true` uniquement lorsque la présentation possède un mot de passe d'ouverture et que le mot de passe fourni est correct. Il renvoie `false` dans chacun de ces cas :
 
-Ce code d’exemple montre comment vérifier si une présentation est protégée en écriture :
+- Le mot de passe est incorrect.
+- La présentation ne possède pas de mot de passe d'ouverture.
+- Le mot de passe fourni est `null` ou vide.
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
+Le comportement est identique pour les présentations PPT et PPTX.
+
+## **Vérifier si une présentation chargée est chiffrée**
+
+Après avoir chargé une présentation avec le mot de passe correct, inspectez [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/fr/net/aspose.slides/iprotectionmanager/isencrypted/) pour confirmer que la présentation source était chiffrée. Pour détecter la protection par mot de passe d'ouverture avant le chargement, utilisez `IPresentationInfo.IsPasswordProtected` comme indiqué ci‑dessus.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **Vérifier l’utilisation d’un mot de passe de présentation**
+## **Recommandations de sécurité**
 
-Vous pouvez vouloir vérifier et confirmer qu’un mot de passe spécifique a été utilisé pour protéger un document de présentation. Aspose.Slides fournit les moyens de valider un mot de passe.
-
-Ce code d’exemple montre comment valider un mot de passe :
-
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // Vérifier si le mot de passe correspond.
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-Il renvoie `true` si la présentation a été chiffrée avec le mot de passe indiqué ; sinon, il renvoie `false`.
-
-{{% alert color="primary" title="See also" %}} 
-- [Digital Signature in PowerPoint](/slides/fr/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Sécurité" %}}
+Ne consignez pas les mots de passe d'ouverture et ne les incluez pas dans les messages de diagnostic. Évitez les tentatives de validation répétées inutiles, conservez les mots de passe en mémoire uniquement le temps nécessaire, et réutilisez un résultat de validation réussi lors du chargement immédiat de la présentation.
 {{% /alert %}}
 
 ## **Protéger une présentation par mot de passe en ligne**
 
-1. Accédez à notre page [**Aspose.Slides Lock**](https://products.aspose.app/slides/fr/lock). 
-1. Cliquez sur **Drop or upload your files**. 
-1. Sélectionnez le fichier que vous souhaitez protéger par mot de passe sur votre ordinateur. 
-1. Saisissez le mot de passe souhaité pour la protection en modification et le mot de passe souhaité pour la protection en visualisation. 
-1. Si vous voulez que les utilisateurs voient votre présentation comme la copie finale, cochez la case **Mark as final**. 
-1. Cliquez sur **PROTECT NOW.** 
-1. Cliquez sur **DOWNLOAD NOW.**
+1. Ouvrez l'application [Aspose.Slides Lock](https://products.aspose.app/slides/fr/lock).
+1. Sélectionnez ou téléversez la présentation.
+1. Saisissez un mot de passe pour la protection en lecture.
+1. Facultativement, saisissez un mot de passe différent pour la protection en écriture.
+1. Appliquez la protection et téléchargez le fichier résultant.
 
-![Password protect PowerPoint presentations](slides-lock.png)
+{{% alert color="info" title="Voir aussi" %}}
+- [Protéger les présentations en écriture](/slides/fr/net/write-protected-presentation/)
+- [Signature numérique dans PowerPoint](/slides/fr/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
 ## **FAQ**
 
-**Quelles méthodes de chiffrement sont prises en charge par Aspose.Slides ?**
+**Quelle est la différence entre un mot de passe d'ouverture et un mot de passe de protection en écriture ?**
 
-Aspose.Slides prend en charge des méthodes de chiffrement modernes, y compris les algorithmes basés sur AES, garantissant un haut niveau de sécurité des données pour vos présentations.
+Un mot de passe d'ouverture chiffre la présentation et est requis pour charger son contenu. Un mot de passe de protection en écriture limite les modifications sans chiffrer le contenu.
 
-**Que se passe-t-il si un mot de passe incorrect est saisi lors de la tentative d’ouverture d’une présentation ?**
+**Puis-je valider un mot de passe d'ouverture sans charger toutes les diapositives ?**
 
-Une exception est levée si un mot de passe incorrect est utilisé, vous signalant que l’accès à la présentation est refusé. Cela aide à prévenir les accès non autorisés et protège le contenu de la présentation.
+Oui. Obtenez les informations de la présentation, vérifiez si une protection par mot de passe d'ouverture est présente, puis validez le mot de passe avant de créer une instance complète de présentation.
 
-**Y a‑t‑il des impacts sur les performances lorsqu’on travaille avec des présentations protégées par mot de passe ?**
+**Les flux de travail de vérification du mot de passe prennent-ils en charge à la fois PPT et PPTX ?**
 
-Le processus de chiffrement et de déchiffrement peut introduire un léger surcoût lors des opérations d’ouverture et d’enregistrement. Dans la plupart des cas, cet impact sur les performances est minime et n’affecte pas de manière significative le temps de traitement global de vos tâches de présentation.
+Oui. La détection et la validation du mot de passe par chemin de fichier ou par flux se comportent de la même manière pour les présentations PPT et PPTX.

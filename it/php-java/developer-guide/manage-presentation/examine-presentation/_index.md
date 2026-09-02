@@ -1,17 +1,17 @@
 ---
-title: Recupera e aggiorna le informazioni della presentazione in PHP
-linktitle: Informazioni sulla presentazione
+title: Recuperare e aggiornare le informazioni della presentazione in PHP
+linktitle: Informazioni presentazione
 type: docs
 weight: 30
 url: /it/php-java/examine-presentation/
 keywords:
 - formato presentazione
-- proprietà della presentazione
-- proprietà del documento
+- proprietà presentazione
+- proprietà documento
 - ottenere proprietà
 - leggere proprietà
-- cambiare proprietà
 - modificare proprietà
+- alterare proprietà
 - aggiornare proprietà
 - esaminare PPTX
 - esaminare PPT
@@ -21,17 +21,17 @@ keywords:
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Esplora diapositive, struttura e metadati nelle presentazioni PowerPoint e OpenDocument usando Aspose.Slides per PHP per ottenere rapidamente approfondimenti e audit dei contenuti più intelligenti."
+description: "Esplora diapositive, struttura e metadati nelle presentazioni PowerPoint e OpenDocument usando Aspose.Slides per PHP per ottenere rapidamente approfondimenti e audit di contenuti più intelligenti."
 ---
 ## **Panoramica**
 
-Questo articolo mostra come ispezionare le informazioni di presentazione in Aspose.Slides. Spiega come determinare il formato corrente di una presentazione senza caricare l'intero file, leggere le sue proprietà del documento e aggiornare tali proprietà quando necessario.
+Questo articolo mostra come ispezionare le informazioni di una presentazione in Aspose.Slides. Spiega come determinare il formato attuale di una presentazione senza caricare l'intero file, leggere le sue proprietà del documento e aggiornare tali proprietà quando necessario.
 
-Gli esempi si basano sulle API [PresentationInfo](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentationinfo/) e [DocumentProperties](https://reference.aspose.com/slides/it/php-java/aspose.slides/documentproperties/) e dimostrano le operazioni tipiche per lavorare con i metadati della presentazione.
+Gli esempi si basano sulle API [PresentationInfo](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentationinfo/) e [DocumentProperties](https://reference.aspose.com/slides/it/php-java/aspose.slides/documentproperties/) e dimostrano le operazioni tipiche per lavorare con i metadati delle presentazioni.
 
-## **Verifica il formato di una presentazione**
+## **Verificare il formato di una presentazione**
 
-Prima di lavorare su una presentazione, potresti voler scoprire in quale formato (PPT, PPTX, ODP e altri) si trovi attualmente la presentazione.
+Prima di lavorare su una presentazione, potresti voler scoprire in quale formato (PPT, PPTX, ODP e altri) si trova al momento.
 
 Puoi verificare il formato di una presentazione senza caricarla. Vedi questo codice PHP:
 
@@ -48,7 +48,7 @@ Puoi verificare il formato di una presentazione senza caricarla. Vedi questo cod
 
 ```
 
-## **Ottieni le proprietà della presentazione**
+## **Ottenere le proprietà della presentazione**
 
 Questo codice PHP mostra come ottenere le proprietà della presentazione (informazioni sulla presentazione):
 
@@ -59,11 +59,12 @@ Questo codice PHP mostra come ottenere le proprietà della presentazione (inform
   echo($props->getSubject());
   echo($props->getTitle());
   # ..
+
 ```
 
-Potresti voler vedere le [proprietà nella classe DocumentProperties](https://reference.aspose.com/slides/it/php-java/aspose.slides/documentproperties/#DocumentProperties--).
+Potresti voler vedere le [proprietà nella classe DocumentProperties](https://reference.aspose.com/slides/it/php-java/aspose.slides/documentproperties/#DocumentProperties--) .
 
-## **Aggiorna le proprietà della presentazione**
+## **Aggiornare le proprietà della presentazione**
 
 Aspose.Slides fornisce il metodo [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/it/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) che consente di apportare modifiche alle proprietà della presentazione.
 
@@ -88,35 +89,33 @@ $info->writeBindedPresentation($fileName);
 
 I risultati della modifica delle proprietà del documento sono mostrati di seguito.
 
-![Proprietà modificate del documento della presentazione PowerPoint](output_properties.png)
+![Proprietà del documento modificate della presentazione PowerPoint](output_properties.png)
 
 ## **Link utili**
 
-Per ottenere maggiori informazioni su una presentazione e sui suoi attributi di sicurezza, potresti trovare utili questi collegamenti:
+Per ottenere più informazioni su una presentazione e le sue proprietà di sicurezza, potresti trovare utili questi link:
 
-- [Verifica se una presentazione è crittografata](https://docs.aspose.com/slides/it/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Verifica se una presentazione è protetta da scrittura (sola lettura)](https://docs.aspose.com/slides/it/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Verifica se una presentazione è protetta da password prima di caricarla](https://docs.aspose.com/slides/it/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Confermare la password usata per proteggere una presentazione](https://docs.aspose.com/slides/it/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Proteggere le presentazioni con password](/slides/it/php-java/password-protected-presentation/)
+- [Proteggere le presentazioni in scrittura](/slides/it/php-java/write-protected-presentation/)
 
 ## **FAQ**
 
 **Come posso verificare se i caratteri sono incorporati e quali sono?**
 
-Cerca le [informazioni sui caratteri incorporati](https://reference.aspose.com/slides/it/php-java/aspose.slides/fontsmanager/getembeddedfonts/) a livello di presentazione, quindi confronta tali voci con l'insieme dei [caratteri effettivamente utilizzati nei contenuti](https://reference.aspose.com/slides/it/php-java/aspose.slides/fontsmanager/getfonts/) per identificare quali caratteri sono critici per il rendering.
+Cerca le [informazioni sui caratteri incorporati](https://reference.aspose.com/slides/it/php-java/aspose.slides/fontsmanager/getembeddedfonts/) a livello di presentazione, quindi confronta tali voci con l'insieme dei [caratteri effettivamente utilizzati nel contenuto](https://reference.aspose.com/slides/it/php-java/aspose.slides/fontsmanager/getfonts/) per identificare quali caratteri sono fondamentali per il rendering.
 
 **Come posso capire rapidamente se il file contiene diapositive nascoste e quante?**
 
-Itera attraverso la [collezione di diapositive](https://reference.aspose.com/slides/it/php-java/aspose.slides/slidecollection/) e controlla il [flag di visibilità](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/gethidden/) di ciascuna diapositiva.
+Itera attraverso la [collezione di diapositive](https://reference.aspose.com/slides/it/php-java/aspose.slides/slidecollection/) e ispeziona il [flag di visibilità](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/gethidden/) di ogni diapositiva.
 
-**Posso rilevare se vengono usate dimensioni e orientamento personalizzati della diapositiva, e se differiscono dalle impostazioni predefinite?**
+**Posso rilevare se viene usata una dimensione e un'orientazione della diapositiva personalizzate, e se differiscono dai valori predefiniti?**
 
-Sì. Confronta le attuali [dimensioni della diapositiva](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/getslidesize/) e l'orientamento con i preset standard; questo aiuta a prevedere il comportamento per la stampa e l'esportazione.
+Sì. Confronta la corrente [dimensione della diapositiva](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/getslidesize/) e l'orientamento con le impostazioni predefinite; questo aiuta a prevedere il comportamento per la stampa e l'esportazione.
 
-**Esiste un modo rapido per verificare se i grafici fanno riferimento a fonti dati esterne?**
+**Esiste un modo rapido per verificare se i grafici fanno riferimento a fonti di dati esterne?**
 
-Sì. Scorri tutti i [grafici](https://reference.aspose.com/slides/it/php-java/aspose.slides/chart/), controlla la loro [fonte dati](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/getdatasourcetype/) e annota se i dati sono interni o basati su collegamenti, includendo eventuali collegamenti interrotti.
+Sì. Scorri tutti i [grafici](https://reference.aspose.com/slides/it/php-java/aspose.slides/chart/), controlla la loro [fonte dati](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/getdatasourcetype/), e osserva se i dati sono interni o basati su collegamenti, inclusi eventuali collegamenti interrotti.
 
 **Come posso valutare le diapositive 'pesanti' che potrebbero rallentare il rendering o l'esportazione PDF?**
 
-Per ogni diapositiva, conta gli oggetti e cerca immagini di grandi dimensioni, trasparenza, ombre, animazioni e contenuti multimediali; assegna un punteggio di complessità approssimativo per segnalare eventuali punti critici di prestazioni.
+Per ogni diapositiva, conta gli oggetti e cerca immagini grandi, trasparenza, ombre, animazioni e contenuti multimediali; assegna un punteggio di complessità approssimativo per segnalare potenziali punti critici di performance.

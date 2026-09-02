@@ -7,7 +7,7 @@ url: /th/java/examine-presentation/
 keywords:
 - รูปแบบการนำเสนอ
 - คุณสมบัติการนำเสนอ
-- คุณสมบัติของเอกสาร
+- คุณสมบัติเอกสาร
 - รับคุณสมบัติ
 - อ่านคุณสมบัติ
 - เปลี่ยนคุณสมบัติ
@@ -21,21 +21,23 @@ keywords:
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "สำรวจสไลด์ โครงสร้างและเมตาดาต้าในการนำเสนอ PowerPoint และ OpenDocument ด้วย Java เพื่อให้ได้ข้อมูลเชิงลึกที่เร็วขึ้นและการตรวจสอบเนื้อหาที่ชาญฉลาดยิ่งขึ้น."
+description: "สำรวจสไลด์ โครงสร้างและเมตาดาทาในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Java เพื่อให้ได้ข้อมูลเชิงลึกที่รวดเร็วขึ้นและการตรวจสอบเนื้อหาที่ฉลาดขึ้น"
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีตรวจสอบข้อมูลการนำเสนอใน Aspose.Slides โดยอธิบายวิธีกำหนดรูปแบบปัจจุบันของการนำเสนอโดยไม่ต้องโหลดไฟล์เต็ม, อ่านคุณสมบัติของเอกสาร, และอัปเดตคุณสมบัติเหล่านั้นเมื่อจำเป็น.
+บทความนี้แสดงวิธีการตรวจสอบข้อมูลเมตาดาทาของงานนำเสนอใน Aspose.Slides อธิบายวิธีการกำหนดรูปแบบปัจจุบันของงานนำเสนอโดยไม่ต้องโหลดไฟล์เต็ม, อ่านคุณสมบัติของเอกสาร, และอัปเดตคุณสมบัติเหล่านั้นเมื่อจำเป็น
 
-ตัวอย่างนี้อ้างอิงจาก API [PresentationInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationinfo/) และ [DocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/documentproperties/) และแสดงการดำเนินการทั่วไปสำหรับทำงานกับเมทาดาต้าการนำเสนอ.
+ตัวอย่างอ้างอิงจาก API [PresentationInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationinfo/) และ [DocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/documentproperties/) โดยแสดงการทำงานทั่วไปสำหรับการจัดการเมตาดาทาของงานนำเสนอ
 
-## **ตรวจสอบรูปแบบการนำเสนอ**
+## **ตรวจสอบรูปแบบของงานนำเสนอ**
 
-ก่อนที่จะทำงานกับการนำเสนอ คุณอาจต้องการทราบว่าการนำเสนออยู่ในรูปแบบใด (PPT, PPTX, ODP และอื่น ๆ) ในขณะนี้
+ก่อนทำงานกับงานนำเสนอ คุณอาจต้องการทราบว่ารูปแบบ (PPT, PPTX, ODP หรืออื่น ๆ) ของงานนำเสนอในขณะนี้คืออะไร
 
-คุณสามารถตรวจสอบรูปแบบของการนำเสนอโดยไม่ต้องโหลดการนำเสนอได้ ดูตัวอย่างโค้ด Java นี้:
+คุณสามารถตรวจสอบรูปแบบของงานนำเสนอโดยไม่ต้องโหลดงานนำเสนอ ดูตัวอย่างโค้ด Java นี้:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -46,11 +48,13 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-## **รับคุณสมบัติของการนำเสนอ**
+## **ดึงคุณสมบัติงานนำเสนอ**
 
-โค้ด Java นี้แสดงวิธีการรับคุณสมบัติของการนำเสนอ (ข้อมูลเกี่ยวกับการนำเสนอ):
+โค้ด Java นี้แสดงวิธีการดึงคุณสมบัติงานนำเสนอ (ข้อมูลเกี่ยวกับงานนำเสนอ):
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
@@ -59,19 +63,22 @@ System.out.println(props.getTitle());
 // ..
 ```
 
-คุณอาจต้องการดู [คุณสมบัติภายใต้ DocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/documentproperties/#DocumentProperties--) class.
+คุณอาจต้องการดู [properties ภายใต้คลาส DocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/documentproperties/#DocumentProperties--) 
 
-## **อัปเดตคุณสมบัติของการนำเสนอ**
+## **อัปเดตคุณสมบัติงานนำเสนอ**
 
-Aspose.Slides มีเมธอด [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) ที่ให้คุณทำการเปลี่ยนแปลงคุณสมบัติของการนำเสนอได้
+Aspose.Slides มีเมธอด [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) ที่อนุญาตให้คุณเปลี่ยนแปลงคุณสมบัติงานนำเสนอ
 
-สมมติว่าเรามีการนำเสนอ PowerPoint โดยมีคุณสมบัติของเอกสารแสดงต่อไปนี้
+สมมติว่าเรามีงานนำเสนอ PowerPoint ที่มีคุณสมบัติของเอกสารดังแสดงด้านล่าง
 
-![คุณสมบัติเอกสารต้นฉบับของการนำเสนอ PowerPoint](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
-ตัวอย่างโค้ดนี้แสดงวิธีการแก้ไขคุณสมบัติบางอย่างของการนำเสนอ:
+ตัวอย่างโค้ดนี้แสดงวิธีการแก้ไขคุณสมบัติงานนำเสนอบางส่วน:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -84,37 +91,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-ผลลัพธ์ของการเปลี่ยนแปลงคุณสมบัติของเอกสารแสดงต่อไปนี้
+ผลลัพธ์ของการเปลี่ยนแปลงคุณสมบัติของเอกสารถูกแสดงด้านล่าง
 
-![คุณสมบัติเอกสารที่เปลี่ยนแปลงของการนำเสนอ PowerPoint](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **ลิงก์ที่เป็นประโยชน์**
 
-หากต้องการข้อมูลเพิ่มเติมเกี่ยวกับการนำเสนอและคุณลักษณะด้านความปลอดภัย คุณอาจพบว่าลิงก์ต่อไปนี้เป็นประโยชน์:
+หากต้องการข้อมูลเพิ่มเติมเกี่ยวกับงานนำเสนอและคุณลักษณะด้านความปลอดภัย คุณอาจพบลิงก์เหล่านี้เป็นประโยชน์
 
-- [ตรวจสอบว่าการนำเสนอถูกเข้ารหัสหรือไม่](https://docs.aspose.com/slides/th/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [ตรวจสอบว่าการนำเสนอถูกป้องกันการเขียน (อ่านอย่างเดียว) หรือไม่](https://docs.aspose.com/slides/th/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [ตรวจสอบว่าการนำเสนอถูกป้องกันด้วยรหัสผ่านก่อนโหลดหรือไม่](https://docs.aspose.com/slides/th/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [ยืนยันรหัสผ่านที่ใช้ป้องกันการนำเสนอ](https://docs.aspose.com/slides/th/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/th/java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/th/java/write-protected-presentation/)
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**วิธีตรวจสอบว่าฟอนต์ถูกฝังหรือไม่และฟอนต์ใดบ้าง?**
+**ฉันจะตรวจสอบได้อย่างไรว่าแบบอักษรถูกฝังไว้หรือไม่และเป็นแบบใด?**
 
-ค้นหา [embedded-font information](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) ในระดับการนำเสนอ จากนั้นเปรียบเทียบรายการนั้นกับชุดของ [fonts actually used across content](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsmanager/#getFonts--) เพื่อระบุฟอนต์ที่สำคัญต่อการเรนเดอร์
+มองหา [ข้อมูลแบบอักษรที่ฝังไว้](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) ระดับงานนำเสนอ แล้วเปรียบเทียบรายการเหล่านั้นกับชุดของ [แบบอักษรที่ใช้จริงในเนื้อหา](https://reference.aspose.com/slides/th/java/com.aspose.slides/fontsmanager/#getFonts--) เพื่อระบุว่าแบบอักษรใดสำคัญต่อการเรนเดอร์
 
-**วิธีตรวจสอบอย่างรวดเร็วว่าไฟล์มีสไลด์ที่ซ่อนอยู่หรือไม่และจำนวนเท่าใด?**
+**ฉันจะตรวจสอบอย่างรวดเร็วได้หรือไม่ว่าไฟล์มีสไลด์ที่ซ่อนอยู่และจำนวนเท่าไร?**
 
-วนผ่าน [slide collection](https://reference.aspose.com/slides/th/java/com.aspose.slides/slidecollection/) แล้วตรวจสอบ [visibility flag](https://reference.aspose.com/slides/th/java/com.aspose.slides/slide/#getHidden--) ของแต่ละสไลด์
+วนลูปผ่าน [slide collection](https://reference.aspose.com/slides/th/java/com.aspose.slides/slidecollection/) และตรวจสอบ [visibility flag](https://reference.aspose.com/slides/th/java/com.aspose.slides/slide/#getHidden--) ของแต่ละสไลด์
 
-**ฉันสามารถตรวจจับได้หรือไม่ว่ามีการใช้ขนาดและการวางแนวสไลด์ที่กำหนดเองหรือไม่ และว่ามีความแตกต่างจากค่าเริ่มต้นหรือไม่?**
+**ฉันสามารถตรวจจับได้หรือไม่ว่ามีการใช้ขนาดและแนวการจัดวางสไลด์แบบกำหนดเองและแตกต่างจากค่าปริยายหรือไม่?**
 
-ใช่. เปรียบเทียบ [slide size](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getSlideSize--) ปัจจุบันและการวางแนวกับชุดค่ามาตรฐาน; สิ่งนี้ช่วยคาดการณ์พฤติกรรมในการพิมพ์และส่งออก
+ได้ การเปรียบเทียบ [slide size](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getSlideSize--) ปัจจุบันและแนวการจัดวางกับค่ามาตรฐานช่วยคาดการณ์พฤติกรรมสำหรับการพิมพ์และการส่งออก
 
-**มีวิธีรวดเร็วในการดูว่ากราฟอ้างอิงแหล่งข้อมูลภายนอกหรือไม่?**
+**มีวิธีที่เร็วในการดูว่ากราฟอ้างอิงข้อมูลจากแหล่งภายนอกหรือไม่?**
 
-ใช่. ตรวจสอบ [charts](https://reference.aspose.com/slides/th/java/com.aspose.slides/chart/) ทั้งหมด, ตรวจสอบ [data source](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartdata/#getDataSourceType--) ของพวกมัน, และบันทึกว่าข้อมูลเป็นภายในหรือเป็นลิงก์, รวมถึงลิงก์ที่เสียหาย
+มี ให้ท่องทั้งหมด [charts](https://reference.aspose.com/slides/th/java/com.aspose.slides/chart/) ตรวจสอบ [data source](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartdata/#getDataSourceType--) ของแต่ละกราฟ แล้วบันทึกว่าข้อมูลเป็นภายในหรือเชื่อมโยงจากภายนอก รวมถึงลิงก์ที่เสียหาย
 
-**ฉันจะประเมินสไลด์ 'หนัก' ที่อาจทำให้การเรนเดอร์หรือการส่งออก PDF ช้าได้อย่างไร?**
+**ฉันจะประเมินสไลด์ที่ 'หนัก' ซึ่งอาจทำให้การเรนเดอร์หรือการส่งออกเป็น PDF ช้าได้อย่างไร?**
 
-สำหรับแต่ละสไลด์ ให้นับจำนวนวัตถุและมองหารูปภาพขนาดใหญ่, ความโปร่งใส, เงา, การเคลื่อนไหว, และสื่อมัลติมีเดีย; กำหนดคะแนนความซับซ้อนโดยประมาณเพื่อระบุจุดที่อาจมีประสิทธิภาพต่ำ
+สำหรับแต่ละสไลด์ นับจำนวนวัตถุและมองหาภาพขนาดใหญ่, ความโปร่งใส, เงา, 애니เมชันและมัลติมีเดีย; ให้คะแนนความซับซ้อนโดยคร่าว ๆ เพื่อระบุจุดบอดที่อาจส่งผลต่อประสิทธิภาพ

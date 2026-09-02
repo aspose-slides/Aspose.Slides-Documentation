@@ -1,297 +1,229 @@
 ---
-title: Presentaciones seguras con contraseñas en Android
+title: Proteger presentaciones con contraseña en Android
 linktitle: Protección con contraseña
 type: docs
 weight: 20
 url: /es/androidjava/password-protected-presentation/
 keywords:
-- bloquear PowerPoint
-- bloquear presentación
-- desbloquear PowerPoint
-- desbloquear presentación
-- proteger PowerPoint
-- proteger presentación
-- establecer contraseña
-- añadir contraseña
+- presentación protegida con contraseña
+- contraseña de apertura
 - cifrar PowerPoint
-- cifrar presentación
 - descifrar PowerPoint
-- descifrar presentación
-- protección de escritura
-- seguridad de PowerPoint
-- seguridad de la presentación
-- eliminar contraseña
-- eliminar protección
+- validar contraseña de la presentación
+- comprobar contraseña de la presentación
+- abrir presentación cifrada
 - eliminar cifrado
-- desactivar contraseña
-- desactivar protección
-- eliminar protección de escritura
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - presentación
 - Android
 - Java
 - Aspose.Slides
-description: "Bloquee y desbloquee sin esfuerzo presentaciones de PowerPoint y OpenDocument protegidas con contraseña usando Aspose.Slides para Android mediante Java. Proteja sus presentaciones."
+description: "Cifrar, detectar, validar, abrir y descifrar presentaciones de PowerPoint PPT y PPTX protegidas con contraseña con Aspose.Slides para Android mediante Java."
 ---
-## **Introducción**
+## **Visión general**
 
-Cuando protege con contraseña una presentación, está estableciendo una contraseña que impone ciertas restricciones sobre la presentación. Para eliminar las restricciones, hay que introducir la contraseña. Una presentación protegida con contraseña se considera una presentación bloqueada.
+Una contraseña de apertura cifra una presentación. La contraseña correcta es necesaria para cargar y ver el contenido de la presentación, por lo que esta protección brinda confidencialidad.
 
-Normalmente, puede establecer una contraseña para aplicar estas restricciones a una presentación:
+Una contraseña de apertura es diferente de una contraseña de protección contra escritura. La protección contra escritura restringe la modificación pero no cifra el contenido ni impide que la presentación se cargue. Para gestionar contraseñas para modificar presentaciones, vea [Proteger presentaciones contra escritura](/slides/es/androidjava/write-protected-presentation/).
 
-- **Modificación**
+Los flujos de trabajo a continuación se aplican tanto a presentaciones PPT como PPTX. Los ejemplos utilizan ambos formatos cuando su comportamiento basado en archivo y en flujo es importante.
 
-  Si desea que sólo ciertos usuarios modifiquen su presentación, puede establecer una restricción de modificación. Esta restricción impide que las personas modifiquen, cambien o copien elementos de su presentación (a menos que proporcionen la contraseña). 
+## **Cifrar una presentación con una contraseña de apertura**
 
-  Sin embargo, en este caso, incluso sin la contraseña, un usuario podrá acceder a su documento y abrirlo. En este modo de solo lectura, el usuario puede ver el contenido o elementos —hipervínculos, animaciones, efectos y otros— dentro de su presentación, pero no puede copiar elementos ni guardar la presentación. 
+Utilice [IProtectionManager.encrypt](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) para asignar una contraseña de apertura. Luego use [IPresentation.save](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-) para guardar la presentación cifrada.
 
-- **Apertura**
-
-  Si desea que sólo ciertos usuarios abran su presentación, puede establecer una restricción de apertura. Esta restricción impide que las personas incluso vean el contenido de su presentación (a menos que proporcionen la contraseña).
-
-  Técnicamente, la restricción de apertura también impide que los usuarios modifiquen sus presentaciones: cuando las personas no pueden abrir una presentación, no pueden modificarla ni hacer cambios en ella. 
-  
-  **Nota** que cuando protege con contraseña una presentación para impedir su apertura, el archivo de la presentación se cifra.
-
-## **Protección con contraseña de presentaciones en Aspose.Slides**
-**Formatos compatibles**
-
-Aspose.Slides admite la protección con contraseña, el cifrado y operaciones similares para presentaciones en los siguientes formatos: 
-
-- PPTX y PPT - Presentación de Microsoft PowerPoint 
-- ODP - Presentación OpenDocument 
-- OTP - Plantilla de presentación OpenDocument 
-
-**Operaciones compatibles**
-
-Aspose.Slides le permite usar la protección con contraseña en presentaciones para evitar modificaciones de las siguientes maneras:
-
-- Cifrar una presentación
-- Establecer una protección de escritura en una presentación
-
-**Otras operaciones**
-
-Aspose.Slides le permite realizar otras tareas relacionadas con la protección con contraseña y el cifrado de las siguientes maneras:
-
-- Descifrar una presentación; abrir una presentación cifrada
-- Eliminar el cifrado; desactivar la protección con contraseña
-- Eliminar la protección de escritura de una presentación
-- Obtener las propiedades de una presentación cifrada
-- Comprobar si una presentación está cifrada
-- Comprobar si una presentación está protegida con contraseña.
-
-## **Cifrar una presentación**
-
-Puede cifrar una presentación estableciendo una contraseña. Luego, para modificar la presentación bloqueada, el usuario debe proporcionar la contraseña. 
-
-Para cifrar o proteger con contraseña una presentación, debe usar el método encrypt (de [IProtectionManager](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IProtectionManager)) para establecer una contraseña para la presentación. Pasa la contraseña al método encrypt y usa el método save para guardar la presentación ahora cifrada.
-
-Este fragmento de código muestra cómo cifrar una presentación:
+El siguiente ejemplo cifra una presentación PPTX:
 
 ```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().encrypt("123123");
+    presentation.getProtectionManager().encrypt("open_password");
     presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Establecer protección de escritura en una presentación**
-
-Puede añadir una marca que indique “No modificar” a una presentación. De este modo, indica a los usuarios que no desea que realicen cambios en la presentación.  
-
-**Nota** que el proceso de protección de escritura no cifra la presentación. Por lo tanto, los usuarios—si realmente lo desean—pueden modificar la presentación, pero para guardar los cambios tendrán que crear una presentación con un nombre diferente. 
-
-Para establecer una protección de escritura, debe usar el método [setWriteProtection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) . Este fragmento de código muestra cómo establecer una protección de escritura en una presentación:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setWriteProtection("123123");
-    presentation.save("write-protected-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Cargar una presentación cifrada**
-
-Aspose.Slides le permite cargar un archivo cifrado proporcionando su contraseña. Para descifrar una presentación, debe llamar al método [removeEncryption](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) sin parámetros. A continuación, tendrá que introducir la contraseña correcta para cargar la presentación.
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
-try {
-    // trabajar con la presentación descifrada
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Eliminar el cifrado de una presentación**
-
-Puede eliminar el cifrado o la protección con contraseña de una presentación. De esta manera, los usuarios pueden acceder o modificar la presentación sin restricciones. 
-
-Para eliminar el cifrado o la protección con contraseña, debe llamar al método [removeEncryption](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) . Este fragmento de código muestra cómo eliminar el cifrado de una presentación:
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("123123");
-Presentation presentation = new Presentation("pres.pptx", loadOptions);
-try {
-    presentation.getProtectionManager().removeEncryption();
-    presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Eliminar la protección de escritura de una presentación**
-
-Puede usar Aspose.Slides para eliminar la protección de escritura utilizada en un archivo de presentación. De este modo, los usuarios pueden modificar a su gusto—y no reciben advertencias al realizar esas tareas.
-
-Puede eliminar la protección de escritura de una presentación mediante el método [removeWriteProtection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--) . Este fragmento de código muestra cómo eliminar la protección de escritura de una presentación:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().removeWriteProtection();
-    presentation.save("write-protection-removed.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Obtener propiedades de una presentación cifrada**
-
-Normalmente, los usuarios tienen dificultades para obtener las propiedades del documento de una presentación cifrada o protegida con contraseña. Sin embargo, Aspose.Slides ofrece un mecanismo que permite proteger con contraseña una presentación sin perder la capacidad de los usuarios para acceder a sus propiedades.
-
-**Nota:** Por defecto, cuando Aspose.Slides cifra una presentación, las propiedades del documento de la presentación también están protegidas con contraseña. Si necesita que las propiedades del documento sean accesibles incluso después del cifrado, Aspose.Slides le permite hacerlo.
-
-Si desea que los usuarios mantengan la capacidad de acceder a las propiedades de una presentación cifrada, pase `false` a [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-). Este fragmento de código muestra cómo cifrar una presentación mientras sigue proporcionando a los usuarios acceso a sus propiedades del documento:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(false);
-    presentation.getProtectionManager().encrypt("123123");
-    presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Cargar solo las propiedades del documento de una presentación cifrada**
-
-Para inspeccionar los metadatos de una presentación cifrada sin cargar sus diapositivas u otro contenido, cree un objeto [LoadOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/) y pase `true` a [setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iloadoptions/#setOnlyLoadDocumentProperties-boolean-). En este modo, Aspose.Slides ignora la contraseña y carga solo las propiedades del documento que son accesibles públicamente.
-
-El siguiente ejemplo de código lee las propiedades de documento incorporadas y personalizadas a través de [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--):
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setOnlyLoadDocumentProperties(true);
-
-Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
-try {
-    IDocumentProperties documentProperties = presentation.getDocumentProperties();
-
-    // Leer propiedades integradas del documento.
-    System.out.println("Title: " + documentProperties.getTitle());
-    System.out.println("Author: " + documentProperties.getAuthor());
-
-    // Leer propiedades personalizadas del documento.
-    int customPropertyCount = documentProperties.getCountOfCustomProperties();
-
-    for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++) {
-        String propertyName = documentProperties.getCustomPropertyName(propertyIndex);
-        Object propertyValue = documentProperties.get_Item(propertyName);
-
-        System.out.println(propertyName + ": " + propertyValue);
-    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Este flujo de trabajo solo funciona cuando las propiedades del documento se dejaron sin cifrar (públicas) al cifrar la presentación. Si las propiedades del documento están cifradas, pasar `true` a `loadOptions.setOnlyLoadDocumentProperties` provoca una excepción porque la contraseña se ignora en este modo. Para acceder a propiedades del documento cifradas o cargar la presentación completa, incluidas sus diapositivas y otro contenido, proporcione la contraseña correcta mediante [ILoadOptions.setPassword](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-).
+## **Cargar una presentación cifrada**
 
-## **Comprobar si una presentación está protegida con contraseña**
-
-Antes de cargar una presentación, puede que desee comprobar y confirmar que la presentación no está protegida con contraseña. De este modo, evita errores y problemas similares que aparecen cuando se carga una presentación protegida con contraseña sin proporcionar la contraseña.
-
-Este código Java muestra cómo examinar una presentación para ver si está protegida con contraseña (sin cargar la propia presentación):
+Establezca [ILoadOptions.setPassword](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) con la contraseña de apertura y pase las opciones a [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) al cargar el archivo. La carga falla cuando se requiere una contraseña de apertura pero la contraseña proporcionada falta o es incorrecta.
 
 ```java
-IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    // Trabajar con la presentación descifrada.
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Comprobar si una presentación está cifrada**
+## **Eliminar el cifrado de una presentación**
 
-Aspose.Slides le permite comprobar si una presentación está cifrada. Para realizar esta tarea, puede usar la propiedad [isEncrypted](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IProtectionManager#isEncrypted--) , que devuelve `true` si la presentación está cifrada o `false` si no lo está.
-
-Este fragmento de código muestra cómo comprobar si una presentación está cifrada:
+Cargue la presentación con su contraseña de apertura, llame a [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iprotectionmanager/#removeEncryption--) y guarde el resultado. La presentación guardada entonces puede cargarse sin contraseña.
 
 ```java
-Presentation presentation = new Presentation("pres.pptx");
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    presentation.getProtectionManager().removeEncryption();
+    presentation.save("encryption-removed.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Validar una contraseña de apertura antes de cargar**
+
+Utilice [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) para obtener [IPresentationInfo](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentationinfo/) sin crear una instancia completa de la presentación. Compruebe [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) antes de solicitar o validar una contraseña. Cuando la protección está presente, valide el valor suministrado con [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
+
+### **Flujo por ruta de archivo**
+
+El siguiente ejemplo valida una contraseña de apertura para un archivo PPTX, pasa el valor validado a [ILoadOptions.setPassword](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) y luego carga la presentación completa:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+
+String filePath = "protected-presentation.pptx";
+String password = "open_password";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+
+if (!presentationInfo.isPasswordProtected()) {
+    System.out.println("The presentation does not have an opening password.");
+} else if (!presentationInfo.checkPassword(password)) {
+    System.out.println("The opening password is incorrect.");
+} else {
+    LoadOptions loadOptions = new LoadOptions();
+    loadOptions.setPassword(password);
+
+    Presentation presentation = new Presentation(filePath, loadOptions);
+    try {
+        System.out.println("The presentation was validated and loaded successfully.");
+    } finally {
+        presentation.dispose();
+    }
+}
+```
+
+### **Flujo por secuencia**
+
+La sobrecarga de flujo de [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) ofrece el mismo flujo de trabajo. Restablezca la posición de una secuencia que permita buscar antes de cargar la presentación completa desde esa secuencia.
+
+El siguiente ejemplo utiliza un archivo PPT:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileInputStream;
+
+String password = "open_password";
+
+FileInputStream presentationStream = new FileInputStream("protected-presentation.ppt");
+try {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(presentationStream);
+
+    if (!presentationInfo.isPasswordProtected()) {
+        System.out.println("The presentation does not have an opening password.");
+    } else if (!presentationInfo.checkPassword(password)) {
+        System.out.println("The opening password is incorrect.");
+    } else {
+        presentationStream.getChannel().position(0);
+
+        LoadOptions loadOptions = new LoadOptions();
+        loadOptions.setPassword(password);
+
+        Presentation presentation = new Presentation(presentationStream, loadOptions);
+        try {
+            System.out.println("The presentation was validated and loaded successfully.");
+        } finally {
+            presentation.dispose();
+        }
+    }
+} finally {
+    presentationStream.close();
+}
+```
+
+### **Valores de retorno de checkPassword**
+
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) devuelve `true` solo cuando la presentación tiene una contraseña de apertura y la contraseña suministrada es correcta. Devuelve `false` en cada uno de los siguientes casos:
+
+- La contraseña es incorrecta.
+- La presentación no tiene una contraseña de apertura.
+- La contraseña suministrada es `null` o está vacía.
+
+El comportamiento es el mismo para presentaciones PPT y PPTX.
+
+## **Comprobar si una presentación cargada está cifrada**
+
+Después de cargar una presentación con la contraseña correcta, inspeccione [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iprotectionmanager/#isEncrypted--) para confirmar que la presentación original estaba cifrada. Para detectar la protección por contraseña de apertura antes de cargar, use `IPresentationInfo.isPasswordProtected` como se mostró arriba.
+
+```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
+    System.out.println("The presentation is encrypted: " + isEncrypted);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Comprobar si una presentación está protegida contra escritura**
+## **Recomendaciones de seguridad**
 
-Aspose.Slides le permite comprobar si una presentación está protegida contra escritura. Para realizar esta tarea, puede usar la propiedad [isWriteProtected](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) , que devuelve `true` si la presentación está cifrada o `false` si no lo está.
+{{% alert color="warning" title="Seguridad" %}}
+No registre contraseñas de apertura ni las incluya en mensajes de diagnóstico. Evite intentos de validación repetidos innecesarios, mantenga las contraseñas en memoria solo el tiempo necesario y reutilice un resultado de validación exitoso al cargar la presentación inmediatamente.
+{{% /alert %}}
 
-Este fragmento de código muestra cómo comprobar si una presentación está protegida contra escritura:
+## **Proteger una presentación con contraseña en línea**
 
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
+1. Abra la aplicación [Aspose.Slides Lock](https://products.aspose.app/slides/es/lock).
+2. Seleccione o cargue la presentación.
+3. Introduzca una contraseña para la protección de visualización.
+4. Opcionalmente introduzca una contraseña diferente para la protección de edición.
+5. Aplique la protección y descargue el archivo resultante.
 
-## **Validar o confirmar que se ha utilizado una contraseña específica**
-
-Puede que desee comprobar y confirmar que se ha utilizado una contraseña específica para proteger un documento de presentación. Aspose.Slides proporciona los medios para validar una contraseña. 
-
-Este fragmento de código muestra cómo validar una contraseña:
-
-```java
-Presentation presentation = new Presentation("pres.pptx");
-try {
-    // comprobar si "pass" coincide con
-    boolean isWriteProtected = presentation.getProtectionManager().checkWriteProtection("my_password");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-Devuelve `true` si la presentación ha sido cifrada con la contraseña especificada. En caso contrario, devuelve `false`. 
-
-{{% alert color="primary" title="Ver también" %}} 
+{{% alert color="info" title="Ver también" %}}
+- [Proteger presentaciones contra escritura](/slides/es/androidjava/write-protected-presentation/)
 - [Firma digital en PowerPoint](/slides/es/androidjava/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**¿Qué métodos de cifrado admite Aspose.Slides?**
+**¿Cuál es la diferencia entre una contraseña de apertura y una contraseña de protección contra escritura?**
 
-Aspose.Slides admite métodos de cifrado modernos, incluidos los algoritmos basados en AES, lo que garantiza un alto nivel de seguridad de datos para sus presentaciones.
+Una contraseña de apertura cifra la presentación y es necesaria para cargar su contenido. Una contraseña de protección contra escritura restringe la modificación sin cifrar el contenido.
 
-**¿Qué ocurre si se introduce una contraseña incorrecta al intentar abrir una presentación?**
+**¿Puedo validar una contraseña de apertura sin cargar todas las diapositivas?**
 
-Se lanza una excepción si se usa una contraseña incorrecta, indicando que el acceso a la presentación está denegado. Esto ayuda a prevenir el acceso no autorizado y protege el contenido de la presentación.
+Sí. Obtenga la información de la presentación, compruebe si la protección por contraseña de apertura está presente y valide la contraseña antes de crear una instancia completa de la presentación.
 
-**¿Existen implicaciones de rendimiento al trabajar con presentaciones protegidas con contraseña?**
+**¿Los flujos de trabajo de comprobación de contraseñas admiten tanto PPT como PPTX?**
 
-El proceso de cifrado y descifrado puede introducir una ligera sobrecarga durante las operaciones de apertura y guardado. En la mayoría de los casos, este impacto en el rendimiento es mínimo y no afecta significativamente al tiempo total de procesamiento de sus tareas de presentación.
+Sí. La detección y validación de contraseñas basada en ruta de archivo y en flujo funcionan igual para presentaciones PPT y PPTX.

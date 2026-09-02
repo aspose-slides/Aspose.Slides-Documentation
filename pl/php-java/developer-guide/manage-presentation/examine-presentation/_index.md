@@ -9,29 +9,29 @@ keywords:
 - właściwości prezentacji
 - właściwości dokumentu
 - pobieranie właściwości
-- odczytywanie właściwości
+- odczyt właściwości
 - zmiana właściwości
 - modyfikacja właściwości
 - aktualizacja właściwości
-- badanie PPTX
-- badanie PPT
-- badanie ODP
+- analiza PPTX
+- analiza PPT
+- analiza ODP
 - PowerPoint
 - OpenDocument
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Poznaj slajdy, strukturę i metadane w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla PHP, aby szybciej uzyskać wgląd i prowadzić inteligentniejsze audyty treści."
+description: "Poznaj slajdy, strukturę i metadane w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla PHP, aby szybciej uzyskać wgląd i inteligentniej audytować zawartość."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak sprawdzić informacje o prezentacji w Aspose.Slides. Wyjaśnia, jak określić bieżący format prezentacji bez ładowania pełnego pliku, odczytać jej właściwości dokumentu i zaktualizować te właściwości w razie potrzeby.
+Ten artykuł pokazuje, jak sprawdzić informacje o prezentacji w Aspose.Slides. Wyjaśnia, jak określić bieżący format prezentacji bez ładowania całego pliku, odczytać jej właściwości dokumentu oraz zaktualizować te właściwości w razie potrzeby.
 
-Przykłady oparte są na interfejsach API [PresentationInfo](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentationinfo/) i [DocumentProperties](https://reference.aspose.com/slides/pl/php-java/aspose.slides/documentproperties/) i demonstrują typowe operacje pracy z metadanymi prezentacji.
+Przykłady opierają się na interfejsach API PresentationInfo i DocumentProperties oraz demonstrują typowe operacje pracy z metadanymi prezentacji.
 
 ## **Sprawdź format prezentacji**
 
-Przed rozpoczęciem pracy z prezentacją może być konieczne ustalenie, w jakim formacie (PPT, PPTX, ODP i inne) znajduje się prezentacja w danym momencie.
+Przed pracą nad prezentacją możesz chcieć dowiedzieć się, w jakim formacie (PPT, PPTX, ODP i inne) znajduje się prezentacja w danej chwili.
 
 Możesz sprawdzić format prezentacji bez jej ładowania. Zobacz ten kod PHP:
 
@@ -44,11 +44,13 @@ Możesz sprawdzić format prezentacji bez jej ładowania. Zobacz ten kod PHP:
 
   $info3 = PresentationFactory->getInstance()->getPresentationInfo("pres.odp");
   echo($info3->getLoadFormat());// ODP
+
+
 ```
 
 ## **Pobierz właściwości prezentacji**
 
-Ten kod PHP pokazuje, jak uzyskać właściwości prezentacji (informacje o prezentacji):
+Ten kod PHP pokazuje, jak pobrać właściwości prezentacji (informacje o prezentacji):
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
@@ -59,11 +61,11 @@ Ten kod PHP pokazuje, jak uzyskać właściwości prezentacji (informacje o prez
   # ..
 ```
 
-Możesz chcieć zobaczyć [właściwości w klasie DocumentProperties](https://reference.aspose.com/slides/pl/php-java/aspose.slides/documentproperties/#DocumentProperties--) class.
+Możesz chcieć zobaczyć [właściwości w klasie DocumentProperties](https://reference.aspose.com/slides/pl/php-java/aspose.slides/documentproperties/#DocumentProperties--).
 
 ## **Zaktualizuj właściwości prezentacji**
 
-Aspose.Slides udostępnia metodę [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/pl/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) która pozwala wprowadzać zmiany w właściwościach prezentacji.
+Aspose.Slides udostępnia metodę PresentationInfo.updateDocumentProperties, która umożliwia wprowadzanie zmian w właściwościach prezentacji.
 
 Załóżmy, że mamy prezentację PowerPoint z właściwościami dokumentu pokazanymi poniżej.
 
@@ -90,22 +92,20 @@ Wyniki zmiany właściwości dokumentu są pokazane poniżej.
 
 ## **Przydatne linki**
 
-Aby uzyskać więcej informacji o prezentacji i jej atrybutach bezpieczeństwa, przydatne mogą być następujące linki:
+Aby uzyskać więcej informacji o prezentacji i jej atrybutach bezpieczeństwa, możesz uznać te linki za przydatne:
 
-- [Sprawdzanie, czy prezentacja jest zaszyfrowana](https://docs.aspose.com/slides/pl/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Sprawdzanie, czy prezentacja jest zabezpieczona przed zapisem (tylko do odczytu)](https://docs.aspose.com/slides/pl/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Sprawdzanie, czy prezentacja jest chroniona hasłem przed jej załadowaniem](https://docs.aspose.com/slides/pl/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Potwierdzanie hasła użytego do ochrony prezentacji](https://docs.aspose.com/slides/pl/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Zabezpiecz prezentacje hasłem](/slides/pl/php-java/password-protected-presentation/)
+- [Zabezpiecz prezentacje przed zapisem](/slides/pl/php-java/write-protected-presentation/)
 
 ## **FAQ**
 
 **Jak mogę sprawdzić, czy czcionki są osadzone i które to są?**
 
-Poszukaj informacji o [osadzonych czcionkach](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsmanager/getembeddedfonts/) na poziomie prezentacji, a następnie porównaj te wpisy z zestawem [czcionek faktycznie używanych w treści](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsmanager/getfonts/), aby zidentyfikować, które czcionki są kluczowe dla renderowania.
+Poszukaj [informacji o osadzonych czcionkach](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsmanager/getembeddedfonts/) na poziomie prezentacji, a następnie porównaj te wpisy z zestawem [czcionek faktycznie używanych w treści](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontsmanager/getfonts/), aby zidentyfikować, które czcionki są krytyczne dla renderowania.
 
 **Jak szybko sprawdzić, czy plik zawiera ukryte slajdy i ile ich jest?**
 
-Iteruj przez [kolekcję slajdów](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slidecollection/) i sprawdź flagę [widoczności](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slide/gethidden/) każdego slajdu.
+Iteruj przez [kolekcję slajdów](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slidecollection/) i sprawdź [flagę widoczności](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slide/gethidden/) każdego slajdu.
 
 **Czy mogę wykryć, czy używany jest niestandardowy rozmiar i orientacja slajdu oraz czy różnią się od domyślnych?**
 
@@ -113,8 +113,8 @@ Tak. Porównaj bieżący [rozmiar slajdu](https://reference.aspose.com/slides/pl
 
 **Czy istnieje szybki sposób, aby sprawdzić, czy wykresy odwołują się do zewnętrznych źródeł danych?**
 
-Tak. Przejdź wszystkie [wykresy](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/), sprawdź ich [źródło danych](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getdatasourcetype/), i zanotuj, czy dane są wewnętrzne, czy oparte na linkach, w tym wszelkie uszkodzone odnośniki.
+Tak. Przejdź przez wszystkie [wykresy](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/), sprawdź ich [źródło danych](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chartdata/getdatasourcetype/) i zanotuj, czy dane są wewnętrzne, czy oparte na linku, w tym wszelkie uszkodzone linki.
 
 **Jak mogę ocenić „ciężkie” slajdy, które mogą spowalniać renderowanie lub eksport do PDF?**
 
-Dla każdego slajdu zlicz liczbę obiektów i poszukaj dużych obrazów, przezroczystości, cieni, animacji oraz multimediów; przydziel przybliżoną ocenę złożoności, aby oznaczyć potencjalne wąskie gardła wydajności.
+Dla każdego slajdu policz liczbę obiektów i poszukaj dużych obrazów, przezroczystości, cieni, animacji oraz multimediów; przydziel przybliżoną ocenę złożoności, aby oznaczyć potencjalne obszary o słabej wydajności.

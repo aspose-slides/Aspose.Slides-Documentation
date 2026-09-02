@@ -1,77 +1,84 @@
 ---
-title: Java में प्रस्तुति जानकारी प्राप्त करें और अपडेट करें
-linktitle: प्रस्तुति जानकारी
+title: जावा में प्रेजेंटेशन जानकारी प्राप्त करें और अपडेट करें
+linktitle: प्रेजेंटेशन जानकारी
 type: docs
 weight: 30
 url: /hi/java/examine-presentation/
 keywords:
-- प्रस्तुति फ़ॉर्मेट
-- प्रस्तुति गुण
-- दस्तावेज़ गुण
-- गुण प्राप्त करें
-- गुण पढ़ें
-- गुण बदलें
-- गुण संशोधित करें
-- गुण अपडेट करें
-- PPTX जाँचें
-- PPT जाँचें
-- ODP जाँचें
+- प्रेजेंटेशन फ़ॉर्मेट
+- प्रेजेंटेशन प्रॉपर्टीज़
+- दस्तावेज़ प्रॉपर्टीज़
+- प्रॉपर्टीज़ प्राप्त करें
+- प्रॉपर्टीज़ पढ़ें
+- प्रॉपर्टीज़ बदलें
+- प्रॉपर्टीज़ संशोधित करें
+- प्रॉपर्टीज़ अपडेट करें
+- PPTX जांचें
+- PPT जांचें
+- ODP जांचें
 - PowerPoint
 - OpenDocument
-- प्रस्तुति
+- प्रेजेंटेशन
 - Java
 - Aspose.Slides
-description: "Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडेटा का अन्वेषण करें, जिससे तेज़ अंतर्दृष्टि और अधिक बुद्धिमान सामग्री ऑडिट प्राप्त हों।"
+description: "जावा का उपयोग करके PowerPoint और OpenDocument प्रेजेंटेशन में स्लाइड्स, संरचना और मेटाडेटा का अन्वेषण करें, तेज़ अंतर्दृष्टि और स्मार्ट कंटेंट ऑडिट्स के लिए।"
 ---
 ## **अवलोकन**
 
-यह लेख दिखाता है कि Aspose.Slides में प्रस्तुति सूचना की जाँच कैसे करें। यह समझाता है कि पूरी फ़ाइल लोड किए बिना प्रस्तुति के वर्तमान फ़ॉर्मेट का निर्धारण कैसे किया जाए, उसके दस्तावेज़ गुण पढ़े जाएँ, और आवश्यकता पड़ने पर उन गुणों को अपडेट किया जाए।
+यह लेख Aspose.Slides में प्रेजेंटेशन जानकारी का निरीक्षण कैसे करें, यह दर्शाता है। यह बताता है कि पूर्ण फ़ाइल लोड किए बिना प्रेजेंटेशन के वर्तमान फ़ॉर्मेट का निर्धारण कैसे करें, उसकी दस्तावेज़ प्रॉपर्टीज़ पढ़ें, और आवश्यकता पड़ने पर उन प्रॉपर्टीज़ को अपडेट करें।
 
-उदाहरण [PresentationInfo](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentationinfo/) और [DocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/documentproperties/) API पर आधारित हैं और प्रस्तुति मेटाडेटा के साथ काम करने के सामान्य कार्यों को प्रदर्शित करते हैं।
+उदाहरण PresentationInfo और DocumentProperties API पर आधारित हैं और प्रेजेंटेशन मेटा डेटा के साथ काम करने के सामान्य संचालन को प्रदर्शित करते हैं।
 
-## **प्रस्तुति फ़ॉर्मेट जाँचें**
+## **प्रेजेंटेशन फ़ॉर्मेट जाँचें**
 
-प्रस्तुति पर काम करने से पहले, आप यह जानना चाहते हो सकते हैं कि वर्तमान में प्रस्तुति किस फ़ॉर्मेट (PPT, PPTX, ODP, आदि) में है।
+आप यह जानना चाह सकते हैं कि वर्तमान में प्रेजेंटेशन किस फ़ॉर्मेट (PPT, PPTX, ODP, इत्यादि) में है।
 
-आप प्रस्तुति को लोड किए बिना उसकी फ़ॉर्मेट जाँच सकते हैं। इस जावा कोड को देखें:
+आप प्रेजेंटेशन को लोड किए बिना उसके फ़ॉर्मेट की जाँच कर सकते हैं। इस Java कोड को देखें:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-System.out.println(info.getLoadFormat()); // PPTX
+System.out.println(info.getLoadFormat()); // PPTX फ़ॉर्मेट
 
 IPresentationInfo info2 = PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-System.out.println(info2.getLoadFormat()); // PPT
+System.out.println(info2.getLoadFormat()); // PPT फ़ॉर्मेट
 
 IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-System.out.println(info3.getLoadFormat()); // ODP
+System.out.println(info3.getLoadFormat()); // ODP फ़ॉर्मेट
 ```
 
-## **प्रस्तुति गुण प्राप्त करें**
+## **प्रेजेंटेशन प्रॉपर्टीज़ प्राप्त करें**
 
-यह जावा कोड आपको दिखाता है कि कैसे प्रस्तुति गुण (प्रस्तुति की जानकारी) प्राप्त करें:
+यह Java कोड आपको प्रेजेंटेशन प्रॉपर्टीज़ (प्रेजेंटेशन की जानकारी) प्राप्त करने का तरीका दिखाता है:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// ...
+// .. 
 ```
 
-आप [DocumentProperties के अंतर्गत गुण](https://reference.aspose.com/slides/hi/java/com.aspose.slides/documentproperties/#DocumentProperties--) वर्ग देखना चाह सकते हैं।
+आप DocumentProperties क्लास के अंतर्गत प्रॉपर्टीज़ देखना चाह सकते हैं।
 
-## **प्रस्तुति गुण अद्यतन करें**
+## **प्रेजेंटेशन प्रॉपर्टीज़ अपडेट करें**
 
-Aspose.Slides [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/hi/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) मेथड प्रदान करता है जो आपको प्रस्तुति गुणों में परिवर्तन करने की अनुमति देता है।
+Aspose.Slides PresentationInfo.updateDocumentProperties मेथड प्रदान करता है जो आपको प्रेजेंटेशन प्रॉपर्टीज़ में परिवर्तन करने की अनुमति देता है।
 
-मान लीजिए हमारे पास नीचे दिखाए गए दस्तावेज़ गुणों वाली एक PowerPoint प्रस्तुति है।
+मान लीजिए हमारे पास नीचे दिखाए गए दस्तावेज़ प्रॉपर्टीज़ वाला एक PowerPoint प्रेजेंटेशन है।
 
-![PowerPoint प्रस्तुति के मूल दस्तावेज़ गुण](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
-यह कोड उदाहरण दिखाता है कि कैसे कुछ प्रस्तुति गुण संपादित करें:
+यह कोड उदाहरण आपको कुछ प्रेजेंटेशन प्रॉपर्टीज़ को संपादित करने का तरीका दिखाता है:
 
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -84,37 +91,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
-दस्तावेज़ गुणों को बदलने के परिणाम नीचे दिखाए गए हैं।
+दस्तावेज़ प्रॉपर्टीज़ को बदलने के परिणाम नीचे दिखाए गए हैं।
 
-![PowerPoint प्रस्तुति के बदले हुए दस्तावेज़ गुण](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **उपयोगी लिंक**
 
-प्रस्तुति और उसकी सुरक्षा विशेषताओं के बारे में अधिक जानकारी के लिए, आप इन लिंक को उपयोगी पा सकते हैं:
+प्रेजेंटेशन और उसकी सुरक्षा विशेषताओं के बारे में अधिक जानकारी प्राप्त करने के लिए आप इन लिंक को उपयोगी पा सकते हैं:
 
-- [जाँचें कि क्या प्रस्तुति एन्क्रिप्टेड है](https://docs.aspose.com/slides/hi/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [जाँचें कि क्या प्रस्तुति लिखित-रक्षित (केवल-पढ़ने योग्य) है](https://docs.aspose.com/slides/hi/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [जाँचें कि क्या प्रस्तुति को लोड करने से पहले पासवर्ड से सुरक्षित किया गया है](https://docs.aspose.com/slides/hi/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [प्रस्तुति को सुरक्षित करने के लिए उपयोग किए गए पासवर्ड की पुष्टि करना](https://docs.aspose.com/slides/hi/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/hi/java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/hi/java/write-protected-presentation/)
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**मैं कैसे जाँच सकता हूँ कि फ़ॉन्ट एम्बेडेड हैं और कौन‑से हैं?**
+**मैं यह कैसे जाँच सकता हूँ कि फ़ॉन्ट एम्बेडेड हैं या नहीं और कौन‑से हैं?**
 
-प्रस्तुति स्तर पर [एंबेडेड फ़ॉन्ट जानकारी](https://reference.aspose.com/slides/hi/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) देखें, फिर उन प्रविष्टियों की तुलना [सामग्री में वास्तविक रूप से प्रयुक्त फ़ॉन्ट्स](https://reference.aspose.com/slides/hi/java/com.aspose.slides/fontsmanager/#getFonts--) के सेट से करें ताकि यह पहचाना जा सके कि रेंडरिंग के लिए किन फ़ॉन्ट्स का महत्व है।
+प्रेजेंटेशन स्तर पर embedded‑font जानकारी देखें, फिर उन प्रविष्टियों की तुलना सामग्री में वास्तविक उपयोग किए गए फ़ॉन्ट्स के सेट से करें ताकि यह पता चल सके कि कौन‑से फ़ॉन्ट रेंडरिंग के लिए महत्वपूर्ण हैं।
 
-**मैं जल्दी से कैसे जान सकता हूँ कि फ़ाइल में छिपे स्लाइड्स हैं और उनकी संख्या क्या है?**
+**मैं फ़ाइल में छिपी स्लाइड्स हैं या नहीं और कितनी हैं, यह जल्दी से कैसे पता कर सकता हूँ?**
 
-फ़ाइल में [स्लाइड संग्रह](https://reference.aspose.com/slides/hi/java/com.aspose.slides/slidecollection/) को इटररेट करें और प्रत्येक स्लाइड के [दृश्यता फ़्लैग](https://reference.aspose.com/slides/hi/java/com.aspose.slides/slide/#getHidden--) को जांचें।
+slide collection पर इटररेट करें और प्रत्येक स्लाइड के visibility flag को जांचें।
 
-**क्या मैं पता लगा सकता हूँ कि कस्टम स्लाइड आकार और अभिविन्यास उपयोग किए गए हैं, और क्या वे डिफ़ॉल्ट से अलग हैं?**
+**क्या मैं यह पता लगा सकता हूँ कि कस्टम स्लाइड आकार और अभिविन्यास उपयोग में हैं या नहीं, और क्या वे डिफ़ॉल्ट से अलग हैं?**
 
-हां। वर्तमान [स्लाइड आकार](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#getSlideSize--) और अभिविन्यास की मानक प्रीसेट्स से तुलना करें; यह प्रिंटिंग और निर्यात के व्यवहार का अनुमान लगाने में मदद करता है।
+हाँ। वर्तमान slide size और orientation की मानक प्रीसेट्स से तुलना करें; इससे प्रिंटिंग और एक्सपोर्ट के व्यवहार का अनुमान लगाने में मदद मिलती है।
 
-**क्या चार्ट्स बाहरी डेटा स्रोतों को रेफ़र कर रहे हैं, यह देखना जल्दी संभव है?**
+**क्या चार्ट्स बाहरी डेटा स्रोतों का संदर्भ दे रहे हैं, यह जल्दी से देखने का कोई तरीका है?**
 
-हां। सभी [चार्ट्स](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chart/) को ट्रैवर्स करें, उनके [डेटा स्रोत](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chartdata/#getDataSourceType--) की जाँच करें, और नोट करें कि डेटा अंतर्निहित है या लिंक‑आधारित, जिसमें टूटे हुए लिंक भी शामिल हैं।
+हाँ। सभी charts को ट्रैवर्स करें, उनके data source को जांचें, और नोट करें कि डेटा आंतरिक है या लिंक‑आधारित, जिसमें टूटे हुए लिंक भी शामिल हैं।
 
-**मैं कैसे 'भारी' स्लाइड्स का मूल्यांकन कर सकता हूँ जो रेंडरिंग या PDF निर्यात को धीमा कर सकती हैं?**
+**मैं 'हैवी' स्लाइड्स का मूल्यांकन कैसे कर सकता हूँ जो रेंडरिंग या PDF एक्सपोर्ट को धीमा कर सकती हैं?**
 
-प्रत्येक स्लाइड के लिए, ऑब्जेक्ट गणना करें और बड़े इमेज, ट्रांसपैरेंसी, शैडो, एनीमेशन तथा मल्टीमीडिया देखें; संभावित प्रदर्शन समस्याओं को चिन्हित करने के लिए एक मोटा जटिलता स्कोर असाइन करें।
+हर स्लाइड के लिए, ऑब्जेक्ट काउंट गिनें और बड़े इमेजेज़, ट्रांसपरेंसी, शैडो, एनीमेशन और मल्टीमीडिया देखें; संभावित प्रदर्शन समस्याओं को चिन्हित करने के लिए एक मोटा जटिलता स्कोर दें।

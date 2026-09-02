@@ -1,5 +1,5 @@
 ---
-title: Android でのプレゼンテーション情報の取得と更新
+title: Android でプレゼンテーション情報を取得および更新
 linktitle: プレゼンテーション情報
 type: docs
 weight: 30
@@ -8,11 +8,11 @@ keywords:
 - プレゼンテーション形式
 - プレゼンテーション プロパティ
 - ドキュメント プロパティ
-- プロパティ取得
-- プロパティ読み取り
-- プロパティ変更
-- プロパティ修正
-- プロパティ更新
+- プロパティの取得
+- プロパティの読み取り
+- プロパティの変更
+- プロパティの修正
+- プロパティの更新
 - PPTX の調査
 - PPT の調査
 - ODP の調査
@@ -22,23 +22,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Java を使用して PowerPoint および OpenDocument のプレゼンテーション内のスライド、構造、メタデータを調査し、迅速な洞察とスマートなコンテンツ監査を実現します。"
+description: "Java を使用して PowerPoint および OpenDocument のプレゼンテーションのスライド、構造、メタデータを調査し、より迅速な洞察と賢明なコンテンツ監査を実現します。"
 ---
+## **概要**
 
-Aspose.Slides for Android via Java を使用すると、プレゼンテーションを調査してプロパティを確認し、その動作を理解できます。
+この記事では、Aspose.Slidesでプレゼンテーション情報を検査する方法を示します。ファイル全体をロードせずにプレゼンテーションの現在の形式を判定し、ドキュメントプロパティを読み取り、必要に応じてそれらのプロパティを更新する方法を説明します。
 
-{{% alert title="Info" color="info" %}} 
-
-The [PresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo) and [DocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/documentproperties/) classes contain the properties and methods used in operations here.
-
-{{% /alert %}} 
+例は[PresentationInfo](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentationinfo/)および[DocumentProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/documentproperties/) APIを基にしており、プレゼンテーションのメタデータを操作する典型的な操作を示しています。
 
 ## **プレゼンテーション形式の確認**
 
-プレゼンテーションを操作する前に、現在の形式（PPT、PPTX、ODP など）を確認したい場合があります。
+プレゼンテーションを操作する前に、現在の形式（PPT、PPTX、ODP、その他）が何であるかを確認したくなることがあります。
 
-プレゼンテーションを読み込まずに形式をチェックできます。以下の Java コードをご参照ください:
+プレゼンテーションをロードせずに形式を確認できます。このJavaコードをご覧ください：
+
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 System.out.println(info.getLoadFormat()); // PPTX
 
@@ -49,32 +49,37 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
+## **プレゼンテーションプロパティの取得**
 
-## **プレゼンテーション プロパティの取得**
+このJavaコードは、プレゼンテーションプロパティ（プレゼンテーションに関する情報）を取得する方法を示します：
 
-この Java コードは、プレゼンテーション プロパティ（プレゼンテーションに関する情報）を取得する方法を示します:
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 IDocumentProperties props = info.readDocumentProperties();
 System.out.println(props.getCreatedTime());
 System.out.println(props.getSubject());
 System.out.println(props.getTitle());
-// 省略
+// .. 
 ```
 
+DocumentPropertiesクラスの[プロパティ](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--)をご覧になることができます。
 
-DocumentProperties クラスの [properties under the DocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) を参照してください。
+## **プレゼンテーションプロパティの更新**
 
-## **プレゼンテーション プロパティの更新**
+Aspose.Slidesは、プレゼンテーションプロパティを変更できる[PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)メソッドを提供しています。
 
-Aspose.Slides は、プレゼンテーション プロパティを変更できる [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) メソッドを提供しています。
+以下に示すドキュメントプロパティを持つPowerPointプレゼンテーションがあるとしましょう。
 
-以下に示すようなドキュメント プロパティを持つ PowerPoint プレゼンテーションがあるとします。
+![PowerPointプレゼンテーションの元のドキュメントプロパティ](input_properties.png)
 
-![Original document properties of the PowerPoint presentation](input_properties.png)
+このコード例は、いくつかのプレゼンテーションプロパティを編集する方法を示します：
 
-このコード例は、いくつかのプレゼンテーション プロパティを編集する方法を示します:
 ```java
+import com.aspose.slides.*;
+import java.util.Date;
+
 String fileName = "sample.pptx";
 
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -87,38 +92,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
+ドキュメントプロパティの変更結果は以下の通りです。
 
-プロパティ変更の結果は以下のとおりです。
-
-![Changed document properties of the PowerPoint presentation](output_properties.png)
+![PowerPointプレゼンテーションの変更されたドキュメントプロパティ](output_properties.png)
 
 ## **便利なリンク**
 
-プレゼンテーションとそのセキュリティ属性に関する詳細情報については、以下のリンクが役立ちます。
+プレゼンテーションとそのセキュリティ属性に関する詳細情報を得るには、以下のリンクが役立つでしょう：
 
-- [Checking whether a Presentation is Encrypted](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/androidjava/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [プレゼンテーションのパスワード保護](/slides/ja/androidjava/password-protected-presentation/)
+- [プレゼンテーションの書き込み保護](/slides/ja/androidjava/write-protected-presentation/)
 
 ## **FAQ**
 
 **フォントが埋め込まれているか、どのフォントかを確認する方法は？**
 
-プレゼンテーション レベルで [embedded-font information](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) を探し、[fonts actually used across content](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getFonts--) と比較して、レンダリングに必須のフォントを特定します。
+プレゼンテーションレベルで[埋め込みフォント情報](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--)を確認し、それらのエントリを[実際にコンテンツ全体で使用されているフォント](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/fontsmanager/#getFonts--)のセットと比較して、レンダリングに必須のフォントを特定します。
 
-**ファイルに非表示スライドがあるかどうか、またその数をすばやく判断する方法は？**
+**ファイルに非表示スライドがあるか、またその数をすぐに確認する方法は？**
 
-[slide collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) を反復処理し、各スライドの [visibility flag](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slide/#getHidden--) を確認します。
+[スライドコレクション](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slidecollection/)を反復し、各スライドの[可視性フラグ](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slide/#getHidden--)をチェックします。
 
-**カスタム スライド サイズや向きが使用されているか、デフォルトと異なるかを検出できるか？**
+**カスタムスライドサイズや向きが使用されているか、デフォルトと異なるかを検出できますか？**
 
-はい。現在の [slide size](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlideSize--) と向きを標準設定と比較してください。これにより、印刷やエクスポート時の動作を予測できます。
+はい。現在の[スライドサイズ](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#getSlideSize--)と向きを標準のプリセットと比較します。これにより、印刷やエクスポート時の挙動を予測できます。
 
-**チャートが外部データ ソースを参照しているかどうかをすばやく確認する方法は？**
+**チャートが外部データソースを参照しているかすぐに確認する方法はありますか？**
 
-はい。すべての [charts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/) を走査し、[data source](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) を確認して、データが内部かリンクベースか、リンクが切れているかどうかを把握します。
+はい。すべての[チャート](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/chart/)を走査し、[データソース](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/chartdata/#getDataSourceType--)を確認して、データが内部かリンクベースか、壊れたリンクがあるかを把握します。
 
-**レンダリングや PDF エクスポートを遅くする可能性のある「重い」スライドを評価する方法は？**
+**レンダリングやPDFエクスポートを遅くする可能性のある「重い」スライドを評価する方法は？**
 
-各スライドごとにオブジェクト数を集計し、大きな画像、透明度、影、アニメーション、マルチメディアなどをチェックして、概算の複雑度スコアを付け、パフォーマンス上のホットスポットを特定します。
+各スライドについてオブジェクト数を集計し、大きな画像、透明度、影、アニメーション、マルチメディアなどを確認します。おおまかな複雑度スコアを割り当て、パフォーマンスのボトルネックになり得るスライドをフラグ付けします。

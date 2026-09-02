@@ -1,11 +1,10 @@
 ---
-title: Präsentation untersuchen
+title: Abrufen und Aktualisieren von Präsentationsinformationen in JavaScript
+linktitle: Präsentationsinformationen
 type: docs
 weight: 30
 url: /de/nodejs-java/examine-presentation/
 keywords:
-- PowerPoint
-- Präsentation
 - Präsentationsformat
 - Präsentationseigenschaften
 - Dokumenteigenschaften
@@ -13,27 +12,34 @@ keywords:
 - Eigenschaften lesen
 - Eigenschaften ändern
 - Eigenschaften modifizieren
-- PPTX
-- PPT
+- Eigenschaften aktualisieren
+- PPTX untersuchen
+- PPT untersuchen
+- ODP untersuchen
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Node.js
 - JavaScript
-- Node
-description: "PowerPoint-Präsentationseigenschaften in Node lesen und ändern"
+- Aspose.Slides
+description: "Untersuchen Sie Folien, Struktur und Metadaten in PowerPoint- und OpenDocument-Präsentationen mit JavaScript für schnellere Einblicke und intelligentere Inhaltsprüfungen."
 ---
+## **Übersicht**
 
-Aspose.Slides für Node.js über Java ermöglicht es Ihnen, eine Präsentation zu untersuchen, um deren Eigenschaften zu ermitteln und ihr Verhalten zu verstehen.
+Dieser Artikel zeigt, wie man Präsentationsinformationen in Aspose.Slides inspiziert. Er erklärt, wie man das aktuelle Format einer Präsentation ermittelt, ohne die gesamte Datei zu laden, ihre Dokumenteigenschaften ausliest und bei Bedarf diese Eigenschaften aktualisiert.
 
-{{% alert title="Info" color="info" %}} 
-
-Die Klassen [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo) und [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/) enthalten die Eigenschaften und Methoden, die in den hier beschriebenen Vorgängen verwendet werden.
-
-{{% /alert %}} 
+Die Beispiele basieren auf den APIs [PresentationInfo](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentationinfo/) und [DocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/documentproperties/) und demonstrieren typische Vorgänge beim Arbeiten mit Metadaten von Präsentationen.
 
 ## **Prüfen des Präsentationsformats**
 
-Bevor Sie an einer Präsentation arbeiten, möchten Sie möglicherweise herausfinden, in welchem Format (PPT, PPTX, ODP und andere) sich die Präsentation derzeit befindet.
+Bevor Sie mit einer Präsentation arbeiten, möchten Sie möglicherweise herausfinden, in welchem Format (PPT, PPTX, ODP und weitere) sich die Präsentation derzeit befindet.
 
-Sie können das Format einer Präsentation überprüfen, ohne sie zu laden. Siehe diesen JavaScript-Code:
+Sie können das Format einer Präsentation prüfen, ohne die Präsentation zu laden. Siehe dazu diesen JavaScript‑Code:
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 console.log(info.getLoadFormat());// PPTX
 var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
@@ -42,11 +48,14 @@ var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(
 console.log(info3.getLoadFormat());// ODP
 ```
 
+## **Präsentations‑Eigenschaften abrufen**
 
-## **Abrufen von Präsentationseigenschaften**
+Dieser JavaScript‑Code zeigt, wie Sie Präsentationseigenschaften (Informationen zur Präsentation) erhalten:
 
-Dieser JavaScript-Code zeigt, wie Sie Präsentationseigenschaften (Informationen zur Präsentation) abrufen können:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
 var props = info.readDocumentProperties();
 console.log(props.getCreatedTime());
@@ -55,19 +64,23 @@ console.log(props.getTitle());
 // ..
 ```
 
+Sie können die [Eigenschaften in der Klasse DocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) einsehen.
 
-Sie möchten möglicherweise die [Eigenschaften in der DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) Klasse sehen.
+## **Präsentations‑Eigenschaften aktualisieren**
 
-## **Aktualisieren von Präsentationseigenschaften**
+Aspose.Slides stellt die Methode [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) bereit, mit der Sie Änderungen an Präsentationseigenschaften vornehmen können.
 
-Aspose.Slides stellt die Methode [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) zur Verfügung, mit der Sie Änderungen an Präsentationseigenschaften vornehmen können.
+Angenommen, wir haben eine PowerPoint‑Präsentation mit den unten gezeigten Dokumenteigenschaften.
 
-Angenommen, wir haben eine PowerPoint-Präsentation mit den unten gezeigten Dokumenteigenschaften.
+![Originale Dokumenteigenschaften der PowerPoint‑Präsentation](input_properties.png)
 
-![Ursprüngliche Dokumenteigenschaften der PowerPoint-Präsentation](input_properties.png)
+Dieses Code‑Beispiel zeigt, wie Sie einige Präsentationseigenschaften bearbeiten:
 
-Dieses Codebeispiel zeigt, wie Sie einige Präsentationseigenschaften bearbeiten können:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let fileName = "sample.pptx";
 
 let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
@@ -80,38 +93,35 @@ info.updateDocumentProperties(properties);
 info.writeBindedPresentation(fileName);
 ```
 
+Die Ergebnisse der Änderung der Dokumenteigenschaften sind unten dargestellt.
 
-Die Ergebnisse der Änderung der Dokumenteigenschaften werden unten angezeigt.
-
-![Geänderte Dokumenteigenschaften der PowerPoint-Präsentation](output_properties.png)
+![Geänderte Dokumenteigenschaften der PowerPoint‑Präsentation](output_properties.png)
 
 ## **Nützliche Links**
 
-Um weitere Informationen zu einer Präsentation und ihren Sicherheitsattributen zu erhalten, können diese Links nützlich sein:
+Weitere Informationen zu einer Präsentation und ihren Sicherheitsattributen finden Sie hier:
 
-- [Überprüfen, ob eine Präsentation verschlüsselt ist](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Überprüfen, ob eine Präsentation schreibgeschützt (nur lesbar) ist](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Überprüfen, ob eine Präsentation passwortgeschützt ist, bevor sie geladen wird](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bestätigen des zur Sicherung einer Präsentation verwendeten Passworts](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/de/nodejs-java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/de/nodejs-java/write-protected-presentation/)
 
 ## **FAQ**
 
 **Wie kann ich prüfen, ob Schriften eingebettet sind und welche das sind?**
 
-Suchen Sie nach [Informationen zu eingebetteten Schriften](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) auf Präsentationsebene und vergleichen Sie diese Einträge mit der Menge der [tatsächlich im Inhalt verwendeten Schriften](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/getfonts/), um zu ermitteln, welche Schriften für die Darstellung kritisch sind.
+Suchen Sie nach [Informationen zu eingebetteten Schriftarten](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) auf Präsentationsebene und vergleichen Sie diese Einträge mit dem Satz der [tatsächlich im Inhalt verwendeten Schriften](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/getfonts/), um zu ermitteln, welche Schriften für die Darstellung kritisch sind.
 
-**Wie kann ich schnell feststellen, ob die Datei versteckte Folien enthält und wie viele?**
+**Wie erkenne ich schnell, ob die Datei verborgene Folien enthält und wie viele es sind?**
 
-Durchlaufen Sie die [Folienkollektion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) und prüfen Sie für jede Folie das [Sichtbarkeits‑Flag](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/gethidden/).
+Durchlaufen Sie die [Slide‑Collection](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/) und prüfen Sie bei jeder Folie die [Sichtbarkeits‑Flagge](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/gethidden/).
 
-**Kann ich erkennen, ob eine benutzerdefinierte Foliengröße und -ausrichtung verwendet wird und ob sie von den Standardeinstellungen abweicht?**
+**Kann ich feststellen, ob benutzerdefinierte Foliengröße und -ausrichtung verwendet werden und ob sie von den Vorgabewerten abweichen?**
 
-Ja. Vergleichen Sie die aktuelle [Foliengröße](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslidesize/) und Ausrichtung mit den Standard‑Voreinstellungen; dies hilft, das Verhalten beim Drucken und Export vorherzusehen.
+Ja. Vergleichen Sie die aktuelle [Foliengröße](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/getslidesize/) und Ausrichtung mit den Standard‑Presets; das hilft, das Verhalten beim Drucken und Exportieren vorherzusehen.
 
-**Gibt es eine schnelle Methode, um zu erkennen, ob Diagramme externe Datenquellen referenzieren?**
+**Gibt es eine schnelle Methode, um zu sehen, ob Diagramme externe Datenquellen referenzieren?**
 
-Ja. Durchlaufen Sie alle [Diagramme](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/), prüfen Sie deren [Datenquelle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) und stellen Sie fest, ob die Daten intern oder verknüpft sind, einschließlich etwaiger defekter Links.
+Ja. Durchlaufen Sie alle [Charts](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chart/), prüfen Sie deren [Datenquelle](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) und notieren Sie, ob die Daten intern oder verknüpft sind, einschließlich eventuell defekter Links.
 
-**Wie kann ich „schwere“ Folien bewerten, die das Rendern oder den PDF‑Export verlangsamen könnten?**
+**Wie kann ich „schwere“ Folien beurteilen, die das Rendern oder den PDF‑Export verlangsamen könnten?**
 
-Zählen Sie für jede Folie die Objektanzahl und achten Sie auf große Bilder, Transparenz, Schatten, Animationen und Multimedia; vergeben Sie eine grobe Komplexitätsbewertung, um mögliche Leistungsspitzen zu kennzeichnen.
+Zählen Sie für jede Folie die Objektanzahl und suchen Sie nach großen Bildern, Transparenz, Schatten, Animationen und Multimedia; vergeben Sie eine grobe Komplexitätsbewertung, um potenzielle Performance‑Hotspots zu kennzeichnen.

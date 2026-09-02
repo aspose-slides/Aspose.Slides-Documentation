@@ -13,9 +13,9 @@ keywords:
 - ändra egenskaper
 - modifiera egenskaper
 - uppdatera egenskaper
-- undersök PPTX
-- undersök PPT
-- undersök ODP
+- undersöka PPTX
+- undersöka PPT
+- undersöka ODP
 - PowerPoint
 - OpenDocument
 - presentation
@@ -25,9 +25,9 @@ description: "Utforska bilder, struktur och metadata i PowerPoint- och OpenDocum
 ---
 ## **Översikt**
 
-Denna artikel visar hur du inspekterar presentationsinformation i Aspose.Slides. Den förklarar hur du bestämmer en presentations nuvarande format utan att läsa in hela filen, läser dess dokumentegenskaper och uppdaterar dessa egenskaper vid behov.
+Den här artikeln visar hur man inspekterar presentationsinformation i Aspose.Slides. Den förklarar hur man bestämmer en presentations aktuella format utan att läsa in hela filen, läser dess dokumentegenskaper och uppdaterar dessa egenskaper vid behov.
 
-Exemplen är baserade på API:erna [PresentationInfo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentationinfo/) och [DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties/) och demonstrerar typiska operationer för att arbeta med presentationsmetadata.
+Exemplen är baserade på API:erna [PresentationInfo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentationinfo/) och [DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties/) och visar typiska operationer för att arbeta med presentationsmetadata.
 
 ## **Kontrollera presentationsformat**
 
@@ -44,13 +44,11 @@ Du kan kontrollera en presentations format utan att läsa in presentationen. Se 
 
   $info3 = PresentationFactory->getInstance()->getPresentationInfo("pres.odp");
   echo($info3->getLoadFormat());// ODP
-
-
 ```
 
 ## **Hämta presentationsegenskaper**
 
-Denna PHP‑kod visar hur du hämtar presentations‑egenskaper (information om presentationen):
+Denna PHP‑kod visar hur du får presentationsegenskaper (information om presentationen):
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
@@ -59,20 +57,19 @@ Denna PHP‑kod visar hur du hämtar presentations‑egenskaper (information om 
   echo($props->getSubject());
   echo($props->getTitle());
   # ..
-
 ```
 
-Du kanske vill se [egenskaperna under DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties/#DocumentProperties--) klassen.
+Du kanske vill se [egenskaperna under DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties/#DocumentProperties--)‑klassen.
 
 ## **Uppdatera presentationsegenskaper**
 
-Aspose.Slides tillhandahåller metoden [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) som låter dig göra ändringar i presentations‑egenskaper.
+Aspose.Slides tillhandahåller metoden [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) som låter dig göra ändringar i presentationsegenskaper.
 
 Låt oss säga att vi har en PowerPoint‑presentation med dokumentegenskaperna som visas nedan.
 
-![Originala dokumentegenskaper för PowerPoint‑presentationen](input_properties.png)
+![Originala dokumentegenskaper för PowerPoint-presentationen](input_properties.png)
 
-Detta kodexempel visar hur du redigerar vissa presentations‑egenskaper:
+Detta kodexempel visar hur du redigerar vissa presentationsegenskaper:
 
 ```php
 $fileName = "sample.pptx";
@@ -89,35 +86,33 @@ $info->writeBindedPresentation($fileName);
 
 Resultaten av att ändra dokumentegenskaperna visas nedan.
 
-![Ändrade dokumentegenskaper för PowerPoint‑presentationen](output_properties.png)
+![Ändrade dokumentegenskaper för PowerPoint-presentationen](output_properties.png)
 
 ## **Användbara länkar**
 
 För att få mer information om en presentation och dess säkerhetsattribut kan du finna dessa länkar användbara:
 
-- [Kontrollera om en presentation är krypterad](https://docs.aspose.com/slides/sv/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kontrollera om en presentation är skrivskyddad (read-only)](https://docs.aspose.com/slides/sv/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kontrollera om en presentation är lösenordsskyddad innan den laddas](https://docs.aspose.com/slides/sv/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Bekräfta lösenordet som används för att skydda en presentation](https://docs.aspose.com/slides/sv/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Password-Protect Presentations](/slides/sv/php-java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/sv/php-java/write-protected-presentation/)
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Hur kan jag kontrollera om teckensnitt är inbäddade och vilka de är?**
+**Hur kan jag kontrollera om typsnitt är inbäddade och vilka de är?**
 
-Sök efter [information om inbäddade teckensnitt](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/getembeddedfonts/) på presentationsnivå, jämför sedan dessa poster med mängden [teckensnitt som faktiskt används i innehållet](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/getfonts/) för att identifiera vilka teckensnitt som är kritiska för rendering.
+Sök efter [information om inbäddade typsnitt](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/getembeddedfonts/) på presentationsnivå, jämför sedan dessa poster med mängden [typsnitt som faktiskt används i innehållet](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/getfonts/) för att identifiera vilka typsnitt som är kritiska för renderingen.
 
 **Hur kan jag snabbt avgöra om filen har dolda bilder och hur många?**
 
-Iterera genom [bildsamlingen](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slidecollection/) och inspektera varje bilds [synlighetsflagga](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/gethidden/).
+Iterera genom [slide collection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slidecollection/) och inspektera varje bilds [visibility flag](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/gethidden/).
 
-**Kan jag upptäcka om anpassad bildstorlek och -orientering används, och om de skiljer sig från standardinställningarna?**
+**Kan jag upptäcka om en anpassad bildstorlek och orientering används, och om de skiljer sig från standardinställningarna?**
 
-Ja. Jämför den aktuella [bildstorleken](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/getslidesize/) och orienteringen med standardinställningarna; detta hjälper dig att förutse beteende vid utskrift och export.
+Ja. Jämför den aktuella [slide size](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/getslidesize/) och orienteringen med de standardförinställningar; detta hjälper dig förutse beteendet vid utskrift och export.
 
 **Finns det ett snabbt sätt att se om diagram refererar till externa datakällor?**
 
-Ja. Gå igenom alla [diagram](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chart/), kontrollera deras [datakälla](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/getdatasourcetype/), och notera om data är intern eller länkbasserad, inklusive eventuella brutna länkar.
+Ja. Traversera alla [charts](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chart/), kontrollera deras [data source](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/getdatasourcetype/), och notera om data är intern eller länkbaserad, inklusive eventuella brutna länkar.
 
-**Hur kan jag bedöma “tunga” bilder som kan sakta rendering eller PDF‑export?**
+**Hur kan jag bedöma 'tunga' bilder som kan sakta ner renderingen eller PDF‑export?**
 
-För varje bild räknar du objektantalet och letar efter stora bilder, transparens, skuggor, animationer och multimedia; tilldela en grov komplexitetspoäng för att flagga potentiella prestandaflaskhalsar.
+För varje bild, räkna objekt och leta efter stora bilder, transparens, skuggor, animationer och multimedia; tilldela ett grovt komplexitetspoäng för att flagga potentiella prestandaflaskhalsar.

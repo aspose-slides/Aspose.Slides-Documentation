@@ -1,289 +1,200 @@
 ---
-title: 使用 .NET 对演示文稿进行密码保护
+title: 在 .NET 中对演示文稿进行密码保护
 linktitle: 密码保护
 type: docs
 weight: 20
 url: /zh/net/password-protected-presentation/
 keywords:
-- 锁定 PowerPoint
-- 锁定 演示文稿
-- 解锁 PowerPoint
-- 解锁 演示文稿
-- 保护 PowerPoint
-- 保护 演示文稿
-- 设置 密码
-- 添加 密码
+- 受密码保护的演示文稿
+- 打开密码
 - 加密 PowerPoint
-- 加密 演示文稿
 - 解密 PowerPoint
-- 解密 演示文稿
-- 写保护
-- PowerPoint 安全
-- 演示文稿 安全
-- 移除 密码
-- 移除 保护
-- 移除 加密
-- 禁用 密码
-- 禁用 保护
-- 移除 写保护
+- 验证演示文稿密码
+- 检查演示文稿密码
+- 打开加密的演示文稿
+- 移除加密
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for .NET 轻松锁定和解锁受密码保护的 PowerPoint 和 OpenDocument 演示文稿。保护您的演示文稿。"
+description: "使用 Aspose.Slides for .NET 在 C# 中加密、检测、验证、打开和解密受密码保护的 PowerPoint PPT 和 PPTX 演示文稿。"
 ---
-## **介绍**
+## **概述**
 
-当您对演示文稿设置密码保护时，意味着您设置了一个密码来强制对演示文稿施加特定限制。要解除这些限制，必须输入密码。受密码保护的演示文稿被视为已锁定的演示文稿。
+打开密码用于加密演示文稿。必须提供正确的密码才能加载并查看演示文稿内容，因此此保护提供了机密性。
 
-通常，您可以设置密码来对演示文稿强制这些限制：
+打开密码不同于写保护密码。写保护限制修改，但不加密内容，也不阻止演示文稿被加载。要管理用于修改演示文稿的密码，请参阅[Write-Protect Presentations](/slides/zh/net/write-protected-presentation/)。
 
-- **修改**
+下面的工作流适用于 PPT 和 PPTX 演示文稿。示例在两种格式下都展示了文件和流的行为差异。
 
-如果您只希望特定用户修改您的演示文稿，可以设置修改限制。此限制会阻止他人在未提供密码的情况下修改、更改或复制演示文稿中的元素。  
+## **使用打开密码加密演示文稿**
 
-然而，即使没有密码，用户仍然可以访问并打开您的文档。在此只读模式下，用户可以查看演示文稿中的内容——包括超链接、动画、效果及其他元素，但不能复制项目或保存演示文稿。
+使用[IProtectionManager.Encrypt](https://reference.aspose.com/slides/zh/net/aspose.slides/iprotectionmanager/encrypt/)分配打开密码。随后使用[IPresentation.Save](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentation/save/)保存加密后的演示文稿。
 
-- **打开**
+下面的示例对 PPTX 演示文稿进行加密：
 
-如果您只希望特定用户打开您的演示文稿，可以设置打开限制。此限制会阻止他人在未提供密码的情况下甚至查看演示文稿的内容。  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-从技术上讲，打开限制同样会阻止用户修改演示文稿——如果无法打开演示文稿，就无法对其进行修改或更改。
-
-**注意：** 当您通过密码保护演示文稿以阻止其打开时，演示文稿文件会被加密。
-
-## **Aspose.Slides 中的密码保护**
-
-**支持的格式**
-
-Aspose.Slides 支持密码保护、加密以及类似操作，支持以下格式的演示文稿：
-
-- PPTX 和 PPT – Microsoft PowerPoint 演示文稿
-- ODP – OpenDocument 演示文稿
-- OTP – OpenDocument 演示文稿模板
-
-**支持的操作**
-
-Aspose.Slides 允许您通过密码保护演示文稿，以以下方式防止修改：
-
-- 加密演示文稿
-- 对演示文稿设置写保护
-
-**其他操作**
-
-Aspose.Slides 允许您以以下方式执行涉及密码保护和加密的其他任务：
-
-- 解密演示文稿；打开已加密的演示文稿
-- 移除加密；禁用密码保护
-- 移除演示文稿的写保护
-- 检索已加密演示文稿的属性
-- 在加载之前检查演示文稿是否受密码保护
-- 检查演示文稿是否已加密
-- 检查演示文稿是否受密码保护
-
-## **使用密码保护演示文稿**
-
-您可以通过设置密码来加密演示文稿。之后，要修改已锁定的演示文稿，用户必须提供密码。
-
-要加密（或设置密码保护）演示文稿，请使用来自[ProtectionManager](https://reference.aspose.com/slides/zh/net/aspose.slides/protectionmanager)的 `Encrypt` 方法来设置密码。将密码传递给 `Encrypt` 方法，然后使用 `Save` 方法保存已加密的演示文稿。
-
-以下示例代码展示了如何加密演示文稿：
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **对演示文稿设置写保护**
-
-您可以在演示文稿上添加 “Do not modify” 标记，以告知用户您不希望他们对演示文稿进行更改。
-
-**注意：** 写保护过程并不会加密演示文稿。因此，用户——如果他们愿意——仍然可以修改演示文稿，但要保存更改，则必须另存为不同的文件名。
-
-要设置写保护，请使用 `SetWriteProtection` 方法。以下示例代码展示了如何对演示文稿设置写保护：
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **加载已加密的演示文稿**
-
-Aspose.Slides 允许您通过传入正确的密码来加载已加密的演示文稿。以下示例代码展示了如何加载已加密的演示文稿：
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // 对已解密的演示文稿进行操作。
-}
-```
-
-## **从演示文稿中移除加密**
-
-您可以从演示文稿中移除加密或密码保护，从而允许用户在没有限制的情况下访问或修改它。
-
-要移除加密或密码保护，请调用 [RemoveEncryption](https://reference.aspose.com/slides/zh/net/aspose.slides/protectionmanager/methods/removeencryption) 方法。以下示例代码展示了如何从演示文稿中移除加密：
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **从演示文稿中移除写保护**
-
-您可以使用 Aspose.Slides 移除演示文稿文件的写保护。这样，用户可以随意修改它——在执行此类操作时也不会收到任何警告。
-
-您可以通过使用 [RemoveWriteProtection](https://reference.aspose.com/slides/zh/net/aspose.slides/protectionmanager/methods/removewriteprotection) 方法来移除写保护。以下示例代码展示了如何从演示文稿中移除写保护：
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **获取已加密演示文稿的属性**
-
-通常，用户在检索已加密或受密码保护的演示文稿的文档属性时会遇到困难。然而，Aspose.Slides 提供了一种机制，使您能够在对演示文稿进行密码保护的同时，仍然允许用户访问其属性。
-
-**注意：** 默认情况下，当 Aspose.Slides 加密演示文稿时，演示文稿的文档属性也会受到密码保护。如果您需要在加密后仍能访问文档属性，Aspose.Slides 允许您实现此功能。
-
-如果您希望用户仍然能够访问已加密演示文稿的属性，请将 [IProtectionManager](https://reference.aspose.com/slides/zh/net/aspose.slides/iprotectionmanager/) 的 `EncryptDocumentProperties` 属性设置为 `false`。以下示例代码展示了如何在加密演示文稿的同时仍然向用户提供访问其文档属性的权限：
-
-```c#
 using var presentation = new Presentation("pres.pptx");
 
-presentation.ProtectionManager.EncryptDocumentProperties = false;
-presentation.ProtectionManager.Encrypt("123123");
+presentation.ProtectionManager.Encrypt("open_password");
 presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
-## **仅加载已加密演示文稿的文档属性**
+## **加载加密的演示文稿**
 
-要在不加载幻灯片或其他内容的情况下检查已加密演示文稿的元数据，请创建一个 [LoadOptions](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/) 对象并将 [OnlyLoadDocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) 设置为 `true`。在此模式下，Aspose.Slides 会忽略密码，仅加载公开可访问的文档属性。
+将[LoadOptions.Password](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/password/)设置为打开密码，并在加载文件时将该选项传递给[Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/)。如果需要打开密码但未提供密码或密码错误，加载将失败。
 
-以下代码示例通过 [IPresentation.DocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentation/documentproperties/) 读取内置和自定义文档属性：
+```csharp
+using Aspose.Slides;
 
-```c#
-var loadOptions = new LoadOptions
-{
-    OnlyLoadDocumentProperties = true
-};
-
+var loadOptions = new LoadOptions { Password = "open_password" };
 using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
-var documentProperties = presentation.DocumentProperties;
 
-// Read built-in document properties.
-Console.WriteLine("Title: " + documentProperties.Title);
-Console.WriteLine("Author: " + documentProperties.Author);
+// 在解密的演示文稿上工作。
+```
 
-// Read custom document properties.
-var customPropertyCount = documentProperties.CountOfCustomProperties;
+## **移除演示文稿的加密**
 
-for (var propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+使用打开密码加载演示文稿，调用[IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/zh/net/aspose.slides/iprotectionmanager/removeencryption/)，然后保存结果。保存后的演示文稿即可在不输入密码的情况下加载。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
+
+## **在加载之前验证打开密码**
+
+使用[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentationfactory/getpresentationinfo/)获取[IPresentationInfo](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentationinfo/)，无需创建完整的演示文稿实例。在请求或验证密码之前检查[IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentationinfo/ispasswordprotected/)。如果存在保护，请使用[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentationinfo/checkpassword/)验证提供的密码。
+
+### **文件路径工作流**
+
+下面的示例验证 PPTX 文件的打开密码，将验证后的值传递给[LoadOptions.Password](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/password/)，随后加载完整的演示文稿：
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    var propertyName = documentProperties.GetCustomPropertyName(propertyIndex);
-    var propertyValue = documentProperties[propertyName];
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
 
-    Console.WriteLine(propertyName + ": " + propertyValue);
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-仅当演示文稿加密时文档属性保持未加密（公开）时，此工作流才有效。如果文档属性已加密，将 `OnlyLoadDocumentProperties` 设置为 `true` 会导致异常，因为此模式下密码被忽略。要访问加密的文档属性或加载完整的演示文稿（包括幻灯片和其他内容），请在 [LoadOptions](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/) 中提供正确的 `Password` 值。
+### **流工作流**
 
-## **检查演示文稿是否受密码保护**
+[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentationfactory/getpresentationinfo/)的流重载提供相同的工作流。在从该流加载完整演示文稿之前，重置可查找流的位置。
 
-在加载演示文稿之前，您可能想先检查它是否已设置密码保护。这可以帮助您避免在未提供正确密码的情况下加载受密码保护的演示文稿时出现错误等问题。
+下面的示例使用 PPT 文件：
 
-以下 C# 代码展示了如何检查演示文稿是否受密码保护，而无需实际加载它：
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
 
-## **检查演示文稿是否已加密**
-
-Aspose.Slides 允许您检查演示文稿是否已加密。要执行此操作，您可以使用 [IsEncrypted](https://reference.aspose.com/slides/zh/net/aspose.slides/protectionmanager/properties/isencrypted) 属性，该属性在演示文稿已加密时返回 `true`，未加密时返回 `false`。
-
-以下示例代码展示了如何检查演示文稿是否已加密：
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+if (!presentationInfo.IsPasswordProtected)
 {
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **检查演示文稿是否受写保护**
+### **CheckPassword 返回值**
 
-Aspose.Slides 允许您检查演示文稿是否受写保护。要执行此操作，您可以使用 [IsWriteProtected](https://reference.aspose.com/slides/zh/net/aspose.slides/protectionmanager/properties/iswriteprotected) 属性，该属性在演示文稿受写保护时返回 `true`，未受保护时返回 `false`。
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentationinfo/checkpassword/)仅在演示文稿具有打开密码且提供的密码正确时返回`true`。在以下情况下返回`false`：
 
-以下示例代码展示了如何检查演示文稿是否受写保护：
+- 密码不正确。
+- 演示文稿没有打开密码。
+- 提供的密码为`null`或为空。
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
+PPT 和 PPTX 演示文稿的行为相同。
+
+## **检查已加载的演示文稿是否已加密**
+
+使用正确的密码加载演示文稿后，检查[IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/zh/net/aspose.slides/iprotectionmanager/isencrypted/)以确认源演示文稿已被加密。要在加载之前检测打开密码保护，请使用上文所示的`IPresentationInfo.IsPasswordProtected`。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **验证演示文稿密码使用情况**
+## **安全建议**
 
-您可能想检查并确认已使用特定密码来保护演示文稿文档。Aspose.Slides 提供了验证密码的手段。
-
-以下示例代码展示了如何验证密码：
-
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // 检查密码是否匹配。
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-如果演示文稿已使用指定密码加密，则返回 `true`；否则返回 `false`。
-
-{{% alert color="primary" title="See also" %}} 
-- [PowerPoint 中的数字签名](/slides/zh/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+不要记录打开密码或将其包含在诊断消息中。避免不必要的重复验证尝试，仅在需要时在内存中保留密码，并在立即加载演示文稿时复用成功的验证结果。
 {{% /alert %}}
 
-## **在线密码保护演示文稿**
+## **在线为演示文稿设置密码保护**
 
-1. 访问我们的[**Aspose.Slides Lock**](https://products.aspose.app/slides/zh/lock)页面。 
-2. 点击 **拖放或上传文件**。 
-3. 在电脑上选择您想要进行密码保护的文件。 
-4. 输入您用于编辑保护的首选密码以及用于查看保护的首选密码。 
-5. 如果您希望用户将演示文稿视为最终稿，请勾选 **Mark as final** 复选框。 
-6. 点击 **PROTECT NOW.** 
-7. 点击 **DOWNLOAD NOW.** 
+1. 打开[Aspose.Slides Lock](https://products.aspose.app/slides/zh/lock)应用程序。
+1. 选择或上传演示文稿。
+1. 输入用于查看保护的密码。
+1. 可选地为编辑保护输入另一个密码。
+1. 应用保护并下载生成的文件。
 
-![密码保护 PowerPoint 演示文稿](slides-lock.png)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/zh/net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/zh/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
 ## **常见问题**
 
-**Aspose.Slides 支持哪些加密方法？**
+**打开密码和写保护密码有什么区别？**
 
-Aspose.Slides 支持现代加密方法，包括基于 AES 的算法，确保您的演示文稿拥有高水平的数据安全性。
+打开密码会加密演示文稿，并且在加载其内容时必须提供。写保护密码限制修改，但不加密内容。
 
-**尝试打开演示文稿时如果输入了错误的密码会怎样？**
+**我可以在不加载所有幻灯片的情况下验证打开密码吗？**
 
-如果使用了错误的密码，会抛出异常，提示您访问演示文稿被拒绝。这有助于防止未授权访问并保护演示文稿内容。
+可以。获取演示文稿信息，检查是否存在打开密码保护，然后在创建完整演示文稿实例之前验证密码。
 
-**在处理受密码保护的演示文稿时会有性能影响吗？**
+**密码检查工作流是否同时支持 PPT 和 PPTX？**
 
-加密和解密过程可能在打开和保存操作时带来轻微的开销。大多数情况下，这种性能影响极小，不会显著影响演示文稿任务的整体处理时间。
+是的。文件路径和基于流的密码检测与验证在 PPT 和 PPTX 演示文稿中表现相同。

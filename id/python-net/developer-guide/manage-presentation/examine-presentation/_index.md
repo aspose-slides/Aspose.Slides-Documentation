@@ -1,5 +1,5 @@
 ---
-title: Mengambil dan Memperbarui Informasi Presentasi dalam Python
+title: Ambil dan Perbarui Informasi Presentasi dengan Python
 linktitle: Informasi Presentasi
 type: docs
 weight: 30
@@ -8,14 +8,14 @@ keywords:
 - format presentasi
 - properti presentasi
 - properti dokumen
-- mengambil properti
-- membaca properti
-- mengubah properti
-- memodifikasi properti
-- memperbarui properti
-- memeriksa PPTX
-- memeriksa PPT
-- memeriksa ODP
+- dapatkan properti
+- baca properti
+- ubah properti
+- modifikasi properti
+- perbarui properti
+- periksa PPTX
+- periksa PPT
+- periksa ODP
 - PowerPoint
 - OpenDocument
 - presentasi
@@ -25,15 +25,15 @@ description: "Jelajahi slide, struktur, dan metadata dalam presentasi PowerPoint
 ---
 ## **Gambaran Umum**
 
-Artikel ini menunjukkan cara memeriksa informasi presentasi di Aspose.Slides. Ini menjelaskan cara menentukan format saat ini dari sebuah presentasi tanpa memuat seluruh file, membaca properti dokumennya, dan memperbarui properti tersebut bila diperlukan.
+Artikel ini menunjukkan cara memeriksa informasi presentasi di Aspose.Slides. Artikel ini menjelaskan cara menentukan format saat ini dari sebuah presentasi tanpa memuat seluruh file, membaca properti dokumennya, dan memperbarui properti tersebut bila diperlukan.
 
 Contoh-contoh didasarkan pada API [PresentationInfo](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentationinfo/) dan [DocumentProperties](https://reference.aspose.com/slides/id/python-net/aspose.slides/documentproperties/) serta menunjukkan operasi tipikal untuk bekerja dengan metadata presentasi.
 
 ## **Periksa Format Presentasi**
 
-Sebelum mengerjakan sebuah presentasi, Anda mungkin ingin mengetahui format (PPT, PPTX, ODP, dan lainnya) presentasi tersebut saat ini.
+Sebelum mengerjakan sebuah presentasi, Anda mungkin ingin mengetahui format (PPT, PPTX, ODP, dan lain-lain) dari presentasi tersebut saat ini.
 
-Anda dapat memeriksa format presentasi tanpa memuat presentasi tersebut. Lihat kode Python berikut:
+Anda dapat memeriksa format presentasi tanpa memuat presentasi. Lihat kode Python berikut:
 
 ```py
 import aspose.slides as slides
@@ -50,7 +50,7 @@ print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 
 ## **Dapatkan Properti Presentasi**
 
-Kode Python ini menunjukkan cara memperoleh properti presentasi (informasi tentang presentasi):
+Kode Python berikut menunjukkan cara mendapatkan properti presentasi (informasi tentang presentasi):
 
 ```py
 import aspose.slides as slides
@@ -62,26 +62,29 @@ print(props.subject)
 print(props.title)
 ```
 
-Anda mungkin ingin melihat [properti di bawah DocumentProperties](https://reference.aspose.com/slides/id/python-net/aspose.slides/documentproperties/#properties) class.
+Anda mungkin ingin melihat [properti di bawah kelas DocumentProperties](https://reference.aspose.com/slides/id/python-net/aspose.slides/documentproperties/#properties).
 
 ## **Perbarui Properti Presentasi**
 
 Aspose.Slides menyediakan metode [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) yang memungkinkan Anda melakukan perubahan pada properti presentasi.
 
-Misalkan kita memiliki presentasi PowerPoint dengan properti dokumen yang ditampilkan di bawah.
+Misalkan kita memiliki sebuah presentasi PowerPoint dengan properti dokumen seperti yang ditunjukkan di bawah.
 
 ![Properti dokumen asli dari presentasi PowerPoint](input_properties.png)
 
-Contoh kode ini menunjukkan cara mengedit beberapa properti presentasi:
+Contoh kode berikut menunjukkan cara mengedit beberapa properti presentasi:
 
 ```py
+import aspose.slides as slides
+import datetime
+
 file_name = "sample.pptx"
 
-info = PresentationFactory.instance.get_presentation_info(file_name)
+info = slides.PresentationFactory.instance.get_presentation_info(file_name)
 
 properties = info.read_document_properties()
 properties.title = "My title"
-properties.last_saved_time = datetime.now()
+properties.last_saved_time = datetime.datetime.now()
 
 info.update_document_properties(properties)
 info.write_binded_presentation(file_name)
@@ -89,35 +92,33 @@ info.write_binded_presentation(file_name)
 
 Hasil perubahan properti dokumen ditampilkan di bawah.
 
-![Properti dokumen yang diubah dari presentasi PowerPoint](output_properties.png)
+![Properti dokumen yang telah diubah dari presentasi PowerPoint](output_properties.png)
 
 ## **Tautan Berguna**
 
 Untuk mendapatkan informasi lebih lanjut tentang sebuah presentasi dan atribut keamanannya, Anda mungkin menemukan tautan berikut berguna:
 
-- [Memeriksa apakah Presentasi terenkripsi](https://docs.aspose.com/slides/id/python-net/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Memeriksa apakah Presentasi dilindungi Tulisan (baca-saja)](https://docs.aspose.com/slides/id/python-net/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Memeriksa apakah Presentasi dilindungi Sandi Sebelum Memuatnya](https://docs.aspose.com/slides/id/python-net/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Mengonfirmasi Sandi yang Digunakan untuk Melindungi Presentasi](https://docs.aspose.com/slides/id/python-net/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Presentasi dengan Perlindungan Kata Sandi](/slides/id/python-net/password-protected-presentation/)
+- [Presentasi dengan Perlindungan Penulisan](/slides/id/python-net/write-protected-presentation/)
 
 ## **FAQ**
 
-**Bagaimana saya dapat memeriksa apakah font terembed dan yang mana?**
+**Bagaimana cara memeriksa apakah font disematkan dan font mana saja yang disematkan?**
 
-Cari [informasi font terembed](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) pada tingkat presentasi, lalu bandingkan entri tersebut dengan kumpulan [font yang sebenarnya digunakan dalam konten](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_fonts/) untuk mengidentifikasi font mana yang penting untuk rendering.
+Cari [informasi font yang disematkan](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) pada level presentasi, kemudian bandingkan entri tersebut dengan kumpulan [font yang benar-benar digunakan dalam konten](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_fonts/) untuk mengidentifikasi font mana yang penting untuk rendering.
 
-**Bagaimana saya dapat dengan cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
+**Bagaimana cara cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
 
-Iterasikan melalui [koleksi slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/) dan inspeksikan [bendera visibilitas](https://reference.aspose.com/slides/id/python-net/aspose.slides/slide/hidden/) setiap slide.
+Iterasi melalui [koleksi slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/) dan periksa [bendera visibilitas](https://reference.aspose.com/slides/id/python-net/aspose.slides/slide/hidden/) setiap slide.
 
-**Bisakah saya mendeteksi apakah ukuran dan orientasi slide khusus digunakan, dan apakah berbeda dari default?**
+**Apakah saya dapat mendeteksi apakah ukuran dan orientasi slide khusus digunakan, dan apakah berbeda dari default?**
 
-Ya. Bandingkan [ukuran slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/slide_size/) dan orientasi saat ini dengan preset standar; ini membantu memperkirakan perilaku untuk pencetakan dan ekspor.
+Ya. Bandingkan [ukuran slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/slide_size/) dan orientasi saat ini dengan preset standar; ini membantu memperkirakan perilaku saat mencetak dan mengekspor.
 
-**Apakah ada cara cepat untuk melihat apakah chart merujuk ke sumber data eksternal?**
+**Apakah ada cara cepat untuk melihat apakah bagan merujuk ke sumber data eksternal?**
 
-Ya. Telusuri semua [chart](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/), periksa [sumber data](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/data_source_type/) mereka, dan catat apakah data bersifat internal atau berbasis tautan, termasuk tautan yang rusak.
+Ya. Telusuri semua [bagan](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chart/), periksa [sumber data](https://reference.aspose.com/slides/id/python-net/aspose.slides.charts/chartdata/data_source_type/) mereka, dan catat apakah data bersifat internal atau berbasis tautan, termasuk tautan yang rusak.
 
-**Bagaimana saya dapat menilai slide 'berat' yang dapat memperlambat rendering atau ekspor PDF?**
+**Bagaimana saya dapat menilai slide 'berat' yang mungkin memperlambat rendering atau ekspor PDF?**
 
-Untuk setiap slide, hitung jumlah objek dan cari gambar besar, transparansi, bayangan, animasi, dan multimedia; berikan skor kompleksitas perkiraan untuk menandai potensi titik panas kinerja.
+Untuk setiap slide, hitung jumlah objek dan cari gambar besar, transparansi, bayangan, animasi, serta multimedia; berikan skor kompleksitas kasar untuk menandai potensi titik kinerja yang lambat.

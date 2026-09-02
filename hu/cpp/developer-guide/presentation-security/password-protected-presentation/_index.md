@@ -1,295 +1,238 @@
 ---
-title: "Jelszóval védett prezentációk C++-ban"
-linktitle: "Jelszóvédelem"
+title: Jelszóval védett bemutatók C++-ban
+linktitle: Jelszóvédelem
 type: docs
 weight: 20
 url: /hu/cpp/password-protected-presentation/
 keywords:
-- "PowerPoint zárolása"
-- "prezentáció zárolása"
-- "PowerPoint feloldása"
-- "prezentáció feloldása"
-- "PowerPoint védelme"
-- "prezentáció védelme"
-- "jelszó beállítása"
-- "jelszó hozzáadása"
-- "PowerPoint titkosítása"
-- "prezentáció titkosítása"
-- "PowerPoint visszafejtése"
-- "prezentáció visszafejtése"
-- "írásvédelem"
-- "PowerPoint biztonság"
-- "prezentáció biztonság"
-- "jelszó eltávolítása"
-- "védelem eltávolítása"
-- "titkosítás eltávolítása"
-- "jelszó letiltása"
-- "védelem letiltása"
-- "írásvédelem eltávolítása"
-- "PowerPoint"
-- "OpenDocument"
-- "prezentáció"
-- "C++"
-- "Aspose.Slides"
-description: "Ismerje meg, hogyan lehet egyszerűen zárolni és feloldani a jelszóval védett PowerPoint és OpenDocument prezentációkat az Aspose.Slides C++-hoz. Biztosítsa prezentációit."
+- jelszóval védett bemutató
+- megnyitási jelszó
+- PowerPoint titkosítása
+- PowerPoint visszafejtése
+- bemutató jelszavának ellenőrzése
+- bemutató jelszó ellenőrzése
+- titkosított bemutató megnyitása
+- titkosítás eltávolítása
+- PowerPoint
+- PPT
+- PPTX
+- bemutató
+- C++
+- Aspose.Slides
+description: "Titkosítsa, észlelje, ellenőrizze, nyissa meg és fejtsen vissza jelszóval védett PowerPoint PPT és PPTX bemutatókat C++-ban az Aspose.Slides segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Amikor egy prezentációt jelszóval védesz, akkor egy jelszót állítasz be, amely bizonyos korlátozásokat érvényesít a prezentáción. A korlátozások eltávolításához a jelszót meg kell adni. A jelszóval védett prezentációt zárt prezentációnak tekintik.
+A megnyitási jelszó titkosítja a bemutatót. A megfelelő jelszó szükséges a bemutató tartalmának betöltéséhez és megtekintéséhez, így ez a védelem megőrzi a titkosságot.
 
-Általában beállíthatsz egy jelszót, hogy érvényesítse ezeket a korlátozásokat egy prezentáción:
+A megnyitási jelszó különbözik az írásvédelmi jelszótól. Az írásvédelem korlátozza a módosítást, de nem titkosítja a tartalmat, és nem akadályozza meg a bemutató betöltését. Az írásvédelmi jelszavak kezeléséhez lásd a [Write-Protect Presentations](/slides/hu/cpp/write-protected-presentation/) oldalt.
 
-- **Módosítás**
+Az alábbi munkafolyamatok PPT és PPTX bemutatókra egyaránt vonatkoznak. A példák mindkét formátumot használják, ahol a fájl‑ és adatfolyam‑alapú viselkedés fontos.
 
-  Ha csak bizonyos felhasználóknak szeretnéd engedélyezni a prezentációd módosítását, beállíthatsz egy módosítási korlátozást. Ez a korlátozás megakadályozza, hogy az emberek módosítsák, változtassák vagy másolják a prezentáció tartalmát (kivéve, ha megadják a jelszót).
+## **Titkosítsa a bemutatót megnyitási jelszóval**
 
-  Azonban ebben az esetben, jelszó nélkül is a felhasználó hozzáférhet a dokumentumodhoz és megnyithatja azt. Ebben a csak-olvasás módjában a felhasználó megtekintheti a prezentáció tartalmát, például a hiperhivatkozásokat, animációkat, effektusokat és egyebeket, de nem másolhat elemeket, és nem mentheti a prezentációt.
+Használja az [IProtectionManager::Encrypt](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iprotectionmanager/encrypt/) metódust a megnyitási jelszó megadásához. Ezután használja az [IPresentation::Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentation/save/) metódust a titkosított bemutató mentéséhez.
 
-- **Megnyitás**
+Az alábbi példa egy PPTX bemutatót titkosít:
 
-  Ha csak bizonyos felhasználóknak szeretnéd engedélyezni a prezentációd megnyitását, beállíthatsz egy megnyitási korlátozást. Ez a korlátozás megakadályozza, hogy az emberek még csak a prezentáció tartalmát is megtekintsék (kivéve, ha megadják a jelszót).
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-  Technikai szempontból a megnyitási korlátozás megakadályozza a felhasználókat a prezentációk módosításában is: ha valaki nem tudja megnyitni a prezentációt, nem tud változtatni rajta.  
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-  **Megjegyzés** hogy amikor egy prezentációt jelszóval védesz a megnyitás megakadályozására, a prezentáció fájlja titkosítva lesz.
-
-## **Hogyan védjünk jelszóvel egy prezentációt online**
-
-1. Látogasd meg a [**Aspose.Slides Lock**](https://products.aspose.app/slides/hu/lock) oldalunkat. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Kattints a **Drop or upload your files** gombra.
-
-3. Válaszd ki a számítógépeden azt a fájlt, amelyet jelszóval szeretnél védeni.
-
-4. Add meg a kívánt jelszót a szerkesztés védelméhez; Add meg a kívánt jelszót a megtekintés védelméhez. 
-
-5. Ha azt szeretnéd, hogy a felhasználók a prezentációt végleges példányként lássák, jelöld be a **Mark as final** jelölőnégyzetet.
-
-6. Kattints a **PROTECT NOW.** gombra.
-
-7. Kattints a **DOWNLOAD NOW.** gombra.
-
-## **Jelszóvédelem a prezentációkhoz az Aspose.Slides-ban**
-**Támogatott formátumok**
-
-Aspose.Slides támogatja a jelszóvédelmet, a titkosítást és hasonló műveleteket a következő formátumú prezentációk esetén: 
-
-- PPTX és PPT – Microsoft PowerPoint prezentáció 
-- ODP – OpenDocument prezentáció 
-- OTP – OpenDocument prezentációs sablon 
-
-**Támogatott műveletek**
-
-Aspose.Slides lehetővé teszi a jelszóvédelem használatát a prezentációkon, hogy megakadályozza a módosításokat a következő módon:
-
-- A prezentáció titkosítása
-- Írásvédettség beállítása a prezentációhoz
-
-**Egyéb műveletek**
-
-Aspose.Slides lehetővé teszi egyéb feladatok végrehajtását, amelyek jelszóvédelmet és titkosítást érintenek, a következő módon:
-
-- Egy prezentáció visszafejtése; titkosított prezentáció megnyitása
-- Titkosítás eltávolítása; jelszóvédelem letiltása
-- Írásvédelem eltávolítása egy prezentációból
-- Egy titkosított prezentáció tulajdonságainak lekérése
-- Annél ellenőrzése, hogy a prezentáció titkosított-e
-- Annél ellenőrzése, hogy a prezentáció jelszóval védett-e.
-
-## **Prezentáció titkosítása**
-
-Titkosíthatsz egy prezentációt jelszó beállításával. Ezután a zárt prezentáció módosításához a felhasználónak meg kell adnia a jelszót. 
-
-A prezentáció titkosításához vagy jelszóvédelemhez a encrypt metódust (a [ProtectionManager](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.protection_manager))‑ből kell használnod, hogy jelszót állíts be a prezentációnak. A jelszót átadod az encrypt metódusnak, majd a save metódussal mented a most titkosított prezentációt. 
-
-Ez a példakód megmutatja, hogyan kell titkosítani egy prezentációt:
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Írásvédelem beállítása a prezentációhoz** 
+## **Titkosított bemutató betöltése**
 
-Hozzáadhatsz egy „Ne módosítsa” feliratot a prezentációhoz. Így tájékoztatod a felhasználókat, hogy nem szeretnéd, ha módosítanák a prezentációt.  
+Állítsa be a [LoadOptions::set_Password](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_password/) értéket a megnyitási jelszóra, és adja át ezeket a beállításokat a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) konstruktorának a fájl betöltésekor. A betöltés sikertelen, ha a megnyitási jelszó kötelező, de a megadott jelszó hiányzik vagy helytelen.
 
-**Megjegyzés** hogy az írásvédelmi folyamat nem titkosítja a prezentációt. Ezért a felhasználók – ha akarják – módosíthatják a prezentációt, de a változások mentéséhez másik néven kell menteniük a prezentációt. 
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
 
-Az írásvédelem beállításához a setWriteProtection metódust kell használnod. Ez a példakód megmutatja, hogyan kell írásvédelmet beállítani egy prezentációhoz:
+using namespace Aspose::Slides;
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
 
-presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
-presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+
+// Dolgozzon a visszafejtett prezentációval.
 ```
 
-## **Titkosított prezentáció betöltése**
+## **Titkosítás eltávolítása a bemutatóból**
 
-Az Aspose.Slides lehetővé teszi egy titkosított fájl betöltését a jelszó megadásával. Egy prezentáció visszafejtéséhez a [RemoveEncryption](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) metódust kell meghívnod paraméterek nélkül. Ezután meg kell adnod a helyes jelszót a prezentáció betöltéséhez. 
+Töltse be a bemutatót a megnyitási jelszavával, hívja meg az [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iprotectionmanager/removeencryption/) metódust, majd mentse el az eredményt. A mentett bemutató később jelszó nélkül betölthető.
 
-Ez a példakód megmutatja, hogyan lehet visszafejteni egy prezentációt: 
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-``` cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+loadOptions->set_Password(u"open_password");
 
-// munkavégzés a visszafejtett prezentációval
-```
-
-## **Titkosítás eltávolítása egy prezentációból**
-
-Eltávolíthatod a prezentáció titkosítását vagy jelszóvédelmét. Így a felhasználók korlátozás nélkül hozzáférhetnek vagy módosíthatják a prezentációt. 
-
-A titkosítás vagy jelszóvédelem eltávolításához a [RemoveEncryption](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) metódust kell meghívnod. Ez a példakód megmutatja, hogyan távolítható el a titkosítás egy prezentációból:
-
-``` cpp
-auto loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_Password(u"123123");
-    
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx", loadOptions);
+auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **Írásvédelem eltávolítása egy prezentációból**
+## **Megnyitási jelszó ellenőrzése betöltés előtt**
 
-Az Aspose.Slides segítségével eltávolíthatod a prezentáció fájlon alkalmazott írásvédelmet. Így a felhasználók tetszés szerint módosíthatnak, és nem kapnak figyelmeztetést a feladatok végrehajtásakor.
+Használja az [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) metódust az [IPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/) lekéréséhez anélkül, hogy teljes bemutató‑példányt hozna létre. Ellenőrizze az [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) tulajdonságot, mielőtt jelszót kérne vagy érvényesítene. Ha védelem van jelen, ellenőrizze a megadott értéket az [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/checkpassword/) metódussal.
 
-A [RemoveWriteProtection](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50) metódus használatával eltávolíthatod az írásvédelmet egy prezentációról. Ez a példakód megmutatja, hogyan távolítható el az írásvédelem egy prezentációból:
+### **Fájl‑útvonal munkafolyamat**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+Az alábbi példa egy PPTX fájl megnyitási jelszavát ellenőrzi, az ellenőrzött értéket átadja a [LoadOptions::set_Password](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_password/) metódusnak, majd betölti a teljes bemutatót:
 
-presentation->get_ProtectionManager()->RemoveWriteProtection();
-presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
-```
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/string.h>
 
-## **Titkosított prezentáció tulajdonságainak lekérése**
+using namespace Aspose::Slides;
+using namespace System;
 
-Általában a felhasználók nehezen jutnak hozzá egy titkosított vagy jelszóval védett prezentáció dokumentumtulajdonságaihoz. Az Aspose.Slides azonban olyan mechanizmust biztosít, amely lehetővé teszi a prezentáció jelszóval való védelmét, miközben a dokumentumtulajdonságokhoz is hozzáférést enged.
+String filePath = u"protected-presentation.pptx";
+String password = u"open_password";
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(filePath);
 
-**Megjegyzés:** Alapértelmezés szerint, amikor az Aspose.Slides titkosít egy prezentációt, a prezentáció dokumentumtulajdonságai is jelszóval védettek. Ha a dokumentumtulajdonságokat a titkosítás után is elérhetővé szeretnéd tenni, az Aspose.Slides lehetővé teszi ezt.
-
-Ha azt szeretnéd, hogy a felhasználók továbbra is hozzáférjenek egy titkosított prezentáció tulajdonságaihoz, add át a `false` értéket a `set_EncryptDocumentProperties` metódusnak az [IProtectionManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iprotectionmanager/)-ben. Ez a példakód megmutatja, hogyan titkosíthatsz egy prezentációt, miközben a felhasználók továbbra is hozzáférnek a dokumentumtulajdonságokhoz:
-
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
-
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
-presentation->get_ProtectionManager()->Encrypt(u"123123");
-presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Csak a dokumentumtulajdonságok betöltése egy titkosított prezentációból**
-
-A titkosított prezentáció metaadatainak, a diák vagy egyéb tartalom betöltése nélkül történő ellenőrzéséhez hozz létre egy [LoadOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/) objektumot, és állítsd a [set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) értékét `true`‑ra. Ebben a módban az Aspose.Slides figyelmen kívül hagyja a jelszót, és csak a nyilvánosan elérhető dokumentumtulajdonságokat tölti be.
-
-A következő kódrészlet beolvassa a beépített és egyedi dokumentumtulajdonságokat a [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentation/get_documentproperties/) segítségével:
-
-``` cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_OnlyLoadDocumentProperties(true);
-
-auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
-auto documentProperties = presentation->get_DocumentProperties();
-
-// Read built-in document properties.
-auto title = documentProperties->get_Title();
-auto author = documentProperties->get_Author();
-Console::WriteLine(String(u"Title: ") + title);
-Console::WriteLine(String(u"Author: ") + author);
-
-// Read custom document properties.
-int customPropertyCount = documentProperties->get_CountOfCustomProperties();
-
-for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+if (!presentationInfo->get_IsPasswordProtected())
 {
-    auto propertyName = documentProperties->GetCustomPropertyName(propertyIndex);
-    auto propertyValue = documentProperties->idx_get(propertyName);
-    auto propertyValueText = ObjectExt::ToString(propertyValue);
-
-    Console::WriteLine(propertyName + u": " + propertyValueText);
+    Console::WriteLine(u"The presentation does not have an opening password.");
 }
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(filePath, loadOptions);
 
-presentation->Dispose();
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-Ez a munkafolyamat csak akkor működik, ha a dokumentumtulajdonságok a prezentáció titkosításakor titkosítatlanul (nyilvánosan) maradtak. Ha a dokumentumtulajdonságok titkosítottak, a `LoadOptions::set_OnlyLoadDocumentProperties` `true`‑ra állítása kivételt eredményez, mert ebben a módban a jelszó figyelmen kívül marad. A titkosított dokumentumtulajdonságok eléréséhez vagy a teljes prezentáció, beleértve a diákat és egyéb tartalmat, betöltéséhez add meg a helyes jelszót a `LoadOptions::set_Password` használatával a [LoadOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/)-ben.
+### **Adatfolyam munkafolyamat**
 
-## **Ellenőrzés, hogy a prezentáció jelszóval védett-e**
+Az [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) adatfolyam‑túlterhelése azonos munkafolyamatot biztosít. Állítsa vissza a kereshető adatfolyam pozícióját, mielőtt a teljes bemutatót ebből az adatfolyamból töltené be.
 
-Mielőtt betöltenéd a prezentációt, érdemes ellenőrizned, hogy a prezentáció nincs‑e jelszóval védve. Így elkerülheted a hibákat és hasonló problémákat, amelyek akkor jelentkeznek, amikor egy jelszóval védett prezentációt a jelszó megadása nélkül próbálják betölteni.
+Az alábbi példa egy PPT fájlt használ:
 
-Ez a C++ kód megmutatja, hogyan vizsgálhatod meg egy prezentációt, hogy jelszóval van‑e védve (a prezentáció tényleges betöltése nélkül):
+```cpp
+#include <DOM/IPresentationInfo.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string.h>
 
-```c++
-auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
-System::Console::WriteLine(System::String(u"The presentation is password protected: ") +
-                           presentationInfo->get_IsPasswordProtected());
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+String password = u"open_password";
+auto presentationStream = File::OpenRead(u"protected-presentation.ppt");
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(presentationStream);
+
+if (!presentationInfo->get_IsPasswordProtected())
+{
+    Console::WriteLine(u"The presentation does not have an opening password.");
+}
+else if (!presentationInfo->CheckPassword(password))
+{
+    Console::WriteLine(u"The opening password is incorrect.");
+}
+else
+{
+    presentationStream->set_Position(0);
+
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(password);
+    auto presentation = MakeObject<Presentation>(presentationStream, loadOptions);
+
+    Console::WriteLine(u"The presentation was validated and loaded successfully.");
+}
 ```
 
-## **Ellenőrzés, hogy a prezentáció titkosított-e**
+### **CheckPassword visszatérési értékek**
 
-Az Aspose.Slides lehetővé teszi, hogy ellenőrizd, titkosított‑e egy prezentáció. Ehhez használhatod a [get_IsEncrypted()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68) metódust, amely `true`‑t ad vissza, ha a prezentáció titkosított, vagy `false`‑t, ha nem titkosított.
+Az [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/checkpassword/) `true`‑t ad vissza csak akkor, ha a bemutató megnyitási jelszóval rendelkezik, és a megadott jelszó helyes. `false` értéket ad minden alábbi esetben:
 
-Ez a példakód megmutatja, hogyan ellenőrizheted, hogy egy prezentáció titkosított‑e:
+- A jelszó helytelen.
+- A bemutató nem rendelkezik megnyitási jelszóval.
+- A megadott jelszó null vagy üres.
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+A viselkedés PPT és PPTX bemutatók esetén egyforma.
+
+## **Ellenőrizze, hogy egy betöltött bemutató titkosított‑e**
+
+A bemutató helyes jelszóval történő betöltése után ellenőrizze az [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iprotectionmanager/get_isencrypted/) tulajdonságot, hogy megerősítse a forrásbemutató titkosítását. A megnyitási jelszóval védett állapot betöltés előtti észleléséhez használja a `IPresentationInfo::get_IsPasswordProtected` tulajdonságot, ahogy azt fent bemutattuk.
+
+```cpp
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
+Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
 ```
 
-## **Ellenőrzés, hogy a prezentáció írásvédett-e**
+## **Biztonsági ajánlások**
 
-Az Aspose.Slides lehetővé teszi, hogy ellenőrizd, írásvédett‑e egy prezentáció. Ehhez használhatod a [get_IsWriteProtected()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2) metódust, amely `true`‑t ad vissza, ha a prezentáció írásvédett, vagy `false`‑t, ha nincs írásvédve.
+{{% alert color="warning" title="Biztonság" %}}
+Ne naplózza a megnyitási jelszavakat, és ne helyezze őket diagnosztikai üzenetekbe. Kerülje a szükségtelen ismételt ellenőrzési kísérleteket, tartsák a jelszavakat memóriában csak annyi ideig, amennyi szükséges, és használja újra a sikeres ellenőrzés eredményét, amikor azonnal betölti a bemutatót.
+{{% /alert %}}
 
-Ez a példakód megmutatja, hogyan ellenőrizheted, hogy egy prezentáció írásvédett‑e:
+## **Bemutató jelszóval való védelem online**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+1. Nyissa meg az Aspose.Slides Lock alkalmazást.
+1. Válassza ki vagy töltse fel a bemutatót.
+1. Adjon meg egy jelszót a megtekintési védelemhez.
+1. Opcionálisan adjon meg egy külön jelszót a szerkesztési védelemhez.
+1. Alkalmazza a védelmet, és töltse le a kapott fájlt.
 
-bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
-```
-
-## **A prezentáció jelszóhasználatának ellenőrzése**
-
-Lehet, hogy ellenőrizni és megerősíteni szeretnéd, hogy egy adott jelszót használtak‑e egy prezentáció dokumentumának védelmére. Az Aspose.Slides biztosítja a lehetőséget a jelszó érvényesítésére. 
-
-Ez a példakód megmutatja, hogyan kell érvényesíteni egy jelszót:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-// ellenőrizze, hogy a "pass" megegyezik-e
-bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
-```
-
-`true`‑t ad vissza, ha a prezentációt a megadott jelszóval titkosították. Ellenkező esetben `false`‑t ad vissza. 
-
-{{% alert color="primary" title="Lásd még" %}} 
-- [Digitális aláírás PowerPointban](/slides/hu/cpp/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Lásd még" %}}
+- [Write-Protect Presentations](/slides/hu/cpp/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/hu/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **GYIK**
 
-**Milyen titkosítási módszereket támogat az Aspose.Slides?**
+**Mi a különbség a megnyitási jelszó és az írásvédelmi jelszó között?**
 
-Az Aspose.Slides modern titkosítási módszereket támogat, beleértve az AES‑alapú algoritmusokat, amelyek magas szintű adatbiztonságot biztosítanak a prezentációid számára.
+A megnyitási jelszó titkosítja a bemutatót, és szükséges a tartalom betöltéséhez. Az írásvédelmi jelszó a módosítást korlátozza titkosítás nélkül.
 
-**Mi történik, ha helytelen jelszót adnak meg a prezentáció megnyitásakor?**
+**Ellenőrizhetem a megnyitási jelszót anélkül, hogy az összes diát betölteném?**
 
-Hibát dob, ha helytelen jelszót használnak, jelezve, hogy a prezentációhoz nem biztosított a hozzáférés. Ez segít megakadályozni az illetéktelen hozzáférést és védi a prezentáció tartalmát.
+Igen. Szerezze be a bemutató információit, ellenőrizze, hogy van‑e megnyitási jelszó‑védelem, és validálja a jelszót a teljes bemutató példány létrehozása előtt.
 
-**Vannak-e teljesítménybeli hatások jelszóval védett prezentációk kezelésekor?**
+**Támogatják a jelszó‑ellenőrzési munkafolyamatok a PPT és PPTX formátumokat is?**
 
-A titkosítási és visszafejtési folyamat enyhe késleltetést okozhat a megnyitás és mentés műveletei során. A legtöbb esetben ez a teljesítménybeli hatás minimális, és nem befolyásolja jelentősen a prezentációs feladatok teljes feldolgozási idejét.
+Igen. A fájl‑útvonalra és adatfolyamra épülő jelszó‑észlelés és -validálás ugyanúgy működik PPT és PPTX bemutatók esetén.

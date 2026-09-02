@@ -1,5 +1,5 @@
 ---
-title: Získání a aktualizace informací o prezentaci v PHP
+title: Načíst a aktualizovat informace o prezentaci v PHP
 linktitle: Informace o prezentaci
 type: docs
 weight: 30
@@ -13,27 +13,27 @@ keywords:
 - změnit vlastnosti
 - upravit vlastnosti
 - aktualizovat vlastnosti
-- zkoumat PPTX
-- zkoumat PPT
-- zkoumat ODP
+- prozkoumat PPTX
+- prozkoumat PPT
+- prozkoumat ODP
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP pro rychlejší poznatky a chytřejší audity obsahu."
+description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP pro rychlejší poznatky a inteligentnější audity obsahu."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak prozkoumat informace o prezentaci v Aspose.Slides. Vysvětluje, jak určit aktuální formát prezentace bez načtení celého souboru, přečíst její vlastnosti dokumentu a aktualizovat tyto vlastnosti podle potřeby.
+Tento článek ukazuje, jak prozkoumat informace o prezentaci v Aspose.Slides. Vysvětluje, jak určit aktuální formát prezentace, aniž by se načítal celý soubor, přečíst její vlastnosti dokumentu a v případě potřeby tyto vlastnosti aktualizovat.
 
 Příklady jsou založeny na API [PresentationInfo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentationinfo/) a [DocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties/) a demonstrují typické operace pro práci s metadaty prezentace.
 
-## **Zkontrolovat formát prezentace**
+## **Zkontrolujte formát prezentace**
 
-Před prací s prezentací můžete chtít zjistit, v jakém formátu (PPT, PPTX, ODP a dalších) se prezentace momentálně nachází.
+Před prací s prezentací můžete chtít zjistit, v jakém formátu (PPT, PPTX, ODP a další) se prezentace momentálně nachází.
 
-Formát prezentace můžete zkontrolovat bez načtení prezentace. Viz tento PHP kód:
+Formát prezentace můžete zkontrolovat, aniž byste ji načítali. Viz následující PHP kód:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
@@ -48,7 +48,7 @@ Formát prezentace můžete zkontrolovat bez načtení prezentace. Viz tento PHP
 
 ```
 
-## **Získat vlastnosti prezentace**
+## **Získání vlastností prezentace**
 
 Tento PHP kód ukazuje, jak získat vlastnosti prezentace (informace o prezentaci):
 
@@ -59,18 +59,17 @@ Tento PHP kód ukazuje, jak získat vlastnosti prezentace (informace o prezentac
   echo($props->getSubject());
   echo($props->getTitle());
   # ..
-
 ```
 
-Možná budete chtít zobrazit [vlastnosti třídy DocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties/#DocumentProperties--) .
+Můžete se podívat na [vlastnosti v třídě DocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/documentproperties/#DocumentProperties--) .
 
-## **Aktualizovat vlastnosti prezentace**
+## **Aktualizace vlastností prezentace**
 
-Aspose.Slides poskytuje metodu [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) , která umožňuje provádět změny ve vlastnostech prezentace.
+Aspose.Slides poskytuje metodu [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), která umožňuje provádět změny ve vlastnostech prezentace.
 
 Předpokládejme, že máme PowerPointovou prezentaci s následujícími vlastnostmi dokumentu.
 
-![Original document properties of the PowerPoint presentation](input_properties.png)
+![Původní vlastnosti dokumentu PowerPointové prezentace](input_properties.png)
 
 Tento příklad kódu ukazuje, jak upravit některé vlastnosti prezentace:
 
@@ -89,35 +88,33 @@ $info->writeBindedPresentation($fileName);
 
 Výsledky změny vlastností dokumentu jsou zobrazeny níže.
 
-![Changed document properties of the PowerPoint presentation](output_properties.png)
+![Změněné vlastnosti dokumentu PowerPointové prezentace](output_properties.png)
 
 ## **Užitečné odkazy**
 
 Pro získání dalších informací o prezentaci a jejích bezpečnostních atributech vám mohou být užitečné tyto odkazy:
 
-- [Kontrola, zda je prezentace šifrována](https://docs.aspose.com/slides/cs/php-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Kontrola, zda je prezentace chráněna proti zápisu (pouze ke čtení)](https://docs.aspose.com/slides/cs/php-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Kontrola, zda je prezentace chráněna heslem před načtením](https://docs.aspose.com/slides/cs/php-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Ověření hesla použitého k ochraně prezentace](https://docs.aspose.com/slides/cs/php-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Zabezpečení prezentací heslem](/slides/cs/php-java/password-protected-presentation/)
+- [Zabezpečení prezentací proti zápisu](/slides/cs/php-java/write-protected-presentation/)
 
 ## **Často kladené otázky**
 
 **Jak mohu zkontrolovat, zda jsou písma vložena a která to jsou?**
 
-Vyhledejte informace o [embedded-font](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getembeddedfonts/) na úrovni prezentace a porovnejte je s množinou [písmen skutečně použitých v obsahu](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getfonts/) pro identifikaci kritických písem pro vykreslení.
+Vyhledejte informace o [vložených písmenech](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getembeddedfonts/) na úrovni prezentace a porovnejte je se seznamem [písmen skutečně použitých v obsahu](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getfonts/), abyste určili, která písma jsou klíčová pro vykreslování.
 
-**Jak rychle zjistit, zda soubor obsahuje skryté snímky a kolik jich je?**
+**Jak mohu rychle zjistit, zda soubor obsahuje skryté snímky a kolik jich je?**
 
-Procházejte [slide collection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/) a kontrolujte příznak [visibility](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/gethidden/) každého snímku.
+Projděte [kolekci snímků](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/) a pro každý snímek zkontrolujte [vlajku viditelnosti](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/gethidden/).
 
-**Mohu zjistit, zda jsou použity vlastní velikosti a orientace snímků a zda se liší od výchozích?**
+**Mohu zjistit, zda jsou použity vlastní velikost a orientace snímku a zda se liší od výchozích?**
 
-Ano. Porovnejte aktuální [slide size](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/getslidesize/) a orientaci se standardními předvolbami; to pomáhá předvídat chování při tisku a exportu.
+Ano. Porovnejte aktuální [velikost snímku](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/getslidesize/) a orientaci se standardními předvolbami; to pomáhá předvídat chování při tisku a exportu.
 
-**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí zdroje dat?**
+**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí datové zdroje?**
 
-Ano. Projděte všechny [charts](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chart/) , zkontrolujte jejich [data source](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/getdatasourcetype/) a zaznamenejte, zda jsou data interní nebo odkazována, včetně případných neplatných odkazů.
+Ano. Procházejte všechny [grafy](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chart/), zkontrolujte jejich [datový zdroj](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdata/getdatasourcetype/) a poznamenejte, zda jsou data interní nebo odkazována, včetně případných poškozených odkazů.
 
-**Jak mohu posoudit „těžké“ snímky, které mohou zpomalovat vykreslování nebo export do PDF?**
+**Jak mohu posoudit „těžké“ snímky, které mohou zpomalit vykreslování nebo export do PDF?**
 
-Pro každý snímek spočítejte počet objektů a hledejte velké obrázky, průhlednost, stíny, animace a multimédia; přiřaďte hrubé skóre složitosti pro označení potenciálních výkonových úzkých míst.
+Pro každý snímek spočítejte počet objektů a hledejte velké obrázky, průhlednost, stíny, animace a multimédia; přiřaďte hrubé skóre složitosti, abyste označili potenciální výkonnostní úzká místa.

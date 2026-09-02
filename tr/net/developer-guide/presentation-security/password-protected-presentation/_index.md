@@ -1,289 +1,200 @@
 ---
-title: .NET'te Şifrelerle Güvenli Sunumlar
-linktitle: Şifre Koruması
+title: .NET'te Sunumları Parola ile Koruma
+linktitle: Parola Koruması
 type: docs
 weight: 20
 url: /tr/net/password-protected-presentation/
 keywords:
-- PowerPoint'i Kilitle
-- Sunumu Kilitle
-- PowerPoint'in Kilidini Aç
-- Sunumun Kilidini Aç
-- PowerPoint'i Koruyun
-- Sunumu Koruyun
-- Şifre Ayarla
-- Şifre Ekle
-- PowerPoint'i Şifrele
-- Sunumu Şifrele
-- PowerPoint'in Şifresini Çöz
-- Sunumun Şifresini Çöz
-- Yazma Koruması
-- PowerPoint Güvenliği
-- Sunum Güvenliği
-- Şifreyi Kaldır
-- Koruması Kaldır
-- Şifrelemeyi Kaldır
-- Şifreyi Devre Dışı Bırak
-- Korumaı Devre Dışı Bırak
-- Yazma Korumasını Kaldır
+- parola korumalı sunum
+- açılış parolası
+- PowerPoint şifreleme
+- PowerPoint şifre çözme
+- sunum parolasını doğrulama
+- sunum parolasını kontrol et
+- şifreli sunumu aç
+- şifrelemeyi kaldır
 - PowerPoint
-- OpenDocument
-- Sunum
+- PPT
+- PPTX
+- sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile şifre korumalı PowerPoint ve OpenDocument sunumlarını zahmetsizce nasıl kilitleyip açabileceğinizi öğrenin. Sunumlarınızı güvence altına alın."
+description: "C# ile Aspose.Slides for .NET kullanarak parola korumalı PowerPoint PPT ve PPTX sunumlarını şifreleyin, algılayın, doğrulayın, açın ve şifresini çözün."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir sunumu şifreyle koruduğunuzda, sunuma belirli kısıtlamaları uygulayan bir şifre belirlemiş olursunuz. Bu kısıtlamaları kaldırmak için şifre girilmelidir. Şifreyle korunan bir sunum kilitli bir sunum olarak kabul edilir.
+Açılış parolası bir sunumu şifreler. Doğru parola, sunum içeriğini yüklemek ve görüntülemek için gereklidir; bu koruma gizlilik sağlar.
 
-Genellikle, bir sunuma bu kısıtlamaları uygulamak için bir şifre ayarlayabilirsiniz:
+Açılış parolası, yazma koruma parolası ile farklıdır. Yazma koruması değişiklikleri kısıtlar ancak içeriği şifrelemez veya sunumun yüklenmesini engellemez. Sunumları değiştirmek için parolaları yönetmek üzere, bakınız [Write-Protect Presentations](/slides/tr/net/write-protected-presentation/).
 
-- **Değişiklik**
+Aşağıdaki iş akışları hem PPT hem de PPTX sunumları için geçerlidir. Örneklerde, dosya tabanlı ve akış tabanlı davranışlarının önemli olduğu iki format da kullanılmıştır.
 
-  Belirli kullanıcıların sunumunuzu değiştirmesini istiyorsanız, bir değişiklik kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, şifreyi sağlamayan kişilerin sunumunuzdaki öğeleri değiştirmesini, düzenlemesini veya kopyalamasını engeller.  
+## **Açılış Parolasıyla Bir Sunumu Şifreleme**
 
-  Ancak şifre olmadan bir kullanıcı hâlâ belgenize erişebilir ve açabilir. Bu sadece‑okuma modunda kullanıcı içeriği—bağlantılar, animasyonlar, efektler ve diğer öğeler dahil—görebilir, ancak öğeleri kopyalayamaz veya sunumu kaydedemez.
+[IProtectionManager.Encrypt](https://reference.aspose.com/slides/tr/net/aspose.slides/iprotectionmanager/encrypt/) kullanarak bir açılış parolası atayın. Ardından şifrelenmiş sunumu kaydetmek için [IPresentation.Save](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentation/save/) kullanın.
 
-- **Açma**
+Aşağıdaki örnek bir PPTX sunumunu şifreler:
 
-  Belirli kullanıcıların sunumunuzu açmasını istiyorsanız, bir açma kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, şifreyi sağlamayan kişilerin sunum içeriğini hatta görüntülemesini bile engeller.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-  Teknik olarak, açma kısıtlaması aynı zamanda kullanıcıların sunumlarınızı değiştirmesini de engeller—eğer bir sunum açılamıyorsa, değiştirilemez veya değişiklik yapılamaz.
+using var presentation = new Presentation("pres.pptx");
 
-**Not:** Bir sunumu açılmasını engellemek için şifreyle koruduğunuzda, sunum dosyası şifrelenir.
-
-## **Aspose.Slides'da Şifre Koruması**
-
-**Desteklenen formatlar**
-
-Aspose.Slides, aşağıdaki formatlardaki sunumlar için şifre koruması, şifreleme ve benzeri işlemleri destekler:
-
-- PPTX ve PPT – Microsoft PowerPoint Sunumları
-- ODP – OpenDocument Sunumları
-- OTP – OpenDocument Sunum Şablonları
-
-**Desteklenen işlemler**
-
-Aspose.Slides, bir sunumu değişikliklerden korumak için şifre korumasını aşağıdaki şekillerde kullanmanıza olanak tanır:
-
-- Bir sunumu şifreleme
-- Bir sunuma yazma koruması ayarlama
-
-**Diğer işlemler**
-
-Aspose.Slides, şifre koruması ve şifreleme ile ilgili ek görevleri aşağıdaki şekillerde gerçekleştirmenizi sağlar:
-
-- Bir sunumu şifre çözme; şifreli bir sunumu açma
-- Şifrelemeyi kaldırma; şifre korumasını devre dışı bırakma
-- Bir sunumdan yazma korumasını kaldırma
-- Şifreli bir sunumun özelliklerini alma
-- Bir sunumu yüklemeden önce şifreyle korunup korunmadığını kontrol etme
-- Bir sunumun şifreli olup olmadığını kontrol etme
-- Bir sunumun şifreyle korunup korunmadığını kontrol etme
-
-## **Bir Sunumu Şifreyle Koruma**
-
-Bir sunumu şifre belirleyerek şifreleyebilirsiniz. Ardından kilitli sunumu değiştirmek isteyen bir kullanıcı şifreyi girmelidir.
-
-Bir sunumu şifreyle korumak (şifrelemek) için `Encrypt` yöntemini [ProtectionManager](https://reference.aspose.com/slides/tr/net/aspose.slides/protectionmanager) üzerinden kullanın. Şifreyi `Encrypt` yöntemine geçirin, ardından şifrelenmiş sunumu kaydetmek için `Save` yöntemini kullanın.
-
-Bu örnek kod, bir sunumu nasıl şifreleyeceğinizi gösterir:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-}
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Sunuma Yazma Koruması Ayarlama** 
+## **Şifreli Bir Sunumu Yükleme**
 
-Sunuma “Değiştirmeyin” işareti ekleyebilirsiniz. Bu, kullanıcıların sunumu değiştirmesini istemediğinizi bildirir.
+[LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) açılış parolasına ayarlayın ve dosyayı yüklerken seçenekleri [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/)’a iletin. Açılış parolası gerektiği halde sağlanan parola eksik ya da hatalı olduğunda yükleme başarısız olur.
 
-**Not:** Yazma koruma işlemi sunumu şifrelemez. Bu nedenle, kullanıcılar—isterlerse—sunumu değiştirebilir, fakat değişiklikleri kaydetmek için farklı bir adla kaydetmek zorunda kalırlar.
+```csharp
+using Aspose.Slides;
 
-Yazma koruması ayarlamak için `SetWriteProtection` yöntemini kullanın. Bu örnek kod, bir sunuma yazma koruması nasıl ayarlanır gösterir:
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Şifrelenmiş Bir Sunumu Yükleme**
-
-Aspose.Slides, doğru şifreyi geçirerek şifrelenmiş bir sunumu yüklemenize izin verir. Bu örnek kod, şifrelenmiş bir sunumu nasıl yükleyeceğinizi gösterir:
-
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // Şifresi çözülmüş sunumla çalış.
-}
+// Şifre çözülmüş sunumla çalış.
 ```
 
 ## **Bir Sunumdan Şifrelemeyi Kaldırma**
 
-Şifrelemeyi veya şifre korumasını bir sunumdan kaldırabilirsiniz; böylece kullanıcılar sunuma kısıtlama olmadan erişebilir veya değiştirebilir.
+Sunumu açılış parolasıyla yükleyin, [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/tr/net/aspose.slides/iprotectionmanager/removeencryption/) metodunu çağırın ve sonucu kaydedin. Kaydedilen sunum daha sonra parola olmadan yüklenebilir.
 
-Şifrelemeyi veya şifre korumasını kaldırmak için [RemoveEncryption](https://reference.aspose.com/slides/tr/net/aspose.slides/protectionmanager/methods/removeencryption) yöntemini çağırın. Bu örnek kod, bir sunumdan şifrelemeyi nasıl kaldıracağınızı gösterir:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Bir Sunumdan Yazma Korumasını Kaldırma**
-
-Aspose.Slides kullanarak bir sunum dosyasından yazma korumasını kaldırabilirsiniz. Böylece kullanıcılar istedikleri gibi değiştirebilir ve bu görevleri gerçekleştirirken herhangi bir uyarı almazlar.
-
-Yazma korumasını kaldırmak için [RemoveWriteProtection](https://reference.aspose.com/slides/tr/net/aspose.slides/protectionmanager/methods/removewriteprotection) yöntemini kullanın. Bu örnek kod, bir sunumdan yazma korumasını nasıl kaldıracağınızı gösterir:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Şifreli Bir Sunumun Özelliklerini Alma**
-
-Genellikle kullanıcılar şifreli veya şifreyle korunan bir sunumun belge özelliklerini almada zorlanırlar. Ancak Aspose.Slides, bir sunumu şifreyle korurken kullanıcıların hâlâ özelliklerine erişebilmesini sağlayan bir mekanizma sunar.
-
-**Not:** Varsayılan olarak Aspose.Slides bir sunumu şifrelediğinde, sunumun belge özellikleri de şifre korumasına alınır. Belge özelliklerinin şifreleme sonrasında da erişilebilir olmasını istiyorsanız, Aspose.Slides bunu tam olarak yapmanıza izin verir.
-
-Kullanıcıların şifreli bir sunumun özelliklerine erişebilmesini istiyorsanız, [IProtectionManager](https://reference.aspose.com/slides/tr/net/aspose.slides/iprotectionmanager/) arayüzünün `EncryptDocumentProperties` özelliğini `false` olarak ayarlayın. Bu örnek kod, şifreli bir sunumu belge özelliklerini hâlâ sunarken nasıl şifreleyeceğinizi gösterir:
-
-```c#
-using var presentation = new Presentation("pres.pptx");
-
-presentation.ProtectionManager.EncryptDocumentProperties = false;
-presentation.ProtectionManager.Encrypt("123123");
-presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-```
-
-## **Şifreli Bir Sunumdan Yalnızca Belge Özelliklerini Yükleme**
-
-Sunumun slaytlarını veya diğer içeriğini yüklemeden şifreli bir sunumun meta verilerini incelemek için bir [LoadOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/) nesnesi oluşturun ve `OnlyLoadDocumentProperties` özelliğini `true` olarak ayarlayın. Bu modda Aspose.Slides şifreyi görmezden gelir ve yalnızca genel olarak erişilebilir belge özelliklerini yükler.
-
-Aşağıdaki kod örneği, [IPresentation.DocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentation/documentproperties/) aracılığıyla yerleşik ve özel belge özelliklerini okur:
-
-```c#
-var loadOptions = new LoadOptions
-{
-    OnlyLoadDocumentProperties = true
-};
-
+var loadOptions = new LoadOptions { Password = "open_password" };
 using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
-var documentProperties = presentation.DocumentProperties;
 
-// Read built-in document properties.
-Console.WriteLine("Title: " + documentProperties.Title);
-Console.WriteLine("Author: " + documentProperties.Author);
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
 
-// Read custom document properties.
-var customPropertyCount = documentProperties.CountOfCustomProperties;
+## **Yüklemeden Önce Açılış Parolasını Doğrulama**
 
-for (var propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationfactory/getpresentationinfo/) kullanarak bir tam sunum örneği oluşturmadan [IPresentationInfo](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationinfo/) alın. Parola istemeden veya doğrulamadan önce [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationinfo/ispasswordprotected/) kontrol edin. Koruma mevcut olduğunda, sağlanan değeri [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationinfo/checkpassword/) ile doğrulayın.
+
+### **Dosya Yolu İş Akışı**
+
+Aşağıdaki örnek bir PPTX dosyası için açılış parolasını doğrular, doğrulanmış değeri [LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/)’a gönderir ve ardından tam sunumu yükler:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    var propertyName = documentProperties.GetCustomPropertyName(propertyIndex);
-    var propertyValue = documentProperties[propertyName];
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
 
-    Console.WriteLine(propertyName + ": " + propertyValue);
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-Bu iş akışı yalnızca belge özellikleri şifrelenmemiş (halka açık) olduğunda çalışır. Belge özellikleri şifrelenmişse, `OnlyLoadDocumentProperties` değerini `true` yapmak bir istisna oluşturur çünkü bu modda şifre göz ardı edilir. Şifrelenmiş belge özelliklerine erişmek veya slaytlar ve diğer içerik dahil tam sunumu yüklemek için, [LoadOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/) içinde doğru `Password` değerini sağlayın.
+### **Akış İş Akışı**
 
-## **Bir Sunumun Şifreyle Korunduğunu Kontrol Etme**
+[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationfactory/getpresentationinfo/)’in akış aşırı yüklemesi aynı iş akışını sağlar. Tam sunumu o akıştan yüklemeden önce arama yapılabilir bir akışın konumunu sıfırlayın.
 
-Bir sunumu yüklemeden önce, şifreyle korunup korunmadığını kontrol etmek isteyebilirsiniz. Bu, şifre korumalı bir sunumu doğru şifre olmadan yüklemeye çalışırken ortaya çıkan hataları ve benzeri sorunları önlemenize yardımcı olur.
+Aşağıdaki örnek bir PPT dosyası kullanır:
 
-Bu C# kodu, bir sunumun şifreyle korunup korunmadığını aslında yüklemeden nasıl inceleyeceğinizi gösterir:
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```c#
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
 
-## **Bir Sunumun Şifrelenip Şifrelenmediğini Kontrol Etme**
-
-Aspose.Slides, bir sunumun şifrelenip şifrelenmediğini kontrol etmenizi sağlar. Bu işlemi gerçekleştirmek için, sunum şifreli ise `true`, değilse `false` döndüren [IsEncrypted](https://reference.aspose.com/slides/tr/net/aspose.slides/protectionmanager/properties/isencrypted) özelliğini kullanabilirsiniz.
-
-Bu örnek kod, bir sunumun şifreli olup olmadığını nasıl kontrol edeceğinizi gösterir:
-
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+if (!presentationInfo.IsPasswordProtected)
 {
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **Bir Sunumun Yazma Koruması Olup Olmadığını Kontrol Etme**
+### **CheckPassword Döndürdüğü Değerler**
 
-Aspose.Slides, bir sunumun yazma korumalı olup olmadığını kontrol etmenizi sağlar. Bu işlemi gerçekleştirmek için, sunum yazma korumalı ise `true`, değilse `false` döndüren [IsWriteProtected](https://reference.aspose.com/slides/tr/net/aspose.slides/protectionmanager/properties/iswriteprotected) özelliğini kullanabilirsiniz.
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationinfo/checkpassword/) yalnızca sunumun bir açılış parolası olması ve sağlanan parolanın doğru olması durumunda `true` döndürür. Aşağıdaki durumlarda `false` döner:
 
-Bu örnek kod, bir sunumun yazma korumalı olup olmadığını nasıl kontrol edeceğinizi gösterir:
+- Parola yanlış.
+- Sunumun bir açılış parolası yok.
+- Sağlanan parola `null` veya boş.
 
-```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
+Davranış PPT ve PPTX sunumları için aynı şekilde olur.
+
+## **Yüklenen Sunumun Şifreli Olup Olmadığını Kontrol Et**
+
+Doğru parolayla bir sunumu yükledikten sonra, kaynak sunumun şifreli olduğunu teyit etmek için [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/tr/net/aspose.slides/iprotectionmanager/isencrypted/) inceleyin. Yüklemeden önce açılış parolası korumasını tespit etmek için yukarıda gösterildiği gibi `IPresentationInfo.IsPasswordProtected` kullanın.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **Sunum Şifresi Kullanımını Doğrulama**
+## **Güvenlik Önerileri**
 
-Belirli bir şifrenin bir sunum belgesini korumak için kullanılıp kullanılmadığını kontrol etmek ve onaylamak isteyebilirsiniz. Aspose.Slides, bir şifreyi doğrulamanız için gerekli araçları sunar.
-
-Bu örnek kod, bir şifreyi nasıl doğrulayacağınızı gösterir:
-
-```c#
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // Şifrenin eşleşip eşleşmediğini kontrol edin.
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-Şifre belirtilen şifre ile şifrelenmişse `true`, aksi takdirde `false` döndürür.
-
-{{% alert color="primary" title="Ayrıca bakınız" %}} 
-- [PowerPoint'ta Dijital İmza](/slides/tr/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+Açılış parolalarını günlüğe kaydetmeyin ve tanılama mesajlarına eklemeyin. Gereksiz tekrar doğrulama denemelerinden kaçının, parolaları yalnızca gerektiği süre boyunca bellekte tutun ve sunumu hemen yüklerken başarılı bir doğrulama sonucunu yeniden kullanın.
 {{% /alert %}}
 
-## **Bir Sunumu Çevrimiçi Şifreyle Korumak**
+## **Sunumu Çevrimiçi Şifreyle Koruma**
 
-1. **Aspose.Slides Lock** sayfamıza gidin. 
-2. **Dosyalarınızı sürükleyin veya yükleyin** kısmına tıklayın. 
-3. Bilgisayarınızdan şifrelemek istediğiniz dosyayı seçin. 
-4. Düzenleme koruması için tercih ettiğiniz şifreyi ve görüntüleme koruması için tercih ettiğiniz şifreyi girin. 
-5. Kullanıcıların sunumunuzu nihai kopya olarak görmesini istiyorsanız **Son olarak işaretle** kutusunu işaretleyin. 
-6. **ŞİMDİ KORU** butonuna tıklayın. 
-7. **ŞİMDİ İNDİR** butonuna tıklayın. 
+1. [Aspose.Slides Lock](https://products.aspose.app/slides/tr/lock) uygulamasını açın.
+1. Sunumu seçin veya yükleyin.
+1. Görüntüleme koruması için bir parola girin.
+1. İsteğe bağlı olarak düzenleme koruması için ayrı bir parola girin.
+1. Koruma uygulayın ve oluşan dosyayı indirin.
 
-![PowerPoint sunumlarını şifreyle koruma](slides-lock.png)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/tr/net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/tr/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
 ## **SSS**
 
-**Aspose.Slides tarafından hangi şifreleme yöntemleri desteklenir?**
+**Açılış parolası ile yazma koruma parolası arasındaki fark nedir?**
 
-Aspose.Slides, AES tabanlı algoritmalar dahil olmak üzere modern şifreleme yöntemlerini destekler ve sunumlarınız için yüksek düzeyde veri güvenliği sağlar.
+Açılış parolası sunumu şifreler ve içeriğini yüklemek için gereklidir. Yazma koruma parolası, içeriği şifrelemeden değişiklikleri kısıtlar.
 
-**Bir sunumu açmaya çalışırken yanlış bir şifre girilirse ne olur?**
+**Tüm slaytları yüklemeden bir açılış parolasını doğrulayabilir miyim?**
 
-Yanlış şifre kullanıldığında bir istisna oluşur ve sunuma erişimin reddedildiği bildirilir. Bu, yetkisiz erişimi önlemeye ve sunum içeriğini korumaya yardımcı olur.
+Evet. Sunum bilgilerini elde edin, açılış parolası korumasının mevcut olup olmadığını kontrol edin ve tam bir sunum örneği oluşturmadan önce parolayı doğrulayın.
 
-**Şifreyle korunan sunumlarla çalışırken performans açısından bir etkisi var mı?**
+**Parola kontrol iş akışları hem PPT hem de PPTX'i destekliyor mu?**
 
-Şifreleme ve şifre çözme işlemleri, açma ve kaydetme sırasında hafif bir ek yük oluşturabilir. Çoğu durumda bu performans etkisi çok küçüktür ve sunum görevlerinizin genel işlem süresini önemli ölçüde etkilemez.
+Evet. Dosya yolu ve akış tabanlı parola algılama ve doğrulama, PPT ve PPTX sunumları için aynı şekilde çalışır.
